@@ -2,7 +2,7 @@ input:
   _url: http://kastner-oehler.at
   URL: https://www.kastner-oehler.at/dyson-markenshop/dyson-haarstyler-dyson-airwrap-complete-long-langes-haar-anthrazit-fuchsia-7330036.html
 extractions:
-  - html: https://workbench.import.io/html/run=838d7df1-a44e-467c-b95d-954b750d7228/task=dea69e80-7551-4736-b85e-9828dc40d438/f6786ebe-871d-4c1f-bf8c-e3de261e1b1e.html
+  - html: https://workbench.import.io/html/run=ad2a673d-6527-42e4-80f4-17fb5a6dfb52/task=e22aeb01-daa2-41c1-a148-d091302fa359/dfa0a3ea-ec22-4709-8a89-a002c5190765.html
     extractionConfigId: product/details/stores/k/kastner-oehler/AT/extract
     data:
       - group:
@@ -31,13 +31,28 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/nav[1]/ul[1]/li[2]
               - text: DYSON
                 xpath: /html/body/div[1]/section[1]/nav[1]/ul[1]/li[3]
-            nameExtended:
-              - text: Dyson - Haarstyler - Dyson Airwrap™ Complete Long - langes Haar (
-                  Anthrazit / Fuchsia )
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[1]/h1[1]/span[2]
             price:
               - text: "499"
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[2]/span[3]/span[1]/@content
+            description:
+              - text: >-
+                  SPEZIELLE LOCKENAUFSÄTZE FÜR LÄNGERE HAARE.
+                   Eine Reihe von Stylingtools inklusive längeren Lockenaufsätzen, entwickelt für verschiedene Haartypen ab Schulterlänge.
+                   Haare anziehen und umwickeln, nur durch Luft
+                   Durch den Coanda-Effekt wird das Haar automatisch angezogen und aufgewickelt, nur durch den Einsatz von Luft. 
+                   Ohne extreme Hitze
+                   Die intelligent Temperatur-Regulierung misst die Temperatur des austretenden Luftstroms über 40-mal pro Sekunde und Schützt das Haar dadurch vor extremen Hitzeschäden. 
+                   Gleichzeitig stylen und trocknen
+                   Entwickelt für das Styling der Haare auch in feuchtem Zustand. Kombinierte einen starken Luftstrom mit kontrollierter Hitze, um das Haar während des Stylings zu trocknen. 
+                   Coanda- Effekt für Locken
+                   Um den Lockenaufsatz herum entsteht ein durchgehender Luftstrom, der das Haar an die Oberfläche der Aufsätze zieht und dadurch voluminöse Locken und Wellen ohne den Einsatz von extremer Hitze Kreieren. 
+                   Entwickelt für verschieden Haartypen
+                   Eine Reihe von Stylingaufsätzen, entwickelt für verschiedene Haartypen:
+                   Seidiges und geschmeidiges Styling
+                   Durch den Coanda-Effekt wird das Haar zur Bürste gezogen und die Luft verteilt sich entlang der Strähnen, wodurch die Technik eines Stylisten nachgeahmt wird. 
+                   2 Jahre Garantie
+                   Mit kostenlosem Dyson Abhol- und Lieferservice.
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/p[1]
             brandText:
               - text: DYSON
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[1]/span[1]
@@ -47,6 +62,9 @@ extractions:
             weightNet:
               - text: 581 g
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[19]
+            weightGross:
+              - text: 2,12 kg
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[21]
             gtin:
               - text: "5025155046081"
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[2]
@@ -56,6 +74,9 @@ extractions:
             sku:
               - text: "2900267545130"
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[1]
+            variantId:
+              - text: "2900267545130"
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[1]
             mpc:
               - text: 343555-01
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[3]
@@ -63,8 +84,78 @@ extractions:
               - text: 384 x 166 x 186
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[20]
             color:
-              - text: transparent$$7330036
-                xpath: /html/body/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/label[1]/@for
+              - text: Anthrazit / Fuchsia
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[22]
+            manufacturerDescription:
+              - text: >-
+                  Locken. Wellen. Geschmeidig. Trocknen. Ohne extreme Hitze.
+                   
+                  Für alle Haartypen zum Stylen von lockigem, welligem, geschmeidigem, voluminösem und gebändigtem Haar.
+                   
+                  Der sogenannte Coandă-Effekt ermöglicht ein besonders schonendes Styling. Ein gleichmäßiger Heißluftstrom zieht die Haarsträhne automatisch an und wickelt es um den Lockenaufsatz. Danach wird das feuchte Haar innerhalb weniger Sekunden in dieser Position getrocknet. Das Ergebnis: Perfekt geschwungene Locken und Volumen. Das Gerät unterscheidet sich von herkömmlichen Produkten, da es mit weniger Hitze arbeitet und das Haar nicht in Form presst, sondern durch Luft sanft in Form bringt. Diese schonende Styling-Methode verringert Hitzeschäden wie Haarbruch und Spliss.
+                   
+
+                   
+
+                   
+
+                   
+                  Schonendes Styling durch Coanda-Effekt
+                   
+                  Ohne extreme Hitze
+                   
+                  Gleichzeitiges Stylen und Trocknen
+                   
+                  Entwickelt für verschiedene Haartypen
+                   
+                  Diverse Stylingaufsätze angepasst an verschiedene Haartypen
+                xpath: /html/body/div[1]/div[4]/div[1]/div[1]
+              - text: >-
+                  Dyson Airwrap 30 mm Lockenaufsatz
+                   Kreieren Sie voluminöse Locken oder Wellen. Es gibt unterschiedliche Aufsätze: Einmal verläuft der Luftstrom im Uhrzeigersinn, bei der anderen Variante entgegen des Uhrzeigersinns, dadurch entstehen symmetrische Locken.
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]
+              - text: >-
+                  Dyson Airwrap 40 mm Lockenaufsatz
+                   Kreieren sanfte Locken oder Wellen. Es gibt unterschiedliche Aufsätze: Einmal verläuft der Luftstrom im Uhrzeigersinn, bei der anderen Variante entgegen des Uhrzeigersinns, dadurch entstehen symmetrische Locken.
+                xpath: /html/body/div[1]/div[5]/div[2]/div[1]/div[1]
+              - text: >-
+                  Dyson Airwrap Trocknungs-Aufsatz
+                   Anwendungstipps für Ihren Dyson Airwrap: Sehen Sie hier wie Sie den Dyson Airwrap für ein optimales Styling anwenden.
+                xpath: /html/body/div[1]/div[5]/div[3]/div[1]/div[2]
+              - text: >-
+                  Dyson Airwrap Runde Volumenbürste
+                   Die Luft wird in die Haare geleitet und verleiht ihnen Form. Das Haar wird von den Borsten fest umfasst, um sie direkt beim Trocknen zu formen.
+                xpath: /html/body/div[1]/div[6]/div[1]/div[1]/div[1]
+              - text: >-
+                  Dyson Airwrap Feste Smoothing Bürste
+                   Kreiert ein geschmeidiges Styling mit weniger Frizz und weniger fliegenden Haaren. Mit festen Borsten zum Bändigen von widerspenstigem, krausem Haar (im Vergleich zu unbehandeltem Haar).
+                xpath: /html/body/div[1]/div[6]/div[2]/div[1]/div[1]
+              - text: >-
+                  Dyson Airwrap Weiche Smoothing Bürste
+                   Die weiche Smoothing Bürste kreiert ein geschmeidiges abgerundetes Styling. Mit weichen Borsten und kugelförmigen Enden ist sie besonders sanft an der Kopfhaut.
+                xpath: /html/body/div[1]/div[6]/div[3]/div[1]/div[1]
+            manufacturerImages:
+              - text: https://www.kastner-oehler.at/wp-content/uploads/2020/09/dys_rhichmedia_airwrap_960x480_ohnebutton.jpg
+                xpath: /html/body/div[1]/div[5]/div[3]/div[1]/div[1]/img[1]/@src
+              - text: https://www.kastner-oehler.at/wp-content/uploads/2020/06/dys_at_subcatbanner_airwrap4_kundoe_1120x420-1120x420.jpg
+                xpath: /html/body/div[1]/div[7]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.kastner-oehler.at/wp-content/uploads/2020/06/dys_at_subcatbanner_airwrap3_kundoe_1120x420-1120x420.jpg
+                xpath: /html/body/div[1]/div[7]/div[2]/div[1]/div[1]/img[1]/@src
+              - text: https://www.kastner-oehler.at/wp-content/uploads/2020/06/dys_at_subcatbanner_airwrap2_kundoe_1120x420-1120x420.jpg
+                xpath: /html/body/div[1]/div[7]/div[3]/div[1]/div[1]/img[1]/@src
+            videos:
+              - text: https://www.youtube.com/watch?v=ylO5odWAigk
+                xpath: /html/body/div[1]/div[4]/div[2]/div[1]/a[1]/@href
+              - text: https://www.youtube.com/watch?v=CaFLuNHNmN8
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/a[1]/@href
+              - text: https://www.youtube.com/watch?v=3Z2lOq_zZeU
+                xpath: /html/body/div[1]/div[5]/div[2]/div[1]/a[1]/@href
+              - text: https://www.youtube.com/watch?v=0VLNHr_5l-8
+                xpath: /html/body/div[1]/div[6]/div[1]/div[1]/a[1]/@href
+              - text: https://www.youtube.com/watch?v=gxOG3TNP5As
+                xpath: /html/body/div[1]/div[6]/div[2]/div[1]/a[1]/@href
+              - text: https://www.youtube.com/watch?v=dD022pL7NPw
+                xpath: /html/body/div[1]/div[6]/div[3]/div[1]/a[1]/@href
             name:
               - text: Haarstyler - Dyson Airwrap™ Complete Long - langes Haar ( Anthrazit /
                   Fuchsia )
@@ -75,66 +166,52 @@ extractions:
             warranty:
               - text: 2 Jahre Garantie
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/p[1]/strong[1]
-            variants:
-              - text: " Anthrazit / Fuchsia"
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[22]
-            description:
-              - text: "SPEZIELLE LOCKENAUFSÄTZE FÜR LÄNGERE HAARE. Eine Reihe von Stylingtools
-                  inklusive längeren Lockenaufsätzen, entwickelt für
-                  verschiedene Haartypen ab Schulterlänge. Haare anziehen und
-                  umwickeln, nur durch Luft Durch den Coanda-Effekt wird das
-                  Haar automatisch angezogen und aufgewickelt, nur durch den
-                  Einsatz von Luft. Ohne extreme Hitze Die intelligent
-                  Temperatur-Regulierung misst die Temperatur des austretenden
-                  Luftstroms über 40-mal pro Sekunde und Schützt das Haar
-                  dadurch vor extremen Hitzeschäden. Gleichzeitig stylen und
-                  trocknen Entwickelt für das Styling der Haare auch in feuchtem
-                  Zustand. Kombinierte einen starken Luftstrom mit
-                  kontrollierter Hitze, um das Haar während des Stylings zu
-                  trocknen. Coanda- Effekt für Locken Um den Lockenaufsatz herum
-                  entsteht ein durchgehender Luftstrom, der das Haar an die
-                  Oberfläche der Aufsätze zieht und dadurch voluminöse Locken
-                  und Wellen ohne den Einsatz von extremer Hitze Kreieren.
-                  Entwickelt für verschieden Haartypen Eine Reihe von
-                  Stylingaufsätzen, entwickelt für verschiedene Haartypen:
-                  Seidiges und geschmeidiges Styling Durch den Coanda-Effekt
-                  wird das Haar zur Bürste gezogen und die Luft verteilt sich
-                  entlang der Strähnen, wodurch die Technik eines Stylisten
-                  nachgeahmt wird. 2 Jahre Garantie Mit kostenlosem Dyson Abhol-
-                  und Lieferservice. Gewicht des Dyson Digitalen Motors (DDM)
-                  V9: 49 g Durchmesser des DDM V9: 27 mm Geschwindigkeit des DDM
-                  V9: Bis zu 110.000 U / min Leistung: 1.300 W Stromspannung:
-                  220-240 V Lautstärke: 82 dBA Kabellänge: 2,7 m Ionisation: Ja
-                  LED-Anzeige: Ja Abnehmbare Filtermanschette: Ja
-                  Luftstromstufen: 3 Primärströmung: 13,5 Liter / Minute
-                  Trocknungszeit: 3,74 g/Minute Temperaturstufen: 3 Höchste
-                  Stufe: 90° C Niedrige Stufe: 60° C Kaltstufe: 28° C
-                  Produktmaße (HxBxT in mm): 272 x 48 x 41 Nettogewicht (mit
-                  Kabel): 581 g Boxmaße (HxBxT in mm): 384 x 166 x 186
-                  Bruttogewicht: 2,12 kg Farbe: Anthrazit / Fuchsia
-                  Lieferumfang: Dyson Airwrap™ Haarstyler, Feste Smoothing
-                  Bürste, Weiche Smoothing Bürste Runde Volumenbürste, Lange 30
-                  mm Airwrap™ Lockenaufsätze, Lange 40 mm Airwrap™
+            additionalDescBulletInfo:
+              - text: "Gewicht des Dyson Digitalen Motors (DDM) V9: 49 g ||Durchmesser des DDM
+                  V9: 27 mm ||Geschwindigkeit des DDM V9: Bis zu 110.000 U /
+                  min||Leistung: 1.300 W ||Stromspannung: 220-240 V
+                  ||Lautstärke: 82 dBA ||Kabellänge: 2,7 m ||Ionisation: Ja
+                  ||LED-Anzeige: Ja ||Abnehmbare Filtermanschette:
+                  Ja||Luftstromstufen: 3 ||Primärströmung: 13,5 Liter / Minute
+                  ||Trocknungszeit: 3,74 g/Minute||Temperaturstufen: 3||Höchste
+                  Stufe: 90° C ||Niedrige Stufe: 60° C ||Kaltstufe: 28°
+                  C||Produktmaße (HxBxT in mm): 272 x 48 x 41 ||Nettogewicht
+                  (mit Kabel): 581 g||Boxmaße (HxBxT in mm): 384 x 166 x 186
+                  ||Bruttogewicht: 2,12 kg||Farbe: Anthrazit /
+                  Fuchsia||Lieferumfang: Dyson Airwrap™ Haarstyler, Feste
+                  Smoothing Bürste, Weiche Smoothing Bürste Runde Volumenbürste,
+                  Lange 30 mm Airwrap™ Lockenaufsätze, Lange 40 mm Airwrap™
                   Lockenaufsätze, Trocknungs-Aufsatz für die Stylingvorbereitun,
-                  Aufbewahrungsbo, Anti-Rutsch-Matte"
-                xpath: /html/body/div[5]
+                  Aufbewahrungsbo, Anti-Rutsch-Matte||Kostenloser Versand ab €
+                  75,- nach AT & DE||Click & Collect (Filialabholung)||30 Tage
+                  Rückgaberecht||Kostenloser Rückversand||Kauf auf Rechnung
+                  (Klarna)||Kreditkarte (Visa, Mastercard, Diners
+                  Club)||Paypal||Amazon Pay||Sofortüberweisung||Ratenkauf (nur
+                  DE)||Click & Collect (Bezahlung erst bei Filialabholung)"
+                xpath: /html/body/div[7]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[6]
-            quantity:
-              - text: 1
+                xpath: /html/body/div[8]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
               - text: No
             Image360Present:
               - text: No
+            nameExtended:
+              - text: >-
+                  
+                  DYSON
+                   - 
+                  Haarstyler - Dyson Airwrap™ Complete Long - langes Haar ( Anthrazit / Fuchsia ) 
+                   - 
+                  2900267545130		
             descriptionBullets:
-              - text: "23"
+              - text: "34"
                 type: NUMBER
-                raw: "23"
+                raw: "34"
                 locale: de_AT
-                value: 23
+                value: 34
             shippingInfo:
               - text: |
                   Ships from and sold by kastner-oehler.at. 
@@ -143,4 +220,4 @@ extractions:
                   30 Tage Rückgaberecht
                   Kostenloser Rückversand
         xpath: /html/body
-    timestamp: 1599827612541
+    timestamp: 1600168776848

@@ -22,7 +22,6 @@ fields:
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
-    defaultValue: ""
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -30,9 +29,7 @@ fields:
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[contains(@class, "en_mdl_article_detail__header")]/h1/span[2]
-    regExp: (.*)
-    regExpReplace: Dyson - $1
+    xpath: concat(//span[@itemprop="brand"], ' - ', //div[contains(@class, "en_mdl_article_detail__header")]/h1/span[2], ' - ', //span[@itemprop="sku"])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -46,17 +43,17 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //div[@id='inStock']
-    defaultValue: Out of Stock
+    defaultValue: "Out of Stock"
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id="desc_bullets"]
+    xpath: //span[@itemprop="description"]/p
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[contains(@class, "en_tab__container")]/ul[@class="en_tab__items"]/li/div/span[@itemprop="description"]/ul/li)
+    xpath: count(//div[contains(@class,'article_detail_text')]//li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -65,19 +62,20 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[contains(@class, "en_mdl_article_detail__header")]/h1[@itemprop="manufacturer"]/span[@itemprop="name"]
+    xpath: //h1[@itemprop="manufacturer"]/span[@itemprop="name"]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    defaultValue: 1
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //div[contains(@class, "en_tab__container")]/ul[@class="en_tab__items"]/li/div/span[@itemprop="description"]/ul/li[contains(., "Nettogewicht")]
+    xpath: //span[@itemprop="description"]/ul/li[contains(., "Nettogewicht")]
     regExp: \d.*$
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
+    xpath: //span[@itemprop="description"]/ul/li[contains(., "Bruttogewicht")]
+    regExp: \d.*$
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -93,6 +91,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //span[@itemprop="sku"]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -128,8 +127,8 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //div[contains(@class, "en_tab__container")]/ul[@class="en_tab__items"]/li/div/span[@itemprop="description"]/ul/li[contains(., "Boxmaße")]
-    regExp: \d+ ?x ?\d+ ?x ?\d+
+    xpath: //span[@itemprop="description"]/ul/li[contains(., "Boxmaße")]
+    regExp: \d.*$
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -137,24 +136,27 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
-    defaultValue: 0
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //div[@id="shipping-location-select-color"]/div[2]/label/@for
+    xpath: //span[@itemprop="description"]/ul/li[contains(., "Farbe")]
+    regExp: Farbe:\s(.*)
+    regExpReplace: $1
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[@class="en_mdl_text__inner en_wrapper"] | //div[@class="en_mdl_image__caption en_spacer_top_small en_wysiwyg"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[@class="en_mdl_image__inner en_griditeminner"]/img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[contains(@class, 'en_mdl_article_detail__slider_inner')]/ul/li/iframe/@src
+    xpath: //div[contains(@class, 'en_mdl_article_detail__slider_inner')]/ul/li/iframe/@src | //div[@class="en_wrapper"]/a/@href
   - name: name
     singleValue: true
     description: The product name
@@ -174,12 +176,12 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(@class, "en_tab__container")]/ul[@class="en_tab__items"]/li/div/span[@itemprop="description"]/ul/li[contains(., "Boxmaße")]
-    regExp: \d+ ?x ?\d+ ?x ?\d+
+    xpath: //span[@itemprop="description"]/ul/li[contains(., "Boxmaße")]
+    regExp: \d.*$
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: //div[contains(@class, "en_tab__container")]/ul[@class="en_tab__items"]/li/div/span[@itemprop="description"]/p/strong[contains(., "Garantie")]
+    xpath: //span[@itemprop="description"]/p/strong[contains(., "Garantie")]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -205,9 +207,9 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: //div[contains(@class, "en_tab__container")]/ul[@class="en_tab__items"]/li/div/span[@itemprop="description"]/ul/li[contains(., "Farbe")]
-    regExp: (.*)\x3A(.*)
-    regExpReplace: $2
+    xpath: //span[@itemprop="description"]/ul/li[contains(., "Farbe")]
+    regExp: Farbe:\s(.*)
+    regExpReplace: $1
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -222,12 +224,10 @@ fields:
   - name: variants
     singleValue: false
     description: null
-    xpath: //div[contains(@class, "en_tab__container")]/ul[@class="en_tab__items"]/li/div/span[@itemprop="description"]/ul/li[contains(., "Farbe")]
-    regExp: (.*)\x3A(.*)
-    regExpReplace: $2
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@id='desc_bullets']
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product.
@@ -237,13 +237,13 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
+    defaultValue: "No"
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
+    defaultValue: "No"
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
+    defaultValue: "No"

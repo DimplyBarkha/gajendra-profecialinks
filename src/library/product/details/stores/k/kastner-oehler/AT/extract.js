@@ -11,6 +11,9 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
+      const cookies = document.querySelector('span.tao_button_cookie_settings');
+      if (cookies) cookies.click();
+      await new Promise(resolve => setTimeout(resolve, 2000));
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -18,19 +21,15 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      const descBullets = document.querySelector('div.en_tab__container ul.en_tab__items li div span[itemprop="description"]')
-        ? document.querySelector('div.en_tab__container ul.en_tab__items li div span[itemprop="description"]').innerText
-        : '';
-      if (descBullets) {
-        addElementToDocument('desc_bullets', descBullets.replace(/•/g, '||'));
+      const bulletInfo = document.querySelectorAll('div.article_detail_text li');
+      const descBulletInfo = [];
+      if (bulletInfo) {
+        bulletInfo.forEach(e => {
+          descBulletInfo.push(e.innerText);
+        });
       }
+      addElementToDocument('desc_bullets', descBulletInfo.join('||'));
 
-      const reservBtn = document.querySelector('.en_button.en_trigger.en_js_open_quickview_with_lazy_load.trigger_conversion_locationSearchGoal')
-        ? document.querySelector('.en_button.en_trigger.en_js_open_quickview_with_lazy_load.trigger_conversion_locationSearchGoal')
-        : '';
-      if (reservBtn) {
-        reservBtn.click();
-      }
       const inStockXpath = document.evaluate("//div[contains(@class, 'en_griditem')]/span[text()='In den Warenkorb'][contains(@class,'en_button--color_blue')]", document, null, XPathResult.STRING_TYPE, null);
       if (inStockXpath && inStockXpath.stringValue) {
         addElementToDocument('inStock', 'In Stock');
