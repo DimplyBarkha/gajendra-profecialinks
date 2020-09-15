@@ -26,6 +26,11 @@ const transform = (data, context) => {
           row.price = [{ text: row.price[0].text.replace(',','.')}];
         } 
 
+        if(row.reviewCount){          
+            var tempData = row.reviewCount[0].text.split(' ');            
+            row.reviewCount = [{ text: tempData[3]}];
+          } 
+
         rankCounter += 1;
         if (!row.sponsored) {
           orgRankCounter += 1;

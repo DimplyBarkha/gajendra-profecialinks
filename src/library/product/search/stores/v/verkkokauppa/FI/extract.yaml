@@ -22,19 +22,18 @@ fields:
     xpath: //span[@class='product-price__price product-price__price--large']
     singleValue: false     
   - name: aggregateRating  
-    singleValue: true
-    xpath: //div[contains(@class,'product-rating product-rating--large')]//span/@data-average-rating
+    singleValue: false
+    xpath: //div[contains(@class,'product-rating product-rating--large')]//@data-average-rating
     defaultValue: '0'
   - name: reviewCount  
-    singleValue: true,
+    singleValue: false
     type: NUMBER,
     defaultValue: '0'
-    xpath: //div[contains(@class,'product-rating product-rating--large')]//span[contains(@class,"product-rating__stars")]/@aria-label
-    regExp: ([0-9]+)
+    xpath: //div[contains(@class,'product-rating product-rating--large')]//span[contains(@class,"product-rating__stars")]//span//@aria-label    
   - name: ratingCount  
-    singleValue: true,
+    singleValue: false
     type: NUMBER,
     defaultValue: '0'
-    xpath: //div[contains(@class,'product-rating product-rating--large')]//span[contains(@class,"product-rating__stars")]/@aria-label
+    xpath: //div[contains(@class,'product-rating product-rating--large')]//@data-average-rating
     regExp: ([0-9]+)
     
