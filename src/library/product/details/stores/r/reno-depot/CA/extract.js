@@ -125,17 +125,28 @@ async function implementation (
     }
     addHiddenDiv('shippingInfo', shippingInfo);
 
+    const videos = [];
+    document.querySelectorAll('video').forEach(video => {
+      videos.push(video.src);
+    });
     const manufacturerImgs = [];
     if (document.getElementById('wc-power-page')) {
-      document.getElementById('wc-power-page').querySelector('h1').remove();
-      document.getElementById('wc-power-page').querySelector('p').remove();
+      if (document.getElementById('wc-power-page').querySelector('h1')) {
+        document.getElementById('wc-power-page').querySelector('h1').remove();
+        document.getElementById('wc-power-page').querySelector('p').remove();
+      }
       console.log('hasManufacturerInfo', document.getElementById('wc-power-page').innerText);
       addHiddenDiv('manufacturerDescription', document.getElementById('wc-power-page').innerText);
       document.getElementById('wc-power-page').querySelectorAll('img').forEach(img => {
-        manufacturerImgs.push(img.getAttribute('src'));
+        if(img.getAttribute('data-asset-type') !== 'video') {
+          manufacturerImgs.push(img.getAttribute('src'));
+        } else {
+          videos.push(img.getAttribute('data-asset-url'));
+        }
       });
     }
 
+    addHiddenDiv('videos', videos.join(' | '));
     addHiddenDiv('manufacturerImgs', manufacturerImgs.join(' | '));
 
     addHiddenDiv('terms', 'No');
