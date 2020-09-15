@@ -72,6 +72,8 @@ fields:
     description: The number of ratings
   - name: reviewCount
     singleValue: false
+    xpath: //div[@class="product-rate"]//b//text()
+    regExp: (\d+)
     description: The number of reviews
   - name: price
     singleValue: false
