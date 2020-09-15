@@ -23,7 +23,7 @@ fields:
     manualSelector: h1.product-title
   - name: variantCount
     singleValue: false
-    defaultValue: '1'
+    defaultValue: '0'
   - name: listPrice
     singleValue: false
     manualSelector: span[id^="line_list_price"] > span.strike
@@ -97,7 +97,7 @@ fields:
     manualSelector: div#flix-inpage
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="flix-inpage"]//img/@srcset
+    xpath: //div[@id="flix-inpage"]//img/@data-flixsrcset
   - name: variantId
     singleValue: false
     manualSelector: small.product-id
