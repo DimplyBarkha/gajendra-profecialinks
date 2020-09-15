@@ -6,8 +6,8 @@ module.exports = {
     store: 'payngo',
     domain: 'payngo.co.il',
     url: 'https://www.payngo.co.il/instantsearchplus/result?q={searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div#isp_center_container > ul#isp_search_results_container > li',
+    noResultsXPath: '//li[contains(string(), "no results found")]',
     zipcode: '',
   },
 };

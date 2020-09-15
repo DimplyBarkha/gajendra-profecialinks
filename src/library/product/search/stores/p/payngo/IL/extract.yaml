@@ -15,11 +15,13 @@ fields:
   - name: sku
     singleValue: false
     xpath: //div[@class="isp_product_sku"]
-    type: NUMBER
+    regExp: \w+:\s(.\d+)
+    regExpReplace: $1
   - name: id
     singleValue: false
     xpath: //div[@class="isp_product_sku"]
-    type: NUMBER
+    regExp: \w+:\s(.\d+)
+    regExpReplace: $1
   - name: price
     singleValue: false
     xpath: //div[@class="isp_product_info"]//div[@class="isp_product_price_wrapper"]
