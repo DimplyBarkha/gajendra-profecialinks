@@ -117,10 +117,10 @@ fields:
     regExpReplace: $1,$2
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: normalize-space(//div[@class='grid-section-xs--gap-1']//ul[@class='list']//li)
+    xpath: //div[@class='grid-section-xs--gap-1']//ul[@class='list']//li
   - name: description
     singleValue: false
-    xpath: (//div[contains(@class,'cms-content js-product-description-content')]//p)
+    xpath: (//div[contains(@class,'cms-content js-product-description-content')])
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@class='grid-section-xs--gap-1']//ul[@class='list']//li)
@@ -145,8 +145,6 @@ fields:
     singleValue: false
     xpath: 
   - name: manufacturerDescription
-    singleValue: false
-    xpath: //meta[contains(@name,"description")]/@content
   - name: lbbPrice
     singleValue: false
   - name: energyEfficiency
@@ -185,7 +183,7 @@ fields:
   - name: recyclingInformation
     singleValue: false
   - name: productOtherInformation
-    xpath: //div[@class="js-preferred-specifications"]//div[contains(@class,"product-specs")]//dl
+    xpath: (//div[@class="js-preferred-specifications"]//div[contains(@class,"product-specs")])[1]
   - name: packaging
     singleValue: false
     xpath:
