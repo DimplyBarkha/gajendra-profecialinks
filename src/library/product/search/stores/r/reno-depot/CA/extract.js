@@ -39,6 +39,7 @@ async function implementation (
       if (ind >= 150) {
         el.remove();
       } else {
+        addHiddenDiv(el, 'itemId', el.querySelector('.sku').innerText.replace('Article', '').replace('#', '').trim());
         addHiddenDiv(el, 'rank', ind + 1);
         addHiddenDiv(el, 'price', '$' + el.querySelector('.integer').innerText);
         addHiddenDiv(el, 'reviewCount', document.querySelector('.bv-rating-number').innerText.replace(')', '').replace('(', ''));
