@@ -11,7 +11,7 @@ fields:
     xpath: //h1[@class='e-h1 sel-product-title']
   - name: description
     singleValue: flase
-    xpath: //div[@class='o-about-product']
+    xpath: //div[@class='o-about-product']//div[@class="c-about collapse-text"]
   - name: category
     singleValue: flase
     xpath: //div[@class='c-breadcrumbs']//ul
@@ -30,8 +30,6 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="o-product-gallary__carousel"]//div[@class="c-carousel__item-wrapper"]//img[@class="c-carousel__img"]/@src
-  - name: quantity
-    singleValue: false
   - name: brandText
     singleValue: false
     xpath: //div[@class="c-brand-logo"]//img/@alt
