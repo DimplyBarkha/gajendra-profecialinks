@@ -22,8 +22,14 @@ fields:
     manualSelector: span.price
   - name: aggregateRating2
     singleValue: false
+    xpath: //span[contains(@class,"bv-off-screen")]
+    regExp: (^[^\s]+)\sout of.*
+    regExpReplace: $1
   - name: reviewCount
     singleValue: false
+    xpath: //div[@class="bv-inline-rating-container"]/dl/dd/span
+    regExp: (\d+)
+    regExpReplace: $1 
   - name: manufacturer
     singleValue: false
   - name: soldBy
