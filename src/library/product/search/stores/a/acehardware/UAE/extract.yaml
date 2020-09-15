@@ -1,0 +1,39 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,"js-products-grid")]//li//div[@data-itemid]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //ul[contains(@class,"js-products-grid")]//li//div[@data-itemid]/@data-itemid
+  - name: rankOrganic
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //h3[contains(@class,"product-tile")]//span
+  - name: productUrl
+    singleValue: false
+    xpath: //h3[contains(@class,"product-tile")]//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.aceuae.com$1
+  - name: gtin
+    singleValue: true
+  - name: thumbnail
+    singleValue: true
+  - name: aggregateRating
+    singleValue: false
+    xpath: 
+  - name: reviewCount
+    singleValue: false
+    xpath:
+  - name: price
+    singleValue: false
+    xpath: 
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: true
+  - name: endorsementText
+    singleValue: true
