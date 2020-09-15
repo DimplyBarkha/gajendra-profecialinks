@@ -10,11 +10,13 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //img[contains(@class,"product-image")]//@src
+    # xpath: //img[contains(@class,"product-image")]//@src
+    xpath: //span[contains(@class,'slide__gallery-slide')]/img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //img[contains(@class,"product-image")]//@alt
+    # xpath: //img[contains(@class,"product-image")]//@alt
+    xpath: //span[contains(@class,'slide__gallery-slide')]/img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -53,7 +55,8 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class, 'product-description__description-container')]/section/div[1]/p[1]
+    # xpath: //div[contains(@class, 'product-description__description-container')]/section/div[1]/p[1]
+    xpath: //div[contains(@class, 'product-description__description-container')]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -156,6 +159,9 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //a[contains(@class,'product-shop-logo')]/figure/img/@src
+    regExp: ^(.+)$
+    regExpReplace: https://verkkokauppa.com$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
