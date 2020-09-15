@@ -82,5 +82,5 @@ const transform = (data) => {
     return data;
 };
   
-  module.exports = { transform };
+module.exports = { transform };
   
