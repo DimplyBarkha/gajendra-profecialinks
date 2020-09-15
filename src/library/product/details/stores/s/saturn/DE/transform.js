@@ -27,6 +27,10 @@ const transform = (data, context) => {
         const text = row.promotion.map(elm => elm.text.trim()).join(', ');
         row.promotion = [{ text }];
       }
+      if (row.description) {
+        const text = row.description[0].text.replace(/<li>/g, '<li> || ').replace(/(<([^>]+)>)/ig, '').trim();
+        row.description = [{ text }];
+      }
       if (row.videos) {
         let videos = row.videos.map(elm => elm.text.trim());
         videos = Array.from(new Set(videos)).map(elm => ({ text: elm }));
