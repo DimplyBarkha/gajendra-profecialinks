@@ -8,6 +8,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+<<<<<<< HEAD
   if (inputs.id) {
     await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
     await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
@@ -34,6 +35,32 @@ async function implementation (
         return href;
       }
     });
+=======
+  await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
+
+  const productUrl = await context.evaluate(async function () {
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+    await stall(100);
+    const link = document.querySelector('.Link-sc-1khjl8b-0.h-display-block');
+    if (link !== null) {
+      const href = link.getAttribute('href');
+      if (href.indexOf('preselect=') > -1) {
+        let productId = href.split('preselect=')[1];
+        productId = productId.split('#')[0];
+        const splitUrl = href.split('-');
+        splitUrl[splitUrl.length - 1] = productId;
+        return splitUrl.join('-');
+      }
+      return href;
+    }
+  });
+>>>>>>> DS-core-target-us
 
     await context.goto('https://www.target.com' + productUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
   }
@@ -636,6 +663,7 @@ async function implementation (
       }
       addHiddenDiv(newDiv, 'videos', videos.filter(onlyUnique).join(' | '));
 
+<<<<<<< HEAD
       let inStore = false;
       let deliver = false;
       let availabilitySuccess = false;
@@ -701,16 +729,22 @@ async function implementation (
           addHiddenDiv(newDiv, 'availability', 'Out of stock');
         }
       }
+=======
+      await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=ff457966e64d5e877fdbad070f276d18ecec4a01&tcin=' + variant.tcin + '&store_id=281&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=281&fulfillment_test_mode=grocery_opu_team_member_test')
+        .then(data => data.json())
+        .then(availabilityData => {
+          addHiddenDiv(newDiv, 'availabilityJson', JSON.stringify(availabilityData));
+          console.log('availabilityData', availabilityData);
+        });
+>>>>>>> DS-core-target-us
 
-      let priceSuccess = false;
-      console.log('pricing');
       await fetch('https://redsky.target.com/web/pdp_location/v1/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
         .then(data => data.json())
         .then(variantData => {
+          console.log('pricingData', variantData);
           if (variantData.price) {
             if (variantData.price.current_retail || variantData.price.formatted_current_price) {
               addHiddenDiv(newDiv, 'price', variantData.price.current_retail || variantData.price.formatted_current_price);
-              priceSuccess = true;
             }
             if (variantData.price.reg_retail) {
               addHiddenDiv(newDiv, 'regPrice', variantData.price.reg_retail);
@@ -721,7 +755,7 @@ async function implementation (
           }
         });
 
-      if (!priceSuccess) {
+      if (!document.getElementById('price') || !document.getElementById('price').innerText.length) {
         if (document.querySelector('span[data-test="product-savings"]') && document.querySelector('span[data-test="product-savings"]').innerText) {
           addHiddenDiv(newDiv, 'regPrice', document.querySelector('span[data-test="product-savings"]').innerText.split(' ')[1]);
         } else if (document.querySelector('div[data-test="product-price"]')) {
@@ -788,7 +822,7 @@ async function implementation (
   await context.extract(productDetails, { transform });
 }
 
-const { transform } = require('../../../../shared');
+const { transform } = require('./shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
