@@ -42,20 +42,16 @@ const transform = (data, context) => {
           }
           row.brandText[0].text = textB;
         }
-        // if (row.brandText) {
-        //   if(row.name){
-        //     row.name.forEach(item => {
-             
-        //     });
-        //   }
-        // }
-        // if (row.id) {
-        //   row.id.forEach(item => {
-        //     item.text= item.text.split('/');
-        //     let length = item.text.length;
-        //     item.text = item.text[length -1];
-        //   });
-        // } 
+        if (row.price) {
+            row.price.forEach(item => {
+             item.text = item.text .substring(0,item.text .length-2)+"."+item.text .substring(item.text .length-2);
+            });
+        }
+        if (row.aggregateRating2) {
+          row.aggregateRating2.forEach(item => {
+           item.text = Number(item.text).toFixed(1);
+          });
+        }  
       }
     }
     return data;

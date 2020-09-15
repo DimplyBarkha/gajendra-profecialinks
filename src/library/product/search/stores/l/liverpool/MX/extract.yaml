@@ -6,45 +6,40 @@ fields:
   - name: brandText
     singleValue: false  
     xpath: //h5[contains(@class , "card-title")]  
-  # - name: productUrl
-  #   singleValue: false
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id="li_url"]
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="o-card__image__container"]/img[@extraclass="reduce-size"]/@src
   - name: name
     singleValue: false
     xpath: //h5[contains(@class , "card-title")]
-  # - name: sku
-  #   singleValue: false
-  #   xpath: //div[@class="o-card__image__container"]/img[@extraclass="reduce-size"]/@src
-  #   regExp: lg\/(.*).jpg
-  #   regExpReplace: $1
-  #   singleValue: false
-  # - name: ratingCount
-  #   singleValue: false
-  # - name: reviewCount
-  #   singleValue: false
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@id="li_review"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@id="li_review"]
   - name: price
     singleValue: false
-    xpath: 
-  # - name: manufacturer
-  #   singleValue: false
-  # - name: soldBy
-  #   singleValue: false
-  # - name: shippingInfo
-  #   singleValue: false
-  # - name: rank
-  #   singleValue: false
-  #   description: search/listing rank
-  #   type: NUMBER
-  # - name: rankOrganic
-  #   singleValue: false
-  #   description: The position (rank) within the list excluding sponsored/paid results
-  #   type: NUMBER
-  # - name: id
-  #   singleValue: false
+    xpath: //p[@class="a-card-discount"]
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: id
+    singleValue: false
+    xpath: //div[@id="li_id"]
+    regExp: \?skuId\=(.*)
+    regExpReplace: $1
   - name: nameExtended
     singleValue: false
     xpath: //h5[contains(@class , "card-title")]
-  # - name: aggregateRating2
-  #   singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@id="li_rating"]
