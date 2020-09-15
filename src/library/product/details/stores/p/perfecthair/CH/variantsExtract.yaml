@@ -1,0 +1,14 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variant
+    singleValue: false
+    xpath: //p[@class = "configurator--label"]
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class, "variant--option")]//input/@value
+  - name: variantUrl
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
