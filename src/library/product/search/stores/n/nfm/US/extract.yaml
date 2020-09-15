@@ -12,7 +12,7 @@ fields:
   - name: sku
     singleValue: false
     xpath: //*[@id="AP_SKU"]
-  - name: ratingCount
+  - name: reviewCount
     singleValue: false
     xpath: //*[@id="AP_PS_NumReviews"]
   - name: thumbnail
@@ -35,4 +35,13 @@ fields:
     xpath: ancestor::html//div[@id='added-searchurl']
   - name: sponsored
     singleValue: false
-    xpath: //*[@id="AP_Price_Savings_Block"]
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //p[@class="bold font16 two-line-ellipsis-product"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class, 'pr-star-v4')]/@class
+    regExp: -(\d+)-
+    regExpReplace: $1

@@ -61,6 +61,17 @@ const transform = (data, context) => {
         const append = 'https://www.nfm.com/';
         row.productUrl[0].text = append + row.productUrl[0].text;
       }
+
+      if (row.aggregateRating2) {
+        const text = row.aggregateRating2.reduce((ele, ele2) => {
+          return ele + parseInt(ele2.text);
+        }, 0);
+        row.aggregateRating2 = [
+          {
+            text: text / 100,
+          },
+        ];
+      }
     }
   }
   return data;
