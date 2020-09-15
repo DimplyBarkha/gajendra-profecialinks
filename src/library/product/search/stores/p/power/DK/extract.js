@@ -15,12 +15,12 @@ module.exports = {
         const scrollBox = document.querySelector('body');
         const elemClick = scrollBox.querySelector('div#product-list-load-more button');
         let scrollTop = 0;
-        while (elemClick) {
+        while (scrollTop !== 30000 || elemClick) {
           await stall(1000);
-          elemClick.click();
           scrollTop += 1000;
           window.scroll(0, scrollTop);
-          if (scrollTop === 20000) {
+          if (elemClick) elemClick.click();
+          if (scrollTop === 30000) {
             await stall(1000);
             break;
           }
