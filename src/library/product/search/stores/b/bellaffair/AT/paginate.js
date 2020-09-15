@@ -66,7 +66,7 @@ module.exports = {
     country: 'AT',
     store: 'bellaffair',
     domain: 'bellaffair.at',
-    nextLinkSelector: null,
+    nextLinkSelector: 'head link[rel="next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.productlist',
