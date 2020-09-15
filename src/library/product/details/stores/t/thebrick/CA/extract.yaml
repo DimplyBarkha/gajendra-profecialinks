@@ -11,7 +11,6 @@ fields:
     singleValue: false
   - name: additionalDescBulletInfo
     xpath: //div[@itemprop="description"]//li
-    # //div[contains(@class, "long-description-wrapper")]//ul[1]
     singleValue: false
   - name: aggregateRating
     singleValue: false
@@ -133,3 +132,6 @@ fields:
   - name: termsAndConditions
     singleValue: false
     xpath: //a[contains(text(), "terms and conditions")]
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
