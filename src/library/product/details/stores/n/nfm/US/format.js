@@ -4,6 +4,19 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  const cleanUp = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+  // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+
   for (const { group } of data) {
     for (const row of group) {
       if (row.category) {
@@ -27,7 +40,26 @@ const transform = (data) => {
         row.descriptionBullets[0].text = info.split('||').length;
       }
       if (row.description) {
-        row.description[0].text = row.description[0].text.replace(/\n/g, '');
+        let text = '';
+        row.description.forEach(item => {
+          text += item.text.replace(/\n \n/g, ' || ').trim();
+        });
+        row.description = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text += item.text.trim();
+        });
+        row.manufacturerDescription = [
+          {
+            text: cleanUp(text),
+          },
+        ];
       }
       if (row.largeImageCount) {
         row.largeImageCount = [
@@ -75,6 +107,42 @@ const transform = (data) => {
         row.storage = [
           {
             text: (text.slice(0, -1)),
+          },
+        ];
+      }
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          text += `Color: ${item.text} | `;
+        });
+        row.variantInformation = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
+      if (row.variantAsins) {
+        let text = '';
+        row.variantAsins.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.variantAsins = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
+      if (row.variants) {
+        let text = '';
+        if (row.variants.length > 1) {
+          row.firstVariant = row.variantId;
+        }
+        row.variants.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.variants = [
+          {
+            text: cleanUp(text.slice(0, -3)),
           },
         ];
       }

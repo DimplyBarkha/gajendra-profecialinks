@@ -11,9 +11,15 @@ fields:
   - name: nameExtended
     singleValue: false
     manualSelector: h1#DT_BrandProductName
+  - name: name
+    singleValue: false
+    manualSelector: h1#DT_BrandProductName
   - name: price
     singleValue: false
     manualSelector: span#DT_ProductPrice
+  - name: listPrice
+    singleValue: false
+    xpath: //small[contains(@id, 'DT_SuggestedRetail') and contains(@data-bind, '$data')]
   - name: sku
     singleValue: false
     manualSelector: span#DT_Overview_ProductId
@@ -34,19 +40,24 @@ fields:
     xpath: //*[@id="DT_Features"]
   - name: description
     singleValue: false
-    xpath: //*[@id="DT_Description"]
+    xpath: //*[contains(@id, 'DT_Description')] | //ul[contains(@id, 'DT_Features')]
   - name: availabilityText
     singleValue: false
     xpath: //*[@id="DT_InStock"]
-  - name: storage
-    singleValue: false
-    xpath: //span[contains(@id, 'DT_NotOnDisplayLocation')]/preceding-sibling::*[1] | //span[contains(@id, 'DT_NotOnDisplayLocation')] | //span[contains(@id, 'DT_NotOnDisplayLocation')]/following-sibling::*[1]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: category
     singleValue: false
     xpath: //ul[@id="breadCrumbContainer"]//li
   - name: shippingDimensions
     singleValue: false
     manualSelector: td#DT_OverviewCratedDimensionsDimensions0
+  - name: shippingWeight
+    singleValue: false
+    xpath: //tbody[contains(@data-bind, 'CratedChildrenDimensions')]
+    regExp: H (.*)
+    regExpReplace: $1
   - name: image
     singleValue: false
     xpath: //img[@id="Product_Main_Image_0"]/@src
@@ -66,10 +77,11 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@id="ReviewSnippet"]//span[@class="pr-accessible-text"]
-    regExp: \d+.\d+
+    regExp: Rated (.+?) out
+    regExpReplace: $1
   - name: weightNet
     singleValue: false
-    xpath: //div[@id="collapseThree1"]//table[contains(@class, "table")]/tbody/tr[3]/td[2]
+    xpath: //div[@id="collapseThree1"]//table[contains(@class, "table")]//td[contains(text(), 'Weight')]/following-sibling::*
   - name: specifications
     singleValue: false
     xpath: //div[@id="collapseThree1"]//table[contains(@class, "table")]/tbody/tr[text()]
@@ -90,10 +102,28 @@ fields:
     xpath: //div[@id='videosExtracted']
   - name: variantCount
     singleValue: false
-    defaultValue: 1
+    xpath: count(//img[contains(@class, 'clubSwatch popup')]/@src)
+    defaultValue: '0'
+  - name: variants
+    singleValue: false
+    xpath: //img[contains(@class, 'clubSwatch popup')]/@src
+    regExp: \d{8}
+  - name: variantAsins
+    singleValue: false
+    xpath: //img[contains(@class, 'clubSwatch popup')]/@src
+    regExp: \d{8}
+  - name: variantId
+    singleValue: false
+    manualSelector: span#DT_Overview_ProductId
+  - name: variantInformation
+    singleValue: false
+    xpath: //img[contains(@class, 'clubSwatch popup')]/@alt
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class, 'wc-aplus-body')]
+    manualSelector: div.wc-aplus-body
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class, 'wc-aplus-body')]//img/@src
+  - name: imageAlt
+    singleValue: fals
+    xpath: //img[@id="Product_Main_Image_0"]/@alt

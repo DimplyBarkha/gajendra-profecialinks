@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'nfm.com',
     prefix: null,
-    url: null,
+    url: 'https://www.nfm.com/{id}',
     country: 'US',
     store: 'nfm',
     zipcode: '',
