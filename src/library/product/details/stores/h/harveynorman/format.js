@@ -26,7 +26,10 @@ const transform = (data) => {
           let allImages = image.text.split(', ').map(img => img.trim())
           let mainImage;
           if (allImages.length) {
-            mainImage = allImages.find(x => !(/Mobile/i.test(x)))
+            mainImage = allImages.find(x => /Desktop/i.test(x))
+            if (!mainImage) {
+              mainImage = allImages.find(x => !(/Mobile/i.test(x)))
+            }
             if (!mainImage) {
               mainImage = allImages[0].replace(/(.*?)\s.*/, '$1').trim()
             } else {
