@@ -5,6 +5,7 @@
  */
 const transform = (data, context) => {
   const state = context.getState();
+  let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
     for (const { group } of data) {
       for (const row of group) {
@@ -23,10 +24,16 @@ const transform = (data, context) => {
                     text: loadedImageUrl
                   },
                 ];
-              }
-              rankCounter = rankCounter + 1;
-              row.rank = [{ text: rankCounter }];
-              context.setState({ rankCounter });
+            }
+
+            if (!row.sponsored) {
+              orgRankCounter = orgRankCounter + 1;
+              row.rankOrganic = [{ text: orgRankCounter }];
+            }
+            rankCounter = rankCounter + 1;
+            row.rank = [{ text: rankCounter }];
+            context.setState({ orgRankCounter });
+            context.setState({ rankCounter });
         }
         catch(exception){
             console.log(exception);
