@@ -27,4 +27,11 @@ fields:
     - name: soldBy
       singleValue: false
       xpath: //div[@class="store-name util-clearfix"]/a
+    - name: gtin
+      singleValue: false
+      xpath: //ul[@id="hs-below-list-items"]/li/@qrdata
+    - name: rank
+      singleValue: false
+    - name: rankOrganic
+      singleValue: false
     
