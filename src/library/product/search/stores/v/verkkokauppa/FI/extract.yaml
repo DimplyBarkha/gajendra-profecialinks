@@ -1,7 +1,7 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //li[contains(@class,'product-list-detailed__item')]
 fields:
   - name: id
     xpath: //div[contains(@class,"list-product")]//span[contains(@class,"list-product__product-id")]
@@ -20,7 +20,7 @@ fields:
     regExp: (.+)
   - name: price
     xpath: //div[contains(@class,"list-product")]//div[contains(@class,"list-product-info")]//div[contains(@class,"list-product-info__price-and-rating")]//div[contains(@class,"price-container")]
-    singleValue: true 
+    singleValue: false 
     regExp: /,/g
     regExpReplace: '.'
   - name: aggregateRating  

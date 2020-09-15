@@ -6,8 +6,8 @@ module.exports = {
     store: 'verkkokauppa',
     domain: 'verkkokauppa.com',
     url: 'https://www.verkkokauppa.com/fi/search?query={searchTerms}',
-    loadedSelector: 'div.sc-1pejwl4-0',
-    noResultsXPath: null,
+    loadedSelector: 'ol.product-list-detailed',
+    noResultsXPath: "//section[contains(@class,'zracwc-0 kaKFIU')]",
     zipcode: '',
   },
 };
