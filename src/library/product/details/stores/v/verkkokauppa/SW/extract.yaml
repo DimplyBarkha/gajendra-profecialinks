@@ -7,6 +7,10 @@ fields:
   #   singleValue: true
   #   description: Content under "legal disclaimer" header
   #   xpath: //meta[@property='og:url']/@content
+  - name: onlinePriceCurrency
+    singleValue: true
+    description: null
+    xpath: //*[contains(@id,"priceCurrency")]
   - name: image
     singleValue: true
     description: URL of the main product image
@@ -20,7 +24,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //img[contains(@class,"product-image")]//@src
+    xpath: //span[contains(@class,'slide__gallery-slide')]/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -89,11 +93,13 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //section[contains(@class,'product-details')]/div[1]/table/tbody/tr[3][contains(@class,'product-details-row')]/td[contains(@class,'product-details-row__value')]
+    # xpath: //section[contains(@class,'product-details')]/div[1]/table/tbody/tr[3][contains(@class,'product-details-row')]/td[contains(@class,'product-details-row__value')]
+    xpath: //*[contains(@id,"gtinId")]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //section[contains(@class,'product-details')]/div[1]/table/tbody/tr[5][contains(@class,'product-details-row')]/td[contains(@class,'product-details-row__value')]
+    # xpath: //section[contains(@class,'product-details')]/div[1]/table/tbody/tr[5][contains(@class,'product-details-row')]/td[contains(@class,'product-details-row__value')]
+    xpath: //*[contains(@id,"skuId")]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -106,7 +112,7 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: //section[contains(@class,'product-details')]/div[2]/table/tbody/tr[1][contains(@class,'product-details-row')]/td[contains(@class,'product-details-row__value')]
+    xpath:  //td[contains(text(), "Pakkauksen koko")]/following::td[1]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -119,7 +125,6 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    xpath: //span[contains(@class, 'product-header__rating')]//span/@data-average-rating
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
@@ -127,7 +132,7 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //span[contains(@class,'product-header__rating')]/a/span/@data-average-rating
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -136,10 +141,12 @@ fields:
     singleValue: true
     description: Stated shipping dimensions
     xpath: //section[contains(@class,'description-container__full-text')]/div/ul/li[contains(text(),'Mitat')]
-    regExp: ([0-9]+) .* 
+    # regExp: ([0-9]+) .* 
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
+    # xpath: //section[contains(@class,'description-container__full-text')]/div/ul/li[contains(text(),'Paino')]
+    # regExp: ([0-9]+) .*
   - name: variantCount
     singleValue: true
     description: Number of variants listed
