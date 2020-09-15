@@ -2,16 +2,16 @@ input:
   _url: http://abt.com
   URL: https://www.abt.com/product/121684/Dyson-Pure-Cool-White-Air-Purifier-Tower-31012401.html
 extractions:
-  - html: https://workbench.import.io/html/run=eebf7a60-5a47-41b9-9eee-beaa6ef29eab/task=d38c9534-63d2-41bf-b09d-d0f28f000a06/c40a0833-7a3d-49dc-a5c9-b6b13a7bd944.html
+  - html: https://workbench.import.io/html/run=a6685484-003e-43b8-812e-0ba3643c38f1/task=0564205a-75f6-4a83-8566-cd32ff51019a/fe6d33d4-db7f-4a1f-b79f-2613f71dd4c3.html
     extractionConfigId: product/details/stores/a/abt/US/extract
     data:
       - group:
           - image:
               - text: https://content.abt.com/image.php/big(new)-TP04.jpg?image=/images/products/BDP_Images/big(new)-TP04.jpg&canvas=1&min_w=600&min_h=400
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/a[1]/@href
             imageAlt:
               - text: Large image of Dyson Pure+Cool TP04 White Air Purifier Tower - 310124-01
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/a[1]/img[1]/@alt
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/a[1]/img[1]/@alt
             alternateImages:
               - text: https://content.abt.com/image.php/2(new)-TP04.jpg?image=/images/products/BDP_Images/2(new)-TP04.jpg&canvas=1&quality=80&min_w=600&min_h=400
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/@href
@@ -43,7 +43,7 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[1]/div[1]/h1[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[19]
             description:
               - text: Dyson 310124-01 Pure+Cool TP04 White Air Purifier Tower
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[3]/table[1]/tbody[1]/tr[1]/td[1]/h2[1]
@@ -58,10 +58,10 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[3]/table[1]/tbody[1]/tr[1]/td[1]/p[1]
               - text: Color White|Type Tower Fan|Control Type Electric|Height (inches)
                   41.5|Width (inches) 8.8|Depth (inches) 8.8|Remote Yes|
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[17]
             brandText:
               - text: Dyson
-                xpath: /html/head[1]/script[5]/@data-flix-brand
+                xpath: /html/head[1]/script[21]/@data-flix-brand
             manufacturer:
               - text: Dyson
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/div[1]/meta[1]/@content
@@ -108,26 +108,26 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[3]/table[1]/tbody[1]/tr[1]/td[1]/ul[6]/li[2]/text()[1]
             color:
               - text: White
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[20]
             manufacturerDescription:
               - text: From the Manufacturer Powered byIs the information in this section
                   helpful? Yes / NoDyson Pure Cool Tower TP04 Product Demo
                   Smokebox Demo Dyson Pure Cool Tower TP04 Overview
-                xpath: /html/body/div[19]
+                xpath: /html/body/div[21]
             manufacturerImages:
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557777765961_a1983cc3-c087-4d72-b4fe-ffede8b1752b/module/dysonus/_cp/products/1523994362811/tab-47fdf6ff-e834-4f38-ad4e-565a4e30dcf3/392a8168-0896-4ce7-88ce-fb1796725cee.jpg.w1920.jpg
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[7]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557777765961_a1983cc3-c087-4d72-b4fe-ffede8b1752b/module/dysonus/_cp/products/1523994362811/tab-47fdf6ff-e834-4f38-ad4e-565a4e30dcf3/6db2a58e-5df1-417a-835d-cfc702074a2b.jpg.w1920.jpg
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[7]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/img[1]/@src
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557777765961_a1983cc3-c087-4d72-b4fe-ffede8b1752b/module/dysonus/_cp/products/1523994362811/tab-47fdf6ff-e834-4f38-ad4e-565a4e30dcf3/7ce6ef4d-b087-4b57-be72-701776b0e426.jpg.w1920.jpg
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[7]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/img[1]/@src
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557777765961_a1983cc3-c087-4d72-b4fe-ffede8b1752b/module/dysonus/_cp/products/1523994362811/tab-47fdf6ff-e834-4f38-ad4e-565a4e30dcf3/955f5e12-5eef-4d45-8cc4-f68bc128e4fd.jpg.w1920.jpg
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[7]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/img[1]/@src
             videos:
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557777765961_a1983cc3-c087-4d72-b4fe-ffede8b1752b/module/dysonus//_cp/products/1523994362811/tab-3a2fdeee-4ab3-4fb3-bc06-cb95dd0ddb0b/7c5463aa-08b7-4f48-88d3-776b87e38156.mp4.mp4full.mp4
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[22]
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1557777765961_a1983cc3-c087-4d72-b4fe-ffede8b1752b/module/dysonus//_cp/products/1523994362811/tab-212c5c96-6208-49b0-b760-6a93f8ffc455/61b2c70d-5f7c-4f9c-8fbf-16f3515a7038.mov.mp4full.mp4
-                xpath: /html/body/div[21]
+                xpath: /html/body/div[23]
             name:
               - text: Dyson Pure+Cool TP04 White Air Purifier Tower - 310124-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[1]/div[1]/h1[1]
@@ -158,7 +158,7 @@ extractions:
                   Filter Changing||Night-Time Mode||Voice Control Using Amazon
                   Alexa||Certified Asthma And Allergy Friendly||White And Silver
                   Finish
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[18]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -180,4 +180,4 @@ extractions:
                 locale: en
                 value: 0
         xpath: /
-    timestamp: 1600158254353
+    timestamp: 1600170794733
