@@ -45,7 +45,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //button[@data-qa="product-page-buy-button-bottom-var-1"]  | //*[@data-test="buy-button"] | //*[@data-test="active-alert-button"]
-    defaultValue: 'In Stock'
+    defaultValue: 'Out of Stock'
     # xpath: //div[@id="bb_availability"]
     # regExp: \"availability\"\:\s\"http\:\/\/schema\.org\/(.*)\"
     # regExpReplace: $1
@@ -113,6 +113,8 @@ fields:
     singleValue: false
     description: The number of ratings
     xpath: //div[@data-test="product-page-rating-icons-desktop"]/div[@data-test="rating-icons-link"]/span[2] | //div[@data-test="product-page-rating-icons-mobile"]/div[@data-test="rating-icons-link"]/span[2]
+    regExp: par\s(.*)\sbac
+    regExpReplace: $1
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
