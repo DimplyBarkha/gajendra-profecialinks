@@ -70,11 +70,11 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //u[contains(text(),'Weight')]/../../following-sibling::ul//li[strong[contains(text(),'Unit')]]/text()
+    xpath: //*[contains(text(),'Weight')]/../../following-sibling::ul//li[*[contains(text(),'Unit')]]/text()
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //u[contains(text(),'Weight')]/../../following-sibling::ul//li[strong[contains(text(),'Shipping')]]/text()| //u[contains(text(),'Weight')]/../../following-sibling::ul//li[b[contains(text(),'Shipping')]]/text()
+    xpath: //*[contains(text(),'Weight')]/../../following-sibling::ul//li[*[contains(text(),'Shipping')]]/text()
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -132,7 +132,7 @@ fields:
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
-    xpath: //u[contains(text(),'Weight')]/../../following-sibling::ul//li[strong[contains(text(),'Shipping')]]/text() | //u[contains(text(),'Weight')]/../../following-sibling::ul//li[b[contains(text(),'Shipping')]]/text()
+    xpath: //*[contains(text(),'Weight')]/../../following-sibling::ul//li[*[contains(text(),'Shipping')]]/text()
   - name: variantCount
     singleValue: true
     description: Number of variants listed
@@ -177,7 +177,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: //u[contains(text(),'Warranty')]/../../following-sibling::ul[1]
+    xpath: //*[contains(text(),'Warranty')]/../../following-sibling::ul[1]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -190,7 +190,8 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //a[@id="questions"]/h2[//div[@id='questions_content']//div[@class='tt-c-question-container']] | //div[@class='tt-c-question-container']
+    xpath: //a[@id="questions"]/h2[//div[@id='questions_content']//div[@class='tt-c-question-container']//div[@role="heading"]] |
+      //div[@class='tt-c-question-container']
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -242,4 +243,5 @@ fields:
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: "No" 
+    xpath: //div[@id='image360Exists']
+    defaultValue: "No"

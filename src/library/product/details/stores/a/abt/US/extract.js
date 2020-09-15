@@ -26,7 +26,7 @@ module.exports = {
       if (tabs) {
         for (let i = 0; i < tabs.length; i++) {
           tabs[i].click();
-          await timeout(2000);
+          await timeout(3000);
         }
       }
       const specificationArr = document.querySelectorAll('div#specifications_content tr');
@@ -61,15 +61,21 @@ module.exports = {
       const specColor = specColorXpath ? specColorXpath.stringValue : '';
       const descColorXpath = document.evaluate('//li[strong[text()="Color:"]]/text()', document, null, XPathResult.STRING_TYPE, null);
       const descColor = descColorXpath ? descColorXpath.stringValue : '';
+      const keyFeaturesColorXpath = document.evaluate('//ul[@id="key_features"]/li[contains(text(),"Finish")]/text()', document, null, XPathResult.STRING_TYPE, null);
+      const keyFeaturesColor = keyFeaturesColorXpath ? keyFeaturesColorXpath.stringValue.replace(/\sFinish/g, '') : '';
       if (variantColor) {
         addElementToDocument('color', variantColor);
       } else if (specColor) {
         addElementToDocument('color', specColor);
-      } else {
+      } else if (descColor) {
         addElementToDocument('color', descColor);
+      } else {
+        addElementToDocument('color', keyFeaturesColor);
       }
       const pdfExist = document.querySelector('div#documents_content ul li');
       if (pdfExist) addElementToDocument('pdfExist', 'Yes');
+      const image360Exists = document.querySelector('div.wc-three-sixty');
+      if (image360Exists) addElementToDocument('image360Exists', 'Yes');
       const manufacturerDescription = document.querySelector('div#from_manufacturer_content')
         ? document.querySelector('div#from_manufacturer_content').innerText.replace(/\n{2,}|\s{2,}/g, '') : '';
       if (manufacturerDescription) addElementToDocument('manufacturerDescription', manufacturerDescription);
