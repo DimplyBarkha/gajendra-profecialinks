@@ -254,6 +254,17 @@ const transform = (data) => {
               },
             ];
           }
+          if (row.variantId) {
+            let text = '';
+            row.variantId.forEach(item => {
+                text = item.text.replace("Артикул: ",'');
+            })
+            row.variantId = [
+              {
+                text: text
+              },
+            ];
+          }
           if (row.promotion) {
             let text = '';
             row.promotion.forEach(item => {
