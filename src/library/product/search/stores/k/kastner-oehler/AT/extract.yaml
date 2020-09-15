@@ -31,13 +31,12 @@ fields:
     description: The number of ratings
   - name: price
     description: The offered price for the product
-    xpath: //span[@class="en_price"]
+    xpath: //span[@class="en_price"] | //span[@class='en_price en_price--new']
   - name: manufacturer
     description: Product manufacturer
     xpath: //h3[@class="en_mdl_product__label en_heading_h5"]
   - name: soldBy
     description: The name of the seller of the item (if available)
-    defaultValue: Sold by kastner-oehler.at
   - name: rank
     description: search/listing rank
     xpath: //div[@id='count']
