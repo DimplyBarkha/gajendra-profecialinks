@@ -6,6 +6,7 @@
  */
 const transform = (data) => {
     for (const { group } of data) {
+        let rank = 1;
         for (const row of group) {
             if (row.productUrl) {
                 row.productUrl.forEach(item => {
@@ -16,7 +17,9 @@ const transform = (data) => {
                 row.rankOrganic.forEach(item => {
                     item.text = parseInt(item.text) + 1;
                 });
-            }            
+            }
+            row.rank = [{"text":rank}];
+            rank++;         
         }
     }
     return data;
