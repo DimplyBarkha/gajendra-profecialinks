@@ -1,0 +1,84 @@
+input:
+  _url: http://douglas.at
+  URL: https://www.douglas.at/de/p/2010007252
+extractions:
+  - html: https://workbench.import.io/html/run=a3743c8e-b1ee-4405-afe1-c90960315149/task=941aa5bd-416e-4da9-bcad-82b9fc0e0c84/82af8e58-446c-4eee-8dec-e2dc454cfa41.html
+    extractionConfigId: product/details/stores/d/douglas/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://media.douglas.at/medias/AhMCdC244971-0-dgl-DE.jpg?context=bWFzdGVyfGltYWdlc3wyNDgxOXxpbWFnZS9qcGVnfGhkZi9oOTEvODgwNTM3NjMyNzcxMC9BaE1DZEMyNDQ5NzFfMF9kZ2wtREUuanBnfGM3ODhjYzZkM2Y3ZGZiZjJiZDExYTY5NjUxOWYwMDlhYTRhYzllMDBlZmNjYjhjOGNkZDczOTQwMjkwOWY0Zjk
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            category:
+              - text: Make-up
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/span[2]
+              - text: Teint
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/span[3]
+              - text: Foundation
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/span[4]
+              - text: MAC Foundation Studio Fix Fluid SPF 15
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/span[5]
+            nameExtended:
+              - text: Foundation Studio Fix Fluid SPF 15
+                xpath: /html/body/@nameextended
+            brandLink:
+              - text: Foundation
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/h1[1]/div[2]/a[1]
+            baseUrl:
+              - text: https://www.douglas.at/de/p/2010007252
+                xpath: /html/head[1]/link[1]/@href
+            price:
+              - text: € 27,95
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/button[1]
+            brandText:
+              - text: Foundation
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/h1[1]/div[2]/a[1]
+            sku:
+              - text: "2010007252"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/@id
+            listPrice:
+              - text: € 35,95
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]
+            ingredientsList:
+              - text: "Immer auf eine gründlich vorbereitete Haut mit dem 132 Duo Fibre
+                  Foundation Brush für ein makelloses Gesicht auftragen! Produkt
+                  zuerst in der Mitte des Gesichtes auftragen (oder dort wo Du
+                  die meiste Deckkraft haben möchtest), verwende danach einen
+                  Pinsel, um es in die äußeren Stellen Deines Gesichts zu
+                  verblenden. Tip: Mixe das Studio Fix Fluid mit deiner
+                  Gesichtscreme oder Öl, für ein leichtes, leuchtendes Finish."
+                xpath: /html/body/@ingredients
+            ratingCount:
+              - text: "554"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[2]/a[1]
+            aggregateRatingText:
+              - text: "4.2"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[2]
+            aggregateRating:
+              - text: "4.2"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[2]
+            name:
+              - text: Studio Fix Fluid SPF 15
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/header[1]/div[1]/h1[1]/div[2]/span[1]
+            productOtherInformation:
+              - text: "Immer auf eine gründlich vorbereitete Haut mit dem 132 Duo Fibre
+                  Foundation Brush für ein makelloses Gesicht auftragen! Produkt
+                  zuerst in der Mitte des Gesichtes auftragen (oder dort wo Du
+                  die meiste Deckkraft haben möchtest), verwende danach einen
+                  Pinsel, um es in die äußeren Stellen Deines Gesichts zu
+                  verblenden. Tip: Mixe das Studio Fix Fluid mit deiner
+                  Gesichtscreme oder Öl, für ein leichtes, leuchtendes Finish."
+                xpath: /html/body/@otherinfo
+            firstVariant:
+              - text: "2010007252"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/@id
+            productUrl:
+              - text: https://www.douglas.at/de/p/2010007252
+                xpath: /html/head[1]/link[1]/@href
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /
+    timestamp: 1600166022657
