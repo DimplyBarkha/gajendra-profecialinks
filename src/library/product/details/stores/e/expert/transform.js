@@ -186,6 +186,21 @@ const transform = (data, context) => {
           row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
         }
 
+        if (row.aggregateRatingText && row.aggregateRatingText[0]) {
+          row.aggregateRatingText[0].text = row.aggregateRatingText[0].text.replace('.', ',');
+        }
+
+        if (row.availabilityText && row.availabilityText[0]) {
+          row.availabilityText[0].text = row.availabilityText[0].text.replace('true', 'In Stock');
+          row.availabilityText[0].text = row.availabilityText[0].text.replace('false', 'Out of Stock');
+        }
+
+        if (row.technicalInformationPdfPresent && row.technicalInformationPdfPresent[0]) {
+          row.technicalInformationPdfPresent[0].text = row.technicalInformationPdfPresent[0].text.replace('true', 'Yes');
+          row.technicalInformationPdfPresent[0].text = row.technicalInformationPdfPresent[0].text.replace('false', 'No');
+        }
+        
+
         if (row.weightNet && row.weightNet[0]) {
           row.weightNet[0].text = row.weightNet[0].text.replace('Nettogewicht: ', '');
         }

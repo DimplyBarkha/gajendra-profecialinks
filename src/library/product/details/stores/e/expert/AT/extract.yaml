@@ -19,7 +19,7 @@ fields:
     xpath: (//div[contains(@class, "image-holder slick-slide") and contains(@role, "option")]//a[contains(@class, "detail-thumbnail")]/@href)[position()>1]
   - name: metaKeywords
     singleValue: true
-    xpath: //meta[@name="description"]/@content
+    # xpath: //meta[@name="description"]/@content
     description: The <meta> keywords content
   - name: category
     singleValue: false
@@ -47,10 +47,10 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //span[contains(@class, "product-available")]/@class
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: boolean(//span[contains(@class, "product-available")]/@class)
+    # regExp: (true)
+    # regExpReplace: (In Stock)
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[contains(@class, "product-desc__body")]//ul//li|//div[contains(@class, "container-product-detail")]//div[@id="tab-content"]//div[contains(@class, "tab-pane in active")]//text()
@@ -76,8 +76,10 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
-    xpath: //div[contains(@class, "product_features")]//strong[contains(text(), "Gehäuse-Eigenschaften")]//following-sibling::ul//li[contains(text(), "Gewicht")]
+    xpath: //div[contains(@class, "product_features")]//*[contains(text(), "Gehäuse-Eigenschaften")]//following-sibling::ul//li[contains(text(), "Gewicht")]
     description: Net weight as described on the page
+    regExp: (:(.*))
+    regExpReplace: $2
   - name: weightGross
     singleValue: true
     # xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr//td
@@ -152,7 +154,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="flix-inpage"]//text()
+    xpath: //div[@id="flix-inpage"]//div[contains(@id,"flixinpage")]//*[not(self::style)]//text()
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
@@ -359,10 +361,10 @@ fields:
     example: A+, A+++, B
   - name: technicalInformationPdfPresent
     singleValue: true
-    xpath: //div[contains(@id, "datasheet-button")]//a[contains(@target, "_blank")]//span[contains(@class, "icon-pdf")]/@class
-    regExp: (.*)
-    regExpReplace: Yes
-    defaultValue: No
+    xpath: boolean(//div[contains(@id, "datasheet-button")]//a[contains(@target, "_blank")]//span[contains(@class, "icon-pdf")]/@class)
+    # regExp: true
+    # regExpReplace: Yes
+    # defaultValue: No
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
   - name: termsAndConditions
