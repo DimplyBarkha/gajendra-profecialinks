@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'span03 product-tile ng-scope')]
+fields:
+  - name: productUrl
+    xpath: //a[1]/@href
+    singleValue: false
+  - name: thumbnail
+    xpath: //div[contains(@class,'image')]//img/@src
+    singleValue: false
+  - name: name
+    xpath: //@title
+    singleValue: true
+  - name: price
+    xpath: //div[contains(@class,'price-wrapper')]
+    singleValue: false
+  - name: id
+    xpath: //div[contains(@class,'content')]/@data-productid
+    singleValue: false
+  - name: rank
+  - name: rankOrganic
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@class='my-search-url']
