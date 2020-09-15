@@ -1,0 +1,9 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    xpath: //li[contains(@class,"product-detail__variant-selector-item")]//@value | //div[@class='product-detail__size-variants']//input/@id
+  - name: variantUrl
+    xpath: //li[contains(@class,'product-detail__variant-selector-item')]/@url | //div[contains(@class,'product-detail__size-variants')]//input/@url | //link[@rel="canonical"]/@href

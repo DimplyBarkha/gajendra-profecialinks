@@ -1,0 +1,26 @@
+input:
+  _url: http://douglas.at
+  URL: https://www.douglas.at/de/p/3000052839?variant=671935
+extractions:
+  - html: https://workbench.import.io/html/run=2450726e-3395-4ec1-a8c2-11e7ecc54800/task=7afc6399-12a4-48ec-94b4-390afc4ed83e/43ecf494-3e91-47d5-9554-b4e6bc6782c6.html
+    extractionConfigId: product/details/stores/d/douglas/AT/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "020196"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]/@id
+              - text: "671935"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/input[1]/@id
+              - text: "671956"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/input[1]/@id
+            variantUrl:
+              - text: https://www.douglas.at/de/p/3000052839
+                xpath: /html/head[1]/link[1]/@href
+              - text: https://www.douglas.at/de/p/3000052839?variant=020196
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]/@url
+              - text: https://www.douglas.at/de/p/3000052839?variant=671935
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/input[1]/@url
+              - text: https://www.douglas.at/de/p/3000052839?variant=671956
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/input[1]/@url
+        xpath: /
+    timestamp: 1599739388642

@@ -5,7 +5,7 @@ module.exports = {
     country: 'AT',
     store: 'douglas',
     domain: 'douglas.at',
-    loadedSelector: null,
+    loadedSelector: 'div.product-detail-content__classifications',
     noResultsXPath: null,
     zipcode: '',
   },

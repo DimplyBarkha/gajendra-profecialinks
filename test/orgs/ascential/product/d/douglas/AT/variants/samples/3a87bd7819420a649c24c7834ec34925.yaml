@@ -1,0 +1,13 @@
+input:
+  _url: http://douglas.at
+  URL: https://www.douglas.at/de/p/3000002707
+extractions:
+  - html: https://workbench.import.io/html/run=2450726e-3395-4ec1-a8c2-11e7ecc54800/task=b8f613b3-f2aa-45e1-9623-1b1ccb5106f2/d591df15-eb33-4033-aadd-0a9e59dc3810.html
+    extractionConfigId: product/details/stores/d/douglas/AT/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://www.douglas.at/de/p/3000002707
+                xpath: /html/head[1]/link[1]/@href
+        xpath: /html/head[1]
+    timestamp: 1599739388924
