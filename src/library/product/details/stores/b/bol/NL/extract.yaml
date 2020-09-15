@@ -80,6 +80,8 @@ fields:
     xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs']/dl/dd
   - name: warranty
     xpath: //dt[@class='specs__title' and contains(., 'garantie') and not(contains(., 'Taal garantiebewijs'))]/following-sibling::dd[1] 
+  - name: mpc
+    xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs'][1]/dl//dt[contains(.,'Model')]/following-sibling::dd[1]
   # - name: productOtherInformation
   #   xpath: //ul[@class='pros-cons-list']/li
   - name: promotion
