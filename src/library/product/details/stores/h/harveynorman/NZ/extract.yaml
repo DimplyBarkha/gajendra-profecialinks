@@ -52,7 +52,7 @@ fields:
     manualSelector: small.product-id
   - name: variantCount
     singleValue: false
-    defaultValue: '1'
+    defaultValue: '0'
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,"bv-prs-container")]//dd[contains(@class, 'ratio-count')]
@@ -77,7 +77,7 @@ fields:
     manualSelector: div#flix-inpage
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="flix-inpage"]//img/@srcset
+    xpath: //div[@id="flix-inpage"]//img/@data-flixsrcset
   - name: videos
     singleValue: false
     xpath: //div[contains(@class,"flix-videodiv")]//iframe/@src

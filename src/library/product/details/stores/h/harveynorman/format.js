@@ -25,9 +25,23 @@ const transform = (data) => {
       }
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(image => {
-          if (!image.text.startsWith('http')) {
-            image.text = `https:${image.text}`;
+          let allImages = image.text.split(', ').map(img => img.trim())
+          let mainImage;
+          if (allImages.length) {
+            mainImage = allImages.find(x => /Desktop/i.test(x))
+            if (!mainImage) {
+              mainImage = allImages.find(x => !(/Mobile/i.test(x)))              
+            }
+            if (!mainImage) {
+              mainImage = allImages[0].replace(/(.*?)\s.*/, '$1').trim()
+            } else {
+              mainImage = mainImage.replace(/(.*?)\s.*/, '$1')
+            }
           }
+          if (mainImage && !mainImage.startsWith('http')) {
+            mainImage = `https:${mainImage}`;
+          }
+          image.text = mainImage;
         });
       }
 
