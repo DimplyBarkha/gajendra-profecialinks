@@ -9,9 +9,16 @@ const transform = (data) => {
             }
 
             if (row.alternateImages) {
-                row.alternateImages.forEach(item => {
-                    item.text  = item.text.replace(/(\/fm-thumbnail\/)/g, '/fm-xl/').trim();
+              let info = [];          
+              row.alternateImages.forEach(item => {
+                info.push(item.text);            
+              });
+              if(info.length){          
+                row.alternateImages = [];
+                info.forEach(item => {
+                    row.alternateImages.push({"text": item});
                 });
+              }
             }
 
             if (row.image) {
@@ -24,8 +31,13 @@ const transform = (data) => {
                 let info = [];          
                 row.category.forEach(item => {
                   info.push(item.text);            
-                });
-                row.category = [{'text':info.join(' > '),'xpath':row.description[0].xpath}];          
+                });                
+                if(info.length){
+                  row.category = [];
+                  info.forEach(item => {
+                      row.category.push({"text": item});
+                  });
+                }
               }
             
             if (row.description) {
