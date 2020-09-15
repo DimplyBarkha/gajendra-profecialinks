@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'bilka.dk',
     prefix: 'produkter',
-    suffix: 'id',
+    suffix: null,
     url: 'https://www.bilka.dk/produkter/{id}/',
     country: 'DK',
     store: 'bilka',
