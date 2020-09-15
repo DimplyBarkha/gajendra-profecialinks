@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="la-article zc-parent clearfix" or @class="la-article zc-parent clearfix has-avis"]
+fields:
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+  - name: id
+    xpath: //div[@class="lai-zone-texte"]/h2/a/@href
+    regExp: .+--(\d+).+
+    regExpReplace: $1
+  - name: manufacturer
+    xpath: //span[@class="marque"]
+  - name: name
+    singleValue: false
+    xpath: //span[@class="titre-ligne"]
+  - name: price
+    singleValue: false
+    xpath: //div[@id="main-liste-articles"]//span[@class="uba-prix"]/span[1]/span
+    regExp: (\d+)(\D)(\d+)
+    regExpReplace: $2$1,$3 
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="lai-zone-texte"]/h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.ubaldi.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class='zc-target']/img/@data-src
+    regExp: (.+)
+    regExpReplace: https://www.ubaldi.com$1
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@id="main-liste-articles"]//span[@class="pr-nb-avis"]
+    regExp: \d+
+  - name: reviewCount
+    xpath: //span[@class="pr-nb-avis"]
+    regExp: \d+
+  - name: aggregateRating2
+    xpath: //span[contains(@class,"pr-snippet-rating-decimal")]
+    regExp: (\d)\.(\d)
+    regExpReplace: $1,$2
