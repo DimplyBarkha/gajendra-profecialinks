@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="o-listing__products"]',
-    noResultsXPath: '//div[contains(@class , "o-content__noResults")]',
+    noResultsXPath: '//div[contains(@class , "o-content__noResults")] | //div[@class="container o-product__mainContainer"]',
     openSearchDefinition: {
       template: 'https://www.liverpool.com.mx/tienda?s={searchTerms}?page-{page}',
     },
