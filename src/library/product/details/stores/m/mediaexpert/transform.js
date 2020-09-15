@@ -36,7 +36,7 @@ const transform = (data) => {
       }
       if(row.reviewCount){
         row.reviewCount.forEach(item => {
-          let reviewCountData=item.text.replace(' opinie','');
+          let reviewCountData=item.text.replace(' opinii','');
           item.text=reviewCountData;
         });
       }
