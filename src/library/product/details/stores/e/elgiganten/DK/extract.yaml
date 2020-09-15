@@ -37,7 +37,7 @@ fields:
     xpath: //section[contains(@class,'section product-more-info')]//dl[position()=last()]//table[contains(@class,'spec-table')]//td[position()>last()-1]
   - name: brandText
     singleValue: true
-    xpath: //div[contains(@class,"brand-logo")]//a//img/@alt
+    xpath: //span[contains(@itemprop,'brand')]//meta[contains(@itemprop,'name')]/@content
   - name: manufacturer
     singleValue: true
     xpath: //span[contains(@itemprop,'brand')]//meta[contains(@itemprop,'name')]//@content
@@ -56,7 +56,9 @@ fields:
     xpath: //h1[contains(@class,"product-title")]
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,"el-product-video-slider")]//video/@src
+    xpath: //div[contains(@class,"el-product-video-slider")]//video[contains(@class,'el-videoplayer')]/@src
+    # regExp: (.+)
+    # regExpReplace: https://www.elgiganten.dk$1
   - name: shippingInfo
     singleValue: false
     xpath: //meta[contains(@itemprop,'seller')]/@content
@@ -68,7 +70,7 @@ fields:
     xpath: //meta[contains(@itemprop,'reviewCount')]//@content
   - name: mpc
     singleValue: true
-    xpath: //meta[contains(@itemprop, 'gtin8')]/@content
+    xpath: //meta[contains(@itemprop, 'productID')]/@content
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[contains(@class, 'misc-info')]//ul[contains(@class,'specs')]/descendant::*/text()
@@ -113,8 +115,9 @@ fields:
     singleValue: true
     xpath: //table[contains(@class,'spec-table')]//tbody//tr//td[contains(text(),'Vægt')]/following::td[1][contains(@class,'any-3-4')]
   - name: color
-    singleValue: true
-    xpath: //table[contains(@class,'spec-table')]//tbody//tr//td[contains(text(),'Farve')]/following::td[1][contains(@class,'any-3-4')]
+    singleValue: false
+    xpath: //div[contains(@class,'product-variations')]//div[contains(text(),'Farve')]//following::div[1]
+    # xpath: //table[contains(@class,'spec-table')]//tbody//tr//td[contains(text(),'Farve')]/following::td[1][contains(@class,'any-3-4')]
   - name: quantity
     singleValue: true
     xpath: //table[contains(@class,'spec-table')]//tr//td[contains(text(), 'pakken')]/following::td[1][contains(@class,'any-3-4')]
@@ -124,3 +127,11 @@ fields:
   - name: packSize
     singleValue: true
     xpath: //table[contains(@class,'spec-table')]//tr//td[contains(text(), 'pakken')]/following::td[1][contains(@class,'any-3-4')]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'product-detail-page')]//div[contains(@class,'product-inspiration-wrapper')]//section[contains(@class,'article-page')]//div[contains(@class,'article-text')]//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.elgiganten.dk$1
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,'product-detail-page')]//div[contains(@class,'product-inspiration-wrapper')]//section[contains(@class,'article-page')]//div[contains(@class,'article-text')]
