@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, "listingMainContent")]
+recordXPath: //section[contains(@class, "listingProduct")]
 fields:
   - name: _input
     singleValue: false
@@ -11,35 +11,35 @@ fields:
     singleValue: false
   - name: aggregateRating2
     singleValue: false
-    xpath: //p[contains(@class, "listingProductOpinions")]//i/@class
+    xpath: //div[contains(@class, "listingMainContent")]//p[contains(@class, "listingProductOpinions")]//i/@class
   - name: brandText
     singleValue: false
-    xpath: //div[contains(@class, "generic-bands-container")]//a/@data-product-brand
+    xpath: //div[contains(@class, "listingMainContent")]//div[contains(@class, "generic-bands-container")]//a/@data-product-brand
   - name: id
     singleValue: false
-    xpath: //div[contains(@class, "generic-bands-container")]//a/@data-product-code
+    xpath: //div[contains(@class, "listingMainContent")]//div[contains(@class, "generic-bands-container")]//a/@data-product-code
   - name: name
     singleValue: false
-    xpath: //div[contains(@class, "productListingTitle")]//h5
+    xpath: //div[contains(@class, "listingMainContent")]//div[contains(@class, "productListingTitle")]//h5
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, "generic-bands-container")]//a/@data-product-price
+    xpath: //div[contains(@class, "listingMainContent")]//div[contains(@class, "generic-bands-container")]//a/@data-product-price
   - name: currencytoFetch
     singleValue: false
-    xpath: //div[contains(@class, "priceListing")]//span[contains(@class, "currency")]
+    xpath: //div[contains(@class, "listingMainContent")]//div[contains(@class, "priceListing")]//span[contains(@class, "currency")]
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class, "generic-bands-container")]//a/@href
+    xpath: //div[contains(@class, "listingMainContent")]//div[contains(@class, "generic-bands-container")]//a/@href
     regExp: (.+)
     regExpReplace: https://www.monclick.it$1
   - name: ratingCount
     singleValue: false
-    xpath: //p[contains(@class, "listingProductOpinions")]/a
+    xpath: //div[contains(@class, "listingMainContent")]//p[contains(@class, "listingProductOpinions")]/a
     type: NUMBER
   - name: reviewCount
     singleValue: false
-    xpath: //p[contains(@class, "listingProductOpinions")]/a
+    xpath: //div[contains(@class, "listingMainContent")]//p[contains(@class, "listingProductOpinions")]/a
     type: NUMBER
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class, "generic-bands-container")]//a//img/@src
+    xpath: //input[contains(@class, "listingCheckbox")]/@data-product-img-url
