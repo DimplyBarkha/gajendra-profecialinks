@@ -40,7 +40,7 @@ const transform = (data) => {
         let rating = '';
         row.aggregateRating.forEach(item => {
           text += item.text;
-          rating = parseFloat(text).toFixed(2).replace('.', ',')
+          rating = parseFloat(text).toFixed(2).replace('.', ',');
         });
         row.aggregateRating = [
           {
