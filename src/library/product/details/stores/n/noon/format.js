@@ -29,7 +29,7 @@ const transform = (data) => {
             info.push(item.text);            
           }
         });          
-        row.category = [{'text':info.join(' > '),'xpath':row.category[0].xpath}];
+        row.category = info;
       }
       
       
@@ -38,14 +38,14 @@ const transform = (data) => {
         row.alternateImages.forEach(item => {
           info.push(item.text);            
         });          
-        row.alternateImages = [{'text':info.join(' | '),'xpath':row.alternateImages[0].xpath}];          
+        row.alternateImages = info;          
       }
       if (row.imageAlt) {
         let info = [];          
         row.imageAlt.forEach(item => {
           info.push(item.text.trim());            
         });          
-        row.imageAlt = [{'text':info.join(' | '),'xpath':row.imageAlt[0].xpath}];          
+        row.imageAlt = info[0];          
       }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
