@@ -64,6 +64,7 @@ fields:
     xpath: //span[@itemprop='identifier']
   - name: variantCount
     singleValue: false
+    defaultValue: '0'
   - name: variantId
     singleValue: false
     xpath: //aside[contains(@class,'mk-product-page')]//a[@data-action='add-to-cart']/@data-product-code
@@ -78,85 +79,3 @@ fields:
     xpath: //iframe[@id="iframeVideo"]/@src
     regExp: (.+)
     regExpReplace: https:$1
-  # - name: _input
-  #   singleValue: false
-  # - name: _pageTimestamp
-  #   singleValue: false
-  # - name: _url
-  #   singleValue: false
-  # - name: aggregateRatingText
-  #   singleValue: false
-  # - name: aggregateRating
-  #   singleValue: false
-  # - name: colorCode
-  #   singleValue: false
-  # - name: countryOfOrigin
-  #   singleValue: false
-  # - name: coupon
-  #   singleValue: false
-  # - name: descriptionBulletsInfo
-  #   singleValue: false
-  #   type: NUMBER
-  # - name: directions
-  #   singleValue: false
-  # - name: energyEfficiency
-  #   singleValue: false
-  # - name: firstVariant
-  #   singleValue: false
-  # - name: gtin
-  #   singleValue: false
-  # - name: Image360Present
-  #   singleValue: false
-  # - name: lbb
-  #   singleValue: false
-  # - name: lbbPrice
-  #   singleValue: false
-  # - name: legalDisclaimer
-  #   singleValue: false
-  # - name: manufacturerDescription
-  #   singleValue: false
-  # - name: manufacturerImages
-  #   singleValue: false
-  # - name: mpc
-  #   singleValue: false
-  # - name: newDescription
-  #   singleValue: false
-  # - name: packaging
-  #   singleValue: false
-  # - name: packSize
-  #   singleValue: false
-  # - name: productOtherInformation
-  #   singleValue: false
-  # - name: promotion
-  #   singleValue: false
-  # - name: quantity
-  #   singleValue: false
-  # - name: ratingCount
-  #   singleValue: false
-  #   type: NUMBER
-  # - name: recyclingInformation
-  #   singleValue: false
-  # - name: shippingDimensions
-  #   singleValue: false
-  # - name: shippingInfo
-  #   singleValue: false
-  # - name: dimensionsSpecifications
-  #   singleValue: false
-  # - name: detailsSpecifications
-  #   singleValue: false
-  # - name: warrantySpecifications
-  #   singleValue: false
-  # - name: storage
-  #   singleValue: false
-  # - name: technicalInformationPdfPresent
-  #   singleValue: false
-  # - name: termsAndConditions
-  #   singleValue: false
-  # - name: variantInformation
-  #   singleValue: false
-  # - name: variants
-  #   singleValue: false
-  # - name: warnings
-  #   singleValue: false
-  # - name: weightGross
-  #   singleValue: false
