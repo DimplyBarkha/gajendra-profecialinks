@@ -6,8 +6,8 @@ module.exports = {
     store: 'gigantti',
     nextLinkSelector: null,
     loadedSelector: 'div.product-list-container',
-    noResultsXPath: '//section[contains(@class, "no-search-result")]',
+    noResultsXPath: '//div[contains(@class, "product-list-container")]',
     domain: 'gigantti.fi',
     zipcode: '',
-  },
+  }, 
 };
