@@ -19,13 +19,19 @@ const transform = (data) => {
                 });
             }
             if (row.category) {
+                var category_arr = [];
                 row.category.forEach(item => {
                     var category = item.text.replace(/\s*\n\s*\n\s*/g, '').trim();
-                    var category_arr = category.split(" >");
+                    category_arr = category.split(" >");
                     category_arr.splice(0,1);
                     category_arr.splice(category_arr.length-1,1);
-                    item.text = category_arr.join(" > ");
                 });
+                if(category_arr.length){
+                    row.category = [];
+                    category_arr.forEach(item => {
+                        row.category.push({"text": item});
+                    });
+                }
             }
             if (row.variantInformation) {
                 let info = [];
