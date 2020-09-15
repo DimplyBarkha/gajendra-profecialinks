@@ -1,0 +1,66 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[contains(@class,"products-overview")]/div[contains(@class,"row")]/div
+fields:
+  - name: brand
+    singleValue: false
+    xpath: //span[contains(@class,"brand")]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,"product-content__link")]/@href
+    regExp: (.+)
+    regExpReplace: https://www.hifi.lu$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[contains(@class,"product-image")]/@src
+  - name: name
+    singleValue: false
+    xpath: //span[contains(@class,"product-name")]//span[contains(@class,"name")]
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: false
+    description: The model code of the product
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,"rating-amount")]/span
+    regExp: (\d+)
+    regExpReplace: $1
+    description: The number of reviews
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class,"current-price")]
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: false
+    description: The name of the seller of the item (if available)
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,"btn-wrapper")]/@id
+  - name: fullStar    
+    singleValue: false
+    xpath: count(.//div[contains(@class,"rating")]/span[contains(@class,"plug filled")])
+  - name: halfStar    
+    singleValue: false
+    xpath: count(.//div[contains(@class,"rating")]//span[@class="plug"])
+  - name: aggregateRating2
+    singleValue: false
