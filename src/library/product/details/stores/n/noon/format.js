@@ -40,8 +40,10 @@ const transform = (data) => {
           if (item.text != 'Home'){
             info.push(item.text);            
           }
-        });          
-        row.category = [{'text':info.join(' > '),'xpath':row.category[0].xpath}];
+        });
+        if(info.length){
+          row.category = info;
+        }
       }
       
       
