@@ -64,7 +64,7 @@ fields:
     xpath: //div[contains(@class, 'product-detail-bullet-list')]//li[contains(text(),'warranty')]
   - name: largeImageCount
     singleValue: false
-    xpath: //div[contains(@class,'product-detail-primary-image')]//img/@src
+    xpath: count(//div[contains(@class,'product-detail-primary-image')]//img/@src)
   - name: firstVariant
     singleValue: false
     xpath: //meta[contains(@itemprop, 'sku')]/@content
@@ -79,13 +79,11 @@ fields:
     manualSelector: div#video-url
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id='inpage_container']//div[contains(@class,'flix-Text-block') or contains(@class,'flix-std-content')]
+    xpath: //div[@id='inpage_container']
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id='inpage_container']//div[contains(@class,'flix-std-row') or contains(@class,'flix-std-table')]//img/@srcset
-    regExp: (.+)
-    regExpReplace: https:$1
-  - name: specification
+    xpath: //div[contains(@id,'manufacture-images')]
+  - name: specifications
     singleValue: false
     xpath: //div[contains(@class,'inpage_selector_specification')]//td
   - name: weightNet
