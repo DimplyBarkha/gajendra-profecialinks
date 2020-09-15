@@ -36,8 +36,8 @@ const transform = (data) => {
       }
       if(row.reviewCount){
         row.reviewCount.forEach(item => {
-          let reviewCountData=item.text.replace(' opinii','');
-          item.text=reviewCountData;
+          let reviewCountData=item.text.split(' ');
+          item.text=reviewCountData[0];
         });
       }
       if (row.manufacture) {
@@ -70,6 +70,50 @@ const transform = (data) => {
               item.text = match[1].trim();
           }else{
               item.text = "";
+          }
+        });
+      }
+
+      if(row.weightNet){
+        row.weightNet.forEach(item => {
+          var myRegexp = /Waga\s+\[g\](\d+)\s*/g;
+          var match = myRegexp.exec(item.text);
+          if(match.length){
+              item.text = match[1].trim();
+          }else{
+              delete item.text;
+          }
+        });
+      }
+
+      if(row.color){
+        row.color.forEach(item => {
+          var data1Arr=item.text.split('Kolor ');
+          if(data1Arr.length>1){
+            var data2Arr=data1Arr[1].trim().split(' ');
+            if(data2Arr.length>1){
+              item.text=data2Arr[0];
+            }else{
+              item.text="";
+            }
+          }else{
+            item.text="";
+          }
+        });
+      }
+
+      if (row.productOtherInformation) {
+        row.productOtherInformation.forEach(item => {
+          var data1Arr=item.text.split('Informacje dodatkowe ');
+          if(data1Arr.length>1){
+            var data2Arr=data1Arr[1].split('Moc [W]');
+            if(data2Arr.length>1){
+              item.text=data2Arr[0];
+            }else{
+              item.text="";
+            }
+          }else{
+            item.text="";
           }
         });
       }
