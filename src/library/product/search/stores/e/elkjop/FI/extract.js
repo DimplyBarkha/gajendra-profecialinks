@@ -1,10 +1,10 @@
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'FI',
     store: 'elkjop',
-    transform: null,
+    transform: cleanUp,
     domain: 'gigantti.fi',
     zipcode: '',
   },
@@ -22,13 +22,20 @@ module.exports = {
         accCookie.click();
       }
       // @ts-ignore
-      const resCount = document.querySelector('.count').innerText;
+      const resCountEle = document.querySelector('.count');
+      if (resCountEle) {
+        // @ts-ignore
+        var resCount = resCountEle.innerText;
+      }
       const resVisible = 12;
       var iter = Math.ceil(resCount / resVisible);
       var i;
       for (i = 0; i < iter; i++) {
-        window.scrollTo(0, document.querySelector('#searchProductsInfo').scrollHeight);
-        await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+        var elemExist = document.querySelector('#searchProductsInfo');
+        if (elemExist) {
+          window.scrollTo(0, document.querySelector('#searchProductsInfo').scrollHeight);
+          await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+        }
       }
     });
     return await context.extract(productDetails);

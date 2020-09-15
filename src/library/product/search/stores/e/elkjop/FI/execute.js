@@ -6,7 +6,7 @@ module.exports = {
     store: 'elkjop',
     domain: 'gigantti.fi',
     url: "https://www.gigantti.fi/search?SearchTerm='{searchTerms}'&search=&searchResultTab=",
-    loadedSelector: 'html body div#site-wrapper',
+    loadedSelector: '.forward',
     noResultsXPath: '//*[contains(@class, "no-search-result")]',
     zipcode: '',
   },
