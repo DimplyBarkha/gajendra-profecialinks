@@ -20,15 +20,8 @@ const cleanUp = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.description) {
-        let text = '';
-        row.description.forEach(item => {
-          text += item.text.replace(/\n/g, '').trim();
-        });
-        row.description = [
-          {
-            text: text,
-          },
-        ];
+        const text = row.description.map(elm => elm.text.trim()).join(' ');
+        row.description = [{ text }];
       }
     }
   }

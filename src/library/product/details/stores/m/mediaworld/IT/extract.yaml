@@ -33,13 +33,13 @@ fields:
     regExpReplace: $1,$3
   - name: availabilityText
     description: Availability as described on page for the selected variant. If there is no availability but the product can be added to cart, this field should be "In Stock"
-    xpath: //div[@class="second-box__buttons"]/a[@class="product-add-to-cart mw-yellow-btn btn-size-md js-add-to-cart"]
+    xpath: //div[@class="column-elem col-right"]//a[@class="product-add-to-cart mw-yellow-btn btn-size-md js-add-to-cart"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     description: Product description supplied by website - may be concatenanted from multiple places; specifically not the manufacturer description
-    xpath: concat(//div[@class="product-info-wrapper js-comp"]//h2[@class="product-description"]," ",//*[@id="marketing-content" or @id="”marketing-content”"])
+    xpath: //div[@class="product-info-wrapper js-comp"]//h2[@class="product-description"] | //*[@id="marketing-content" or @id="”marketing-content”"]
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
