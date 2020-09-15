@@ -35,14 +35,24 @@ const transform = (data) => {
           row.category.forEach(item => {            
             info.push(item.text.trim());
           });
-          row.category = info;
+          if(info.length){            
+            row.category = [];
+            info.forEach(item => {
+              row.category.push({"text": item});
+            });
+          }          
         }   
         if (row.alternateImages) {
             let info = [];
             row.alternateImages.forEach(item => {              
               info.push('https://www.manor.ch'+item.text)
             });
-            row.alternateImages = info;
+            if(info.length){              
+              row.alternateImages = [];
+              info.forEach(item => {
+                row.alternateImages.push({"text": item});
+              });
+            }
         }
         if (row.manufacturerImages) {
           row.manufacturerImages.forEach(item => {
