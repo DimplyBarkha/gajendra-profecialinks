@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector:
+recordSelector: null
+recordXPath: //div[@class="product-tile"]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"product-tile__name")]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class,'product-tile__top-brand')]
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,"product-tile")]//@href
+    regExp: (.*)/(.*)
+    regExpReplace: $2
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"product-tile")]//@price
+  - name: gtin
+    singleValue: false
+    xpath: //div[contains(@class,"product-tile")]//@gtin
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"product-tile")]//@averagerating
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,"product-tile")]//@numberofreviews
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,"product-tile")]//@ratingstars
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,"product-tile")]//@href
+    regExp: (.+)
+    regExpReplace: https://www.douglas.at$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,"product-tile")]//@images
+    description: The URL for the product thumbnail image
+  - name: rank 
+  - name: rankOrganic
+
+
