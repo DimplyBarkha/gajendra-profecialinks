@@ -1,4 +1,4 @@
-const { transform } = require('../variantTransform');
+const { transform } = require('../variantFormat');
 module.exports = {
   implements: 'product/details/variants/variantsExtract',
   parameterValues: {
