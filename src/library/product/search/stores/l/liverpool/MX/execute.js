@@ -7,7 +7,7 @@ module.exports = {
     domain: 'liverpool.com.mx',
     url: 'https://www.liverpool.com.mx/tienda?s={searchTerms}',
     loadedSelector: 'div[class="o-listing__products"]',
-    noResultsXPath: '//div[contains(@class , "o-content__noResults")]',
+    noResultsXPath: '//div[contains(@class , "o-content__noResults")] | //div[@class="container o-product__mainContainer"]',
     zipcode: '',
   },
 };
