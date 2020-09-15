@@ -6,65 +6,66 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  x-path: //div[contains(@class,'tvsn-productmedia')]//div[contains(@class,'tvsn-productmedia-viewer')]//div//img/@src
-  defaultValue: 'test' 
+  xpath: //div[contains(@class,'tvsn-productmedia')]//div[contains(@class,'tvsn-productmedia-viewer')]//div//img/@src 
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  x-path: //div[contains(@class,'tvsn-productmedia')]//div[contains(@class,'tvsn-productmedia-viewer')]//div//img/@alt
+  xpath: //div[contains(@class,'tvsn-productmedia')]//div[contains(@class,'tvsn-productmedia-viewer')]//div//img/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  x-path: //meta[@name="keywords"]/@content
+  xpath: //div[contains(@class,'tvsn-productmedia-thumbs-img')]/img/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
-  x-path: //meta[@name="keywords"]/@content
+  xpath: //meta[@name="keywords"]/@content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  x-path: //ol[contains(@class,'tvsn-breadcrumb')]//li[contains(@class,'tvsn-breadcrumb-item')][1]//a
+  xpath: //ol[contains(@class,'tvsn-breadcrumb')]//li[contains(@class,'tvsn-breadcrumb-item')]//a
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)
-  x-path: //div[contains(@class,'tvsn-product-details')]//h1[contains(@class,'tvsn-product-details-name')]
+  xpath: //div[contains(@class,'tvsn-product-details')]//h1[contains(@class,'tvsn-product-details-name')]
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-  x-path: substring-after(//div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-tvsnprice')]//del,'$')
+  # xpath: substring-after(//div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-tvsnprice')]//del,'$')
+  xpath: substring-after(//div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-tvsnprice')]//del,'Price')
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user
     clicks add to basket this is the price they would be charged
-  x-path: substring-after(//div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-mainprice')],'$')
+  # xpath: substring-after(//div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-mainprice')],'$')
+  xpath: substring-after(//div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-mainprice')],'PRICE')
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there is no availability but the product can be added to cart, this field should be "In Stock"
-  x-path: //button[contains(@class,'tvsn-btn-add')]
+  xpath: //button[contains(@class,'tvsn-btn-add')]
   regExp: (.+)
   regExpReplace: In Stock
   defaultValue: Out of Stock
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from multiple places; specifically not the manufacturer description
-  x-path: //div[contains(@class,'tvsn-product-tabs-html')]
+  xpath: //div[contains(@class,'tvsn-product-tabs-html')]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
   type: NUMBER
-  x-path: count(//div[contains(@class,'tvsn-product-tabs-items')]//div[contains(@class,'tvsn-product-tabs-element')]//div[contains(@class,'tvsn-product-tabs-collapse collapse')]//ul//li)
+  # xpath: count(//div[contains(@class,'tvsn-product-tabs-items')]//div[contains(@class,'tvsn-product-tabs-element')]//div[contains(@class,'tvsn-product-tabs-collapse collapse')]//ul//li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name,
     e.g. "Visit the Gillette Store"
-  x-path: //div[contains(@class,'tvsn-product-details')]//h2[contains(@class,'tvsn-product-details-brand')]
+  xpath: //div[contains(@class,'tvsn-product-details')]//h2[contains(@class,'tvsn-product-details-brand')]
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
 - name: quantity
   singleValue: true
-  description: Quantity as described on the page
-  x-path: //div[contains(@class,'tvsn-product-details-quantity')]//div[contains(@class,'tvsn-control-inputnumber-display')]
+  # description: Quantity as described on the page
+  xpath: //div[contains(@class,'tvsn-product-details-quantity')]//div[contains(@class,'tvsn-control-inputnumber-display')]
   regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
   regExpReplace: $1$2$3$4
 - name: weightNet
@@ -79,15 +80,19 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  x-path: //div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-sku')]
+  xpath: //div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-sku')]
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same sku
-  x-path: //div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-sku')]
+  xpath: //div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-sku')]
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
-  x-path: //div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-sku')]
+  xpath: //div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-sku')]
+- name: promotion
+  singleValue: true
+  description: promotion text on product page  
+  xpath: //div[@class="tvsn-product-special_offer"]//div[contains(@class,tvsn-product-special_offer-wrapper)]
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on
@@ -105,14 +110,14 @@ fields:
   singleValue: true
   description: The number of ratings
   type: NUMBER
-  x-path: substring(//div[contains(@class,'tvsn-product-details-rating')]//a,2,1)
+  xpath: //div[@class="tvsn-product-details-rating"]/a
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
-  singleValue: truertfv   
+  singleValue: true   
   description: The stated aggregate rating normalized to be out of 5
-  x-path: substring(//div[contains(@class,'tvsn-product-details-rating')]//div[contains(@class,'tvsn-rating')]/@style,8,2) div 20
+  xpath: //div[@class="col-sm-6 tvsn-products-reviews-avg"]//div//strong
   type: NUMBER
 - name: shippingInfo
   singleValue: true
@@ -127,11 +132,11 @@ fields:
   singleValue: true
   description: Number of variants listed
   type: NUMBER
-  x-path: count(//div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button)
+  # xpath: count(//div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button)
 - name: color
   singleValue: true
   description: A textual description of the colour
-  x-path: //div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button[contains(@class,'tvsn-product-swatches-active')]/@title
+  xpath: //div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button[1]/@title
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -144,15 +149,19 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
-  x-path: //video/@src
+  xpath: //video/@src
 - name: productURL
   singleValue: true
   description: URL of Product
-  x-path: //link[contains(@rel,'canonical')]/@href
+  xpath: //link[contains(@rel,'canonical')]/@href
 - name: name
   singleValue: true
   description: The product name
-  x-path: //div[contains(@class,'tvsn-product-details')]//h1[contains(@class,'tvsn-product-details-name')]
+  xpath: //div[contains(@class,'tvsn-product-details')]//h1[contains(@class,'tvsn-product-details-name')]
+- name: warranty
+  singleValue: true
+  description: Guarantee associated with the product
+  xpath: //div[contains(@class,'tvsn-product-tabs')]//div[contains(@class,'tvsn-product-tabs-html')]//b[contains(text(),'Warranty and Additional Info:')]/following-sibling::text()[1]
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -405,16 +414,13 @@ fields:
 - name: specifications
   singleValue: true
   description: The physical dimensions of the product including packaging.
-- name: warranty
-  singleValue: true
-  description: Guarantee associated with the product
 - name: storage
   singleValue: true
   description: Suggested storage location for product
 - name: countryOfOrigin
   singleValue: true
   description: The country from which the product originates
-  x-path: //div[contains(@class,'tvsn-product-tabs')]//div[contains(@class,'tvsn-product-tabs')]//p//b[last()]/following-sibling::text()[1]
+  xpath: //div[contains(@class,'tvsn-product-tabs')]//div[contains(@class,'tvsn-product-tabs-html')]//b[contains(text(),'Country of Origin:')]/following-sibling::text()[1]
 - name: allergyAdvice
   singleValue: true
   description: Allergy information associated with the product
@@ -436,9 +442,6 @@ fields:
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
-- name: promotion
-  singleValue: true
-  description: promotion text on product page
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -457,7 +460,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
-  x-path: //div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button/@title
+  xpath: //div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button/@title
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of
@@ -469,11 +472,11 @@ fields:
     all variants of a product, this rpc becomes the common link between other
     variants. method 3 = apply some logic to determine link between variants,
     this will need analysis
-  x-path: //div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button[1]/@title
+  # xpath: //div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button[1]/@title
 - name: variants
   singleValue: false
   description: null
-  xpath: //div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-sku')]
+  # xpath: //div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-sku')]
 - name: additionalDescBulletInfo
   singleValue: false
   description: null
@@ -494,6 +497,9 @@ fields:
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+  xpath: //div[contains(text(),'Manual')]//following-sibling::div//div//a[contains(@href, '.pdf')]/@href
+  regExp: (.+)
+  regExpReplace: https://www.itvsn.com.au$1
   defaultValue: No
 - name: termsAndConditions
   singleValue: true

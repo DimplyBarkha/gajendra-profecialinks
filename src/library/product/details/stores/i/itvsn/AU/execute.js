@@ -6,7 +6,6 @@ module.exports = {
     store: 'itvsn',
     domain: 'itvsn.com.au',
     loadedSelector: 'body',
-    noResultsXPath: null,
-    zipcode: '',
+    noResultsXPath: '//div[contains(@class,"row tvsn-category-list")]//div[contains(@class,"tvsn-category-empty")]',
   },
 };
