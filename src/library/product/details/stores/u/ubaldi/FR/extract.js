@@ -8,5 +8,5 @@ module.exports = {
     transform,
     domain: 'ubaldi.com',
     zipcode: '',
-  }
+  },
 };

@@ -27,6 +27,25 @@ const transform = (data, context) => {
         const text = row.aggregateRating[0].text.replace(/./g, ',').trim();
         row.aggregateRating = [{ text }];
       }
+      if (row.videos) {
+        const videos = row.videos.map(video => {
+          if (video.text.includes('url_video')) {
+            const videoLink = video.text.match(/url_video\s*=\s*'([^']+);/) && video.text.match(/url_video\s*=\s*'([^']+);/)[1];
+            if (!videoLink) return;
+            return { text: videoLink };
+          }
+          if (video.text.includes('content.jwplatform.com')) {
+            const json = JSON.parse(video.text);
+            return { text: json.playlist.map(elm => `https${elm.file}`).join(' | ') };
+          }
+          return { text: video.text };
+        });
+        row.videos = videos.map(elm => elm);
+      }
+      if (row.manufacturerDescription) {
+        const text = row.manufacturerDescription.map(elm => elm.text).join(' ');
+        row.manufacturerDescription = [{ text }];
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

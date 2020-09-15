@@ -31,7 +31,7 @@ fields:
   - name: listPrice
     description: The stated undiscounted price for the product
   - name: price
-    xpath: translate(//@data-prix-origine, ',.', '.,')
+    xpath: translate(//span[contains(concat(' ',@class,' ')," prix ")],'€',',')
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   
@@ -131,16 +131,19 @@ fields:
   - name: colorCode
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
+    xpath: //div[starts-with(@id,"flixinpage_")]/*[not(name() = 'script')][not(name() = 'style')]
     singleValue: false
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
+    xpath: //div[starts-with(@id,"flixinpage_")]//img/@srcset | //div[starts-with(@id,"flixinpage_")]//img/@src[not(contains(.,"loading.gif"))][not(@srcset)]
+    regExp: (.+)
+    regExpReplace: https:$1
     singleValue: false
     description: Images within the third party description
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //*[contains(@class,"vs-container")]/script
-    regExp: https://www.youtube.com/[a-zA-z\/0-9?=&;]+
+    xpath: //script[@type="text/javascript"][contains(text(),"url_video")] | //input[@class="flix-jw"]/@value
   - name: imageZoomFeaturePresent
     xpath: //*[@class="diapo-zoom glyphicon glyphicon-search zoneclic"]/@class
     regExp: (.+)

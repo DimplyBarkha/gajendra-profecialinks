@@ -41,3 +41,5 @@ fields:
     xpath: //span[contains(@class,"pr-snippet-rating-decimal")]
     regExp: (\d)\.(\d)
     regExpReplace: $1,$2
+  - name: searchUrl
+    xpath: ancestor::html/body/@current-page
