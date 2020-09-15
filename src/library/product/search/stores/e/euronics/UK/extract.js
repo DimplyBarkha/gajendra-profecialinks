@@ -52,7 +52,7 @@ async function implementation (
           console.log(data);
           const item = document.evaluate(`//div[@data-test-id="product-item:${data.sku}"]`, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           if (item) {
-            addHiddenDiv(item, 'rating', data.average_score / 2);
+            addHiddenDiv(item, 'rating', (data.average_score / 2).toString().replace('.', ','));
             addHiddenDiv(item, 'reviews', data.review_count);
             addHiddenDiv(item, 'id', data.sku);
           }
