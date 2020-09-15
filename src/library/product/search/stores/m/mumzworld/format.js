@@ -11,14 +11,7 @@ const transform = (data) => {
             row.rankOrganic = [{'text':p_count}];
             row.rank = [{'text':p_count}];
             p_count = p_count + 1;
-          }
-          if (row.id) {
-            row.id.forEach(item => {
-                var arr = item.text.split('/');
-                var url_len = arr.length;
-                item.text = arr[url_len-1];                
-            });
-          }            
+          }          
       }
   }
   return data;
