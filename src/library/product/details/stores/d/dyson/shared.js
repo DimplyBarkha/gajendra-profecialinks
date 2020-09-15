@@ -151,7 +151,7 @@ async function implementation (
       const charToRemove = [' ', '\'', String.fromCharCode(160)];
       const newDecimalSeparator = '.';
       const potentialDecSeparators = [',', '.'];
-      let temp = charToRemove.reduce((acc, char) => acc.split(char).join(''), price);
+      let temp = charToRemove.reduce((acc, char) => acc.split(char).join(''), price || '');
       // remove the currency and other text
       temp = temp.replace(/[^0-9.,\s]/g, '');
       // deal with comma and dots
@@ -223,7 +223,7 @@ async function implementation (
       ];
       // keep only letters and currency symbols
       const letter = RegExp(/[a-zA-Z\s]/);
-      let temp = price.split('').filter(char => letter.test(char) || currSymb.includes(char)).join('');
+      let temp = (price || '').split('').filter(char => letter.test(char) || currSymb.includes(char)).join('');
       // split per groups of words and only returns the last one
       return temp.split(' ').filter(word => word).slice(-1);
     };
