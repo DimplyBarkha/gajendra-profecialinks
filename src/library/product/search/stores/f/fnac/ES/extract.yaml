@@ -13,7 +13,7 @@ fields:
     xpath: //div[contains(@class,"Article-infoContent")]/p[@class="Article-desc"]/a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //img[contains(@class,"Article-itemVisualImg")]/@data-lazyimage
+    xpath: //img[contains(@class,"Article-itemVisualImg")]/@src
   - name: name
     singleValue: false
     xpath: //div[contains(@class,"Article-infoContent")]/p[@class="Article-desc"]/a
@@ -46,3 +46,6 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //span[contains(@class,"Article-rate")]/span/span[contains(@class,"f-star")]
+  - name: gtin
+    singleValue: false
+    xpath: (//span/@data-ean)[1]
