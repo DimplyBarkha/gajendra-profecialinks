@@ -1,121 +1,130 @@
+const { cleanUp } = require('../../../../shared');
+
 module.exports = {
-  implements: "product/details/extract",
+  implements: 'product/details/extract',
   parameterValues: {
-    country: "DK",
-    store: "power",
-    transform: null,
-    domain: "power.dk",
-    zipcode: "",
+    country: 'DK',
+    store: 'power',
+    transform: cleanUp,
+    domain: 'power.dk',
+    zipcode: '',
   },
 
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    await context.waitForSelector("#product-information-tabs > div:nth-child(1) > div > i");
-    await context.waitForSelector("#product-intro pwr-product-stock-label");
-    await context.click("#product-information-tabs > div:nth-child(1) > div > i");
+    await context.waitForSelector('#product-information-tabs > div:nth-child(1) > div > i');
+    await context.waitForSelector('#product-intro pwr-product-stock-label');
+    await context.click('#product-information-tabs > div:nth-child(1) > div > i');
     await context.evaluate(async function () {
-      function addElementToDocument(key, value) {
-        const catElement = document.createElement("div");
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
-        catElement.style.display = "none";
+        catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
 
-      function getElementByXpath(path) {
+      function getElementByXpath (path) {
         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       }
 
-      const eangtin = getElementByXpath('//*[@id="product-information-tabs"]//*[contains(text(),"EAN")]/../../../..')
-        ? getElementByXpath('//*[@id="product-information-tabs"]//*[contains(text(),"EAN")]/../../../..').textContent
-        : "";
-      if (eangtin) addElementToDocument("eangtin", eangtin);
+      const price = document.querySelector('*#product-intro div.prices-container')
+        ? document.querySelector('*#product-intro div.prices-container').innerText : '';
+      if (price) addElementToDocument('price', price);
+
+      const imageAlt = document.querySelector('div.product-image-container img') ? document.querySelector('div.product-image-container img').getAttribute('alt') : '';
+      if (imageAlt) addElementToDocument('imageAlt', imageAlt);
+
+      const brand = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Producent")]/following-sibling::div')
+        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Producent")]/following-sibling::div').textContent
+        : '';
+      if (brand) addElementToDocument('brand', brand);
+
+      const eangtin = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"EAN")]/following-sibling::div')
+        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"EAN")]/following-sibling::div').textContent
+        : '';
+      if (eangtin) addElementToDocument('eangtin', eangtin);
 
       let stock = getElementByXpath('//*[@id="product-intro"]//pwr-product-stock-label[2]/span/@class')
         ? getElementByXpath('//*[@id="product-intro"]//pwr-product-stock-label[2]/span/@class').textContent
-        : "";
+        : '';
 
       if (stock) {
-        if (stock.includes("stock-available")) {
-          stock = "In Stock";
+        if (stock.includes('stock-available')) {
+          stock = 'In Stock';
         } else {
-          stock = "Out of Stock";
+          stock = 'Out of Stock';
         }
-        addElementToDocument("stock", stock);
+        addElementToDocument('stock', stock);
       } else {
-        stock = "Out of Stock";
-        addElementToDocument("stock", stock);
+        stock = 'Out of Stock';
+        addElementToDocument('stock', stock);
       }
 
-      const color = getElementByXpath('//*[@id="product-tab-general"]/div/pwr-product-specifications/div[2]/div[2]/div[2]/span')
-        ? getElementByXpath('//*[@id="product-tab-general"]/div/pwr-product-specifications/div[2]/div[2]/div[2]/span').textContent
-        : "";
-      if (color) addElementToDocument("color", color);
+      const color = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"farve")]/following-sibling::div')
+        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"farve")]/following-sibling::div').textContent
+        : '';
+      if (color) addElementToDocument('color', color);
 
-      const weightNet = getElementByXpath('//*[@id="product-tab-general"]/div/pwr-product-specifications/div[8]/div[6]/div[2]/span')
-        ? getElementByXpath('//*[@id="product-tab-general"]/div/pwr-product-specifications/div[8]/div[6]/div[2]/span').textContent
-        : "";
-      if (weightNet) addElementToDocument("weightNet", weightNet);
+      const weightNet = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Nettovægt")]/following-sibling::div')
+        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Nettovægt")]/following-sibling::div').textContent
+        : '';
+      if (weightNet) addElementToDocument('weightNet', weightNet);
 
-      const specifications = getElementByXpath('//*[@id="product-tab-general"]/div/pwr-product-specifications/div[8]/div[5]/div[2]/span')
-        ? getElementByXpath('//*[@id="product-tab-general"]/div/pwr-product-specifications/div[8]/div[5]/div[2]/span').textContent
-        : "";
-      if (specifications) addElementToDocument("specifications", specifications);
+      const weightGross = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Bruttovægt")]/following-sibling::div')
+        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Bruttovægt")]/following-sibling::div').textContent
+        : '';
+      if (weightGross) addElementToDocument('weightGross', weightGross);
 
-      const mpc = getElementByXpath('//*[@id="product-tab-general"]/div/pwr-product-specifications/div[1]/div[2]/div[2]/span')
-        ? getElementByXpath('//*[@id="product-tab-general"]/div/pwr-product-specifications/div[1]/div[2]/div[2]/span').textContent
-        : "";
-      if (mpc) addElementToDocument("mpc", mpc);
+      const specifications = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Bruttomål")]/following-sibling::div')
+        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Bruttomål")]/following-sibling::div').textContent
+        : '';
+      if (specifications) addElementToDocument('specifications', specifications);
 
-      const iframeVideoListContainer = document.querySelector("#videoly-container iframe") ? document.querySelector("#videoly-container iframe") : "";
-      let text = "";
-      if (iframeVideoListContainer) {
-        let listOfVideos = document
-          .evaluate('//ul[contains(@class, "b-video-list")]', iframeVideoListContainer.contentDocument, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)
-          .singleNodeValue.querySelectorAll("li");
+      const mpc = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"varekode")]/following-sibling::div')
+        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"varekode")]/following-sibling::div').textContent
+        : '';
+      if (mpc) addElementToDocument('mpc', mpc);
 
-        listOfVideos.forEach((videoContainer, index, arr) => {
-          let element = videoContainer.querySelector("div");
-          if (index == arr.length - 1) {
-            text += "https://www.youtube.com/watch?v=" + element.getAttribute("data-videoid");
-          } else {
-            text += "https://www.youtube.com/watch?v=" + element.getAttribute("data-videoid") + ", ";
-          }
+      const warranty = getElementByXpath('//*[@id="product-intro"]//*[contains(text(), "garanti")]')
+        ? getElementByXpath('//*[@id="product-intro"]//*[contains(text(), "garanti")]').textContent
+        : '';
+      if (warranty) addElementToDocument('warranty', warranty);
+
+      const storage = getElementByXpath('//*[@id="product-intro"]//*[contains(text(), "opbevarings")]')
+        ? getElementByXpath('//*[@id="product-intro"]//*[contains(text(), "opbevarings")]').textContent
+        : '';
+      if (storage) addElementToDocument('storage', storage);
+
+      const shipingInfo = getElementByXpath('//*[@id="product-intro"]//div[@class="pickup-from-store"]')
+        ? getElementByXpath('//*[@id="product-intro"]//div[@class="pickup-from-store"]').textContent
+        : '';
+      if (shipingInfo) addElementToDocument('shipingInfo', shipingInfo);
+
+      const bulletInfo = document.querySelectorAll('div.product-intro-details ul.product-description-bullets li');
+      const descBulletInfo = [];
+      if (bulletInfo) {
+        bulletInfo.forEach(e => {
+          descBulletInfo.push(e.innerText);
         });
       }
-      if (text) addElementToDocument("urlsForVideos", text);
+      addElementToDocument('descBulletInfo', descBulletInfo.join('||'));
+
+      const legal = document.querySelector('*#footer-site div.e-maerket-notice.marg')
+        ? document.querySelector('*#footer-site div.e-maerket-notice.marg').innerText : '';
+      if (legal) addElementToDocument('legal', legal);
+
+      const iframe = document.querySelector('iframe.videoly-box');
+      if (iframe) {
+        const videos = iframe.contentDocument ? iframe.contentDocument.querySelectorAll('li.b-video-item div.b-video-item-tile') : [];
+        videos.forEach(el =>
+          addElementToDocument('urlsForVideos', `https://www.youtube.com/watch?v=${el.getAttribute('data-videoid')}`));
+      };
+      const videoWrapper = getElementByXpath('//div[@class="video-wrapper"]//iframe/@src')
+        ? getElementByXpath('//div[@class="video-wrapper"]//iframe/@src').textContent
+        : '';
+      addElementToDocument('urlsForVideos', videoWrapper);
     });
 
     await context.extract(productDetails);
   },
 };
-
-//   implementation: async ({
-//     inputString,
-//   }, {
-//     country,
-//     domain,
-//   }, context, {
-//     productDetails,
-//   }) => {
-//     await context.waitForSelector('#product-information-tabs > div:nth-child(1) > div > i"]');
-//     await context.click('#product-information-tabs > div:nth-child(1) > div > i');
-//     await context.evaluate(async function () {
-
-//       function addElementToDocument(key, value) {
-//         const catElement = document.createElement('div');
-//         catElement.id = key;
-//         catElement.textContent = value;
-//         catElement.style.display = 'none';
-//         document.body.appendChild(catElement);
-//       }
-//       const gtin = document.querySelector('#product-tab-general > div > pwr-product-specifications > div:nth-child(2) > div:nth-child(3) > div.col-sm-4.col-xs-4 > span > font > font')
-//         // @ts-ignore
-//         ?
-//         document.querySelector('#product-tab-general > div > pwr-product-specifications > div:nth-child(2) > div:nth-child(3) > div.col-sm-4.col-xs-4 > span > font > font').innerText : '';
-//       if (gtin) {
-//         addElementToDocument('gtin', gtin);
-//       }
-//     });
-//     await context.extract(productDetails);
-//   },
-// };
