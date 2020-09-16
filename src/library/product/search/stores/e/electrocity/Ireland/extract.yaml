@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,'products') and contains(@class,'columns-3')]//li
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,'woocommerce-loop-product__link')]/@href
+  - name: searchUrl
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
+  - name: name
+    singleValue: false
+    xpath: //h2[@class='woocommerce-loop-product__title']/text()
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='astra-shop-thumbnail-wrap']//picture[contains(@class,'thumbnail')]//img/@src
+  - name: id
+    singleValue: false
+    xpath: //p[@class='sku']/text()
+  - name: brand
+    singleValue: false
+    xpath: //div[@class='sku-brand']//a/@data-attribute-value
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class='yotpo-stars']//span[@class="sr-only"]/text()
+    regExp: (.*) star rating
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class='yotpo-stars']//following-sibling::a[@class="text-m"]/text()
+    regExp: (\d*)
+    regExpReplace: $1
+    defaultValue: 0
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class='yotpo-stars']//following-sibling::a[@class="text-m"]/text()
+    regExp: (\d*)
+    regExpReplace: $1
+    defaultValue: 0
+  - name: price
+    singleValue: false
+    xpath:  //span[contains(@class,'price')]//ins//span[contains(@class,'woocommerce-Price-amount')]|//span[contains(@class,'price')]//span[contains(@class,'wdr_product_strikeout')]//span[contains(@class,'woocommerce-Price-amount')] 
+
