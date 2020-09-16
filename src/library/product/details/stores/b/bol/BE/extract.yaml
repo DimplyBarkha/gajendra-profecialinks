@@ -11,8 +11,6 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     xpath: //li[contains(@class, 'nav--thumb')]/img/@src
-    regExp: (.+)(\/\d+\x\d+)(.+)
-    regExpReplace: $1/550x422$3
   - name: category
     xpath: //span[contains(@class, 'breadcrumbs__item-content po_breadcrumb_category')]
   - name: nameExtended
@@ -81,7 +79,7 @@ fields:
   - name: warranty
     xpath: (//dt[@class='specs__title' and contains(., 'garantie')]/following-sibling::dd)[1]
   - name: mpc
-    xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs'][1]/dl//dt[contains(.,'Model')]/following-sibling::dd[1]
+    xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs'][1]/dl//dt[contains(.,'Model') or contains(., 'MPN')]/following-sibling::dd[1]
   - name: packSize
     xpath: //dt[contains(.,'Aantal artikelen in verpakking') or contains(.,'Aantal stuks in verpakking')]/following-sibling::dd[1]
   - name: quantity
