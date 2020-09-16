@@ -43,7 +43,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@itemprop="description"]/div[1]
+    xpath: //div[@itemprop="description"]/div[not(@id)]/ul/li | //div[@itemprop="description"]/div[not(@id)]/b | //div[@itemprop="description"]/div[not(@id)]/text()
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
@@ -94,7 +94,6 @@ fields:
     xpath: //body/@rating
   - name: shippingInfo
     description: Shipping information for the product
-    xpath: //div[contains(@class, "delivery-info-row-home")]//div[@class="delivery-method__description"]
   - name: shippingDimensions
     description: Stated shipping dimensions
   - name: shippingWeight
@@ -120,7 +119,6 @@ fields:
   - name: name
     description: The product name
     xpath: //h1[@itemprop="name"]
-    regExp: ^[A-Z + a-z]*(\d+)?[A-Z + a-z]*
   - name: inStorePrice
     description: Price in the selected store
     xpath: //h3[contains(@class,"price-sales")]
@@ -128,6 +126,7 @@ fields:
     description: null
   - name: coupon
     description: Text of any coupon offer
+    xpath: //div[@class="ld-sg-promo__wrapper"]/label/following-sibling::*
   - name: amazonChoice
     description: YES or Blank
   - name: amazonChoiceCategory
@@ -320,7 +319,7 @@ fields:
     description: null
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id="ccs-ext-spec"]
+    xpath: //div[@id="ccs-ext-spec"]/ul/li
   - name: warranty
     description: Guarantee associated with the product
     xpath: //*[contains(@aria-label,"Warranty")]/following-sibling::* | //*[contains(text(),"Warranty")]/following-sibling::* | //span[contains(text(),"warranty")] | //div[@id="wc-power-page"]//*[contains(text(),"warranty")]
@@ -383,7 +382,7 @@ fields:
     regExpReplace: $1
   - name: additionalDescBulletInfo
     description: null
-    xpath: //div[@itemprop="description"]/div[1]/ul/li/text()
+    xpath: //div[@itemprop="description"]/div[not(@id)]/ul/li
   - name: prop65Warning
     description: null
   - name: ageSuitability
