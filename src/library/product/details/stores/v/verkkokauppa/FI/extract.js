@@ -55,7 +55,7 @@ module.exports = {
 
     console.log('.....waiting......');
     await context.waitForSelector('#tabs-page-select-tab1', { timeout: 50000 });
-    const productAvailable = await isSelectorAvailable('div.Scrollable-sc-139ziej-0 > a.gBtnMb');
+    const productAvailable = await isSelectorAvailable('nav[class^="Tabs"]');
     if(productAvailable)
     {      
       await context.click('#tabs-page-select-tab1');
