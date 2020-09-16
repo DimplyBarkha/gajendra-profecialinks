@@ -69,8 +69,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         const dataVideo = thumbVideo.getAttribute('data-video');
         const videoLink = dataVideo.match(/(https:.+);/g);
         const body = document.querySelector('body');
-        // @ts-ignore
-        body.setAttribute('prod-video', videoLink);
+        body.setAttribute('prod-video', videoLink[0]);
       });
     }
 
