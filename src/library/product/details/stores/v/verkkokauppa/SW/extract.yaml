@@ -41,11 +41,13 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class="price-tag-content__price-tag-price price-tag-content__price-tag-price--current"]
+    xpath: //div[contains(@class,'price-tag-prices')]/span
+    # xpath: //div[@class="price-tag-content__price-tag-price price-tag-content__price-tag-price--current"]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //div[@class="price-tag-content__price-tag-price price-tag-content__price-tag-price--current"]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -126,6 +128,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: //nav[contains(@class,'product-header__links')]/a/span[contains(@class,'count-indicator count-indicator--prefix')]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -140,12 +143,13 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //section[contains(@class,'description-container__full-text')]/div/ul/li[contains(text(),'Mitat')]
+    xpath: //section[contains(@class,'description-container__full-text')]/div/ul/li[contains(text(),'itat')]
     # regExp: ([0-9]+) .* 
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
     # xpath: //section[contains(@class,'description-container__full-text')]/div/ul/li[contains(text(),'Paino')]
+    xpath: //td[contains(text(), "Pakkauksen paino")]/following::td[1]
     # regExp: ([0-9]+) .*
   - name: variantCount
     singleValue: true
@@ -154,11 +158,11 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //meta[@name='apple-mobile-web-app-status-bar-style']/@content
+    # xpath: //meta[@name='apple-mobile-web-app-status-bar-style']/@content
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
-    xapth: //meta[@name='theme-color']/@content
+    # xapth: //meta[@name='theme-color']/@content
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
@@ -451,11 +455,13 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //div[contains(@class,"swipable__scroller")]//li[contains(@class,"big-product-grid__item")]//div[contains(@class,"big-grid-product")]/a[1]//div[contains(@class,"details")]/p
+    xpath: //p[contains(@class,'details__name')]
+    # xpath: //div[contains(@class,"swipable__scroller")]//li[contains(@class,"big-product-grid__item")]//div[contains(@class,"big-grid-product")]/a[1]//div[contains(@class,"details")]/p
   - name: packaging
     singleValue: true
     description: Packaging information
-    xpath: //section[contains(@class,"product-details")]//div[2]/table//tr
+    # xpath: //section[contains(@class,"product-details")]//div[2]/table//tr
+    xpath: //header[contains(text(), "Tuotepakkaus")]/following::table[1]/tbody/tr
   - name: additives
     singleValue: true
     description: List of additives in the product
@@ -468,6 +474,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //div[contains(@class,'price-tag-content__price-tag-discount')]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
