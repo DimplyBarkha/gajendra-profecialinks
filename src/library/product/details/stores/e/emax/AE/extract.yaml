@@ -28,7 +28,7 @@ fields:
     xpath: count(//div[@itemprop="description"]//li)
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'description')]
+    xpath: //div[@id='customizeDescription']
   - name: specifications
     singleValue: true
     xpath: //table[@id="product-attribute-specs-table"]

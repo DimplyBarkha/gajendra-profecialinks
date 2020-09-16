@@ -13,7 +13,7 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
@@ -33,11 +33,11 @@ const transform = (data) => {
           item.text = enlargePrefix ? enlargePrefix + item.text.replace(/(.*\/)(.*\/.*\/.*)/, '$2') : item.text;
         });
       }
-      if (row.description) {
-        row.description[0].text = row.description[0].text.replace(/\n \n/g, ' || ').replace(/\n /g, ' ');
-      }
       if (row.additionalDescBulletInfo) {
-        row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/\n \n/g, ' || ');
+        row.additionalDescBulletInfo[0].text = '|| ' + row.additionalDescBulletInfo[0].text.replace(/\n \n/g, ' || ');
+      }
+      if (row.description) {
+        row.description[0].text = row.additionalDescBulletInfo ? row.additionalDescBulletInfo[0].text + ' | ' + row.description[0].text : row.description[0].text
       }
       if (row.firstVariant) {
         row.firstVariant[0].text = row.firstVariant[0].text.replace(/\n/g, ' ');
