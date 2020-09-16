@@ -52,6 +52,8 @@ async function implementation (
       .replace('{searchTerms}', encodeURIComponent(keywords))
       .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
       .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
+
+      console.log(`------------${url}------------`);
   }
 
   if (!url) {

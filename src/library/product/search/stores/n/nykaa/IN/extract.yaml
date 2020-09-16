@@ -1,70 +1,70 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: /html/body/table/tbody/tr
+recordXPath: //tr[td[contains(@class,"dynamic_tags")]]
 fields:
-  - name: paid
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    description: The brand name
-    example: Panasonic
-  - name: category
-    description: The categories (e.g. from breadcrumbs)
-    example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
-  - name: productUrl
-    description: The URL for the product details page
-    xpath: //td[contains(@class,"product_url ")]
-  - name: thumbnail
-    description: The URL for the product thumbnail image
-    xpath: //td[contains(@class,"image_url")]
-  - name: name
-    description: The product name
-    xpath: //td[@class="products depth_1"]//td[@class="name depth_2"]
+  # - name: paid
+  #   description: Whether this is a sponsored/paid result
+  #   type: BOOLEAN
+  # - name: brand
+  #   description: The brand name
+  #   example: Panasonic
+  # - name: category
+  #   description: The categories (e.g. from breadcrumbs)
+  #   example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
+  # - name: productUrl
+  #   description: The URL for the product details page
+  #   xpath: //td[contains(@class,"product_url ")]
+  # - name: thumbnail
+  #   description: The URL for the product thumbnail image
+  #   xpath: //td[contains(@class,"image_url")]
+  # - name: name
+  #   description: The product name
+  #   xpath: //td[@class="products depth_1"]//td[@class="name depth_2"]
   - name: sku
+    xpath: //td[contains(@class, "sku")]
     description: The store-specific product identifier
-  - name: mpc
-    description: The model code of the product
-  - name: gtin
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    description: The stated aggregate rating
-  - name: ratingCount
-    description: The number of ratings
-  - name: reviewCount
-    description: The number of reviews
-    xpath: //td[contains(@class,"rating_count ")]
-  - name: price
-    description: The offered price for the 
-    xpath: //td[contains(@class,"final_price ")]
-  - name: listPrice
-    description: The stated undiscounted price for the product
-    xpath: //td[@class="price depth_2"]
-  - name: manufacturer
-    description: Product manufacturer
-  - name: soldBy
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    description: Shipping information for the product
-  - name: rank
-    description: search/listing rank
-    type: NUMBER    
-  - name: rankOrganic
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER 
-  - name: sponsored
-    description: Is sponsored/paid
-    type: BOOLEAN    
+#   - name: mpc
+#     description: The model code of the product
+#   - name: gtin
+#     description: GTIN code (includes UPC/EAN)
+#   - name: aggregateRatingText
+#     description: The stated aggregate rating
+#   - name: ratingCount
+#     description: The number of ratings
+#   - name: reviewCount
+#     description: The number of reviews
+#     xpath: //td[contains(@class,"rating_count ")]
+#   - name: price
+#     description: The offered price for the 
+#     xpath: //td[contains(@class,"final_price ")]
+#   - name: listPrice
+#     description: The stated undiscounted price for the product
+#     xpath: //td[@class="price depth_2"]
+#   - name: manufacturer
+#     description: Product manufacturer
+#   - name: soldBy
+#     description: The name of the seller of the item (if available)
+#   - name: endorsementText
+#     description: The text that signifies that a product is endorsed
+#   - name: shippingInfo
+#     description: Shipping information for the product
+#   - name: rank
+#     description: search/listing rank
+#     type: NUMBER    
+#   - name: rankOrganic
+#     description: The position (rank) within the list excluding sponsored/paid results
+#     type: NUMBER 
+#   - name: sponsored
+#     description: Is sponsored/paid
+#     type: BOOLEAN    
 
-#  Should these be source specific formulas or in the extractor? 
-  - name: id
-    description: Unique id (within this extractor)
-    xpath: //td[contains(@class,"products ")]//td[contains(@class,"parent_id ")]
-  - name: nameExtended
-    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER 
-
+# #  Should these be source specific formulas or in the extractor? 
+#   - name: id
+#     description: Unique id (within this extractor)
+#     xpath: //td[contains(@class,"products ")]//td[contains(@class,"parent_id ")]
+#   - name: nameExtended
+#     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+#   - name: aggregateRating
+#     description: The stated aggregate rating normalized to be out of 5
+#     type: NUMBER 
