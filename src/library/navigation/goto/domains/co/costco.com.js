@@ -14,13 +14,9 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
 
-    await context.goto(url, {
-      block_ads: false,
-      load_all_resources: true,
-      images_enabled: true,
-      timeout,
-      waitUntil: 'load',
-    });
+    const URL = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true, "cookie_jar":[{"name":"invCheckPostalCode","value":"${zipcode}"}]}[/!opt!]`
+
+    await context.goto(URL, { timeout, waitUntil: 'load' });
 
     if (zipcode) {
       console.log('FOUND ZIP CODE', zipcode);

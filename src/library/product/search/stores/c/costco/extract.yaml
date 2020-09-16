@@ -53,11 +53,11 @@ fields:
     regExpReplace: $1
   - name: ratingCount
     singleValue: true
-    xpath: //div[@class='stars']//div[@class='ratings-number']
-    regExp: \d+
     description: The number of ratings
   - name: reviewCount
     singleValue: true
+    xpath: //div[@class='stars']//div[@class='ratings-number']
+    regExp: \d+
     description: The number of reviews
   - name: price
     singleValue: true

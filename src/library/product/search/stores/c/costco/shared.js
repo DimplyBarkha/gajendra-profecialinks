@@ -28,6 +28,11 @@ const transform = (data, context) => {
         row.rankOrganic = [{ text: orgRankCounter }];
       }
       row.rank = [{ text: rankCounter }];
+
+      if (!row.aggregateRating2 && row.aggregateRatingText) {
+        row.aggregateRating2 = row.aggregateRatingText;
+      }
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

@@ -9,6 +9,7 @@ module.exports = {
   },
   implementation: async ({ zipcode }, parameters, context, dependencies) => {
     console.log('SETTING ZIP')
-    await context.click('#delivery-postal-label');
+    await context.click('#delivery-postal-change');
+    await context.setInputValue('input.form-control[name="deliveryPostalCode"][type="text"]', zipcode);
   },
 };

@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'costco.com',
     prefix: null,
-    url: null,
+    url: 'https://www.costco.com/.product.{id}.html',
     country: 'US',
     store: 'costco',
     zipcode: '94209',

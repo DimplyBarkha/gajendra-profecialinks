@@ -29,13 +29,11 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
-    xpath: //span[contains(text(), "Online Price")]/following-sibling::span[1]
-    regExp: ([0-9\.]+)
-    regExpReplace: $$$1
+    xpath: //div[contains(@class,"online-price")]/span[@class="op-value"]
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: //span[contains(text(), "Your Price")]/following-sibling::div
+    xpath: //div[@id="pull-right-price"]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -87,6 +85,8 @@ fields:
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
+    xpath: //meta[@property="og:url"]/@content
+    regExp: \d{6,}
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
