@@ -60,7 +60,7 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: count(//div[@class="ui-pdp-variations"]/div[@class="ui-pdp-variations__picker"]/a/@href)+count(//div[@class="ui-pdp-variations"]/div[@class="ui-pdp-variations__picker"]//div[contains(@class, "ui-pdp-thumbnail--BLOCKED")])
-    defaultValue: 1
+    defaultValue: '0'
   - name: color
     singleValue: false
     xpath: //*[@data-id="COLOR"]//*[@data-js="variations-title"] | //div[@class="ui-pdp-variations"]//p[contains(text() , 'Color:')]//following-sibling::span | //*[contains(text(), "Color")]/parent::li/span
