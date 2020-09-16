@@ -59,9 +59,7 @@ module.exports = {
         console.log(stars);
         if (stars) {
           const aggRating = parseFloat(stars.replace(/width:\s([\d.]+)%;/g, '$1')) / 20;
-          console.log(aggRating);
-          const ratingDecimal = aggRating.toFixed(1).replace('.', ',');
-          addElementToDocument(item, 'aggRating', ratingDecimal);
+          addElementToDocument(item, 'aggRating', aggRating.toFixed(1).replace(',', '.'));
         }
         addElementToDocument(item, 'pd_rank', lastProductPosition + i);
       }
