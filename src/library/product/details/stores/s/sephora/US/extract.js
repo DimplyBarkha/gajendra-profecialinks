@@ -45,7 +45,9 @@ module.exports = {
     });
 
     if(!pageCheck){
-      throw new Error("productPageNotLoaded");
+      // throw new Error("productPageNotLoaded");
+      console.log("NO PRODUCTS FOUND")
+      return
     }
 
 
