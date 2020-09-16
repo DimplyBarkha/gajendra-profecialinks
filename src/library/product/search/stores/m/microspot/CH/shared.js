@@ -22,9 +22,6 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      if (row.aggregateRating2) {
-        row.aggregateRating2 = [{ text: row.aggregateRating2[0].text }];
-      }
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;

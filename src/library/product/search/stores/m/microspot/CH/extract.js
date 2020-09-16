@@ -29,7 +29,7 @@ async function implementation (
     // @ts-ignore
     const productInfo = JSON.parse(document.querySelector('script#INITIAL_STATE').innerText.trim()).products;
     function addEleToDoc (key, value, code) {
-      const productCode = new RegExp(code);
+      const productCode = new RegExp(`--p${code}`);
       const productsDiv = document.querySelectorAll('div.wQ1zdx._14LFJJ._1ryioq');
       const productDiv = Array.from(productsDiv, ele => ele.innerHTML);
       const filteredDiv = productDiv.filter(element => element.match(productCode));
@@ -39,9 +39,9 @@ async function implementation (
       if (filteredDiv && filteredDiv.length) {
         const doc = new DOMParser().parseFromString(filteredDiv[0], 'text/xml');
         if (!doc.getElementById('rating')) {
-          const id = doc.querySelector('._2FaHUU').id;
-          if (id) {
-            document.getElementById(id).appendChild(prodEle);
+          const href = doc.querySelector('._2FaHUU').getAttribute('href');
+          if (href) {
+            document.querySelector(`a[href='${href}']`).appendChild(prodEle);
           }
         }
       }
@@ -55,6 +55,8 @@ async function implementation (
         if (item && aggregateRating !== 0) {
           addEleToDoc('rating', `${aggregateRating}`, `${item}`);
         }
+        var manufacturer = productInfo[code].manufacturer;
+        manufacturer && addEleToDoc('pd_manufacturer', `${manufacturer}`, `${item}`);
       }
     }
   });
