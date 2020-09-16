@@ -19,7 +19,6 @@ module.exports = {
 
     async function closeModal () {
       const modal = await sharedhelpers.selectorAvailable('gdpr-cookie-layer--show');
-      console.log('modal!');
       if (modal) {
         console.log('modal!');
         const modalCloseButton = await sharedhelpers.selectorAvailable('button.gdpr-cookie-layer__btn--submit');

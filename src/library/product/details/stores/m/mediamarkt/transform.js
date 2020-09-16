@@ -19,7 +19,6 @@ const transform = (data, context) => {
 
   for (const { group } of data) {
     for (const row of group) {
-      console.log('ffdewewewewfdfd');
       if (row.shippingInfo) {
         const text = [];
         row.shippingInfo.forEach(item => {
