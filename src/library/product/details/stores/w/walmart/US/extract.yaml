@@ -75,7 +75,8 @@ fields:
 - name: sku
   singleValue: true
   xpath: //script[@id='item'] | //script[id='product']
-  regExp: (","primaryProductId":\")(\w+)(",")?
+  regExp: ("primaryProductId":")([^"]+)(","primary)
+  # regExp: (","primaryProductId":\")(\w+)(",")?
   regExpReplace: $2
 - name: asin
   singleValue: false
@@ -90,8 +91,6 @@ fields:
 - name: mpc
   singleValue: true
   xpath: //td[contains(text(),"Model")]/parent::tr/td/div
-  # manualSelector: script[id='item'], script[id='product']
-  # regExp: (\"manufactureNumber\"\:\")([^"]+)(",")
   regExpReplace: $2
 - name: packSize
   singleValue: true

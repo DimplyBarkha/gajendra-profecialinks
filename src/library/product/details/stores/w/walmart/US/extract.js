@@ -79,16 +79,16 @@ module.exports = {
     await context.waitForXPath("//meta[@property='og:image']/@content", { timeout: 5000 })
       .catch(() => console.log('no product image available'));
 
-    await context.waitForXPath("//p[@class='Directions']", { timeout: 4000 })
+    await context.waitForXPath("//p[@class='Directions']", { timeout: 6000 })
       .catch(() => console.log('no directions present'));
 
-    await context.waitForXPath("//div[contains(@class,'about-desc')]/ul | //div[contains(@class,'about-item')]/div", { timeout: 20000 })
+    await context.waitForXPath("//div[contains(@class,'about-desc')]/ul | //div[contains(@class,'about-item')]/div", { timeout: 30000 })
       .catch(() => console.log('no desc for item'));
 
     await context.waitForXPath('(//div[contains(@class,"prod-alt-image")]/img/@src)[position()!=1]', { timeout: 6000 })
       .catch(() => console.log('no alt Images'));
 
-    await context.waitForXPath("//li//img[contains(@alt,'Shop at')]", { timeout: 20000 })
+    await context.waitForXPath("//li//img[contains(@alt,'Shop at')]", { timeout: 30000 })
       .catch(()=>console.log('Wait complete'))
 
     await context.click('body');
