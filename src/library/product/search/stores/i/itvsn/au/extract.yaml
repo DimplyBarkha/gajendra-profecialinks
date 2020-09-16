@@ -1,0 +1,39 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"row tvsn-category-list")]//div//div[@class="card"]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class="card"]/div[@class="card-body"]/h6[@class="card-subtitle"]/a
+  - name: id
+    singleValue: false
+    xpath: //div[@class="card"]/div[@class="card-body"]/p[@class="card-text"]/a
+  - name: price
+    singleValue: false
+    xpath: //div[@class="card"]/div[@class="card-body"]/p[@class="card-text"]/span
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="card"]/div[@class="card-body"]/h6[@class="card-subtitle"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.itvsn.com.au$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="card"]/a[@class="pb-2"]/span/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.itvsn.com.au$1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="card"]/div[@class="card-body"]/div[@class="tvsn-rating-box"]/div//@style
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: reviewCount
+    singleValue: false
+    # xpath: //div[contains(@class,"panel-body")]//div[contains(@class,"smallHeader")]//div[@class="rating"]//span
+    description: The number of ratings
+    type: NUMBER
+  - name: ratingCount
+    singleValue: false
+    # xpath: //div[contains(@class,"panel-body")]//div[contains(@class,"smallHeader")]//div[@class="rating"]//span
+    description: The number of Review
+    type: NUMBER  
