@@ -1,13 +1,26 @@
 extends: ../../elcorteingles_perfumeria/ES/extract
-recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])>0]//ul[contains(@class,"colors_list")]/li | //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])!=1]//h1[@id="js-product-detail-title"] | //div[contains(@class,"product_detail-aside")]//div[contains(@class,"product_detail-colors") and count(//div[@class="colors_content_mobile"]) < 1]//parent::div//h1[@id="js-product-detail-title"]
+singleRecord: false
+recordXPath:  //ul[@id="variantsadd" and count(li)  >= 1]/li |  //ul[@id="variantsadd" and count(li) < 1]
 fields:
+  - name: variants
+    xpath: //*/@variantdetails
+  - name: variantCount
+    xpath: //*/@variantCount
   - name: variantInformation
     singleValue: true
-    xpath : ancestor::html //div/@variantInformation
+    xpath: //*/@title
+  - name: gtin
+    singleValue: true
+    xpath : //*/@gtin    
+  - name: eangtin
+    singleValue: true
+    xpath: //*/@gtin     
   - name: color
     singleValue: true
-    xpath : //div/@title
-  - name: quantity
+    xpath: //*/@color
+  - name: variantId
     singleValue: true
-    xpath :  ancestor::html //div[@id='title'] | /a/div/@title 
-    
+    xpath: //*/@retailer_product_code
+  - name: sku
+    singleValue: true
+    xpath: ancestor::html //div[@id="SKU"]      

@@ -24,17 +24,17 @@ const transform = (data, context) => {
         row.allergyAdvice = [{ text }];
       }
 
-      if (row.description) {
-        let text = '';
-        row.description.forEach(item => {
-          text += text ? ` | ${item.text}` : item.text;
-        });
-        row.description = [
-          {
-            text: text,
-          },
-        ];
-      }
+      // if (row.description) {
+      //   let text = '';
+      //   row.description.forEach(item => {
+      //     text += text ? ` | ${item.text}` : item.text;
+      //   });
+      //   row.description = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
+      // }
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);

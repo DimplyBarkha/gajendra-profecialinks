@@ -82,6 +82,18 @@ module.exports = {
         }
       }
 
+      const getXpath = (xpath, prop) => {
+        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+
+      // for FirstVariant
+
+      let firstVariant = getXpath('//div[@class="colors_content_mobile"]//ul//li[count(//div[contains(@class,"selected")])]/following-sibling::li[1]//div/@color', 'nodeValue')
+      addElementToDocument('firstVariant', firstVariant);
       const productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json';
       const passKey = 'caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ';
       const productID = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).code_a.trim('') : '';
@@ -109,7 +121,8 @@ module.exports = {
                   gtin: JSON.parse(apiDataResponse)._all_colors[i].matches[0],
                   retailer_product_code: JSON.parse(apiDataResponse)._all_colors[i].skus[0].reference_id,
                   sku: JSON.parse(apiDataResponse).id,
-                  
+                  variants: JSON.parse(apiDataResponse)._all_colors.map((e) => { return e.skus[0].reference_id.trim('\s') }).join('|'),
+                  variantCount: Number(JSON.parse(apiDataResponse)._all_colors.map((e) => { return e.skus[0].reference_id.trim('\s') }).length)
                 });
             }
           }
@@ -124,7 +137,7 @@ module.exports = {
                 gtin: JSON.parse(apiDataResponse)._gtin ? JSON.parse(apiDataResponse)._gtin : "",
                 retailer_product_code: JSON.parse(apiDataResponse)._reference ? JSON.parse(apiDataResponse)._reference : "",
                 sku: JSON.parse(apiDataResponse)._add_to_cart ? JSON.parse(apiDataResponse)._add_to_cart.id : "",
-                variantInformation: JSON.parse(apiDataResponse)._all_colors ? JSON.parse(apiDataResponse)._delivery_options[0].skus.filter((e) => { return e.color.title === JSON.parse(apiDataResponse)._all_colors[0].title }).map((e) => { return e.variant[1].value }).join('/') : ""
+                // variantInformation: JSON.parse(apiDataResponse)._all_colors ? JSON.parse(apiDataResponse)._delivery_options[0].skus.filter((e) => { return e.color.title === JSON.parse(apiDataResponse)._all_colors[0].title }).map((e) => { return e.variant[1].value }).join('/') : ""
               });
           }
         } catch (e) {
@@ -284,12 +297,12 @@ module.exports = {
       const specXpath = document.querySelectorAll('#tab-content-0 > div > dl > div');
       if (specXpath.length > 1) {
         specXpath.forEach(e => {
-          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')} | `);
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean)} `);
         });
         addElementToDocument('specifications', specifcations);
       } else {
         specXpath.forEach(e => {
-          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')}`);
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean)}`);
         });
         addElementToDocument('specifications', specifcations);
       }
@@ -303,6 +316,6 @@ module.exports = {
       textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
     });
 
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform });
   },
 };

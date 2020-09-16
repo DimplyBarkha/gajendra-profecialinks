@@ -88,12 +88,24 @@ module.exports = {
           addElementToDocument('product_description', imageData.description);
         }
 
+        const getXpath = (xpath, prop) => {
+          const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+          let result;
+          if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+          else result = elem ? elem.singleNodeValue : '';
+          return result && result.trim ? result.trim() : result;
+        };
+
+        // For FirstVariant
+        let firstVariant = getXpath('//div[@id="variants_container"]//select//option[@color][1]/@data-product-gtin', 'nodeValue')
+        addElementToDocument('firstVariant', firstVariant);
+
         // elements from data Layer object
         const dataObj = findJsonData('dataLayer', '=', ';');
         // Check for the data and append to DOM
         if (dataObj) {
           if (dataObj[0].product) {
-            if (dataObj[0].product.status.toLowerCase() === 'available' || dataObj[0].product.status.toLowerCase() === 'add') {
+            if (dataObj[0].product.status.toLowerCase() === 'available' || dataObj[0].product.status.toLowerCase() === 'add' || dataObj[0].product.status.toLowerCase() === 'mixed') {
               addElementToDocument('availability', 'In Stock');
             } else {
               addElementToDocument('availability', 'Out Of Stock');
@@ -161,40 +173,39 @@ module.exports = {
 
         const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${storeId}&original_store=0`;
         const apiDataResponse = await makeApiCall(productsData, {});
+        addElementToDocument('SKU', JSON.parse(apiDataResponse).id);
 
-        const element = document.querySelectorAll('div.colors_content_mobile > ul li');
-        const singleElement = document.querySelector('h1[id="js-product-detail-title"]')
-          ;
-        if (apiDataResponse) {
-          // GTIN,SKU,SIZE,variantInformation
-          if (element) {
-            for (var i = 0; i < element.length; i++) {
-              console.log(JSON.parse(apiDataResponse)._delivery_options[0].skus.filter((e) => { return e.color.title === JSON.parse(apiDataResponse)._all_colors[i].title }).map((e) => { return e.variant[1].value }).join('/'), "vraints")
-              setAttributes(element[i].querySelector('a div'),
-                {
-                  title: JSON.parse(apiDataResponse)._all_colors[i].title,
-                  gtin: JSON.parse(apiDataResponse)._all_colors[i].matches[0],
-                  retailer_product_code: JSON.parse(apiDataResponse)._all_colors[i].skus[0].reference_id,
-                  sku: JSON.parse(apiDataResponse).id,
-                  variantInformation: JSON.parse(apiDataResponse)._delivery_options[0].skus.filter((e) => { return e.color.title === JSON.parse(apiDataResponse)._all_colors[i].title }).map((e) => { return e.variant[1].value }).join('/')
-                });
+        //Append a UL and LI tag append the variant info in the DOM
+        let variants = JSON.parse(apiDataResponse)._delivery_options[0].skus
+        let targetElement = document.querySelector('body');
+        let newUl = document.createElement('ul');
+        newUl.id = "variantsadd";
+        targetElement.appendChild(newUl);
+
+        let ul = document.querySelector("#variantsadd");
+        console.log("ul created", ul)
+        console.log("Variants", variants)
+        try {
+          if (variants.length) {
+            for (let i = 0; i < variants.length; i++) {
+              let listItem = document.createElement("li");
+              console.log(i, "value")
+              setAttributes(listItem, {
+                color: variants[i].variant ? variants[i].variant[0].value : "",
+                gtin: variants[i].gtin ? variants[i].gtin : "",
+                retailer_product_code: variants[i].id.trim(""),
+                title: variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : "",
+                variantDetails: variants[i].variant ? variants[i].variant[0] ?   variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).map((e) => { return e.variant[1].value }).join('|') : "" : "",
+                variantCount: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).length : "" : ""
+              })
+              ul.appendChild(listItem);
             }
           }
-
-          if (element.length < 1) {
-            let div = document.createElement("div");
-            singleElement.appendChild(div);
-            console.log(JSON.parse(apiDataResponse).title, "title")
-            setAttributes(singleElement.querySelector('div'),
-              {
-                title: JSON.parse(apiDataResponse).title ? JSON.parse(apiDataResponse).title : "",
-                gtin: JSON.parse(apiDataResponse)._gtin ? JSON.parse(apiDataResponse)._gtin : "",
-                retailer_product_code: JSON.parse(apiDataResponse)._reference ? JSON.parse(apiDataResponse)._reference : "",
-                sku: JSON.parse(apiDataResponse)._add_to_cart ? JSON.parse(apiDataResponse)._add_to_cart.id : "",
-                variantInformation: JSON.parse(apiDataResponse)._all_colors ? JSON.parse(apiDataResponse)._delivery_options[0].skus.filter((e) => { return e.color.title === JSON.parse(apiDataResponse)._all_colors[0].title }).map((e) => { return e.variant[1].value }).join('/') : ""
-              });
-          }
+        } catch (err) {
+          console.log(err, "api");
+          throw "API Needs a change"
         }
+
 
         function ratingFromDOM() {
           const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
@@ -246,12 +257,12 @@ module.exports = {
         const specXpath = document.querySelectorAll('#tab-content-0 > div > dl > div');
         if (specXpath.length > 1) {
           specXpath.forEach(e => {
-            specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')} | `);
+            specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean)}`);
           });
           addElementToDocument('specifications', specifcations);
         } else {
           specXpath.forEach(e => {
-            specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')}`);
+            specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean)}`);
           });
           addElementToDocument('specifications', specifcations);
         }
@@ -268,6 +279,6 @@ module.exports = {
       console.log('Evaluation Failed', error);
     }
 
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform });
   },
 };

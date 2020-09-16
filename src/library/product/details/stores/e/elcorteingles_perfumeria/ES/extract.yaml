@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])>0]//ul[contains(@class,"colors_list")]/li | //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])!=1]//h1[@id="js-product-detail-title"]
+recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])>0]//ul[contains(@class,"colors_list")]/li | //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])!=1]//h1[@id="js-product-detail-title"] | //div[contains(@class,"product_detail-aside")]//div[contains(@class,"product_detail-colors") and count(//div[contains(@class,'colors_content_mobile')]) != 1]
 fields:
   - name: image
     singleValue: true
@@ -11,7 +11,7 @@ fields:
     xpath : ancestor::html //meta[@name="twitter:title"]/@content
   - name: alternateImages
     singleValue: true
-    xpath : ancestor::html //link[@as="image"][position() > 1]/@href
+    xpath : ancestor::html //div[@class="image-layout-slides-group"]/div[position() > 1]/img/@data-zoom
     regExp: ^(.*)(__)(\d+x\d+)(.jpg)$
     regExpReplace: https:$1$21200x1200$4 
   - name: secondaryImageTotal
@@ -43,7 +43,7 @@ fields:
     xpath : ancestor::html //div[@id="brand"]
   - name: quantity
     singleValue: true
-    xpath : 
+    xpath : ancestor::html //div[@id="variants_container"]/span
   - name : weightNet    
     xpath : 
   - name : weightGross    
@@ -134,6 +134,12 @@ fields:
   - name: variantInformation
     singleValue: true
     xpath : //div/@title
+  - name: variants
+    singleValue: true
+    xpath : ancestor::html //div/@variants 
+  - name: firstVariant
+    singleValue: true
+    xpath : ancestor::html //div[@id='firstVariant']
   - name: aggregateRating
     singleValue: true
     xpath : ancestor::html //div[@id="aggregateRating"]
@@ -148,7 +154,7 @@ fields:
     xpath : 
   - name: variantCount
     singleValue: true
-    xpath :  
+    xpath : ancestor::html//div/@variantCount
   - name: color
     singleValue: true
     xpath :  

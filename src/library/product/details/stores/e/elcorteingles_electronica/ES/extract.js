@@ -225,12 +225,12 @@ module.exports = {
       const specXpath = document.querySelectorAll('#tab-content-0 > div > dl > div');
       if (specXpath.length > 1) {
         specXpath.forEach(e => {
-          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')} || `);
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean)}`);
         });
         addElementToDocument('specifications', specifcations);
       } else {
         specXpath.forEach(e => {
-          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')}`);
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean)}`);
         });
         addElementToDocument('specifications', specifcations);
       }
