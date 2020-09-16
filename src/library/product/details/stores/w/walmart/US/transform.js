@@ -15,7 +15,8 @@ const transform = (data, context) => {
   // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/(<([^>]+)>)/ig, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+    .trim();
   const regexp = '(?:(<?\\s?[\\d\\.]+)\\s?(\\w*))';
   function getSplitValue (inputStr, count) {
     if (inputStr) {
@@ -87,8 +88,8 @@ const transform = (data, context) => {
         }
         if (row.description) {
           row.description = [{
-            // text: row.description[0].text.replace(/^\s*[\r\n]/gm, ' || ').replace('•', '').split('%3C')[0],
-            text: row.description[0].text.replace(/^\s*[\r\n]/gm, '').replace('•', '|| ').split('%3C')[0].trim(),  
+            text: row.description[0].text.replace(/^\s*[\r\n]/gm, ' || ').replace('•', '').split('%3C')[0],
+            // text: row.description[0].text.replace(/^\s*[\r\n]/gm, '').replace('•', '|| ').split('%3C')[0].trim(),  
           }];
 
           if (row.description[0].text.includes('Specifications')) {

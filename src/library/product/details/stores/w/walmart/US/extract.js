@@ -82,47 +82,50 @@ module.exports = {
     await context.waitForXPath("//p[@class='Directions']", { timeout: 4000 })
       .catch(() => console.log('no directions present'));
 
-    await context.waitForXPath("//div[contains(@class,'about-desc')] | //div[contains(@class,'about-item')]/div", { timeout: 20000 })
+    await context.waitForXPath("//div[contains(@class,'about-desc')]/ul | //div[contains(@class,'about-item')]/div", { timeout: 20000 })
       .catch(() => console.log('no desc for item'));
 
     await context.waitForXPath('(//div[contains(@class,"prod-alt-image")]/img/@src)[position()!=1]', { timeout: 6000 })
       .catch(() => console.log('no alt Images'));
 
+    await context.waitForXPath("//li//img[contains(@alt,'Shop at')]", { timeout: 20000 })
+      .catch(()=>console.log('Wait complete'))
+
     await context.click('body');
 
-    await context.evaluate(()=>{
-      let fullDescription = '';
-      let descNodes = document.querySelectorAll('div[class*=about-desc],div[class*=DetailedHeroImage-ShortDescription],div[class*=AboutThisBundle-description],div[class*=about-item] div');
-      descNodes.forEach(topNode=>{
-        topNode.childNodes.forEach(node=>{
-          if(node.nodeType === 3){
-            fullDescription += node.textContent;
-          }
-        });
+    // await context.evaluate(()=>{
+    //   let fullDescription = '';
+    //   let descNodes = document.querySelectorAll('div[class*=about-desc],div[class*=DetailedHeroImage-ShortDescription],div[class*=AboutThisBundle-description],div[class*=about-item] div');
+    //   descNodes.forEach(topNode=>{
+    //     topNode.childNodes.forEach(node=>{
+    //       if(node.nodeType === 3){
+    //         fullDescription += node.textContent;
+    //       }
+    //     });
 
-        // let lis = topNode.querySelectorAll('li');
-        // lis.forEach(li=>{
-        //   fullDescription += ' || ' + li.textContent; 
-        // });
-        // let other = topNode.querySelectorAll('*:not(li)');
-        // other.forEach(ot=>{
-        //   fullDescription += ot.textContent;
-        // });
+    //     // let lis = topNode.querySelectorAll('li');
+    //     // lis.forEach(li=>{
+    //     //   fullDescription += ' || ' + li.textContent; 
+    //     // });
+    //     // let other = topNode.querySelectorAll('*:not(li)');
+    //     // other.forEach(ot=>{
+    //     //   fullDescription += ot.textContent;
+    //     // });
 
-        function addHiddenDiv(id, content) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
-        }
+    //     function addHiddenDiv(id, content) {
+    //       const newDiv = document.createElement('div');
+    //       newDiv.id = id;
+    //       newDiv.textContent = content;
+    //       newDiv.style.display = 'none';
+    //       document.body.appendChild(newDiv);
+    //     }
 
-        let excludeIndex = Math.min(fullDescription.indexOf('DIRECTIONS'), fullDescription.indexOf('WARNINGS'), fullDescription.indexOf('INGREDIENTS'));
-        addHiddenDiv('my-desc', excludeIndex === -1 ? fullDescription : fullDescription.slice(0,excludeIndex));
-      });
+    //     let excludeIndex = Math.min(fullDescription.indexOf('DIRECTIONS'), fullDescription.indexOf('WARNINGS'), fullDescription.indexOf('INGREDIENTS'));
+    //     addHiddenDiv('my-desc', excludeIndex === -1 ? fullDescription : fullDescription.slice(0,excludeIndex));
+    //   });
 
-      return fullDescription;
-    });
+    //   return fullDescription;
+    // });
 
     const nutrTabPresentAndClicked = await context.evaluate(async () => {
       const nutrTab = document.evaluate('//span[contains(text(),"Nutrition Facts")]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
