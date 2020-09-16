@@ -121,6 +121,9 @@ fields:
         |//div[@class="fa-fiche-bloc caracteristiques carac-detaillees"]/div[@class="fa-bloc-main"]//text()[contains(.,"Dimensions")]
         [count(//div[@class="fa-fiche-bloc caracteristiques carac-detaillees"]/div[@class="fa-bloc-main"]//text()[contains(.,"Dimensions avec emballage")]|//div[@class="fa-fiche-bloc caracteristiques carac-detaillees"]/div[@class="fa-bloc-main"]//text()[contains(.,"Dimensions de l’emballage")])=0]
   - name: shippingWeight
+    xpath: //div[@class="fa-fiche-bloc caracteristiques carac-detaillees"]/div[@class="fa-bloc-main"]//text()[contains(.,"Poids du carton")]
+    regExp: Poids du carton(.+)
+    regExpReplace: $1
     description: Stated shipping weight
   - name: variantCount
     description: Number of variants listed
@@ -432,5 +435,4 @@ fields:
     defaultValue: No
   - name: warranty
     description: Guarantee associated with the product
-    xpath: //*[contains(text(),"serenity")]
-    regExp: \d
+    xpath: //div[@class="avantage-desc"][contains(.,"Garantie")] | //div[@class="avantage-desc"][contains(.,"garantie")]

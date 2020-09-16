@@ -46,6 +46,10 @@ const transform = (data, context) => {
         const text = row.manufacturerDescription.map(elm => elm.text).join(' ');
         row.manufacturerDescription = [{ text }];
       }
+      if (row.warranty) {
+        const text = row.warranty.map(elm => elm.text).join(' | ');
+        row.warranty = [{ text }];
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
