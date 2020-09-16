@@ -29,10 +29,7 @@ fields:
           /img[contains(@class,'fade-in')]/@src
   - name: category
     singleValue: false
-    xpath: //ul[contains(@class,'v-breadcrumbs')]//li[position()>1 and position()<5]/a
-  - name: subCategory
-    singleValue: false
-    xpath: //ul[contains(@class,'v-breadcrumbs')]//li[position()>3]/a
+    xpath: //ul[contains(@class,'v-breadcrumbs')]//li[position()>2]/a
   - name: name
     singleValue: false
     xpath: //div[contains(@class,'name')]/h1
@@ -52,10 +49,13 @@ fields:
     xpath: //div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')]
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')]/ul/li)
+    xpath: count(//div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')]//ul//li)
   - name: color
     singleValue: false
     xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(), 'Farve')]/following-sibling::td[1]
+  - name: gtin
+    singleValue: false
+    xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(), 'Varenummer')]/following-sibling::td[1]
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr[1]/td[2]
@@ -64,29 +64,29 @@ fields:
     xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr[1]/td[2]
   - name: mpc
     singleValue: false
-    xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(), 'Varenummer')]/following-sibling::td[1]
-  - name: rpcSkuHybrid
-    singleValue: false
-    xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr[1]/td[2]
+    xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(), 'Model')]/following-sibling::td[1]
   - name: specifications
     singleValue: false
     xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr
-  - name: url
+  - name: productUrl
     singleValue: false
     xpath: substring-before(substring(substring-after(//div[contains(@id,'product-view')]/script[@type='application/ld+json'],'url'),5),'",')
   - name: price
     singleValue: false
-    xpath: normalize-space(substring-before(//div[contains(@class,'product-details-top')]//div[contains(@class,'price')]//div[contains(@class,'after-price')],','))
-  - name: harvestedPrice
+    xpath: normalize-space(concat(//div[contains(@class,'product-details-top')]//div[contains(@class,'price')]//div[contains(@class,'after-price')], "|", substring-before(substring(substring-after(//div[contains(@id,'product-view')]/script[@type='application/ld+json'],'priceCurrency'),5),'",')))
+  - name: variantInformation
     singleValue: false
-    xpath: //div[contains(@class,'product-details-top')]//div[contains(@class,'price')]//div[contains(@class,'after-price')]
+    xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(), 'Farve')]/following-sibling::td[1]
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(), 'Farve')]/following-sibling::td[1]
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(), 'Farve')]/following-sibling::td[1]
   - name: countryOfOrigin
     singleValue: false
     xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(),'Land')]/following-sibling::td[1]
   - name: listPrice
-    singleValue: false
-    xpath: normalize-space(substring-before(substring-after(//div[contains(@class,'product-details-top')]//div[contains(@class,'price')]//div[contains(@class,'before-price')],'Før'),','))
-  - name: harvestedListPrice
     singleValue: false
     xpath: normalize-space(substring-after(//div[contains(@class,'product-details-top')]//div[contains(@class,'price')]//div[contains(@class,'before-price')],'Før'))
   - name: coupon
@@ -103,7 +103,7 @@ fields:
     xpath: normalize-space(//div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(),'Lovmæssige oplysninger')]/following-sibling::td[1])
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')]/ul/li
+    xpath: //div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')]//ul//li
   - name: weightNet
     singleValue: false
     xpath: normalize-space(//div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(),'Nettovægt') or starts-with(text(),'Vægt ekskl. stand') or starts-with(text(),'Vægt') or starts-with(text(),'Bruttovægt')]/following-sibling::td[1])
@@ -121,7 +121,7 @@ fields:
     xpath: //div[contains(@class,'summary')]//div[contains(@class,'grey--text')]
   - name: shippingDimensions
     singleValue: false
-    xpath: normalize-space(//div[contains(@class,'summary')]//div[contains(@class,'grey--text')])
+    xpath: 
   - name: variantCount
     singleValue: false
     xpath: '0'

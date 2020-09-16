@@ -40,6 +40,7 @@ const transform = (data) => {
 			},
 		  ];
 		}
+
 		if (row.additionalDescBulletInfo) {
 			let text = '';
 			row.additionalDescBulletInfo.forEach(item => {
@@ -52,6 +53,20 @@ const transform = (data) => {
 			  },
 			];
 		}
+
+		if (row.price) {
+			let price = '';
+			let currency = '';
+			row.price.forEach(item => {
+				price = item.text.substring(0,item.text.indexOf("|"));
+				currency = item.text.substring(item.text.indexOf("|") + 1);
+			});
+			row.price = [
+			  {text: price},
+			  {text: currency}
+			];
+		}
+
 		if (row.description) {
 			let text = '';
 			row.description.forEach(item => {
@@ -63,6 +78,7 @@ const transform = (data) => {
 			  },
 			];
 		}
+
 		if (row.availabilityText) {
 			let text = '';
 			row.availabilityText.forEach(item => {
@@ -79,6 +95,7 @@ const transform = (data) => {
 			  },
 			];
 		}
+
 		if (row.quantity) {
 			let text = '';
 			row.quantity.forEach(item => {
@@ -95,7 +112,8 @@ const transform = (data) => {
 				},
 			];
 		}
-		if (row.shippingDimensions) {
+
+		/* if (row.shippingDimensions) {
 			let text = '';
 			row.shippingDimensions.forEach(item => {
 				if(item.text.indexOf("cm") !== -1){
@@ -110,7 +128,8 @@ const transform = (data) => {
 					text: text,
 				},
 			];
-		}
+		} */
+		
 		if (row.technicalInformationPdfPresent) {
 			let text = '';
 			row.technicalInformationPdfPresent.forEach(item => {
@@ -134,6 +153,7 @@ const transform = (data) => {
 				},
 			];
 		}
+
 		if (row.termsAndConditions) {
 			row.termsAndConditions = [
 				{
