@@ -1,0 +1,56 @@
+input:
+  keywords: Hair Straightner
+  _url: http://bloomingdales.ae
+extractions:
+  - html: https://workbench.import.io/html/run=15c2c045-3871-4ac9-9710-dd34326e5349/task=83201d45-20c9-41c0-944d-e76cafd9795f/b5db91ec-86c3-4413-87fb-994ede8fa3b0.html
+    extractionConfigId: product/search/stores/b/bloomingdales/AE/extract
+    data:
+      - group:
+          - id:
+              - text: BEA204752310
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/@data-listpid
+            name:
+              - text: Straightening Masque
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/a[2]
+            productUrl:
+              - text: https://bloomingdales.ae/philip-b-straightening-masque-BEA204752310.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://bloomingdales.ae/dw/image/v2/BDSP_PRD/on/demandware.static/-/Sites-bloomingdales-master-catalog/default/dwa818f89f/images/hi-res/BLM/Philip
+                  B/204779943/204779943_IN.jpg?sw=400&sh=600&q=50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: AED 201.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[3]/div[1]/span[1]/span[1]/span[1]
+          - id:
+              - text: BEA212559940
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/@data-listpid
+            name:
+              - text: Straightening Shampoo with Moringa Oil
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]/div[2]/a[2]
+            productUrl:
+              - text: https://bloomingdales.ae/sisley-straightening-shampoo-with-moringa-oil-BEA212559940.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://bloomingdales.ae/dw/image/v2/BDSP_PRD/on/demandware.static/-/Sites-bloomingdales-master-catalog/default/dwe023589e/images/hi-res/BLM/Sisley/212559946/212559946_IN.jpg?sw=400&sh=600&q=50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: AED 285.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]/div[3]/div[1]/span[1]/span[1]/span[1]
+          - id:
+              - text: BEA210033787
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[3]/div[1]/@data-listpid
+            name:
+              - text: Smooth Infusion™ Naturally Straight
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[3]/div[1]/div[2]/div[2]/a[2]
+            productUrl:
+              - text: https://bloomingdales.ae/aveda-smooth-infusion%E2%84%A2-naturally-straight-BEA210033787.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[3]/div[1]/div[2]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://bloomingdales.ae/dw/image/v2/BDSP_PRD/on/demandware.static/-/Sites-bloomingdales-master-catalog/default/dwef29eed4/images/hi-res/BLM/Aveda/210033977/210033977_IN.jpg?sw=400&sh=600&q=50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[3]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: AED 152.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[3]/div[1]/div[2]/div[3]/div[1]/span[1]/span[1]/span[1]
+        xpath: /html
+    timestamp: 1600179876645

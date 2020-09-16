@@ -1,0 +1,40 @@
+input:
+  keywords: Dyson
+  _url: http://bloomingdales.ae
+extractions:
+  - html: https://workbench.import.io/html/run=15c2c045-3871-4ac9-9710-dd34326e5349/task=d9e96a9d-d72f-47b7-b5f4-47d45163c3f2/5baf775c-58f7-40d1-9e72-aca012aed24a.html
+    extractionConfigId: product/search/stores/b/bloomingdales/AE/extract
+    data:
+      - group:
+          - id:
+              - text: BEA213023377
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/@data-listpid
+            name:
+              - text: Dyson Airwrap™ Hair Styler
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/a[2]
+            productUrl:
+              - text: https://bloomingdales.ae/dyson-dyson-airwrap%E2%84%A2-hair-styler-BEA213023377.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://bloomingdales.ae/dw/image/v2/BDSP_PRD/on/demandware.static/-/Sites-bloomingdales-master-catalog/default/dwdee4ac6b/images/hi-res/BLM/Dyson/213023378/213023378-Airwrap-Complete_IN.jpg?sw=400&sh=600&q=50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: AED 2,099.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[3]/div[1]/span[1]/span[1]/span[1]
+          - id:
+              - text: BEA211706123
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/@data-listpid
+            name:
+              - text: Dyson Supersonic™ Hair Dryer
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]/div[2]/a[2]
+            productUrl:
+              - text: https://bloomingdales.ae/dyson-dyson-supersonic%E2%84%A2-hair-dryer-BEA211706123.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]/div[2]/a[2]/@href
+            thumbnail:
+              - text: https://bloomingdales.ae/dw/image/v2/BDSP_PRD/on/demandware.static/-/Sites-bloomingdales-master-catalog/default/dw29de4617/images/hi-res/BLM/Dyson/212264172/Dyson_4359-HD01-WHITE_NOCOLOR_IN.jpg?sw=400&sh=600&q=50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: AED 1,574.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]/div[3]/div[1]/span[1]/span[1]/span[1]
+        xpath: /html
+    timestamp: 1600179875360

@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"l-product-grid__item")]
+fields:
+  - name: _input
+  - name: id
+    xpath: //@data-listpid
+  - name: _pageTimestamp
+  - name: rankOrganic
+  - name: name
+    xpath: //a[@class="b-product-tile__name"]
+  - name: productUrl
+    xpath:  //a[@class="b-product-tile__name"]/@href
+    regExp: (.+)
+    regExpReplace: https://bloomingdales.ae$1
+  - name: thumbnail
+    xpath: //img[contains(@class,"js-product__image")]/@src
+  - name: price
+    xpath: //span[@class="b-product-pricing__price value"]
+  - name: rank
+  - name: rankSponsored
+  - name: prime
