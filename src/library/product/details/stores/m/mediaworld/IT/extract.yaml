@@ -135,9 +135,12 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
+    xpath: //div[@id="inpage_container"]//div/text()
   - name: manufacturerImages
     description: Images within the third party description
-    xpath: //div[@id="inpage_container"]//img/@src
+    xpath: //*[@id="inpage_container"]//img/@srcset
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: videos
     description: URLs of videos on page
     xpath: //body/@video

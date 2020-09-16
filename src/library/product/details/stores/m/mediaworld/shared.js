@@ -23,6 +23,10 @@ const cleanUp = (data, context) => {
         const text = row.description.map(elm => elm.text.trim()).join(' ');
         row.description = [{ text }];
       }
+      if (row.manufacturerDescription) {
+        const text = row.manufacturerDescription.map(elm => elm.text.trim()).join(' ');
+        row.manufacturerDescription = [{ text }];
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
