@@ -1,4 +1,4 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -12,7 +12,7 @@ fields:
     description: Alt text of the main product image
     xpath: //div[@aria-describedby="slick-slide00"]//img//@alt
   - name: alternateImages
-    singleValue: false
+    singleValue: true
     description: Other product images (not in manufacturer description)
     xpath: //img[contains(@class, "product-image__main-image-img")]/@src
   - name: metaKeywords
@@ -51,7 +51,6 @@ fields:
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    type: NUMBER
     xpath: count(//div[@class="bui-accordion__panel-inner"]//div//ul//li)
   - name: brandText
     singleValue: true
@@ -80,6 +79,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //div[contains(@class, "product-detail__ratings")]//span
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -98,7 +98,7 @@ fields:
   - name: directions
     singleValue: true
     description: Content under "directions" header
-    xpath: //div[contains(@class, "bui-accordion bui-page-container__item bui-accordion--initialized")]//dl[contains(@id, "product-detail-installationinfo")]//dd//div//div//p
+    xpath: //dl[contains(@id, "product-detail-installationinfo")]//dd//div[contains(@class, "bui-accordion__panel-inner")]//div//p
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -121,7 +121,7 @@ fields:
     description: Shipping information for the product
     xpath: //dl[contains(@class, "product-detail-sellershippingpolicy")]//dd[contains(@class, "bui-accordion__panel")]//div//div//p
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
     description: Stated shipping dimensions
     xpath: //section[contains(@class, "package-dimension-table")]//table//tbody//tr//th[contains(text(), "Width")]//following-sibling::td | //section[contains(@class, "package-dimension-table")]//table//tbody//tr//th[contains(text(), "Height")]//following-sibling::td | //section[contains(@class, "package-dimension-table")]//table//tbody//tr//th[contains(text(), "Length")]//following-sibling::td
   - name: shippingWeight
@@ -147,8 +147,9 @@ fields:
     description: Images within the third party description
     xpath: //div[@class="product-image__nav-logo"]//a//img//@src
   - name: videos
-    singleValue: false
+    singleValue: true
     description: URLs of videos on page
+    xpath: //div[contains(@class, "brightcove-player_wrapper")]//div//video//@src
   - name: name
     singleValue: true
     description: The product name
@@ -404,11 +405,13 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
+    singleValue: false
     description: The physical dimensions of the product including packaging.
+    xpath: //section[contains(@class, "product-dimension-table")]//table//tbody//tr//th[contains(text(), "Width")]//following-sibling::td | //section[contains(@class, "product-dimension-table")]//table//tbody//tr//th[contains(text(), "Height")]//following-sibling::td | //section[contains(@class, "product-dimension-table")]//table//tbody//tr//th[contains(text(), "Length")]//following-sibling::td
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //dl[contains(@id, "product-detail-warrantyinfo")]//dd//div[contains(@class, "bui-accordion__panel-inner")]//div//p
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -474,6 +477,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@class="bui-accordion__panel-inner"]//div//ul//li
   - name: prop65Warning
     singleValue: true
     description: null
@@ -487,15 +491,18 @@ fields:
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
+    xpath: //div[contains(@class, "product-detail__table js-pdp-accordion-specification")]//table//tbody//tr//th[contains(text(), "Energy Star Rating")]//following-sibling::td
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
+    xpath: //dl[contains(@id, "product-detail-guides-documents")]//dd//div//section//div//a//@href
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
     defaultValue: No
+    xpath: //dl[contains(@id, "product-detail-sellerreturnpolicy")]//dd//div//div//p
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']

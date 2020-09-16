@@ -16,26 +16,75 @@ const transform = (data) => {
 				});
 				row.Image360Present = [{ text: newText }];
 			}
+			
+			if (row.description) {				
+				let newText = '';
+				row.description.forEach(item => {                    			
+					newText +=  `${item.text.replace('- ', ' || ').replace(/\r\n|\r|\n/g, ' ')}`;
+				});
+				
+				row.description = [{ text: newText.slice(0, -4) }];
+			}
 
-			if (row.category) {                
-                let newText = 'Test';
-                row.category.forEach(item => {
-                    // newText +=  `${item.text.trim() + ' ' }` ;
-					console.log(item.text.trim());
-                });
-                
-                row.category = [{ text: newText }];
+			if (row.category) {				
+				let newText = '';
+				row.category.forEach(item => {                			
+					newText +=  `${item.text.trim() + ' > '}`;
+				});
+				
+				row.category = [{ text: newText.slice(0, -3) }];
 			}
 			
-			if (row.category) {                
-                let newText = 'Test';
-                row.category.forEach(item => {
-                    // newText +=  `${item.text.trim() + ' ' }` ;
-					console.log(item.text.trim());
-                });
-                
-                row.category = [{ text: newText }];
-            }
+			if (row.brandLink) {				
+				let newText = "https://www.bunnings.com.au";
+				row.brandLink.forEach(item => {                    			
+					newText = newText + item.text.trim();
+				});
+
+				row.brandLink = [{ text: newText }];
+			}
+		
+			if (row.shippingDimensions) {				
+				let newText = '';
+				row.shippingDimensions.forEach(item => {                			
+					newText +=  `${item.text.trim() + ' X '}`;
+				});
+				
+				row.shippingDimensions = [{ text: newText.slice(0, -3) }];
+			}
+			
+			if (row.specifications) {				
+				let newText = '';
+				row.specifications.forEach(item => {            			
+					newText +=  `${item.text.trim() + ' X '}`;
+				});
+
+				row.specifications = [{ text: newText.slice(0, -3) }];
+			}
+			
+			if (row.additionalDescBulletInfo) {				
+				let newText = "";
+				row.additionalDescBulletInfo.forEach(item => {                 			
+					newText +=  `${item.text.trim() + ' || '}`;
+				});
+
+				row.additionalDescBulletInfo = [{ text: newText.slice(0, -4) }];
+			}
+
+			if (row.technicalInformationPdfPresent) {				
+				let newText = "No";
+				row.technicalInformationPdfPresent.forEach(item => {
+					if (item.text.trim().length > 0) {
+						newText = "Yes";
+					}
+				});
+
+				row.technicalInformationPdfPresent = [{ text: newText }];
+			}
+
+			if (row.videos) {
+				row.videos = [{ text: row.videos[0].text.slice(5) }];
+			}
 		}
 	}
 
