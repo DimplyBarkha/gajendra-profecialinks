@@ -29,16 +29,16 @@ fields:
   - name: availabilityText
     xpath: //div[contains(@class,'checkfix')]//div[contains(@class,'availability stati')][1]|//div[@class='filialen hidden']/div[@class='item'][1]//div[contains(@class,'filialeAvailability stati')]
   - name: description
-    xpath: //div[@itemprop='description']//text()|//table[@class='not-basic-table specification']//text()
+    xpath: //div[@itemprop='description']//text()
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     xpath: count(//table[@class='not-basic-table specification']/tbody/tr)
     type: NUMBER
   - name: brandText
     xpath: //h1[contains(@class,'productDetail ')]/span/text()
-  - name: manufacturer
-    description: Product manufacturer
-    xpath: //h1[contains(@class,'productDetail ')]/span/text()
+  - name: specifications
+    description: Tabular data(if any)
+    xpath: //table[@class='not-basic-table specification']//text()
   - name: weightNet
     description: Net weight as described on the page
     xpath: //td[text()='Gewicht (kg)']/following-sibling::td/text()|//td[text()='Gewicht']/following-sibling::td/text()
@@ -68,10 +68,16 @@ fields:
     xpath: //td[contains(text(),'Farbe')]/following-sibling::td/text()
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id='flix-inpage']//div[contains(@class,'title')]|//div[@id='flix-inpage']//div[contains(@class,'desc')]//text()
+    xpath: //div[@id='flix-inpage']//div[contains(@class,'inpage_block_title ')]|//div[@id='flix-inpage']//div[contains(@class,'flix-std-title')]|//div[@id='flix-inpage']//div[contains(@class,'flix-std-desc')]|//div[@id='flix-inpage']//div[contains(@class,'flix-std-section')]|//div[@id='flix-inpage']//div[contains(@class,'inpage_h4')]|//div[@id='flix-inpage']//div[@class='flix-d-p']|//table[@class='flix-std-specs-table']//span
+  - name: manufacturerImages
+    xpath: //div[@id='flix-inpage']//img/@srcset
   - name: videos
     singleValue: false
-    xpath: //div[@class="demoupUI-playbutton demoup-play "]/meta[@itemprop='contentURL']/@content|//div[contains(@class,'youtube productDetail')]/a[1]/@href
+    xpath: //div[@class="demoupUI-playbutton demoup-play "]/meta[@itemprop='contentURL']/@content|//div[contains(@class,'youtube productDetail')]/a[1]/@href|//div[contains(@class,"flix-videodiv")]/iframe/@src
+  - name: mpc
+    xpath: //meta[@itemprop='mpn']/@content
+  - name: warranty
+    xpath: //td[contains(text(),'Garantie')]/following-sibling::td/text()
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product.
