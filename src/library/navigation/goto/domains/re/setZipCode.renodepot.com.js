@@ -4,7 +4,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { url, zipcode } = inputs;
+
 }
 
 module.exports = {

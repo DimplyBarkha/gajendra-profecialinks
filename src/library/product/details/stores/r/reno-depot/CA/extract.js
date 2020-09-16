@@ -7,26 +7,26 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  function stall(ms) {
+  function stall (ms) {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve()
+        resolve();
       }, ms);
-    })
+    });
   }
 
-  await stall (3000);
+  await stall(3000);
 
-  await context.evaluate(function() {
-    document.cookie = "RenoWCCookie.province=QC";
-    document.cookie = "RenoWCCookie.region.selected=QUEBEC";
-    document.cookie = "RenoWCCookie.stores.selected=73020";
+  await context.evaluate(function () {
+    document.cookie = 'RenoWCCookie.province=QC';
+    document.cookie = 'RenoWCCookie.region.selected=QUEBEC';
+    document.cookie = 'RenoWCCookie.stores.selected=73020';
     location.reload();
   });
 
-  await stall (5000);
+  await stall(5000);
 
-  await context.evaluate(function() {
+  await context.evaluate(function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -49,14 +49,14 @@ async function implementation (
         if (ind > 0) {
           alternateImages.push(img.getAttribute('src').replace('_S', '_L'));
         }
-      })
+      });
     }
     if (alternateImages.length) {
       addHiddenDiv('alternateImages', alternateImages.join(' | '));
     }
 
     if (document.querySelector('.product_price_box')) {
-      addHiddenDiv('price', '$' + document.querySelector('.product_price_box').querySelector('.integer').innerText + (document.querySelector('.product_price_box').querySelector('.decimal') ?  '.' + document.querySelector('.product_price_box').querySelector('.decimal').innerText : ''));
+      addHiddenDiv('price', '$' + document.querySelector('.product_price_box').querySelector('.integer').innerText + (document.querySelector('.product_price_box').querySelector('.decimal') ? '.' + document.querySelector('.product_price_box').querySelector('.decimal').innerText : ''));
       if (document.querySelector('.product_price_box').querySelector('.linethrough')) {
         addHiddenDiv('listPrice', document.querySelector('.product_price_box').querySelector('.linethrough').innerText.trim());
       } else {
@@ -83,7 +83,7 @@ async function implementation (
 
     addHiddenDiv('bulletCount', 0);
 
-    let specifications = [];
+    const specifications = [];
     document.querySelectorAll('.title').forEach(el => {
       const parent = el.parentElement;
       if (parent && el.innerText.includes('Weight')) {
@@ -136,7 +136,7 @@ async function implementation (
       videos.push(video.getAttribute('src'));
     });
     document.querySelectorAll('iframe').forEach(frame => {
-      if(frame.getAttribute('src')) {
+      if (frame.getAttribute('src')) {
         return;
       }
       frame.contentWindow.document.querySelectorAll('video').forEach(video => {
@@ -152,7 +152,7 @@ async function implementation (
       console.log('hasManufacturerInfo', document.getElementById('wc-power-page').innerText);
       addHiddenDiv('manufacturerDescription', document.getElementById('wc-power-page').innerText);
       document.getElementById('wc-power-page').querySelectorAll('img').forEach(img => {
-        if(img.getAttribute('data-asset-type') !== 'video') {
+        if (img.getAttribute('data-asset-type') !== 'video') {
           manufacturerImgs.push(img.getAttribute('src'));
         } else {
           videos.push(img.getAttribute('data-asset-url'));
@@ -171,16 +171,15 @@ async function implementation (
       if (el.innerText.includes('360° Spin')) {
         rotate = 'Yes';
       }
-    })
+    });
     addHiddenDiv('rotateInfo', rotate);
     addHiddenDiv('countryOfOrigin', 'Canada');
 
-    if (document.querySelector('.zoom_btn')){
+    if (document.querySelector('.zoom_btn')) {
       addHiddenDiv('zoomInfo', 'Yes');
     } else {
       addHiddenDiv('zoomInfo', 'No');
     }
-
   });
 
   return await context.extract(productDetails, { transform });

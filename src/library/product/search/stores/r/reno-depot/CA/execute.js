@@ -12,7 +12,6 @@ async function implementation (
   context,
   dependencies,
 ) {
-
   function stall (ms) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -22,13 +21,12 @@ async function implementation (
   }
 
   const url = 'https://www.renodepot.com/webapp/wcs/stores/servlet/RenoSearchDisplayView?storeId=10701&catalogId=10551&langId=-1&searchKey=RenoDepotEN&searchTerm=' + (inputs.keywords || inputs.Keywords) + '&sortList=&pageSize=infinite&navDescriptors=&searchFilter=&navRangeFilters=';
-  await dependencies.goto({ url }, {timeout: 50000});
+  await dependencies.goto({ url }, { timeout: 50000 });
   await stall(2000);
 
   return context.evaluate(function () {
     return document.querySelectorAll('.product_box').length > 0;
   });
-
 }
 
 module.exports = {

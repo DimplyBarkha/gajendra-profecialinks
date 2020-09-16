@@ -8,25 +8,24 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  function stall(ms) {
+  function stall (ms) {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve()
+        resolve();
       }, ms);
-    })
+    });
   }
 
-  await context.evaluate(function() {
-    document.cookie = "RenoWCCookie.province=QC";
-    document.cookie = "RenoWCCookie.region.selected=QUEBEC";
-    document.cookie = "RenoWCCookie.stores.selected=73020";
+  await context.evaluate(function () {
+    document.cookie = 'RenoWCCookie.province=QC';
+    document.cookie = 'RenoWCCookie.region.selected=QUEBEC';
+    document.cookie = 'RenoWCCookie.stores.selected=73020';
     location.reload();
   });
 
-  await stall (3000);
+  await stall(3000);
 
-  await context.evaluate(function() {
-
+  await context.evaluate(function () {
     function addHiddenDiv (el, myClass, content) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('class', myClass);
@@ -44,13 +43,12 @@ async function implementation (
         addHiddenDiv(el, 'price', '$' + el.querySelector('.integer').innerText);
         addHiddenDiv(el, 'reviewCount', el.querySelector('.bv-rating-number').innerText.replace(')', '').replace('(', ''));
         const bgStyle = el.querySelector('.product_img').getAttribute('style');
-        addHiddenDiv(el, 'thumbnail', bgStyle.replace("');", '').replace("background-image:url('", ""));
+        addHiddenDiv(el, 'thumbnail', bgStyle.replace("');", '').replace("background-image:url('", ''));
       }
     });
   });
 
   return await context.extract(productDetails, { transform });
-
 }
 
 module.exports = {
