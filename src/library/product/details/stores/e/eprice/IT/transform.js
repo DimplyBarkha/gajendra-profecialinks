@@ -44,6 +44,13 @@ const transform = (data) => {
           shippingInfo.text = cleanUp(shippingInfo.text);
         });
       }
+      if (row.variantCount) {
+        row.variantCount.forEach(variantCount => {
+          if (variantCount.text === '1') {
+            variantCount.text = '0';
+          }
+        });
+      }
       if (row.variantAsins) {
         if (!(row.variantAsins.length > 1)) {
           row.firstVariant.shift();
