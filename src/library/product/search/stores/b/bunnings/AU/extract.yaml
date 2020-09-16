@@ -40,6 +40,7 @@ fields:
     singleValue: true
     description: search/listing rank
     type: NUMBER
-  - name: sponsored
+  - name: soldBy
     singleValue: true
     description: search/listing rank
+    xpath: //div[contains(@class, "codified-product-tile__order--marketplace-seller")]//p//strong
