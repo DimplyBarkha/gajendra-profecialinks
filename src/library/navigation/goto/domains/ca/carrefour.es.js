@@ -33,6 +33,7 @@ module.exports = {
         }
       });
     };
+    url = `${url}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
     await context.goto(url, { timeout: timeout, waitUntil: 'networkidle0', checkBlocked: true });
     await applyScroll(context);
     console.log(zipcode);

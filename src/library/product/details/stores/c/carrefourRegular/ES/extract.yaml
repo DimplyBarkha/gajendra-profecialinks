@@ -99,7 +99,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    defaultValue: 1
+    defaultValue: 0
   - name: color
     singleValue: true
     xpath: //dt[contains(@class,'product-details__content-title') and contains(.,'Color')]/following-sibling::dd[1]
@@ -110,7 +110,7 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@id,'inpage_container')]//img/@srcset
+    xpath: //div[contains(@id,'inpage_container')]//img/@data-flixsrcset
     description: Images within the third party description
   - name: videos
     singleValue: false

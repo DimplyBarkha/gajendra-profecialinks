@@ -29,7 +29,10 @@ const transform = (data) => {
       }
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(item => {
-          item.text = item.text.replace(/(.*)/, 'https:$1');
+          const arr = item.text.split(',');
+          let text = arr[arr.length - 1];
+          text = text.trim().split(' ') ? text.trim().split(' ')[0] : text;
+          item.text = text.replace(/(.*)/, 'https:$1');
         });
       }
       if (row.brandText) {
