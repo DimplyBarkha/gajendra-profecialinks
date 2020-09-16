@@ -41,9 +41,9 @@ const transform = (data) => {
           let count = 0;
           row.descriptionOne.forEach(item => {
             if (count % 2 === 0) {
-              text += `${item.text} : `;
+              text += `|| ${item.text} : `;
             } else {
-              text += `${item.text} || `;
+              text += `${item.text}`;
             }
             count++;
           });
@@ -53,7 +53,7 @@ const transform = (data) => {
         row.description.forEach(item => {
           desc += item.text.replace(/•/g, '||');
         });
-        const text = desc.match(/\|\|/g);
+        const text = desc.match(/\|\|/g).concat(descriptionOne.match(/\|\|/g));
         if (text) {
           row.descriptionBullets = [
             {
@@ -69,6 +69,9 @@ const transform = (data) => {
             text: clean(desc),
           },
         ];
+      }
+      if (row.variantCount && row.variantCount[0].text !== '0' && row.variantInformation) {
+        row.variantInformation = [{ text: row.variantInformation[0].text }];
       }
     }
   }

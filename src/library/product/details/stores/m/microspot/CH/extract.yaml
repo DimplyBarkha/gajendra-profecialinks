@@ -45,7 +45,7 @@ fields:
     xpath: //div[contains(@class,"VqBhdw")] | //div[contains(@class,"_3fzVYj")]
   - name: descriptionBullets
     singleValue: false
-    xpath: 
+    xpath:
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,"_3i5YKg")]/span
@@ -60,7 +60,7 @@ fields:
     singleValue: false
     xpath: (//span[contains(text(),"Hersteller-Nr.")])[1]
     regExp: Hersteller-Nr.\s*(\d+-?\d+)
-    regExpReplace: $1  
+    regExpReplace: $1
   - name: ratingCount
     singleValue: false
     xpath: //span[contains(@class,"_2THh0N")]
@@ -73,10 +73,10 @@ fields:
     regExpReplace: $1
   - name: specifications
     singleValue: false
-    xpath: //tbody[contains(@class,"_1G-Xgs")]//tr[contains(@class,"_2gz7JV")]/th
+    xpath: //div[@data-test-1="true"]//div[@class="_1k-W7f"]//th
   - name: spec1
     singleValue: false
-    xpath: //tbody[contains(@class,"_1G-Xgs")]//tr[contains(@class,"_2gz7JV")]/td
+    xpath: //div[@data-test-1="true"]//div[@class="_1k-W7f"]//td
   - name: warranty
     singleValue: false
     xpath: //div[contains(@class,"_33RH9s")]/div//p[.//strong[contains(text(),"Garantie")]] | (//div[contains(@class,"_3jMYnB")])[1]/ul/li[contains(text(),"Garantie")]
@@ -95,13 +95,14 @@ fields:
     singleValue: false
   - name: videos
     singleValue: false
-    xpath: //div[@title="Play video"]/meta[@itemprop="thumbnailUrl"]/@content
+    xpath: //div[@title="Play video"]/meta[@itemprop="contentURL"]/@content
     description: URLs of videos on page
   - name: nameExtended
     singleValue: false
     xpath: //div[@id="TOP_CONTENT_ANCHOR"]//h1
   - name: manufacturer
     singleValue: false
+    xpath: //div[@id="pd_manufacturer"]
   - name: manufacturerDescription
     singleValue: false
     xpath: 
@@ -130,7 +131,7 @@ fields:
     regExpReplace: $1
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //ul[contains(@class,"_1Auvoh")]//li | //div[contains(@class,"VqBhdw")]//ul//li | //div[contains(@class,"_3fzVYj")]//ul//li
+    xpath: //ul[contains(@class,"_1Auvoh")]//li | //div[@class="wQ1zdx"]//p[contains(text(),"•")]/text()[preceding-sibling::br]
   - name: termsAndConditions
     singleValue: false
     defaultValue: No

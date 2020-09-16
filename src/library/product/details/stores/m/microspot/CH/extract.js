@@ -14,6 +14,16 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    try {
+      await context.click('._3tGEA8 a');
+    } catch (error) {
+      console.log('no more description');
+    }
+    try {
+      await context.click('._3BsNnh');
+    } catch (error) {
+      console.log('no more specification');
+    }
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -25,11 +35,13 @@ module.exports = {
       const productKey = window.location.href.replace(/(.*)--p(\d+)/gm, '$2');
       try {
         if (productKey) {
+          // @ts-ignore
           const dataObj = JSON.parse(document.querySelector('script#INITIAL_STATE').innerText.trim()).products[productKey];
           if (dataObj) {
             dataObj.ean && addElementToDocument('gtin', dataObj.ean);
             dataObj.productPriceData && dataObj.productPriceData.insteadPrice && addElementToDocument('pd_listPrice', dataObj.productPriceData.insteadPrice.value);
             dataObj.productPriceData && dataObj.productPriceData.finalPrice && addElementToDocument('pd_price', dataObj.productPriceData.finalPrice.value);
+            dataObj.manufacturer && addElementToDocument('pd_manufacturer', dataObj.manufacturer);
             if (dataObj.productVariants) {
               addElementToDocument('pd_variantCount', dataObj.productVariants[0].options.length);
               dataObj.productVariants[0].options.forEach(item => {
