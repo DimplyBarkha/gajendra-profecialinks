@@ -1,0 +1,83 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//meta[contains(@property, "og:image")]/@content)[1]
+  - name: Image360Present
+    singleValue: false
+    defaultValue: 'No'
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'swiper-wrapper')]//div/img/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: _url
+    singleValue: false
+    xpath: (//meta[contains(@property, "og:url")]/@content)[1]
+  - name: category
+    singleValue: false
+    xpath: //div[@class='breadcrumbs']//ol//li
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='product-name']//span[@class='name']
+  - name: price
+    singleValue: false
+    xpath: (//div[@class='price-box']//span[@class='price'])[1]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='price-box']//div[@class='prezzomercato']
+  - name: availabilityText
+    singleValue: false
+    defaultValue: Out of Stock
+    xpath: (//div[@class='price-box']//div[@class='prezzomercato'])[1]
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='product-name']//span[@class='manufacturer']
+  - name: gtin
+    singleValue: false
+    xpath: //script[@type='text/javascript']//@data-flix-ean
+  - name: description
+    singleValue: false
+    xpath: //p[contains(@itemprop,'description')]
+  - name: warranty
+    singleValue: false
+    xpath: //div[contains(@class,'garanzia')]//div
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-name']//span[@class='name']
+  - name: largeImageCount
+    singleValue: false
+    xpath: count(//div[contains(@class,'swiper-wrapper')]//div/img/@src)
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: //div[contains(@class,'swiper-wrapper')]//div/img/@src
+  - name: variantId
+    singleValue: false
+    xpath: (//span[contains(@id, 'product-price')]/@id)[1]
+    regExp: -(\d+)
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@id,'video-url')]
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: div#inpage_container
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@id,'manufacture-images')]
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,'inpage_selector_specification')]//td
+  - name: weightNet
+    singleValue: false
+    xpath: //div[contains(@class,'inpage_selector_specification')]//*[contains(text(),'Peso')]
+  - name: mpc
+    singleValue: false
+    xpath: //th[contains(text(), 'Cod. Prod.')]//parent::tr//td
