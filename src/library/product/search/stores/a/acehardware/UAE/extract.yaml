@@ -1,39 +1,115 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[contains(@class,"js-products-grid")]//li//div[@data-itemid]
+recordXPath: //ul[contains(@class,"js-products-grid")]/li
 fields:
+  - name: _input
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
   - name: id
-    singleValue: false
-    xpath: //ul[contains(@class,"js-products-grid")]//li//div[@data-itemid]/@data-itemid
+    singleValue: true
+    xpath: //div[@data-itemid]/@data-itemid
+    regExp:
+    regExpReplace:
+  - name: _pageTimestamp
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
   - name: rankOrganic
     singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
   - name: name
     singleValue: false
-    xpath: //h3[contains(@class,"product-tile")]//span
+    xpath: //a[contains(@class,"b-product-tile__name")]/span
+    regExp:
+    regExpReplace:
   - name: productUrl
     singleValue: false
-    xpath: //h3[contains(@class,"product-tile")]//a/@href
-    regExp: (.+)
+    xpath: //a[contains(@class,"b-product-tile__name")]/@href
+    regExp: ^(.*)$
     regExpReplace: https://www.aceuae.com$1
   - name: gtin
-    singleValue: true
+    singleValue: false
+    xpath: 
+    regExp:
+    regExpReplace:
   - name: thumbnail
     singleValue: true
+    xpath: //picture/img/@data-src
+    regExp:
+    regExpReplace:
   - name: aggregateRating
-    singleValue: false
+    singleValue: true
     xpath: 
+    regExp:
+    regExpReplace:
   - name: reviewCount
-    singleValue: false
-    xpath:
-  - name: price
-    singleValue: false
+    singleValue: true
     xpath: 
+    regExp:
+    regExpReplace:
+  - name: ratingCount 
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@class,"b-product-pricing__sale")]//span[contains(@class,"b-product-pricing__price-value")]
+    regExp:
+    regExpReplace:
   - name: manufacturer
     singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
   - name: soldBy
     singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
   - name: rank
     singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
   - name: endorsementText
     singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: page
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: badgeType
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: rankSponsored
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: prime
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: pantry
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: subscribe
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:

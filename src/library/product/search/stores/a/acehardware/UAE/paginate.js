@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'UAE',
     store: 'acehardware',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a[class*="pagination__btn--next"]',
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: 'div.b-loader',
     loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
