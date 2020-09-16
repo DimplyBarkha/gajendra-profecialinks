@@ -34,16 +34,25 @@ module.exports = {
         }
       }
       await infiniteScroll();
-      let manufactureImage = [];
-      const aplusImages = document.querySelector("div[id*='inpage_container'] img") ? document.querySelectorAll("div[id*='inpage_container'] img") : null;
+      const manufactureImage = [];
+      let finalImages = [];
+      const aplusImages = document.querySelector("div[id*='inpage_container'] img") ? document.querySelectorAll("div[id*='inpage_container'] img") : [];
       for (let i = 0; i < aplusImages.length; i++) {
         if (aplusImages[i].getAttribute('data-flixsrcset')) {
           manufactureImage.push(aplusImages[i].getAttribute('data-flixsrcset'));
         }
       }
+      if (manufactureImage) {
+        manufactureImage.forEach(item => {
+          const arr = item.split(',');
+          let text = arr[arr.length - 1];
+          text = text.trim().split(' ') ? text.trim().split(' ')[0] : text;
+          finalImages.push(text.replace(/(.*)/, 'https:$1'));
+        });
+      }
       // @ts-ignore
-      manufactureImage = [...new Set(manufactureImage)];
-      addHiddenDiv('ii_aplusImages', manufactureImage.join(' | '));
+      finalImages = [...new Set(finalImages)];
+      addHiddenDiv('ii_aplusImages', finalImages.join(' | '));
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;

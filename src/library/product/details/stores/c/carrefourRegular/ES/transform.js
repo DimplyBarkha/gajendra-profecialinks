@@ -27,14 +27,6 @@ const transform = (data) => {
           item.text = item.text.replace(/\n/gm, ' ').replace(/\s{2,}/gm, ' ').trim();
         });
       }
-      if (row.manufacturerImages) {
-        row.manufacturerImages.forEach(item => {
-          const arr = item.text.split(',');
-          let text = arr[arr.length - 1];
-          text = text.trim().split(' ') ? text.trim().split(' ')[0] : text;
-          item.text = text.replace(/(.*)/, 'https:$1');
-        });
-      }
       if (row.brandText) {
         row.brandText.forEach(item => {
           item.text = item.text.split(' ') ? item.text.split(' ')[0] : '';
