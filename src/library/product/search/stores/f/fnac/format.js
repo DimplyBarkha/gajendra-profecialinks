@@ -35,7 +35,7 @@ const transform = (data, context) => {
         
         // Added code as brand is not available directly on the webpage
         if(row.aggregateRating ) {
-            row.aggregateRating[0].text = Number(row.aggregateRating[0].text).toFixed(1);
+          row.aggregateRating[0].text = Number(row.aggregateRating[0].text).toFixed(1);
         }
       }
     }
