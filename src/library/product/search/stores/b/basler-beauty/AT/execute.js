@@ -7,7 +7,7 @@ module.exports = {
     domain: 'basler-beauty.at',
     url: 'https://www.basler-beauty.at/index.php?cl=search&searchparam={searchTerms}',
     loadedSelector: 'div.list-container',
-    noResultsXPath: null,
+    noResultsXPath: '//*[contains(@class,"dd-shortcode-image")]//img/@src',
     zipcode: '',
   },
 };
