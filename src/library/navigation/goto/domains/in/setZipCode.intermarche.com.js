@@ -5,6 +5,6 @@ module.exports = {
     country: 'FR',
     domain: 'intermarche.com',
     store: 'intermarche',
-    zipcode: '',
+    zipcode: '31130',
   },
 };

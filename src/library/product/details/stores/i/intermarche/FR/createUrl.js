@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'intermarche.com',
     prefix: null,
-    url: null,
+    url: 'https://www.intermarche.com/rechercheproduits/11833/recherche/meat/product/{id}',
     country: 'FR',
     store: 'intermarche',
     zipcode: '',
