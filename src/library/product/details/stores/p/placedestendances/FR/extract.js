@@ -16,8 +16,16 @@ module.exports = {
     await context.evaluate(async function () {
       const getColor = document.querySelector('li.item_description');
       let color = '';
+      let dimension = '';
       let getInput;
       if (getColor) {
+        const hasDimensionsDetails = document.querySelector('li.item_description').innerText.includes('Dimensions :');
+        if (hasDimensionsDetails) {
+          const dimensions = document.querySelector('li.item_description').innerText.split('Dimensions : ')[1];
+          if (dimensions) { dimension = dimensions.split('\n')[0]; }
+          console.log('color done');
+        }
+        document.body.setAttribute('dimension', dimension);
         const hasColorDetails = document.querySelector('li.item_description').innerText.includes('Couleur');
         if (hasColorDetails) {
           const colors = document.querySelector('li.item_description').innerText.split('Couleur ')[1];
@@ -80,6 +88,16 @@ module.exports = {
             if (getCount[i] !== ' ' || getCount[i] !== '') { getInput.setAttribute('value', getCount[i].slice(1)); }
             getInput.setAttribute('valuefeatures', getCount[i].slice(1));
           }
+          getInput = document.createElement('li');
+          div.appendChild(getInput);
+          document.body.appendChild(div);
+          console.log(dimension);
+          getInput.setAttribute('valuefeatures', `Dimensions : ${dimension}`);
+          getInput = document.createElement('li');
+          div.appendChild(getInput);
+          document.body.appendChild(div);
+          console.log(color);
+          getInput.setAttribute('valuefeatures', `Couleur ${color}`);
         }
         if (getDataBulletCharacteristics) {
           for (i = 0; i < getDataBulletCharacteristics.length; i++) {
@@ -90,6 +108,15 @@ module.exports = {
             if (getDataBulletCharacteristics[i] !== ' ' || getDataBulletCharacteristics[i] !== '') { getInput.setAttribute('value', getDataBulletCharacteristics[i].slice(1)); }
             getInput.setAttribute('valuecharacteristics', getDataBulletCharacteristics[i].slice(1));
           }
+          getInput = document.createElement('li');
+          div.appendChild(getInput);
+          document.body.appendChild(div);
+          console.log('dimension');
+          getInput.setAttribute('valuecharacteristics', `Dimensions : ${dimension}`); getInput = document.createElement('li');
+          div.appendChild(getInput);
+          document.body.appendChild(div);
+          console.log(color);
+          getInput.setAttribute('valuecharacteristics', `Couleur ${color}`);
         }
         if (getDataBullet) {
           for (i = 0; i < getDataBullet.length; i++) {
@@ -111,6 +138,20 @@ module.exports = {
           }
         }
       }
+      let getSpecificationData = document.querySelectorAll('div.bulletsdescription li');
+      let getSpecData = [];
+      for (i = 0; i < getSpecificationData.length; i++) {
+        if (getSpecificationData[i].getAttribute('valuecharacteristics') !== null && getSpecificationData[i].getAttribute('valuecharacteristics') !== '' && getSpecificationData[i].getAttribute('valuecharacteristics') !== ' ') { getSpecData.push(getSpecificationData[i].getAttribute('valuecharacteristics')); }
+      }
+      if (getSpecData.length <= 2) {
+        getSpecData = [];
+        getSpecificationData = document.querySelectorAll('div.bulletsdescription li');
+        for (i = 0; i < getSpecificationData.length; i++) {
+          if (getSpecificationData[i].getAttribute('valuefeatures') !== null && getSpecificationData[i].getAttribute('valuefeatures') !== '' && getSpecificationData[i].getAttribute('valuefeatures') !== ' ') { getSpecData.push(getSpecificationData[i].getAttribute('valuefeatures')); }
+        }
+      }
+      const specdata = getSpecData.join(' || ');
+      document.body.setAttribute('specdata', specdata);
     });
 
     const { transform } = parameters;

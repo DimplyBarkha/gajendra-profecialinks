@@ -11,17 +11,16 @@ fields:
     xpath: //div[@class="imageProduct"]//img[@class="img-fluid loaded"]/@alt
   - name: alternateImages
     xpath: //div[@id="sliderIn"]//span[position() > 1]/img/@src
+    regExp: (.*)w=(.*)
+    regExpReplace: $1w=533&h=730
   - name: metaKeywords
     xpath: //html//head//meta[@name="keywords"]/@content
   - name: _pageTimestamp
   - name: _url
   - name: category
-    xpath: //span[@itemprop="itemListElement"][position() > 1]//span[@itemprop="name"]
+    xpath: //span[@itemprop="itemListElement"][position() > 1][position()<last()]//span[@itemprop="name"]
   - name: nameExtended
     xpath: //span[@class="product-label-span"]
-  - name: listPrice 
-    singleValue: true
-    xpath: //div[contains(@class,'product-price')]/span
   - name: price
     xpath: //div[contains(@class,'product-price')]/span
   - name: availabilityText
@@ -34,11 +33,8 @@ fields:
     singleValue: true
     xpath: normalize-space(//li[@class="item_description"])
   - name: descriptionBullets
-    xpath: count(//div[@class='bulletsdescription']//li)
+    defaultValue: 0
   - name: brandText
-    singleValue: true
-    xpath: //span[@class="product-brand"]
-  - name: manufacturer
     singleValue: true
     xpath: //span[@class="product-brand"]
   - name: quantity
@@ -47,29 +43,15 @@ fields:
     xpath: //@netweight
   - name: weightGross
     xpath: //@grossweight
-  - name: gtin
-    xpath: //input[@id="reference_id"]/@value
-  - name: eangtin
   - name: sku
     xpath: (//div/@data-product)[1]
   - name: variantId
-    xpath: //input[@id="couleur_id"]/@value
+    xpath: (//div/@data-product)[1]
   - name: pasin
   - name: mpc
     xpath: //input[@id="modele_id"]/@value
   - name: legalDisclaimer
     xpath: normalize-space(//div[@class="disclaimer"])
-  - name: ratingCount
-    singleValue: true
-    xpath: //span[@itemprop="ratingCount"]
-  - name: aggregateRatingText
-    xpath: //span[@itemprop="ratingValue"]
-    regExp: (.*)\.(.*)
-    regExpReplace: $1,$2
-  - name: aggregateRating
-    xpath: //span[@itemprop="ratingValue"]
-    regExp: (.*)\.(.*)
-    regExpReplace: $1,$2
   - name: color
     xpath: //@color
   - name: colorCode
@@ -87,14 +69,11 @@ fields:
   - name: featureBullets
     xpath: //div[@class='bulletsdescription']//li//@valueaccessories
   - name: specifications
-    singleValue: false
-    xpath: //div[@class='bulletsdescription']//li//@valuefeatures
+    xpath: //body/@specdata
   - name: warranty
     xpath: //@warranty
   - name: secondaryImageTotal
     xpath: count(//div[@class="zoom-target"]/img)
-  - name: additionalDescBulletInfo
-    xpath: //div[@class='bulletsdescription']//li/@value
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
@@ -108,6 +87,8 @@ fields:
     regExpReplace: Yes
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: variantCount
+    defaultValue: 0
   - name: productUrl
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
