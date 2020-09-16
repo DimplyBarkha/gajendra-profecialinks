@@ -28,14 +28,6 @@ async function implementation (
     return false;
   }
 
-  // let url = await context.evaluate(function () {
-  //   /** @type { HTMLLinkElement } */
-  //   const next = document.querySelector('head link[rel="next"]');
-  //   if (!next) {
-  //     return false;
-  //   }
-  //   return next.href;
-  // });
   let url = null;
   if (!url && openSearchDefinition) {
     url = openSearchDefinition.template
@@ -43,10 +35,6 @@ async function implementation (
       .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
       .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
   }
-
-  // const currentPage = await context.evaluate(function() {
-  //   return document.
-  // });
 
   if (!url) {
     return false;
@@ -73,9 +61,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'mediamarkt',
-    // nextLinkSelector: 'li.pagination-next a[rel="next"]',
     mutationSelector: null,
-    // spinnerSelector: 'div.spinner',
     loadedSelector: 'ul.products-list div.product-wrapper',
     noResultsXPath: null,
     openSearchDefinition: {

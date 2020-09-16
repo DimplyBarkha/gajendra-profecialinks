@@ -102,6 +102,7 @@ module.exports = {
         const productIDText = productID.replace('| Art.-Nr. ', '').replace(' | ', '').trim();
         const graphQLCall = `GraphqlProduct:${productIDText}`;
         console.log(graphQLCall);
+        // eslint-disable-next-line prefer-const
         let videos = [];
         let ean = null;
         if (window.__PRELOADED_STATE__ && window.__PRELOADED_STATE__.apolloState && window.__PRELOADED_STATE__.apolloState[graphQLCall]) {

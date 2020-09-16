@@ -8,8 +8,6 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  // await context.waitForSelector('button.gdpr-cookie-layer__btn--submit');
-  // await context.click('button.gdpr-cookie-layer__btn--submit');
 
   await context.evaluate(async function () {
     if (document.querySelector('gdpr-cookie-layer--show') && document.querySelector('button.gdpr-cookie-layer__btn--submit')) {
@@ -23,9 +21,7 @@ async function implementation (
       item.appendChild(catElement);
     }
     const productList = document.querySelectorAll('ul.products-list > li:not(.with-contenspot)');
-    const paginationDiv = document.querySelector('ul.pagination > li.active');
-    let pageStartIndex = paginationDiv ? parseInt(paginationDiv.getAttribute('data-value')) : 0;
-    // pageStartIndex = pageStartIndex ? +pageStartIndex : 1;
+
     productList && productList.forEach((item, index) => {
       let classnameText = item.querySelector('a.rating > div') ? item.querySelector('a.rating > div').getAttribute('class') : '';
       classnameText = classnameText.replace('value-', '').replace('-', ',');

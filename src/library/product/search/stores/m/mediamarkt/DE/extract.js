@@ -27,7 +27,9 @@ async function implementation (
     });
   }
   autoScroll();
-  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+  await context.waitForFunction(function (sel) {
+    return Boolean(document.querySelector(sel));
+  }, { timeout: 15000 }, 'body');
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

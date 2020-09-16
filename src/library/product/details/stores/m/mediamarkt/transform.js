@@ -158,25 +158,20 @@ const transform = (data, context) => {
         const textArr = [];
         row.description.forEach(item => {
           textArr.push(item.text.replace('Descripción', ''));
-          // if (!item.text.includes('mms-accordion-description')) {
-          //   textArr.push(item.text);
-          // }
         });
         row.description = [
           {
             text: ignoreSinglePip ? textArr.join(' || ') : textArr.join(' | '),
           },
         ];
-        console.log(row.description)
+        console.log(row.description);
       }
       if (row.aggregateRating) {
         row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
       }
-      // if (row.aggregateRatingText) {
-      //   row.aggregateRatingText[0].text = row.aggregateRatingText[0].text.replace('.', ',');
-      // }
-        console.log('row.price');
-        console.log(row.price);
+
+      console.log('row.price');
+      console.log(row.price);
       if (row.price) {
         console.log('row.price');
         console.log(row.price);
@@ -191,7 +186,6 @@ const transform = (data, context) => {
         console.log(row.mpc.length);
         if (row.mpc.length === 2) {
           row.mpc = row.mpc.slice(1);
-          // row.mpc[0].text = row.mpc[1].text;
         } else if (row.mpc.length === 1 && row.mpc[0].text.includes('(') && row.mpc[0].text.includes(')')) {
           const item = row.mpc[0];
           row.mpc[0].text = item.text.match(/(?<=\()(.*?)(?=\))/gm) ? item.text.match(/(?<=\()(.*?)(?=\))/gm)[0] : '';
@@ -220,11 +214,6 @@ const transform = (data, context) => {
           row.image[0].text = row.image[0].text.replace('fee_325_225_png', 'fee_800_800_png');
         }
       }
-      // if (row.technicalInformationPdfPresent) {
-      //   row.technicalInformationPdfPresent.forEach(item => {
-      //     item.text = item.text == 'true' ? 'Yes' : 'No';
-      //   });
-      // }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

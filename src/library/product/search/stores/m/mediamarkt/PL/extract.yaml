@@ -21,8 +21,6 @@ fields:
     description: The product name
   - name: ratingCount
     singleValue: false
-    # xpath: //a[contains(@class, "see-reviews")]
-    # regExp: (\d+)
     description: The number of ratings
   - name: reviewCount
     singleValue: false
@@ -46,6 +44,4 @@ fields:
   - name: aggregateRating2
     singleValue: false
     xpath: count(//div[contains(@class,'m-offerBox_rating')]//i[contains(@class, "icon-i_star is-active")])
-    # xpath: //footer//ul//div[contains(@class, "rating")]//div/@class
-    # regExp: (?<=\-)\s*(.*)
     description: The stated aggregate rating normalized to be out of 5

@@ -28,14 +28,6 @@ async function implementation (
     return false;
   }
 
-  // let url = await context.evaluate(function () {
-  //   /** @type { HTMLLinkElement } */
-  //   const next = document.querySelector('head link[rel="next"]');
-  //   if (!next) {
-  //     return false;
-  //   }
-  //   return next.href;
-  // });
   let url = null;
   if (!url && openSearchDefinition) {
     url = openSearchDefinition.template
@@ -43,10 +35,6 @@ async function implementation (
       .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
       .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
   }
-
-  // const currentPage = await context.evaluate(function() {
-  //   return document.
-  // });
 
   if (!url) {
     return false;
@@ -74,17 +62,13 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'mediamarkt',
-    // nextLinkSelector: 'li.pagination-next a[rel="next"]',
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    // spinnerSelector: 'div.spinner',
     loadedSelector: 'ul.products-list',
-    // loadedSelector: 'ul.pagination li.active',
     noResultsXPath: null,
     openSearchDefinition: {
       template: 'https://www.mediamarkt.nl/nl/search.html?query={searchTerms}&searchProfile=onlineshop&channel=mmnlnlt&page={page}',
-      // template: 'https://grocery.walmart.com/search/?query={searchTerms}&page={page}',
     },
     domain: 'mediamarkt.nl',
     zipcode: '',

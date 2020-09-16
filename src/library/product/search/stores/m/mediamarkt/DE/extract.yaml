@@ -12,8 +12,6 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //picture//img/@src
-    # regExp: (.+)
-    # regExpReplace: https:$1
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
@@ -21,8 +19,6 @@ fields:
     description: The product name
   - name: ratingCount
     singleValue: false
-    # xpath: //a[contains(@class, "see-reviews")]
-    # regExp: (\d+)
     description: The number of ratings
   - name: reviewCount
     singleValue: false

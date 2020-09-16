@@ -9,72 +9,38 @@ module.exports = {
     domain: 'mediamarkt.be',
     zipcode: '',
   },
+  dependencies: {
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    Helpers: 'module:helpers/helpers',
+    SharedHelpers: 'module:product/details/stores/${store[0:1]}/${store}/helpersShared',
+  },
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails, Helpers, SharedHelpers }) => {
+    const sharedhelpers = new SharedHelpers(context);
 
-  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
       if (document.querySelector('gdpr-cookie-layer--show') && document.querySelector('button.gdpr-cookie-layer__btn--submit')) {
         document.querySelector('button.gdpr-cookie-layer__btn--submit').click();
       }
     });
-    async function autoScroll () {
-      await context.evaluate(async function () {
-        await new Promise((resolve, reject) => {
-          var totalHeight = 0;
-          var distance = 100;
-          var timer = setInterval(() => {
-            var scrollHeight = document.body.scrollHeight;
-            window.scrollBy(0, distance);
-            totalHeight += distance;
 
-            if (totalHeight >= scrollHeight) {
-              clearInterval(timer);
-              resolve();
-            }
-          }, 100);
-        });
-      });
-    }
+    await sharedhelpers.autoScroll();
 
-    await new Promise(resolve => setTimeout(resolve, 8000));
-    autoScroll();
+    await context.waitForFunction(function (sel) {
+      return Boolean(document.querySelector(sel));
+    }, { timeout: 15000 }, 'footer#page-footer');
 
     await context.evaluate(async function () {
       document.querySelector('footer#page-footer').scrollIntoView();
     });
 
-    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+    await context.waitForSelector('div.cms_html_container', { timeout: 15000 });
+
     let content = null;
     let image = null;
-
-    async function addHiddenInfo (elementID, content) {
-      await context.evaluate(async function (elementID, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = elementID;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }, elementID, content);
-    }
-
-    async function addHiddenArrayList (elementID, value) {
-      await context.evaluate(async function (elementID, value) {
-        const htmlString = `<span style="display:none" id="added_${elementID}" ></span>`;
-        const root = document.body;
-        root.insertAdjacentHTML('beforeend', htmlString);
-        const innerHTML = value.reduce((acc, val) => {
-          return `${acc}<li>${val}</li>`;
-        }, '<ul>') + '</ul>';
-        document.querySelector(`#added_${elementID}`).innerHTML = innerHTML;
-      }, elementID, value);
-    }
 
     const link = await context.evaluate(async function () {
       return window.location.href;
     });
-
-    // const manufacturerInfo = await context.evaluate(function () {
-    //   return !!document.querySelector('button#more_flixmedia');
-    // });
 
     const hasManuf = await context.evaluate(async function () {
       return !!document.querySelector('div#containerLoadbee');
@@ -98,52 +64,27 @@ module.exports = {
     console.log(apiManufCall);
 
     if (apiManufCall) {
-      await context.goto(apiManufCall);
-      // The code snippet below will be executed in the website's scope.
-      await context.evaluate(async function () {
-        console.log(document.querySelector('h1.next-chapter'));
-      });
-      const text = await context.evaluate(async function () {
-        return document.querySelector('body').innerText;
-      });
-      content = text;
-      const images = await context.evaluate(async function () {
-        const images = document.querySelectorAll('body img');
-        let imagesSrc = [];
-        [...images].forEach((element) => {
-          imagesSrc.push(element.getAttribute('src'));
-        });
-        // imagesSrc = imagesSrc.slice(0, imagesSrc.length - 1);
-        return imagesSrc;
-        // return imagesSrc.join(' || ');
-      });
-      image = images;
-      await context.goto(link);
-      addHiddenInfo('ii_manufContent', content);
+      const obj = await sharedhelpers.goToiFrameLink(apiManufCall, link, 'body img', 'src');
+      image = obj.image;
+      content = obj.content;
+
+      await sharedhelpers.addHiddenInfo('ii_manufContent', content);
       if (image) {
-        addHiddenArrayList('ii_manufImg', image);
-        // image.forEach((element, index) => {
-        //   addHiddenInfo('ii_manufImg'+index, element);
-        // });
+        await sharedhelpers.addHiddenArrayList('ii_manufImg', image.join(' || '));
       }
     }
+
     const availText = await context.evaluate(async function () {
       return document.querySelector('div.price-button span') ? (document.querySelector('div.price-button span').innerText === 'In winkelwagen' ? 'In Stock' : 'In Stock') : 'Out of Stock';
     });
 
-    await context.evaluate(async function () {
-      function hideDivElement (elementID, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = elementID;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-      const avail = document.querySelector('div.price-button span') ? (document.querySelector('div.price-button span').innerText === 'In winkelwagen' ? 'In Stock' : 'In Stock') : 'Out of Stock';
-      hideDivElement('iio_availText', avail);
+    const avail = await context.evaluate(async function () {
+      return document.querySelector('div.price-button span') ? (document.querySelector('div.price-button span').innerText === 'In winkelwagen' ? 'In Stock' : 'In Stock') : 'Out of Stock';
     });
 
-    addHiddenInfo('ii_availText', availText);
+    await sharedhelpers.addHiddenInfo('iio_availText', avail);
+
+    await sharedhelpers.addHiddenInfo('ii_availText', availText);
 
     await context.waitForFunction(function (sel) {
       return Boolean(document.querySelector(sel));

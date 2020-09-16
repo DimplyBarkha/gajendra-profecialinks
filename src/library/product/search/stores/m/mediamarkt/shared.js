@@ -29,24 +29,15 @@ const transform = (data, context) => {
       }
       row.rank = [{ text: rankCounter }];
       if (row.aggregateRating2) {
-        // let text = '';
-        // row.aggregateRating2.forEach(item => {
-        //   text = item.text.replace('-', '.');
-        // });
-        // row.specifications = [
-        //   {
-        //     text: text.slice(0, -4),
-        //   },
-        // ];
         row.aggregateRating2 = [{ text: row.aggregateRating2[0].text.replace('-', ',').replace('.', ',') }];
       }
       if (row.aggregateRating) {
         row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('-', ',').replace('.', ',') }];
       }
-      console.log('dsdsdsdsds')
-      console.log(row.price)
+      console.log('dsdsdsdsds');
+      console.log(row.price);
       if (row.price && row.price[0]) {
-        console.log(row.price)
+        console.log(row.price);
         if (row.price[0].text.includes(' = ')) {
           let jsonData = row.price[0].text.split(' = ');
           jsonData = jsonData.length === 2 ? jsonData[1].replace(';', '') : '';
