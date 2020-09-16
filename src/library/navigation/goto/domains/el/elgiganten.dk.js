@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'elgiganten.dk',
-    timeout: null,
+    timeout: 20000,
     country: 'DK',
     store: 'elkjop',
     zipcode: '',
