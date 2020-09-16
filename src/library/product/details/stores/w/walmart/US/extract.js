@@ -89,7 +89,7 @@ module.exports = {
       .catch(() => console.log('no alt Images'));
 
     await context.waitForXPath("//li//img[contains(@alt,'Shop at')]", { timeout: 30000 })
-      .catch(()=>console.log('Wait complete'))
+      .catch(() => console.log('Wait complete'));
 
     await context.click('body');
 
@@ -105,7 +105,7 @@ module.exports = {
 
     //     // let lis = topNode.querySelectorAll('li');
     //     // lis.forEach(li=>{
-    //     //   fullDescription += ' || ' + li.textContent; 
+    //     //   fullDescription += ' || ' + li.textContent;
     //     // });
     //     // let other = topNode.querySelectorAll('*:not(li)');
     //     // other.forEach(ot=>{
