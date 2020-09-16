@@ -97,9 +97,9 @@ fields:
     xpath: //dt[contains(@class,'product-details__content-title') and contains(.,'Peso del producto con caja')]/following-sibling::dd[1]
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
+    singleValue: false
     description: Number of variants listed
-    defaultValue: 0
+    defaultValue: '0'
   - name: color
     singleValue: true
     xpath: //dt[contains(@class,'product-details__content-title') and contains(.,'Color')]/following-sibling::dd[1]
