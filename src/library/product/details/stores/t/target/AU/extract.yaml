@@ -32,6 +32,8 @@ fields:
     xpath: //h5[contains(.,"Product Details")]/following-sibling::p[1]
   - name: descriptionBullets
     xpath: count(//ul[@class="ProductFeaturesPanel-list"]//li)
+  - name: additionalDescBulletInfo
+    xpath: //ul[@class="ProductFeaturesPanel-list"]//li
   - name: brandText
     xpath: //script[contains(.,"BRAND_CODE")]
     regExp: (.*)(var MVT_BRAND_CODE =)(.+)(; var TARGET_META_PRODUCT_NAME.+)

@@ -50,6 +50,13 @@ const transform = (data) => {
         });
         row.variantInformation = [{ text }];
       }
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text = text + (`||`+text ? ' || ' : '') + item.text;
+        });
+        row.additionalDescBulletInfo = [{ text }];
+      }
     }
   }
 
