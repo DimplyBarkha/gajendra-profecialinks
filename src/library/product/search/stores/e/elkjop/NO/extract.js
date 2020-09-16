@@ -1,9 +1,10 @@
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'NO',
     store: 'elkjop',
-    transform: null,
+    transform: cleanUp,
     domain: 'elkjop.no',
     zipcode: '',
   },
@@ -20,14 +21,19 @@ module.exports = {
         // @ts-ignore
         accCookie.click();
       }
+      const resCount = document.querySelector('.count');
       // @ts-ignore
-      const resCount = document.querySelector('.count').innerText;
-      const resVisible = 12;
-      var iter = Math.ceil(resCount / resVisible);
-      var i;
-      for (i = 0; i < iter; i++) {
-        window.scrollTo(0, document.querySelector('#searchProductsInfo').scrollHeight);
-        await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+      if (resCount && resCount.innerText) {
+        const resVisible = 12;
+        // @ts-ignore
+        var iter = Math.ceil(resCount.innerText / resVisible);
+        var i;
+        for (i = 0; i < iter; i++) {
+          if (document.querySelector('#searchProductsInfo')) {
+            window.scrollTo(0, document.querySelector('#searchProductsInfo').scrollHeight);
+            await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+          }
+        }
       }
     });
     return await context.extract(productDetails);
