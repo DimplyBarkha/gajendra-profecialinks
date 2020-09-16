@@ -44,10 +44,10 @@ fields:
     xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Peso')]//parent::div/dd/p
   - name: gtin
     singleValue: false
-    xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'EAN')]//parent::div/dd/p
+    xpath: (//script/@data-flix-ean | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'EAN')]//parent::div/dd/p)[1]
   - name: mpc
     singleValue: false
-    xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Modelo')]//parent::div/dd/p
+    xpath: (//script/@data-flix-mpn | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Modelo')]//parent::div/dd/p)[1]
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-productHeader-reviewLabel")]
@@ -57,7 +57,7 @@ fields:
     xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-star--large")]    
   - name: variantCount
     singleValue: false
-    defaultValue: 1
+    defaultValue: 0
     type: NUMBER
   - name: color
     singleValue: false
@@ -85,3 +85,9 @@ fields:
     singleValue: false
     manualSelector: div.f-productVisuals-mainIconZoom > svg.f-icon
     defaultValue: No
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class, "js-articleView")]/@data-ean13
+  - name: rpc
+    singleValue: false
+    xpath: //div[contains(@class, "js-articleView")]/@data-ean13
