@@ -15,7 +15,7 @@ fields:
     xpath: //img[@id='image_grande']/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //span[contains(@class,'gv-vignette')]//img/@src
+    xpath: //span[contains(@class,'gv-vignette')][position()>1]//img/@src
     regExp: (.*)(v_)(.*)
     regExpReplace: https:$1$3
   - name: metaKeywords
@@ -36,6 +36,9 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //div[@id='wc-power-page']/@data-product-id
+  - name: mpc
+    singleValue: false
+    xpath: (//div[@id='flix-media-container']//@data-flix-mpn)[1]
   - name: ratingCount
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"reviewCount")]
@@ -135,12 +138,9 @@ fields:
   - name: shippingDimensions
     singleValue: false
     xpath: normalize-space(//div[span[contains(text(), 'Dimensions')]]//span[2])
-    defaultValue: No
   - name: color
     singleValue: false
     xpath: normalize-space(//div[span[contains(text(), 'Coloris :')]]//span[2])
-    defaultValue: No
   - name: countryOfOrigin
     singleValue: false
     xpath: normalize-space(//div[span[contains(text(), 'Origine')]]//span[2])
-    defaultValue: No
