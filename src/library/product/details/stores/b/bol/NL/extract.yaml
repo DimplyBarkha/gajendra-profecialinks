@@ -87,7 +87,7 @@ fields:
     regExp: (.+)x(.+)
     regExpReplace: $1
   - name: packSize
-    xpath: //dt[contains(.,'Aantal artikelen in verpakking')]/following-sibling::dd[1]
+    xpath: //dt[contains(.,'Aantal artikelen in verpakking') or contains(.,'Aantal stuks in verpakking')]/following-sibling::dd[1]
   # - name: productOtherInformation
   #   xpath: //ul[@class='pros-cons-list']/li
   - name: promotion
