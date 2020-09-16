@@ -14,6 +14,13 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
       async function infiniteScroll () {
         let prevScroll = document.documentElement.scrollTop;
         while (true) {
@@ -27,6 +34,16 @@ module.exports = {
         }
       }
       await infiniteScroll();
+      let manufactureImage = [];
+      const aplusImages = document.querySelector("div[id*='inpage_container'] img") ? document.querySelectorAll("div[id*='inpage_container'] img") : null;
+      for (let i = 0; i < aplusImages.length; i++) {
+        if (aplusImages[i].getAttribute('data-flixsrcset')) {
+          manufactureImage.push(aplusImages[i].getAttribute('data-flixsrcset'));
+        }
+      }
+      // @ts-ignore
+      manufactureImage = [...new Set(manufactureImage)];
+      addHiddenDiv('ii_aplusImages', manufactureImage.join(' | '));
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
