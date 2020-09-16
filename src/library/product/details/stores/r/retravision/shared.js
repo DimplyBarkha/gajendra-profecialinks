@@ -8,8 +8,7 @@ const transform = (data) => {
 		for (const row of group) {				
 			if (row.Image360Present) {								
 				let newText = 'No';
-				row.Image360Present.forEach(item => {					
-					console.log("Abhay" + item.text)				
+				row.Image360Present.forEach(item => {										
 					if (item.text.trim() > 0) {
 						newText = 'YES';
 					}
