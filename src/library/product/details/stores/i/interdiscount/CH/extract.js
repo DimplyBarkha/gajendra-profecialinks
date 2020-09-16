@@ -31,6 +31,9 @@ module.exports = {
         console.log(dataObj);
         try {
           if (dataObj) {
+            if (dataObj.productVariants) {
+              dataObj.productVariants[0].options && addElementToDocument('pd_firstVariant', dataObj.productVariants[0].options[0].product.code);
+            }
             dataObj.ean && addElementToDocument('pd_gtin', dataObj.ean);
             dataObj.code && addElementToDocument('pd_sku', dataObj.code);
             dataObj.ratings && addElementToDocument('pd_aggregateRating', dataObj.ratings.ratingAvg);

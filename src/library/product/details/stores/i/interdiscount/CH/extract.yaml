@@ -108,7 +108,7 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: //div[@id="pd_variantCount"]
-    defaultValue: 1
+    defaultValue: '0'
   - name: color
     singleValue: false
     xpath: ((//div[@id="classifications"])[1]//table//tr/th[(contains(text(),"Farbe"))])[1]/following-sibling::td
@@ -195,3 +195,6 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@id="pd_firstVariant"]
