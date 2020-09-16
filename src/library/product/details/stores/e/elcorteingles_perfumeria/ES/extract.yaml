@@ -10,10 +10,7 @@ fields:
     singleValue: true
     xpath : ancestor::html //meta[@name="twitter:title"]/@content
   - name: alternateImages
-    singleValue: true
     xpath : ancestor::html //div[@class="image-layout-slides-group"]/div[position() > 1]/img/@data-zoom
-    regExp: ^(.*)(__)(\d+x\d+)(.jpg)$
-    regExpReplace: https:$1$21200x1200$4 
   - name: secondaryImageTotal
     xpath: count(//link[@as="image"][position() > 1]/@href)    
   - name: category
@@ -82,7 +79,7 @@ fields:
     xpath : ancestor::html //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd | ancestor::html//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p   
   - name: manufacturerImages
     singleValue: false
-    xpath : ancestor::html //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd | ancestor::html//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
+    xpath :
   - name: videos
     singleValue: false
     xpath : ancestor::html //div[@class="image-layout-slides-group-item"]/img/@data-url

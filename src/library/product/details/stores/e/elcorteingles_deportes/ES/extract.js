@@ -97,7 +97,7 @@ module.exports = {
         };
 
         // For FirstVariant
-        let firstVariant = getXpath('//div[@id="variants_container"]//select//option[@color][1]/@data-product-gtin', 'nodeValue')
+        let firstVariant = getXpath('//div[@id="variants_container"]//select//option[@color][1]/@value', 'nodeValue')
         addElementToDocument('firstVariant', firstVariant);
 
         // elements from data Layer object
