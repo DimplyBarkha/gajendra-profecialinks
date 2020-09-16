@@ -86,6 +86,8 @@ fields:
     xpath: //div[@class='multibundle__option']/a[contains(@class, 'selected')]
     regExp: (.+)x(.+)
     regExpReplace: $1
+  - name: packSize
+    xpath: //dt[contains(.,'Aantal artikelen in verpakking')]/following-sibling::dd[1]
   # - name: productOtherInformation
   #   xpath: //ul[@class='pros-cons-list']/li
   - name: promotion
