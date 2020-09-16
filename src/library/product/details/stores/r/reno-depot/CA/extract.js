@@ -24,7 +24,7 @@ async function implementation (
     location.reload();
   });
 
-  await stall (3000);
+  await stall (5000);
 
   await context.evaluate(function() {
     function addHiddenDiv (id, content) {
@@ -55,19 +55,21 @@ async function implementation (
       addHiddenDiv('alternateImages', alternateImages.join(' | '));
     }
 
-    addHiddenDiv('price', '$' + document.querySelector('.integer').innerText + (document.querySelector('.decimal') ?  '.' + document.querySelector('.decimal').innerText : ''));
-    if (document.querySelector('.linethrough')) {
-      addHiddenDiv('listPrice', document.querySelector('.linethrough').innerText.trim());
-    } else {
-      addHiddenDiv('listPrice', '$' + document.querySelector('.integer').innerText + (document.querySelector('.decimal') ? '.' + document.querySelector('.decimal').innerText : ''));
+    if (document.querySelector('.product_price_box')) {
+      addHiddenDiv('price', '$' + document.querySelector('.product_price_box').querySelector('.integer').innerText + (document.querySelector('.product_price_box').querySelector('.decimal') ?  '.' + document.querySelector('.product_price_box').querySelector('.decimal').innerText : ''));
+      if (document.querySelector('.product_price_box').querySelector('.linethrough')) {
+        addHiddenDiv('listPrice', document.querySelector('.product_price_box').querySelector('.linethrough').innerText.trim());
+      } else {
+        addHiddenDiv('listPrice', '$' + document.querySelector('.product_price_box').querySelector('.integer').innerText + (document.querySelector('.product_price_box').querySelector('.decimal') ? '.' + document.querySelector('.product_price_box').querySelector('.decimal').innerText : ''));
+      }
     }
 
     let inStore = false;
     let delivery = false;
-    if (document.querySelector('.availability.availMsgInStock.store')) {
+    if (document.querySelector('.cartWrapper').querySelector('.availability.availMsgInStock.store')) {
       inStore = true;
     }
-    if (document.querySelector('.availability.availMsgInStock.parcel') || document.querySelector('.availability.availMsgTruck')) {
+    if (document.querySelector('.cartWrapper').querySelector('.availability.availMsgInStock.parcel') || document.querySelector('.cartWrapper').querySelector('.availability.availMsgTruck')) {
       delivery = true;
     }
 
@@ -108,6 +110,10 @@ async function implementation (
         el.remove();
         specifications.push(parent.innerText.trim());
       }
+      if (parent && el.innerText.includes('Dimensions')) {
+        el.remove();
+        specifications.push(parent.innerText.trim());
+      }
     });
 
     addHiddenDiv('specifications', specifications.join(' | '));
@@ -127,7 +133,15 @@ async function implementation (
 
     const videos = [];
     document.querySelectorAll('video').forEach(video => {
-      videos.push(video.src);
+      videos.push(video.getAttribute('src'));
+    });
+    document.querySelectorAll('iframe').forEach(frame => {
+      if(frame.getAttribute('src')) {
+        return;
+      }
+      frame.contentWindow.document.querySelectorAll('video').forEach(video => {
+        videos.push(video.getAttribute('src'));
+      });
     });
     const manufacturerImgs = [];
     if (document.getElementById('wc-power-page')) {
@@ -152,7 +166,13 @@ async function implementation (
     addHiddenDiv('terms', 'No');
     addHiddenDiv('privacyPolicy', 'Yes');
     addHiddenDiv('customerServiceAvailability', 'Yes');
-    addHiddenDiv('rotateInfo', 'No');
+    let rotate = 'No';
+    document.querySelectorAll('h2').forEach(el => {
+      if (el.innerText.includes('360° Spin')) {
+        rotate = 'Yes';
+      }
+    })
+    addHiddenDiv('rotateInfo', rotate);
     addHiddenDiv('countryOfOrigin', 'Canada');
 
     if (document.querySelector('.zoom_btn')){
