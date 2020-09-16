@@ -48,23 +48,37 @@ const transform = (data) => {
 				});
 				row.technicalInformationPdfPresent = [{ text: newText }];
 			}
-
+			
 			if (row.weightNet) {				
 				let newText = '';
 				row.weightNet.forEach(item => {
 					newText +=  `${item.text.trim() + ' ' }` ;
 				});
 				
-				row.weightNet = [{ text: newText }];
+				row.weightNet = [{ text: newText.replace(',','.') }];
 			}
 
 			if (row.specifications) {				
 				let newText = '';
 				row.specifications.forEach(item => {
-					newText +=  `${item.text.trim() + ' ' }` ;
+					newText +=  `${item.text.trim().replace(',','.') + ' ' }` ;
 				});
 				
 				row.specifications = [{ text: newText }];
+			}
+
+			if(row.price){
+				var newText = row.price[0].text.replace(',','.');
+				row.price = [{ text: newText.replace(' ',',')}];          
+			}
+
+			if (row.packaging) {				
+				let newText = '';
+				row.packaging.forEach(item => {                    			
+					newText +=  `${item.text.replace('- ', ' || ')}`;
+				});
+				
+				row.packaging = [{ text: newText.slice(0, -4) }];
 			}
 		}
 	}
