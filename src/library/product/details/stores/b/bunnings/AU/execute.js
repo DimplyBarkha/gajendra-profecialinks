@@ -8,5 +8,5 @@ module.exports = {
     loadedSelector: 'html',
     noResultsXPath: null,
     zipcode: '',
-  },
+  }
 };

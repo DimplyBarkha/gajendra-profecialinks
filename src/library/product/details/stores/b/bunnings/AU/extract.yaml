@@ -33,11 +33,13 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //div[contains(@class, "product-detail__price")]//p
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    xpath: //div[contains(@class, "product-fulfillment__cta")]//button[contains(@icon, "bui-icon-delivery")]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -45,17 +47,21 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //div[@class="bui-accordion__panel-inner"]//div//p//following-sibling::text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//div[@class="bui-accordion__panel-inner"]//div//ul//li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@class="product-image__nav-logo"]//a//img//@alt
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //div[@class="product-image__nav-logo"]//a//img//@alt
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -64,6 +70,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //div[@class="product-detail__table js-pdp-accordion-specification"]//table//tbody//tr//th[contains(text(), "Weight")]//following-sibling::td
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -79,16 +86,19 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //div[@class="product-detail__table js-pdp-accordion-specification"]//table//tbody//tr//th[contains(text(), "Model Number")]//following-sibling::td
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //section[contains(@class, "package-dimension-table")]//table//tbody//tr[1]//th[2]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
     description: Content under "directions" header
+    xpath: //div[contains(@class, "bui-accordion bui-page-container__item bui-accordion--initialized")]//dl[contains(@id, "product-detail-installationinfo")]//dd//div//div//p
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -96,22 +106,28 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: //dd[contains(@class, "bv-rating-ratio-count")]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
+    xpath: //a[contains(@class, "bv-rating-stars-container")]//span[contains(@class, "bv-off-screen")]
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //dl[contains(@class, "bv-stars-container")]//dd[contains(@class, "bv-rating-ratio-number")]//span//span
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //dl[contains(@class, "product-detail-sellershippingpolicy")]//dd[contains(@class, "bui-accordion__panel")]//div//div//p
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
+    xpath: //section[contains(@class, "package-dimension-table")]//table//tbody//tr//th[contains(text(), "Width")]//following-sibling::td | //section[contains(@class, "package-dimension-table")]//table//tbody//tr//th[contains(text(), "Height")]//following-sibling::td | //section[contains(@class, "package-dimension-table")]//table//tbody//tr//th[contains(text(), "Length")]//following-sibling::td
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
+    xpath: //p[contains(@class, "product-detail-dimension_title margin-bottom--xs")]//span
   - name: variantCount
     singleValue: true
     description: Number of variants listed
@@ -119,6 +135,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //div[@class="product-detail__table js-pdp-accordion-specification"]//table//tbody//tr//th[contains(text(), "Colour")]//following-sibling::td
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -128,12 +145,14 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[@class="product-image__nav-logo"]//a//img//@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
   - name: name
     singleValue: true
     description: The product name
+    xpath: //meta[contains(@property, "og:title")]/@content
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -152,6 +171,7 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+    xpath: //div[@class="product-image__nav-logo"]//a//@href
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point

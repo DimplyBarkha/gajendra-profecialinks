@@ -16,6 +16,16 @@ const transform = (data) => {
 				});
 				row.Image360Present = [{ text: newText }];
 			}
+
+			if (row.category) {                
+                let newText = 'Test';
+                row.category.forEach(item => {
+                    // newText +=  `${item.text.trim() + ' ' }` ;
+					console.log(item.text.trim());
+                });
+                
+                row.category = [{ text: newText }];
+            }
 		}
 	}
 
