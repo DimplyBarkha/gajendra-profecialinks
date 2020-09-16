@@ -1,10 +1,11 @@
 
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'NO',
     store: 'elkjop',
-    transform: null,
+    transform: cleanUp,
     domain: 'elkjop.no',
     zipcode: '',
   },
@@ -28,14 +29,14 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      const rating = document.evaluate("//div[@itemprop='aggregateRating']/meta[@itemprop='ratingValue']/@content", document, null, XPathResult.STRING_TYPE, null).stringValue;
-      if (rating) {
-        const formattedRating = rating.replace(',', '.');
+      const rating = document.evaluate("//div[@itemprop='aggregateRating']/meta[@itemprop='ratingValue']/@content", document, null, XPathResult.STRING_TYPE, null);
+      if (rating && rating.stringValue) {
+        const formattedRating = rating.stringValue.replace(',', '.');
         addElementToDocument('rating', formattedRating);
       }
-      const weight = document.evaluate("//div[contains(text(), 'Vekt')]", document, null, XPathResult.STRING_TYPE, null).stringValue;
-      if (weight) {
-        const formattedWeight = weight.replace(/\n|Vekt|\(|\)\s/g, '');
+      const weight = document.evaluate("//div[contains(text(), 'Vekt')]", document, null, XPathResult.STRING_TYPE, null);
+      if (weight && weight.stringValue) {
+        const formattedWeight = weight.stringValue.replace(/\n|Vekt|\(|\)\s/g, '');
         addElementToDocument('weight', formattedWeight);
       }
     });
@@ -47,31 +48,39 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-      const sku = document.evaluate("//meta[@itemprop='sku']/@content", document, null, XPathResult.STRING_TYPE, null).stringValue;
-      const name = document.evaluate("//meta[@itemprop='name']/@content", document, null, XPathResult.STRING_TYPE, null).stringValue;
-      const embeedVideos = document.querySelectorAll('video.el-videoplayer');
-      for (var i = 0; i < embeedVideos.length; i++) {
-        // @ts-ignore
-        var urlEmbeedVideo =  embeedVideos[i].src;
-        addHiddenDiv('vidURL', urlEmbeedVideo);
-      }
-      const vidApiUrl = `https://dapi.videoly.co/1/videos/0/5/?SKU=${sku}&productTitle=${name}&hn=www.gigantti.fi`;
-      const videoApi = await fetch(vidApiUrl,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-          method: 'GET',
-        },
-      ).then(x => x.json());
+      const sku = document.evaluate("//meta[@itemprop='sku']/@content", document, null, XPathResult.STRING_TYPE, null);
+      const name = document.evaluate("//meta[@itemprop='name']/@content", document, null, XPathResult.STRING_TYPE, null);
+      if (sku && name) {
+        const embeedVideos = document.querySelectorAll('video.el-videoplayer');
+        if (embeedVideos) {
+          for (var i = 0; i < embeedVideos.length; i++) {
+            // @ts-ignore
+            var urlEmbeedVideo = embeedVideos[i].src;
+            addHiddenDiv('vidURL', urlEmbeedVideo);
+          }
+        }
+        var skuS = sku.stringValue;
+        var nameS = name.stringValue;
+        if (skuS && nameS) {
+          const vidApiUrl = `https://dapi.videoly.co/1/videos/0/5/?SKU=${skuS}&productTitle=${nameS}&hn=www.gigantti.fi`;
+          const videoApi = await fetch(vidApiUrl,
+            {
+              headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+              },
+              method: 'GET',
+            },
+          ).then(x => x.json());
 
-      const video = videoApi.items;
-      let videoUrl;
-      video.forEach(vid => {
-        videoUrl = `https://www.youtube.com/watch?v=${vid.videoId}&feature=youtu.be`;
-        addHiddenDiv('vidURL', videoUrl);
-      });
+          const video = videoApi.items;
+          let videoUrl;
+          video.forEach(vid => {
+            videoUrl = `https://www.youtube.com/watch?v=${vid.videoId}&feature=youtu.be`;
+            addHiddenDiv('vidURL', videoUrl);
+          });
+        }
+      }
     });
     await context.extract(productDetails);
   },
