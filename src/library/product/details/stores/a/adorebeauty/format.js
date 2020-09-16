@@ -20,7 +20,7 @@ const transform = (data) => {
     for (const { group } of data) {
       for (const row of group) {
         if (row.description) {
-          row.description[0].text = row.description[0].text.replace(/(\n\s*){5,}/g, '').replace(/(\n\s*){4,}/g, '').replace(/(\n\s*){2,}/g, ' || ');
+          row.description[0].text = row.description[0].text.replace(/(\n\s*){5,}/g, '').replace(/(\n\s*){4,}/g, '').replace(/(\n\s*){3,}/g, ' || ').replace(/(\n\s*){2,}/g, ' || ').replace(/(\n\s*){1,}/g, '');
           row.description[0].text = cleanUp(row.description[0].text);
         }
 
