@@ -40,8 +40,18 @@ const transform = (data) => {
           item.text=reviewCountData[0];
         });
       }
-      if (row.manufacture) {
-        row.manufacture.forEach(item => {
+      if(row.category){
+        var arr=[];
+        row.category.forEach(item => {
+          arr.push({text:item.text,xpath:item.xpath});
+        });
+        arr.shift();
+        row.category=arr;
+      }
+
+
+      if (row.manufacturer) {
+        row.manufacturer.forEach(item => {
           var myRegexp = /producenta\/importera\s+\n(.+?)\s*\n/g;
           var match = myRegexp.exec(item.text);
           if(match.length){
@@ -74,17 +84,7 @@ const transform = (data) => {
         });
       }
 
-      if(row.weightNet){
-        row.weightNet.forEach(item => {
-          var myRegexp = /Waga\s+\[g\](\d+)\s*/g;
-          var match = myRegexp.exec(item.text);
-          if(match.length){
-              item.text = match[1].trim();
-          }else{
-              delete item.text;
-          }
-        });
-      }
+      
 
       if(row.color){
         row.color.forEach(item => {

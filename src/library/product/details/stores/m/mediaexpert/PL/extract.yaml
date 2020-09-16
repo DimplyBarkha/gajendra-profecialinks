@@ -47,7 +47,7 @@ fields:
     xpath: //div[@class="c-reviews-general_typo"]
   - name: weightNet
     singleValue: false
-    xpath: //*[contains(text(),"Waga [g]")]//ancestor::div[contains(@class,"c-accordion_item")]
+    xpath: //table[@class='c-table is-specification']//tr//td[contains(text(),"Waga") or contains(text(),"kg")]/parent::*/td[2]
   - name: color
     singleValue: false
     xpath: //*[contains(text(),"Kolor")]//ancestor::div[contains(@class,"c-accordion_item")]
