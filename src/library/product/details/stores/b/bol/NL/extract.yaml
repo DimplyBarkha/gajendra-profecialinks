@@ -16,7 +16,7 @@ fields:
   - name: category
     xpath: //span[contains(@class, 'breadcrumbs__item-content po_breadcrumb_category')]
   - name: nameExtended
-    xpath: concat(//a[@data-role='BRAND'], ' - ', //h1[contains(@class,'page-heading')] , '-', //div[contains(@class, 'feature-list__item feature-list__item--current')]/div[@class='feature-list__text'])
+    xpath: concat(//a[@data-role='BRAND'], ' - ', //h1[contains(@class,'page-heading')])
   - name: listPrice
     xpath: //del[@class='buy-block__list-price']
   - name: price
