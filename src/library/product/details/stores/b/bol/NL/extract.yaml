@@ -82,7 +82,7 @@ fields:
     xpath: //dt[@class='specs__title' and contains(., 'garantie') and not(contains(., 'Taal garantiebewijs'))]/following-sibling::dd[1] 
   - name: mpc
     xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs'][1]/dl//dt[contains(.,'Model')]/following-sibling::dd[1]
-  - name: size
+  - name: quantity
     xpath: //div[@class='multibundle__option']/a[contains(@class, 'selected')]
     regExp: (.+)x(.+)
     regExpReplace: $1
