@@ -13,7 +13,7 @@ fields:
     regExpReplace: https://www.hifi.lu$1
   - name: thumbnail
     singleValue: false
-    xpath: //img[contains(@class,"product-image")]/@src
+    xpath: //div[@id="pd_image"]
   - name: name
     singleValue: false
     xpath: //span[contains(@class,"product-name")]//span[contains(@class,"name")]

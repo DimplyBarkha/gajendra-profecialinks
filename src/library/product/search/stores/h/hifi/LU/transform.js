@@ -22,12 +22,15 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
+      let rating;
       if (row.fullStar && row.fullStar[0].text !== '0' && row.halfStar && row.halfStar[0].text !== '0') {
-        row.aggregateRating2 = [{ text: Number(row.fullStar[0].text) + 0.5 }];
+        rating = Number(row.fullStar[0].text) + 0.5;
+        row.aggregateRating2 = [{ text: rating.toString().replace('.', ',') }];
       } else if (row.fullStar && row.fullStar[0].text !== '0') {
-        row.aggregateRating2 = [{ text: Number(row.fullStar[0].text) }];
+        rating = Number(row.fullStar[0].text);
+        row.aggregateRating2 = [{ text: rating.toString().replace('.', ',') }];
       } else if (row.halfStar && row.halfStar[0].text !== '0') {
-        row.aggregateRating2 = [{ text: 0.5 }];
+        row.aggregateRating2 = [{ text: '0,5' }];
       }
       rankCounter += 1;
       if (!row.sponsored) {
