@@ -100,7 +100,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[contains(@id, 'inpage_container')]//img/@srcset | //div[contains(@id, 'no-parallax')]//img/@srcset
+    xpath: //div[contains(@id, 'imgArr')]
     regExp: (.+)
     regExpReplace: https:$1
   - name: videos

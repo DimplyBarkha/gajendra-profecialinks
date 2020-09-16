@@ -31,6 +31,24 @@ async function implementation (
     }
   }
   await context.evaluate(async function () {
+    let scrollSelector = document.querySelector('footer[class="page__footer "]');
+    let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+    let yPos = 0;
+    while (scrollLimit && yPos < scrollLimit) {
+      yPos = yPos + 350;
+      window.scrollTo(0, yPos);
+      scrollSelector = document.querySelector('footer[class="page__footer "]');
+      scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+      await new Promise(resolve => setTimeout(resolve, 3500));
+    }
+  });
+  try {
+    await context.waitForSelector('div#inpage_container img');
+  } catch (error) {
+    console.log('All images not loaded after scrolling!!');
+  }
+
+  await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -44,6 +62,14 @@ async function implementation (
       for (let i = 0; i < specsArrSelector.length; i++) {
         specsArr.push(specsArrSelector[i].querySelector('div.flix-value').innerText + ': ' + specsArrSelector[i].querySelector('div.flix-title').innerText);
         addHiddenDiv('specsArr', specsArr[i]);
+      }
+    }
+    const manuImagesSelector = document.querySelectorAll('div#inpage_container img');
+    if (manuImagesSelector) {
+      const imgArr = [];
+      for (let i = 0; i < manuImagesSelector.length; i++) {
+        imgArr.push(manuImagesSelector[i].getAttribute('srcset'));
+        addHiddenDiv('imgArr', imgArr[i]);
       }
     }
   });

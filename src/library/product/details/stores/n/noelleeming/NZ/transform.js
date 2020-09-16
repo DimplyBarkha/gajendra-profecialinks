@@ -22,9 +22,20 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += item.text.replace(/\n \n/g, ' || ').trim();
+          text += item.text.replace(/\n \n/g, ' || ').trim() + ' || ';
         });
         row.description = [
+          {
+            text: cleanUp(text.slice(0, -4)),
+          },
+        ];
+      }
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text += `|| ${item.text.trim()}`;
+        });
+        row.additionalDescBulletInfo = [
           {
             text: cleanUp(text),
           },
