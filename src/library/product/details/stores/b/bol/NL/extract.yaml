@@ -63,9 +63,9 @@ fields:
   - name: variantCount
     xpath: count(//div[@class='feature-options']/a/@href | //div[contains(@class, 'feature-list__options')]/a/@href)
   - name: color
-    xpath: //div[@class='feature-options']/a[contains(@class, 'is-active')]/img/@title | //div[@class='feature-list__item feature-list__item--current']/div[@class='feature-list__text']
+    xpath: //div[contains(@class, 'js_specifications_content')]//dt[contains(., 'Kleur')]/following-sibling::dd[1]
   - name: variantInformation
-    xpath: //div[@class='feature-options']/a[contains(@class, 'is-active')]/img/@title | //div[@class='feature-list__item feature-list__item--current']/div[@class='feature-list__text']
+    xpath: //div[contains(@class, 'js_specifications_content')]//dt[contains(., 'Kleur')]/following-sibling::dd[1]
   - name: name
     xpath: //h1[@class='page-heading']
   - name: videos
