@@ -17,7 +17,7 @@ module.exports = {
     const cssProduct = "div.search-page-content__products-tab-content ul.co-product-list__main-cntr li.co-item a[data-auto-id='linkProductTitle']";
     const cssProductDetails = 'div.pdp-main-details';
 
-    const waitPeriodInMS = 10000;
+    const waitPeriodInMS = 20000;
 
     const isSelectorAvailable = async (cssSelector) => {
       console.log(`Is selector available: ${cssSelector}`);
@@ -37,7 +37,7 @@ module.exports = {
         }
 
         if (xpath) {
-          await context.waitForSelector(cssSelector, { timeout: waitPeriodInMS });
+          await context.waitForXPath(xpath, { timeout: waitPeriodInMS });
         }
 
         console.log(`Selector loaded => ${cssSelector || xpath}`);
@@ -64,6 +64,8 @@ module.exports = {
 
       await waitForSelectorToLoad('.s7staticimage img');
       await waitForSelectorToLoad('.asda-tab-list ~ div');
+      await waitForSelectorToLoad(undefined, `//div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Ingredients')]]//div[contains(@class,'content')]`);
+      await waitForSelectorToLoad(undefined, `//*[@id='s7viewer_swatches']//div[contains(@class,'s7thumbcell')][@aria-selected='false']/div[contains(@class,'s7thumb')]/@style`);
       console.log('navigation complete!!');
     }
 
