@@ -1,0 +1,16 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //img[contains(@class, 'clubSwatch popup')]/@src | //span[contains(@id, 'DT_Overview_ProductId')]
+    regExp: \d{8}
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //img[contains(@class, 'clubSwatch popup')]/@src | //span[contains(@id, 'DT_Overview_ProductId')]
+    regExp: (\d{8})
+    regExpReplace: https://www.nfm.com/$1

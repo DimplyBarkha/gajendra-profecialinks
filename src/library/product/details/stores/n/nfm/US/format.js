@@ -99,17 +99,6 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.storage) {
-        let text = '';
-        row.storage.forEach(item => {
-          text += `${item.text} `;
-        });
-        row.storage = [
-          {
-            text: (text.slice(0, -1)),
-          },
-        ];
-      }
       if (row.variantInformation) {
         let text = '';
         row.variantInformation.forEach(item => {
