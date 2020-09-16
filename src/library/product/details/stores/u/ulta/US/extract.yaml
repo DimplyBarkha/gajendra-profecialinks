@@ -6,12 +6,16 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[@id="scene7Container0_container_inner"]//div[@class= 's7staticimage']//img/@src
+    regExp: (.*)\?.*
+    regExpReplace: $1
   - name: imageAlt
     singleValue: false
     xpath: //div[@id="scene7Container0_container_inner"]//div[@class= 's7staticimage']//img/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[@class= 's7staticimage']//img/@src
+    regExp: (.*)\?.*
+    regExpReplace: $1
   - name: metaKeywords
     singleValue: false
   - name: category
