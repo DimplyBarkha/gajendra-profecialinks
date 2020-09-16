@@ -1,0 +1,58 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _input
+  - name: image
+    xpath: //div[contains(@class,"carousel__images-item--zoom")][position()=1]//img/@src
+  - name: imageAlt
+    xpath: //div[contains(@class,"carousel__images-item--zoom")][position()=1]//img/@alt
+  - name: alternateImages
+    xpath: //div[contains(@class,"carousel__images-item--zoom")][position()>1]//img/@src
+  - name: _pageTimestamp
+  - name: _url
+  - name: category
+    xpath: //li[@itemprop="itemListElement"][position()>1][position()<last()]
+  - name: nameExtended
+    xpath: //h1[contains(@class,"b-pdp__product-name")]
+  - name: brandLink
+    xpath: //a[contains(@class,'product-brand')]/@href
+    regExp: (.+)
+    regExpReplace: https://bloomingdales.ae/$1
+  - name: baseUrl
+    xpath: //link[@rel="canonical"]/@href
+  - name: price
+    xpath: //span[@class="b-product-pricing__price value"]
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@class,'b-pdp__availability')][contains(.,'Out')]
+    regExp: (.+)
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
+  - name: description
+    xpath: //div[@id="pdp-details"]
+  - name: descriptionBullets
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: brandText
+    xpath: //a[contains(@class,'product-brand')]
+  - name: sku
+    xpath: //div/@data-pid
+  - name: mpc
+    xpath: //meta[@property="product:retailer_item_id"]/@content
+  - name: name 
+    xpath: //h1[contains(@class,"b-pdp__product-name")]
+  - name: priceCurrency
+  - name: secondaryImageTotal
+    xpath: count(//div[contains(@class,"carousel__images-item--zoom")][position()>1]//img/@src)
+  - name: technicalInformationPdfPresent
+    defaultValue: No
+  - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    defaultValue: Yes
+  - name: productUrl
+    xpath: //link[@rel="canonical"]/@href
