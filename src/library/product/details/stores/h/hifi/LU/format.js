@@ -22,6 +22,17 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.map(item => {
+          text += `${item.text}`;
+        });
+        row.manufacturerDescription = [
+          {
+            text: clean(text),
+          },
+        ];
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.map(item => {
@@ -35,22 +46,29 @@ const transform = (data) => {
       }
       if (row.description) {
         let descriptionOne = '';
+        const bulletInfo = [];
         if (row.descriptionOne) {
           let text = '';
           row.descriptionOne.forEach(item => {
+            bulletInfo.push({ text: item.text });
             text += `${item.text} || `;
           });
           descriptionOne = text.slice(0, -4);
         }
         let desc = '';
-        desc = row.description && row.description[0].text.replace(/•/g, '||');
-        const text = desc.match(/\|\|/g);
-        if (text) {
+        row.description.forEach(item => {
+          const descItem = item.text.match(/•/g);
+          descItem && bulletInfo.push({ text: item.text.slice(1, -1) });
+          desc += item.text.replace(/•/g, '||');
+        });
+
+        if (bulletInfo && bulletInfo.length) {
           row.descriptionBullets = [
             {
-              text: text.length,
+              text: bulletInfo.length,
             },
           ];
+          row.additionalDescBulletInfo = bulletInfo;
         }
         if (descriptionOne) {
           desc = `${descriptionOne} | ${desc}`;
