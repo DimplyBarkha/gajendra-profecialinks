@@ -69,7 +69,7 @@ fields:
   - name: name
     xpath: //h1[@class='page-heading']
   - name: videos
-    xpath: //video[@data-test='wsp-video-element']/source/@src
+    xpath: //video[@data-test='wsp-video-element']/source/@src | | //p[contains(., 'youtube')]
   - name : lbb
     defaultValue: No
   - name : specifications
