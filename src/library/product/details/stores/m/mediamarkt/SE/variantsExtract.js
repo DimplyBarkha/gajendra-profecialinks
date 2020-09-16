@@ -26,14 +26,12 @@ async function implementation (
     const url = window.location.href;
     const mainVariant = getVariantsText(url);
     variantList.push(mainVariant);
-    // addHiddenDiv('ii_variant', mainVariant);
 
     const variantNodes = document.querySelectorAll('div.product-attributes__select-wrapper option');
     if (variantNodes.length) {
       [...variantNodes].forEach((element) => {
         const text = getVariantsText(element.getAttribute('data-action-id'));
         variantList.push(text);
-        // addHiddenDiv('ii_variant', text);
       });
     }
 

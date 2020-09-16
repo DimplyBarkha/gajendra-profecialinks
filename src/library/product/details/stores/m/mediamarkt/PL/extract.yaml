@@ -508,33 +508,11 @@ fields:
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    # xpath: (//footer//a[contains(text(), "AGB")]//text())[1]
-    # regExp: (.*?)
-    # regExpReplace: Yes
-    # defaultValue: No
-  # - name: privacyPolicy
-  #   singleValue: true
-  #   description: Privacy Policy information text ['Yes','No']
-  #   defaultValue: No
-  # - name: customerServiceAvailability
-  #   singleValue: true
-  #   description: Information related to customer service availability (text), ['Yes','No']
-  #   defaultValue: No
-  # - name: materials
-  #   singleValue: true
-  #   description: Materials used to make the product
-  #   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
-  # - name: imageZoomFeaturePresent
-  #   singleValue: true
-  #   description: If Zoom feature is available for Main image or images in the
-  #     carousel,['Yes','No']
-  #   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  #   defaultValue: No
   - name: contentSyndication
     singleValue: true
     xpath: //div[contains(@id, 'loadbee-inpage') and not(contains(@class, 'hidden'))]//img[contains(@alt,"Powered by")]/@title|//div[contains(@id, 'flix-inpage') and not(contains(@class, 'hidden'))]//img[contains(@alt,"Powered by")]/@title

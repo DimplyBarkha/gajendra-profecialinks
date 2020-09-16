@@ -6,7 +6,6 @@ fields:
   - name: image
     singleValue: true
     xpath: (//div[contains(@class, "slick-slide")]//div[contains(@class, "SimpleCarousel")]//picture//source/@srcset)[position()=1]
-    # xpath: //div[contains(@class, "slick-slide slick-active")]//div[contains(@class, "SimpleCarousel")]//picture//source/@srcset
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
@@ -33,7 +32,6 @@ fields:
     singleValue: true
     xpath: (//div[contains(@class, "StrikePriceWrapper")]//div[contains(@class, "BrandedStrikePrice")]//span)[1]
     regExp: (?:([\d\.\,]+)[^.]*$)
-    # regExpReplace: $1
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
@@ -52,7 +50,6 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[contains(@data-test, "mms-accordion-description")]/*[not(li)]|//div[contains(@data-test, "mms-accordion-description")]//li//ancestor::div[1]/@data-test|//div[contains(@data-test, "mms-accordion-description")]//li|//div[contains(@data-test, "mms-accordion-description")]/text()
-    # xpath: //div[contains(@data-test, "mms-accordion-description")]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -62,7 +59,6 @@ fields:
     type: NUMBER
   - name: promotion
     singleValue: true
-    # xpath: 
   - name: brandText
     singleValue: true
     xpath: (//div[contains(@class, "DetailsHeader")]//img/@title|//div[contains(@data-test, "mms-select-details-header")]//a[contains(@class, "Linkstyled")]//span[contains(@class, "Typostyled") and @color="grey3"])[1]
@@ -95,7 +91,6 @@ fields:
     singleValue: true
     xpath: (//span[contains(@class, "DetailsHeader__")]//span)[1]
     regExp: (\d+)
-    # regExpReplace: $1
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
@@ -123,7 +118,6 @@ fields:
   - name: ratingCount
     singleValue: true
     xpath: (//meta[@itemprop="ratingCount"]/@content|//div[contains(@class, "ReviewHeader")]//p)[1]
-    # regExp: (\d+)
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
@@ -136,7 +130,6 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     singleValue: false
-    # xpath: //div[@class="price-sidebar"]//div[contains(@class, "infobox availability")]//ul//li[not(a)]
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
@@ -144,7 +137,6 @@ fields:
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: true
-    # xpath: (//dl[@class="specification"]//dt[contains(text(),"Gewicht mit Verpackung")]//following-sibling::dd)[1]
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
@@ -169,7 +161,6 @@ fields:
   - name: videos
     singleValue: true
     xpath: //div[@id="ii_videos"]
-    # xpath: //*[@id="ii_videos"]
     description: URLs of videos on page
   - name: name
     singleValue: true
@@ -276,7 +267,6 @@ fields:
   - name: specifications
     singleValue: true
     xpath: concat(//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Packmaße (BxHxT)")]//ancestor::tr, ' ', //tr[contains(@class,"TableRow")]//td//span[contains(text(),"Breite")]//ancestor::tr, ' ', //tr[contains(@class,"TableRow")]//td//span[contains(text(),"Höhe")]//ancestor::tr, ' ', //tr[contains(@class,"TableRow")]//td//span[contains(text(),"Tiefe")]//ancestor::tr, ' ', //tr[contains(@class,"TableRow")]//td//span[contains(text(),"Gewicht")]//ancestor::tr)
-    # xpath: concat((//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Packmaße (BxHxT)")])[1], ": " ,(//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Packmaße (BxHxT)")]//parent::td//following-sibling::td)[1], " ", (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Breite")])[1], ": ",(//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Breite")]//parent::td//following-sibling::td)[1], " ", (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Höhe")])[1], ": ",(//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Höhe")]//parent::td//following-sibling::td)[1], " ", (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Tiefe")])[1], ": ",(//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Tiefe")]//parent::td//following-sibling::td)[1], " ", (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Gewicht")])[1], ": ",(//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Gewicht")]//parent::td//following-sibling::td)[1])
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
@@ -335,8 +325,6 @@ fields:
   - name: variantInformation
     singleValue: true
     xpath: (//div[contains(@class,"ProductVariantsstyled__StyledProductVariantsColors")]//label|//div[contains(@class,"ProductVariantsstyled")]//span[contains(@class,"StyledInfo")])
-    # regExp: (Farbe:\s{1})(.*)
-    # regExpReplace: $2
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
@@ -379,32 +367,13 @@ fields:
     regExp: (.*?)
     regExpReplace: Yes
     defaultValue: No
-  # - name: privacyPolicy
-  #   singleValue: true
-  #   description: Privacy Policy information text ['Yes','No']
-  #   defaultValue: No
-  # - name: customerServiceAvailability
-  #   singleValue: true
-  #   description: Information related to customer service availability (text), ['Yes','No']
-  #   defaultValue: No
-  # - name: materials
-  #   singleValue: true
-  #   description: Materials used to make the product
-  #   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
-  # - name: imageZoomFeaturePresent
-  #   singleValue: true
-  #   description: If Zoom feature is available for Main image or images in the
-  #     carousel,['Yes','No']
-  #   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  #   defaultValue: No
   - name: contentSyndication
     singleValue: true
-    # xpath: //div[contains(@id, 'loadbee-inpage') and not(contains(@class, 'hidden'))]//img[contains(@alt,"Powered by")]/@title|//div[contains(@id, 'flix-inpage') and not(contains(@class, 'hidden'))]//img[contains(@alt,"Powered by")]/@title
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html

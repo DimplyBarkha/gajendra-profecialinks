@@ -9,20 +9,21 @@ module.exports = {
     domain: 'mediamarkt.nl',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-    const selectorAvailable = async (cssSelector) => {
-      console.log(`Is selector available: ${cssSelector}`);
-      return await context.evaluate(function (selector) {
-        return !!document.querySelector(selector);
-      }, cssSelector);
-    };
+  dependencies: {
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    Helpers: 'module:helpers/helpers',
+    SharedHelpers: 'module:product/details/stores/${store[0:1]}/${store}/helpersShared',
+  },
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails, Helpers, SharedHelpers }) => {
+    const helpers = new Helpers(context);
+    const sharedhelpers = new SharedHelpers(context);
 
-    async function closeModal() {
-      const modal = await selectorAvailable('gdpr-cookie-layer--show');
+    async function closeModal () {
+      const modal = await sharedhelpers.selectorAvailable('gdpr-cookie-layer--show');
       console.log('modal!');
       if (modal) {
         console.log('modal!');
-        const modalCloseButton = await selectorAvailable('button.gdpr-cookie-layer__btn--submit');
+        const modalCloseButton = await sharedhelpers.selectorAvailable('button.gdpr-cookie-layer__btn--submit');
         if (modalCloseButton) {
           await context.click('button.gdpr-cookie-layer__btn--submit');
         }
@@ -31,29 +32,17 @@ module.exports = {
 
     closeModal();
 
-    await context.evaluate(async function () {
+    const videos = await context.evaluate(async function () {
       function getEleByXpath (xpath) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         console.log('Element' + element);
         const text = element ? element.textContent : null;
         return text;
       }
-
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-
-      // if (document.querySelector('gdpr-cookie-layer--show') && document.querySelector('button.gdpr-cookie-layer__btn--submit')) {
-      //   document.querySelector('button.gdpr-cookie-layer__btn--submit').click();
-      // }
+      const videos = [];
 
       if (document.querySelectorAll('li.thumb--play-video-btn').length) {
         const videosTiles = document.querySelectorAll('li.thumb--play-video-btn');
-        const videos = [];
         [...videosTiles].forEach((element) => {
           const videoButton = element.querySelector('a');
           videoButton.click();
@@ -61,13 +50,19 @@ module.exports = {
           videos.push(vidLink);
           document.querySelector('.overlay-bg').click();
         });
-        addHiddenDiv('ii_videos', videos.join(' || '));
-        const availText = document.querySelector('meta[itemprop="availability"') ? (document.querySelector('meta[itemprop="availability"').getAttribute('content') === 'InStock' ? 'In Stock' : 'Out of Stock') : 'Out of Stock';
-
-        addHiddenDiv('ii_avail', availText);
-        // addHiddenDiv('ii_rating', document.querySelector('span[itemprop="ratingValue"]') ? document.querySelector('span[itemprop="ratingValue"]').textContent : '');
       }
+      return videos;
     });
+
+
+    await sharedhelpers.addHiddenInfo('ii_videos', videos.join(' || '));
+
+    const availText = await context.evaluate(async function () {
+      return document.querySelector('meta[itemprop="availability"') ? (document.querySelector('meta[itemprop="availability"').getAttribute('content') === 'InStock' ? 'In Stock' : 'Out of Stock') : 'Out of Stock';
+    });
+
+    await sharedhelpers.addHiddenInfo('ii_avail', availText);
+
     closeModal();
     await context.extract(productDetails, { transform });
   },

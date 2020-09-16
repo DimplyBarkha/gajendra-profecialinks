@@ -37,14 +37,6 @@ fields:
   - name: price
     singleValue: true
     xpath: //meta[@property="product:price:amount"]/@content
-    # regExp: (\d+(\.)(\d+)?)
-    # regExpReplace: $1
-    # regExp: (\d+(\.\d)?)+(\w+)
-    # regExpReplace: $1
-    # regExp: >-
-    #   (?:([\d\.\,]+)\s?)
-    # regExp: (.+)
-    # regExpReplace: https:$1
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -53,8 +45,6 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    # regExp: InStock
-    # regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
@@ -137,7 +127,6 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     singleValue: false
-    # xpath: //div[@class="price-sidebar"]//div[contains(@class, "infobox availability")]//ul//li[not(a)]
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
@@ -374,29 +363,11 @@ fields:
     regExp: (.*?)
     regExpReplace: Yes
     defaultValue: No
-  # - name: privacyPolicy
-  #   singleValue: true
-  #   description: Privacy Policy information text ['Yes','No']
-  #   defaultValue: No
-  # - name: customerServiceAvailability
-  #   singleValue: true
-  #   description: Information related to customer service availability (text), ['Yes','No']
-  #   defaultValue: No
-  # - name: materials
-  #   singleValue: true
-  #   description: Materials used to make the product
-  #   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
-  # - name: imageZoomFeaturePresent
-  #   singleValue: true
-  #   description: If Zoom feature is available for Main image or images in the
-  #     carousel,['Yes','No']
-  #   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  #   defaultValue: No
   - name: contentSyndication
     singleValue: true
     xpath: //div[contains(@id, 'loadbee-inpage') and not(contains(@class, 'hidden'))]//img[contains(@alt,"Powered by")]/@title|//div[contains(@id, 'flix-inpage') and not(contains(@class, 'hidden'))]//img[contains(@alt,"Powered by")]/@title

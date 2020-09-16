@@ -98,7 +98,6 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
-    # xpath: (//dl[@class="specification"]//dt[contains(text(),"Manufacturer Part Number (MPN):")]//following-sibling::dd)[1]
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
@@ -137,7 +136,6 @@ fields:
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: true
-    # xpath: (//dl[@class="specification"]//dt[contains(text(),"Gewicht mit Verpackung")]//following-sibling::dd)[1]
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
@@ -153,11 +151,9 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    # xpath: //div[contains(@id,"flix-inpage")]//div[@id="inpage_container"]//text()
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    # xpath: //div[contains(@id,"flix-inpage")]//div[@id="inpage_container"]//img/@srcset
     description: Images within the third party description
   - name: videos
     singleValue: false
@@ -324,11 +320,9 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: true
-    # xpath: //div[contains(@class, "product-attributes__color-item--active")]/@data-value
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
-    # xpath: (//div[contains(@class, "product-attributes__color-item")]/@data-action-id)[1]
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -340,7 +334,6 @@ fields:
       this will need analysis
   - name: variants
     singleValue: false
-    # xpath: //div[contains(@class, "product-attributes__color-item")]/@data-action-id
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
@@ -363,36 +356,13 @@ fields:
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    # xpath: (//footer//a[contains(text(), "Voorwaarden")]//text())[1]
-    regExp: (.*?)
-    regExpReplace: Yes
-    defaultValue: No
-  # - name: privacyPolicy
-  #   singleValue: true
-  #   description: Privacy Policy information text ['Yes','No']
-  #   defaultValue: No
-  # - name: customerServiceAvailability
-  #   singleValue: true
-  #   description: Information related to customer service availability (text), ['Yes','No']
-  #   defaultValue: No
-  # - name: materials
-  #   singleValue: true
-  #   description: Materials used to make the product
-  #   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
-  # - name: imageZoomFeaturePresent
-  #   singleValue: true
-  #   description: If Zoom feature is available for Main image or images in the
-  #     carousel,['Yes','No']
-  #   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  #   defaultValue: No
   - name: contentSyndication
     singleValue: true
-    # xpath: //div[contains(@id, 'loadbee-inpage') and not(contains(@class, 'hidden'))]//img[contains(@alt,"Powered by")]/@title|//div[contains(@id, 'flix-inpage') and not(contains(@class, 'hidden'))]//img[contains(@alt,"Powered by")]/@title
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html

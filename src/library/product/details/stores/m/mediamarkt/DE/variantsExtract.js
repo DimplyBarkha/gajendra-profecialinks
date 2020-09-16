@@ -27,7 +27,6 @@ async function implementation (
     const url = window.location.href;
     const mainVariant = getVariantsText(url);
     variantList.push(mainVariant);
-    // addHiddenDiv('ii_variant', mainVariant);
 
     const variantNodes = document.querySelectorAll('div[class^="ProductVariantsstyled"] a');
     if (variantNodes.length) {
@@ -35,7 +34,6 @@ async function implementation (
         const text = getVariantsText(element.getAttribute('href'));
         variantList.push(text);
         console.log(text);
-        // addHiddenDiv('ii_variant', text);
       });
     }
 

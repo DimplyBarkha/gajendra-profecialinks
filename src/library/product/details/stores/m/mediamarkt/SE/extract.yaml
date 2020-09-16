@@ -41,14 +41,10 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    # xpath: //meta[@itemprop="availability" and contains(@content, "InStock")]
     xpath: //meta[@itemprop="availability"]/@content
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    # regExp: (.+)
-    # regExpReplace: In Stock
-    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[@itemprop="description"]|//dl[@class="product-details"]|//div[contains(@id, "pdp_default_configuration-content_product_detail")]//article
@@ -78,7 +74,6 @@ fields:
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
-    # xpath: (//dl[@class="specification"]//dt[contains(text(),"Peso embalado")]//following-sibling::dd)[1]
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
@@ -97,7 +92,6 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
-    # xpath: (//dl[@class="specification"]//dt[contains(text(),"Manufacturer Part Number (MPN):")]//following-sibling::dd)[1]
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
@@ -126,7 +120,6 @@ fields:
     singleValue: true
     xpath: //span[@itemprop="ratingValue"]
     description: The stated aggregate rating normalized to be out of 5
-    # type: NUMBER
   - name: shippingInfo
     singleValue: false
     xpath: //div[contains(@class, "infobox availability")]//ul//li[not(a)]
@@ -267,7 +260,6 @@ fields:
     description: null
   - name: specifications
     singleValue: true
-    # xpath: concat(//dl[@class="specification"]//dt[contains(text(),"Ancho del embalaje:")], ' ',(//dl[@class="specification"]//dt[contains(text(),"Ancho del embalaje:")]//following-sibling::dd)[1], ' ', (//dl[@class="specification"]//dt[contains(text(),"Alto del embalaje:")]), ' ', (//dl[@class="specification"]//dt[contains(text(),"Alto del embalaje:")]//following-sibling::dd)[1],  ' ',(//dl[@class="specification"]//dt[contains(text(),"Profundidad del embalaje:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Profundidad del embalaje:")]//following-sibling::dd)[1], ' ',(//dl[@class="specification"]//dt[contains(text(),"Girth:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Girth:")]//following-sibling::dd)[1])
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
@@ -294,7 +286,6 @@ fields:
     description: Any other product information
   - name: packaging
     singleValue: true
-    # xpath: (//dl[@class="specification"]//dt[contains(text(),"Caract. especiales")]//following-sibling::dd)[1]
     description: Packaging information
   - name: additives
     singleValue: true
@@ -362,35 +353,15 @@ fields:
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
     defaultValue: No
-  # - name: privacyPolicy
-  #   singleValue: true
-  #   description: Privacy Policy information text ['Yes','No']
-  #   defaultValue: No
-  # - name: customerServiceAvailability
-  #   singleValue: true
-  #   description: Information related to customer service availability (text), ['Yes','No']
-  #   defaultValue: No
-  # - name: materials
-  #   singleValue: true
-  #   description: Materials used to make the product
-  #   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   - name: Image360Present
     singleValue: true
-    # xpath: //div[@id="flix_hotspots"]/*[name()='svg' and @id='flix_product_threesixty']/@id
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     regExp: (.*)
     regExpReplace: Yes
     defaultValue: No
-  # - name: imageZoomFeaturePresent
-  #   singleValue: true
-  #   description: If Zoom feature is available for Main image or images in the
-  #     carousel,['Yes','No']
-  #   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  #   defaultValue: No
   - name: contentSyndication
     singleValue: true
-    # xpath: //div[contains(@id, 'wrp_loadbee') and not(contains(@class, 'hidden'))]//img[contains(@alt,"Powered by")]/@title|//div[contains(@id, 'wrp_flixmedia') and not(contains(@class, 'hidden'))]//img[contains(@alt,"Powered by")]/@title
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html

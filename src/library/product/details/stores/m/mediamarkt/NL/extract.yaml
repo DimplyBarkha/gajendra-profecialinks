@@ -37,21 +37,14 @@ fields:
   - name: price
     singleValue: true
     xpath: //meta[@property="product:price:amount"]/@content
-    # regExp: (.*)
-    # regExpReplace: €$1
-    # xpath: //div[@class="price-details"]//div[contains(@class, "price big")]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
     xpath: //*[@id='ii_avail']
-    # xpath: (//meta[@itemprop="availability"]/@content)[1]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    # regExp: InStock
-    # regExpReplace: In Stock
-    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[@class="details"]//article/*[not(self::h2)]
@@ -128,15 +121,12 @@ fields:
     singleValue: true
     xpath: //span[@itemprop="ratingValue"]
     description: The stated aggregate rating normalized to be out of 5
-    # type: NUMBER
   - name: shippingInfo
     singleValue: false
-    # xpath: //ul[contains(@class, "usp_price_sidebar")]//li
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
     xpath: (//dl[@class="specification"]//dt[contains(text(),"Verpakkingsvolume B x H x D (m):")]//following-sibling::dd)[1]
-    # xpath: concat(//dl[@class="specification"]//dt[contains(text(),"Breedte verpakking:")], ' ',(//dl[@class="specification"]//dt[contains(text(),"Breedte verpakking:")]//following-sibling::dd)[1], ' ', (//dl[@class="specification"]//dt[contains(text(),"Hoogte verpakking:")]), ' ', (//dl[@class="specification"]//dt[contains(text(),"Hoogte verpakking:")]//following-sibling::dd)[1],  ' ',(//dl[@class="specification"]//dt[contains(text(),"Diepte verpakking:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Diepte verpakking:")]//following-sibling::dd)[1])
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: true
@@ -298,7 +288,6 @@ fields:
     description: Any other product information
   - name: packaging
     singleValue: true
-    # xpath: (//dl[@class="specification"]//dt[contains(text(),"Verpakkingsinhoud")]//following-sibling::dd)[1]
     description: Packaging information
   - name: additives
     singleValue: true
@@ -370,26 +359,8 @@ fields:
     regExp: (.*)
     regExpReplace: Yes
     defaultValue: No
-  # - name: privacyPolicy
-  #   singleValue: true
-  #   description: Privacy Policy information text ['Yes','No']
-  #   defaultValue: No
-  # - name: customerServiceAvailability
-  #   singleValue: true
-  #   description: Information related to customer service availability (text), ['Yes','No']
-  #   defaultValue: No
-  # - name: materials
-  #   singleValue: true
-  #   description: Materials used to make the product
-  #   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
-  # - name: imageZoomFeaturePresent
-  #   singleValue: true
-  #   description: If Zoom feature is available for Main image or images in the
-  #     carousel,['Yes','No']
-  #   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  #   defaultValue: No
