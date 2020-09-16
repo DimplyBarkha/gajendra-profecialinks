@@ -13,7 +13,7 @@ async function implementation (
       let count = 1;
       while (true) {
         console.log('Srolling', count++);
-        document.querySelector('.search-contain').scrollTop += 150;
+        document.querySelector('.search-contain').scrollTop += 100;
         await new Promise(resolve => setTimeout(resolve, 1000));
         const currentScroll = document.querySelector('.search-contain').scrollTop;
         if (currentScroll === prevScroll) {
