@@ -8,4 +8,12 @@ module.exports = {
     domain: 'intermarche.com',
     zipcode: '',
   },
+  implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+    await new Promise(resolve => setTimeout(resolve, 30000));
+
+    
+    // await new Promise(resolve => setTimeout(resolve, 10000));
+    return await context.extract(productDetails, { transform: transformParam });
+  },
 };
+
