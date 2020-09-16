@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variant
+    singleValue: false
+    xpath: //div[contains(@class,'c-multisku__group-controls')]//span[@class="c-btn__text"]  
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'c-multisku__group-controls')]//a/@href
+  - name: variantUrl
+    singleValue: false
+    xpath: //div[contains(@class,'c-multisku__group-controls')]//a/@href
