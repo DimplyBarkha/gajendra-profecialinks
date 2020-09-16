@@ -15,7 +15,6 @@ module.exports = {
     SharedHelpers: 'module:product/details/stores/${store[0:1]}/${store}/helpersShared',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails, Helpers, SharedHelpers }) => {
-    const helpers = new Helpers(context);
     const sharedhelpers = new SharedHelpers(context);
 
     let content = null;

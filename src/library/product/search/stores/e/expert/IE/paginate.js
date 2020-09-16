@@ -34,9 +34,9 @@ async function implementation (
     if (currentButton) {
       const currentPage = (page + (openSearchDefinition.pageOffset || 0));
       console.log('currentPage');
-      console.log(openSearchDefinition.pageOffset)
+      console.log(openSearchDefinition.pageOffset);
       console.log(page);
-      console.log(currentPage-1);
+      console.log(currentPage - 1);
       if (parseInt(currentButton) !== (currentPage - 1)) {
         return false;
       }

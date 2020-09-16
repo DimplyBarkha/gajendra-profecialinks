@@ -22,8 +22,8 @@ async function implementation (
 
   let url = null;
 
-  console.log('(!url && openSearchDefinition)')
-  console.log((!url && openSearchDefinition))
+  console.log('(!url && openSearchDefinition)');
+  console.log((!url && openSearchDefinition));
 
   if (!url && openSearchDefinition) {
     url = openSearchDefinition.template
@@ -35,7 +35,7 @@ async function implementation (
       const prodObj = document.querySelector('div.product-paging') ? document.querySelector('div.product-paging').textContent.trim() : '';
       const prodObjArr = prodObj.split('bis');
       const prodObjStr = prodObjArr.length === 2 ? prodObjArr[1] : '';
-      console.log(prodObjStr)
+      console.log(prodObjStr);
       const allPages = prodObjStr.trim().split('von');
       const productSoFar = allPages[0].trim();
       const totalProducts = allPages[1].trim();

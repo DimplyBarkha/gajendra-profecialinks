@@ -20,7 +20,6 @@ const transform = (data, context) => {
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
   const productCodes = state.productCodes || [];
-  let counter = 0;
   for (const { group } of data) {
     for (const row of group) {
       rankCounter += 1;
@@ -35,11 +34,9 @@ const transform = (data, context) => {
           let jsText = row.gtin[rank].text;
           if (jsText.includes('window.emos3.send({\'ec_Event\':')) {
             jsText = jsText.split('window.emos3.send({\'ec_Event\':');
-            //   console.log(jsText);
             jsText = jsText.length === 2 ? jsText[1] : [];
-            //   console.log(jsText);
             jsText = jsText.length ? jsText.split(',\'siteid\':') : [];
-            //   console.log(jsText);
+            // eslint-disable-next-line no-useless-escape
             jsText = jsText.length ? jsText[0].replace(/\'/gm, '"') : '';
 
             const jsonProduct = jsText.length ? JSON.parse(jsText)[0] : {};
@@ -69,7 +66,6 @@ const transform = (data, context) => {
       if (row.aggregateRating2) {
         row.aggregateRating2 = [{ text: row.aggregateRating2[0].text.replace('.', ',') }];
       }
-      counter += 1;
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
