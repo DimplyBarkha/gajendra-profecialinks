@@ -6,8 +6,8 @@ module.exports = {
     store: 'jbhifi',
     domain: 'jbhifi.co.nz',
     url: 'https://www.jbhifi.co.nz/?q={searchTerms}&',
-    loadedSelector: "div[class='span03 product-tile ng-scope newpage']",
-    noResultsXPath: "//div[@id='results-bar' and contains(.,'0 results')]",
+    loadedSelector: "div[class*='span03 product-tile ng-scope']",
+    noResultsXPath: "//div[contains(@id,'results-bar') and contains(.,'0 results')]",
     zipcode: '',
   },
 };
