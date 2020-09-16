@@ -5,7 +5,7 @@ module.exports = {
     country: 'Ireland',
     store: 'electrocity',
     domain: 'electrocity.ie',
-    url: 'https://www.electrocity.ie/?s=%27%7BsearchTerms%7D%27&post_type=product&dgwt_wcas=1%22',
+    url: 'https://www.electrocity.ie/?s="{searchTerms}"&post_type=product&dgwt_wcas=1',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
