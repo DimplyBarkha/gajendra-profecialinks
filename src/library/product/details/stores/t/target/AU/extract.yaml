@@ -19,7 +19,6 @@ fields:
     xpath: //ol[@typeof="BreadcrumbList"]//li[not(contains(@class,"active"))][position()>1]
   - name: nameExtended
     xpath: //h1[@itemprop="name"]
-  - name: listPrice
   - name: price
     xpath: //meta[@itemprop="price"]/@content
     regExp: (.+)
@@ -53,7 +52,7 @@ fields:
   - name: directions
     xpath: //b[contains(.,"HOW TO USE")]/following-sibling::ul | //p[contains(.,"Follow usage suggestions in How To Use")]
   - name: shippingDimensions
-    xpath: //li[contains(.,"Product Dimensions:")]
+    xpath: //li[contains(.,"Pack Dimensions")]
     regExp: (.+:)(.+)
     regExpReplace: $2
   - name: eangtin
@@ -69,3 +68,17 @@ fields:
     regExp: (.+)
     regExpReplace: 'YES'
     defaultValue: 'NO'
+  - name: listPrice
+    xpath: //div[@class="PricePoint"]//span[contains(@class,"was-price")]
+  - name: variantCount
+    xpath: count(//div[contains(@class,"ProductVariantsContainer")]//ul//li//a[not(contains(@title,"Sizing"))]/@href)
+  - name: firstVariant
+    xpath: //div[contains(@class,"ProductVariantsContainer")]//ul//li[1]//a[not(contains(@title,"Sizing"))]/@title
+  - name: variants
+    xpath: //div[contains(@class,"ProductVariantsContainer")]//ul//li//a[not(contains(@title,"Sizing"))]/@href
+    regExp: (.+/)(.+)
+    regExpReplace: $2
+  - name: variantInformation
+    xpath: //div[contains(@class,"ProductVariantsContainer")]//ul//li//a[not(contains(@title,"Sizing"))]/@title
+  - name: packSize
+    xpath: //ul//li[contains(.,"pack")]|//ul//li[contains(.,"Pack")]//ul//li[contains(.,"pack")]|//ul//li[contains(.,"Pack")][not(contains(.,"Pack "))]

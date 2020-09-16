@@ -35,8 +35,20 @@ const transform = (data) => {
         ];
       }
 
-      if ((!row.listPrice || !row.listPrice.length) && row.price) {
-        row.listPrice = row.price;
+      if (row.variants) {
+        let text = '';
+        row.variants.forEach(item => {
+          text = text + (text ? ' | ' : '') + item.text;
+        });
+        row.variants = [{ text }];
+      }
+
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          text = text + (text ? ' | ' : '') + item.text;
+        });
+        row.variantInformation = [{ text }];
       }
     }
   }
