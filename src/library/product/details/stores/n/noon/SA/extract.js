@@ -6,7 +6,7 @@ module.exports = {
     country: 'SA',
     store: 'noon',
     transform,
-    domain: 'noon.com/saudi-en/',
+    domain: 'noon.com',
     zipcode: "''",
   },
 };
