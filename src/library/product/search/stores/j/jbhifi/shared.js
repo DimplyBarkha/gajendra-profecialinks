@@ -22,18 +22,17 @@ const transform = (data, context) => {
   let rankCounter = state.rankCounter || 0;
   for (const { group } of data) {
     for (const row of group) {
-      if (row.price && row.price[0]) {
-        row.price[0].text = row.price[0].text.replace(/\./g, ',');
-      }
-      if (row.thumbnail && row.thumbnail[0]) {
-        row.thumbnail[0].text = row.thumbnail[0].text.replace('\\', '');
-      }
       rankCounter = rankCounter + 1;
       if (!row.sponsored) {
         orgRankCounter = orgRankCounter + 1;
         row.rankOrganic = [{ text: orgRankCounter }];
       }
-
+      row.rank = [{ text: rankCounter }];
+      context.setState({ rankCounter });
+      context.setState({ orgRankCounter });
+      Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+      }));
       if (row.productUrl) {
         let text = '';
         let xpath = '';
@@ -63,13 +62,6 @@ const transform = (data, context) => {
           },
         ];
       }
-
-      row.rank = [{ text: rankCounter }];
-      context.setState({ rankCounter });
-      context.setState({ orgRankCounter });
-      Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
-      }));
     }
   }
   return data;
