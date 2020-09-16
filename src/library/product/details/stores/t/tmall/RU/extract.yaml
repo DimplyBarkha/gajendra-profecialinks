@@ -36,3 +36,6 @@ fields:
   - name: color
     singleValue: false
     xpath: //div[@class="product-sku"]//div[@class="sku-property"][1]//span[@class="sku-title-value"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="product-info"]/meta[@itemprop="brand"]/@content
