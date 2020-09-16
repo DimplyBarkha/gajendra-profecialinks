@@ -19,6 +19,6 @@ module.exports = {
       images_enabled: true,
       timeout: 50000,
       waitUntil: 'load',
-    })
+    });
   },
 };
