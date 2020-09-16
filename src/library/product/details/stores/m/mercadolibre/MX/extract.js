@@ -41,64 +41,6 @@ async function implementation(
     parent_sku = parent_sku ? parent_sku.parent_product_id : '';
     addElementToDocument('bb_firstVariant', parent_sku);
     //------------------------------------
-    // let ratingParentDiv = document.querySelector('span[class="ui-pdp-review__ratings"]');
-    // let ratingParentDiv1 = document.querySelector('span[class="star-container"]');
-    // console.log('ratingParentDiv1: ', ratingParentDiv1);
-    // if (ratingParentDiv) {
-    //   await new Promise((resolve) => setTimeout(resolve, 3000));
-    //   let starList = ratingParentDiv ? ratingParentDiv.querySelectorAll('svg') : [];
-    //   let fullStarCount = 0;
-    //   let halfStarCount = 0;
-    //   starList.forEach(element => {
-    //     let classList = element.classList;
-    //     console.log('classList: ', classList);
-    //     // @ts-ignore
-    //     classList.forEach(element => {
-    //       if (element === "ui-pdp-icon--star-full") {
-    //         fullStarCount = fullStarCount + 1;
-    //       } else if (element === "ui-pdp-icon--star-half") {
-    //         halfStarCount = halfStarCount + 0.5;
-    //       }
-    //     });
-    //   });
-    //   console.log("fullStarCount", fullStarCount);
-    //   console.log("Halfstarcount", halfStarCount);
-    //   console.log("RatingCount", (Number(fullStarCount) + Number(halfStarCount)))
-    //   let aggregateRating = Number(fullStarCount) + Number(halfStarCount);
-    //   let aggregateRating2 = aggregateRating;
-    //   if (aggregateRating2 == 0) {
-    //     addElementToDocument('mc_aggregateRating2', '');
-    //   } else {
-    //     addElementToDocument('mc_aggregateRating2', aggregateRating2);
-    //   }
-    // } else if (ratingParentDiv1) {
-    //   await new Promise((resolve) => setTimeout(resolve, 3000));
-    //   let starList = ratingParentDiv ? ratingParentDiv.querySelectorAll('label') : [];
-    //   let fullStarCount = 0;
-    //   let halfStarCount = 0;
-    //   starList.forEach(element => {
-    //     let classList = element.classList;
-    //     console.log('classList: ', classList);
-    //     // @ts-ignore
-    //     classList.forEach(element => {
-    //       if (element === "star-icon star-icon-full") {
-    //         fullStarCount = fullStarCount + 1;
-    //       } else if (element === "star-icon star-icon-half") {
-    //         halfStarCount = halfStarCount + 0.5;
-    //       }
-    //     });
-    //   });
-    //   console.log("fullStarCount", fullStarCount);
-    //   console.log("Halfstarcount", halfStarCount);
-    //   console.log("RatingCount", (Number(fullStarCount) + Number(halfStarCount)))
-    //   let aggregateRating = Number(fullStarCount) + Number(halfStarCount);
-    //   let aggregateRating2 = aggregateRating;
-    //   if (aggregateRating2 == 0) {
-    //     addElementToDocument('mc_aggregateRating2', '');
-    //   } else {
-    //     addElementToDocument('mc_aggregateRating2', aggregateRating2);
-    //   }
-    // }
     let descArr = [];
     let finalArr = [];
     let bulletArr = [];

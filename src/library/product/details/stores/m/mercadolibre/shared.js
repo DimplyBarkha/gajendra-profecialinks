@@ -40,6 +40,16 @@ const transform = (data) => {
             element.text = element.text.replace('.',',')
           });
          }
+         if (row.price) {
+          row.price.forEach(element => {
+            element.text = element.text.replace(',','').replace('.',',')
+          });
+         }
+         if (row.listPrice) {
+          row.listPrice.forEach(element => {
+            element.text = element.text.replace(',','').replace('.',',')
+          });
+         }
          if (row.videos) {
           row.videos.forEach(element => {
               if(element.text.includes('https://')){

@@ -11,11 +11,12 @@ fields:
     xpath: //img[@data-index="0"]/@alt | //a[@data-imgindex="0"]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //figure[contains(@class,"gallery-image-container")]/a/img/@src | //div[@class="ui-pdp-thumbnail__picture"]/img/@src
-    # xpath: //div[@class="gallery-content item-gallery__wrapper"]/@data-full-images | //div[@class="ui-pdp-thumbnail__picture"]/img/@src
+    xpath: //figure[contains(@class,"gallery-image-container")]/a/img/@src | //figure[@class="ui-pdp-gallery__figure"]/img/@src
+    # xpath: //figure[contains(@class,"gallery-image-container")]/a/img/@src | //div[@class="ui-pdp-thumbnail__picture"]/img/@src
   - name: category
     singleValue: false
-    xpath: //ul/li[@class="andes-breadcrumb__item"] | //*[contains(@class,"vip-navigation-breadcrumb-list")]/li
+    # xpath: //ul/li[@class="andes-breadcrumb__item"] | //*[contains(@class,"vip-navigation-breadcrumb-list")]/li
+    xpath: //ul/li[contains(@class,"andes-breadcrumb__item") and  not(contains(.,'...'))] | //*[contains(@class,"vip-navigation-breadcrumb-list")]/li[not(contains(.,'...'))]
   - name: nameExtended
     singleValue: false
     xpath: //h1[contains(@class , "ui-pdp-title")] | //header[@class="item-title"]
@@ -36,6 +37,9 @@ fields:
     xpath: //li[@class="specs-item specs-item-primary"]/strong[contains(text(),"Marca")]/parent::li/span | //th[contains(text(),"Marca")]/parent::tr/td
     defaultValue: "BrandC"
   - name: variantId
+    singleValue: false
+    xpath: //input[@name="itemId"]/@value | //input[@name="item_id"]/@value
+  - name: sku
     singleValue: false
     xpath: //input[@name="itemId"]/@value | //input[@name="item_id"]/@value
   - name: ratingCount
