@@ -6,7 +6,7 @@ module.exports = {
     store: 'elkjop',
     domain: 'elkjop.no',
     url: "https://www.elkjop.no/search?SearchTerm='{searchTerms}'&search=&searchResultTab=",
-    loadedSelector: 'html body div#site-wrapper',
+    loadedSelector: '.forward',
     noResultsXPath: '//*[contains(@class, "no-search-result")]',
     zipcode: '',
   },
