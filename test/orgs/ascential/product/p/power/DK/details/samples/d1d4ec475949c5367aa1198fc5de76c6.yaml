@@ -2,11 +2,14 @@ input:
   _url: http://power.dk
   URL: https://www.power.dk/hus-og-fritid/klima-og-ventilation/luftrensere/dyson-pure-cool-tp02-luftrenser/p-603033/
 extractions:
-  - html: https://workbench.import.io/html/run=342b931a-efa2-46f9-99a8-d78f2aa25a60/task=5350b9c1-2dfe-4b96-952a-1d81b19cbb6e/dd4157af-039a-4f70-a5ab-93fd66e87b54.html
+  - html: https://workbench.import.io/html/run=ee4c7e01-b26c-4a33-903e-2aa0d0bd5480/task=6f02d160-d14b-4bf7-8c4d-adb521a3aca5/83c14ba8-5993-49e9-88ec-6c2ba8e687c5.html
     extractionConfigId: product/details/stores/p/power/DK/extract
     data:
       - group:
-          - alternateImages:
+          - imageAlt:
+              - text: DYSON PURE COOL TP02 LUFTRENSER
+                xpath: /html/body/div[7]
+            alternateImages:
               - text: https://media.power-cdn.net/images/h-af76a339c87e3d19ac9de700d2e10d48/products/603033/603033_4_600x600_t_g.webp
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[1]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
               - text: https://media.power-cdn.net/images/h-cbe0d3b0dcc3566ef907472fef7e1772/products/603033/603033_1_600x600_w_g.webp
@@ -22,24 +25,62 @@ extractions:
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
               - text: Luftrensere
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[4]
-            nameExtended:
-              - text: DYSON PURE COOL TP02 LUFTRENSER
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: "2996"
+                xpath: /html/body/div[6]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[10]
+            description:
+              - text: |-
+                  DYSON PURE COOL TP02 LUFTRENSER
+                  Denne Dyson gulvmodel fungerer også som en effektiv køler.
+                  Dobbelt funktionalitet - køler og renser
+                  Dyson link app-forbindelse
+                  Air Multiplier™-teknologi
+                  Dyson HEPA-filter med aktivt trækul
+                  Nat- og autofunktion
+                  Timerfunktion
+                  Fjernbetjening
+                   Mere info
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            weightNet:
+              - text: 3,000 kg
+                xpath: /html/body/div[12]
             gtin:
               - text: "5025155024492"
-                xpath: /html/body/div[4]
+                xpath: /html/body/div[9]
             eangtin:
               - text: "5025155024492"
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/pwr-product-specifications[1]/div[7]/div[3]/div[2]
+                xpath: /html/body/div[9]
+            sku:
+              - text: "603033"
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
+            variantId:
+              - text: "603033"
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
             mpc:
               - text: 305162-01
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[14]
+            legalDisclaimer:
+              - text: Bemærk! Der er først indgået en bindende aftale, når vi har bekræftet din
+                  bestilling.
+                xpath: /html/body/div[17]
+            shippingInfo:
+              - text: Levering fra 29,-Spar fragten! Afhent i en af vores butikker.
+                xpath: /html/body/div[15]
+            shippingDimensions:
+              - text: 219,0 x 219,0 x 1131,0 mm
+                xpath: /html/body/div[13]
             color:
               - text: Grå
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[11]
             manufacturerDescription:
               - text: >-
                   Dyson Pure Cool Link er en kraftfuld gulvventilator, der
@@ -73,32 +114,110 @@ extractions:
                   Det lydsvage natprogram sikrer, at du kan sove i fred og ro. Når du vælger nattilstand, skifter ventilatoren straks til den svageste indstilling, mens luften stadig bliver renset og afkølet.
                    Læs mere
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[2]
+            name:
+              - text: DYSON PURE COOL TP02 LUFTRENSER
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h1[1]
+            specifications:
+              - text: 219,0 x 219,0 x 1131,0 mm
+                xpath: /html/body/div[13]
+            productOtherInformation:
+              - text: >-
+                  Specifikationer
+                   Producent 
+                  Dyson
+                   Producentens varekode 
+                  305162-01
+
+                  Design og udformning
+                   Primærfarve 
+                  Grå
+
+                  Funktioner
+                   Timer 
+                  Ja
+                   Programmerbar 
+                  Ja
+
+                  Programmer og indstillinger
+                   Autoprogram 
+                  Ja
+                   Justerbar temperatur 
+                  Nej
+
+                  Skærm egenskaber
+                   Display 
+                  Nej
+
+                  Inkluderet
+                   Medfølgende fjernbetjening 
+                  Ja
+
+                  Øvrige specifikationer
+                   Varenummer 
+                  DYSONTP02
+                   EAN 
+                  5025155024492
+                   Nettomål (uden emballage) (D x B x H) 
+                  110,0 x 119,0 x 1020,0 mm
+                   Bruttomål (med emballage) (D x B x H) 
+                  219,0 x 219,0 x 1131,0 mm
+                   Nettovægt 
+                  3,000 kg
+                   Artikel ID 
+                  603033
+
+                  Lagerstatus i butik
+
+                  Produktbeskrivelse
+
+                  Dyson Pure Cool Link er en kraftfuld gulvventilator, der renser og kontrollerer luften indenfor. Den er i stand til at fjerne op til 99,95 % af de skadelige partikler og allergener i luften. Den intelligente og smarte enhed kan styres via en fjernbetjening eller smartphone.
+                   
+                  Air Multiplier™-teknologi
+                   
+                  Det er Dyson Air Multiplier™-teknologi, der gør luftventilatoren så effektiv. Det innovative design gør desuden ventilatoren utroligt lydsvag.
+                   
+                  Nyd ren luft indenfor.
+                   
+                  Dyson HEPA-filter holder luften inden døre så ren som muligt. Den kan fjerne op til 99,95 % af skadelige partikler og allergener i luften.
+                   
+                  Bliv fri for dårlig lugt
+                   
+                  Med det aktive kulstoflag i filteret er det let at fjerne lugten efter fx. madlavning.
+                   
+                  Sikker at bruge og rengøre
+                   
+                  Da ventilatoren ikke har nogen blade, er den sikker at bruge, også for familier med børn. Det enkle design gør den let at gøre ren.
+                   
+                  Dyson Link-applikation
+                   
+                  Med denne app kan du overvåge og justere dit hjems luftkvalitet og temperatur.
+                   
+                  Nattilstand
+                   
+                  Det lydsvage natprogram sikrer, at du kan sove i fred og ro. Når du vælger nattilstand, skifter ventilatoren straks til den svageste indstilling, mens luften stadig bliver renset og afkølet.
+                   Læs mere
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]
+            additionalDescBulletInfo:
+              - text: Dobbelt funktionalitet - køler og renser||Dyson link app-forbindelse||Air
+                  Multiplier™-teknologi||Dyson HEPA-filter med aktivt
+                  trækul||Nat- og autofunktion||Timerfunktion||Fjernbetjening
+                xpath: /html/body/div[16]
             image:
               - text: https://media.power-cdn.net/images/h-af76a339c87e3d19ac9de700d2e10d48/products/603033/603033_4_600x600_w_g.jpg
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[1]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/img[1]/@src
+            nameExtended:
+              - text: DYSON PURE COOL TP02 LUFTRENSER - 603033
             descriptionBullets:
               - text: "7"
                 type: NUMBER
                 raw: "7"
                 locale: da
                 value: 7
-            brandText:
-              - text: Dyson
-            manufacturer:
-              - text: Dyson
-            quantity:
-              - text: 1
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
               - text: No
-            privacyPolicy:
-              - text: No
-            customerServiceAvailability:
-              - text: No
             Image360Present:
               - text: No
-            imageZoomFeaturePresent:
-              - text: No
         xpath: /html
-    timestamp: 1600180807081
+    timestamp: 1600256948135

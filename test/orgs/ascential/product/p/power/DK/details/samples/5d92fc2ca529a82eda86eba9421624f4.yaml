@@ -2,11 +2,14 @@ input:
   _url: http://power.dk
   URL: https://www.power.dk/hus-og-fritid/stoevsugning/ledningsfrie-stoevsugere/dyson-v11-absolute-extra-ledningsfri/p-1076189/
 extractions:
-  - html: https://workbench.import.io/html/run=342b931a-efa2-46f9-99a8-d78f2aa25a60/task=31efef46-2e0e-4a5c-a789-cbf5af3e2f4d/5909250e-cfed-4b5b-9cc3-a8bbebf77a96.html
+  - html: https://workbench.import.io/html/run=ee4c7e01-b26c-4a33-903e-2aa0d0bd5480/task=d488d2a2-738b-416b-aeb9-b969922125c9/6610c916-05c6-4fbb-ba11-71dea6ce80bd.html
     extractionConfigId: product/details/stores/p/power/DK/extract
     data:
       - group:
-          - alternateImages:
+          - imageAlt:
+              - text: DYSON V11 ABSOLUTE EXTRA LEDNINGSFRI
+                xpath: /html/body/div[7]
+            alternateImages:
               - text: https://media.power-cdn.net/images/h-f1ca2f9e439544501e7b6cf6c186c12b/products/1076189/1076189_14_1200x1200_t_g.webp
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[1]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
               - text: https://media.power-cdn.net/images/h-377fd6f244dab191d577f817cbf84ce5/products/1076189/1076189_5_1200x1200_w_g.webp
@@ -50,30 +53,72 @@ extractions:
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
               - text: Ledningsfrie støvsugere
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[4]
-            nameExtended:
-              - text: DYSON V11 ABSOLUTE EXTRA LEDNINGSFRI
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: "4889"
+                xpath: /html/body/div[6]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[4]
+                xpath: /html/body/div[10]
+            description:
+              - text: >-
+                  DYSON V11 ABSOLUTE EXTRA LEDNINGSFRI
+
+                  Ledningsfri støvsuger med effektivt gulvmundstykke og en driftstid på op til 60 minutter
+
+                  V11 digital motor og lydsvag konstruktion
+
+                  Automatisk justering af sugeeffekt
+
+                  Avanceret komplet systemfilter
+
+                  To års garanti og Ikke nødvendigt med poser
+
+                  Op til 60 minutters drift og udskifteligt batteri
+
+                  Stærkt mundstykke med højt drejningsmoment og roterende børste
+
+                  Vægmonteret opbevaringsholder
+
+                  Hygiejnisk tømning af støvbeholder med volumen på 0,76 L
+                   Mere info
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[8]
             weightNet:
               - text: 3,080 kg
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[12]
             gtin:
               - text: "5025155046470"
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[9]
             eangtin:
               - text: "5025155046470"
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/pwr-product-specifications[1]/div[8]/div[3]/div[2]
+                xpath: /html/body/div[9]
+            sku:
+              - text: "1076189"
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
+            variantId:
+              - text: "1076189"
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
             mpc:
               - text: 298884-01
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[14]
+            legalDisclaimer:
+              - text: Bemærk! Der er først indgået en bindende aftale, når vi har bekræftet din
+                  bestilling.
+                xpath: /html/body/div[19]
+            shippingInfo:
+              - text: Levering fra 29,-Spar fragten! Afhent i en af vores butikker.
+                xpath: /html/body/div[17]
             shippingDimensions:
-              - text: 3,080 kg
-                xpath: /html/body/div[6]
+              - text: 990,0 x 154,0 x 271,0 mm
+                xpath: /html/body/div[13]
             color:
               - text: Blå
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[11]
             manufacturerDescription:
               - text: >-
                   Dyson V11™ Absolute Extra er en ledningsfri støvsuger med
@@ -190,35 +235,227 @@ extractions:
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[2]/div[1]/div[6]/img[1]/@src
               - text: https://media.power.no/images/feelingimageoriginal/5025155046470/5025155046470_3.jpg
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[2]/div[1]/div[7]/img[1]/@src
+            videos:
+              - text: https://www.youtube.com/watch?v=sYK-zWjxLdI
+                xpath: /html/body/div[20]
+              - text: https://www.youtube.com/watch?v=8-NrcEe8erQ
+                xpath: /html/body/div[21]
+              - text: https://www.youtube.com/watch?v=EkCWTLH1mMU
+                xpath: /html/body/div[22]
+              - text: https://www.youtube.com/watch?v=ts4vEjdgLsM
+                xpath: /html/body/div[23]
+              - text: https://www.youtube.com/embed/sYK-zWjxLdI
+                xpath: /html/body/div[24]
+            name:
+              - text: DYSON V11 ABSOLUTE EXTRA LEDNINGSFRI
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h1[1]
             specifications:
               - text: 990,0 x 154,0 x 271,0 mm
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[13]
+            warranty:
+              - text: To års garanti og Ikke nødvendigt med poser
+                xpath: /html/body/div[15]
+            storage:
+              - text: Vægmonteret opbevaringsholder
+                xpath: /html/body/div[16]
+            productOtherInformation:
+              - text: >-
+                  Specifikationer
+                   Producent 
+                  Dyson
+                   Producentens varekode 
+                  298884-01
+
+                  Design og udformning
+                   Primærfarve 
+                  Blå
+                   Sekundærfarver 
+                  Sølv
+
+                  Effekt og kapacitet
+                   Støvkapacitet 
+                  0.76 Liter
+
+                  Strøm og batteri
+                   Type batteri 
+                  Ni-MH
+                   Genopladelig 
+                  Ja
+                   Batterilevetid minutter 
+                  60 Minutter
+                   Ladetid 
+                  4.5 Timer
+                   Batteriindikator 
+                  Ja
+                   Batteridrevet 
+                  Ja
+                   Strømdrevet 
+                  Nej
+                   Udskifteligt batteri 
+                  Ja
+
+                  Funktioner
+                   Aftagelig håndstøvsuger 
+                  Ja
+
+                  Programmer og indstillinger
+                   Antal indstillinger 
+                  3 ST
+                   Hastighedsjustering 
+                  Ja
+
+                  Inkluderet
+                   Medfølgende gulvmundstykke 
+                  Ja
+                   Parketmundstykke 
+                  Ja
+                   Medfølgende møbelmundstykke 
+                  Ja
+                   Fugemundstykke 
+                  Ja
+                   Møbelbørste 
+                  Ja
+                   Turbomundstykke 
+                  Ja
+
+                  Øvrige specifikationer
+                   Varenummer 
+                  V11ABEXTRA
+                   EAN 
+                  5025155046470
+                   Nettomål (uden emballage) (D x B x H) 
+                  261,0 x 250,0 x 1249,0 mm
+                   Bruttomål (med emballage) (D x B x H) 
+                  990,0 x 154,0 x 271,0 mm
+                   Nettovægt 
+                  3,080 kg
+                   Artikel ID 
+                  1076189
+
+                  Lagerstatus i butik
+
+                  Produktbeskrivelse
+
+                  Dyson V11™ Absolute Extra er en ledningsfri støvsuger med fantastisk kraft. Selvom den er ledningsfri, har den en utrolig sugekraft på samme niveau som traditionelle støvsugere med ledning. Dermed er denne ledningsfri støvsuger i en klasse for sig. Muligheden for at forvandle fra håndstøvsuger til almindelig funktion og tilbage igen giver endnu flere alsidige anvendelsesmulighed for støvsugning af besværlige steder.
+                   
+
+                   
+                  Stærkt High Torque-mundstykke med højt drejningsmoment til gulvet
+                   
+                  Støvsugeren har Dysons mest effektive gulvmundstykke. De stive nylonbørster på mundstykket går tæt på gulvtæppet og fjerner stædigt snavs. Bløde antistatiske kulfiberbørster fjerner det fine støv fra hårde gulve og sprækker.
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Stærk motor og fremragende filter
+                   
+                  Støvsugeren har Dysons digitale motor V11 og arbejder med overvældende 125 000 omdr/m, hvilket giver utrolig sugeevne. God sugeevne med patenteret cyklonteknologi, der giver en sugestyrke på mere end 79 000 G og hjælper til at opfange selv de mindste partikler ned til 0,1 micron med en præcision på 99,95 %.
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Kraftig batteriteknologi og ekstra batteri
+                   
+                  Høj batterikapacitet kombineret med den nyeste teknologi hjælper støvsugeren med at opnå maksimal sugeeffekt. Den kraftfulde batteriteknologi overvåges af en indbygget sensorteknologi, der optimerer effekten på støvsugeren og giver op til 60 minutters brugstid. Enhedens klikbatteri tages af med et tryk på en knap og kan let udskiftes med et nyt, der sælges separat. Batteriet kan enten oplades tilsluttet støvsugeren eller afmonteret.
+                   
+                  LCD-skærm giver enkel brug
+                   
+                  Det er lettere end nogensinde at bruge støvsugeren takket være LCD-skærmen. På skærmen kan du vælge effektniveau og se tilbageværende batteritid. Skærmen vil også minde dig om at rengøre filtrene, så din støvsuger altid er i bedste tilstand. Hvis noget skulle sætte sig fast i støvsugeren, vil skærmen give dig en advarsel og hjælpe dig med at fjerne det igen.
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Den rette sugestyrke til alle overflader
+                   
+                  Støvsugeren har tre effektniveauer, der let reguleres via LCD-skærmen.
+                   
+
+                   
+                  ECO - Op til 60 minutters brugstid med et enkelt batteri
+                   
+                  Auto - Grundig rengøring, der tilpasser sig forskellige gulvtyper
+                   
+                  Boost - Til hurtig og kraftig rengøring
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Alsidige mundstykker
+                   
+                  De fremragende mundstykker gør det let og behageligt at gøre rent. Du kan finde det rigtige mundstykke til enhver situation blandt det store udvalg af mundstykker til gulv og loft og alt derimellem.
+                   
+                  Fremragende konstruktion
+                   
+                  Støvsugeren er konstrueret og designet på en måde, så alle hovedkomponenterne sider på linje med luftstrømmen. Den er også designet til at reducere vibrationer og lyd. Det intelligente design giver behagelig brug og giver fremragende sugeevne.
+                   
+                  Altid klar til brug
+                   
+                  Den ledningsfri støvsuger er altid klar til brug i den praktiske vægholder. Vægholderen gør det let at opbevare støvsugeren, mens den oplader og venter på støvsugning. Holderen har også plads til opbevaring af mundstykkerne.
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Let at tømme
+                   
+                  Støvbeholderen er designet, så den er så let som mulig at tømme. Tømmemekanismen sker uden besvær med en enkel handling, der åbner bunden og lader støvet dumpe direkte i skraldespanden. Dermed er tømningen også ekstremt hygiejnisk, eftersom man ikke behøver røre ved snavset.
+                   
+                   
+                   
+                   
+                   Læs mere
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]
+            additionalDescBulletInfo:
+              - text: V11 digital motor og lydsvag konstruktion||Automatisk justering af
+                  sugeeffekt||Avanceret komplet systemfilter||To års garanti og
+                  Ikke nødvendigt med poser||Op til 60 minutters drift og
+                  udskifteligt batteri||Stærkt mundstykke med højt
+                  drejningsmoment og roterende børste||Vægmonteret
+                  opbevaringsholder||Hygiejnisk tømning af støvbeholder med
+                  volumen på 0,76 L
+                xpath: /html/body/div[18]
             image:
               - text: https://media.power-cdn.net/images/h-f1ca2f9e439544501e7b6cf6c186c12b/products/1076189/1076189_14_600x600_w_g.jpg
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[1]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/img[1]/@src
+            nameExtended:
+              - text: DYSON V11 ABSOLUTE EXTRA LEDNINGSFRI - 1076189
             descriptionBullets:
               - text: "8"
                 type: NUMBER
                 raw: "8"
                 locale: da
                 value: 8
-            brandText:
-              - text: Dyson
-            manufacturer:
-              - text: Dyson
-            quantity:
-              - text: 1
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
               - text: No
-            privacyPolicy:
-              - text: No
-            customerServiceAvailability:
-              - text: No
             Image360Present:
               - text: No
-            imageZoomFeaturePresent:
-              - text: No
         xpath: /html
-    timestamp: 1600180808682
+    timestamp: 1600256949227
