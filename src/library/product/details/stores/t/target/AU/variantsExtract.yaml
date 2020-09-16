@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    xpath: //div[contains(@class,"ProductVariantsContainer")]//ul//li//a[not(contains(@title,"Sizing"))]/@href
+    regExp: (.+/)(.+)
+    regExpReplace: $2
+  - name: variantUrl
+    xpath: //div[contains(@class,"ProductVariantsContainer")]//ul//li//a[not(contains(@title,"Sizing"))]/@href
+    regExp: (.+)
+    regExpReplace: https://www.target.com.au$1
