@@ -6,7 +6,7 @@ module.exports = {
     store: 'elgiganten',
     domain: 'elgiganten.dk',
     url: 'https://www.elgiganten.dk/search?SearchTerm={searchTerms}&search=&searchResultTab=',
-    loadedSelector: 'div.mini-product-list',
+    loadedSelector: 'div.product-list-container',
     noResultsXPath: '//section[contains(@class,"no-search-result")]',
     zipcode: '',
   },
