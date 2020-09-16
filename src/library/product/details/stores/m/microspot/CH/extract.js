@@ -44,6 +44,7 @@ module.exports = {
             dataObj.manufacturer && addElementToDocument('pd_manufacturer', dataObj.manufacturer);
             if (dataObj.productVariants) {
               addElementToDocument('pd_variantCount', dataObj.productVariants[0].options.length);
+              dataObj.productVariants[0].options && addElementToDocument('pd_firstVariant', dataObj.productVariants[0].options[0].product.code);
               dataObj.productVariants[0].options.forEach(item => {
                 addElementToDocument('pd_variants', item.product.code);
               });

@@ -53,11 +53,11 @@ const transform = (data) => {
         row.description.forEach(item => {
           desc += item.text.replace(/•/g, '||');
         });
-        const text = desc.match(/\|\|/g).concat(descriptionOne.match(/\|\|/g));
-        if (text) {
+
+        if (row.additionalDescBulletInfo) {
           row.descriptionBullets = [
             {
-              text: text.length,
+              text: row.additionalDescBulletInfo.length,
             },
           ];
         }
