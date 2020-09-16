@@ -8,38 +8,18 @@ const transform = (data) => {
                 });
             }
 
-            if (row.alternateImages) {
-              let info = [];          
+            if (row.alternateImages) {              
               row.alternateImages.forEach(item => {
-                info.push(item.text);            
-              });
-              if(info.length){          
-                row.alternateImages = [];
-                info.forEach(item => {
-                    row.alternateImages.push({"text": item});
-                });
-              }
+                item.text = item.text.replace(/(\/fm-thumbnail\/)/g, '/fm-xl/').trim();
+              });              
             }
 
             if (row.image) {
               row.image.forEach(item => {
                   item.text  = item.text.replace(/(\/fm-sm\/)/g, '/fm-xl/').trim();
               });
-          }
+            }
 
-            if (row.category) {
-                let info = [];          
-                row.category.forEach(item => {
-                  info.push(item.text);            
-                });                
-                if(info.length){
-                  row.category = [];
-                  info.forEach(item => {
-                      row.category.push({"text": item});
-                  });
-                }
-              }
-            
             if (row.description) {
                 row.description.forEach(item => {
                   item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
@@ -62,12 +42,6 @@ const transform = (data) => {
                     info.push(item.text.replace(/(\s*\n\s*)+/g, ' : ').trim());            
                 });          
                 row.specifications = [{'text':info.join(' || '),'xpath':row.specifications[0].xpath}];          
-            }
-
-            if (row.category) {
-              row.category.forEach(item => {
-                  item.text  = item.text.replace(/(\s*\n\s*)/g, ' > ').trim();
-              });
             }
 
             if (row.ratingCount) {

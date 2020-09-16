@@ -21,9 +21,12 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[@class='detail-showcase--main-img-container']//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='detail-showcase--main-img-container']//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='detail-showcase--additional-imgs']//img[@class='detail-showcase--additional-img']/@src  
+    xpath: //div[@class='detail-showcase--additional-imgs']//img[@class='detail-showcase--additional-img']/@src
   - name: category
     singleValue: false
     xpath: //div[@class='_9yxos7T0YNnslpWJEfrD9 _1eeHdGL1eQGdh2zWVt2iX9']//ol[contains(@class,'breadcrumbs--container')]//li//a[@class='u-reset']
@@ -47,13 +50,7 @@ fields:
     xpath: //ul[@class='detail-options--topfacts']//li
   - name: brandText
     singleValue: false
-    xpath: //div[@class='detail-showcase--brand']/img/@alt
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[@class='detail-showcase--brand']/img/@alt
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //div[@class='detail-showcase--brand']/img/@src
+    xpath: //div[@class='detail-showcase--brand']/img/@alt  
   - name: quantity
     singleValue: false
     xpath: //button[@id="test-detail-btn-test-select-flyout"]
