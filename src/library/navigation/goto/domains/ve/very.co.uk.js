@@ -1,10 +1,10 @@
 module.exports = {
-  implements: "navigation/goto",
+  implements: 'navigation/goto',
   parameterValues: {
-    domain: "very.co.uk",
+    domain: 'very.co.uk',
     timeout: 30000,
-    country: "GB",
-    store: "very",
-    zipcode: "",
+    country: 'GB',
+    store: 'very',
+    zipcode: '',
   },
 };
