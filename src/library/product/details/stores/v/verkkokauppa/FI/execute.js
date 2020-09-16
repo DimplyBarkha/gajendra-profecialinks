@@ -6,7 +6,7 @@ module.exports = {
     store: 'verkkokauppa',
     domain: 'verkkokauppa.com',
     loadedSelector: 'html',
-    noResultsXPath: null,
+    noResultsXPath: '//main[@id="main"]',
     zipcode: '',
   },
 };

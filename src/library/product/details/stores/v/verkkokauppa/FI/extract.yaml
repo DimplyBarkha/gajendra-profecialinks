@@ -112,7 +112,7 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath:  //td[contains(text(), "Pakkauksen koko")]/following::td[1]
+    xpath: //td[contains(text(), "Pakkauksen koko")]//following::td[1]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header

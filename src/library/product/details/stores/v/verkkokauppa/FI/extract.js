@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -9,8 +8,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain ,transform: transformParam}, context, { productDetails }) => {     
-    await new Promise(resolve => setTimeout(resolve, 3000));
-
+    
     await context.evaluate(async function () {       
      const productInfo = preFetchProductDetails();
       addEleToDoc('skuId', productInfo[0].sku);
@@ -38,25 +36,31 @@ module.exports = {
         document.body.appendChild(prodEle);
       }
 
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      const overlay = document.getElementById('tabs-page-select-tab1');      
-      if (overlay !== undefined) {
-        overlay.click();
-      }
-
+      // await new Promise(resolve => setTimeout(resolve, 3000));
+      // const overlay = document.getElementById('tabs-page-select-tab1');      
+      // if (overlay !== undefined) {
+      //   overlay.click();
+      // }
 
     });
 
-    //await context.waitForSelector('//td[contains(text(), "Pakkauksen koko")]/following::td[1]', { timeout: 90000 });
+    const cssProduct = "div.Scrollable-sc-139ziej-0 > a.gBtnMb";
 
-      // await new Promise(resolve => setTimeout(resolve, 10000));
-      // await context.waitForSelector('//td[contains(text(), "Pakkauksen koko")]/following::td[1]', { timeout: 90000 });
+    const isSelectorAvailable = async (cssSelector) => {
+      console.log(`Is selector available: ${cssSelector}`);
+      return await context.evaluate(function (selector) {
+        return !!document.querySelector(selector);
+      }, cssSelector);
+    };
 
-      
-
-    // const { transform } = parameters;
-    // const { productDetail } = dependencies;
-    // return await context.extract(productDetails,productDetail, { transform });
+    console.log('.....waiting......');
+    await context.waitForSelector('#tabs-page-select-tab1', { timeout: 50000 });
+    const productAvailable = await isSelectorAvailable('div.Scrollable-sc-139ziej-0 > a.gBtnMb');
+    if(productAvailable)
+    {      
+      await context.click('#tabs-page-select-tab1');    
+      await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
+    }
        return await context.extract(productDetails, { transform: transformParam });       
   },  
 };
