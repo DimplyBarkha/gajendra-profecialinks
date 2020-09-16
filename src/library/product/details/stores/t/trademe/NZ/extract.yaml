@@ -8,7 +8,7 @@ fields:
     xpath: //tm-listing-auction/tg-box2/p[2]/strong
   - name: category
     singleValue: false
-    xpath: //div/tm-breadcrumbs/ol
+    xpath: //div//tm-breadcrumbs//ol//li[position()>1]//a
   - name: name
     singleValue: false 
     xpath: //div/tg-row[1]/tg-col[2]/tm-buyer-options/h1
