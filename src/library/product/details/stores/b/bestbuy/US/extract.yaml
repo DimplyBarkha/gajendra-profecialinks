@@ -70,12 +70,10 @@ fields:
     manualSelector: div.model.product-data>span.product-data-value
   - name: ratingCount
     singleValue: false
-    manualSelector: span.popover-wrapper span.c-total-reviews
-    regExp: .*?(\d[^\s]+).*
-    regExpReplace: $1
+    manualSelector: span.popover-wrapper span.c-total-reviews, span.popover-wrapper span.c-reviews-v4
   - name: aggregateRating
     singleValue: false
-    manualSelector: span.popover-wrapper span.c-review-average
+    manualSelector: span.popover-wrapper span.c-review-average, span.popover-wrapper span.ugc-c-review-average
   - name: additionalDescBulletInfo
     singleValue: false
     manualSelector: div.overview-accordion-content-wrapper li
