@@ -44,26 +44,20 @@ fields:
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
-    # xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]/@data-subwidget-id
-    #//div[contains(@class, "widget-ArticleName---view-article-name")]/@data-widget-id
     xpath: //div[contains(@class, "col col-xs-8 col-sm-1")]//h2//a/text()
     description: The product name
   - name: sku
     singleValue: false
-    # xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")])[2]
     description: The store-specific product identifier
   - name: mpc
     singleValue: false
-    # xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")])[2]
     description: The model code of the product
   - name: gtin
     singleValue: false
-    # xpath: ancestor::html//script[contains(@class, "widget-ArticleStatus--script")]/text()
     description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
     singleValue: false
     xpath: //div[@id="aggrRating"]
-    # xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[@itemprop="ratingValue"]//text()
     description: The stated aggregate rating
   - name: ratingCount
     singleValue: false
@@ -94,9 +88,6 @@ fields:
     description: The text that signifies that a product is endorsed
   - name: shippingInfo
     singleValue: false
-    # xpath: //img[contains(@data-src, "https://cdn.expert.de/fc/bf/04/35963f4d0bf25eb761a1e0f3e2c9cd1f3d/131234%20fms_expert_versandkostenfrei_samsung.png")]/@alt
-    # regExp: "Artikel Aktions Symbol"
-    # regExpReplace: Versand-kostenfrei
     description: Shipping information for the product
   - name: rank
     singleValue: false
@@ -124,14 +115,7 @@ fields:
     singleValue: false
     xpath: //div[@id="aggrRating"]
     description: The stated aggregate rating normalized to be out of 5
-    # type: NUMBER
-    # regExp: >-
-    #   ^.{0,3}
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@id="aggrRating"]
-    # xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[@itemprop="ratingValue"]//text()
     description: The stated aggregate rating normalized to be out of 5
-    # type: NUMBER
-    # regExp: >-
-    #   ^.{0,3}

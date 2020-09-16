@@ -13,22 +13,6 @@ async function implementation (
       return false;
     }
   }
-  // else {
-  //   const foundNextButton = await context.evaluate(function () {
-  //     const hiddenNextButton = document.querySelector('li.pages-item-next a[title="Next"]');
-  //     if (hiddenNextButton) {
-  //       hiddenNextButton.click();
-  //       return true;
-  //     }
-  //   });
-
-  //   if (foundNextButton) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
-
-  console.log('shdsjkdhskjdh')
 
   const { pager } = dependencies;
   const success = await pager({ keywords, nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector });
@@ -37,15 +21,6 @@ async function implementation (
   }
 
   let url = null;
-
-  // let url = await context.evaluate(function () {
-  //   /** @type { HTMLLinkElement } */
-  //   const next = document.querySelector('head link[rel="next"]');
-  //   if (!next) {
-  //     return false;
-  //   }
-  //   return next.href;
-  // });
 
   console.log('(!url && openSearchDefinition)')
   console.log((!url && openSearchDefinition))
@@ -101,16 +76,13 @@ module.exports = {
   parameterValues: {
     country: 'AT',
     store: 'expert',
-    // nextLinkSelector: 'div.row--paging-wrapper-bottom a.paging-arrow-next',
     nextLinkSelector: null,
     mutationSelector: null,
-    // spinnerSelector: 'main[style="opacity: 0.4;"]',
     spinnerSelector: null,
     loadedSelector: 'div.product-paging, div.product-item a',
     noResultsXPath: '//*[contains(text(),"Leider aktuell kein Treffer zu Ihrem Suchbegriff")]',
     openSearchDefinition: {
       template: 'https://www.expert.at/shop?q={searchTerms}&page={page}',
-      // template: 'https://www.expert.ie/catalogsearch/result/index/?p={page}&q={searchTerms}',
     },
     domain: 'expert.at',
     zipcode: '',

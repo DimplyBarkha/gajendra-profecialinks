@@ -13,20 +13,6 @@ async function implementation (
       return false;
     }
   }
-  // else {
-  //   const foundNextButton = await context.evaluate(function () {
-  //     const hiddenNextButton = document.querySelector('li.pages-item-next a[title="Next"]');
-  //     if (hiddenNextButton) {
-  //       hiddenNextButton.click();
-  //       return true;
-  //     }
-  //   });
-
-  //   if (foundNextButton) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
 
   const { pager } = dependencies;
   const success = await pager({ keywords, nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector });
@@ -35,15 +21,6 @@ async function implementation (
   }
 
   let url = null;
-
-  // let url = await context.evaluate(function () {
-  //   /** @type { HTMLLinkElement } */
-  //   const next = document.querySelector('head link[rel="next"]');
-  //   if (!next) {
-  //     return false;
-  //   }
-  //   return next.href;
-  // });
 
   if (!url && openSearchDefinition) {
     url = openSearchDefinition.template
@@ -93,8 +70,6 @@ module.exports = {
   parameterValues: {
     country: 'IE',
     store: 'expert',
-    // nextLinkSelector: 'li.pages-item-next a[title="Next"]',
-    // nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.product-item-info',

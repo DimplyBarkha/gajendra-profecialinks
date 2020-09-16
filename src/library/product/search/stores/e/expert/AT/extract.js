@@ -26,8 +26,8 @@ module.exports = {
         const fullStar = product[i].querySelectorAll('svg[viewBox="0 0 46.773 44.751"]');
         const halfStar = product[i].querySelectorAll('svg[viewBox="0 0 46.773 44.75"]');
         let fullRating = null;
-        console.log('fullStar')
-        console.log(fullStar)
+        console.log('fullStar');
+        console.log(fullStar);
         if (fullStar.length || halfStar.length) {
           if (fullStar.length === 5) {
             const stars = product[i].querySelectorAll('svg[viewBox="0 0 46.773 44.751"]');
@@ -53,16 +53,3 @@ module.exports = {
     return await context.extract(productDetails, { transform });
   },
 };
-
-//     // function addElementToDocument (doc, key, value) {
-//     //   const catElement = document.createElement('div');
-//     //   catElement.id = key;
-//     //   catElement.textContent = value;
-//     //   catElement.style.display = 'none';
-//     //   doc.appendChild(catElement);
-//     // }
-//     // const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
-//     // const arr = document.querySelectorAll('div.category-products > ul > li:not([class="no-hover"])');
-//     // for (let i = 0; i < arr.length; i++) {
-//     //   addElementToDocument(arr[i], 'pd_rank', lastProductPosition + i);
-//     // }

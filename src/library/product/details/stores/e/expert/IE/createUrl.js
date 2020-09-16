@@ -4,7 +4,6 @@ module.exports = {
   parameterValues: {
     domain: 'expert.ie',
     prefix: null,
-    // url: null,
     country: 'IE',
     store: 'expert',
     zipcode: '',

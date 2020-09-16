@@ -31,8 +31,6 @@ async function implementation (
     const mainVariant = getVariantsText(url);
     variantList.push(mainVariant);
 
-    // addHiddenDiv('ii_variant', mainVariant);
-
     const variantNodes = document.querySelectorAll('select.product-variant option');
     if (variantNodes.length) {
       [...variantNodes].forEach((element) => {
@@ -40,7 +38,6 @@ async function implementation (
         variantList.push(text);
         const variantUrlText = element.getAttribute('data-href');
         variantUrl.push(`https://www.expert.at${variantUrlText}`);
-        // addHiddenDiv('ii_variant', text);
       });
     }
 

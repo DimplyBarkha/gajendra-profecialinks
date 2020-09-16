@@ -19,7 +19,6 @@ fields:
     xpath: (//div[contains(@class, "image-holder slick-slide") and contains(@role, "option")]//a[contains(@class, "detail-thumbnail")]/@href)[position()>1]
   - name: metaKeywords
     singleValue: true
-    # xpath: //meta[@name="description"]/@content
     description: The <meta> keywords content
   - name: category
     singleValue: false
@@ -48,9 +47,6 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: boolean(//span[contains(@class, "product-available")]/@class)
-    # regExp: (true)
-    # regExpReplace: (In Stock)
-    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[contains(@class, "product-desc__body")]//ul//li|//div[contains(@class, "container-product-detail")]//div[@id="tab-content"]//div[contains(@class, "tab-pane in active")]//text()
@@ -82,7 +78,6 @@ fields:
     regExpReplace: $2
   - name: weightGross
     singleValue: true
-    # xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr//td
     description: Gross weight as described on the page
   - name: upc
     singleValue: true
@@ -102,7 +97,6 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
-    # xpath: (//div[contains(@class, "widget widget-ArticleNumber")]//span)[2]
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
@@ -133,7 +127,6 @@ fields:
     type: NUMBER
   - name: shippingInfo
     singleValue: true
-    # xpath: //th[contains(text(),'Lieferumfang')]//ancestor::th//parent::tr//td|//div[contains(@class, "widget widget-ArticlePrice")]/following-sibling::div//p//text()
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
@@ -272,12 +265,10 @@ fields:
     description: null
   - name: specifications
     singleValue: true
-    # xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungsbreite')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungshöhe')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungstiefe')]//ancestor::th//parent::tr
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
     xpath: //div[contains(@id, "tab-content")]//strong[contains(text(), "Garantie")]//parent::li
-    # xpath: //div[contains(@class, "widget-AdditionalServices")]//text()
     description: Guarantee associated with the product
   - name: storage
     singleValue: true
@@ -366,9 +357,6 @@ fields:
   - name: technicalInformationPdfPresent
     singleValue: true
     xpath: boolean(//div[contains(@id, "datasheet-button")]//a[contains(@target, "_blank")]//span[contains(@class, "icon-pdf")]/@class)
-    # regExp: true
-    # regExpReplace: Yes
-    # defaultValue: No
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
   - name: termsAndConditions
@@ -406,16 +394,12 @@ fields:
     xpath: //*[@id="iio_product_url"]
   - name: contentSyndication
     singleValue: false
-    # xpath: //*[@id="iio_product_url"]
   - name: inTheBox
     singleValue: false
-    # xpath: //*[@id="iio_product_url"]
   - name: specificationList
     singleValue: false
     xpath: //div[contains(@class,"widget-Accordion--header")]//*[text()="Technische Daten"]/ancestor::div[position()=1]/ancestor::div[position()=1]/following-sibling::div[position()=1]
   - name: compareTheRange
     singleValue: false
-    # xpath: //*[@id="iio_product_url"]
   - name: uninterrupedPDP
     singleValue: false
-    # xpath: //*[@id="iio_product_url"]
