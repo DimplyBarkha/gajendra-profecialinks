@@ -26,6 +26,8 @@ fields:
     xpath: //div[@class='star-rating']/@data-count
   - name: reviewCount
     xpath: //div[@class='star-rating']/@data-count
+  - name: soldBy
+    xpath: //a[contains(@class, 'product-seller__name')]
   - name: price
     singleValue: false
     description: The offered price for the product
