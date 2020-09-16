@@ -58,9 +58,10 @@ module.exports = {
     const productAvailable = await isSelectorAvailable('div.Scrollable-sc-139ziej-0 > a.gBtnMb');
     if(productAvailable)
     {      
-      await context.click('#tabs-page-select-tab1');    
+      await context.click('#tabs-page-select-tab1');
       await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
+      await context.waitForSelector('section.product-details', { timeout: 55000 });
     }
-       return await context.extract(productDetails, { transform: transformParam });       
-  },  
+    return await context.extract(productDetails, { transform: transformParam });
+  },
 };
