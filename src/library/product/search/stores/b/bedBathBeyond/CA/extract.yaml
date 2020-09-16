@@ -1,0 +1,7 @@
+extends: ../shared
+fields:
+  - name: productUrl
+    xpath: //div[@data-locator="product_tile_title"]/@href
+    regExp: ^([^?]+)
+    regExpReplace: https://www.bedbathandbeyond.ca$1
+    description: The URL for the product details page

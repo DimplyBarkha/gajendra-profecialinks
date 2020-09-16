@@ -38,22 +38,25 @@ async function implementation (
     return true;
   }
 
-  let url = await context.evaluate(function () {
-    /** @type { HTMLLinkElement } */
-    const next = document.querySelector('head link[rel="next"]');
-    if (!next) {
-      return false;
-    }
-    return next.href;
-  });
+  let url;
 
-  if (!url && openSearchDefinition) {
+  if (openSearchDefinition) {
     url = openSearchDefinition.template
       .replace('{searchTerms}', encodeURIComponent(keywords))
       .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
       .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
   }
 
+  if (!url) {
+    await context.evaluate(function () {
+      /** @type { HTMLLinkElement } */
+      const next = document.querySelector('head link[rel="next"]');
+      if (!next) {
+        return false;
+      }
+      return next.href;
+    });
+  }
   if (!url) {
     return false;
   }
