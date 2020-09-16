@@ -48,9 +48,7 @@ fields:
     regExpReplace: $1
   - name: firstVariant
     singleValue: false
-    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
-    regExp: sku":"([^"]+)
-    regExpReplace: $1
+    xpath: //button[contains(@class, 'pdp-filter-item color-item')]/@data-genericcolor
   - name: color
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"color")]
@@ -123,6 +121,9 @@ fields:
     singleValue: false
     xpath: //td[contains(text(), 'Poids Net')]//following-sibling::*
   - name: weightGross
+    singleValue: false
+    xpath: //td[contains(text(), 'Poids Brut')]//following-sibling::*
+  - name: shippingWeight
     singleValue: false
     xpath: //td[contains(text(), 'Poids Brut')]//following-sibling::*
   - name: shippingInfo

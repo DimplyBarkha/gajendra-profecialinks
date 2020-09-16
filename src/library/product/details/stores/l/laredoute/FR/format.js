@@ -63,7 +63,7 @@ const transform = (data) => {
         }
       }
       if (row.nameExtended) {
-        row.nameExtended[0].text = row.brandText[0].text + ' - ' + row.nameExtended[0].text + ' - ' + row.color[0].text;
+        row.nameExtended[0].text = row.brandText[0].text + ' - ' + row.nameExtended[0].text;
       }
       if (row.descriptionBullets) {
         row.descriptionBullets[0].text = row.additionalDescBulletInfo.length;
