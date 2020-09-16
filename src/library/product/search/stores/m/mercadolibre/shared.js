@@ -47,6 +47,11 @@ const transform = (data, context) => {
             item.text = item.text.replace('.',',');
           });
         }
+        if (row.price) {
+          row.price.forEach((item) => {
+            item.text = item.text.replace(',','');
+          });
+        }
       }
     }
     return data;
