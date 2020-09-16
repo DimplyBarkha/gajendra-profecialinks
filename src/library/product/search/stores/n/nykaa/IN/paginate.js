@@ -10,7 +10,7 @@ module.exports = {
     loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: {
-      offset: 22,
+      offset: 20,
       template: 'https://www.nykaa.com/nyk/aggregator-gludo/api/search.list?filter_format=v2&from=0&page_no=1&search={searchTerms}#[!opt!]{"type":"json"}[/!opt!]',
     },
     domain: 'nykaa.com',

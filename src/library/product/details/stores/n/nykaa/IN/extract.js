@@ -16,16 +16,14 @@ module.exports = {
     ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    const currentSelector = '#cnet-accordion';
+    const currentSelector = '.pdp-description-tab-readmore';
     const result = await context.evaluate((currentSelector) => {
     return Boolean(document.querySelector(currentSelector));
     }, currentSelector);
     
     if (result) {
-    await context.click('#cnet-accordion');
-    await context.waitForFunction(() => {
-    return !document.querySelector('[aria-label="Loading interface..."]');
-    });
+    await context.click('.pdp-description-tab-readmore');
+    await context.waitForNavigation();
     }
     return await context.extract(productDetails, { transform });
     }
