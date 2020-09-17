@@ -40,6 +40,9 @@ fields:
       clicks add to basket this is the price they would be charged
     #xpath: (//div[@class='product-hero__price-top']/div[@data-product-price])[1]
     xpath: //div[@id='added_price']
+  - name: currencyOverride
+    singleValue: true
+    xpath: //div[@id='added_currency']
   - name: availabilityText #localedependent
     singleValue: true
     description: Availability as described on page for the selected variant. If
