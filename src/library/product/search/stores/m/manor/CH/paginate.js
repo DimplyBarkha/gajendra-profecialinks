@@ -7,10 +7,10 @@ module.exports = {
     nextLinkSelector: 'div.epoq_changepage.m-page-selection-pagination ul.pagination li.pagination-next',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div#epoq_resultrows_header',
-    noResultsXPath: null,
+    loadedSelector: 'div.js-product-tile',
+    noResultsXPath: '//span[contains(text(),"Leider konnten wir kein Ergebnis für Sie finden.")]',
     openSearchDefinition: null,
     domain: 'manor.ch',
-    zipcode: "''",
+    zipcode: "''",    
   },
 };
