@@ -5,90 +5,88 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //img[contains(@class,'zoomImg')]/@src
+    xpath: //img[(@class='image productDetailsImage__image loading')]/@src
   - name: imageAlt
     singleValue: true
-    xpath: //div[@class='pdpGallery-owl-carousel owl-carousel owl-carousel--white-nav owl-loaded']//a[contains(@class,'pdp-item-link')]//img[contains(@class,'')]//@alt
+    xpath: //img[(@class='image productDetailsImage__image loading')]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='producttop']//div[@class='productpage']//div[@class='pictureside']//div[@class='pictureside-inner']//div[@class='pdp-nav-container']//div[@id='pdpNavCarousel']//div[@class='owl-stage-outer']//div[@class='owl-stage']//div[@class='owl-item active selected']//a//img//@src
+    xpath: //li[contains(@class,'product-carousel__thumb')]//a[@class='product-carousel__thumb-link']//figure//img//@data-src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
+    xpath: //meta[(@name='keywords')]//@content
   - name: category
     singleValue: false
-    xpath: //div[@class='maincontentcontainer']/div[@id='main']/div[@id='secondary']/div[@class='navigation']/div[@class='navgroup Produkter']/div[@class='navcontainer']/ul/li[5]/a[@class='refinement-link']
+    xpath: //product-details//a[(@class='breadcrumb -clickable-last-child')]
   - name: nameExtended
     singleValue: true
     xpath: //meta[@name='description']/@content
   - name: listPrice
     singleValue: true
-    description: The stated undiscounted price for the product
-    xpath: //div[@class='productpricecontainer']/div[@class='productprice']/div[@class='beforeprice']
+    description: The stated undiscounted price for the product    
   - name: price
-    singleValue: false
-    xpath: //div[@class='productpricecontainer']//div[@class='productprice']//meta[@itemprop="lowPrice"]/@content
+    singleValue: true
+    xpath:  //div[@class='pdp__details__inner']//div[@class='pdp__prices js-productPrice mt4']//div[@class='price']//span//span[@class='sales  ']//span[@class='value']/@content
   - name: availabilityText
-    xpath: //div[@class='ga-product-item']//div[@class='ga-product-data-productAvailability']
+    xpath: //div[@class='pdp__top']/div[@class='pdp__details']/div[@class='pdp__details__inner']/div[@class='pdp__addtocart mt4 -hidden-until-lg']/div[@class='add-to-cart-actions']/add-to-cart[@data-product-available='true']
     singleValue: true
     regExp: (.+)
     regExpReplace: In stock
     defaultValue: Out of Stock
   - name: description
-    singleValue: false
-    xpath: //div[@class='infotext infotext--truncated']
+    singleValue: true
+    xpath: //div[@id='product-description']//text()
   - name: descriptionBullets
     singleValue: true
-    type: NUMBER
-    xpath: count(//div[@class='materialtable']//div[@class='materialrow'])
+    type: NUMBER    
   - name: brandText
     singleValue: true
-    xpath: //div[@class='ga-product-item']//div[@class='ga-product-data-productBrand']
+    xpath: //h2[@class='pdp__brand-title']
   - name: manufacturer
     singleValue: true
-    xpath: //div[@class='producttop']/div[@class='productpage']/div[@class='textside']/div[@class='productarea']/div[@class='contenttop']/div[@class='headline']/h1/a
+    xpath: //h2[@class='pdp__brand-title']
   - name: quantity
     singleValue: true
-    xpath: //div[@class='producttop']/div[@class='productpage']//select[@class='valid']//option[1]
-    #regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    #regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
-    #xpath: //div[@class='materialrow'][1]//div[@class='materialcell ftbMaterialValue']
+    singleValue: true    
   - name: weightGross
-    singleValue: true
-    #xpath: //div[@class='materialrow'][1]//div[@class='materialcell ftbMaterialValue']
+    singleValue: true    
   - name: gtin
     singleValue: true
-    xpath: //div[@class='materialtable']//div[@class='materialrow'][4]//div[@class='materialcell ftbMaterialValue']
+    xpath: //li[contains(text(),'EAN')]/text()
   - name: sku
     singleValue: true
-    xpath: //div[@class='ga-product-item']//div[@class='ga-product-data-productid']
+    xpath: //li[contains(text(),'EAN')]/text()
   - name: variantId
     singleValue: true
-    xpath: //div[@class='ga-product-item']//div[@class='ga-product-data-productid']
+    xpath: //li[contains(text(),'EAN')]/text()
   - name: mpc
     singleValue: true
-    xpath: //div[@class='ga-product-item']//div[@class='ga-product-data-productid']
+    xpath: //li[contains(text(),'EAN')]/text()
   - name: packSize
     singleValue: true
   - name: productUrl
     singleValue: true
-    xpath: //div[@class='image small']//a[@class='product-list-link' and @data-id='VA04831359-00000001_061']/@href
+    xpath: //link[contains(@rel,'canonical')]/@href
+    regExp: (.+)
+    regExpReplace: https://www.magasin.dk$1
   - name: videos
     singleValue: false
   - name: name
     singleValue: true
-    xpath: //div[@class='productarea']//h3[@itemprop='name']
+    xpath: //h1[@class='pdp__title js-productName']
   - name: secondaryImageTotal
     singleValue: true
+    xpath : count(//li[contains(@class,'product-carousel__thumb')]//a[@class='product-carousel__thumb-link']//figure//img//@data-src)
     type: NUMBER
   - name: specifications
     singleValue: true
-    xpath: //div[@class='materialtable']
   - name: warranty
     singleValue: true
+    xpath : //div[@class='product-usp__content']//font[contains(text(),'return policy')]/text()|//div[contains(text(),'dages returret')]
   - name: shippingDimensions
+    xpath: //span[@ref='size-selection-text']//text()
     singleValue: true
   - name: shippingWeight
     singleValue: true
@@ -99,15 +97,14 @@ fields:
     type: NUMBER
   - name: productOtherInformation
     singleValue: true
-    xpath: //div[@class='materialtable']
+    xpath: //li[contains(text(),'Material description')]/text()
   - name: color
-    singleValue: false
-    xpath: //div[@class='materialtable']/div[@class='materialrow'][7]/div[@class='materialcell ftbMaterialValue']
+    singleValue: true
+    xpath: //span[@class='js-swatchName value']//text()
   - name: packaging
     singleValue: false
   - name: promotion
     singleValue: true
-    xpath: //div[@class='producttop']/div[@class='productpage']/div[@class='textside']/div[@class='productbadge']
   - name: ratingCount
     singleValue: true
   - name: countryOfOrigin
@@ -115,30 +112,26 @@ fields:
   - name: energyEfficiency
     singleValue: true
   - name: additionalDescBulletInfo
-    singleValue: true
-    xpath: //div[@class='materialtable']
+    singleValue: true   
   - name: technicalInformationPdfPresent
     singleValue: true
-    xpath: 
-    #regExp: (.+)
-    #regExpReplace: 'YES'
+    xpath:     
     defaultValue: 'NO'
   - name: Image360Present
     singleValue: true
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class='owl-item active']//div[@class='image-fixed-aspect']//a[@class='pdp-item-link']//img[contains(@role,'presentation')]/@src
   - name: upc
     singleValue: true
-    xpath: //div[@class='materialtable']/div[@class='materialrow'][4]/div[@class='materialcell ftbMaterialValue']
+    xpath: //li[contains(text(),'EAN')]/text()
   - name: eangtin
     singleValue: true
-    xpath: //span[contains(text(), 'Model Number')]/following::div[1]
+    xpath: //li[contains(text(),'EAN')]/text()
   - name: listPrice
-    singleValue: true
-    xpath: //div[@class='productpricecontainer']/div[@class='productprice']/div[@class='beforeprice']
+    singleValue: true    
   - name: colorCode
     singleValue: true
+    xpath : //span[@class='js-swatchName value']//text()
   - name: newDescription
     singleValue: true
   - name: lbbPrice
