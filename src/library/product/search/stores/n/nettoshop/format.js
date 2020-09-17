@@ -15,6 +15,24 @@ const transform = (data) => {
           }
         });
       }
+
+      if (row.id) {
+        row.id.forEach(item => {
+          const text = item.text;
+          if (text.indexOf('/') > -1) {
+            item.text = text.substring(text.lastIndexOf('/') + 1);
+          }
+        });
+      }
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          const text = item.text;
+          if (text.indexOf('/') > -1) {
+            item.text = text.substring(0, text.lastIndexOf('/'));
+          }
+        });
+      }
+
       rankCounter += 1;
       row.rank = [{ text: rankCounter }];
     }

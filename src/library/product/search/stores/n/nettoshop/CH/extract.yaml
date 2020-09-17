@@ -5,17 +5,20 @@ recordXPath: //div[@class="c-product-grid__item"]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="sc-channel-container-channels"]/@id
+    xpath: //div[@class='c-product-grid-item__product']//a/@href
+  #  xpath: //div[@class="c-product-grid__item"]/div/@id
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
   - name: name
     singleValue: false
     xpath: //div[@class='c-product-grid-item__title']//a
   - name: productUrl
     singleValue: false
-    xpath: concat("https://www.nettoshop.ch/",//div[@class='c-product-grid-item__product']//a/@href)
+    xpath: //div[@class='c-product-grid-item__product']//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.nettoshop.ch$1
   - name: gtin
-    singleValue: true
+    singleValue: false
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="c-media-container ember-view"]/picture/img/@src
@@ -25,7 +28,8 @@ fields:
     singleValue: false
     xpath: //div[@class='c-product-grid-item__rating']//div/@title
     #type: NUMBER
-    regExp: (^[0-9])
+    #regExp: (^[0-9])
+    #regExp: (\d+.\d+)(.\d+)
     #regExpReplace: $1
   - name: reviewCount
     singleValue: false
@@ -34,11 +38,13 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class='c-product-grid-item__price-total']
+    regExp: (.+)
+    regExpReplace: $1CHF
   - name: manufacturer
     singleValue: false
     xpath: //div[@class='c-product-grid-item__brand']/img/@title
   - name: rank
-    singleValue: true
+    singleValue: false
   - name: endorsementText
     singleValue: false
     xpath: //div[@class='c-delivery-state__state']
