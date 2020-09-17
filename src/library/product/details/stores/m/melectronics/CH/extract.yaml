@@ -26,7 +26,7 @@ fields:
     xpath: //div[@class='detail-showcase--main-img-container']//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='detail-showcase--additional-imgs']//img[@class='detail-showcase--additional-img']/@src
+    xpath: //div[@class='detail-showcase--additional-imgs']//div[not(@data-active)]//img[@class='detail-showcase--additional-img']/@src
   - name: category
     singleValue: false
     xpath: //div[@class='_9yxos7T0YNnslpWJEfrD9 _1eeHdGL1eQGdh2zWVt2iX9']//ol[contains(@class,'breadcrumbs--container')]//li//a[@class='u-reset']
