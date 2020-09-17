@@ -53,9 +53,8 @@ fields:
     #type: NUMBER
   - name: brandText
     singleValue: false
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
-    xpath: //div[@id='ember47']//img[@class='c-media-container__fallback-img lazyloaded']/@title
+    #xpath: //div[@id='ember47']//img[@class='c-media-container__fallback-img lazyloaded']/@title
+    xpath: //div[@class='c-product-detail__header']//img[@class='c-media-container__fallback-img lazyloaded']/@title
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
