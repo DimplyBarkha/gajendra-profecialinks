@@ -9,8 +9,9 @@ const transform = (data, context) => {
       for (const row of group) {  
         try { 
 
-          if (row.price) {
+          if (row.price || row.listPrice) {
             row.price = [{ text: row.price[0].text }, { text: row.onlinePriceCurrency[0].text }];
+            row.listPrice = [{ text: row.listPrice[0].text }, { text: row.onlinePriceCurrency[0].text }];
           }       
   
         } catch (exception) { console.log('Error in transform', exception); }
