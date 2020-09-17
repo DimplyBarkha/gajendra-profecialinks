@@ -7,12 +7,12 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@data-product-id]/@data-product-id
-  - name: product_url
+  - name: productUrl
     singleValue: false
     xpath: //div[@class='cs-product-tile__thumbnail']//a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //picture[@class='cs-product-tile__image']//img/@src
+    xpath: //picture[@class='cs-product-tile__image']//img/@data-src
   - name: name
     singleValue: false
     xpath: //div[@class='cs-product-tile__name']/a[contains(@class, 'cs-product-tile__name-link')]
