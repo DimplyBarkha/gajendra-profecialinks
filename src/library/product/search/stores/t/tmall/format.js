@@ -30,8 +30,8 @@ const transform = (data) => {
           item.text=res[1];
         });
       }
-      if(row.aggregateRating){
-        row.aggregateRating.forEach(item => {
+      if(row.aggregateRating2){
+        row.aggregateRating2.forEach(item => {
           var res = item.text.split(":");
           var res1 = res[1].trim();
           var res2 =res1.split(" ");
