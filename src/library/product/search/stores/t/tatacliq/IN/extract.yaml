@@ -6,7 +6,7 @@ fields:
 - name: name
   xpath: //h2
 - name: price
-  xpath: //div[h2]/div/h3
+  xpath: //div[h2]//div//h3
   regExp: (\d+)
 - name: listPrice
   xpath: //div//span
@@ -16,11 +16,13 @@ fields:
 - name: productUrl
   xpath: div/a/@href
 - name: thumbnail
-  xpath: //a[@imageurl]/@imageurl
+  xpath: //a//img/@src 
+  regExp: (.+)
+  regExpReplace: https:$1
 - name: id
   xpath: div/a/@href
-  regExp: (.+)(p-mp)(00000000)(\d+)
-  regExpReplace: $4
+  regExp: (0{8})(.+)
+  regExpReplace: $2
 - name: aggregateRating2
   xpath: //*[@alt="star icon"]/..
 - name: ratingCount
@@ -28,7 +30,9 @@ fields:
   regExp: (\d+)
 - name: reviewCount
 - name: rank
+  xpath: ((count(../../../preceding-sibling::div))*count(../../../div)) + ((count(../../preceding-sibling::div))+1)
 - name: rankOrganic
+  xpath: ((count(../../../preceding-sibling::div))*count(../../../div)) + ((count(../../preceding-sibling::div))+1)
   type: NUMBER
 - name: sponsored
   description: Is sponsored/paid

@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared')
+const { transform } = require('./transform');
 module.exports = {
     implements: 'product/search/extract',
     parameterValues: {
@@ -15,24 +15,31 @@ module.exports = {
         context,
         dependencies,
     ) {
-        const timeout = 50000;
 
-        const req = await context.searchForRequest('searchText=.*');
-        const pageData = JSON.parse(req.responseBody.body);
-        const searchResults = pageData.searchresult;
+        async function loadImages() {
+            const delay = t => new Promise(resolve => setTimeout(resolve, t));
+            async function waitForImages(node) {
+                while (node.querySelectorAll('img:not([alt=\'star icon\'])').length === 0) {
+                    console.log('waiting for images to load');
+                    await delay(1000);
+                }
+                console.log('Images loaded.');
+            }
+            const nodes = Array.from(document.querySelectorAll("div[id='grid-wrapper_desktop']>div>div>div>div>div"));
+            console.log('Starting image loading');
+            let row = 1;
+            for (const node of nodes) {
+                console.log('Row Number: ', row++);
+                node.scrollIntoView({ behavior: 'smooth' });
+                await waitForImages(node);
+            }
+        }
 
-        await context.evaluate(function (results) {
-            results.forEach(s => {
-                const sel = `#ProductModule-${s.productId} > div > a`;
-                const el = document.querySelector(sel);
-                el.setAttribute('imageUrl', `https:${s.imageURL}`);
-            });
-        }, searchResults);
-
+        await context.evaluate(loadImages);
         const { transform } = parameters;
         const { productDetails } = dependencies;
-        return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
 
+        return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
 
     },
 };
