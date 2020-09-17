@@ -87,10 +87,7 @@ fields:
     singleValue: true
   - name: aggregateRating
     singleValue: true
-    defaultValue: 0
-    xpath: (//span[contains(@class,"c-product-shop-box__review-rating")]//div/@class)[1]
-    regExp: (\d*)
-    regExpReplace: $1    
+    xpath: translate(count(//div[@class="c-product-shop-box"]//ul[contains(@class,"rating__stars")]/li[@style]),"0","")
   - name: shippingInfo
     singleValue: true
   - name: shippingDimensions
