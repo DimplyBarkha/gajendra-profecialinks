@@ -91,6 +91,8 @@ module.exports = {
       specification = description2 ? description2.split('CARACTERISTIQUES')[1] : ''
      }else if(description2.includes('CARACTÉRISTIQUES')){
       specification = description2 ? description2.split('CARACTÉRISTIQUES')[1] : ''
+     }else if(description2.includes('CARACTÉRISTIQUES TECHNIQUES')){
+      specification = description2 ? description2.split('CARACTÉRISTIQUES TECHNIQUES')[1] : ''
      }
       // @ts-ignore
       addHiddenDiv('cc_specification', specification);
