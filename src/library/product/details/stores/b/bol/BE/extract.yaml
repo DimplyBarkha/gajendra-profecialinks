@@ -26,7 +26,7 @@ fields:
   - name: description
     xpath: //div[@data-test='description']
   - name: descriptionBullets
-    xpath: //div[@id='bulletCount']
+    xpath: //div[@id='bulletCount']/@title
     defaultValue: 0
   - name: brandText
     xpath: //div[@data-test = 'brand']/a
