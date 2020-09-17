@@ -20,7 +20,7 @@ fields:
     xpath: //div[@class='magnifier-container' or @class='a8n3']//img/@alt
   - name: alternateImages
     singleValue: false    
-    xpath: //div[@class='portal-content-list' or contains(@class,'b2k3')]//div[contains(@id,'gallery-image-') or contains(@class,'a9u9')]//img/@src
+    xpath: //div[@class='portal-content-list' or contains(@class,'b2k3')]//div[@class='preview image selectable' or @class='a9u6']//img/@src
   - name: metaKeywords
     singleValue: false
     xpath: //title/text()
