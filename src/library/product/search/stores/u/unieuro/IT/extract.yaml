@@ -26,9 +26,7 @@ fields:
     regExpReplace: $1
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class='product-img-container']//a//img
-    regExp: (.*)
-    regExpReplace: https://www.medikamente-per-klick.de$1
+    xpath: //div[@class='product-img-container']//a//img/@src
   - name: price
     singleValue: false
     xpath: //a//div[@class='price']
