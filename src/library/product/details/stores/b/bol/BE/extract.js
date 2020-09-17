@@ -37,6 +37,14 @@ module.exports = {
         const ulInDesc = "div[data-test='description']>ul";
         const descBullets = document.querySelector(ulInDesc);
         const body = document.querySelector('body');
+
+        let liInDesc = document.querySelectorAll("div[data-test='description']>ul>li")
+        let divEle = document.createElement('div')
+        liInDesc.length > 0 ? body.appendChild(divEle) : false;
+        divEle.id = 'bulletCount';
+        divEle.title = liInDesc.length.toString();
+
+
         if (descBullets) {
           body.appendChild(descBullets);
         }
