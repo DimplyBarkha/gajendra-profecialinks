@@ -124,6 +124,17 @@ const transform = (data) => {
           row.manufacturerImages.push(obj);
         });
       }
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text += `|| ${item.text.trim()}`;
+        });
+        row.additionalDescBulletInfo = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
     }
   }
   return data;

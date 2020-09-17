@@ -65,18 +65,15 @@ fields:
   - name: largeImageCount
     singleValue: false
     xpath: count(//div[contains(@class,'product-detail-primary-image')]//img/@src)
-  - name: firstVariant
-    singleValue: false
-    xpath: //meta[contains(@itemprop, 'sku')]/@content
   - name: variantId
     singleValue: false
     xpath: //meta[contains(@itemprop, 'sku')]/@content
   - name: variantCount
     singleValue: false
-    defaultValue: 1
+    defaultValue: 0
   - name: videos
     singleValue: false
-    manualSelector: div#video-url
+    xpath: //div[contains(@id,'video-url')] | //iframe[contains(@id,'flix-iframe0')]/@src
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id='inpage_container']
@@ -89,3 +86,6 @@ fields:
   - name: weightNet
     singleValue: false
     xpath: //div[contains(@class,'inpage_selector_specification')]//*[contains(text(),'Weight')]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@id,'manufacture-name')]
