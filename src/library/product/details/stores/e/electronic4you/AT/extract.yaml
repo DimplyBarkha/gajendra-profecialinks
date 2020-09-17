@@ -124,8 +124,6 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     xpath: //span[@class="ts-reviewSummary-ratingValue"]
-    regExp: (\d+).?(\d+)
-    regExpReplace: $1,$2
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -156,6 +154,8 @@ fields:
     singleValue: false
     description: Images within the third party description
     xpath: //div[@id="extended-description"]//img/@src|//div[@id="flix-inpage"]//img/@srcset
+    regExp: (\/\/.*)
+    regExpReplace: https:$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
