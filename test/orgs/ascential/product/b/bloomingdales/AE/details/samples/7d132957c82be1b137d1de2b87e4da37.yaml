@@ -1,0 +1,88 @@
+input:
+  _url: http://bloomingdales.ae
+  URL: https://bloomingdales.ae/dyson-dyson-supersonic%E2%84%A2-hair-dryer-BEA211706123.html
+extractions:
+  - html: https://workbench.import.io/html/run=9f701e39-d9b7-4836-9afd-b1d22b7e53b0/task=71ce7802-9fa3-4e1c-a2ed-f9b608eba413/97e1617a-c5be-42ce-96bc-d9bfb8197705.html
+    extractionConfigId: product/details/stores/b/bloomingdales/AE/extract
+    data:
+      - group:
+          - image:
+              - text: https://bloomingdales.ae/dw/image/v2/BDSP_PRD/on/demandware.static/-/Sites-bloomingdales-master-catalog/default/dw29de4617/images/hi-res/BLM/Dyson/212264172/Dyson_4359-HD01-WHITE_NOCOLOR_IN.jpg?sw=800&sh=1200&q=50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Supersonic™ Hair Dryer image number 1
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://bloomingdales.ae/dw/image/v2/BDSP_PRD/on/demandware.static/-/Sites-bloomingdales-master-catalog/default/dw3949d566/images/hi-res/BLM/Dyson/212264172/212264172_IN.jpg?sw=800&sh=1200&q=50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://bloomingdales.ae/dw/image/v2/BDSP_PRD/on/demandware.static/-/Sites-bloomingdales-master-catalog/default/dw543595e8/images/hi-res/BLM/Dyson/212264172/Dyson_4359-HD01-WHITE_NOCOLOR_FR.jpg?sw=800&sh=1200&q=50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/img[1]/@src
+              - text: https://bloomingdales.ae/dw/image/v2/BDSP_PRD/on/demandware.static/-/Sites-bloomingdales-master-catalog/default/dw10b61aa8/images/hi-res/BLM/Dyson/212264172/212264172_FR.jpg?sw=800&sh=1200&q=50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/img[1]/@src
+              - text: https://bloomingdales.ae/dw/image/v2/BDSP_PRD/on/demandware.static/-/Sites-bloomingdales-master-catalog/default/dwd674b314/images/hi-res/BLM/Dyson/212264172/212264172_BK.jpg?sw=800&sh=1200&q=50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/img[1]/@src
+              - text: https://bloomingdales.ae/dw/image/v2/BDSP_PRD/on/demandware.static/-/Sites-bloomingdales-master-catalog/default/dw34f8616d/images/hi-res/BLM/Dyson/212264172/212264172_E1.jpg?sw=800&sh=1200&q=50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/img[1]/@src
+              - text: https://bloomingdales.ae/dw/image/v2/BDSP_PRD/on/demandware.static/-/Sites-bloomingdales-master-catalog/default/dw657f0a0a/images/hi-res/BLM/Dyson/212264172/Dyson_4359-HD01-WHITE_NOCOLOR_E2.jpg?sw=800&sh=1200&q=50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/img[1]/@src
+              - text: https://bloomingdales.ae/dw/image/v2/BDSP_PRD/on/demandware.static/-/Sites-bloomingdales-master-catalog/default/dwfb953789/images/hi-res/BLM/Dyson/212264172/212264172_E2.jpg?sw=800&sh=1200&q=50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/img[1]/@src
+              - text: https://bloomingdales.ae/dw/image/v2/BDSP_PRD/on/demandware.static/-/Sites-bloomingdales-master-catalog/default/dwe4c3d38f/images/hi-res/BLM/Dyson/212264172/Dyson_4359-HD01-WHITE_NOCOLOR_E3.jpg?sw=800&sh=1200&q=50
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/img[1]/@src
+            category:
+              - text: Beauty
+                xpath: /html/body/div[2]/div[1]/div[1]/nav[1]/div[1]/div[1]/ol[1]/li[2]
+              - text: Bath and Body
+                xpath: /html/body/div[2]/div[1]/div[1]/nav[1]/div[1]/div[1]/ol[1]/li[3]
+              - text: Hair Care
+                xpath: /html/body/div[2]/div[1]/div[1]/nav[1]/div[1]/div[1]/ol[1]/li[4]
+              - text: Dyson
+                xpath: /html/body/div[2]/div[1]/div[1]/nav[1]/div[1]/div[1]/ol[1]/li[5]
+            nameExtended:
+              - text: Dyson Supersonic™ Hair Dryer
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            brandLink:
+              - text: https://bloomingdales.ae//dyson/
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/h2[1]/a[1]/@href
+            baseUrl:
+              - text: https://bloomingdales.ae/dyson-dyson-supersonic%E2%84%A2-hair-dryer-BEA211706123.html
+                xpath: /html/head[1]/link[8]/@href
+            price:
+              - text: AED 1,574.00
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/span[1]/span[1]/span[1]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]
+            description:
+              - text: Dyson brings you powerful and intelligent tools enabling you to style with
+                  no extreme heat. Bad hair days, be gone! Your locks will love
+                  you for this advanced technology - did we mention the designs
+                  are super cute too? The Supersonic Hair Dryer will change your
+                  morning routine forever; it's lightweight, efficient and easy
+                  to use. Plus, it delivers powerful drying with minimal sound.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/h2[1]/a[1]
+            sku:
+              - text: "212264172"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/@data-pid
+            mpc:
+              - text: "212264172"
+                xpath: /html/head[1]/meta[20]/@content
+            name:
+              - text: Dyson Supersonic™ Hair Dryer
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            productUrl:
+              - text: https://bloomingdales.ae/dyson-dyson-supersonic%E2%84%A2-hair-dryer-BEA211706123.html
+                xpath: /html/head[1]/link[8]/@href
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            secondaryImageTotal:
+              - text: "8"
+        xpath: /
+    timestamp: 1600322383595
