@@ -1,11 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="content"]//ul[contains(@class,"thumbnails")]//li
 fields:
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,'thumbnailsContainer')]//div[contains (@class,'swiper-slide-active')][1]//img[1]/@src
+    xpath: //div[@id="content"]//ul[contains(@class,"thumbnails")]//li//img/@src
   - name: variantUrl
     singleValue: false
-    xpath: //link[@rel="canonical"]/@href
+    xpath: //div[@id="content"]//ul[contains(@class,"thumbnails")]//li//img/@src
+  - name: variant
+    singleValue: false
+    xpath: //li//button/@title

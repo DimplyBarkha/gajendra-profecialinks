@@ -12,9 +12,6 @@ fields:
   - name: category
     singleValue: false
     xpath: //div[contains(@class,'breadcrumb ')]//span[contains(@class,'crumb')]//button
-  - name: productUrl
-    singleValue: false
-    xpath: //link[contains(@rel,'canonical')]//@href
   - name: image
     singleValue: false
     xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@src
@@ -51,3 +48,24 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //div[@class='jsx-1537324451 groupContainer']//table//tr
+  - name: warranty
+    singleValue: false
+    xpath: //strong[contains(@class,'jsx-20458038')]
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class='Select-control']
+  - name: shippingInfo
+    singleValue: false
+    xpath: //li[contains(@class,"uspContainer")][2]//span[contains(@class,"tagline")]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"starRating")]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,'primaryOverviewContent')]/div[contains(@class,"jsx-3349621030")][1]/div[2]
+  - name: additionalDescBulletInfo
+    singlgeValue: false
+    xpath: //div[contains(@class,'primaryOverviewContent')]//li[@class="jsx-1889249662"]
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,"coreWrapper")]//p[contains(@class,'modelNumber')]    
