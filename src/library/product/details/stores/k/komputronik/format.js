@@ -65,6 +65,9 @@ const transform = (data) => {
         });
         row.specifications = [{ 'text': info.join(' || '), 'xpath': row.specifications[0].xpath }];
       }
+      if (row.descriptionBullets) {
+        row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
+      }      
     }
   }
   return cleanUp(data);
