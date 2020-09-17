@@ -22,7 +22,7 @@ module.exports = {
       }
       return false;
     });
-    
+
     try {
       if (waitForVideo) {
         await callWait();
@@ -30,7 +30,22 @@ module.exports = {
     } catch (err) {
       console.log(err.message)
     }
- 
+
+
+    try {
+      await context.evaluate(async function () {
+        const ulInDesc = "div[data-test='description']>ul";
+        const descBullets = document.querySelector(ulInDesc);
+        const body = document.querySelector('body');
+        if (descBullets) {
+          body.appendChild(descBullets);
+        }
+      })
+    } catch (err) {
+      console.log(err.message)
+    }
+
+
     return await context.extract(productDetails, { transform: transformParam });
   },
 };

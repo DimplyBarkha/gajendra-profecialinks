@@ -26,7 +26,7 @@ fields:
   - name: description
     xpath: //div[@data-test='description']
   - name: descriptionBulletCount
-    xpath: count(//div[@data-test='description']//ul/li)
+    xpath: count(//body/ul/li)
     defaultValue: 0
   - name: brandText
     xpath: //div[@data-test = 'brand']/a
@@ -86,8 +86,12 @@ fields:
     xpath: //div[@class='multibundle__option']/a[contains(@class, 'selected')]
     regExp: (.+)x(.+)
     regExpReplace: $1
-  # - name: productOtherInformation
-  #   xpath: //ul[@class='pros-cons-list']/li
+  - name: productOtherInformation
+    xpath: //div[@class='specs' and contains(., 'Overige kenmerken')]/dl
+  - name: productOtherInformationDD
+    xpath: //div[@class='specs' and contains(., 'Overige kenmerken')]/dl/dd
+  - name: productOtherInformationDT
+    xpath: //div[@class='specs' and contains(., 'Overige kenmerken')]/dl/dt
   - name: promotion
     xpath: //div[@data-test='discount']
   - name: variantInfo
@@ -101,7 +105,7 @@ fields:
     regExp: \/(\d+)\/
     regExpReplace: $1
   - name: additionalDescriptionBulletInfo
-    xpath: //div[@data-test='description']//ul/li
+    xpath: //body/ul/li
   - name: technicalInformationPdfPresent
     xpath: //a[@class='product-warning__link']
     defaultValue: NO

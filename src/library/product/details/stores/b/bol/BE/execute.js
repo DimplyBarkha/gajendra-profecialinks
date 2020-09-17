@@ -5,18 +5,23 @@ async function implementation(
   context,
   dependencies,
 ) {
-  console.log(JSON.stringify(inputs))
   await context.goto(inputs.url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
-  await context.evaluate(async function () {
+  const countryClicked = await context.evaluate(async function () {
     let concentPopUp = document.querySelector("button[data-test='consent-modal-confirm-btn']");
     if (concentPopUp) {
       document.querySelector("button[data-test='consent-modal-confirm-btn']").click()
     }
     let country = document.querySelector('a[data-test="country-BE"]');
     if (country) {
+      return true;
       country.click();
     }
+    return false;
   });
+
+  if (countryClicked) {
+    await context.waitForNavigation();
+  }
 }
 
 module.exports = {
