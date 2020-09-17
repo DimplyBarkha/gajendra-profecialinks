@@ -18,9 +18,6 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
-      if (!row.brandText) {
-        row.brandText = [{ text: row.name[0].text.replace(/^([\w-]+).*/gm, '$1') }];
-      }
       if (row.description) {
         row.description.forEach(item => {
           item.text = cleanUp(item.text);
@@ -28,6 +25,11 @@ const transform = (data) => {
       }
       if (row.name && row.brandText) {
         row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
+      } else {
+        row.nameExtended = [{ text: row.name[0].text }];
+      }
+      if (!row.brandText) {
+        row.brandText = [{ text: row.name[0].text.replace(/^([\w-]+).*/gm, '$1') }];
       }
       if (row.additionalDescBulletInfo) {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/(\n\s*){1,}/g, ' || ');

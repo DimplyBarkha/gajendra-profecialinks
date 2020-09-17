@@ -64,6 +64,7 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
+    xpath: //*[contains(@class, "MPInfoSellerTitle")]
   - name: name
     singleValue: false
     description: The product name
@@ -82,7 +83,6 @@ fields:
     xpath: //div[@class="characteristicsStrate__item  characteristicsStrate__item--long "]//dt[contains(text(), "Mention Légale")]//following-sibling::*
   - name: sku
     singleValue: false
-    xpath: //div[contains(@class, "f-productPage") and @data-prid]/@data-prid
   - name: gtin
     singleValue: false
     xpath: //div[contains(@class, "f-productPage") and @data-ean13]/@data-ean13
