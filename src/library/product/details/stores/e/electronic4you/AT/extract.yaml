@@ -116,14 +116,12 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //span[@class="ts-stars-reviewCount"]
-    regExp: \((.+)\)
-    regExpReplace: $1
+    xpath: //div[@id="totalRatings"]
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //span[@class="ts-reviewSummary-ratingValue"]
+    xpath: //div[@id="aggRating"]
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
