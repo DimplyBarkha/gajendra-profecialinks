@@ -20,25 +20,18 @@ async function implementation(
     await context.extract(productDetails, { transform });
     if (src) {
         try {
+            await context.setBypassCSP(true);
             await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
-        } catch (error) {
-            await context.evaluate(async function (src) {
-                window.location.assign(src);
-            }, src);
-        }
-        try {
-            if (parameters.loadedSelector) {
-                await context.waitForFunction(function () {
-                  return Boolean(document.querySelector('div#ds_div'));
-                }, { timeout: 10000 });
-              }
+            await context.waitForSelector('div#ds_div');
             return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
         } catch (error) {
             try {
+                await context.setBypassCSP(true);
+                await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
                 await context.waitForSelector('div#ds_div');
                 return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
-            } catch (err) {
-                console.log(err);
+            } catch (error) {
+                console.log('could not load page',error);
             }
         }
     }
