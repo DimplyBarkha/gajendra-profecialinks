@@ -22,28 +22,6 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      const skuNumber = document.querySelector('div.sku span.value')
-        ? document.querySelector('div.sku span.value').innerText : '';
-      const skuArr = [];
-      for (let i = 0; i < skuNumber.length; i++) {
-        skuArr.push(`3${skuNumber[i]}`);
-      }
-      const skus = skuArr.join('');
-      const url = `https://cdn1.api.trustedshops.com/shops/XA120797BFE89AF1F07E0D5C36504BC5A/products/skus/${skus}/productstickersummaries/v1/quality/reviews.json`;
-      const refURL = window.location.href;
-      const response = await fetch(url, {
-        referrer: refURL,
-        referrerPolicy: 'no-referrer-when-downgrade',
-        body: null,
-        method: 'GET',
-        mode: 'cors',
-        credentials: 'omit',
-      });
-      const data = await response.json();
-      const totalRatings = data.response.data.product.qualityIndicators.reviewIndicator.totalReviewCount;
-      if (totalRatings) addElementToDocument('totalRatings', totalRatings);
-      const aggRating = data.response.data.product.qualityIndicators.reviewIndicator.overallMark;
-      if (aggRating) addElementToDocument('aggRating', aggRating.toString().replace('.', ','));
       const descBullets = document.querySelector('div.short-description ul')
         // @ts-ignore
         ? document.querySelector('div.short-description ul').innerText : '';
