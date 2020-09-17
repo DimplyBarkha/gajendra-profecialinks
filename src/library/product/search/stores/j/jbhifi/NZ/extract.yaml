@@ -7,7 +7,7 @@ fields:
     xpath: //a[1]/@href
     singleValue: false
   - name: thumbnail
-    xpath: //div[contains(@class,'image')]//img/@src
+    xpath: //div[contains(@class,'image')]//img/@lazy-img | //div[contains(@class,'image')]//img/@src
     singleValue: false
   - name: name
     xpath: //@title
