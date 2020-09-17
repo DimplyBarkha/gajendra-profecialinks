@@ -6,37 +6,26 @@ recordXPath:
 fields:
   - name: name
     singleValue: false
-    xpath: //div[contains(@class, 'productname')]
+    xpath: //div[contains(@class, 'product-tile__description')]
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, 'productprice')]
+    xpath: //div[contains(@class, 'product-tile__prices')]//span[(@class= 'value')]//@content
   - name: productUrl
-    singleValue: false
-    xpath: //div[contains(@class, 'productitem showoverlay')]//@data-producturl
-    #xpath: //div[contains(@class, 'producttext producttext-truncated')]//a[1]//@href
-    #regExp: (.+)
-    #regExpReplace: https://www.magasin.dk$1
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: https://www.magasin.dk$1
+    xpath: //div[contains(@class, 'product-tile__image')]//a[@class='product-tile-link']//@href
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class, 'image small')]//img//@src
-    #regExp: (?:\(['|"]?)(.*?\.(png|jpg|gif|jpeg|tiff){1})(?:['|"]?\))
-    #regExpReplace: https://www.appliancesonline.com.au$1
+    xpath: //div[contains(@class, 'product-tile__image')]//a[@class='product-tile-link']//figure//img//@data-src
   - name: aggregateRating
-    singleValue: false
-    #xpath: //div//a[contains(@class, 'rating-text ng-star')]
-    regExp: ^.{0,3}
-  - name: ratingCount
-    singleValue: false
-    #xpath: //div//a[contains(@class, 'rating-text ng-star')]
-    #regExp: ^.{0,3}
-  - name: reviewCount
-    singleValue: false
-    #xpath: //div//a[contains(@class, 'rating-text ng-star')]/span
-    #regExp: ([0-9]+)
-  - name: searchUrl
     singleValue: true
+  - name: ratingCount
+    singleValue: false  
+  - name: reviewCount
+    singleValue: true    
   - name: rank
-    singleValue: false
+    singleValue: true
     description: search/listing rank
     type: NUMBER    
   - name: rankOrganic
@@ -48,13 +37,10 @@ fields:
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
-    singleValue: false
-    description: Unique id (within this extractor)
-    xpath: //div[@class='ga-hittile-data ga-impression-reserved ga-impression-registered']//div[@class='ga-hittile-data-productid']
-    #regExp: ([0-9]+)
-    #regExp: \/(\d+)\??[^\/]*$
-    #regExpReplace: $1 
+    singleValue: true
+    description: Unique id (within this extractor)   
+    xpath: //product-id//@id
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[@class='owl-item active']//div[@class='image-fixed-aspect']//a[@class='pdp-item-link']//img[contains(@role,'presentation')]/@src
+    xpath: //div[contains(@class, 'product-tile__name')]
