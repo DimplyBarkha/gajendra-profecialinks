@@ -69,6 +69,13 @@ const transform = (data) => {
           item.text = 'https://www.visions.ca' + item.text;
         }
       }
+      if (row.availabilityText) {
+        for (const item of row.availabilityText) {
+          if (item.text.toLowerCase().includes('add to cart')) {
+            item.text = 'In Stock';
+          }
+        }
+      }
       if (row.shippingDimensions) {
         const text = [];
         for (const item of row.shippingDimensions) {
