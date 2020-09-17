@@ -79,6 +79,11 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo=[{text:additionalDescBulletInfoStr,xpath:oldXpath}];
       }
+      if(row.mpc){
+        row.mpc.forEach(item => {
+          item.text=item.text.replace('Model Number: ','');
+        });
+      }
     }
   }
   return data;

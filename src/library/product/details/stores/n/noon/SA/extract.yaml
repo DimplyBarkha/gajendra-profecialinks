@@ -63,3 +63,6 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,'swiper-slide') and position()>1]//div[contains(@class,"mediaContainer")]/div/img/@src
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,"coreWrapper")]//p[contains(@class,'modelNumber')]
