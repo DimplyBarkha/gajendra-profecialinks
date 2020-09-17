@@ -5,7 +5,7 @@ recordXPath: //ul[@id="catalog_listings"]/li
 fields:
   - name: id
     SingleValue: false
-    xpath: //li/@data-sku  
+    xpath: //li/@data-sku
   - name: productUrl
     SingleValue: false
     xpath: //li/a/@href
@@ -18,7 +18,7 @@ fields:
   - name: brandText
     SingleValue: false
     xpath: //div[@class="details_container"]/p[@class="brand"]
-  - name: description
+  - name: name
     SingleValue: false
     xpath: //div[@class="details_container"]/p[@class="description"]
   - name: rankOrganic
