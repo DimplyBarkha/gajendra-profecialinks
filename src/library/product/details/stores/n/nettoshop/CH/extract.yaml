@@ -6,11 +6,11 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: //div[@id='ember52']//img[contains(@class,'c-media-container__fallback-img lazyloaded')]/@src
+    xpath: //div[@class="swiper-slide ember-view swiper-slide-active"]//img[@class="c-media-container__fallback-img lazyloaded"]/@src
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
-    xpath: //div[@id='ember52']//img[contains(@class,'c-media-container__fallback-img lazyloaded')]/@alt
+    xpath: //div[@class="swiper-slide ember-view swiper-slide-active"]//img[@class="c-media-container__fallback-img lazyloaded"]/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -79,12 +79,6 @@ fields:
     xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]
     regExp: ratingValue":"([^"]+)
     regExpReplace: $1
-  - name: manufacturerDescription
-    singleValue: false
-    description: The extended description of the product supplied by the lister
-  - name: videos
-    singleValue: false
-    description: URLs of videos on page
   - name: name
     singleValue: false
     description: The product name
@@ -102,42 +96,18 @@ fields:
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
-  - name: packSize
-    singleValue: false
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
-  - name: legalDisclaimer
-    singleValue: false
-    description: Content under "legal disclaimer" header
-  - name: directions
-    singleValue: false
-    description: Content under "directions" header
-  - name: warnings
-    singleValue: false
-    description: Content under "warnings" header
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
     xpath: concat(//div[contains(@class,'c-product-info-label__state')], //div[contains(@class,'c-delivery-state__state')])
   - name: shippingDimensions
     singleValue: false
-    description: Stated shipping dimensions
-    xpath: concat(//dt[contains(text(),"Höhe (Produkt)")]//following-sibling::dd//div[text()], ' X ', //dt[contains(text(),"Breite (Produkt)")]//following-sibling::dd//div[text()],' X ', //dt[contains(text(),"Tiefe (Produkt)")]//following-sibling::dd//div[text()])
-  - name: shippingWeight
-    singleValue: true
-    description: Stated shipping weight
-  - name: quantity
-    singleValue: false
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    #description: Stated shipping dimensions
+    #xpath: concat(//dt[contains(text(),"Höhe (Produkt)")]//following-sibling::dd//div[text()], ' X ', //dt[contains(text(),"Breite (Produkt)")]//following-sibling::dd//div[text()],' X ', //dt[contains(text(),"Tiefe (Produkt)")]//following-sibling::dd//div[text()])
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
     xpath: //dt[contains(text(),"Gewicht")]//following-sibling::dd//div[text()]
-  - name: weightGross
-    singleValue: false
-    description: Gross weight as described on the page
   - name: warranty
     singleValue: false
     xpath: //dt[contains(text(),"Garantie")]/following-sibling::dd//div[@class="c-product-specifications__table-value"][text()]
