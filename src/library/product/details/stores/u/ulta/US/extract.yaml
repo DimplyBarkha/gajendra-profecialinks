@@ -90,6 +90,12 @@ fields:
     xpath: //meta[@property="og:url"]/@content
     regExp: .*?productId=(.*?)&.*
     regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: mpc
+    singleValue: false
+    xpath: //div[@data-mpn]/@data-mpn
   - name: aggregateRating
     singleValue: false
     manualSelector: section.ProductDetail__content div.RatingPanel__panel > label
@@ -113,6 +119,9 @@ fields:
   - name: specifications
     singleValue: false 
     manualSelector: div.wc-specifications-responsive >  table > tbody > tr 
+  - name: quantity
+    singleValue: false 
+    xpath: //p[contains(.,'Size')]/text()
     
   
     
