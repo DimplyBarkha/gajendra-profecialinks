@@ -21,6 +21,8 @@ const transform = (data) => {
               tmp_variations["variant"].push({ "text": variation['color'], "xpath": item["xpath"] });
               variations.push(tmp_variations);
             });
+          } else {
+            delete row.variantId;
           }
         });
       }
