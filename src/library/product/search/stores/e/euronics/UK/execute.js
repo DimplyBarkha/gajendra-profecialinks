@@ -20,7 +20,7 @@ async function implementation (
     });
   }
 
-  const url = 'https://www.euronics.co.uk/search/?text=' + inputs.keywords || inputs.Keywords;
+  const url = 'https://www.euronics.co.uk/search/?text=' + (inputs.keywords || inputs.Keywords).replace(/ /g, '+');
   await dependencies.goto({ url }, { timeout: 50000 });
   await stall(5000);
   return context.evaluate(function () {
