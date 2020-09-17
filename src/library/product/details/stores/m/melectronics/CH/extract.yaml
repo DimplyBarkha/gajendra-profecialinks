@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='detail-showcase--discount-content']
   - name: availabilityText
     singleValue: false
     xpath: //div[@class='buybox--annotation']//span[contains(text(),'Sofort lieferbar')]
@@ -66,6 +69,9 @@ fields:
   - name: storage
     singleValue: false
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[contains(text(),'Speicherkapazität')]/parent::*/div[@class='detail-navigation-section--specification-item-tx']
+  - name: warranty
+    singleValue: false
+    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[contains(text(),'Garantie')]/parent::*/div[@class='detail-navigation-section--specification-item-tx']
   - name: countryOfOrigin
     singleValue: false
     xpath: //div[@id="test-header-link-Language"]/div[1]

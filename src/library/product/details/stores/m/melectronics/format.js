@@ -60,7 +60,13 @@ const transform = (data) => {
               row.listPrice.forEach(item => {
                   item.text  = item.text.replace(/(\s*statt\s*)/g, '').trim();
               });
-            }            
+            }
+            if (row.price) {
+              row.price.forEach(item => {
+                  item.text  = item.text.replace(/\.–/g, '').trim();
+                  item.text  = item.text.replace(/–/g, '').trim();
+              });
+            }
         }
     }
       return data;
