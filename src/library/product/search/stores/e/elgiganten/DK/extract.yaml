@@ -27,7 +27,9 @@ fields:
   singleValue: false
   xpath: //div[contains(@class,'product-number')]
 - name: thumbnail
-  singleValue: false
-  xpath: //a[contains(@class,'product-image-link')]//img[contains(@class,'product-image')]/@src
+  # singleValue: false
+  singleValue: true
+  # xpath: //a[contains(@class,'product-image-link')]//img[contains(@class,'product-image')]/@src
+  xpath: //a[contains(@class,'product-image-link')]//img/@src
   regExp: (.+)
   regExpReplace: https://www.elgiganten.dk$1
