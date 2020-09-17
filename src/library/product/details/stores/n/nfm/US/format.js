@@ -35,10 +35,6 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.descriptionBullets) {
-        const info = row.additionalDescBulletInfo[0].text;
-        row.descriptionBullets[0].text = info.split('||').length;
-      }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
@@ -53,7 +49,9 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text += item.text.trim();
+          if (!item.text.includes('hideMenu') && item.text !== 'Video') {
+            text += item.text.replace(/\\/g, '').replace('Video', '');
+          }
         });
         row.manufacturerDescription = [
           {
@@ -61,12 +59,15 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.largeImageCount) {
-        row.largeImageCount = [
-          {
-            text: row.alternateImages.length,
-          },
-        ];
+      if (row.alternateImages) {
+        row.alternateImages.shift();
+        if (row.secondaryImageTotal) {
+          row.secondaryImageTotal = [
+            {
+              text: row.alternateImages.length,
+            },
+          ];
+        }
       }
       if (row.ratingCount) {
         let pr = row.ratingCount[0].text;

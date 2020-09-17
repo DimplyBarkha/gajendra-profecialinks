@@ -40,7 +40,7 @@ fields:
     xpath: //*[@id="DT_Features"]
   - name: description
     singleValue: false
-    xpath: //*[contains(@id, 'DT_Description')] | //ul[contains(@id, 'DT_Features')]
+    xpath: //*[contains(@id, 'DT_Description')] | //ul[contains(@id, 'DT_Features')] | //p[contains(@id, 'DT_Include')]
   - name: availabilityText
     singleValue: false
     xpath: //*[@id="DT_InStock"]
@@ -87,19 +87,22 @@ fields:
     xpath: //div[@id="collapseThree1"]//table[contains(@class, "table")]/tbody/tr[text()]
   - name: largeImageCount
     singleValue: false
+    xpath: count(//div[@id="mainImageContainer"]//div[@class="slick-track"]//img/@src)
+  - name: secondaryImageTotal
+    singleValue: false
     xpath: //div[@id="mainImageContainer"]//div[@class="slick-track"]//img/@src
   - name: descriptionBullets
     singleValue: false
-    manualSelector: ul#DT_Features
+    xpath: count(//ul[contains(@id, 'DT_Features')]/li | //p[contains(@id, 'DT_Include')]/li | //p[contains(@id, 'DT_Description')]/li)
   - name: color
     singleValue: false
-    xpath: //*[@id="ClubSwatch1"]//img[@id="Product_Image_Swatch_1"]/@alt
+    xpath: //*[@id="ClubSwatch1"]//img[@id="Product_Image_Swatch_1"]/@alt | //td[contains(text(), 'Color')]/following-sibling::*
   - name: warranty
     singleValue: false
-    xpath: //h3[contains(text(), 'warranty')]
+    xpath: //h3[contains(text(), 'warranty')] | //td/b[contains(text(), 'Warranty')]/parent::*/following-sibling::*
   - name: videos
     singleValue: false
-    xpath: //div[@id='videosExtracted']
+    xpath: //div[@id='videosExtracted'] | //video[contains(@id, 'vjs_video_1_html5_api')]/@src
   - name: variantCount
     singleValue: false
     xpath: count(//img[contains(@class, 'clubSwatch popup')]/@src)
@@ -120,10 +123,17 @@ fields:
     xpath: //img[contains(@class, 'clubSwatch popup')]/@alt
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div.wc-aplus-body
+    xpath: //div[contains(@id,"wc-aplus")]/descendant::*[not(contains(@style,"none")) and not(name()='style')]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class, 'wc-aplus-body')]//img/@src
   - name: imageAlt
     singleValue: fals
     xpath: //img[@id="Product_Main_Image_0"]/@alt
+  - name: Image360Present
+    singleValue: false
+    description: If 360 image is present in the carousel ['Yes','No']
+    xpath: //button[contains(@data-wc-open-content-caption, '360 View')]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
