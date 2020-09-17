@@ -55,9 +55,7 @@ fields:
   - name: shippingDimensionsSplit
     xpath: concat(//dt[contains(., 'Verpakking lengte')]/following-sibling::dd[1], 'x', //dt[contains(., 'Verpakking breedte')]/following-sibling::dd[1], 'x', //dt[contains(., 'Verpakking hoogte')]/following-sibling::dd[1])
   - name: shippingWeight
-    xpath: //p[contains(., 'Gewicht verpakking')] | //dt[contains(., 'Gewicht verpakking')]//following-sibling::dd[1]
-    regExp: (.+):(.+)
-    regExpReplace: $2
+    xpath: //dt[contains(., 'Gewicht verpakking')]//following-sibling::dd[1]
   - name: variantCount
     xpath: count(//div[@class='feature-options']/a/@href | //div[contains(@class, 'feature-list__options')]/a/@href)
   - name: color
