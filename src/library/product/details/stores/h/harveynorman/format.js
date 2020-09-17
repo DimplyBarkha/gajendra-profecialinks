@@ -14,6 +14,11 @@ const transform = (data) => {
           text: row.name[0].text.replace(/^([^\s]+).*/, '$1'),
         }];
       }
+      if (row.mpc && row.mpc[0].text.includes('mpn')) {
+        row.mpc = [{
+          text: row.mpc[0].text.replace(/.*mpn":\s*"(.*?)".*/, '$1'),
+        }];
+      }
       if (row.alternateImages) {
         row.alternateImages.forEach(image => {
           if (!image.text.startsWith('http')) {
