@@ -1,31 +1,28 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  # - name: image
-  #   singleValue: false
-  #   description: URL of the main product image
-  #   xpath: //div[contains(@class , 'viewerImg')]/img/@src
-  # - name: imageAlt
-  #   singleValue: false
-  #   description: Alt text of the main product image
-  #   xpath: //div[contains(@class , 'viewerImg')]/img/@alt
-  # - name: alternateImages
-  #   singleValue: false
-  #   xpath: //div[contains(@class , "sliderTray___-vHFQ")]/li[@class="img-viewer"]//img/@src
-  # - name: metaKeywords
-  #   singleValue: false
-  #   description: The <meta> keywords content
-  # - name: category
-  #   singleValue: false
-  #   description: The categories (e.g. from breadcrumbs)
-  #   xpath: //ul[@class="m-breadcrumb-list"]/li[position() > 1]
-  # - name: nameExtended
-  #   singleValue: false
-  #   description: The product name, prefixing "${brand} - " if not included in "name"
-  #     and appending " - ${variantType}" if necessary (fixed per feed)
-  #   xpath: //h1[@class="a-product__information--title"]
+  - name: image
+    singleValue: false
+    description: URL of the main product image
+    xpath: //div[contains(@class , 'viewerImg')]/img/@src
+  - name: imageAlt
+    singleValue: false
+    description: Alt text of the main product image
+    xpath: //div[contains(@class , 'viewerImg')]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class , "sliderTray___-vHFQ")]/li[@class="img-viewer"]//img/@src
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //ul[@class="m-breadcrumb-list"]/li[position() > 1]
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@class="a-product__information--title"]
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -37,38 +34,41 @@ fields:
       clicks add to basket this is the price they would be charged
     xpath: //div[@id="li_price"][last()]
   #   xpath: concat(//p[contains(@class,"a-product__paragraphDiscountPrice")]/text(),'.',//p[contains(@class,"a-product__paragraphDiscountPrice")]/*[not(@sup)])
-  # - name: availabilityText
-  #   singleValue: false
-  #   description: Availability as described on page for the selected variant. If
-  #     there is no availability but the product can be added to cart, this field
-  #     should be "In Stock"
-  #   xpath: //script[@class="next-head"]
-  #   regExp: availability":"(.*)"}}
-  # - name: description
-  #   singleValue: false
-  #   description: Product description supplied by website - may be concatenanted from
-  #     multiple places; specifically not the manufacturer description
+  - name: availabilityText
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //div[@id="li_availibility"]
+    # xpath: //script[@class="next-head"]
+    # regExp: availability":"(.*)"}}
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@id="li_description"]
   #   xpath: //div[contains(@class , "a-product__paragraphProductDescriptionContentWeb")]
-  # - name: descriptionBullets
-  #   singleValue: false
-  #   description: Number of ul > li tags in the description
-  #   xpath: count(//ol[@id="detalle_producto_bullets"]/li)
-  # - name: brandText
-  #   singleValue: false
-  #   description: Product brand shown - this may actually NOT be just a brand name,
-  #     e.g. "Visit the Gillette Store"
-  #   xpath: //div[@class="tabs-content"]//td/span[contains(text(), "Marca")]/../following-sibling::td
+  - name: descriptionBullets
+    singleValue: false
+    description: Number of ul > li tags in the description
+    xpath: count(//ol[@id="detalle_producto_bullets"]/li)
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //div[@id="li_brand"]
+    # xpath: //td/span[contains(text(), "Marca")]/../following-sibling::td
   # - name: manufacturer
   #   singleValue: false
   #   description: Product manufacturer
-  # - name: quantity
-  #   singleValue: false
-  #   description: Quantity as described on the page
-  #   xpath: //div[@class="tabs-content"]//td/span[contains(text(), "Número de Piezas")]/../following-sibling::td
+  - name: quantity
+    singleValue: false
+    description: Quantity as described on the page
+    xpath: //td/span[contains(text(), "Contenido")]/../following-sibling::td
   # - name: weightNet
   #   singleValue: false
   #   description: Net weight as described on the page
-  #   xpath: //div[@class="tabs-content"]//td/span[contains(text(), "Peso")]/../following-sibling::td
+  #   xpath: //td/span[contains(text(), "Peso")]/../following-sibling::td
   # - name: weightGross
   #   singleValue: false
   #   description: Gross weight as described on the page
@@ -80,37 +80,43 @@ fields:
     description: The store-specific product identifier
     xpath: //div[@id="li_sku"][last()]
     # xpath: //p[@class="m-product__information--code"]/span
-  # - name: variantId
-  #   singleValue: false
-  #   description: Identifier for a variant from a store where variants share the same sku
+  - name: variantId
+    singleValue: false
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //*[@class="m-product__information--code"]/span | //div[@id="li_sku"][last()]
   # - name: mpc
   #   singleValue: false
   #   description: The manufacturer model code (unique) of the product
-  # - name: packSize
-  #   singleValue: false
-  #   description: The number of packs in the product offer (if stated separately on
-  #     the site to quantity)
+  - name: packSize
+    singleValue: false
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+    xpath: //td/span[contains(text(), "Número de Piezas")]/../following-sibling::td
   # - name: legalDisclaimer
   #   singleValue: false
   #   description: Content under "legal disclaimer" header
-  # - name: directions
-  #   singleValue: false
-  #   description: Content under "directions" header
-  #   xpath: //div[@class="tabs-content"]//td/span[contains(text(), "Precauciones")]/../following-sibling::td
-  # - name: warnings
-  #   singleValue: false
-  #   description: Content under "warnings" header
-  # - name: ratingCount
-  #   singleValue: false
-  #   description: The number of ratings
+  - name: directions
+    singleValue: false
+    description: Content under "directions" header
+    xpath: //td/span[contains(text(), "Modo de Empleo")]/../following-sibling::td
+  - name: warnings
+    singleValue: false
+    description: Content under "warnings" header
+    xpath: //td/span[contains(text(), "Precauciones")]/../following-sibling::td
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //div[@id="li_ratingCount"]
   #   xpath: //a[contains(@class , "TTreadReviews")]
-  # - name: reviewCount
-  #   singleValue: false
-  #   description: The number of ratings
+  - name: reviewCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //div[@id="li_ratingCount"]
   #   xpath: //a[contains(@class , "TTreadReviews")]
-  # - name: aggregateRatingText
-  #   singleValue: false
-  #   description: The stated aggregate rating
+  - name: aggregateRatingText
+    singleValue: false
+    description: The stated aggregate rating
+    xpath: //div[@id="li_ratingValue"]
   # - name: aggregateRating2
   #   singleValue: false
   #   description: The stated aggregate rating normalized to be out of 5
@@ -127,10 +133,11 @@ fields:
   # - name: shippingWeight
   #   singleValue: false
   #   description: Stated shipping weight
-  # - name: variantCount
-  #   singleValue: false
-  #   description: Number of variants listed
-  #   type: NUMBER
+  - name: variantCount
+    singleValue: false
+    description: Number of variants listed
+    xpath: //div[@id="li_variantCount"]
+    defaultValue: '0'
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -411,14 +418,14 @@ fields:
   # - name: warranty
   #   singleValue: false
   #   description: Guarantee associated with the product
-  #   xpath: //div[@class="tabs-content"]//td/span[contains(text(), "Garantía")]/../following-sibling::td
+  #   xpath: //td/span[contains(text(), "Garantía")]/../following-sibling::td
   # - name: storage
   #   singleValue: false
   #   description: Suggested storage location for product
-  # - name: countryOfOrigin
-  #   singleValue: false
-  #   description: The country from which the product originates
-  #   xpath: //div[@class="tabs-content"]//td/span[contains(text(), "Hecho en")]/../following-sibling::td
+  - name: countryOfOrigin
+    singleValue: false
+    description: The country from which the product originates
+    xpath: //td/span[contains(text(), "Hecho en")]/../following-sibling::td
   # - name: allergyAdvice
   #   singleValue: false
   #   description: Allergy information associated with the product
@@ -462,24 +469,25 @@ fields:
   # - name: variantInformation
   #   singleValue: false
   #   description: colour / scent / flavour / other
-  # - name: firstVariant
-  #   singleValue: false
-  #   description: Unique identifier for a collection of variants. For a subset of
-  #     core feeds (43) we have a column "first_variant" that is populated with a
-  #     common code to link all variants for a product. method 1 (Preferred) = use
-  #     common tag (Could be parent sku) that is same value for all variants of a
-  #     product. method 2 = first_variant method technique, Identify the first
-  #     varient in the sequence and use this rpc to populate "first_variant" for
-  #     all variants of a product, this rpc becomes the common link between other
-  #     variants. method 3 = apply some logic to determine link between variants,
-  #     this will need analysis
+  - name: firstVariant
+    singleValue: false
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+    xpath: //*[@class="m-product__information--code"]/span
   # - name: variants
   #   singleValue: false
   #   description: null
-  # - name: additionalDescBulletInfo
-  #   singleValue: false
-  #   description: null
-  #   xpath: //ol[@id="detalle_producto_bullets"]/li
+  - name: additionalDescBulletInfo
+    singleValue: false
+    description: null
+    xpath: //ol[@id="detalle_producto_bullets"]/li
   # - name: prop65Warning
   #   singleValue: false
   #   description: null

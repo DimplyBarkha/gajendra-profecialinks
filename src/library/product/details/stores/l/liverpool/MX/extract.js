@@ -24,9 +24,7 @@ async function implementation (
   let sku = async function(){
     return await context.evaluate(async (inputs) => {
       let skuAttributeMap;
-      console.log('inputs: ', inputs);
       if (inputs) {
-        console.log('id: ', inputs);
         if(inputs.url){
         let productId = inputs.url.split('/');
         let length = productId.length;
@@ -34,8 +32,6 @@ async function implementation (
           productId = productId[length -1];
         }
         if(productId){
-          console.log('getDataFromAPI');
-          console.log('waiting for api request....');
           let data = {};
           const url = `https://www.liverpool.com.mx/tienda/browse/getVariantDetails?productId=${productId}`;
           var refURL = window.location.href;
@@ -46,8 +42,6 @@ async function implementation (
             method: 'GET',
             mode: 'cors',
           });
-          console.log(response)
-  
           if (response && response.status === 404) {
             console.log('Product Not Found!!!!');
           }
@@ -65,12 +59,11 @@ async function implementation (
         }
         }
       }
-      console.log("skuAttributeMapjjjjjjjjjj", skuAttributeMap)
       return skuAttributeMap;
       }, inputs);
   }
-  async function preparePage (index, sku, color, price, listPrice, size) {
-    await context.evaluate(async (index, sku, color, price, listPrice, size) => {
+  async function preparePage (index, sku,variantCount, color, price, listPrice, size) {
+    await context.evaluate(async (index, sku,variantCount, color, price, listPrice, size) => {
       console.log('index of variant', index, sku, color, price, listPrice, size);
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -79,16 +72,78 @@ async function implementation (
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      if(variantCount === 0){
+        addHiddenDiv('li_variantCount',0);
+      }else{
+        addHiddenDiv('li_variantCount',variantCount);
+      }
+      let array1 = document.querySelectorAll('div[class="o-product__description"] ul li a');
+      for (let index = 0; index < array1.length; index++) {
+        const element = array1[index];
+        const elementSku = element ? element.getAttribute('data-skuid') : '';
+        if(sku === elementSku){
+          console.log('CLICKING1 sku: ', sku);
+         // @ts-ignore
+         element.click();
+         await extractDataFromJSON();
+        } 
+        
+      }
+      async function extractDataFromJSON (){
+        const JsonStr = findJsonObj();
+        console.log('JsonStr: ', JsonStr);
+        let aggregateRating = JsonStr ? JsonStr.aggregateRating : '';
+        let ratingValue =  aggregateRating ? aggregateRating.ratingValue : '';
+        ratingValue = ratingValue ? Number(ratingValue).toFixed(1) : '';
+        addHiddenDiv('li_ratingValue', ratingValue);
+        let ratingCount = aggregateRating ? aggregateRating.reviewCount : ''; 
+        addHiddenDiv('li_ratingCount', ratingCount);
+        let brand = JsonStr ? JsonStr.brand : '';
+        brand = brand ? brand.name : '';
+        addHiddenDiv('li_brand', brand);
+        let description = JsonStr ? JsonStr.description : '';
+        addHiddenDiv('li_description', description);
+        let availibility = JsonStr ? JsonStr.offers : '';
+        availibility = availibility ? availibility.availability : 'In Stock';
+        if(availibility.includes('InStock')){
+          availibility = 'In Stock';
+        }else{
+          availibility = 'Out Of Stock';
+        }
+        addHiddenDiv('li_availibility', availibility);
+      }
+      let array2 = document.querySelectorAll('div[class="o-product__description"] ul li button');
+      for (let index = 0; index < array2.length; index++) {
+        const element = array2[index];
+        const elementSku = element ? element.getAttribute('data-skuid') : '';
+        if(sku === elementSku){
+          console.log('CLICKING2 sku: ', sku);
+         // @ts-ignore
+         element.click();
+         await extractDataFromJSON();
+        } 
+      }
+      
+      function findJsonObj (scriptSelector) {
+        try {
+          const xpath = `//script[contains(.,'"brand":')]`;
+          const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          let jsonStr = element.textContent;
+          jsonStr = jsonStr.trim();
+          return JSON.parse(jsonStr);
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
         addHiddenDiv('li_color', color);
         addHiddenDiv('li_price', price);
         addHiddenDiv('li_listPrice', listPrice);
         addHiddenDiv('li_size', size);
         addHiddenDiv('li_sku', sku);
-    }, index, sku, color, price, listPrice, size);
+    }, index, sku,variantCount, color, price, listPrice, size);
   }
 
    let skuAttributeMap = await sku();
-    console.log('skuAttributeMap22222222222222222222: ', skuAttributeMap);
     if(skuAttributeMap){
       const entries = Object.entries(skuAttributeMap);
       let counterIndex = 1;
@@ -100,8 +155,11 @@ async function implementation (
         }else{
           price = `${skuObj.promoPrice}`
         }
-        await preparePage(counterIndex-1, `${sku}`, `${skuObj.color}`, price, `${skuObj.listPrice}`, `${skuObj.size}`);
-        if(counterIndex <= entries.length){
+        let variantCount = entries.length;
+        await preparePage(counterIndex-1, `${sku}`,variantCount, `${skuObj.color}`, price, `${skuObj.listPrice}`, `${skuObj.size}`);
+        if((counterIndex <= entries.length)){
+          console.log(' entries.length: ',  entries.length);
+          console.log('counterIndex: ', counterIndex);
           await context.extract(productDetails, { transform }, { type: 'APPEND' });
         }
       }
