@@ -31,7 +31,7 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.elcorteingles.es$1
   - name: ingredientsList
-    xpath: //*[contains(text(),"Ingredientes y alérgenos")]/following-sibling::*[@class="info-list"]
+    xpath: //*[contains(text(),"Ingredientes y alérgenos") or contains(text(),"Ingredientes y alérgenos")]/following-sibling::*[@class="info-list"]
   - name: brandText
     xpath: //div[@id="brand"]
   - name: quantity
@@ -40,7 +40,7 @@ fields:
     xpath: //span[@itemprop="sku"]
   - name: asin
   - name: variantId
-    xpath: //div[@id="retailer_product_code"] | //div[@data-bv-show="rating_summary"]/@data-bv-product-id
+    xpath: //div[@id="retailer_product_code"]
     regExp: \d+
   - name: directions
     xpath: //span[contains(text(),"Modo de empleo:")]/parent::li
