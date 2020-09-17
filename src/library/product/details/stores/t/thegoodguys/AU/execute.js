@@ -5,7 +5,7 @@ module.exports = {
     store: 'thegoodguys',
     domain: 'thegoodguys.com.au',
     loadedSelector: '#delivery_store_stock_opt',
-    noResultsXPath: null,
+    noResultsXPath: '//*[contains(@class,"results_description")]',
     zipcode: '',
   },
 };

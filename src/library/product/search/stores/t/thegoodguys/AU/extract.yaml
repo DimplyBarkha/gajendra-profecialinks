@@ -8,15 +8,12 @@ fields:
   - name: sponsored
     defaultValue: false
   - name: id
-    xpath: //*[@id="partNumber"]/@value  
+    xpath: //*[@id="partNumber"]/@value
   - name: name
-    singleValue: false
     xpath: //*[@class="product-tile-name"]
   - name: price
-    singleValue: false
     xpath: //span[contains(@class,"price")]
   - name: gtin
-    xpath: //*[contains(@class,"product-tile-model")]
   - name: productUrl
     xpath: //div[@class="product-tile-imagewrap"]//a[@class="disp-block"]/@href
   - name: thumbnail
@@ -24,13 +21,13 @@ fields:
     regExp: (.+)(?=\?)
     regExpReplace: http:$1
   - name: ratingCount
-    singleValue: false
-    xpath: //*[@class="reviews-stars-link"]/a
+    xpath: //div[contains(@class,"reviews-stars-link")]//a
+    regExp: \d+
+  - name: reviewCount
+    xpath: //div[contains(@class,"reviews-stars-link")]//a
     regExp: \d+
   - name: manufacturer
-    xpath: //*[contains(@class,"product-tile-inner")]//script
-    regExp: (?<='brand':\s')([a-zA-z\s]+)
+    xpath: //span[@class="product-tile-quickview"]//input[contains(@id,"manufacturer")]/@value
   - name: aggregateRating2
-    singleValue: false
     xpath: //div[@class="rating"]
 

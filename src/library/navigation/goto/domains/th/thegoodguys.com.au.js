@@ -7,16 +7,16 @@ module.exports = {
         store: 'thegoodguys',
         zipcode: '',
     },
-    implementation: async({ url, zipcode, storeId }, parameters, context, dependencies) => {
-        const timeout = parameters.timeout ? parameters.timeout : 10000;
-        const searchTerm = url.split('searchTerm=');
-        if (searchTerm[1] === 'dyson') {
-            url = 'https://www.thegoodguys.com.au/SearchDisplay?categoryId=&storeId=900&catalogId=30000&langId=-1&sType=SimpleSearch&resultCatEntryType=2&showResultsPage=true&searchSource=Q&pageView=&beginIndex=0&orderBy=0&pageSize=60&searchTerm=%60dyson%60'
+    implementation: async ({ url }, { country, domain, timeout }, context, dependencies) => {
+      await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
+      const newUrl = await context.evaluate(function (url) {
+        const isSelector = document.querySelector('div.dyson.dyson-content');
+        if (isSelector) {
+          return 'https://www.thegoodguys.com.au/SearchDisplay?categoryId=&storeId=900&catalogId=30000&langId=-1&sType=SimpleSearch&resultCatEntryType=2&showResultsPage=true&searchSource=Q&pageView=&beginIndex=0&orderBy=0&pageSize=60&searchTerm=%60dyson%60';
         }
-        await context.goto(url, { timeout: timeout, waitUntil: 'networkidle0', checkBlocked: true });
-        console.log(zipcode);
-        if (zipcode) {
-            await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
-        }
+      }, url);
+      url = newUrl || url;
+      url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
+      await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
     },
-};
+  };
