@@ -77,8 +77,11 @@ const transform = (data) => {
       }
 
       if (row.description && row.additionalDescBulletInfo) {
-        row.additionalDescBulletInfo[0].text = ` || ${row.additionalDescBulletInfo[0].text}`;
         row.description = row.description.concat(row.additionalDescBulletInfo);
+      }
+
+      if(row.additionalDescBulletInfo) {
+        row.additionalDescBulletInfo[0].text = ` || ${row.additionalDescBulletInfo[0].text}`;
       }
 
       if (row.productOtherInformationDD && row.productOtherInformationDT) {
