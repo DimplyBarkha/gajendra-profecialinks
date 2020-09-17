@@ -108,7 +108,8 @@ fields:
     description: URLs of videos on page
   - name: sku
     singleValue: false
-    xpath: //div[@data-module ='productdetail']/@data-productdetail-productean
+    #xpath: //div[@data-module ='productdetail']/@data-productdetail-productean
+    xpath: //section[@id='review']/@data-revoo-sku
     description: GTIN code (includes UPC/EAN)
   - name: brand
     singleValue: false 
@@ -127,5 +128,8 @@ fields:
     singleValue: false
     xpath: //h1[@class='subtitle']
   - name: energyEfficiency
-    singleValue: true
+    singleValue: false
     xpath: normalize-space(//div//span[contains(text(),'Altre caratteristiche')]//..//..//span[contains(text(),"Classe efficienza energetica")]//following-sibling::span/text())
+  - name: variantId
+    singleValue: false
+    xpath: //section[@id='review']/@data-revoo-sku
