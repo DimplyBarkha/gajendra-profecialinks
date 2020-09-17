@@ -22,6 +22,17 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (row.aggregateRating) {
+        let text = '';
+        row.aggregateRating.forEach(item => {
+          text += item.text.replace('.', ',');
+        });
+        row.aggregateRating = [
+          {
+            text: text,
+          },
+        ];
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.map(item => {
@@ -38,12 +49,15 @@ const transform = (data) => {
         if (row.descriptionOne) {
           let text = '';
           row.descriptionOne.forEach(item => {
-            text += `${item.text} || `;
+            text += `|| ${item.text} `;
           });
-          descriptionOne = text.slice(0, -4);
+          descriptionOne = text;
         }
         let desc = '';
-        desc = row.description && row.description[0].text.replace(/•/g, '||');
+        desc = row.description && row.description[0].text;
+        if (descriptionOne) {
+          desc = `${descriptionOne} | ${desc}`;
+        }
         const text = desc.match(/\|\|/g);
         if (text) {
           row.descriptionBullets = [
@@ -51,9 +65,6 @@ const transform = (data) => {
               text: text.length,
             },
           ];
-        }
-        if (descriptionOne) {
-          desc = `${descriptionOne} | ${desc}`;
         }
         row.description = [
           {

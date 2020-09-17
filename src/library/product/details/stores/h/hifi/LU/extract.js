@@ -24,11 +24,19 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      const descriptionDiv = document.querySelector('section[class="description"] div[class="content-wrap"]');
+      if (descriptionDiv) {
+        let desc = descriptionDiv.innerHTML;
+        desc = desc.replace(/•/g, ' || ').replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim();
+        addElementToDocument('desc', desc);
+      }
       try {
         // @ts-ignore
         const dataObj = window.__data && window.__data.product && window.__data.product;
         if (dataObj) {
           dataObj.product && dataObj.product.averageRating && addElementToDocument('pd_rating', dataObj.product.averageRating);
+          dataObj.product && dataObj.product.ean && addElementToDocument('pd_ean', dataObj.product.ean);
+          dataObj.product && dataObj.product.code && addElementToDocument('pd_sku', dataObj.product.code);
           // if (dataObj.productVariants) {
           //   addElementToDocument('pd_variantCount', dataObj.productVariants[0].options.length);
           //   dataObj.productVariants[0].options.forEach(item => {
