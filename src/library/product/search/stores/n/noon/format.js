@@ -5,7 +5,11 @@
  */
 const transform = (data) => {
   for (const { group } of data) {
+    var rank = 1
     for (const row of group) {
+      row.rankOrganic = [{ 'text': rank, 'xpath': '' }];
+      row.rank = [{ 'text': rank, 'xpath': '' }];
+      rank++;
       if (row.productUrl) {
         row.productUrl.forEach(item => {
           item.text = "https://www.noon.com" + item.text;
@@ -13,9 +17,9 @@ const transform = (data) => {
       }
       if (row.id) {
         row.id.forEach(item => {
-          var idArr=item.text.split('/p?');
-          var idArr1=idArr[0].split('/');
-          item.text=idArr1[idArr1.length-1];
+          var idArr = item.text.split('/p?');
+          var idArr1 = idArr[0].split('/');
+          item.text = idArr1[idArr1.length - 1];
         });
       }
     }
