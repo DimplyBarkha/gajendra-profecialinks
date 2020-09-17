@@ -21,7 +21,7 @@ async function implementation(
           recordCount = keepScrolling(recordCount, 150);
 
           if (recordCount > 0) {
-            
+
             scrollTop += 1000;
             window.parent.scroll(0, scrollTop);
             //window.scrollTo(0,document.body.scrollHeight);
@@ -33,10 +33,22 @@ async function implementation(
             break;
           }
         }
-        
+
         function keepScrolling(recordsCollected, maxRecords) {
-          
+
           const recordSelector = 'div.col-mini-product';
+
+          // checking and removing duplicate products
+          const productNames = [];
+          document.querySelectorAll(recordSelector).forEach(el => {
+            const name = el.querySelector('.product-name').innerText;
+            if(productNames.includes(name)) {
+              el.remove();
+            } else {
+              productNames.push(el.querySelector('.product-name').innerText);
+            }
+          });
+          
           const recordsOnPage = document.querySelectorAll(recordSelector).length;
 
           console.log('rrrrr', recordsOnPage);
@@ -65,4 +77,3 @@ module.exports = {
   },
   implementation,
 };
-
