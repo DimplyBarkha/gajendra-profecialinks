@@ -15,10 +15,17 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    const imageEle = await context.evaluate(async () => {
+      const imageEle = document.querySelectorAll('div#inpage_container img');
+      return imageEle;
+    });
+    if (imageEle) {
+      await context.waitForSelector('div#inpage_container img');
+    }
     await context.evaluate(async () => {
       var src = '';
-      const videoEle = document.querySelector('a.phone-thumb-overlay-YouTube');
       const imageEle = document.querySelectorAll('div#inpage_container img');
+      const videoEle = document.querySelector('a.phone-thumb-overlay-YouTube');
       if (videoEle) {
         videoEle.click();
         src = document.querySelector('div.ish-product-photo iframe').getAttribute('src');
@@ -39,7 +46,11 @@ module.exports = {
           addHiddenDiv('manufacture-images', urls.join(','));
         }
       }
-      function addHiddenDiv (id, content) {
+      var manufacturer = window.productDetails ? (JSON.parse(window.productDetails)).Manufacturer : '';
+      if (manufacturer) {
+        addHiddenDiv('manufacture-name', manufacturer);
+      }
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
