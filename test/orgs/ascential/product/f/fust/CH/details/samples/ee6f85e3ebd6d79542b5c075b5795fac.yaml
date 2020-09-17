@@ -1,0 +1,205 @@
+input:
+  _url: http://fust.ch
+  URL: https://www.fust.ch/de/p/kuechengeraete/kaffeemaschinen-und-teemaschinen/kaffeevollautomaten/delonghi/ecam-23-460-s-silver-8154563.html
+extractions:
+  - html: https://workbench.import.io/html/run=85783912-613f-4f30-a5e3-d58fb7cd9f2e/task=a09cf97f-bbc1-4492-a1b3-ceedee3c1d3e/5e5bd6b5-cf8b-46fd-8664-044416a60783.html
+    extractionConfigId: product/details/stores/f/fust/CH/extract
+    data:
+      - group:
+          - image:
+              - text: https://fust.ch//upload/rm/370386-1-c.jpg?_=1544830350000
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: ECAM 23.460.S silver
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://fust.ch/upload/rm/370386-1-c.jpg?_=1544830350000
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/a[1]/img[1]/@src
+              - text: https://fust.ch/upload/rm/370386-2-c.jpg?_=1544830355000
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/a[2]/img[1]/@src
+            metaKeywords:
+              - text: Elektro-Haushaltgeräte,Elektro-Haushaltgeräte,
+                  Waschmaschinen,Tumbler,Geschirrspüler,Tiefkühler,Kühlschränke,Kaffeemaschinen,
+                  Staubsauger, Bügeln, Küchenmaschinen, Fernseher, Hifi, Bluray,
+                  DVD, MP3, Foto, Videokamera, Handy, Telefon, Video-Recorder,
+                  Computer, Monitor, Drucker, Küche, Badezimmer
+                xpath: /html/head[1]/meta[2]/@content
+            name:
+              - text: Delonghi ECAM 23.460.S silver
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/h1[1]
+            category:
+              - text: Küchengeräte
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]
+              - text: Kaffeemaschinen und Teemaschinen
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[3]
+              - text: Kaffeevollautomaten
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[4]
+            listPrice:
+              - text: 1099,
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[3]/div[1]/div[2]/div[2]/span[1]/text()[1]
+            availabilityText:
+              - text: Out Of Stock
+                xpath: /html/body/@availability
+            description:
+              - text: |-
+                  Grosse Leistung, geringer Platzbedarf 
+                   - Cappuccino auf Knopfdruck
+                  - Automatischer Milchaufschäumer mit integriertem und
+                   abnehmbarem Milchbehälter zum Aufbewahren der Milch im
+                   Kühlschrank
+                  - Digitales Klartextdisplay
+                  - Integriertes Flüsterkegelmahlwerk 13-stufig
+                  - Mahlgrad individuell einstellbar
+                  - Tassenbeleuchtung
+                  - "Mein Kaffee"-Funktion
+                  - Programmierbare Wasserhärte
+                  - Energiesparmodus wählbar
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Delonghi
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/h1[1]/span[1]/text()[1]
+            specifications:
+              - text: Macchiato One touch
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/text()[1]
+              - text: ja
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/text()[1]
+              - text: Kaffeeart
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[1]/text()[1]
+              - text: Kaffeepulver
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/text()[1]
+              - text: Herausnehmbare Brüheinheit
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[1]/text()[1]
+              - text: ja
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
+              - text: Farbe
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[4]/td[1]/text()[1]
+              - text: Silber
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
+              - text: Touchscreen
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[5]/td[1]/text()[1]
+              - text: nein
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[5]/td[2]/text()[1]
+              - text: Pumpendruck (bar)
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[6]/td[1]/text()[1]
+              - text: 15 bar
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[6]/td[2]/text()[1]
+              - text: Kapazität Wassertank (l)
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[7]/td[1]/text()[1]
+              - text: 1.0 l
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[7]/td[2]/text()[1]
+              - text: Kapazität Bohnenbehälter (g)
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[8]/td[1]/text()[1]
+              - text: 150 g
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[8]/td[2]/text()[1]
+              - text: Höhe
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[9]/td[1]/text()[1]
+              - text: 33.00 cm
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[9]/td[2]/text()[1]
+              - text: Breite
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/text()[1]
+              - text: 23.00 cm
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[10]/td[2]/text()[1]
+              - text: Tiefe
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/text()[1]
+              - text: 43.00 cm
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[11]/td[2]/text()[1]
+              - text: Gewicht
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[12]/td[1]/text()[1]
+              - text: 10.00 kg
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[12]/td[2]/text()[1]
+              - text: Energie-Effizienzklasse
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[13]/td[1]/text()[1]
+              - text: A
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[13]/td[2]/text()[1]
+              - text: Netzspannung (V)
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[14]/td[1]/text()[1]
+              - text: 220-240
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[14]/td[2]/text()[1]
+              - text: Anschlusswert
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[15]/td[1]/text()[1]
+              - text: 1,450.0 W
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[15]/td[2]/text()[1]
+              - text: Automatische Abschaltung
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[16]/td[1]/text()[1]
+              - text: ja
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[16]/td[2]/text()[1]
+              - text: Bewertungsart
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[17]/td[1]/text()[1]
+              - text: neues Gerät
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[17]/td[2]/text()[1]
+            weightNet:
+              - text: 10.00 kg
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[12]/td[2]/text()[1]
+            gtin:
+              - text: "8004399326835"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/meta[5]/@content
+            sku:
+              - text: "10069356"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/text()[1]
+            variantId:
+              - text: "8154563"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[3]/div[1]/form[1]/div[1]/input[1]/@value
+            ratingCount:
+              - text: "7"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/button[1]/text()[1]
+            aggregateRatingText:
+              - text: 4.3 von 5 Sternen
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/@aria-label
+            aggregateRating:
+              - text: 4,3
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/button[1]/text()[1]
+            color:
+              - text: Silber
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
+              - text: Silber
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]/text()[1]
+            manufacturerDescription:
+              - text: Kaffeevollautomat ECAM 23.460.S
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]
+              - text: Funktionen
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]
+              - text: Mahltechnik
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]
+              - text: Die integrierte Mahltechnik mahlt die Bohnen immer frisch. Der Mahlgrad
+                  kann je nach Geschmack eingestellt werden. Das konische
+                  Stahlmahlwerk ist auf 100% Genauigkeit kalibriert.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[2]
+              - text: Der frischeste Kaffee
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/div[2]/div[1]/div[1]
+              - text: Das De'Longhi Tubeless System reduziert die Menge an Kaffeepulver in der
+                  Mühle auf ein Minimum, sodass nur frisch gemahlener Kaffee zum
+                  Aufbrühen Ihres Espressos verwendet wird.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/div[2]/div[1]/div[2]
+              - text: Temperaturkontrolle
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/div[2]/div[1]/div[1]
+              - text: "Zwei unabhängige Heizsysteme für eine ideale Temperaturregelung: Ein
+                  Thermoblock für die Kaffeezubereitung und ein Heizsystem für
+                  die Milchzubereitung arbeiten beide gleichzeitig."
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/div[2]/div[1]/div[2]
+              - text: Einfache Reinigung
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/div[2]/div[1]/div[1]
+              - text: "Um höchste Hygiene zu gewährleisten, ist die Karaffe mit einer
+                  integrierten Reinigungsfunktion ausgestattet: Nach der
+                  Getränkezubereitung werden alle Teile, die mit Milch in
+                  Berührung kommen, mit Heißwasser und -Dampf gereinigt."
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/div[2]/div[1]/div[2]
+              - text: Spezifikationen
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]
+            videos:
+              - text: https://videos.demoup.com/720p/2015/0826/3340.mp4
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[3]/meta[4]/@content
+            mpc:
+              - text: "0132215182"
+                xpath: /html/head[1]/script[114]/@data-flix-mpn
+            warranty:
+              - text: 24 Monate
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+            energyEfficiency:
+              - text: A
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[5]/div[1]/text()[1]
+            nameExtended:
+              - text: Delonghi ECAM 23.460.S silver
+            price:
+              - text: 499.0 CHF
+        xpath: /
+    timestamp: 1600355021684

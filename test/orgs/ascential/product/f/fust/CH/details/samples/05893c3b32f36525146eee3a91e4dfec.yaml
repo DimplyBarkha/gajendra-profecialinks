@@ -1,0 +1,141 @@
+input:
+  _url: http://fust.ch
+  URL: https://www.fust.ch/de/p/pc-tablet-handy/notebook-macbook-laptop/notebooks/asus/r564fa-ej1727t-8479062.html
+extractions:
+  - html: https://workbench.import.io/html/run=85783912-613f-4f30-a5e3-d58fb7cd9f2e/task=9d8b3670-5ccf-4c10-865b-700909041ce4/64f82380-7ae8-4ec5-969c-cc3c085ab424.html
+    extractionConfigId: product/details/stores/f/fust/CH/extract
+    data:
+      - group:
+          - image:
+              - text: https://fust.ch//upload/rm/6990622-1-c-1.jpg
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: R564FA-EJ1727T
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://fust.ch/upload/rm/6990622-1-c-1.jpg
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/a[1]/img[1]/@src
+              - text: https://fust.ch/upload/rm/6990622-2-c-1.jpg
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/a[2]/img[1]/@src
+              - text: https://fust.ch/upload/rm/6990622-3-c-1.jpg
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/a[3]/img[1]/@src
+            metaKeywords:
+              - text: Notebook, Laptop, Macbook
+                xpath: /html/head[1]/meta[2]/@content
+            name:
+              - text: ASUS R564FA-EJ1727T
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/h1[1]
+            category:
+              - text: PC ⋅ Tablet ⋅ Handy
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]
+              - text: Notebook ⋅ Macbook ⋅ Laptop
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[3]
+              - text: Notebooks
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/@availability
+            description:
+              - text: >-
+                  ASUS R564FA-EJ1727T 
+                   Displaygrösse in Zoll: 15.6
+                  Arbeitsspeicher in GB: 8 DDR4
+
+                  Speicherkapazität HDD in GB: 1000
+
+                  Speicherkapazität SSD in GB: 256 M.2
+
+                  Anschlüsse: microSD, USB Type A 3.1, USB Type C 3.1, HDMI, USB 2.0
+
+                  Kabellose übertragung: WLAN 802.11ac/n/b/g, Bluetooth 4.2
+
+                  Grafikkarte: Intel UHD Graphics
+
+                  Prozessor: Intel Core i7 10th Generation
+
+                  Prozessor Typ: 10510U
+
+                  Prozessor Taktfrequenz: 1.8 GHz bis zu 4.9 GHz
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: ASUS
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/h1[1]/span[1]/text()[1]
+            specifications:
+              - text: Speicherkapazität HDD
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/text()[1]
+              - text: "1000"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/text()[1]
+              - text: Grafikkarte
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[1]/text()[1]
+              - text: Intel UHD Graphics
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/text()[1]
+              - text: Displaytyp
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[1]/text()[1]
+              - text: Full HD
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
+              - text: Prozessor Typ
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[4]/td[1]/text()[1]
+              - text: 10510U
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
+              - text: Prozessor Taktfrequenz
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[5]/td[1]/text()[1]
+              - text: 1.8 GHz bis zu 4.9 GHz
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[5]/td[2]/text()[1]
+              - text: Anwendungsbereich
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[6]/td[1]/text()[1]
+              - text: Notebook
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[6]/td[2]/text()[1]
+              - text: Farbe
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[7]/td[1]/text()[1]
+              - text: grau
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[7]/td[2]/text()[1]
+              - text: Betriebssystem
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[8]/td[1]/text()[1]
+              - text: Windows 10
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[8]/td[2]/text()[1]
+              - text: Displaygrösse
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[9]/td[1]/text()[1]
+              - text: 15.0 "
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[9]/td[2]/text()[1]
+              - text: Displayauflösung
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/text()[1]
+              - text: 1920 x 1080
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[10]/td[2]/text()[1]
+              - text: Kabellose Verbindung
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/text()[1]
+              - text: WLAN 802.11ac/n/b/g
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[11]/td[2]/text()[1]
+              - text: Bewertungsart
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[12]/td[1]/text()[1]
+              - text: neues Gerät
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[12]/td[2]/text()[1]
+            gtin:
+              - text: "4718017592116"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/meta[4]/@content
+            sku:
+              - text: "10664036"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/text()[1]
+            variantId:
+              - text: "8479062"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[3]/div[1]/form[1]/div[1]/input[1]/@value
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/button[1]/text()[1]
+            aggregateRatingText:
+              - text: 5.0 von 5 Sternen
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/@aria-label
+            aggregateRating:
+              - text: 5,0
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/button[1]/text()[1]
+            color:
+              - text: grau
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[7]/td[2]/text()[1]
+            warranty:
+              - text: 24 Monate
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+            nameExtended:
+              - text: ASUS R564FA-EJ1727T
+            price:
+              - text: 699.0 CHF
+        xpath: /
+    timestamp: 1600355019080

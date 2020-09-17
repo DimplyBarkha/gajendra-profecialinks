@@ -1,0 +1,238 @@
+input:
+  _url: http://fust.ch
+  URL: https://www.fust.ch/de/p/haushalt/heizen-lueften-klima/luftbefeuchter-luftreiniger/dyson/pure-humURLify-cool-8467854.html
+extractions:
+  - html: https://workbench.import.io/html/run=85783912-613f-4f30-a5e3-d58fb7cd9f2e/task=46612c08-a451-47dd-baa7-7ee61ca7efbe/8b6b8464-7f47-433a-82bf-b9e4796ac275.html
+    extractionConfigId: product/details/stores/f/fust/CH/extract
+    data:
+      - group:
+          - image:
+              - text: https://fust.ch//upload/rm/350607-1-c-1.jpg?_=1584598378000
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Pure Humidify Cool
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://fust.ch/upload/rm/350607-1-c-1.jpg?_=1584598378000
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/a[1]/img[1]/@src
+              - text: https://fust.ch/upload/rm/350607-2-c-1.jpg?_=1584598379000
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/a[2]/img[1]/@src
+              - text: https://fust.ch/upload/rm/350607-3-c-1.jpg?_=1584598379000
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/a[3]/img[1]/@src
+            metaKeywords:
+              - text: Elektro-Haushaltgeräte,Elektro-Haushaltgeräte,
+                  Waschmaschinen,Tumbler,Geschirrspüler,Tiefkühler,Kühlschränke,Kaffeemaschinen,
+                  Staubsauger, Bügeln, Küchenmaschinen, Fernseher, Hifi, Bluray,
+                  DVD, MP3, Foto, Videokamera, Handy, Telefon, Video-Recorder,
+                  Computer, Monitor, Drucker, Küche, Badezimmer
+                xpath: /html/head[1]/meta[2]/@content
+            name:
+              - text: Dyson Pure Humidify + Cool
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/h1[1]
+            category:
+              - text: Haushalt
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]
+              - text: Heizen / Lüften / Klima
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[3]
+              - text: Luftbefeuchter / Luftreiniger
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/@availability
+            description:
+              - text: >-
+                  Luftreiniger. Luftbefeuchter. Ventilator. 
+                   Der erste Luftreiniger von Dyson mit Befeuchtungs- und
+                  Ventilatorunktion!
+
+                  -Der Dyson Pure Humidify+CoolT verfügt über ein versiegeltes 360 -
+                   Filtrationssystem
+                  -Dyson Ultraviolet Cleanse Technologie setzt jeden Tropfen Wasser
+                   einem ultravioletten Licht aus. Dadurch werden 99,9 % der
+                   Bakterien im Wasser entfernt.
+                  -Ein effizientes Wassermanagementsystem und ein 5-Liter-Wassertank
+                   sorgen für kontinuierliche Befeuchtung ohne regelmässiges
+                   Nachfüllen.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/h1[1]/span[1]/text()[1]
+            specifications:
+              - text: Produkttyp Luftbefeuchter
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/text()[1]
+              - text: Bedufter
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/text()[1]
+              - text: Anzahl Leistungsstufen
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[1]/text()[1]
+              - text: 10 ST
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/text()[1]
+              - text: Geräuschpegel
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[1]/text()[1]
+              - text: 61 dB
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
+              - text: Bewertungsart
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[4]/td[1]/text()[1]
+              - text: neues Gerät
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
+            gtin:
+              - text: "5025155046302"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/meta[5]/@content
+            sku:
+              - text: "10655527"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/text()[1]
+            variantId:
+              - text: "8467854"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/input[1]/@value
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/button[1]/text()[1]
+            aggregateRatingText:
+              - text: 3.0 von 5 Sternen
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/@aria-label
+            aggregateRating:
+              - text: 3,0
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/button[1]/text()[1]
+            manufacturerDescription:
+              - text: Luftreiniger. Luftbefeuchter. Ventilator. In einem Gerät.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]
+              - text: '"Gereinigter, befeuchteter und kühlender Luftstrom. Entfernt hygienisch
+                  99,9 % der Bakterien im Wasser.1'
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[2]
+              - text: Entfernt Gase und ultrafeine Partikel2
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]
+              - text: Der Dyson Pure Humidify+Cool™ verfügt über ein versiegeltes
+                  360˚-Filtrationssystem. Es kombiniert einen Aktivkohlefilter
+                  zum Entfernen von Gasen und Gerüchen und einen versiegelten
+                  HEPA-Filter zum Entfernen von 99,95 % der ultrafeinen
+                  Partikel.2
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/div[2]
+              - text: Für die Reinigung Ihrer Umgebungsluft
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]
+              - text: Allergene und Schadstoffe können sich in Ihrem Zuhause ansammeln. Das
+                  versiegelte Filtrationssystem entfernt sie aus der Luft.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[2]
+              - text: Tötet potenziell schädliche Bakterien ab
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]
+              - text: Dyson Ultraviolet Cleanse Technologie setzt jeden Tropfen Wasser einem
+                  ultravioletten Licht aus. Dadurch werden 99,9 % der Bakterien
+                  im Wasser entfernt.1
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[2]
+              - text: Zur hygienischen Befeuchtung Ihrer Umgebungsluft1
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[2]/div[1]
+              - text: Trockene Luft kann zu Dehydrierung führen. Der Dyson Luftbefeuchter mit
+                  Luftreinigungsfunktion befeuchtet automatisch Ihre Raumluft.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[2]/div[2]
+              - text: Vermischt und verteilt die Luft
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[2]/div[1]
+              - text: Die Air Multiplier™ Technologie verteilt 320 Liter kühlende Luft pro
+                  Sekunde.3 Die Luft wird dabei vermischt und im gesamten Raum4
+                  verteilt, sodass Sie keine trockene, verbrauchte Luft
+                  einatmen.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[2]/div[2]
+              - text: Für gereinigte, befeuchtete Luft während des gesamten Jahres
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[2]/div[1]
+              - text: Verteilt Luft im gesamten Raum4 und sorgt bei Bedarf für einen kühlenden
+                  Luftstrom.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[2]/div[2]
+              - text: Vollständige Kontrolle auf Knopfdruck5
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/div[2]/div[1]
+              - text: Mit der Dyson Link App können Sie Ihren Luftbefeuchter mit
+                  Luftreinigungsfunktion überwachen und steuern.5 So können Sie
+                  die Raumluftbedingungen in Ihrer Wohnung von überall aus
+                  nachvollziehen und anpassen.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/div[2]/div[2]
+              - text: Schadstoffe befinden sich überall - Sie können diese nur nicht sehen.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[2]/div[1]
+              - text: Alltagsgegenstände in unseren Wohnungen können die Luft austrocknen und
+                  Schadstoffe wie Pollen, Kochdünste und Hausstaub freisetzen.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[2]/div[2]
+              - text: Erkennt Schadstoffe und die Luftfeuchtigkeit
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[1]
+              - text: Intelligente Sensoren erkennen automatisch Partikel und Gase in der Luft
+                  sowie Temperatur und Luftfeuchtigkeit. Das Gerät verwendet
+                  einen speziellen Algorithmus, um Ihre Luftqualität zu
+                  ermitteln und zu optimieren. Anschließend werden die Daten
+                  verarbeitet, um Berichte in Echtzeit zu erstellen.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[2]/div[2]
+              - text: Lang anhaltende, hygienische Leistung
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[2]/div[1]
+              - text: Beim Dyson Tiefreinigungszyklus werden Bakterien und Kalkablagerungen
+                  gründlich aus dem gesamten Wassersystem des Geräts entfernt.
+                  Auf Knopfdruck lässt sich der Zyklus aktivieren und Sie werden
+                  durch einen einfachen Schritt-für-Schritt-Prozess geführt.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[2]/div[2]
+              - text: Jet Axis Kontrolle
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[12]/div[1]/div[2]/div[1]
+              - text: Volle Kontrolle über Ihren Luftstrom – das ganze Jahr. Zwei Oszillatoren
+                  mit einer 90°-Drehbewegung führen die Luft durch die
+                  Öffnungen. Sie können einzeln oder zusammen arbeiten, sodass
+                  Sie verschiedene Luftstrommodi auswählen können.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[12]/div[1]/div[2]/div[2]
+              - text: Biostatischer Verdampfer
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[13]/div[1]/div[2]/div[1]
+              - text: Biostatische Silberstränge sind in das 3D-Luftnetz des Verdampfers
+                  integriert, um das Vermehren von Bakterien zu verhindern. Dies
+                  unterstützt die hygienische Befeuchtung der HEPA-gefilterten
+                  Luft.1
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[13]/div[1]/div[2]/div[2]
+              - text: Mehr als 36 Stunden lang hygienische Befeuchtung6
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[14]/div[1]/div[2]/div[1]
+              - text: Ein effizientes Wassermanagementsystem und ein 5-Liter-Wassertank sorgen
+                  für kontinuierliche Befeuchtung ohne regelmäßiges Nachfüllen.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[14]/div[1]/div[2]/div[2]
+              - text: Im Lieferumfang enthalten
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/div[1]/div[1]
+              - text: Dyson Pure Humidify + Cool Luftreiniger, Luftbefeuchter und Ventilator
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/div[1]/div[2]/div[1]/div[2]/div[1]
+              - text: Fernbedienung
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]
+              - text: Eigenschaften
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[1]
+              - text: Drehbewegung
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/span[1]
+              - text: 45 oder 90 Grad
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/span[1]
+              - text: Luftstromeinstellungen
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/span[1]
+              - text: "10"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[2]/span[1]
+              - text: Gewicht
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/span[1]
+              - text: 8.29 kg
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]/div[2]/span[1]
+              - text: Durchmesser
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[4]/div[1]/span[1]
+              - text: 312 mm
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[4]/div[2]/span[1]
+              - text: Höhe
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/span[1]
+              - text: 923 mm
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/span[1]
+              - text: Breite
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[1]/div[1]/span[1]
+              - text: 220 mm
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[1]/div[2]/span[1]
+              - text: Tiefe
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[3]/td[1]/div[1]/span[1]
+              - text: 155 mm
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[3]/td[1]/div[2]/span[1]
+            manufacturerImages:
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986791-PH01_MOTIF.png
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@srcset
+              - text: https://media.flixcar.com/f360cdn/Dyson-63986573-PH01_DESKTOP_MODULE1.jpg
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@srcset
+            videos:
+              - text: https://videos.demoup.com/720p/2020/0620/142694.mp4
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[3]/meta[4]/@content
+            mpc:
+              - text: 257413-01
+                xpath: /html/head[1]/script[115]/@data-flix-mpn
+            warranty:
+              - text: 24 Monate
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+            nameExtended:
+              - text: Dyson Pure Humidify + Cool
+            price:
+              - text: 749.0 CHF
+        xpath: /
+    timestamp: 1600355020155

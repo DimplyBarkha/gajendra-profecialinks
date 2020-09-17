@@ -1,0 +1,204 @@
+input:
+  _url: http://fust.ch
+  URL: https://www.fust.ch/de/p/haushalt/staubsauger-und-reiniger/besenstaubsauger/dyson/v10-motorhead-8360107.html
+extractions:
+  - html: https://workbench.import.io/html/run=85783912-613f-4f30-a5e3-d58fb7cd9f2e/task=4220ac39-e3b9-4a4a-b493-ac5b7b4f38c1/66a49f15-06ef-41e7-8700-c1cf2c245775.html
+    extractionConfigId: product/details/stores/f/fust/CH/extract
+    data:
+      - group:
+          - image:
+              - text: https://fust.ch//upload/rm/346901-1-c.jpg?_=1565846495000
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: V Motorhead
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://fust.ch/upload/rm/346901-1-c.jpg?_=1565846495000
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/a[1]/img[1]/@src
+              - text: https://fust.ch/upload/rm/346901-2-c.jpg?_=1541991100000
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/a[2]/img[1]/@src
+              - text: https://fust.ch/upload/rm/346901-3-c.jpg?_=1541991101000
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/a[3]/img[1]/@src
+            metaKeywords:
+              - text: Elektro-Haushaltgeräte,Elektro-Haushaltgeräte,
+                  Waschmaschinen,Tumbler,Geschirrspüler,Tiefkühler,Kühlschränke,Kaffeemaschinen,
+                  Staubsauger, Bügeln, Küchenmaschinen, Fernseher, Hifi, Bluray,
+                  DVD, MP3, Foto, Videokamera, Handy, Telefon, Video-Recorder,
+                  Computer, Monitor, Drucker, Küche, Badezimmer
+                xpath: /html/head[1]/meta[2]/@content
+            name:
+              - text: Dyson V10 Motorhead
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/h1[1]
+            category:
+              - text: Haushalt
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]
+              - text: Staubsauger und Reiniger
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[3]
+              - text: Besenstaubsauger
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/@availability
+            description:
+              - text: >-
+                  Neuer Dyson Cyclone V10 Motorhead! 
+                   - Neuer Nickel-Kobalt-Aluminium Akku
+                   Gleichmässiger Verbrauch der Akkuleistung. Bis zu 60 Minuten
+                   Laufzeit.
+                  - Neuer Dyson Digital Motor V10
+                   Erzeugt die Saugkraft eines herkömmlichen Bodenstaubsaugers
+                  - 14 patentierte Dyson Zyklone beschleunigen die Luft auf knapp
+                   190 km/h und erzeugen so Zentrifugalkräfte von 79.000 G
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/h1[1]/span[1]/text()[1]
+            specifications:
+              - text: Nickel-Kobalt-Aluminium
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/text()[1]
+              - text: Spannung (Volt)
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[1]/text()[1]
+              - text: 29.00 V
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/text()[1]
+              - text: Inkl Handstaubsauger (2in1)
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[1]/text()[1]
+              - text: Ja
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
+              - text: Laufzeit (Min)
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[4]/td[1]/text()[1]
+              - text: 60 min
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
+              - text: Ladezeit (Min)
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[5]/td[1]/text()[1]
+              - text: 210 min
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[5]/td[2]/text()[1]
+              - text: Reinigung nass
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[6]/td[1]/text()[1]
+              - text: nein
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[6]/td[2]/text()[1]
+              - text: Gewicht
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[7]/td[1]/text()[1]
+              - text: 2.00 kg
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[7]/td[2]/text()[1]
+              - text: Farbe
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[8]/td[1]/text()[1]
+              - text: Rot
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[8]/td[2]/text()[1]
+              - text: Mitgeliefertes Zubehör
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[9]/td[1]/text()[1]
+              - text: Wandhalterung mit Ladefunktion
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[9]/td[2]/text()[1]
+              - text: Garantie (Mt)
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[10]/td[1]/text()[1]
+              - text: 24 Monate
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[10]/td[2]/text()[1]
+              - text: Bewertungsart
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[11]/td[1]/text()[1]
+              - text: neues Gerät
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[11]/td[2]/text()[1]
+            weightNet:
+              - text: 2.00 kg
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[7]/td[2]/text()[1]
+            gtin:
+              - text: "5025155034811"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/meta[4]/@content
+            sku:
+              - text: "10121554"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/text()[1]
+            variantId:
+              - text: "8360107"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/input[1]/@value
+            ratingCount:
+              - text: "30"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/button[1]/text()[1]
+            aggregateRatingText:
+              - text: 4.6 von 5 Sternen
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/@aria-label
+            aggregateRating:
+              - text: 4,6
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/button[1]/text()[1]
+            color:
+              - text: Rot
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[8]/td[2]/text()[1]
+            manufacturerDescription:
+              - text: Dyson Cyclone V10 Motorhead Eigenschaften
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]
+              - text: Angetrieben vom Dyson Digitalen Motor V10
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/div[2]/div[1]
+              - text: Der kleinste und schnellste Motor, den Dyson je entwickelt hat.¹
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/div[2]/div[2]
+              - text: 14 konzentrisch angeordnete Zyklone
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[2]/div[2]/div[1]
+              - text: 14 Zyklone generieren Zentrifugalkräfte von mehr als 79.000 G. Das
+                  erzeugte Vakuum befördert mikroskopisch kleine Partikel – wie
+                  Pollen oder Bakterien – in den Staubbehälter.<sup>3</sup>
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[2]/div[2]/div[2]
+              - text: Bis zu 60 Minuten konstant hohe Saugkraft4
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/div[2]/div[1]
+              - text: Hohe Saugkraft für die Reinigung an jeder Stelle.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/div[2]/div[2]
+              - text: Neuer Mechanismus für eine verbesserte hygienische Behälterentleerung
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/div[2]/div[1]
+              - text: Mit dem neuen Mechanismus für eine verbesserte hygienische
+                  Behälterentleerung werden aufgesaugter Staub und Schmutz mit
+                  nur einem Handgriff aus dem Behälter entfernt - ohne damit in
+                  Berührung zu kommen.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[4]/div[2]/div[2]
+              - text: Hocheffiziente Filtration
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/div[2]/div[1]
+              - text: Das komplett versiegelte Filtersystem entfernt 99,97 % der Partikel bis zu
+                  einer Größe von 0,3 Mikron - und produziert so reinere
+                  Ausblasluft als die Raumluft, die Sie atmen.<sup>5</sup>
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[5]/div[2]/div[2]
+              - text: Optimierte Anordnung
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[6]/div[2]/div[1]
+              - text: Motor, Behälter und Zyklon sind in einer geraden Linie angeordnet, sodass
+                  die Luft nun linear in die Zyklone befördert wird und im
+                  Vergleich zum kabellosen Staubsauger Dyson V8™ 20 % mehr
+                  Saugkraft entsteht.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[6]/div[2]/div[2]
+              - text: Lässt sich schnell in einen Akkusauger verwandeln
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/div[2]/div[1]
+              - text: Kann mit nur einem Klick in einen Handstaubsauger verwandelt werden, und
+                  ebenso schnell auch wieder zurück.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/div[2]/div[2]
+              - text: 3 Saugstufen
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[8]/div[2]/div[1]
+              - text: Immer die passende Saugkraft für jede Situation. Wählen Sie aus drei
+                  verschiedenen Stufen für unterschiedliche Aufgaben und jede
+                  Bodenart den passenden Saugmodus aus.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[8]/div[2]/div[2]
+              - text: Wandhalterung mit Ladefunktion
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[9]/div[2]/div[1]
+              - text: Der kabellose Staubsauger Dyson Cyclone V10™ wird zum Laden des Akkus und
+                  für die ordentliche Aufbewahrung des Zubehörs einfach in die
+                  Wandhalterung mit Ladestation angebracht. Somit ist er
+                  jederzeit zur Hand.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[9]/div[2]/div[2]
+              - text: Verbesserte Akustik
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[10]/div[2]/div[1]
+              - text: Fängt Vibrationen ab und dämpft Geräusche, sodass der Geräuschpegel
+                  verringert wird.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[10]/div[2]/div[2]
+              - text: Kombi-Zubehördüse
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[11]/div[2]/div[1]
+              - text: Zwei Zubehörteile in einem – für verschiedene Oberflächen einfach zu
+                  wechseln.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[11]/div[2]/div[2]
+              - text: Fugendüse
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[12]/div[2]/div[1]
+              - text: Für die Reinigung von schmalen Zwischenräumen und schwer erreichbaren
+                  Stellen.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[12]/div[2]/div[2]
+            videos:
+              - text: https://videos.demoup.com/720p/2018/0611/88255.mp4
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[1]/div[1]/div[3]/meta[4]/@content
+            warranty:
+              - text: 24 Monate
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[4]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+            nameExtended:
+              - text: Dyson V10 Motorhead
+            price:
+              - text: 499.0 CHF
+        xpath: /
+    timestamp: 1600355019475

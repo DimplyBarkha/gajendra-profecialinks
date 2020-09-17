@@ -7,11 +7,8 @@ module.exports = {
     store: 'fust',
     zipcode: '9245',
   },
-  implementation: async ({ url },
-    { zipcode },
-    context,
-    dependencies,
-  ) => {
+  implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
+    url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;  
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);

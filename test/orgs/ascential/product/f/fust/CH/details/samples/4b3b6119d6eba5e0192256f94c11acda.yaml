@@ -1,0 +1,82 @@
+input:
+  _url: http://fust.ch
+  URL: https://www.fust.ch/de/p/haushalt/waschmaschinen-und-waeschetrockner/waschmaschine-einfamilienhaus/waschmaschinen-frontlader/bosch/wan280f1ch-8492102.html
+extractions:
+  - html: https://workbench.import.io/html/run=85783912-613f-4f30-a5e3-d58fb7cd9f2e/task=14366623-91ad-4ffb-b738-37dce5b4e645/768f5570-7525-49ac-ae11-1c671107e3c2.html
+    extractionConfigId: product/details/stores/f/fust/CH/extract
+    data:
+      - group:
+          - image:
+              - text: https://fust.ch//upload/rm/131104-1-c-1.jpg
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: WAN280F1CH
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@alt
+            metaKeywords:
+              - text: Waschmaschine
+                xpath: /html/head[1]/meta[2]/@content
+            name:
+              - text: Bosch WAN280F1CH
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[5]/div[2]/div[2]/div[1]/h1[1]
+            category:
+              - text: Haushalt
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[2]
+              - text: Waschmaschinen und Wäschetrockner
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[3]
+              - text: Waschmaschine Einfamilienhaus
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[4]
+              - text: Waschmaschinen Frontlader
+                xpath: /html/body/div[4]/div[2]/div[1]/div[2]/div[1]/nav[1]/ul[1]/li[5]
+            listPrice:
+              - text: 799,
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[5]/div[2]/div[2]/div[1]/div[3]/div[1]/div[2]/div[2]/span[1]/text()[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/@availability
+            description:
+              - text: >-
+                  -EcoSilence Drive: extrem energiesparend und leise im Betrieb
+                  bei
+
+                  besonders hoher Lebensdauer.
+
+                  -Speedperfect: perfekt saubere Wäsche mit bis zu 65% Zeitersparnis
+
+                  -LED Display: zur einfachen Anzeige und Einstellung von Programmen
+                   und Optionen.
+                  -Nachlegefunktion: vergessene Wäschestücke einfach während des
+                   Waschens nachlegen.
+                  -AquaStop: eine Bosch Hausgeräte Garantie bei Wasserschäden.
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Bosch
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[5]/div[2]/div[2]/div[1]/h1[1]/span[1]/text()[1]
+            specifications:
+              - text: Bewertungsart
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/text()[1]
+              - text: neues Gerät
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/text()[1]
+            gtin:
+              - text: "4242005213399"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[5]/meta[5]/@content
+            sku:
+              - text: "10663976"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[5]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/text()[1]
+            variantId:
+              - text: "8492102"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[5]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/input[1]/@value
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/button[1]/text()[1]
+            mpc:
+              - text: WAN280F1CH
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[5]/meta[4]/@content
+            warranty:
+              - text: 24 Monate
+                xpath: /html/body/div[4]/div[2]/div[1]/article[1]/div[5]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+            nameExtended:
+              - text: Bosch WAN280F1CH
+            price:
+              - text: 599.0 CHF
+        xpath: /
+    timestamp: 1600355017196
