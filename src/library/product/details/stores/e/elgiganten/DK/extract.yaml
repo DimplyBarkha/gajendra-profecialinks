@@ -113,17 +113,17 @@ fields:
     xpath: //meta[contains(@itemprop,'ratingValue')]/@content
   - name: weightNet
     singleValue: true
-    xpath: //table[contains(@class,'spec-table')]//tbody//tr//td[contains(text(),'Vægt')]/following::td[1][contains(@class,'any-3-4')]
+    xpath: //td[contains(text(),'Vægt')]/following::td[1]
   - name: color
     singleValue: false
-    xpath: //div[contains(@class,'product-variations')]//div[contains(text(),'Farve')]//following::div[1]
+    xpath: //div[contains(@class,'product-variations')]//div[contains(text(),'Farve')]//following::div[1] | //td[contains(text(), 'Farve')]/following::td[1]
     # xpath: //table[contains(@class,'spec-table')]//tbody//tr//td[contains(text(),'Farve')]/following::td[1][contains(@class,'any-3-4')]
   - name: quantity
     singleValue: true
     xpath: //table[contains(@class,'spec-table')]//tr//td[contains(text(), 'pakken')]/following::td[1][contains(@class,'any-3-4')]
   - name: warranty
     singleValue: true
-    xpath: //div[contains(@class,'product-more-info')]//p//strong[contains(text(),'garanti')]//text()
+    xpath: //strong[contains(text(),'garanti')][1]
   - name: packSize
     singleValue: true
     xpath: //table[contains(@class,'spec-table')]//tr//td[contains(text(), 'pakken')]/following::td[1][contains(@class,'any-3-4')]
