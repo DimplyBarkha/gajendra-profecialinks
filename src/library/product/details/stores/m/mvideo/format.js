@@ -6,17 +6,17 @@
 const transform = (data) => {
   const cleanUp = (data, context) => {
     const clean = text => text.toString()
-    .replace(/\r\n|\r|\n/g, ' ')
-    .replace(/&amp;nbsp;/g, ' ')
-    .replace(/&amp;#160/g, ' ')
-    .replace(/\u00A0/g, ' ')
-    .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
-    .replace(/^ +| +$|( )+/g, ' ')
-    // eslint-disable-next-line no-control-regex
-    .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+      .replace(/\r\n|\r|\n/g, ' ')
+      .replace(/&amp;nbsp;/g, ' ')
+      .replace(/&amp;#160/g, ' ')
+      .replace(/\u00A0/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/"\s{1,}/g, '"')
+      .replace(/\s{1,}"/g, '"')
+      .replace(/^ +| +$|( )+/g, ' ')
+      // eslint-disable-next-line no-control-regex
+      .replace(/[\x00-\x1F]/g, '')
+      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
     data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
       el.text = clean(el.text);
     }))));
@@ -36,18 +36,18 @@ const transform = (data) => {
       }
       if (row.image) {
         row.image.forEach(item => {
-          item.text = 'https:'+item.text;
+          item.text = 'https:' + item.text;
         });
       }
       if (row.alternateImages) {
         var img_arr = [];
         row.alternateImages.forEach(item => {
-          img_arr.push({"text":'https:'+item.text.replace(/small_pic\/65\//g, ''), "xpath": row.alternateImages[0]["xpath"]});
+          img_arr.push({ "text": 'https:' + item.text.replace(/small_pic\/65\//g, ''), "xpath": row.alternateImages[0]["xpath"] });
         });
-        if (img_arr.length > 1){
-          img_arr.splice(0,1);
+        if (img_arr.length > 1) {
+          img_arr.splice(0, 1);
           row.alternateImages = img_arr;
-        }else{
+        } else {
           delete row.alternateImages;
         }
       }
@@ -61,10 +61,28 @@ const transform = (data) => {
           item.text = item.text.replace(/.+-(\d+)/g, '$1');
         });
       }
-      if(row.variantId){
+      if (row.variantId) {
         row.variantId.forEach(item => {
           item.text = item.text.replace(/.+-(\d+)/g, '$1');
         });
+      }
+      if (row.specifications) {
+        row.specifications.forEach(item => {
+          item.text = item.text.replace(/\n\s*\n\s*\n\s*\n\s*/g, ' || ').trim();
+          item.text = item.text.replace(/\n\s*\n\s*/g, ' : ').trim();
+        });
+      }
+      if (row.variants) {
+        var temp_arr = [];
+        row.variants.forEach(item => {
+          temp_arr.push(item.text);
+        });
+        if (temp_arr.length) {
+          row.variantCount = [{ "text": temp_arr.length, "xpath": row.variants[0]["xpath"] }];
+          row.variants = [{ "text": temp_arr.join(' | '), "xpath": row.variants[0]["xpath"] }];
+        } else {
+          delete row.variants;
+        }
       }
     }
   }

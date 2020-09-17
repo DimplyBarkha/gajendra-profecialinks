@@ -45,12 +45,11 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //div[@class="u-mr-8 c-pdp-price__old"]
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[@class="c-brand-logo"]//img/@alt
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //div[@class="c-brand-logo"]//img/@src
   - name: specifications
     singleValue: false
     xpath: //div[@class="c-specification o-pdp-about-product-specification__block"]/table
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,'c-multisku__group-controls')]//span[@class="c-btn__text"]
+  - name: variantCount
+    singleValue: false
