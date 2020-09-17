@@ -65,10 +65,10 @@ fields:
     # xpath: //div[contains(@class, 'product-description__description-container')]/section/div[1]/p[1]
     # xpath: //div[contains(@class, 'product-description__description-container')]
   - name: descriptionBullets
-    singleValue: true
-    description: Number of ul > li tags in the description
-    type: NUMBER
-    xpath: count(//div[contains(@class, 'product-description__description-container')]//div/ul/li)
+    singleValue: false
+    description: Number of ul > li tags in the description    
+    # xpath: count(//div[contains(@class, 'product-description__description-container')]//div/ul/li)
+    xpath: //*[contains(@id,"tempDescriptionBullet1")]
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,

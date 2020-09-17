@@ -72,6 +72,9 @@ module.exports = {
         addEleToDoc('tempManufactureImage1', tempManufactureImage1);
       }
 
+      
+      let tempDescriptionBullet1 = document.querySelectorAll('div.product-description__description-container div ul li').length;   
+      addEleToDoc('tempDescriptionBullet1', tempDescriptionBullet1);      
     });   
 
     const isSelectorAvailable = async (cssSelector) => {
