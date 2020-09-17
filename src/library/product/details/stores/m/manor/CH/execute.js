@@ -5,7 +5,7 @@ module.exports = {
     country: 'CH',
     store: 'manor',
     domain: 'manor.ch',
-    loadedSelector: null,
+    loadedSelector: 'div.o-productdetail-v-2-titleb',
     noResultsXPath: null,
     zipcode: "''",
   },

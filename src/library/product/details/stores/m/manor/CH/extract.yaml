@@ -51,19 +51,22 @@ fields:
     xpath: //div[@class='m-productfacts_single_values']//span[contains(text(),'Garantie')]
   - name: variants
     singleValue: false
-    xpath: //div[@class="m-productcolorselect-v-2__colors js-only-colors"]//a/@href  
+    xpath: //div[@class="m-productcolorselect-v-2__colors js-only-colors"]//a/@href
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class,"m-productdetailareaa__areaA__title-line")]//h2
   - name: specifications
     singleValue: false
-    xpath: //div[@class='m-productfactslist']
-  - name: technicalInformationPdfPresent
-    singleValue: false
-    defaultValue: 'No'
-  - name: Image360Present
-    singleValue: false
-    defaultValue: 'No'
+    xpath: //div[@class='m-productfactslist'] 
   - name: variantId
     singleValue: false 
     xpath: //div[@data-t-name="ProductdetailV2"]/@data-productid
+  - name: quantity
+    singleValue: false 
+    xpath: //div[@class='m-quantityselector__qty-selector']/input[@id="qty"]/@value
+  - name: name
+    singleValue: false 
+    xpath: //div[@class='o-productdetail-v-2-titlea']//h1
+  - name: countryOfOrigin
+    singleValue: false 
+    xpath: //div[@class='yCmsContentSlot g-col g-col-2']//div[@class='m-navigation-language__wrap']/label
