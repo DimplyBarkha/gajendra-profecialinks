@@ -16,11 +16,13 @@ const transform = (data) => {
       // eslint-disable-next-line no-control-regex
       .replace(/[\x00-\x1F]/g, '')
       .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+
+    let manufacturerImages = [];
   
     for (const { group } of data) {
       for (const row of group) {
         if (row.description) {
-          row.description[0].text = row.description[0].text.replace(/(\n\s*){5,}/g, '').replace(/(\n\s*){4,}/g, '').replace(/(\n\s*){2,}/g, ' || ');
+          row.description[0].text = row.description[0].text.replace(/(\n\s*){5,}/g, '').replace(/(\n\s*){4,}/g, '').replace(/(\n\s*){2,}/g, ' || ').replace(/ \|\| Read moreless .../g, '');
           row.description[0].text = cleanUp(row.description[0].text);
         }
 
@@ -33,6 +35,12 @@ const transform = (data) => {
           row.manufacturerDescription1[0].text = cleanUp(row.manufacturerDescription1[0].text);
           row.manufacturerDescription[0].text += " " + row.manufacturerDescription1[0].text;
           delete row.manufacturerDescription1;
+        }
+
+        if(row.manufacturerDescription2) {
+          row.manufacturerDescription2[0].text = cleanUp(row.manufacturerDescription2[0].text);
+          row.manufacturerDescription[0].text += " " + row.manufacturerDescription2[0].text;
+          delete row.manufacturerDescription2;
         }
 
         if (row.specifications) {
@@ -49,22 +57,31 @@ const transform = (data) => {
           delete row.videos1;
         }
 
+        if(row.manufacturerImages1) {
+          manufacturerImages = [...manufacturerImages, ...row.manufacturerImages1];
+          delete row.manufacturerImages1;
+        }
+
+        if(row.manufacturerImages3) {
+          row.manufacturerImages3 = row.manufacturerImages3.map((image) => {
+            image.text = 'https:' + image.text.replace(/([^\s]+)\s.*/, '$1');
+            return image;
+          });
+          manufacturerImages = [...manufacturerImages, ...row.manufacturerImages3];
+          delete row.manufacturerImages3;
+        }
+
         if(row.manufacturerImages2) {
           row.manufacturerImages2 = row.manufacturerImages2.map((image) => {
             image.text = 'https:' + image.text.replace(/([^\s]+)\s.*/, '$1');
             return image;
           });
 
-          row.manufacturerImages = [...row.manufacturerImages, ...row.manufacturerImages2];
+          manufacturerImages = [...manufacturerImages, ...row.manufacturerImages2];
           delete row.manufacturerImages2;
         }
 
-        if(row.manufacturerImages) {
-          if(row.manufacturerImages1) {
-            row.manufacturerImages = [...row.manufacturerImages, ...row.manufacturerImages1];
-            delete row.manufacturerImages1;
-          }
-        }
+        row.manufacturerImages = manufacturerImages;
 
         if(!row.manufacturerImages) {
           delete row.manufacturerDescription;
