@@ -44,9 +44,9 @@ fields:
     xpath: //ul//li//span[contains(text(),'Peso')]/../span[position()>last()-1]
   - name: gtin
     description: GTIN code (includes UPC/EAN)
-    xpath: //ul//li//span[contains(text(),'EAN')]/../span[position()>last()-1]
+    xpath: //ul//li//span[contains(text(),'EAN') and not (contains(.,'MRKEAN'))]/../span[position()>last()-1]
   - name: eangtin
-    xpath: //ul//li//span[contains(text(),'EAN')]/../span[position()>last()-1]
+    xpath: //ul//li//span[contains(text(),'EAN') and not (contains(.,'MRKEAN'))]/../span[position()>last()-1]
   - name: sku
     description: The store-specific product identifier
     xpath: //ul//li//span[contains(text(),'Referência')]/../span[position()>last()-1]
