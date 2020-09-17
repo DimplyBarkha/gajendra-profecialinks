@@ -64,6 +64,8 @@ const transform = (data) => {
 
         if(row.manufacturerImages3) {
           row.manufacturerImages3 = row.manufacturerImages3.map((image) => {
+            image.text = image.text.split(',')[0];
+            image.text = image.text.split(' ')[0];
             image.text = 'https:' + image.text.replace(/([^\s]+)\s.*/, '$1');
             return image;
           });
