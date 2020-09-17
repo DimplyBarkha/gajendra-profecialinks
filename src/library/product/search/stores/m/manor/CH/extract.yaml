@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id="epoq_resultrows"]/div[contains(@class,"epoq_resultrow")]
+recordXPath: //div[contains(@class,"js-product-tile")]
 fields:
   - name: productUrl
     SingleValue: false
@@ -15,10 +15,10 @@ fields:
   - name: price
     SingleValue: false
     xpath: //span[@class="m-productpricev-2__price"]
-  - name: aggregateRating
+  - name: aggregateRating2
     SingleValue: false
     xpath: //span[@class="bv-rating"]/span/text()
-  - name: manufacturer
+  - name: brandText
     SingleValue: false
     xpath: //div[contains(@class,"js-product-title")]
   - name: rankOrganic
@@ -26,8 +26,5 @@ fields:
   - name: rank
     SingleValue: false
   - name: id
-    SingleValue: false  
-    defaultValue: 1
-  
-
-    
+    SingleValue: false
+    xpath: //div[contains(@class,"js-product-tile")]/@id
