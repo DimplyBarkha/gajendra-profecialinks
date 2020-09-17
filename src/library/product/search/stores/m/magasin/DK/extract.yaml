@@ -11,9 +11,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class, 'product-tile__prices')]//span[(@class= 'value')]//@content
   - name: productUrl
-    singleValue: true
-    regExp: (.+)
-    regExpReplace: https://www.magasin.dk$1
+    singleValue: true    
     xpath: //div[contains(@class, 'product-tile__image')]//a[@class='product-tile-link']//@href
   - name: thumbnail
     singleValue: false
