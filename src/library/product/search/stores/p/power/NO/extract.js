@@ -62,6 +62,13 @@ module.exports = {
           addElementToDocument(item, 'aggRating', aggRating.toFixed(1).replace(',', '.'));
         }
         addElementToDocument(item, 'pd_rank', lastProductPosition + i);
+        const integerPrice = item && item.querySelector('pwr-price[type="integer"]')
+          ? item.querySelector('pwr-price[type="integer"]').innerText : '';
+        const decimalPrice = item && item.querySelector('pwr-price[type="decimal"]')
+          ? item.querySelector('pwr-price[type="decimal"]').innerText : '';
+        if (decimalPrice) {
+          addElementToDocument(item, 'price', `${integerPrice},${decimalPrice}`);
+        } else addElementToDocument(item, 'price', `${integerPrice}`);
       }
       localStorage.setItem('prodCount', `${lastProductPosition + numberOfProductsOnPage}`);
     });
