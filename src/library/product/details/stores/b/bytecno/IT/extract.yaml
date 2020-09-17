@@ -29,7 +29,7 @@ fields:
     xpath: (//div[@class='price-box']//span[@class='price'])[1]
   - name: listPrice
     singleValue: false
-    xpath: //div[@class='price-box']//div[@class='prezzomercato']
+    xpath: (//div[@class='price-box']//div[@class='prezzomercato'])[1]
   - name: availabilityText
     singleValue: false
     defaultValue: Out of Stock
@@ -77,7 +77,17 @@ fields:
     xpath: //div[contains(@class,'inpage_selector_specification')]//td
   - name: weightNet
     singleValue: false
-    xpath: //div[contains(@class,'inpage_selector_specification')]//*[contains(text(),'Peso')]
+    xpath: //div[contains(@class,'inpage_selector_specification')]//*[contains(text(),'Peso')] | //th[text()='Peso']//parent::tr//td
   - name: mpc
     singleValue: false
     xpath: //th[contains(text(), 'Cod. Prod.')]//parent::tr//td
+  - name: color
+    singleValue: false
+    xpath: //th[contains(text(), 'Colore del prodotto')]//parent::tr//td
+  - name: shippingWeight
+    singleValue: false
+    xpath: //th[contains(text(), 'Peso dell')]//parent::tr//td
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //th[(text()='Larghezza imballo')]//parent::tr//td | //th[(text()='Altezza imballo')]//parent::tr//td
+

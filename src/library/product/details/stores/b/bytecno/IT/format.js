@@ -36,7 +36,7 @@ const transform = (data) => {
           }
         });
         row.specifications = [{
-          text: spec.trim(),
+          text: (spec.trim()).slice(3),
         }];
       }
       if (row.availabilityText) {
@@ -73,6 +73,17 @@ const transform = (data) => {
           {
             text: row.alternateImages.length,
           }];
+      }
+      if (row.shippingDimensions) {
+        var dimentions = '';
+        row.shippingDimensions.forEach((ele) => {
+          dimentions += ' * ' + ele.text;
+        });
+        row.shippingDimensions = [
+          {
+            text: (dimentions.trim()).slice(3),
+          },
+        ];
       }
     }
   }
