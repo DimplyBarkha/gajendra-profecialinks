@@ -2,10 +2,10 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'noon.com',
-    timeout: 500000,
-    country: 'SA',
-    store: 'noon',
+    domain: 'perfecthair.ch',
+    timeout: null,
+    country: 'CH',
+    store: 'perfecthair',
     zipcode: '',
   },
 };
