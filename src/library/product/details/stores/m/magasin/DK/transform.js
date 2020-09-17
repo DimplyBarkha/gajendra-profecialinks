@@ -14,13 +14,7 @@ const transform = (data, context) => {
           if (row.gtin) {
             row.gtin = [{ text: row.gtin[0].text.toString().replace(/\r\n|\r|\n/g, '').replace('EAN:   ','')
          }];
-          }  
-          if (row.sku) {
-            row.sku = [{ text: row.sku[0].text.toString().replace(/\r\n|\r|\n/g, '').replace('EAN:   ','') }];
-          } 
-          if (row.variantId) {
-            row.variantId = [{ text: row.variantId[0].text.toString().replace(/\r\n|\r|\n/g, '').replace('EAN:  ','') }];
-          } 
+          }          
           if (row.mpc) {
             row.mpc = [{ text: row.mpc[0].text.toString().replace(/\r\n|\r|\n/g, '').replace('EAN:   ','')}];
           } 

@@ -57,10 +57,10 @@ fields:
     xpath: //li[contains(text(),'EAN')]/text()
   - name: sku
     singleValue: true
-    xpath: //li[contains(text(),'EAN')]/text()
+    xpath: //product-details//@data-pid
   - name: variantId
     singleValue: true
-    xpath: //li[contains(text(),'EAN')]/text()
+    xpath: //product-details//@data-pid
   - name: mpc
     singleValue: true
     xpath: //li[contains(text(),'EAN')]/text()
