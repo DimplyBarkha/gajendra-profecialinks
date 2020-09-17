@@ -18,6 +18,12 @@ const transform = (data) => {
           item.text = item.text.replace(/\n\s*\n\s*/g, '').slice();
         });
       }
+      if (row.availabilityText) {
+        row.availabilityText.forEach(item => {
+          item.text = 'In Stock'
+        });
+      }
+      
       if (row.image) {
         row.image.forEach(item => {
           item.text = item.text.match(/\(([^)]+)\)/)[1].slice(1, -1);
@@ -40,21 +46,7 @@ const transform = (data) => {
           item.text = item.text.replace(/\s\n/g, '').slice();
         });
       }
-      if (row.category) {
-        let cat_arr = [];
-        row.category.forEach(item => {
-          cat_arr = item.text.split(/\s*\n\s*/);
-        });
-        if(cat_arr.length > 0){
-          row.category = [];
-          cat_arr.splice(0,1);
-          cat_arr.forEach(item => {
-            row.category.push({"text":item});
-          });
-        }else{
-          delete row.category;
-        }
-      }
+      
       if (row.sku) {
         row.sku.forEach(item => {
           item.text = item.text.match(/[^#]*$/g);

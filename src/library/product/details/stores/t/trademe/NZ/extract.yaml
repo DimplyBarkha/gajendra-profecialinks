@@ -2,19 +2,13 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields:
-  - name: listPrice
-    singleValue: false
-    xpath: //tm-listing-auction/tg-box2/p[2]/strong
+fields:  
   - name: category
     singleValue: false
     xpath: //div//tm-breadcrumbs//ol//li[position()>1]//a
   - name: name
     singleValue: false 
-    xpath: //div/tg-row[1]/tg-col[2]/tm-buyer-options/h1
-  - name: nameExtended
-    singleValue: false 
-    xpath: //div/tg-row[1]/tg-col[2]/tm-buyer-options/h1
+    xpath: //div//tg-row/tg-col//tm-buyer-options//h1  
   - name: description
     singleValue: false
     xpath: //div[@class="tm-markdown"]
@@ -23,28 +17,22 @@ fields:
     defaultValue: 'Trademe'
   - name: price
     singleValue: false 
-    xpath: //tm-buy-now-box/tg-box2//p[contains(@class,"p-h1")]
+    xpath: //tm-buy-now-box/tg-box2//p[contains(@class,"p-h1")]//strong
   - name: sku
     singleValue: false 
-    xpath: //tm-potential-r18-content/div/tg-row[2]/tg-col[2]/div/small[1]
+    xpath: //tm-potential-r18-content//tg-row//tg-col/div/small[1]    
   - name: variantId
     singleValue: false 
-    xpath: //tm-potential-r18-content/div/tg-row[2]/tg-col[2]/div/small[1]
+    xpath: //tm-potential-r18-content//tg-row//tg-col/div/small[1]    
   - name: image
     singleValue: false 
     xpath: //tg-image-viewer2/div/div/tg-image-viewer-item[1]/tg-aspect-ratio/@style
   - name: alternateImages
     singleValue: false 
-    xpath: //tg-content-slider2-item/tg-aspect-ratio/@style
+    xpath: //tg-content-slider2-item[position()>1]/tg-aspect-ratio/@style
   - name: shippingInfo
     singleValue: false 
-    xpath: //*[@id="shipping-options"]/tg-row/tg-col[2]/tm-listing-shipping-details/table/tbody
-  - name: manufacturer 
-    singleValue: false 
-    xpath: //tm-member-summary/section/div[2]/h3
-  - name: manufacturerDescription 
-    singleValue: false 
-    xpath: //section/div[3]/tm-core-seller-details/tg-rack
+    xpath: //*[@id="shipping-options"]/tg-row/tg-col[2]/tm-listing-shipping-details/table/tbody  
   - name: color
     singleValue: false 
     xpath: //tm-listing-attributes/div/table/tbody/tr[2]/td[2]/text()
@@ -52,3 +40,6 @@ fields:
     singleValue: false 
     xpath: //*[@id="comments-animation"]/ktr-product-comments/div/ng-transclude/div[1]/div[1]/font/font
     defaultValue: 0
+  - name: availabilityText
+    singleValue: false
+    xpath: //form[@class='ng-untouched ng-valid ng-dirty']//button[contains(text(),'Buy Now')]

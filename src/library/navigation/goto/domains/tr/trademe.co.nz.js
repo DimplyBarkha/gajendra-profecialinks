@@ -3,9 +3,9 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'trademe.co.nz',
-    timeout: 100000,
+    timeout: null,
     country: 'NZ',
     store: 'trademe',
-    zipcode: "''",
+    zipcode: '',
   },
 };
