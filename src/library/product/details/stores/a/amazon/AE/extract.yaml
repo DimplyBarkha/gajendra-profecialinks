@@ -1,0 +1,178 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//img[@id="landingImage"])[1]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: (//img[@id="landingImage"])[1]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //li[contains(@class, "imageThumbnail")][position()>1]//img/@src
+    regExp: (https.+\.com[^\.]+)
+    regExpReplace: $1.jpg
+  - name: largeImageCount
+    singleValue: false
+    xpath: count(//div[@id="altImages"]//ul/li[contains(@class,  "image")][position()>1])
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: _pageTimestamp
+    singleValue: false
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
+  - name: nameExtended
+    singleValue: false
+    xpath: //span[@id="productTitle"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")] | //div[@id="almDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
+  - name: price
+    singleValue: false
+    xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@id='availability']
+    defaultValue: 'In Stock'
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@id='feature-bullets']//ul
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@id='feature-bullets']//ul/li)
+  - name: description
+    singleValue: false
+    xpath: //div[@id='productDescription']
+  - name: brandText
+    singleValue: false
+    xpath: //a[@id="bylineInfo"]
+  - name: weightNet
+    singleValue: false
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Item Weight")]/following-sibling::td[1]/text()
+  - name: asin
+    singleValue: false
+    xpath: (//*[@data-asin])[1]/@data-asin
+  - name: sku
+    singleValue: false
+    xpath: (//*[@data-asin])[1]/@data-asin
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Model Number')]/../td | //tr[contains(@class,'item-model-number')][1]//td[2] | //*[contains(text(),'Model Number')]/following-sibling::*[1]
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Model Number')]/../td | //tr[contains(@class,'item-model-number')][1]//td[2] | //*[contains(text(),'Model Number')]/following-sibling::*[1]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@id="averageCustomerReviews_feature_div"]//*[@id="acrCustomerReviewText"]/text()
+    regExp: ([0-9\,]{1,}) ratings
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //table[@id='productDetails_detailBullets_sections1']//span[@id='acrPopover']
+    regExp: ([0-9\.]{1,}) out of
+    regExpReplace: $1
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: //table[@id='productDetails_detailBullets_sections1']//span[@id='acrPopover']
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@id='buybox-tabular']//tr[1]/td[1] | //div[@id='buybox-tabular']//tr[1]/td[2]/span/span[2] | //div[@id='buybox-tabular']//tr[2]/td[1] | //div[@id='buybox-tabular']//tr[2]/td[2]/span/span[2]
+  - name: shippingDimensions
+    singleValue: false
+    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
+  - name: variantCount
+    singleValue: false
+    xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
+  - name: variantInformation
+    singleValue: false
+    xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//p[not(img) and text()]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="aplus"]//img[not(contains(@src, "common"))]/@src
+  - name: videos
+    singleValue: false
+    xpath: //video/@src
+  - name: name
+    singleValue: false
+    xpath: //span[@id="productTitle"]
+  - name: salesRank
+    singleValue: false
+    xpath: //*[@id="SalesRank"]//*[contains(text(), "#")]/text() | //*[@id="SalesRank"]/text()[contains(., "#")] | //th[contains(text(),"Best Sellers Rank")]/following-sibling::td/span/span
+  - name: salesRankCategory
+    singleValue: false
+    xpath: //*[@id="SalesRank"]/text()[contains(., "in")] | //*[@id="SalesRank"]//span[contains(., "in")]/a | //th[contains(text(),"Best Sellers Rank")]/following-sibling::td/span//span[contains(., "in")]/a
+  - name: pasin
+    singleValue: false
+    xpath: //script[contains(@type,"a-state") and contains(text(), "parentAsin")]
+    regExp: parentAsin\"\:\"([A-Za-z0-9]{10,})
+    regExpReplace: $1
+  - name: heroQuickPromoHeadline
+    singleValue: false
+    xpath: //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//area/@alt
+  - name: heroQuickPromoImageUrl
+    singleValue: false
+    xpath: //div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//img/@src
+  - name: heroQuickPromoUrl
+    singleValue: false
+    xpath: (//div[contains(@id,"heroQuickPromo") and contains(@id, "feature_div")]//area/@href)[1]
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com$1
+  - name: variantAsins
+    singleValue: false
+    xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
+  - name: firstVariant
+    singleValue: false
+    xpath: //script[contains(@type,"a-state") and contains(text(), "parentAsin")]
+    regExp: parentAsin\"\:\"([A-Za-z0-9]{10,})
+    regExpReplace: $1
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()] | //table[contains(@id, "product-specification-table")]/tbody/tr[text()]
+  # - name: lbb
+  #   singleValue: false
+  #   xpath: //div[@id='ii_lbb']
+  #   defaultValue: 'NO'
+  # - name: lbbPrice
+  #   singleValue: false
+  #   xpath: //div[@id='ii_lbbPrice']
+  - name: otherSellersName
+    singleValue: false
+    xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//div[contains(@id,"mbc-sold")]//span[contains(@class, "Merchant")]
+  - name: otherSellersPrime
+    singleValue: false
+    xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//span[contains(@id,"mbc-shipping")]/a[contains(@target,"Amazon")]/@href
+  - name: otherSellersPrice
+    singleValue: false
+    xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]//span[contains(@class, "a-price")]/span[contains(@class, "a-offscreen")] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//span[contains(@id,"mbc-price")]
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@id="altImages"]//ul/li[contains(@class,  "image")][position()>1])
+  - name: fastTrack
+    singleValue: false
+    xpath: //div[contains(@id,'ddmDeliveryMessage')]
+  # - name: warranty
+  #   singleValue: false
+  #   xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+    defaultValue: No
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //span[contains(@id,'priceblock_ourprice')]
