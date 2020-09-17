@@ -2,4 +2,25 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields: null
+fields:
+  - name: id
+    xpath: //div[contains(@class,'product-item-info')]//a//@data-id
+    singleValue: true
+  - name: name
+    xpath: //div[contains(@class,'NameNoBrand-sc-1ifpr6 juQXTU')]
+    singleValue: true
+  - name: producturl
+    xpath: //a[contains(@class,'sc-psDhf bAPYME')]/@href
+    singleValue: false
+    regExp: (https:\/\/www.ottoversand.at)?(.+)
+    regExpReplace: https://www.ottoversand.at$2
+  - name: thumbnail
+    xpath: //div[contains(@class,'ImageWrapper-sc-jbg5ox lkewrK')]/img/@src
+    singleValue: false
+  - name: manufacturer
+    xpath: //span[contains(@class,'BrandName-sc-1hwvb2t hdRRnK')]
+    singleValue: true  
+  - name: price
+    xpath: //div[contains(@class,'sc-qQxFs eyrJNR PriceWrapper-sc-p7sel8 cJzxCo')]/div
+    singleValue: true
+  

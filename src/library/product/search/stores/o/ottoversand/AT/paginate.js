@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'AT',
     store: 'ottoversand',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div[data-testid="pagination-next"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector : 'div[data-uid="mbaline2"]',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'ottoversand.at',
