@@ -9,10 +9,6 @@ fields:
   - name: name
     xpath: //span[@class="producer"] | //span[@class="product-title"]
     description: The product name
-  - name: manufacturer
-    singleValue: false
-    xpath: //span[@class='producer']/text()
-    description: The brand name
   - name: productUrl
     xpath: //div[@class='title-wrapper']//a/@href
     regExp: (.+)
@@ -32,9 +28,9 @@ fields:
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@itemprop='ratingValue']/text()
-    regExp: (\d+)\.(\d+)
-    regExpReplace: $1,$2
-  - name: ratingCount
+    # regExp: (\d+)(\.*)(.*)
+    # regExpReplace: $1,$3
+  - name: reviewCount
     singleValue: false
     xpath: //div[contains(@class,'bv_numReviews')]/div/text()
     regExp: (\d+)

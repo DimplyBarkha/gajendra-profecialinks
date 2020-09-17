@@ -11,22 +11,21 @@ module.exports = {
     parameters,
     context,
     dependencies) => {
-    const { transform ,zipcode } = parameters;
-    const { productDetails} = dependencies;
-  //   console.log(zipcode+' is a dependency');
-  // //   // const inputSelector = 'input[name="zipcodeorcity"]';
-  // //   // await context.evaluate((inputSelector) => {
-  // //   //   document.querySelector(inputSelector).value = '5000';
-  // //   // }, inputSelector);
-  // //   let searchBtn = 'button[id="searchsubmit_ondemand"]';
-  // //   searchBtn = await context.evaluate((searchBtn) => {
-  // //     if (document.querySelector(searchBtn)) { return searchBtn; }
-  // //   }, searchBtn);
-  // //   let branchEnquiry='a[title="Filialanfrage"]';
-  // //   if (searchBtn) {
-  // //     await context.click(branchEnquiry);
-  // //     await context.waitForSelector('div[class="filialen hidden"]');
-  // //   }
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+
+    const availabilitySelector = 'div[class="availabilityBox n-availabilityBox"] div[class*="availability stati"]';
+    await context.evaluate((availabilitySelector) => {
+      let stockText = '';
+      const availabilityStatus = document.querySelector(availabilitySelector).innerText;
+      if (availabilityStatus.includes('sofort lieferbar')) { stockText = 'In Stock'; } else if (availabilityStatus.includes('innert 1-2 Wochen')) { stockText = 'In Stock'; } else if (availabilityStatus.includes('momentan nicht kaufbar')) { stockText = 'Out Of Stock'; } else if (availabilityStatus.includes('Lieferung ab')) { stockText = 'Out Of Stock'; } else if (availabilityStatus.includes('Liefertermin nicht')) {
+        const regionalAvailability = 'div[class*="filialeAvailability stati"]';
+        const regionalAvailabilityStatus = document.querySelector(regionalAvailability).innerText;
+        if (regionalAvailabilityStatus.includes('momentan nicht kaufbar')) { stockText = 'Out Of Stock'; } else { stockText = 'In Stock'; }
+      }
+      document.body.setAttribute('availability', stockText);
+    }, availabilitySelector);
+
     return await context.extract(productDetails, { transform });
   },
 };

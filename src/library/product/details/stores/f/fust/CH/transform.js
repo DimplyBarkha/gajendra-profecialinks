@@ -1,57 +1,26 @@
+
 /**
  *
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data, context) => {
-  for (const { group } of data) {
-    for (const row of group) {
-      try {
-        
-      for(const keys in row)
-        if (row.availabilityText[0].text.includes('innert 1-2'))
-         {
-            row.availabilityText[0] = { text: 'In Stock' };
-            row.availabilityText.pop();
-        }
-         else if (row.availabilityText[0].text.includes('sofort lieferbar'))
-          {
-             row.availabilityText[0] = { text: 'In Stock' }; 
-             row.availabilityText.pop();
-            }
-         else if (row.availabilityText[0].text.includes('Morgen geliefert!')) 
-         {
-            row.availabilityText[0] = { text: 'In Stock' };
-            row.availabilityText.pop();
-            }
-       else if (row.availabilityText[0].text.includes('momentan nicht kaufbar')) 
-       {
-          row.availabilityText[0] = { text: 'Out of Stock' }; 
-          } 
-       else if (row.availabilityText[0].text.includes('Liefertermin nicht bekannt')) //check zipcode
-       {
-          if (row.availabilityText[2].text.includes('momentan nicht kaufbar')) {
-            row.availabilityText[0] = { text: 'Out of Stock' };
-          } else {
-            row.availabilityText[0] = { text: 'In Stock' };
-          }
-          row.availabilityText.pop();
-          row.availabilityText.pop();
-        }
-        let bulletCount=0;
-        if(row.description){
-          row.description.forEach(el => {
-             if(el.text.charAt[0]=='-'){
-              bulletCount++;}
-              let str=el.text;
-              if(str.charAt(0)=='-')
-                bulletCount++;
-          });
-        row.descriptionBullets[0]={text:bulletCount};
-        }
-      } catch (exception) { console.log('Error in transform', exception); }
-    }
-  }
+const transform = (data) => {
+  // Default transform function
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
   return data;
 };
 

@@ -27,13 +27,15 @@ fields:
   - name: price
     xpath: concat(//meta[@itemprop="price"]//@content,' ',//meta[@itemprop="priceCurrency"]//@content)
   - name: availabilityText
-    xpath: //div[contains(@class,'checkfix')]//div[contains(@class,'availability stati')][1]|//div[@class='filialen hidden']/div[@class='item'][1]//div[contains(@class,'filialeAvailability stati')]
+    # xpath: //div[contains(@class,'checkfix')]//div[contains(@class,'availability stati')][1]|//div[@class='filialen hidden']/div[@class='item'][1]//div[contains(@class,'filialeAvailability stati')]
+    xpath: //body/@availability
   - name: description
     xpath: //div[@itemprop='description']//text()
-  - name: descriptionBullets
-    description: Number of ul > li tags in the description
-    xpath: count(//table[@class='not-basic-table specification']/tbody/tr)
-    type: NUMBER
+  # - name: descriptionBullets
+  #   description: Number of ul > li tags in the description
+  #   # xpath: count(//table[@class='not-basic-table specification']/tbody/tr)
+  #   xpath: count(//div[@itemprop='description']//br)
+  #   type: NUMBER
   - name: brandText
     xpath: //h1[contains(@class,'productDetail ')]/span/text()
   - name: specifications
