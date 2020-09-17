@@ -1,0 +1,54 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@data-automation,'product-results')]//div[contains(@data-automation,'product')]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //a/@href[contains(.,'/ip/')]
+    regExp: (/ip/.+)
+    regExpReplace: https://www.walmart.ca/en$1
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: true
+    xpath: //img/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: true
+    xpath: //p[contains(@data-automation,'name')]
+    description: The product name
+  - name: gtin
+    manualSelector: div[id='ii_upc']
+    description: GTIN code (includes UPC/EAN)
+  - name: reviewCount
+    singleValue: true
+    xpath: //div[contains(@data-automation,'star-rating-wrapper')]
+    regExp: (\d{1,})
+    regExpReplace: $1
+    description: The number of reviews
+  - name: price
+    singleValue: true
+    xpath: //span[contains(@data-automation,'current-price')]
+    description: The offered price for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+  - name: id
+    singleValue: true
+    xpath: //div[contains(@data-automation,'product')]/@data-product-id
+    description: Unique id (within this extractor
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@data-automation,'rating-stars')]/@aria-label
+    description: The stated aggregate rating normalized to be out of 5
+    regExp: (?:([\d]+(?:.[\d]+)?)?)
+    regExpReplace: $1 
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']
+    regExp: (^[^#]*)
+    regExpReplace: $1
+    

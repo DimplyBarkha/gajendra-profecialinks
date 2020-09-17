@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'walmart.ca',
-    timeout: 30000,
     country: 'CA',
     store: 'walmart',
+    domain: 'walmart.ca',
     zipcode: '',
   },
 };
