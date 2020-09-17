@@ -75,6 +75,21 @@ const transform = (data) => {
       if(row.technicalInformationPdfPresent && row.technicalInformationPdfPresent[0].text === 'Bekijk de handleiding') {
         row.technicalInformationPdfPresent = [{text: 'Yes'}]
       }
+
+      if (row.description && row.additionalDescriptionBulletInfo) {
+        row.additionalDescriptionBulletInfo[0].text = ` || ${row.additionalDescriptionBulletInfo[0].text}`;
+        row.description = row.description.concat(row.additionalDescriptionBulletInfo);
+      }
+
+      if (row.productOtherInformationDD && row.productOtherInformationDT) {
+        row.productOtherInformation = [{ text: '' }];
+        let prodOtherInfo = '';
+        for (let i = 0; i < row.productOtherInformationDD.length; i++) {
+          prodOtherInfo += `${row.productOtherInformationDT[i].text} : ${row.productOtherInformationDD[i].text} | `
+        }
+        prodOtherInfo = prodOtherInfo.substring(0, prodOtherInfo.lastIndexOf('|') - 1).trim();
+        row.productOtherInformation = [{ text: prodOtherInfo }]
+      }
     }
   }
 

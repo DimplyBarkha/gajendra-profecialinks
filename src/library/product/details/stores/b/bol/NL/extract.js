@@ -18,13 +18,20 @@ module.exports = {
         videoSelector = "video[data-test='wsp-video-element']";
       }
     });
-    // if (true) {
-    //   console.log('came in here')
-    //   console.log(videoSelector)
-    //   await context.waitForFunction(function (videoSelector) {
-    //     return Boolean(document.querySelector(videoSelector));
-    //   }, { timeout: 30000 }, videoSelector);
-    // }
+
+    try {
+      await context.evaluate(async function () {
+        const ulInDesc = "div[data-test='description']>ul";
+        const descBullets = document.querySelector(ulInDesc);
+        const body = document.querySelector('body');
+        if (descBullets) {
+          body.appendChild(descBullets);
+        }
+      })
+    } catch (err) {
+      console.log(err.message)
+    }
+    
     return await context.extract(productDetails, { transform: transformParam });
   },
 };
