@@ -67,7 +67,7 @@ fields:
     xpath: //th[contains(text(),"olour")]/following-sibling::td
   - name: colorCode
   - name: manufacturerDescription
-    xpath: //div[@class="eky-container-full"]//div
+    xpath: //body/@enhancedContent
   - name: manufacturerImages
     xpath: //div[@class="eky-container-full"]//img[not(contains(@src,"dyson_webar"))]/@src
     regExp: (.+)
