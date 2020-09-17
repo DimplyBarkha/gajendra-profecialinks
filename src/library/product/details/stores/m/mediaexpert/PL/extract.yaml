@@ -54,3 +54,6 @@ fields:
   - name: productOtherInformation
     singleValue: false
     xpath: //*[contains(text(),"Informacje dodatkowe")]//ancestor::div[contains(@class,"c-accordion_item")]
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[contains(@class,"c-offerBox_row is-content")][1]//p[contains(@class,"a-typo is-tertiary")]
