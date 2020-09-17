@@ -46,7 +46,10 @@ const transform = (data) => {
                 row.brandText[0].text = row.name[0].text.trim().replace(/([^\s]+).*/, '$1')
             }
             if (row.mpc) {
-                row.mpc = row.mpc.filter(mpc => /Does not apply/i.test(mpc.text))
+                row.mpc = row.mpc.filter(mpc => !/Does not apply/i.test(mpc.text))
+            }
+            if (row.aggregateRating && row.decimalSeperator && row.decimalSeperator[0].text === 'EU') {
+                row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.',',')
             }
 
         }

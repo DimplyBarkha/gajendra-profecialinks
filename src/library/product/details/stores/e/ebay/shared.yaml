@@ -21,10 +21,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    manualSelector: span#prcIsum, span#prcIsum_bidPrice
+    manualSelector: span#prcIsum, span#prcIsum_bidPrice, span#mm-saleDscPrc
   - name: listPrice
     singleValue: false
-    manualSelector: span.vi-originalPrice
+    manualSelector: span.vi-originalPrice, span#mm-saleOrgPrc
   - name: promotion
     singleValue: false
     manualSelector: span.vi-discount
@@ -95,7 +95,7 @@ fields:
     xpath: normalize-space(//td[contains(text(), 'Box Weight:')]/following-sibling::td)
   - name: color
     singleValue: false
-    xpath: normalize-space(//td[contains(translate(text(),'COLOR','color'),'color')]/following-sibling::td | //td[contains(translate(text(),'COLOUR','colour'),'colour')]/following-sibling::td)
+    xpath: normalize-space(//td[contains(translate(text(),'COLOR','color'),'color')]/following-sibling::td | //td[contains(translate(text(),'COLOUR','colour'),'colour')]/following-sibling::td | //td[contains(text(),'Farbe')]/following-sibling::td)
   - name: warranty
     singleValue: false
     xpath: normalize-space(//td[contains(translate(text(),'WARRANTY','warranty'),'warranty')]/following-sibling::td)
