@@ -21,7 +21,7 @@ fields:
     xpath: //product-details//a[(@class='breadcrumb -clickable-last-child')]
   - name: nameExtended
     singleValue: true
-    xpath: //meta[@name='description']/@content
+    xpath: //h1[@class='pdp__title js-productName']
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product    
