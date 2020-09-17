@@ -28,6 +28,6 @@ fields:
     xpath: //meta[@property='og:url']//@content
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="item-cell"]//div[@class="item-container"]/a/@href
+    xpath: //ul[contains(@class,'products-grid')]//a[contains(@class,'product-image')]/@href
   - name: sponsored
     singleValue: false
