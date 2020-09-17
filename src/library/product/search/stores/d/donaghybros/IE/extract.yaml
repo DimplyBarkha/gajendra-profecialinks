@@ -1,0 +1,24 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id="kuLandingProductsListUl"]//li
+fields:
+  - name: productUrl
+    xpath: //div[@class="klevuImgWrap"]/a/@href
+  - name: thumbnail
+    xpath: //div[@class="klevuImgWrap"]/a/img/@src
+    regExp: ((klevu_images|catalog/product))(.+)
+    regExpReplace: https://donaghybros.co.uk/media/catalog/product/cache/2/thumbnail/9df78eab33525d08d6e5fb8d27136e95$3
+  - name: name
+    xpath: //div[@class="kuName"]/a
+  - name: id
+    xpath: //ul[@id="kuLandingProductsListUl"]//li//div[@class="kuName"]/a/@onkeydown
+    regExp: sku:\s'(\d+)
+    regExpReplace: $1
+  - name: price
+    xpath: //div[@class="kuPrice"]/div[last()]
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
+  

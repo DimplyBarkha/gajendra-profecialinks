@@ -1,0 +1,103 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: (//a[@class="fancybox"]/img/@src)[1]
+    description: URL of the main product image
+    regExp: (.+)476x/(.+)
+    regExpReplace: $1$2
+  - name: alternateImages
+    xpath: //div[@class="cycle-slideshow gallery"]/div[position()>2]//a[@class="fancybox"]/img/@src
+    regExp: (.+)476x/(.+)
+    regExpReplace: $1$2
+    singleValue: false
+  - name: metaKeywords
+    xpath: //div[@class="klevu-pt-rs-keywords"]
+    description: The <meta> keywords content
+  - name: category
+    xpath: //a[@class="append_category"]/@href
+    singleValue: false 
+  - name: nameExtended
+    xpath: //h1
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    xpath: //div[@class="price"]//small
+    description: The stated undiscounted price for the product
+  - name: price
+    xpath: //span[@class="price"]
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    xpath: //div[@class="add-to-cart"]/a
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@itemprop="description"]//div[@class="row"][1]/div[1]
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: brandText
+    xpath: //th[contains(text(),"Brand")]/following-sibling::td
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: manufacturer
+    xpath: //th[contains(text(),"Brand")]/following-sibling::td
+    description: Product manufacturer
+  - name: weightNet
+    xpath: //span[contains(text(),"Weight")]/parent::div/following-sibling::div/span
+    description: Net weight as described on the page
+  - name: gtin
+    xpath: //th[contains(text(),"EAN Number")]/following-sibling::td
+    description: GTIN code (includes UPC/EAN)
+  - name: eangtin
+    xpath: //th[contains(text(),"EAN Number")]/following-sibling::td
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    xpath: //span[contains(text(),"SKU:")]
+    regExp: SKU:\s(.+)
+    regExpReplace: $1
+    description: The store-specific product identifier
+  - name: variantId
+    xpath: //span[contains(text(),"SKU:")]
+    regExp: SKU:\s(.+)
+    regExpReplace: $1
+  - name: mpc
+    xpath: //th[contains(text(),"Model Number")]/following-sibling::td
+    description: The manufacturer model code (unique) of the product
+  - name: ratingCount
+    xpath: //body/@review_count
+    description: The number of ratings
+  - name: aggregateRating
+    xpath: //body/@rating
+    description: The stated aggregate rating normalized to be out of 5
+  - name: shippingInfo
+    xpath: //div[@id="tab-content4"]//div[@class="text-pad"]
+  - name: color
+    xpath: //th[contains(text(),"Colour")]/following-sibling::td
+    description: A textual description of the colour
+  - name: videos
+    xpath: //div[@class="video-container"]/iframe/@src
+    description: URLs of videos on page
+  - name: name
+    xpath: //h1
+    description: The product name
+  - name: specifications
+    xpath: //table[@class="data-table"]//tbody
+    description: The physical dimensions of the product including packaging.
+  - name: warranty
+    xpath: //th[contains(text(),"Manufacturer's Guarantee")]/following-sibling::td
+    description: Guarantee associated with the product
+  - name : manufacturerDescription
+    xpath: //div[@class="flix-std-row"]
+  - name : manufacturerImages
+    xpath: //div[@id="inpage_container"]//img/@srcset
+    regExp: //(.+)
+    regExpReplace: https://$1
+  
