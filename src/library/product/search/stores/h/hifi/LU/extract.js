@@ -16,32 +16,35 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    const productList = await context.evaluate(async function () {
+    await context.evaluate(async function () {
       const mainElement = document.querySelectorAll('section[class~="products-overview"] div[class~="row"] > div');
-      return mainElement ? mainElement.length : '';
-    });
-    if (productList) {
-      for (let index = 1; index <= productList; index++) {
-        const selector = `section[class~="products-overview"] div[class~="row"] > div:nth-child(${index})`;
-        await context.evaluate(async function (selector) {
-          const index = selector[1];
-          if (selector && index) {
-            const element = document.querySelector(selector[0]);
+      if (mainElement) {
+        for (let index = 1; index <= mainElement.length; index++) {
+          const selector = `section[class~="products-overview"] div[class~="row"] > div:nth-child(${index})`;
+          if (selector) {
+            const element = document.querySelector(`${selector} div[class~="top-content"]`);
             if (element) {
-              element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+              element.scrollIntoView({ behavior: 'smooth' });
               await new Promise(resolve => setTimeout(resolve, 2000));
-              const currentImage = document.querySelector(`${selector[0]} img[class~="product-image"]`);
+              const currentImage = document.querySelector(`${selector} img[class~="product-image"]`);
+              const imagePresent = document.querySelector(`${selector} #pd_image`);
+              if (imagePresent) {
+                imagePresent.remove();
+              }
+              await new Promise(resolve => setTimeout(resolve, 2000));
               if (currentImage) {
                 const prodEle = document.createElement('div');
                 prodEle.id = 'pd_image';
                 prodEle.textContent = currentImage.src;
+                prodEle.style.display = 'none';
                 document.querySelector(`section[class~="products-overview"] div[class~="row"] > div:nth-child(${index})`).appendChild(prodEle);
               }
             }
           }
-        }, [selector, index]);
+        }
       }
-    }
+    });
+    await new Promise(resolve => setTimeout(resolve, 5000));
     return await context.extract(productDetails, { transform });
   },
 };
