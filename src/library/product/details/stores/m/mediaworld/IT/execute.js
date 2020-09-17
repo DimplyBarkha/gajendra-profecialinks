@@ -5,8 +5,5 @@ module.exports = {
     country: 'IT',
     store: 'mediaworld',
     domain: 'mediaworld.it',
-    loadedSelector: null,
-    noResultsXPath: null,
-    zipcode: '',
   },
 };

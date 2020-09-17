@@ -384,7 +384,8 @@ fields:
     description: Guarantee associated with the product
     xpath: //div[contains(@class,"clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item")]/p[1]/text()[4]
     regExp: (\d+[" "].+)
-  - name: product_id
+  - name: variantId
+    singleValue: true
     xpath: //div[@class="product-right-bar-inner"]/@data-pcode-gtm
   - name: shipping_Information
   - name: storage
