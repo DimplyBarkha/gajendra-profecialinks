@@ -28,7 +28,7 @@ const cleanUp = (data, context) => {
         row.manufacturerDescription = [{ text }];
       }
       if (row.specifications) {
-        const text = row.specifications.map(elm => elm.text.trim()).join(' ');
+        const text = row.specifications.map(elm => elm.text).join(' || ');
         row.specifications = [{ text }];
       }
       if (row.aggregateRating) {

@@ -139,7 +139,7 @@ fields:
     xpath: //*[@id="inpage_container"]//img/@data-flixsrcset
   - name: videos
     description: URLs of videos on page
-    xpath: //body/@video | //iframe[contains(@title,"Flix-media-video")]/@src | @_src
+    xpath: //li[@class='VideoLinks']
   - name: name
     singleValue: true
     description: The product name
@@ -378,7 +378,7 @@ fields:
     description:
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //*[@data-component="productDetailTabTech"]//text()
+    xpath: //div[@data-target="specifiche"]//ul/li//ul/li
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product

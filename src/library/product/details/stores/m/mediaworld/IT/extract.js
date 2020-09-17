@@ -8,13 +8,31 @@ module.exports = {
     domain: 'mediaworld.it',
   },
   implementation: async ({ input }, { transform }, context, { productDetails }) => {
-    await context.evaluate(() => {
-      const getAllData = JSON.parse(window.mwProductDetailData);
-      const videoUrl = getAllData && getAllData.CatalogEntryView[0] && getAllData.CatalogEntryView[0].Attributes;
+    await context.evaluate(async function () {
+      const videoArr = [];
+      const getAllThumbnailVideos = JSON.parse(window.mwProductDetailData);
+      const videoUrl = getAllThumbnailVideos && getAllThumbnailVideos.CatalogEntryView[0] && getAllThumbnailVideos.CatalogEntryView[0].Attributes;
       const element = videoUrl.find(product => product.name === 'eVideoshopping');
       if (element) {
         const videoLink = element && element.Values[0] && element.Values[0].values;
-        document.body.setAttribute('video', videoLink);
+        videoArr.push(videoLink);
+      }
+
+      const getEnhanceContentVideos = [...document.querySelectorAll('div.fullJwPlayerWarp input')];
+      if (getEnhanceContentVideos.length) {
+        getEnhanceContentVideos.forEach(res => {
+          const enhanceContentVideoLinks = res && res.getAttribute('value').replace(/(.+file":")([^"]+)(.+)/g, '$2').replace(/(.+)(\/.+)/g, 'http://content.jwplatform.com/videos$2');
+          videoArr.push(enhanceContentVideoLinks);
+        });
+      }
+
+      if (videoArr.length) {
+        videoArr.forEach(res => {
+          var newLink = document.createElement('li');
+          newLink.className = 'VideoLinks';
+          newLink.textContent = res;
+          document.body.appendChild(newLink);
+        });
       }
     });
     await context.extract(productDetails, { transform });
