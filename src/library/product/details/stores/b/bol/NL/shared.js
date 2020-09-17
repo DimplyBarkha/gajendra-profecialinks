@@ -68,17 +68,20 @@ const transform = (data) => {
         for (let i = 0; i < row.specTitle.length; i++) {
           specifications += `${row.specTitle[i].text} : ${row.specValue[i].text} || `;
         }
-        specifications = specifications.substring(0,specifications.lastIndexOf('||')-1).trim();
+        specifications = specifications.substring(0, specifications.lastIndexOf('||') - 1).trim();
         row.specifications = [{ text: specifications }];
       }
 
-      if(row.technicalInformationPdfPresent && row.technicalInformationPdfPresent[0].text === 'Bekijk de handleiding') {
-        row.technicalInformationPdfPresent = [{text: 'Yes'}]
+      if (row.technicalInformationPdfPresent && row.technicalInformationPdfPresent[0].text === 'Bekijk de handleiding') {
+        row.technicalInformationPdfPresent = [{ text: 'Yes' }]
       }
 
       if (row.description && row.additionalDescBulletInfo) {
-        row.additionalDescBulletInfo[0].text = ` || ${row.additionalDescBulletInfo[0].text}`;
         row.description = row.description.concat(row.additionalDescBulletInfo);
+      }
+
+      if (row.additionalDescBulletInfo) {
+        row.additionalDescBulletInfo[0].text = ` || ${row.additionalDescBulletInfo[0].text}`;
       }
 
       if (row.productOtherInformationDD && row.productOtherInformationDT) {
