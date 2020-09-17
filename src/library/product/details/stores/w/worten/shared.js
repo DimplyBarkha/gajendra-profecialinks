@@ -63,14 +63,13 @@ const transform = (data) => {
         let text = '';
         let count = 0;
         row.specifications.forEach(item => {
-          count ++;
-          let val = (count%2);
+          count++;
+          const val = (count % 2);
           if (val === 0) {
             text += `: ${item.text}`;
-          }
-          else {
+          } else {
             text += ` | ${item.text}`;
-          }          
+          }
         });
         row.specifications = [
           {
@@ -82,14 +81,13 @@ const transform = (data) => {
         let text = '';
         let count = 0;
         row.productOtherInformation.forEach(item => {
-          count ++;
-          let val = (count%2);
+          count++;
+          const val = (count % 2);
           if (val === 0) {
             text += ` ${item.text}`;
-          }
-          else {
+          } else {
             text += ` || ${item.text}`;
-          }          
+          }
         });
         row.productOtherInformation = [
           {

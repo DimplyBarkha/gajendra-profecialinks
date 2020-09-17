@@ -22,7 +22,7 @@ module.exports = {
     await context.waitForNavigation({ timeout: 50000, waitUntil: 'networkidle0' });
     await context.evaluate(function () {
       console.log('Scrolling to the bottom of page.');
-      document.querySelector('.footer__bar').scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+      document.querySelector('.footer__bar').scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
     });
 
     try {
