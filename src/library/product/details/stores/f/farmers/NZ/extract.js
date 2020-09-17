@@ -19,7 +19,8 @@ module.exports = {
       const imageEle = document.querySelectorAll('div#inpage_container img');
       return imageEle;
     });
-    if (imageEle) {
+    console.log('imageEle', imageEle);
+    if (Object.keys(imageEle).length !== 0) {
       await context.waitForSelector('div#inpage_container img');
     }
     await context.evaluate(async () => {
@@ -33,7 +34,7 @@ module.exports = {
           addHiddenDiv('video-url', src);
         }
       }
-      if (imageEle) {
+      if (Object.keys(imageEle).length !== 0) {
         var urls = [];
         imageEle.forEach((ele) => {
           var imageUrls = ele.getAttribute('data-flixsrcset');
