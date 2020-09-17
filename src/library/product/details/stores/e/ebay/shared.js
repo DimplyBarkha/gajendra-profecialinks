@@ -20,7 +20,8 @@ async function implementation(
     await context.extract(productDetails, { transform });
     if (src) {
         try {
-            await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+            await context.setBypassCSP(true);
+            await context.goto('https://vi.vipr.ebaydesc.com/ws/eBayISAPI.dll?ViewItemDescV4&item=153905959735&t=1600215559000&category=20614&seller=bestbuyonlinestore', { timeout: 30000, waitUntil: 'load', checkBlocked: true });
             await context.waitForSelector('div#ds_div');
             return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
         } catch (error) {
