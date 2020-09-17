@@ -1,10 +1,9 @@
-
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'PT',
     store: 'fnac',
-    nextLinkSelector: 'li[class*="nextLevel"] a',
+    nextLinkSelector: 'li[class="nextLevel1 "] a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'article[class*="Article-itemGroup"]',
