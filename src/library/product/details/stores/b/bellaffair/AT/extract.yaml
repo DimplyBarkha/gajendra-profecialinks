@@ -5,16 +5,17 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //a[contains(@class,'fancy fb-gallery')]/img/@src
+    xpath: //div[contains(@class,'detail-image-container')]//img/@src
   - name: imageAlt
     singleValue: true
-    xpath: //a[contains(@class,'fancy fb-gallery')]/img/@alt
+    xpath: //div[contains(@class,'detail-image-container')]//img/@alt
   - name: description
     singleValue: true
     xpath: //*[contains(@class,'detailEntryText')]
   - name: brandText
     singleValue: true
-    xpath: //div[@class="brandlogo"]//img/@alt
+    xpath:  //li[contains(text(), 'Marke')]
+    regExp: (?<=:).*
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
@@ -51,7 +52,8 @@ fields:
     xpath: //meta[@itemprop='sku']/@content
   - name: gtin
     singleValue: true
-    xpath: //meta[@itemprop='gtin13']/@content
+    xpath: //p[@class='small shopArtEan']
+    regExp:  (?<=EAN:).*
   - name: variantId
     singleValue: true
     xpath: //meta[@itemprop='sku']/@content
@@ -63,7 +65,8 @@ fields:
     xpath: //meta[@itemprop='ratingValue']/@content
   - name: manufacturer
     singleValue: true
-    xpath:  //div[@class="brandlogo"]//img/@alt
+    xpath:  //li[contains(text(), 'Marke')]
+    regExp: (?<=:).*
   - name: mpc
     singleValue: true
     xpath: //meta[@itemprop='sku']/@content
@@ -93,11 +96,11 @@ fields:
   - name: color
     singleValue: true
     xpath:  //li[contains(text(), 'Farbe')]
-    regExp: (:+) .*
+    regExp: (?<=:).*
   - name: packSize
     singleValue: true
     xpath:  //li[contains(text(), 'Ausstattung')]
-    regExp: (:+) .*
+    regExp: (?<=:).*
   - name: variantCount
     singleValue: true
     type: NUMBER
@@ -109,11 +112,11 @@ fields:
   - name: firstVariant
     singleValue: true
     xpath:  //li[contains(text(), 'Farbe')]
-    regExp: (:+) .*
+    regExp: (?<=:).*
   - name: variantInformation
     singleValue: true
     xpath:  //li[contains(text(), 'Farbe')]
-    regExp: (:+) .*
+    regExp: (?<=:).*
   - name: variants
     singleValue: true
     xpath:  //div[contains(@class, 'selectBox')]//select[contains(@id, 'js-variant')]/option
