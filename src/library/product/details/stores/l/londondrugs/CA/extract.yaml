@@ -43,7 +43,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@itemprop="description"]/div[not(@id)]/ul/li | //div[@itemprop="description"]/div[not(@id)]/b | //div[@itemprop="description"]/div[not(@id)]/text()
+    xpath: //div[@itemprop="description"]/div[not(@id)]/ul/li | //div[@itemprop="description"]/div[not(@id)]/b | //div[@itemprop="description"]/div[not(@id)]/text() | //div[@itemprop="description"]/div[not(@id)]/p
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
@@ -126,7 +126,7 @@ fields:
     description: null
   - name: coupon
     description: Text of any coupon offer
-    xpath: //div[@class="ld-sg-promo__wrapper"]/label/following-sibling::*
+    xpath: //*[@class="ld-sg-promo"]/div
   - name: amazonChoice
     description: YES or Blank
   - name: amazonChoiceCategory
@@ -319,7 +319,7 @@ fields:
     description: null
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id="ccs-ext-spec"]/ul/li
+    xpath: //div[@id="ccs-ext-spec"]/ul/li | //div[@id="ccs-ext-spec"]//td
   - name: warranty
     description: Guarantee associated with the product
     xpath: //*[contains(@aria-label,"Warranty")]/following-sibling::* | //*[contains(text(),"Warranty")]/following-sibling::* | //span[contains(text(),"warranty")] | //div[@id="wc-power-page"]//*[contains(text(),"warranty")]
@@ -345,7 +345,6 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     description: promotion text on product page
-    xapth: //div[@class="ld-sg-promo__wrapper"]/a/preceding-sibling::p[1]
   - name: alcoholContent
     description: Alcohol content information
   - name: newVersion

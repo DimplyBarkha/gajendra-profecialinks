@@ -15,6 +15,16 @@ const transform = (data) => {
         row.manufacturerDescription = [{ text }];
       }
 
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          const value = item.text.replace(/(.+)\n\n?(.+)/g, '$1:$2');
+          item.text = value;
+          text = text + (text ? ' || ' : '') + item.text;
+        });
+        row.specifications = [{ text }];
+      }
+
       if (row.variantInformation) {
         let text = '';
         row.variantInformation.forEach(item => {
