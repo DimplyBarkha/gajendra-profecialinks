@@ -23,4 +23,8 @@ fields:
     singleValue: false
     xpath: //div[@class='cs-product-tile__brand']
   - name: rank
-    type: NUMBER
+    #type: NUMBER
+    singleValue: false
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class='cs-product-tile__brand']/text()
