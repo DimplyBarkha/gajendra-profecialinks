@@ -5,12 +5,12 @@ module.exports = {
     country: 'FI',
     store: 'gigantti',
     nextLinkSelector: null,
-    loadedSelector: 'div.product-list-container',
+    loadedSelector: 'div.product-list-container > div.mini-product-list',
     noResultsXPath: '//section[contains(@class, "no-search-result")]',
     domain: 'gigantti.fi',
     zipcode: '',
   },
-  implementation: async function implementation (
+  /* implementation: async function implementation (
     inputs,
     parameters,
     context,
@@ -60,5 +60,5 @@ module.exports = {
       console.log(e);
       return !e;
     }, noResultsXPath);
-  }
+  } */
 };
