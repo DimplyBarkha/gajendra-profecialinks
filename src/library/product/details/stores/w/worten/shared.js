@@ -35,6 +35,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text += item.text.replace(/\\n/g, ' ');
+        });
+        row.manufacturerDescription = [
+          {
+            text: text,
+          },
+        ];
+      }
       if (row.aggregateRating) {
         let text = '';
         let rating = '';
@@ -50,17 +61,41 @@ const transform = (data) => {
       }
       if (row.specifications) {
         let text = '';
+        let count = 0;
         row.specifications.forEach(item => {
-          text = row.specifications.map(elm => elm.text).join(' ').replace(/●/g, '||');
+          count ++;
+          let val = (count%2);
+          if (val === 0) {
+            text += `: ${item.text}`;
+          }
+          else {
+            text += ` | ${item.text}`;
+          }          
         });
-        row.specifications = [{ text }];
+        row.specifications = [
+          {
+            text: text.replace(new RegExp('(\\s\\|\\s)(.+)', 'g'), '$2'),
+          },
+        ];
       }
       if (row.productOtherInformation) {
         let text = '';
+        let count = 0;
         row.productOtherInformation.forEach(item => {
-          text = row.productOtherInformation.map(elm => elm.text).join(' | ').replace(/●/g, '||');
+          count ++;
+          let val = (count%2);
+          if (val === 0) {
+            text += ` ${item.text}`;
+          }
+          else {
+            text += ` || ${item.text}`;
+          }          
         });
-        row.productOtherInformation = [{ text }];
+        row.productOtherInformation = [
+          {
+            text: text.replace(new RegExp('(\\s\\|\\|\\s)(.+)', 'g'), '$2'),
+          },
+        ];
       }
     }
   }

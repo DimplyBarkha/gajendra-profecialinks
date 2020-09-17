@@ -10,10 +10,10 @@ module.exports = {
   },
   implementation: async (inputs, { country, domain, transform }, context, { productDetails }) => {
     try {
-      await context.waitForSelector('.w-button-primary', { timeout: 10000 });
+      await context.waitForSelector('.w-cookies-popup__wrapper .w-button-primary', { timeout: 10000 });
       await context.evaluate(function () {
         console.log('Clicking on button.');
-        document.querySelector('.w-button-primary').click();
+        document.querySelector('.w-cookies-popup__wrapper .w-button-primary').click();
       });
     } catch (er) {
       console.log('Error while accepting cookies button.', er);
@@ -31,6 +31,6 @@ module.exports = {
       console.log('Enhanced content did not load');
     }
 
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform });
   },
 };
