@@ -34,6 +34,16 @@ const transform = (data, context) => {
           item.text = item.text.replace('.', ',');
         });
       }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace(',', '').replace('.', ',');
+        });
+      }
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          item.text = item.text.replace(',', '').replace('.', ',');
+        });
+      }
       if (row.category) {
         let cat = false;
         row.category.forEach(item => {
