@@ -5,21 +5,21 @@ recordSelector: null
 recordXPath:
 fields:
   - name: name
-    singleValue: false
+    singleValue: true
     xpath: //div[contains(@class, 'product-tile__description')]
   - name: price
-    singleValue: false
+    singleValue: true
     xpath: //div[contains(@class, 'product-tile__prices')]//span[(@class= 'value')]//@content
   - name: productUrl
     singleValue: true    
     xpath: //div[contains(@class, 'product-tile__image')]//a[@class='product-tile-link']//@href
   - name: thumbnail
-    singleValue: false
+    singleValue: true
     xpath: //div[contains(@class, 'product-tile__image')]//a[@class='product-tile-link']//figure//img//@data-src
   - name: aggregateRating
     singleValue: true
   - name: ratingCount
-    singleValue: false  
+    singleValue: true  
   - name: reviewCount
     singleValue: true    
   - name: rank
