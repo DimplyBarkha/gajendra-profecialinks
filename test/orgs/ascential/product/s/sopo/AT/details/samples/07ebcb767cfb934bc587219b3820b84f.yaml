@@ -1,0 +1,156 @@
+input:
+  _url: http://sopo.at
+  URL: https://www.sopo.at/koerperpflege-wellness/haarpflege/haarglaetter/3773/braun-haarglaetter-satin-hair-st710-es2-schwarz
+extractions:
+  - html: https://workbench.import.io/html/run=0804ae2f-8d66-492c-b905-4be9cce6d6cc/task=1bb351ee-b889-4a92-aba0-13388dc28d2e/0aa23d83-8915-4fe4-9b4d-f5f2ffdab094.html
+    extractionConfigId: product/details/stores/s/sopo/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.sopo.at/media/image/eb/d8/c1/641_600x600.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]/img[1]/@srcset
+            imageAlt:
+              - text: Braun Haarglätter Satin Hair ST710,ES2, schwarz
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]/img[1]/@alt
+            metaKeywords:
+              - text: Braun Satin Hair 7 ST710, Schwarz, 410 g, 52 mm, 352 mm, 110 mm, 530 g
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Körperpflege & Wellness
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[1]/a[1]/span[1]
+              - text: Haarpflege
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+              - text: Haarglätter
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
+            nameExtended:
+              - text: Braun Haarglätter Satin Hair ST710,ES2, schwarz
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            listPrice:
+              - text: € 42,20
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            price:
+              - text: € 42,20
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
+            description:
+              - text: |-
+                  Kurzbeschreibung
+                   
+                   
+                   
+                  Farbe
+                   
+                   
+                  Produktfarbe: Schwarz
+                   
+                   
+                   
+                   
+                  Technische Details
+                   
+                   
+                  Typ: Heiß- Haarglätter
+                   
+                  Ionen-Styling
+                   
+                  Keramisches Heizsystem: Ja
+                   
+                  Aufwärmzeit: 40 s
+                   
+                  Anzahl der Heizstufen: 9
+                   
+                  Automatische Abschaltung: Ja
+                   
+                  Kabellänge: 2 m
+                   
+                  Temperatur (max): 200 °C
+                   
+                  Betriebsbereitschaftsanzeige: Ja
+                   
+                  Eingebaute Anzeige: Ja
+                   
+                  Anzeige: LED
+                   
+                   
+                   
+                   
+                  Gewicht & Abmessungen
+                   
+                   
+                  Gewicht: 410 g
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Braun
+                xpath: /html/head[1]/meta[13]/@content
+            manufacturer:
+              - text: Braun
+                xpath: /html/head[1]/meta[13]/@content
+            gtin:
+              - text: "4210201644385"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            sku:
+              - text: "4210201644385"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            variantId:
+              - text: "4210201644385"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            color:
+              - text: "Produktfarbe: Schwarz"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]
+            name:
+              - text: Braun Haarglätter Satin Hair ST710,ES2, schwarz
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            inStorePrice:
+              - text: € 42,20
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            additionalDescBulletInfo:
+              - text: "Produktfarbe: Schwarz"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]
+              - text: "Typ: Heiß- Haarglätter"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[1]
+              - text: Ionen-Styling
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[2]
+              - text: "Keramisches Heizsystem: Ja"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[3]
+              - text: "Aufwärmzeit: 40 s"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[4]
+              - text: "Anzahl der Heizstufen: 9"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[5]
+              - text: "Automatische Abschaltung: Ja"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[6]
+              - text: "Kabellänge: 2 m"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[7]
+              - text: "Temperatur (max): 200 °C"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[8]
+              - text: "Betriebsbereitschaftsanzeige: Ja"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[9]
+              - text: "Eingebaute Anzeige: Ja"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[10]
+              - text: "Anzeige: LED"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[11]
+              - text: "Gewicht: 410 g"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[4]/ul[1]/li[1]
+            quantity:
+              - text: "1"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "13"
+                type: NUMBER
+                raw: "13"
+                locale: de_DE
+                value: 13
+        xpath: /
+    timestamp: 1600354966044

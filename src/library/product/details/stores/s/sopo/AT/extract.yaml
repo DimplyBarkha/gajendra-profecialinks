@@ -90,6 +90,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@class='product-articleNumber']
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -123,9 +124,9 @@ fields:
     type: NUMBER
     xpath: //div[contains(@class, 'review--entry')]//meta[@itemprop='ratingValue']/@content
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
     description: Shipping information for the product
-    xpath: //p[@class='delivery--information']
+    # xpath: //p[@class='delivery--information'] | //div[contains(@class, 'shippingdetails')]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -481,6 +482,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: //div[@class='product--description']//li
     description: null
   - name: prop65Warning
     singleValue: true

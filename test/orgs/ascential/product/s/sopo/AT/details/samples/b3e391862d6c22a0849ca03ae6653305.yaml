@@ -1,0 +1,141 @@
+input:
+  _url: http://sopo.at
+  URL: https://www.sopo.at/detail/index/sArticle/44633
+extractions:
+  - html: https://workbench.import.io/html/run=0804ae2f-8d66-492c-b905-4be9cce6d6cc/task=395b3bd9-8f0b-4501-aa1e-7386f8ae3c9d/fd4acc5e-f8bb-4f81-84b4-865edee1cbaf.html
+    extractionConfigId: product/details/stores/s/sopo/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.sopo.at/media/image/28/36/9b/79986468_9068885442_600x600.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]/img[1]/@srcset
+            imageAlt:
+              - text: Black Rock Smartphone-Cover CO AIR ROBUST GA A21s SW Art. Nr.:00192139
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]/img[1]/@alt
+            metaKeywords:
+              - text: Black;Rock;Smartphone-Cover;CO;AIR;ROBUST;GA;A21s;SW;Art.;Nr.:00192139
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Elektronik & Multimedia
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[1]/a[1]/span[1]
+              - text: Handyzubehör
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+              - text: Taschen & Cases
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[5]/a[1]/span[1]
+            nameExtended:
+              - text: Black Rock Smartphone-Cover CO AIR ROBUST GA A21s SW Art. Nr.:00192139
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            listPrice:
+              - text: € 19,99
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            price:
+              - text: € 19,99
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
+            description:
+              - text: |-
+                  Merkmale
+                   
+                   
+                  Maximaler Bildschirmdurchmesser: 16,5 cm (6.5 Zoll)
+                   
+                  Etui-Typ: Cover
+                   
+                  Produktfarbe: Transparent
+                   
+                  Oberflächenfärbung: Einfarbig
+                   
+                  Markenkompatibilität: Samsung
+                   
+                  Desktop-Ständer: Nein
+                   
+                  Verschluss: Nicht unterstützt
+                   
+                  Kompatibilität: Samsung Galaxy A21s
+                   
+                  Eingebaute Batterie: Nein
+                   
+                  Schutzfunktion: Kratzresistent
+                   
+                   
+                   
+                   
+                  Verpackungsdaten
+                   
+                   
+                  Menge pro Packung: 1 Stück(e)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Hama
+                xpath: /html/head[1]/meta[13]/@content
+            manufacturer:
+              - text: Hama
+                xpath: /html/head[1]/meta[13]/@content
+            gtin:
+              - text: "4260647330472"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            sku:
+              - text: "4260647330472"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            variantId:
+              - text: "4260647330472"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            mpc:
+              - text: "00192139"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            color:
+              - text: "Produktfarbe: Transparent"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]
+            name:
+              - text: Black Rock Smartphone-Cover CO AIR ROBUST GA A21s SW Art. Nr.:00192139
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            inStorePrice:
+              - text: € 19,99
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            additionalDescBulletInfo:
+              - text: "Maximaler Bildschirmdurchmesser: 16,5 cm (6.5 Zoll)"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]
+              - text: "Etui-Typ: Cover"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]
+              - text: "Produktfarbe: Transparent"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]
+              - text: "Oberflächenfärbung: Einfarbig"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]
+              - text: "Markenkompatibilität: Samsung"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[5]
+              - text: "Desktop-Ständer: Nein"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[6]
+              - text: "Verschluss: Nicht unterstützt"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[7]
+              - text: "Kompatibilität: Samsung Galaxy A21s"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[8]
+              - text: "Eingebaute Batterie: Nein"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[9]
+              - text: "Schutzfunktion: Kratzresistent"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[10]
+              - text: "Menge pro Packung: 1 Stück(e)"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]
+            quantity:
+              - text: "1"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "11"
+                type: NUMBER
+                raw: "11"
+                locale: de_DE
+                value: 11
+        xpath: /
+    timestamp: 1600354967618
