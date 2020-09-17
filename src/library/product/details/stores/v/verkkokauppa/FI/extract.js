@@ -1,9 +1,11 @@
+const { transform } = require('./transform');
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'FI',
     store: 'verkkokauppa',
-    transform: null,
+    transform,
     domain: 'verkkokauppa.com',
     zipcode: '',
   },
