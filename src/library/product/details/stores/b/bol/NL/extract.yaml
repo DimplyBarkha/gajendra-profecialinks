@@ -28,7 +28,7 @@ fields:
   - name: description
     xpath: //div[@data-test='description']
   - name: descriptionBulletCount
-    xpath: count(//body/ul/li)
+    xpath: //div[@id='bulletCount']
     defaultValue: 0
   - name: brandText
     xpath: //div[@data-test = 'brand']/a
