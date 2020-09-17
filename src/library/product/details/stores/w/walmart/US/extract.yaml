@@ -115,6 +115,9 @@ fields:
   manualSelector: script[id=item]
   regExp: ("roundedAverageOverallRating":)([\d+,.]+)(,")
   regExpReplace: $2
+- name: agRatingFromPage
+  singleValue: true
+  xpath: //button[contains(@class,"rating button")]//span[@itemprop="ratingValue"]
 - name: shippingInfo
   singleValue: true 
   xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"] | //div[contains(@class, 'seller-info-container')]//a[contains(@class,'seller-name')]
@@ -156,9 +159,15 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   xpath: //div[@id='added-marketing']
+- name: myEnhancedContent
+  singleValue: true
+  xpath: //div[@id="my_enh_content"]
 - name: manufacturerImages
   singleValue: false
   xpath: //div[@id='added-marketing']//img/@src
+- name: manufacturerImagesFromPage
+  singleValue: true
+  xpath: //div[@id="my_manufact_images"]
 - name: videos
   singleValue: false
   manualSelector: script[id='item'], script[id='product']

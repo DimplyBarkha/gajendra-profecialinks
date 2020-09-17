@@ -156,6 +156,40 @@ module.exports = {
         .catch(() => console.log('no specTab'));
     }
 
+    // Iframe logic for aplus_images & enhanced_content if not picked up in API:
+    await context.evaluate(async () => {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+
+      const marketingIframe = document.querySelector('iframe#iframe-AboutThisItem-marketingContent');
+      if (marketingIframe) {
+        marketingIframe.scrollIntoView();
+        await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+        const images = marketingIframe.contentDocument.querySelectorAll('img');
+        const imagesSrc = [];
+        images.forEach(img => {
+          let imgUrl = img.getAttribute('src');
+          if (!imgUrl.startsWith('http')) {
+            imgUrl = 'https:' + imgUrl;
+          }
+          imagesSrc.push(imgUrl);
+        });
+        addHiddenDiv('my_manufact_images', imagesSrc.join(' | '));
+
+        const enhancedContent = marketingIframe.contentDocument.querySelectorAll('div');
+        if (enhancedContent) {
+          const setText = new Set();
+          Array.from(enhancedContent).forEach((el) => setText.add(el.innerText));
+          addHiddenDiv('my_enh_content', Array.from(setText).join(' '));
+        }
+      }
+    });
+
     await addAdditionalContent();
     await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
   },

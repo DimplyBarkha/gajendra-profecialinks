@@ -255,6 +255,21 @@ const transform = (data, context) => {
           row.totalCarbPerServingUom = [{ text: carbs.replace(/[^a-zA-Z]/g, '') }];
         }
 
+        if (!row.aggregateRating && row.agRatingFromPage) {
+          row.aggregateRating = [{ text: row.agRatingFromPage[0].text }];
+          delete row.agRatingFromPage;
+        }
+
+        if (!row.manufacturerImages && row.manufacturerImagesFromPage) {
+          row.manufacturerImages = [{ text: row.manufacturerImagesFromPage[0].text }];
+          delete row.manufacturerImagesFromPage;
+        }
+
+        if (!row.manufacturerDescription && row.myEnhancedContent) {
+          row.manufacturerDescription = [{ text: row.myEnhancedContent[0].text }];
+          delete row.myEnhancedContent;
+        }
+
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = el.text ? clean(el.text) : el.text;
         }));
