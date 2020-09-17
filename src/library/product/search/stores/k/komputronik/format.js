@@ -51,8 +51,8 @@ const transform = (data) => {
           item.text = item.text.toString();
         });
       }
-      row.rank = row.rankOrganic = [{"text":rank}];
-      rank++;        
+      row.rank = row.rankOrganic = [{ "text": rank }];
+      rank++;
     }
   }
   return data;
