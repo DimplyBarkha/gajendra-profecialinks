@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'electrocity.ie',
     timeout: null,
-    country: 'Ireland',
+    country: 'IE',
     store: 'electrocity',
     zipcode: '',
   },

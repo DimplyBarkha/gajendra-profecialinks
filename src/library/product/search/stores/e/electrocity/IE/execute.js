@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
-    country: 'Ireland',
+    country: 'IE',
     store: 'electrocity',
     domain: 'electrocity.ie',
     url: 'https://www.electrocity.ie/?s="{searchTerms}"&post_type=product&dgwt_wcas=1',

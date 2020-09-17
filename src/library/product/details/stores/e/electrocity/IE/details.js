@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details',
   parameterValues: {
-    country: 'Ireland',
+    country: 'IE',
     store: 'electrocity',
     domain: 'electrocity.ie',
     zipcode: '',

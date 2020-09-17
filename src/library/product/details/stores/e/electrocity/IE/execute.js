@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
-    country: 'Ireland',
+    country: 'IE',
     store: 'electrocity',
     domain: 'electrocity.ie',
     loadedSelector: 'div.elementor-widget-container',

@@ -5,7 +5,7 @@ module.exports = {
     domain: 'electrocity.ie',
     prefix: null,
     url: null,
-    country: 'Ireland',
+    country: 'IE',
     store: 'electrocity',
     zipcode: '',
   },

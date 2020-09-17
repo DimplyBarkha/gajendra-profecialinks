@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'Ireland',
+    country: 'IE',
     store: 'electrocity',
     nextLinkSelector: null,
     mutationSelector: null,
