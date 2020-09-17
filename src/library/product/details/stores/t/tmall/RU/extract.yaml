@@ -18,6 +18,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: //div[@class="product-info"]/meta[@itemprop="url"]/@content
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="product-info"]/meta[@itemprop="url"]/@content    
   - name: brandText
     singleValue: false
     xpath: //div[@class="product-info"]/meta[@itemprop="brand"]/@content
