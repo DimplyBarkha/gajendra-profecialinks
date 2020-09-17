@@ -15,13 +15,12 @@ module.exports = {
       addEleToDoc('gtinId', productInfo[0].gtin13);
       addEleToDoc('priceCurrency', productInfo[0].offers[0].priceCurrency);  
      
-
       function preFetchProductDetails () {
         let productInfo = findProductDetails('//script[@type="application/ld+json"]');                
         productInfo = JSON.parse(productInfo.textContent);
         return productInfo;
       }      
-            
+
       function findProductDetails (xpath) {        
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;                
         const productDetails = element;
@@ -34,17 +33,22 @@ module.exports = {
         prodEle.textContent = value;
         prodEle.style.display = 'none';
         document.body.appendChild(prodEle);
+      }    
+      
+      let tempCheck = document.evaluate('//section[contains(@class,"description-container__full-text")]//div//ul//li[contains(text(),"Mitat")]', document).iterateNext();      
+      if(tempCheck !=null)
+      {
+        let shippingDimensionsData = document.evaluate('//section[contains(@class,"description-container__full-text")]//div//ul//li[contains(text(),"Mitat")]', document).iterateNext().textContent.trim();      
+        addEleToDoc('shippingDimensionsTempId', shippingDimensionsData);
       }
 
-      // await new Promise(resolve => setTimeout(resolve, 3000));
-      // const overlay = document.getElementById('tabs-page-select-tab1');      
-      // if (overlay !== undefined) {
-      //   overlay.click();
-      // }
-
-    });
-
-    const cssProduct = "div.Scrollable-sc-139ziej-0 > a.gBtnMb";
+      let tempweightNet = document.evaluate('//section[contains(@class,"description-container__full-text")]/div/ul/li[contains(text(),"Moduulin paino")]', document).iterateNext();      
+      if(tempweightNet !=null)
+      {
+        let tempweightNet1 = document.evaluate('//section[contains(@class,"description-container__full-text")]/div/ul/li[contains(text(),"Moduulin paino")]', document).iterateNext().textContent.trim();              
+        addEleToDoc('weightNettempId', tempweightNet1);
+      }
+    });   
 
     const isSelectorAvailable = async (cssSelector) => {
       console.log(`Is selector available: ${cssSelector}`);
@@ -62,6 +66,7 @@ module.exports = {
       await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
       await context.waitForSelector('section.product-details', { timeout: 55000 });
     }
+    
     return await context.extract(productDetails, { transform: transformParam });
   },
 };

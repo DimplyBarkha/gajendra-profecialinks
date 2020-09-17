@@ -83,7 +83,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //section[contains(@class,'description-container__full-text')]/div/ul/li[contains(text(),'Moduulin paino')]
+    xpath: //*[contains(@id,"weightNettempId")]
     regExp: ([0-9]+) .* 
   - name: weightGross
     singleValue: true
@@ -140,7 +140,7 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //section[contains(@class,'description-container__full-text')]/div/ul/li[contains(text(),'Mitat')]
+    xpath: //*[contains(@id,"shippingDimensionsTempId")]
     # regExp: ([0-9]+) .* 
   - name: shippingWeight
     singleValue: true
