@@ -41,11 +41,13 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class="price-tag-content__price-tag-price price-tag-content__price-tag-price--current"]
+    xpath: //div[contains(@class,'price-tag-prices')]/span
+    # xpath: //div[@class="price-tag-content__price-tag-price price-tag-content__price-tag-price--current"]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //div[@class="price-tag-content__price-tag-price price-tag-content__price-tag-price--current"]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -56,11 +58,12 @@ fields:
     regExpReplace: Out of Stock
     defaultValue: In Stock
   - name: description
-    singleValue: false
+    singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //*[contains(@id,"descriptionTempId")]
     # xpath: //div[contains(@class, 'product-description__description-container')]/section/div[1]/p[1]
-    xpath: //div[contains(@class, 'product-description__description-container')]
+    # xpath: //div[contains(@class, 'product-description__description-container')]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -88,7 +91,8 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //section[contains(@class,'description-container__full-text')]/div/ul/li[contains(text(),'Paino')]
+    xpath: //*[contains(@id,"weightGrossTempId")]
+    # xpath: //section[contains(@class,'description-container__full-text')]/div/ul/li[contains(text(),'Paino')]
     regExp: ([0-9]+) .* 
   - name: gtin
     singleValue: true
@@ -126,6 +130,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: //nav[contains(@class,'product-header__links')]/a/span[contains(@class,'count-indicator count-indicator--prefix')]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -145,6 +150,7 @@ fields:
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
+    xpath: //td[contains(text(), "Pakkauksen paino")]/following::td[1]
     # xpath: //section[contains(@class,'description-container__full-text')]/div/ul/li[contains(text(),'Paino')]
     # regExp: ([0-9]+) .*
   - name: variantCount
@@ -154,11 +160,11 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //meta[@name='apple-mobile-web-app-status-bar-style']/@content
+    # xpath: //meta[@name='apple-mobile-web-app-status-bar-style']/@content
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
-    xapth: //meta[@name='theme-color']/@content
+    # xapth: //meta[@name='theme-color']/@content
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
@@ -166,7 +172,8 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //a[contains(@class,'product-shop-logo')]/figure/img/@src
+    xpath: //*[contains(@id,"tempManufactureImage1")]
+    # xpath: //a[contains(@class,'product-shop-logo')]/figure/img/@src
     regExp: ^(.+)$
     regExpReplace: https://verkkokauppa.com$1
   - name: videos
@@ -468,6 +475,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //div[contains(@class,'price-tag-content__price-tag-discount')]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information

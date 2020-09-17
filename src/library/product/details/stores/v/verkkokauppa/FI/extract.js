@@ -35,10 +35,10 @@ module.exports = {
         document.body.appendChild(prodEle);
       }    
       
-      let tempCheck = document.evaluate('//section[contains(@class,"description-container__full-text")]//div//ul//li[contains(text(),"Mitat")]', document).iterateNext();      
+      let tempCheck = document.evaluate('//section[contains(@class,"description-container__full-text")]//div//ul//li[contains(text(),"tat")]', document).iterateNext();      
       if(tempCheck !=null)
       {
-        let shippingDimensionsData = document.evaluate('//section[contains(@class,"description-container__full-text")]//div//ul//li[contains(text(),"Mitat")]', document).iterateNext().textContent.trim();      
+        let shippingDimensionsData = document.evaluate('//section[contains(@class,"description-container__full-text")]//div//ul//li[contains(text(),"tat")]', document).iterateNext().textContent.trim();      
         addEleToDoc('shippingDimensionsTempId', shippingDimensionsData);
       }
 
@@ -48,6 +48,28 @@ module.exports = {
         let tempweightNet1 = document.evaluate('//section[contains(@class,"description-container__full-text")]/div/ul/li[contains(text(),"Moduulin paino")]', document).iterateNext().textContent.trim();              
         addEleToDoc('weightNettempId', tempweightNet1);
       }
+
+      let tempDescription = document.evaluate('//div[contains(@class, "product-description__description-container")]',document).iterateNext(); 
+      if(tempDescription !=null)
+      {
+        let tempDescription1 = document.evaluate('//div[contains(@class, "product-description__description-container")]', document).iterateNext().textContent.trim();              
+        addEleToDoc('descriptionTempId', tempDescription1);
+      }
+
+      let tempWeightGross = document.evaluate('//section[contains(@class,"description-container__full-text")]/div/ul/li[contains(text(),"Paino")]',document).iterateNext(); 
+      if(tempWeightGross !=null)
+      {
+        let tempWeightGross1 = document.evaluate('//section[contains(@class,"description-container__full-text")]/div/ul/li[contains(text(),"Paino")]', document).iterateNext().textContent.trim();              
+        addEleToDoc('weightGrossTempId', tempWeightGross1);
+      }
+
+      let tempManufactureImage = document.evaluate('//a[contains(@class,"product-shop-logo")]/figure/img/@src',document).iterateNext(); 
+      if(tempManufactureImage !=null)
+      {
+        let tempManufactureImage1 = document.evaluate('//a[contains(@class,"product-shop-logo")]/figure/img/@src', document).iterateNext().textContent.trim();              
+        addEleToDoc('tempManufactureImage1', tempManufactureImage1);
+      }
+
     });   
 
     const isSelectorAvailable = async (cssSelector) => {
