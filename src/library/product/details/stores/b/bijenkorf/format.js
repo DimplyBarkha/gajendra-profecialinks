@@ -49,15 +49,6 @@ const transform = (data) => {
         row.listPrice[0].text = row.currency[0].text + row.listPrice[0].text;
       }
 
-      if (row.name) {
-        if (row.brandText) {
-          row.name = [{
-            text: row.brandText[0].text + ' - ' + row.name[0].text,
-          },
-          ];
-        }
-      }
-
       if (row.nameExtended) {
         if (row.brandText) {
           row.nameExtended = [{

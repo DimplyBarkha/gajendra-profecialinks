@@ -11,8 +11,17 @@ async function implementation (
 
   await context.click('button.dbk-accordion__header');
   await context.waitForSelector('div.dbk-accordion__body');
+  await context.waitForSelector('footer.dbk-footer');
   await context.evaluate(async () => {
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    const element = document.querySelector('footer.dbk-footer');
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end',
+        inline: 'nearest',
+      });
+      await new Promise(resolve => setTimeout(resolve, 10000));
+    }
   });
 
   return await context.extract(productDetails, { transform });
