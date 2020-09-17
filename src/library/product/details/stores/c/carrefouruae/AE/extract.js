@@ -107,20 +107,19 @@ module.exports = {
         return dom;
       };
       let finalDesArr = [];
-      let marketingText = initialData ? initialData.marketingText : '';
-      console.log('marketingText: ', marketingText);
-      let description = marketingText ? stringToHTML(marketingText) : '';
-      // @ts-ignore
-      let description2 = description ? description.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
-      // // @ts-ignore
-      // addHiddenDiv('cc_description', description2);
-      finalDesArr.push(description2);
       let marketingText1 = initialData ? initialData.description : '';
       console.log('marketingText1: ', marketingText1);
       let description1 = marketingText1 ? stringToHTML(marketingText1) : '';
       // @ts-ignore
       let description3 = description1 ? description1.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
       finalDesArr.push(description3);
+      let marketingText = initialData ? initialData.marketingText : '';
+      console.log('marketingText: ', marketingText);
+      let description = marketingText ? stringToHTML(marketingText) : '';
+      // @ts-ignore
+      let description2 = description ? description.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+      finalDesArr.push(description2);
+      
       let finalDesArrStr = finalDesArr.join(' | ');
       // @ts-ignore
       addHiddenDiv('cc_description', finalDesArrStr);

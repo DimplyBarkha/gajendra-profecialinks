@@ -45,7 +45,7 @@ const transform = (data) => {
         }
         if (row.description) {
           row.description.forEach(item => {
-             item.text = item.text.replace(/(\|\|\s\|\|)/g,'||').replace(/(\s*[\r\n]\s*)+/g, ' ').replace('&amp;','&').trim();
+             item.text = item.text.replace(/(\|\|\s\|\|)/g,'||').replace(/(\s*[\r\n]\s*)+/g, ' ').replace('&amp;','&').replace(/&nbsp;/g, ' ').trim();
           });
         }
         if (row.brandText) {
