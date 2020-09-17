@@ -21,9 +21,6 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //div[@class="product-info"]/meta[@itemprop="brand"]/@content
-  - name: url
-    singleValue: false
-    xpath: //div[@class="product-info"]/meta[@itemprop="url"]/@content
   - name: nameExtended
     singleValue: false
     xpath: //div[@class="product-info"]/meta[@itemprop="description"]/@content
@@ -39,3 +36,6 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //div[@class="product-info"]/meta[@itemprop="brand"]/@content
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="product-price-del"]/span[@class="product-price-value"]

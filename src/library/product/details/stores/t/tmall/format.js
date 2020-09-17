@@ -30,8 +30,6 @@ const transform = (data) => {
           item.text=item.text.replace("_50x50.jpg", "");
         });
       }
-
-      
       if(row.sku){
         row.sku.forEach(item => {
           var skuArr=item.text.split("/item/");
@@ -39,14 +37,12 @@ const transform = (data) => {
           item.text=skuArr1[0];
         });
       }
-
       if(row.ratingCount){
         row.ratingCount.forEach(item => {
           var ratingCountArr=item.text.split(" ");
           item.text=ratingCountArr[0];
         });
       }
-      
     }
   }
   return data;
