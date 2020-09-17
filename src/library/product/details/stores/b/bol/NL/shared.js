@@ -76,9 +76,9 @@ const transform = (data) => {
         row.technicalInformationPdfPresent = [{text: 'Yes'}]
       }
 
-      if (row.description && row.additionalDescriptionBulletInfo) {
-        row.additionalDescriptionBulletInfo[0].text = ` || ${row.additionalDescriptionBulletInfo[0].text}`;
-        row.description = row.description.concat(row.additionalDescriptionBulletInfo);
+      if (row.description && row.additionalDescBulletInfo) {
+        row.additionalDescBulletInfo[0].text = ` || ${row.additionalDescBulletInfo[0].text}`;
+        row.description = row.description.concat(row.additionalDescBulletInfo);
       }
 
       if (row.productOtherInformationDD && row.productOtherInformationDT) {
