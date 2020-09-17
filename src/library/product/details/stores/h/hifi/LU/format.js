@@ -33,6 +33,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.map(item => {
+          text += `${item.text}`;
+        });
+        row.manufacturerDescription = [
+          {
+            text: clean(text),
+          },
+        ];
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.map(item => {
@@ -46,6 +57,7 @@ const transform = (data) => {
       }
       if (row.description) {
         let descriptionOne = '';
+        const bulletInfo = [];
         if (row.descriptionOne) {
           let text = '';
           row.descriptionOne.forEach(item => {
@@ -62,9 +74,10 @@ const transform = (data) => {
         if (text) {
           row.descriptionBullets = [
             {
-              text: text.length,
+              text: bulletInfo.length,
             },
           ];
+          row.additionalDescBulletInfo = bulletInfo;
         }
         row.description = [
           {

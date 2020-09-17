@@ -6,12 +6,16 @@ fields:
   - name: image
     singleValue: false
     xpath: (//div[@class="media-wrapper"]/img[@srcset]/@src)[1]
+    regExp: (.+)\/(\d+)x(\d+).(.+)
+    regExpReplace: $1/$4
   - name: imageAlt
     singleValue: false
     xpath: (//div[@class="media-wrapper"]/img[@srcset]/@alt)[1]
   - name: alternateImages
     singleValue: false
     xpath: (//div[@class="media-wrapper"]/img[@srcset]/@src)[position()>1]
+    regExp: (.+)\/(\d+)x(\d+).(.+)
+    regExpReplace: $1/$4
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -38,11 +42,10 @@ fields:
     xpath: (//div[@class="product-info"]//ul/li)[position() <= (last() - 1)]
   - name: description
     singleValue: false
-    xpath: //div[@id="desc"]
+    xpath: //section[@class="description"]//div[@class="content-wrap"]//div[@class="product radikal"]//span | //section[@class="description"]//div[@class="content-wrap"]//p/text()
   - name: descriptionBullets
     singleValue: false
-    type: NUMBER
-    xpath: count(//div[@class="product-usp-overview"]/div)
+    xpath:
   - name: brandText
     singleValue: false
     xpath: //h1/span[@class="brand"]
@@ -89,7 +92,6 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
-    type: NUMBER
     xpath: //a[@name="reviews"]/h2/span
     regExp: (\d+)
     regExpReplace: $1
@@ -107,7 +109,6 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    type: NUMBER
     xpath: count(//select[@class="product-variant-select"]/option)
     defaultValue: '0'
   - name: color
@@ -115,8 +116,7 @@ fields:
     description: A textual description of the colour
   - name: manufacturerDescription
     singleValue: false
-    description: The extended description of the product supplied by the lister
-    xpath: //div[@class="pic-text"]/div[2]
+    xpath: //div[contains(@class,"preview")]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@class="wrapper preview"]//img/@src
@@ -130,7 +130,6 @@ fields:
     xpath: (//div[@class="media-wrapper"]/img[@srcset]/@alt)[1]
   - name: secondaryImageTotal
     singleValue: false
-    type: NUMBER
     xpath: count((//div[@class="media-wrapper"]/img[@srcset]/@src)[position()>1])
   - name: specifications
     singleValue: false
@@ -149,7 +148,7 @@ fields:
     description: Recycling information associated with the product
   - name: promotion
     singleValue: false
-    xpath: //p[@class="italic"]/span[contains(text(),"promo")]
+    xpath: //div[contains(@class,"product-info")]//div[contains(@class,"promotion-wrap")]
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
