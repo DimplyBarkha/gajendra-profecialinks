@@ -4,12 +4,14 @@ module.exports = {
   parameterValues: {
     country: 'TR',
     store: 'amazon',
-    nextLinkSelector: null,
+    nextLinkSelector: 'ul.a-pagination li.a-last:not(.a-disabled) a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
-    noResultsXPath: null,
-    openSearchDefinition: null,
+    loadedSelector: 'div[data-asin][data-component-type=s-search-result]',
+    noResultsXPath: '//span[contains(text(),"sonuç yok")]',
+    openSearchDefinition: {
+      template: 'https://www.amazon.com.tr/s?k={searchTerms}&page={page}',
+    },
     domain: 'amazon.com.tr',
     zipcode: '',
   },
