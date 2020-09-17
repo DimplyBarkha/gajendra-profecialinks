@@ -66,3 +66,7 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //button[@class="wishlist-button"]/@data-sku
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@id="sizeSelector"]//p[@class="outofstock__cta"]
+    defaultValue: 'In Stock'
