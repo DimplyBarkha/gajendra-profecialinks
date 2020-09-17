@@ -75,10 +75,12 @@ module.exports = {
       let description2 = div ? div.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
       console.log('description2: ', description2);
       let finalDescription;
-      if(description2.includes("CARACTERISTIQUES")){
-        finalDescription = description2 ? description2.split('CARACTERISTIQUES')[0] : '';
+      if(description2.includes("CARACTÉRISTIQUES TECHNIQUES")){
+        finalDescription = description2 ? description2.split('CARACTÉRISTIQUES TECHNIQUES')[0] : '';
       }else if(description2.includes("CARACTÉRISTIQUES")){ 
         finalDescription = description2 ? description2.split('CARACTÉRISTIQUES')[0] : '';
+      }else if(description2.includes("CARACTERISTIQUES")){
+        finalDescription = description2 ? description2.split('CARACTERISTIQUES')[0] : '';
       }else{
           finalDescription = description2 ? description2 : '';
       }

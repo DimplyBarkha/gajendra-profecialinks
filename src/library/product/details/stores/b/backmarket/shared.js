@@ -62,16 +62,20 @@ const transform = (data) => {
         }
         if (row.image) {
           row.image.forEach(item => {
-          item.text = item.text.split('(')[1];
-          item.text = item.text.split(')')[0];
-          item.text = item.text.replace('"','').replace("'",'').replace(/\"/,'');
+          if(item.text.includes('(') || item.text.includes(')')){
+            item.text = item.text ? item.text.split('(')[1] : '';
+            item.text = item.text ? item.text.split(')')[0] : '';
+            item.text = item.text.replace('"','').replace("'",'').replace(/\"/,'');
+          }
           });
         }
         if (row.alternateImages) {
           row.alternateImages.forEach(item => {
-          item.text = item.text.split('(')[1];
-          item.text = item.text.split(')')[0];
+          if(item.text.includes('(') || item.text.includes(')')){
+          item.text = item.text ? item.text.split('(')[1] : '';
+          item.text = item.text ? item.text.split(')')[0] : '';
           item.text = item.text.replace('"','').replace("'",'').replace(/\"/,'');
+          }
           });
         }
         if (row.additionalDescBulletInfo) {
