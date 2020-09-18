@@ -23,11 +23,13 @@ const transform = (data) => {
           aggregateRating.text = aggregateRating.text.replace('/', '.');
         });
       }
+
       if (row.ratingCount) {
         row.ratingCount.forEach(ratingCountItem => {
           ratingCountItem.text = ratingCountItem.text.replace(/[^\d]/gm, '');
         });
       }
+
       if (row.availabilityText) {
         row.availabilityText.forEach(availabilityTextItem => {
           const availability = availabilityTextItem.text.replace(/.*availability": ?"(.*?)".*/gs, '$1');
@@ -38,24 +40,47 @@ const transform = (data) => {
           }
         });
       }
+
       if (row.alternateImages) {
         row.alternateImages.forEach(alternateImagesItem => {
           alternateImagesItem.text = alternateImagesItem.text.replace(/mini/gm, 'large');
         });
       }
+
       if (row.description) {
         row.description.forEach(item => {
           item.text = cleanUp(item.text);
         });
       }
-      if (row.name && row.brandText) {
-        row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
+
+      if (row.manufacturerDescription) {
+        row.manufacturerDescription.forEach(manufacturerDescriptionItem => {
+          manufacturerDescriptionItem.text = cleanUp(manufacturerDescriptionItem.text);
+        });
       }
+
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(manufacturerImagesItem => {
+          const takeFirstURLRegex = /^(.*?png|.*?jpg).*/gm;
+          if (takeFirstURLRegex.test(manufacturerImagesItem.text)) {
+            manufacturerImagesItem.text = manufacturerImagesItem.text.replace(takeFirstURLRegex, '$1');
+            if (!manufacturerImagesItem.text.includes('http')) {
+              manufacturerImagesItem.text = 'https:' + manufacturerImagesItem.text;
+            }
+          }
+        });
+      }
+
+      if (row.name && row.brandText) {
+        row.nameExtended = [{ text: row.name[0].text }];
+      }
+
       if (row.listPrice) {
         row.listPrice.forEach(item => {
           item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
         });
       }
+
       if (row.price) {
         row.price.forEach(item => {
           item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
