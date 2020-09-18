@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+- name: id
+  description: Unique id (within this extractor)
+  xpath: //a[@class="product-content__link"]//@href
+  regExp: (.+)(/p/)(\d+)(.+)
+  regExpReplace: $3
+- name: productUrl
+  description: The URL for the product details page
+  xpath: //a[@class="product-content__link"]//@href
+  regExp: (.+)
+  regExpReplace: https://www.krefel.be$1
+- name: thumbnail
+  description: The URL for the product thumbnail image
+  xpath: //a[@image-url]//@image-url
+- name: name
+  description: The product name
+  xpath: //span[@class="product-name"]
+- name: gtin
+  singleValue: true
+  description: GTIN code (includes UPC/EAN)
+- name: ratingCount
+  description: The number of ratings
+  regExp: (.\d+)
+- name: reviewCount
+  singleValue: true
+  description: The number of reviews
+  xpath: //div[@class="rating-amount"]
+  regExp: (\d+)
+- name: price
+  description: The offered price for the product
+  xpath: //span[@class="current-price orange fr"]
+  regExp: (\d+).(\d+)
+  regExpReplace: $1
+- name: manufacturer
+  description: Product manufacturer
+  xpath: //span[@class="brand"]
+- name: rank
+  singleValue: true
+  description: search/listing rank
+  type: NUMBER
+- name: rankOrganic
+  singleValue: true
+  description: The position (rank) within the list excluding sponsored/paid results
+  type: NUMBER
