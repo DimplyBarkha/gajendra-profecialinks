@@ -25,21 +25,16 @@ module.exports = {
       console.log(e);
     }
 
-    try {
-      await context.focus('a.styled__StyledButton-sc-1b7q9no-1.hPXcsG');
-    } catch (e) {
-      console.log(e);
-    }
-
-    await context.evaluate(() => {
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
+    const variantSelectorObject = await context.evaluate(() => {
+      const variantSelector = document.querySelectorAll('a.styled__StyledButton-sc-1b7q9no-1.hPXcsG');
+      return { isVariant: !!variantSelector.length, count: variantSelector.length };
     });
-    return await context.extract(productDetails, { transform });
+    if (variantSelectorObject.isVariant) {
+      for (let i = 1; i <= variantSelectorObject.count; i++) {
+        const variant = `div[class="Z1vd"]:nth-child(${i}) a`;
+        await context.click(variant);
+        await context.extract(productDetails, { transform }, { type: 'APPEND' });
+      }
+    } else return await context.extract(productDetails, { transform });
   },
 };

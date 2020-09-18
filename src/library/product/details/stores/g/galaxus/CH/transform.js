@@ -22,13 +22,7 @@ const transform = (data) => {
       if (row.alternateImages) {
         row.alternateImages.shift();
       }
-      if (row.variantCount) {
-        row.variantCount.forEach(variantCount => {
-          if (variantCount.text == '0') {
-            variantCount.text = '1';
-          }
-        });
-      }
+      
       if (row.shippingDimensions) {
         let text = '';
         row.shippingDimensions.forEach(item => {
@@ -53,6 +47,11 @@ const transform = (data) => {
       }
       if (row.variantInformation) {
         let text = '';
+        if (row.variantInformation.length > 1) {
+          row.firstVariant = row.variantId;
+          row.variantAsins = row.variantId;
+          row.variants = row.variantId;
+        }
         row.variantInformation.forEach(item => {
           text += `${item.text} | `;
         });
