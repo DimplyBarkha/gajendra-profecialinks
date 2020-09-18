@@ -17,7 +17,7 @@ async function implementation (
       scrollSelector = document.querySelector('#container-productlist > div:last-child');
       // @ts-ignore
       scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
-      await new Promise(resolve => setTimeout(resolve, 3500));
+      await new Promise(resolve => setTimeout(resolve, 2500));
     }
   });
   try {
@@ -55,11 +55,26 @@ async function implementation (
         if (item && aggregateRating !== 0) {
           addEleToDoc('rating', `${aggregateRating}`, `${item}`);
         }
-        var manufacturer = productInfo[code].manufacturer;
-        manufacturer && addEleToDoc('pd_manufacturer', `${manufacturer}`, `${item}`);
+        const manufacturer = productInfo[code].manufacturer;
+        if (manufacturer) {
+          addEleToDoc('pd_manufacturer', `${manufacturer}`, `${item}`);
+        }
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
     }
   });
+  async function addUrl () {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    const url = window.location.href;
+    addHiddenDiv('added-searchurl', url);
+  }
+  await context.evaluate(addUrl);
   const { transform } = parameters;
   const { productDetails } = dependencies;
   return await context.extract(productDetails, { transform });

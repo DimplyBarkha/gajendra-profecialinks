@@ -44,4 +44,9 @@ fields:
     type: NUMBER
   - name: manufacturer
     singleValue: false
-    xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]//a/div[@id="pd_manufacturer"]
+    xpath: //div[@class="wQ1zdx _14LFJJ _1ryioq"]//a/div[@id="pd_manufacturer"] | //div[@class="wQ1zdx _14LFJJ _1ryioq"]/div//div[@class="_165CLk _15M-aT"]//img[@itemprop="contentUrl"]/@alt
+    regExp: ^\s*([a-zA-Z0-9]+)
+    regExpReplace: $1
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='added-searchurl'][last()]
