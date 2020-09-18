@@ -48,6 +48,16 @@ const transform = (data) => {
           }
         }
       }
+      if (!row.specifications) {
+        if (row.specifications1 && row.specifications1[0].text.includes('Specifications: ')) {
+          var test = '';
+          var demo = row.specifications1[0].text;
+          var regExString = new RegExp('(?:' + 'Specifications:' + ')(.[\\s\\S]*)(?:' + 'What' + ')', 'g');
+          test = regExString.exec(demo);
+          test = test[1].replace(/\n-/, '').replace(/\n-/g, ' || ').trim();
+          row.specifications = [{ text: test }];
+        }
+      }
       if (row.videos) {
         row.videos.forEach(temp => {
           if (temp.text.charAt(0) === '/') {
@@ -57,6 +67,9 @@ const transform = (data) => {
         row.videos.forEach(item => {
           item.text = item.text.replace(/\/productimages/, 'https://www.davidjones.com/productimages');
         });
+      }
+      if (row.termsAndConditions) {
+        row.termsAndConditions = row.termsAndConditions[0].text.includes('Terms and Conditions') ? [{ text: 'Yes' }] : [{ text: 'No' }];
       }
     }
   }

@@ -70,6 +70,12 @@ fields:
   - name: termsAndConditions
     singleValue: false
     defaultValue: 'No'
+    xpath: //div[contains(@class,'incentive-terms')]
+  - name: specifications
+    singleValue: false
+  - name: specifications1
+    singleValue: false
+    xpath: //div[contains(@class,'content long-description')]
   # - name: manufacturer
   #   singleValue: false
   # - name: _input
@@ -138,8 +144,8 @@ fields:
   #   singleValue: false
   # - name: shippingWeight
   #   singleValue: false
-  # - name: specifications
-  #   singleValue: false
+  - name: specifications
+    singleValue: false
   # - name: dimensionsSpecifications
   #   singleValue: false
   # - name: detailsSpecifications
