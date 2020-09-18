@@ -126,3 +126,8 @@ fields:
     singleValue: false
     description: URLs of videos on page
     xpath: //p//video/source/@src
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //meta[@itemprop='name']/@content
