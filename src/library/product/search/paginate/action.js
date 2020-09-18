@@ -1,21 +1,21 @@
 /**
  *
  * @param {{
-  *  keywords: string,
-  *  page: number,
-  *  offset: number,
-  * }} inputs
-  * @param {{
-  *  nextLinkSelector: string,
-  *  mutationSelector: string,
-  *  loadedSelector: string,
-  *  noResultsXPath: string,
-  *  spinnerSelector: string,
-  *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number }
-  * }} parameters
-  * @param { ImportIO.IContext } context
-  * @param { Record<string, any> } dependencies
-  */
+ *  keywords: string,
+ *  page: number,
+ *  offset: number,
+ * }} inputs
+ * @param {{
+ *  nextLinkSelector: string,
+ *  mutationSelector: string,
+ *  loadedSelector: string,
+ *  noResultsXPath: string,
+ *  spinnerSelector: string,
+ *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number }
+ * }} parameters
+ * @param { ImportIO.IContext } context
+ * @param { Record<string, any> } dependencies
+ */
 async function implementation (
   inputs,
   parameters,
@@ -38,25 +38,22 @@ async function implementation (
     return true;
   }
 
-  let url;
+  let url = await context.evaluate(function () {
+    /** @type { HTMLLinkElement } */
+    const next = document.querySelector('head link[rel="next"]');
+    if (!next) {
+      return false;
+    }
+    return next.href;
+  });
 
-  if (openSearchDefinition) {
+  if (!url && openSearchDefinition) {
     url = openSearchDefinition.template
       .replace('{searchTerms}', encodeURIComponent(keywords))
       .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
       .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
   }
 
-  if (!url) {
-    await context.evaluate(function () {
-      /** @type { HTMLLinkElement } */
-      const next = document.querySelector('head link[rel="next"]');
-      if (!next) {
-        return false;
-      }
-      return next.href;
-    });
-  }
   if (!url) {
     return false;
   }
