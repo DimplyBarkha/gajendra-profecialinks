@@ -23,7 +23,7 @@ fields:
     xpath: //div[contains(@class,"coreWrapper")]//span[contains(@class,'value')]/span[contains(@class,'preReductionPrice')]
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"coreWrapper")]//span[contains(@class,'value')]//span[contains(@class,'savingsPrice')]
+    xpath: //span[contains(@class,"sellingPriceContainer")]//span[contains(@class,'sellingPrice')]
   - name: quantity
     singleValue: false
     xpath: //div[contains(@class,'qtyContainer')]//div[@class='Select-control']//span[@class='Select-value-label']
