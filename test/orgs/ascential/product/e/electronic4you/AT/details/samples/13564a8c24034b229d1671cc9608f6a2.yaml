@@ -2,7 +2,7 @@ input:
   _url: http://electronic4you.at
   URL: https://www.electronic4you.at/dyson-v8-absolute-172579.html
 extractions:
-  - html: https://workbench.import.io/html/run=4a2bcb2f-f02f-4139-af4c-0097a74f54f5/task=d5e0d642-33e7-4e18-88dc-3dd29a5b69a0/655ceb46-db4c-4285-9c03-e71b6cd4a31c.html
+  - html: https://workbench.import.io/html/run=4b37340a-e571-4b6f-9f1b-155273d5e434/task=63110ca6-4bef-4df2-add4-38ffe8769d94/b7986a6a-a72d-4681-9351-932d7a141b2b.html
     extractionConfigId: product/details/stores/e/electronic4you/AT/extract
     data:
       - group:
@@ -62,9 +62,16 @@ extractions:
             mpc:
               - text: 227296-01
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[12]/td[1]
+            ratingCount:
+              - text: "19"
+                xpath: /html/body/div[7]
+                type: NUMBER
+                raw: "19"
+                locale: de_DE
+                value: 19
             aggregateRating:
               - text: 4,74
-                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[5]/a[1]/div[1]/div[1]/div[2]/span[1]
+                xpath: /html/body/div[8]
             videos:
               - text: https://www.youtube-nocookie.com/embed/iCrxM4TJevs?rel=0&autoplay=1
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
@@ -102,10 +109,10 @@ extractions:
                   Tierhaare. 150 % mehr Leistung als bei der Elektrobüste des
                   Dyson V6 Staubsaugers für die gründliche Reinigung von
                   Teppichen.
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[10]
             technicalInformationPdfPresent:
               - text: Yes
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[14]
             termsAndConditions:
               - text: No
             Image360Present:
@@ -482,4 +489,4 @@ extractions:
 
                   \t\t\t\t\t"
         xpath: /
-    timestamp: 1600424211066
+    timestamp: 1600435612131

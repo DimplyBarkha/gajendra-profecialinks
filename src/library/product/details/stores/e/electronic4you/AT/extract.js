@@ -22,6 +22,12 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      const ratingCount = document.querySelector('span.ts-stars-reviewCount')
+        ? document.querySelector('span.ts-stars-reviewCount').innerText : '';
+      addElementToDocument('ratingCount', ratingCount.replace(/\((\d+)\)/g, '$1'));
+      const aggRating = document.querySelector('span.ts-reviewSummary-ratingValue')
+        ? document.querySelector('span.ts-reviewSummary-ratingValue').innerText : '';
+      addElementToDocument('aggRating', aggRating.replace(/(\d+)\.?(\d+)?/g, '$1,$2'));
       const topBullets = document.querySelectorAll('div.short-description ul li')
         ? document.querySelectorAll('div.short-description ul li') : [];
       const topDivs = document.querySelectorAll('div.short-description div[itemprop="description"] div')

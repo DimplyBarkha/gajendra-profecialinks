@@ -2,7 +2,7 @@ input:
   _url: http://electronic4you.at
   URL: https://www.electronic4you.at/dyson-airwrap-complete-multistyler-184998.html
 extractions:
-  - html: https://workbench.import.io/html/run=4a2bcb2f-f02f-4139-af4c-0097a74f54f5/task=68aced2f-402a-4a30-99e9-a357efafacb2/aeb19b51-088c-4407-b7e2-e778600ef6d1.html
+  - html: https://workbench.import.io/html/run=4b37340a-e571-4b6f-9f1b-155273d5e434/task=1b9e4277-f77d-420e-b323-adae4d349eee/29f3a079-dfdd-4c6b-9d42-bf71257be92b.html
     extractionConfigId: product/details/stores/e/electronic4you/AT/extract
     data:
       - group:
@@ -59,9 +59,16 @@ extractions:
             mpc:
               - text: 310733-01
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[7]/td[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[7]
+                type: NUMBER
+                raw: "1"
+                locale: de_DE
+                value: 1
             aggregateRating:
               - text: 5,00
-                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[5]/a[1]/div[1]/div[1]/div[2]/span[1]
+                xpath: /html/body/div[8]
             videos:
               - text: https://www.youtube-nocookie.com/embed/tbciBas1Tjo?rel=0&autoplay=1
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
@@ -73,7 +80,7 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]
             technicalInformationPdfPresent:
               - text: No
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[18]
             termsAndConditions:
               - text: No
             Image360Present:
@@ -143,4 +150,4 @@ extractions:
                   dBA  Leistung/Temperatureinstellung 3 Luftstromstufen, 3
                   Temperaturstufen Höhe 272 mm   Länge 41 mm    Breite 48 mm
         xpath: /
-    timestamp: 1600424197474
+    timestamp: 1600435614211
