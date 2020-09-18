@@ -20,7 +20,6 @@ const transform = (data) => {
     for (const { group } of data) {
       for (const row of group) {
         if (row.description) {
-          row.description[0].text = row.description[0].text.replace(/(\n\s*){5,}/g, '').replace(/(\n\s*){4,}/g, '').replace(/(\n\s*){3,}/g, ' || ').replace(/(\n\s*){2,}/g, ' || ').replace(/(\n\s*){1,}/g, '');
           row.description[0].text = cleanUp(row.description[0].text);
         }
 
@@ -41,6 +40,16 @@ const transform = (data) => {
 
         if(row.shippingInfo) {
           row.shippingInfo[0].text = cleanUp(row.shippingInfo[0].text);
+        }
+
+        if(row.warranty) {
+          row.warranty[0].text = cleanUp(row.warranty[0].text);
+        }
+
+        if(row.additionalDescBulletInfo) {
+          row.additionalDescBulletInfo = row.additionalDescBulletInfo.map((addInfo) => {
+            return { text: cleanUp(addInfo.text)};
+          });
         }
 
         if(row.countryOfOrigin) {

@@ -30,7 +30,7 @@ fields:
     manualSelector: strong[class="stock-message__info"]
   - name: description
     singleValue: false
-    xpath: //div[@itemprop="description"]
+    manualSelector: div#desc
   - name: descriptionBullets
     singleValue: false
     xpath: //div[@itemprop="description"]/div/ul/li | //div[@itemprop="description"]/ul/li
@@ -81,7 +81,7 @@ fields:
     xpath: //div[@itemprop="description"]/p[contains(text(), "Box weight")]
     regExp: \w+:(.*)
     regExpReplace: $1
-  - name: grossWeight
+  - name: weightGross
     singleValue: false
     xpath: //div[@itemprop="description"]/p[contains(text(), "Box weight")]
     regExp: \w+:(.*)
@@ -94,4 +94,4 @@ fields:
     xpath: //div[@itemprop="description"]/ul/li[contains(text(), 'Made in')]
   - name: variantCount
     singleValue: false
-    defaultValue: 0
+    defaultValue: '0'
