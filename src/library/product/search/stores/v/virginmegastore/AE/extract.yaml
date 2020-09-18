@@ -21,9 +21,6 @@ fields:
   - name: name
     singleValue: false
     xpath: //ul[contains(@class,"product-listing")]//li[contains(@class,"product-list__item")]//div[contains(@class,"product-list__details")]//a[contains(@class,"product-list__name")]
-  - name: manufacturer
-    singleValue: false
-    xpath: //ul[contains(@class,"product-listing")]//li[contains(@class,"product-list__item")]//div[contains(@class,"product-list__details")]//div[contains(@class,"product-list__brand")]
   - name: price
     singleValue: false
     xpath: //div[@class='price__value']
@@ -32,8 +29,15 @@ fields:
     xpath:
   - name: rankOrganic
     singleValue: false
-    xpath: 
+    xpath: //ul[contains(@class,"product-listing")]//li[contains(@class,"product-list__item")]//a/@onclick
+    regExp: (\d+)',\s'\/
+    regExpReplace: $1
   - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='testfreaks-items']//div/@title
+    regExp: ([\d,]+.*)\s([\D].*)
+    regExpReplace: $1
+  - name: aggregateRating2
     singleValue: false
     xpath: //div[@class='testfreaks-items']//div/@title
     regExp: ([\d,]+.*)\s([\D].*)
