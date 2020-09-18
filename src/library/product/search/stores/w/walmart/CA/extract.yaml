@@ -48,7 +48,7 @@ fields:
     regExpReplace: $1 
   - name: searchUrl
     singleValue: false
-    xpath: ancestor::html//div[@id='search-url']
+    xpath: ancestor::html//div[@id='search-url'][last()]
     regExp: (^[^#]*)
     regExpReplace: $1
     
