@@ -56,7 +56,7 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@id="li_brand"]
+    xpath: //div[@id="li_brand"] | //td/span[contains(text(), "Marca")]/../following-sibling::td
     # xpath: //td/span[contains(text(), "Marca")]/../following-sibling::td
   # - name: manufacturer
   #   singleValue: false
@@ -65,10 +65,10 @@ fields:
     singleValue: false
     description: Quantity as described on the page
     xpath: //td/span[contains(text(), "Contenido")]/../following-sibling::td
-  # - name: weightNet
-  #   singleValue: false
-  #   description: Net weight as described on the page
-  #   xpath: //td/span[contains(text(), "Peso")]/../following-sibling::td
+  - name: weightNet
+    singleValue: false
+    description: Net weight as described on the page
+    xpath: //td/span[contains(text(), "Peso")]/../following-sibling::td
   # - name: weightGross
   #   singleValue: false
   #   description: Gross weight as described on the page
@@ -83,7 +83,8 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //*[@class="m-product__information--code"]/span | //div[@id="li_sku"][last()]
+    xpath: //div[@id="li_sku"][last()]
+    # xpath: //*[@class="m-product__information--code"]/span | //div[@id="li_sku"][last()]
   # - name: mpc
   #   singleValue: false
   #   description: The manufacturer model code (unique) of the product
@@ -123,10 +124,10 @@ fields:
   #   xpath: //script[@class="next-head"]
   #   regExp: ratingValue":"(.*)","review
   #   regExpReplace: $1
-  # - name: shippingInfo
-  #   singleValue: false
-  #   description: Shipping information for the product
-  #   xpath: //p[@class="a-productInfo_selledBy"]
+  - name: shippingInfo
+    singleValue: false
+    description: Shipping information for the product
+    xpath: //*[@class="a-productInfo_selledBy"]
   # - name: shippingDimensions
   #   singleValue: false
   #   description: Stated shipping dimensions
@@ -141,27 +142,33 @@ fields:
   - name: color
     singleValue: false
     description: A textual description of the colour
-    xpath: //div[@id="li_color"][last()]
+    xpath: //div[@id="li_color"][last()] | //p[contains(@class , "a-product__paragraphColor")]/span
   #   xpath: //p[contains(@class , "a-product__paragraphColor")]/span
   # - name: colorCode
   #   singleValue: false
   #   description: A code description of the color (e.g. RGB hex)
   #   xpath: //li[contains(@class , "a-productColor__item")]/a/@style
-  # - name: manufacturerDescription
-  #   singleValue: false
-  #   description: The extended description of the product supplied by the lister
-  #   xpath: //div[@id="flix-inpage"]/div/*[not(self::style)]
-  # - name: manufacturerImages
-  #   singleValue: false
-  #   description: Images within the third party description
-  #   xpath: //div[@id="flix-inpage"]/div//img/@srcset
-  # - name: videos
-  #   singleValue: false
-  #   description: URLs of videos on page
-  # - name: name
-  #   singleValue: false
-  #   description: The product name
-  #   xpath: //h1[@class="a-product__information--title"]
+  #   regExp: background\-color\:\s(.*)\;
+  #   regExpReplace: $1
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+    # xpath: //div[@id="li_enhancedContent"]
+    xpath: //div[@id="flix-inpage"]/div/*[not(self::style)]
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+    xpath: //div[@id="flix-inpage"]/div//img/@srcset
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[contains(@class,"fullJwPlayerWarp")]/input/@value
+    regExp: \"file\"\:\"(.*)\.mp4
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //h1[@class="a-product__information--title"]
   # - name: inStorePrice
   #   singleValue: false
   #   description: Price in the selected store
@@ -411,14 +418,14 @@ fields:
   # - name: dietaryInformation
   #   singleValue: false
   #   description: null
-  # - name: specifications
-  #   singleValue: false
-  #   description: The physical dimensions of the product including packaging.
-  #   xpath: //div[@id="bb_specification"]
-  # - name: warranty
-  #   singleValue: false
-  #   description: Guarantee associated with the product
-  #   xpath: //td/span[contains(text(), "Garantía")]/../following-sibling::td
+  - name: specifications
+    singleValue: false
+    description: The physical dimensions of the product including packaging.
+    xpath: //div[contains(@class,"o-product__productSpecsList")]/table//tr
+  - name: warranty
+    singleValue: false
+    description: Guarantee associated with the product
+    xpath: //td/span[contains(text(), "Garantía")]/../following-sibling::td
   # - name: storage
   #   singleValue: false
   #   description: Suggested storage location for product
@@ -447,10 +454,10 @@ fields:
   # - name: pricePerUnitUom
   #   singleValue: false
   #   description: The unit of measurement used in price_per_unit
-  # - name: promotion
-  #   singleValue: false
-  #   description: promotion text on product page
-  #   xpath: //div[contains(@class , "m-product__productPromoContent")]/ul/li
+  - name: promotion
+    singleValue: false
+    description: promotion text on product page
+    xpath: //*[contains(@class , "m-product__productPromoContent")]/ul
   # - name: alcoholContent
   #   singleValue: false
   #   description: Alcohol content information
@@ -466,9 +473,10 @@ fields:
   #   singleValue: false
   #   description: In product page, information about a new version of the product -
   #     new desription info
-  # - name: variantInformation
-  #   singleValue: false
-  #   description: colour / scent / flavour / other
+  - name: variantInformation
+    singleValue: false
+    description: colour / scent / flavour / other
+    xpath: //div[@id="li_variantInfo"]
   - name: firstVariant
     singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
@@ -533,3 +541,6 @@ fields:
   #     carousel,['Yes','No']
   #   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   #   defaultValue: No
+  - name: mpc
+    singleValue: false
+    xpath: //td/span[contains(text(), "Modelo")]/../following-sibling::td

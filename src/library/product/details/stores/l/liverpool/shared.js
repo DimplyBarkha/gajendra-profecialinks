@@ -33,25 +33,51 @@ const transform = (data) => {
             }
           })
         }
+        if (row.videos) {
+          row.videos.forEach(item => {
+            item.text = item.text+'.mp4';
+          });
+        }
+        if (row.manufacturerImages) {
+          row.manufacturerImages.forEach(item => {
+            if((item.text.includes('https:')) ||(item.text.includes('http:'))){
+            item.text = item.text
+            }else{
+              item.text = 'https:'+item.text;
+            }
+          });
+        }
         if (row.promotion) {
           let text = '';
           row.promotion.forEach(item => {
-            text += `${item.text.trim()} ||`;
+            text += ` || ${item.text.trim()}`;
           });
           row.promotion = [
             {
-              text: text,
+              text: text.trim(),
             },
           ];
         }
         if (row.additionalDescBulletInfo) {
           let text = '';
           row.additionalDescBulletInfo.forEach(item => {
-            text += `${item.text.trim()} ||`;
+            text += ` || ${item.text.trim()}`;
           });
           row.additionalDescBulletInfo = [
             {
-              text: text,
+              text: text.trim(),
+            },
+          ];
+        }
+
+        if (row.specifications) {
+          let text = '';
+          row.specifications.forEach(item => {
+            text += ` || ${item.text}  `;
+          });
+          row.specifications = [
+            {
+              text: text.trim(),
             },
           ];
         }
