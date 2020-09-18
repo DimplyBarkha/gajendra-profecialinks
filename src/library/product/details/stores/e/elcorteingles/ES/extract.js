@@ -11,6 +11,12 @@ module.exports = {
 
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
+
+      const sectionsDiv = 'div[class="sitemanager-data disabled"]';
+      if (sectionsDiv) {
+        throw "Not a Product Page";
+      }
+
       // function to append the elements to DOM
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -48,6 +54,14 @@ module.exports = {
           console.log(error.message);
         }
       }
+
+      const getXpath = (xpath, prop) => {
+        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
 
       const imageData = findJsonObj('ImageObject');
       // Check for the data and append to DOM
@@ -160,7 +174,7 @@ module.exports = {
         const response = await fetch(API);
         const data = await response.json();
         const ratingCount = data.Results[0].ProductStatistics.ReviewStatistics.TotalReviewCount;
-        
+
         let ratingValue = data.Results[0].ProductStatistics.ReviewStatistics.AverageOverallRating ? data.Results[0].ProductStatistics.ReviewStatistics.AverageOverallRating.toFixed(1).replace('.', ',') : 0;
         let reviewCount = 0;
         if (ratingCount > 0) {
@@ -179,11 +193,20 @@ module.exports = {
       document.body.setAttribute('review-count', ratings.reviewCount.toString());
 
       // Get quantity
+
+      let xpath = getXpath("//span[contains(text(),'Cantidad Neta')]/following-sibling::text()", 'nodeValue');
       const quantityArray = document.querySelector('[itemprop="description"]').textContent.trim().split('\n');
-      if (quantityArray.length > 3) {
-        const quantity = quantityArray[2] + ' ' + quantityArray[3];
-        addElementToDocument('quantity', quantity.trim());
+
+      if (xpath) {
+        addElementToDocument('quantity', xpath);
+      } else {
+        if (quantityArray.length > 3) {
+          const quantity = quantityArray[2] + ' ' + quantityArray[3];
+          addElementToDocument('quantity', quantity.trim());
+        }
       }
+
+
 
       // Function to remove the `\n` from the textContent
       function textContent(element, attributeName) {
