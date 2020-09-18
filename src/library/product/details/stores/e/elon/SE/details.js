@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'elon.se',
     country: 'SE',
     store: 'elon',
-    timeout: 30000,
+    domain: 'elon.se',
+    zipcode: '',
   },
 };
