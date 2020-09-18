@@ -1,15 +1,30 @@
+const { transform } = require('./format');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'FR',
     store: 'intermarche',
-    transform: null,
+    transform,
     domain: 'intermarche.com',
     zipcode: '',
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await new Promise(resolve => setTimeout(resolve, 10000));
+
+    const variantArray = await context.evaluate(function (parentInput, html) {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      let prodUrl = window.location.href.split("product/")
+      if(prodUrl[1]){
+        addHiddenDiv(`ii_url`, prodUrl[1]);
+      }
+    });
 
     // const dataRaw = await context.evaluate(function () {
     //   fetch('https://api.intermarche.com/produits/v2/pdvs/11833/produits/0000040198125', {
