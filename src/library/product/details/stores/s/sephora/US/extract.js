@@ -16,7 +16,8 @@ module.exports = {
       if(checkResults.snapshotLength > 0){
         let checkNone = checkResults.snapshotItem(0).textContent;
         if(checkNone === "0 Product results:"){
-          throw new Error("notFound");
+          // throw new Error("notFound");
+          console.log("NO PRODUCTS FOUND")
         }
       }
 
@@ -46,8 +47,7 @@ module.exports = {
 
     if(!pageCheck){
       // throw new Error("productPageNotLoaded");
-      console.log("NO PRODUCTS FOUND")
-      return
+      
     }
 
 
