@@ -27,7 +27,7 @@ fields:
     xpath: //div[contains(@data-hook, "list_item")]//a[@itemprop="url"]/@href
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="visuel"]//img/@src | //div[@class="visuel"]//img/@data-lazy-src
+    xpath: //img[@itemprop="image"]/@src
   - name: name
     singleValue: false
     xpath: //span[@class="info"]
