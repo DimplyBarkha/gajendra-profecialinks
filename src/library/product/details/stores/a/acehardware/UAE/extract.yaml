@@ -1,0 +1,155 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _input
+
+  - name: image
+    singleValue: true
+    xpath: //div[contains(@class,"b-product-images__main")]//picture/img[@itemprop="image"]/@data-src
+
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class,"b-product-images__main")]//picture/img[@itemprop="image"]/@alt
+
+  - name: alternateImages
+    singleValue: false
+    xpath: (//div[@class="b-product-thumbnails"]//picture/img/@src)[position()>1]
+    regExp: (.+)(\?)(.+)
+    regExpReplace: $1
+
+  - name: _url
+    singleValue: true
+    xpath: //link[@rel="alternate"][1]/@href
+
+  - name: category
+    singleValue: false
+    xpath: ((//div[@class="b-breadcrumbs"]//ol//li//span[@itemprop="name"])[position()>1])[position()<last()]
+
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@class="b-product__name"]//span
+
+  - name: listPriceCurrency
+    singleValue: true
+    xpath: //span[@itemprop="priceCurrency"]
+
+  - name: listPrice 
+    singleValue: true
+    xpath: //div[@class="b-product__pricing"]//span[@itemprop="highPrice"]
+
+  - name: brandLink
+    singleValue: true
+    xpath: //a[@class="b-product__brand-link"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.aceuae.com/$1
+
+  - name: price
+    singleValue: true
+    xpath: //div[@class="b-product__pricing"]//span[@itemprop="lowPrice"]
+
+  - name: availabilityText
+    singleValue: false
+    xpath: //button[@id="add-to-cart"]/@title
+    regExp: (.*)
+    regExpReplace: InStock
+    defaultValue: InStock
+
+  - name: description
+    singleValue: false
+    xpath: //div[@class="b-desc-product"]/ul//li
+
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@class="b-desc-product"]/ul//li)
+
+  - name: brandText
+    singleValue: true
+    xpath: //a[@class="b-product__brand-link"]/span
+
+  - name: gtin
+    singleValue: true
+    xpath: //meta[@itemprop="gtin13"]/@content
+
+  - name: sku
+    singleValue: false
+    xpath: //meta[@itemprop="sku"]/@content
+
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="b-video"]//iframe[contains(@id,"Youtube_api")]/@src
+
+  - name: name 
+    singleValue: true
+    xpath: //h1[@class="b-product__name"]//span
+
+  - name: priceCurrency
+    singleValue: true
+    xpath: //span[@itemprop="priceCurrency"]
+
+  - name: specifications
+    singleValue: false
+    xpath: //ul[@class="b-details-product__list"]//li
+
+  - name: warranty
+    singleValue: false
+    xpath: //div[@class="b-desc-product"]/ul//span[contains(text(),"warranty")]
+    regExp: (.+)manufacturer warranty(.+)
+    regExpReplace: $1
+
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@class="b-composition-product"]/ul//li
+
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count((//div[@class="b-product-thumbnails"]//picture/img/@src)[position()>1])
+
+  - name: promotion 
+    singleValue: true
+    xpath: (//div[@class="b-product-discount"]/span)[1]
+
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class="b-desc-product"]/ul//li
+
+  - name: termsAndConditions
+    singleValue: false
+    xpath: //a[@class="b-footer-links__link-inner"][contains(text(),"Terms & Conditions")]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+
+  - name: privacyPolicy
+    singleValue: false
+    xpath: //a[@class="b-footer-links__link-inner"][contains(text(),"Privacy & Security")]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+
+  - name: customerServiceAvailability 
+    singleValue: false
+    xpath: //a[@class="b-footer-links__link-inner"][contains(text(),"Contact Us")]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+
+  - name: Image360Present
+    singleValue: true
+    xpath:
+    defaultValue: No
+
+  - name: ingredientImagePresent
+    singleValue: true
+    xpath:
+    defaultValue: No
+
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    xpath:
+    defaultValue: Yes
+
+  - name: productUrl
+    singleValue: true
+    xpath: //link[@rel="alternate"][1]/@href
