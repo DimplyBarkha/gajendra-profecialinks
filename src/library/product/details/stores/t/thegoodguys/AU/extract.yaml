@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //body
+recordXPath: null
 fields:
   - name: image
     xpath: //div[@class="slick-slide slick-current slick-active"]/img/@src
@@ -37,6 +37,9 @@ fields:
     xpath: //div[@id="technical_speci"]//tr/th[contains(text(),"Weight (kg):")]/following-sibling::td
   - name: weightGross
   - name: gtin
+    xpath: //iframe[@id="eky-dyson-iframe"]/@src
+    regExp: (.+)(&ean=)(\d+)
+    regExpReplace: $3
   - name: sku
     xpath: //input[@name="gtmItemPartNum"]/@value
   - name: variantId
@@ -67,11 +70,9 @@ fields:
     xpath: //th[contains(text(),"olour")]/following-sibling::td
   - name: colorCode
   - name: manufacturerDescription
-    xpath: //body/@enhancedContent
+    xpath: //body/@enhancedcontent | //div[@id="inpage_container"]
   - name: manufacturerImages
-    xpath: //div[@class="eky-container-full"]//img[not(contains(@src,"dyson_webar"))]/@src
-    regExp: (.+)
-    regExpReplace: https://media.flixfacts.com/eyekandy/dyson/v11/au/$1
+    xpath: //body/@images
   - name: videos
     xpath: //div[contains(@class,"video-thumbs")]//div[contains(@id,"video_md")]//img/@src
     regExp: (.+/vi/)(.+)(/.+)

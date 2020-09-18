@@ -7,7 +7,6 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
