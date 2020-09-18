@@ -4,8 +4,9 @@ recordSelector: null
 recordXPath: //div[starts-with(@class,"ProductGrid-inline")]/article
 fields:
   - name: thumbnail
-    xpath: //img[@data-locator="product_tile_image"]/@src
+    xpath: //div[starts-with(@class,"Thumbnail")]/img/@src
     regExp: ^([^?]+)
+    regExpReplace: $1?$2000$&wid=2000&hei=2000
     description: The URL for the product thumbnail image
   - name: name
     xpath: //div[@data-locator="product_tile_title"]/@title
@@ -30,6 +31,7 @@ fields:
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
+    required: true
     xpath: ./@id
     description: Unique id (within this extractor)
   - name: nameExtended

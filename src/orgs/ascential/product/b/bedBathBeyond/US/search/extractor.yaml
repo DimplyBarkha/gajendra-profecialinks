@@ -4,6 +4,13 @@ parameters:
   domain: bedbathandbeyond.com
   store: bedBathBeyond
   zipcode: ""
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+policy:
+  numberRetries: 2
+  priority: MEDIUM
+  retryDelay: 60
 meta:
   branches:
     bedBathBeyond_us_search:

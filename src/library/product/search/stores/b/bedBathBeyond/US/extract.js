@@ -14,6 +14,12 @@ async function implementation (
       elm.closest('article').setAttribute('rating', rating.toString());
     });
   }
+
+  await context.evaluate(() => {
+    if (!document.querySelector('header[class*="SearchHeader"')) {
+      throw new Error('Not a Search Page');
+    }
+  });
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(addRatings);

@@ -1,0 +1,12 @@
+extends: ../shared
+fields:
+  - name: brandLink
+    xpath: ancestor::html//a[@itemprop="brand"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.bedbathandbeyond.ca$1  
+  - name: videos
+    xpath: ancestor::html//button[@data-locator="pdp-productalternateimage"]/img[@alt="Video"]/@src
+    regExp: ([^/]+)/thumbnail/
+    regExpReplace: https://video.bedbathandbeyond.ca/tvpembed/$1
+    singleValue: false
+    description: URLs of videos on page

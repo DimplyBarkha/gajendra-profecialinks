@@ -1,0 +1,174 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="product-detail-api"]/table/tbody/tr
+fields:
+  - name: image
+    description: URL of the main product image
+    xpath: td[@class="image"]
+    regExp: (.+)
+    regExpReplace: https://b3h2.scene7.com/is/image/BedBathandBeyond/$1?$2000$&wid=2000&hei=2000
+  - name: imageAlt
+    description: Alt text of the main product image
+  - name: alternateImages
+    xpath: td[@class="alternateImages"]
+    regExp: ([^,]+)
+    regExpReplace: https://b3h2.scene7.com/is/image/BedBathandBeyond/$1?$2000$&wid=2000&hei=2000
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    xpath: ancestor::html//meta[@name="keywords"]/@content
+    description: The <meta> keywords content
+  - name: category
+    xpath: ancestor::html//ul[@data-locator="Breadcrumbs"]/li
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    xpath: td[@class="nameExtended"]
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    xpath: td[@class="listPrice"]
+    description: The stated undiscounted price for the product
+  - name: price
+    xpath: td[@class="price"]
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    xpath: td[@class="availabilityText"]
+    regExp: true
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+  - name: description
+    xpath: ancestor::html//div[@id="productDetails"]
+    html: true
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: descriptionBullets
+    xpath: count(ancestor::html//div[@id="productDetails"]//ul/li)
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: brandText
+    xpath: ancestor::html//a[@itemprop="brand"]
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: manufacturer
+    description: Product manufacturer
+  - name: quantity
+    xpath: td[@class="size"]
+    description: Quantity as described on the page
+  - name: weightNet
+    xpath: //td[@class="weightNet"] 
+    description: Net weight as described on the page
+  - name: gtin
+    xpath: td[@class="gtin"]
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    xpath: td[@class="sku"]//td
+    description: The store-specific product identifier
+  - name: variantId
+    xpath: td[@class="variantId"]
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    xpath: ancestor::html//div[@id="productDetails"]//ul/li[starts-with(text(),"Model")] | td[@class="mpc"]
+    description: The manufacturer model code (unique) of the product
+  - name: ratingCount
+    xpath: ancestor::html//div[contains(@class,"lazy-RatingsSnapshot")]/p[contains(@class,"lazy-RatingsSnapshot")][contains(.,'review') and contains(.,'rating')]
+    regExp: '[\s\d,]+(?=rating)'
+    description: The number of ratings
+    type: NUMBER
+  - name: aggregateRatingText
+    xpath: ancestor::html//div[@class="lazy-RatingsSnapshot_4XVJU5"]
+    description: The stated aggregate rating
+  - name: aggregateRating
+    xpath: ancestor::html//div[@class="lazy-RatingsSnapshot_4XVJU5"]
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: variantCount
+    xpath: count(ancestor::html//div[@id="product-detail-api"]/table/tbody/tr)
+    description: Number of variants listed
+    type: NUMBER
+  - name: color
+    xpath: td[@class="color"]
+    description: A textual description of the colour
+  - name: colorGroup
+    xpath: td[@class="colorGroup"]
+    description: A textual description of the colour
+  - name: manufacturerDescription
+    xpath: ancestor::html//div[@id="webcollage"]
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    xpath: ancestor::html//div[@id="webcollage"]//img/@src
+    singleValue: false
+    description: Images within the third party description
+  - name: name
+    xpath: //td[@class="name"]
+    description: The product name
+  - name: specifications
+    xpath: td[@class="specifications"]
+    description: The physical dimensions of the product including packaging.
+  - name: warranty
+    xpath: td[@class="warranty"] | ancestor::html//div[@id="productDetails"]//ul/li[contains(text(),"warranty")]
+    description: Guarantee associated with the product
+  - name: countryOfOrigin
+    xpath: td[@class="countryOfOrigin"]
+    description: The country from which the product originates
+  - name: variantInformation
+    xpath: >-
+      concat('Color: ', td[@class="class"], ' | ', 'Size: ', td[@class="size"])
+    description: colour / scent / flavour / other
+  - name: firstVariant
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+  - name: variants
+    xpath: ancestor::html//td[@class="variantId"]
+    singleValue: false
+    description: null
+  - name: additionalDescBulletInfo
+    xpath: ancestor::html//div[@id="productDetails"]//ul/li
+    singleValue: false
+    description: null
+  - name: energyEfficiency
+    description: Energy rating of a product.
+      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+  - name: technicalInformationPdfPresent
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: Image360Present
+    xpath: ancestor::html//*[@data-section-tag="360-view"]
+    regExp: (.+)
+    regExpReplace: Yes
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    xpath: ancestor::html//a[contains(.,"Click to Zoom")]
+    regExp: (.+)
+    regExpReplace: Yes
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No
