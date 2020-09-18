@@ -15,7 +15,7 @@ module.exports = {
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
     await context.evaluate(async function () {
       // function to append the elements to DOM
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -24,7 +24,7 @@ module.exports = {
       }
 
       // function to get the json data from the string
-      function findJsonData (scriptSelector, startString, endString) {
+      function findJsonData(scriptSelector, startString, endString) {
         try {
           const xpath = `//script[contains(.,'${scriptSelector}')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -46,8 +46,19 @@ module.exports = {
         }
       }
 
+      // function to get the jxpath data
+      function getElementsByXPath(xpath, parent) {
+        let results = [];
+        let query = document.evaluate(xpath, parent || document,
+          null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+          results.push(JSON.prase(query.snapshotItem(i).textContent));
+        }
+        return results;
+      }
+
       // function to get the json data from the textContent
-      function findJsonObj (scriptSelector, video) {
+      function findJsonObj(scriptSelector, video) {
         if (video) {
           var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           return result;
@@ -103,6 +114,7 @@ module.exports = {
           addElementToDocument('sku', JSON.parse(apiDataResponse).id);
           addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
           addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
+          addElementToDocument('variantInformation', JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant[0].value);
         }
       }
 
@@ -125,29 +137,32 @@ module.exports = {
         addElementToDocument('product_description', imageData.description);
       }
 
-      // Get the video
-      try {
-        const inputVideo = findJsonObj('', '//input[@class="flix-jw"]/@value');
-        const imagelayoutVideo = findJsonObj('', '//div[@class="image-layout-slides-group-item"]/img/@data-url');
-        console.log('Weighting for Video');
-        if (inputVideo.snapshotLength > 0) {
-          console.log('addig in Video');
-          for (let i = 0; i < inputVideo.snapshotLength; i++) {
-            addElementToDocument('video', JSON.parse(findJsonObj('', inputVideo).snapshotItem(0).value).playlist[0].file);
-          }
-        } else {
-          if (imagelayoutVideo.snapshotLength === 1) {
-            console.log('addig Imag Video');
-            addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
-          } else {
-            for (let i = 0; i < imagelayoutVideo.snapshotLength; i++) {
-              addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
-            }
-          }
-        }
-      } catch (error) {
-        console.log('eror in video');
-      }
+      // // Get the video
+      // try {
+      //   const inputVideo = findJsonObj('', '//input[@class="flix-jw"]/@value');
+      //   const imagelayoutVideo = findJsonObj('', '//div[@class="image-layout-slides-group-item"]/img/@data-url');
+      //   const enhancedContentVideo = getElementsByXPath('//div[contains(@class,"fullJwPlayerWarp")]/input/@value');
+      //   console.log('Weighting for Video');
+      //   if (inputVideo.snapshotLength > 0) {
+      //     console.log('addig in Video');
+      //     for (let i = 0; i < inputVideo.snapshotLength; i++) {
+      //       addElementToDocument('video', JSON.parse(findJsonObj('', inputVideo).snapshotItem(0).value).playlist[0].file);
+      //     }
+      //   } else if (inputVideo.snapshotLength < 0 || enhancedContentVideo.length > 0) {
+      //     addElementToDocument('video', enhancedContentVideo.map(e => { return JSON.parse(e).playlist[0].file }).join('|'))
+      //   } else {
+      //     if (imagelayoutVideo.snapshotLength === 1) {
+      //       console.log('addig Imag Video');
+      //       addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
+      //     } else {
+      //       for (let i = 0; i < imagelayoutVideo.snapshotLength; i++) {
+      //         addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
+      //       }
+      //     }
+      //   }
+      // } catch (error) {
+      //   console.log('eror in video');
+      // }
 
       // elements from data Layer object
       const dataObj = findJsonData('dataLayer', '=', ';');
@@ -225,12 +240,12 @@ module.exports = {
       const specXpath = document.querySelectorAll('#tab-content-0 > div > dl > div');
       if (specXpath.length > 1) {
         specXpath.forEach(e => {
-          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean)}`);
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)}`);
         });
         addElementToDocument('specifications', specifcations);
       } else {
         specXpath.forEach(e => {
-          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean)}`);
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)}`);
         });
         addElementToDocument('specifications', specifcations);
       }
@@ -246,7 +261,7 @@ module.exports = {
       }
 
       // Get the ratingCount
-      function ratingFromDOM () {
+      function ratingFromDOM() {
         const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
         let ratingCount;
         if (reviewsCount) {
@@ -271,7 +286,7 @@ module.exports = {
         }
       }
 
-      function allergyAdvice () {
+      function allergyAdvice() {
         const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         if (element) {
@@ -282,7 +297,7 @@ module.exports = {
       } allergyAdvice();
 
       // Function to remove the `\n` from the textContent
-      function textContent (element, attributeName) {
+      function textContent(element, attributeName) {
         const text = (element && element.innerText.trim()
           .split(/[\n]/)
           .filter((ele) => ele)

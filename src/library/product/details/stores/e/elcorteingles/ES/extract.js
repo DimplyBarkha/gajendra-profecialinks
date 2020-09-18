@@ -12,10 +12,11 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
 
-      const sectionsDiv = 'div[class="sitemanager-data disabled"]';
-      if (sectionsDiv) {
-        throw "Not a Product Page";
+      let searchPage = document.querySelector('div.artwork.image');
+      if (searchPage) {
+        throw new Error('ERROR: Not a Product Page');
       }
+
 
       // function to append the elements to DOM
       function addElementToDocument(key, value) {

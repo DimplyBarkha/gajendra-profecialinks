@@ -52,7 +52,9 @@ fields:
     xpath : //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd |//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
   - name: videos
     singleValue: false
-    xpath : //div[@id="video"]
+    xpath : //div[contains(@class,"fullJwPlayerWarp")]/input/@value
+    regExp: \:\"(.+mp4)\"\,
+    regExpReplace: $1
   - name: name
     xpath : //meta[@name="twitter:title"]/@content
   - name: ratingCount
@@ -70,7 +72,7 @@ fields:
   - name: alcoholContent
     xpath : //ul[@class="info-list"]//li//span[contains(text(),"orcentaje de alcohol")]/following-sibling::text()
   - name: variantInformation
-    xpath: //div[@id="variants_container"]//option/@medida | //div[@id="variants_container"]//option/@talla
+    xpath: //div[@id="variantInformation"]
   - name: aggregateRating
     xpath: //div[@id="aggregateRating"]
   - name: shippingInfo
@@ -93,7 +95,7 @@ fields:
   - name: colorCode
     xpath :  
   - name: manufacturerDescription
-    xpath : //div[@id="flix-dyson-inpage"]     
+    xpath : //div[@id="tab-content-3"]/div//div  
   - name: termsAndConditions
     xpath : 
   - name: additionalDescBulletInfo

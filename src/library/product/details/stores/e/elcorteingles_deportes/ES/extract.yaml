@@ -27,3 +27,9 @@ fields:
   - name: quantity
     singleValue: true
     xpath : ancestor::html //div[@id="variants_container"]/span    
+  - name: firstVariant
+    singleValue: true
+    xpath : ancestor::html //div[@id="SKU"]
+  - name: promotion
+    singleValue: true
+    xpath : ancestor::html //div[@id="promotion"]  

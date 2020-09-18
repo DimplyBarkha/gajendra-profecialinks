@@ -7,7 +7,7 @@ module.exports = {
     country: 'ES',
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
-    url = `${url}#[!opt!]{"first_request_timeout":60000, "force200": true}[/!opt!]`;
+    url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":80000,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
     await context.goto(url, {
       block_ads: false,
       load_all_resources: true,
@@ -16,5 +16,11 @@ module.exports = {
       waitUntil: 'load',
       first_request_timeout: 60000,
     });
+
+
+
+
+
+    
   },
 };

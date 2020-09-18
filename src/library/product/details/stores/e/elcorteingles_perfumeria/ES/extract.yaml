@@ -18,7 +18,7 @@ fields:
     xpath : ancestor::html //li[@itemprop="itemListElement"]
   - name: nameExtended
     singleValue: true
-    xpath : ancestor::html //h1[@id="js-product-detail-title"]
+    xpath : ancestor::html //div[@id='nameExtended']  
   - name: listPrice
     singleValue: true
     xpath : ancestor::html //div[@id='listPrice']
@@ -62,15 +62,13 @@ fields:
     xpath : //div/@retailer_product_code
   - name: directions
     singleValue: true
-    xpath:
+    xpath: ancestor::html //div[contains(@class,'product_detail-description-in-image')]/strong[contains(text(),"Modo de aplicación:")]/following-sibling::p
   - name: warnings 
     singleValue: true
     xpath:   
   - name: mpc
     singleValue: true
-  - name: packSize
-    singleValue: true
-    xpath: 
+    xpath: ancestor::html //div[@id='mpc']
   - name: legalDisclaimer
     singleValue: true
     xpath:  
@@ -113,7 +111,7 @@ fields:
     singleValue: true
     xpath :  
   - name: pricePerUnit
-    singleValue: true
+    singleValue: false
     xpath : ancestor::html //div[contains(@class,"js-sticky-control")]//div[@class="composition_info"]/span
     regExp: \((.+)\s\/(.+)\)
     regExpReplace: $1  
@@ -124,7 +122,7 @@ fields:
     regExpReplace: $2  
   - name: promotion
     singleValue: true
-    xpath : ancestor::html //div[contains(@class,"js-sticky-control")]//p[@class="price _discount"]/span
+    xpath : //div/@promotion 
   - name: alcoholContent
     singleValue: true
     xpath : ancestor::html //ul[@class="info-list"]//li//span[contains(text(),"orcentaje de alcohol")]/following-sibling::text()
@@ -136,7 +134,7 @@ fields:
     xpath : ancestor::html //div/@variants 
   - name: firstVariant
     singleValue: true
-    xpath : ancestor::html //div[@id='firstVariant']
+    xpath : ancestor::html //div/@sku
   - name: aggregateRating
     singleValue: true
     xpath : ancestor::html //div[@id="aggregateRating"]

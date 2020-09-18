@@ -15,6 +15,12 @@ module.exports = {
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
 
     await context.evaluate(async function () {
+
+      let searchPage = document.querySelector('div.artwork.image');
+      if (searchPage) {
+        throw new Error('ERROR: Not a Product Page');
+      }
+
       // function to append the elements to DOM
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -117,6 +123,8 @@ module.exports = {
             for (var i = 0; i < element.length; i++) {
               setAttributes(element[i].querySelector('a div'),
                 {
+                  mpc: JSON.parse(apiDataResponse)._product_model ? JSON.parse(apiDataResponse)._product_model : "",
+                  promotion: JSON.parse(apiDataResponse).discount ? JSON.parse(apiDataResponse).discount + "%" : "",
                   title: JSON.parse(apiDataResponse)._all_colors[i].title,
                   gtin: JSON.parse(apiDataResponse)._all_colors[i].matches[0],
                   retailer_product_code: JSON.parse(apiDataResponse)._all_colors[i].skus[0].reference_id,
@@ -137,6 +145,8 @@ module.exports = {
                 gtin: JSON.parse(apiDataResponse)._gtin ? JSON.parse(apiDataResponse)._gtin : "",
                 retailer_product_code: JSON.parse(apiDataResponse)._reference ? JSON.parse(apiDataResponse)._reference : "",
                 sku: JSON.parse(apiDataResponse)._add_to_cart ? JSON.parse(apiDataResponse)._add_to_cart.id : "",
+                mpc: JSON.parse(apiDataResponse)._product_model ? JSON.parse(apiDataResponse)._product_model : "",
+                promotion: JSON.parse(apiDataResponse).discount ? JSON.parse(apiDataResponse).discount + "%" : "",
                 // variantInformation: JSON.parse(apiDataResponse)._all_colors ? JSON.parse(apiDataResponse)._delivery_options[0].skus.filter((e) => { return e.color.title === JSON.parse(apiDataResponse)._all_colors[0].title }).map((e) => { return e.variant[1].value }).join('/') : ""
               });
           }
@@ -286,7 +296,10 @@ module.exports = {
 
       // Function to remove the `\n` from the textContent
       function textContent(element, attributeName) {
-        const text = (element && element.innerText.trim().split(/[\n]/).filter((ele) => ele)
+        const text = (element && element.innerText.trim()
+          .replace('\s', "\n")
+          .split('\n')
+          .filter((ele) => ele)
           .join(' ')) ||
           '';
         addElementToDocument(attributeName, text);
@@ -297,15 +310,32 @@ module.exports = {
       const specXpath = document.querySelectorAll('#tab-content-0 > div > dl > div');
       if (specXpath.length > 1) {
         specXpath.forEach(e => {
-          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean)} `);
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)} `);
         });
         addElementToDocument('specifications', specifcations);
       } else {
         specXpath.forEach(e => {
-          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean)}`);
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)}`);
         });
         addElementToDocument('specifications', specifcations);
       }
+
+
+      (function nameExtended() {
+        const getXpath = (xpath, prop) => {
+          const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+          let result;
+          if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+          else result = elem ? elem.singleNodeValue : '';
+          return result && result.trim ? result.trim() : result;
+        };
+
+        let name = getXpath('//h1[@id="js-product-detail-title"]', 'textContent') ? getXpath('//h1[@id="js-product-detail-title"]', 'textContent') : "";
+        let color = getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') ? getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') : "";
+        let nameExtended = name + " " + color;
+        addElementToDocument('nameExtended', nameExtended);
+      }())
+
 
       const description = document.querySelectorAll('.product_detail-description-in-image, .product_information');
       if (description.length > 1) {
