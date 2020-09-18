@@ -10,7 +10,8 @@ module.exports = {
     loadedSelector: 'div[class="o-listing__products"]',
     noResultsXPath: '//div[contains(@class , "o-content__noResults")] | //div[@class="container o-product__mainContainer"]',
     openSearchDefinition: {
-      template: 'https://www.liverpool.com.mx/tienda?s={searchTerms}?page-{page}',
+      // template: 'https://www.liverpool.com.mx/tienda?s={searchTerms}?page-{page}',
+      template: 'https://www.liverpool.com.mx/tienda/page-{page}?s={searchTerms}',
     },
     domain: 'liverpool.com.mx',
     zipcode: '',
