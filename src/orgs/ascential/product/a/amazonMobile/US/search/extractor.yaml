@@ -1,0 +1,17 @@
+robot: product/search
+parameters:
+  country: US
+  domain: amazon.com
+  zipcode: ""
+  store: amazonMobile
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+meta:
+  branches:
+    dev:
+      extractor: 2a99ccb3-d687-41ac-895b-64e818a3bbf1
+      legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
+    staging:
+      extractor: 1362c759-615e-48c3-8227-fdf39174c508
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

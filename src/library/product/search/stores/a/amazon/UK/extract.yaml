@@ -1,0 +1,7 @@
+extends: ../shared
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.co.uk$1

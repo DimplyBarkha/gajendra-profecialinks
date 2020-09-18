@@ -5,6 +5,6 @@ module.exports = {
     domain: 'amazon.com',
     country: 'US',
     store: 'amazonFresh',
-    url: 'https://amazon.com/gp/product/{id}/ref=afx_dp_ingress&fpw=alm',
+    url: 'https://amazon.com/dp/product/{id}/?fpw=alm&s=amazonfresh&fpw=fresh',
   },
 };

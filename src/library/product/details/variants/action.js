@@ -12,10 +12,10 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { URL, RPC, SKU } = inputs;
+  const { URL, RPC, SKU, rpc } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;
-  const id = (RPC) || ((SKU) || inputs.id);
+  const id = (RPC) || ((SKU) || (rpc) || inputs.id);
   await execute({ url, id, zipcode: parameters.zipcode });
 
   await extract({ url, id });
@@ -56,6 +56,12 @@ module.exports = {
     },
     {
       name: 'RPC',
+      description: 'rpc for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'rpc',
       description: 'rpc for product',
       type: 'string',
       optional: true,

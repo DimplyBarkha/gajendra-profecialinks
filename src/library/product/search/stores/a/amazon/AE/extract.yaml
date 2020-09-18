@@ -1,0 +1,21 @@
+extends: ../shared
+fields:
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class='a-size-base' and @dir='auto']
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class='a-size-base' and @dir='auto']
+  - name: aggregateRating2
+    singleValue: true
+    xpath: //span[contains(@data-action,'a-popover')]//i/span
+  - name: productUrl
+    singleValue: true
+    xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.ae$1
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    xpath: //span[@class='s-label-popover-default']/span[contains(text(),'Sponsored')]
