@@ -117,7 +117,9 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //iframe[contains(@title, 'YouTube video player')]/@src
+    xpath: //div[contains(@class, 'slides')]//img[contains(@src, 'youtube')]/@src
+    regExp: vi/(.*?)/
+    regExpReplace: https://www.youtube.com/$1
   - name: name
     singleValue: false
     description: The product name
