@@ -8,7 +8,7 @@ module.exports = {
     store: 'amazon',
     zipcode: '',
   },
-  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
+  implementation: async ({ url }, parameterValues, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -35,8 +35,7 @@ module.exports = {
         imageElement: 'form img',
         autoSubmit: true,
       });
-      // @ts-ignore
-      await Promise.all([
+      const [response] = await Promise.all([
         console.log('solved captcha, waiting for page change'),
         context.waitForNavigation(),
         await new Promise(resolve => setTimeout(resolve, 3000)),
@@ -44,7 +43,6 @@ module.exports = {
       console.log('Captcha vanished');
     };
     const solveCaptchaIfNecessary = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
       console.log('Checking for CAPTCHA', await isCaptcha());
       while (await isCaptcha() === 'true' && captchas < MAX_CAPTCHAS) {
         captchas++;
@@ -78,7 +76,7 @@ module.exports = {
         return true;
       }
       if (lastResponseData.status === 503) {
-        await Promise.all([
+        const [response] = await Promise.all([
           console.log('Waiting for page to reload on homepage'),
           context.waitForNavigation(),
           console.log('Clicking 503 image'),
@@ -89,9 +87,11 @@ module.exports = {
         }
         console.log('Go to some random page');
         const clickedOK = await context.evaluate(async function () {
+          // Changed xpath to check for any link.
           const randomLinkEls = document.evaluate('//a[@href]', document, null, XPathResult.ANY_TYPE, null);
           const randomLinkEl = randomLinkEls.iterateNext();
           if (randomLinkEl) {
+            // @ts-ignore
             randomLinkEl.click();
             return 'true';
           } else {
@@ -114,6 +114,9 @@ module.exports = {
           random_move_mouse: true,
         });
         console.log('lastResponseData', lastResponseData);
+        if (!lastResponseData) {
+          return { status: false };
+        }
         await new Promise(resolve => setTimeout(resolve, 1000));
         if (await solveCaptchaIfNecessary() === 'false') {
           return { status: false };
@@ -131,6 +134,10 @@ module.exports = {
         css_enabled: false,
         random_move_mouse: true,
       });
+      // Treating as 200 if no response.
+      if (!lastResponseData.status) {
+        return;
+      }
       await new Promise(resolve => setTimeout(resolve, 1000));
       if ([200, 503, 410, 404].indexOf(lastResponseData.status) === -1) {
         console.log('Blocked: ' + lastResponseData.status);
