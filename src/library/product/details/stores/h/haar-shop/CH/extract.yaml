@@ -75,12 +75,9 @@ fields:
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
-  #- name: variantId
-  #  singleValue: false
-  #  xpath: //span[@class='variation_id']
-  #- name: variantCount
-  #  singleValue: true
-  #  description: Number of variants listed
+  - name: variantId
+    singleValue: false
+    xpath: //div[@itemprop='sku']
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
