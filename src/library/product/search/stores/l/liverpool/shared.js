@@ -51,7 +51,17 @@ const transform = (data, context) => {
           row.aggregateRating2.forEach(item => {
            item.text = Number(item.text).toFixed(1);
           });
-        }  
+        }
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
+            item.text = item.text.replace('.', ',');
+          });
+        }
+        if (row.price) {
+          row.price.forEach(item => {
+            item.text = item.text.replace(',', '').replace('.', ',');
+          });
+        } 
       }
     }
     return data;
