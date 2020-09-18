@@ -29,9 +29,13 @@ module.exports = {
     });
     if (manufacturerInfo) {
       await sharedhelpers.autoScroll();
-      await context.waitForSelector('div#flix-inpage', { timeout: 65000 });
-      await context.waitForSelector('div[id^="flixinpage_"]', { timeout: 65000 });
-      await context.waitForSelector('div#inpage-iframe-modal', { timeout: 65000 });
+      try {
+        await context.waitForSelector('div#flix-inpage', { timeout: 65000 });
+        await context.waitForSelector('div[id^="flixinpage_"]', { timeout: 65000 });
+        await context.waitForSelector('div#inpage-iframe-modal', { timeout: 65000 });
+      } catch (error) {
+        console.log('No manufacturer content');
+      }
     }
 
     await context.extract(productDetails, { transform: transformParam });

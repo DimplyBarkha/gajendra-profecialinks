@@ -25,6 +25,11 @@ module.exports = {
         if (modalCloseButton) {
           await context.click('button.gdpr-cookie-layer__btn--submit');
         }
+        if (modalCloseButton) {
+          await context.evaluate(async function () {
+            document.querySelector('button.gdpr-cookie-layer__btn--submit').click();
+          });
+        }
       }
     }
 
