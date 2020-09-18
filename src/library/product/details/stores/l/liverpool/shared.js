@@ -47,6 +47,11 @@ const transform = (data) => {
             }
           });
         }
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
+            item.text = item.text.replace('.', ',');
+          });
+        }
         if (row.promotion) {
           let text = '';
           row.promotion.forEach(item => {
