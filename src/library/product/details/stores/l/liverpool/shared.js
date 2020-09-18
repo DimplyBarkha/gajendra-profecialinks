@@ -52,6 +52,16 @@ const transform = (data) => {
             item.text = item.text.replace('.', ',');
           });
         }
+        if (row.price) {
+          row.price.forEach(item => {
+            item.text = item.text.replace(',', '').replace('.', ',');
+          });
+        }
+        if (row.listPrice) {
+          row.listPrice.forEach(item => {
+            item.text = item.text.replace(',', '').replace('.', ',');
+          });
+        }
         if (row.promotion) {
           let text = '';
           row.promotion.forEach(item => {
