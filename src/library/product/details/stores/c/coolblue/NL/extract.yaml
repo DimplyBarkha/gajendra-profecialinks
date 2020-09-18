@@ -44,7 +44,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//ol[contains(@class,"breadcrumbs")]//li[not(@style)])[position()>1]
+    xpath: (//ol[contains(@class,"breadcrumbs")]//li[not(@style)]//a[@class="link"])[position()>1]
   - name: nameExtended
     singleValue: false
     xpath: //span[contains(@class,'js-product-name')]
@@ -117,13 +117,13 @@ fields:
     regExpReplace: $1,$2
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class='grid-section-xs--gap-1']//ul[@class='list']//li
+    xpath: (//div[@class='grid-section-xs--gap-1']//ul[@class='list']//li) | (//div[contains(@class,'cms-content js-product-description-content')]//li)
   - name: description
     singleValue: false
-    xpath: (//div[contains(@class,'cms-content js-product-description-content')])
+    xpath: normalize-space(concat(//div[contains(@class,'js-product-description-content')],//div[@class='grid-section-xs--gap-1']//ul[@class='list']))
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[@class='grid-section-xs--gap-1']//ul[@class='list']//li)
+    xpath: count((//div[@class='grid-section-xs--gap-1']//ul[@class='list']//li) | (//div[contains(@class,'cms-content js-product-description-content')]//li))
   - name: brandText
     singleValue: false
     xpath: //dl[contains(translate(string(), 'Merk', 'Merk'), 'Merk')]/dd
