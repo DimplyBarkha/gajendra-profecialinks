@@ -16,7 +16,7 @@ fields:
 - name: productUrl
   xpath: div/a/@href
 - name: thumbnail
-  xpath: //a//img/@src 
+  xpath: //a//img/@src
   regExp: (.+)
   regExpReplace: https:$1
 - name: id
@@ -28,7 +28,11 @@ fields:
 - name: ratingCount
   xpath: //*[@alt="star icon"]/../following-sibling::div
   regExp: (\d+)
+  type: NUMBER
 - name: reviewCount
+  xpath: //*[@alt="star icon"]/../following-sibling::div
+  regExp: (\d+)
+  type: NUMBER
 - name: rank
   xpath: ((count(../../../preceding-sibling::div))*count(../../../div)) + ((count(../../preceding-sibling::div))+1)
 - name: rankOrganic
