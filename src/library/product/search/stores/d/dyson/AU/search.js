@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'dyson.com.au',
-    timeout: 20000,
     country: 'AU',
     store: 'dyson',
+    domain: 'dyson.com.au',
     zipcode: '',
   },
 };

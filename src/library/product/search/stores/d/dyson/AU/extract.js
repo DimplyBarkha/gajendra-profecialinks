@@ -99,10 +99,10 @@ const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'NZ',
+    country: 'AU',
     store: 'dyson',
     transform: transform,
-    domain: 'dyson.co.nz',
+    domain: 'dyson.com.au',
   },
   implementation,
 };

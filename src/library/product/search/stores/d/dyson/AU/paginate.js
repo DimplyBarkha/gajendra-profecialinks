@@ -2,12 +2,12 @@
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'NZ',
+    country: 'AU',
     store: 'dyson',
     nextLinkSelector: 'a.search-pagination__text.js-search-pagination-link',
     spinnerSelector: '.active .js-search-loader',
     noResultsXPath: '//h2[contains(.,"returned no  results")]',
-    domain: 'dyson.co.nz',
+    domain: 'dyson.com.au',
     zipcode: '',
   },
 };
