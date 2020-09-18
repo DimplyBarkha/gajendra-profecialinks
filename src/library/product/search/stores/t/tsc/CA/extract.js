@@ -27,14 +27,22 @@ async function implementation (
         console.log('Error in converting text to JSON....');
         scriptTagJSON = '';
       }
-      const productList = scriptTagJSON ? scriptTagJSON.mainEntity ? scriptTagJSON.mainEntity[0] ? scriptTagJSON.mainEntity[0].itemListElement : '' : '' : '';
-      const skuArray = productList.map(productItem => productItem.item.sku);
+      const productList = scriptTagJSON ? scriptTagJSON.mainEntity ? scriptTagJSON.mainEntity[0] ? scriptTagJSON.mainEntity[0].itemListElement : [] : [] : [];
+      const skuArray = productList.length ? productList.map(productItem => productItem.item.sku) : [];
       return skuArray;
     }
 
-    function feth
-    
-    fetchIDFromScript();
+    function addSkusToDOM (skuArr) {
+      const productListSelector = document.querySelectorAll('div[class*="productItems"] div[class*="productItemWrap"]');
+      for (let i = 0; i < productListSelector.length; i++) {
+        const div = document.createElement('div');
+        div.textContent = skuArr[i];
+        div.id = 'added_sku' + i;
+        productListSelector[i].appendChild(div);
+      }
+    }
+
+    addSkusToDOM(fetchIDFromScript());
     // Adding search url to DOM
     const searchURL = window.location.href;
     addHiddenDiv('added_search_url', searchURL);

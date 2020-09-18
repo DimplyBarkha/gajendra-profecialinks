@@ -31,7 +31,7 @@ fields:
     xpath: //*[contains(@class, 'productDesc')]
   - name: sku
     singleValue: false
-    xpath: //div[@class="itemNo"]
+    xpath: //div[contains(@id, "added_sku")]
   - name: mpc
     singleValue: false
     description: The model code of the product
@@ -76,7 +76,7 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: false
-    xpath: //div[@class="itemNo"]
+    xpath: //div[contains(@id, "added_sku")]
   - name: aggregateRating2
     singleValue: false
     xpath: //div[contains(@class, 'snippet-rating')]

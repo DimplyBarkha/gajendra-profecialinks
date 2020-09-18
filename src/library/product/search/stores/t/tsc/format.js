@@ -35,20 +35,19 @@ const transform = (data, context) => {
       } else {
         row.hasVariant = [{ text: 'No' }];
       }
-      if (row.id) {
-        row.id.forEach(idItem => {
-          idItem.text = idItem.text.replace(/[^\d]/gm, '');
-        });
+      if (row.id && row.id.length > 1) {
+        row.id = [row.id[0]];
       }
       if (row.reviewCount) {
         row.reviewCount.forEach(reviewItem => {
           reviewItem.text = reviewItem.text.replace(/(\d+).*/gm, '$1');
         });
       }
-      if (row.sku) {
-        row.sku.forEach(skuItem => {
-          skuItem.text = skuItem.text.replace(/[^\d]/gm, '');
-        });
+      if (row.sku && row.sku.length > 1) {
+        row.sku = [row.sku[0]];
+      }
+      if (row.searchUrl && row.searchUrl.length > 1) {
+        row.searchUrl = [row.searchUrl[0]];
       }
       rankCounter += 1;
       if (!row.sponsored) {
