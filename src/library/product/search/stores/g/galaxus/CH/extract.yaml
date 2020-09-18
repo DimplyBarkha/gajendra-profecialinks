@@ -31,7 +31,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //*[contains(text(), '.–')]
+    xpath: //strong[contains(text(), '.')]
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
