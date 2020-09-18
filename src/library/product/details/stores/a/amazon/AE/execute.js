@@ -5,7 +5,7 @@ module.exports = {
     country: 'AE',
     store: 'amazon',
     domain: 'amazon.ae',
-    loadedSelector: 'div[id*="dp-container"]',
+    loadedSelector: 'div#dp-container',
     noResultsXPath: '//b[contains(@class, "h1") and contains(text(), "Looking for something?")]',
     zipcode: '',
   },
