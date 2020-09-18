@@ -14,7 +14,7 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
@@ -41,7 +41,7 @@ const transform = (data) => {
         row.image[0].text = row.image[0].text.replace(/productthumb/, 'magnify');
       }
       if (!row.warranty) {
-        if (row.warranty1) {
+        if (row.warranty1 && row.warranty1[0].text.includes('Warranty')) {
           const text = row.warranty1[0].text.replace(/\n/g, '').replace(/.*Warranty:(.*)/, '$1').replace(/^((?:\S+\s+){3}\S+).*/, '$1').replace(/-/g, '').replace(/:/g, '');
           if (text.includes('guarantee')) {
             row.warranty = [{ text }];

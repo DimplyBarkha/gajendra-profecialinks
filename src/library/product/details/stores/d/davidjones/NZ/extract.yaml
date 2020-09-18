@@ -17,7 +17,7 @@ fields:
     xpath: //div[@itemprop='brand']
   - name: category
     singleValue: false
-    xpath: //li[@itemprop='child']
+    xpath: //li[@itemprop='child' and not(contains(@class, "active"))]
   - name: color
     singleValue: false
     xpath: //div[contains(@class,'selected')]/span[contains(@class,'colour-label')]
