@@ -35,4 +35,8 @@ fields:
     type: NUMBER
     xpath: //meta[@itemprop="reviewCount"]/@content
     defaultValue: '0'
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+    xpath: //div[@itemprop="name"]
   
