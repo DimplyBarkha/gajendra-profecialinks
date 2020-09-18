@@ -9,7 +9,7 @@ fields:
     regExp:
     regExpReplace:
   - name: id
-    singleValue: true
+    singleValue: false
     xpath: //div[@data-itemid]/@data-itemid
     regExp:
     regExpReplace:
@@ -39,7 +39,7 @@ fields:
     regExp:
     regExpReplace:
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     xpath: //picture/img/@data-src
     regExp:
     regExpReplace:
@@ -59,7 +59,7 @@ fields:
     regExp:
     regExpReplace:
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"b-product-pricing__sale")]//span[contains(@class,"b-product-pricing__price-value")]
     regExp:
     regExpReplace:
