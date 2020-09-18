@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../sharedTransform');
 const { implementation } = require('../extractImplementation');
 
 module.exports = {
@@ -6,7 +6,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'costco',
-    transform: cleanUp,
+    transform,
     domain: 'costco.com',
     zipcode: '94209',
   },

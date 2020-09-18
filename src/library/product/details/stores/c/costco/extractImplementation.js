@@ -1,9 +1,26 @@
 const implementation = async (inputs, parameters, context, dependencies) => {
+  const timeout = 20000;
+
   try {
     await context.click('input[name="view-more"]');
   } catch (err) {
     console.log('Error while expanding the enhanced content.');
   }
+
+  try {
+    await context.waitForSelector('button[data-wc-open-content-tag="360-view"]', { timeout })
+  } catch (err) {
+    console.log('360 button did not load.');
+  }
+
+  await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
+
+  await context.evaluate(function () {
+    console.log('Scrolling to the bottom of page.');
+    document.querySelector('#footer-widget').scrollIntoView({ behavior: 'smooth' })
+  });
+
+  await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
 
   await context.evaluate(function () {
     const addElement = (id, content) => {
@@ -58,10 +75,14 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     };
 
     const bulletsCount = document.evaluate('count(//ul[@class="pdp-features"]/li | //h3[contains(text(), "Product Details")]/following-sibling::div[@class="product-info-description" and not(div[@id="wc-power-page"])]//li)', document).numberValue;
-
+    const availability = window.products[0][0] && window.products[0][0].inventory;
+    const threeSixtyImage = document.evaluate('boolean(//button[@aria-label="Press to open 360 View"] | //div[@class="wc-mediaGalleryThreeSixty"])', document).booleanValue;
+    console.log('threeSixtyImage', threeSixtyImage);
+    addElement('threeSixtyImage', threeSixtyImage ? 'Yes' : 'No');
     addElement('bulletsCount', bulletsCount);
     addElement('specifications', populateSpecs());
     addElement('description', buildDescription());
+    addElement('availability', availability);
   });
 
   const { transform } = parameters;

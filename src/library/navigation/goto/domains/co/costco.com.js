@@ -8,7 +8,7 @@ module.exports = {
     store: 'costco',
     zipcode: '98188',
   },
-  implementation: async ({ url, storeId }, { timeout, zipcode }, context, dependencies) => {
+  implementation: async ({ url, storeId, zipcode }, { timeout }, context, dependencies) => {
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
