@@ -42,6 +42,7 @@ fields:
   - name: priceCurrency  
     singleValue: false
     xpath: //div[@class='price__container price__container--column d-flex justify--space-between']//span[@class='price__currency']
+    defaultValue: SAR
   - name: variants
     singleValue: false
     xpath: //div[@class='select-group']//select//option[not(contains(@disabled,"disabled"))]/@value
