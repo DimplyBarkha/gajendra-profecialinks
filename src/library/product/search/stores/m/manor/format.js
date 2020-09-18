@@ -16,6 +16,16 @@ const transform = (data) => {
                     item.text = 'https://www.manor.ch' + item.text;
                 });
             }
+            if (row.thumbnail) {
+                row.thumbnail.forEach(item => {
+                    item.text = 'https://www.manor.ch' + item.text;
+                });
+            }
+            if (row.price) {
+                row.price.forEach(item => {
+                    item.text = item.text.replace('.',',');
+                });
+            }
         }        
     }
     return data;
