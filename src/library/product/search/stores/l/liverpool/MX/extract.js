@@ -78,10 +78,11 @@ async function implementation (
     console.log('JSON: ', JSON);
   })
 
-  try {
-    await new Promise((resolve) => setTimeout(resolve, 6000));
-  } catch (error) {
-    console.log('error: ', error);
-  }
+  // try {
+  //   await new Promise((resolve) => setTimeout(resolve, 6000));
+  // } catch (error) {
+  //   console.log('error: ', error);
+  // }
+  await new Promise((resolve) => setTimeout(resolve, 30000));
   return await context.extract(productDetails, { transform });
 }
