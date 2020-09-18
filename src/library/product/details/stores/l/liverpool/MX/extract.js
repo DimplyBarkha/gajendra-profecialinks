@@ -110,7 +110,9 @@ async function implementation(
         addHiddenDiv('li_description', description);
         let availibility = JsonStr ? JsonStr.offers : '';
         availibility = availibility ? availibility.availability : 'In Stock';
+        console.log('availibility: ', availibility);
         if (availibility.includes('InStock')) {
+          console.log('hi')
           availibility = 'In Stock';
         } else {
           availibility = 'Out Of Stock';
@@ -152,11 +154,11 @@ async function implementation(
         }
       }
       let variantInfoArr = [];
-      if (color !== undefined) {
+      if (color !== "undefined") {
         addHiddenDiv('li_color', color);
         variantInfoArr.push(color);
       }
-      if (size !== undefined) {
+      if (size !== "undefined") {
         addHiddenDiv('li_size', size);
         variantInfoArr.push(size);
       }

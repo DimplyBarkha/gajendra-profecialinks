@@ -24,15 +24,15 @@ const transform = (data) => {
   
     for (const { group } of data) {
       for (const row of group) {
-        if (row.availabilityText) {
-          row.availabilityText.forEach(item => { 
-            if(item.text.includes('InStock')) {
-              item.text = "In Stock"
-            } else {
-              item.text = "Out of Stock"
-            }
-          })
-        }
+        // if (row.availabilityText) {
+        //   row.availabilityText.forEach(item => { 
+        //     if(item.text.includes('InStock')) {
+        //       item.text = "In Stock"
+        //     } else {
+        //       item.text = "Out of Stock"
+        //     }
+        //   })
+        // }
         if (row.videos) {
           row.videos.forEach(item => {
             item.text = item.text+'.mp4';
@@ -50,7 +50,7 @@ const transform = (data) => {
         if (row.promotion) {
           let text = '';
           row.promotion.forEach(item => {
-            text += ` || ${item.text.trim()}`;
+            text += ` ${item.text.trim()}`;
           });
           row.promotion = [
             {
