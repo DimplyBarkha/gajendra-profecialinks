@@ -21,8 +21,8 @@ fields:
     singleValue: false
   - name: price
     type: NUMBER
-    xpath: //div[contains(@class,'_2PrMB')]/span
-    singleValue: true 
+    xpath: //div[contains(@class,'_2PrMB')]//@content
+    singleValue: false 
   - name: seller
     xpath: //span[contains(@class,'_2MTjQ vAAKf')]//span[contains(@class,'_1nVaV')]/strong
     singleValue : false
