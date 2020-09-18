@@ -7,5 +7,6 @@ module.exports = {
     domain: 'amazon.com',
     loadedSelector: '#productTitle',
     noResultsXPath: '//div[@id="g"]//img[contains(@alt,"Dogs")]',
+    // noResultsXPath: '//span[contains(text(),"No results for")]'
   },
 };

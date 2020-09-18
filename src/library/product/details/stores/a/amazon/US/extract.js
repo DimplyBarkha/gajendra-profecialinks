@@ -58,7 +58,7 @@ async function implementation (
     }
   }
 
-  await amazonHelp.setLocale('10001');
+  // await amazonHelp.setLocale('10001');
 
   await getLbb();
   await helpers.addURLtoDocument('added-url');
