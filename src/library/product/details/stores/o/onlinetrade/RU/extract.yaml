@@ -89,7 +89,8 @@ fields:
     description: The store-specific product identifier
   - name: variantId
     singleValue: false
-    xpath: //span[contains(@class,'p__displayedItem__setType__label gray')]
+    #xpath: //span[contains(@class,'p__displayedItem__setType__label gray')]
+    xpath: //meta[contains(@itemprop,"sku")]/@content
     description: Identifier for a variant from a store where variants share the same sku
   - name: packSize
     singleValue: false
