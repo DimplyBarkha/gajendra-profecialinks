@@ -33,13 +33,11 @@ const transform = (data, context) => {
         }));
 
         if (row.aggregateRating) {
-          var received_per = row.aggregateRating[0].text          
-          
-        
-          if(received_per >= 0){
+          var received_per = row.aggregateRating[0].text  
+          console.log(received_per)         
             var aggregate_rating = ( received_per * 5 )                     
             row.aggregateRating =  [{ text:  aggregate_rating }];
-        }
+       
          }
       }
     }
