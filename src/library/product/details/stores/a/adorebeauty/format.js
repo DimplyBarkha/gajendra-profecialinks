@@ -25,7 +25,10 @@ const transform = (data) => {
 
         if (row.additionalDescBulletInfo) {
           row.additionalDescBulletInfoCount = [{ text: row.additionalDescBulletInfo.length }];
-          row.descriptionBullets = [{ text: row.additionalDescBulletInfo.length }];
+        }
+
+        if(row.descriptionBullets) {
+          row.descriptionBullets[0].text = row.descriptionBullets.length;
         }
 
         if (row.name && row.brandText) {

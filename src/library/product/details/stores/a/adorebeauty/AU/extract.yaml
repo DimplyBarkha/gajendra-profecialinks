@@ -68,27 +68,24 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@itemprop="description"]/div/ul/li | //div[@itemprop="description"]/ul/li
-  - name: additionalDescBulletInfoCount
-    singleValue: false
-    xpath: //div[@itemprop="description"]/div/ul/li | //div[@itemprop="description"]/ul/li
   - name: shippingDimensions
     singleValue: false
-    xpath: //div[@itemprop="description"]/p[contains(text(), "Box dimensions")]
+    xpath: //div[@itemprop="description"]/p[contains(text(), "Box dimensions") or contains(text(), "Box Dimensions")]
     regExp: \w+:(.*)
     regExpReplace: $1
   - name: shippingWeight
     singleValue: false
-    xpath: //div[@itemprop="description"]/p[contains(text(), "Box weight")]
+    xpath: //div[@itemprop="description"]/p[contains(text(), "Box weight") or contains(text(), "Box Weight")]
     regExp: \w+:(.*)
     regExpReplace: $1
   - name: weightGross
     singleValue: false
-    xpath: //div[@itemprop="description"]/p[contains(text(), "Box weight")]
+    xpath: //div[@itemprop="description"]/p[contains(text(), "Box weight") or contains(text(), "Box Weight")]
     regExp: \w+:(.*)
     regExpReplace: $1
   - name: warranty
     singleValue: false
-    xpath: //div[@itemprop="description"]/p[contains(text(), "guarantee") or contains(text(), "warranty")] | //div[@itemprop="description"]/ul/li[contains(text(), "guarantee") or contains(text(), "warranty")]
+    xpath: //div[@itemprop="description"]/p[contains(text(), "guarantee") or contains(text(), "Guarantee") or contains(text(), "warranty")] | //div[@itemprop="description"]/ul/li[contains(text(), "guarantee") or contains(text(), "warranty") or contains(text(), "warranty")] | //div[@itemprop="description"]/ul/li[contains(text(), "guarantee") or contains(text(), "Warranty")]
   - name: countryOfOrigin
     singleValue: false
     xpath: //div[@itemprop="description"]/ul/li[contains(text(), 'Made in')]
