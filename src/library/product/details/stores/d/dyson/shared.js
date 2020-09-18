@@ -8,7 +8,7 @@ async function implementation (
 ) {
   const { productDetails, Helpers } = dependencies;
   const helpers = new Helpers(context);
-  const productPageSelector = "//main//div[@class='par parsys']//div[contains(concat(' ',normalize-space(@class),' '),'product-hero')]//text()";
+  const productPageSelector = "//main//div[contains(concat(' ',normalize-space(@class),' '),'par parsys')]//div[contains(concat(' ',normalize-space(@class),' '),'product-hero')]//text()";
 
   // first check that the page is a valid product page
   const isValidProductPage = await helpers.checkXpathSelector(productPageSelector);
@@ -227,7 +227,8 @@ async function implementation (
       // split per groups of words and only returns the last one
       return temp.split(' ').filter(word => word).slice(-1);
     };
-    const fixPrice = price => `${localeCleaner(price)} ${getCurrency(price)}`;
+    const fixPrice = price => `${localeCleaner(price)}`;
+    addElementToDocument('added_currency', getCurrency(price));
     addElementToDocument('added_price', fixPrice(price));
     if (listPrice !== price) addElementToDocument('added_listPrice', fixPrice(listPrice));
 
