@@ -7,7 +7,7 @@ module.exports = {
     domain: 'gigantti.fi',
     url: 'https://www.gigantti.fi/search?SearchTerm={searchTerms}&search=&searchResultTab=',
     loadedSelector: 'div.product-list-container',
-    noResultsXPath: '//section[contains(@class, "no-search-result")]',
+    noResultsXPath: '//div[contains(@class, "recommended-products")]',
     zipcode: '',
   },
 };

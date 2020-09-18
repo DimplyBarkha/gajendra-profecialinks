@@ -6,7 +6,7 @@ module.exports = {
     store: 'gigantti',
     nextLinkSelector: null,
     loadedSelector: 'div.product-list-container',
-    noResultsXPath: '//div[contains(@class, "product-list-container")]',
+    noResultsXPath: '//div[contains(@class, "recommended-products")]',
     domain: 'gigantti.fi',
     zipcode: '',
   }, 
