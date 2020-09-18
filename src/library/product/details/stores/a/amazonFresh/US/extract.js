@@ -88,8 +88,8 @@ async function implementation (
   }
 
   await new Promise(resolve => setTimeout(resolve, 5000));
-  await amazonHelp.setLocale('90210');
-  await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
+  // await amazonHelp.setLocale('90210');
+  // await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
 
   await loadAllResources();
   addContent(parentInput);
