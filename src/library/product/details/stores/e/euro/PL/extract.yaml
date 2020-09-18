@@ -112,6 +112,9 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":\s"([^"]+)
+    regExpReplace: $1
   - name: shippingDimensions
     singleValue: false
     xpath: normalize-space(//td[contains(text(),'Wymiary opakowania')]//following-sibling::td)
