@@ -55,9 +55,9 @@ fields:
     singleValue: true
     description: The number of ratings
   - name: reviewCount
-    singleValue: true
-    xpath: //div[@class='stars']//div[@class='ratings-number']
-    regExp: \d+
+    xpath: //div[@class='ratings row']/div/@aria-label
+    regExp: (\d+) reviews
+    regExpReplace: $1
     description: The number of reviews
   - name: price
     singleValue: true
