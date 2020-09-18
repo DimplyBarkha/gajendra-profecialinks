@@ -58,8 +58,7 @@ fields:
     xpath: count(//div[@class="thumbnail-gallery"]/div/div[not(@class="thumbnail-gallery__item is-current")]/div/span/img/@src)
   - name: nameExtended
     singleValue: false
-    regExp: (.*?)\s*\+
-    regExpReplace: $1
+    manualSelector: h1[itemprop="name"]
   - name: sku
     singleValue: false
     xpath: //meta[@itemprop="sku"]/@content

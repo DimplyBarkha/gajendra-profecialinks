@@ -30,7 +30,9 @@ const transform = (data) => {
         }
 
         if (row.name && row.brandText) {
+          if(!(row.name[0].text.indexOf(row.brandText[0].text) >= 0)){
             row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
+          }
         }
 
         if(row.directions) {
