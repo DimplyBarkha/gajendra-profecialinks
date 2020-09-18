@@ -14,9 +14,9 @@ const transform = (data, context) => {
         //     row.listPrice = [{ text: row.listPrice[0].text }, { text: row.onlinePriceCurrency[0].text }];
         //   }    
 
-            if (row.price || row.listPrice) {
+            if (row.price) {
           row.price = [{ text: row.price[0].text.substring(1) }, { text: row.price[0].text.charAt(0) }];
-         row.listPrice = [{ text: row.listPrice[0].text.substring(1) }, { text: row.listPrice[0].text.charAt(0) }];
+        //  row.listPrice = [{ text: row.listPrice[0].text.substring(1) }, { text: row.listPrice[0].text.charAt(0) }];
   
      }   
   
