@@ -30,8 +30,8 @@ const transform = (data) => {
           item.text = item.text.replace('.', ',').trim();
         });
       }
-      if (row.upc) {
-        row.upc.forEach(item => {
+      if (row.gtin) {
+        row.gtin.forEach(item => {
           var myRegexp = /ean\"\s*:\s*\"(.+?)\"/g;
           var match = myRegexp.exec(item.text);
           if (match) {
