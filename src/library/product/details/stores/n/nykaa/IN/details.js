@@ -5,6 +5,5 @@ module.exports = {
     country: 'IN',
     store: 'nykaa',
     domain: 'nykaa.com',
-    zipcode: '',
   },
 };

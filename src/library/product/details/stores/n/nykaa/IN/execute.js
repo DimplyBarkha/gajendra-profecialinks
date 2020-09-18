@@ -5,8 +5,7 @@ module.exports = {
     country: 'IN',
     store: 'nykaa',
     domain: 'nykaa.com',
-    loadedSelector: null,
-    noResultsXPath: null,
-    zipcode: '',
+    loadedSelector: 'body.nykaa',
+    noResultsXPath: '//div[contains(text(),"No results found ")]',
   },
 };

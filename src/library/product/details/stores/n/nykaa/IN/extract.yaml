@@ -4,117 +4,92 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
     xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@src
     regExp: (.+product)(.+)resize(.+)
     regExpReplace: $1$3
   - name: imageAlt
-    singleValue: true
     xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@alt
   - name: alternateImages
-    singleValue: false
-    xpath: //div[@class="slick-thumb"]//div[@class="slick-track"]/div//img/@src
+    xpath: //div[@class="slick-thumb"]//div[@class="slick-track"]/div[position()>1]//img/@src
     regExp: (.+product)(.+)pad_resize(.+)
     regExpReplace: $1$3   
   - name: metaKeywords
-    singleValue: true
     xpath: //meta[@name="keywords"]//@content
   - name: category
-    singleValue: false
     xpath: //ol[contains(@class,"breadcrumb product_des-breadcrumb")]//li
   - name: nameExtended
-    singleValue: true
     xpath: //h1[@itemprop="name"]
   - name: listPrice
-    singleValue: true
     xpath: //div[@class="m-content__product-des__details"]//span[@class="mrp-price"]
   - name: price
-    singleValue: true
     xpath: //div[contains(@class,"m-content__product-des__details")]//span[contains(@class,"post-card__content-price-offer")]
   - name: availabilityText
-    singleValue: true
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
     xpath: //div[contains(@class,"m-content__product-des")]//button[contains(@class,"combo-add-to-btn")]
   - name: description
-    xpath: //p[contains(text(),'Additional Information')] | //div[contains(@class,"pdp-description-tab-item description-expand")]//p[1]
+    xpath: //header[contains(text(),'Product Description')]/following-sibling::div//div[@class="description-table__tabs"]/ul//div[@class="pdp-description-tab-item description-expand"]//p[1][not (contains(.,'Additional Information'))] | //header[contains(text(),'Product Description')]/following-sibling::div//div[@class="description-table__tabs"]/ul//div[@class="pdp-description-tab-item description-expand"]//ul//li[not (contains(.,'Additional Information'))]
   - name: brandText
-    singleValue: true
-    xpath: //*[@class="pdp-description-tab-item description-expand"]//p[contains(text(),'Name of')]
-    regExp: (.+):(.+)
-    regExpReplace: $2
+    xpath: //body/@brand
   - name: manufacturer
-    singleValue: true
-    xpath: //*[@class="pdp-description-tab-item description-expand"]//p[contains(text(),'Name of')]
-    regExp: (.+):(.+)
-    regExpReplace: $2
+    xpath: //body/@brand
   - name: weightNet
-    singleValue: true
-    xpath: //div/h1/span | //dd[contains(text(),'Weight')]
-    regExp: (\d+).(\d+)
+    xpath: //dd[contains(text(),'Weight')]
+    regExp: (\d+).(\d+)\s?\w+
   - name: sku
-    singleValue: true
-    xpath: //div//a[@class="all-review-btn"]/@href
-    regExp: (.+)?(skuId=)(\d+)
-    regExpReplace: $3
+    xpath: //link[@rel="canonical"]/@href
+    regExp: p/(\d+)
+    regExpReplace: $1
   - name: variantId
-    singleValue: true
-    xpath: //div//a[@class="all-review-btn"]/@href
-    regExp: (.+)?(skuId=)(\d+)
-    regExpReplace: $3
+    xpath: //link[@rel="canonical"]/@href
+    regExp: p/(\d+)
+    regExpReplace: $1
   - name: ratingCount
-    singleValue: true
-    type: NUMBER
-    xpath: //div[@data-target="review-target"]/span[1]
+    xpath: //div[@data-target="review-target"]/span[contains(text(),'Review')]
     regExp: (\d+)
   - name: aggregateRating
-    singleValue: true
     type: NUMBER
     xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
   - name: shippingInfo
-    singleValue: true
     xpath: //span[@title="Nykaa"]
   - name: manufacturerImages
-    singleValue: false
     xpath: //*[contains(@class,"pdp-description-tab-item")]//img//@src
   - name: videos
     xpath: //li[@class='VideoLinks']
   - name: name
-    singleValue: true
     xpath: //div/h1/text()
   - name: coupon
-    singleValue: true
     xpath: //div[@class="m-content__product-des__details"]//span[contains(@class,"post-card__offers-offer")]
   - name: countryOfOrigin
-    singleValue: true
     xpath: //*[@class="pdp-description-tab-item description-expand"]//p[contains(text(),'Country of')]
     regExp: (.+):(.+)
     regExpReplace: $2
-  - name: variantInformation
-    singleValue: true
   - name: firstVariant
-    singleValue: true
+    xpath: //div[@class="select-style shade-select"]//option[2]
   - name: variants
-    singleValue: false
+    xpath: //li[@class='sku'][position()>1]
   - name: technicalInformationPdfPresent
-    singleValue: true
     defaultValue: No
   - name: termsAndConditions
-    singleValue: true
     defaultValue: No
   - name: privacyPolicy
-    singleValue: true
     defaultValue: No
   - name: customerServiceAvailability
-    singleValue: true
     defaultValue: No
   - name: materials
-    singleValue: true
   - name: Image360Present
-    singleValue: true
     defaultValue: No
   - name: imageZoomFeaturePresent
-    singleValue: true
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: specifications
+    xpath: //b[contains(text(),"Specifications")]/parent::p/following::dd
+  - name: directions
+    xpath: //body/@how_to_use
+  - name : productOtherInformation
+    xpath: //p[contains(.,'Additional Information')] | //p[contains(.,'Additional Information')]//following-sibling::p[1]\
+  - name: variantInformation
+    xpath: //div[@class="select-style shade-select"]//option[2]
+  - name: variantCount
+    xpath: count(//li[@class='sku'][position()>1])
