@@ -34,6 +34,11 @@ const transform = (data) => {
                     text: row.upc[0].text
                 }]
             }
+            if (row.brandText && row.brandText[0].text.includes('Brand:')) {
+                row.brandText = [{
+                    text: row.brandText[0].text.replace('Brand:', '').trim()
+                }]
+            }
             if (row.nameExtended && row.brandText && !row.nameExtended[0].text.startsWith(row.brandText[0].text)) {
                 row.nameExtended[0].text = `${row.brandText[0].text} - ${row.nameExtended[0].text}`
             }
