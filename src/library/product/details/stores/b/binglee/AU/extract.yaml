@@ -30,12 +30,12 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
-    singleValue: true
-    xpath: //div[@class='product-shop-wrapper col-md-4 col-sm-6']//div[@class='price-box']//span[@class='price']
+    singleValue: false
+    xpath: //div[@class='product-shop-wrapper col-md-4 col-sm-6']//meta/@content | //div[@class='price-box']//meta/@content
     description: The stated undiscounted price for the product
   - name: price
-    singleValue: true
-    xpath: //div[@class='product-shop-wrapper col-md-4 col-sm-6']//div[@class='price-box']//span[@class='price']
+    singleValue: false
+    xpath: //div[@class='product-shop-wrapper col-md-4 col-sm-6']//meta/@content | //div[@class='price-box']//meta/@content
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -84,8 +84,7 @@ fields:
     xpath: //div[@id='specification']//tr[1]//td[@class='data']
     description: GTIN code (includes UPC/EAN)
   - name: eangtin
-    singleValue: true
-    xpath: //div[@id='specification']//tr[1]//td[@class='data']
+    singleValue: true    
   - name: sku
     singleValue: true
     xpath: //div[@id='specification']//tr[1]//td[@class='data']
@@ -103,8 +102,7 @@ fields:
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
-    singleValue: true
-    xpath: //div[@class='row legals']
+    singleValue: true    
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
@@ -114,6 +112,7 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
+    xpath: //script[@type='application/ld+json']
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
@@ -121,6 +120,7 @@ fields:
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
+    xpath: //script[@type='application/ld+json']
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
@@ -153,6 +153,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
+    xpath: //div[@id='overview']/div[@class='std']//iframe/@src
     description: URLs of videos on page
   - name: productUrl
     singleValue: true
@@ -411,7 +412,7 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='product-highlight']//ul//li
     description: The physical dimensions of the product including packaging.
   - name: warranty
@@ -471,7 +472,7 @@ fields:
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
-    xpath: //div[@id='specification']//th[contains(text(), 'Colour/Finish')]/following::td[1]
+    xpath: //div[@id='specification']//tr[1]//td[@class='data']
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
