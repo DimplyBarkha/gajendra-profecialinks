@@ -14,12 +14,38 @@ const transform = (data) => {
 				});
 				row.nameExtended = [{ text: newText }];
 			}
-			if (row.additionalDescBulletInfo) {
-				let newText = '';
-				row.additionalDescBulletInfo.forEach(item => {
-					newText = item.text;
+			if (row.description) {
+				let text = '';
+				row.description.forEach(item => {
+					text += `${item.text.replace(/\n \n/g, ':')} || `;
 				});
-				row.additionalDescBulletInfo = [{ text: newText }];
+				row.description = [
+					{
+						text: text.slice(0, -4),
+					},
+				];
+			}
+			if (row.additionalDescBulletInfo) {
+				let text = '';
+				row.additionalDescBulletInfo.forEach(item => {
+					text += `${item.text.replace(/\n \n/g, ':')} || `;
+				});
+				row.additionalDescBulletInfo = [
+					{
+						text: text.slice(0, -4),
+					},
+				];
+			}
+			if (row.manufacturerDescription) {
+				let text = '';
+				row.manufacturerDescription.forEach(item => {
+					text += `${item.text.replace(/\n \n/g, ':')} || `;
+				});
+				row.manufacturerDescription = [
+					{
+						text: text.slice(0, -4),
+					},
+				];
 			}
 			if (row.variants) {
 				let newText = [];
@@ -42,26 +68,12 @@ const transform = (data) => {
 				});
 				row.variantId = [{ text: newText }];
 			}
-			if (row.mpc) {
-				let newText = [];
-				row.mpc.forEach(item => {
-					newText.push(item.text.replace("Art-Nr: ", ""))
-				});
-				row.mpc = [{ text: newText }];
-			}
 			if (row.firstVariant) {
 				let newText = [];
 				row.firstVariant.forEach(item => {
 					newText.push(item.text.replace("Art-Nr: ", ""))
 				});
 				row.firstVariant = [{ text: newText }];
-			}
-			if (row.warranty) {
-				let newText = [];
-				row.warranty.forEach(item => {
-					newText.push(item.text.replace("Geräte-Garantie ", ""))
-				});
-				row.warranty = [{ text: newText }];
 			}
 			if (row.price) {
 				let newText = '';
@@ -70,6 +82,13 @@ const transform = (data) => {
 				});
 				row.price = [{ text: newText }];
 			}
+			// if (row.aggregateRating) {
+			// 	let newText = 0;
+			// 	row.aggregateRating.forEach(item => {
+			// 		newText = JSON.parse(item.text).aggregateRating.ratingValue;
+			// 	});
+			// 	row.aggregateRating = [{ text: newText }];
+			// }
 			if (row.aggregateRating) {
 				let newText = 0;
 				row.aggregateRating.forEach(item => {
@@ -84,9 +103,16 @@ const transform = (data) => {
 			if (row.weightNet) {
 				let newText = '';
 				row.weightNet.forEach(item => {
-					newText = item.text.replace("Gewicht", "");
+					newText = item.text.replace("Gewicht", "").replace(":", "");
 				});
 				row.weightNet = [{ text: newText.trim() }];
+			}
+			if (row.color) {
+				let newText = '';
+				row.color.forEach(item => {
+					newText = item.text.replace("Farbe", "").replace(":", "");
+				});
+				row.color = [{ text: newText.trim() }];
 			}
 		}
 	}

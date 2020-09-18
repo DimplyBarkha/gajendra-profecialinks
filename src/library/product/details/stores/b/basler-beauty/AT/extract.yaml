@@ -11,7 +11,7 @@ fields:
     xpath: //div[contains(@id,'detailsMain')]//div[contains(@class,'picture')]//img[contains(@class,'img-responsive')]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@id,'detailsMain')]//div[contains(@class,'otherPictures')]//ul[contains(@class,'list-inline')]//li//a/@href
+    xpath: //div[contains(@class,'otherPictures')]//ul[@class='list-inline']/li/a/@href | //div[contains(@class,'otherPictures')]//ul[@class='slides']/li/a/@href
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
@@ -21,7 +21,7 @@ fields:
     xpath: //*[@id="breadcrumb"]/li/a/span
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class="accordionItem"]//*[@id="description"]
+    xpath: //h1[@id="productTitle"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -44,7 +44,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="accordionItem"]//*[@id="description"]
+    xpath: //div[@class="accordionItem"]//*[@id="description"]//text()
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@class="accordionItem"]//*[@id="description"]//ul/li)
@@ -81,10 +81,6 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: (//*[contains(@class,'variant-item')]//*[contains(text(),'Art-Nr:')])[1]
-  - name: mpc
-    singleValue: true
-    description: The manufacturer model code (unique) of the product
-    xpath: (//*[contains(@class,'variant-item')]//*[contains(text(),'Art-Nr:')])[1]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -110,6 +106,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: concat(count(//*[@id="rating"]//i[contains(@class,'fa fa-star rating-star-filled')]),'/',count(//*[@id="rating"]//i[contains(@class,'fa-star-half-o')]))
+    #xpath: //script[contains(text(),'aggregateRating')]
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -121,22 +118,20 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
-    xpath: count(//*[contains(@class,"variants-list")]//*[contains(@class,"variant-item")])
+    xpath: count(//ul[contains(@id,"variants-list")]//li[contains(@class,"variant-item")])
     type: NUMBER
   - name: color
     singleValue: true
     description: A textual description of the colour
-  - name: colorCode
-    singleValue: true
-    description: A code description of the color (e.g. RGB hex)
+    xpath: //*[@id="description"]/ul/li[contains(text(),'Farbe')]
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //*[@id="wrapper"]//div[@class="dd-shortcode-text"]
+    xpath: //*[@id="wrapper"]//div[@class="dd-shortcode-text"]//text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class="col-xs-2 hidden-xs"]//img/@src
+    xpath: //*[contains(@class,"dd-shortcode-image")]//img/@src
   - name: videos
     singleValue: false
     xpath: //div[@class='col-xs-4 hidden-xs']//iframe/@src
@@ -447,8 +442,9 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     description: colour / scent / flavour / other
+    xpath: //*[contains(@class,'variant-item')]//a//div[@class="variant-title"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -468,7 +464,8 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //*[@class="ingredientsContainer"]//ul//li
+    #xpath: //*[@class="ingredientsContainer"]//ul//li
+    xpath: //div[@id="description"]/ul/li
   - name: prop65Warning
     singleValue: true
     description: null
