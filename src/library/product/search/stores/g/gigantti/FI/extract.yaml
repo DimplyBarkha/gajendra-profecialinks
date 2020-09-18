@@ -1,21 +1,21 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='mini-product ']
+recordXPath: //div[contains(@class,'col-mini-product')]
 fields:
   - name: id
-    xpath: //div[contains(@class, "col-infos")]/div[contains(@class, "product-number sku rsNoDrag")]
-    singleValue: true
+    xpath: //div[contains(@class,"product-number")]
+    singleValue: false
   - name: name
     xpath: //a[contains(@class, "product-name")]//span//span
-    singleValue: true
+    singleValue: false
   - name: productUrl
     xpath: //a[contains(@class, "product-image-link")]/@href
-    singleValue: true
+    singleValue: false
   - name: manufacturer
     xpath: //a[contains(@class, "product-name")]//span//span
     regExp: ^([\s]*[\S]+)
-    singleValue: true    
+    singleValue: false    
   - name: thumbnail
     xpath: //a[contains(@class, "product-image-link")]/img/@src
     singleValue: false
@@ -23,26 +23,27 @@ fields:
     regExpReplace: https://www.gigantti.fi$1
   - name: price
     xpath: //div[contains(@class, "row-price")]/div[contains(@class, "row-price-container")]/div[contains(@class, "product-price")]
-    singleValue: true 
+    singleValue: false 
   - name: rankOrganic
-    singleValue: true 
+    singleValue: false 
   - name: aggregateRating  
-    singleValue: true
-    xpath: //div[contains(@class, "product-ratings")]/div[contains(@class, "product-ratings__average")]
+    singleValue: false
+    xpath: //div[contains(@class, "product-ratings")]//div[contains(@class, "product-ratings__avarage")]
     defaultValue: '0'
   - name: reviewCount  
-    singleValue: true
-    xpath: //div[contains(@class, "product-ratings")]/div[contains(@class, "product-ratings__count")]
+    singleValue: false
+    xpath: //div[contains(@class, "product-ratings")]//div[contains(@class, "product-ratings__count")]
     defaultValue: '0'
     type: NUMBER
   - name: ratingCount  
-    xpath: //div[contains(@class, "product-ratings")]/div[contains(@class, "product-ratings__count")]
-    singleValue: true
+    xpath: //div[contains(@class, "product-ratings")]//div[contains(@class, "product-ratings__count")]
+    singleValue: false
     defaultValue: '0'
+    type: NUMBER
   - name: rank
-    singleValue: true
+    singleValue: false
     description: search/listing rank
     type: NUMBER
   - name: sponsored
-    singleValue: true
+    singleValue: false
     description: search/listing rank
