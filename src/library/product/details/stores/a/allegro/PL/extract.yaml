@@ -48,7 +48,7 @@ fields:
     regExpReplace: $2  
   - name: weightNet
     singleValue: false
-    xpath: //div[@data-box-name="Parameters"]//li[contains(.//text(), 'Waga produktu')] 
+    xpath: (//div[@data-box-name="Parameters"]//li[contains(.//text(), 'Waga produktu')] | //div[@data-box-name="Parameters"]//li[contains(.//text(), 'Waga (z opakowaniem)')])[1]
     regExp: (\d.*)
     regExpReplace: $1
   - name: sku
@@ -105,12 +105,7 @@ fields:
     xpath: count(//div[@data-analytics-view-label="offerVariants"]//a//@href)
   - name: color
     singleValue: false
-    xpath: //script[contains(text(), "129357") and @type="application/json"]
-    regExp: (Kolor dominujący.*?)(name).*?:(\W.*?)(,.?)
-    regExpReplace: $3
-  - name: manufacturerDescription
-    singleValue: false
-    xpath: //div[@data-box-name="About seller"]//section[contains(.//text(), 'Dane firmy')]
+    xpath: //div[@data-box-name="Parameters"]//li[contains(.//text(), 'Kolor')]
   - name: name
     singleValue: false
     xpath: //meta[@property="og:title"]/@content
@@ -119,9 +114,7 @@ fields:
     xpath: (//div[@data-box-name="Parameters"]//ul//li)[1]
   - name: warranty
     singleValue: false
-    xpath: //div[@data-type="warranty"]//div[contains(.//text(), 'period')]
-    regExp: (\d.*)
-    regExpReplace: $1
+    xpath: //script[contains(text(), 'impliedWarranty') and contains(text(), 'individualPeriod')]
   - name: storage
     singleValue: false
     xpath: //div[@data-box-name="Description"]//p[contains(.//text(), 'Przechowywanie')]
@@ -138,8 +131,9 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //div[@data-box-name="Parameters"]//li[contains(.//text(), 'Kod producenta')]
-    regExp: (.*):(.\d+)
-    regExpReplace: $2  
   - name: category
     singleValue: false
     xpath: //div[@data-role="breadcrumbs-list"]//div[@data-role="breadcrumb-item"]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@data-box-name="Description"]//img/@src

@@ -59,29 +59,37 @@ const transform = (data) => {
           row.brandText = [{ text: brandTextArray.join('') }];
         }
       }
-      if (row.color) {
-        const colorArray = row.color.map((item) => {
-          return item.text.replace(/u002F/g, '');
+      if (row.mpc) {
+        const mpcValue = row.mpc.map((item) => {
+          return item.text.replace('\n', '').match(/(.*)(:)(.*)/)[3];
         });
-        if (colorArray) {
-          row.color = [{ text: colorArray.join('') }];
-        }
+        row.mpc = [{ text: mpcValue[0], xpath: row.mpc[0].xpath }];
       }
-      // if (row.category) {
-      //   row.category.shift();
-      //   const categoryArray = row.category.map((item) => {
-      //     return item.text;
-      //   });
-      //   const uniqueItems = Array.from(new Set(categoryArray));
-      //   if (uniqueItems) {
-      //     row.category = [{ text: uniqueItems.join(' > ') }];
-      //   }
-      // }
+      if (row.color) {
+        const color = row.color.map((item) => {
+          return item.text.replace('\n', '').match(/(:)(.*)/)[2];
+        });
+        row.color = [{ text: color[0], xpath: row.color[0].xpath }];
+      }
       if (row.price) {
         const priceRow = row.price.map((item) => {
           return item.text.replace('.', ',');
         });
         row.price = [{ text: priceRow.join(''), xpath: priceRow[0].xpath }];
+      }
+      if (row.warranty) {
+        const warrantyPeriod = row.warranty.map((item) => {
+          return item.text ? JSON.parse(item.text) : {};
+        });
+        if (warrantyPeriod[0] && warrantyPeriod[0].data) {
+          row.warranty = [{ text: warrantyPeriod[0].data.individualPeriod }];
+        }
+      }
+      if (row.aggregateRating) {
+        const aggregateRating = row.aggregateRating.map((item) => {
+          return item.text.replace('.', ',');
+        });
+        row.aggregateRating = [{ text: aggregateRating[0], xpath: row.aggregateRating[0].xpath }];
       }
       if (row.description) {
         const rowData = row.description.map((item) => {
