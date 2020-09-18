@@ -53,8 +53,8 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: concat(//div[@id='desc_bullets'], //div[@id='desc_manufacturer3'],
-      //div[@id='desc_manufacturer5'], //div[@id='desc_techDetails'])
+    xpath: concat(//div[@id='top_bullets'], //div[@id='concatDescBullets'], //div[@id='desc_part1'],
+      //div[@id='desc_part2'], //div[@id='desc_techDetails'])
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -122,12 +122,15 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
     xpath: //span[@class="ts-reviewSummary-ratingValue"]
+    regExp: (\d+)\.?(\d+)?
+    regExpReplace: $1,$2
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    defaultValue: Ships from and sold by electronic4you.at
+    xpath: concat(//div[@class="feature-wrapper"]//span[contains(@class,"stockstatus")
+      and not(contains(@class, 'yellow'))], ' ', //div[contains(@class,'product-primary-column')]//a[@title="Übersicht Versandkosten"],
+      ' Sold by electronic4you.at')
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -148,14 +151,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: concat(//div[@id='desc_manufacturer'], //div[@id='desc_manufacturer1'],
-      //div[@id='desc_manufacturer2'], //div[@id='desc_manufacturer3'])
+    xpath: concat(//div[@id='desc_manufacturer'], //div[@id='desc_manufacturer1'], //div[@id='desc_manufacturer2'], //div[@id='dyson_jump_features'] )
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
     xpath: //div[@id="extended-description"]//img/@src|//div[@id="flix-inpage"]//img/@srcset
-    regExp: (\/\/.*)
-    regExpReplace: https:$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -224,7 +224,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[@id='desc_manufacturer4']
+    xpath: //div[@id='concatDescBullets']
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
