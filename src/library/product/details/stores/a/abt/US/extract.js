@@ -36,21 +36,32 @@ module.exports = {
           specification.push(e.innerText.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
         });
       }
-      addElementToDocument('description', specification.join('|'));
-      const bulletInfo = document.querySelectorAll('div#overview_content td ul li');
+      addElementToDocument('specification', specification.join('|'));
+      const specDimensions = document.evaluate("//td[strong[contains(text(),'Height') or contains(text(),'Width') or contains(text(),'Depth')]]/following-sibling::td", document, null, XPathResult.ANY_TYPE, null);
+      // eslint-disable-next-line prefer-const
+      if (specDimensions) {
+        let nodes = [];
+        for (let node = specDimensions.iterateNext(); node; node = specDimensions.iterateNext()) {
+          nodes.push(`${node.innerText}"`);
+        }
+        const dimensions = nodes.join(' x ');
+        addElementToDocument('dimensions', dimensions);
+      }
+      const bulletInfo = document.querySelectorAll('div#overview_content td li');
       const keyFeatures = document.querySelectorAll('ul#key_features li');
       const descBulletInfo = [];
       if (keyFeatures) {
         keyFeatures.forEach(e => {
           descBulletInfo.push(e.innerText);
         });
-      } else if (bulletInfo) {
+      };
+      if (bulletInfo) {
         bulletInfo.forEach(e => {
           descBulletInfo.push(e.innerText);
         });
       }
       addElementToDocument('descBulletInfo', descBulletInfo.join('||'));
-      const availablility = document.querySelector('button.addToCart.green_button') ? 'In Stock' : 'Out of Stock';
+      const availablility = document.querySelector('div#pricing_container span.pricing-availability-desc.instock') ? 'In Stock' : 'Out of Stock';
       addElementToDocument('availablility', availablility);
 
       const variants = document.querySelector('div.display-group-color');
@@ -61,7 +72,7 @@ module.exports = {
       const specColor = specColorXpath ? specColorXpath.stringValue : '';
       const descColorXpath = document.evaluate('//li[strong[text()="Color:"]]/text()', document, null, XPathResult.STRING_TYPE, null);
       const descColor = descColorXpath ? descColorXpath.stringValue : '';
-      const keyFeaturesColorXpath = document.evaluate('//ul[@id="key_features"]/li[contains(text(),"Finish")]/text()', document, null, XPathResult.STRING_TYPE, null);
+      const keyFeaturesColorXpath = document.evaluate('//ul[@id="key_features"]/li[position() = last()][contains(text(),"Finish")]/text()', document, null, XPathResult.STRING_TYPE, null);
       const keyFeaturesColor = keyFeaturesColorXpath ? keyFeaturesColorXpath.stringValue.replace(/\sFinish/g, '') : '';
       if (variantColor) {
         addElementToDocument('color', variantColor);
@@ -79,11 +90,11 @@ module.exports = {
       const manufacturerDescription = document.querySelector('div#from_manufacturer_content')
         ? document.querySelector('div#from_manufacturer_content').innerText.replace(/\n{2,}|\s{2,}/g, '') : '';
       if (manufacturerDescription) addElementToDocument('manufacturerDescription', manufacturerDescription);
-      const iframes = document.querySelectorAll('iframe[title="Product Videos"]');
-      if (iframes) {
-        iframes.forEach(el =>
-          addElementToDocument('video', `${el.contentDocument.querySelector('video').getAttribute('src')}`));
-      };
+      // const iframes = document.querySelectorAll('iframe[title="Product Videos"]');
+      // if (iframes) {
+      //   iframes.forEach(el =>
+      //     addElementToDocument('video', `${el.contentDocument.querySelector('video').getAttribute('src')}`));
+      // };
       const viedoContainer = document.querySelector('div#productvideocontainer script')
         // @ts-ignore
         ? document.querySelector('div#productvideocontainer script').innerText : '';

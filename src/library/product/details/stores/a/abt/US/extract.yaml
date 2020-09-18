@@ -23,7 +23,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@itemprop="breadcrumb"]/li[position() < last()]
+    xpath: //ul[@itemprop="breadcrumb"]/li[position() < last()][position() > 1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -49,12 +49,13 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id="overview_content"]//td/h2 | //div[@id="overview_content"]//td/p[text()] | //div[@id="description"]
+    xpath: //div[@id="overview_content"]//td/h2 | //div[@id="overview_content"]//td/p[text()] |
+      //div[@id="descBulletInfo"] | //div[@id="specification"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[@id="overview_content"]//ul/li)
+    xpath: count(//div[@id="overview_content"]//li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -152,7 +153,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@id="from_manufacturer_content"]//img[contains(@class,"wc-media wc-image")]/@src
+    # xpath: //div[@id="from_manufacturer_content"]//img[contains(@class,"wc-media wc-image")]/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -174,6 +175,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id="dimensions"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -190,8 +192,6 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //a[@id="questions"]/h2[//div[@id='questions_content']//div[@class='tt-c-question-container']//div[@role="heading"]] |
-      //div[@class='tt-c-question-container']
   - name: packaging
     singleValue: true
     description: Packaging information
