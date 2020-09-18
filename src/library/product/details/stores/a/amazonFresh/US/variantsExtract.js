@@ -5,31 +5,16 @@ async function implementation (
   context,
   dependencies,
 ) {
-  // const { variants } = dependencies;
   const { variants, Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
 
   const helpers = new Helpers(context);
   const amazonHelp = new AmazonHelp(context, helpers);
 
-  // await new Promise(resolve => setTimeout(resolve, 5000));
   // try {
-  //   await amazonHelp.setLocale('90210');
-  //   await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
-  // } catch (error) {
-  //   await context.evaluate(async function () {
-  //     if (document.querySelector('div.a-modal-scroller')) {
-  //       document.querySelector('div.a-modal-scroller').click();
-  //     }
-  //   });
-  //   await amazonHelp.setLocale('90210');
-  //   await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
-  // }
-
-  try {
     await context.waitForXPath('//span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//span[@data-component-type="s-product-image"]//a[contains(@class, "a-link-normal")]/@href');
-  } catch (error) {
-    throw new Error('No product avail for this location');
-  }
+  // } catch (error) {
+    // throw new Error('No product avail for this location');
+  // }
   const link = await context.evaluate(async function () {
     const linkNode = document.querySelector('span[cel_widget_id="MAIN-SEARCH_RESULTS"] a.a-link-normal');
     const link = (linkNode !== null) ? linkNode.getAttribute('href') : null;
@@ -42,17 +27,18 @@ async function implementation (
         timeout: 45000, waitUntil: 'load', checkBlocked: true,
       });
     } catch (err) {
-      try {
         await context.goto('https://www.amazon.com/' + link, {
           timeout: 45000, waitUntil: 'load', checkBlocked: true,
         });
-      } catch (err) {
-        throw new Error('Can\'t go to link');
       }
     }
-  } else {
-    throw new Error('Not found in Amazon Fresh');
-  }
+            // catch (err) {
+  //       throw new Error('Can\'t go to link');
+  //     }
+  //   }
+  // } else {
+  //   throw new Error('Not found in Amazon Fresh');
+  // }
 
   await context.evaluate(function () {
     function getVariants () {

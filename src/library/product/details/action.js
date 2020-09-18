@@ -21,7 +21,6 @@ async function implementation (
 
   if (!productFound) {
     console.log('No product found');
-    // throw new Error('No product found');
     return;
   }
 
