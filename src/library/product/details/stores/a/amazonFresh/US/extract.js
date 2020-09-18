@@ -84,12 +84,37 @@ async function implementation (
       if (parentInput) {
         addHiddenDiv('added-parentInput', parentInput);
       }
+      addHiddenDiv('added-url', window.location.href);
     }, parentInput);
   }
 
-  await new Promise(resolve => setTimeout(resolve, 5000));
-  // await amazonHelp.setLocale('90210');
-  // await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
+  await context.waitForXPath('//span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//span[@data-component-type="s-product-image"]//a[contains(@class, "a-link-normal")]/@href');
+  const link = await context.evaluate(async function () {
+    const linkNode = document.querySelector('span[cel_widget_id="MAIN-SEARCH_RESULTS"] a.a-link-normal');
+    const link = (linkNode !== null) ? linkNode.getAttribute('href') : null;
+    return link;
+  });
+
+  if (link && link.toString().includes('almBrandId')) {
+    try {
+      await context.goto('https://www.amazon.com/' + link, {
+        timeout: 45000, waitUntil: 'load', checkBlocked: true,
+      });
+    } catch (err) {
+      try {
+        await context.goto('https://www.amazon.com/' + link, {
+          timeout: 45000, waitUntil: 'load', checkBlocked: true,
+        });
+      } catch (err) {
+        console.log('couldn\'t go to link')
+        // throw new Error('Can\'t go to link');
+      }
+    }
+  } 
+  // else {
+    // throw new Error('Not found in Amazon Fresh');
+    // return;
+  // }
 
   await loadAllResources();
   addContent(parentInput);

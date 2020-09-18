@@ -65,18 +65,19 @@ fields:
     regExp: (.+)
   - name: weightNet
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Item Weight")]/following-sibling::td[1]/text()
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Item Weight")]/following-sibling::td[1]/text()| //div[contains(@id,"productOverview")]//tr//td//span[contains(., "Item Weight")]/parent::td/following-sibling::td
     regExp: ([^()]+)
     regExpReplace: $1
   - name: weightGross
     singleValue: false
-    xpath: translate(//th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1]  | //th[contains(text(), ' Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text() | //td[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1], "(", "")
+    xpath: translate(//th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1]  | //th[contains(text(), ' Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text() | //td[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1] | //li//span[contains(text(), "Product Dimensions")]/following-sibling::span[contains(text(), ';')] , "(", "")
   - name: gtin
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'UPC')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(., "UPC")]/following-sibling::td[1]/text() | //table[contains(@id,"product-specification-table")]//tr/th[contains(., "UPC")]/following-sibling::td[1]/text()
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'UPC')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(., "UPC")]/following-sibling::td[1]/text() | //table[contains(@id,"product-specification-table")]//tr/th[contains(., "UPC")]/following-sibling::td[1]/text()|//li//span[contains(text(), "UPC")]/following-sibling::span
+    regExp: (^[^\s]+)
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(., 'Item model number')]/following-sibling::td[1]/text()
+    xpath: (//div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(., 'Item model number')]/following-sibling::td[1]/text()|//li//span[contains(text(), "Item model number")]/following-sibling::span)[1]
   - name: mpc
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(),'odel')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(text(),"odel")]/following-sibling::td[1]/text() | //div[contains(@id,"prodDetails")]//*[contains(text(),"odel")]/following-sibling::td[1]/text() | //table[@id="product-specification-table"]//th[contains(text(),  "Manufacturer") and contains(text(), "Number")]/following-sibling::td/text()
@@ -110,10 +111,12 @@ fields:
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")]
   - name: shippingDimensions
     singleValue: false
-    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
+    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1]|//div[contains(@id, "productOverview")]//td//span[contains(text(), "Item Dimensions")]//parent::td/following-sibling::td|//li//span[contains(text(), "Product Dimensions")]/following-sibling::span)[1]
+    # regExp: (.*);
   - name: shippingWeight
     singleValue: false
-    xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //*[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text()
+    xpath: (//th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //*[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text()|//li//span[contains(text(), "Product Dimensions")]/following-sibling::span[contains(text(), ';')])[1]
+    # regExp: (,.*$)
   - name: variantCount
     singleValue: false
     xpath: //script[contains(text(), "asinVariationValues")]/text()
@@ -152,6 +155,9 @@ fields:
   - name: productUrl
     singleValue: true
     xpath: //div[@id='added-url']
+  # - name: baseUrl
+  #   singleValue: true
+  #   xpath: //div[@id='added-url']
   - name: asin
     singleValue: true
     xpath: (//div[@id='added-asin']|//div[contains(@id, "averageCustomerReviews")]/@data-asin)[1]
@@ -396,7 +402,7 @@ fields:
     xpath: //tr[contains(@id, 'almDetailPagePrice_buying_price')]//span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
   - name: promotion
     singleValue: false
-    xpath: (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li
+    xpath: (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li|//tr[@id="almDetailPagePrice_savings_price"]
     # xpath: //div[contains(@id, "promotions_feature_div")]//li|//div[contains(@id, "promo")]//div[contains(@class, "content")]//ul/div/li/span/span/text() | //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
     # xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
     # xpath: //div[contains(@id, "promotions_feature_div")]//div[contains(@class, "content")]//li|//div[contains(@id, "promo")]//div[contains(@class, "content")]//ul/div/li/span/span/text() | //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
