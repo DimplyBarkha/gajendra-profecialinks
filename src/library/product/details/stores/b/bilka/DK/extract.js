@@ -11,11 +11,10 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain ,transform: transformParam}, context, { productDetails }) => {     
     
     await context.evaluate(async function () {       
-     const productInfo = preFetchProductDetails();
-     alert(productInfo['sku']);
-      addEleToDoc('skuId', productInfo['sku']);
-      // addEleToDoc('gtinId', productInfo[0].gtin13);
-      // addEleToDoc('priceCurrency', productInfo[0].offers[0].priceCurrency);  
+     const productInfo = preFetchProductDetails();          
+     var combinepriceCurrency= productInfo['offers']['price'] + ':' + productInfo['offers']['priceCurrency'];     
+      addEleToDoc('hidskuId', productInfo['sku']);
+      addEleToDoc('hidpriceCurrency', combinepriceCurrency);      
      
       function preFetchProductDetails () {
         let productInfo = findProductDetails('//script[@data-v-6280c757 and @type="application/ld+json"]');                        

@@ -54,19 +54,24 @@ const transform = (data) => {
 			];
 		}
 
-		if (row.price) {
-			let price = '';
-			let currency = '';
-			row.price.forEach(item => {
-				price = item.text.substring(0,item.text.indexOf("|"));
-				currency = item.text.substring(item.text.indexOf("|") + 1);
-			});
-			row.price = [
-			  {text: price},
-			  {text: currency}
-			];
-		}
+		// if (row.price) {
+		// 	let price = '';
+		// 	let currency = '';
+		// 	row.price.forEach(item => {
+		// 		price = item.text.substring(0,item.text.indexOf("|"));
+		// 		currency = item.text.substring(item.text.indexOf("|") + 1);
+		// 	});
+		// 	row.price = [
+		// 	  {text: price},
+		// 	  {text: currency}
+		// 	];
+		// }
 
+		if (row.price) {			
+			var temp=row.price[0].text.split(':');			
+			row.price = [{ text: temp[0] }, { text: temp[1] }];
+		  } 
+		  
 		if (row.description) {
 			let text = '';
 			row.description.forEach(item => {

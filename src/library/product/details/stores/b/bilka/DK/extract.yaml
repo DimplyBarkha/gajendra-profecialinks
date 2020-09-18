@@ -58,10 +58,10 @@ fields:
     xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(), 'Varenummer')]/following-sibling::td[1]
   - name: sku
     singleValue: false
-    xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr[1]/td[2]
+    xpath: //*[contains(@id,"hidskuId")]
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr[1]/td[2]
+    xpath: //*[contains(@id,"hidskuId")]
   - name: mpc
     singleValue: false
     xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(), 'Model')]/following-sibling::td[1]
@@ -73,7 +73,7 @@ fields:
     xpath: substring-before(substring(substring-after(//div[contains(@id,'product-view')]/script[@type='application/ld+json'],'url'),5),'",')
   - name: price
     singleValue: false
-    xpath: normalize-space(concat(//div[contains(@class,'product-details-top')]//div[contains(@class,'price')]//div[contains(@class,'after-price')], "|", substring-before(substring(substring-after(//div[contains(@id,'product-view')]/script[@type='application/ld+json'],'priceCurrency'),5),'",')))
+    xpath: //*[contains(@id,"hidpriceCurrency")]
   - name: variantInformation
     singleValue: false
     xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(), 'Farve')]/following-sibling::td[1]
