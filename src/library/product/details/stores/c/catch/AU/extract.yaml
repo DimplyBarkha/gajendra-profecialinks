@@ -75,7 +75,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Weight')]
+    xpath: //section[contains(@class,'product-description')]//li[contains(text(),'Weight')]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -418,7 +418,8 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(@class,'description-block')]//ul[text()]
+    #xpath: //div[contains(@class,'description-block')]//ul[text()]
+    xpath: //*[contains(text(),'Specifications')]/following::ul[1]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
