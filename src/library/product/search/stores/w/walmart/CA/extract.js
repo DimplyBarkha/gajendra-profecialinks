@@ -22,7 +22,7 @@ async function implementation (
       let prevScroll = document.documentElement.scrollTop;
       while (true) {
         window.scrollBy(0, document.documentElement.clientHeight);
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 6000));
         const currentScroll = document.documentElement.scrollTop;
         if (currentScroll === prevScroll) {
           break;
@@ -31,14 +31,24 @@ async function implementation (
       }
     }
     await infiniteScroll();
-    function addHiddenDiv (id, content, index) {
+    function addHiddenDiv (id, content, productid) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      if (index) {
-        const originalDiv = document.querySelectorAll("[data-automation*='product-results'] [data-automation*='product'] a")[index];
-        originalDiv.appendChild(newDiv);
+      if (productid) {
+        let originalDiv;
+        const nodes = document.querySelectorAll("[data-automation*='product-results'] [data-automation*='product']");
+        for (let i = 0; i < nodes.length; i++) {
+          // console.log("Node::", nodes[i].getAttribute('data-product-id'));
+          // eslint-disable-next-line eqeqeq
+          if (nodes[i].getAttribute('data-product-id') == productid) {
+            console.log('Adding UPC :: ', nodes[i].getAttribute('data-product-id'));
+            originalDiv = nodes[i];
+            originalDiv && originalDiv.appendChild(newDiv);
+            break;
+          }
+        }
       } else {
         document.body.appendChild(newDiv);
       }
@@ -46,21 +56,25 @@ async function implementation (
     const searchUrl = window.location.href.replace(/%20/g, ' ');
     addHiddenDiv('search-url', searchUrl);
     // @ts-ignore
-    const mainDataObj = window.__PRELOADED_STATE__ && window.__PRELOADED_STATE__.results && window.__PRELOADED_STATE__.results.entities && window.__PRELOADED_STATE__.results.entities.products ? window.__PRELOADED_STATE__.results.entities.products : {};
-    console.log(1, mainDataObj);
+    // eslint-disable-next-line prefer-const
+    let mainDataObj = window.__PRELOADED_STATE__ && window.__PRELOADED_STATE__.results && window.__PRELOADED_STATE__.results.entities && window.__PRELOADED_STATE__.results.entities.products ? window.__PRELOADED_STATE__.results.entities.products : {};
+    // console.log(1, mainDataObj);
     // @ts-ignore
     const ids = Object.keys(mainDataObj);
-    console.log(2, ids);
+    // console.log(2, ids);
     for (let i = 0; i < ids.length; i++) {
       const skus = mainDataObj[ids[i]] && mainDataObj[ids[i]].skus ? Object.keys(mainDataObj[ids[i]].skus) : [];
-      console.log(3, skus);
+      // console.log(3, skus);
       const facet = skus && skus[0] && mainDataObj[ids[i]].skus[skus[0]].facets ? mainDataObj[ids[i]].skus[skus[0]].facets : [];
-      console.log(4, facet);
+      // console.log(4, facet);
       for (let j = 0; j < facet.length; j++) {
         const obj = mainDataObj[ids[i]].skus[skus[0]].facets[j];
-        console.log(5, obj);
+        // console.log(5, obj);
         // @ts-ignore
-        obj && obj.name && obj.name.includes('UPC') && addHiddenDiv('ii_upc', obj.value, i);
+        if (obj && obj.name && obj.name.includes('UPC')) {
+          addHiddenDiv('ii_upc', obj.value, ids[i]);
+          // console.log('6, Added', obj.value, ids[i]);
+        }
       }
     }
   });
