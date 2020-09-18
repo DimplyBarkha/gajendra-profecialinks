@@ -1,41 +1,41 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: 'article.codified-product-tile'
 recordXPath: null
 fields:
   - name: id
-    xpath: //article[contains(@class, "codified-product-tile")]//@data-product-id
+    xpath: //@data-product-id
     singleValue: true
   - name: name
-    xpath: //div[contains(@class, "codified-product-tile__row codified-product-tile__row--title")]//p//span//span[1]
-    singleValue: true
+    xpath: //div[contains(@class, "codified-product-tile__product-details")]/div[contains(@class, "codified-product-tile__row codified-product-tile__row--title")]/p/span/span[2]
+    singleValue: false
   - name: producturl
-    xpath: //article[contains(@class, "codified-product-tile")]//a//@href
+    xpath: //a//@href
     singleValue: true
   - name: manufacturer
     xpath: //div[contains(@class, "codified-product-tile__brand-image--image")]//@alt
-    singleValue: true    
+    singleValue: false    
   - name: thumbnail
     xpath: //div[contains(@class, "codified-product-tile__product-image__image--product")]//@style
     singleValue: false
     regExp: (?<=").*(?=")
   - name: price
     xpath: //div[contains(@class, "codified-product-tile__price--value price-value")]
-    singleValue: true 
+    singleValue: false 
   - name: rankOrganic
     singleValue: true 
   - name: aggregateRating  
-    singleValue: true
-    xpath: //span[contains(@class, "bui-star-rating__star--grey")]//@aria-label
+    singleValue: false
+    xpath: //div[contains(@class, "bui-star-rating")]//span//@aria-label
     defaultValue: '0'
   - name: reviewCount  
-    singleValue: true
+    singleValue: false
     xpath: //span[contains(@class, "bui-star-rating__total")]
     defaultValue: '0'
     type: NUMBER
   - name: ratingCount  
     xpath: //span[contains(@class, "bui-star-rating__total")]
-    singleValue: true
+    singleValue: false
     defaultValue: '0'
     type: NUMBER
   - name: rank
@@ -43,6 +43,6 @@ fields:
     description: search/listing rank
     type: NUMBER
   - name: soldBy
-    singleValue: true
+    singleValue: false
     description: search/listing rank
     xpath: //div[contains(@class, "codified-product-tile__order--marketplace-seller")]//p//strong
