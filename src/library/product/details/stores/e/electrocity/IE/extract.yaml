@@ -14,24 +14,26 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //li[@class='jet-woo-slick-control-thumbs__item slick-slide slick-active']//img/@src
-  - name: metaKeywords
-    singleValue: true
-    description: The <meta> keywords content
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
     xpath: //table[contains(@class, "shop_attributes")]//tbody//tr[contains(@class, "attribute-key-Dimensions")]//td//p
     regExp: (.*)(Weight\s)(.*)
     regExpReplace: $3
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: //nav[@class="woocommerce-breadcrumb"]
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //meta[@name='description']/@content
+    regExp: (Dyson)([^.]+)
+    regExpReplace: $1$2
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //nav[@class="woocommerce-breadcrumb"]//a
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
