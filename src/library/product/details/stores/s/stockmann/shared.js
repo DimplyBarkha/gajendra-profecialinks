@@ -9,7 +9,7 @@ const transform = (data) => {
         for (const row of group) {
 
             if (row.description) {
-                let text = row.description[0].brandText + ' ' + row.description[0].text+' '+row.description[0].text;
+                let text = row.description[0].brandText + ' ' + row.description[0].text;
                 row.description = [{ text }];
             }
         }
