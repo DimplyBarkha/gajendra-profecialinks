@@ -128,9 +128,8 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: concat(//div[@class="feature-wrapper"]//span[contains(@class,"stockstatus")
-      and not(contains(@class, 'yellow'))], ' ', //div[contains(@class,'product-primary-column')]//a[@title="Übersicht Versandkosten"],
-      ' Sold by electronic4you.at')
+    xpath: concat (//div[@class="feature-wrapper"]//span[contains(@class,"stockstatus") and not(contains(@class, 'yellow'))], ' ',
+      //div[@class="zblock-item"]//span[@class="stock stockstatus green"])
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions

@@ -68,7 +68,7 @@ module.exports = {
         // @ts-ignore
         ? document.querySelector('div#flix-std-inpage').innerText : '';
       if (manufacturerDesc) {
-        addElementToDocument('desc_manufacturer', manufacturerDesc.replace(/•/g, '||').replace(/\n|\s{2,}|-{1,}/g, ' '));
+        addElementToDocument('desc_manufacturer', manufacturerDesc.replace(/\\t|\\/g, '').replace(/\n|\s{2,}|-{1,}/g, ' '));
       }
       const manufacturerDesc1 = document.querySelector('div.dyson-content')
         // @ts-ignore
