@@ -32,11 +32,21 @@ const transform = (data, context) => {
           el.text = clean(el.text);
         }));
 
+        try { 
+         
+          if (row.productUrl) {
+                row.productUrl =  [{ text:  'https://www.magasin.dk' }];
+          }           
+        } catch (exception) { console.log('Error in transform', exception); }
+
+
+
+
         if (row.aggregateRating) {
           var received_per = row.aggregateRating[0].text  
           console.log(received_per)         
-            var aggregate_rating = ( received_per * 5 )                     
-            row.aggregateRating =  [{ text:  aggregate_rating }];
+            // var aggregate_rating = ( received_per * 5 )                     
+             row.aggregateRating =  [{ text:  'girish' }];
        
          }
       }
