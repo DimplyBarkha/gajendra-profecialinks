@@ -24,6 +24,11 @@ const transform = (data) => {
         row.name.forEach(item => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
         });
+      }      
+      if (row.nameExtended) {
+        row.nameExtended.forEach(item => {
+          item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
+        });
       }
       if (row.price) {
         row.price.forEach(item => {
