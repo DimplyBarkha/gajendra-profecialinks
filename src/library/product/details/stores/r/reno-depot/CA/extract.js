@@ -24,7 +24,7 @@ async function implementation (
     location.reload();
   });
 
-  await stall(5000);
+  await stall(10000);
 
   await context.evaluate(function () {
     function addHiddenDiv (id, content) {
