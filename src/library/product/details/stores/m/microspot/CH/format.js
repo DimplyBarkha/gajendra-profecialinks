@@ -47,7 +47,7 @@ const transform = (data) => {
             }
             count++;
           });
-          descriptionOne = text.slice(0, -4);
+          descriptionOne = text;
         }
         let desc = '';
         row.description.forEach(item => {
