@@ -82,9 +82,7 @@ fields:
   - name: ratingCount
     singleValue: false
     description: The number of ratings
-    xpath: //div[contains(@class, 'tf-based')]
-    regExp: based on (.*?) ratings
-    regExpReplace: $1
+    xpath: //div[contains(@itemprop, 'reviewCount')]/@content
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
