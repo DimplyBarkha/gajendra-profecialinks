@@ -86,12 +86,12 @@ fields:
     singleValue: false
     xpath: count(//div[@id='specifications']//div[@class='accordion-menu']//div[not(@class='head')])
     description: Number of ul > li tags in the description
-    type: NUMBER
+    #type: NUMBER
   - name: description
     singleValue: false
     xpath: //div[@class='info-classification-content']//div[@class='techs']//div[@class='item']
     description: Number of ul > li tags in the description
-    type: NUMBER
+    #type: NUMBER
   - name: promotion
     singleValue: true
     xpath: normalize-space(//div[@class='promotion-mobile']/div[@class='unieuro-club']/span/text()) 
