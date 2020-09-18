@@ -42,7 +42,7 @@ fields:
     xpath: (//div[@class="product-info"]//ul/li)[position() <= (last() - 1)]
   - name: description
     singleValue: false
-    xpath: //section[@class="description"]//div[@class="content-wrap"]//div[@class="product radikal"]//span | //section[@class="description"]//div[@class="content-wrap"]//p/text()
+    xpath: //div[@id="desc"]
   - name: descriptionBullets
     singleValue: false
     xpath:
