@@ -41,10 +41,6 @@ const transform = (data) => {
           row.shippingInfo[0].text = cleanUp(row.shippingInfo[0].text);
         }
 
-        if(row.ratingCount) {
-          row.ratingCount[0].text = cleanUp(row.ratingCount[0].text.replace(/[^\d]/gm, ''));
-        }
-
         if(row.countryOfOrigin) {
           let [ text ] = row.countryOfOrigin;
           text = text.text.split(' ').pop();
