@@ -19,7 +19,7 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@class="breadcrumbs"]/li[position()>1]
+    xpath: //ul[@class="breadcrumbs"]/li[a]/a[not(contains(text(),'Home'))]
   - name: nameExtended
     description:
       The product name, prefixing "${brand} - " if not included in "name"
@@ -43,7 +43,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@itemprop="description"]/div[not(@id)]/ul/li | //div[@itemprop="description"]/div[not(@id)]/b | //div[@itemprop="description"]/div[not(@id)]/text() | //div[@itemprop="description"]/div[not(@id)]/p
+    xpath: //div[@itemprop="description"]/div[not(@id)]/b | //div[@itemprop="description"]/div[not(@id)]/text() | //div[@itemprop="description"]/div[not(@id)]/p | //div[@itemprop="description"]/div[not(@id)]/span
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
@@ -70,9 +70,12 @@ fields:
     xpath: //span[@itemprop="productID"]
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //span[@itemprop="productID"]
   - name: mpc
     description: The manufacturer model code (unique) of the product
-    xpath: //h3[contains(text(), 'Model')]/following-sibling::p
+    singleValue: true
+    xpath: //h3[contains(text(), 'Model')]/following-sibling::p | //h1[@itemprop="name"]
+    regExp: '[0-9-]+$'
   - name: packSize
     description:
       The number of packs in the product offer (if stated separately on
@@ -109,7 +112,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//h3 | //ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//div[@class="wc-rich-content-description"]
+    xpath: //ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//h3 | //ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//div[@class="wc-rich-content-description"] | //*[@class="wc-specifications-table"]//tr | //*[@class="ccs-ds-textFeatures"] | //*[@data-section-tag="other"]
   - name: manufacturerImages
     description: Images within the third party description
     xpath: //ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//img/@src
@@ -319,7 +322,7 @@ fields:
     description: null
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id="ccs-ext-spec"]/ul/li | //div[@id="ccs-ext-spec"]//td
+    xpath: //div[@id="ccs-ext-spec"]/ul/li | //div[@id="ccs-ext-spec"]//tr | //*[@id="ccs-in-the-box"]//ul/li
   - name: warranty
     description: Guarantee associated with the product
     xpath: //*[contains(@aria-label,"Warranty")]/following-sibling::* | //*[contains(text(),"Warranty")]/following-sibling::* | //span[contains(text(),"warranty")] | //div[@id="wc-power-page"]//*[contains(text(),"warranty")]
@@ -381,7 +384,7 @@ fields:
     regExpReplace: $1
   - name: additionalDescBulletInfo
     description: null
-    xpath: //div[@itemprop="description"]/div[not(@id)]/ul/li
+    xpath: //div[@itemprop="description"]/div[not(@id)]//li
   - name: prop65Warning
     description: null
   - name: ageSuitability

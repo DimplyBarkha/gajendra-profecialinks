@@ -18,10 +18,11 @@ const transform = (data) => {
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
-          const value = item.text.replace(/(.+)\n\n?(.+)/g, '$1:$2');
+          const value = item.text.replace(/(.+)(\n+)(.+)/g, '$1:$2');
           item.text = value;
-          text = text + (text ? ' || ' : '') + item.text;
+          text = text + (text ? ' | ' : '') + item.text;
         });
+        text = text.replace(/:\s+:/g, ':');
         row.specifications = [{ text }];
       }
 
@@ -31,6 +32,27 @@ const transform = (data) => {
           text = text + (text ? ' | ' : '') + item.text;
         });
         row.variantInformation = [{ text }];
+      }
+
+      if (row.description || row.additionalDescBulletInfo) {
+        let text = '';
+        if (row.description) {
+          row.description.forEach(item => {
+            text = text + (text ? ' ' : '') + item.text;
+          });
+        }
+        let text2 = '';
+        if (row.additionalDescBulletInfo) {
+          row.additionalDescBulletInfo.forEach(item => {
+            text2 = text2 + (text2 ? ' || ' : '') + item.text;
+          });
+          if (text !== '') {
+            text = '|| ' + text2 + ' | ' + text;
+          } else {
+            text = '|| ' + text2;
+          }
+        }
+        row.description = [{ text }];
       }
     }
   }
