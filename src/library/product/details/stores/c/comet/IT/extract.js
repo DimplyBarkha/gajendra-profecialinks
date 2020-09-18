@@ -58,7 +58,7 @@ async function implementation (
           specContentList += specList[i].innerText + ' || ';
         }
       }
-      specContentList = specContentList.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').replace(/(\|\| ){1,}$/g, ' ').replace(/(\|\| ){2,}/g, '|| ').replace(/(^\|\| )/, ' ').trim();
+      specContentList = specContentList.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').replace(/(\|\| ){1,}$/g, ' ').replace(/(\|\| ){2,}/g, '|| ').trim().replace(/(^\|\| )/, ' ').trim();
       console.log('Specification list', specContentList);
       specContentList && addHiddenDiv('ii_spec', specContentList);
       specContent && addHiddenDiv('ii_spec', specContent.slice(0, -4));
