@@ -51,8 +51,8 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
         });
       }
-      if (row.aggregateRating2) {
-        row.aggregateRating2.forEach(item => {
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
           var matches = /\s*(\d+)/isg.exec(item.text);
           if (matches) {
             item.text = matches[1]
