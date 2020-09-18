@@ -1,3 +1,4 @@
+// @ts-nocheck
 const { transform } = require('./shared');
 async function implementation (
   inputs,
@@ -8,7 +9,6 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   async function preparePage () {
-    // @ts-ignore
     document.querySelector("i[class*='popup']") && document.querySelector("i[class*='popup']").click();
     async function infiniteScroll () {
       let prevScroll = document.documentElement.scrollTop;
@@ -27,41 +27,49 @@ async function implementation (
     var specsId = document.evaluate("//div[contains(@class,'tab-desc__labels__desc') and contains(.,'Specifiche tecniche')]", document, null, XPathResult.ANY_TYPE, null);
     var element = specsId.iterateNext();
     if (element) {
-      // @ts-ignore
       const id = element.getAttribute('data-target');
       const specHead = document.querySelectorAll(`div[id*=${id}] td[class*='desc']`) ? document.querySelectorAll(`div[id*=${id}] td[class*='desc']`) : null;
       const specVal = document.querySelectorAll(`div[id*=${id}] td[class*='data']`) ? document.querySelectorAll(`div[id*=${id}] td[class*='data']`) : null;
       let specContent = '';
       for (let i = 0; i < specHead.length; i++) {
         if (specHead[i] && specVal[i]) {
-          // @ts-ignore
           specContent += specHead[i].innerText + ' : ';
-          // @ts-ignore
           specContent += specVal[i].innerText + ' || ';
         }
       }
-      const specList = document.querySelectorAll(`div[id*=${id}] li`) ? document.querySelectorAll(`div[id*=${id}] li`) : null;
+      const specList = document.querySelectorAll(`div[id*=${id}] li , div[id*=${id}] p`) ? document.querySelectorAll(`div[id*=${id}] li , div[id*=${id}] p`) : null;
       let specContentList = '';
       for (let i = 0; i < specList.length; i++) {
-        if (specList[i]) {
-          // @ts-ignore
+        let text = '';
+        if (specList[i] && specList[i].innerText) {
+          if (specList[i].innerText.includes('Color')) {
+            text = specList[i].innerText.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').trim();
+            text.length < 50 && addHiddenDiv('ii_color', specList[i].innerText.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').trim());
+          } else if (specList[i].innerText.includes('Dimensioni oggetto')) {
+            text = specList[i].innerText.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').trim();
+            text.length < 50 && addHiddenDiv('ii_dimension', specList[i].innerText.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').trim());
+          } else if (specList[i].innerText.includes('Numero di colli')) {
+            text = specList[i].innerText.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').trim();
+            text.length < 50 && addHiddenDiv('ii_packSize', specList[i].innerText.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').trim());
+          } else if (specList[i].innerText.includes('Peso')) {
+            text = specList[i].innerText.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').trim();
+            text.length < 50 && addHiddenDiv('ii_weight', specList[i].innerText.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').trim());
+          }
           specContentList += specList[i].innerText + ' || ';
         }
       }
-      console.log('Specification list', specContentList.slice(0, -4));
-      specContentList && addHiddenDiv('ii_spec', specContentList.slice(0, -4));
+      specContentList = specContentList.replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').replace(/(\|\| ){1,}$/g, ' ').replace(/(\|\| ){2,}/g, '|| ').replace(/(^\|\| )/, ' ').trim();
+      console.log('Specification list', specContentList);
+      specContentList && addHiddenDiv('ii_spec', specContentList);
       specContent && addHiddenDiv('ii_spec', specContent.slice(0, -4));
     }
-    // ratings
-    // @ts-ignore
+    // rating
     const iframeNode = (document.querySelector('div[class*="caption__revoo"] iframe')) ? document.querySelector('div[class*="caption__revoo"] iframe').contentDocument.documentElement.innerHTML : null;
     const domparser = new DOMParser();
     if (iframeNode) {
       const iframeDOM = domparser.parseFromString(iframeNode, 'text/html');
       const review = iframeDOM.querySelector("div[class*='number-of-reviews']");
-      // @ts-ignore
       console.log('Review count', review.innerText);
-      // @ts-ignore
       addHiddenDiv('ii_review', review.innerText);
       const rating = iframeDOM.querySelector('reevoo-score').getAttribute('data-score');
       console.log('Rating ', rating);
@@ -88,8 +96,7 @@ async function implementation (
       console.log('Description', descContent);
       addHiddenDiv('ii_desc', (descContent));
     }
-    // sku
-    // @ts-ignore
+    // sk
     const skuJSON = (document.querySelector('script[type*="application/ld+json"]')) ? document.querySelector('script[type*="application/ld+json"]').innerText : {};
     if (skuJSON) {
       const skuParsed = JSON.parse(skuJSON) && JSON.parse(skuJSON).sku ? JSON.parse(skuJSON).sku : '';

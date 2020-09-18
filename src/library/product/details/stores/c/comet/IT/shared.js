@@ -12,16 +12,6 @@ const transform = (data) => {
           item.text = item.text.replace(/(.*)/, 'https:$1');
         });
       }
-      // if (row.alternateImages) {
-      //   row.alternateImages.forEach(item => {
-      //     item.text = item.text.replace(/\/hd_[\d]+x_/g, '');
-      //   });
-      // }
-      // if (row.variantId) {
-      //   row.variantId.forEach(item => {
-      //     item.text = item.text.replace(/.*\/(.*?)\/p/g, '$1');
-      //   });
-      // }
       if (row.manufacturerDescription) {
         row.manufacturerDescription.forEach(item => {
           item.text = item.text.replace(/\n/gm, ' ').replace(/\s{2,}/gm, ' ').trim();
@@ -45,9 +35,14 @@ const transform = (data) => {
       }
       if (row.videos) {
         row.videos.forEach(item => {
-          const videoJSON = JSON.parse(item.text.replace(/\\"/gm, '"'));
+          const videoJSON = item.text.includes('playlist') && item.text.includes('file') && JSON.parse(item.text.replace(/\\"/gm, '"')) ? JSON.parse(item.text.replace(/\\"/gm, '"')) : '';
           if (videoJSON) {
+            console.log('Inside', videoJSON);
             item.text = (videoJSON.playlist && videoJSON.playlist[0] && videoJSON.playlist[0].file) ? 'https:' + videoJSON.playlist[0].file : '';
+          } else if (item.text.includes('youtube')) {
+            item.text = 'https:' + item.text;
+          } else {
+            item.text = '';
           }
         });
       }

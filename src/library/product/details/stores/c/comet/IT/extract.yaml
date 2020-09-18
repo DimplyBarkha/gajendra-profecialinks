@@ -51,7 +51,7 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: weightNet
-    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Peso') and not(contains(.,'imballo'))]/following-sibling::td
+    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Peso') and not(contains(.,'imballo'))]/following-sibling::td | //div[@id='ii_weight']
     description: Net weight as described on the page
   - name: weightGross
     xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Peso dell') and contains(.,'imballo') ]/following-sibling::td
@@ -75,13 +75,13 @@ fields:
     xpath: //div[contains(@id,'ii_rating')]
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingDimensions
-    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Larghezza imballo') or contains(.,'Profondità imballo') or contains(.,'Altezza imballo') ]/following-sibling::td
+    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Larghezza imballo') or contains(.,'Profondità imballo') or contains(.,'Altezza imballo') ]/following-sibling::td | //div[@id='ii_dimension']
     description: Stated shipping dimensions
   - name: shippingWeight
     xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Peso dell') and contains(.,'imballo') ]/following-sibling::td
     description: Stated shipping weight
   - name: color
-    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Colore')]/following-sibling::td
+    xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Colore')]/following-sibling::td | //div[@id='ii_color']
     description: A textual description of the colour
   - name: manufacturerDescription
     singleValue: false
@@ -93,7 +93,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,'fullJwPlayerWarp') and contains(@class,'fullPlaylist')]/input/@value
+    xpath: //div[contains(@class,'fullJwPlayerWarp') and contains(@class,'fullPlaylist')]/input/@value | //iframe[contains(@id,'ytplayer')]/@src
     description: URLs of videos on page
   - name: name
     xpath: //h1[contains(@class,'prodotto__info') and contains(@class,'title')]
@@ -120,5 +120,7 @@ fields:
   - name: quantity
     description: null
     xpath: //table[contains(@class,'table')]//td[contains(@class,'desc') and contains(.,'Quantità')]/following-sibling::td
-
+  - name: packSize
+    description: null
+    xpath: //div[@id='ii_packSize']
     
