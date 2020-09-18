@@ -1,35 +1,49 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: 
-- name: name
-  singleValue: false
-  xpath: //a[contains(@class,'product-name')]/@title
-- name: price 
-  singleValue: false
-  xpath: //div[contains(@class,'product-price')]/text()
-- name: productUrl
-  singlevalue: false
-  xpath: //a[contains(@class,'product-image-link')]/@href
-- name: aggregateRating
-  singlevalue: false
-  xpath: //div[contains(@class,'product-ratings__avarage')]
-- name: ratingCount
-  singlevalue: false
-  xpath: //div[contains(@class,'product-ratings__count')]
-  regExp: ([0-9]+)
-- name: reviewCount
-  singleValue: false
-  xpath: //div[contains(@class,'product-ratings__count')]
-  regExp: ([0-9]+)
-- name: id
-  singleValue: false
-  xpath: //div[contains(@class,'product-number')]
-- name: thumbnail
-  # singleValue: false
-  singleValue: true
-  # xpath: //a[contains(@class,'product-image-link')]//img[contains(@class,'product-image')]/@src
-  xpath: //a[contains(@class,'product-image-link')]//img/@src
-  regExp: (.+)
-  regExpReplace: https://www.elgiganten.dk$1
+recordXPath: //div[contains(@class,'col-mini-product')]
+fields:
+  - name: id
+    xpath: //div[contains(@class,"product-number")]
+    singleValue: false
+  - name: name
+    xpath: //a[contains(@class, "product-name")]//span//span
+    singleValue: false
+  - name: productUrl
+    xpath: //a[contains(@class, "product-image-link")]/@href
+    singleValue: false
+  - name: manufacturer
+    xpath: //a[contains(@class, "product-name")]//span//span
+    regExp: ^([\s]*[\S]+)
+    singleValue: false    
+  - name: thumbnail
+    xpath: //a[contains(@class, "product-image-link")]/img/@src
+    singleValue: false
+    regExp: ^(.+)$
+    regExpReplace: https://www.gigantti.fi$1
+  - name: price
+    xpath: //div[contains(@class, "row-price")]/div[contains(@class, "row-price-container")]/div[contains(@class, "product-price")]
+    singleValue: false 
+  - name: rankOrganic
+    singleValue: false 
+  - name: aggregateRating  
+    singleValue: false
+    xpath: //div[contains(@class, "product-ratings")]//div[contains(@class, "product-ratings__avarage")]
+    defaultValue: '0'
+  - name: reviewCount  
+    singleValue: false
+    xpath: //div[contains(@class, "product-ratings")]//div[contains(@class, "product-ratings__count")]
+    defaultValue: '0'
+    type: NUMBER
+  - name: ratingCount  
+    xpath: //div[contains(@class, "product-ratings")]//div[contains(@class, "product-ratings__count")]
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: search/listing rank
