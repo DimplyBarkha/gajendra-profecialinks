@@ -75,8 +75,14 @@ async function implementation (
       if (document.querySelector('.price')) {
         addHiddenDiv('price', document.querySelector('.price').innerText.split('includes')[0]);
       }
-      if (document.querySelector('h5')) {
+      if (document.querySelector('h5') && document.querySelector('h5').innerText.split(':')[1]) {
         addHiddenDiv('id', document.querySelector('h5').innerText.split(':')[1]);
+      } else {
+        document.querySelectorAll('small').forEach(el => {
+          if (el.innerText.includes('SKU:')) {
+            addHiddenDiv('id', el.innerHTML.split('<br>')[0].replace('SKU: ', ''));
+          }
+        });
       }
       if (document.querySelector('.bv-off-screen')) {
         addHiddenDiv('rating', document.querySelector('.bv-off-screen').innerText.split(' ')[0]);

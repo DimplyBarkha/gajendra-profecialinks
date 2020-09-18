@@ -93,7 +93,7 @@ fields:
   - name: gtin #missing
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-  - name: sku 
+  - name: sku
     singleValue: true
     description: The store-specific product identifier
     xpath: //div[@id='added_sku']
@@ -448,7 +448,7 @@ fields:
   - name: recyclingInformation #missing
     singleValue: true
     description: Recycling information associated with the product
-  - name: productOtherInformation 
+  - name: productOtherInformation
     singleValue: false
     description: Any other product information
     xpath: //div[@id='added_productOtherInformation']
@@ -565,4 +565,3 @@ fields:
   - name: enhancedContentHTML #todo
     singleValue: true
     defaultValue: No
-    
