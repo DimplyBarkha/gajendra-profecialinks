@@ -35,9 +35,6 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //p[contains(@class,'price was')]/span[contains(@class,'price-display')]
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[@itemprop='brand']
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name,'Keywords')]/@content
@@ -68,6 +65,13 @@ fields:
   - name: warranty1
     singleValue: false
     xpath: //div[contains(@class,'content long-description')]
+  - name: descriptionBullets
+    singleValue: false
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: 'No'
+  # - name: manufacturer
+  #   singleValue: false
   # - name: _input
   #   singleValue: false
   # - name: _pageTimestamp
@@ -87,8 +91,6 @@ fields:
   # - name: coupon
   #   singleValue: false
   # - name: descriptionBulletsInfo
-  #   singleValue: false
-  # - name: descriptionBullets
   #   singleValue: false
   #   type: NUMBER
   # - name: directions

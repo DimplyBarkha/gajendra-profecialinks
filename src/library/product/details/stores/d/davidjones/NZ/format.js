@@ -20,7 +20,11 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.description) {
-        row.description[0].text = row.description[0].text.replace(/\n \n/g, ' || ').replace(/\n/g, '');
+        if (row.description[0].text.match(/\n(\d+)\./g)) {
+          const bulletCount = row.description[0].text.match(/\n(\d+)\./g).length;
+          row.descriptionBullets = [{ text: bulletCount }];
+        }
+        row.description[0].text = '||' + row.description[0].text.replace(/\n(\d+)\./g, '||').replace(/\n \n/g, ' ').replace(/\n/g, '') + '||';
       }
       if (row.availabilityText) {
         row.availabilityText = row.availabilityText[0].text.includes('Available Now') ? [{ text: 'In Stock' }] : [{ text: 'Out of Stock' }];
