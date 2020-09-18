@@ -13,7 +13,7 @@ fields:
     xpath: //li[@class="glide__slide glide__slide--active"]/div/div/span/img[1]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="thumbnail-gallery"]/div/div[not(@class="thumbnail-gallery__item is-current")]/div/span/img/@src | //div[@class="thumbnail-gallery"]/div/div[not(@class="thumbnail-gallery__item is-current")]/div/div/span/img/@src
+    xpath: //div[@class="thumbnail-gallery"]/div/div[not(@class="thumbnail-gallery__item is-current")]/div/span/img/@src | //div[@class="thumbnail-gallery"]/div/div[not(@class="thumbnail-gallery__item is-current")]/div/div[not(@class="video-wrapper")]/span/img/@src
     regExp: ([^\?]+)(\?.*)?
     regExpReplace: $1
   - name: category
