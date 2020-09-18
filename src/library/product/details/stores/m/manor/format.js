@@ -25,6 +25,24 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
         });
       }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace('.', ',').trim();
+        });
+      }
+      if (row.upc) {
+        row.upc.forEach(item => {
+          var myRegexp = /ean\"\s*:\s*\"(.+?)\"/g;
+          var match = myRegexp.exec(item.text);
+          if (match) {
+            if (match.length) {
+              item.text = match[1].trim();
+            } else {
+              item.text = "";
+            }
+          }
+        });
+      }
       if (row.description) {
         row.description.forEach(item => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
