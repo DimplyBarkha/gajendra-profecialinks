@@ -37,7 +37,7 @@ fields:
     xpath: //a[@class='swiper-slide js-lightbox-picture-top swiper-slide-active is-selected']//img[@class='swiper-slide__big-image swiper-lazy swiper-lazy-loaded']/@alt
   - name: alternateImages
     singleValue: false
-    xpath: (//div[@class="swiper-wrapper"]//img/@src)
+    xpath: (//div[@class="swiper-wrapper"]//img/@src)[position()>1]
     regExp: (.*_)
     regExpReplace: https:$1xxl3.jpg
   - name: metaKeywords
@@ -50,7 +50,7 @@ fields:
     xpath: //nav[@class='breadcrumb breadcrumb--small']//text()
   - name: nameExtended
     singleValue: false
-    xpath: //form[@id='AddToCartForm']//h1
+    xpath: concat(//form[@id='AddToCartForm']//div//a[@class='productManufacturerFilter'],' ',//form[@id='AddToCartForm']//h1)
   - name: listPrice
     singleValue: false
     xpath: //span[@class='js-basePrice']
@@ -143,7 +143,6 @@ fields:
     singleValue: false
   - name: manufacturerDescription
     singleValue: false
-    xpath: //meta[contains(@name, "description")]/@content
   - name: lbbPrice
     singleValue: false
   - name: energyEfficiency
@@ -162,7 +161,7 @@ fields:
     xpath: //div[contains(@class,'embed-responsive')]//iframe/@src
   - name: name
     singleValue: false
-    xpath: //form[@id='AddToCartForm']//h1
+    xpath: concat(//form[@id='AddToCartForm']//div//a[@class='productManufacturerFilter'],' ',//form[@id='AddToCartForm']//h1)
   - name: coupon
     singleValue: false
   - name: specifications
