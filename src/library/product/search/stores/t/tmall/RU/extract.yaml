@@ -8,7 +8,7 @@ fields:
       xpath: //a[contains(@class,"history-item")]
     - name: id
       singleValue: false
-      xpath: //ul[@id="hs-below-list-items"]/li/@qrdata
+      xpath: //div[@class="add-to-wishlist"]/a/@data-product-id
     - name: productUrl
       singleValue: false
       xpath: //h3/a[contains(@class,"history-item")]/@href
@@ -24,12 +24,9 @@ fields:
     - name: ratingCount
       singleValue: false
       xpath: //div[@class="rate-history"]/a
-    - name: soldBy
-      singleValue: false
-      xpath: //div[@class="store-name util-clearfix"]/a
     - name: gtin
       singleValue: false
-      xpath: //ul[@id="hs-below-list-items"]/li/@qrdata
+      xpath: //div[@class="add-to-wishlist"]/a/@data-product-id
     - name: rank
       singleValue: false
     - name: rankOrganic
