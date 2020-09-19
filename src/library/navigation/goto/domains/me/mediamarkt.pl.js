@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'mediamarkt.pl',
-    timeout: null,
+    timeout: 80000,
     country: 'PL',
     store: 'mediamarkt',
     zipcode: '',
