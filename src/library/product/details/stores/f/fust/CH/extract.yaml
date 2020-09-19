@@ -39,11 +39,10 @@ fields:
   - name: brandText
     xpath: //h1[contains(@class,'productDetail ')]/span/text()
   - name: specifications
-    description: Tabular data(if any)
-    xpath: //table[@class='not-basic-table specification']//text()
+    xpath: normalize-space(//div[contains(@class,'no-accessoires')])
   - name: weightNet
     description: Net weight as described on the page
-    xpath: //td[text()='Gewicht (kg)']/following-sibling::td/text()|//td[text()='Gewicht']/following-sibling::td/text()
+    xpath: //td[contains(.,'Gewicht')]/following-sibling::td/text()
   - name: gtin
     description: GTIN code (includes UPC/EAN)
     xpath: //meta[@itemprop='gtin']/@content
@@ -70,14 +69,14 @@ fields:
     xpath: //td[contains(text(),'Farbe')]/following-sibling::td/text()
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id='flix-inpage']//div[contains(@class,'inpage_block_title ')]|//div[@id='flix-inpage']//div[contains(@class,'flix-std-title')]|//div[@id='flix-inpage']//div[contains(@class,'flix-std-desc')]|//div[@id='flix-inpage']//div[contains(@class,'flix-std-section')]|//div[@id='flix-inpage']//div[contains(@class,'inpage_h4')]|//div[@id='flix-inpage']//div[@class='flix-d-p']|//table[@class='flix-std-specs-table']//span
+    xpath: //body/@manufacturerdescription
   - name: manufacturerImages
-    xpath: //div[@id='flix-inpage']//img/@srcset
+    xpath: //div[@id="inpage_container"]//img/@srcset
     regExp: (.+)
     regExpReplace: https:$1
   - name: videos
     singleValue: false
-    xpath: //div[@class="demoupUI-playbutton demoup-play "]/meta[@itemprop='contentURL']/@content|//div[contains(@class,'youtube productDetail')]/a[1]/@href|//div[contains(@class,"flix-videodiv")]/iframe/@src
+    xpath: //meta[@itemprop="contentURL"]/@content | //a[@class="youtube"]/@href
   - name: mpc
     singleValue: true
     xpath: //script/@data-flix-mpn | //meta[@itemprop='mpn']/@content
