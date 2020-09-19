@@ -1,32 +1,32 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='DlNoVpsv8MABrtE8wLdel col-xl-3 col-sm-4']/a
+recordXPath: //div[contains(@class,'DlNoVpsv8MABrtE8wLdel')]
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //div[@class='DlNoVpsv8MABrtE8wLdel col-xl-3 col-sm-4']/a/@href
+    xpath: //div[contains(@class,'DlNoVpsv8MABrtE8wLdel')]/a/@href
   - name: name
     singleValue: false
-    xpath: //*[@class='_1ylr7ZqaNStFKeyroKYurg']
+    xpath: //div[@class='_1ylr7ZqaNStFKeyroKYurg']
   - name: price
     singleValue: false
-    xpath: //*[@class='_26Qr4U1N4ID_qGORELpAK0']/span/span[1]/span[2]/span
+    xpath: //div[@class='_26Qr4U1N4ID_qGORELpAK0']/span/span[1]/span[2]/span
   - name: thumbnail
     singleValue: false
-    xpath: //*[@class='_1_c2muMMnJOB3XmA6QskI8']/img/@src
+    xpath: //div[@class='_1_c2muMMnJOB3XmA6QskI8']/img/@src
   - name: brandText
     singleValue: false
     xpath: //div[@class='_1BACmaaaExCgnZr-6b9fO']
   - name: reviewCount
     singleValue: false
-    xpath: //div[@id="msrc-widget"]//span[@class='sc-fzqNqU eYJpeC']
+    xpath: //div[@id="msrc-widget"]//span[contains(@class,'sc-fzqNqU')]    
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@id="msrc-widget"]//div[@class='sc-fznxsB cUWXFh']//span[@class='sc-AxjAm bcMPWx']
+    xpath: //div[@id="msrc-widget"]//div[contains(@class,'sc-fznxsB')]//span[contains(@class,'sc-AxjAm')]    
   - name: id
     singleValue: false
-    xpath: //div[@class='DlNoVpsv8MABrtE8wLdel col-xl-3 col-sm-4']/a/@href
+    xpath: //div[contains(@class,'DlNoVpsv8MABrtE8wLdel')]/a/@href
   - name: rankOrganic
     SingleValue: false
   - name: rank
