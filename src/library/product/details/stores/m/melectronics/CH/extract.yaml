@@ -9,12 +9,13 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[@class='buybox--annotation']//span[contains(text(),'Sofort lieferbar')]
+    defaultValue: 'In Stock'
   - name: price
     singleValue: false
     xpath: //div[@class='detail-options--price']//span[@class='o9HipJE77IlXUHdhYDV3G']
   - name: listPrice
     singleValue: false
-    xpath: //div[@class='detail-options--price']//span[@class='_3Zi7dtkU2jBQ9sI3wlbCp0']  
+    xpath: //div[@class='detail-options--price']//span[@class='_3Zi7dtkU2jBQ9sI3wlbCp0']
   - name: sku
     singleValue: false
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Artikelnummer']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
@@ -38,10 +39,10 @@ fields:
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Gewicht']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
   - name: ratingCount
     singleValue: false
-    xpath: //div[@id="msrc-widget"]//span[@class='sc-fznLPX kRYZuI']
+    xpath: //div[@id="msrc-widget"]/div[contains(@class,"sc-fznMAR")]/a/span[contains(@class,"sc-fzolEj")]
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@id="msrc-widget"]//span[@class='sc-fzoXWK iIptZR']//span[text()='Durchschnittsbewertung']//following-sibling::text()
+    xpath: //div[@id="msrc-widget"]/div[contains(@class,"sc-fznMAR")]/a/span[contains(@class,"sc-fznWOq")]
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //ul[@class='detail-options--topfacts']
@@ -53,19 +54,22 @@ fields:
     xpath: //ul[@class='detail-options--topfacts']//li
   - name: brandText
     singleValue: false
-    xpath: //div[@class='detail-showcase--brand']/img/@alt  
+    xpath: //div[@class='detail-showcase--brand']/img/@alt
   - name: quantity
     singleValue: false
     xpath: //button[@id="test-detail-btn-test-select-flyout"]
   - name: color
     singleValue: false
-    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Farbe']/parent::*/div[@class='detail-navigation-section--specification-item-tx']  
+    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Farbe']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
   - name: specifications
     singleValue: false
     xpath: //div[@name="specification"]//div[@class='detail-navigation-section--specification']//div[@class='detail-navigation-section--specification-item']
   - name: name
     singleValue: false
-    xpath: //section[@class='detail-showcase--title-box']/h1  
+    xpath: //section[@class='detail-showcase--title-box']/h1
+  - name: nameExtended
+    singleValue: false
+    xpath: //section[@class='detail-showcase--title-box']/h1    
   - name: storage
     singleValue: false
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[contains(text(),'Speicherkapazität')]/parent::*/div[@class='detail-navigation-section--specification-item-tx']
@@ -74,7 +78,4 @@ fields:
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[contains(text(),'Garantie')]/parent::*/div[@class='detail-navigation-section--specification-item-tx']
   - name: countryOfOrigin
     singleValue: false
-    xpath: //div[@id="test-header-link-Language"]/div[1]
-  - name: brandText
-    singleValue: false
-    defaultValue: 'Melectronics'
+    xpath: //div[@id="test-header-link-Language"]/div[1]  
