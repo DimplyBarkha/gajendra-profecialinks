@@ -23,9 +23,10 @@ fields:
     xpath: //div[contains(@class,'selected')]/span[contains(@class,'colour-label')]
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'content long-description')]
+    xpath: //div[@id="customDescription"]
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: //div[@id="bulletsFromDescription"]
   - name: image
     singleValue: false
     xpath: //div[contains(@class,"slick-track")]//li[not(contains(@class, "slick-cloned")) and contains(@class, "slick-current")]//img/@src
@@ -69,6 +70,8 @@ fields:
     xpath: //div[contains(@class,'content long-description')]
   - name: descriptionBullets
     singleValue: false
+    xpath: //div[@id="bulletsFromDescriptionCount"]
+    type: NUMBER
   - name: termsAndConditions
     singleValue: false
     defaultValue: 'No'
