@@ -7,17 +7,16 @@ const transform = (data) => {
   for (const { group } of data) {
     let rank = 1;
     for (const row of group) {
-      if (row.ratingCount) {
-        row.ratingCount.forEach(item => {
-          item.text = item.text.replace(/\|.*$/g, '').slice();
-          item.text = item.text.replace(/\//g, '').slice(0, -2);
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = item.text.replace(/(.+?)\/.+/g, "$1");
         });
       }
       if (row.reviewCount) {
         row.reviewCount.forEach(item => {
-          item.text = item.text.replace(/.+(\|)/g, '').slice();
-          item.text = item.text.replace(/\s/g, '').slice(0, -6)
+          item.text = item.text.replace(/.+?\|.+?(\d+).+/g, "$1");
         });
+        row.ratingCount = row.reviewCount;
       }
       if (row.shippingInfo) {
         row.shippingInfo.forEach(item => {
@@ -35,22 +34,17 @@ const transform = (data) => {
           item.text = item.text.replace(/\s*/g, '').trim();
         });
       }
-      if (row.variantId) {
-        row.variantId.forEach(item => {
-          item.text = item.text + "sj";
-          item.text = item.text.slice(33, -1);
-          item.text = item.text.match(/[^[\]]+(?=])/g);
-          item.text = item.text.toString();
-        });
-      }
       if (row.id) {
         row.id.forEach(item => {
-          item.text = item.text + "sj";
-          item.text = item.text.slice(33, -1);
-          item.text = item.text.match(/[^[\]]+(?=])/g);
-          item.text = item.text.toString();
+          item.text = item.text.replace(/.+systemowy\s*:\s*\[(.+?)\].*/g, "$1");
         });
+        row.variantId = row.id;
       }
+      if (row.gtin) {
+        row.gtin.forEach(item => {
+          item.text = item.text.replace(/.+producenta\s*:\s*\[(.+?)\].*/g, "$1");
+        });
+      }      
       row.rank = row.rankOrganic = [{ "text": rank }];
       rank++;
     }

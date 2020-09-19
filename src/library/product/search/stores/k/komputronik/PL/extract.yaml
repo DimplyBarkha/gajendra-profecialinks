@@ -9,6 +9,9 @@ fields:
   - name: id
     SingleValue: false
     xpath: //div[@class="pe2-codes"]
+  - name: gtin
+    SingleValue: false
+    xpath: //div[@class="pe2-codes"]    
   - name: thumbnail
     SingleValue: false
     xpath: //div[@class="pe2-img"]/a/img/@data-original
@@ -26,7 +29,8 @@ fields:
     xpath: //span[@class="btn2 btn2-transparent btn2-inline btn2-auto btn2-s0 btn2-p0 rating"]
   - name: ratingCount
     SingleValue: false
-    xpath: //span[@class="btn2 btn2-transparent btn2-inline btn2-auto btn2-s0 btn2-p0 rating"]
   - name: variantId
     SingleValue: false
-    xpath: //div[@class="pe2-codes"]
+  - name: aggregateRating
+    SingleValue: false
+    xpath: //span[contains(@class,"rating")]//strong
