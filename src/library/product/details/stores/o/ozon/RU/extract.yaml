@@ -2,7 +2,13 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields:  
+fields:
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@data-widget='webAddToCart']//div[contains(text(),'Добавить в корзину')]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@data-widget='webProductHeading']//h1
   - name: sku
     singleValue: false    
     xpath: //span[@data-widget='detailSKU']
@@ -29,30 +35,25 @@ fields:
     xpath: //ol[@class='b6z4']//li
   - name: listPrice
     singleValue: false
-    xpath: //div[@class='b1u9']//span[contains(@class,'b1v7')]
+    xpath: //div[@data-widget='webSale']//div[@class='b1u9' or @class='b3c6']//span[@class='b3d5']
   - name: price
     singleValue: false
-    xpath: //div[@class='b1u9']//span[contains(@class,'b1v1')]
+    xpath: //div[@data-widget='webSale']//div[@class='b1u9' or @class='b3c6']//span[contains(@class,'b3d')][1]
   - name: promotion
     singleValue: false
     xpath: //span[@title='Скидка']
   - name: description
     singleValue: false    
-    xpath: //script[@type='application/ld+json']
+    xpath: //div[@id='section-description']/div[1]
   - name: brandText
     singleValue: false
-    xpath: //ol[@class='b6z4']//li[last()]//span
-  - name: reviewCount
-    singleValue: false
-    xpath: //a[@class='b8w7']
-    regExp: (.*)\s*(отзыва|отзывов)
-    regExpReplace: $1
+    xpath: //ol[@class='b6z4']//li[last()]//span  
   - name: ratingCount
     singleValue: false
-    xpath: //div[@class='b8w6 a1y6 a1z']/@title
+    xpath: //script[@type='application/ld+json']
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class='b8w6 a1y6 a1z']/@title
+    xpath: //script[@type='application/ld+json']
   - name: soldBy
     singleValue: false
     xpath: //script[contains(@id,'state-webCurrentSeller-')]/text()
@@ -63,6 +64,9 @@ fields:
     singleValue: false
     xpath: //div[@data-widget='webCharacteristics']//span[contains(text(),'Вес в упаковке')]/parent::*/parent::*/dd
   - name: color
+    singleValue: false
+    xpath: //span[@class='b0r3']//span[contains(text(),'Цвет:')]//following-sibling::span
+  - name: colorCode
     singleValue: false
     xpath: //span[@class='b0r3']//span[contains(text(),'Цвет:')]//following-sibling::span
   - name: specifications

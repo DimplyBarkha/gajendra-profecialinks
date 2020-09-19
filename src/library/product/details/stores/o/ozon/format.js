@@ -21,16 +21,37 @@ const transform = (data) => {
           });
         }
         if (row.description) {
+          let info = [];          
           row.description.forEach(item => {
+            info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());            
+          });
+          row.description = [{'text':info.join(' || '),'xpath':row.description[0].xpath}];          
+        }
+        if (row.availabilityText) {          
+          row.availabilityText.forEach(item => {
+            item.text = 'In Stock'
+          });          
+        }
+        if (row.ratingCount) {
+          row.ratingCount.forEach(item => {
             let data = JSON.parse(item.text);
-            if(data['description']){
-              item.text = data['description'].replace(/(\s*\n\s*)+/g, ' || ').trim();
-            }else{
-              item.text = '';
+            if(data['aggregateRating']){
+              if(data['aggregateRating']['reviewCount']){
+                item.text = data['aggregateRating']['reviewCount'];
+              }
             }
           });
         }
-
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
+            let data = JSON.parse(item.text);
+            if(data['aggregateRating']){
+              if(data['aggregateRating']['ratingValue']){
+                item.text = data['aggregateRating']['ratingValue'];
+              }
+            }            
+          });
+        }        
         if (row.soldBy) {
           row.soldBy.forEach(item => {
             let data = JSON.parse(item.text);
@@ -99,7 +120,7 @@ const transform = (data) => {
                           if (!variations.includes(link_data)) {
                             variations.push(link_data);
                           }
-                          if (variation['type'] == 'apparelPics' || variation['type'] == 'colors')  {
+                          if (variation['type'] == 'apparelPics' || variation['type'] == 'colors'|| variation['type'] == 'sizes')  {
                             variant_info.push(variants_data['data']['textRs'][0]['content']);
                           }
                         });
