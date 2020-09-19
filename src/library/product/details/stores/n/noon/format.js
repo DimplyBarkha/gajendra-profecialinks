@@ -69,18 +69,13 @@ const transform = (data) => {
         row.additionalDescBulletInfo=[{text:additionalDescBulletInfoStr,xpath:oldXpath}];
       }
       if(row.description){
-        var additionalDescBulletInfoStr='';
-        var oldXpath='';
-        row.additionalDescBulletInfo.forEach(item => {
-          oldXpath=item.xpath;
-          if(additionalDescBulletInfoStr==''){
-            additionalDescBulletInfoStr=item.text
-          }else{
-            additionalDescBulletInfoStr=additionalDescBulletInfoStr+' || '+item.text
-          }
+        var additionalDescBulletInfoArr = [];
+        row.description.forEach(item => {
+          additionalDescBulletInfoArr.push(item.text);
         });
-        additionalDescBulletInfoStr='|| '+additionalDescBulletInfoStr;
-        row.description=[{text:additionalDescBulletInfoStr,xpath:oldXpath}];
+        if(additionalDescBulletInfoArr.length){
+          row.description=[{"text":"|| " + additionalDescBulletInfoArr.join(" || "),"xpath":row.description[0]["xpath"]}];
+        }       
       }
       if(row.mpc){
         row.mpc.forEach(item => {
