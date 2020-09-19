@@ -53,19 +53,29 @@ fields:
     regExp: \s(.+)
     regExpReplace: $1
   - name: caloriesPerServing
-    xpath: (//td[contains(text(),'Valor energético')]/../td[2]//td[1])[1]
+    xpath: (//td[contains(text(),'Valor energético')]/../td[2]//td[1])
   - name: totalFatPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Grasas')]/../td[2]//td[1])[1]
     regExp: (.+)\s(.+)
     regExpReplace: $1
-  - name: productUrl
-    xpath: //link[@rel="canonical"]/@href
   - name: totalFatPerServingUom
     singleValue: false
     xpath: (//td[contains(text(),'Grasas')]/../td[2]//td[1])[1]
     regExp: \s(.+)
     regExpReplace: $1
+  - name: SaturatedFatPerServing
+    singleValue: false
+    xpath: (//td[contains(text(),'saturadas')]/../td[2]//td[1])[1]
+    regExp: (.+)\s(.+)
+    regExpReplace: $1
+  - name: SaturatedFatPerServingUom
+    singleValue: false
+    xpath: (//td[contains(text(),'saturadas')]/../td[2]//td[1])[1]
+    regExp: \s(.+)
+    regExpReplace: $1
+  - name: productUrl
+    xpath: //link[@rel="canonical"]/@href
   - name: totalCarbPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Hidratos de carbono')]/../td[2]//td[1])[1]

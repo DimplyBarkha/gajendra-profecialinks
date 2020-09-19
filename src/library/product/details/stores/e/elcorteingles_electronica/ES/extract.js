@@ -14,6 +14,12 @@ module.exports = {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
     await context.evaluate(async function () {
+
+      let productPage = document.querySelector('h1[id="js-product-detail-title"]');
+      if (!productPage) {
+        throw new Error('ERROR: Not a Product Page');
+      }
+
       // function to append the elements to DOM
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -44,17 +50,6 @@ module.exports = {
         } catch (error) {
           console.log(error.message);
         }
-      }
-
-      // function to get the jxpath data
-      function getElementsByXPath(xpath, parent) {
-        let results = [];
-        let query = document.evaluate(xpath, parent || document,
-          null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        for (let i = 0, length = query.snapshotLength; i < length; ++i) {
-          results.push(JSON.prase(query.snapshotItem(i).textContent));
-        }
-        return results;
       }
 
       // function to get the json data from the textContent
@@ -114,7 +109,7 @@ module.exports = {
           addElementToDocument('sku', JSON.parse(apiDataResponse).id);
           addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
           addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
-          addElementToDocument('variantInformation', JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant[0].value);
+          addElementToDocument('variantInformation', JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant ? JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant[0].value : "");
         }
       }
 

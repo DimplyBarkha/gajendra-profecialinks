@@ -219,8 +219,8 @@ module.exports = {
         addElementToDocument(attributeName, text);
       }
 
-      textContent(document.querySelector('div.pdp-info-container div.info'), 'bulletDescription');
-      textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
+      textContent(document.querySelector('div.pdp-info-container div.info .info-list'), 'bulletDescription');
+      textContent(document.querySelectorAll('div.pdp-info-container div.info .info-list')[1], 'ingredient');
     });
     await context.extract(productDetails, { transform });
   },

@@ -23,13 +23,13 @@ fields:
     xpath: //*/@retailer_product_code
   - name: sku
     singleValue: true
-    xpath: ancestor::html //div[@id="SKU"]      
-  - name: quantity
-    singleValue: true
-    xpath : ancestor::html //div[@id="variants_container"]/span    
+    xpath: ancestor::html //div[@id="SKU"]         
   - name: firstVariant
     singleValue: true
     xpath : ancestor::html //div[@id="SKU"]
   - name: promotion
     singleValue: true
     xpath : ancestor::html //div[@id="promotion"]  
+  - name: quantity
+    singleValue: true
+    xpath : ancestor::html //div[contains(@class,'variants-select')]/select/option[@color][1]    

@@ -129,9 +129,9 @@ fields:
   - name: variantInformation
     singleValue: true
     xpath : //div/@title
-  - name: variants
-    singleValue: true
-    xpath : ancestor::html //div/@variants 
+  # - name: variants
+  #   singleValue: true
+  #   xpath : ancestor::html //div/@variants 
   - name: firstVariant
     singleValue: true
     xpath : ancestor::html //div/@sku
@@ -147,9 +147,9 @@ fields:
   - name: shippingWeight
     singleValue: true
     xpath : 
-  - name: variantCount
-    singleValue: true
-    xpath : ancestor::html//div/@variantCount
+  # - name: variantCount
+  #   singleValue: true
+  #   xpath : ancestor::html//div/@variantCount
   - name: color
     singleValue: true
     xpath :  

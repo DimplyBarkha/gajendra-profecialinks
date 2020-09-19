@@ -84,7 +84,7 @@ fields:
   - name: imageZoomFeaturePresent
     xpath: //div[@id="imageZoomFeaturePresent"] 
   - name: shippingDimensions
-    xpath : 
+    xpath : //dt[contains(text(),"Medidas")]/following-sibling::dd[1] 
   - name: shippingWeight
     xpath : 
   - name: variantCount

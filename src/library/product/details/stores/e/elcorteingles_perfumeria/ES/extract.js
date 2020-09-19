@@ -16,8 +16,8 @@ module.exports = {
 
     await context.evaluate(async function () {
 
-      let searchPage = document.querySelector('div.artwork.image');
-      if (searchPage) {
+      let productPage = document.querySelector('h1[id="js-product-detail-title"]');
+      if (!productPage) {
         throw new Error('ERROR: Not a Product Page');
       }
 
@@ -141,7 +141,7 @@ module.exports = {
             console.log(JSON.parse(apiDataResponse), "_gtin")
             setAttributes(singleElement.querySelector('div'),
               {
-                title: JSON.parse(apiDataResponse).title ? JSON.parse(apiDataResponse).title : "",
+                title: "",
                 gtin: JSON.parse(apiDataResponse)._gtin ? JSON.parse(apiDataResponse)._gtin : "",
                 retailer_product_code: JSON.parse(apiDataResponse)._reference ? JSON.parse(apiDataResponse)._reference : "",
                 sku: JSON.parse(apiDataResponse)._add_to_cart ? JSON.parse(apiDataResponse)._add_to_cart.id : "",
@@ -305,6 +305,11 @@ module.exports = {
         addElementToDocument(attributeName, text);
       }
 
+
+      const description = document.querySelector('.product_detail-description-in-image');
+      textContent(description, 'bulletDescription');
+      textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
+
       // Specifications
       const specifcations = [];
       const specXpath = document.querySelectorAll('#tab-content-0 > div > dl > div');
@@ -312,12 +317,12 @@ module.exports = {
         specXpath.forEach(e => {
           specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)} `);
         });
-        addElementToDocument('specifications', specifcations);
+        addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g," "));
       } else {
         specXpath.forEach(e => {
           specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)}`);
         });
-        addElementToDocument('specifications', specifcations);
+        addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g," "));
       }
 
 
@@ -336,14 +341,6 @@ module.exports = {
         addElementToDocument('nameExtended', nameExtended);
       }())
 
-
-      const description = document.querySelectorAll('.product_detail-description-in-image, .product_information');
-      if (description.length > 1) {
-        description.forEach(element => {
-          textContent(element, 'bulletDescription');
-        });
-      }
-      textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
     });
 
     await context.extract(productDetails, { transform });

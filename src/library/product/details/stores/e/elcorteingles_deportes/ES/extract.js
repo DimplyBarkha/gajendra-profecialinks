@@ -175,7 +175,7 @@ module.exports = {
         const apiDataResponse = await makeApiCall(productsData, {});
         addElementToDocument('SKU', JSON.parse(apiDataResponse).id);
         addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
-        addElementToDocument('promotion', JSON.parse(apiDataResponse).discount + " %");
+        addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? JSON.parse(apiDataResponse).discount + " %" : "");
 
 
         //Append a UL and LI tag append the variant info in the DOM
@@ -256,20 +256,26 @@ module.exports = {
           addElementToDocument(attributeName, text);
         }
 
+
+        const description = document.querySelector('.product_detail-description-in-image');
+        textContent(description, 'bulletDescription');
+        textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
+
         // Specifications
         const specifcations = [];
         const specXpath = document.querySelectorAll('#tab-content-0 > div > dl > div');
-        if (specXpath.length > 1) {
+        if (specXpath.length > 0) {
           specXpath.forEach(e => {
-            specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)}`);
+            specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)} `);
           });
-          addElementToDocument('specifications', specifcations);
+          addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g, " "));
         } else {
           specXpath.forEach(e => {
             specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)}`);
           });
-          addElementToDocument('specifications', specifcations);
+          addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g, " "));
         }
+
 
         (function nameExtended() {
           const getXpath = (xpath, prop) => {
@@ -281,19 +287,13 @@ module.exports = {
           };
 
           let name = getXpath('//h1[@id="js-product-detail-title"]', 'textContent') ? getXpath('//h1[@id="js-product-detail-title"]', 'textContent') : "";
-          let color = getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') ? getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') : "" ;
-          let size = getXpath("//div[contains(@class,'variants-select')]/select/option[contains(@color, ' ')][1]", 'textContent') ? getXpath("//div[contains(@class,'variants-select')]/select/option[contains(@color, ' ')][1]", 'textContent') : "";
+          let color = getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') ? getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') : "";
+          let size = getXpath("//div[contains(@class,'variants-select')]/select/option[@color][1]", 'text') ? getXpath("//div[contains(@class,'variants-select')]/select/option[@color][1]", 'text') : "";
           let nameExtended = name + " " + color + " " + size;
+          console.log(nameExtended, "Name")
           addElementToDocument('nameExtended', nameExtended);
         }())
 
-        const description = document.querySelectorAll('.product_detail-description-in-image, .product_information');
-        if (description.length > 1) {
-          description.forEach(element => {
-            textContent(element, 'bulletDescription');
-          });
-        }
-        textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
       });
     } catch (error) {
       console.log('Evaluation Failed', error);
