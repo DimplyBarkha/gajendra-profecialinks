@@ -32,7 +32,7 @@ const transform = (data) => {
       }
       if (row.additionalDescBulletInfo) {
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' | ') : ' ';
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' || ') : ' ';
         });
         row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join(''), xpath: row.additionalDescBulletInfo[0].xpath }];
       }
@@ -53,6 +53,10 @@ const transform = (data) => {
       // Aggregate Rating
       if (row.aggregateRating && row.aggregateRating[0]) {
         row.aggregateRating[0].text = row.aggregateRating[0].text.replace(/\./g, ',');
+      }
+      // Category
+      if (row.category) {
+        row.category.shift();
       }
     }
   }
