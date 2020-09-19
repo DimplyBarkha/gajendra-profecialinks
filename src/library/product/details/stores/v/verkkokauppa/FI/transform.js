@@ -9,9 +9,9 @@ const transform = (data, context) => {
       for (const row of group) {  
         try { 
 
-          if (row.price) {
-            row.price = [{ text: row.price[0].text }, { text: row.onlinePriceCurrency[0].text }];            
-          }       
+          // if (row.price) {
+          //   row.price = [{ text: row.price[0].text }, { text: row.onlinePriceCurrency[0].text }];            
+          // }       
            
           // console.log('test data'+ row.listPrice)
           // if(row.listPrice !='undefined')
