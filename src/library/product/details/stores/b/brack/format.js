@@ -31,12 +31,10 @@ const transform = (data) => {
         row.specifications = [{ text: specificationsArr.join(' | '), xpath: row.specifications[0].xpath }];
       }
       if (row.additionalDescBulletInfo) {
-        console.log(row.additionalDescBulletInfo);
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
           return typeof (item.text) === 'string' || item.text === '||' ? item.text.replace(/\n/gm, ' | ') : ' ';
         });
         additionalDescBulletInfoArr.unshift('|| ');
-        console.log(additionalDescBulletInfoArr);
         row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join(''), xpath: row.additionalDescBulletInfo[0].xpath }];
       }
       if (row.shippingDimensions) {
