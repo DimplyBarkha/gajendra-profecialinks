@@ -80,7 +80,7 @@ const transform = (data) => {
           }
         });
         additionalDescBulletInfoStr='|| '+additionalDescBulletInfoStr;
-        row.additionalDescBulletInfo=[{text:additionalDescBulletInfoStr,xpath:oldXpath}];
+        row.description=[{text:additionalDescBulletInfoStr,xpath:oldXpath}];
       }
       if(row.mpc){
         row.mpc.forEach(item => {
