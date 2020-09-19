@@ -135,7 +135,7 @@ fields:
     description: Number of variants listed
     type: NUMBER
   - name: color
-    xpath: //div[contains(@class,"product-info-specs")]//div[contains(text(),"Color")]/following-sibling::div
+    xpath: //div[contains(@class,"product-info-specs")]//div[contains(text(),"Color") or contains(text(), "Colour")]/following-sibling::div
     description: A textual description of the colour
   - name: colorCode
     singleValue: true
