@@ -17,7 +17,7 @@ const transform = (data) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' | ') : '';
         });
         additionalDescBulletInfoArr.unshift('|| ');
-        row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join('|'), xpath: row.additionalDescBulletInfo[0].xpath }];
+        row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join(''), xpath: row.additionalDescBulletInfo[0].xpath }];
       }
       if (row.description) {
         const descriptionArr = row.description.map((item) => {
