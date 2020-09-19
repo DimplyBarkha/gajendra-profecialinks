@@ -32,7 +32,7 @@ fields:
     xpath: //table[@class='jsx-1537324451']//tr//td[contains(text(),"Colour Name")]/parent::*/td[2]
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@class,'primaryOverviewContent')]/div[contains(@class,"jsx-3349621030")][1]/div[2]
+    xpath: //div[contains(@class,"coreWrapper")]//h1
   - name: specifications
     singleValue: false
     xpath: //div[@class='jsx-1537324451 groupContainer']//table//tr
@@ -44,7 +44,7 @@ fields:
     xpath: //div[contains(@class,'primaryOverviewContent')]//li[@class="jsx-1889249662"]
   - name: shippingInfo
     singlgeValue: false
-    xpath: //li[contains(@class,"uspContainer")][3]//span[contains(@class,"tagline")]
+    xpath: //p[contains(@class,"sellerName")]/a
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@src
@@ -63,3 +63,6 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //div[contains(@class,"coreWrapper")]//p[contains(@class,'modelNumber')]
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href

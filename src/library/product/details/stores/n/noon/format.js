@@ -30,7 +30,11 @@ const transform = (data) => {
       }
       if (row.nameExtended) {
         row.nameExtended.forEach(item => {
-          item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
+          var brandText='';
+          row.brandText.forEach(item => {
+            brandText=item.text;
+          });
+          item.text = brandText+' - '+item.text;
         });
       }
       if (row.aggregateRating) {
