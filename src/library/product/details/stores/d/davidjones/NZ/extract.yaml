@@ -24,6 +24,8 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[contains(@class,'content long-description')]
+  - name: additionalDescBulletInfo
+    singleValue: false
   - name: image
     singleValue: false
     xpath: //div[contains(@class,"slick-track")]//li[not(contains(@class, "slick-cloned")) and contains(@class, "slick-current")]//img/@src
