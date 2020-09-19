@@ -23,6 +23,7 @@ const transform = (data) => {
           var res1 = res.replace(")", "");
           item.text = res1;
         });
+        row.reviewCount=row.ratingCount;
       }
       if (row.id) {
         row.id.forEach(item => {
