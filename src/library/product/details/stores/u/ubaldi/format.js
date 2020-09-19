@@ -14,7 +14,7 @@ const transform = (data) => {
       }
       if (row.additionalDescBulletInfo) {
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' | ') : '';
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' || ') : '';
         });
         row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join('|'), xpath: row.additionalDescBulletInfo[0].xpath }];
       }

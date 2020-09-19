@@ -61,9 +61,6 @@ fields:
     regExpReplace: $1
   - name: manufacturer
     singleValue: false
-    xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
-    regExp: brand":{"@context":"[^"]+","@type":"[^"]+","name":"([^"]+)
-    regExpReplace: $1
   - name: availabilityText
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"availability")]
@@ -114,7 +111,9 @@ fields:
     defaultValue: No
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@class,'flixstdcarousel-wrapper')]//div[contains(@class,'flixstdcarousel')]//li//div//div//img/@srcset
+    xpath: //div[contains(@class,'inpage_selector_feature')]//div[contains(@class,'flix-std-container-fluid')]//div[contains(@class,'flix-std-row')]//div[contains(@class,'flix-background-image')]//img/@data-flixsrcset
+    regExp: ((?:[a-z0-9\-]+\.)+[a-z]{2,6})((?:\/[^\/#?]+))((?:\/))(([|.|\w|\s|-])*\.(?:jpg|gif|png))
+    regExpReplace: https://$1$2$3$4
   - name: video
     singleValue: false
     xpath: //iframe[@id='flix-iframe0']/@src
