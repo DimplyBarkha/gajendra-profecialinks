@@ -20,13 +20,13 @@ fields:
     xpath: //div[@data-widget='webProductHeading']//h1
   - name: image
     singleValue: false    
-    xpath: //div[@class='magnifier-container' or @class='a8n3']//img/@src
+    xpath: //script[contains(@id,'state-webGallery-')]/text()
   - name: imageAlt
     singleValue: false
     xpath: //div[@class='magnifier-container' or @class='a8n3']//img/@alt
   - name: alternateImages
     singleValue: false    
-    xpath: //div[@class='portal-content-list' or contains(@class,'b2k3')]//div[@class='preview image selectable' or @class='a9u6']//img/@src
+    xpath: //script[contains(@id,'state-webGallery-')]/text()
   - name: metaKeywords
     singleValue: false
     xpath: //title/text()

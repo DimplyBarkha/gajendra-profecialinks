@@ -8,12 +8,12 @@ const transform = (data) => {
     for (const { group } of data) {
       for (const row of group) {
         
-        if (row.alternateImages) {
+        /*if (row.alternateImages) {
           let info = [];          
           row.alternateImages.forEach(item => {
             item.text = item.text.replace(/(\/wc\d+\/)+/g, '\/wc1200\/');
           });          
-        }
+        }*/
         
         if (row.reviewCount) {
           row.reviewCount.forEach(item => {
@@ -59,6 +59,40 @@ const transform = (data) => {
               item.text = data['name'].trim();
             }else{
               item.text = '';
+            }
+          });
+        }
+
+        if (row.image) {
+          row.image.forEach(item => {
+            let data = JSON.parse(item.text);
+            if(data['coverImage']){
+              item.text = data['coverImage'].trim();
+            }else{
+              delete row.image;
+            }
+          });
+        }
+
+        if (row.alternateImages) {
+          row.alternateImages.forEach(item => {            
+            let data = JSON.parse(item.text);            
+            let info = []
+            if(data['images']){              
+              data['images'].shift();              
+              if (data['images'][0]['src']){                
+                data['images'].forEach(img_data => {
+                  info.push({'text':img_data['src'],'xpath':row.alternateImages[0].xpath});            
+                });
+              }
+              else if(data['images'].length > 0){
+                data['images'].forEach(img_data => {                  
+                  info.push({'text':img_data,'xpath':row.alternateImages[0].xpath});            
+                });
+              }
+              row.alternateImages = info;
+            }else{
+              delete row.alternateImages;
             }
           });
         }
