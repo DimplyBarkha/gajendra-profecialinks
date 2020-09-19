@@ -7,8 +7,8 @@ const transform = (data) => {
   for (const { group } of data) {
     let rank = 1;
     for (const row of group) {
-      if (row.aggregateRating) {
-        row.aggregateRating.forEach(item => {
+      if (row.aggregateRating2) {
+        row.aggregateRating2.forEach(item => {
           item.text = item.text.replace(/(.+?)\/.+/g, "$1");
         });
       }
