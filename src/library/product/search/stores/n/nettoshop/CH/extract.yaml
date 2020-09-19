@@ -22,15 +22,24 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="c-media-container ember-view"]/picture/img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: url
     singleValue: false
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class='c-product-grid-item__rating']//div/@title
+    # regExp: ([0-9\.]{1,})
+    # regExpReplace: $1
     #type: NUMBER
     #regExp: (^[0-9])
     #regExp: (\d+.\d+)(.\d+)
     #regExpReplace: $1
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class='c-product-grid-item__rating']//div/@title
+    # regExp: ([0-9\.]{1,})
+    # regExpReplace: $1
   - name: reviewCount
     singleValue: false
   - name: ratingCount
@@ -40,11 +49,11 @@ fields:
     xpath: //div[@class='c-product-grid-item__price-total']
     regExp: (.+)
     regExpReplace: $1CHF
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[@class='c-product-grid-item__brand']/img/@title
+  #- name: manufacturer
+   # singleValue: false
+   # xpath: //div[@class='c-product-grid-item__brand']/img/@title
   - name: rank
     singleValue: false
-  - name: endorsementText
-    singleValue: false
-    xpath: //div[@class='c-delivery-state__state']
+  #- name: endorsementText
+  #  singleValue: false
+  #  xpath: //div[@class='c-delivery-state__state']
