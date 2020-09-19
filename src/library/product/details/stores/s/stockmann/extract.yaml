@@ -20,7 +20,7 @@ fields:
     xpath: //ol[contains(@class,"nav-breadcrumbs")]//li[position()>1 and position()<=last()]//a//span
   - name: nameExtended
     singleValue: true
-    xpath: //h1[contains(@class,"product-title")]
+    xpath: //div[contains(@class,"product-view-headlines")]
   - name: listPrice
     singleValue: true
     xpath: //div[contains(@class,"price-box")]//span[contains(@class,"skin-obsolete")]
@@ -36,14 +36,7 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[contains(@class,"product-description")]
-  - name: descriptionBullets
-    singleValue: true
-    type: NUMBER
-    xpath: count(//div[contains(@class,"product-detail-info")]//ul/li)
   - name: brandText
-    singleValue: true
-    xpath: //strong[contains(@class,"product-brand")]/a
-  - name: manufacturer
     singleValue: true
     xpath: //strong[contains(@class,"product-brand")]/a
   - name: quantity
