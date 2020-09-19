@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'PT',
     store: 'elcorteingles_electronica',
-    nextLinkSelector: 'li#pagination-next>a',
+    nextLinkSelector: 'a[data-event="custom_event"]',
     loadedSelector: 'ul.c12.products_list._four',
     mutationSelector: null,
     spinnerSelector: null,
