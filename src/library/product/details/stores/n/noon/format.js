@@ -63,6 +63,7 @@ const transform = (data) => {
             additionalDescBulletInfoStr=additionalDescBulletInfoStr+' | '+item.text
           }
         });
+        additionalDescBulletInfoStr='|| '+additionalDescBulletInfoStr;
         row.additionalDescBulletInfo=[{text:additionalDescBulletInfoStr,xpath:oldXpath}];
       }
       if(row.mpc){
@@ -76,6 +77,13 @@ const transform = (data) => {
         }else{
           delete row.alternateImages;
         }
+      }
+      if(row.variantCount){
+        var tot=0;
+        row.variantCount.forEach(item => {
+          tot++;
+        });
+        row.variantCount=[{text:tot}];
       }      
     }
   }

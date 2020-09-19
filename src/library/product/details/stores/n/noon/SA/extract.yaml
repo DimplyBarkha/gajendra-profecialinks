@@ -27,6 +27,7 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //div[contains(@class,'qtyContainer')]//div[@class='Select-control']//span[@class='Select-value-label']
+    defultValue: 1
   - name: color
     singleValue: false
     xpath: //table[@class='jsx-1537324451']//tr//td[contains(text(),"Colour Name")]/parent::*/td[2]
@@ -63,6 +64,16 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //div[contains(@class,"coreWrapper")]//p[contains(@class,'modelNumber')]
-  - name: _url
+  - name: url
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
+  - name: variantCount
+    singleValue: false
+    xpath: //div[contains(@class,'variantContainer')]//div[contains(@class,'mediaContainer')]//img/@src
+  - name: availabilityText
+    singleValue: false
+    xpath: //p[contains(@class,"notAvailableNote")]
+    defaultValue: In Stock
+  - name: warranty
+    singleValue: false
+    xpath: //strong[@class="jsx-20458038"]
