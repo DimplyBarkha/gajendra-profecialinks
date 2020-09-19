@@ -7,30 +7,12 @@ async function implementation(
   const { keywords, page, offset } = inputs;
   const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
 
-  if (nextLinkSelector) {
-    const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
-    if (!hasNextLink) {
-      return false;
-    }
-  }
-
-  if (!openSearchDefinition) {
-    const { pager } = dependencies;
-    const success = await pager({ keywords, nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector });
-    if (success) {
-      return true;
-    }
-  }
-
   let url = await context.evaluate(function () {
-    /** @type { HTMLLinkElement } */
-    const next = document.querySelector('head link[rel="next"]');
-    if (!next) {
-      return false;
-    }
-    return next.href;
+    const next = document.querySelector('button.sp-pagination-button-next:not(:disabled)')
+    if (!next) { return false; }
   });
 
+  const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), 'button.sp-pagination-button-next:not(:disabled) '); if (!hasNextLink) { return false; }
   if (!url && openSearchDefinition) {
     url = openSearchDefinition.template
       .replace('{searchTerms}', encodeURIComponent(keywords))
@@ -65,7 +47,7 @@ module.exports = {
     country: '',
     store: 'stockmann',
     domain: 'stockmann.com',
-    nextLinkSelector: 'button.sp-pagination-button-next',
+    nextLinkSelector: 'button.sp-pagination-button-next:not(:disabled)',
     spinnerSelector: 'div.sp-loading',
     loadedSelector: 'div.products-view-body',
     noResultsXPath: '//div[contains(@class,"sp-message-not-found")]',
