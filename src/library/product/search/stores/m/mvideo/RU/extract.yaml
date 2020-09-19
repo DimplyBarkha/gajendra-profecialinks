@@ -21,7 +21,13 @@ fields:
   - name: reviewCount
     SingleValue: false
     xpath: //span[@class="c-star-rating_reviews-qty"]
+  - name: ratingCount
+    SingleValue: false
+    xpath: //span[@class="c-star-rating_reviews-qty"]
+  - name: aggregateRating
+    SingleValue: false
+    xpath: //div[@class="c-star-rating"]//span/@style
   - name: rank
     SingleValue: false
   - name: rankOrganic
-    SingleValue: false    
+    SingleValue: false
