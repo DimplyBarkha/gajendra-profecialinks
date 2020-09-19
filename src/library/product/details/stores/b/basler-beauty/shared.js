@@ -91,14 +91,15 @@ const transform = (data) => {
 			// }
 			if (row.aggregateRating) {
 				let newText = 0;
-				row.aggregateRating.forEach(item => {
-					let data = item.text.split("/");
+				row.aggregateRating.forEach((item, index) => {
+					let data = item.raw.split("/");
 					newText = Number(data[0])
 					if (Number(data[1]) === 1) {
 						newText = newText + 0.5;
 					}
+					row.aggregateRating[index].text = newText;
+					row.aggregateRating[index].value = newText
 				});
-				row.aggregateRating = [{ text: newText }];
 			}
 			if (row.weightNet) {
 				let newText = '';

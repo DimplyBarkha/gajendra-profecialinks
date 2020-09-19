@@ -106,6 +106,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: concat(count(//*[@id="rating"]//i[contains(@class,'fa fa-star rating-star-filled')]),'/',count(//*[@id="rating"]//i[contains(@class,'fa-star-half-o')]))
+    type: NUMBER
     #xpath: //script[contains(text(),'aggregateRating')]
   - name: shippingInfo
     singleValue: true
