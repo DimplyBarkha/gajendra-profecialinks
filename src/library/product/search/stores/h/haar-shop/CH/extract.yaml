@@ -12,19 +12,22 @@ fields:
     xpath: //div[@class='cs-product-tile__thumbnail']//a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //picture[@class='cs-product-tile__image']//img/@data-src
+    xpath: //picture[@class='cs-product-tile__image']/img/@src
   - name: name
     singleValue: false
-    xpath: //div[@class='cs-product-tile__name']/a[contains(@class, 'cs-product-tile__name-link')]
+    xpath: concat(//div[@class='cs-product-tile__brand'],' ',//div[@class='cs-product-tile__name']/a[contains(@class, 'cs-product-tile__name-link')])
   - name: price
     singleValue: false
-    xpath: //span[@data-price-type='finalPrice']//span[@class='price']
+    xpath: //span[@data-price-type='finalPrice']//@data-price-amount
   - name: brandText
     singleValue: false
     xpath: //div[@class='cs-product-tile__brand']
   - name: rank
     #type: NUMBER
     singleValue: false
-  - name: manufacturer
+  - name: rankOrganic
+    #type: NUMBER
     singleValue: false
-    xpath: //div[@class='cs-product-tile__brand']/text()
+  # - name: manufacturer
+  #   singleValue: false
+  #   xpath: //div[@class='cs-product-tile__brand']/text()
