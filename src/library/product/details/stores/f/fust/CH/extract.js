@@ -18,11 +18,11 @@ module.exports = {
     await context.evaluate((availabilitySelector) => {
       const waitForProducts = async () => {
         // @ts-ignore
-        function timeout(ms) {
+        function timeout (ms) {
           return new Promise((resolve) => setTimeout(resolve, ms));
         }
         // @ts-ignore
-        async function waitForElementWithTimeout(selector, reloadSec, maxTime) {
+        async function waitForElementWithTimeout (selector, reloadSec, maxTime) {
           let element = document.querySelector(selector);
           let count = 0;
           while (element === null) {
@@ -30,22 +30,22 @@ module.exports = {
             element = document.querySelector(selector);
             await timeout(reloadSec);
             if (count >= +maxTime) {
-              console.log("Element not found");
+              console.log('Element not found');
               return false;
             }
           }
           return true;
         }
         // Wait for related product details list
-        const isRelatedProductFound = await waitForElementWithTimeout("div#inpage_container img", 200, 30000);
+        const isRelatedProductFound = await waitForElementWithTimeout('div#inpage_container img', 200, 30000);
         if (isRelatedProductFound === false) {
-          console.log("Related product details not found");
+          console.log('Related product details not found');
         }
-        return;
       };
       waitForProducts();
+      let i = 0;
       let getEnhancedContent = document.querySelectorAll('div#flix-inpage div.inpage_block_title');
-      let getManufacturerDescription = [];
+      const getManufacturerDescription = [];
       for (i = 0; i < getEnhancedContent.length; i++) {
         getManufacturerDescription.push(getEnhancedContent[i].innerText);
       }
@@ -73,9 +73,9 @@ module.exports = {
       for (i = 0; i < getEnhancedContent.length; i++) {
         getManufacturerDescription.push(getEnhancedContent[i].innerText);
       }
-      manufacturerdescription = getManufacturerDescription.join();
+      const manufacturerdescription = getManufacturerDescription.join();
       document.body.setAttribute('manufacturerdescription', manufacturerdescription);
-      
+
       let stockText = '';
       const availabilityStatus = document.querySelector(availabilitySelector).innerText;
       if (availabilityStatus.includes('sofort lieferbar')) { stockText = 'In Stock'; } else if (availabilityStatus.includes('innert 1-2 Wochen')) { stockText = 'In Stock'; } else if (availabilityStatus.includes('momentan nicht kaufbar')) { stockText = 'Out Of Stock'; } else if (availabilityStatus.includes('Lieferung ab')) { stockText = 'Out Of Stock'; } else if (availabilityStatus.includes('Liefertermin nicht')) {
