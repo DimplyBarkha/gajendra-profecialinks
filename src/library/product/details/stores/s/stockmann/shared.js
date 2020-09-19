@@ -7,10 +7,15 @@
 const transform = (data) => {
     for (const { group } of data) {
         for (const row of group) {
-
-            if (row.description) {
-                let text = row.description[0].brandText + ' ' + row.description[0].text;
-                row.description = [{ text }];
+            try {
+                if (row.price) {
+                    row.price = [{ text: row.price[0].text.substring(0, row.price[0].text.length - 2) }, { text: row.price[0].text.charAt(row.price[0].text.length - 1) }];
+                }
+                if (row.listPrice) {
+                    row.listPrice = [{ text: row.listPrice[0].text.substring(1, row.listPrice[0].text.length - 1) }];
+                }
+            } catch (exception) {
+                console.log('Error in transform', exception);
             }
         }
     }
