@@ -17,6 +17,12 @@ const transform = (data) => {
                 if (row.packSize) {
                     row.packSize = [{ text: row.packSize[0].text.substring(1) }];
                 }
+                if (row.description) {
+                    let text = '';
+                    text = row.description[0].text.replace(/\n/g, '||');;
+                    row.description = [{ text }];
+                }
+
 
             } catch (exception) { console.log('Error in transform', exception); }
         }
