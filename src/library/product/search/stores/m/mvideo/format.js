@@ -4,31 +4,6 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-<<<<<<< HEAD
-  for (const { group } of data) {
-    for (const row of group) {
-      if (row.id) {
-        row.id.forEach(item => {
-          var splitData = item.text.split('-');
-          item.text =  splitData[splitData.length-1];
-        });
-      }
-      if (row.thumbnail) {
-        row.thumbnail.forEach(item => {
-          item.text = 'https:'+item.text;
-        });
-      }
-      if (row.productUrl) {
-        row.productUrl.forEach(item => {
-          item.text = 'https://www.mvideo.ru'+item.text;
-        });
-      }
-    }
-  }
-  return data;
-};
-module.exports = { transform };
-=======
     for (const { group } of data) {
       var rank = 1;
       for (const row of group) {
@@ -64,4 +39,3 @@ module.exports = { transform };
     return data;
   };
   module.exports = { transform };
->>>>>>> ffc068f1ee96110638862301291c6346d3ee0808
