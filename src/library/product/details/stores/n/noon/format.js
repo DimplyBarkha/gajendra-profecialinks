@@ -5,7 +5,9 @@
  */
 const transform = (data) => {
   for (const { group } of data) {
+    var totBullet=0;
     for (let row of group) {
+      var totBullet=0;
       if (row.sku) {
         row.sku.forEach(item => {
           var myRegexp = /.+\/(.+?)_.+/g;
@@ -56,11 +58,25 @@ const transform = (data) => {
         var additionalDescBulletInfoStr='';
         var oldXpath='';
         row.additionalDescBulletInfo.forEach(item => {
-          oldXpath=item.xpath;
+          oldXpath=item.xpath; totBullet++;
           if(additionalDescBulletInfoStr==''){
             additionalDescBulletInfoStr=item.text
           }else{
             additionalDescBulletInfoStr=additionalDescBulletInfoStr+' | '+item.text
+          }
+        });
+        additionalDescBulletInfoStr='| '+additionalDescBulletInfoStr;
+        row.additionalDescBulletInfo=[{text:additionalDescBulletInfoStr,xpath:oldXpath}];
+      }
+      if(row.description){
+        var additionalDescBulletInfoStr='';
+        var oldXpath='';
+        row.additionalDescBulletInfo.forEach(item => {
+          oldXpath=item.xpath;
+          if(additionalDescBulletInfoStr==''){
+            additionalDescBulletInfoStr=item.text
+          }else{
+            additionalDescBulletInfoStr=additionalDescBulletInfoStr+' || '+item.text
           }
         });
         additionalDescBulletInfoStr='|| '+additionalDescBulletInfoStr;
@@ -84,7 +100,11 @@ const transform = (data) => {
           tot++;
         });
         row.variantCount=[{text:tot}];
-      }      
+      }
+      if(totBullet>0){
+        totBullet++;
+        row.descriptionBullets=[{text:totBullet}]
+      }
     }
   }
   return data;
