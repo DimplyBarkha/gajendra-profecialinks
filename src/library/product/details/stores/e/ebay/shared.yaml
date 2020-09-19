@@ -85,6 +85,9 @@ fields:
   - name: upc
     singleValue: false
     xpath: normalize-space(//td[contains(text(), 'UPC')]/following-sibling::td)
+  - name: packSize
+    singleValue: false
+    xpath: normalize-space(//td[contains(text(), 'Number in Pack')]/following-sibling::td)
   - name: sku
     singleValue: false
   - name: manufacturerDescription
@@ -98,7 +101,7 @@ fields:
     xpath: normalize-space(//td[contains(translate(text(),'COLOR','color'),'color')]/following-sibling::td | //td[contains(translate(text(),'COLOUR','colour'),'colour')]/following-sibling::td | //td[contains(text(),'Farbe')]/following-sibling::td)
   - name: warranty
     singleValue: false
-    xpath: normalize-space(//td[contains(translate(text(),'WARRANTY','warranty'),'warranty')]/following-sibling::td)
+    xpath: normalize-space(//td[contains(translate(text(),'WARRANTY','warranty'),'warranty')]/following-sibling::td | //h2[contains(@id, 'subTitle') and contains(text(),'Warranty')])
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="ds_div"]//img[contains(@src,"http")]/@src
