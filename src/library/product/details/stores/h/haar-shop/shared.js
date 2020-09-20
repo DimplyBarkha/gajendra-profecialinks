@@ -8,12 +8,12 @@ const transform = (data) => {
     for (const row of group) {
       if (row.description) {
         row.description.forEach(item => {
-          item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
+          item.text = item.text.replace(/(\s?\n)+/g, ' | ').trim();
         });
       }
       if (row.shippingInfo) {
         row.shippingInfo.forEach(item => {
-          item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
+          item.text = item.text.replace(/(\s?\n)+/g, ' | ').trim();
         });
       }
     }

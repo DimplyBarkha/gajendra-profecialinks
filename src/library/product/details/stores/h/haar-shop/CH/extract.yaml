@@ -23,13 +23,10 @@ fields:
     xpath: //span[@class='base']
   - name: listPrice
     singleValue: false
-    xpath: //div[@class='product-info-price cs-buybox__price']//span[@data-price-type='finalPrice']//span[@class='price']
-  - name: online_price
-    singleValue: false
     xpath: //div[@class='product-info-price cs-buybox__price']//span[@data-price-type='oldPrice']//span[@class='price']
-  - name: online_price_currency
+  - name: price
     singleValue: false
-    xpath: //meta[@property="product:price:currency"]/@content
+    xpath: //div[@class='product-info-price cs-buybox__price']//span[@data-price-type='finalPrice']//span[@class='price']
   - name: availabilityText
     singleValue: false
     xpath: //meta[@property="product:availability"]/@content
@@ -89,8 +86,20 @@ fields:
     xpath: //iframe[@id='widget2']
   - name: videos
     singleValue: false
-    xpath: //div[@class='product-video']
+    xpath: concat('https://www.youtube.com/watch?v=',//div[@class='product-video']/@data-code)
+  - name: warranty
+    singleValue: true
+    xpath: concat(//div[@class='product attribute description']//strong[contains(text(),'warranty')],//div[@class='product attribute description']//div[contains(text(),'Garantie')])
   - name: name
+    singleValue: true
+    xpath: //span[@itemprop='name']
+  - name: nameExtended
     singleValue: true
     description: The product name
     xpath: concat(//span[@itemprop='brand'],' ',//span[@itemprop='name']) 
+  - name: color
+    singleValue: false
+    xpath: //li[contains(text(),'Farbe:')]
+  - name: shippingWeight
+    singleValue: false
+    xpath: //li[contains(text(),'Bruttogewicht:')]
