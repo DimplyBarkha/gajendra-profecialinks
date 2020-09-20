@@ -5,7 +5,7 @@ fields:
   - name: variants
     xpath: //*/@variantdetails
   - name: variantCount
-    xpath: //*/@variantCount
+    xpath: //*/@variantcount
   - name: variantInformation
     singleValue: true
     xpath: //*/@title
@@ -31,5 +31,5 @@ fields:
     singleValue: true
     xpath : ancestor::html //div[@id="promotion"]  
   - name: quantity
-    singleValue: true
-    xpath : ancestor::html //div[contains(@class,'variants-select')]/select/option[@color][1]    
+    singleValue: false
+    xpath : ancestor::html //div[@id="quantity"]  

@@ -4,9 +4,9 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //meta[@property="og:image"]/@content
-    regExp: ^(.+)\d{3,}x\d{3,}(.[a-z]{3})
-    regExpReplace: $11200x1200$2
+    xpath: //div[@class="image-slides"]/img[1]/@data-zoom
+    regExp: (.*)
+    regExpReplace: https:$&
   - name: imageAlt
     xpath:  
   - name: alternateImages
@@ -42,6 +42,8 @@ fields:
     xpath: 
   - name: sku
     xpath: //div[@id="sku"]
+  - name: firstVariant
+    xpath: //div[@id="sku"]  
   - name: variantId
     xpath: //div[@id="retailer_product_code"]
   - name: mpc

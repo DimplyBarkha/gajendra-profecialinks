@@ -148,10 +148,6 @@ module.exports = {
                 addElementToDocument('retailer_product_code', retailerProductCode);
               }
             }
-            // Check for the quantity  and append to DOM
-            if (dataObj[0].product.quantity) {
-              addElementToDocument('quantity', dataObj[0].product.quantity);
-            }
           }
         }
 
@@ -198,8 +194,8 @@ module.exports = {
                 gtin: variants[i].gtin ? variants[i].gtin : "",
                 retailer_product_code: variants[i].id.trim(""),
                 title: variants[i].variant ? variants[i].variant[1] ? variants[i].variant[0].value + " " + variants[i].variant[1].value : "" : "",
-                variantDetails: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).map((e) => { return e.id }).join('|') : "" : "",
-                variantCount: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).length : "" : ""
+                variantDetails: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).map((e) => { return e.id }).join(' | ') : "" : "",
+                variantcount: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).length : "" : ""
               })
               ul.appendChild(listItem);
             }
@@ -248,7 +244,7 @@ module.exports = {
         // Function to remove the `\n` from the textContent
         function textContent(element, attributeName) {
           const text = (element && element.innerText.trim()
-            .replace('\s', "\n")
+            .replace(' ', "\n")
             .split('\n')
             .filter((ele) => ele)
             .join(' ')) ||
@@ -290,7 +286,7 @@ module.exports = {
           let color = getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') ? getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') : "";
           let size = getXpath("//div[contains(@class,'variants-select')]/select/option[@color][1]", 'text') ? getXpath("//div[contains(@class,'variants-select')]/select/option[@color][1]", 'text') : "";
           let nameExtended = name + " " + color + " " + size;
-          console.log(nameExtended, "Name")
+          addElementToDocument('quantity', size);
           addElementToDocument('nameExtended', nameExtended);
         }())
 

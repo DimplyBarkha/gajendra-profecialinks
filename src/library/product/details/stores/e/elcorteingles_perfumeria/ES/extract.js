@@ -129,7 +129,7 @@ module.exports = {
                   gtin: JSON.parse(apiDataResponse)._all_colors[i].matches[0],
                   retailer_product_code: JSON.parse(apiDataResponse)._all_colors[i].skus[0].reference_id,
                   sku: JSON.parse(apiDataResponse).id,
-                  variants: JSON.parse(apiDataResponse)._all_colors.map((e) => { return e.skus[0].reference_id.trim('\s') }).join('|'),
+                  variants: JSON.parse(apiDataResponse)._all_colors.map((e) => { return e.skus[0].reference_id.trim('\s') }).join(' | '),
                   variantCount: Number(JSON.parse(apiDataResponse)._all_colors.map((e) => { return e.skus[0].reference_id.trim('\s') }).length)
                 });
             }
@@ -297,7 +297,7 @@ module.exports = {
       // Function to remove the `\n` from the textContent
       function textContent(element, attributeName) {
         const text = (element && element.innerText.trim()
-          .replace('\s', "\n")
+          .replace(' ', "\n")
           .split('\n')
           .filter((ele) => ele)
           .join(' ')) ||
@@ -337,7 +337,8 @@ module.exports = {
 
         let name = getXpath('//h1[@id="js-product-detail-title"]', 'textContent') ? getXpath('//h1[@id="js-product-detail-title"]', 'textContent') : "";
         let color = getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') ? getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') : "";
-        let nameExtended = name + " " + color;
+        let size = getXpath("//div[@id='variants_container']/span", 'textContent') ? getXpath("//div[@id='variants_container']/span", 'textContent') : "";
+        let nameExtended = name + " " + color + " " + size;
         addElementToDocument('nameExtended', nameExtended);
       }())
 

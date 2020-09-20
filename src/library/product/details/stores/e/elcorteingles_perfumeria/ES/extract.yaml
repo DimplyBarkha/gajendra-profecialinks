@@ -61,8 +61,8 @@ fields:
     singleValue: true
     xpath : //div/@retailer_product_code
   - name: directions
-    singleValue: true
-    xpath: ancestor::html //div[contains(@class,'product_detail-description-in-image')]/strong[contains(text(),"Modo de aplicación:")]/following-sibling::p
+    singleValue: false
+    xpath: ancestor::html //div[contains(@class,'product_detail-description-in-image')]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | ancestor::html  //dt[contains(text(),"Modo de")]/following-sibling::dd[1]
   - name: warnings 
     singleValue: true
     xpath:   
@@ -74,7 +74,7 @@ fields:
     xpath:  
   - name: manufacturer
     singleValue: false
-    xpath : ancestor::html //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd | ancestor::html//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p   
+    xpath :
   - name: manufacturerImages
     singleValue: false
     xpath :
@@ -149,7 +149,7 @@ fields:
     xpath : 
   # - name: variantCount
   #   singleValue: true
-  #   xpath : ancestor::html//div/@variantCount
+  #   xpath : ancestor::html //div/@variantCount
   - name: color
     singleValue: true
     xpath :  
@@ -157,6 +157,7 @@ fields:
     singleValue: true
   - name: manufacturerDescription
     singleValue: true
+    xpath: ancestor::html  //div[@id="tab-content-3"]/div//div  
   - name: termsAndConditions
     singleValue: true
   - name: specifications
