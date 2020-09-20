@@ -21,15 +21,15 @@ async function implementation (
       ele.scrollIntoView({ behavior: 'smooth' });
     }, footerSelector);
   }
-  const currentUrl = await context.evaluate(()=>{
+  const currentUrl = await context.evaluate(() => {
     return document.querySelector('#currentPageUrl').getAttribute('value');
   });
   const iframeSelector = '#eky-dyson-iframe';
   if (await checkExistance(iframeSelector)) {
     const delay = t => new Promise(resolve => setTimeout(resolve, t));
-    let iframeUrl = await context.evaluate((iframeSelector)=>{
+    const iframeUrl = await context.evaluate((iframeSelector) => {
       return document.querySelector(iframeSelector).getAttribute('src');
-    }, iframeSelector)
+    }, iframeSelector);
     await context.goto(iframeUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
     await context.waitForXPath('//video');
     const video = await context.evaluate(() => {
