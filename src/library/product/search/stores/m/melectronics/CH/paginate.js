@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'CH',
     store: 'melectronics',
-    nextLinkSelector: 'div.p-product-listing--item p-product-listing--item__buttons',
-    mutationSelector: null,
+    nextLinkSelector: 'div.p-product-listing--item__buttons > button.btn__secondary',
+    mutationSelector: 'div.p-product-listing--row',
     spinnerSelector: null,
     loadedSelector: 'div.tiles-row',
     noResultsXPath: '//h2[contains(text(),"Leider konnten wir für Ihre Suche")]',
