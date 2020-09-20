@@ -30,13 +30,7 @@ const transform = (data) => {
           var res = item.text.split(":");
           var res1 = res[1].trim();
           var res2 = res1.split(" ");
-          item.text = res2[0];
-        });
-      }
-      if (row.gtin) {
-        row.gtin.forEach(item => {
-          var res = item.text.split("|");
-          item.text = res[1];
+          item.text =parseFloat(res2[0]);
         });
       }
       row.rank = [{ "text": rank }];
