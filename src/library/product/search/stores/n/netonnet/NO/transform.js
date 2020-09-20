@@ -34,8 +34,10 @@ const transform = (data, context) => {
 
         try { 
          
-          if (row.aggregateRating) {              
-                row.aggregateRating =  [{ text:  row.aggregateRating[0].text }];          
+          if (row.aggregateRating) {      
+              
+                var aggregateRating = ((Number(row.aggregateRating[0].text)*5)/100)
+                row.aggregateRating =  [{ text:  aggregateRating.toString() }];          
             
           }           
         } catch (exception) { console.log('Error in transform', exception); }
