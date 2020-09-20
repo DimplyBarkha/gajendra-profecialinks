@@ -34,12 +34,9 @@ const transform = (data, context) => {
 
         try { 
          
-          if (row.aggregateRating) {      
-              
-                var aggregateRating = ((row.aggregateRating[0].value * 5)/1000)
-                row.aggregateRating =  [{ text:  aggregateRating.toString() }];          
-            
-          }           
+          if (row.aggregateRating) { 
+               row.aggregateRating =  [{ text:  "Girish" }];         
+             }           
         } catch (exception) { console.log('Error in transform', exception); }
 
       }
