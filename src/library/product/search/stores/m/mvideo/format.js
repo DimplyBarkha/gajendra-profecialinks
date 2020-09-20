@@ -23,12 +23,12 @@ const transform = (data) => {
             item.text = 'https://www.mvideo.ru'+item.text;
           });
         }
-        if (row.aggregateRating) {
-          row.aggregateRating.forEach(item => {       
+        if (row.aggregateRating2) {
+          row.aggregateRating2.forEach(item => {       
             item.text = item.text.replace('width: ', '').trim();       
             item.text = item.text.replace('%', '').trim();
-            var aggregateRatingNumber = (item.text * 5) / 100;            
-            item.text = aggregateRatingNumber.toFixed(1);
+            var aggregateRating2Number = (item.text * 5) / 100;            
+            item.text = aggregateRating2Number.toFixed(1);
           });
         }
         row.rank = [{"text":rank}];
