@@ -23,10 +23,34 @@ fields:
     singleValue: false
     description:
     xpath: //td[@data-th='الماركة']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'description')]//div[@class='value']/node()
+  - name: shippingWeight
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'description')]//div[@class='value']/node()
+  - name: shippingDimensions
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'description')]//div[@class='value']/node()
+  - name: specifications
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'description')]//div[@class='value']/node()
+  - name: weightNet
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'description')]//div[@class='value']/node()
+  - name: descriptionBullets
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'description')]//div[@class='value']/node()
   - name: description
     singleValue: false
     description:
-    xpath: (//div[contains(@class,'description')]//div[contains(@class,'value')]/text())[1]
+    xpath: //div[contains(@class, 'description')]//div[@class='value']/node()
   - name: category
     singleValue: false
     description:
@@ -68,6 +92,10 @@ fields:
     description:
     xpath: //iframe[contains(@allow, 'autoplay')]//@src
   - name: packSize
+    singleValue: false
+    description:
+    xpath: //td[@data-th='الحجم/العمر']
+  - name: quantity
     singleValue: false
     description:
     xpath: //td[@data-th='الحجم/العمر']

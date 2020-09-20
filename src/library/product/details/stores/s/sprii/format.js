@@ -11,17 +11,152 @@ const transform = (data) => {
         row.color[0].text = product.color;
       }
       if (row.description) {
-        let i = 0;
-        for (let desc of row.description) {
-          row.description[i].text = desc.text.split('\n')[0];
-          i++;
+        if (row.description.length) {
+          row.description = [{ text: row.description[0].text, xpath: row.description[0].xpath }];
         }
+      }
+      if (row.additionalDescBulletInfo) {
+        if (row.additionalDescBulletInfo.length > 2) {
+          if (row.additionalDescBulletInfo[1].text.indexOf('الميزات') !== -1 || row.additionalDescBulletInfo[1].text.toUpperCase().indexOf('FEATURES') !== -1 || row.additionalDescBulletInfo[1].text.indexOf('المميزات') !== -1) {
+            var features = row.additionalDescBulletInfo[2].text.split('\n')
+            row.additionalDescBulletInfo = [];
+            var featureFlag = true;
+            var counter = 0;
+            features.forEach(element => {
+              if (element.indexOf(':') === -1 && featureFlag) {
+                counter++;
+                row.additionalDescBulletInfo.push({
+                  text: element,
+                  xpath: ''
+                });
+              } else {
+                featureFlag = false;
+              }
+            });
+            row.descriptionBullets = [{ text: counter.toString(), xpath: '' }]
+          } else {
+            row.additionalDescBulletInfo = [];
+            row.descriptionBullets = [];
+          }
+        }
+        else {
+          row.additionalDescBulletInfo = [];
+        }
+      }
+      if (row.shippingWeight) {
+        var weight = {};
+        try {
+          row.shippingWeight.forEach((element, index) => {
+            if (element.text.toUpperCase().indexOf('SHIPPING WEIGHT') !== -1) {
+              weight = { text: row.shippingWeight[++index].text, xpath: '' };
+            }
+          });
+        } catch (e) {
+          row.shippingWeight.forEach((element, index) => {
+            if (element.text.indexOf('\n') !== -1) {
+              var subEl = element.text.split('\n');
+              subEl.forEach((item, i) => {
+                if (item.toUpperCase().indexOf('SHIPPING WEIGHT') !== -1) {
+                  weight = { text: subEl[++i], xpath: '' };
+                }
+              });
+            }
+          });
+        }
+        row.shippingWeight = weight.text ? [weight] : [];
+      }
+      if (row.shippingDimensions) {
+        var sd = {};
+        try {
+          row.shippingDimensions.forEach((element, index) => {
+            if (element.text.toUpperCase().indexOf('SHIPPING DIMENSION') !== -1) {
+              sd = { text: row.shippingDimensions[++index].text, xpath: '' };
+            }
+          });
+        } catch (e) {
+          row.shippingDimensions.forEach((element, index) => {
+            if (element.text.indexOf('\n') !== -1) {
+              var subEl = element.text.split('\n');
+              subEl.forEach((item, i) => {
+                if (item.toUpperCase().indexOf('SHIPPING DIMENSION') !== -1) {
+                  sd = { text: subEl[++i], xpath: '' };
+                }
+              });
+            }
+          });
+        }
+        row.shippingDimensions = sd.text ? [sd] : [];
+      }
+      if (row.specifications) {
+        var sd = {};
+        try {
+          row.specifications.forEach((element, index) => {
+            if (element.text.indexOf('أبعاد المنتج') !== -1 || element.text.toUpperCase().indexOf('PRODUCT DIMENSION') !== -1) {
+              sd = { text: row.specifications[++index].text, xpath: '' };
+            }
+          });
+        } catch (e) {
+          row.specifications.forEach((element, index) => {
+            if (element.text.indexOf('\n') !== -1) {
+              var subEl = element.text.split('\n');
+              subEl.forEach((item, i) => {
+                if (item.toUpperCase().indexOf('PRODUCT DIMENSION') !== -1 || item.indexOf('أبعاد المنتج') !== -1) {
+                  sd = { text: subEl[++i], xpath: '' };
+                }
+              });
+            }
+          });
+        }
+        row.specifications = sd.text ? [sd] : [];
+      }
+      if (row.weightNet) {
+        weight = {};
+        try {
+          row.weightNet.forEach((element, index) => {
+            if (element.text.toUpperCase().indexOf('PRODUCT WEIGHT') !== -1 || element.text.indexOf('وزن المنتج') !== -1) {
+              weight = { text: row.weightNet[++index].text, xpath: '' };
+            }
+          });
+        } catch (e) {
+          row.weightNet.forEach((element, index) => {
+            if (element.text.indexOf('\n') !== -1) {
+              var subEl = element.text.split('\n');
+              subEl.forEach((item, i) => {
+                if (item.toUpperCase().indexOf('PRODUCT WEIGHT') !== -1 || item.indexOf('وزن المنتج') !== -1) {
+                  weight = { text: subEl[++i], xpath: '' };
+                }
+              });
+            }
+          });
+        }
+        row.weightNet = weight.text ? [weight] : [];
       }
       if (row.availabilityText) {
         const product = JSON.parse(row.availabilityText[0].text);
         row.availabilityText[0].text = product.offers.availability.replace('http://schema.org/', '');
         if (row.availabilityText[0].text == 'InStock') {
           row.availabilityText[0].text = 'In Stock';
+        }
+      }
+      if (row.price) {
+        var i = 0;
+        for (var price of row.price) {
+          row.price[i].text = price.text.replace('٫', ',').replace('٬', ',').replace('.', ',');
+          i++;
+        }
+      }
+      if (row.listPrice) {
+        var i = 0;
+        for (var listPrice of row.listPrice) {
+          row.listPrice[i].text = listPrice.text.replace('٫', ',').replace('.', ',');
+          i++;
+        }
+      }
+      if (row.packSize) {
+        var i = 0;
+        for (var packSize of row.packSize) {
+          row.packSize[i].text = '';
+          i++;
         }
       }
       // if (row.alternateImages) {
