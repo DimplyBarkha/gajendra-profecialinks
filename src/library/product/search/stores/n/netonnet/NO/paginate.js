@@ -66,9 +66,7 @@ module.exports = {
     country: 'NO',
     store: 'netonnet',
     nextLinkSelector: 'nav > ul.pagination > li:last-child > a',
-    mutationSelector: null,
-    spinnerSelector: null,
-    loadedSelector: 'div.tab-content, div.row > div > div#productList > div.row',
+    loadedSelector: 'body',
     noResultsXPath: '//div[contains(@class,"alert-warning search-warning")]',
     openSearchDefinition: {
       template: 'https://www.netonnet.no/Search?query={searchTerms}&page={page}',

@@ -1,39 +1,38 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: //*[contains(@class,"cProductItem")]
+recordSelector:  div#productList > div.row > div.cProductItem
 fields:
 - name: id
-  singleValue: false
-  xpath: //div[contains(@class,"cProductItem")]/div/input[contains(@name,"ProductId")]/@value
+  singleValue: true
+  xpath: //input[contains(@name,"ProductId")]/@value
 - name: name
-  singleValue: false
-  xpath: //div[contains(@class,"cProductItem")]//div[contains(@class,"panel-body")]//div[@class="smallHeader"]//div//a
+  singleValue: true
+  xpath: //a[@data-track=//input[contains(@name,"ProductId")]/@value]
 - name: price
-  singleValue: false
-  xpath: //div[contains(@class,"cProductItem")]/div/input[contains(@name,"ProductPrice")]/@value
+  singleValue: true
+  xpath: //input[contains(@name,"ProductPrice")]/@value
 - name: productUrl
   singleValue: false
-  xpath: //div[contains(@class,"cProductItem")]//div[contains(@class,"panel-body")]//div[@class="smallHeader"]//div//a/@href
+  xpath: //div[contains(@class,'panel-body leftContent')]//div[contains(@class,'verticalTable')]//div[contains(@class,'verticalCell')]//a//@href
   regExp: (.+)
   regExpReplace: https://www.netonnet.no$1
 - name: thumbnail
   singleValue: false
-  xpath: //div[contains(@class,"cProductItem")]//div[@class="panel-body leftContent"]//div[@class="verticalTable"]//img//@src
+  xpath: //div[contains(@class,'panel-body leftContent')]//div[contains(@class,'verticalTable')]//div[contains(@class,'verticalCell')]//a//picture//img//@src
   regExp: (.+)
   regExpReplace: https://www.netonnet.no$1
 - name: aggregateRating
   singleValue: false
-  xpath: //div[contains(@class,"panel-body")]//div[contains(@class,"smallHeader")]//div[@class="ratingBg"]//div[contains(@class,"ratingOverlay")]//@style
+  xpath: //div[(@class="bigHeader")]//div[(@class="rating col2Rating")]//div[(@class="ratingBg")]//@style
   description: The stated aggregate rating normalized to be out of 5
 - name: reviewCount
   singleValue: false
-  xpath: //div[contains(@class,"panel-body")]//div[contains(@class,"smallHeader")]//div[@class="rating"]//span
+  xpath: //div[(@class="bigHeader")]//div[(@class="rating col2Rating")]//span
   description: The number of ratings
   type: NUMBER
 - name: ratingCount
   singleValue: false
-  xpath: //div[contains(@class,"panel-body")]//div[contains(@class,"smallHeader")]//div[@class="rating"]//span
+  xpath: //div[(@class="bigHeader")]//div[(@class="rating col2Rating")]//span
   description: The number of Review
   type: NUMBER    
 
