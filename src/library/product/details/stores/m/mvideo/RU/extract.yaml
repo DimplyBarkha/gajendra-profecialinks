@@ -58,7 +58,7 @@ fields:
     xpath: //span[@class="c-specification__name-text" and contains(text(), "Вес")]//ancestor::tr//td[2]
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class="c-brand-logo"]//img/@alt
+    xpath: //div[@class='o-about-product']//div[@class="c-about collapse-text"]
   - name: variantInformation
     singleValue: false
     xpath: //div[contains(@class,'c-multisku__group-controls')]//span
@@ -73,3 +73,7 @@ fields:
     xpath: //span[@class="c-multisku__label u-block" and contains(text(), "Цвет")]/span
   - name: firstVariant
     singleValue: false
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="c-notifications u-mt-16"]//span[@class="c-notifications__title"]
+    defaultValue: "In Stock"

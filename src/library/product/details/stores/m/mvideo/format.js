@@ -102,7 +102,7 @@ const transform = (data) => {
           item.text = item.text.replace('width: ', '').trim();       
           item.text = item.text.replace('%', '').trim();
           var aggregateRatingNumber = (parseFloat(item.text) * 5) / 100;            
-          item.text = aggregateRatingNumber.toFixed(1);
+          item.text = aggregateRatingNumber.toFixed(1).replace('.', ',');
         });
       }
       if (row.price) {
@@ -115,6 +115,15 @@ const transform = (data) => {
         } else {
           row.price = [{ "text": row.price[0]["text"], "xpath": row.price[0]["xpath"] }];
         }
+      }
+      if (row.availabilityText) {
+        row.availabilityText.forEach(item => {
+          if(item.text=="Товар распродан"){
+            row.availabilityText = [{ "text": "Out Of Stock", "xpath": row.availabilityText[0]["xpath"] }];
+          }else{
+            row.availabilityText = [{ "text": "In Stock", "xpath": row.availabilityText[0]["xpath"] }];
+          }
+        });
       }
     }
   }
