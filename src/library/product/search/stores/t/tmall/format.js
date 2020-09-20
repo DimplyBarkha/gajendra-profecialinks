@@ -30,7 +30,7 @@ const transform = (data) => {
           var res = item.text.split(":");
           var res1 = res[1].trim();
           var res2 = res1.split(" ");
-          item.text =parseFloat(res2[0]);
+          item.text =res2[0].replace('.',',');
         });
       }
       row.rank = [{ "text": rank }];
