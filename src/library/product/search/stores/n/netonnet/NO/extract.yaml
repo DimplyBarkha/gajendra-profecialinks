@@ -21,7 +21,7 @@ fields:
   xpath: //div[contains(@class,'panel-body leftContent')]//div[contains(@class,'verticalTable')]//div[contains(@class,'verticalCell')]//a//picture//img//@src
   regExp: (.+)
   regExpReplace: https://www.netonnet.no$1
-- name: aggregateRating
+- name: aggregateRatingText
   singleValue: false
   xpath: //div[(@class="bigHeader")]//div[(@class="rating col2Rating")]//div[(@class="ratingBg")]//@style
   description: The stated aggregate rating normalized to be out of 5 
