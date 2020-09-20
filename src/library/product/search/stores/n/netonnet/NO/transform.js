@@ -32,13 +32,13 @@ const transform = (data, context) => {
           el.text = clean(el.text);
         }));
 
-        // try { 
+        try { 
          
-        //   if (row.productUrl) {              
-        //         row.productUrl =  [{ text:  'https://www.magasin.dk' }];          
+          if (row.aggregateRating) {              
+                row.aggregateRating =  [{ text:  '0' }];          
             
-        //   }           
-        // } catch (exception) { console.log('Error in transform', exception); }
+          }           
+        } catch (exception) { console.log('Error in transform', exception); }
 
       }
     }

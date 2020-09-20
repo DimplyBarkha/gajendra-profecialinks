@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'NO',
     store: 'netonnet',
-    transform:transform,
+    transform,
     domain: 'netonnet.no',
     zipcode: '',
   },
