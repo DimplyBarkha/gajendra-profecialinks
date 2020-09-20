@@ -72,7 +72,7 @@ fields:
     xpath: (//tr/th[contains(text(),"ASIN")])[1]/following-sibling::td
   - name: variantId
     singleValue: false
-    xpath: (//tr/th[contains(text(),"ASIN")])[1]/following-sibling::td
+    xpath: (//tr/th[contains(text(),"Model Numarası")])[1]/following-sibling::td
   - name: mpc
     singleValue: false
     xpath: (//tr/th[contains(text(),"Model Numarası")])[1]/following-sibling::td
@@ -146,7 +146,7 @@ fields:
     singleValue: false
     xpath: //div[@id='added-asin']
   - name: sku
-    xpath: (//tr/th[contains(text(),"Model Numarası")])[1]/following-sibling::td
+    # xpath: (//tr/th[contains(text(),"Model Numarası")])[1]/following-sibling::td
   - name: coupon
     singleValue: false
     xpath: //div[@id="price"]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text()
@@ -159,6 +159,8 @@ fields:
   - name: brandLink
     singleValue: false
     xpath: //a[@id="bylineInfo"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com.tr$1
   - name: internationalShipping
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1] | //table[contains(@id, 'detail')]//th[contains(text(), 'International Shipping')]/following-sibling::td/text() | //div[contains(@id, 'Detail')]//td[contains(text(), 'International Shipping')]/following-sibling::td/text()
