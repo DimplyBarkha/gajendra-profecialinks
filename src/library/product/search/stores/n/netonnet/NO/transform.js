@@ -38,7 +38,12 @@ const transform = (data, context) => {
               var aggregateRating = row.aggregateRatingText[0].text.toString().replace('width: ','');
                aggregateRating = aggregateRating.replace('%','');
                row.aggregateRatingText =  [{ text:  (aggregateRating*5)/100 }];         
-             }           
+             }    
+             if (row.aggregateRating) { 
+              var aggregateRating = row.aggregateRating[0].text.toString().replace('width: ','');
+               aggregateRating = aggregateRating.replace('%','');
+               row.aggregateRating =  [{ text:  (aggregateRating*5)/100 }];         
+             }       
         } catch (exception) { console.log('Error in transform', exception); }
 
       }
