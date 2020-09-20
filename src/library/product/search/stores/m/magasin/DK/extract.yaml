@@ -9,7 +9,7 @@ fields:
     xpath: //div[contains(@class, 'product-tile__description')]
   - name: price
     singleValue: true
-    xpath: //div[contains(@class, 'product-tile__prices')]//span[(@class= 'value')]//@content
+    xpath: //div[contains(@class, 'product-tile__prices')]//span[(@class= 'value')]
   - name: productUrl
     singleValue: true    
     xpath: //div[contains(@class, 'product-tile__image')]//a[@class='product-tile-link']//@href
@@ -41,4 +41,3 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[contains(@class, 'product-tile__name')]
