@@ -28,7 +28,7 @@ const transform = (data) => {
             item.text = item.text.replace('width: ', '').trim();       
             item.text = item.text.replace('%', '').trim();
             var aggregateRating2Number = (item.text * 5) / 100;            
-            item.text = aggregateRating2Number.toFixed(1);
+            item.text = aggregateRating2Number.toFixed(1).replace('.', ',');
           });
         }
         row.rank = [{"text":rank}];
