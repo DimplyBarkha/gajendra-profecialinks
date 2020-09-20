@@ -25,12 +25,6 @@ const transform = (data) => {
         });
         row.reviewCount=row.ratingCount;
       }
-      if (row.id) {
-        row.id.forEach(item => {
-          var res = item.text.split("|");
-          item.text = res[1];
-        });
-      }
       if (row.aggregateRating2) {
         row.aggregateRating2.forEach(item => {
           var res = item.text.split(":");
