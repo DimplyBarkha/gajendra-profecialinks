@@ -35,7 +35,8 @@ const transform = (data, context) => {
         try { 
          
           if (row.aggregateRating) {              
-                console.log(row.aggregateRating);
+                row.aggregateRating =  [{ text:  row.aggregateRating[0].text }];          
+            
           }           
         } catch (exception) { console.log('Error in transform', exception); }
 
