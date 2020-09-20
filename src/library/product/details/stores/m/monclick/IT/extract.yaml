@@ -15,10 +15,10 @@ fields:
     xpath: //span[@itemprop='brand']
   - name: category
     singleValue: false
-    xpath: //ul[contains(@class,'breadcrumbs')]/li/a[not(contains(@title,'Home'))]
+    xpath: //ul[contains(@class,'breadcrumbs')]/li[position()>1 and position()<last()]
   - name: color
     singleValue: false
-    xpath: //div[contains(@class,'mk-quick-info')]//span[contains(text(),'Colore:')]/following::span[1]
+    xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Colore')]/following::p[1]
   - name: description
     singleValue: false
     xpath: //div[@id='description' and @role]
@@ -37,9 +37,6 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //div[@id='sticker']//span[contains(@class,'price-catalog')]
-  - name: manufacturer
-    singleValue: false
-    xpath: //span[@itemprop='brand']
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name,'keywords')]/@content
@@ -59,7 +56,7 @@ fields:
     xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Peso (Shipping)')]/following::p[1]
   - name: sku
     singleValue: false
-    xpath: //span[@itemprop='identifier']
+    xpath: //aside[contains(@class,'mk-product-page')]//a[@data-action='add-to-cart']/@data-product-code
   - name: variantCount
     singleValue: false
     defaultValue: '0'
@@ -80,3 +77,30 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@id="description" and @role="tabpanel"]//div[@id="product-sheet-mk-description"]//div[starts-with(text(), '-')]
+  - name: mpc
+    singleValue: false
+    xpath: //span[@itemprop='identifier']
+  - name: shippingDimensions
+    singleValue: false
+  - name: width
+    singleValue: false
+    xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Altezza')]/following::p[1]
+  - name: depth
+    singleValue: false
+    xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Profondità')]/following::p[1]
+  - name: height
+    singleValue: false
+    xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Larghezza')]/following::p[1]
+  - name: gtin
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]
+    regExp: gtin13":"([^"]+)
+    regExpReplace: $1
+  - name: color1
+    singleValue: false
+    xpath: //div[@id="description" and @role="tabpanel"]//div[@id="product-sheet-mk-description"]//div[starts-with(text(), '- Colore')]
+    regExp: '- Colore del prodotto (.*)'
+    regExpReplace: $1
+  - name: color2
+    singleValue: false
+    xpath: //div[@id="description" and @role="tabpanel"]//div[@id="product-sheet-mk-description"]
