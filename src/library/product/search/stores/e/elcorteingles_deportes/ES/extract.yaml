@@ -40,7 +40,7 @@ fields:
   - name: id
     description: Unique id (within this extractor)
     xpath: //span[@data-json]/@data-json
-    regExp: \"id":"([^"]+)
+    regExp: \"variant":"([^"]+)
     regExpReplace: $1
   - name: rank
   - name: rankOrganic
