@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector:  div#productList > div.row > div.cProductItem
+recordSelector:  div#productList > div.row > div.cProductItem > div.panel-default
 fields:
 - name: id
   singleValue: true
@@ -25,6 +25,9 @@ fields:
   singleValue: false
   xpath: //div[(@class="bigHeader")]//div[(@class="rating col2Rating")]//div[(@class="ratingBg")]//@style
   description: The stated aggregate rating normalized to be out of 5
+  type: NUMBER
+  regExp: (\d*)
+  regExpReplace: $1 
 - name: reviewCount
   singleValue: false
   xpath: //div[(@class="bigHeader")]//div[(@class="rating col2Rating")]//span
