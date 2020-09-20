@@ -32,12 +32,14 @@ const transform = (data, context) => {
           el.text = clean(el.text);
         }));
 
-        // try { 
+        try { 
          
-        //   if (row.aggregateRating) { 
-        //       //  row.aggregateRating =  [{ text:  "Girish" }];         
-        //      }           
-        // } catch (exception) { console.log('Error in transform', exception); }
+          if (row.aggregateRatingText) { 
+              var aggregateRating = row.aggregateRatingText[0].text.toString().replace('width: ','');
+               aggregateRating = aggregateRating.replace('%','');
+               row.aggregateRatingText =  [{ text:  (aggregateRating*5)/100 }];         
+             }           
+        } catch (exception) { console.log('Error in transform', exception); }
 
       }
     }
