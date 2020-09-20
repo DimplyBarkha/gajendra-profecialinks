@@ -36,7 +36,7 @@ const transform = (data, context) => {
          
           if (row.aggregateRating) {      
               
-                var aggregateRating = ((Number(row.aggregateRating[0].text)*5)/100)
+                var aggregateRating = ((Number(row.aggregateRating[0].text))/100)
                 row.aggregateRating =  [{ text:  aggregateRating.toString() }];          
             
           }           
