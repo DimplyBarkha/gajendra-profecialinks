@@ -21,10 +21,16 @@ async function implementation (
       ele.scrollIntoView({ behavior: 'smooth' });
     }, footerSelector);
   }
+  const currentUrl = await context.evaluate(()=>{
+    return document.querySelector('#currentPageUrl').getAttribute('value');
+  });
   const iframeSelector = '#eky-dyson-iframe';
   if (await checkExistance(iframeSelector)) {
     const delay = t => new Promise(resolve => setTimeout(resolve, t));
-    await context.goto('https://media.flixfacts.com/eyekandy/dyson/v11/en/index.html?&p=1588079&d=13258&l=en&mpn=269232-01&ean=5025155040348', { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
+    let iframeUrl = await context.evaluate((iframeSelector)=>{
+      return document.querySelector(iframeSelector).getAttribute('src');
+    }, iframeSelector)
+    await context.goto(iframeUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
     await context.waitForXPath('//video');
     const video = await context.evaluate(() => {
       const src = ele('video');
@@ -71,7 +77,7 @@ async function implementation (
       }
       return value;
     });
-    await context.goto('https://www.ehservices.co.uk/d/dyson-v11-absolute-floorcare', { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(currentUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
     await context.evaluate((video) => {
       video = video.join(' | ');
       document.querySelector('body').setAttribute('video-src', video);
