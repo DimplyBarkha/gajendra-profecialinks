@@ -14,6 +14,14 @@ const transform = (data, context) => {
         orgRankCounter = orgRankCounter + 1;
         row.rankOrganic = [{ text: orgRankCounter }];
       }
+      // Price
+      if (row.price && row.price[0]) {
+        row.price[0].text = row.price[0].text.replace(/\./g, ',');
+      }
+      // // Aggregate Rating
+      // if (row.aggregateRating && row.aggregateRating[0]) {
+      //   row.aggregateRating[0].text = row.aggregateRating[0].text.replace(/\./g, ',');
+      // }
       row.rank = [{ text: rankCounter }];
       context.setState({ rankCounter });
       context.setState({ orgRankCounter });

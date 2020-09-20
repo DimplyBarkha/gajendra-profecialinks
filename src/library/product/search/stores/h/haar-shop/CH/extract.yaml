@@ -18,7 +18,7 @@ fields:
     xpath: concat(//div[@class='cs-product-tile__brand'],' ',//div[@class='cs-product-tile__name']/a[contains(@class, 'cs-product-tile__name-link')])
   - name: price
     singleValue: false
-    xpath: //span[@data-price-type='finalPrice']//@data-price-amount
+    xpath: //span[@data-price-type='finalPrice']//span[@class="price"]
   - name: brandText
     singleValue: false
     xpath: //div[@class='cs-product-tile__brand']
