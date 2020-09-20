@@ -19,7 +19,7 @@ fields:
   - name: imageAlt
     singleValue: false
     xpath: (//div[@data-prototype-id="allegro.gallery"]//div[@role="presentation"]//img[@role="presentation"]/@alt)[1]
-  - name: alternativeImages
+  - name: alternateImages
     singleValue: false
     xpath: //div[@class='_b8e15_3mjBl']//div//img/@src
     regExp: (.*)(s\d{3})(\/.*)
@@ -29,9 +29,6 @@ fields:
     xpath: //meta[@property="og:url"]/@content
     regExp: (.*)\?
     regExpReplace: $1
-  - name: category
-    singleValue: false
-    xpath: (//div[@data-role="breadcrumbs-list"]//div[@data-role="breadcrumb-item"])[2]
   - name: nameExtended
     singleValue: false
     xpath: //meta[@itemprop="name"]/@content
@@ -68,15 +65,9 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content 
-  - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //div[@data-box-name="Container Description"]//li
-  - name: description
+  - name: manufacturerDescription
     singleValue: false
     xpath: //script[@data-serialize-box-name="Description"]
-  - name: descriptionBullets
-    singleValue: false
-    xpath: count(//div[@data-box-name="Container Description"]//li)
   - name: brandText
     singleValue: false
     xpath: //div[@data-box-name="Parameters"]//li[contains(.//text(), 'Marka')]/div
@@ -137,3 +128,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@data-box-name="Description"]//img/@src
+  - name: packaging
+    singleValue: false
+    xpath: //div[@data-box-name="Description"]//p[contains(.//text(), 'opakowania')]
+

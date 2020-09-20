@@ -71,6 +71,24 @@ const transform = (data) => {
         });
         row.color = [{ text: color[0], xpath: row.color[0].xpath }];
       }
+      if (row.packaging) {
+        const packaging = row.packaging.map((item) => {
+          return item.text.replace('\n', '').match(/(:)(.*)/)[2];
+        });
+        row.packaging = [{ text: packaging[0], xpath: row.packaging[0].xpath }];
+      }
+      if (row.alternateImages) {
+        row.alternateImages && row.alternateImages.shift();
+      }
+      if (row.category) {
+        row.category && row.category.shift();
+      }
+      if (row.image) {
+        const image = row.image.map((item) => {
+          return { text: item.text.replace('s512', 'original'), xpath: item.xpath };
+        });
+        row.image = image;
+      }
       if (row.price) {
         const priceRow = row.price.map((item) => {
           return item.text.replace('.', ',');
@@ -91,8 +109,8 @@ const transform = (data) => {
         });
         row.aggregateRating = [{ text: aggregateRating[0], xpath: row.aggregateRating[0].xpath }];
       }
-      if (row.description) {
-        const rowData = row.description.map((item) => {
+      if (row.manufacturerDescription) {
+        const rowData = row.manufacturerDescription.map((item) => {
           return item.text ? JSON.parse(item.text) : {};
         });
         // @ts-ignore
@@ -113,7 +131,7 @@ const transform = (data) => {
             }
           });
         }
-        row.description = [{ text: description.replace(/(<([^>]+)>)/ig, ''), xpath: row.description && row.description[0].xpath }];
+        row.manufacturerDescription = [{ text: description.replace(/(<([^>]+)>)/ig, ''), xpath: row.manufacturerDescription && row.manufacturerDescription[0].xpath }];
       }
     }
   }
