@@ -18,9 +18,9 @@ fields:
   - name: name
     singleValue: false 
     xpath: //section[@id='p-inner-name']//h1
-  - name: variantinformation
+  - name: nameExtended
     singleValue: false 
-    xpath: //div[@class='features']/ul/li/div/button | //div[@class='features']/ul/li/div/ul  
+    xpath: //section[@id='p-inner-name']//h1 
   - name: image
     singleValue: false 
     xpath: //section[@id="p-inner-gallery"]//div[@class='original']//div[@class='zoomed screen-only']//img/@src
@@ -66,7 +66,7 @@ fields:
     xpath: //section[@id='p-inner-prices']//span[@class='discount']
   - name: weightNet
     singleValue: false    
-    xpath: //div[@class='section']//tr[29]/td
+    xpath: //*[@id="p-content-specification"]//div[@class="full-specification"]//table//tr/th[contains(text(),'Waga')]/parent::*/td
   - name: additionalDescBulletInfo
     singleValue: false    
     xpath: //div[@class='features']/ul/li
@@ -76,3 +76,4 @@ fields:
   - name: countryOfOrigin
     singleValue: false    
     xpath: //div[@class='locale-selector pull-right']/ul/li[1]/span[1]    
+  
