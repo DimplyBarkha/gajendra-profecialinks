@@ -17,7 +17,7 @@ module.exports = {
 
       let productPage = document.querySelector('h1[id="js-product-detail-title"]');
       if (!productPage) {
-        throw new Error('ERROR: Not a Product Page');
+        console.log('ERROR: Not a Product Page');
       }
 
       // function to append the elements to DOM
@@ -102,9 +102,9 @@ module.exports = {
         const apiDataResponse = await makeApiCall(productsData, {});
 
         if (apiDataResponse) {
-          if (JSON.parse(apiDataResponse)._product_model) {
-            document.querySelector('.sku-model').textContent = `MODELO: ${JSON.parse(apiDataResponse)._product_model}`;
-          }
+          // if (JSON.parse(apiDataResponse)._product_model) {
+          //   document.querySelector('.sku-model').textContent = `MODELO: ${JSON.parse(apiDataResponse)._product_model}`;
+          // }
           addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
           addElementToDocument('sku', JSON.parse(apiDataResponse).id);
           addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
@@ -131,33 +131,6 @@ module.exports = {
         addElementToDocument('product_image', typeof (checkImage) === 'string' && checkImage.includes('https://') ? checkImage : `https:${imageData.image.slice(-1)[0]}`);
         addElementToDocument('product_description', imageData.description);
       }
-
-      // // Get the video
-      // try {
-      //   const inputVideo = findJsonObj('', '//input[@class="flix-jw"]/@value');
-      //   const imagelayoutVideo = findJsonObj('', '//div[@class="image-layout-slides-group-item"]/img/@data-url');
-      //   const enhancedContentVideo = getElementsByXPath('//div[contains(@class,"fullJwPlayerWarp")]/input/@value');
-      //   console.log('Weighting for Video');
-      //   if (inputVideo.snapshotLength > 0) {
-      //     console.log('addig in Video');
-      //     for (let i = 0; i < inputVideo.snapshotLength; i++) {
-      //       addElementToDocument('video', JSON.parse(findJsonObj('', inputVideo).snapshotItem(0).value).playlist[0].file);
-      //     }
-      //   } else if (inputVideo.snapshotLength < 0 || enhancedContentVideo.length > 0) {
-      //     addElementToDocument('video', enhancedContentVideo.map(e => { return JSON.parse(e).playlist[0].file }).join('|'))
-      //   } else {
-      //     if (imagelayoutVideo.snapshotLength === 1) {
-      //       console.log('addig Imag Video');
-      //       addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
-      //     } else {
-      //       for (let i = 0; i < imagelayoutVideo.snapshotLength; i++) {
-      //         addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
-      //       }
-      //     }
-      //   }
-      // } catch (error) {
-      //   console.log('eror in video');
-      // }
 
       // elements from data Layer object
       const dataObj = findJsonData('dataLayer', '=', ';');
@@ -231,18 +204,25 @@ module.exports = {
       });
       addElementToDocument('alternateImages', alternateImages.slice(1).join(' | ').replace(/210x210/gm, '1200x1200'));
       // Specifications
+
+
+      const description = document.querySelector('.product_detail-description-in-image');
+      textContent(description, 'bulletDescription');
+      textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
+
+      // Specifications
       const specifcations = [];
       const specXpath = document.querySelectorAll('#tab-content-0 > div > dl > div');
-      if (specXpath.length > 1) {
+      if (specXpath.length > 0) {
         specXpath.forEach(e => {
-          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)}`);
+          specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)} `);
         });
-        addElementToDocument('specifications', specifcations);
+        addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g, " "));
       } else {
         specXpath.forEach(e => {
           specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)}`);
         });
-        addElementToDocument('specifications', specifcations);
+        addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g, " "));
       }
 
       // zoom Image
@@ -301,12 +281,7 @@ module.exports = {
         addElementToDocument(attributeName, text);
       }
 
-      const description = document.querySelectorAll('.product_detail-description-in-image, .product_information');
-      if (description.length > 1) {
-        description.forEach(element => {
-          textContent(element, 'bulletDescription');
-        });
-      }
+
       textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
     });
 

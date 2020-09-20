@@ -18,7 +18,7 @@ module.exports = {
 
       let productPage = document.querySelector('h1[id="js-product-detail-title"]');
       if (!productPage) {
-        throw new Error('ERROR: Not a Product Page');
+        console.log('ERROR: Not a Product Page');
       }
 
       // function to append the elements to DOM
@@ -317,12 +317,12 @@ module.exports = {
         specXpath.forEach(e => {
           specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)} `);
         });
-        addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g," "));
+        addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g, " "));
       } else {
         specXpath.forEach(e => {
           specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent).filter(Boolean)}`);
         });
-        addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g," "));
+        addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g, " "));
       }
 
 

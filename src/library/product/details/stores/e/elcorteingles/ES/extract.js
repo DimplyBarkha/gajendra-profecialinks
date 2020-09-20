@@ -14,7 +14,7 @@ module.exports = {
 
       let searchPage = document.querySelector('div.artwork.image');
       if (searchPage) {
-        throw new Error('ERROR: Not a Product Page');
+        console.log('ERROR: Not a Product Page');
       }
 
 
