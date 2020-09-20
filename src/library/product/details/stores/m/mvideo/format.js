@@ -64,6 +64,7 @@ const transform = (data) => {
       if (row.variantId) {
         row.variantId.forEach(item => {
           item.text = item.text.replace(/.+-(\d+)/g, '$1');
+          row.firstVariant = [{ "text": item.text, "xpath": row.variantId[0]["xpath"] }];          
         });
       }
       if (row.specifications) {
@@ -75,6 +76,7 @@ const transform = (data) => {
       if (row.variants) {
         var temp_arr = [];
         row.variants.forEach(item => {
+          item.text = item.text.replace(/.+-(\d+)/g, '$1');
           temp_arr.push(item.text);
         });
         if (temp_arr.length) {
@@ -82,6 +84,36 @@ const transform = (data) => {
           row.variants = [{ "text": temp_arr.join(' | '), "xpath": row.variants[0]["xpath"] }];
         } else {
           delete row.variants;
+        }
+      }
+      if (row.variantInformation) {
+        var temp_arr = [];
+        row.variantInformation.forEach(item => {          
+          temp_arr.push(item.text);
+        });
+        if (temp_arr.length) {
+          row.variantInformation = [{ "text": temp_arr.join(' | '), "xpath": row.variantInformation[0]["xpath"] }];
+        } else {
+          delete row.variantInformation;
+        }
+      }
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {       
+          item.text = item.text.replace('width: ', '').trim();       
+          item.text = item.text.replace('%', '').trim();
+          var aggregateRatingNumber = (parseFloat(item.text) * 5) / 100;            
+          item.text = aggregateRatingNumber.toFixed(1);
+        });
+      }
+      if (row.price) {
+        var temp_arr = [];
+        row.price.forEach(item => {          
+          temp_arr.push(item.text);
+        });
+        if (temp_arr.length > 1) {
+          row.price = [{ "text": temp_arr[1], "xpath": row.price[0]["xpath"] }];
+        } else {
+          row.price = [{ "text": row.price[0]["text"], "xpath": row.price[0]["xpath"] }];
         }
       }
     }

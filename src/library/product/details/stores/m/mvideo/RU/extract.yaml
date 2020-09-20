@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"o-pay__content-trade")]//div[contains(@class,"c-pdp-price__current")]
+    xpath: //div[contains(@class,"o-pay__content")]//div[contains(@class,"c-pdp-price__current")]
   - name: name
     singleValue: false
     xpath: //h1[@class='e-h1 sel-product-title']
@@ -50,6 +50,26 @@ fields:
     xpath: //div[@class="c-specification o-pdp-about-product-specification__block"]/table
   - name: variants
     singleValue: false
-    xpath: //div[contains(@class,'c-multisku__group-controls')]//span[@class="c-btn__text"]
+    xpath: //div[contains(@class,'c-multisku__group-controls')]//a/@href
   - name: variantCount
+    singleValue: false
+  - name: weightNet
+    singleValue: false
+    xpath: //span[@class="c-specification__name-text" and contains(text(), "Вес")]//ancestor::tr//td[2]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="c-brand-logo"]//img/@alt
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'c-multisku__group-controls')]//span
+  - name: warranty
+    singleValue: false
+    xpath: //div[@class="o-pay__best-price-guaranteen"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="o-pdp-topic__raiting"]//span/@style
+  - name: color
+    singleValue: false
+    xpath: //span[@class="c-multisku__label u-block" and contains(text(), "Цвет")]/span
+  - name: firstVariant
     singleValue: false
