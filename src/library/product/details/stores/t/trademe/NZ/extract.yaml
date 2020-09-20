@@ -23,7 +23,7 @@ fields:
     xpath: //tm-potential-r18-content//tg-row//tg-col/div/small[1]    
   - name: variantId
     singleValue: false 
-    xpath: //tm-potential-r18-content//tg-row//tg-col/div/small[1]    
+    xpath: //tm-potential-r18-content//tg-row//tg-col/div/small[1]  
   - name: image
     singleValue: false 
     xpath: //tg-image-viewer2/div/div/tg-image-viewer-item[1]/tg-aspect-ratio/@style
@@ -32,10 +32,7 @@ fields:
     xpath: //tg-content-slider2-item[position()>1]/tg-aspect-ratio/@style
   - name: shippingInfo
     singleValue: false 
-    xpath: //*[@id="shipping-options"]/tg-row/tg-col[2]/tm-listing-shipping-details/table/tbody  
-  - name: color
-    singleValue: false 
-    xpath: //tm-listing-attributes/div/table/tbody/tr[2]/td[2]/text()
+    xpath: //section[@class="member-summary-box"]  
   - name: ratingcount
     singleValue: false 
     xpath: //*[@id="comments-animation"]/ktr-product-comments/div/ng-transclude/div[1]/div[1]/font/font
@@ -43,3 +40,18 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //form[@class='ng-untouched ng-valid ng-dirty']//button[contains(text(),'Buy Now')]
+  - name: weightNet
+    singleValue: false
+    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//ul[@class='o-list2 o-list2--bullet']//li[contains (text(), 'Weight:')]
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
+  - name: specifications
+    singleValue: false
+    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//div[@class='tm-markdown']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//div[@class='tm-markdown']
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//div[@class='tm-markdown']

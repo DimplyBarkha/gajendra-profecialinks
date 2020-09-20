@@ -16,6 +16,34 @@ const transform = (data) => {
         row.description.forEach(item => {
           item.text = item.text.replace(/\n\s*\n\s*\n\s*\n\s*/g, '').slice();
           item.text = item.text.replace(/\n\s*\n\s*/g, '').slice();
+          item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
+        });
+      }
+      if (row.specifications) {
+        row.specifications.forEach(item => {
+          item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
+        });
+      }
+      if (row.weightNet) {
+        row.weightNet.forEach(item => {
+          item.text = item.text.replace(/(\s*Weight\s*:\s*)+/g, '').trim();
+        });
+      }
+      if (row.additionalDescBulletInfo) {
+        row.additionalDescBulletInfo.forEach(item => {
+          item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
+        });
+      }
+      if (row.descriptionBullets) {
+        row.descriptionBullets.forEach(item => {
+          let dec = item.text.replace(/(\s*\n\s*)+/g, ' > ').trim();
+          let bul = dec.split('>');
+          item.text = bul.length;
+        });
+      }
+      if (row.shippingInfo) {
+        row.shippingInfo.forEach(item => {
+          item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
         });
       }
       if (row.availabilityText) {
