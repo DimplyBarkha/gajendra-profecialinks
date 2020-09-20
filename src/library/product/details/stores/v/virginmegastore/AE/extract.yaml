@@ -80,16 +80,6 @@ fields:
     xpath: //script[contains(text(),"products")]/text()
     regExp: ('brand':.*)'(.*)'
     regExpReplace: $2
-  - name: shippingDimensions
-    singleValue: false
-    xpath: //p[@class='longDesc']
-    regExp: (\d+\sx.*mm)
-    regExpReplace: $1
-  - name: shippingWeight
-    singleValue: false
-    xpath: //p[@class='longDesc']
-    regExp: (\d+.\d+.kg)
-    regExpReplace: $1
   - name: variantCount
     singleValue: false
     xpath: count(//div[@class='select-group']//select//option[not(contains(@disabled,"disabled"))]/@value)
