@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: _url
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
   - name: image
     singleValue: false
     xpath: //meta[@property="og:image"]/@content
@@ -19,8 +22,9 @@ fields:
     singleValue: false
     xpath: //meta[@property="product:category"]/@content
   - name: nameExtended
-    singleValue: false
-    xpath: //span[@class='base']
+    singleValue: true
+    description: The product name
+    xpath: concat(//span[@itemprop='brand'],' ',//span[@itemprop='name']) 
   - name: listPrice
     singleValue: false
     xpath: //div[@class='product-info-price cs-buybox__price']//span[@data-price-type='oldPrice']//span[@class='price']
@@ -40,15 +44,15 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //span[@itemprop='brand']
-  # - name: manufacturer
-  #   singleValue: false
-  #   xpath: //span[@class='manufacturer']
+  - name: manufacturer
+    singleValue: false
+    xpath: //span[@class='manufacturer']
   - name: weightNet
     singleValue: false
-    xpath: //div[@class='swatch-option text']
-  # - name: weightGross
-  #   singleValue: false
-  #   xpath: //div[@class='swatch-option text']
+    xpath: concat(//li[contains(text(),'Nettogewicht')],//div[@class='swatch-option text'],//li[contains(text(),'Gewicht mit')])
+  - name: weightGross
+    singleValue: false
+    xpath: //li[contains(text(),'Gewicht mit Kabel')]
   - name: gtin
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"gtin14")]
@@ -66,18 +70,18 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //span[@class='rating_value']
-  - name: shippingInfo
-    singleValue: false
-    xpath: //div[@class='cs-custom-modal__content']//p
   - name: shippingDimensions
-    singleValue: true
-    description: Stated shipping dimensions
+    singleValue: false
+    xpath: concat(//li[contains(text(),'Produktmasse')],' ',//li[contains(text(),'Boxmasse')],' ',//li[contains(text(),'Abmessungen:')],' ',//li[contains(text(),'Box-Abmessungen')])
   - name: shippingWeight
-    singleValue: true
-    description: Stated shipping weight
+    singleValue: false
+    xpath: concat(//li[contains(text(),'Nettogewicht')],//div[@class='swatch-option text'],//li[contains(text(),'Gewicht mit')])
   - name: variantId
     singleValue: false
     xpath: //div[@itemprop='sku']
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@class, "variant--option")])    
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
@@ -86,17 +90,16 @@ fields:
     xpath: //iframe[@id='widget2']
   - name: videos
     singleValue: false
-    xpath: concat('https://www.youtube.com/watch?v=',//div[@class='product-video']/@data-code)
+    xpath: //div[@class='product-video']/@data-code
   - name: warranty
     singleValue: true
     xpath: concat(//div[@class='product attribute description']//strong[contains(text(),'warranty')],//div[@class='product attribute description']//div[contains(text(),'Garantie')])
+  - name: specifications
+    singleValue: false
+    xpath: //li[contains(text(),'Leistung:')]//parent::ul
   - name: name
     singleValue: true
     xpath: //span[@itemprop='name']
-  - name: nameExtended
-    singleValue: true
-    description: The product name
-    xpath: concat(//span[@itemprop='brand'],' ',//span[@itemprop='name']) 
   - name: color
     singleValue: false
     xpath: //li[contains(text(),'Farbe:')]
