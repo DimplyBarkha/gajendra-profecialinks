@@ -4,11 +4,11 @@ recordXPath: //div[contains(@data-component-type,"s-search-result") and @data-as
 recordSelector: null
 fields:
   - name: value
-    xpath: ancestor::html//span[@cel_widget_id="UPPER-RESULT_INFO_BAR"]//span[contains(@class, "a-color-state")]
+    xpath: ancestor::html//span[contains(@cel_widget_id,"UPPER-RESULT_INFO_BAR")]//span[contains(@class, "a-color-state")]
     regExp: \"([^"]+)
     regExpReplace: $1
   - name: price
-    xpath: //span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//div[contains(@class, "sg-col-inner")]/div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
+    xpath: //span[contains(@cel_widget_id,"MAIN-SEARCH_RESULTS")]//div[contains(@class, "sg-col-inner")]/div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
     regExp: (.+)
     regExpReplace: $1
   - name: page
