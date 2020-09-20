@@ -18,7 +18,7 @@ fields:
     xpath: //meta[(@name='keywords')]//@content
   - name: category
     singleValue: false
-    xpath: //product-details//a[(@class='breadcrumb -clickable-last-child')]
+    xpath: //product-details//a[position()>1]//span
   - name: nameExtended
     singleValue: true
     xpath: //h1[@class='pdp__title js-productName']
@@ -27,7 +27,7 @@ fields:
     description: The stated undiscounted price for the product    
   - name: price
     singleValue: true
-    xpath:  //div[@class='pdp__details__inner']//div[@class='pdp__prices js-productPrice mt4']//div[@class='price']//span//span[@class='sales  ']//span[@class='value']/@content
+    xpath: //script[contains(@type, "application/ld+json")]
   - name: availabilityText
     xpath: //div[@class='pdp__top']/div[@class='pdp__details']/div[@class='pdp__details__inner']/div[@class='pdp__addtocart mt4 -hidden-until-lg']/div[@class='add-to-cart-actions']/add-to-cart[@data-product-available='true']
     singleValue: true
@@ -45,16 +45,17 @@ fields:
     xpath: //h2[@class='pdp__brand-title']
   - name: manufacturer
     singleValue: true
-    xpath: //h2[@class='pdp__brand-title']
   - name: quantity
     singleValue: true
   - name: weightNet
-    singleValue: true    
+    singleValue: true
+    xpath: //div[@id='product-description']//text()
+    regExp: (\Vægt:.\S{0,}.\S{0,})
   - name: weightGross
     singleValue: true    
   - name: gtin
     singleValue: true
-    xpath: //li[contains(text(),'EAN')]/text()
+    xpath: //script[contains(@type, "application/ld+json")]
   - name: sku
     singleValue: true
     xpath: //product-details//@data-pid
@@ -63,7 +64,6 @@ fields:
     xpath: //product-details//@data-pid
   - name: mpc
     singleValue: true
-    xpath: //li[contains(text(),'EAN')]/text()
   - name: packSize
     singleValue: true
   - name: productUrl
@@ -82,11 +82,12 @@ fields:
     type: NUMBER
   - name: specifications
     singleValue: true
+    xpath: normalize-space(//span[@ref='size-selection-text']//text())
   - name: warranty
     singleValue: true
-    xpath : //div[@class='product-usp__content']//font[contains(text(),'return policy')]/text()|//div[contains(text(),'dages returret')]
+    xpath: //div[@id='product-description']//text() 
+    regExp: (.\S{0,}.\S{0,}.\S{0,}\garanti)
   - name: shippingDimensions
-    xpath: //span[@ref='size-selection-text']//text()
     singleValue: true
   - name: shippingWeight
     singleValue: true
@@ -131,7 +132,6 @@ fields:
     singleValue: true    
   - name: colorCode
     singleValue: true
-    xpath : //span[@class='js-swatchName value']//text()
   - name: newDescription
     singleValue: true
   - name: lbbPrice

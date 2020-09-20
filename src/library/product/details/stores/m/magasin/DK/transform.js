@@ -23,7 +23,33 @@ const transform = (data, context) => {
           } 
           if (row.eangtin) {
             row.eangtin = [{ text: row.eangtin[0].text.toString().replace(/\r\n|\r|\n/g, '').replace('EAN:   ','') }];
-          }          
+          } 
+          if (row.category) {
+            let newText = "";
+            row.category.forEach(item =>{
+              newText += `${item.text.trim() + " > "}`;
+            });
+            row.category = [{ text: newText.slice(0, -3) }];
+          }
+          if (row.weightNet) {
+            let newText = "";
+            row.weightNet.forEach(item =>{
+              if(item.text.trim().charAt(item.text.trim().length -1) == '.' || item.text.trim().charAt(item.text.trim().length -1) == ','){
+                newText += `${item.text.trim().slice(0, -1)}`;
+              } else {
+                newText += `${item.text.trim()}`;
+              }
+            });
+            row.weightNet = [{ text: newText.replace("Vægt: ", '').replace(',', '.') }];
+          }
+          if (row.gtin) {
+            let newText = JSON.parse(row.gtin[0].text.trim());            
+            row.gtin = [{ text: newText.gtin13 }];
+          }
+          if (row.price) {
+            let newText = JSON.parse(row.price[0].text.trim());            
+            row.price = [{ text: newText.offers.price }];
+          }
         } catch (exception) { console.log('Error in transform', exception); }
        }
     }
