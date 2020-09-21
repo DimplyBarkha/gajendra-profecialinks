@@ -40,7 +40,14 @@ const transform = (data, context) => {
                var aggregateRating = row.aggregateRating[0].text.replace(',',''); 
                  aggregateRating = (aggregateRating*5)/100
                 row.aggregateRating =  [{ text:  aggregateRating,value:  aggregateRating }];         
-             }     
+             }   
+
+             if (row.aggregateRating2) { 
+               console.log(row.aggregateRating[0].text);     
+               var aggregateRating = row.aggregateRating[0].text.replace(',',''); 
+                 aggregateRating = (aggregateRating*5)/100
+                row.aggregateRating =  [{ text:  aggregateRating,value:  aggregateRating }];         
+             }   
              
              if (row.productUrl) {               
                row.productUrl =  [{ text: 'https://www.netonnet.no'+ row.productUrl[0].text  }];         
