@@ -195,6 +195,8 @@ fields:
   - name: caloriesFromFatPerServing
     singleValue: true
     xpath: //div[@id='my-cal-from-fat']
+    regExp: >-
+      [0-9,.]+
   - name: totalFatPerServing
     singleValue: true
     xpath: //span[@class='NutrientDetail-TitleAndAmount']/span[contains(text(),'Total Fat')]/parent::*
