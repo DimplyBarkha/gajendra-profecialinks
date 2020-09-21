@@ -18,7 +18,7 @@ async function implementation (
         }, ms);
       });
     }
-    await stall(100);
+    await stall(5000);
     const link = document.querySelector('.Link-sc-1khjl8b-0.h-display-block');
     if (link !== null) {
       const href = link.getAttribute('href');
