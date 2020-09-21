@@ -66,7 +66,7 @@ const transform = (data) => {
           }
         });
         additionalDescBulletInfoStr='| '+additionalDescBulletInfoStr;
-        row.additionalDescBulletInfo=[{text:additionalDescBulletInfoStr,xpath:oldXpath}];
+        row.additionalDescBulletInfo=[{"text":additionalDescBulletInfoStr,xpath:oldXpath}];
       }
       if(row.description){
         var additionalDescBulletInfoArr = [];
@@ -94,11 +94,11 @@ const transform = (data) => {
         row.variantCount.forEach(item => {
           tot++;
         });
-        row.variantCount=[{text:tot}];
+        row.variantCount=[{"text":tot}];
       }
       if(totBullet>0){
         totBullet++;
-        row.descriptionBullets=[{text:totBullet}]
+        row.descriptionBullets=[{"text":totBullet}]
       }
     }
   }
