@@ -5,34 +5,37 @@ recordXPath: //li[contains(@class, 'product-item')]
 fields:
   - name: _url
     singleValue: false
-    description: 
+    description:
     xpath: //div[contains(@class, 'product-item-info')]/a/@href
   - name: name
     singleValue: false
-    description: 
+    description:
     xpath: //strong[contains(@class, 'product-item-name')]//a/text()
   - name: thumbnail
     singleValue: false
-    description: 
+    description:
     xpath: //div[contains(@class, 'product-item-info')]//img/@src
   - name: productUrl
     singleValue: false
-    description: 
+    description:
     xpath: //div[contains(@class, 'product-item-info')]//a[@class='product-item-link']/@href
   - name: variantId
     singleValue: false
-    description: 
+    description:
     xpath: //div[contains(@class, 'product-item-info')]//div[contains(@class,'price-final_price')]/@data-product-id
   - name: price
     singleValue: false
-    description: 
+    description:
     xpath: //div[contains(@class, 'price-final_price')]//span[@data-price-type="finalPrice"]
   - name: id
     singleValue: false
-    description: 
+    description:
     xpath: //form[@data-role="tocart-form"]/@data-product-sku
   - name: brandText
     singleValue: false
-    description: 
+    description:
     xpath: //div[contains(@class, 'product-item-info')]/a/@href
-  
+  - name: rank
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'product-item-info')]/a/@href
