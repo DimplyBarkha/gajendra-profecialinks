@@ -7,15 +7,40 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.shippingDimensions) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
         row.shippingDimensions.forEach(item => {
-          const locText = item.text;
-          if (locText.indexOf('###') > 0) {
-            item.text = locText.substring(0, locText.indexOf('###'));
-          } else if (locText.indexOf('###') === 0) {
-            item.text = locText.replace('###', '');
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + ' X ';
           }
-          console.log(item.text);
+          newDesc = newDesc + item.text;
+          idx++;
         });
+        console.log(newDesc);
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.shippingDimensions = nDesc;
+      }
+      if (row.specifications) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.specifications.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + ' || ';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
+        });
+        console.log(newDesc);
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.specifications = nDesc;
       }
 
       if (row.description) {
