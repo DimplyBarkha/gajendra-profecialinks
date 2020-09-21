@@ -43,7 +43,7 @@ fields:
     description: The store-specific product identifier
   - name: listPrice
     singleValue: false
-    xpath: //div[@class="price-big"]
+    # xpath: //div[@class="price-big"]
     description: The stated undiscounted price for the product   
   - name: price
     singleValue: false
@@ -64,7 +64,8 @@ fields:
     description: null    
   - name: firstVariant
     singleValue: false
-    xpath: //div[contains(@class,"swatchContainer")]/div[1]//@data-url
+    # xpath: //div[contains(@class,"swatchContainer")]/div[1]//@data-url
+    xpath: //div[contains(@class,"swatchContainer")]/div[1]//@data-itemid
     description: Unique identifier for a collection of variants. For a subset of core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use common tag (Could be parent sku) that is same value for all variants of a
       product. method 2 = first_variant method technique, Identify the first varient in the sequence and use this rpc to populate "first_variant" for
@@ -92,23 +93,28 @@ fields:
     xpath: //div[contains(@id,'collapseFive')]//div[@class="panel-body"]
     description: Product description supplied by website - may be concatenanted from multiple places; specifically not the manufacturer description
   - name: technicalInformationPdfPresent
-    singleValue: true
-    # xpath: //div[@id="collapseOne"]//div//a[@data-action="printProductInfo"]
+    singleValue: false
+    xpath: //*[contains(text(), 'Manualer och dokumentation')]/following::tr/td/a[contains(@href, '.pdf')]/@href
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     regExp: (.+)
     regExpReplace: 'YES'
     defaultValue: 'NO'
+  - name: aggregateRating
+    singleValue: false
+    xpath: //a[contains(@data-action,"writeReview")]//div[contains(@class,"ratingOverlay")]//@style
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER  
   - name: eangtin
     singleValue: false
     xpath: //*[contains(text(), 'EAN')]/following::td[1]
   - name: color
     singleValue: false
-    xpath: //*[contains(text(), 'Farge')]/following::td[1]
+    xpath: //*[contains(text(), 'Färg')]/following::td[1]
     description: A textual description of the colour
   - name: warranty
     singleValue: false
-    xpath: //td[contains(text(), 'Fabrikantgaranti')]/following::td[2]
+    xpath: //*[contains(text(), 'Tillverkarens garanti')]/following::td[2]
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
@@ -116,15 +122,15 @@ fields:
     description: Suggested storage location for product
   - name: specifications
     singleValue: false
-    xpath: //td[contains(text(), 'Høyde')]/following::td[1] | //td[contains(text(), 'Bredde')]/following::td[1] | //td[contains(text(), 'Dybde')]/following::td[1]
+    xpath: //td[contains(text(), 'Höjd')]/following::td[1] | //td[contains(text(), 'Bredd')]/following::td[1] | //td[contains(text(), 'Djup')]/following::td[1]
     description: The physical dimensions of the product including packaging. here its taken as Height , width and Depth    
   - name: weightNet
     singleValue: false
-    xpath: //td[contains(text(), 'Vekt')]/following::td[1]
+    xpath: //td[contains(text(), 'Vikt')]/following::td[1]/text()
     description: Net weight as described on the page
   - name: weightGross
     singleValue: false
-    xpath: //td[contains(text(), 'Vekt')]/following::td[1]
+    xpath: //td[contains(text(), 'Vikt')]/following::td[1]/text()
     description: Gross weight as described on the page
   - name: additionalDescBulletInfo
     singleValue: false
@@ -143,7 +149,7 @@ fields:
     # regExpReplace: $1$2$3$4
   - name: shippingWeight
     singleValue: false
-    xpath: //td[contains(text(), 'Vekt')]/following::td[1]
+    xpath: //td[contains(text(), 'Vikt')]/following::td[1]/text()
     description: Stated shipping weight
   - name: nameExtended
     singleValue: false
@@ -153,7 +159,18 @@ fields:
     singleValue: false
     xpath: count(//div[contains(@class,'product-sellingPoints hidden-xs')]//div[contains(@class,"product-usps")]//ul//li)
     description: Number of ul > li tags in the description
-    type: NUMBER                  
+    type: NUMBER
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //*[contains(text(), 'Energiklass')]/following::td[1]
+    description: Energy rating of a product.
+      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B    
+  - name: packSize
+    singleValue: false
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+    xpath: //td[contains(text(), 'Kvantitet')]/following::td[1]/text()  
     # current status -----
   - name: metaKeywords
     singleValue: true
@@ -167,11 +184,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: mpc
     singleValue: true
-    description: The manufacturer model code (unique) of the product
-  - name: packSize
-    singleValue: true
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
+    description: The manufacturer model code (unique) of the product  
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -495,11 +508,6 @@ fields:
     description: Recommended age displayed on the product page.
       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
-  - name: energyEfficiency
-    singleValue: true
-    description: Energy rating of a product.
-      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-    example: A+, A+++, B
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']

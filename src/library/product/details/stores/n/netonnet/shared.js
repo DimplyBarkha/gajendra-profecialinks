@@ -48,7 +48,7 @@ const transform = (data) => {
 				row.listPrice = [{ text: newText }];
 			}
 
-			if (row.firstVariant) {
+			/* if (row.firstVariant) {
 				let newText = "";
 				row.firstVariant.forEach(item => {
 					var res = item.text.trim().split("/");
@@ -56,7 +56,7 @@ const transform = (data) => {
 					newText = res;
 				});
 				row.firstVariant = [{ text: newText }];
-			}
+			} */
 			if (row.aggregateRating) {
 				let newText = 0;
 				row.aggregateRating.forEach(item => {
@@ -75,6 +75,38 @@ const transform = (data) => {
 					newText +=  `${item.text.replace(/ \n|&dash;|\r/g, ' || ')}`;
 				});
 				row.additionalDescBulletInfo = [{ text: newText.slice(0, -4) }];
+			}
+
+			if (row.videos) {
+				let newText = "";
+				let finalText = "";
+				let extraChar = "";
+				row.videos.forEach(item => {
+					finalText = newText = item.text.trim();
+					 extraChar = newText.substring(0, 2);
+					if(extraChar=='//'){
+						 finalText = newText.replace("//", "");
+					}
+				});
+				row.videos = [{ text: finalText }];
+			}
+
+			if (row.energyEfficiency) {
+				let newText = "";
+				row.energyEfficiency.forEach(item => {
+					newText = item.text.trim().replace("Klass", "");
+				});
+				row.energyEfficiency = [{ text: newText }];
+			}
+
+			if (row.technicalInformationPdfPresent) {
+				let newText = "NO";
+				row.technicalInformationPdfPresent.forEach(item => {
+					if(item.text == 'YES'){
+						newText = 'YES';		
+					}
+				});
+				row.technicalInformationPdfPresent = [{ text: newText }];
 			}
 		}
 	}

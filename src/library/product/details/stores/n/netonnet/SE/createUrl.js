@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'netonnet.se',
-    prefix: 'art',
+    prefix: null,
     url: null,
     country: 'SE',
     store: 'netonnet',
