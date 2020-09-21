@@ -338,16 +338,18 @@ async function implementation (
       if (variant.enrichment &&
         variant.enrichment.nutrition_facts &&
         variant.enrichment.nutrition_facts.value_prepared_list &&
-        variant.enrichment.nutrition_facts.value_prepared_list.length &&
-        variant.enrichment.nutrition_facts.value_prepared_list[0]) {
-        if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size) {
-          const servingSize = variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size;
-          addHiddenDiv(newDiv, 'servingSize', !variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement ? servingSize : servingSize.split(' ')[0]);
-          if (variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement) {
-            addHiddenDiv(newDiv, 'servingSizeUom', variant.enrichment.nutrition_facts.value_prepared_list[0].serving_size_unit_of_measurement);
+        variant.enrichment.nutrition_facts.value_prepared_list.length) {
+
+        variant.enrichment.nutrition_facts.value_prepared_list.forEach(valList => {
+          if (valList.serving_size) {
+            const servingSize = valList.serving_size;
+            addHiddenDiv(newDiv, 'servingSize', !valList.serving_size_unit_of_measurement ? servingSize : servingSize.split(' ')[0]);
+            if (valList.serving_size_unit_of_measurement) {
+              addHiddenDiv(newDiv, 'servingSizeUom', valList.serving_size_unit_of_measurement);
+            }
+            addHiddenDiv(newDiv, 'servingsPerContainer', valList.servings_per_container);
           }
-          addHiddenDiv(newDiv, 'servingsPerContainer', variant.enrichment.nutrition_facts.value_prepared_list[0].servings_per_container);
-        }
+        });
 
         if (variant.enrichment.nutrition_facts.value_prepared_list[0].nutrients) {
           variant.enrichment.nutrition_facts.value_prepared_list[0].nutrients.forEach(e => {
@@ -657,7 +659,7 @@ async function implementation (
           }
         });
 
-      if (!document.getElementById('price') || !document.getElementById('price').innerText.length) {
+      if (!newDiv.querySelector('.price') || !newDiv.querySelector('.price').innerText.length) {
         if (document.querySelector('span[data-test="product-savings"]') && document.querySelector('span[data-test="product-savings"]').innerText) {
           addHiddenDiv(newDiv, 'regPrice', document.querySelector('span[data-test="product-savings"]').innerText.split(' ')[1]);
         } else if (document.querySelector('div[data-test="product-price"]')) {
