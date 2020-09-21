@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'product/details/createUrl',
+  implements: 'product/details/variants',
   parameterValues: {
-    domain: 'expert.at',
-    prefix: null,
     country: 'AT',
     store: 'expert',
+    domain: 'expert.at',
     zipcode: '',
   },
 };

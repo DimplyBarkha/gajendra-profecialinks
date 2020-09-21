@@ -29,18 +29,10 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //div[contains(@class, "product-item-info")]//a[contains(@class, "product photo")]/@href
-    # regExp: >- 
-    #   ^(.*)$
-    # regExpReplace: >-
-    #   https://www.expert.de$1
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class, "product-item-info")]//a[contains(@class, "product photo")]//img/@src
-    # xpath: (//img/@data-src)[3]
-    # xpath: //img[contains(@class, "widget-ArticleImage--articleImage")]/@data-src
-    # xpath: //div[contains(@class, "widget widget-ArticleImage")]//img[contains(@class, "widget-ArticleImage--articleImage")]/@data-src
-    # xpath: //img[contains(@class, "widget-ArticleImage--articleImage")]/@data-src
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
@@ -53,19 +45,15 @@ fields:
     description: The store-specific product identifier
   - name: mpc
     singleValue: false
-    # xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")])[2]
     description: The model code of the product
   - name: gtin
     singleValue: false
-    # xpath: ancestor::html//script[contains(@class, "widget-ArticleStatus--script")]/text()
     description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
     singleValue: false
-    # xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[@itemprop="ratingValue"]//text()
     description: The stated aggregate rating
   - name: ratingCount
     singleValue: false
-    # xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//meta[@itemprop="reviewCount"]/@content
     description: The number of ratings
   - name: reviewCount
     singleValue: false
@@ -115,15 +103,14 @@ fields:
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    # type: NUMBER
   - name: aggregateRating2
     singleValue: false
   - name: refererUrl
     singleValue: false
-    xpath: ancestor::html//*[@id="ii_refererUrl"]
+    xpath: ancestor::html//div[@id="ii_refererUrl"]//text()
   - name: searchUrl
     singleValue: false
-    xpath: ancestor::html//*[@id="ii_refererUrl"]
+    xpath: ancestor::html//div[@id="ii_refererUrl"]//text()
 
 
 
