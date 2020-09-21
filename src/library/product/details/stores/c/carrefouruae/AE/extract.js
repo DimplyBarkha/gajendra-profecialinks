@@ -58,9 +58,9 @@ module.exports = {
       let initialData = initialProps ? initialProps.initialData : '';
       let onlineName = initialData ? initialData.onlineName : '';
       addHiddenDiv('cc_name',onlineName);
-      let listPrice = initialData ? initialData.price : '';
-      listPrice = listPrice ? listPrice.price : '';
-      addHiddenDiv('cc_listPrice', listPrice);
+      // let listPrice = initialData ? initialData.price : '';
+      // listPrice = listPrice ? listPrice.price : '';
+      // addHiddenDiv('cc_listPrice', listPrice);
       let gtin = initialData ? initialData.ean : '';
       addHiddenDiv('cc_gtin', gtin);
       let variantId = initialData ? initialData.code : '';
@@ -112,15 +112,22 @@ module.exports = {
       let description1 = marketingText1 ? stringToHTML(marketingText1) : '';
       // @ts-ignore
       let description3 = description1 ? description1.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
-      finalDesArr.push(description3);
+      if(description3 !== ''){
+        finalDesArr.push(description3);
+      }
       let marketingText = initialData ? initialData.marketingText : '';
       console.log('marketingText: ', marketingText);
       let description = marketingText ? stringToHTML(marketingText) : '';
       // @ts-ignore
       let description2 = description ? description.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
-      finalDesArr.push(description2);
-      
-      let finalDesArrStr = finalDesArr.join(' | ');
+      if(description2 !== ''){
+        finalDesArr.push(description2);
+      }
+      console.log('finalDesArr: ', finalDesArr);
+      let finalDesArrStr
+      if(finalDesArr.length > 0){
+        finalDesArrStr = finalDesArr.join(' | ');
+      }
       // @ts-ignore
       addHiddenDiv('cc_description', finalDesArrStr);
       let numberOfReviews = initialData ? initialData.numberOfReviews : '';

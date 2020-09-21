@@ -31,12 +31,12 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //p[@class="productinfo__price--sub"]/del | //div[@id="cc_listPrice"]
+    xpath: //p[@class="productinfo__price--sub"]/del | //del 
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //h2[contains(@class , "productinfo__price")] | //h2[contains(@class , "css-1ju41kp")] | //meta[@property="product:price:amount"]/@content
+    xpath: //h2[contains(@class , "productinfo__price")] | //h2[contains(@class , "css-1ju41kp")] | //meta[@property="product:price:amount"]/@content | //h2[@class="css-1601px7"]
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
@@ -445,7 +445,7 @@ fields:
   - name: promotion
     singleValue: false
     description: promotion text on product page
-    xpath: //span[@class="css-d8jttk"] | //div[@id="cc_promotion"]
+    xpath: //span[@class="css-d8jttk"] | //*[@class="css-d8jttk"]
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information
