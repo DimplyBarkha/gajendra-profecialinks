@@ -6,8 +6,8 @@
  */
 const transform = (data) => {
   for (const { group } of data) {
-    let rank = 1;
     for (const row of group) {
+      let rank = 1;
       if (row.productUrl) {
         row.productUrl.forEach(item => {
           item.text = "https://en-ae.namshi.com" + item.text;
