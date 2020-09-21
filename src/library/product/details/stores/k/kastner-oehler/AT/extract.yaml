@@ -29,7 +29,7 @@ fields:
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//span[@itemprop="brand"], ' - ', //div[contains(@class, "en_mdl_article_detail__header")]/h1/span[2], ' - ', //span[@itemprop="sku"])
+    xpath: concat(//meta[@property="og:title"]/@content, ' - ', //input[@name="articleModelNr"]/@value)
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -37,6 +37,8 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user clicks add to basket this is the price they would be charged
     xpath: //div[contains(@class, "en_mdl_article_detail__price")]/span[3]/span[@itemprop="price"]/@content
+    regExp: (\d+)\.?(\d+)?
+    regExpReplace: $1,$2
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -48,7 +50,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //span[@itemprop="description"]/p
+    xpath: //div[@id='desc_info']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -62,7 +64,6 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //h1[@itemprop="manufacturer"]/span[@itemprop="name"]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -79,11 +80,11 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //span[contains(@itemprop, "gtin")]
+    xpath: //div[@data-loadbee-manufacturer="EAN"]/@data-loadbee-product
   - name: eangtin
     singleValue: true
     description: European Article Number which is a superset of UPC
-    xpath: //span[contains(@itemprop, "gtin")]
+    xpath: //div[@data-loadbee-manufacturer="EAN"]/@data-loadbee-product
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -95,7 +96,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //span[@itemprop="mpn"]
+    xpath: //input[@name="articleModelNr"]/@value
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -123,15 +124,17 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: concat('Ships from and sold by kastner-oehler.at. ', //li[contains(@class, "en_tab__item") and @data-tab-id="1"]/div/ul[1])
+    xpath: //div[contains(@class,'footer_contact')]//div[@class='footer_container_content']
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //span[@itemprop="description"]/ul/li[contains(., "Boxmaße")]
+    xpath: //span[@itemprop="description"]/ul/li[contains(., "Maße")] | //span[@itemprop="description"]/ul/li[contains(., "Boxmaße")]
     regExp: \d.*$
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
+    xpath: //span[@itemprop="description"]/ul/li[contains(., "Bruttogewicht")]
+    regExp: \d.*$
   - name: variantCount
     singleValue: true
     description: Number of variants listed
@@ -139,9 +142,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //span[@itemprop="description"]/ul/li[contains(., "Farbe")]
-    regExp: Farbe:\s(.*)
-    regExpReplace: $1
+    xpath: //div[@id='productColor']
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -160,7 +161,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[contains(@class, "en_mdl_article_detail__header")]/h1/span[2]
+    xpath: //meta[@property="og:title"]/@content
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
@@ -176,7 +177,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //span[@itemprop="description"]/ul/li[contains(., "Boxmaße")]
+    xpath: //span[@itemprop="description"]/ul/li[contains(., "Maße")] | //span[@itemprop="description"]/ul/li[contains(., "Boxmaße")]
     regExp: \d.*$
   - name: warranty
     singleValue: true

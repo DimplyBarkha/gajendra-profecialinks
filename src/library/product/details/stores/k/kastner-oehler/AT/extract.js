@@ -29,10 +29,22 @@ module.exports = {
         });
       }
       addElementToDocument('desc_bullets', descBulletInfo.join('||'));
+      const descInfo = document.querySelectorAll('span[itemprop="description"] p');
+      const descInfoArr = [];
+      if (descInfo) {
+        descInfo.forEach(e => {
+          descInfoArr.push(e.innerText);
+        });
+      }
+      addElementToDocument('desc_info', descInfoArr.join('||').replace(/\n/g, '||'));
 
       const inStockXpath = document.evaluate("//div[contains(@class, 'en_griditem')]/span[text()='In den Warenkorb'][contains(@class,'en_button--color_blue')]", document, null, XPathResult.STRING_TYPE, null);
       if (inStockXpath && inStockXpath.stringValue) {
         addElementToDocument('inStock', 'In Stock');
+      }
+      const colorXpath = document.evaluate("//span[@itemprop='description']/ul/li[contains(., 'Farbe')]", document, null, XPathResult.STRING_TYPE, null);
+      if (colorXpath && colorXpath.stringValue) {
+        addElementToDocument('productColor', colorXpath.stringValue.replace(/Farbe:\s(.+)$/g, '$1'));
       }
     });
 

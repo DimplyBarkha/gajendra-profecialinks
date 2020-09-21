@@ -2,7 +2,7 @@ input:
   _url: http://kastner-oehler.at
   URL: https://www.kastner-oehler.at/dyson-markenshop/dyson-haarglaetter-corrale-nickel-fuchsia-7330010.html
 extractions:
-  - html: https://workbench.import.io/html/run=ad2a673d-6527-42e4-80f4-17fb5a6dfb52/task=f1bf8c51-1389-4b00-8414-d1254e6672f3/c16dc993-f0f8-4129-a117-f15303f3cc6a.html
+  - html: https://workbench.import.io/html/run=aa7631f7-adb7-4dde-a68c-25c4aec0eed1/task=551bdc4a-a397-416e-959a-9eb8c5d246d6/01af69d2-0573-4a30-8981-9b8a620ae96d.html
     extractionConfigId: product/details/stores/k/kastner-oehler/AT/extract
     data:
       - group:
@@ -35,29 +35,40 @@ extractions:
               - text: DYSON
                 xpath: /html/body/div[1]/section[1]/nav[1]/ul[1]/li[3]
             price:
-              - text: "499"
+              - text: 499,
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[2]/span[3]/span[1]/@content
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[9]
             description:
-              - text: >-
-                  Biegsame Heizplatten aus Mangan-Kupfer-Legierung Passen sich
-                  an die Haare an, sodass Sie mit weniger Hitze stylen und
-                  Haarschädigungen um 50 % verringern können.1 
-                   Der erste kabellose Haarglätter mit voller Leistung Der 4-Zellen-Lithium-Ionen-Akku sorgt für die gleiche Leistung wie bei einem Produkt mit Kabel und bietet dabei die Flexibilität eines kabellosen Geräts. 
-                   Mit Kabel oder kabellos. Bis zu 30 Minuten Glätten ohne Kabel, oder alternativ Verwendung mit Kabel für eine längere Nutzungsdauer. 
-                   Extrem schnelles Aufladen 90 % Aufladung in nur 40 Minuten. 
-                   3 präzise Temperatureinstellungen Variable Temperatureinstellungen – 165°C, 185°C und 210°C – sorgen für effektives Styling bei allen Haartypen und -längen. 
-                   Intelligente Temperatur-Regulierung Unser integriertes Sensorsystem reguliert die Temperatur der Heizplatten 100-mal pro Sekunde. 
-                   Bewahrt die Haarfarbe Übermäßige Hitze kann dazu führen, dass das Haar stark ausbleicht. Der Dyson Corrale™ Haarglätter ist mit biegsamen Heizplatten ausgestattet, die ein Glätten mit weniger Hitze ermöglichen. So wird das Haar geschützt und die Farbe bewahrt. 
-                   1Thermische Schäden gemessen an der Stärke des Haares, beim Kreieren eines gleichwertigen Haarstyles. Getestet an biegsamen Heizplatten im Vergleich zu festen Heizplatten 
-                   2 Jahre Garantie
-                   Mit kostenlosem Dyson Abhol- und Lieferservice.
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/p[1]
+              - text: Biegsame Heizplatten aus Mangan-Kupfer-Legierung Passen sich an die Haare
+                  an, sodass Sie mit weniger Hitze stylen und Haarschädigungen
+                  um 50 % verringern können.1 ||Der erste kabellose Haarglätter
+                  mit voller Leistung Der 4-Zellen-Lithium-Ionen-Akku sorgt für
+                  die gleiche Leistung wie bei einem Produkt mit Kabel und
+                  bietet dabei die Flexibilität eines kabellosen Geräts. ||Mit
+                  Kabel oder kabellos. Bis zu 30 Minuten Glätten ohne Kabel,
+                  oder alternativ Verwendung mit Kabel für eine längere
+                  Nutzungsdauer. ||Extrem schnelles Aufladen 90 % Aufladung in
+                  nur 40 Minuten. ||3 präzise Temperatureinstellungen Variable
+                  Temperatureinstellungen – 165°C, 185°C und 210°C – sorgen für
+                  effektives Styling bei allen Haartypen und -längen.
+                  ||Intelligente Temperatur-Regulierung Unser integriertes
+                  Sensorsystem reguliert die Temperatur der Heizplatten 100-mal
+                  pro Sekunde. ||Bewahrt die Haarfarbe Übermäßige Hitze kann
+                  dazu führen, dass das Haar stark ausbleicht. Der Dyson
+                  Corrale™ Haarglätter ist mit biegsamen Heizplatten
+                  ausgestattet, die ein Glätten mit weniger Hitze ermöglichen.
+                  So wird das Haar geschützt und die Farbe bewahrt.
+                  ||1Thermische Schäden gemessen an der Stärke des Haares, beim
+                  Kreieren eines gleichwertigen Haarstyles. Getestet an
+                  biegsamen Heizplatten im Vergleich zu festen Heizplatten ||2
+                  Jahre Garantie||Mit kostenlosem Dyson Abhol- und
+                  Lieferservice.
+                xpath: /html/body/div[8]
             brandText:
               - text: DYSON
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[1]/span[1]
-            manufacturer:
-              - text: DYSON
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[1]/h1[1]/span[1]
             weightNet:
               - text: 1,3 Kg
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[11]
@@ -66,10 +77,10 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[13]
             gtin:
               - text: "5025155046289"
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[2]
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[1]/li[2]/div[1]/@data-loadbee-product
             eangtin:
               - text: "5025155046289"
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[2]
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[1]/li[2]/div[1]/@data-loadbee-product
             sku:
               - text: "2900267544874"
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[1]
@@ -77,14 +88,29 @@ extractions:
               - text: "2900267544874"
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[1]
             mpc:
-              - text: 322952-01
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[3]
+              - text: "1489914"
+                xpath: /html/body/div[1]/input[2]/@value
+            shippingInfo:
+              - text: |-
+                  Tel: + 43 316 / 870-0
+                   
+                  Mo.–Fr. 9:30 bis 19:00 Uhr
+                   
+                  Sa. 9:30 bis 18:00 Uhr
+                   
+                  Allgemein: kontakt<;null;>@kastner-oehler.at
+                   
+                  Online Shop: service<;null;>@kastner-oehler.at
+                xpath: /html/body/footer[1]/div[1]/div[1]/div[1]/div[1]
             shippingDimensions:
               - text: 359.5mm x 92mm x 136mm
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[12]
+            shippingWeight:
+              - text: 2,05 Kg
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[13]
             color:
               - text: nickel/fuchsia
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[14]
+                xpath: /html/body/div[10]
             manufacturerDescription:
               - text: >-
                   Schluss mit übermäßiger Hitze. Durch biegsame Heizplatten.
@@ -128,8 +154,8 @@ extractions:
               - text: https://www.youtube.com/watch?v=bEDLqqZ8zsQ
                 xpath: /html/body/div[1]/div[4]/div[2]/div[1]/a[1]/@href
             name:
-              - text: Haarglätter - Corrale™ ( Nickel / Fuchsia )
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[1]/h1[1]/span[2]
+              - text: DYSON, Haarglätter - Corrale™ ( Nickel / Fuchsia )
+                xpath: /html/head[1]/meta[7]/@content
             specifications:
               - text: 359.5mm x 92mm x 136mm
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[12]
@@ -152,9 +178,6 @@ extractions:
                   Pay||Sofortüberweisung||Ratenkauf (nur DE)||Click & Collect
                   (Bezahlung erst bei Filialabholung)"
                 xpath: /html/body/div[7]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[8]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -162,25 +185,12 @@ extractions:
             Image360Present:
               - text: No
             nameExtended:
-              - text: |-
-                  
-                  DYSON
-                   - 
-                  Haarglätter - Corrale™ ( Nickel / Fuchsia )
-                   - 
-                  2900267544874		
+              - text: DYSON, Haarglätter - Corrale™ ( Nickel / Fuchsia ) - 1489914
             descriptionBullets:
               - text: "26"
                 type: NUMBER
                 raw: "26"
                 locale: de_AT
                 value: 26
-            shippingInfo:
-              - text: |
-                  Ships from and sold by kastner-oehler.at. 
-                  Kostenloser Versand ab € 75,- nach AT & DE
-                  Click & Collect (Filialabholung)
-                  30 Tage Rückgaberecht
-                  Kostenloser Rückversand
-        xpath: /html/body
-    timestamp: 1600168775849
+        xpath: /
+    timestamp: 1600691483388

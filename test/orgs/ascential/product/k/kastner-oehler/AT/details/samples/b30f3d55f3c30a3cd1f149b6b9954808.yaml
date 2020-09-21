@@ -2,18 +2,11 @@ input:
   _url: http://kastner-oehler.at
   URL: https://www.kastner-oehler.at/dyson-markenshop/dyson-haartrockner-dyson-supersonic-schwarz-nickel-schwarz-7345514.html
 extractions:
-  - html: https://workbench.import.io/html/run=ad2a673d-6527-42e4-80f4-17fb5a6dfb52/task=9b961f51-6dd5-4dc6-addc-49df6715545a/f2d599c4-bcd9-48df-bf40-450a6696731e.html
+  - html: https://workbench.import.io/html/run=aa7631f7-adb7-4dde-a68c-25c4aec0eed1/task=4a08c196-ec05-4397-858a-1d571fc28b4b/c2d80add-169b-4a7c-9017-c2b9862a5cfb.html
     extractionConfigId: product/details/stores/k/kastner-oehler/AT/extract
     data:
       - group:
-          - category:
-              - text: Startseite
-                xpath: /html/body/div[1]/section[1]/nav[1]/ul[1]/li[1]
-              - text: MARKEN
-                xpath: /html/body/div[1]/section[1]/nav[1]/ul[1]/li[2]
-              - text: DYSON
-                xpath: /html/body/div[1]/section[1]/nav[1]/ul[1]/li[3]
-            image:
+          - image:
               - text: https://www.kastner-oehler.at/dyson-haartrockner+-+dyson+supersonic+%28+schwarz+_+nickel+%29-1-768_1024_75-7345514_1.jpg
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
             imageAlt:
@@ -34,33 +27,40 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[7]/div[1]/@style
               - text: https://www.kastner-oehler.at/dyson-haartrockner+-+dyson+supersonic+%28+schwarz+_+nickel+%29-8-192_256_75-7345514_8.jpg
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[8]/div[1]/@style
+            category:
+              - text: Startseite
+                xpath: /html/body/div[1]/section[1]/nav[1]/ul[1]/li[1]
+              - text: MARKEN
+                xpath: /html/body/div[1]/section[1]/nav[1]/ul[1]/li[2]
+              - text: DYSON
+                xpath: /html/body/div[1]/section[1]/nav[1]/ul[1]/li[3]
             price:
-              - text: "399"
+              - text: 399,
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[2]/span[3]/span[1]/@content
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[9]
             description:
-              - text: >-
-                  Temperatursensor schützt vor extremen Hitzeschäden, um den
-                  natürlichen Glanz zu erhalten
-                   Die intelligente Temperatur-Regulierung misst die Lufttemperatur 20-mal pro Sekunde.
-                   Schnelles Trocknen
-                   Präziser und starker Luftstrom dank des leistungsstarken Dyson digitalen Motors V9 und der Air Multiplier™ Technologie.
-                   Entwickelt für Balance
-                   Der erste Haartrockner, bei dem der Motor nicht im Kopf, sondern im Griff sitzt.
-                   Optimierte Akustik
-                   Der leistungsstarke Dyson digitale Motor V9 wurde so optimiert, dass er eine unhörbare Frequenz erzeugt. Er ist außerdem von einem System zur Vibrationsreduzierung umgeben.
-                   Magnetische Aufsätze
-                   Der erste Haartrockner mit magnetischen Aufsätzen, die sich leicht austauschen und drehen lassen.
-                   Cool Touch Technologie
-                   Dank Heat Shield-Technologie bleiben die Oberflächen der Aufsätze kühl – selbst beim Stylen aus nächster Nähe.
-                   2 Jahre Garantie
-                   Mit kostenlosem Dyson Abhol- und Lieferservice.
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/p[1]
+              - text: Temperatursensor schützt vor extremen Hitzeschäden, um den natürlichen
+                  Glanz zu erhalten||Die intelligente Temperatur-Regulierung
+                  misst die Lufttemperatur 20-mal pro Sekunde.||Schnelles
+                  Trocknen||Präziser und starker Luftstrom dank des
+                  leistungsstarken Dyson digitalen Motors V9 und der Air
+                  Multiplier™ Technologie.||Entwickelt für Balance||Der erste
+                  Haartrockner, bei dem der Motor nicht im Kopf, sondern im
+                  Griff sitzt.||Optimierte Akustik||Der leistungsstarke Dyson
+                  digitale Motor V9 wurde so optimiert, dass er eine unhörbare
+                  Frequenz erzeugt. Er ist außerdem von einem System zur
+                  Vibrationsreduzierung umgeben.||Magnetische Aufsätze||Der
+                  erste Haartrockner mit magnetischen Aufsätzen, die sich leicht
+                  austauschen und drehen lassen.||Cool Touch Technologie||Dank
+                  Heat Shield-Technologie bleiben die Oberflächen der Aufsätze
+                  kühl – selbst beim Stylen aus nächster Nähe.||2 Jahre
+                  Garantie||Mit kostenlosem Dyson Abhol- und Lieferservice.
+                xpath: /html/body/div[8]
             brandText:
               - text: DYSON
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[1]/span[1]
-            manufacturer:
-              - text: DYSON
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[1]/h1[1]/span[1]
             weightNet:
               - text: 630 g
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[20]
@@ -69,10 +69,10 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[22]
             gtin:
               - text: "5025155047569"
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[2]
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[1]/li[2]/div[1]/@data-loadbee-product
             eangtin:
               - text: "5025155047569"
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[2]
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[1]/li[2]/div[1]/@data-loadbee-product
             sku:
               - text: "2900268052811"
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[1]
@@ -80,23 +80,29 @@ extractions:
               - text: "2900268052811"
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[1]
             mpc:
-              - text: 346469-01
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/span[3]
+              - text: "1507079"
+                xpath: /html/body/div[1]/input[2]/@value
+            shippingInfo:
+              - text: |-
+                  Tel: + 43 316 / 870-0
+                   
+                  Mo.–Fr. 9:30 bis 19:00 Uhr
+                   
+                  Sa. 9:30 bis 18:00 Uhr
+                   
+                  Allgemein: kontakt<;null;>@kastner-oehler.at
+                   
+                  Online Shop: service<;null;>@kastner-oehler.at
+                xpath: /html/body/footer[1]/div[1]/div[1]/div[1]/div[1]
             shippingDimensions:
               - text: 386 x 373 x 102
                 xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[21]
+            shippingWeight:
+              - text: 3, 75 kg
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[22]
             color:
               - text: Schwarz / Nickel
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[23]
-            name:
-              - text: Haartrockner - dyson supersonic ( Schwarz / Nickel )
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[1]/h1[1]/span[2]
-            specifications:
-              - text: 386 x 373 x 102
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[21]
-            warranty:
-              - text: 2 Jahre Garantie
-                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/p[1]/strong[1]
+                xpath: /html/body/div[10]
             manufacturerDescription:
               - text: >-
                   So Super war Haare trocknen noch nie.
@@ -119,110 +125,10 @@ extractions:
                    
                   Liegt besonders gut in der Hand
                 xpath: /html/body/div[1]/div[4]/div[1]/div[1]
-            videos:
-              - text: https://youtu.be/eDZRcRMPzOk
-                xpath: /html/body/div[1]/div[4]/div[2]/div[1]/a[1]/@href
-            availabilityText:
-              - text: Out of Stock
-            technicalInformationPdfPresent:
-              - text: No
-            termsAndConditions:
-              - text: No
-            Image360Present:
-              - text: No
-            nameExtended:
-              - text: |-
-                  
-                  DYSON
-                   - 
-                  Haartrockner - dyson supersonic ( Schwarz / Nickel )
-                   - 
-                  2900268052811		
-            descriptionBullets:
-              - text: "35"
-                type: NUMBER
-                raw: "35"
-                locale: de_AT
-                value: 35
-            shippingInfo:
-              - text: |
-                  Ships from and sold by kastner-oehler.at. 
-                  Kostenloser Versand ab € 75,- nach AT & DE
-                  Click & Collect (Filialabholung)
-                  30 Tage Rückgaberecht
-                  Kostenloser Rückversand
-          - manufacturerDescription:
               - text: Dyson Supersonic
                 xpath: /html/body/div[1]/div[5]/div[1]/div[1]/div[1]
               - text: Verschiedene Stylingaufsätze
                 xpath: /html/body/div[1]/div[5]/div[2]/div[1]/div[1]
-            videos:
-              - text: https://www.youtube.com/watch?v=JDZ-RHMeL4k
-                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/a[1]/@href
-              - text: https://www.youtube.com/watch?v=QgM4PV9-Tc0
-                xpath: /html/body/div[1]/div[5]/div[2]/div[1]/a[1]/@href
-            availabilityText:
-              - text: Out of Stock
-            technicalInformationPdfPresent:
-              - text: No
-            termsAndConditions:
-              - text: No
-            Image360Present:
-              - text: No
-            nameExtended:
-              - text: |-
-                  
-                  DYSON
-                   - 
-                  Haartrockner - dyson supersonic ( Schwarz / Nickel )
-                   - 
-                  2900268052811		
-            descriptionBullets:
-              - text: "35"
-                type: NUMBER
-                raw: "35"
-                locale: de_AT
-                value: 35
-            shippingInfo:
-              - text: |
-                  Ships from and sold by kastner-oehler.at. 
-                  Kostenloser Versand ab € 75,- nach AT & DE
-                  Click & Collect (Filialabholung)
-                  30 Tage Rückgaberecht
-                  Kostenloser Rückversand
-          - manufacturerImages:
-              - text: https://www.kastner-oehler.at/wp-content/uploads/2020/07/605-models-quer-kleiner-1-scaled-1120x384.jpg
-                xpath: /html/body/div[1]/div[6]/div[1]/div[1]/div[1]/img[1]/@src
-            availabilityText:
-              - text: Out of Stock
-            technicalInformationPdfPresent:
-              - text: No
-            termsAndConditions:
-              - text: No
-            Image360Present:
-              - text: No
-            nameExtended:
-              - text: |-
-                  
-                  DYSON
-                   - 
-                  Haartrockner - dyson supersonic ( Schwarz / Nickel )
-                   - 
-                  2900268052811		
-            descriptionBullets:
-              - text: "35"
-                type: NUMBER
-                raw: "35"
-                locale: de_AT
-                value: 35
-            shippingInfo:
-              - text: |
-                  Ships from and sold by kastner-oehler.at. 
-                  Kostenloser Versand ab € 75,- nach AT & DE
-                  Click & Collect (Filialabholung)
-                  30 Tage Rückgaberecht
-                  Kostenloser Rückversand
-          - manufacturerDescription:
               - text: >-
                   Styling Düse
                    Der präzise und komprimierte Luftstrom und die besonders schmale Styling Düse ermöglichen ein perfektes Styling, Strähne für Strähne.
@@ -235,43 +141,6 @@ extractions:
                   Diffusor Aufsatz
                    Der Diffusor Aufsatz ist sowohl für lockiges Haar als auch für glattes Haar geeignet. Der Breite Aufsatz mit längeren Zinken, verteilt die Luft gleichmäßig und ist perfekt um Wellen und Locken zu definieren.
                 xpath: /html/body/div[1]/div[7]/div[3]/div[1]/div[1]
-            videos:
-              - text: https://youtu.be/_EHCbGkehIo
-                xpath: /html/body/div[1]/div[7]/div[1]/div[1]/a[1]/@href
-              - text: https://youtu.be/7xiBG3dnl1A
-                xpath: /html/body/div[1]/div[7]/div[2]/div[1]/a[1]/@href
-              - text: https://youtu.be/BLYVwy3ZeK8
-                xpath: /html/body/div[1]/div[7]/div[3]/div[1]/a[1]/@href
-            availabilityText:
-              - text: Out of Stock
-            technicalInformationPdfPresent:
-              - text: No
-            termsAndConditions:
-              - text: No
-            Image360Present:
-              - text: No
-            nameExtended:
-              - text: |-
-                  
-                  DYSON
-                   - 
-                  Haartrockner - dyson supersonic ( Schwarz / Nickel )
-                   - 
-                  2900268052811		
-            descriptionBullets:
-              - text: "35"
-                type: NUMBER
-                raw: "35"
-                locale: de_AT
-                value: 35
-            shippingInfo:
-              - text: |
-                  Ships from and sold by kastner-oehler.at. 
-                  Kostenloser Versand ab € 75,- nach AT & DE
-                  Click & Collect (Filialabholung)
-                  30 Tage Rückgaberecht
-                  Kostenloser Rückversand
-          - manufacturerDescription:
               - text: |-
                   3 präzise Geschwindigkeitsstufen
                    Hoch – für schnelleres Trocknen
@@ -289,44 +158,37 @@ extractions:
                    20°C Kaltstufe, für das perfekte Finish
                 xpath: /html/body/div[1]/div[8]/div[3]/div[1]/div[2]
             manufacturerImages:
+              - text: https://www.kastner-oehler.at/wp-content/uploads/2020/07/605-models-quer-kleiner-1-scaled-1120x384.jpg
+                xpath: /html/body/div[1]/div[6]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://www.kastner-oehler.at/wp-content/uploads/2020/06/dys_at_subcatbanner_supersnoic7_kundoe_960x480.jpg
                 xpath: /html/body/div[1]/div[8]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://www.kastner-oehler.at/wp-content/uploads/2020/06/dys_at_subcatbanner_supersnoic8_kundoe_960x480.jpg
                 xpath: /html/body/div[1]/div[8]/div[2]/div[1]/div[1]/img[1]/@src
               - text: https://www.kastner-oehler.at/wp-content/uploads/2020/06/dys_at_subcatbanner_supersnoic9_kundoe_960x480.jpg
                 xpath: /html/body/div[1]/div[8]/div[3]/div[1]/div[1]/img[1]/@src
-            availabilityText:
-              - text: Out of Stock
-            technicalInformationPdfPresent:
-              - text: No
-            termsAndConditions:
-              - text: No
-            Image360Present:
-              - text: No
-            nameExtended:
-              - text: |-
-                  
-                  DYSON
-                   - 
-                  Haartrockner - dyson supersonic ( Schwarz / Nickel )
-                   - 
-                  2900268052811		
-            descriptionBullets:
-              - text: "35"
-                type: NUMBER
-                raw: "35"
-                locale: de_AT
-                value: 35
-            shippingInfo:
-              - text: |
-                  Ships from and sold by kastner-oehler.at. 
-                  Kostenloser Versand ab € 75,- nach AT & DE
-                  Click & Collect (Filialabholung)
-                  30 Tage Rückgaberecht
-                  Kostenloser Rückversand
-        xpath: /html/body/div[1]
-      - group:
-          - additionalDescBulletInfo:
+            videos:
+              - text: https://youtu.be/eDZRcRMPzOk
+                xpath: /html/body/div[1]/div[4]/div[2]/div[1]/a[1]/@href
+              - text: https://www.youtube.com/watch?v=JDZ-RHMeL4k
+                xpath: /html/body/div[1]/div[5]/div[1]/div[1]/a[1]/@href
+              - text: https://www.youtube.com/watch?v=QgM4PV9-Tc0
+                xpath: /html/body/div[1]/div[5]/div[2]/div[1]/a[1]/@href
+              - text: https://youtu.be/_EHCbGkehIo
+                xpath: /html/body/div[1]/div[7]/div[1]/div[1]/a[1]/@href
+              - text: https://youtu.be/7xiBG3dnl1A
+                xpath: /html/body/div[1]/div[7]/div[2]/div[1]/a[1]/@href
+              - text: https://youtu.be/BLYVwy3ZeK8
+                xpath: /html/body/div[1]/div[7]/div[3]/div[1]/a[1]/@href
+            name:
+              - text: DYSON, Haartrockner - dyson supersonic ( Schwarz / Nickel )
+                xpath: /html/head[1]/meta[7]/@content
+            specifications:
+              - text: 386 x 373 x 102
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/ul[1]/li[21]
+            warranty:
+              - text: 2 Jahre Garantie
+                xpath: /html/body/div[1]/div[1]/article[1]/form[2]/div[2]/div[7]/ul[2]/li[1]/div[1]/span[1]/p[1]/strong[1]
+            additionalDescBulletInfo:
               - text: "Gewicht des Dyson Digitaler Motors (DDM) V9: 49 g||Durchmesser des DDM
                   V9: 27 mm||Geschwindigkeit des DDM V9: Bis zu 110.000 U /
                   min||Leistung: 1.600 W||Stromspannung: 230 V||Lautstärke: 77
@@ -347,9 +209,6 @@ extractions:
                   Pay||Sofortüberweisung||Ratenkauf (nur DE)||Click & Collect
                   (Bezahlung erst bei Filialabholung)"
                 xpath: /html/body/div[7]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[8]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -357,26 +216,12 @@ extractions:
             Image360Present:
               - text: No
             nameExtended:
-              - text: |-
-                  
-                  DYSON
-                   - 
-                  Haartrockner - dyson supersonic ( Schwarz / Nickel )
-                   - 
-                  2900268052811		
+              - text: DYSON, Haartrockner - dyson supersonic ( Schwarz / Nickel ) - 1507079
             descriptionBullets:
               - text: "35"
                 type: NUMBER
                 raw: "35"
                 locale: de_AT
                 value: 35
-            shippingInfo:
-              - text: |
-                  Ships from and sold by kastner-oehler.at. 
-                  Kostenloser Versand ab € 75,- nach AT & DE
-                  Click & Collect (Filialabholung)
-                  30 Tage Rückgaberecht
-                  Kostenloser Rückversand
-        xpath: /html/body
-        htmlExtraction: https://crawl-assets.import.io/html/run=ad2a673d-6527-42e4-80f4-17fb5a6dfb52/task=9b961f51-6dd5-4dc6-addc-49df6715545a/f2d599c4-bcd9-48df-bf40-450a6696731e.html
-    timestamp: 1600168773174
+        xpath: /
+    timestamp: 1600691480880
