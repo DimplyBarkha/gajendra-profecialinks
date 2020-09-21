@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="product-grid"]//div[@class="product-block"]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="product-block"]//a[contains(@class,"add-to-cart-btn")]/@href
+    regExp: [^(.*)$]
+    regExpReplace: 'https://www.stakelums.ie$1'
+  - name: name
+    singleValue: false
+    xpath: //div[@class="item"]//h3/a/text()
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class="product-thumb"]/@src
+    regExp: [^(.*)$]
+    regExpReplace: 'https://www.stakelums.ie$1'
+  - name: id
+    singleValue: false
+    xpath: //small[@class='sku-man']/text()
+    regExp: Dyson (.*)
+    regExpReplace: $1 
+  - name: brand
+    singleValue: false
+    xpath: //small[@class='sku-man']/text()
+    regExp: (Dyson)(\s)(.*)
+    regExpReplace: $1 
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="rating-block"]//span/@class
+    regExp: (\d)(\d?)
+    regExpReplace: $1.$2
+  - name: price
+    singleValue: false
+    xpath:  //span[@class="normprice"]/text()
+ 
+
