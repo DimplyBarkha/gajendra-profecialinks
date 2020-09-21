@@ -50,7 +50,6 @@ module.exports = {
         const item = document.querySelectorAll('div.product-container')
           ? document.querySelectorAll('div.product-container')[i] : [];
         // @ts-ignore
-        console.log(item);
         const starsWidth = item && item.querySelector('div.stars-on[dataaverage]')
           // @ts-ignore
           ? item.querySelector('div.stars-on[dataaverage]') : '';
@@ -59,7 +58,7 @@ module.exports = {
         console.log(stars);
         if (stars) {
           const aggRating = parseFloat(stars.replace(/width:\s([\d.]+)%;/g, '$1')) / 20;
-          addElementToDocument(item, 'aggRating', aggRating.toFixed(1).replace(',', '.'));
+          addElementToDocument(item, 'aggRating', aggRating.toFixed(2).replace('.', ','));
         }
         addElementToDocument(item, 'pd_rank', lastProductPosition + i);
       }
