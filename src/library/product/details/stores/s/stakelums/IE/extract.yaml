@@ -60,7 +60,8 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
+    xpath: //a[@href="#cart-added-message"]/text()
+    regExp: (Add to Cart)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
