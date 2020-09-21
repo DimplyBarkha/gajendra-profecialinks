@@ -74,17 +74,12 @@ const transform = (data) => {
         } else {
           delete row.variants;
         }
-        if (row.ratingCount) {
-          row.ratingCount.forEach(item => {
-            item.text = item.text;
-          });
-        }
-        if (row.aggregateRating) {
-          row.aggregateRating.forEach(item => {
-            item.text = item.text;
-          });
-        }
       }
+      if (row.nameExtended) {
+        row.nameExtended.forEach(item => {
+          item.text = item.text + " - " + row.name[0]["text"];
+        });
+      }      
     }
   }
   return data;

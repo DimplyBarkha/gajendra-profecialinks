@@ -3,9 +3,12 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class="product-usp"]/i[@class="icon-delivery"]/parent::div
   - name: price
     singleValue: false
-    xpath: //p[@class="product__price"]/span[ not(contains(@class, 'pre-reduction'))][1]
+    xpath: //p[@class="product__price"]/span[1]
   - name: image
     singleValue: false
     xpath: //div[@class="slim-slide zoom active"]/img/@src
@@ -18,6 +21,9 @@ fields:
   - name: category
     singleValue: false
     xpath: //ul[@class="product__breadcrumb flex-container"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h2[@class="product__brandname"]
   - name: listPrice
     singleValue: false
     xpath: //p[@class="product__price"]/span[@class="pre-reduction"]
@@ -29,11 +35,10 @@ fields:
     xpath: //button[@class="wishlist-button"]/@data-sku
   - name: variantId
     singleValue: false
-    xpath: //button[@class="wishlist-button"]/@data-sku
   - name: ratingCount
     singleValue: false
     xpath: //span[@class="ratings-stat__total-ratings"]
-    defaultValue: '0'
+    defaultValue: 0
     regExp: (\d+)(\s*.*)
     regExpReplace: $1    
   - name: aggregateRating
@@ -47,7 +52,6 @@ fields:
     xpath: //div[@class="follow-brand__title"]
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
   - name: color
     singleValue: false
   - name: name
@@ -58,7 +62,10 @@ fields:
     xpath: //div[@class="info_content"]
   - name: variantInformation
     singleValue: false
-    xpath: //ul[@class="product__colorlist"]/li/a/@title
+    xpath: //div[@id="sizeSelector"]//ul[@id="product_size"]/li
+  - name: variantId
+    singleValue: false
+    xpath: //button[@class="wishlist-button"]/@data-sku
   - name: availabilityText
     singleValue: false
     xpath: //div[@id="sizeSelector"]//p[@class="outofstock__cta"]
