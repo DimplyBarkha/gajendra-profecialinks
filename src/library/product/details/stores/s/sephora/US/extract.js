@@ -224,6 +224,7 @@ module.exports = {
       }
       if(variantSkuArray.length){
         let variantsStr = variantSkuArray.join(" | ")
+        addHiddenDiv(`ii_variantCount`, variantSkuArray.length);
         addHiddenDiv(`ii_variants`, variantsStr);
       }
 

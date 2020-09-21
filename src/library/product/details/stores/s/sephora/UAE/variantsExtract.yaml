@@ -2,7 +2,7 @@ fields:
   - name: variantId
     singleValue: true
     description: variant id, to uniquely identify variant
-    xpath: //div[@id='ii_variant']
+    xpath: //meta[contains(@itemprop,"sku")]/@content
   - name: variantUrl
     singleValue: true
     description: variant Url

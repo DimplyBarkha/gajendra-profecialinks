@@ -33,14 +33,14 @@ fields:
     description: The number of ratings
     type: NUMBER
     xpath: //meta[contains(@itemprop,"reviewCount")]/@content
-  - name: videos !!!!!!!!!!!!!!!!!!
+  - name: videos 
     singleValue: false
     description: URLs of videos on page
   - name: nameExtended
     singleValue: false
     description: The product name
     xpath: //div[@id='ii_nameExtended']
-  - name: category !!!!!!!!!!!!!!!!!!!!!
+  - name: category
     xpath: //div[@class='breadcrumb-element']/a
   - name: warnings
     singleValue: false

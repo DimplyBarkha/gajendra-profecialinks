@@ -1,10 +1,11 @@
+const { transform } = require('./format');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'UAE',
     store: 'sephora',
-    transform: null,
+    transform,
     domain: 'sephora.ae',
     zipcode: '',
   },
@@ -16,15 +17,15 @@ module.exports = {
       while (scrollTop !== 20000) {
         scrollTop += 2000;
         window.scroll(0, scrollTop);
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
 
         console.log("SCROLLING")
-        if (scrollTop === 90000) {
+        if (scrollTop === 20000) {
           break;
         }
       }
     });
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    await new Promise(resolve => setTimeout(resolve, 5000));
 
     const nameExtended = await context.evaluate(function(parentInput) {
 
@@ -41,7 +42,7 @@ module.exports = {
       let variant = '//span[contains(@class, "selected-value-name")]';
       let brandName = '//span[contains(@class,"brand-name")]';
       let prodName = '//span[contains(@class, "product-name")]';
-      let manufImages = '//div[contains(@class, "brand-content-block")]//img/@src';
+      let manufImages = '//div[contains(@class, "brand-content-block")]//img//@src';
       var manufImageCheck = document.evaluate( manufImages, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       var variantCheck = document.evaluate( variant, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       var brandNameCheck = document.evaluate( brandName, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);

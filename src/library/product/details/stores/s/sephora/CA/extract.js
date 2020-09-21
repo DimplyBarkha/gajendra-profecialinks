@@ -17,7 +17,8 @@ module.exports = {
       if(checkResults.snapshotLength > 0){
         let checkNone = checkResults.snapshotItem(0).textContent;
         if(checkNone === "0 Product results:"){
-          throw new Error("notFound");
+          // throw new Error("notFound");
+          console.log("NO PRODUCTS FOUND")
         }
       }
 
@@ -46,7 +47,8 @@ module.exports = {
     });
 
     if(!pageCheck){
-      throw new Error("productPageNotLoaded");
+      // throw new Error("productPageNotLoaded");
+      
     }
 
 
@@ -149,11 +151,9 @@ module.exports = {
       return videoIdForUrl
     });
 
-
     
     const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl, acceptHeader) {
       let srcArray = [];
-      console.log("VIDEOID" + " " + videoIdForUrl)
       async function fetchRetry(url, n) {
         function handleErrors(response) {
           if (response.status === 200){
@@ -194,12 +194,9 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
       let prodUrl = window.location.href.split("&keyword=")
-      if(prodUrl[0]){
-        let urlUpdate = prodUrl[0].replace(/.com/g, ".com/ca/en")
-        addHiddenDiv(`ii_url`, urlUpdate);
-      }
+      let srcForSku
+      addHiddenDiv(`ii_url`, prodUrl[0]);
       addHiddenDiv(`ii_parentInput`, parentInput);
-
 
 
       const element = document.querySelectorAll("script[type='application/ld+json']");
@@ -217,7 +214,8 @@ module.exports = {
         }
       }
       if(variantObj){
-        if(variantObj.offers){
+        if(variantObj.offers && variantObj.offers[0].sku){
+
           for(let j = 0; j < variantObj.offers.length; j++){
             if(variantObj.offers[j].sku){
               variantSkuArray.push(variantObj.offers[j].sku)
@@ -227,6 +225,7 @@ module.exports = {
       }
       if(variantSkuArray.length){
         let variantsStr = variantSkuArray.join(" | ")
+        addHiddenDiv(`ii_variantCount`, variantSkuArray.length);
         addHiddenDiv(`ii_variants`, variantsStr);
       }
 
@@ -263,6 +262,13 @@ module.exports = {
           if(!splits[0].includes("ITEM")){
             let removeSize = splits[0].replace(/SIZE /g, "");
             addHiddenDiv(`ii_quantity`, removeSize);
+          }
+        }
+        if(info.includes("ITEM")){
+          let skuSelect = info.match(/ITEM ([0-9])+/g);
+          if(skuSelect){
+            let skuNum = skuSelect[0].replace(/ITEM /g, "")
+            addHiddenDiv(`ii_sku`, skuNum);
           }
         }
       }

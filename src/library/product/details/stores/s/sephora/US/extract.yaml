@@ -9,7 +9,7 @@ fields:
   - name: productUrl
     xpath: //div[@id='ii_url']
   - name: name
-    xpath: //h1[contains(@data-comp,"DisplayName")]/span
+    xpath: (//div[contains(@class, "product-heading")]/span)[1]|//h1[contains(@data-comp,"DisplayName")]/span
   - name: image
     singleValue: true
     description: URL of the main product image
@@ -99,7 +99,9 @@ fields:
     # regExp: ([0-9]+$)
   - name: variantId
     xpath: //div[@id='ii_sku']
-    regExp: ([0-9]+$)
+    # regExp: ([0-9]+$)
+  - name: variantCount
+    xpath: //div[@id="ii_variantCount"]
   - name: color
     xpath: //div[@id='ii_color']
     # xpath: (//span[contains(@data-at, "item_variation_type") and contains(., "COLOR")])[1]
