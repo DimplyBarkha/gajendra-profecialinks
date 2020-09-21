@@ -9,7 +9,7 @@ const transform = (data, context) => {
       for (const row of group) {  
         try {
             if (row.price) {
-            row.price= [{ text:row.price[0].text.substring(1) }, { text:row.price[0].text.charAt(0) }];
+              row.price = [{ text: row.price[0].text }, { text: row.priceCurrency[0].text }];            
             console.log(row.price)
              }
         } catch (exception) { console.log('Error in transform', exception); }
