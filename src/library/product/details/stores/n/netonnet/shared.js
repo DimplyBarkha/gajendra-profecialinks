@@ -58,13 +58,18 @@ const transform = (data) => {
 				row.firstVariant = [{ text: newText }];
 			} */
 			if (row.aggregateRating) {
-				let newText = 0;
+				let newText = '0';
 				row.aggregateRating.forEach(item => {
-					var received_per = item.raw.replace("width: ", "")
-					var received_per = received_per.replace("%", "");
+					console.log(item);
+					/* var received_per = item.raw.replace("width: ", "")
+					var received_per = received_per.replace("%", ""); */
+					var received_per = item.value*100;
 					if(received_per >= 1){
-						var aggregate_rating = ( received_per * 5 )/100;
-						newText = aggregate_rating;
+						/* var aggregate_rating = ( received_per * 5 )/100;
+						newText = aggregate_rating; */
+						var aggregate_rating = ( received_per * 5 )/100;    
+                        var newaggregate_rating = aggregate_rating.toString().replace(".", ",");
+                        newText = newaggregate_rating;
 					}
 				});
 				row.aggregateRating = [{ text: newText }];
