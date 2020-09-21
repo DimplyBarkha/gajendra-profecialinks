@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//*[@id="product-image-carousel"]//img[@src or @srcset]/@src | //*[@id="product-image-carousel"]//img[@src or @srcset]/@srcset)[1]
+    xpath: //div[@id='images'][1]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -14,16 +14,14 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id="product-image-carousel"]//div[@class="product-image-container"]/picture/source[1]/@data-srcset
-    regExp: .* \d*w, (.*) \d*w
-    regExpReplace: $1
+    xpath: //div[@id='images'][position() > 1]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //*[@class="breadcrumb"]/li
+    xpath: //*[@class="breadcrumb"]/li[position() > 1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -47,8 +45,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="product-basic-info"]
-    regExpReplace: $1
+    xpath: //div[@id='descBulletInfo'] | //div[@id="description"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -62,7 +59,6 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[@id='brand']
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -129,7 +125,7 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //div[@id="specifications"]
+    xpath: //div[@id="dimensions"]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -148,7 +144,6 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="product-tab-description"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -191,7 +186,6 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //div[@id="product-information-tabs"]
   - name: packaging
     singleValue: true
     description: Packaging information
