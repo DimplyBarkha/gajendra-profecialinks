@@ -129,7 +129,7 @@ fields:
     description: Gross weight as described on the page
   - name: listPrice
     singleValue: false
-    xpath: concat(//div[@class="price-big"], //input[contains(@id,"CurrentCurrency")]/@value)
+    # xpath: concat(//div[@class="price-big"], //input[contains(@id,"CurrentCurrency")]/@value)
     description: The stated undiscounted price for the product 
   - name: additionalDescBulletInfo
     singleValue: false
@@ -169,6 +169,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //*[contains(text(), 'EAN')]/following::td[1]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
