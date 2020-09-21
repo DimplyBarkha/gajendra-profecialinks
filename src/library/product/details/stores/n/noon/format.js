@@ -99,6 +99,46 @@ const transform = (data) => {
           row.variantCount = [{ "text": row.variantCount.length }];
         }
       }
+      if (totBullet > 0) {
+        totBullet++;
+        row.descriptionBullets = [{ "text": totBullet }]
+      }
+      if (row.firstVariant) {
+        if (row.firstVariant.length > 0) {
+          var myRegexp = /.+\/(.+?)_.+/g;
+          var match = myRegexp.exec(row.firstVariant[0]["text"]);
+          if (match.length) {
+            row.firstVariant = [{ "text": match[1].trim(), "xpath": row.firstVariant[0]["xpath"] }];
+            isVariant = 'yes';
+          }
+        } else {
+          delete row.firstVariant
+        }
+      }
+      if (row.variants) {
+        var allvariantsArr = [];
+        if (row.variants.length > 0) {
+          row.variants.forEach(item => {
+            var myRegexp = /.+\/(.+?)_.+/g;
+            var match = myRegexp.exec(item.text);
+            if (match.length) {
+              allvariantsArr.push(match[1].trim());
+            }
+          });
+          row.variants = [{ "text": allvariantsArr.join(' | '), "xpath": row.variants[0]["xpath"] }]
+        }
+      }
+      if (row.variantInformation) {
+        var allvariantsInfArr = [];
+        row.variantInformation.forEach(item => {
+          allvariantsInfArr.push(item.text);
+        });
+        row.variantInformation = [{ "text": allvariantsInfArr.join(' | '), "xpath": row.variantInformation[0]["xpath"] }]
+      }
+
+      if (isVariant == 'no') {
+        row.variantCount = [{ "text": 0 }];
+      }
     }
   }
   return data;
