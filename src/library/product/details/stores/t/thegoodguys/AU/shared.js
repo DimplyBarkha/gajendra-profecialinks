@@ -30,6 +30,15 @@ const transform = (data) => {
         });
         row.specifications = [{ text }];
       }
+
+
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          if (item.text.startsWith('|')) {
+            item.text = item.text.replace('|', '');
+          }
+        });
+      }
     }
   }
 

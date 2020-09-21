@@ -10,13 +10,13 @@ fields:
   - name: imageAlt
     xpath: //div[@class="slick-slide slick-current slick-active"]/img/@alt
   - name: alternateImages
-    xpath: //nav[@class="product-gallery-nav"]//li[@class="product-gallery-thumb " or @class="product-gallery-thumb hide"]//img/@src
+    xpath: //nav[@class="product-gallery-nav"]//li[contains(@class,"product-gallery-thumb")][not(contains(@class,"active"))]//img/@src
     regExp: (.+)(?=\?)
     regExpReplace: http:$1
   - name: metaKeywords
     xpath: //meta[@name="keywords"]/@content
   - name: category
-    xpath: //ol[@class="breadcrumb"]//li[@typeof="ListItem"]
+    xpath: //ol[@class="breadcrumb"]//li[@typeof="ListItem"][position()>1]
   - name: nameExtended
     xpath: //div[@class="rowContainer nopadding " or @class="rowContainer nopadding"]//h1
   - name: price
@@ -70,7 +70,7 @@ fields:
     xpath: //th[contains(text(),"olour")]/following-sibling::td
   - name: colorCode
   - name: manufacturerDescription
-    xpath: //body/@enhancedcontent | //div[@id="inpage_container"]
+    xpath: //body/@enhancedcontent | //div[@id="inpage_container"]//div[contains(@class,"inpage_block")]
   - name: manufacturerImages
     xpath: //body/@images
   - name: videos
@@ -101,14 +101,11 @@ fields:
   - name: variants
   - name: additionalDescBulletInfo
   - name: technicalInformationPdfPresent
-    xpath: //div[@id="tech_toogle"]//h2//a[contains(@href,"pdf")]
+    xpath: //div[@class="tile-content"]//a[contains(@href,"pdf")]
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue: No
   - name: termsAndConditions
-    xpath: //a[contains(@href,"terms-and-conditions")][contains(.,"Terms and Conditions")]
-    regExp: (.+)
-    regExpReplace: 'Yes'
     defaultValue: No
   - name: customerServiceAvailability
     xpath: //div[contains(@class,"cust")]/h4
