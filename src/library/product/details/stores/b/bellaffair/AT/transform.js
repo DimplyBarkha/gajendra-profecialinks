@@ -3,7 +3,7 @@ const transform = (data) => {
         for (const row of group) {
             try {
                 if (row.price) {
-                    row.price = [{ text: row.price[0].text.substring(1) }, { text: row.price[0].text.charAt(0) }];
+                    row.price = [{ text: row.price[0].text.substring(1).trim() }, { text: row.price[0].text.charAt(0) }];
                 }
                 if (row.color) {
                     row.color = [{ text: row.color[0].text.substring(1) }];
@@ -61,7 +61,13 @@ const transform = (data) => {
                     text = row.promotion[0].text.replace(/\n/g, ' ');;
                     row.promotion = [{ text }];
                 }
-
+                if (row.quantity) {
+                    let quantityArr = row.quantity[0].text.split('/');
+                   
+                    if (quantityArr[1]) {
+                        row.quantity[0].text = quantityArr[1].replace(')', '').trim();
+                    }
+                }
             } catch (exception) { console.log('Error in transform', exception); }
         }
     }

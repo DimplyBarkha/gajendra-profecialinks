@@ -14,8 +14,7 @@ fields:
     xpath: //*[contains(@class,'detailEntryText')]
   - name: brandText
     singleValue: true
-    xpath:  //li[contains(text(), 'Marke')]
-    regExp: (?<=:).*
+    xpath:  //h1[contains(@class,'js-title')]/span[@class='brand']
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
@@ -55,8 +54,7 @@ fields:
     xpath: //meta[@itemprop='sku']/@content
   - name: gtin
     singleValue: true
-    xpath: //p[@class='small shopArtEan']
-    regExp:  (?<=EAN:).*
+    xpath: //meta[@itemprop='gtin13']/@content
   - name: variantId
     singleValue: true
     xpath: //meta[@itemprop='sku']/@content
@@ -82,9 +80,9 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[@class="detailVideo"]//iframe//@src
-  - name: price_currency
-    singleValue: false
-    xpath: //meta[@itemprop="priceCurrency"]/@content
+  #- name: price_currency
+  #  singleValue: false
+  #  xpath: //meta[@itemprop="priceCurrency"]/@content
   - name: weightNet
     singleValue: false
     xpath: //li[contains(text(), 'Gewicht')]
@@ -125,3 +123,6 @@ fields:
   - name: promotion
     singleValue: true
     xpath: //div[@class="detail-price"]//div[@class="staffelPrice"]
+  - name: quantity
+    singleValue: true
+    xpath: //div[@class="detail-price"]//p[contains(@class,"small")]
