@@ -21,22 +21,26 @@ const transform = (data) => {
       for (const row of group) {
         
         if (row.description) {
-            row.description[0].text = row.description[0].text.replace(/(\n\s*){3,}/g, '').replace(/(\n\s*){2,}/g, '').replace(/(\n\s*){1,}/g, ' || ');
+          row.description[0].text = cleanUp(row.description[0].text);
         }
         
         if (row.specifications) {
-            row.specifications = row.specifications.map((specification) => {
-               return { text: specification.text.replace(/(\n\s*){3,}/g, ' : ').replace(/(\n\s*){1,}/g, ' : ')};
-            });
-        }
-        if (row.imageZoomFeaturePresent) {
-            row.imageZoomFeaturePresent[0].text = "Yes"
-        } else {
-            row.imageZoomFeaturePresent[0].text = "No"
+          row.specifications = row.specifications.map((specification) => {
+            return { text: specification.text.replace(/(\n\s*){5,}/g, ' || ').replace(/(\n\s*){3,}/g, ' : ')};
+          });
         }
 
-        if(row.aggregateRating) {
-            row.aggregateRating[0].text = Number(row.aggregateRating[0].text).toFixed(1);
+        if (row.imageZoomFeaturePresent) {
+          row.imageZoomFeaturePresent[0].text = "Yes"
+        } else {
+          row.imageZoomFeaturePresent[0].text = "No"
+        }
+
+        if(row.brandText && row.name) {
+          row.brandText[0].text = row.brandText[0].text.replace(/['"]+/g, '');
+          if(row.name[0].text.split(' ')[0] !== row.brandText[0].text) {
+            row.nameExtended[0].text = row.brandText[0].text + " - " + row.name[0].text;
+          }
         }
       }
     }
