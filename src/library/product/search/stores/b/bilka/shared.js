@@ -29,9 +29,9 @@ const transform = (data, context) => {
 				row.rankOrganic = [{ text: orgRankCounter }];
 			}
 
-			if(row.price){	
-				console.log("data price:- " + row.price[0].text);
-				row.price = [{ text: row.price[0].text.replace(',-','')}];          
+			if(row.price){			
+				let tempprice = row.price[0].text.replace(',-','');		
+				row.price = [{ text: tempprice.replace('.','')}];          
 			  }
 
 			row.rank = [{text: rankCounter}];
