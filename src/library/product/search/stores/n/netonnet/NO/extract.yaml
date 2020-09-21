@@ -23,6 +23,7 @@ fields:
   description: The stated aggregate rating normalized to be out of 5 
   regExp: (\d+)(\.)?(\d+)?
   regExpReplace: $1,$3
+  type: INTEGER
 - name: reviewCount
   singleValue: false
   xpath: //div[@class='bigFooter rightContent clearfix']//div[@class="rating"]//span
