@@ -51,19 +51,11 @@ module.exports = {
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
-<<<<<<< HEAD
-  implementation: async ({ keywords, Keywords, Brands, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
-    // TODO: consider moving this to a reusable function
-    const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
-
-    keywords = (Keywords) || (Brands) || (keywords);
-=======
   implementation: async ({ keywords, Keywords, results = 150, Brands }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
     keywords = (Keywords) || (keywords) || (Brands);
->>>>>>> aed94e234d8930a3d36603ce68b0dcaf2376d05d
     console.log('zip:' + zipcode);
     // do the search
     const resultsReturned = await execute({ keywords, zipcode });
