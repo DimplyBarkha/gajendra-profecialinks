@@ -1,5 +1,5 @@
 extends: ../shared
 fields:
-  - name: priceConverted
+  - name: listPrice
     singleValue: false
-    xpath: //span[@id="convbinPrice"]/text() | //span[@id="prcIsum_bidPrice"]/text()
+    manualSelector: span#orgPrc

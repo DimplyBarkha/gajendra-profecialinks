@@ -16,9 +16,6 @@ const transform = (data) => {
             if (row.image && !row.image[0].text.includes('l500')) {
                 row.image[0].text = row.image[0].text.replace(/(.+\/s-)l.*?(\..*)/, '$1l500$2')
             }
-            if (row.priceConverted) {
-                row.price[0].text = row.priceConverted[0].text
-            }
             if (row.gtin) {
                 const GTIN = row.gtin.find(gtin => /\d+/.test(gtin.text))
                 if (GTIN) {
