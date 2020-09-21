@@ -27,7 +27,6 @@ fields:
   - name: price
     xpath: concat(//meta[@itemprop="price"]//@content,' ',//meta[@itemprop="priceCurrency"]//@content)
   - name: availabilityText
-    # xpath: //div[contains(@class,'checkfix')]//div[contains(@class,'availability stati')][1]|//div[@class='filialen hidden']/div[@class='item'][1]//div[contains(@class,'filialeAvailability stati')]
     xpath: //body/@availability
   - name: description
     xpath: //div[@itemprop='description']
@@ -39,7 +38,7 @@ fields:
   - name: brandText
     xpath: //h1[contains(@class,'productDetail ')]/span/text()
   - name: specifications
-    xpath: normalize-space(//div[contains(@class,'no-accessoires')])
+    xpath: //table[contains(@class,"specification")]//tbody//tr
   - name: weightNet
     description: Net weight as described on the page
     xpath: //td[contains(.,'Gewicht')]/following-sibling::td/text()
@@ -61,30 +60,31 @@ fields:
     xpath: //button[@class='bv_stars_button_container ']/@aria-label
     regExp: (\d.\d)\s\w+\s\d\s\w+
   - name: aggregateRating
-    xpath: //button[@class='bv_avgRating ']/text()
-    regExp: (\d+)\.(\d+)
-    regExpReplace: $1,$2
+    xpath: //button[@itemprop="ratingValue"]
     description: The stated aggregate rating normalized to be out of 5
+  - name: aggregateRating2
+    xpath: //button[@itemprop="ratingValue"]
   - name: color
     xpath: //td[contains(text(),'Farbe')]/following-sibling::td/text()
   - name: manufacturerDescription
-    description: The extended description of the product supplied by the lister
-    xpath: //body/@manufacturerdescription
+    xpath: //div[@id="inpage_container"]
   - name: manufacturerImages
     xpath: //div[@id="inpage_container"]//img/@data-flixsrcset
     regExp: (.+, )(.+)( .+)
     regExpReplace: https:$2
   - name: videos
     singleValue: false
-    xpath: //meta[@itemprop="contentURL"]/@content | //a[@class="youtube"]/@href
+    xpath: //meta[@itemprop="contentURL"]/@content | //a[@class="youtube"]/@href | //iframe[contains(@title,"video")]/@src
+  - name: variantCount
+    defaultValue: '0'
   - name: mpc
     singleValue: true
     xpath: //script/@data-flix-mpn | //meta[@itemprop='mpn']/@content
   - name: warranty
     singleValue: true
     xpath: //div[@class="guarantee"]//span | //td[contains(text(),'Garantie')]/following-sibling::td/text()
-    regExp: (.*?)\s(.*)
-    regExpReplace: $2
+    regExp: (\d+)(.+)
+    regExpReplace: $1$2
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product.

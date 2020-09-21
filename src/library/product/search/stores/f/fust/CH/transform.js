@@ -41,13 +41,6 @@ const transform = (data, context) => {
           },
         ];
       }
-      if (row.aggregateRating2) {
-        let ratingText = '';
-        let rating = [];
-        rating = row.aggregateRating2[0].text.split('.');
-        if (rating.length === 2) { ratingText += rating[0] + ',' + rating[1]; } else { ratingText += rating[0] + ','; }
-        row.aggregateRating2 = [{ text: ratingText }];
-      }
       row.rank = [{ text: rankCounter }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);

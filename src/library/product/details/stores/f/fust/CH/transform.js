@@ -5,6 +5,30 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  for (const { group } of data) {
+    for (const row of group) {
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          text = text + (text ? ' || ' : '') + item.text;
+        });
+        row.specifications = [
+          {
+            text,
+          },
+        ];
+      }
+
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = text + (text ? ' | ' : '') + item.text;
+        });
+        row.manufacturerDescription = [{ text }];
+      }
+    }
+  }
+
   // Default transform function
   const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')

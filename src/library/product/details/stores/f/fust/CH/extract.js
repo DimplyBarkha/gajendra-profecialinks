@@ -82,7 +82,7 @@ module.exports = {
         const regionalAvailability = 'div[class*="filialeAvailability stati"]';
         const regionalAvailabilityStatus = document.querySelector(regionalAvailability).innerText;
         if (regionalAvailabilityStatus.includes('momentan nicht kaufbar')) { stockText = 'Out Of Stock'; } else { stockText = 'In Stock'; }
-      }
+      } else { stockText = 'Out Of Stock'; }
       document.body.setAttribute('availability', stockText);
     }, availabilitySelector);
 

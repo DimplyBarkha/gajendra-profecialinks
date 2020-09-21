@@ -27,8 +27,8 @@ fields:
     regExpReplace: $1,$3
   - name: aggregateRating2
     xpath: //div[@itemprop='ratingValue']/text()
-    regExp: (\d+)(\,?\.?)?(\d+)?(\,-?)?
-    regExpReplace: $1,$3
+  - name: aggregateRating
+    xpath: //div[@itemprop='ratingValue']/text()
   - name: reviewCount
     singleValue: false
     xpath: //div[contains(@class,'bv_numReviews')]/div/text()
