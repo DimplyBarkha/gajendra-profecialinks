@@ -15,7 +15,7 @@ const transform = (data) => {
       }
       if (row.description) {
         row.description.forEach(item => {
-          item.text = item.text.replace(/\n/g, ' || ').trim();
+          item.text = "|| " + item.text.replace(/\n/g, ' || ').trim();
         });
       }
       if (row.category) {
@@ -39,7 +39,7 @@ const transform = (data) => {
           info.push(item.text);
         });
         if (info.length) {
-          row.variantInformation = [{ "text": info.join(' | '), "xpath": row.variantInformation[0]["xpath"] }];
+          row.variantInformation = [{ "text": info.join(' | ') }];
         } else {
           delete row.variantInformation;
         }
@@ -58,17 +58,19 @@ const transform = (data) => {
           if (data['variations']) {
             data['variations'].forEach(variation => {
               variations.push(variation['sku']);
+              if(variation['sku'] == row.sku[0]['text']){
+                row.firstVariant = [{ "text": variation['sku'] }];
+              }
             });
           }
           color = data['attributes']['color'];
         });
         if (color) {
-          row.color = [{ "text": color, "xpath": row.variants[0]["xpath"] }];
+          row.color = [{ "text": color }];
         }
         if (variations.length) {
-          row.variantId = data['sku'];
-          row.variantCount = [{ "text": variations.length, "xpath": row.variants[0]["xpath"] }];
-          row.variants = [{ "text": variations.join(' | '), "xpath": row.variants[0]["xpath"] }];
+          row.variantCount = [{ "text": variations.length }];
+          row.variants = [{ "text": variations.join(' | ') }];
         } else {
           delete row.variants;
         }
