@@ -26,7 +26,7 @@ fields:
     xpath: //div[@id="customDescription"]
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@id="bulletsFromDescription"]
+    xpath: //div[contains(@class, "long-description")]//li
   - name: image
     singleValue: false
     xpath: //div[contains(@class,"slick-track")]//li[not(contains(@class, "slick-cloned")) and contains(@class, "slick-current")]//img/@src
@@ -70,8 +70,7 @@ fields:
     xpath: //div[contains(@class,'content long-description')]
   - name: descriptionBullets
     singleValue: false
-    xpath: //div[@id="bulletsFromDescriptionCount"]
-    type: NUMBER
+    xpath: count(//div[contains(@class, "long-description")]//li)
   - name: termsAndConditions
     singleValue: false
     defaultValue: 'No'
@@ -81,6 +80,8 @@ fields:
   - name: specifications1
     singleValue: false
     xpath: //div[contains(@class,'content long-description')]
+  - name: weightNet
+    singleValue: false
   # - name: manufacturer
   #   singleValue: false
   # - name: _input
@@ -171,5 +172,5 @@ fields:
   #   singleValue: false
   # - name: weightGross
   #   singleValue: false
-  # - name: weightNet
-  #   singleValue: false
+  - name: weightNet
+    singleValue: false

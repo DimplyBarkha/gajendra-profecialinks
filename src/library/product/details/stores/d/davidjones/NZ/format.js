@@ -19,6 +19,13 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
+      if (row.additionalDescBulletInfo && row.additionalDescBulletInfo.length > 1) {
+        const bulletText = row.additionalDescBulletInfo.reduce((bulletText = '', item) => {
+          bulletText += ' || ' + item.text;
+          return bulletText;
+        }, '');
+        row.additionalDescBulletInfo = [{ text: bulletText.trim() }];
+      }
       if (row.availabilityText) {
         row.availabilityText = row.availabilityText[0].text.includes('Available Now') ? [{ text: 'In Stock' }] : [{ text: 'Out of Stock' }];
       }
@@ -35,7 +42,7 @@ const transform = (data) => {
       }
       if (!row.warranty) {
         if (row.warranty1 && row.warranty1[0].text.includes('Warranty')) {
-          const text = row.warranty1[0].text.replace(/\n/g, '').replace(/.*Warranty:(.*)/, '$1').replace(/^((?:\S+\s+){3}\S+).*/, '$1').replace(/-/g, '').replace(/:/g, '');
+          const text = row.warranty1[0].text.replace(/\n/g, '').replace(/.*Warranty(.*)/, '$1').replace(/^((?:\S+\s+){3}\S+).*/, '$1').replace(/-/g, '').replace(/:/g, '');
           if (text.includes('guarantee')) {
             row.warranty = [{ text }];
           }
@@ -47,8 +54,19 @@ const transform = (data) => {
           var demo = row.specifications1[0].text;
           var regExString = new RegExp('(?:' + 'Specifications:' + ')(.[\\s\\S]*)(?:' + 'What' + ')', 'g');
           test = regExString.exec(demo);
-          test = test[1].replace(/\n-/, '').replace(/\n-/g, ' || ').trim();
+          test = test[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim();
           row.specifications = [{ text: test }];
+        }
+      }
+      if (!row.weightNet) {
+        if (row.specifications1 && row.specifications1[0].text.includes('Specifications: ')) {
+          var test1 = '';
+          var demo1 = row.specifications1[0].text;
+          var regExString1 = new RegExp('(?:' + 'Weight:' + ')(.[\\s\\S]*)(?:' + '-' + ')', 'g');
+          test1 = regExString1.exec(demo1);
+          test1 = test1[1].split('-');
+          test1 = test1[0];
+          row.weightNet = [{ text: test1.trim() }];
         }
       }
       if (row.videos) {
