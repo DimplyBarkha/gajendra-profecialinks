@@ -42,12 +42,12 @@ const transform = (data, context) => {
             //     row.aggregateRating =  [{ text:  aggregateRating,value:  aggregateRating }];         
             //  }   
 
-             if (row.aggregateRating2) { 
-               console.log(row.aggregateRating2[0].text);     
-               var aggregateRating2 = row.aggregateRating2[0].text.replace(',',''); 
-               aggregateRating2 = (aggregateRating2*5)/100
-                row.aggregateRating2 =  [{ text:  aggregateRating2,value:  aggregateRating2 }];         
-             }   
+            //  if (row.aggregateRating2) { 
+            //    console.log(row.aggregateRating2[0].text);     
+            //    var aggregateRating2 = row.aggregateRating2[0].text.replace(',',''); 
+            //    aggregateRating2 = (aggregateRating2*5)/100
+            //     row.aggregateRating2 =  [{ text:  aggregateRating2,value:  aggregateRating2 }];         
+            //  }   
              
              if (row.productUrl) {               
                row.productUrl =  [{ text: 'https://www.netonnet.no'+ row.productUrl[0].text  }];         
