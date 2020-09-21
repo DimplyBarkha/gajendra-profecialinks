@@ -13,7 +13,7 @@ fields:
   - name: metaKeywords
     xpath: //meta[@name='keywords']/@content
     description: The <meta> keywords content
-  - name: name  
+  - name: name
     xpath: //h1[@itemprop="name"]
   - name: category
     description: The categories (e.g. from breadcrumbs)
@@ -71,9 +71,9 @@ fields:
     description: The extended description of the product supplied by the lister
     xpath: //body/@manufacturerdescription
   - name: manufacturerImages
-    xpath: //div[@id="inpage_container"]//img/@srcset
-    regExp: (.+)
-    regExpReplace: https:$1
+    xpath: //div[@id="inpage_container"]//img/@data-flixsrcset
+    regExp: (.+, )(.+)( .+)
+    regExpReplace: https:$2
   - name: videos
     singleValue: false
     xpath: //meta[@itemprop="contentURL"]/@content | //a[@class="youtube"]/@href
@@ -88,4 +88,4 @@ fields:
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product.
-    xpath: //div[contains(@class,'js-energylabel')]/text()  
+    xpath: //div[contains(@class,'js-energylabel')]/text()
