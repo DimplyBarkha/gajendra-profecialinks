@@ -22,7 +22,7 @@ const implementation = async (
   await context.waitForXPath('//div[@class="bv_avgRating_component_container notranslate"]', { timeout: 9000 })
     .catch(() => console.log('No reviews/ratings for this item'));
 
-  await context.evaluate(async function (url, id) {
+  await context.evaluate(async function (url, id, zipcode) {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -36,6 +36,15 @@ const implementation = async (
 
     const myUrl = window.location.href;
     addHiddenDiv('ii_url', myUrl.split('#')[0]);
+
+    //name logic, only 45255 to include size in nameExtended:
+    let nameExtended;
+    if (zipcode !== '45255'){
+      nameExtended = document.evaluate('//div[@class="ProductDetails-header"]/h1', document, null, XPathResult.STRING_TYPE, null).stringValue;
+    } else {
+      nameExtended = document.evaluate('concat(//div[@class="ProductDetails-header"]/h1," ",//span[@id="ProductDetails-sellBy-unit"])', document, null, XPathResult.STRING_TYPE, null).stringValue;
+    }
+    addHiddenDiv('my-name-ext',nameExtended);
 
     const productDetailsButton = document.getElementsByClassName('kds-Tabs-tab')[0];
 
@@ -98,7 +107,7 @@ const implementation = async (
     if (readMore) {
       readMore.click();
     }
-  }, url, id);
+  }, url, id, zipcode);
 
   await context.evaluate(() => {
     const listPrice = document.createElement('li');
