@@ -1,0 +1,58 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="app"]/div
+fields:
+  - name: name
+    singleValue: false
+    description: Whether this is a sponsored/paid result
+    xpath: //div[@class="skywalker_riga_nome"]//h3
+  - name: brandText
+    singleValue: false
+    description: The brand name
+    xpath: //div[@class="skywalker_riga_nome"]//h3/span
+  - name: thumbnail
+    singleValue: false
+    xpath: //a/img[@class="skywalker_main_image"]/@src
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details 
+    xpath: //a[@id="LnkImmagine"]/@href
+  - name: aggregateRating2
+    singleValue: false
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //div[contains(@id , "PROD_Expert")]/span[last()]
+    regExp: (.*)\srece
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    description: The number of reviews
+    xpath: //div[contains(@id , "PROD_Expert")]/span[last()]
+    regExp: (.*)\srece
+    regExpReplace: $1
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //div[contains(@class , "skywalker_riga_prezzo")]
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //div[contains(@class , "skywalker_riga_articolo")]/@data-codiceextra
+    regExp: Expert_(.*)
+    regExpReplace: $1
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //div[@class="skywalker_riga_nome"]//h3
