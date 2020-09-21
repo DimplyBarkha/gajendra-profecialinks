@@ -22,50 +22,13 @@ const transform = (data, context) => {
     const productCodes = state.productCodes || [];
     for (const { group } of data) {
       for (const row of group) {      
-        //var test = row.id;
-  
-        //  if(row.id){
-        //      debugger;
-        //   row.id = [{ text: row.id[0].text.split('.')[0]}];
-        //   console.log(row.id);
-        //} 
-        
-  
-        // console.log("startIdx :-" , row.id.indexOf('('));
-        // console.log("startIdx :-" , row.id.indexOf(')'));
-        // const startIdx = row.id.indexOf('(');
-        // const endIdx = test.indexOf(')');
-        //  console.log(startIdx);
-        // console.log(endIdx);  
-  
-        // function to get the json data from the string
-        // function findJsonData (scriptSelector, startString, endString) {
-        //   try {
-        //     //const xpath = `//script[contains(.,'${scriptSelector}')]`;
-        //     const xpath = scriptSelector;
-        //     const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        //     const scriptContent = element.textContent;
-        //     const startIdx = scriptContent.indexOf(startString);
-        //     const endIdx = scriptContent.indexOf(endString);
-        //     let jsonStr = scriptContent.substring(startIdx + startString.length, endIdx);
-        //     jsonStr = jsonStr.trim();
-        //     return JSON.parse(jsonStr);
-        //   } catch (error) {
-        //     console.log(error.message);
-        //   }
-        // }
-  
-  
-         // elements from data Layer object
-        // const dataObj = findJsonData(row.id, '(', ')');
-         // Check for the data and append to DOM
-        //  console.log("print:-  ", dataObj)
-        //  if (dataObj) {
-           
-        //  }    
-  
-  
-  
+        try { 
+          if(row.id){
+          row.id = [{ text: row.id[0].text.split('/')[3].split('#')[0]}];
+        } 
+         
+                 
+        } catch (exception) { console.log('Error in transform', exception); }
   
         rankCounter += 1;
         if (!row.sponsored) {
