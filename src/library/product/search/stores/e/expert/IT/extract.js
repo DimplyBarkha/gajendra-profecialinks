@@ -27,7 +27,7 @@ async function implementation(
     //------------------------------------
     let nextLink = document.querySelectorAll('ul.pagination');
     let ul ;
-    if(nextLink.length > 1){
+    if(nextLink.length > 0){
       ul = nextLink[0];
     }else if(nextLink.length = 1){
       ul = nextLink[0];
@@ -40,8 +40,9 @@ async function implementation(
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('a');
       newDiv.id = id;
+      newDiv.textContent = content;
       newDiv.href = content;
-      newDiv.style.display = 'none';
+      // newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
     let hrefLink = nextSibling ? nextSibling.querySelector('a') : '';
