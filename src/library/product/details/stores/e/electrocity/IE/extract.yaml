@@ -49,8 +49,8 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //script[contains(text(),"@context")][2]
-    regExp: (\"availability\"\:\s\")([^"]+)
-    regExpReplace: $2
+    regExp: (\"availability\"\:\s\")([^"]+)(InStock)
+    regExpReplace: In stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
