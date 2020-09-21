@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector:  div#productList > div.row > div.cProductItem > div.panel-default
+recordSelector:  div#productList > div.row > div.cProductItem 
 fields:
 - name: id
   singleValue: true
@@ -12,32 +12,24 @@ fields:
   singleValue: true
   xpath: //input[contains(@name,"ProductPrice")]/@value
 - name: productUrl
-  singleValue: false
-  xpath: //div[contains(@class,'panel-body leftContent')]//div[contains(@class,'verticalTable')]//div[contains(@class,'verticalCell')]//a//@href
-  regExp: (.+)
-  regExpReplace: https://www.netonnet.no$1
+  singleValue: true
+  xpath: //a[@data-track=//input[contains(@name,"ProductId")]/@value]//@href
 - name: thumbnail
-  singleValue: false
-  xpath: //div[contains(@class,'panel-body leftContent')]//div[contains(@class,'verticalTable')]//div[contains(@class,'verticalCell')]//a//picture//img//@src
-  regExp: (.+)
-  regExpReplace: https://www.netonnet.no$1
-- name: aggregateRatingText
-  singleValue: false
-  xpath: //div[(@class="bigHeader")]//div[(@class="rating col2Rating")]//div[(@class="ratingBg")]//@style
-  description: The stated aggregate rating normalized to be out of 5 
+  singleValue: true
+  xpath: //picture//img//@src
 - name: aggregateRating
   singleValue: false
-  xpath: //div[(@class="bigHeader")]//div[(@class="rating col2Rating")]//div[(@class="ratingBg")]//@style
+  xpath: //div[@class='bigFooter rightContent clearfix']//div[@class="ratingOverlay"]//@style
   description: The stated aggregate rating normalized to be out of 5 
-  type: NUMBER
+  
 - name: reviewCount
   singleValue: false
-  xpath: //div[(@class="bigHeader")]//div[(@class="rating col2Rating")]//span
+  xpath: //div[@class='bigFooter rightContent clearfix']//div[@class="rating"]//span
   description: The number of ratings
   type: NUMBER
 - name: ratingCount
   singleValue: false
-  xpath: //div[(@class="bigHeader")]//div[(@class="rating col2Rating")]//span
+  xpath: //div[@class='bigFooter rightContent clearfix']//div[@class="rating"]//span
   description: The number of Review
   type: NUMBER    
 
