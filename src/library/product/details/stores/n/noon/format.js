@@ -103,9 +103,6 @@ const transform = (data) => {
         totBullet++;
         row.descriptionBullets = [{ "text": totBullet }]
       }
-      if (isVariant == 'no') {
-        row.variantCount = [{ "text": 0 }];
-      }
     }
   }
   return data;
