@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'IT',
     store: 'expert',
-    transform: null,
+    transform,
     domain: 'expertonline.it',
     zipcode: '',
   },
@@ -20,8 +20,26 @@ async function implementation (
   const { productDetails } = dependencies;
   await context.evaluate(async () => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 6000));
+      await new Promise((resolve) => setTimeout(resolve, 5000));
     }catch(error){
+      console.log(error)
+    }
+    async function infiniteScroll() {
+      let prevScroll = document.documentElement.scrollTop;
+      while (true) {
+        window.scrollBy(0, document.documentElement.clientHeight);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const currentScroll = document.documentElement.scrollTop;
+        if (currentScroll === prevScroll) {
+          break;
+        }
+        prevScroll = currentScroll;
+      }
+    }
+    await infiniteScroll();
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+    } catch (error) {
       console.log(error)
     }
     function addHiddenDiv (id, content, index) {
@@ -58,22 +76,63 @@ async function implementation (
       addHiddenDiv('gtin', gtin);
       let Sku = JSONArr ? JSONArr.sku : ''
       addHiddenDiv('Sku', Sku);
-      let sellerText = offer_text ? offer_text.seller : ''
-      let seller = sellerText ? sellerText.name : ''
-      addHiddenDiv('sellerName', seller);
+      // let sellerText = offer_text ? offer_text.seller : ''
+      // let seller = sellerText ? sellerText.name : ''
+      // addHiddenDiv('sellerName', seller);
       let RatingText = JSONArr ? JSONArr.aggregateRating : '';
       let reviewCount = RatingText? RatingText.reviewCount : ''
       addHiddenDiv('reviewCount', reviewCount);
-      let aggregateRating = RatingText? RatingText.ratingValue : ''
-      addHiddenDiv('aggregateRating', aggregateRating);
-      let finalSpecification;
-      let specElement;
-      let specification = document.querySelector("table#SchedaTecnicaHTML tbody");
-      console.log(specification.innerHTML , "specification");
-      specElement = specification ? specification.innerHTML.replace(/<tr><td colspan="2" bgcolor="#f8f8f8">.*?>/gm, ' ').replace(/<\/td><td class="tdDestro">/gm , ':').replace(/<\/td><\/tr><tr><td class="tdSinistro">/gm , '||').replace(/<\/td><\/tr> <\/tr><tr><td class="tdSinistro">/gm , '||').replace(/<\/tr><tr><td class="tdSinistro">/gm , ' ').replace(/<\/td><\/tr>/gm , ' ').trim() : '';
-      finalSpecification = specElement
-      console.log('finalDescription1: ', finalSpecification);
-      addHiddenDiv('bb_specification',finalSpecification);
+      let aggregateRating = RatingText? RatingText.ratingValue : '';
+      aggregateRating = aggregateRating ? Number(aggregateRating).toFixed(1) : '';
+      console.log('aggregateRating: ', aggregateRating);
+      addHiddenDiv('aggregateRating', aggregateRating.replace('.',','));
+      // let enhancedContent = document.querySelector('div#flix-inpage').innerHTML;
+      // enhancedContent = enhancedContent ? enhancedContent.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+      // addHiddenDiv('li_enhancedContent', enhancedContent);
+      let specTrs = document.querySelectorAll('#Dettaglio table tr');
+      let finalSpecArr = [];
+      let fieldVal = '';
+      let field;
+      let value;
+      for (let index = 0; index < specTrs.length; index++) {
+        const element = specTrs[index];
+        field = element.querySelector('td.tdSinistro')
+        // @ts-ignore
+        let fieldStr = field ? field.innerText : '';
+        value = element.querySelector('td.tdDestro');
+        // @ts-ignore
+        let valueStr = value ? value.innerText : '';
+        if(fieldStr && valueStr){
+          let fieldVal = fieldStr+' : '+valueStr;
+          finalSpecArr.push(fieldVal);
+        }
+
+      }
+      let finalSpecStr
+      if(finalSpecArr.length > 0){
+        finalSpecStr = finalSpecArr.join(' || ');
+      }
+      addHiddenDiv('ex_specification',finalSpecStr );
+      let brand = JSONArr ? JSONArr.brand : '';
+      console.log('brand: ', brand);
+      let brandText = brand ? brand.name : '';
+      console.log('brandText: ', brandText);
+      addHiddenDiv('ex_brand', brandText);
+      let descArr = [];
+      let finalDes;
+      let descriptionLi = document.querySelectorAll('div[class="skywalker_scheda_descrizione"] ul li');
+      for (let index = 0; index < descriptionLi.length; index++) {
+        const li = descriptionLi[index];
+        // @ts-ignore
+        let descTxt = li.innerText;
+        descArr.push(descTxt);
+      }
+      if(descArr.length > 0){
+      finalDes = descArr.join(' || ');
+      finalDes = "|| "+finalDes;
+      }
+      addHiddenDiv('ex_description',finalDes );
+
   })
 
   try {

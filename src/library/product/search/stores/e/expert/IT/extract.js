@@ -20,7 +20,7 @@ async function implementation(
   const { productDetails } = dependencies;
   await context.evaluate(async () => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 6000));
+      await new Promise((resolve) => setTimeout(resolve, 5000));
     } catch (error) {
       console.log(error)
     }
@@ -74,6 +74,11 @@ async function implementation(
       }
     }
     await infiniteScroll();
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+    } catch (error) {
+      console.log(error)
+    }
   })
 
   return await context.extract(productDetails, { transform });

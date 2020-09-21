@@ -43,19 +43,20 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //div[@id="ex_description"]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
-    xpath: count(//div[@class="skywalker_scheda_descrizione"]/h2/ul/li | //div[@class="skywalker_scheda_descrizione"]/ul/li )
+    xpath: count(//div[@class="skywalker_scheda_descrizione"]//ul/li | //div[@class="skywalker_scheda_descrizione"]/ul/li )
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@class="skywalker_scheda_nome"]/h1/span[1]
+    xpath: //div[@id="ex_brand"] | //div[@class="skywalker_scheda_nome"]/h1/span[1]
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath: //div[@id="myTabContent"]//td[@class="tdSinistro"][contains(text() , "peso netto")]/following-sibling::td
+    xpath: //*[contains(text() , "peso netto")]/following-sibling::td
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
@@ -79,23 +80,28 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
-    xpath: //div[@id='sellerName']
+    # xpath: //div[@id='sellerName']
   - name: color
     singleValue: false
     description: A textual description of the colour
-    xpath: //div[@id="myTabContent"]//td[@class="tdSinistro"][contains(text() , "colore")]/following-sibling::td
+    xpath: //*[contains(text() , "colore")]/following-sibling::td
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    # xpath: //div[@id="li_enhancedContent"]
     xpath: //div[@id="flix-inpage"]/div/*[not(self::style)] | //div[@data-equal-heights="div.boxMiele"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@id="flix-inpage"]/div//img/@srcset | //div[@data-equal-heights="div.boxMiele"]//img/@src
+    xpath: //div[@id="flix-inpage"]/div//img/@srcset
+    # xpath: //div[@id="flix-inpage"]/div//img/@srcset | //div[@data-equal-heights="div.boxMiele"]//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[contains(@class , "row_video_skt")]//iframe/@src
+    # xpath: //div[contains(@class , "row_video_skt")]//iframe/@src
+    xpath: //div[@id="flix-inpage"]//div[contains(@class, "fullJwPlayerWarp")]/input/@value
+    regExp: file\"\:\"(.*).mp4
+    regExpReplace: $1
   - name: name
     singleValue: false
     description: The product name
@@ -103,23 +109,22 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id="bb_specification"]
+    xpath: //div[@id="ex_specification"]
   - name: promotion
     singleValue: false
     description: promotion text on product page
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class="skywalker_scheda_descrizione"]/h2/ul/li | //div[@class="skywalker_scheda_descrizione"]/ul/li 
+    xpath: //div[@class="skywalker_scheda_descrizione"]//ul/li | //div[@class="skywalker_scheda_descrizione"]/ul/li 
   - name: energyEfficiency
     singleValue: false
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
-    xpath: //div[@id="myTabContent"]//td[@class="tdSinistro"][contains(text() , "classe efficienza energetica")]/following-sibling::td
+    xpath: //*[contains(text() , "classe efficienza energetica")]/following-sibling::td
   - name: technicalInformationPdfPresent
     singleValue: false
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     xpath: //a[contains(@class , "spacerTopMedio")]/@href
     regExp: (.+)
     regExpReplace: Yes
@@ -138,3 +143,11 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: variantId
+    singleValue: false
+    xpath: //*/@data-codice
+    regExp: Expert_(.*)
+    regExpReplace: $1

@@ -37,7 +37,11 @@ const transform = (data) => {
         }
         if (row.manufacturerImages) {
           row.manufacturerImages.forEach(item => {
-              item.text = item.text ? 'https:' + item.text: ''
+            if(item.text.includes('https:') || item.text.includes('http:')){
+              item.text = item.text;
+            }else{
+              item.text = item.text ? 'https:' + item.text: '';
+            }
           });
         }
     
