@@ -20,6 +20,16 @@ async function implementation (inputs, parameters, context, dependencies) {
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+    // If images are present in description then add to manufacturerDescription else add to description
+    const manufacturerImageFlag = document.querySelector('div[id="AdditionDescription"] img');
+    const descriptionSelector = document.querySelector('div[id="AdditionDescription"]');
+    const description = descriptionSelector ? descriptionSelector.innerText : '';
+    if (manufacturerImageFlag) {
+      addHiddenDiv('added-manufacturerDesc', description);
+    } else {
+      addHiddenDiv('added-description', description);
+    }
+
     function fetchDetailsFromScript () {
       const scriptTagSelector = document.querySelector('script[type="application/ld+json"]');
       const scriptTagData = scriptTagSelector ? scriptTagSelector.innerText : '';

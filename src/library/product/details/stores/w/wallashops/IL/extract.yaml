@@ -43,7 +43,7 @@ fields:
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //*[@id="AdditionDescription"]
+    xpath: //div[@id="added-description"]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -128,6 +128,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
+    xpath: //div[@id="added-manufacturerDesc"]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
@@ -228,89 +229,6 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     description: null
-  - name: news
-    singleValue: false
-    description: null
-  - name: addonItem
-    singleValue: false
-    description: null
-  - name: fastTrack
-    singleValue: false
-    description: null
-  - name: ingredientsList
-    singleValue: false
-    description: List of Ingredients from site - can be string of data if no
-      discernible start/end point
-  - name: servingSize
-    singleValue: false
-    description: Thadded_availabilityTexte size of serving Nutritional information is based on.
-  - name: servingSizeUom
-    singleValue: false
-    description: Unit of measure of serving
-  - name: numberOfServingsInPackage
-    singleValue: false
-    description: Suggested number of servings of the product.
-  - name: caloriesPerServing
-    singleValue: false
-    description: Nutritional Information for Calories Per Serving content - Usually
-      based on per 100g serving
-  - name: caloriesFromFatPerServing
-    singleValue: false
-    description: Nutritional Information for Calories From Fat content - Usually
-      based on per 100g serving
-  - name: totalFatPerServing
-    singleValue: false
-    description: Nutritional Information for Total Fat content - Usually based on
-      per 100g serving
-  - name: totalFatPerServingUom
-    singleValue: false
-    description: Unit of Measure Data for Total Fat content
-  - name: saturatedFatPerServing
-    singleValue: false
-    description: Nutritional Information for Saturated Fat content - Usually based
-      on per 100g serving
-  - name: saturatedFatPerServingUom
-    singleValue: false
-    description: Unit of Measure Data for Saturated Fat content
-  - name: transFatPerServing
-    singleValue: false
-    description: Nutritional Information for Trans Fat content - Usually based on
-      per 100g serving
-  - name: transFatPerServingUom
-    singleValue: false
-    description: Unit of Measure Data for Trans Fat content
-  - name: cholesterolPerServing
-    singleValue: false
-    description: Nutritional Information for Cholesterol content - Usually based on
-      per 100g serving
-  - name: cholesterolPerServingUom
-    singleValue: false
-    description: Unit of Measure Data for Cholesterol content
-  - name: sodiumPerServing
-    singleValue: false
-    description: Nutritional Information for Sodium content - Usually based on per
-      100g serving
-  - name: sodiumPerServingUom
-    singleValue: false
-    description: Unit of Measure Data for Sodium content
-  - name: totalCarbPerServing
-    singleValue: false
-    description: Nutritional Information for Total Carbohydrate content - Usually
-      based on per 100g serving
-  - name: totalCarbPerServingUom
-    singleValue: false
-    description: Unit of Measure Data for Total Carbohydrate content
-  - name: dietaryFibrePerServing
-    singleValue: false
-    description: Nutritional Information for Dietary Fibre content - Usually based
-      on per 100g serving
-  - name: dietaryFibrePerServingUom
-    singleValue: false
-    description: Unit of Measure Data for Dietary Fibre content
-  - name: totalSugarsPerServing
-    singleValue: false
-    description: Nutritional Information for Total Sugar content - Usually based on
-      per 100g serving
   - name: totalSugarsPerServingUom
     singleValue: false
     description: Unit of Measure Data for Total Sugar content
@@ -352,13 +270,6 @@ fields:
   - name: dietarySymbols
     singleValue: false
     description: Information related to the dietary symbols of a specific product
-  - name: magnesiumPerServing
-    singleValue: false
-    description: Nutritional Information for Magnesium content - Usually based on
-      per 100g serving
-  - name: magnesiumPerServingUom
-    singleValue: false
-    description: Unit of Measure Data for Magnesium
   - name: saltPerServing
     singleValue: false
     description: Nutritional Information for Salt content - Usually based on per
