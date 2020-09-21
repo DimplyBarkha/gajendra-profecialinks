@@ -43,6 +43,18 @@ const transform = (data, context) => {
             let newText = JSON.parse(row.price[0].text.trim());            
             row.price = [{ text: newText.offers.price }];
           }
+          if (row.nameExtended) {
+            let newText = "";
+            row.nameExtended.forEach(item => {
+              if (item.text.trim().includes(row.brandText[0].text.trim())){
+                newText += `${item.text.trim()}`;
+              } else {
+                newText += `${row.brandText[0].text.trim() + ' ' + item.text.trim()}`;
+              }
+            });    
+            console.log(newText);      
+            row.nameExtended = [{ text: newText }];
+          }
         } catch (exception) { console.log('Error in transform', exception); }
        }
     }
