@@ -27,10 +27,6 @@ const transform = (data, context) => {
            row.price = [{ text: newText.replace(' ',',')}];          
          }
 
-         if(row.aggregateRating){
-           row.aggregateRating = [{ text: row.aggregateRating[0].text.replace(',','.')}];          
-         } 
-
         rankCounter += 1;
         if (!row.sponsored) {
           orgRankCounter += 1;
