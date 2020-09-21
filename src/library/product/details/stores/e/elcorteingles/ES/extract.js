@@ -20,11 +20,13 @@ module.exports = {
 
       // function to append the elements to DOM
       function addElementToDocument(key, value) {
-        const catElement = document.createElement('div');
-        catElement.id = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
+        try {
+          const catElement = document.createElement('div');
+          catElement.id = key;
+          catElement.textContent = value;
+          catElement.style.display = 'none';
+          document.body.appendChild(catElement);
+        } catch (error) { console.log(error), "add elem" }
       }
 
       // function to get the json data from the string
@@ -39,7 +41,7 @@ module.exports = {
           jsonStr = jsonStr.trim();
           return JSON.parse(jsonStr);
         } catch (error) {
-          console.log(error.message);
+          console.log(error.message, "findJsonData");
         }
       }
 
@@ -52,7 +54,7 @@ module.exports = {
           jsonStr = jsonStr.trim();
           return JSON.parse(jsonStr);
         } catch (error) {
-          console.log(error.message);
+          console.log(error.message, "JSONObjk");
         }
       }
 
@@ -81,14 +83,42 @@ module.exports = {
           } else {
             addElementToDocument('availability', 'Out Of Stock');
           }
+
+
+          // Check for List Price
+          if (Number(dataObj[0].product.price.o_price) === Number(dataObj[0].product.price.f_price)) {
+            addElementToDocument('listPrice', '');
+          } else {
+            if (dataObj[0].product.price.o_price) {
+              addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ','));
+            } else {
+              if (dataObj[0].product.price.original) {
+                addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ','));
+              } else {
+                addElementToDocument('listPrice', '');
+              }
+            }
+          }
+
+          // Check for  Price
+          if (dataObj[0].product.price.o_price) {
+            addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ','));
+          } else {
+            if (dataObj[0].product.price.final) {
+              addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ','));
+            } else {
+              addElementToDocument('price', '');
+            }
+          }
+
           // Check for the brand  and append to DOM
           if (dataObj[0].product.brand) {
             addElementToDocument('brand', dataObj[0].product.brand);
           }
           // Check for the product id  and append to DOM
           if (dataObj[0].product.id) {
-            if (dataObj[0].product.id.match(/[0-9](.*)___/)) {
-              const retailerProductCode = dataObj[0].product.id.match(/[0-9](.*)___/)[1];
+            if (dataObj[0].product.id.match(/\d+/)[0]) {
+              const retailerProductCode = dataObj[0].product.id.match(/\d+/)[0];;
               addElementToDocument('retailer_product_code', retailerProductCode);
             }
           }
@@ -97,70 +127,73 @@ module.exports = {
 
       // function to get the sodium, magnesium, calcium values
       function ingredientContent(ingredientName, text) {
-        const content = document.querySelectorAll('div.pdp-info-container div.info');
-        // Check for length
-        if (content && content.length > 1) {
-          // Check for ingredientName
-          if (ingredientName) {
-            // Check for the content has text or not
-            if (content[1].textContent) {
-              if (content[1].textContent.includes(ingredientName)) {
-                let calcium;
-                // Check for calcium
-                if (ingredientName.toLowerCase() === 'calcio') {
-                  // Check for the calcium with given text if it is present get the value and add it to DOM
-                  if (content[1].textContent.includes(text)) {
-                    calcium = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
-                    addElementToDocument('calcium', calcium);
-                    // If calcium has data get the unit
-                    if (calcium) {
-                      const calciumUnit = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
-                      addElementToDocument('calciumUnit', calciumUnit);
+        try {
+          const content = document.querySelectorAll('div.pdp-info-container div.info');
+          // Check for length
+          if (content && content.length > 1) {
+            // Check for ingredientName
+            if (ingredientName) {
+              // Check for the content has text or not
+              if (content[1].textContent) {
+                if (content[1].textContent.includes(ingredientName)) {
+                  let calcium;
+                  // Check for calcium
+                  if (ingredientName.toLowerCase() === 'calcio') {
+                    // Check for the calcium with given text if it is present get the value and add it to DOM
+                    if (content[1].textContent.includes(text)) {
+                      calcium = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
+                      addElementToDocument('calcium', calcium);
+                      // If calcium has data get the unit
+                      if (calcium) {
+                        const calciumUnit = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
+                        addElementToDocument('calciumUnit', calciumUnit);
+                      }
+                      // if calcium didn't match with given text then get the calcium value and append to DOM
+                    } else {
+                      calcium = content[1].textContent.replace(/(.+Calcio)\s(\d+,\d+)\s(.*)/g, '$2');
+                      addElementToDocument('calcium', calcium);
                     }
-                    // if calcium didn't match with given text then get the calcium value and append to DOM
-                  } else {
-                    calcium = content[1].textContent.replace(/(.+Calcio)\s(\d+,\d+)\s(.*)/g, '$2');
-                    addElementToDocument('calcium', calcium);
-                  }
-                  // Check for sodium
-                } else if (ingredientName.toLowerCase() === 'sodio') {
-                  // Check for the sodium with given text if it is present get the value and add it to DOM
-                  let sodium;
-                  if (content[1].textContent.includes(text)) {
-                    sodium = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+(,\d+)?)\s(\w+\/\w+)(.+)/g, '$2');
-                    addElementToDocument('sodium', sodium);
-                    // If sodium has data get the unit
-                    if (sodium) {
-                      const sodiumUnit = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+(,\d+)?)\s(\w+\/\w+)(.+)/g, '$4');
-                      addElementToDocument('sodiumUnit', sodiumUnit);
+                    // Check for sodium
+                  } else if (ingredientName.toLowerCase() === 'sodio') {
+                    // Check for the sodium with given text if it is present get the value and add it to DOM
+                    let sodium;
+                    if (content[1].textContent.includes(text)) {
+                      sodium = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+(,\d+)?)\s(\w+\/\w+)(.+)/g, '$2');
+                      addElementToDocument('sodium', sodium);
+                      // If sodium has data get the unit
+                      if (sodium) {
+                        const sodiumUnit = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+(,\d+)?)\s(\w+\/\w+)(.+)/g, '$4');
+                        addElementToDocument('sodiumUnit', sodiumUnit);
+                      }
+                      // if sodium didn't match with given text then get the sodium value and append to DOM
+                    } else {
+                      sodium = content[1].textContent.replace(/(.+Sodio)\s(\d+,\d+)[.\s](.*)/g, '$2');
+                      addElementToDocument('sodium', sodium);
                     }
-                    // if sodium didn't match with given text then get the sodium value and append to DOM
-                  } else {
-                    sodium = content[1].textContent.replace(/(.+Sodio)\s(\d+,\d+)[.\s](.*)/g, '$2');
-                    addElementToDocument('sodium', sodium);
-                  }
-                  // Check for magnesium
-                } else if (ingredientName.toLowerCase() === 'magnesio') {
-                  let magnesium;
-                  // Check for the magnesium with given text if it is present get the value and add it to DOM
-                  if (content[1].textContent.includes(text)) {
-                    magnesium = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
-                    addElementToDocument('magnesium', magnesium);
-                    // If magnesium has data get the unit
-                    if (magnesium) {
-                      const magnesiumUnit = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
-                      addElementToDocument('magnesiumUnit', magnesiumUnit);
+                    // Check for magnesium
+                  } else if (ingredientName.toLowerCase() === 'magnesio') {
+                    let magnesium;
+                    // Check for the magnesium with given text if it is present get the value and add it to DOM
+                    if (content[1].textContent.includes(text)) {
+                      magnesium = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
+                      addElementToDocument('magnesium', magnesium);
+                      // If magnesium has data get the unit
+                      if (magnesium) {
+                        const magnesiumUnit = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
+                        addElementToDocument('magnesiumUnit', magnesiumUnit);
+                      }
+                      // if magnesium didn't match with given text then get the magnesium value and append to DOM
+                    } else {
+                      magnesium = content[1].textContent.replace(/(.+Magnesio)\s(\d+,\d+)\s(.*)/g, '$2');
+                      addElementToDocument('magnesium', magnesium);
                     }
-                    // if magnesium didn't match with given text then get the magnesium value and append to DOM
-                  } else {
-                    magnesium = content[1].textContent.replace(/(.+Magnesio)\s(\d+,\d+)\s(.*)/g, '$2');
-                    addElementToDocument('magnesium', magnesium);
                   }
                 }
               }
             }
           }
-        }
+        } catch (error) { console.log(error.message), "ingredient" }
+
       }
       ingredientContent('Calcio', 'Calcio (');
       ingredientContent('Magnesio', 'Magnesio (');
@@ -188,24 +221,30 @@ module.exports = {
         }
         return { ratingCount, ratingValue, reviewCount };
       }
-      const ratings = await getRatings();
-      document.body.setAttribute('rating-count', ratings.ratingCount);
-      document.body.setAttribute('rating-value', ratings.ratingValue);
-      document.body.setAttribute('review-count', ratings.reviewCount.toString());
+
+      if (!searchPage) {
+        const ratings = await getRatings();
+        document.body.setAttribute('rating-count', ratings.ratingCount);
+        document.body.setAttribute('rating-value', ratings.ratingValue);
+        document.body.setAttribute('review-count', ratings.reviewCount.toString());
+      }
 
       // Get quantity
+      try {
+        let xpath = getXpath("//span[contains(text(),'Cantidad Neta')]/following-sibling::text()", 'nodeValue');
 
-      let xpath = getXpath("//span[contains(text(),'Cantidad Neta')]/following-sibling::text()", 'nodeValue');
-      const quantityArray = document.querySelector('[itemprop="description"]').textContent.trim().split('\n');
+        const quantityArray = document.querySelector('[itemprop="description"]').textContent.trim().split('\n');
 
-      if (xpath) {
-        addElementToDocument('quantity', xpath);
-      } else {
-        if (quantityArray.length > 3) {
-          const quantity = quantityArray[2] + ' ' + quantityArray[3];
-          addElementToDocument('quantity', quantity.trim());
+        if (xpath) {
+          addElementToDocument('quantity', xpath);
+        } else {
+          if (quantityArray.length > 3) {
+            const quantity = quantityArray[2] + ' ' + quantityArray[3];
+            addElementToDocument('quantity', quantity.trim());
+          }
         }
-      }
+      } catch (err) { console.log(err), "quan" }
+
 
 
 
