@@ -1,11 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class,'ProductCol-sc-9tzwht hMAycV')]
 fields:
   - name: id
-    xpath: //div[contains(@class,'product-item-info')]//a//@data-id
-    singleValue: true
+    xpath: //a[contains(@class,'sc-psDhf bAPYME')]/@href
+    singleValue: false
+    regExp: \/([^\/]+)\/?$
+    regExpReplace: $1
   - name: name
     xpath: //div[contains(@class,'NameNoBrand-sc-1ifpr6 juQXTU')]
     singleValue: true
