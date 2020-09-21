@@ -5,8 +5,8 @@ module.exports = {
     country: 'DK',
     store: 'magasin',
     domain: 'magasin.dk',
-    url: 'https://www.magasin.dk/soeg/?q={searchTerms}',
+    url: 'https://www.magasin.dk/soeg/?q={searchTerms}&search-button=&lang=da_DK',
     loadedSelector: 'div.product-list__grid',
-    noResultsXPath: '//div.search-no-results',
+    noResultsXPath: '//div[contains(@class,"search-no-results")]',
   },
 };

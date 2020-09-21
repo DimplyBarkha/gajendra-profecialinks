@@ -6,7 +6,7 @@ module.exports = {
     store: 'magasin',
     nextLinkSelector: 'div.show-more > div.load-more > button[class="button -border"]',
     loadedSelector: 'div.product-list__grid',
-    noResultsXPath: '//div.search-no-results',      
+    noResultsXPath: '//div[contains(@class,"search-no-results")]',      
     domain: 'magasin.dk',
     zipcode: '',
   },
