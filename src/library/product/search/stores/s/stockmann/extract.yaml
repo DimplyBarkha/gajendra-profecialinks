@@ -9,10 +9,11 @@ fields:
     xpath: //a[contains(@class,'product-tile')]/@data-product-id
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,'description')]//span[contains(@class,'title')]
+    xpath: concat(//div[contains(@class,'description')]//span[contains(@class,'brand')],' ',//div[contains(@class,'description')]//span[contains(@class,'title')])
   - name: price
     singleValue: false
     xpath: //div[contains(@class,'price-row')]/strong
+    type: CURRENCY
   - name: productUrl
     singleValue: false
     xpath: //a[contains(@class,'product-tile')]/@href
