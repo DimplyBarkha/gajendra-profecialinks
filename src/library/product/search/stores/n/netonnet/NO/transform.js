@@ -35,12 +35,12 @@ const transform = (data, context) => {
         try { 
          
              
-             if (row.aggregateRating) { 
-               console.log(row.aggregateRating[0].text);     
-               var aggregateRating = row.aggregateRating[0].text.replace(',',''); 
-                 aggregateRating = (aggregateRating*5)/100
-                row.aggregateRating =  [{ text:  aggregateRating,value:  aggregateRating }];         
-             }   
+            //  if (row.aggregateRating) { 
+            //    console.log(row.aggregateRating[0].text);     
+            //    var aggregateRating = row.aggregateRating[0].text.replace(',',''); 
+            //      aggregateRating = (aggregateRating*5)/100
+            //     row.aggregateRating =  [{ text:  aggregateRating,value:  aggregateRating }];         
+            //  }   
 
              if (row.aggregateRating2) { 
                console.log(row.aggregateRating2[0].text);     
