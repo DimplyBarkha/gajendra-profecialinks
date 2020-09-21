@@ -99,10 +99,6 @@ const transform = (data) => {
           row.variantCount = [{ "text": row.variantCount.length }];
         }
       }
-      if (totBullet > 0) {
-        totBullet++;
-        row.descriptionBullets = [{ "text": totBullet }]
-      }
     }
   }
   return data;
