@@ -11,7 +11,7 @@ fields:
     xpath: //div[@id="thumbnails"]//ul//li[@class="thumb carousel-item"]//a/@href
   - name: metaKeywords
   - name: category
-    xpath: //div[contains(@class,"breadcrumb")]//div[@class="breadcrumb-element-wrapper"][position()>1]//div[@itemprop="itemListElement"]//meta[@itemprop="name"]/@content
+    xpath: //div[contains(@class,"breadcrumb")]//div[@class="breadcrumb-element-wrapper"]//div[@itemprop="itemListElement"]//meta[@itemprop="name"]/@content
   - name: nameExtended
     xpath: //meta[@property="og:title"]/@content
   - name: listPrice

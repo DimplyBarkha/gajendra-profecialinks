@@ -29,14 +29,6 @@ const transform = (data) => {
         });
         row.manufacturerDescription = [{ text }];
       }
-
-      if (row.warranty) {
-        let text = '';
-        row.warranty.forEach(item => {
-          text = text + (text ? 'guarantee' : '') + item.text;
-        });
-        row.warranty = [{ text }];
-      }
     }
   }
 
