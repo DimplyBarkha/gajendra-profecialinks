@@ -23,16 +23,16 @@ fields:
     xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@alt
   - name: brandText
     singleValue: false
-    xpath: //a[contains(@class,'brand')]
+    xpath: //div[contains(@class,"coreWrapper")]//a[contains(@class,'brand')]
   - name: name
     singleValue: false
-    xpath: //h1[@class='jsx-2771165322']
+    xpath: //div[contains(@class,'primaryDetails')]//div[contains(@class,"jsx-2771165322")]//h1
   - name: ratingCount
     singleValue: false
-    xpath: //p[contains(@class,'counter')]
+    xpath: //div[@itemprop='aggregateRating']//p[contains(@class,'counter')]
   - name: coupon
     singleValue: false
-    xpath: //div[contains(@class,'productTagContainer')]/p[contains(@class,'productTag')]
+    xpath: //div[contains(@class,'standardSlider')]/div[contains(@class,'productTagContainer')]/p[contains(@class,'productTag')]
   - name: listPrice
     singleValue: false
     xpath: //div[contains(@class,'pdpPrice')]//span[contains(@class,'preReductionPrice')]
@@ -41,31 +41,41 @@ fields:
     xpath: //span[contains(@class,'sellingPriceContainer')]/span[contains(@class,'sellingPrice')]
   - name: color
     singleValue: false
-    xpath: //p[contains(@class,'thumbnails')]
+    xpath: //table[@class='jsx-1537324451']//tr//td[contains(text(),"Colour Name")]/parent::*/td[2]
   - name: description
     singleValue: false
     xpath: //ul[contains(@class,'highlights')]
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,'groupContainer')]//table//tr
+    xpath: //div[@class='jsx-1537324451 groupContainer']//table//tr
+  - name: weightNet
+    singleValue: false
+    xpath: //table[@class='jsx-1537324451']//tr//td[contains(text(),"Weight")]/parent::*/td[2]
   - name: warranty
     singleValue: false
     xpath: //strong[contains(@class,'jsx-20458038')]
   - name: quantity
     singleValue: false
-    xpath: //div[@class='Select-control']
+    xpath: //div[contains(@class,'qtyContainer')]//div[@class='Select-control']//span[@class='Select-value-label']
   - name: shippingInfo
     singleValue: false
     xpath: //li[contains(@class,"uspContainer")][2]//span[contains(@class,"tagline")]
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class,"starRating")]
+    xpath: //div[contains(@class,"reviewsContainer")]//p[contains(@class,"scoreTag")]
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@class,'primaryOverviewContent')]/div[contains(@class,"jsx-3349621030")][1]/div[2]
+    xpath: //div[contains(@class,'primaryDetails')]//div[contains(@class,"jsx-2771165322")]//h1
   - name: additionalDescBulletInfo
     singlgeValue: false
     xpath: //div[contains(@class,'primaryOverviewContent')]//li[@class="jsx-1889249662"]
   - name: mpc
     singleValue: false
-    xpath: //div[contains(@class,"coreWrapper")]//p[contains(@class,'modelNumber')]    
+    xpath: //div[contains(@class,"coreWrapper")]//p[contains(@class,'modelNumber')]
+  - name: variantCount
+    singleValue: false
+    xpath: //div[contains(@class,'variantContainer')]//div[contains(@class,'mediaContainer')]//img/@src
+  - name: availabilityText
+    singleValue: false
+    xpath: //p[contains(@class,"notAvailableNote")]
+    defaultValue: In Stock

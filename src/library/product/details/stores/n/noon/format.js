@@ -36,8 +36,8 @@ const transform = (data) => {
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           var matches = /\s*(\d+)/isg.exec(item.text);
-          if (matches.length) {
-            item.text = matches[1];
+          if (matches) {
+            item.text = matches[1]
           }
         });
       }
@@ -65,6 +65,13 @@ const transform = (data) => {
         row.mpc.forEach(item => {
           item.text=item.text.replace('Model Number: ','');
         });
+      }
+      if(row.variantCount){
+        var tot=0;
+        row.variantCount.forEach(item => {
+          tot++;
+        });
+        row.variantCount=[{text:tot}];
       }      
     }
   }
