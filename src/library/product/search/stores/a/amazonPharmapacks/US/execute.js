@@ -7,6 +7,6 @@ module.exports = {
     domain: 'amazon.com',
     url: 'https://www.amazon.com/s?k={searchTerms}&me=ASEVS99O6FS73&ref=nb_sb_noss',
     loadedSelector: 'div[data-asin][data-component-type=s-search-result]',
-    noResultsXPath: '//span[@cel_widget_id="MAIN-TOP_BANNER_MESSAGE" and contains(., "No results")]',
+    noResultsXPath: '//span[contains(@cel_widget_id,"MAIN-TOP_BANNER_MESSAGE") and contains(., "No results")]',
   },
 };
