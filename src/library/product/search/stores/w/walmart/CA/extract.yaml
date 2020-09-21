@@ -1,54 +1,53 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@data-automation,'product-results')]//div[contains(@data-automation,'product')]
+recordXPath: //div[contains(@data-automation,'product-results')]//div[contains(@data-automation,'product')] | //div[@id='ii_products']
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //a/@href[contains(.,'/ip/')]
+    xpath: //a/@href[contains(.,'/ip/')] | //div[@id='ii_producturl']
     regExp: (/ip/.+)
     regExpReplace: https://www.walmart.ca/en$1
     description: The URL for the product details page
   - name: thumbnail
-    singleValue: true
-    xpath: //img/@src
+    singleValue: false
+    xpath: //img/@src | //div[@id='ii_images']
     description: The URL for the product thumbnail image
   - name: name
-    singleValue: true
-    xpath: //p[contains(@data-automation,'name')]
+    singleValue: false
+    xpath: //p[contains(@data-automation,'name')] | //div[@id='ii_name']
     description: The product name
   - name: gtin
     manualSelector: div[id='ii_upc']
     description: GTIN code (includes UPC/EAN)
   - name: reviewCount
-    singleValue: true
-    xpath: //div[contains(@data-automation,'star-rating-wrapper')]
+    singleValue: false
+    xpath: //div[contains(@data-automation,'star-rating-wrapper')] | //div[@id='ii_ratingCount']
     regExp: (\d{1,})
     regExpReplace: $1
     description: The number of reviews
   - name: price
-    singleValue: true
-    xpath: //span[contains(@data-automation,'current-price')]
+    singleValue: false
+    xpath: //span[contains(@data-automation,'current-price')] | //div[@id='ii_productCurrentPrice']
     description: The offered price for the product
   - name: rank
-    singleValue: true
+    singleValue: false
     description: search/listing rank
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
   - name: id
-    singleValue: true
-    xpath: //div[contains(@data-automation,'product')]/@data-product-id
+    singleValue: false
+    xpath: //div[contains(@data-automation,'product')]/@data-product-id | //div[@id='ii_products']
     description: Unique id (within this extractor
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[contains(@data-automation,'rating-stars')]/@aria-label
+    xpath: //div[contains(@data-automation,'rating-stars')]/@aria-label | //div[@id='ii_averageRating']
     description: The stated aggregate rating normalized to be out of 5
-    regExp: (?:([\d]+(?:.[\d]+)?)?)
-    regExpReplace: $1 
+    # regExp: (?:([\d]+(?:.[\d]+)?)?)
+    # regExpReplace: $1 
   - name: searchUrl
-    singleValue: false
     xpath: ancestor::html//div[@id='search-url'][last()]
-    regExp: (^[^#]*)
-    regExpReplace: $1
+    # regExp: (^[^#]*)
+    # regExpReplace: $1
     
