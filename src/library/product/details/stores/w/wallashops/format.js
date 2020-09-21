@@ -29,9 +29,16 @@ const transform = (data) => {
       if (!row.brandText) {
         row.brandText = [{ text: row.name[0].text.replace(/^([\w]+).*/gm, '$1') }];
       }
+
+      const specificationArray = [];
       if (row.specifications) {
-        row.specifications[0].text = row.specifications[0].text.replace(/(\n\s*){8,}/g, ' || ').replace(/(\n\s*){6,}/g, ' || ').replace(/(\n\s*){5,}/g, ' || ').replace(/(\n\s*){4,}/g, ' || ').replace(/(\n\s*){2,}/g, '');
+        row.specifications.shift();
+        row.specifications.forEach(specificationItem => {
+          specificationArray.push(specificationItem.text);
+        });
       }
+      row.specifications = [{ text: specificationArray.join(' || ') }];
+
       if (row.alternateImages) {
         row.alternateImages.shift();
       }
