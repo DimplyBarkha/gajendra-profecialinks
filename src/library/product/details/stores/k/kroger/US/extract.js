@@ -37,14 +37,14 @@ const implementation = async (
     const myUrl = window.location.href;
     addHiddenDiv('ii_url', myUrl.split('#')[0]);
 
-    //name logic, only 45255 to include size in nameExtended:
+    // name logic, only 45255 to include size in nameExtended:
     let nameExtended;
-    if (zipcode !== '45255'){
+    if (zipcode !== '45255') {
       nameExtended = document.evaluate('//div[@class="ProductDetails-header"]/h1', document, null, XPathResult.STRING_TYPE, null).stringValue;
     } else {
       nameExtended = document.evaluate('concat(//div[@class="ProductDetails-header"]/h1," ",//span[@id="ProductDetails-sellBy-unit"])', document, null, XPathResult.STRING_TYPE, null).stringValue;
     }
-    addHiddenDiv('my-name-ext',nameExtended);
+    addHiddenDiv('my-name-ext', nameExtended);
 
     const productDetailsButton = document.getElementsByClassName('kds-Tabs-tab')[0];
 
