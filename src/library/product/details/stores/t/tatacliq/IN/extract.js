@@ -1,38 +1,36 @@
-const { transform } = require('./transform')
+const { transform } = require('./transform');
+
 module.exports = {
-    implements: 'product/details/extract',
-    parameterValues: {
-        country: 'IN',
-        store: 'tatacliq',
-        transform,
-        domain: 'tatacliq.com',
-        zipcode: '',
-    },
-    implementation: async function implementation(
-        inputs,
-        parameters,
-        context,
-        dependencies,
-    ) {
-        const { transform } = parameters;
-        const { productDetails } = dependencies;
-        const currentSelector = '#root > div > div._3Zwp_xfvys_Gl6iCn51uE6 > div > div._3nEIAVs5PpLHjQeCmVTJ3h > div > div:nth-child(1) > div > div:nth-child(5) > div._273qboblakntZlD2M6BaZC > div > h2';
-        const result = await context.evaluate((currentSelector) => {
-            return Boolean(document.querySelector(currentSelector));
-        }, currentSelector);
+  implements: 'product/details/extract',
+  parameterValues: {
+    country: 'IN',
+    store: 'tatacliq',
+    transform,
+    domain: 'tatacliq.com',
+  },
+  implementation: async function implementation (
+    inputs,
+    parameters,
+    context,
+    dependencies,
+  ) {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    const result = await context.evaluate(() => {
+      return Boolean(document.evaluate(`//div[contains(.,'more details')]/span[contains(.,'click')]`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+    });
 
-        if (result) {
-            await context.click('#root > div > div._3Zwp_xfvys_Gl6iCn51uE6 > div > div._3nEIAVs5PpLHjQeCmVTJ3h > div > div:nth-child(1) > div > div:nth-child(5) > div._273qboblakntZlD2M6BaZC > div > h2');
-            // await context.waitForNavigation({ timeout: 20000, waitUntil: 'load' });
+    if (result) {
+      await context.evaluate(() => {
+        // @ts-ignore
+        document.evaluate(`//div[contains(.,'more details')]/span[contains(.,'click')]`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().click();
+      });
 
-            await context.click('#root > div > div._3Zwp_xfvys_Gl6iCn51uE6 > div > div._3nEIAVs5PpLHjQeCmVTJ3h > div > div:nth-child(1) > div > div:nth-child(5) > div.ReactCollapse--collapse > div > div > div:nth-child(2) > div > span')
-                // await context.waitForNavigation({ timeout: 20000, waitUntil: 'load' });
-
-        }
-        await context.waitForSelector(('#root > div > div._3Zwp_xfvys_Gl6iCn51uE6 > div > div._3nEIAVs5PpLHjQeCmVTJ3h > div > div:nth-child(1) > div > div:nth-child(5) > div.ReactCollapse--collapse > div > div > div:nth-child(2) > div > span'), 50000);
-        const delay = t => new Promise(resolve => setTimeout(resolve, t));
-        await delay(5000);
-        return await context.extract(productDetails, { transform });
+      await context.waitForFunction(function (xp) {
+        return Boolean(document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+      }, { timeout: 10000 }, `//div[contains(.,"Manufacturer's Details")]`);
     }
+    return await context.extract(productDetails, { transform });
+  }
 
 };

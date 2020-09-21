@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -10,16 +10,16 @@ fields:
   - name: imageAlt
     xpath: //*[@id="APIM"]//img//@alt
   - name: alternateImages
-    xpath: //*[@id="APIM"]/../following-sibling::div//img/@src
+    xpath: //*[@id="APIM"]/../following-sibling::div[1]/div[position()>1]//img/@src
     regExp: (.+)
     regExpReplace: https:$1
   - name: metaKeywords
     description: The <meta> keywords content
   - name: category
-    xpath:  //*[@id="BPDT"]/../../preceding-sibling::div/div[position()<last()]
+    xpath:  //*[@id="BPDT"]/../../preceding-sibling::div/div[position()<last() and position()>1]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
-    xpath:  //*[@id="root"]//div[contains(text(),'Highlights')]/./following-sibling::div[position()<last()] | //*[@itemprop="name"]//h1
+    xpath:  concat(//*[@itemprop="brand"]//h2, ' - ', //*[@itemprop="name"]//h1)
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -30,21 +30,19 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
-    xpath: //*[@itemprop="availability"]/@content
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    regExp: (.+/)(.+)
-    regExpReplace: $2
-    defaultValue: Out of Stock
+    xpath: //div[contains(@id,'APIM')]/../../following-sibling::div[contains(.,'Out of Stock') or contains(.,'Not Saleable')]
+    regExp: (.+)
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
-    xpath:  //*[@class="ReactCollapse--collapse"]
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: //*[@itemprop="description"]/text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//*[@itemprop="description"]/div[last()]/div[count(div)=0])
+  - name: descriptionBulletsInfo
+    xpath: //*[@itemprop="description"]/div[last()]/div[count(div)=0]
   - name: brandText
     xpath:  //*[@itemprop="brand"]//span[@itemprop="name"]
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -55,11 +53,16 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //*[@itemprop="name"]//h1
+    regExp: (.+)Pack of (\d+)
+    regExpReplace: $2
   - name: weightNet
     xpath: //div[contains(text(),'Weight')]/following-sibling::div
     description: Net weight as described on the page
+  - name: weightNetUnits
+    xpath: //div[contains(text(),'Weight')]/text()
+    regExp: Product Weight\s\((.+)\)
+    regExpReplace: $1
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -83,12 +86,16 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //*[@itemprop="name"]//h1
+    regExp: (.+)Pack of (\d+)
+    regExpReplace: $2
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
     description: Content under "directions" header
+    xpath: //div[contains(text(),'Instructions')]/following-sibling::div
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -96,33 +103,38 @@ fields:
     xpath:  //*[@itemprop="ratingCount"]//@content
     description: The number of ratings
     type: NUMBER
-  - name: reviewCount
-    xpath:  //*[@itemprop="reviewCount"]//@content
   - name: aggregateRatingText
-    xpath:  //*[@itemprop="itemReviewed"]//@content
+    xpath:  //*[@itemprop="reviewCount"]//@content
     description: The stated aggregate rating
   - name: aggregateRating
-    xpath:  //*[@itemprop="itemReviewed"]//@content
+    xpath:  //*[@itemprop="ratingValue"]
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
-    xpath:  //*[@id="DWSN"]//div | //*[@id="root"]//ul//li[contains(text(),'Free Shipping')]
+    xpath:  (//*[@id="DWSN"]//div)[1] | //*[@id="root"]//ul//li[contains(text(),'Free Shipping')]
     description: Shipping information for the product
   - name: shippingDimensions
-    xpath: //div[contains(text(),'Weight')]/../following-sibling::div | //div[contains(text(),'Weight')]/../preceding-sibling::div 
+    xpath: //h2[contains(.,'Dimensions')]/../../following-sibling::div/div/div/div/div[last()][preceding-sibling::div[not(contains(.,'Weight'))]]
     description: Stated shipping dimensions
+  - name: shippingDimensionsUnits
+    xpath: //div[contains(text(),'Height')]/text()
+    regExp: Product Height\s\((.+)\)
+    regExpReplace: $1
   - name: shippingWeight
-    xpath: //div[contains(text(),'Weight')]/following-sibling::div
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    xpath: count(//h3[contains(.,'Colour:')]/../following-sibling::div/div)
     type: NUMBER
   - name: color
-    xpath:  //div[contains(text(),'Color')]/following-sibling::div
+    xpath:  //h3[contains(text(),'Colour:')]/following-sibling::*
     description: A textual description of the colour
   - name: colorCode
     singleValue: true
+    xpath: //h3[contains(text(),'Colour:')]/../following-sibling::div//div[contains(@style,'rgb')]/@style
+    regExp: 'background: (.+);'
+    regExpReplace: $1
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     xpath: //*[@id="flixinpage"]/following-sibling::div//p|//*[@id="flixinpage"]/following-sibling::div//p/preceding-sibling::h3
@@ -208,6 +220,7 @@ fields:
       other stores) - LBB occurs when a product is bought from someone other
       than Amazon (on Amazon Website) - even though Amazon has the product "in
       Stock"
+    defaultValue: No
   - name: lbbPrice
     singleValue: true
     description: null
@@ -386,8 +399,8 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //h2[contains(.,'Additional Features')]/../..//following-sibling::div//text() | //h2[contains(.,'Additional Features')]/../../../following-sibling::div/div[2]//text()
   - name: warranty
     xpath:  //div[contains(text(),'Warranty D')]/following-sibling::div
     description: Guarantee associated with the product
@@ -395,7 +408,7 @@ fields:
     singleValue: true
     description: Suggested storage location for product
   - name: countryOfOrigin
-    xpath:  //div[contains(text(),'Country')]/following-sibling::div  
+    xpath:  //div[contains(text(),'Country')]/following-sibling::div
     description: The country from which the product originates
   - name: allergyAdvice
     singleValue: true
