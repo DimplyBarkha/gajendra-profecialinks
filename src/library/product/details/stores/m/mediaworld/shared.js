@@ -38,7 +38,7 @@ const cleanUp = (data, context) => {
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(image => {
           image.text = image.text.replace(/(.+)(200w, )(.+)(\s)(400w)(.+)/g, 'https:$3');
-        })
+        });
       }
     }
   }
