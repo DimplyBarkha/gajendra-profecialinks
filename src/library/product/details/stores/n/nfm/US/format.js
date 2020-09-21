@@ -31,7 +31,7 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [
           {
-            text: text.slice(0, -3).trim(),
+            text: cleanUp(text.slice(0, -3).trim()),
           },
         ];
       }
@@ -64,7 +64,7 @@ const transform = (data) => {
         if (row.secondaryImageTotal) {
           row.secondaryImageTotal = [
             {
-              text: row.alternateImages.length,
+              text: cleanUp(row.alternateImages.length),
             },
           ];
         }
@@ -74,7 +74,7 @@ const transform = (data) => {
         pr = pr.replace(/^\((.+)\)$/, '$1');
         row.ratingCount = [
           {
-            text: pr,
+            text: cleanUp(pr),
             xpath: row.ratingCount[0].xpath,
           },
         ];
@@ -86,7 +86,7 @@ const transform = (data) => {
         });
         row.specifications = [
           {
-            text: text.slice(0, -4),
+            text: cleanUp(text.slice(0, -4)),
           },
         ];
       }
@@ -95,7 +95,7 @@ const transform = (data) => {
         ag = ag.split(' ')[0] === 'Rated' ? ag.replace('Rated ', '') : ag;
         row.aggregateRatingText = [
           {
-            text: ag,
+            text: cleanUp(ag),
             xpath: row.aggregateRatingText[0].xpath,
           },
         ];
