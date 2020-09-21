@@ -46,7 +46,7 @@ const transform = (data) => {
           if (text.includes('guarantee')) {
             row.warranty = [{ text }];
           }
-        } else if (row.warranty1 && row.warranty1[0].text.includes('2 year') && row.warranty1[0].text.includes('guarantee')) {
+        } else if (row.warranty1 && row.warranty1[0].text.includes('2 year parts and labour guarantee')) {
           const text1 = '2 year parts and labour guarantee.';
           row.warranty = [{ text: text1 }];
         }
