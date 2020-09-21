@@ -35,10 +35,10 @@ fields:
     xpath: //div[contains(@class,'productTagContainer')]/p[contains(@class,'productTag')]
   - name: listPrice
     singleValue: false
-    xpath: //span[contains(@class,'preReductionPrice')]
+    xpath: //div[contains(@class,'pdpPrice')]//span[contains(@class,'preReductionPrice')]
   - name: price
     singleValue: false
-    xpath: //span[contains(@class,'sellingPrice')]
+    xpath: //span[contains(@class,'sellingPriceContainer')]/span[contains(@class,'sellingPrice')]
   - name: color
     singleValue: false
     xpath: //p[contains(@class,'thumbnails')]
