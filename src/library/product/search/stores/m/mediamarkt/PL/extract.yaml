@@ -1,8 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: '//div[contains(@class, "m-offerBox_content clearfix")]'
+recordXPath: //div[contains(@class, "m-offerBox_content clearfix")]
 fields:
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="added_search_url"]
   - name: productUrl
     singleValue: false
     xpath: //div[@class="m-offerBox_header"]//h2//a/@href
@@ -32,10 +35,10 @@ fields:
     xpath: //h2[contains(@class,'m-offerBox_headline')]//a/@data-offer-price
     description: The offered price for the product
   - name: rank
-    singleValue: true
+    singleValue: false
     description: search/listing rank
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
   - name: id
     singleValue: false
@@ -43,5 +46,5 @@ fields:
     description: Unique id (within this extractor)
   - name: aggregateRating2
     singleValue: false
-    xpath: count(//div[contains(@class,'m-offerBox_rating')]//i[contains(@class, "icon-i_star is-active")])
+    xpath: //div[contains(@class,'m-offerBox_rating')]//i[contains(@class, "icon-i_star is-active")]/@class
     description: The stated aggregate rating normalized to be out of 5

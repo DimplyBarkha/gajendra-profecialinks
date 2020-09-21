@@ -5,11 +5,11 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class, "slick-track")]//div[contains(@class, "m-slider_item js-thumbs slick-slide slick-current slick-active")]//img/@src
+    xpath: //div[contains(@class, "slick-track")]//div[contains(@class, "js-thumbs slick-slide slick-current")]//img/@src
     description: URL of the main product image
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class, "slick-track")]//div[contains(@class, "m-slider_item js-thumbs slick-slide slick-current slick-active")]//img/@alt
+    xpath: //div[contains(@class, "slick-track")]//div[contains(@class, "js-thumbs slick-slide slick-current")]//img/@alt
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
@@ -45,7 +45,7 @@ fields:
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //*[@class="description-product"]
+    xpath: //div[@id="added-description"]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -126,6 +126,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
+    default: "0"
     description: Number of variants listed 
   - name: color
     singleValue: false
@@ -136,9 +137,11 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
+    xpath: //div[@id="added-manufacturerDesc"]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
+    xpath: //*[@class="description-product"]//img/@src
     description: Images within the third party description
   - name: videos
     singleValue: false

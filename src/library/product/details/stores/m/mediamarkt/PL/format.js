@@ -29,10 +29,14 @@ const transform = (data) => {
       if (!row.brandText) {
         row.brandText = [{ text: row.name[0].text.replace(/^([\w]+).*/gm, '$1') }];
       }
+      if (row.category) {
+        row.category.shift();
+      }
+
       if (row.specifications) {
-        row.specifications[0].text = row.specifications[0].text
+        row.specifications[0].text = cleanUp(row.specifications[0].text
           .replace(/(\n\s*){4,}/g, ' || ')
-          .replace(/(\n\s*){2,}/g, ' : ');
+          .replace(/(\n\s*){2,}/g, ' : '));
       }
       if (row.availabilityText) {
         row.availabilityText.forEach(availabilityTextItem => {
@@ -47,6 +51,11 @@ const transform = (data) => {
       if (row.image) {
         row.image.forEach(itemText => {
           itemText.text = itemText.text.includes('http') ? itemText.text : 'https:' + itemText.text;
+        });
+      }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(manufacturerImagesText => {
+          manufacturerImagesText.text = manufacturerImagesText.text.includes('http') ? manufacturerImagesText.text : 'https:' + manufacturerImagesText.text;
         });
       }
       if (row.alternateImages) {
