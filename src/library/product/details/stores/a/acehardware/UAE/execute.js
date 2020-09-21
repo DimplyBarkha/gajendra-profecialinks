@@ -5,8 +5,8 @@ module.exports = {
     country: 'UAE',
     store: 'acehardware',
     domain: 'aceuae.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedXPath: '//div[contains(@class,"b-product-images__main")]//picture/img[@itemprop="image"]/@data-src',
+    noResultsXPath: '//span[@class="h-rtlfix"][contains(text(),"We can’t seem to find the page you’re looking for")]',
     zipcode: '',
   },
 };
