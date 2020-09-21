@@ -146,6 +146,9 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //img[contains(@class,'sc-pRFHb BrandImage-sc-gr8t1i fnwcVC')]/@src
+    regExp: (.+)
+    regExpReplace: https://www.ottoversand.at$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
