@@ -10,11 +10,6 @@ module.exports = {
   implementation: async ({ input }, { transform }, context, { productDetails }) => {
     await context.waitForNavigation({ timeout: 50000, waitUntil: 'networkidle0' });
     await context.evaluate(async function () {
-      function timeout (ms) {
-        return new Promise((resolve) => setTimeout(resolve, ms));
-      }
-      window.scrollTo(0, document.querySelector('div.main-content-tabs-container').scrollHeight);
-      await timeout(5000);
       const videoArr = [];
       const getAllThumbnailVideos = JSON.parse(window.mwProductDetailData);
       const videoUrl = getAllThumbnailVideos && getAllThumbnailVideos.CatalogEntryView[0] && getAllThumbnailVideos.CatalogEntryView[0].Attributes;

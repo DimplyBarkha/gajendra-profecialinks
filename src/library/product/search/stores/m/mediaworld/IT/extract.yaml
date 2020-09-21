@@ -42,11 +42,6 @@ fields:
     description: The offered price for the product
     regExp: (\d+)(.)(\d+)
     regExpReplace: $1,$3
-  - name: listPrice
-    xpath: //article[contains(@class,"product clearfix")]//@data-gtm-price-full
-    description: The stated undiscounted price for the product
-    regExp: (\d+)(.)(\d+)
-    regExpReplace: $1,$3
   - name: manufacturer
     description: Product manufacturer
   - name: soldBy
