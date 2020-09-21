@@ -92,7 +92,13 @@ const transform = (data) => {
           arr_info.push(item.text)
         });
         row.variantInformation=[{text:arr_info.join(' | ')}];
-      }      
+      }
+      if(row.nameExtended){
+        var temp_brand = ''
+        if(row.brandText)(          
+          row.nameExtended[0].text = row.brandText[0].text + '-' + row.nameExtended[0].text
+        )        
+      }
     }
   }
   return data;
