@@ -36,14 +36,17 @@ fields:
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")] | //div[@id="almDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
   - name: price
     singleValue: false
-    xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1]
+    xpath: (//*[@id="priceblock_ourprice"] | //*[@id="priceblock_saleprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1]
   - name: availabilityText
     singleValue: false
     xpath: (//*[contains(@id,'availability')] |  //*[contains(@id,'vailability')]//*[contains(text(),'tock')])[1]
     defaultValue: 'In Stock'
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)] | //div[@id="productDescription"]
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+  - name: descriptionOne
+    singleValue: false
+    xpath: //div[@id="productDescription"]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
@@ -60,12 +63,10 @@ fields:
     xpath:
   - name: weightNet
     singleValue: false
-    xpath: (//tr/th[contains(text(),"Paket Boyutları")])[1]/following-sibling::td | (//tr/th[contains(text(),"Ürün Boyutları")])[1]/following-sibling::td
-    regExp: (.*); (.*)
-    regExpReplace: $2
+    xpath: (//tr/th[contains(text(),"Ürün Ağırlığı")])[1]/following-sibling::td
   - name: weightGross
     singleValue: false
-    xpath: (//tr/th[contains(text(),"Ürün Ağırlığı")])[1]/following-sibling::td
+    xpath:
   - name: gtin
     xpath:
   - name: asin
@@ -103,7 +104,13 @@ fields:
     regExpReplace: $2
   - name: shippingInfo
     singleValue: false
-    xpath: concat(//div[@id="buybox-tabular"]//tr/td[contains(.,"Satıcı")]," is ",//div[@id="buybox-tabular"]//tr/td[contains(.,"Satıcı")]/following-sibling::td/span/span)
+    xpath:
+  - name: ship
+    singleValue: false
+    xpath: (//tr//td[contains(@class,"buybox-tabular-column") and ./span[contains(.,"Gönderici")]]/following-sibling::td/span/span)[1]
+  - name: sold
+    singleValue: false
+    xpath: (//tr//td[contains(@class,"buybox-tabular-column") and ./span[contains(.,"Satıcı")]]/following-sibling::td/span/span)[1]
   - name: shippingDimensions
     singleValue: false
     xpath: (//tr/th[contains(text(),"Paket Boyutları")])[1]/following-sibling::td | (//tr/th[contains(text(),"Ürün Boyutları")])[1]/following-sibling::td
@@ -135,7 +142,7 @@ fields:
     xpath: //script[contains(text(), "ImageBlockBTF")]/text()
   - name: name
     singleValue: false
-    xpath: //title
+    xpath: //span[@id="productTitle"]
   - name: inStorePrice
     singleValue: false
     xpath:
@@ -146,7 +153,7 @@ fields:
     singleValue: false
     xpath: //div[@id='added-asin']
   - name: sku
-    xpath: (//tr/th[contains(text(),"Model Numarası")])[1]/following-sibling::td
+    xpath:
   - name: coupon
     singleValue: false
     xpath: //div[@id="price"]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text()
@@ -240,6 +247,9 @@ fields:
   - name: otherSellersPrime
     singleValue: false
     xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//span[contains(@id,"mbc-shipping")]/a[contains(@target,"Amazon")]/@href
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
   - name: otherSellersPrice
     singleValue: false
     xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]//span[contains(@class, "a-price")]/span[contains(@class, "a-offscreen")] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//span[contains(@id,"mbc-price")]
@@ -426,7 +436,7 @@ fields:
     xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: 
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: prop65Warning
     singleValue: false
     xpath: 
