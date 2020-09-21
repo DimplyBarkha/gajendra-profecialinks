@@ -63,6 +63,9 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@class='product-name']//h1
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='product-name']//h1
   - name: featureBullets
     singleValue: false
     xpath: //div[@class='desc_divider']//ul  
@@ -83,3 +86,10 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //select[@id='attribute211']/option[preceding::option]
+  - name: availabilityText
+    singleValue: false
+    xpath: //span[contains(@class,'prod-no-stock')]
+    defaultValue: 'In Stock'
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'product-img-box')]//div[contains(@class,'productlabel-sale')]//span[@class='label-sale-value']
