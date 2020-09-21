@@ -51,7 +51,9 @@ fields:
     xpath: (//script/@data-flix-ean | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'EAN')]//parent::div/dd/p)[1]
   - name: mpc
     singleValue: false
-    xpath: (//script/@data-flix-mpn | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Modelo')]//parent::div/dd/p)[1]
+    xpath: (//script/@data-flix-mpn | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Modelo')]//parent::div/dd/p)[1] | //h1[contains(@class, "f-productHeader-Title")] 
+    regExp: (\s\d+-?\d+)
+    regExpReplace: $1
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-productHeader-reviewLabel")]
@@ -74,7 +76,7 @@ fields:
     manualSelector: h1.f-productHeader-Title
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[contains(@class, "js-productVisuals-thumbnails")]//div[@data-type="image"]/img)
+    xpath: count(//div[contains(@class, "js-productVisuals-thumbnails")]//div[contains(@class,"slick-active") and not(contains(@class, "slick-current"))]/@data-src-zoom)
     type: NUMBER
   - name: specifications
     singleValue: false

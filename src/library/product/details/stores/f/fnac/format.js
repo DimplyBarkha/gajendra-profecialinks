@@ -26,7 +26,7 @@ const transform = (data) => {
         
         if (row.specifications) {
           row.specifications = row.specifications.map((specification) => {
-            return { text: specification.text.replace(/(\n\s*){5,}/g, ' || ').replace(/(\n\s*){3,}/g, ' : ')};
+            return { text: specification.text.replace(/(\n\s*){5,}/g, ' || ').replace(/(\n\s*){4,}/g, ' || ').replace(/(\n\s*){3,}/g, ' : ').replace(/(\n\s*){1,}/g, ' : ')};
           });
         }
 
@@ -41,6 +41,18 @@ const transform = (data) => {
           if(row.name[0].text.split(' ')[0] !== row.brandText[0].text) {
             row.nameExtended[0].text = row.brandText[0].text + " - " + row.name[0].text;
           }
+        }
+
+        if(!row.brandText) {
+          row.brandText = { text : row.name[0].text.split(' ')[0] };
+        }
+
+        if(row.manufacturer) {
+          row.manufacturer[0].text = row.manufacturer[0].text.replace(/['"]+/g, '');
+        }
+
+        if(row.mpc) {
+          row.mpc[0].text = row.mpc[0].text.trim();
         }
       }
     }
