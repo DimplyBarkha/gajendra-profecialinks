@@ -31,8 +31,9 @@ const transform = (data, context) => {
           aggregateRating += item.text.includes('off') ? 0 : item.text.includes('half-star') ? 0.5 :
             item.text.includes('icon-star') ? 1 : 0
         })
-        row.aggregateRating2 = [{ text: ('' + aggregateRating).replace(/\./, ',') }]
+        row.aggregateRating2 = [{ text: aggregateRating ? ('' + aggregateRating).replace(/\./, ',') : '' }]
       }
+
       if (row.ratingCount && row.ratingCount[0].text === '#VALUE!') {
         row.ratingCount = [{ text: 0 }]
       }
