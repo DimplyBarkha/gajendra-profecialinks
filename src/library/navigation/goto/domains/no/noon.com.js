@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'noon.com',
     timeout: null,
-    country: 'SA',
+    country: 'AE',
     store: 'noon',
     zipcode: '',
   },

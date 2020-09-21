@@ -11,7 +11,7 @@ fields:
     xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@src    
   - name: category
     singleValue: false
-    xpath: //div[contains(@class,'breadcrumb ')]//span[contains(@class,'crumb')]//button
+    xpath: //div[contains(@class,'breadcrumb')]//span[contains(@class,'crumb')]//button
   - name: image
     singleValue: false
     xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@src
@@ -23,31 +23,31 @@ fields:
     xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@alt
   - name: brandText
     singleValue: false
-    xpath: //a[@class='jsx-2771165322 brand']
+    xpath: //a[contains(@class,'brand')]
   - name: name
     singleValue: false
     xpath: //h1[@class='jsx-2771165322']
   - name: ratingCount
     singleValue: false
-    xpath: //p[@class='jsx-2756475694 counter']
+    xpath: //p[contains(@class,'counter')]
   - name: coupon
     singleValue: false
-    xpath: //div[@class="jsx-180529803 productTagContainer"]/p[@class="jsx-2027916868 productTag"]
+    xpath: //div[contains(@class,'productTagContainer')]/p[contains(@class,'productTag')]
   - name: listPrice
     singleValue: false
-    xpath: //span[@class="jsx-4251264678 value"]/span[@class="jsx-4251264678 preReductionPrice"]
+    xpath: //span[contains(@class,'preReductionPrice')]
   - name: price
     singleValue: false
-    xpath: //span[@class="jsx-4251264678 sellingPriceContainer"]/span[@class="jsx-4251264678 sellingPrice"]
+    xpath: //span[contains(@class,'sellingPrice')]
   - name: color
     singleValue: false
-    xpath: //p[@class='jsx-1264480987 thumbnails']
+    xpath: //p[contains(@class,'thumbnails')]
   - name: description
     singleValue: false
     xpath: //ul[contains(@class,'highlights')]
   - name: specifications
     singleValue: false
-    xpath: //div[@class='jsx-1537324451 groupContainer']//table//tr
+    xpath: //div[contains(@class,'groupContainer')]//table//tr
   - name: warranty
     singleValue: false
     xpath: //strong[contains(@class,'jsx-20458038')]
