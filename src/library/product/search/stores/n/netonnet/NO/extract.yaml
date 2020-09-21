@@ -17,11 +17,11 @@ fields:
 - name: thumbnail
   singleValue: true
   xpath: //picture//img//@src
-- name: aggregateRating
-  singleValue: true
-  xpath: //reviewRatings-id[(@id="reviewRatings")]
-  description: The stated aggregate rating normalized to be out of 5 
-  type: NUMBER
+# - name: aggregateRating
+#   singleValue: true
+#   xpath: //reviewRatings-id[(@id="reviewRatings")]
+#   description: The stated aggregate rating normalized to be out of 5 
+#   type: NUMBER
 - name: aggregateRating2
   singleValue: true
   xpath: //reviewRatings-id[(@id="reviewRatings")]
