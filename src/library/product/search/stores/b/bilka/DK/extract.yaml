@@ -8,7 +8,7 @@ fields:
     xpath: //div[contains(@class, 'v-card__title title')]
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, 'after-price')]
+    xpath: //div[contains(@class, 'after-price')]    
   - name: productUrl
     singleValue: false
     xpath: //div[contains(@class, 'products')]//div[contains(@class, 'fill-height')]//a[contains(@class, 'product-card')]/@href
@@ -43,7 +43,7 @@ fields:
     regExp: ([0-9]+)
   - name: manufacturer
     singleValue: false
-    xpath: //div[contains(@class, 'v-card__title title')]
-    regExp: (?:^|(?:[.!?]\s))(\w+)
+    # xpath: //div[contains(@class, 'v-card__title title')]
+    # # regExp: (?:^|(?:[.!?]\s))(\w+)
   - name: searchUrl
     singleValue: false
