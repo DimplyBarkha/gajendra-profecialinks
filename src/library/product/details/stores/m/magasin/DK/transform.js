@@ -23,13 +23,6 @@ const transform = (data, context) => {
           } 
           if (row.eangtin) {
             row.eangtin = [{ text: row.eangtin[0].text.toString().replace(/\r\n|\r|\n/g, '').replace('EAN:   ','') }];
-          } 
-          if (row.category) {
-            let newText = "";
-            row.category.forEach(item =>{
-              newText += `${item.text.trim() + " > "}`;
-            });
-            row.category = [{ text: newText.slice(0, -3) }];
           }
           if (row.weightNet) {
             let newText = "";
