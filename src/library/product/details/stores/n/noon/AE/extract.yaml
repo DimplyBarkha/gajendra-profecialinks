@@ -81,6 +81,9 @@ fields:
   - name: variants
     singleValue: false
     xpath: //div[contains(@class,'variantContainer')]//div[contains(@class,'mediaContainer')]//img/@src
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'variantContainer')]//li/button[contains(@class,'thumbnailContainer')]/@title
   - name: availabilityText
     singleValue: false
     xpath: //p[contains(@class,"notAvailableNote")]

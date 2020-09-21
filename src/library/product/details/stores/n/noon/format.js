@@ -84,7 +84,14 @@ const transform = (data) => {
           item.text = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
           arr_info.push(item.text)
         });
-        row.variantCount=[{text:arr_info.join(' | ')}];
+        row.variants=[{text:arr_info.join(' | ')}];
+      }
+      if(row.variantInformation){
+        var arr_info=[];
+        row.variantInformation.forEach(item => {          
+          arr_info.push(item.text)
+        });
+        row.variantInformation=[{text:arr_info.join(' | ')}];
       }      
     }
   }
