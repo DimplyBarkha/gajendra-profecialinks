@@ -1,0 +1,16 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class="variant-list"]/li | /html[not(//ul[@class="variant-list"]/li)]
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: ./a/@href | .//link[@rel="canonical"]/@href
+    regExp: '[^/]+$'
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: ./a/@href | .//link[@rel="canonical"]
+    regExp: (https://www.costco.com.mx)?(.+)
+    regExpReplace: https://www.costco.com.mx$2
+ 
