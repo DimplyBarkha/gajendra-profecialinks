@@ -21,6 +21,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[contains(@class,"f-productOffer-priceBox")]/div/span[contains(@class, "checked")]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@class,"f-priceBox-price--old")]
   - name: availabilityText
     singleValue: false
     xpath: //span[@class="f-buyBox-availabilityStatus-available"]|//p[contains(string(), "en stock")]
