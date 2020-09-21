@@ -31,10 +31,7 @@ const transform = (data) => {
           row.availabilityText.forEach(item => {
             item.text = 'In Stock'
           });
-        }
-        else{
-          row.availabilityText = [{'text':'Out of Stock'}];          
-        }
+        }        
 
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {
