@@ -63,7 +63,7 @@ async function implementation (
         document.body.appendChild(newDiv);
       }
       let allText = '';
-      [...document.querySelectorAll('div.apm-hovermodule-slides')].filter(element => element.style.display !== "block").forEach((element) => {
+      [...document.querySelectorAll('div.apm-hovermodule-slides')].filter(element => element.style.display !== 'block').forEach((element) => {
         if (element.querySelector('.apm-hovermodule-slides-inner')) {
           allText += element.querySelector('.apm-hovermodule-slides-inner').innerText;
         }
@@ -72,11 +72,11 @@ async function implementation (
       let manufContentText = '';
       if (manufContent) {
         const clonedManufContent = manufContent.cloneNode(true);
-        if (clonedManufContent.getElementsByTagName("style")) {
-          [...clonedManufContent.getElementsByTagName("style")].forEach((styleElement) => styleElement.remove());
+        if (clonedManufContent.getElementsByTagName('style')) {
+          [...clonedManufContent.getElementsByTagName('style')].forEach((styleElement) => styleElement.remove());
         }
-        if (clonedManufContent.getElementsByTagName("script")) {
-          [...clonedManufContent.getElementsByTagName("script")].forEach((scriptElement) => scriptElement.remove());
+        if (clonedManufContent.getElementsByTagName('script')) {
+          [...clonedManufContent.getElementsByTagName('script')].forEach((scriptElement) => scriptElement.remove());
         }
         manufContentText = clonedManufContent.innerHTML.replace(/<(li)[^>]+>/ig, '<$1>').replace(/<li>/gm, ' || ').replace(/<[^>]*>/gm, '').trim();
       }
@@ -88,33 +88,35 @@ async function implementation (
     }, parentInput);
   }
 
-  await context.waitForXPath('//span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//span[@data-component-type="s-product-image"]//a[contains(@class, "a-link-normal")]/@href');
-  const link = await context.evaluate(async function () {
-    const linkNode = document.querySelector('span[cel_widget_id="MAIN-SEARCH_RESULTS"] a.a-link-normal');
-    const link = (linkNode !== null) ? linkNode.getAttribute('href') : null;
-    return link;
-  });
+  // await context.waitForXPath('//span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//span[@data-component-type="s-product-image"]//a[contains(@class, "a-link-normal")]/@href');
+  // const link = await context.evaluate(async function () {
+  //   const linkNode = document.querySelector('span[cel_widget_id="MAIN-SEARCH_RESULTS"] a.a-link-normal');
+  //   const link = (linkNode !== null) ? linkNode.getAttribute('href') : null;
+  //   return link;
+  // });
 
-  if (link && link.toString().includes('almBrandId')) {
-    try {
-      await context.goto('https://www.amazon.com/' + link, {
-        timeout: 45000, waitUntil: 'load', checkBlocked: true,
-      });
-    } catch (err) {
-      try {
-        await context.goto('https://www.amazon.com/' + link, {
-          timeout: 45000, waitUntil: 'load', checkBlocked: true,
-        });
-      } catch (err) {
-        console.log('couldn\'t go to link')
-        // throw new Error('Can\'t go to link');
-      }
-    }
-  } 
-  // else {
-    // throw new Error('Not found in Amazon Fresh');
-    // return;
+  // if (link && link.toString().includes('almBrandId')) {
+  //   try {
+  //     await context.goto('https://www.amazon.com/' + link, {
+  //       timeout: 45000, waitUntil: 'load', checkBlocked: true,
+  //     });
+  //   } catch (err) {
+  //     try {
+  //       await context.goto('https://www.amazon.com/' + link, {
+  //         timeout: 45000, waitUntil: 'load', checkBlocked: true,
+  //       });
+  //     } catch (err) {
+  //       console.log('couldn\'t go to link')
+  //       // throw new Error('Can\'t go to link');
+  //     }
+  //   }
   // }
+  // else {
+  // throw new Error('Not found in Amazon Fresh');
+  // return;
+  // }
+  await context.clickAndWaitForNavigation('span[data-component-type="s-product-image"]');
+  await context.waitForXPath('//span[@id="productTitle"]', { timeout: 20000 });
 
   await loadAllResources();
   addContent(parentInput);

@@ -95,7 +95,7 @@ async function implementation (
         otherSellerPrice = otherSellerPrice ? otherSellerPrice.replace(/\./g, '').replace(/,/g, '.') : '';
         otherSellerPrice && addElementToDocument('pd_otherSellersPrice', otherSellerPrice);
 
-        let otherSellerNameElem = document.querySelector('a[id*="sellerProfile"]');
+        const otherSellerNameElem = document.querySelector('a[id*="sellerProfile"]');
         let otherSellerName = otherSellerNameElem ? otherSellerNameElem.innerText : '';
         otherSellerName = otherSellerName ? otherSellerName.trim() : '';
         otherSellerName && addElementToDocument('pd_otherSellerName', otherSellerName);

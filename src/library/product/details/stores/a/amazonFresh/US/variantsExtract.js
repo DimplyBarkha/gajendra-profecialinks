@@ -11,9 +11,9 @@ async function implementation (
   const amazonHelp = new AmazonHelp(context, helpers);
 
   // try {
-    await context.waitForXPath('//span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//span[@data-component-type="s-product-image"]//a[contains(@class, "a-link-normal")]/@href');
+  await context.waitForXPath('//span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//span[@data-component-type="s-product-image"]//a[contains(@class, "a-link-normal")]/@href');
   // } catch (error) {
-    // throw new Error('No product avail for this location');
+  // throw new Error('No product avail for this location');
   // }
   const link = await context.evaluate(async function () {
     const linkNode = document.querySelector('span[cel_widget_id="MAIN-SEARCH_RESULTS"] a.a-link-normal');
@@ -27,12 +27,12 @@ async function implementation (
         timeout: 45000, waitUntil: 'load', checkBlocked: true,
       });
     } catch (err) {
-        await context.goto('https://www.amazon.com/' + link, {
-          timeout: 45000, waitUntil: 'load', checkBlocked: true,
-        });
-      }
+      await context.goto('https://www.amazon.com/' + link, {
+        timeout: 45000, waitUntil: 'load', checkBlocked: true,
+      });
     }
-            // catch (err) {
+  }
+  // catch (err) {
   //       throw new Error('Can\'t go to link');
   //     }
   //   }

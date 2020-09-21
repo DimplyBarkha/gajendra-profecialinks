@@ -105,7 +105,7 @@ const transform = (data) => {
         }
       }
       if (row.alternateImages) {
-        row.alternateImages.splice(0,1);
+        row.alternateImages.splice(0, 1);
         row.alternateImages.forEach(alternateImages => {
           alternateImages.text = alternateImages.text.replace('._AC_US40_', '');
         });

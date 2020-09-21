@@ -96,8 +96,8 @@ const transform = (data, context) => {
           }
         }
         if (row.brandText && row.brandText[0]) {
-          console.log('1row.brandText')
-          console.log(row.brandText)
+          console.log('1row.brandText');
+          console.log(row.brandText);
           const regexBrand = /([B|b]rand:)|(^[B|b]y)|([B|b]rand)|([V|v]isit the)|([S|s]tore)/gm;
           if (regexBrand.test(row.brandText[0].text)) {
             const brandName = (row.brandText[0].text).replace(regexBrand, '').trim();
@@ -127,7 +127,6 @@ const transform = (data, context) => {
           // const priceUnit = row.pricePerUnit[0].text.replace(regexBraces, '').exec(regexBeforeSlash).replace(regexIgnoreSlash, '');
 
           // row.pricePerUnitUom = [{ text: priceUnit}];
-
         }
         if (row.pricePerUnitUom) {
           const regexBraces = /[{()}]/g;
