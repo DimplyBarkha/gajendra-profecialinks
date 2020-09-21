@@ -25,6 +25,24 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.specifications) {
+        let text = '';
+        let count = 0;
+        row.specifications.forEach(item => {
+          count++;
+          const val = (count % 2);
+          if (val === 0) {
+            text += `: ${item.text}`;
+          } else {
+            text += ` | ${item.text}`;
+          }
+        });
+        row.specifications = [
+          {
+            text: text.replace(new RegExp('(\\s\\|\\s)(.+)', 'g'), '$2'),
+          },
+        ];
+      }
       if (row.price) {
         let text = '';
         row.price.forEach(item => {
