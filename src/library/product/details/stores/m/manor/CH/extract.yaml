@@ -30,7 +30,7 @@ fields:
   - name: availabilityText
     singleValue: false
     defaultValue: 'In Stock'
-    xpath: //div[@class='m-pickupinstore-list-item__store__location inStock']
+    xpath: //div[contains(@class,'m-pickupinstore-list-item__store__location')]
   - name: ratingCount
     singleValue: false
     xpath: //span[@itemprop='reviewCount']
