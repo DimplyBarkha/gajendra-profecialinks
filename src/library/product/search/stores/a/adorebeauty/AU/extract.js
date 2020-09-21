@@ -39,10 +39,14 @@ async function implementation (
     let recordSelector = document.querySelectorAll('li.ais-InfiniteHits-item');
     
     for (const record of recordSelector) {
-      let productIdentifierText = record.childNodes[0].getAttribute('href').split('/')[2].split('.')[0];
-      const productInfo = await fetch(`https://www.adorebeauty.com.au/api/product?identifier=${productIdentifierText}&locale=en-AU`).then(res => res.json());
-      addHiddenDiv("myProductId", productInfo.id.split('_')[0], record);
-      addHiddenDiv("myReviewTotal", productInfo.reviewTotal, record);
+      if(record && record.childNodes && record.childNodes[0] && record.childNodes[0].getAttribute('href')) {
+        let productIdentifierText = record.childNodes[0].getAttribute('href').split('/')[2].split('.')[0];
+        const productInfo = await fetch(`https://www.adorebeauty.com.au/api/product?identifier=${productIdentifierText}&locale=en-AU`).then(res => res.json());
+        if(productInfo && productInfo.id) {
+          addHiddenDiv("myProductId", productInfo.id.split('_')[0], record);
+          addHiddenDiv("myReviewTotal", productInfo.reviewTotal, record);
+        }
+      }
     }
   });
 
