@@ -13,8 +13,6 @@ fields:
     xpath: //a[contains(@class, "product-image-link")]/@href
     singleValue: false
   - name: manufacturer
-    xpath: //a[contains(@class, "product-name")]//span//span
-    regExp: ^([\s]*[\S]+)
     singleValue: false    
   - name: thumbnail
     xpath: //a[contains(@class, "product-image-link")]/img/@src

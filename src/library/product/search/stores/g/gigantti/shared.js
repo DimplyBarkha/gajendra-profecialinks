@@ -28,7 +28,6 @@ const transform = (data, context) => {
          }
 
          if(row.aggregateRating){
-           console.log(row.aggregateRating);
            row.aggregateRating = [{ text: row.aggregateRating[0].text.replace(',','.')}];          
          } 
 
