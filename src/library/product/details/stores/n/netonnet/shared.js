@@ -10,7 +10,7 @@ const transform = (data) => {
 			if (row.availabilityText) {
 				let newText = 'Out Of Stock';
 				row.availabilityText.forEach(item => {
-					if (item.text.trim() === 'true') {
+					if (item.text.trim() === 'false') {
 						newText = 'In Stock';
 					}
 				});
@@ -77,12 +77,17 @@ const transform = (data) => {
 				});
 				row.aggregateRating = [{ text: newText }];
 			}
-			if (row.additionalDescBulletInfo) {  
-				let newText = '';
-				row.additionalDescBulletInfo.forEach(item => {
-					newText +=  `${item.text.replace(/ \n|&dash;|\r/g, ' || ')}`;
+			// if (row.additionalDescBulletInfo) {  
+			// 	let newText = '';
+			// 	row.additionalDescBulletInfo.forEach(item => {
+			// 		newText +=  `${item.text.replace(/ \n|&dash;|\r/g, ' || ')}`;
+			// 	});
+			// 	row.additionalDescBulletInfo = [{ text: newText.slice(0, -4) }];
+			// }
+			if (row.alternateImages) {  
+				row.alternateImages.forEach(item => {
+					item.text = item.text.replace('Large','Extra');
 				});
-				row.additionalDescBulletInfo = [{ text: newText.slice(0, -4) }];
 			}
 		}
 	}

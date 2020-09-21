@@ -5,9 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@data-index="0"]//img//@src
-    regExp: (.+)
-    regExpReplace: https://www.netonnet.no$1
+    xpath: //meta[@property="og:image"]//@content
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
@@ -24,7 +22,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: boolean(//div[@class='heading']//span[contains(@class,'stockStatusInStock')]) 
+    xpath: boolean(//button[@class='btn btn-primary btn-block btn-lg']/@disabled) 
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="collapseFive"]//img//@src
@@ -85,7 +83,7 @@ fields:
     description: The product name  
   - name: description
     singleValue: false
-    xpath: //div[contains(@id,'collapseFive')]//div[@class="panel-body"]
+    xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li
     description: Product description supplied by website - may be concatenanted from multiple places; specifically not the manufacturer description
   - name: technicalInformationPdfPresent
     singleValue: true
@@ -121,11 +119,10 @@ fields:
     description: The physical dimensions of the product including packaging. here its taken as Height , width and Depth    
   - name: weightNet
     singleValue: false
-    xpath: //td[contains(text(), 'Vekt')]/following::td[1]
+    xpath: //td[contains(text(), "Vekt") and not(contains(text(), "Vekt (forsendelse)"))]/following::td[1]
     description: Net weight as described on the page
   - name: weightGross
     singleValue: false
-    xpath: //td[contains(text(), 'Vekt')]/following::td[1]
     description: Gross weight as described on the page
   - name: listPrice
     singleValue: false
@@ -133,7 +130,7 @@ fields:
     description: The stated undiscounted price for the product 
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,'product-sellingPoints hidden-xs')]//div[contains(@class,"product-usps")]
+    xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li
     description: null
   - name: brandText
     singleValue: false
@@ -143,16 +140,13 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    xpath: //div[contains(@class, 'tracking')]/input[contains(@name,"ProductQuantity")]/@value 
-    # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    # regExpReplace: $1$2$3$4
   - name: shippingWeight
     singleValue: false
-    xpath: //td[contains(text(), 'Vekt')]/following::td[1]
+    xpath: (//td//font[contains(text(), "Weight (shipping)") ]/following::td[1])|(//td[contains(text(), "Vekt (forsendelse)")]/following::td[1])
     description: Stated shipping weight
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@id,'collapseFive')]//div[@class="panel-body"]
+    xpath: //ol[(@class='breadcrumb')]/following-sibling::h2
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)       
   - name: descriptionBullets
     singleValue: false
@@ -173,6 +167,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //*[contains(text(), 'MPN')]/following::td[1]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -190,14 +185,16 @@ fields:
     singleValue: true
     description: Shipping information for the product
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
     description: Stated shipping dimensions
+    xpath: (//td//font[contains(text(), 'Width (shipping)')]/following::td[1]|//td//font[contains(text(), 'Depth (shipping)')]/following::td[1]|//td//font[contains(text(), 'Height (shipping)')]/following::td[1]|//td//font[contains(text(), "Weight (shipping)") ]/following::td[1]|//td[contains(text(), 'Bredde (forsendelse)')]/following::td[1]|//td[contains(text(), 'Dybde (forsendelse)')]/following::td[1]|//td[contains(text(), 'Høyde (forsendelse)')]/following::td[1]|//td[contains(text(), "Vekt (forsendelse)")]/following::td[1])
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
-    singleValue: false
+    singleValue: true
     description: The extended description of the product supplied by the lister
+    xpath: //div[@id='collapseFive']//div[@class='row']//div[@class='col-xs-12']//text()[1]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
