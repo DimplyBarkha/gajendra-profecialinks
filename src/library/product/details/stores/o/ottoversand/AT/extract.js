@@ -14,10 +14,15 @@ module.exports = {
       
      const productInfo = preFetchProductDetails();
       addEleToDoc('skuId', productInfo.sku);
+      addEleToDoc('agreegateRatingId',productInfo.aggregateRating.ratingValue);
+      addEleToDoc('priceId',productInfo.offers.price);
+      addEleToDoc('currencyId',productInfo.offers.priceCurrency);
+
+
 
       function preFetchProductDetails () {
         let productInfo = findProductDetails('//script[@type="application/ld+json" and @id="schemaorg-product"]');        
-        productInfo = JSON.parse(productInfo.textContent);        
+        productInfo = JSON.parse(productInfo.textContent); 
         return productInfo;
       }      
             

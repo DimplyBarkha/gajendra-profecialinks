@@ -7,6 +7,11 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //div[contains(@class,'SlideContent-sc-1cdoji bLNceb')]/img/@src
+  - name: priceCurrency
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //*[contains(@id,"currencyId")]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -33,10 +38,12 @@ fields:
     description: The stated undiscounted price for the product
     xpath: //span[@class="sc-oUDcU cnVYtu"]
   - name: price
-    singleValue: false
+    singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class="sc-pQdCa iewpDR"]
+    # xpath: //div[@class="sc-pQdCa iewpDR"]
+    xpath: //*[contains(@id,"priceId")]
+    type: CURRENCY
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -121,7 +128,7 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //*[contains(@id,"agreegateRatingId")]
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
