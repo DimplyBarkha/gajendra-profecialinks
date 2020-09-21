@@ -1,0 +1,150 @@
+input:
+  keywords: dyson
+  _url: http://haarbedarf.at
+extractions:
+  - html: https://workbench.import.io/html/run=c48e96ca-f97c-4ed7-86fa-d4a5ea6694eb/task=7818fdef-b798-46a6-817a-f61722ad79bc/6f87cb8c-7945-4a05-95d5-578f03083c60.html
+    extractionConfigId: product/search/stores/h/haarbedarf/AT/extract
+    data:
+      - group:
+          - rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[1]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: de_DE
+                value: 1
+            productUrl:
+              - text: https://haarbedarf.at/produkt/dyson-airwrap-complete-long-haarstyler/
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://haarbedarf.at/wp-content/uploads/2020/03/airwrap-324x315.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[1]/div[1]/a[1]/img[1]/@src
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[1]/div[1]/@rankorganic
+            name:
+              - text: DYSON AIRWRAP Complete LONG Haarstyler – fuchsia/anthrazit
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[1]/h2[1]/a[1]/text()[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[1]/div[2]/a[1]/span[1]/strong[1]
+            price:
+              - text: 472,00 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[1]/a[2]/span[1]/ins[1]/span[1]
+            id:
+              - text: "9970040"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[1]/a[3]/@data-product_sku
+          - rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[2]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: de_DE
+                value: 2
+            productUrl:
+              - text: https://haarbedarf.at/produkt/dyson-corrale-haarglaetter-nickelfuchsia/
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://haarbedarf.at/wp-content/uploads/2020/03/dyson-corrale.png
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[2]/div[1]/a[1]/img[1]/@src
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[2]/div[1]/@rankorganic
+            name:
+              - text: DYSON CORRALE Haarglätter Nickel/Fuchsia
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[2]/h2[1]/a[1]/text()[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[2]/div[2]/a[1]/span[1]/strong[1]
+            price:
+              - text: 463,50 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[2]/a[2]/span[1]/ins[1]/span[1]
+            id:
+              - text: "9970030"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[2]/a[3]/@data-product_sku
+          - rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[3]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: de_DE
+                value: 3
+            productUrl:
+              - text: https://haarbedarf.at/produkt/dyson-airwrap-complete-haarstyler/
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[3]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://haarbedarf.at/wp-content/uploads/2020/03/airwrap-324x315.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[3]/div[1]/a[1]/img[1]/@src
+            rank:
+              - text: "3"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[3]/div[1]/@rankorganic
+            name:
+              - text: DYSON AIRWRAP Complete Haarstyler – fuchsia/nickel
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[3]/h2[1]/a[1]/text()[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[3]/div[2]/a[1]/span[1]/strong[1]
+            price:
+              - text: 468,00 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[3]/a[2]/span[1]/ins[1]/span[1]
+            id:
+              - text: "9970020"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[3]/a[3]/@data-product_sku
+          - rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[4]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: de_DE
+                value: 4
+            productUrl:
+              - text: https://haarbedarf.at/produkt/dyson-supersonic-schwarz/
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[4]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://haarbedarf.at/wp-content/uploads/2018/07/black1-324x324.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[4]/div[1]/a[1]/img[1]/@src
+            rank:
+              - text: "4"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[4]/div[1]/@rankorganic
+            name:
+              - text: DYSON SUPERSONIC™ Haartrockner schwarz / nickel
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[4]/h2[1]/a[1]/text()[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[4]/div[2]/a[1]/span[1]/strong[1]
+            price:
+              - text: 365,00 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[4]/a[2]/span[1]/ins[1]/span[1]
+            id:
+              - text: "9970015"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[4]/a[3]/@data-product_sku
+          - rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[5]/div[1]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: de_DE
+                value: 5
+            productUrl:
+              - text: https://haarbedarf.at/produkt/dyson-supersonic/
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[5]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://haarbedarf.at/wp-content/uploads/2018/07/fuchsia1-324x324.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[5]/div[1]/a[1]/img[1]/@src
+            rank:
+              - text: "5"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[5]/div[1]/@rankorganic
+            name:
+              - text: DYSON SUPERSONIC™ Haartrockner Fuchsia/Anthrazit
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[5]/h2[1]/a[1]/text()[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[5]/div[2]/a[1]/span[1]/strong[1]
+            price:
+              - text: 349,00 €
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[5]/a[2]/span[1]/ins[1]/span[1]
+            id:
+              - text: "9970016"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]/li[5]/a[3]/@data-product_sku
+        xpath: /html/body/div[1]/div[2]/div[1]/div[2]/main[1]/div[2]/ul[1]
+    timestamp: 1600433939623
