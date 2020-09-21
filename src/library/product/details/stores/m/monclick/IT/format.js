@@ -50,11 +50,11 @@ const transform = (data) => {
         row.price = [{ text: amt }];
       }
       if (!row.shippingDimensions) {
-        if (row.width && row.depth && row.height && row.weightNet) {
+        if (row.width && row.depth && row.height && row.shippingWeight) {
           const w = row.width[0].text.split(' ');
           const d = row.depth[0].text.split(' ');
           const h = row.height[0].text.split(' ');
-          const dim = w[0] + ' x ' + d[0] + ' x ' + h[0] + w[1] + '; ' + row.weightNet[0].text;
+          const dim = w[0] + ' x ' + d[0] + ' x ' + h[0] + w[1] + '; ' + row.shippingWeight[0].text;
           row.shippingDimensions = [{ text: dim }];
         }
       }

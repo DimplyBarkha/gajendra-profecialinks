@@ -56,7 +56,9 @@ fields:
     xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Peso (Shipping)')]/following::p[1]
   - name: sku
     singleValue: false
-    xpath: //aside[contains(@class,'mk-product-page')]//a[@data-action='add-to-cart']/@data-product-code
+    xpath: //script[@type="text/javascript"][contains(text(),"product_sku")]
+    regExp: product_sku":\[\"(.*?)"\]
+    regExpReplace: $1
   - name: variantCount
     singleValue: false
     defaultValue: '0'
@@ -79,18 +81,20 @@ fields:
     xpath: //div[@id="description" and @role="tabpanel"]//div[@id="product-sheet-mk-description"]//div[starts-with(text(), '-')]
   - name: mpc
     singleValue: false
-    xpath: //span[@itemprop='identifier']
+    xpath: //script[@type="application/ld+json"][contains(text(),"mpn")]
+    regExp: mpn":"([^"]+)
+    regExpReplace: $1
   - name: shippingDimensions
     singleValue: false
   - name: width
     singleValue: false
-    xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Altezza')]/following::p[1]
+    xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Altezza (Shipping)')]/following::p[1]
   - name: depth
     singleValue: false
-    xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Profondità')]/following::p[1]
+    xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Profondità (Shipping)')]/following::p[1]
   - name: height
     singleValue: false
-    xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Larghezza')]/following::p[1]
+    xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Ampiezza (Shipping)')]/following::p[1]
   - name: gtin
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]
