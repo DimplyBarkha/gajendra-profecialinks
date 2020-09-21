@@ -38,6 +38,9 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //span[contains(@aria-label,"yıldız üzerinden")]/following-sibling::span[1]//a/span
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[contains(@aria-label,"yıldız üzerinden")]/following-sibling::span[1]//a/span
   - name: manufacturer
     singleValue: false
     xpath: 
