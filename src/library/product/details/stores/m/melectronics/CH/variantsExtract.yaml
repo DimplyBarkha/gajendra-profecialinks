@@ -3,6 +3,12 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: image
-    singleValue: true
-    description: URL of the main product image
+  - name: variantId
+    singleValue: false
+    xpath: //script[@id='state']/text()
+  - name: variantUrl
+    singleValue: false
+    defaultValue: ''
+  - name: variant
+    singleValue: false
+    defaultValue: ''
