@@ -51,7 +51,10 @@ fields:
     xpath: //div[@class='m-productfacts_single_values']//span[contains(text(),'Garantie')]
   - name: variants
     singleValue: false
-    xpath: //div[@class="m-productcolorselect-v-2__colors js-only-colors"]//a/@href
+    xpath: //div[contains(@class,'m-productcolorselect-v-2__colors__one')]//a/@href
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'m-productcolorselect-v-2__colors__one')]//a/@title
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class,"m-productdetailareaa__areaA__title-line")]//h2
@@ -59,6 +62,12 @@ fields:
     singleValue: false
     xpath: //div[@class='m-productfactslist'] 
   - name: variantId
+    singleValue: false 
+    xpath: //div[@data-t-name="ProductdetailV2"]/@data-productid
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@class="m-productcolorselect-v-2__colors js-only-colors"]//a/@href
+  - name: firstVariant
     singleValue: false 
     xpath: //div[@data-t-name="ProductdetailV2"]/@data-productid
   - name: quantity

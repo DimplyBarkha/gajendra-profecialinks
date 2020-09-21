@@ -104,6 +104,20 @@ const transform = (data) => {
         });
         row.variants = [{ 'text': info.join(' | '), 'xpath': row.variants[0].xpath }];
       }
+      if(row.variantCount){
+        var tot=0;
+        row.variantCount.forEach(item => {
+          tot++;
+        });
+        row.variantCount=[{text:tot}];
+      }
+      if(row.variantInformation){
+        var arr_info=[];
+        row.variantInformation.forEach(item => {          
+          arr_info.push(item.text)
+        });
+        row.variantInformation=[{text:arr_info.join(' | ')}];
+      }
       if (row.specifications) {
         row.specifications.forEach(item => {
           item.text = item.text.replace(/\n\s*\n\s*\n\s*/g, ' || ').trim();
