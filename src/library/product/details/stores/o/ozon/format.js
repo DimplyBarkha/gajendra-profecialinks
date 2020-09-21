@@ -30,8 +30,12 @@ const transform = (data) => {
         if (row.availabilityText) {          
           row.availabilityText.forEach(item => {
             item.text = 'In Stock'
-          });          
+          });
         }
+        else{
+          row.availabilityText = [{'text':'Out of Stock'}];          
+        }
+
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {
             let data = JSON.parse(item.text);
@@ -48,6 +52,7 @@ const transform = (data) => {
             if(data['aggregateRating']){
               if(data['aggregateRating']['ratingValue']){
                 item.text = data['aggregateRating']['ratingValue'];
+                item.text = item.text.replace(/(\.)+/g, ',').trim();
               }
             }            
           });
@@ -78,7 +83,7 @@ const transform = (data) => {
           row.alternateImages.forEach(item => {            
             let data = JSON.parse(item.text);            
             let info = []
-            if(data['images']){              
+            if(data['images'] && data['images'].length>1){
               data['images'].shift();              
               if (data['images'][0]['src']){                
                 data['images'].forEach(img_data => {
