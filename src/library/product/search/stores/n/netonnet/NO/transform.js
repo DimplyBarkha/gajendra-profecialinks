@@ -40,7 +40,16 @@ const transform = (data, context) => {
                var aggregateRating = row.aggregateRating[0].text.replace(',',''); 
                  aggregateRating = (aggregateRating*5)/100
                 row.aggregateRating =  [{ text:  aggregateRating,value:  aggregateRating }];         
-             }       
+             }     
+             
+             if (row.productUrl) {               
+               row.productUrl =  [{ text: 'https://www.netonnet.no'+ row.productUrl[0].text  }];         
+            }
+
+            if (row.thumbnail) {               
+               row.thumbnail =  [{ text: 'https://www.netonnet.no'+ row.thumbnail[0].text}];         
+            }
+             
         } catch (exception) { console.log('Error in transform', exception); }
 
       }
