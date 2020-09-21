@@ -65,7 +65,7 @@ const transform = (data) => {
       }
       if (row.aggregateRating) {
         row.aggregateRating.forEach((aggregateRatingItem) => {
-          aggregateRatingItem.text = aggregateRatingItem.text.replace(/[^0-9.]/g, '');
+          aggregateRatingItem.text = aggregateRatingItem.text.replace('.', ',');
         });
       }
       if (row.listPrice) {
