@@ -30,7 +30,7 @@ const transform = (data) => {
         row.variantInformation.forEach(item => {
           info.push(item.text.trim());            
         });
-        row.variantCount = [{'text': info.length}];
+        //row.variantCount = [{'text': info.length}];
         row.variantInformation = [{'text':info.join(' | '),'xpath':row.variantInformation[0].xpath}];          
       }           
       if (row.additionalDescBulletInfo) {
