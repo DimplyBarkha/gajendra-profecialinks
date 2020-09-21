@@ -18,6 +18,7 @@ fields:
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -67,7 +68,7 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath: //h4[contains(text(), "משקל")]/following-sibling::div[1]
+    xpath: //h4[contains(text(), "משקל")]/following-sibling::div[1] | //div[contains(text(), "משקל")]
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
