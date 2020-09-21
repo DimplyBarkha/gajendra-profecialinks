@@ -9,18 +9,17 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    const numberOfDivs = await context.evaluate(() => document.querySelectorAll('div[class^="col-md-4"]').length);
-    let y = 1;
-    let z = 1;
-    for (y; numberOfDivs >= y; y++) {
-      await context.hover(`section[class="products-overview tile"] > div[class="row"] > div:nth-child(${y})`);
-      await context.evaluate(async function (z) {
-        const img = document.evaluate(`//div[contains(@class, 'col-md-4')][${z}]//img[@class='product-image']/@src`, document, null, XPathResult.STRING_TYPE, null).stringValue;
-        document.querySelector(`section[class="products-overview tile"] > div[class="row"] > div:nth-child(${z})`).setAttribute('img_src', img);
-      }, z++);
-    }
     await context.evaluate(async function () {
-      const allProducts = document.querySelectorAll('div[class^="col-md-4"]');
+      const numberOfResults = document.querySelectorAll('div[class^="col-md-4"]');
+      for (let x = 0; numberOfResults.length > x; x++) {
+        numberOfResults[x].classList.replace('col-md-4', 'col-md-1');
+        // @ts-ignore
+        numberOfResults[x].style.height = '20px';
+      }
+      window.scroll(1, 1);
+    });
+    await context.evaluate(async function () {
+      const allProducts = document.querySelectorAll('div[class^="col-md-1"]');
       let x;
       for (x = 0; allProducts.length - 1 >= x; x++) {
         allProducts[x].setAttribute('count', `${x + 1}`);

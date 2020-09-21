@@ -1,16 +1,16 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='row']/div[contains(@class, 'col-md-4')]
+recordXPath: //div[@class='row']/div[contains(@class, 'col-md-1')]
 fields:
   - name: id
     description: Unique id (within this extractor)
-    xpath: //div[contains(@class, 'col-md-4')]/div/@data-tracking-commerce
+    xpath: //div[contains(@class, 'col-md-1')]/div/@data-tracking-commerce
     regExp: \"id\":\"([\d]+)
     regExpReplace: $1
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
-    xpath: //div[contains(@class, 'col-md-4')]/@count
+    xpath: //div[contains(@class, 'col-md-1')]/@count
     type: NUMBER 
   - name: name
     description: The product name
@@ -22,12 +22,12 @@ fields:
     regExpReplace: https://www.krefel.be$1
   - name: gtin
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[contains(@class, 'col-md-4')]/div/@data-tracking-commerce
+    xpath: //div[contains(@class, 'col-md-1')]/div/@data-tracking-commerce
     regExp: \"id\":\"([\d]+)
     regExpReplace: $1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[contains(@class, 'col-md-4')]/@img_src
+    xpath: //div[contains(@class, 'col-md-1')]//img[@class='product-image']/@src
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
@@ -44,12 +44,13 @@ fields:
     xpath: concat('€ ', //span[@class='current-price orange nl'])
   - name: manufacturer
     description: Product manufacturer
-    xpath: //div[contains(@class, 'col-md-4')]/div/@data-tracking-commerce
+    xpath: //div[contains(@class, 'col-md-1')]/div/@data-tracking-commerce
     regExp: \"brand\":\"([A-z]+)
     regExpReplace: $1
   - name: soldBy
     description: The name of the seller of the item (if available)
   - name: rank
     description: search/listing rank
+    xpath: //div[contains(@class, 'col-md-1')]/@count
   - name: endorsementText
     description: The text that signifies that a product is endorsed
