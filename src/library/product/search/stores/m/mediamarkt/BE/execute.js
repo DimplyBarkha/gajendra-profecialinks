@@ -7,7 +7,7 @@ module.exports = {
     domain: 'mediamarkt.be',
     url: 'https://www.mediamarkt.be/nl/search.html?query={searchTerms}&searchProfile=onlineshop&channel=mmbenl',
     loadedSelector: 'div.product-wrapper',
-    noResultsXPath: '((//div[@class="no_search_result_text"])[1]|//div[@data-cms-id="product_detail-top"])[1]',
+    noResultsXPath: '//div[@class="no_search_result_text"]|//div[@data-cms-id="product_detail-top"]|//meta[@data-id="emptysearchresult"]|//div[@data-cms-id="emptysearchresult-bottom"]|//div[contains(@class, "cms_html_container")]',
     zipcode: '',
   },
 };

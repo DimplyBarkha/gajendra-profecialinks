@@ -66,6 +66,6 @@ module.exports = {
     await sharedhelpers.addHiddenInfo('ii_avail', availText);
 
     closeModal();
-    await context.extract(productDetails, { transform });
+    await context.extract(productDetails, { transform: transformParam });
   },
 };
