@@ -18,6 +18,11 @@ const transform = (data) => {
           item.text = parseInt(item.text) + 1;
         });
       }
+      if (row.nameExtended) {
+        row.nameExtended.forEach(item => {
+          item.text = item.text + " - " + row.name[0]["text"];
+        });
+      }      
       row.rank = [{ "text": rank }];
       rank++;
     }
