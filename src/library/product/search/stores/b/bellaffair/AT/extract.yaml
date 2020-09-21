@@ -19,7 +19,7 @@ fields:
     regExpReplace: https://www.bellaffair.at$1
   - name: thumbnail
     singleValue: false
-    xpath: //*[contains(@class,"gridlist_item_image_container")]//img[@class="lazy"]/@src
+    xpath: //div[contains(@class,"gridlist_item_image_container")]//img[@class="lazy"]/@data-src
   - name: rank
     singleValue: false
     description: search/listing rank
