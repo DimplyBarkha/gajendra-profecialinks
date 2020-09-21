@@ -17,6 +17,21 @@ async function implementation(
   const { productDetails, Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
 
   const helpers = new Helpers(context);
+  const setCity = async () => {
+    try {
+      await context.waitForSelector('#nav-packard-glow-loc-icon')
+      await context.click('#nav-packard-glow-loc-icon')
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      await context.waitForSelector('#GLUXCityList')
+      await context.click('#GLUXCityList')
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      await context.waitForSelector('a[data-value*="Dubai"]')
+      await context.click('a[data-value*="Dubai"]')
+      await new Promise(resolve => setTimeout(resolve, 2000))
+    } catch (e) {
+      console.log(e)
+    }
+  }
   // Code to fetch aplus (enhanced content)
   async function waitForAplus() {
     // Scrolling to bottom of page where aplus images are located
@@ -35,6 +50,7 @@ async function implementation(
     }
     await new Promise((resolve) => setTimeout(resolve, 2500));
   }
+  await setCity()
   await waitForAplus();
   const aplusFlag = await context.evaluate(function () {
     const aplusSelector = document.querySelector('div#aplus');
@@ -48,6 +64,7 @@ async function implementation(
 
   if (!aplusFlag) {
     console.log('page reloading');
+    await setCity()
     await context.waitForXPath('(//img[@id="landingImage"])[1]/@data-old-hires | (//img[@id="landingImage"])[1]/@src');
     await waitForAplus();
   }
