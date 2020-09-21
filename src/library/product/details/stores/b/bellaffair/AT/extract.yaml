@@ -66,10 +66,10 @@ fields:
   - name: aggregateRating
     singleValue: true
     xpath: //meta[@itemprop='ratingValue']/@content
-  - name: manufacturer
-    singleValue: true
-    xpath:  //li[contains(text(), 'Marke')]
-    regExp: (?<=:).*
+  #- name: manufacturer
+  #  singleValue: true
+  #  xpath:  //li[contains(text(), 'Marke')]
+  #  regExp: (?<=:).*
   - name: mpc
     singleValue: true
     xpath: //meta[@itemprop='sku']/@content
@@ -100,26 +100,28 @@ fields:
     singleValue: true
     xpath:  //li[contains(text(), 'Farbe')]
     regExp: (?<=:).*
-  - name: packSize
-    singleValue: true
-    xpath:  //li[contains(text(), 'Ausstattung')]
-    regExp: (?<=:).*
+  #- name: packSize
+  #  singleValue: true
+  #  xpath:  //li[contains(text(), 'Ausstattung')]
+  #  regExp: (?<=:).*
   - name: variantCount
     singleValue: true
     type: NUMBER
-    xpath: count(//div[contains(@class,"actionBlock")]//span[contains(@class, "choose")])
-  - name: variantCount
-    singleValue: true
-    type: NUMBER
-    xpath: count(//div[contains(@class,"actionBlock")]//span[contains(@class, "choose")])
+    xpath: count(//div[contains(@class, 'selectBox')]//select[contains(@id, 'js-variant')]/option)
   - name: firstVariant
     singleValue: true
-    xpath:  //li[contains(text(), 'Farbe')]
-    regExp: (?<=:).*
+    type: TEXT
+    xpath: //div[contains(@class, 'selectBox')]//select[contains(@id, 'js-variant')]/option[1]/@value
   - name: variantInformation
     singleValue: true
-    xpath:  //li[contains(text(), 'Farbe')]
-    regExp: (?<=:).*
+    type: TEXT
+    xpath:  //div[contains(@class, 'selectBox')]//select[contains(@id, 'js-variant')]/option[@selected]
   - name: variants
+    singleValue: false
+    xpath:  //div[contains(@class, 'selectBox')]//select[contains(@id, 'js-variant')]/option/@value
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //*[contains(@class,'detailEntryText')]/ul/li
+  - name: promotion
     singleValue: true
-    xpath:  //div[contains(@class, 'selectBox')]//select[contains(@id, 'js-variant')]/option
+    xpath: //div[@class="detail-price"]//div[@class="staffelPrice"]
