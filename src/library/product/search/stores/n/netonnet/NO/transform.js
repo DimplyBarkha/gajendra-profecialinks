@@ -43,10 +43,10 @@ const transform = (data, context) => {
              }   
 
              if (row.aggregateRating2) { 
-               console.log(row.aggregateRating[0].text);     
-               var aggregateRating = row.aggregateRating[0].text.replace(',',''); 
-                 aggregateRating = (aggregateRating*5)/100
-                row.aggregateRating =  [{ text:  aggregateRating,value:  aggregateRating }];         
+               console.log(row.aggregateRating2[0].text);     
+               var aggregateRating2 = row.aggregateRating2[0].text.replace(',',''); 
+               aggregateRating2 = (aggregateRating2*5)/100
+                row.aggregateRating2 =  [{ text:  aggregateRating2,value:  aggregateRating2 }];         
              }   
              
              if (row.productUrl) {               
