@@ -1,0 +1,140 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    description: URL of the main product image
+    xpath: //img[contains(@class , "imgbig")]/@src
+  - name: imageAlt
+    singleValue: false
+    description: Alt text of the main product image
+    xpath: //img[contains(@class , "imgbig")]/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //ul[@class="thumbelina"]/li[position() > 1]/a/img/@src
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //ul[contains(@class , 'breadcrumb')]/li[position()> 1]/a/span
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //div[@class="skywalker_scheda_nome"]/h1
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: //div[@class="skywalker_scheda_prezzo_barrato"]
+  - name: price
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //div/span[@class="text-right prezzo_corrente_bold"]
+  - name: availabilityText
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //div[@id='availability']
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: descriptionBullets
+    singleValue: false
+    description: Number of ul > li tags in the description
+    xpath: count(//div[@class="skywalker_scheda_descrizione"]/h2/ul/li | //div[@class="skywalker_scheda_descrizione"]/ul/li )
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //div[@class="skywalker_scheda_nome"]/h1/span[1]
+  - name: weightNet
+    singleValue: false
+    description: Net weight as described on the page
+    xpath: //div[@id="myTabContent"]//td[@class="tdSinistro"][contains(text() , "peso netto")]/following-sibling::td
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@id='gtin']
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //div[@id='Sku']
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //div[@id='reviewCount']
+  - name: reviewCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //div[@id='reviewCount']
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@id='aggregateRating']
+  - name: shippingInfo
+    singleValue: false
+    description: Shipping information for the product
+    xpath: //div[@id='sellerName']
+  - name: color
+    singleValue: false
+    description: A textual description of the colour
+    xpath: //div[@id="myTabContent"]//td[@class="tdSinistro"][contains(text() , "colore")]/following-sibling::td
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+    xpath: //div[@id="flix-inpage"]/div/*[not(self::style)] | //div[@data-equal-heights="div.boxMiele"]
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+    xpath: //div[@id="flix-inpage"]/div//img/@srcset | //div[@data-equal-heights="div.boxMiele"]//img/@src
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[contains(@class , "row_video_skt")]//iframe/@src
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //div[@class="skywalker_scheda_nome"]/h1
+  - name: specifications
+    singleValue: false
+    description: The physical dimensions of the product including packaging.
+    xpath: //div[@id="bb_specification"]
+  - name: promotion
+    singleValue: false
+    description: promotion text on product page
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class="skywalker_scheda_descrizione"]/h2/ul/li | //div[@class="skywalker_scheda_descrizione"]/ul/li 
+  - name: energyEfficiency
+    singleValue: false
+    description: Energy rating of a product.
+      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+    xpath: //div[@id="myTabContent"]//td[@class="tdSinistro"][contains(text() , "classe efficienza energetica")]/following-sibling::td
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    xpath: //a[contains(@class , "spacerTopMedio")]/@href
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: false
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes
