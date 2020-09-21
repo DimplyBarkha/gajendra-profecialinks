@@ -22,7 +22,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="breadcrumbs"]//li[not(@class='product')]
+    xpath: //div[@class="breadcrumbs"]//li[not(@class='product')][position() > 1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -54,12 +54,12 @@ fields:
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: concat(//div[@id='top_bullets'], //div[@id='concatDescBullets'], //div[@id='desc_part1'],
-      //div[@id='desc_part2'], //div[@id='desc_techDetails'])
+      //div[@id='desc_part2'])
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//h3[contains(text(),'Details')]/following-sibling::div[contains(@class,'std')]/ul/li)
+    xpath: //div[@id='lenBullets']
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -115,7 +115,6 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    type: NUMBER
     xpath: //div[@id='ratingCount']
   - name: aggregateRating
     singleValue: true
@@ -124,8 +123,6 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: concat (//div[@class="feature-wrapper"]//span[contains(@class,"stockstatus") and not(contains(@class, 'yellow'))], ' ',
-      //div[@class="zblock-item"]//span[@class="stock stockstatus green"])
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -136,6 +133,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    defaultValue: '0'
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -176,7 +174,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: //div[@id='warranty'] | //th[contains(text(),'Garantie')]/following-sibling::td
+    xpath: //h3[contains(text(), 'arantie')] | //th[contains(text(),'arantie')]/following-sibling::td
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -219,7 +217,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[@id='concatDescBullets']
+    xpath: //div[@id='bulletInfo']
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14

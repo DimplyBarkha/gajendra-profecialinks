@@ -12,7 +12,7 @@ module.exports = {
   },
   // @ts-ignore
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     await context.click('li#tab-description a');
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
@@ -22,12 +22,6 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      const ratingCount = document.querySelector('span.ts-stars-reviewCount')
-        ? document.querySelector('span.ts-stars-reviewCount').innerText : '';
-      addElementToDocument('ratingCount', ratingCount.replace(/\((\d+)\)/g, '$1'));
-      const aggRating = document.querySelector('span.ts-reviewSummary-ratingValue')
-        ? document.querySelector('span.ts-reviewSummary-ratingValue').innerText : '';
-      addElementToDocument('aggRating', aggRating.replace(/(\d+)\.?(\d+)?/g, '$1,$2'));
       const topBullets = document.querySelectorAll('div.short-description ul li')
         ? document.querySelectorAll('div.short-description ul li') : [];
       const topDivs = document.querySelectorAll('div.short-description div[itemprop="description"] div')
@@ -46,15 +40,24 @@ module.exports = {
         for (let bullet = descBulletsXpath.iterateNext(); bullet; bullet = descBulletsXpath.iterateNext()) {
           bullets.push(bullet.innerText);
         }
+        addElementToDocument('lenConcatDescBullets', bullets.length);
         const concatDescBullets = bullets.join(' || ');
-        addElementToDocument('concatDescBullets', concatDescBullets.replace(/\s{2,}|\n/g, ' '));
+        if (concatDescBullets) addElementToDocument('concatDescBullets', concatDescBullets.replace(/\s{2,}|\n/g, ' '));
       }
+      const bulletInfo = document.querySelector('div#lenConcatDescBullets') &&
+      document.querySelector('div#lenConcatDescBullets').innerText !== '0'
+        ? document.querySelector('div#concatDescBullets') : document.querySelector('div#top_bullets');
+      if (bulletInfo) addElementToDocument('bulletInfo', bulletInfo.innerText);
+      const lenBullets = document.querySelector('div#lenConcatDescBullets') &&
+        document.querySelector('div#lenConcatDescBullets').innerText !== '0'
+        ? parseInt(document.querySelector('div#lenConcatDescBullets').innerText) : topBullets.length;
+      if (lenBullets) addElementToDocument('lenBullets', lenBullets);
       const desc1Xpath = document.evaluate("//h3[contains(text(),'Details')]/following-sibling::div[contains(@class,'std')]/p[1]", document, null, XPathResult.STRING_TYPE, null);
       const desc1 = desc1Xpath ? desc1Xpath.stringValue : '';
       if (desc1) {
         addElementToDocument('desc_part1', desc1.replace(/•/g, '||').replace(/\s{2,}|\n/g, ' '));
       }
-      const desc2Xpath = document.evaluate("//h3[contains(text(),'Details')]/following-sibling::div[contains(@class,'std')]/div", document, null, XPathResult.ANY_TYPE, null);
+      const desc2Xpath = document.evaluate("//h3[contains(text(),'Details')]/following-sibling::div[contains(@class,'std')][not(contains(@class,'features-list-product-page'))]", document, null, XPathResult.ANY_TYPE, null);
       // eslint-disable-next-line prefer-const
       if (desc2Xpath) {
         let parts = [];
@@ -63,6 +66,12 @@ module.exports = {
         }
         const desc2 = parts.join(', ');
         addElementToDocument('desc_part2', desc2.replace(/•/g, '||').replace(/\s{2,}|\n/g, ' '));
+      }
+      const desc3 = document.querySelector('div.features-list-product-page')
+        // @ts-ignore
+        ? document.querySelector('div.features-list-product-page').innerText : '';
+      if (desc3) {
+        addElementToDocument('desc_part3', desc3.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
       }
       const techDetails = document.querySelector('table#product-attribute-specs-table tbody')
         // @ts-ignore
@@ -82,11 +91,11 @@ module.exports = {
       if (manufacturerDesc1) {
         addElementToDocument('desc_manufacturer1', manufacturerDesc1.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
       }
-      const manufacturerDesc2 = document.querySelector('div.features-list-product-page')
-        // @ts-ignore
-        ? document.querySelector('div.features-list-product-page').innerText : '';
+      const manufacturerDesc2 = document.querySelector('div.dyson_description')
+      // @ts-ignore
+        ? document.querySelector('div.dyson_description').innerText : '';
       if (manufacturerDesc2) {
-        addElementToDocument('desc_part3', manufacturerDesc2.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
+        addElementToDocument('desc_manufacturer2', manufacturerDesc2.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
       }
       const warrantyXpath = document.evaluate("//h3[contains(text(), 'arantie')]/..", document, null, XPathResult.STRING_TYPE, null);
       const warranty = warrantyXpath ? warrantyXpath.stringValue : '';
@@ -109,6 +118,12 @@ module.exports = {
       if (pdfPresent) {
         addElementToDocument('pdfPresent', 'Yes');
       } else addElementToDocument('pdfPresent', 'No');
+      const ratingCount = document.querySelector('span.ts-stars-reviewCount')
+        ? document.querySelector('span.ts-stars-reviewCount').innerText : '';
+      addElementToDocument('ratingCount', ratingCount.replace(/\((\d+)\)/g, '$1'));
+      const aggRating = document.querySelector('span.ts-reviewSummary-ratingValue')
+        ? document.querySelector('span.ts-reviewSummary-ratingValue').innerText : '';
+      addElementToDocument('aggRating', aggRating.replace(/(\d+)\.?(\d+)?/g, '$1,$2'));
     });
     await context.extract(productDetails);
   },
