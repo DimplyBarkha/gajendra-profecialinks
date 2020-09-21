@@ -70,7 +70,6 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: //div[contains(@class,'variantContainer')]//div[contains(@class,'mediaContainer')]//img/@src
-    defaultValue: '0'
   - name: availabilityText
     singleValue: false
     xpath: //p[contains(@class,"notAvailableNote")]
@@ -84,3 +83,12 @@ fields:
   - name: descriptionBullets
     singlgeValue: false
     defaultValue: 0
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[contains(@class,'variantContainer')]//div[contains(@class,'mediaContainer')]//img/@src
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,'variantContainer')]//div[contains(@class,'mediaContainer')]//img/@src
+  - name: variantInformation
+    singleValue: false
+    xpath: //button[contains(@class,"thumbnailContainer")]/@title
