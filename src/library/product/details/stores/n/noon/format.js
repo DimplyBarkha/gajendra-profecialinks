@@ -16,6 +16,11 @@ const transform = (data) => {
           item.text = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
         });
       }
+      if (row.firstVariant) {
+        row.firstVariant.forEach(item => {
+          item.text = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
+        });
+      }
       if (row.alternateImages) {
         var  img_arr = [];
         row.alternateImages.forEach(item => {
@@ -72,6 +77,14 @@ const transform = (data) => {
           tot++;
         });
         row.variantCount=[{text:tot}];
+      }
+      if(row.variants){
+        var arr_info=[];
+        row.variants.forEach(item => {
+          item.text = item.text.replace(/.+\/(.+?)_.+/g, '$1').trim();
+          arr_info.push(item.text)
+        });
+        row.variantCount=[{text:arr_info.join(' | ')}];
       }      
     }
   }
