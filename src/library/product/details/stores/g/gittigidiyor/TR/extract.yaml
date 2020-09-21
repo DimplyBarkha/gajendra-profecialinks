@@ -1,0 +1,59 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordxpath: null
+fields:
+- name: category
+  xpath: //div[@class='horizontal-menu-item robot-header-horizontalMenu-menuItem']/p
+- name: name
+  xpath: //h1[@id='sp-title']
+- name: image
+  xpath: //img[@id='big-photo']/@data-original
+- name: imageAlt
+  xpath: //img[@id='big-photo']/@alt
+- name: alternateImages
+  xpath: //div[contains(@class, 'gallery-hidden-thumbs') and not(contains(@class, 'active-img'))]//img[contains(@class, 'swapImage')]/@data-original
+  regExp: (.+)tn14(.+)
+  regExpReplace: $1tn50$2
+- name: nameExtended
+  xpath: //h1[@id='sp-title'],' ', //span[@id='sp-subTitle']
+- name: listPrice
+  xpath: //span[@id='sp-price-highPrice' and contains(@class, 'strike')]
+- name: price
+  xpath: //span[@id='sp-price-highPrice' and not(contains(@class, 'strike'))] | //div[contains(@class, 'lastPrice')]
+- name: description
+  xpath: //div[@class='productTabTitleInformation'] | div[contains(@class,'features-container')]| //div[@id='productDescription']
+- name: descriptionBullets
+  xpath: count(//div[@id='sp-desktopDescription']//li)
+- name: brand
+  xpath: //ul[contains(@class, 'productSpect') and contains(@class, 'product-items')]/li[contains(., 'Marka')]//ul/li/a
+- name: quantity
+  xpath: //li[@id='CountInput']/input/@value
+- name: weightGross
+  xpath: //ul[contains(@class, 'product-items') and contains(@class, 'productSpect')]//li[contains(.,'Brüt Ağırlık')]/div/ul/li
+- name: sku
+  xpath: //span[@id='DescriptionTabProductId']
+- name: variantId
+  xpath: //span[@id='DescriptionTabProductId']
+- name: mpc
+  xpath: //ul[contains(@class, 'productSpect') and contains(@class, 'product-items')]/li[contains(., 'Model')]/div[contains(@class, 'productFeaturesitemList')]
+- name: ratingCount
+  xpath: //span[@id='sp-reviewCommentCount']
+- name: aggregateRating
+  xpath: //a[contains(@class, 'catalog-review-link-small')]//strong[@id='sp-reviewAverage']
+- name: manufacturerImages
+  xpath: //div[@id='sp-desktopDescription']//img/@data-original
+- name: shippingInfo
+  xpath: //div[@id='ship-names'] or //li[@class='member-name']/a
+- name: specifications
+  xpath: //div[@class='spec-group-container']//ul[contains(@class, 'productSpect')]/li/div[contains(@class, 'spec-title')] | //div[@class='spec-group-container']//ul[contains(@class, 'productSpect')]/li/div[contains(@class, 'productFeaturesitemList')]
+- name: warranty
+  xpath: //div[@id='sp-productTabFeatures']//div[contains(., 'Garanti Süresi') and contains(@class, 'desktopDescription')]/following-sibling::div[1]
+- name: promotion
+  xpath: //span[@id='sp-price-discountPercentage']
+- name: weightNet
+  xpath: "//div[@id='sp-desktopDescription']//li[contains(., 'Ağırlık:') or contains(., 'Ağırlık: ')] | //div[@id='sp-desktopDescription']//p[contains(., 'Ağırlık:') or contains(., 'Ağırlık: ') or contains(., 'Ağırlık : ')] | //div[@id='catalog-info-details']//div[contains(., 'Net Ağırlık') and contains(@class, 'spec-title')]/following-sibling::div[1]"
+  regExp: (.+):(.+)
+  regExpReplace: $2
+- name: availability
+  xpath: //div[@id='sp-soldInfoContainer']
