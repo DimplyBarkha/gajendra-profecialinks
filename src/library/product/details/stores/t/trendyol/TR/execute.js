@@ -6,7 +6,7 @@ module.exports = {
     store: 'trendyol',
     domain: 'trendyol.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: "//div[@class='no-rslt-text']/span",
     zipcode: '',
   },
 };
