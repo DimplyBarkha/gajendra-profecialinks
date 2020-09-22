@@ -23,7 +23,8 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)    
-    xpath: //nav[contains(@class, 'breadcrumb')]//ol//li[position()=2]
+    # xpath: //nav[contains(@class, 'breadcrumb')]//ol//li[position()=2]
+    xpath: //nav[contains(@class, 'breadcrumb')]//ol//li
   - name: subCategory
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -80,7 +81,9 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //h1[@itemprop="name"]//font[3]
+    # xpath: //h1[@itemprop="name"]//font[3]
+    xpath: //ul[contains(@class,'product-features')]/li[contains(text(),'Gewicht')]
+    regExp: (?<=:).*
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -141,6 +144,7 @@ fields:
     singleValue: false
     description: A textual description of the colour
     xpath: //section[contains(@class,"product-features")]//dd[1]
+    # xpath: //ul[6]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -150,6 +154,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[contains(@class,'product-description-short')]//img//@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
