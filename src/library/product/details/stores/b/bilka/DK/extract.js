@@ -10,6 +10,8 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain ,transform: transformParam}, context, { productDetails }) => {     
     
+    await context.waitForSelector('div.v-application--wrap', { timeout: 50000 });
+
     await context.evaluate(async function () {       
      const productInfo = preFetchProductDetails();          
      //var combinepriceCurrency= productInfo['offers']['price'] + ':' + productInfo['offers']['priceCurrency'];     
