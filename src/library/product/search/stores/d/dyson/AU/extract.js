@@ -17,9 +17,7 @@ async function implementation (
     });
   }
 
-  const resultsArr = await context.evaluate(async function() {
-
-    const results = [];
+  await context.evaluate(async function() {
 
     function stall(ms) {
       return new Promise(resolve => {
@@ -29,6 +27,13 @@ async function implementation (
       });
     }
 
+    function addHiddenDiv(el, id, text) {
+      const div = document.createElement('div');
+      div.innerHTML = text;
+      div.classList.add(id);
+      el.appendChild(div);
+    }
+
     let scrollTop = 0;
     while(scrollTop < 5000) {
       scrollTop += 500;
@@ -36,88 +41,56 @@ async function implementation (
       await stall(250);
     }
 
+    function addHiddenDiv(el, id, text) {
+      const div = document.createElement('div');
+      div.innerHTML = text;
+      div.classList.add(id);
+      el.appendChild(div);
+    }
+
+    let count = 0;
     if (document.querySelector('.card__inner')) {
       document.querySelectorAll('.card__inner').forEach((el, ind) => {
-        if (results.length >= 150) {
+        if (count >= 150) {
           return;
         }
         if (el.querySelector('h3')) {
+          el.classList.add('productInfo');
           const name = el.querySelector('h3').innerText;
           const id = ind + 1;
           const thumbnail  = el.querySelector('img').getAttribute('src');
           const url = el.querySelector('a').getAttribute('href');
-          results.push({
-            name,
-            id,
-            thumbnail,
-            url,
-          });
+          const splitURL = url.split('-');
+          addHiddenDiv(el, 'name', name);
+          addHiddenDiv(el, 'id', splitURL[splitURL.length - 2] + '-' + splitURL[splitURL.length - 1]);
+          addHiddenDiv(el, 'thumbnail', thumbnail);
+          addHiddenDiv(el, 'url', url);
+          count++;
         }
       });
     } else {
       document.querySelectorAll('.g-wrap').forEach((el, ind) => {
-        if (results.length >= 150) {
+        if (count >= 150) {
           return;
         }
         if (el.querySelector('h3')) {
+          el.classList.add('productInfo');
           const name = el.querySelector('h3').innerText;
           const id = ind + 1;
           const thumbnail  = el.querySelector('img').getAttribute('src');
           const url = el.querySelector('a').getAttribute('href');
-          results.push({
-            name,
-            id,
-            thumbnail,
-            url,
-          });
+          const splitURL = url.split('-');
+          addHiddenDiv(el, 'name', name);
+          addHiddenDiv(el, 'id', splitURL[splitURL.length - 2] + '-' + splitURL[splitURL.length - 1]);
+          addHiddenDiv(el, 'thumbnail', thumbnail);
+          addHiddenDiv(el, 'url', url);
+          count++;
         }
       });
     }
-    return results;
   });
-
-  for (let result of resultsArr) {
-    await context.goto(result.url, {timeout: 50000});
-    await stall(2000);
-    await context.evaluate(async function (result) {
-
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-
-      addHiddenDiv('name', result.name);
-      addHiddenDiv('productUrl', result.url);
-      addHiddenDiv('thumbnail', result.thumbnail);
-      if (document.querySelector('span[data-price-type="finalPrice"]')) {
-        addHiddenDiv('price', document.querySelector('span[data-price-type="finalPrice"]').innerText.split('includes')[0]);
-      }
-      if (document.querySelector('h5') && document.querySelector('h5').innerText.split(':')[1]) {
-        addHiddenDiv('id', document.querySelector('h5').innerText.split(':')[1]);
-      } else {
-        document.querySelectorAll('small').forEach(el => {
-          if (el.innerText.includes('SKU:')) {
-            addHiddenDiv('id', el.innerHTML.split('<br>')[0].replace('SKU: ', ''));
-          }
-        });
-      }
-      if (document.querySelector('.bv-off-screen')) {
-        addHiddenDiv('rating', document.querySelector('.bv-off-screen').innerText.split(' ')[0]);
-      }
-      if (document.querySelector('.dyson-bazaarvoice__reviews-link')) {
-        addHiddenDiv('reviewCount', document.querySelector('.dyson-bazaarvoice__reviews-link').innerText.split(' ')[0]);
-      } else {
-        addHiddenDiv('reviewCount', 0);
-      }
-
-    }, result);
-    const extract = await context.extract(productDetails, { transform });
-    allResults.push(extract);
-  }
-
+  const extract = await context.extract(productDetails, { transform });
+  allResults.push(extract);
   return allResults;
 }
 
