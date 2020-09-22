@@ -24,9 +24,8 @@ async function implementation (
       var productTileObject =  node.attributes[1].value.trim();
       productTileObject = productTileObject.replace('width: ','');
       productTileObject = productTileObject.replace('%','');
-      var reviewRatings = (Number(productTileObject)*5)/100;
-      console.log('girish = ' + reviewRatings)
-         addHiddenDiv(node,'reviewRatings',reviewRatings.toString().replace('.',','))
+      var reviewRatings = (Number(productTileObject)*5)/100;      
+      addHiddenDiv(node,'reviewRatings',reviewRatings.toString().replace('.',','))
       i++;
     });
   });
