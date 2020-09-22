@@ -114,7 +114,7 @@ fields:
     description: Suggested storage location for product
   - name: specifications
     singleValue: false
-    xpath: //table[@class='table table-striped']//td
+    xpath: //table[@class='table table-striped']//td//text()
     description: The physical dimensions of the product including packaging. here its taken as Height , width and Depth    
   - name: weightNet
     singleValue: false

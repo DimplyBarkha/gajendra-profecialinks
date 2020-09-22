@@ -95,17 +95,31 @@ const transform = (data) => {
 					}
 					
 				});
-				// newText = newText.substring(0,newText.length-1);
+				newText = newText.substring(0,newText.length-1);
 				row.shippingDimensions = [{ text: newText }];
 			}
 
-			// if (row.additionalDescBulletInfo) {  
-			// 	let newText = '';
-			// 	row.additionalDescBulletInfo.forEach(item => {
-			// 		newText +=  `${item.text.replace(/ \n|&dash;|\r/g, ' || ')}`;
-			// 	});
-			// 	row.additionalDescBulletInfo = [{ text: newText.slice(0, -4) }];
-			// }
+			if (row.specifications) {  
+				let newText = '';
+				var index = 1;
+				row.specifications.forEach(item => {									
+					var specifications = item.text;	
+					if(specifications.length > 0){	
+
+						if(index %2 != 0)
+						{
+						 newText += specifications+":";
+						}
+						else
+						{
+							newText += specifications+"|";
+						}
+					}
+					index++;
+				});
+				newText = newText.substring(0,newText.length-1);
+				row.specifications = [{ text: newText }];
+			   }
 			if (row.alternateImages) {  
 				row.alternateImages.forEach(item => {
 					item.text = item.text.replace('Large','Extra');
