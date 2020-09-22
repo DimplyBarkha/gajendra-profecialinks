@@ -50,11 +50,20 @@ fields:
     xpath: //ul[@class="products-list"]//script
     regExp: ("ean":"(\d+)")
     regExpReplace: $1
-  - name: brandText
+  - name: brand
+    singelValue: false
     xpath: //ul[@class="products-list"]//script
     regExp: ("brand":"(\w+)")
     regExpReplace: $1
   - name: manufacturer
+    singelValue: false
     xpath: //ul[@class="products-list"]//script
     regExp: ("brand":"(\w+)")
     regExpReplace: $1
+  - name: mpc
+    singelValue: false
+    xpath: //div[contains(@class,'product-wrapper')]//@data-modelnumber
+  - name: reviewCount
+    singleValue: false
+    xpath: //footer/ul/a
+    type: NUMBER
