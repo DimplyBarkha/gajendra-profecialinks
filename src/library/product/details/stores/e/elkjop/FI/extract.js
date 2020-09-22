@@ -33,6 +33,12 @@ module.exports = {
         const formattedRating = rating.stringValue.replace(',', '.');
         addElementToDocument('rating', formattedRating);
       }
+      const warranty = document.evaluate("//p[text()[contains(.,'takuu')]]", document, null, XPathResult.STRING_TYPE, null);
+      if (warranty && warranty.stringValue) {
+        var rEE = /(.*)(\.)(.*)takuu(.*)/;
+        var cleanWarranty = warranty.stringValue.replace(rEE, '$3taaku.');
+        addElementToDocument('warranty', cleanWarranty);
+      }
       const weight = document.evaluate("//td[contains(text(), 'Paino')]", document, null, XPathResult.STRING_TYPE, null);
       if (weight && weight.stringValue) {
         const formattedWeight = weight.stringValue.replace(/\n|Paino|\(|\)\s/g, '');
