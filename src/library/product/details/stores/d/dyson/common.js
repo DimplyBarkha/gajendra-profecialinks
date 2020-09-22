@@ -18,7 +18,19 @@ async function implementation(inputs, parameters, context, dependencies) {
         catElement.textContent = value;
       }
     }
-
+    let specs = "";
+    document.querySelectorAll("div.spec-set__item>span").forEach((element) => {
+      let spec__label = element.querySelector(".spec__label");
+      spec__label = spec__label ? spec__label.innerText.trim() : "";
+      let spec__value = element.querySelector(".spec__data");
+      spec__value = spec__value ? spec__value.innerText.trim() : "";
+      if (spec__label) {
+        specs = specs
+          ? `${specs} || ${spec__label}${spec__value ? `: ${spec__value}` : ""}`
+          : `${spec__label}${spec__value ? `: ${spec__value}` : ""}`;
+      }
+    });
+    addElementToDocument("added_specs", specs);
     if (window.dataLayer) {
       const dataObj = window.dataLayer.find(
         (el) => el.event === "primaryProduct"
