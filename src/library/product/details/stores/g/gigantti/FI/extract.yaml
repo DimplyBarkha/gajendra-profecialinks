@@ -24,12 +24,12 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //Section[contains(@class, "product-main-info")]//meta[contains(@itemprop, "category")]/@content
+    xpath: //ol[contains(@class, "breadcrumbs")]//li[position()>1]//a[@href]//span
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[contains(@class,"product-title-wrap")]//h1[contains(@class,"product-title")]//font//font
+    xpath: //div[contains(@class,"product-title-wrap")]//h1[contains(@class,"product-title")]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -55,7 +55,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //Section[contains(@class, "product-main-info")]//meta[contains(@itemprop, "description")]/@content
+    xpath: //p[contains(@class, "short-description")] | //p//following-sibling::ul[contains(@class, "specs")]//li
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -69,7 +69,6 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //span[contains(@itemprop, "brand")]//meta/@content
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -78,7 +77,7 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath: //td[contains(text(), "Paino")]/following::td[1] | //td[contains(text(), "Paino")]
+    xpath: //td[contains(text(), "Paino")]/following::td[1]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -115,7 +114,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //div[contains(@itemprop, "aggregateRating")]//meta[contains(@itemprop, "reviewCount")]/@content
+    xpath: //div[contains(@class, "bv_numReviews_text")]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -123,7 +122,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //div[contains(@itemprop, "aggregateRating")]//meta[contains(@itemprop, "ratingValue")]/@content
+    xpath: //div[contains(@class, "bv_avgRating_component_container")]
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -151,7 +150,6 @@ fields:
   - name: manufacturerImages
     singleValue: true
     description: Images within the third party description
-    xpath: //div[contains(@class, "brand-logo")]/a/img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -417,7 +415,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //td[contains(text(), "Korkeus")]//following::td[1] | //td[contains(text(), "Korkeus")] | //td[contains(text(), "Leveys")]//following::td[1]  | //td[contains(text(), "Leveys")] | //td[contains(text(), "Syvyys")]//following::td[1] | //td[contains(text(), "Syvyys")]
+    xpath: //td[contains(text(), "Korkeus")]//following::td[1] | //td[contains(text(), "Korkeus")] | //td[contains(text(), "Leveys")]//following::td[1]  | //td[contains(text(), "Leveys")] | //td[contains(text(), "Syvyys")]//following::td[1] | //td[contains(text(), "Syvyys")] | //td[contains(text(), "Paino")]//following::td[1] | //td[contains(text(), "Paino")]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -442,7 +440,6 @@ fields:
   - name: packaging
     singleValue: false
     description: Packaging information
-    xpath: //div[contains(@class, "tab-slot")]//p//strong[contains(text(), "Myyntipakkaus")] | //div[contains(@class, "tab-slot")]//p//strong[contains(text(), "Myyntipakkaus")]/following-sibling::text()
   - name: additives
     singleValue: true
     description: List of additives in the product

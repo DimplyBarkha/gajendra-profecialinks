@@ -23,20 +23,22 @@ const transform = (data) => {
 				row.videos = [{ text: newText }];
 			}
 
-			if (row.productOtherInformation) {				
-				let newText = '';
-				row.productOtherInformation.forEach(item => {                    			
-					newText +=  `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
-				});
-				row.productOtherInformation = [{ text: newText.slice(0, -4) }];
-			}
-
 			if (row.additionalDescBulletInfo) {				
 				let newText = '';
 				row.additionalDescBulletInfo.forEach(item => {                    			
 					newText +=  `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
 				});
-				row.additionalDescBulletInfo = [{ text: newText.slice(0, -4) }];
+				row.additionalDescBulletInfo = [{ text: newText }];
+			}
+
+			if (row.description) {				
+				let newText = '';
+				console.log(row.description);
+				row.description.forEach(item => {  
+					console.log(item.text.trim());                  			
+					newText +=  `${item.text.trim() + ' || '}`;
+				});
+				row.description = [{ text: newText }];
 			}
 
 			if (row.technicalInformationPdfPresent) {				
@@ -48,37 +50,14 @@ const transform = (data) => {
 				});
 				row.technicalInformationPdfPresent = [{ text: newText }];
 			}
-			
-			if (row.weightNet) {				
-				let newText = '';
-				row.weightNet.forEach(item => {
-					newText +=  `${item.text.trim() + ' ' }` ;
-				});
-				
-				row.weightNet = [{ text: newText.replace(',','.') }];
-			}
 
 			if (row.specifications) {				
 				let newText = '';
 				row.specifications.forEach(item => {
-					newText +=  `${item.text.trim().replace(',','.') + ' ' }` ;
+					newText +=  `${item.text.trim() + ' ' }` ;
 				});
 				
 				row.specifications = [{ text: newText }];
-			}
-
-			if(row.price){
-				var newText = row.price[0].text.replace(',','.');
-				row.price = [{ text: newText.replace(' ',',')}];          
-			}
-
-			if (row.packaging) {				
-				let newText = '';
-				row.packaging.forEach(item => {                    			
-					newText +=  `${item.text.replace('- ', ' || ')}`;
-				});
-				
-				row.packaging = [{ text: newText.slice(0, -4) }];
 			}
 		}
 	}
