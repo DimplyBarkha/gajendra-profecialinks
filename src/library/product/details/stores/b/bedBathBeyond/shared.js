@@ -35,8 +35,10 @@ const transform = (data, context) => {
       }
 
       if (row.specifications && row.specifications.length) {
-        const text = Object.keys(row.specifications).map(spec => {
-          return `${spec} : ${row.specifications[spec]}`;
+        const jsonArray = JSON.parse(row.specifications[0].text);
+        const text = jsonArray.map(spec => {
+          const key = Object.keys(spec)[0];
+          return `${key} : ${spec[key]}`;
         }).join(' | ');
         row.specifications = [{ text }];
       }

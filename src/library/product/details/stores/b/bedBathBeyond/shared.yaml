@@ -68,7 +68,7 @@ fields:
     xpath: td[@class="gtin"]
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    xpath: td[@class="sku"]//td
+    xpath: td[@class="sku"]
     description: The store-specific product identifier
   - name: variantId
     xpath: td[@class="variantId"]
@@ -99,11 +99,11 @@ fields:
     xpath: td[@class="colorGroup"]
     description: A textual description of the colour
   - name: manufacturerDescription
-    xpath: ancestor::html//div[@id="webcollage"]
+    xpath: concat(//div[@id="webcollage"])
     singleValue: false
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
-    xpath: ancestor::html//div[@id="webcollage"]//img/@src
+    xpath: concat(//div[@id="webcollage"]//img/@src)
     singleValue: false
     description: Images within the third party description
   - name: name
@@ -120,7 +120,7 @@ fields:
     description: The country from which the product originates
   - name: variantInformation
     xpath: >-
-      concat('Color: ', td[@class="class"], ' | ', 'Size: ', td[@class="size"])
+      concat('Color: ', td[@class="color"], ' | ', 'Size: ', td[@class="size"])
     description: colour / scent / flavour / other
   - name: firstVariant
     description: Unique identifier for a collection of variants. For a subset of
