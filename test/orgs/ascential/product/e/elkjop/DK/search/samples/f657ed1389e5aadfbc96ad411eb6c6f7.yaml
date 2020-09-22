@@ -2,13 +2,20 @@ input:
   keywords: dyson
   _url: http://elgiganten.dk
 extractions:
-  - html: https://workbench.import.io/html/run=80d21f8a-db21-41f5-baf3-5e17ec263e0f/task=67c2f6c1-ca62-4255-aa17-e51a4f878ca6/7b9fa9df-e864-4c2a-b5e6-02bc70860107.html
+  - html: https://workbench.import.io/html/run=98142bff-f12d-411a-9eaa-d718d5f98d98/task=442ed802-bbb9-4d53-a0a1-74e0489d5ae6/cfe6accf-ef4a-4f2c-8cd1-4caf35d74ccc.html
     extractionConfigId: product/search/stores/e/elkjop/DK/extract
     data:
       - group:
           - id:
               - text: "31537"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[1]/div[1]/div[2]
+                type: NUMBER
+                raw: "1"
+                locale: da
+                value: 1
             name:
               - text: Dyson Supersonic styling sæt DYS602560
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
@@ -18,9 +25,22 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002233094/31537/dyson-supersonic-styling-saet-dys602560.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: "499"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[1]/div[1]/div[2]
           - id:
               - text: DYSTOOLKIT
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[2]/div[1]/div[2]
+                type: NUMBER
+                raw: "2"
+                locale: da
+                value: 2
             name:
               - text: Dyson tilbehørssæt til støvsugere
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
@@ -30,9 +50,22 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002176545/DYSTOOLKIT/dyson-tilbehoerssaet-til-stoevsugere.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: "599"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[2]/div[1]/div[2]
           - id:
               - text: V8FLUFFY
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[3]/div[1]/div[2]
+                type: NUMBER
+                raw: "3"
+                locale: da
+                value: 3
             name:
               - text: Dyson V8 Fluffy Plus ledningsfri støvsuger
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
@@ -42,9 +75,28 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D18000100292514/V8FLUFFY/dyson-v8-fluffy-plus-ledningsfri-stoevsuger.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,5
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 1 997
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[3]/div[1]/div[2]
           - id:
               - text: DYSAM07
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[4]/div[1]/div[2]
+                type: NUMBER
+                raw: "4"
+                locale: da
+                value: 4
             name:
               - text: Dyson Cool tårnventilator AM07
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
@@ -54,19 +106,28 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D18000100291664/DYSAM07/dyson-cool-taarnventilator-am07.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.5"
+            aggregateRating2:
+              - text: 4,5
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.5"
-                locale: da
-                value: 4.5
             ratingCount:
               - text: "21"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 2 490
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "4"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[4]/div[1]/div[2]
           - id:
               - text: "63974"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[5]/div[1]/div[2]
+                type: NUMBER
+                raw: "5"
+                locale: da
+                value: 5
             name:
               - text: Dyson Pure Cool Me luftrensende ventilator 5025155040850
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
@@ -76,19 +137,28 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002298896/63974/dyson-pure-cool-me-luftrensende-ventilator-5025155040850.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "3.8"
+            aggregateRating2:
+              - text: 3,8
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "3.8"
-                locale: da
-                value: 3.8
             ratingCount:
-              - text: "4"
+              - text: "5"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 2 590
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[5]/div[1]/div[2]
           - id:
               - text: DYSAM09
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[6]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[6]/div[1]/div[2]
+                type: NUMBER
+                raw: "6"
+                locale: da
+                value: 6
             name:
               - text: Dyson Hot and Cool ventilator/varmeblæser AM09 (hvid)
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
@@ -98,19 +168,28 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D18000100291659/DYSAM09/dyson-hot-and-cool-ventilatorvarmeblaeser-am09-hvid.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.3"
+            aggregateRating2:
+              - text: 4,4
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.3"
-                locale: da
-                value: 4.3
             ratingCount:
-              - text: "10"
+              - text: "11"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 2 590
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[6]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "6"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[6]/div[1]/div[2]
           - id:
               - text: "53306"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[7]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[7]/div[1]/div[2]
+                type: NUMBER
+                raw: "7"
+                locale: da
+                value: 7
             name:
               - text: Dyson V8 Animal+ støvsuger DY24836701
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
@@ -120,19 +199,28 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002419672/53306/dyson-v8-animal-stoevsuger-dy24836701.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.4"
+            aggregateRating2:
+              - text: 4,4
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.4"
-                locale: da
-                value: 4.4
             ratingCount:
-              - text: "71"
+              - text: "75"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 2 790
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[7]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "7"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[7]/div[1]/div[2]
           - id:
               - text: "40303"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[8]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[8]/div[1]/div[2]
+                type: NUMBER
+                raw: "8"
+                locale: da
+                value: 8
             name:
               - text: Dyson Supersonic hårtørrer DYS316464
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
@@ -142,19 +230,28 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002250797/40303/dyson-supersonic-haartoerrer-dys316464.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.9"
+            aggregateRating2:
+              - text: 4,9
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.9"
-                locale: da
-                value: 4.9
             ratingCount:
-              - text: "22"
+              - text: "27"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 2 990
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[8]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "8"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[8]/div[1]/div[2]
           - id:
               - text: DYS305967
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[9]/div[1]/div[2]
+                type: NUMBER
+                raw: "9"
+                locale: da
+                value: 9
             name:
               - text: Dyson Supersonic hårtørrer 305967 (fuschia/grå)
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
@@ -164,19 +261,28 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D18000100291576/DYS305967/dyson-supersonic-haartoerrer-305967-fuschiagraa.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.9"
+            aggregateRating2:
+              - text: 4,9
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.9"
-                locale: da
-                value: 4.9
             ratingCount:
-              - text: "22"
+              - text: "26"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 2 990
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "9"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[9]/div[1]/div[2]
           - id:
               - text: DYSV8ABSOLUTE
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[10]/div[1]/div[2]
+                type: NUMBER
+                raw: "10"
+                locale: da
+                value: 10
             name:
               - text: Dyson V8 Absolute ledningsfri støvsuger
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
@@ -186,19 +292,28 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D18000100294706/DYSV8ABSOLUTE/dyson-v8-absolute-ledningsfri-stoevsuger.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.5"
+            aggregateRating2:
+              - text: 4,5
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.5"
-                locale: da
-                value: 4.5
             ratingCount:
-              - text: "134"
+              - text: "144"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 2 990
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "10"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[10]/div[1]/div[2]
           - id:
               - text: "189496"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[11]/div[1]/div[2]
+                type: NUMBER
+                raw: "11"
+                locale: da
+                value: 11
             name:
               - text: Dyson Pure Cool Link luftrenser DYSTP02
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
@@ -208,429 +323,688 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002475411/189496/dyson-pure-cool-link-luftrenser-dystp02.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-          - id:
-              - text: "31507"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson V10 Parquet støvsuger DYSV10PAR
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/ledningsfri-stovsuger/31507/dyson-v10-parquet-stovsuger-dysv10par
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D180001002273855/31507/dyson-v10-parquet-stoevsuger-dysv10par.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-          - id:
-              - text: DYSHP02
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson Pure Hot+Cool Link luftrenser
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/husholdning/klima-ventilation/DYSHP02/dyson-pure-hot-cool-link-luftrenser
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D180001002175418/DYSHP02/dyson-pure-hotcool-link-luftrenser.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.1"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.1"
-                locale: da
-                value: 4.1
-            ratingCount:
-              - text: "21"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
-          - id:
-              - text: DYSV10MOTORHE
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson V10 Motorhead ledningsfri støvsuger
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/ledningsfri-stovsuger/DYSV10MOTORHE/dyson-v10-motorhead-ledningsfri-stovsuger
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D18000100291611/DYSV10MOTORHE/dyson-v10-motorhead-ledningsfri-stoevsuger.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.4"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.4"
-                locale: da
-                value: 4.4
-            ratingCount:
-              - text: "33"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
-          - id:
-              - text: DYSAM10
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson luftfugter AM10
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/husholdning/klima-ventilation/luftfugter/DYSAM10/dyson-luftfugter-am10
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D180001002175409/DYSAM10/dyson-luftfugter-am10.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            ratingCount:
-              - text: "2"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
-          - id:
-              - text: DYSV10ABSOLUT
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson V10 Absolute ledningsfri støvsuger
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/ledningsfri-stovsuger/DYSV10ABSOLUT/dyson-v10-absolute-ledningsfri-stovsuger
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D18000100291594/DYSV10ABSOLUT/dyson-v10-absolute-ledningsfri-stoevsuger.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.7"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.7"
-                locale: da
-                value: 4.7
-            ratingCount:
-              - text: "128"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
-          - id:
-              - text: "179818"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson Corrale glattejern DYSCORALE
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/personlig-pleje-skonhed-og-velvare/glattejern/179818/dyson-corrale-glattejern-dyscorale
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D180001002462349/179818/dyson-corrale-glattejern-dyscorale.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-          - id:
-              - text: "66505"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson Airwrap Complete hårstyler DYS310733
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/personlig-pleje-skonhed-og-velvare/hartorrer/66505/dyson-airwrap-complete-harstyler-dys310733
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D180001002314518/66505/dyson-airwrap-complete-haarstyler-dys310733.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.8"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.8"
-                locale: da
-                value: 4.8
-            ratingCount:
-              - text: "22"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
-          - id:
-              - text: "166988"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson Lightcycle Morph LED bordlampe 294677-01
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/husholdning/belysning/lamper/166988/dyson-lightcycle-morph-led-bordlampe-294677-01
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D180001002434334/166988/dyson-lightcycle-morph-led-bordlampe-294677-01.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-          - id:
-              - text: "26177"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson V11 (2019) Animal ledningsfri støvsuger
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/ledningsfri-stovsuger/26177/dyson-v11-2019-animal-ledningsfri-stovsuger
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D180001002273854/26177/dyson-v11-2019-animal-ledningsfri-stoevsuger.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.4"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.4"
-                locale: da
-                value: 4.4
-            ratingCount:
-              - text: "36"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
-          - id:
-              - text: DYSDP04
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson Pure Cool luftrenser
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/husholdning/klima-ventilation/luftrenser/DYSDP04/dyson-pure-cool-luftrenser
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D180001002201379/DYSDP04/dyson-pure-cool-luftrenser.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.2"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.2"
-                locale: da
-                value: 4.2
-            ratingCount:
-              - text: "8"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
-          - id:
-              - text: "179558"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson V11 (2020) Torque Drive Extra ledningsløs støvsuger
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/179558/dyson-v11-2020-torque-drive-extra-ledningslos-stovsuger
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D180001002455710/179558/dyson-v11-2020-torque-drive-extra-ledningsloes-stoevsuger.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.6"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.6"
-                locale: da
-                value: 4.6
-            ratingCount:
-              - text: "11"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
-          - id:
-              - text: DYSTP04
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson Pure Cool luftrenser
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/husholdning/klima-ventilation/luftrenser/DYSTP04/dyson-pure-cool-luftrenser
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D180001002201368/DYSTP04/dyson-pure-cool-luftrenser.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "3.5"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "3.5"
-                locale: da
-                value: 3.5
-            ratingCount:
-              - text: "15"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
-          - id:
-              - text: "63973"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson Pure Hot&Cool luftrenser DYSHP04
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/husholdning/klima-ventilation/63973/dyson-pure-hot-cool-luftrenser-dyshp04
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D180001002299277/63973/dyson-pure-hotcool-luftrenser-dyshp04.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.1"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.1"
-                locale: da
-                value: 4.1
-            ratingCount:
-              - text: "15"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
-          - id:
-              - text: "26091"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson V11 (2019) Absolute ledningsfri støvsuger
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/ledningsfri-stovsuger/26091/dyson-v11-2019-absolute-ledningsfri-stovsuger
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D180001002218757/26091/dyson-v11-2019-absolute-ledningsfri-stoevsuger.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.6"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.6"
-                locale: da
-                value: 4.6
-            ratingCount:
-              - text: "239"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
-          - id:
-              - text: "179556"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson V11 (2020) Absolute Extra ledningsfri støvsuger
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/179556/dyson-v11-2020-absolute-extra-ledningsfri-stovsuger
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D180001002455677/179556/dyson-v11-2020-absolute-extra-ledningsfri-stoevsuger.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.6"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.6"
-                locale: da
-                value: 4.6
-            ratingCount:
-              - text: "37"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
-          - id:
-              - text: "179813"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]
-            name:
-              - text: Dyson Humidify+Cool luftrenser, luftfugter og blæser
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
-            productUrl:
-              - text: https://www.elgiganten.dk/product/husholdning/klima-ventilation/179813/dyson-humidify-cool-luftrenser-luftfugter-og-blaser
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.elgiganten.dk/image/dv_web_D180001002456051/179813/dyson-humidifycool-luftrenser-luftfugter-og-blaeser.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
             ratingCount:
               - text: "1"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 3 190
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "11"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[11]/div[1]/div[2]
+          - id:
+              - text: DYSHP02
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[2]
+                type: NUMBER
+                raw: "12"
+                locale: da
+                value: 12
+            name:
+              - text: Dyson Pure Hot+Cool Link luftrenser
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/husholdning/klima-ventilation/DYSHP02/dyson-pure-hot-cool-link-luftrenser
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D180001002175418/DYSHP02/dyson-pure-hotcool-link-luftrenser.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,1
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "22"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 3 390
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "12"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[2]
+          - id:
+              - text: DYSV10MOTORHE
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[2]
+                type: NUMBER
+                raw: "13"
+                locale: da
+                value: 13
+            name:
+              - text: Dyson V10 Motorhead ledningsfri støvsuger
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/ledningsfri-stovsuger/DYSV10MOTORHE/dyson-v10-motorhead-ledningsfri-stovsuger
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D18000100291611/DYSV10MOTORHE/dyson-v10-motorhead-ledningsfri-stoevsuger.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "34"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 3 390
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "13"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[2]
+          - id:
+              - text: DYSAM10
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[2]
+                type: NUMBER
+                raw: "14"
+                locale: da
+                value: 14
+            name:
+              - text: Dyson luftfugter AM10
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/husholdning/klima-ventilation/luftfugter/DYSAM10/dyson-luftfugter-am10
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D180001002175409/DYSAM10/dyson-luftfugter-am10.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 3 790
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "14"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[2]
+          - id:
+              - text: DYSV10ABSOLUT
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[2]
+                type: NUMBER
+                raw: "15"
+                locale: da
+                value: 15
+            name:
+              - text: Dyson V10 Absolute ledningsfri støvsuger
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/ledningsfri-stovsuger/DYSV10ABSOLUT/dyson-v10-absolute-ledningsfri-stovsuger
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D18000100291594/DYSV10ABSOLUT/dyson-v10-absolute-ledningsfri-stoevsuger.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "130"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 3 790
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "15"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[2]
+          - id:
+              - text: "179818"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[2]
+                type: NUMBER
+                raw: "16"
+                locale: da
+                value: 16
+            name:
+              - text: Dyson Corrale glattejern DYSCORALE
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/personlig-pleje-skonhed-og-velvare/glattejern/179818/dyson-corrale-glattejern-dyscorale
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D180001002462349/179818/dyson-corrale-glattejern-dyscorale.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 3 990
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "16"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[2]
+          - id:
+              - text: "66505"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[2]
+                type: NUMBER
+                raw: "17"
+                locale: da
+                value: 17
+            name:
+              - text: Dyson Airwrap Complete hårstyler DYS310733
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/personlig-pleje-skonhed-og-velvare/hartorrer/66505/dyson-airwrap-complete-harstyler-dys310733
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D180001002314518/66505/dyson-airwrap-complete-haarstyler-dys310733.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "23"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 3 990
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "17"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[2]
+          - id:
+              - text: "166988"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "18"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[2]
+                type: NUMBER
+                raw: "18"
+                locale: da
+                value: 18
+            name:
+              - text: Dyson Lightcycle Morph LED bordlampe 294677-01
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/husholdning/belysning/lamper/166988/dyson-lightcycle-morph-led-bordlampe-294677-01
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D180001002434334/166988/dyson-lightcycle-morph-led-bordlampe-294677-01.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 4 190
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "18"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[2]
+          - id:
+              - text: "26177"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "19"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[2]
+                type: NUMBER
+                raw: "19"
+                locale: da
+                value: 19
+            name:
+              - text: Dyson V11 (2019) Animal ledningsfri støvsuger
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/ledningsfri-stovsuger/26177/dyson-v11-2019-animal-ledningsfri-stovsuger
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D180001002273854/26177/dyson-v11-2019-animal-ledningsfri-stoevsuger.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "36"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 4 190
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "19"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[2]
+          - id:
+              - text: DYSDP04
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "20"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[2]
+                type: NUMBER
+                raw: "20"
+                locale: da
+                value: 20
+            name:
+              - text: Dyson Pure Cool luftrenser
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/husholdning/klima-ventilation/luftrenser/DYSDP04/dyson-pure-cool-luftrenser
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D180001002201379/DYSDP04/dyson-pure-cool-luftrenser.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,2
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "8"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 4 190
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "20"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[2]
+          - id:
+              - text: "179558"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "21"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[2]
+                type: NUMBER
+                raw: "21"
+                locale: da
+                value: 21
+            name:
+              - text: Dyson V11 (2020) Torque Drive Extra ledningsløs støvsuger
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/179558/dyson-v11-2020-torque-drive-extra-ledningslos-stovsuger
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D180001002455710/179558/dyson-v11-2020-torque-drive-extra-ledningsloes-stoevsuger.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "20"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 4 490
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "21"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[2]
+          - id:
+              - text: DYSTP04
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "22"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[2]
+                type: NUMBER
+                raw: "22"
+                locale: da
+                value: 22
+            name:
+              - text: Dyson Pure Cool luftrenser
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/husholdning/klima-ventilation/luftrenser/DYSTP04/dyson-pure-cool-luftrenser
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D180001002201368/DYSTP04/dyson-pure-cool-luftrenser.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,5
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "15"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 4 490
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "22"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[2]
+          - id:
+              - text: "63973"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "23"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[2]
+                type: NUMBER
+                raw: "23"
+                locale: da
+                value: 23
+            name:
+              - text: Dyson Pure Hot&Cool luftrenser DYSHP04
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/husholdning/klima-ventilation/63973/dyson-pure-hot-cool-luftrenser-dyshp04
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D180001002299277/63973/dyson-pure-hotcool-luftrenser-dyshp04.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,1
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "16"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 4 690
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "23"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[2]
+          - id:
+              - text: "26091"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "24"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[2]
+                type: NUMBER
+                raw: "24"
+                locale: da
+                value: 24
+            name:
+              - text: Dyson V11 (2019) Absolute ledningsfri støvsuger
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/ledningsfri-stovsuger/26091/dyson-v11-2019-absolute-ledningsfri-stovsuger
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D180001002218757/26091/dyson-v11-2019-absolute-ledningsfri-stoevsuger.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "239"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 4 790
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "24"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[2]
+          - id:
+              - text: "179556"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "25"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[2]
+                type: NUMBER
+                raw: "25"
+                locale: da
+                value: 25
+            name:
+              - text: Dyson V11 (2020) Absolute Extra ledningsfri støvsuger
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/179556/dyson-v11-2020-absolute-extra-ledningsfri-stovsuger
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D180001002455677/179556/dyson-v11-2020-absolute-extra-ledningsfri-stoevsuger.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "63"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 4 890
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "25"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[2]
+          - id:
+              - text: "179813"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "26"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[2]
+                type: NUMBER
+                raw: "26"
+                locale: da
+                value: 26
+            name:
+              - text: Dyson Humidify+Cool luftrenser, luftfugter og blæser
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+            productUrl:
+              - text: https://www.elgiganten.dk/product/husholdning/klima-ventilation/179813/dyson-humidify-cool-luftrenser-luftfugter-og-blaser
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.elgiganten.dk/image/dv_web_D180001002456051/179813/dyson-humidifycool-luftrenser-luftfugter-og-blaeser.jpg?$digital220x220$
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "1"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 5 290
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "26"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[2]
           - id:
               - text: "166991"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "27"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[3]/div[1]/div[2]
+                type: NUMBER
+                raw: "27"
+                locale: da
+                value: 27
             name:
               - text: Dyson Lightcycle Morph LED-gulvlampe 294681-01
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
             productUrl:
               - text: https://www.elgiganten.dk/product/husholdning/belysning/lamper/166991/dyson-lightcycle-morph-led-gulvlampe-294681-01
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002434333/166991/dyson-lightcycle-morph-led-gulvlampe-294681-01.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5 890
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[3]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "27"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[3]/div[1]/div[2]
           - id:
               - text: "179557"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[1]/div[1]/div[2]/div[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "28"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[2]
+                type: NUMBER
+                raw: "28"
+                locale: da
+                value: 28
             name:
               - text: Dyson V11 (2020) Absolute Extra Pro ledningsløs støvsuger
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
             productUrl:
               - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/179557/dyson-v11-2020-absolute-extra-pro-ledningslos-stovsuger
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002455727/179557/dyson-v11-2020-absolute-extra-pro-ledningsloes-stoevsuger.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.7"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.7"
-                locale: da
-                value: 4.7
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
             ratingCount:
-              - text: "11"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+              - text: "27"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: 5 990
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "28"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[2]
           - id:
               - text: DYSONAB14GR
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[2]/div[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "29"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[2]
+                type: NUMBER
+                raw: "29"
+                locale: da
+                value: 29
             name:
               - text: Dyson Airblade dB håndtørrer (grå)
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
             productUrl:
               - text: https://www.elgiganten.dk/product/husholdning/opvarmning/skotorrer-varmesaler-og-andre-varmeprodukter/DYSONAB14GR/dyson-airblade-db-handtorrer-gra
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002237484/DYSONAB14GR/dyson-airblade-db-haandtoerrer-graa.?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 10 890
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "29"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[2]
           - id:
               - text: "134181"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[7]/div[1]/div[1]/div[1]/div[2]/div[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "30"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[2]
+                type: NUMBER
+                raw: "30"
+                locale: da
+                value: 30
             name:
               - text: Dyson V11 (2019) dockingstation 96994404
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
             productUrl:
               - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/tilbehor-stovsuger-og-rengoring/134181/dyson-v11-2019-dockingstation-96994404
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002362045/134181/dyson-v11-2019-dockingstation-96994404.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[7]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating:
-              - text: "4.3"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "4.3"
-                locale: da
-                value: 4.3
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,3
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
             ratingCount:
               - text: "6"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+            price:
+              - text: "799"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "30"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[2]
           - id:
               - text: "58341"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[8]/div[1]/div[1]/div[1]/div[2]/div[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[7]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "31"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[7]/div[1]/div[2]
+                type: NUMBER
+                raw: "31"
+                locale: da
+                value: 31
             name:
               - text: HEPA Filter til Dyson DC19 / DC20 / DC21 / DC29
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
             productUrl:
               - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/tilbehor-stovsuger-og-rengoring/58341/hepa-filter-til-dyson-dc19-dc20-dc21-dc29
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002284808/58341/hepa-filter-til-dyson-dc19-dc20-dc21-dc29.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[8]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[7]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: "79"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[7]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "31"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[7]/div[1]/div[2]
           - id:
               - text: "60096"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[8]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "32"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[8]/div[1]/div[2]
+                type: NUMBER
+                raw: "32"
+                locale: da
+                value: 32
             name:
               - text: Vaskbart Støvfilter til Dyson DC19 / DC20 / DC21
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
             productUrl:
               - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/tilbehor-stovsuger-og-rengoring/60096/vaskbart-stovfilter-til-dyson-dc19-dc20-dc21
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002288712/60096/vaskbart-stoevfilter-til-dyson-dc19-dc20-dc21.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[9]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[8]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: "139"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[8]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "32"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[8]/div[1]/div[2]
           - id:
               - text: "61547"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[10]/div[1]/div[1]/div[1]/div[2]/div[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[9]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "33"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[9]/div[1]/div[2]
+                type: NUMBER
+                raw: "33"
+                locale: da
+                value: 33
             name:
               - text: Støvfilter med tilbehør for Dyson V7 / V8
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
             productUrl:
               - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/tilbehor-stovsuger-og-rengoring/61547/stovfilter-med-tilbehor-for-dyson-v7-v8
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002288309/61547/stoevfilter-med-tilbehoer-for-dyson-v7-v8.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[10]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[9]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: "269"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[9]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "33"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[9]/div[1]/div[2]
           - id:
               - text: "59630"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[11]/div[1]/div[1]/div[1]/div[2]/div[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[10]/div[1]/div[1]/div[1]/div[2]/div[1]
+            rankOrganic:
+              - text: "34"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[10]/div[1]/div[2]
+                type: NUMBER
+                raw: "34"
+                locale: da
+                value: 34
             name:
               - text: Støvsugermundstykke med forlængerslange for Dyson
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/span[1]/span[1]
             productUrl:
               - text: https://www.elgiganten.dk/product/husholdning/stovsuger-og-rengoring/tilbehor-stovsuger-og-rengoring/59630/stovsugermundstykke-med-forlangerslange-for-dyson
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/a[1]/@href
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002285940/59630/stoevsugermundstykke-med-forlaengerslange-for-dyson.jpg?$digital220x220$
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[11]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[10]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: "319"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[10]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
+            rank:
+              - text: "34"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[10]/div[1]/div[2]
         xpath: /html
-    timestamp: 1600253644265
+    timestamp: 1600775882825

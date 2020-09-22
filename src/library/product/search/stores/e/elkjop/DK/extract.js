@@ -36,6 +36,21 @@ module.exports = {
         }
       }
     });
+    await context.evaluate(async function () {
+      function addElementToDocument (doc, key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        doc.appendChild(catElement);
+      }
+      const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
+      const arr = document.querySelectorAll('div.mini-product');
+      for (let i = 0; i < arr.length; i++) {
+        addElementToDocument(arr[i], 'pd_rank', lastProductPosition + i);
+      }
+      localStorage.setItem('prodCount', `${lastProductPosition + arr.length}`);
+    });
     return await context.extract(productDetails);
   },
 };
