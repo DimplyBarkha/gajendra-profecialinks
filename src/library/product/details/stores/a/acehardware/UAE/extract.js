@@ -35,7 +35,9 @@ module.exports = {
       const productinfo = productInfo.join(' || ');
       document.body.setAttribute('productinfo', productinfo);
       // Delay required for loading video link
-      await new Promise(r => setTimeout(r, 5000));
+      await new Promise(function (resolve, reject) {
+        setTimeout(() => resolve('done'), 8000);
+      });
     });
     await context.extract(productDetails);
   },
