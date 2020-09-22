@@ -1,0 +1,21 @@
+extends: ../shared 
+fields:
+  - name: image
+    xpath: //div[contains(@class,'hgroup__main-image')]/img/@src
+  - name: imageAlt
+    xpath: //div[contains(@class,'hgroup__main-image')]/img/@alt
+  - name: nameExtended
+    manualSelector: h2.hgroup__title~h1, h2.hgroup__title, h1.hgroup__motif__h1-cdn-img-replace
+  - name: listPrice
+    manualSelector: div.product__price span[data-price-type*='oldPrice'] > span.price
+  - name: price
+    manualSelector: div.product__price span[data-price-type*='finalPrice'] > span.price
+  - name: availabilityText
+    manualSelector: button[title*="Add to basket"]
+    regExp: (.*)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: availabilityText
+    xpath: //span[contains(@class,"spec") and *[contains(text(),"Weight")]]//span
+  - name: variantId
+    xpath: //div[@id='added_sku']
