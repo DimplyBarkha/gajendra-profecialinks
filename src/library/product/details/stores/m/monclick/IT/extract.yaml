@@ -64,8 +64,8 @@ fields:
     defaultValue: '0'
   - name: variantId
     singleValue: false
-    xpath: //script[@type="text/javascript"][contains(text(),"product_sku")]
-    regExp: product_sku":\[\"(.*?)"\]
+    xpath: //body[@data-controller="Product"]/@data-controller-parameters
+    regExp: .productCode":"([^"]*)".
     regExpReplace: $1
   - name: warranty
     singleValue: false
