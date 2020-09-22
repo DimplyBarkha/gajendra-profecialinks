@@ -33,9 +33,26 @@ fields:
   - name: color
     singleValue: false
     xpath: //div[@class="product-sku"]//div[@class="sku-property"][1]//span[@class="sku-title-value"]
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[@class="product-info"]/meta[@itemprop="brand"]/@content
   - name: listPrice
     singleValue: false
     xpath: //div[@class="product-price-del"]/span[@class="product-price-value"]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="product-info"]/meta[@itemprop="brand"]/@content
+  - name: variantCount
+    singleValue: false
+    defultValue: 0
+  - name: quantity
+    singleValue: false
+    xpath: //span[contains(@class,"next-input-group-auto-width")]/input/@value
+    defultValue: 1
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="next-message-content"]
+    defultValue: In Stock
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class="sku-property"][2]//span[@class="sku-title-value"]
+  - name: coupon
+    singleValue: false
+    xpath: //div[@class="coupon-mark-new"]
