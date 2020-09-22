@@ -27,9 +27,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //meta[@name='description']/@content
-    regExp: (Dyson)([^.]+)
-    regExpReplace: $1$2
+    xpath: //h1[@class='product_title entry-title elementor-heading-title elementor-size-default']/text()
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
