@@ -14,6 +14,12 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //li[@class='jet-woo-slick-control-thumbs__item slick-slide slick-active']//img/@src
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+    xpath: //h1[contains(@class, "product_title")]/text()
+    regExp: (\|)(.*)
+    regExpReplace: $2
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -88,10 +94,6 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //span[@class='sku_wrapper detail-container']//span[@class='sku']
-  - name: mpc
-    singleValue: true
-    description: The manufacturer model code (unique) of the product
-    xpath: //tr[@class="attribute-key-pa_ean"]//p/text()
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
