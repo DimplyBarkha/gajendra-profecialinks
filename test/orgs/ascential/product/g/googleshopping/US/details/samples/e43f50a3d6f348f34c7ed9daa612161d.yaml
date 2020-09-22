@@ -1,0 +1,30 @@
+input:
+  _url: http://shopping.google.com
+  URL: https://www.google.com/shopping/product/629583024515316099?psb=1&tbm=shop&prds=epd%3A2701988085022452407%2Cprmr%3A3&ved=0CFUQ0FUoBmoXChMI3v7ugLH86wIVPk_FAR2p3AlVEAE
+extractions:
+  - html: https://workbench.import.io/html/run=e3f2f104-8b4f-4e2a-8605-29124f8f8e1d/task=84a2e5e4-e16c-44e3-acc9-626b90beba48/69e06208-ae5e-4bba-b02b-f30cdd93fef1.html
+    extractionConfigId: product/details/stores/g/googleshopping/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQqT6W8FQEmSusv-tVevjuJqH_YtesYq3iesZzS1SfcSSKL0XOUIi7FGDiS6Lc_R20-L3L9p-XEchoUH1qQs4OV2ZULtQxFVMvo1laDjZmF0lj_3QtAvpE8wA&usqp=CAY
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQqT6W8FQEmSusv-tVevjuJqH_YtesYq3iesZzS1SfcSSKL0XOUIi7FGDiS6Lc_R20-L3L9p-XEchoUH1qQs4OV2ZULtQxFVMvo1laDjZmF0lj_3QtAvpE8wA&usqp=CAY
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRvGfckvMx7fxc9tB9rKqatWXCXAHa-ISRdGryjenyyHUaUdhRgLzdoKpZ9ihfNVHANkKsyd4TnlYH2gsrTV4ZXWqo3rtW0V2zL3KtSKegeDBNcwwhcHZi-&usqp=CAY
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/img[2]/@src
+              - text: https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRl_IZUyhpXubd9tKBmTXcef4-67cDDkLu9VxeECf5EKE3YFEixSR70gOVC8KeLTeUii3VrNHJREkbD8pHHnISvMXNhisPiR53t9-H47YHmVfPSlbsPkDNa1g&usqp=CAY
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/img[3]/@src
+              - text: https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRzVan-wy5XKlIy1ApF51-N4jxjkg_N2SdAqreLW7s9iRd7Q5TSmhQwzHqA4wxPh2NXJbfEVAtylVAYGRZiMbR5MXlDTLf7XFnR1QjVajNGt61aob7STvfn&usqp=CAY
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/img[4]/@src
+            ratingCount:
+              - text: 3,032 reviews
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/text()[1]
+            aggregateRating:
+              - text: "4.4"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/section[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/text()[1]
+            availabilityText:
+              - text: Out of Stock
+        xpath: /html
+    timestamp: 1600771159735
