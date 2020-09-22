@@ -67,10 +67,10 @@ const transform = (data, context) => {
         }
       }
 
-      if(row.brandText && row.brandText[0].text.indexOf(":") !== -1) {
-        row.brandText[0].text = row.brandText[0].text.split(":")[1].replace(/['"]+/g, '');
+      if(row.brand && row.brand[0].text.indexOf(":") !== -1) {
+        row.brand[0].text = row.brand[0].text.split(":")[1].replace(/['"]+/g, '');
       } else {
-        row.brandText = [{ text: row.name[0].text.split(' ')[0] }];
+        row.brand = [{ text: row.name[0].text.split(' ')[0] }];
       }
 
       if(row.manufacturer && row.manufacturer[0].text.indexOf(":") !== -1) {
