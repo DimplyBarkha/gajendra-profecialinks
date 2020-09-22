@@ -17,13 +17,9 @@ module.exports = {
         const element = document.querySelector('footer#footer');
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-          console.log('*** Scrolling it ****');
           await new Promise((resolve) => setTimeout(resolve, 10000));
         }
       });
-      // await context.scrollIntoView();
-      // var elmnt = document.getElementById('techspecs');
-      // elmnt.scrollIntoView();
     } catch (e) {
       console.log(e);
     }
