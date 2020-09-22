@@ -20,6 +20,10 @@ module.exports = {
       if (overlay !== undefined) {
         overlay.click();
       }
+      const overlay1 = document.getElementById('tab-more-info-trigger');
+      if (overlay1 !== undefined) {
+        overlay1.click();
+      }
     });
 
     const { transform } = parameters;

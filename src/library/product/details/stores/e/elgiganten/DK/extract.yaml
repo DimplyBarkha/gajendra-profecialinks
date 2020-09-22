@@ -8,21 +8,27 @@ fields:
     xpath: //div[contains(@class,'product-detail-wrapper')]//div[contains(@class,'visuals-wrap')]//div[contains(@class,'mediaAsset')]//img[contains(@class,'first-product-image')]//@src
     regExp: (.+)
     regExpReplace: https://www.elgiganten.dk$1
+  - name: imageAlt
+    singleValue: true
+    xpath: //img[contains(@class,'first-product-image')]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'product-detail-wrapper')]//div[contains(@class,'visuals-wrap')]//div[contains(@class,'mediaAsset')]//ul//descendant::img/@src
+    regExp: (.+)
+    regExpReplace: https://www.elgiganten.dk$1
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"product-price-container")]//span
-  - name: imageAlt
-    singleValue: true
-    xpath: //img[contains(@class,'first-product-image')]/@alt
+    #xpath: //div[contains(@class,"product-price-container")]//span
+    xpath: concat(//meta[contains(@itemprop,'priceCurrency')]/@content, ':', //div[contains(@class,"product-price-container")]//span)
   - name: description
     singleValue: false
-    xpath: //p[contains(@class,'short-description')] |//div[contains(@class, 'misc-info')]//ul[contains(@class,'specs')]/li
+    xpath: //p[contains(@class,'short-description')] | //div[contains(@class, 'misc-info')]//ul[contains(@class,'specs')]/li | //div[contains(@class,"product-more-info")]//p
   - name: category 
     singleValue: false
-    xpath: //ol[contains(@class, 'breadcrumbs')]//li[position()>1]
+    xpath: //ol[contains(@class, 'breadcrumbs')]//li[position()>1 and position()<last()]
   - name: productUrl
     singleValue: true
     xpath: //meta[@property='og:url']/@content
@@ -31,16 +37,13 @@ fields:
     xpath: //p[contains(@class, 'sku discrete')]//@data-product-sku
   - name: gtin
     singleValue: true
-    xpath: //section[contains(@class,'section product-more-info')]//dl[position()=last()]//table[contains(@class,'spec-table')]//td[position()>last()-1]
+    xpath: //meta[@itemprop="gtin8"]/@content
   - name: eangtin
     singleValue: true
     xpath: //section[contains(@class,'section product-more-info')]//dl[position()=last()]//table[contains(@class,'spec-table')]//td[position()>last()-1]
   - name: brandText
     singleValue: true
     xpath: //span[contains(@itemprop,'brand')]//meta[contains(@itemprop,'name')]/@content
-  - name: manufacturer
-    singleValue: true
-    xpath: //span[contains(@itemprop,'brand')]//meta[contains(@itemprop,'name')]//@content
   - name: descriptionBullets
     singleValue: true
     type: NUMBER
@@ -61,13 +64,10 @@ fields:
     # regExpReplace: https://www.elgiganten.dk$1
   - name: shippingInfo
     singleValue: false
-    xpath: //meta[contains(@itemprop,'seller')]/@content
+    #xpath: //meta[contains(@itemprop,'seller')]/@content
   - name: energyEfficiency
     singleValue: true
-    xpath: //span[contains(@class,'energy-label-wrap')]//a[contains(@class,'energy-label-icon-link')]/@data-energy-icon
-  - name: ratingCount
-    singleValue: true
-    xpath: //meta[contains(@itemprop,'reviewCount')]//@content
+    xpath: //span[contains(@class,'energy-label-wrap')]//a[contains(@class,'energy-label-icon-link')]/@data-energy-icon  
   - name: mpc
     singleValue: true
     xpath: //meta[contains(@itemprop, 'productID')]/@content
@@ -79,23 +79,15 @@ fields:
     xpath: //section[contains(@class,'promotion-section')]//div[contains(@class,'promotion')]//div[contains(@class,'promotion-text')]
   - name: firstVariant
     singleValue: false
-    xpath: //meta[contains(@itemprop, 'productID')]/@content
+    #xpath: //meta[contains(@itemprop, 'productID')]/@content
   - name: variants
     singleValue: false
     xpath: //div[contains(@class,'product-variations-wrapper')]//div[contains(@class,'variation')]/@data-variation-sku
-  - name: alternateImages
-    singleValue: false
-    xpath: //div[contains(@class,'product-detail-wrapper')]//div[contains(@class,'visuals-wrap')]//div[contains(@class,'mediaAsset')]//ul//descendant::img/@src
-    regExp: (.+)
-    regExpReplace: https://www.elgiganten.dk$1
   - name: variantCount
     singleValue: false
     xpath: count(//div[contains(@class,'product-variations-wrapper')]//div[contains(@class,'variation')]/@data-variation-sku)
     regExp: (.+)
     defaultValue: 0
-  - name: priceCurrency
-    singleValue: true
-    xpath: //meta[contains(@itemprop,'priceCurrency')]/@content
   - name: availabilityText
     xpath: //div[contains(@class, 'product-price-button')]//span[contains(@class,'product-price-text')]
     singleValue: true
@@ -107,10 +99,14 @@ fields:
     xpath: //div[contains(@class,'tab-specs-row')]//div[contains(@class,'spec-wrap')]/dl/dd/table/tbody/tr
   - name: productOtherInformation
     singleValue: false
-    xpath: //section[contains(@class,'product-more-info')]//div[contains(@class,'tab-container')]//div[contains(@class,'tab-content-holder')]//div[contains(@class,'product-more-info')]//div[contains(@class,'tab-slot')]//p
-  - name: aggregateRating
-    singleValue: false
+  - name: aggregateRating2
+    singleValue: true
     xpath: //meta[contains(@itemprop,'ratingValue')]/@content
+  - name: ratingCount
+    singleValue: false
+    #xpath: //meta[contains(@itemprop,'reviewCount')]//@content
+    xpath: //div[@class="product-ratings__count"]
+    type: NUMBER
   - name: weightNet
     singleValue: true
     xpath: //td[contains(text(),'Vægt')]/following::td[1]
@@ -127,6 +123,9 @@ fields:
   - name: packSize
     singleValue: true
     xpath: //table[contains(@class,'spec-table')]//tr//td[contains(text(), 'pakken')]/following::td[1][contains(@class,'any-3-4')]
+  - name: manufacturer
+    singleValue: true
+    #xpath: //span[contains(@itemprop,'brand')]//meta[contains(@itemprop,'name')]//@content
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class,'product-detail-page')]//div[contains(@class,'product-inspiration-wrapper')]//section[contains(@class,'article-page')]//div[contains(@class,'article-text')]//img/@src
