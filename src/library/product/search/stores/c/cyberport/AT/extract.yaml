@@ -1,0 +1,46 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: 'ul[data-automation="product-grid"] > li[data-automation="product-grid-item"]'
+recordXPath: null
+fields:
+  - name: id
+    #xpath: //div[contains(@class,'productID')]/@data-product-id
+    #xpath: //div[contains(@class,'addToCart')]//input[contains(@name,'productId')]/@value
+    singleValue: true
+  - name: name
+    xpath: //span[contains(@class,'productTitleName')]
+    singleValue: true
+  - name: productUrl
+    #xpath: //div//h3//a//@href
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: https://www.myer.com.au$1
+  - name: manufacturer
+    #xpath: //div//h3//a//div[2]//span[1]
+    singleValue: true    
+  - name: thumbnail
+    #xpath: //div//h3//a//div[1]//img//@src
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: https://www.myer.com.au$1
+  - name: price
+    #xpath: //ul[@class='css-1w5tqa5']/li/div[@class='css-m4cs32']/div[@class='h5 css-1fglnfk']/p[@class='css-15ro776 css-13veri3']/span[2]
+    singleValue: true 
+  - name: rankOrganic
+    singleValue: true 
+  - name: aggregateRating  
+    singleValue: true
+    #xpath: substring(//div[@class="bv-off-screen"],0,4)
+  - name: reviewCount  
+    singleValue: true
+    #xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: ratingCount  
+    singleValue: true
+    #xpath: //meta[@itemprop="reviewCount"]//@content
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: search/listing rank
