@@ -31,6 +31,9 @@ fields:
   - name: reviewCount
     description: The number of reviews
     type: NUMBER
+    xpath: //div[contains(@class,'product-ratings__count')]
+    regExp: (\d+)
+    regExpReplace: $1
   - name: ratingCount
     description: The number of ratings
     xpath: //div[contains(@class,'product-ratings__count')]
