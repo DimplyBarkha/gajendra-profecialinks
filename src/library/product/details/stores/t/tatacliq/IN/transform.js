@@ -53,23 +53,79 @@ const transform = (data) => {
         }];
       }
 
-      if (row.shippingDimensions) {
-        let text = '';
-        row.shippingDimensions.forEach(item => {
-          text += `${item.text} x `;
-        });
-        text = text.slice(0, -3);
-        if (row.shippingDimensionsUnits) {
-          text = `${text} ${row.shippingDimensionsUnits[0].text}`;
-        }
-        row.shippingDimensions = [{
-          text: text,
-        }];
-      }
-
       if (row.weightNet && row.weightNetUnits) {
         row.weightNet = [{
           text: `${row.weightNet[0].text} ${row.weightNetUnits[0].text}`,
+        }];
+      }
+
+      if (row.specifications2) {
+        let text = '';
+        row.specifications2.forEach(item => {
+          text += `${item.text} || `;
+        });
+        row.specifications2 = [
+          {
+            text: text,
+          }
+        ];
+      }
+
+      if (row.specifications) {
+        let text = '';
+        for (let i = 0; i < row.specifications.length; i++) {
+          text += `${row.specificationsLabel[i].text} : ${row.specifications[i].text} || `;
+        }
+        row.specifications = [{
+          text: text.slice(0, -4),
+        }];
+      } else if (row.specifications2) {
+        row.specifications = [{
+          text: row.specifications2[0].text.slice(0, -4),
+        }];
+        delete row.specifications2;
+      }
+
+      if (row.specifications && row.specifications2) {
+        row.specifications = [{
+          text: `${row.specifications2[0].text}${row.specifications[0].text}`,
+        }];
+      }
+
+      if (!row.mpc && row.mpc2) {
+        row.mpc = [{
+          text: row.mpc2[0].text,
+        }];
+      }
+
+      if (!row.countryOfOrigin && row.countryOfOrigin2) {
+        row.countryOfOrigin = [{
+          text: row.countryOfOrigin2[0].text,
+        }];
+      }
+
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          if (!item.text.includes('http')) {
+            item.text = `https:${item.text}`;
+          }
+        });
+      }
+
+      if (row.promotion) {
+        row.promotion = [{
+          text: `${row.promotion[0].text}% off`
+        }];
+      } else if (row.promotionAddText) {
+        row.promotion = [{
+          text: `${row.promotionAddText[0].text}`
+        }];
+        delete row.promotionAddText;
+      }
+
+      if (row.promotionAddText && row.promotion) {
+        row.promotion = [{
+          text: `${row.promotion[0].text} ${row.promotionAddText[0].text}`
         }];
       }
     }

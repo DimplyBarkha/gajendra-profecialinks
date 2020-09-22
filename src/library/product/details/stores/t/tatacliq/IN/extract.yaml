@@ -8,7 +8,7 @@ fields:
     regExp: (.+)
     regExpReplace: https:$1
   - name: imageAlt
-    xpath: //*[@id="APIM"]//img//@alt
+    xpath: (//*[@id="APIM"]//img//@alt)[1]
   - name: alternateImages
     xpath: //*[@id="APIM"]/../following-sibling::div[1]/div[position()>1]//img/@src
     regExp: (.+)
@@ -82,6 +82,10 @@ fields:
   - name: mpc
     xpath: //div[contains(text(),'Model N')]/following-sibling::div
     description: The manufacturer model code (unique) of the product
+  - name: mpc2
+    xpath: //div[contains(text(),'Model No')][count(../div)=1]
+    regExp: (.+)\s:\s(.+)
+    regExpReplace: $2
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -114,12 +118,7 @@ fields:
     xpath:  (//*[@id="DWSN"]//div)[1] | //*[@id="root"]//ul//li[contains(text(),'Free Shipping')]
     description: Shipping information for the product
   - name: shippingDimensions
-    xpath: //h2[contains(.,'Dimensions')]/../../following-sibling::div/div/div/div/div[last()][preceding-sibling::div[not(contains(.,'Weight'))]]
     description: Stated shipping dimensions
-  - name: shippingDimensionsUnits
-    xpath: //div[contains(text(),'Height')]/text()
-    regExp: Product Height\s\((.+)\)
-    regExpReplace: $1
   - name: shippingWeight
     description: Stated shipping weight
   - name: variantCount
@@ -137,14 +136,15 @@ fields:
     regExpReplace: $1
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
-    xpath: //*[@id="flixinpage"]/following-sibling::div//p|//*[@id="flixinpage"]/following-sibling::div//p/preceding-sibling::h3
+    xpath: //*[@id="flixinpage"]/following-sibling::div//p | //*[@id="flixinpage"]/following-sibling::div//p/preceding-sibling::h3 | //div[contains(@class,'inpage_selector') and contains(@class,'feature')]//div[contains(@class,'flix-std-row')]/div/div//div[contains(@class,'title') or contains(@class,'subtitle') or contains(@class,'desc')]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
-    xpath:  //*[@id="flixinpage"]/following-sibling::div//div[@id="recommendedSection"]/preceding-sibling::div//img/@src
+    xpath:  //*[@id="flixinpage"]/following-sibling::div//div[@id="recommendedSection"]/preceding-sibling::div//img/@src | //div[contains(@class,'inpage_selector') and contains(@class,'feature')]//div[contains(@class,'flix-std-row')]//div//img/@srcset
     description: Images within the third party description
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //*[@id="videoLinks"]//text()
   - name: name
     xpath:  //*[@itemprop="name"]//h1
     description: The product name
@@ -398,9 +398,14 @@ fields:
   - name: dietaryInformation
     singleValue: true
     description: null
+  - name: specificationsLabel
+    description: The physical dimensions of the product including packaging.
+    xpath: //*[@itemprop="description"]/div/div/div[1] | //div[contains(@id,'flixinpage')]/following-sibling::div//div[contains(@class,'ReactCollapse--content')]/div/div/div[1]
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //h2[contains(.,'Additional Features')]/../..//following-sibling::div//text() | //h2[contains(.,'Additional Features')]/../../../following-sibling::div/div[2]//text()
+    xpath: //*[@itemprop="description"]/div/div/div[2] | //div[contains(@id,'flixinpage')]/following-sibling::div//div[contains(@class,'ReactCollapse--content')]/div/div/div[2]
+  - name: specifications2
+    xpath: //h2[contains(.,'Overview')]/../../following-sibling::div/div[contains(@class,'ReactCollapse--content')]/div/div/div/div
   - name: warranty
     xpath:  //div[contains(text(),'Warranty D')]/following-sibling::div
     description: Guarantee associated with the product
@@ -410,6 +415,10 @@ fields:
   - name: countryOfOrigin
     xpath:  //div[contains(text(),'Country')]/following-sibling::div
     description: The country from which the product originates
+  - name: countryOfOrigin2
+    xpath: //div[contains(text(),'Country of Origin')][count(../div)=1]
+    regExp: (.+)\s:\s(.+)
+    regExpReplace: $2
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -432,8 +441,11 @@ fields:
     singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    singleValue: true
     description: promotion text on product page
+    xpath: //*[@itemprop="lowPrice"]/../following-sibling::div//span[contains(text(),'₹')]/following-sibling::span
+    regExp: (\d+)
+  - name: promotionAddText
+    xpath: //*[@itemprop="lowPrice"]/../following-sibling::div//span[contains(text(),'₹')]/following-sibling::span/../following-sibling::div
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
