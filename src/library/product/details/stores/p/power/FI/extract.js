@@ -14,6 +14,7 @@ module.exports = {
     await context.waitForSelector('#product-information-tabs > div:nth-child(1) > div > i');
     await context.waitForSelector('#product-intro pwr-product-stock-label');
     await context.click('#product-information-tabs > div:nth-child(1) > div > i');
+    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -25,6 +26,10 @@ module.exports = {
 
       function getElementByXpath (path) {
         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      }
+
+      function timeout (ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
       }
 
       const images = document.querySelectorAll('div.product-main-card div.product-image-container img');
@@ -152,6 +157,15 @@ module.exports = {
         ? getElementByXpath('//div[@class="video-wrapper"]//iframe/@src').textContent
         : '';
       addElementToDocument('urlsForVideos', videoWrapper);
+
+      const cookies = document.querySelector('button#cookie-notification-accept');
+      if (cookies) {
+        cookies.click();
+        await timeout(2000);
+      }
+      const aggRating = document.querySelector('div.product-intro-details button[itemprop="ratingValue"]')
+        ? document.querySelector('div.product-intro-details button[itemprop="ratingValue"]').innerText : '';
+      if (aggRating) addElementToDocument('aggRating', aggRating.replace(/\./g, ','));
     });
 
     await context.extract(productDetails);

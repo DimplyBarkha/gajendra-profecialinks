@@ -2,7 +2,7 @@ input:
   _url: http://power.fi
   URL: https://www.power.fi/koti-ja-vapaa-aika/imurointi-ja-siivous/varsi-ja-rikkaimurit/dyson-v6-fluffy-varsi-imuri/p-394639/
 extractions:
-  - html: https://workbench.import.io/html/run=abb25a51-9236-4295-ae91-5f3de124e5d6/task=ca9b2c71-6caf-4673-abc9-aa6e54be344f/b2238daa-ac72-45fa-849a-038fd28e56b7.html
+  - html: https://workbench.import.io/html/run=4a418bc2-944e-48c5-b77b-97d014dc9dc4/task=8ef90d5c-5484-4950-9428-af2b97f18b95/b9b73bc7-1629-45bf-adaf-7019030c2d72.html
     extractionConfigId: product/details/stores/p/power/FI/extract
     data:
       - group:
@@ -46,6 +46,9 @@ extractions:
               - text: |-
                   DYSON V6 FLUFFY+ VARSI-IMURI
                   Tehokas johdoton varsi-imuri Dysonilta
+                  4.5
+                   (2)
+                  Kirjoita arvostelu
                   Dyson V6 -digitaalimoottori
                   Kehitetty koville lattiapinnoille
                   Poistaa samanaikaisesti roskat ja hienojakoisen pölyn 
@@ -80,6 +83,16 @@ extractions:
             mpc:
               - text: "602626"
                 xpath: /html/body/div[24]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/meta[1]/@content
+                type: NUMBER
+                raw: "2"
+                locale: fi
+                value: 2
+            aggregateRating:
+              - text: 4,5
+                xpath: /html/body/div[32]
             shippingDimensions:
               - text: 154,0 x 739,0 x 271,0 mm
                 xpath: /html/body/div[23]
@@ -230,4 +243,4 @@ extractions:
             Image360Present:
               - text: No
         xpath: /html
-    timestamp: 1600767964244
+    timestamp: 1600790375080
