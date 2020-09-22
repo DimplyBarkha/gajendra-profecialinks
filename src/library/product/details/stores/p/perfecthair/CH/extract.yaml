@@ -6,12 +6,11 @@ fields:
   - name: _url
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
-  - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //div[contains(@class, "product--description")]//li
   - name: aggregateRating
     singleValue: false
     xpath: //span[@itemprop = "aggregateRating"]//meta[@itemprop = "ratingValue"]//@content
+    regExp: (.*)\.(.*)
+    regExpReplace: $1,$2
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class, "image-slider--thumbnails-slide")]//a/@href
@@ -34,13 +33,13 @@ fields:
     xpath: //a[@class = "navigation--link" and contains(@title, "Coupons")]/@href
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, "product--description")]//p
-  - name: descriptionBullets
-    singleValue: false
-    xpath: //div[contains(@class, "product--description")]//li
+    xpath: //div[contains(@class, "product--description")]//p[not(child::strong)]
   - name: firstVariant
     singleValue: false
     xpath: //div[contains(@class, "variant--option") and contains(@class, "is--active")]//input//@title
+  - name: gtin
+    singleValue: false
+    xpath: //div[@id="import_product_ean"]
   - name: image
     singleValue: false
     xpath: //div[contains(@class, "product--image-container")]//img/@src
@@ -53,9 +52,11 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //span[contains(@class, "price--line-through")]
-  - name: manufacturer
+    regExp: (.*)\.(.*)
+    regExpReplace: $1,$2
+  - name: manufacturerImages
     singleValue: false
-    xpath: //span[contains(@class, "supplier--name")]//h2
+    xpath: //div[contains(@class, "product-slider--container")]//img/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name = "keywords"]/@content
@@ -65,12 +66,14 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //h1[@itemprop = "name"]/text()
+  - name: onlinePriceCurrency
+    singleValue: false
+    defaultValue: CHF
   - name: price
     singleValue: false
     xpath: //span[contains(@class, "price--content")]/.
-  - name: productOtherInformation
-    singleValue: false
-    xpath: //table[contains(@class, "product--properties-table")]//tr[@class = "product--properties-row"]
+    regExp: (.*)\.(.*)
+    regExpReplace: $1,$2
   - name: promotion
     singleValue: false
     xpath: //span[@class = "content--discount"]
@@ -98,12 +101,14 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //meta[@itemprop = "productID"]/@content
-  - name: variantInformation
-    singleValue: false
-    xpath: //p[@class = "configurator--label"]
   - name: variants
     singleValue: false
     xpath: //div[contains(@class, "variant--option")]
   - name: videos
     singleValue: false
     xpath: //iframe[contains(@src, "youtube")]/@src
+  - name: weightNet
+    singleValue: false
+    xpath: //li[contains(text(), "Gewicht:")]
+    regExp: (.*):\s(.*)
+    regExpReplace: $2

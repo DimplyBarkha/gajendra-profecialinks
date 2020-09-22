@@ -31,7 +31,7 @@ module.exports = {
           ids.push(productIds.iterateNext().nodeValue);
           images.push(productImages.iterateNext().nodeValue);
           names.push(productNames.iterateNext().innerText);
-          prices.push(productPrices.iterateNext().innerText);
+          prices.push(parseFloat(productPrices.iterateNext().innerText.replace(/CHF\s/, "")).toFixed(2).replace(".", ","));
           urls.push(productURLs.iterateNext().nodeValue);
 
           let ratingNodes = document.evaluate(`(//div[@class = "product--rating-container"])[${index}]//i/@class`, document, null, XPathResult.ANY_TYPE);
@@ -42,7 +42,7 @@ module.exports = {
             else if (ratingNode.nodeValue === "icon--star-half")
               rating = rating + 0.5;
           }
-          ratings.push(rating);
+          ratings.push(rating.toString().replace(".", ","));
         }
         ratings.forEach((rating, index) => {
           addHiddenDiv('import_average_rating', rating || "");
@@ -53,6 +53,7 @@ module.exports = {
           addHiddenDiv('import_price', prices[index]);
           addHiddenDiv('import_product_url', urls[index]);
           addHiddenDiv('import_product_rank', index + 1);
+          addHiddenDiv('import_page_url', location.href);
         })
       } catch (error) {
         console.log('Error: ', error);
