@@ -14,7 +14,7 @@ module.exports = {
     await context.waitForSelector('#product-information-tabs > div:nth-child(1) > div > i');
     await context.waitForSelector('#product-intro pwr-product-stock-label');
     await context.click('#product-information-tabs > div:nth-child(1) > div > i');
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -28,9 +28,30 @@ module.exports = {
         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       }
 
-      const price = document.querySelector('*#product-intro div.prices-container')
-        ? document.querySelector('*#product-intro div.prices-container').innerText : '';
-      if (price) addElementToDocument('price', price);
+      function timeout (ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+
+      const images = document.querySelectorAll('div.product-main-card div.product-image-container img');
+      if (images) {
+        for (let index = 0; index < images.length; index++) {
+          document.querySelector('div.owl-next i.icon-expert-arrow').click();
+          await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+        images.forEach(e => {
+          const imageSrc = e.getAttribute('src');
+          addElementToDocument('images', imageSrc);
+        });
+      }
+
+      const price = document.querySelector('meta[property="product:price:amount"]')
+        ? document.querySelector('meta[property="product:price:amount"]').getAttribute('content') : '';
+      const currency = document.querySelector('meta[property="product:price:currency"]')
+        ? document.querySelector('meta[property="product:price:currency"]').getAttribute('content') : '';
+      if (price) {
+        const fullPrice = `${parseInt(price).toFixed(2)} ${currency}`;
+        addElementToDocument('fullPrice', fullPrice);
+      }
 
       const imageAlt = document.querySelector('div.product-image-container img') ? document.querySelector('div.product-image-container img').getAttribute('alt') : '';
       if (imageAlt) addElementToDocument('imageAlt', imageAlt);
@@ -61,28 +82,28 @@ module.exports = {
         addElementToDocument('stock', stock);
       }
 
-      const color = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"farge")]/following-sibling::div')
-        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"farge")]/following-sibling::div').textContent
+      const color = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"farge")]/following-sibling::*')
+        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"farge")]/following-sibling::*').textContent
         : '';
       if (color) addElementToDocument('color', color);
 
-      const weightNet = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Nettovekt")]/following-sibling::div')
-        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Nettovekt")]/following-sibling::div').textContent
+      const weightNet = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Nettovekt")]/following-sibling::*')
+        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Nettovekt")]/following-sibling::*').textContent
         : '';
       if (weightNet) addElementToDocument('weightNet', weightNet);
 
-      const weightGross = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Bruttovekt")]/following-sibling::div')
-        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Bruttovekt")]/following-sibling::div').textContent
+      const weightGross = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Bruttovekt")]/following-sibling::*')
+        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Bruttovekt")]/following-sibling::*').textContent
         : '';
       if (weightGross) addElementToDocument('weightGross', weightGross);
 
-      const specifications = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Bruttomål med")]/following-sibling::div')
-        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Bruttomål med")]/following-sibling::div').textContent
+      const dimensions = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Bruttomål med")]/following-sibling::*')
+        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Bruttomål med")]/following-sibling::*').textContent
         : '';
-      if (specifications) addElementToDocument('specifications', specifications);
+      if (dimensions) addElementToDocument('dimensions', dimensions);
 
-      const mpc = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Leverandørens")]/following-sibling::div')
-        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Leverandørens")]/following-sibling::div').textContent
+      const mpc = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Leverandørens")]/following-sibling::*')
+        ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Leverandørens")]/following-sibling::*').textContent
         : '';
       if (mpc) addElementToDocument('mpc', mpc);
 
@@ -101,14 +122,38 @@ module.exports = {
         : '';
       if (shipingInfo) addElementToDocument('shipingInfo', shipingInfo);
 
+      const description = document.querySelectorAll('div#product-tab-description p');
+      const descArr = [];
+      if (description) {
+        description.forEach(e => {
+          descArr.push(e.innerText.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
+        });
+      }
+      addElementToDocument('description', descArr.join(' || '));
+
+      const manufacturerDesc = document.querySelector('div#product-tab-description')
+        ? document.querySelector('div#product-tab-description').innerText: '';
+      if (manufacturerDesc) {
+        addElementToDocument('manufacturerDesc', manufacturerDesc.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
+      };
+
+      const specifications = document.querySelectorAll('pwr-product-specifications > div');
+      const specArr = [];
+      if (specifications) {
+        specifications.forEach(e => {
+          specArr.push(e.innerText.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
+        });
+      }
+      addElementToDocument('specifications', specArr.join(' || '));
+
       const bulletInfo = document.querySelectorAll('div.product-intro-details ul.product-description-bullets li');
-      const descBulletInfo = [];
+      const descBulletInfo = [''];
       if (bulletInfo) {
         bulletInfo.forEach(e => {
           descBulletInfo.push(e.innerText);
         });
       }
-      addElementToDocument('descBulletInfo', descBulletInfo.join('||'));
+      addElementToDocument('descBulletInfo', descBulletInfo.join(' || '));
 
       const iframe = document.querySelector('iframe.videoly-box');
       if (iframe) {
@@ -120,8 +165,16 @@ module.exports = {
         ? getElementByXpath('//div[@class="video-wrapper"]//iframe/@src').textContent
         : '';
       addElementToDocument('urlsForVideos', videoWrapper);
-    });
 
+      const cookies = document.querySelector('button#cookie-notification-accept');
+      if (cookies) {
+        cookies.click();
+        await timeout(2000);
+      }
+      const aggRating = document.querySelector('div.product-intro-details button[itemprop="ratingValue"]')
+        ? document.querySelector('div.product-intro-details button[itemprop="ratingValue"]').innerText : '';
+      if (aggRating) addElementToDocument('aggRating', aggRating);
+    });
     await context.extract(productDetails);
   },
 };

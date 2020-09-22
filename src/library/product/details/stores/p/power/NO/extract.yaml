@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//*[@id="product-image-carousel"]//img[@src or @srcset]/@src | //*[@id="product-image-carousel"]//img[@src or @srcset]/@srcset)[1]
+    xpath: //div[@id='images'][1]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -14,16 +14,14 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id="product-image-carousel"]//div[@class="product-image-container"]/picture/source[1]/@data-srcset
-    regExp: .* \d*w, (.*) \d*w
-    regExpReplace: $1
+    xpath: //div[@id='images'][position() > 1]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //*[@class="breadcrumb"]/li
+    xpath: //*[@class="breadcrumb"]/li[position() > 1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -36,7 +34,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@id="price"]
+    xpath: //div[@id="fullPrice"]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -47,7 +45,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="product-basic-info"]
+    xpath: //div[@id='descBulletInfo']
     regExpReplace: $1
   - name: descriptionBullets
     singleValue: true
@@ -62,7 +60,6 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[@id='brand']
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -111,16 +108,16 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    xpath: //meta[@itemprop="reviewCount"]/@content
     type: NUMBER
-    xpath: //div[contains(@class, "ratings-summary")]//div[@id="ratings-summary"]/div[@class="bv_numReviews_component_container"]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
+    xpath: //div[@class='product-intro-details']//*[@itemprop='ratingValue']/@aria-label
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: //*[@id="avg-rating-button"]
+    xpath: //div[@id='aggRating']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -128,7 +125,7 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //div[@id="specifications"]
+    xpath: //div[@id="dimensions"]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -147,7 +144,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="product-tab-description"]
+    xpath: //div[@id="manufacturerDesc"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -190,7 +187,6 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //div[@id="product-information-tabs"]
   - name: packaging
     singleValue: true
     description: Packaging information
