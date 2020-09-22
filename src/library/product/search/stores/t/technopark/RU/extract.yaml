@@ -22,8 +22,10 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class="card-listing__price"]//span    
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[@class="card-listing__image js-analytics-card--image"]/img/@alt
+  # - name: manufacturer
+  #   singleValue: false
+  #   xpath: //div[@class="card-listing__image js-analytics-card--image"]/img/@alt
   - name: rank
+    type: NUMBER    
+  - name: rankOrganic
     type: NUMBER    

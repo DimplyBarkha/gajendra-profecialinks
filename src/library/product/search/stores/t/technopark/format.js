@@ -17,6 +17,7 @@ const transform = (data, context) => {
       }
       rankCounter += 1;
       row.rank = [{ text: rankCounter }];
+      row.rankOrganic = [{ text: rankCounter }];
     }
   }
   context.setState({ rankCounter });
