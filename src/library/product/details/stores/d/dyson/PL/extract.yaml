@@ -42,14 +42,17 @@ fields:
     xpath: //script[contains(text(), "productSKU")]
   - name: ratingCount
     singleValue: true
-    xpath: (//span[@itemprop="reviewCount"]
+    xpath: (//span[@itemprop="reviewCount"])
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
     xpath: (//div[@class="rating-result"]//span)[1]
   - name: aggregateRating
     singleValue: true
-    xpath: (//span[@ itemprop ="ratingValue"])[1]
+    xpath: (//span[@itemprop="ratingValue"])[1]
+  - name: aggregateRating12
+    singleValue: true
+    xpath: (//span[@itemprop="ratingValue"])[1]
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[contains(@class,'promos')]//text()

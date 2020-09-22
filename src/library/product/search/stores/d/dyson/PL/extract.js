@@ -1,7 +1,8 @@
-const { transform } = require('./transform');
+const { transform } = require('../../../../shared');
 // const { implementation } = require('../shared');
+
 module.exports = {
-  implements: 'product/details/extract',
+  implements: 'product/search/extract',
   parameterValues: {
     country: 'PL',
     store: 'dyson',

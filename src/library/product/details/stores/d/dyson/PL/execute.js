@@ -5,8 +5,8 @@ module.exports = {
     country: 'PL',
     store: 'dyson',
     domain: 'dyson.pl',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.hero__body',
+    noResultsXPath: '//div[contains(@class,"layout")]/*[contains(text(), "Nie można")]',
     zipcode: '',
   },
 };
