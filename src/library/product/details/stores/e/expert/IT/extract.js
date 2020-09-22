@@ -39,6 +39,7 @@ async function implementation (
     await infiniteScroll();
     try {
       await new Promise((resolve) => setTimeout(resolve, 5000));
+      await context.waitForSelector('script#productMicroData');
     } catch (error) {
       console.log(error)
     }
@@ -49,7 +50,7 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    function findJsonObj (scriptSelector) {
+    function findJsonObj1 (scriptSelector) {
       try {
         const xpath = `//script[contains(.,'${scriptSelector}')]`;
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -60,10 +61,33 @@ async function implementation (
         console.log(error.message);
       }
     }
+    function findJsonObj2 () {
+      try {
+        const xpath = `//script[contains(id,'productMicroData')]`;
+        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let jsonStr = element.textContent;
+        jsonStr = jsonStr.trim();
+        return JSON.parse(jsonStr);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
     let str = '"@type":"Product"';
-    let JSONArr = findJsonObj(str);
+    let JSONArr
+    let JSONArr1 = findJsonObj1(str);
+    let JSONArr2 = findJsonObj2();
     console.log(JSONArr , 'JSONArr');
-
+    if(JSONArr1){
+        JSONArr = JSONArr1;
+    }else if(JSONArr2){
+        JSONArr = JSONArr2;
+    }else if(JSONArr1 && JSONArr2){
+      if(JSONArr1.length >= JSONArr2.length){
+        JSONArr = JSONArr1;
+      }else if(JSONArr2.length >= JSONArr1.length){
+        JSONArr = JSONArr2;
+      }
+    }
       let offer_text = JSONArr ? JSONArr.offers : '';
       let availability_text = offer_text ? offer_text.availability : ''
       if(availability_text.includes('OutOfStock'))  {
