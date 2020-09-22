@@ -21,8 +21,12 @@ async function implementation (
   }
 
   const activePageExists = await context.evaluate(function () {
-    return document.querySelector('ul.pagination li.active') ? document.querySelector('ul.pagination li.active').textContent.trim() : null;
+    return document.querySelector('li.pagination-next a[rel="next"]') ? document.querySelector('li.pagination-next a[rel="next"]').textContent.trim() : null;
   });
+
+  console.log('activePageExists');
+
+  console.log(activePageExists);
 
   if (activePageExists == null) {
     return false;
@@ -62,13 +66,15 @@ module.exports = {
     country: 'ES',
     store: 'mediamarkt',
     mutationSelector: null,
-    spinnerSelector: 'div.spinner',
-    loadedSelector: 'ul.products-list div.product-wrapper',
+    // spinnerSelector: 'div.spinner',
+    // loadedSelector: 'ul.products-list div.product-wrapper',
+    spinnerSelector: null,
+    loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: {
       template: 'https://www.mediamarkt.es/es/search.html?searchProfile=onlineshop&query={searchTerms}&sort=&page={page}',
     },
-    nextLinkSelector: 'li.pagination-next a[rel="next"]',
+    // nextLinkSelector: 'li.pagination-next a[rel="next"]',
     domain: 'mediamarkt.es',
     zipcode: '',
   },
