@@ -18,11 +18,10 @@ fields:
   - name: price
     singleValue: false
     xpath: //*[contains(@class,"product__row--title")]/following::div[1]//*[@class="product__price"]
-    type: CURRENCY
   - name: reviewCount
     singleValue: false
     xpath: //*[contains(@class,"product--listing")]//*[@class="star-ratings-listing"]
     type: NUMBER
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     xpath: //div[contains(@class,"star-ratings-listing")]/*[self::i]/@class

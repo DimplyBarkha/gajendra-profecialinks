@@ -23,9 +23,9 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
 
-      if (row.aggregateRating) {
+      if (row.aggregateRating2) {
         let rating = 0
-        row.aggregateRating.forEach(item => {
+        row.aggregateRating2.forEach(item => {
           console.log(item.text)
           if (item.text == 'fa fa-star rating-star-filled') {
             rating = rating + 1
@@ -33,8 +33,16 @@ const transform = (data, context) => {
             rating = rating + 0.5
           }
         });
-        let text = rating.toString().replace('.', ',')
-        row.aggregateRating = [{ text }];
+        let text = rating.toString().replace('.', ',');
+        row.aggregateRating2 = [{ text }];
+      }
+
+      if (row.price) {
+
+        let priceArr = row.price[0].text.split(' ');
+        if (priceArr.length > 2) {
+          row.price[0].text = priceArr[1] + ' ' + priceArr[2];
+        }
       }
 
 
