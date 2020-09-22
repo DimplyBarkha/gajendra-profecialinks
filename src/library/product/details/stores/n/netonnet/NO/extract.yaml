@@ -25,7 +25,7 @@ fields:
     xpath: boolean(//button[@class='btn btn-primary btn-block btn-lg']/@disabled) 
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="collapseFive"]//img//@src
+    xpath: //div[@id="collapseFive"]//img[contains(@src,'jpg')]//@src
     description: Images within the third party description
   - name: videos
     singleValue: false
@@ -106,7 +106,7 @@ fields:
     description: A textual description of the colour
   - name: warranty
     singleValue: false
-    xpath: //td[contains(text(), 'Fabrikantgaranti')]/following::td[2]
+    xpath: //table[@class='table table-striped']/tbody/tr/td[contains(text(),'Garanti')]/following::td[1]
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
@@ -114,7 +114,7 @@ fields:
     description: Suggested storage location for product
   - name: specifications
     singleValue: false
-    xpath: //td[contains(text(), 'Høyde')]/following::td[1] | //td[contains(text(), 'Bredde')]/following::td[1] | //td[contains(text(), 'Dybde')]/following::td[1]
+    xpath: //table[@class='table table-striped']//td
     description: The physical dimensions of the product including packaging. here its taken as Height , width and Depth    
   - name: weightNet
     singleValue: false
@@ -130,7 +130,6 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li
-    description: null
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class, 'tracking')]/input[contains(@name,"ProductBrand")]/@value 
@@ -193,7 +192,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id='collapseFive']//div[@class='row']//div[@class='col-xs-12']//text()[1]
+    xpath: //div[@id='collapseFive']//div[@class='panel-body']//div[@class='row'][1]//div[@class='col-xs-12']//p//text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -282,7 +281,8 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
-    singleValue: true
+    singleValue: false
+    xpath: count(//div[@class='owl-item']//img[contains(@class,'productImage')]//@data-src)
     description: null
     type: NUMBER
   - name: news

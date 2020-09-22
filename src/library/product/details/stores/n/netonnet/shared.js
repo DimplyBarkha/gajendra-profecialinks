@@ -66,19 +66,39 @@ const transform = (data) => {
 				row.firstVariant = [{ text: newText }];
 			}
 			if (row.aggregateRating) {
-				var newText;
+				var newText=''
 				row.aggregateRating.forEach(item => {
-					console.log('Girish = '+item.text);
+					
 					var received_per = item.text.replace("width: ", "")
 					received_per = received_per.replace("%", "");
-					console.log('Girish = '+received_per);
+				
 					if(received_per >= 1){
 						var aggregate_rating = ( received_per * 5 )/100;
-						newText = aggregate_rating.toString().replace('.',',');
+						if(aggregate_rating > 0){
+						newText = aggregate_rating.toString();
+						}else
+						{
+							newText = '0';
+						}
 					}
 				});
-				row.aggregateRating = [{ text: newText }];
+				row.aggregateRating = [{ text: newText.replace('.',',') }];
 			}
+			if(row.shippingDimensions)
+						{
+				let newText = '';
+
+				row.shippingDimensions.forEach(item => {									
+					var shippingDimensions = item.text;	
+					if(shippingDimensions.length > 0){				
+						newText += shippingDimensions.toString()+"X";
+					}
+					
+				});
+				// newText = newText.substring(0,newText.length-1);
+				row.shippingDimensions = [{ text: newText }];
+			}
+
 			// if (row.additionalDescBulletInfo) {  
 			// 	let newText = '';
 			// 	row.additionalDescBulletInfo.forEach(item => {
