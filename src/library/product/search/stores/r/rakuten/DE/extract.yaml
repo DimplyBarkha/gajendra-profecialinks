@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //li[@class="vw-productCard"]/a[@class="link"]/@href
+    regExp: \d*(\d{10})
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+    xpath: //li[@class="vw-productCard"]/@rankorganic
+  - name: name
+    description: The product name
+    xpath: //div[@class="name"]
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: concat("https://www.rakuten.de", //li[@class="vw-productCard"]/a[@class="link"]/@href)
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    singleValue: false
+    regExp: //img[@class="image b-lazy b-loaded"]/@src
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: reviewCount
+    description: The number of reviews
+    type: NUMBER
+  - name: ratingCount
+    description: The number of ratings
+  - name: price
+    description: The offered price for the product
+    xpath: //div[@class="actual"]
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+    xpath: //li[@class="vw-productCard"]/@data-merchant-id
+  - name: rank 
+    description: search/listing rank
+    xpath: //li[@class="vw-productCard"]/@rankorganic
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
+    xpath: //div[not(contains(@class, 'voucher hidden'))]/div[@class="voucher-text"]
