@@ -31,7 +31,7 @@ module.exports = {
         for (i = 0; i < iter; i++) {
           if (document.querySelector('#searchProductsInfo')) {
             window.scrollTo(0, document.querySelector('#searchProductsInfo').scrollHeight);
-            await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+            await new Promise((resolve, reject) => setTimeout(resolve, 3000));
           }
         }
       }
