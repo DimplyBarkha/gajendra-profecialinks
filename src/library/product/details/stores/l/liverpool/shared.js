@@ -47,16 +47,16 @@ const transform = (data) => {
             }
           });
         }
-        // if (row.aggregateRating) {
-        //   row.aggregateRating.forEach(item => {
-        //     item.text = item.text.replace('.', ',');
-        //   });
-        // }
-        // if (row.price) {
-        //   row.price.forEach(item => {
-        //     item.text = item.text.replace(',', '').replace('.', ',');
-        //   });
-        // }
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
+            item.text = item.text.replace('.', ',');
+          });
+        }
+        if (row.price) {
+          row.price.forEach(item => {
+            item.text = item.text.replace(',', '').replace('.', ',');
+          });
+        }
         if (row.variantCount) {
           row.variantCount.forEach(item => {
             if(item.text === '0'){
@@ -72,6 +72,7 @@ const transform = (data) => {
         if (row.listPrice) {
           row.listPrice.forEach(item => {
             item.text = item.text.substring(0,item.text.length-2)+"."+item.text.substring(item.text.length-2);
+            item.text = item.text.replace(',', '').replace('.', ',');
           });
         }
         if (row.promotion) {
