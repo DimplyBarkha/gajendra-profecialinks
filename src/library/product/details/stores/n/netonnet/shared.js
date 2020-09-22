@@ -65,7 +65,7 @@ const transform = (data) => {
 				});
 				row.firstVariant = [{ text: newText }];
 			}
-			if (row.aggregateRating) {
+			if (row.aggregateRating2) {
 				let newText = 0;
 				row.aggregateRating.forEach(item => {
 					var received_per = item.raw.replace("width: ", "")
