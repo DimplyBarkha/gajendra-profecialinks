@@ -34,6 +34,8 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")] | //div[@id="almDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
+    regExp: AED (.*)
+    regExpReplace: $1
   - name: price
     singleValue: false
     xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1]
@@ -43,13 +45,13 @@ fields:
     defaultValue: 'In Stock'
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@id='feature-bullets']//ul
+    xpath: //div[@id='feature-bullets']//ul//li
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@id='feature-bullets']//ul/li)
   - name: description
     singleValue: false
-    xpath: //div[@id='productDescription']
+    xpath: //div[@id='productDescriptionExtract']
   - name: brandText
     singleValue: false
     xpath: //a[@id="bylineInfo"]
@@ -141,13 +143,13 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()] | //table[contains(@id, "product-specification-table")]/tbody/tr[text()]
-  # - name: lbb
-  #   singleValue: false
-  #   xpath: //div[@id='ii_lbb']
-  #   defaultValue: 'NO'
-  # - name: lbbPrice
-  #   singleValue: false
-  #   xpath: //div[@id='ii_lbbPrice']
+  - name: lbb
+    singleValue: false
+    xpath: //div[@id='ii_lbb']
+    defaultValue: 'NO'
+  - name: lbbPrice
+    singleValue: false
+    xpath: //div[@id='ii_lbbPrice']
   - name: otherSellersName
     singleValue: false
     xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//div[contains(@id,"mbc-sold")]//span[contains(@class, "Merchant")]
@@ -157,15 +159,16 @@ fields:
   - name: otherSellersPrice
     singleValue: false
     xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]//span[contains(@class, "a-price")]/span[contains(@class, "a-offscreen")] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//span[contains(@id,"mbc-price")]
+    regExp: AED (.*)
+    regExpReplace: $1
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id="altImages"]//ul/li[contains(@class,  "image")][position()>1])
   - name: fastTrack
     singleValue: false
     xpath: //div[contains(@id,'ddmDeliveryMessage')]
-  # - name: warranty
-  #   singleValue: false
-  #   xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
+  - name: warranty
+    singleValue: false
   - name: productOtherInformation
     singleValue: false
     xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]

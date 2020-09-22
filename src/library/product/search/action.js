@@ -30,9 +30,19 @@ module.exports = {
       type: 'string',
     },
     {
+      name: 'Brands',
+      description: 'brands to search for',
+      type: 'string',
+    },
+    {
       name: 'results',
       description: 'the minimum number of results required',
       type: 'number',
+    },
+    {
+      name: 'Brands',
+      description: 'brands to search for',
+      type: 'string',
     },
   ],
   dependencies: {
@@ -41,11 +51,11 @@ module.exports = {
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
-  implementation: async ({ keywords, Keywords, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
+  implementation: async ({ keywords, Keywords, results = 150, Brands }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-    keywords = (Keywords) || (keywords);
+    keywords = (Keywords) || (keywords) || (Brands);
     console.log('zip:' + zipcode);
     // do the search
     const resultsReturned = await execute({ keywords, zipcode });
