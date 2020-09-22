@@ -95,7 +95,7 @@ async function implementation(
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      const originalDiv = document.querySelectorAll('div[id="app"] div.skywalker_riga')[index];
+      const originalDiv = document.querySelectorAll('div[id="app"] div.skywalker_riga div.articolo_riga_bkg')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
     let ids = document.querySelectorAll('div[id="app"] div.skywalker_riga')
