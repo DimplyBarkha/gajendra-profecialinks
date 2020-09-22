@@ -37,6 +37,10 @@ const transform = (data, context) => {
         if(row.aggregateRating ) {
           row.aggregateRating[0].text = Number(row.aggregateRating[0].text).toFixed(1);
         }
+
+        if(!row.brand) {
+          row.brand = [{ text: row.name[0].text.split(' ')[0] }];
+        }
       }
     }
 
