@@ -26,8 +26,7 @@ async function implementation (
       productTileObject = productTileObject.replace('%','');
       var reviewRatings = (Number(productTileObject)*5)/100;
       console.log('girish = ' + reviewRatings)
-        
-         addHiddenDiv(node,'reviewRatings',reviewRatings)
+         addHiddenDiv(node,'reviewRatings',reviewRatings.toString().replace('.',','))
       i++;
     });
   });
