@@ -6,9 +6,9 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { productDetails,Helpers } = dependencies;
+  const { productDetails, Helpers } = dependencies;
   const helpers = new Helpers(context);
-  const productPageSelector = "//main//div[@class='par parsys']//div[contains(concat(' ',normalize-space(@class),' '),'product-hero')]//text()";
+  const productPageSelector = "//main//div[contains(concat(' ',normalize-space(@class),' '),'par parsys')]//div[contains(concat(' ',normalize-space(@class),' '),'product-hero')]//text()";
 
   // first check that the page is a valid product page
   const isValidProductPage = await helpers.checkXpathSelector(productPageSelector);
@@ -54,13 +54,17 @@ async function implementation (
       return result;
     };
 
+    // get the json object
+    const jsonObj = window.dataLayer && window.dataLayer.primaryProduct ? window.dataLayer.primaryProduct : null;
+
     // try to get the brand from multiple different sources
     const tm = '™';
-    let brandText;
+    let brandText = 'Dyson';
     const setBrand = (text) => {
       if (text && text.includes(tm)) brandText = text.split(tm)[0];
     };
-    setBrand(getSel('title', 'innerText'));
+    // setBrand(getSel('title', 'innerText'));
+    setBrand(brandText);
     if (!brandText) {
       const lastCat = [...new Set([...document.querySelectorAll('.breadcrumb li')].map(i => i.innerText.trim()))].slice(-1)[0];
       setBrand(lastCat);
@@ -103,13 +107,12 @@ async function implementation (
     addElementToDocument('added_brandtext', brandText);
 
     // add the sku
-    if (window.dataLayer && window.dataLayer.primaryProduct) {
-      const json = window.dataLayer.primaryProduct;
-      addElementToDocument('added_sku', json.globalProductSKU || json.localProductSKU);
+    if (jsonObj) {
+      addElementToDocument('added_sku', jsonObj.globalProductSKU || jsonObj.localProductSKU);
       // get the colour as well
-      if (json.color) addElementToDocument('added_color', json.color);
+      if (jsonObj.color) addElementToDocument('added_color', jsonObj.color);
       else {
-        const prodID = json.globalProductID;
+        const prodID = jsonObj.globalProductID;
         if (prodID) {
           const colorMapping = {
             Pu: 'Purple',
@@ -141,8 +144,93 @@ async function implementation (
     // deal with the price
     const listPrice = getXpath("(//div[@class='product-hero__price-top']/div[1])[1]", 'innerText');
     const price = getXpath("(//div[@class='product-hero__price-top']/div[@data-product-price])[1]", 'innerText');
-    addElementToDocument('added_price', price);
-    if (listPrice !== price) addElementToDocument('added_listPrice', listPrice);
+    
+    // transform the price to avoid locale issue
+    const localeCleaner = (price) => {
+      // first remove all possible thousand spearators
+      const charToRemove = [' ', '\'', String.fromCharCode(160)];
+      const newDecimalSeparator = '.';
+      const potentialDecSeparators = [',', '.'];
+      let temp = charToRemove.reduce((acc, char) => acc.split(char).join(''), price || '');
+      // remove the currency and other text
+      temp = temp.replace(/[^0-9.,\s]/g, '');
+      // deal with comma and dots
+      let decimalFound = false;
+      return temp.split('').reverse().reduce((acc, char) => {
+        if (!decimalFound && potentialDecSeparators.includes(char)) {
+          decimalFound = true;
+          return `${acc}${newDecimalSeparator}`;
+        }
+        if (potentialDecSeparators.includes(char)) return acc;
+        return `${acc}${char}`;
+      }, '').split('').reverse().join('');
+    };
+    const getCurrency = (price) => {
+      // all currencies symbols
+      const currSymb = [
+        'L',
+        '$',
+        'Դ',
+        'ман',
+        'Br',
+        'Bs.',
+        'P',
+        'Лв.',
+        'R$',
+        '៛',
+        '¥',
+        '₡',
+        'kn',
+        'Kč',
+        'kr',
+        '£',
+        '€',
+        '¢',
+        'Q',
+        '₣',
+        'Ft',
+        'Rp',
+        '₹',
+        '﷼',
+        '₪',
+        'лв',
+        'ksh',
+        'د.ك',
+        'MK',
+        'RM',
+        'DH',
+        'Rs',
+        'ر.ع.',
+        'S/.',
+        '₱',
+        'zł',
+        'QR',
+        'p.',
+        'ر.س',
+        'Дин.',
+        '₨',
+        'S',
+        'R',
+        'CHF',
+        'NT$',
+        '฿',
+        'TT$',
+        '₺',
+        '₴',
+        'UZS',
+        'Bs F',
+        '₫',
+      ];
+      // keep only letters and currency symbols
+      const letter = RegExp(/[a-zA-Z\s]/);
+      let temp = (price || '').split('').filter(char => letter.test(char) || currSymb.includes(char)).join('');
+      // split per groups of words and only returns the last one
+      return temp.split(' ').filter(word => word).slice(-1);
+    };
+    const fixPrice = price => `${localeCleaner(price)}`;
+    addElementToDocument('added_currency', getCurrency(price));
+    addElementToDocument('added_price', fixPrice(price));
+    if (listPrice !== price) addElementToDocument('added_listPrice', fixPrice(listPrice));
 
     // add the extended name
     brandText = brandText || 'Dyson';
@@ -154,7 +242,8 @@ async function implementation (
     // add the type of info the variants are on
     const varInfo = [...getSel('.product-hero .swatches > div', 'classList')] || [];
     if (varInfo[0]) {
-      addElementToDocument('added_variantinformation', varInfo[0].replace('swatches__', ''));
+      // addElementToDocument('added_variantinformation', varInfo[0].replace('swatches__', ''));
+      addElementToDocument('added_variantinformation', getSel('.product-hero .swatches > div .swatches__color-id', 'innerText'));
     }
 
     // Get the manufacturer description
@@ -164,6 +253,11 @@ async function implementation (
     addElementToDocument('added_productOtherInformation', getAllXpath(otherDescription, 'innerText').join(' '));
     addElementToDocument('added_manufacturerDescription', getAllXpath(descr, 'innerText').join(' '));
     addElementToDocument('added_manufacturerImages', getAllXpath(imgs));
+
+    // Get the description bullets
+    const descBullets = getAllXpath("//div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//*[contains(text(), '•')] | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//li", 'innerText')
+      .map(b => b.split('•').join(''));
+    addElementToDocument('added_descBullets', descBullets);
 
     // get the videos
     const videos = " (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src";

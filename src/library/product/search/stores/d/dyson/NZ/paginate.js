@@ -6,7 +6,7 @@ module.exports = {
     store: 'dyson',
     nextLinkSelector: 'a.search-pagination__text.js-search-pagination-link',
     spinnerSelector: '.active .js-search-loader',
-    noResultsXPath: '//div[@id="Products-Data"]//div[@class="search-empty"]',
+    noResultsXPath: '//h2[contains(.,"returned no  results")]',
     domain: 'dyson.co.nz',
     zipcode: '',
   },
