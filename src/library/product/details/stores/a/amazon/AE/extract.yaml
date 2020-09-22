@@ -34,6 +34,8 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")] | //div[@id="almDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
+    regExp: AED (.*)
+    regExpReplace: $1
   - name: price
     singleValue: false
     xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1]
@@ -157,6 +159,8 @@ fields:
   - name: otherSellersPrice
     singleValue: false
     xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]//span[contains(@class, "a-price")]/span[contains(@class, "a-offscreen")] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//span[contains(@id,"mbc-price")]
+    regExp: AED (.*)
+    regExpReplace: $1
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id="altImages"]//ul/li[contains(@class,  "image")][position()>1])

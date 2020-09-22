@@ -275,9 +275,6 @@ const transform = (data, context) => {
       if (row.shippingInfo) {
         row.shippingInfo = [{ text: row.shippingInfo.map(item => `${item.text}`).join(' ') }];
       }
-      if (row.shippingInfo) {
-        row.shippingInfo = [{ text: row.shippingInfo.map(item => `${item.text}`).join(' ') }];
-      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
