@@ -23,9 +23,11 @@ fields:
     xpath: //div[contains(@class,"product-view-headlines")]
   - name: listPrice
     singleValue: true
+    type: CURRENCY
     xpath: //div[contains(@class,"price-box")]//span[contains(@class,"skin-obsolete")]
   - name: price
     singleValue: true
+    type: CURRENCY
     xpath: //div[contains(@class,"price-box")]//span[1]
   - name: availabilityText
     xpath: //button[contains(@class,"btn-cart")]
@@ -50,18 +52,18 @@ fields:
   - name: weightGross
     singleValue: true
     xpath:
-  - name: gtin
-    singleValue: true
-    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
-  - name: eangtin
-    singleValue: true
-    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
+  #- name: gtin
+  #  singleValue: true
+  #  xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
+  #- name: eangtin
+  #  singleValue: true
+  #  xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
   - name: sku
     singleValue: true
-    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
+    xpath: //script[contains(text(), "Product")]
   - name: variantId
     singleValue: true
-    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
+    xpath: //script[contains(text(), "Product")]
   - name: mpc
     singleValue: true
     xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Valmistajan tuotenumero')]/following::td[1]
@@ -105,9 +107,9 @@ fields:
   - name: firstVariant
     singleValue: true
     xpath: //div[contains(@class, "form-group-color")]//ul//li[contains(@class, "selected")]
-  - name: variants
-    singleValue: false
-    xpath: //div[contains(@class, "form-group-color")]//ul//li
+  #- name: variants
+  #  singleValue: false
+  #  xpath: //div[contains(@class, "form-group-color")]//ul//li
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@id,"stflix")]//div[contains(@id, "inpage_container")]//img//@srcset

@@ -8,11 +8,38 @@ const transform = (data) => {
     for (const { group } of data) {
         for (const row of group) {
             try {
-                if (row.price) {
-                    row.price = [{ text: row.price[0].text.substring(0, row.price[0].text.length - 2) }, { text: row.price[0].text.charAt(row.price[0].text.length - 1) }];
-                }
-                if (row.listPrice) {
-                    row.listPrice = [{ text: row.listPrice[0].text.substring(1, row.listPrice[0].text.length - 1) }];
+                /*  if (row.price) {
+                     row.price = [{ text: row.price[0].text.substring(0, row.price[0].text.length - 2) }, { text: row.price[0].text.charAt(row.price[0].text.length - 1) }];
+                 } */
+                /*  if (row.listPrice) {
+                     row.listPrice = [{ text: row.listPrice[0].text.substring(1, row.listPrice[0].text.length - 1) }];
+                 } */
+
+                if (row.sku) {
+                    var skuJson = row.sku[0].text;
+                    if (skuJson) {
+                        var skuJsonData = JSON.parse(skuJson);
+                        console.log(skuJsonData);
+                        /* var sku = JSON.stringify(skuJson)
+                            .replace(/\\n/g, "\\n")
+                            .replace(/\\'/g, "\\'").replace(/\\"/g, '\\"')
+                            .replace(/\\&/g, "\\&")
+                            .replace(/\\r/g, "\\r")
+                            .replace(/\\t/g, "\\t")
+                            .replace(/\\b/g, "\\b").replace(/\\f/g, "\\f")
+                            .replace(/[\u0000-\u0019]+/g, "")
+
+
+                        const skuJsonData = JSON.parse(sku);
+                        console.log('tttttt', skuJsonData);
+                        skuJsonData.forEach(item => {
+                            console.log('iiiiii',item);
+                        }); */
+                        if (skuJsonData) {
+                            row.sku[0].text = skuJsonData.sku;
+                            row.variantId[0].text = skuJsonData.sku;
+                        }
+                    }
                 }
             } catch (exception) {
                 console.log('Error in transform', exception);
