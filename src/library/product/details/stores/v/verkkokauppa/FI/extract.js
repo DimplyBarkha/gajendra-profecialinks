@@ -97,6 +97,17 @@ module.exports = {
         addEleToDoc('tempVideosId', 'https://www.youtube.com/watch?v=' + tempVideos2[4]);
       }    
 
+      let tempcolor = document.evaluate('//section[contains(@class,"description-container__full-text")]//li[contains(text(),"Väri")]',document).iterateNext();                    
+      if(tempcolor !=null)
+      {
+        let tempcolor1 = tempcolor.textContent.trim();                              
+        var tempcolor2=tempcolor1.split(':'); 
+        if(tempcolor2.length >=1 )       
+        {          
+          addEleToDoc('tempcolorId', tempcolor2[1]);
+        }        
+      }   
+
       let tempadditionalDescBulletInfo = document.querySelectorAll('div.product-description__description-container div ul li').length;   
       if(tempadditionalDescBulletInfo > 0)
       {
@@ -110,9 +121,23 @@ module.exports = {
           }
           else{
             variantArray= variantArray + " || " +  element.innerHTML;
-          }
-          
-        });          
+          }          
+        });
+
+         variantArray = variantArray.replace(/<a[^>]*>|<\/a>/g,'');   
+        variantArray = variantArray.replace(/<p[^>]*>|<\/p>/g,'');         
+        variantArray = variantArray.replace(/<div[^>]*>|<\/div>/g,'');         
+        variantArray = variantArray.replace(/<br[^>]*>|<\/div>/g,'');  
+        variantArray = variantArray.replace(/<strong[^>]*>|<\/strong>/g,'');         
+        variantArray = variantArray.replace(/<bold[^>]*>|<\/bold>/g,'');
+        variantArray = variantArray.replace(/<ul[^>]*>|<\/ul>/g,'');
+        variantArray = variantArray.replace(/<li[^>]*>/g,''); 
+        variantArray = variantArray.replace(/<\/li>/g,' ||');
+        variantArray = variantArray.replace('&nbsp;','');
+        variantArray = variantArray.replace(/&amp;nbsp;/g, '');
+        variantArray = variantArray.replace(/\u00a0/g, '');
+        variantArray = variantArray.replace(/&nbsp;/gi,"s");
+
         addEleToDoc('tempadditionalDescBulletInfoId', variantArray);    
       }
       let tempDescriptionBullet1 = document.querySelectorAll('div.product-description__description-container div ul li').length;         
