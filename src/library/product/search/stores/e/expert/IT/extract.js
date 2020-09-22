@@ -26,17 +26,23 @@ async function implementation(
     }
     //------------------------------------
     let nextLink = document.querySelectorAll('ul.pagination');
-    let ul ;
-    if(nextLink.length > 0){
-      ul = nextLink[0];
-    }else if(nextLink.length = 1){
-      ul = nextLink[0];
+    let nextSibling
+    if(nextLink !== undefined && nextLink){
+      let ul ;
+      if(nextLink.length > 0){
+        ul = nextLink[0];
+      }else if(nextLink.length = 1){
+        ul = nextLink[0];
+      }
+      let finalUl = ul;
+      let activeUl = ul ? ul.querySelector('li.active') : '';
+      if(activeUl !== undefined){
+        // @ts-ignore
+        nextSibling = activeUl ? activeUl.nextElementSibling : '';
+      }
+      console.log('nextSibling: ', nextSibling);
     }
-    let finalUl = ul;
-    let activeUl = ul.querySelector('li.active');
-    let nextSibling = activeUl.nextElementSibling;
-    // @ts-ignore
-    console.log('nextSibling: ', nextSibling.innerText);
+    
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('a');
       newDiv.id = id;
@@ -45,20 +51,24 @@ async function implementation(
       // newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    let hrefLink = nextSibling ? nextSibling.querySelector('a') : '';
     // @ts-ignore
-    hrefLink = hrefLink ? hrefLink.href : '';
-    // @ts-ignore
-    if(hrefLink.includes('https://www.')){
-    hrefLink = hrefLink;
-    }else{
-      hrefLink = 'https://www.expertonline.it'+hrefLink;
+    if(nextSibling){
+      let hrefLink = nextSibling ? nextSibling.querySelector('a') : '';
+      // @ts-ignore
+      hrefLink = hrefLink ? hrefLink.href : '';
+      // @ts-ignore
+      if(hrefLink.includes('https://www.')){
+      hrefLink = hrefLink;
+      }else{
+        hrefLink = 'https://www.expertonline.it'+hrefLink;
+      }
+      // @ts-ignore
+      if(nextSibling.innerText === "»"){
+        console.log('Next link is last');
+      }else{
+        addHiddenDiv('nextLinkSelector', hrefLink)
     }
-    // @ts-ignore
-    if(nextSibling.innerText === "»"){
-      console.log('Next link is last');
-    }else{
-      addHiddenDiv('nextLinkSelector', hrefLink)
+   
     }
    //-----------------------------------------------------------------------
     async function infiniteScroll() {
@@ -79,6 +89,99 @@ async function implementation(
     } catch (error) {
       console.log(error)
     }
+    // -------------------------------------
+    function addHiddenDiv (id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('div[id="app"] div.skywalker_riga')[index];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+    }
+    let ids = document.querySelectorAll('div[id="app"] div.skywalker_riga')
+    let idsArr = [];
+    for (let index = 0; index < ids.length; index++) {
+      // console.log('lis.length: ', lis.length);
+      const element = ids[index];
+      console.log('element: ', element, index);
+      let id = element.getAttribute('data-codiceextra');
+      if(id.includes('PROD')){
+      id = id
+      }else{
+        id= 'PROD_'+id;
+      }
+      idsArr.push(id);
+    }
+    console.log('idsArr:', idsArr);
+    let JSONArr
+    if(idsArr.length > 0){
+      JSONArr = await callPost(idsArr);
+    }
+    async function callPost(idsArr) {
+      const url = "https://www.expertonline.it/svc/ServizioReviews.svc/Reviews/GetCounters";
+      // let ids = ["PROD_Expert_702207", "PROD_Expert_701770", "PROD_Expert_603983", "PROD_Expert_615091"];
+      let ids = idsArr;
+      const data = {
+          'ContentIds' : ids,
+          'ReviewTypes' : "",
+          'Language' : ""
+      };
+      const other_params = {
+          headers : { "content-type" : "application/json; charset=UTF-8", "Access-Control-Allow-Origin": "*" },
+          body : JSON.stringify(data),
+          method : "POST",
+          mode : "cors"
+      };
+
+    // @ts-ignore
+    return  fetch(url, other_params)
+          .then( async function(response) {
+              console.log('response: ', response);
+              if (response.ok) {
+                  let responseData = await response.json();
+                  console.log(responseData.Value.Counters);
+                  return responseData;
+              } else {
+                  throw new Error("Could not reach the API: " + response.statusText);
+              }
+          }).then(function(data) {
+              console.log('data: ', data);  
+              return data;  
+          }).catch(function(error) {
+              console.log('error: ', error);
+              return error;
+          });
+      // return false;
+  }
+  let ratingReviewObj = JSONArr ? JSONArr.Value : '';
+  ratingReviewObj = ratingReviewObj ? ratingReviewObj.Counters : '';
+  let lis = document.querySelectorAll('div[id="app"] div.skywalker_riga')
+  for (let index = 0; index < lis.length; index++) {
+    // console.log('lis.length: ', lis.length);
+    const element = lis[index];
+    console.log('element: ', element, index);
+    let id = element.getAttribute('data-codiceextra');
+    if(id.includes('PROD')){
+    id = id
+    }else{
+      id= 'PROD_'+id;
+    }
+    // console.log(id);
+    ratingReviewObj.find(param => {
+      console.log('param: ', param, id);
+      if (param) {
+        // @ts-ignore
+        if (param.SubjectKey ===  id) {
+          console.log('param.SubjectKey: ', param.SubjectKey);
+          console.log('id: ', id);
+          console.log("Matched")
+          addHiddenDiv('pd_productRating', param.TotalScore.toFixed(1) , index);
+        }
+      }
+
+    });
+  }
+    //-------------------------------------
   })
 
   return await context.extract(productDetails, { transform });
