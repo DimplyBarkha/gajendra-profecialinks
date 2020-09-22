@@ -21,12 +21,7 @@ const transform = (data, context) => {
     let rankCounter = state.rankCounter || 0;
     const productCodes = state.productCodes || [];
     for (const { group } of data) {
-      for (const row of group) {      
-         if(row.price){
-           var newText = row.price[0].text.replace(',','.');
-           row.price = [{ text: newText.replace(' ',',')}];          
-         }
-
+      for (const row of group) {
         rankCounter += 1;
         if (!row.sponsored) {
           orgRankCounter += 1;
