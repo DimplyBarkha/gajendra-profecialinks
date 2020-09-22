@@ -2,7 +2,7 @@ input:
   _url: http://elgiganten.dk
   URL: https://www.elgiganten.dk/product/husholdning/klima-ventilation/179813/dyson-humidify-cool-luftrenser-luftfugter-og-blaser
 extractions:
-  - html: https://workbench.import.io/html/run=7c3938af-c18c-4a57-852c-ebef05d29a3b/task=4418d12d-2ded-401a-92f6-4e478d7924bc/63c9aef7-c3b1-47a4-bfcd-a38487768a76.html
+  - html: https://workbench.import.io/html/run=0f513161-59dc-439f-a28b-2e1eef55afcf/task=25377e9b-bdc7-4f14-ae3e-c68bff87d1ab/b4c3fd42-5ae9-4a18-a5dd-0cdd897d3740.html
     extractionConfigId: product/details/stores/e/elkjop/DK/extract
     data:
       - group:
@@ -29,10 +29,11 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002455959/179813/dyson-humidifycool-luftrenser-luftfugter-og-blaeser.jpg?$prod_all4one$
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[10]/img[1]/@src
             metaKeywords:
-              - text: Dyson Humidify+Cool luftrenser, luftfugter og blæser, Beurer luftfugter LB
-                  37, Beurer luftfugter LB 88 (hvid), Dyson Humidify+Cool
-                  luftrenser, luftfugter og blæser, Dyson luftfugter AM10, Hace
-                  luftfugter PCMH45, , Luftfugter
+              - text: Dyson Humidify+Cool luftrenser, luftfugter og blæser, Air & Me Airom Aroma
+                  diffuser Kobberfarve, Air & Me Airom Aroma diffuser
+                  Kobberfarve, Air & Me Airom Aromadiffuser Sort, Air & Me Airom
+                  Aromadiffuser Sort, Air & Me Clevair 2 Befugter med hygrostat,
+                  ,
                 xpath: /html/head[1]/meta[11]/@content
             category:
               - text: Husholdning
@@ -41,6 +42,9 @@ extractions:
                 xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[3]/a[1]/@title
               - text: Dyson Humidify+Cool luftrenser, luftfugter og blæser
                 xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[4]/a[1]/@title
+            price:
+              - text: 5 290
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[3]/div[1]/div[1]/div[1]/span[1]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[5]/div[1]/div[1]/div[2]/span[1]/span[1]
@@ -86,6 +90,9 @@ extractions:
             name:
               - text: Dyson Humidify+Cool luftrenser, luftfugter og blæser
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[1]/h1[1]
+            warranty:
+              - text: "[object XPathResult]"
+                xpath: /html/body/div[7]
             productOtherInformation:
               - text: >-
                   Mere information
@@ -130,8 +137,13 @@ extractions:
 
                   Du kan enten benytte skærmen på luftfugteren eller Dyson Link-appen til din smartphone til at tjekke luftkvaliteten.
                 xpath: /html/body/div[2]/main[1]/div[1]/section[3]/div[2]/div[1]/div[2]
-            manufacturer:
-              - text: Dyson
+            additionalDescBulletInfo:
+              - text: Luftfugter, køler, Air Multiplier
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[11]/ul[1]/li[1]
+              - text: Ultraviolet renseteknologi
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[11]/ul[1]/li[2]
+              - text: Sleep mode, skærm, Dyson Link-app
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[11]/ul[1]/li[3]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -148,10 +160,6 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002456051/179813/dyson-humidifycool-luftrenser-luftfugter-og-blaeser.jpg?$prod_all4one$
             nameExtended:
               - text: "Dyson Humidify+Cool luftrenser, luftfugter og blæser "
-            listPrice:
-              - text: 5290 DKK
-            price:
-              - text: 5290 DKK
             descriptionBullets:
               - text: "3"
                 type: NUMBER
@@ -173,4 +181,4 @@ extractions:
                    31,20 Dybde (cm) 
                    31,20
         xpath: /
-    timestamp: 1600253164573
+    timestamp: 1600763424593

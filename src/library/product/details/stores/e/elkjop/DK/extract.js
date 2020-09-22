@@ -34,6 +34,10 @@ module.exports = {
         const formattedRating = rating.stringValue.replace(',', '.');
         addElementToDocument('rating', formattedRating);
       }
+      const warranty = document.evaluate("//*[contains(text(), 'garanti')]", document, null, XPathResult.STRING_TYPE, null);
+      if (warranty && warranty.stringValue) {
+        addElementToDocument('warranty', warranty);
+      }
       const weight = document.evaluate("//*[contains(text(), 'Vægt')]", document, null, XPathResult.STRING_TYPE, null);
       if (weight && weight.stringValue) {
         const formattedWeight = weight.stringValue.replace(/\n|Vægt|\(|\)\s/g, '');
