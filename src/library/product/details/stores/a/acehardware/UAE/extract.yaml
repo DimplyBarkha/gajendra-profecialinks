@@ -84,13 +84,17 @@ fields:
     singleValue: true
     xpath: //h1[@class="b-product__name"]//span
 
+  - name: variantId 
+    singleValue: true
+    xpath: //meta[@itemprop="productID"]/@content
+
   - name: priceCurrency
     singleValue: true
     xpath: //span[@itemprop="priceCurrency"]
 
   - name: specifications
-    singleValue: false
-    xpath: //ul[@class="b-details-product__list"]//li
+    singleValue: true
+    xpath: //*[@class="p-product-details"]/@details
 
   - name: warranty
     singleValue: false
@@ -99,8 +103,8 @@ fields:
     regExpReplace: $1
 
   - name: productOtherInformation
-    singleValue: false
-    xpath: //div[@class="b-composition-product"]/ul//li
+    singleValue: true
+    xpath: //*[@class="p-product-details"]/@productinfo
 
   - name: secondaryImageTotal
     singleValue: false
@@ -153,3 +157,9 @@ fields:
   - name: productUrl
     singleValue: true
     xpath: //link[@rel="alternate"][1]/@href
+  
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@class="b-desc-product"]/ul//span[contains(text(),"weight:")]
+    regExp: (.+)weight:\s(\d+.?\d+?)(.+)
+    regExpReplace: $2 kg
