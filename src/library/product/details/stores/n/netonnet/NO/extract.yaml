@@ -154,21 +154,21 @@ fields:
     type: NUMBER
     # current status  
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
     description: The <meta> keywords content
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
   - name: gtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
     xpath: //*[contains(text(), 'EAN')]/following::td[1]
   - name: mpc
-    singleValue: true
+    singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //*[contains(text(), 'MPN')]/following::td[1]
+    xpath: //span[@itemprop='mpn']
   - name: packSize
-    singleValue: true
+    singleValue: false
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
@@ -191,7 +191,7 @@ fields:
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
-    singleValue: true
+    singleValue: false
     description: The extended description of the product supplied by the lister
     xpath: //div[@id='collapseFive']//div[@class='row']//div[@class='col-xs-12']//text()[1]
   - name: inStorePrice
