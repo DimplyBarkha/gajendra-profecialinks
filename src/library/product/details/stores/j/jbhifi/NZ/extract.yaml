@@ -38,7 +38,7 @@ fields:
     xpath: //meta[@property='brand']/@content
   - name: weightGross
     singleValue: false
-    xpath: //ul//p[contains(.,'Packaged Weight')]
+    xpath: //ul//p[contains(.,'Packaged Weight')] | //div[@id='ii_weight']
   - name: sku
     singleValue: false
     xpath: //p[@class='sku']/@data-sku
@@ -53,7 +53,7 @@ fields:
     xpath: //p[@class='price']/span[@class='offer']
   - name: shippingWeight
     singleValue: false
-    xpath: //ul//p[contains(.,'Packaged Weight')]
+    xpath: //ul//p[contains(.,'Packaged Weight')] | //div[@id='ii_weight']
   - name: specifications
     singleValue: false
     xpath: //div[@id='tab2']//ul//p | //div[@id='ii_specs']
@@ -78,7 +78,7 @@ fields:
   - name: shippingDimensions
     xpath: //ul//p[contains(.,'Packaged Height')] | //ul//p[contains(.,'Packaged Width')] | //ul//p[contains(.,'Packaged Depth')]
   - name: weightNet
-    xpath: //div[@id='ii_weight']
+    xpath: //div[@id='ii_weight'] | //ul//p[contains(.,'Product Weight')]
   - name: additionalDescBulletInfo
     xpath: //div[contains(@class,'info')]//div[contains(@itemprop,'description')]//li
   - name: descriptionBullets

@@ -68,22 +68,28 @@ async function implementation (
       }
     }
     // specifications
-    // @ts-ignore
-    const iframeSpecs = document.querySelector('iframe[id*="flixDetails"]') ? document.querySelector('iframe[id*="flixDetails"]').contentDocument.documentElement.innerHTML : null;
-    if (iframeSpecs) {
-      const domparser = new DOMParser();
-      const iframeSpecsDom = domparser.parseFromString(iframeSpecs, 'text/html');
-      let specs = '';
-      const nodes = iframeSpecsDom.querySelectorAll('div[class*="inpage_column"]');
-      for (let i = 0; i < nodes.length; i++) {
-        if (i % 2 === 0) {
-          // @ts-ignore
-          specs += nodes[i].innerText + ' : ';
-          // @ts-ignore
-          nodes[i].innerText.includes('Weight') && addHiddenDiv('ii_weight', nodes[i + 1].innerText.trim());
-        } else {
-          // @ts-ignore
-          specs += nodes[i].innerText + ' || ';
+    const specTab = document.querySelector("li[class*='tab2'] a") ? document.querySelector("li[class*='tab2'] a") : null;
+    if (specTab) {
+      // @ts-ignore
+      await specTab.click();
+      await new Promise(resolve => setTimeout(resolve, 5000));
+      // @ts-ignore
+      const iframeSpecs = document.querySelector('iframe[id*="flixDetails"]') ? document.querySelector('iframe[id*="flixDetails"]').contentDocument.documentElement.innerHTML : null;
+      if (iframeSpecs) {
+        const domparser = new DOMParser();
+        const iframeSpecsDom = domparser.parseFromString(iframeSpecs, 'text/html');
+        let specs = '';
+        const nodes = iframeSpecsDom.querySelectorAll('div[class*="inpage_column"]');
+        for (let i = 0; i < nodes.length; i++) {
+          if (i % 2 === 0) {
+            // @ts-ignore
+            specs += nodes[i].innerText + ' : ';
+            // @ts-ignore
+            nodes[i].innerText.includes('Weight') && addHiddenDiv('ii_weight', nodes[i + 1].innerText.trim());
+          } else {
+            // @ts-ignore
+            specs += nodes[i].innerText + ' || ';
+          }
         }
         specs && addHiddenDiv('ii_specs', specs.slice(0, -4));
         console.log('Iframe Specifications', specs);
