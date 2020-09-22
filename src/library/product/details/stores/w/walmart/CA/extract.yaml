@@ -1,0 +1,77 @@
+singleRecord: totalSugarsPerServingUom
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class='css-7g4y5t e6g1c3f1']//div[contains(@class,'react-swipe-container ')]//div[@role='presentation']//img[1]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='css-7g4y5t e6g1c3f1']//div[contains(@class,'react-swipe-container ')]//div[@role='presentation']//img[1]/@alt
+  - name: availabilityText
+    singleValue: false
+    xpath:  //button[@class='css-1i45fk4 edzik9p0' and contains(.,'Add to cart')] | //button[@class='css-11m10q7 edzik9p0' and contains(.,'Out of stock')] | //p[@data-automation='online-only-label']
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='css-7g4y5t e6g1c3f1']//div[contains(@class,'react-swipe-container ')]//div[@role='presentation']//img[1]/@src
+  - name: category
+    singleValue: false
+    xpath: //ol[@class='css-f0oitm e16uoh2c1']//li
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='css-1c6krh5 e1yn5b3f6']
+  - name: price
+    singleValue: false
+    xpath: //span[@class='css-2vqe5n esdkp3p0'  and  @data-automation='buybox-price']
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(.,'Weight')]/following-sibling::div
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(.,'UPC')]/following-sibling::div
+  - name: sku
+    singleValue: false
+    xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(.,'SKU')]/following-sibling::div
+  - name: ratingCount
+    singleValue: false
+    xpath: //button[@class='css-1qw5540 elkyjhv1']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@id='ii_rating'][last()]
+  - name: description
+    singleValue: false
+    xpath: //div[@data-automation='long-description'] | //div[@data-automation='feature-specifications']
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(.,'Brand')]/following-sibling::div
+  - name: color
+    singleValue: false
+    xpath: //div[@class='css-93ek76 e1fnyg632' and contains(.,'Colour')]//span
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class='css-1dar8at e1cuz6d10']/div
+  - name: warranty
+    singleValue: false
+    xpath: //div[@class='css-w8lmum e1cuz6d11' and contains(.,'warranty')]
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@id='ii_totalvariant'][last()]
+  - name: variants
+    singleValue: false
+    xpath: //div[@id='ii_variants'][last()]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(.,'SKU')]/following-sibling::div
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@id='ii_firstVariant'][last()]
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@data-automation='sold-shipped']
+  - name: mpc
+    singleValue: false
+    xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(.,'Model ')]/following-sibling::div
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@data-automation='buybox-price-old']
