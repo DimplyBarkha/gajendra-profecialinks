@@ -53,6 +53,11 @@ const transform = (data) => {
 				row.description = [{ text: finalDescription }]
 				// row.description = [{ text: `${row.description[0].text} ${row.featureHeading[0].text} || ${featureStr}` }];
 			}
+
+			if (row.aggregateRating) {
+        row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('.', ',') }]
+			}
+			
 		}
 	}
 
