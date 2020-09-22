@@ -19,6 +19,16 @@ const transform = (data) => {
             item.text = item.text.toString();
           });
         }
+        if (row.brandText) {
+          row.brandText.forEach(item => {
+            let itemmatch = item.text.match(/Dyson/);
+            if (itemmatch) {
+              item.text = 'Dyson';
+            } else {
+              delete row.brandText;
+            }
+          });
+        }
         if (row.variantId) {
           row.variantId.forEach(item => {
               item.text = item.text.replace(/\?.*$/g, '').trim();
