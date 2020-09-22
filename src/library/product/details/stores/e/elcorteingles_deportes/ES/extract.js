@@ -96,6 +96,19 @@ module.exports = {
           return result && result.trim ? result.trim() : result;
         };
 
+        function nameExtended() {
+          const getXpath = (xpath, prop) => {
+            const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+            let result;
+            if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+            else result = elem ? elem.singleNodeValue : '';
+            return result && result.trim ? result.trim() : result;
+          };
+
+          let name = getXpath('//h1[@id="js-product-detail-title"]', 'textContent') ? getXpath('//h1[@id="js-product-detail-title"]', 'textContent') : "";
+          return name
+        }
+
         // For FirstVariant
         let firstVariant = getXpath('//div[@id="variants_container"]//select//option[@color][1]/@value', 'nodeValue')
         addElementToDocument('firstVariant', firstVariant);
@@ -190,12 +203,14 @@ module.exports = {
               let listItem = document.createElement("li");
               console.log(i, "value")
               setAttributes(listItem, {
+                nameExtended: `${nameExtended()}  ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""} ${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""}`,
+                quantity: `${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""}`,
                 color: variants[i].variant ? variants[i].variant[0].value : "",
                 gtin: variants[i].gtin ? variants[i].gtin : "",
                 retailer_product_code: variants[i].id.trim(""),
                 title: variants[i].variant ? variants[i].variant[1] ? variants[i].variant[0].value + " " + variants[i].variant[1].value : "" : "",
                 variantDetails: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).map((e) => { return e.id }).join(' | ') : "" : "",
-                variantcount: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).length : "" : ""
+                variantcount: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).length : 0 : 0
               })
               ul.appendChild(listItem);
             }
@@ -273,22 +288,22 @@ module.exports = {
         }
 
 
-        (function nameExtended() {
-          const getXpath = (xpath, prop) => {
-            const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-            let result;
-            if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-            else result = elem ? elem.singleNodeValue : '';
-            return result && result.trim ? result.trim() : result;
-          };
+        // (function nameExtended() {
+        //   const getXpath = (xpath, prop) => {
+        //     const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        //     let result;
+        //     if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        //     else result = elem ? elem.singleNodeValue : '';
+        //     return result && result.trim ? result.trim() : result;
+        //   };
 
-          let name = getXpath('//h1[@id="js-product-detail-title"]', 'textContent') ? getXpath('//h1[@id="js-product-detail-title"]', 'textContent') : "";
-          let color = getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') ? getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') : "";
-          let size = getXpath("//div[contains(@class,'variants-select')]/select/option[@color][1]", 'text') ? getXpath("//div[contains(@class,'variants-select')]/select/option[@color][1]", 'text') : "";
-          let nameExtended = name + " " + color + " " + size;
-          addElementToDocument('quantity', size);
-          addElementToDocument('nameExtended', nameExtended);
-        }())
+        //   let name = getXpath('//h1[@id="js-product-detail-title"]', 'textContent') ? getXpath('//h1[@id="js-product-detail-title"]', 'textContent') : "";
+        //   let color = getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') ? getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') : "";
+        //   let size = getXpath("//div[contains(@class,'variants-select')]/select/option[@color][1]", 'text') ? getXpath("//div[contains(@class,'variants-select')]/select/option[@color][1]", 'text') : "";
+        //   let nameExtended = name + " " + color + " " + size;
+        //   addElementToDocument('quantity', size);
+        //   addElementToDocument('nameExtended', nameExtended);
+        // }())
 
       });
     } catch (error) {

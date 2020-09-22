@@ -1,171 +1,172 @@
+extends: ../../elcorteingles_deportes/ES/extract
 singleRecord: false
-regionsSelector: null
-recordSelector: null
-recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])>0]//ul[contains(@class,"colors_list")]/li | //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])!=1]//h1[@id="js-product-detail-title"] | //div[contains(@class,"product_detail-aside")]//div[contains(@class,"product_detail-colors") and count(//div[contains(@class,'colors_content_mobile')]) != 1]
-fields:
-  - name: image
-    singleValue: true
-    xpath : (ancestor::html //div[@id='product_image'])[1]
-  - name: imageAlt
-    singleValue: true
-    xpath : ancestor::html //meta[@name="twitter:title"]/@content
-  - name: alternateImages
-    xpath : ancestor::html //div[@class="image-layout-slides-group"]/div[position() > 1]/img/@data-zoom
-  - name: secondaryImageTotal
-    xpath: count(//link[@as="image"][position() > 1]/@href)    
-  - name: category
-    singleValue: false
-    xpath : ancestor::html //li[@itemprop="itemListElement"]
-  - name: nameExtended
-    singleValue: true
-    xpath : ancestor::html //div[@id='nameExtended']  
-  - name: listPrice
-    singleValue: true
-    xpath : ancestor::html //div[@id='listPrice']
-  - name: price
-    singleValue: true
-    xpath : ancestor::html //div[@id='price']
-  - name: availabilityText
-    singleValue: true
-    xpath : ancestor::html //div[@id='availability']
-    defaultValue: Out of Stock
-  - name: description
-    singleValue: false
-    xpath : ancestor::html //div[@id="bulletDescription"]
-  - name: descriptionBullets
-    singleValue: false
-    xpath :    
-  - name: brandText
-    singleValue: true
-    xpath : ancestor::html //div[@id="brand"]
-  - name: quantity
-    singleValue: true
-    xpath : ancestor::html //div[@id="variants_container"]/span
-  - name : weightNet    
-    xpath : 
-  - name : weightGross    
-    xpath :   
-  - name: gtin
-    singleValue: true
-    xpath : //div/@gtin
-  - name: eangtin
-    singleValue: true
-    xpath :  //div/@gtin  
-  - name: asin
-    singleValue: true
-    xpath : ancestor::html //span[@itemprop="sku"] | ancestor::html //span[@class="js-product-gtin-number"]
-  - name: sku
-    singleValue: true
-    xpath : //div/@sku
-  - name: variantId
-    singleValue: true
-    xpath : //div/@retailer_product_code
-  - name: directions
-    singleValue: false
-    xpath: ancestor::html //div[contains(@class,'product_detail-description-in-image')]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | ancestor::html  //dt[contains(text(),"Modo de")]/following-sibling::dd[1]
-  - name: warnings 
-    singleValue: true
-    xpath:   
-  - name: mpc
-    singleValue: true
-    xpath: ancestor::html //div[@id='mpc']
-  - name: legalDisclaimer
-    singleValue: true
-    xpath:  
-  - name: manufacturer
-    singleValue: false
-    xpath :
-  - name: manufacturerImages
-    singleValue: false
-    xpath :
-  - name: videos
-    singleValue: false
-    xpath : ancestor::html //div[@class="image-layout-slides-group-item"]/img/@data-url
-  - name: name
-    singleValue: true
-    xpath : ancestor::html //meta[@name="twitter:title"]/@content
-  - name: ratingCount
-    singleValue: true
-    xpath : ancestor::html //div[@id="ratingCount"]
-  - name: warranty
-    singleValue: true
-    xpath : ancestor::html //dt[contains(text(),"Garantía")]/following-sibling::dd[1]  
-  - name: storage
-    singleValue: true    
-  - name: specifications
-    singleValue: true
-    xpath : ancestor::html  //div[@id="specifications"] 
-  - name: recyclingInformation
-    singleValue: true
-    xpath :      
-  - name: productOtherInformation
-    singleValue: true
-    xpath :    
-  - name: packaging
-    singleValue: true
-    xpath :           
-  - name: countryOfOrigin
-    singleValue: true
-    xpath : ancestor::html //ul[@class="info-list"]//li//span[contains(text(),"País de origen")]/following-sibling::text()
-  - name: allergyAdvice
-    singleValue: true
-    xpath :  
-  - name: pricePerUnit
-    singleValue: false
-    xpath : ancestor::html //div[contains(@class,"js-sticky-control")]//div[@class="composition_info"]/span
-    regExp: \((.+)\s\/(.+)\)
-    regExpReplace: $1  
-  - name: pricePerUnitUom
-    singleValue: false
-    xpath : ancestor::html //div[contains(@class,"js-sticky-control")]//div[@class="composition_info"]/span
-    regExp: \((.+)\s\/(.+)\)
-    regExpReplace: $2  
-  - name: promotion
-    singleValue: true
-    xpath : //div/@promotion 
-  - name: alcoholContent
-    singleValue: true
-    xpath : ancestor::html //ul[@class="info-list"]//li//span[contains(text(),"orcentaje de alcohol")]/following-sibling::text()
-  - name: variantInformation
-    singleValue: true
-    xpath : //div/@title
-  - name: variants
-    singleValue: true
-    xpath : ancestor::html //div/@variants 
-  - name: firstVariant
-    singleValue: true
-    xpath : ancestor::html //div/@sku
-  - name: aggregateRating
-    singleValue: true
-    xpath : ancestor::html //div[@id="aggregateRating"]
-  - name: shippingInfo
-    singleValue: true
-    xpath : ancestor::html //div[@class="shipping_and_returns"]/div[@class="table"][1]
-  - name: shippingDimensions
-    singleValue: true
-    xpath :  
-  - name: shippingWeight
-    singleValue: true
-    xpath : 
-  - name: variantCount
-    singleValue: true
-    xpath : ancestor::html //div/@variantCount
-  - name: color
-    singleValue: true
-    xpath :  
-  - name: colorCode
-    singleValue: true
-  - name: manufacturerDescription
-    singleValue: true
-    xpath: ancestor::html  //div[@id="tab-content-3"]/div//div  
-  - name: termsAndConditions
-    singleValue: true
-  - name: specifications
-    xpath : ancestor::html //div[@id="specifications"]      
-  - name: additionalDescBulletInfo
-    singleValue: true
-  - name: energyEfficiency
-    singleValue: true
-    xpath : ancestor::html //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
-  - name: imageZoomFeaturePresent
-    xpath : count(ancestor::html //img/@data-zoom )>0
+# regionsSelector: null
+# recordSelector: null
+# recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])>0]//ul[contains(@class,"colors_list")]/li | //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])!=1]//h1[@id="js-product-detail-title"] | //div[contains(@class,"product_detail-aside")]//div[contains(@class,"product_detail-colors") and count(//div[contains(@class,'colors_content_mobile')]) != 1]
+# fields:
+#   - name: quantity
+#     singleValue: false
+#     xpath : //*/@quantity
+#   - name: imageAlt
+#     singleValue: true
+#     xpath : ancestor::html //meta[@name="twitter:title"]/@content
+#   - name: alternateImages
+#     xpath : ancestor::html //div[@class="image-layout-slides-group"]/div[position() > 1]/img/@data-zoom
+#   - name: secondaryImageTotal
+#     xpath: count(//link[@as="image"][position() > 1]/@href)    
+#   - name: category
+#     singleValue: false
+#     xpath : ancestor::html //li[@itemprop="itemListElement"]
+#   - name: nameExtended
+#     singleValue: true
+#     xpath : ancestor::html //div[@id='nameExtended']  
+#   - name: listPrice
+#     singleValue: true
+#     xpath : ancestor::html //div[@id='listPrice']
+#   - name: price
+#     singleValue: true
+#     xpath : ancestor::html //div[@id='price']
+#   - name: availabilityText
+#     singleValue: true
+#     xpath : ancestor::html //div[@id='availability']
+#     defaultValue: Out of Stock
+#   - name: description
+#     singleValue: false
+#     xpath : ancestor::html //div[@id="bulletDescription"]
+#   - name: descriptionBullets
+#     singleValue: false
+#     xpath :    
+#   - name: brandText
+#     singleValue: true
+#     xpath : ancestor::html //div[@id="brand"]
+#   - name: quantity
+#     singleValue: true
+#     xpath : ancestor::html //div[@id="variants_container"]/span
+#   - name : weightNet    
+#     xpath : 
+#   - name : weightGross    
+#     xpath :   
+#   - name: gtin
+#     singleValue: true
+#     xpath : //div/@gtin
+#   - name: eangtin
+#     singleValue: true
+#     xpath :  //div/@gtin  
+#   - name: asin
+#     singleValue: true
+#     xpath : ancestor::html //span[@itemprop="sku"] | ancestor::html //span[@class="js-product-gtin-number"]
+#   - name: sku
+#     singleValue: true
+#     xpath : //div/@sku
+#   - name: variantId
+#     singleValue: true
+#     xpath : //div/@retailer_product_code
+#   - name: directions
+#     singleValue: false
+#     xpath: ancestor::html //div[contains(@class,'product_detail-description-in-image')]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | ancestor::html  //dt[contains(text(),"Modo de")]/following-sibling::dd[1]
+#   - name: warnings 
+#     singleValue: true
+#     xpath:   
+#   - name: mpc
+#     singleValue: true
+#     xpath: ancestor::html //div[@id='mpc']
+#   - name: legalDisclaimer
+#     singleValue: true
+#     xpath:  
+#   - name: manufacturer
+#     singleValue: false
+#     xpath :
+#   - name: manufacturerImages
+#     singleValue: false
+#     xpath :
+#   - name: videos
+#     singleValue: false
+#     xpath : ancestor::html //div[@class="image-layout-slides-group-item"]/img/@data-url
+#   - name: name
+#     singleValue: true
+#     xpath : ancestor::html //meta[@name="twitter:title"]/@content
+#   - name: ratingCount
+#     singleValue: true
+#     xpath : ancestor::html //div[@id="ratingCount"]
+#   - name: warranty
+#     singleValue: true
+#     xpath : ancestor::html //dt[contains(text(),"Garantía")]/following-sibling::dd[1]  
+#   - name: storage
+#     singleValue: true    
+#   - name: specifications
+#     singleValue: true
+#     xpath : ancestor::html  //div[@id="specifications"] 
+#   - name: recyclingInformation
+#     singleValue: true
+#     xpath :      
+#   - name: productOtherInformation
+#     singleValue: true
+#     xpath :    
+#   - name: packaging
+#     singleValue: true
+#     xpath :           
+#   - name: countryOfOrigin
+#     singleValue: true
+#     xpath : ancestor::html //ul[@class="info-list"]//li//span[contains(text(),"País de origen")]/following-sibling::text()
+#   - name: allergyAdvice
+#     singleValue: true
+#     xpath :  
+#   - name: pricePerUnit
+#     singleValue: false
+#     xpath : ancestor::html //div[contains(@class,"js-sticky-control")]//div[@class="composition_info"]/span
+#     regExp: \((.+)\s\/(.+)\)
+#     regExpReplace: $1  
+#   - name: pricePerUnitUom
+#     singleValue: false
+#     xpath : ancestor::html //div[contains(@class,"js-sticky-control")]//div[@class="composition_info"]/span
+#     regExp: \((.+)\s\/(.+)\)
+#     regExpReplace: $2  
+#   - name: promotion
+#     singleValue: true
+#     xpath : //div/@promotion 
+#   - name: alcoholContent
+#     singleValue: true
+#     xpath : ancestor::html //ul[@class="info-list"]//li//span[contains(text(),"orcentaje de alcohol")]/following-sibling::text()
+#   - name: variantInformation
+#     singleValue: true
+#     xpath : //div/@title
+#   - name: variants
+#     singleValue: true
+#     xpath : ancestor::html //div/@variants 
+#   - name: firstVariant
+#     singleValue: true
+#     xpath : ancestor::html //div/@sku
+#   - name: aggregateRating
+#     singleValue: true
+#     xpath : ancestor::html //div[@id="aggregateRating"]
+#   - name: shippingInfo
+#     singleValue: true
+#     xpath : ancestor::html //div[@class="shipping_and_returns"]/div[@class="table"][1]
+#   - name: shippingDimensions
+#     singleValue: true
+#     xpath :  
+#   - name: shippingWeight
+#     singleValue: true
+#     xpath : 
+#   - name: variantCount
+#     singleValue: true
+#     xpath : ancestor::html //div/@variantCount
+#   - name: color
+#     singleValue: true
+#     xpath :  
+#   - name: colorCode
+#     singleValue: true
+#   - name: manufacturerDescription
+#     singleValue: true
+#     xpath: ancestor::html  //div[@id="tab-content-3"]/div//div  
+#   - name: termsAndConditions
+#     singleValue: true
+#   - name: specifications
+#     xpath : ancestor::html //div[@id="specifications"]      
+#   - name: additionalDescBulletInfo
+#     singleValue: true
+#   - name: energyEfficiency
+#     singleValue: true
+#     xpath : ancestor::html //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
+#   - name: imageZoomFeaturePresent
+#     xpath : count(ancestor::html //img/@data-zoom )>0

@@ -131,7 +131,7 @@ fields:
     xpath: //h3[contains(text(),'Conservación y utilización')]/../ul/li[1]
   - name: countryofOrigin
     singleValue: false
-    xpath: //li[@class="info-item"]/span[contains(text(),"País de origen")]/following-sibling::text()  
+    xpath: //li[@class="info-item"]/span[contains(text(),"País de origen") or contains(text(),"PaÃ­s de origen")]/following-sibling::text()  
   - name: saltPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Sal')]/../td[2]//td[1])[1]
