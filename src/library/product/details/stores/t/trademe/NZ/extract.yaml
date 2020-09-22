@@ -30,6 +30,9 @@ fields:
   - name: shippingInfo
     singleValue: false 
     xpath: //section[@class="member-summary-box"]  
+  - name: brandText
+    singleValue: false 
+    xpath: //tg-col[@class="l-col"]//h1
   - name: ratingcount
     singleValue: false 
     xpath: //*[@id="comments-animation"]/ktr-product-comments/div/ng-transclude/div[1]/div[1]/font/font
@@ -52,3 +55,6 @@ fields:
   - name: descriptionBullets
     singleValue: false
     xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//div[@class='tm-markdown']
+  - name: nameExtended
+    singleValue: false
+    xpath: //tg-col[@class="l-col"]//h1

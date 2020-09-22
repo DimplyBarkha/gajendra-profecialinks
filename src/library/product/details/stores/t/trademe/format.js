@@ -12,6 +12,16 @@ const transform = (data) => {
           item.text = item.text.replace(/\s\n/g, '').slice();
         });
       }
+      if (row.brandText) {
+        row.brandText.forEach(item => {
+          let itemmatch = item.text.match(/Dyson/);
+          if (itemmatch) {
+            item.text = 'Dyson';
+          } else {
+            delete row.brandText;
+          }
+        });
+      }
       if (row.description) {
         row.description.forEach(item => {
           item.text = item.text.replace(/\n\s*\n\s*\n\s*\n\s*/g, '').slice();
@@ -31,7 +41,7 @@ const transform = (data) => {
       }
       if (row.additionalDescBulletInfo) {
         row.additionalDescBulletInfo.forEach(item => {
-          item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
+          item.text = item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();
         });
       }
       if (row.descriptionBullets) {
