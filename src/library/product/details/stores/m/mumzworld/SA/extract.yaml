@@ -14,7 +14,7 @@ fields:
     xpath: //div[contains(@class,'product-img-box')]//p[contains(@class,'product-image')]//a/@href
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,'product-img-box')]//p[contains(@class,'product-image')]//a/@alt
+    xpath: //div[contains(@class,'product-img-box')]//p[contains(@class,'product-image')]//a//img/@alt
   - name: alternateImages
     singleValue: false
     xpath: //ul[@class='bxslides']//li[@class='gal_images']//a[@class='cloud-zoom-gallery' and @index_val>'0']/@href
@@ -56,10 +56,13 @@ fields:
     regExpReplace: $1    
   - name: shippingInfo
     singleValue: false
-    xpath: //ul[@class='countdown mtop20']
+    xpath: //ul[@class='add-to-links add-to-links-edits']/following-sibling::*
   - name: shippingDimensions
     singleValue: false
-    xpath: //div[@id='full-desc']//strong[text()='Package Dimensions:']/following-sibling::text()[1]  
+    xpath: //div[@id='full-desc']//strong[text()='Package Dimensions:']/following-sibling::text()[1]
+  - name: warnings
+    singleValue: false
+    xpath: //div[@id='full-desc']//div[@class='col-sm-6'][2]//li[contains(text(),'Warning!')]  
   - name: name
     singleValue: false
     xpath: //div[@class='product-name']//h1
@@ -93,3 +96,6 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[contains(@class,'product-img-box')]//div[contains(@class,'productlabel-sale')]//span[@class='label-sale-value']
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[@id='country-autoswitch-toggle']//span[@class='country-autoswitch-label']
