@@ -5,8 +5,8 @@ module.exports = {
     country: 'CA',
     store: 'walmart',
     domain: 'walmart.ca',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'h1[data-automation="product-title"]',
+    noResultsXPath: '//h1[contains(text(),"Clean up in Aisle")]',
     zipcode: '',
   },
 };
