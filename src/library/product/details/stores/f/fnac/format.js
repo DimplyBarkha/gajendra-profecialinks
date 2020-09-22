@@ -44,7 +44,7 @@ const transform = (data) => {
         }
 
         if(!row.brandText) {
-          row.brandText = { text : row.name[0].text.split(' ')[0] };
+          row.brandText = [{ text : row.name[0].text.split(' ')[0] }];
         }
 
         if(row.manufacturer) {
