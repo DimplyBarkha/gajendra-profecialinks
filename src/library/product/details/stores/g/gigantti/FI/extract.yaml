@@ -37,8 +37,8 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[contains(@class, "product-price-container")]//span
     type: CURRENCY
+    xpath: //div[contains(@class, "product-price-container")]//span
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -111,7 +111,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //div[contains(@class, "bv_numReviews_text")]
+    xpath: //div[contains(@class, "product-ratings__count")]//a
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -119,7 +119,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //div[contains(@class, "bv_avgRating_component_container")]
+    xpath: //div[contains(@class, "product-ratings__avarage")]//a
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -418,8 +418,8 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: //div[contains(@class, "tab-slot")]//p//strong[contains(text(), "Myyntipakkaus")]/following-sibling::text()
-    regExp: (.+\W)\W*$
+    xpath: //div[contains(@class, "tab-slot")]//p
+    regExp: (.\S{0,}.\S{0,}.\S{0,}.+takuu)
   - name: storage
     singleValue: true
     description: Suggested storage location for product
