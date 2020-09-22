@@ -17,6 +17,27 @@ module.exports = {
   ) => {
     // const cssProduct = 'div.c-product-detail ember-view';
     const cssProductDetails = 'div[class="c-accordion__toggle-icon"] button';
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          await stall(500);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(5000);
+            break;
+          }
+        }
+        function stall (ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
 
     const isSelectorAvailable = async (cssSelector) => {
       console.log(`Is selector available: ${cssSelector}`);
@@ -26,16 +47,89 @@ module.exports = {
     };
 
     console.log('.....waiting......');
-    await context.waitForSelector(cssProductDetails, { timeout: 30000 });
+    await context.waitForSelector(cssProductDetails, { timeout: 5000 });
 
     const productAvailable = await isSelectorAvailable(cssProductDetails);
     console.log(`productAvailable: ${productAvailable}`);
     if (productAvailable) {
       console.log('clicking product detail button');
       await context.click(cssProductDetails);
-      await context.waitForNavigation({ timeout: 30000, waitUntil: 'load' });
+      await context.waitForNavigation({ timeout: 5000, waitUntil: 'load' });
       console.log('navigation complete!!');
     }
+
+    // specs click
+    const specSelector = 'div[data-accordion="c-product-specifications"] button';
+
+    console.log('.....waiting......');
+    await context.waitForSelector(specSelector, { timeout: 5000 });
+
+    const specAvailable = await isSelectorAvailable(specSelector);
+    console.log(`specAvailable: ${specAvailable}`);
+    if (specAvailable) {
+      console.log('clicking spec detail button');
+      await context.click(specSelector);
+      await context.waitForNavigation({ timeout: 5000, waitUntil: 'load' });
+      console.log('navigation complete!!');
+    }
+    // specs end
+
+    // video click
+    const videoSelector = 'div[data-accordion="c-youtube-embed"] button';
+
+    console.log('.....waiting for video.....');
+    let videoAvailable;
+    try {
+      await context.waitForSelector(videoSelector, { timeout: 5000 });
+      videoAvailable = await isSelectorAvailable(videoSelector);
+      console.log('.....waiting....complete..video..');
+    } catch (e) {
+    }
+
+    console.log(`videoAvailable: ${videoAvailable}`);
+    if (videoAvailable) {
+      console.log('clicking video button');
+      await context.click(videoSelector);
+      await context.waitForNavigation({ timeout: 5000, waitUntil: 'load' });
+      console.log('navigation complete!!');
+    }
+    // video end
+    // product tour click
+    const tourSelector = 'div[class="c-product-tour__item-head"] button';
+
+    console.log('.....waiting for tour....');
+    let tourAvailable;
+    try {
+      await context.waitForSelector(tourSelector, { timeout: 15000 });
+      tourAvailable = await isSelectorAvailable(tourSelector);
+      console.log('.....waiting......complete tour');
+    } catch (e) {
+    }
+    console.log(`tourAvailable: ${tourAvailable}`);
+    if (tourAvailable) {
+      try {
+        console.log('clicking tour button');
+        // let scrollTop = 500;
+        // while (true) {
+        //   window.scroll(0, scrollTop);
+        //   await stall(1000);
+        //   scrollTop += 500;
+        //   if (scrollTop === 50000) {
+        //     break;
+        //   }
+        // }
+        // await applyScroll(context);
+        await context.focus(tourSelector);
+        console.log('focus complete!!');
+        await context.click(tourSelector);
+        console.log('click complete!!');
+        await context.waitForNavigation({ timeout: 15000, waitUntil: 'load' });
+        console.log('navigation complete!!');
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    // product tour end
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });

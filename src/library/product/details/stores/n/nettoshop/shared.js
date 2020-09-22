@@ -9,16 +9,20 @@ const transform = (data) => {
       if (row.description) {
         row.description.forEach(item => {
           const regex = /\n/g;
-          item.text = item.text.replace(regex, '||');
+          item.text = item.text.replace(regex, ' ');
         });
         row.specifications.forEach(item => {
           const regex = /\n/g;
-          item.text = item.text.replace(regex, '||');
+          item.text = item.text.replace(regex, '|');
         });
         row.shippingInfo.forEach(item => {
           const regex = /\n+/g;
-          item.text = item.text.replace(regex, '||');
+          item.text = item.text.replace(regex, ' ');
         });
+        console.log('row.variantCount :', row.variantCount);
+        // row.variantCount.forEach(item => {
+        //   item.text = '0';
+        // });
       }
     }
   }
