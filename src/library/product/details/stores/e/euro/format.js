@@ -17,6 +17,27 @@ const transform = (data) => {
           console.log(item.text);
         });
       }
+      if (row.specifications) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.specifications.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + ' || ';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
+        });
+        console.log(newDesc);
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.specifications = nDesc;
+      }
+      if ((!row.listPrice || !row.listPrice.length) && row.price) {
+        row.listPrice = row.price;
+      }
       if (row.description) {
         const nDesc = [];
         let newDesc = '';

@@ -7,9 +7,6 @@ fields:
     singleValue: false
     xpath: //a[@id='big-photo']//img/@src
     description: URL of the main product image
-  - name: _url
-    singleValue: false 
-    xpath: //meta[contains(@property,"og:url")]/@content
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='product-photos']//li/a/@href
@@ -20,8 +17,9 @@ fields:
     description: The <meta> keywords content
   - name: description
     singleValue: false
-    #xpath: //meta[contains(@property,"description")]/@content
-    xapth: //table[@class="description-tech-details js-tech-details"]//tbody//tr[not(@class="group-name")]
+    xpath: //meta[contains(@property,"description")]/@content
+    #xapth: //div[@class='desc']/text()
+    #xapth: //table[@class="description-tech-details js-tech-details"]//tbody//tr[not(@class="group-name")]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: gtin
@@ -67,15 +65,11 @@ fields:
     regExpReplace: $1
   - name: listPrice
     singleValue: false
-    xpath: //script[@type="text/javascript"][contains(text(),"price")]
-    regExp: price":\s"([^"]+)
-    regExpReplace: $1
+    xpath: normalize-space(normalize-space(//div[@class='price-old']))
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
-    xpath: //script[@type="application/ld+json"][contains(text(),"price")]
-    regExp: price":\s"([^"]+)
-    regExpReplace: $1
+    xpath: normalize-space(//div[@class='price-normal selenium-price-normal']/text())
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -108,7 +102,7 @@ fields:
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
-    xpath: normalize-space(//td[contains(text(),'Waga')]//following-sibling::td)
+    xpath: normalize-space(//td[contains(.//text(),'Waga z opakowaniem')]//following-sibling::td)
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
@@ -120,7 +114,7 @@ fields:
     xpath: normalize-space(//td[contains(text(),'Wymiary opakowania')]//following-sibling::td)
     description: Stated shipping dimensions
   - name: shippingWeight
-    xpath: normalize-space(//td[contains(text(),'Waga z opakowaniem')]//following-sibling::td)
+    xpath: normalize-space(//td[contains(.//text(),'Waga z opakowaniem')]//following-sibling::td)
     singleValue: false
     description: Stated shipping weight
   - name: color
@@ -143,7 +137,7 @@ fields:
     description: The product name
   - name: specifications
     singleValue: false
-    xpath: normalize-space(//td[contains(text(),'Wymiary')]//following-sibling::td)
+    xpath: //table[@class='description-tech-details js-tech-details']//tr[not(@class='group-name')]
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: false
@@ -162,3 +156,7 @@ fields:
     singleValue: 
     xpath: //button[@class='video-preview js-video-preview']/@data-src
     description: URLs of videos on page
+  - name: weightNet
+    singleValue: false
+    description: Gross weight as described on the page
+    xpath: normalize-space(//td[contains(text(),'Waga ')]/following-sibling::td) 
