@@ -59,6 +59,15 @@ const transform = (data) => {
 				
 				row.specifications = [{ text: newText }];
 			}
+			
+			if (row.manufacturerDescription) {				
+				let newText = '';
+				row.manufacturerDescription.forEach(item => {
+					newText +=  `${item.text.trim() + ' ' }` ;
+				});
+				
+				row.manufacturerDescription = [{ text: newText }];
+			}
 		}
 	}
 

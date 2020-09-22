@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,"slick-track")]//img/@src
+    xpath: //div[contains(@class,"slick-slide")]//img//@src
     regExp: ^(.+)$
     regExpReplace: https://www.gigantti.fi$1
   - name: metaKeywords
@@ -37,11 +37,8 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[contains(@class, "product-price")]//meta[contains(@itemprop, "price")]/@content
-  - name: price
-    singleValue: true
-    description: Currency value of the price listed on the page.
-    xpath: //div[contains(@class, "product-price")]//meta[contains(@itemprop, "priceCurrency")]/@content
+    xpath: //div[contains(@class, "product-price-container")]//span
+    type: CURRENCY
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -135,8 +132,9 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    defaultValue: 0
+    xpath: count(//div[contains(@class, "test")])
     type: NUMBER
+    defaultValue: 0
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -147,6 +145,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //section[contains(@class, "article-page main-content")]//div[contains(@class, "multiple-rows type-3 section")]//div[contains(@class, "article-text article-free-html")]
   - name: manufacturerImages
     singleValue: true
     description: Images within the third party description
