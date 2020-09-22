@@ -5,7 +5,7 @@ module.exports = {
   parameterValues: {
     country: 'TR',
     store: 'mediamarkt',
-    transform: transform,
+    transform,
     domain: 'mediamarkt.tr',
     zipcode: '',
   },
