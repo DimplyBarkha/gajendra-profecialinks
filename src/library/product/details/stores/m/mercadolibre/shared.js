@@ -73,7 +73,7 @@ const transform = (data) => {
         
         if (row.availabilityText) {
             row.availabilityText.forEach(item => {
-                if(item.text.includes('disponible') || item.text.includes('Agregar al carrito')) {
+                if(item.text.includes('disponible') || item.text.includes('Agregar al carrito') || item.text.includes('Disponible') || item.text.includes('Comprar ahora')) {
                     item.text = 'In Stock'
                 } else {
                     item.text = 'Out of Stock'

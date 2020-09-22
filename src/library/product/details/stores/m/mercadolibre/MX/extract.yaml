@@ -28,7 +28,7 @@ fields:
     xpath: //*[@id="productInfo"]//span[@class="price-tag-fraction"]| //div[contains(@class , "ui-pdp-price--size-large")]//span[contains(@class , 'ui-pdp-price__part')]
   - name: availabilityText
     singleValue: false
-    xpath: //input[@data-js="vip-action-cart"]/@value | //h3[contains(@class,"ui-pdp-stock-information__title")] | //*[@class="stock-information--available"] | //*[@data-js="ui-dropdown-quantity-available"]
+    xpath: //input[@data-js="vip-action-cart"]/@value | //h3[contains(@class,"ui-pdp-stock-information__title")] | //*[@class="stock-information--available"] | //*[@data-js="ui-dropdown-quantity-available"] | //button[@class="andes-button andes-button--loud"]
   - name: description
     singleValue: false
     xpath: //div[@id="mc_description"]
@@ -63,7 +63,7 @@ fields:
     defaultValue: '0'
   - name: color
     singleValue: false
-    xpath: //*[@data-id="COLOR"]//*[@data-js="variations-title"] | //div[@class="ui-pdp-variations"]//p[contains(text() , 'Color:')]//following-sibling::span | //*[contains(text(), "Color")]/parent::li/span
+    xpath: //*[@data-id="COLOR"]//*[@data-js="variations-title"] | //div[@class="ui-pdp-variations"]//p[contains(text() , 'Color:')]//following-sibling::span | //*[contains(text(), "Color")]/parent::li/span | //th[contains(text(), "Color")]//following-sibling::td
   - name: videos
     singleValue: false
     xpath: //iframe[@class="ui-pdp-iframe"]/@src | //*[@data-video-id]/@data-video-id
