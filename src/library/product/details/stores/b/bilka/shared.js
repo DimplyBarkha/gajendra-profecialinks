@@ -67,16 +67,18 @@ const transform = (data) => {
 		// 	];
 		// }
 
-		if (row.price) {			
-			var temp=row.price[0].text.split(':');			
-			row.price = [{ text: temp[0] }, { text: temp[1] }];
-		  } 
+		// if (row.price) {			
+		// 	var temp=row.price[0].text.split(':');			
+		// 	row.price = [{ text: temp[0] }, { text: temp[1] }];
+		//   } 
 		  
 		if (row.description) {
 			let text = '';
-			row.description.forEach(item => {
-			  text += `${item.text.replace(/\r\n|\r|\n/g, '')}`;
-			});
+			row.description.forEach(item => {				
+			  text += `${item.text.replace(/\r\n|\r|\n/g, '.')} || `;
+			});			
+			text = text.replace(/\r\n|\r|\n/g, '');
+			let temp = text.split('.');			
 			row.description = [
 			  {
 				text: text.slice(0, -4),

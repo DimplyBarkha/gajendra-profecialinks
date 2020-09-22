@@ -21,12 +21,13 @@ fields:
           /img[contains(@class,'fade-in')]/@alt)
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'gallery-thumbs swiper-container swiper-container-initialized swiper-container-horizontal')]
-          //div[contains(@class,'swiper-wrapper')]
-          //div[contains(@class,'swiper-slide')]
-          //div[contains(@class,'image__wrapper')]
-          //div[contains(@class,'image__container contain animate')]
-          /img[contains(@class,'fade-in')]/@src
+    xpath: //nav//div[@class='gallery']//div[contains(@class,'swiper-wrapper')]//div[contains(@class,'swiper-slide') and not(contains(@class,'swiper-slide swiper-slide-active'))]//img//@src
+    # xpath: //div[contains(@class,'gallery-thumbs swiper-container swiper-container-initialized swiper-container-horizontal')]
+    #       //div[contains(@class,'swiper-wrapper')]
+    #       //div[contains(@class,'swiper-slide')]
+    #       //div[contains(@class,'image__wrapper')]
+    #       //div[contains(@class,'image__container contain animate')]
+    #       /img[contains(@class,'fade-in')]/@src
   - name: category
     singleValue: false
     xpath: //ul[contains(@class,'v-breadcrumbs')]//li[position()>2]/a
@@ -43,10 +44,11 @@ fields:
     xpath: //div[contains(@class,'brand')]
   - name: manufacturer
     singleValue: false
-    xpath: //div[contains(@class,'brand')]
+    # xpath: //div[contains(@class,'brand')]
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')]
+    xpath: //*[contains(@id,"tempdescriptionId")]
+    # xpath: //div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')]//ul//li)
@@ -74,6 +76,7 @@ fields:
   - name: price
     singleValue: false
     xpath: //*[contains(@id,"hidpriceCurrency")]
+    type: CURRENCY
   - name: variantInformation
     singleValue: false
     xpath: //div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(), 'Farve')]/following-sibling::td[1]
@@ -109,10 +112,10 @@ fields:
     xpath: normalize-space(//div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(),'Nettovægt') or starts-with(text(),'Vægt ekskl. stand') or starts-with(text(),'Vægt') or starts-with(text(),'Bruttovægt')]/following-sibling::td[1])
   - name: weightGross
     singleValue: false
-    xpath: normalize-space(//div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(),'Bruttovægt') or starts-with(text(),'Vægt ekskl. stand') or starts-with(text(),'Vægt') or starts-with(text(),'Nettovægt')]/following-sibling::td[1])
+    # xpath: normalize-space(//div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(),'Bruttovægt') or starts-with(text(),'Vægt ekskl. stand') or starts-with(text(),'Vægt') or starts-with(text(),'Nettovægt')]/following-sibling::td[1])
   - name: shippingWeight
     singleValue: false
-    xpath: normalize-space(//div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(),'Bruttovægt') or starts-with(text(),'Vægt ekskl. stand') or starts-with(text(),'Vægt') or starts-with(text(),'Nettovægt')]/following-sibling::td[1])
+    # xpath: normalize-space(//div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(),'Bruttovægt') or starts-with(text(),'Vægt ekskl. stand') or starts-with(text(),'Vægt') or starts-with(text(),'Nettovægt')]/following-sibling::td[1])
   - name: availabilityText
     singleValue: false
     xpath: boolean(substring-before(//div[contains(@class,'order-md-last order-first')]//div[contains(@class,'font-weight-bold')],' ('))
@@ -140,3 +143,7 @@ fields:
   - name: warranty
     singleValue: false
     xpath: substring-before(substring-after(//div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')], 'Inklusiv'), substring-after(//div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')], 'garanti'))
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //nav//div[contains(@class,'video-wrapper')]//iframe//@src
