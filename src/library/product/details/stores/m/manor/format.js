@@ -52,6 +52,7 @@ const transform = (data) => {
         row.description.forEach(item => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
         });
+        row.description[0].text = '||' + row.description[0].text
       }
       if (row.brandLink) {
         row.brandLink.forEach(item => {
