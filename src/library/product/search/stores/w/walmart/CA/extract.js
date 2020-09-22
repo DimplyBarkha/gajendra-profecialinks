@@ -112,9 +112,10 @@ async function implementation (
       };
       console.log('End of page fetch');
     } else {
+      console.log('Window::', window.__PRELOADED_STATE__);
       const mainDataObj = window.__PRELOADED_STATE__ && window.__PRELOADED_STATE__.results && window.__PRELOADED_STATE__.results.entities && window.__PRELOADED_STATE__.results.entities.products ? window.__PRELOADED_STATE__.results.entities.products : {};
       console.log('main::', mainDataObj);
-      mainDataObj.length > 0 && await fetchGTIN(mainDataObj);
+      mainDataObj && await fetchGTIN(mainDataObj);
       productsToFetch.products = window.__PRELOADED_STATE__ && window.__PRELOADED_STATE__.results && window.__PRELOADED_STATE__.results.entities && window.__PRELOADED_STATE__.results.entities.products ? window.__PRELOADED_STATE__.results.entities.productsToFetch : {};
     }
     console.log('Product ids to be fetched::', JSON.stringify(productsToFetch));
@@ -183,8 +184,8 @@ async function implementation (
           id && addHiddenDiv('ii_producturl', 'https://www.walmart.ca/en/ip/' + id, false, id, 'product-url');
           name && addHiddenDiv('ii_name', name, false, id, 'product-name');
           ratingCount && addHiddenDiv('ii_ratingCount', ratingCount, false, id, 'product-ratingCount');
-          averageRating && addHiddenDiv('ii_averageRating', parseFloat(averageRating).toFixed(2), false, id, 'product-averageRating');
-          productCurrentPrice && addHiddenDiv('ii_productCurrentPrice', productCurrentPrice, false, id, 'product-productCurrentPrice');
+          averageRating && addHiddenDiv('ii_averageRating', parseFloat(averageRating).toFixed(1), false, id, 'product-averageRating');
+          productCurrentPrice && addHiddenDiv('ii_productCurrentPrice', '$' + productCurrentPrice, false, id, 'product-productCurrentPrice');
           images && addHiddenDiv('ii_images', images, false, id, 'product-images');
           console.log(id, name, ratingCount, averageRating, productCurrentPrice, images);
         }

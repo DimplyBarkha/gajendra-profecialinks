@@ -38,14 +38,14 @@ fields:
     description: The position (rank) within the list excluding sponsored/paid results
   - name: id
     singleValue: false
-    xpath: //div[contains(@data-automation,'product')]/@data-product-id | //div[@id='ii_products']
+    xpath: //div[contains(@data-automation,'product')]/@data-product-id | //div[@id='ii_id']
     description: Unique id (within this extractor
   - name: aggregateRating2
     singleValue: false
     xpath: //div[contains(@data-automation,'rating-stars')]/@aria-label | //div[@id='ii_averageRating']
     description: The stated aggregate rating normalized to be out of 5
-    # regExp: (?:([\d]+(?:.[\d]+)?)?)
-    # regExpReplace: $1 
+    regExp: (?:([\d]+(?:.[\d]+)?)?)
+    regExpReplace: $1 
   - name: searchUrl
     xpath: ancestor::html//div[@id='search-url'][last()]
     # regExp: (^[^#]*)
