@@ -26,7 +26,11 @@ async function implementation (
 
   if (spinnerSelector) {
     // this may replace the section with a loader
+    try{
     await context.click(nextLinkSelector);
+    }catch(e){
+      console.log(`Not clicked`+e);
+    }
     await context.waitForFunction((selector) => {
       console.log(selector, document.querySelector(selector));
       return !document.querySelector(selector);

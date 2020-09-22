@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@id,"product-search-result-items")]//li
+fields:
+  - name: id
+    xpath: //div[contains(@class,"product-tile")]/@data-product-id
+  - name: productUrl
+    xpath: //div[contains(@class,"product-tile")]/a[contains(@class,"thumb-link")][1]/@href
+  - name: thumbnail
+    xpath: //div[contains(@class,"product-tile")]//a[contains(@class,"thumb-link")][1]//picture//source[1]/@data-srcset
+    regExp: (.*)(\?)
+    regExpReplace: $1
+  - name: name
+    xpath: //div[contains(@class,"product-tile")]//span[contains(@class,"product-name")]
+  - name: gtin
+    xpath: //span[@class="product-collection"]
+  - name: aggregateRating2
+    xpath: //div[contains(@class,"product-tile")]/@data-component-product-tile
+    regExp: (.+ratingNumber.:)(\d+)(.+)
+    regExpReplace: $2
+  - name: reviewCount
+    xpath: //div[contains(@class,"product-tile")]/@data-component-product-tile
+    regExp: (.+>)(\d+)( Review)(.+)
+    regExpReplace: $2
+    defaultValue: '0'
+  - name: price
+    xpath: //div[contains(@class,"product-tile")]//span[contains(@class,"product-sales-price")]
+    regExp: "[^– ]+$"
+  - name: manufacturer
+  - name: soldBy
+  - name: endorsementText
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored

@@ -7,9 +7,6 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if ((!row.listPrice || !row.listPrice.length) && row.price) {
-        row.listPrice = row.price;
-      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
@@ -29,6 +26,23 @@ const transform = (data) => {
         });
         row.manufacturerDescription = [{ text }];
       }
+
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          if (item.text.startsWith('|')) {
+            item.text = item.text.replace('|', '');
+          }
+        });
+      }
+
+      if (row.videos) {
+        row.videos.forEach(item => {
+          if (item.text.startsWith('|')) {
+            item.text = item.text.replace('|', '');
+          }
+        });
+      }
+
     }
   }
 

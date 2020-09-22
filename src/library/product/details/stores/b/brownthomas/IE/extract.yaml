@@ -8,10 +8,12 @@ fields:
   - name: imageAlt
     xpath: (//a[contains(@class,"main-image")]//img[@itemprop="image"]/@title)[1]
   - name: alternateImages
-    xpath: //div[@id="thumbnails"]//ul//li[@class="thumb carousel-item"]//a/@href
+    xpath: //div[@id="thumbnails"]//ul//li[contains(@class,"carousel-item")][not(contains(@class,"selected"))]//a//picture//img/@data-src
+    regExp: (.+)(\?)
+    regExpReplace: $1
   - name: metaKeywords
   - name: category
-    xpath: //div[contains(@class,"breadcrumb")]//div[@class="breadcrumb-element-wrapper"]//div[@itemprop="itemListElement"]//meta[@itemprop="name"]/@content
+    xpath: //div[contains(@class,"breadcrumb")]//div[@class="breadcrumb-element-wrapper"][position()>1]//div[@itemprop="itemListElement"]//meta[@itemprop="url"]/preceding-sibling::meta[@itemprop="name"]/@content
   - name: nameExtended
     xpath: //meta[@property="og:title"]/@content
   - name: listPrice
@@ -33,7 +35,7 @@ fields:
     xpath: //div[contains(.,"Specifications")]/div//tbody//tr//td
   - name: quantity
   - name: weightNet
-    xpath: //div[contains(@class,"flix-value")][contains(.,"Weight")]/following-sibling::div[contains(@class,"flix-title")]
+    xpath: //div[contains(@class,"flix-value")][contains(.,"Weight")]/following-sibling::div[contains(@class,"flix-title")] | //div[@id="specifications"]//p[contains(.,"Weight")]/following-sibling::p
   - name: weightGross
   - name: gtin
     xpath: //div[@id="flix-inpage"]/script/@src
@@ -44,9 +46,13 @@ fields:
     regExp: (.+)(ean=)(.+)(&br.+)
     regExpReplace: $3
   - name: sku
-    xpath: //div[@id="pdpMain"]/@data-master-product-id
+    xpath: //meta[@property="og:url"]/@content
+    regExp: (.+/)(.+)(\..+)
+    regExpReplace: $2
   - name: variantId
-    xpath: //div[@id="pdpMain"]/@data-master-product-id
+    xpath: //meta[@property="og:url"]/@content
+    regExp: (.+/)(.+)(\..+)
+    regExpReplace: $2
   - name: mpc
     xpath: //h1//span[@class="product-collection"]
   - name: packSize
@@ -73,15 +79,11 @@ fields:
   - name: color
   - name: colorCode
   - name: manufacturerDescription
-    xpath: normalize-space(//div[@id="inpage_container"])
+    xpath: //div[@id="inpage_container"]|//body/@enhancedcontent
   - name: manufacturerImages
-    xpath: //div[@id="inpage_container"]//img/@data-flixsrcset
-    regExp: (.+)(, )(.+)(\s.+)
-    regExpReplace: https:$3
+    xpath: //body/@images
   - name: videos
-    xpath: //li[@id="pdp-carousel-video"]//a/@style
-    regExp: (.+')(.+)(\?.+)
-    regExpReplace: $2\/mp4_720p
+    xpath: //body/@videos | //body/@videosele | //div[contains(@class,"videodiv")]//iframe/@src
   - name: name
     xpath: //h1[@itemprop="name"]//span[@class="product-name-title"]
   - name: storage
@@ -98,9 +100,4 @@ fields:
     xpath: concat(//ul[contains(@class,"color")]//li//span,' ',//select[@id="va-size"]//option[position()>1])
     description: colour / scent / flavour / other
   - name: firstVariant
-    xpath: (//div[@class="prod-feedback-txt"])[1]
-    regExp: (.+:)(.+)
-    regExpReplace: $2
   - name: variants
-    xpath: //ul[contains(@class,"color")]//li//span
-  - name: additionalDescBulletInfo

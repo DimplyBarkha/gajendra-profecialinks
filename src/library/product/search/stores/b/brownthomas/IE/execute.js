@@ -1,11 +1,12 @@
 
 module.exports = {
-  implements: 'product/details/execute',
+  implements: 'product/search/execute',
   parameterValues: {
     country: 'IE',
     store: 'brownthomas',
     domain: 'brownthomas.com',
-    loadedSelector: 'span.product-name-title',
+    url: 'https://www.brownthomas.com/search/?q={searchTerms}&lang=default',
+    loadedSelector: 'ul#product-search-result-items > li:nth-last-child(1)',
     noResultsXPath: '//p[contains(@class,"no-hits-content-results")]',
     zipcode: '',
   },
