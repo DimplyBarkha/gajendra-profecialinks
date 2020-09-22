@@ -47,19 +47,31 @@ const transform = (data) => {
             }
           });
         }
-        if (row.aggregateRating) {
-          row.aggregateRating.forEach(item => {
-            item.text = item.text.replace('.', ',');
+        // if (row.aggregateRating) {
+        //   row.aggregateRating.forEach(item => {
+        //     item.text = item.text.replace('.', ',');
+        //   });
+        // }
+        // if (row.price) {
+        //   row.price.forEach(item => {
+        //     item.text = item.text.replace(',', '').replace('.', ',');
+        //   });
+        // }
+        if (row.variantCount) {
+          row.variantCount.forEach(item => {
+            if(item.text === '0'){
+              if(row.variantInformation){
+                row.variantInformation.forEach(item1 => {
+                  item1.text = '';
+                });
+              }
+            }
           });
-        }
-        if (row.price) {
-          row.price.forEach(item => {
-            item.text = item.text.replace(',', '').replace('.', ',');
-          });
+
         }
         if (row.listPrice) {
           row.listPrice.forEach(item => {
-            item.text = item.text.replace(',', '').replace('.', ',');
+            item.text = item.text.substring(0,item.text.length-2)+"."+item.text.substring(item.text.length-2);
           });
         }
         if (row.promotion) {

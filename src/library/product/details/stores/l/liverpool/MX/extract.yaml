@@ -26,8 +26,8 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //div[@id="li_listPrice"][last()]
-  #   xpath: concat(//p[contains(@class,"a-product__paragraphRegularPrice")]/text(),'.',//p[contains(@class,"a-product__paragraphRegularPrice")]/*[not(@sup)])
+    # xpath: //div[@id="li_listPrice"][last()]
+    xpath: //p[contains(@class,"a-product__paragraphRegularPrice")]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
@@ -476,19 +476,20 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: //div[@id="li_variantInfo"]
-  - name: firstVariant
-    singleValue: false
-    description: Unique identifier for a collection of variants. For a subset of
-      core feeds (43) we have a column "first_variant" that is populated with a
-      common code to link all variants for a product. method 1 (Preferred) = use
-      common tag (Could be parent sku) that is same value for all variants of a
-      product. method 2 = first_variant method technique, Identify the first
-      varient in the sequence and use this rpc to populate "first_variant" for
-      all variants of a product, this rpc becomes the common link between other
-      variants. method 3 = apply some logic to determine link between variants,
-      this will need analysis
-    xpath: //*[@class="m-product__information--code"]/span
+    xpath: concat(//div[@id="li_color"][last()], ' | ',//div[@id="li_size"][last()])
+    # xpath: //div[@id="li_variantInfo"]
+  # - name: firstVariant
+  #   singleValue: false
+  #   description: Unique identifier for a collection of variants. For a subset of
+  #     core feeds (43) we have a column "first_variant" that is populated with a
+  #     common code to link all variants for a product. method 1 (Preferred) = use
+  #     common tag (Could be parent sku) that is same value for all variants of a
+  #     product. method 2 = first_variant method technique, Identify the first
+  #     varient in the sequence and use this rpc to populate "first_variant" for
+  #     all variants of a product, this rpc becomes the common link between other
+  #     variants. method 3 = apply some logic to determine link between variants,
+  #     this will need analysis
+  #   xpath: //*[@class="m-product__information--code"]/span
   # - name: variants
   #   singleValue: false
   #   description: null

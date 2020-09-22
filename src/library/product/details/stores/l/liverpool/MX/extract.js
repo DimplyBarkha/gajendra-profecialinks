@@ -64,7 +64,8 @@ async function implementation(
   }
   async function preparePage(index, sku, variantCount, color, price, listPrice, size) {
     await context.evaluate(async (index, sku, variantCount, color, price, listPrice, size) => {
-      console.log('index of variant', index, sku, color, price, listPrice, size);
+      console.log('index of variant', index, sku, variantCount, color, price, listPrice, size);
+      console.log('variantCount: ', variantCount);
       function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -72,8 +73,10 @@ async function implementation(
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-      if (variantCount === 0) {
-        addHiddenDiv('li_variantCount', 0);
+      if ((variantCount === 0) || (variantCount === 1)) {
+        console.log("In codition ", variantCount)
+      // if ((variantCount === 0)) {
+        addHiddenDiv('li_variantCount', '0');
       } else {
         addHiddenDiv('li_variantCount', variantCount);
       }
