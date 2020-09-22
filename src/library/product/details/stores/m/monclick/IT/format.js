@@ -51,10 +51,10 @@ const transform = (data) => {
       }
       if (!row.shippingDimensions) {
         if (row.width && row.depth && row.height && row.shippingWeight) {
-          const w = row.width[0].text.split(' ');
-          const d = row.depth[0].text.split(' ');
-          const h = row.height[0].text.split(' ');
-          const dim = w[0] + ' x ' + d[0] + ' x ' + h[0] + w[1] + '; ' + row.shippingWeight[0].text;
+          // const w = row.width[0].text.split(' ');
+          // const d = row.depth[0].text.split(' ');
+          // const h = row.height[0].text.split(' ');
+          const dim = 'Altezza (Shipping): ' + row.width[0].text + ' || ' + 'Profondità (Shipping): ' + row.depth[0].text + ' || ' + 'Ampiezza (Shipping): ' + row.height[0].text + ' || ' + 'Peso (Shipping): ' + row.shippingWeight[0].text;
           row.shippingDimensions = [{ text: dim }];
         }
       }

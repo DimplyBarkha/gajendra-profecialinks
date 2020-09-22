@@ -64,7 +64,9 @@ fields:
     defaultValue: '0'
   - name: variantId
     singleValue: false
-    xpath: //aside[contains(@class,'mk-product-page')]//a[@data-action='add-to-cart']/@data-product-code
+    xpath: //script[@type="text/javascript"][contains(text(),"product_sku")]
+    regExp: product_sku":\[\"(.*?)"\]
+    regExpReplace: $1
   - name: warranty
     singleValue: false
     xpath: //div[@id='techspecs' and @role]//strong[contains(text(),'Garanzia')]/following::p[1]
