@@ -63,10 +63,14 @@ const transform = (data) => {
                 }
                 if (row.quantity) {
                     let quantityArr = row.quantity[0].text.split('/');
-                   
+
                     if (quantityArr[1]) {
                         row.quantity[0].text = quantityArr[1].replace(')', '').trim();
                     }
+                }
+                if (row.aggregateRating) {
+
+                    row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
                 }
             } catch (exception) { console.log('Error in transform', exception); }
         }
