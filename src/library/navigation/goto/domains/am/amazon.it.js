@@ -2,13 +2,13 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'amazon.com.tr',
-    timeout: 50000,
-    country: 'TR',
+    domain: 'amazon.it',
+    timeout: null,
+    country: 'IT',
     store: 'amazon',
-    zipcode: '',
+    zipcode: '20019',
   },
-  implementation: async ({ url }, parameterValues, context, dependencies) => {
+  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -87,7 +87,6 @@ module.exports = {
         }
         console.log('Go to some random page');
         const clickedOK = await context.evaluate(async function () {
-        // Changed xpath to check for any link.
           const randomLinkEls = document.evaluate('//a[@href]', document, null, XPathResult.ANY_TYPE, null);
           const randomLinkEl = randomLinkEls.iterateNext();
           if (randomLinkEl) {
@@ -106,7 +105,7 @@ module.exports = {
         }
         console.log('Going back to desired page');
         lastResponseData = await context.goto(url, {
-          timeout: 50000,
+          timeout: 10000,
           waitUntil: 'load',
           checkBlocked: false,
           js_enabled: true,
@@ -114,9 +113,6 @@ module.exports = {
           random_move_mouse: true,
         });
         console.log('lastResponseData', lastResponseData);
-        if (!lastResponseData) {
-          return { status: false };
-        }
         await new Promise(resolve => setTimeout(resolve, 1000));
         if (await solveCaptchaIfNecessary() === 'false') {
           return { status: false };
@@ -127,17 +123,13 @@ module.exports = {
     const run = async () => {
       // do we perhaps want to go to the homepage for amazon first?
       lastResponseData = await context.goto(url, {
-        timeout: 50000,
+        timeout: 10000,
         waitUntil: 'load',
         checkBlocked: false,
         js_enabled: true,
         css_enabled: false,
         random_move_mouse: true,
       });
-      // Treating as 200 if no response.
-      if (!lastResponseData.status) {
-        return;
-      }
       await new Promise(resolve => setTimeout(resolve, 1000));
       if ([200, 503, 410, 404].indexOf(lastResponseData.status) === -1) {
         console.log('Blocked: ' + lastResponseData.status);
@@ -183,5 +175,8 @@ module.exports = {
       }
     };
     await run();
+    if (zipcode) {
+      await dependencies.setZipCode({ url: url, zipcode: zipcode });
+    }
   },
 };

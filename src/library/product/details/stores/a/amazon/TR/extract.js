@@ -1,4 +1,4 @@
-const { transform } = require('../../../../sharedAmazon/transformNew');
+const { transform } = require('./format');
 /**
  *
  * @param { { url?: string,  id?: string} } inputs
@@ -7,6 +7,7 @@ const { transform } = require('../../../../sharedAmazon/transformNew');
  * @param { Record<string, any> } dependencies
  */
 async function implementation (
+  // @ts-ignore
   inputs,
   parameters,
   context,
@@ -19,14 +20,9 @@ async function implementation (
   const amazonHelp = new AmazonHelp(context, helpers);
 
   async function getLbb () {
-    const elem = await helpers.checkXpathSelector("//div[contains(@id, 'glow-toaster-body') and //*[contains(text(), 'Amazon Fresh')]]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']");
-    if (elem) {
-      await helpers.checkAndClick('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a', 'css', 20000);
-      // await helpers.checkURLFor('offer');
-
-      const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
+    try {
+      const otherSellersDiv = 'div#mbc';
       await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
-
       return await context.evaluate(function () {
         function addHiddenDiv (id, content) {
           const newDiv = document.createElement('div');
@@ -36,30 +32,33 @@ async function implementation (
           document.body.appendChild(newDiv);
         }
 
-        const firstCheck = document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div');
-        const otherSellers = document.querySelectorAll('div#aod-offer');
-        const price = document.querySelector('span#price_inside_buybox');
+        // @ts-ignore
+        const firstCheck = document.querySelector('#buyboxTabularTruncate-1 > span.a-truncate-cut') ? document.querySelector('#buyboxTabularTruncate-1 > span.a-truncate-cut').innerText : '';
+        const otherSellers = document.querySelectorAll('div.a-box.mbc-offer-row.pa_mbc_on_amazon_offer');
+        // @ts-ignore
+        const price = document.querySelector('span#price_inside_buybox') ? (document.querySelector('span#price_inside_buybox').innerText).replace(/₺(.*)/, '$1') : '';
         if (firstCheck && price) {
-          // @ts-ignore
-          const priceText = parseFloat((price.innerText).slice(1));
-          // @ts-ignore
-          if (firstCheck.innerText !== 'Ships from and sold by Amazon.com.' && otherSellers) {
+        // @ts-ignore
+          if (firstCheck.innerText !== 'Amazon.com.tr' && otherSellers) {
             otherSellers.forEach((seller) => {
+            // @ts-ignore
+              const sellerPrice = seller.querySelector('span.a-color-price') ? seller.querySelector('span.a-color-price').innerText : '';
+              const priceNum = sellerPrice.replace(/₺(.*)/, '$1');
+              const shipsFrom = seller.querySelector('span.mbcMerchantName');
+              const soldBy = seller.querySelector('span.mbcMerchantName');
               // @ts-ignore
-              const sellerPrice = seller.querySelector('span.a-offscreen') ? seller.querySelector('span.a-offscreen').innerText : '';
-              const priceNum = parseFloat(sellerPrice.slice(1));
-              const shipsFrom = seller.querySelector('div#aod-offer-shipsFrom div.a-column.a-span9.a-span-last');
-              const soldBy = seller.querySelector('div#aod-offer-soldBy div.a-column.a-span9.a-span-last');
-              // @ts-ignore
-              if (shipsFrom && shipsFrom.innerText === 'Amazon.com' && soldBy && soldBy.innerText === 'Amazon.com' && priceNum > priceText) {
+              if (shipsFrom && shipsFrom.innerText === 'Amazon.com.tr' && soldBy && soldBy.innerText === 'Amazon.com.tr' && priceNum > price) {
                 addHiddenDiv('ii_lbb', 'YES');
-                addHiddenDiv('ii_lbbPrice', `${priceNum}`);
+                addHiddenDiv('ii_lbbPrice', `₺${priceNum}`);
               }
             });
           }
         }
       });
+    } catch (error) {
+      console.log('no other sellers');
     }
+    // }
   }
 
   await amazonHelp.setLocale('10001');
