@@ -89,16 +89,18 @@ const transform = (data) => {
 			// 	});
 			// 	row.aggregateRating = [{ text: newText }];
 			// }
-			if (row.aggregateRating) {
+			if (row.aggregateRating2) {
+				//console.log('jjjjjjj', row.aggregateRating[0].text)
 				let newText = 0;
-				row.aggregateRating.forEach((item, index) => {
-					let data = item.raw.split("/");
+				row.aggregateRating2.forEach((item, index) => {
+					console.log('jjjjjjj', item);
+					let data = item.text.split("/");
 					newText = Number(data[0])
 					if (Number(data[1]) === 1) {
 						newText = newText + 0.5;
 					}
-					row.aggregateRating[index].text = newText;
-					row.aggregateRating[index].value = newText
+					row.aggregateRating2[index].text = newText.toString().replace('.', ',');
+
 				});
 			}
 			if (row.weightNet) {
