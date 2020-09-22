@@ -80,12 +80,12 @@ fields:
     singleValue: false
     description: The manufacturer model code (unique) of the product
     xpath: //meta[contains(@itemprop, 'mpn')]/@content
-  # - name: ratingCount
-  #   singleValue: false
-  #   description: The number of ratings
-  #   xpath: //span[contains(@class, 'newStar')]/following-sibling::*
-  #   regExp: \((.*?)\)
-  #   regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //span[contains(@class, 'newStar')]/following-sibling::*
+    regExp: \((.*?)\)
+    regExpReplace: $1
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
@@ -94,7 +94,7 @@ fields:
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     xpath: //span[contains(@class, 'newStar')]/following-sibling::*
-    regExp: \d+.\d+
+    regExp: (.*?) \(
     regExpReplace: $1
   - name: shippingInfo
     singleValue: false

@@ -39,6 +39,11 @@ const transform = (data) => {
           manufacturer.text = manufacturer.text.replace(": '", '');
         });
       }
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(aggregateRating => {
+          aggregateRating.text = aggregateRating.text.replace('.', ',');
+        });
+      }
       if (row.shippingInfo) {
         row.shippingInfo.forEach(shippingInfo => {
           shippingInfo.text = cleanUp(shippingInfo.text);
