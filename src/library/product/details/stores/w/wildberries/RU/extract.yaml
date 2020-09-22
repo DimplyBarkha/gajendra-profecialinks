@@ -14,7 +14,7 @@ fields:
     xpath: //div[contains(@class,'card-row')]//a[@id="comments_reviews_link"]/@href
   - name: category
     singleValue: false
-    xpath: //ul[contains(@class,'bread-crumbs')]//li
+    xpath: (//ul[contains(@class,'bread-crumbs')]//li)[position()>1]
   - name: nameExtended
     singleValue: false
     xpath: //div[contains(@class,"card-row")]//div[contains(@class,'product-title')]
@@ -31,9 +31,6 @@ fields:
     singleValue: false
     xpath: //link[@itemprop="availability"]/@href
   - name: description
-    singleValue: false
-    xpath: //meta[@itemprop="description"]/@content
-  - name: descriptionBullets
     singleValue: false
     xpath: //meta[@itemprop="description"]/@content
   - name: brandText
@@ -66,6 +63,9 @@ fields:
   - name: shippingDimensions
     singleValue: false
     xpath: (//div[contains(@class,"params")])[position()>1]//div[@class!="category-name"]
+  - name: shippingWeight
+    singleValue: false
+    xpath: (//div[contains(@class,"params")])[position()>1]//div[@class!="category-name"]
   - name: color
     singleValue: false
     xpath: //div[contains(@class,'card-right')]//span[contains(@class,'color')]
@@ -78,12 +78,6 @@ fields:
   - name: countryOfOrigin
     singleValue: false
     xpath: (//div[contains(@class,"params")])[position()>1]//div[@class!="category-name"]
-  - name: manufacturer
-    singleValue: false
-    xpath: (//div[contains(@class,"params")])[position()>1]//div[@class!="category-name"]
-  - name: promotion
-    singleValue: false
-    xpath: //div[@id="certificate-tooltip"]
   - name: variants
     singleValue: false
     xpath: (//div[@class="card-right"]//div[contains(@class,"colors-preview")]//ul//li)[position()>1]/@data-cod1s
@@ -95,7 +89,9 @@ fields:
     xpath: //div[contains(@class,"color-name")]
     regExp: (Цвет.*?):(\s*)(\S.*)
     regExpReplace: $3
-
+  - name: mpc
+    singleValue: false
+    xpath: (//div[contains(@class,"params")])[position()>1]//div[@class!="category-name"]
 
     
   

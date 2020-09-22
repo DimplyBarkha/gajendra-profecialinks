@@ -88,27 +88,27 @@ const transform = (data) => {
             row.description.forEach(item => {
                 if(item.text.length > 0 && item.text.split('\n').length > 0){
                     item.text.split('\n').forEach(eachDesc =>{
-                        text += `${eachDesc} || `;
+                        text += `${eachDesc}`;
                     })
                 }
             })
             row.description = [
               {
-                text: text.trim().slice(0,-3)
+                text: text.trim()
               },
             ];
           }
-          if (row.descriptionBullets) {
-            let text = 0;
-            row.descriptionBullets.forEach(item => {
-                text = item.text.length > 0 ? item.text.split('\n').length : 0;
-            })
-            row.descriptionBullets = [
-              {
-                text: text
-              },
-            ];
-          }
+          // if (row.descriptionBullets) {
+          //   let text = 0;
+          //   row.descriptionBullets.forEach(item => {
+          //       text = item.text.length > 0 ? item.text.split('\n').length : 0;
+          //   })
+          //   row.descriptionBullets = [
+          //     {
+          //       text: text
+          //     },
+          //   ];
+          // }
           if (row.weightNet) {
             let text = '';
             row.weightNet.forEach(item => {
@@ -168,12 +168,29 @@ const transform = (data) => {
                 if(item.text.length > 0 && item.text.split('\n').length > 0){
                     item.text.split('\n').forEach(eachDesc =>{
                         let searchresult = eachDesc.toLowerCase();
-                        if(searchresult.indexOf('высота') >=0 || searchresult.indexOf('глубина') >=0 || searchresult.indexOf('ширина') >=0)
+                        if(searchresult.indexOf('ширина упаковки') >=0 || searchresult.indexOf('высота упаковки') >=0 || searchresult.indexOf('глубина упаковки') >=0)
                             text += `${eachDesc} ; `   
                     })
                 }
             })
             row.shippingDimensions = [
+              {
+                text: text.trim().slice(0,-2)
+              },
+            ];
+          }
+          if (row.shippingWeight) {
+            let text = '';
+            row.shippingWeight.forEach(item => {
+                if(item.text.length > 0 && item.text.split('\n').length > 0){
+                    item.text.split('\n').forEach(eachDesc =>{
+                        let searchresult = eachDesc.toLowerCase();
+                        if(searchresult.indexOf('вес с упаковкой') >=0)
+                            text += `${eachDesc} ; `   
+                    })
+                }
+            })
+            row.shippingWeight = [
               {
                 text: text.trim().slice(0,-2)
               },
@@ -216,8 +233,8 @@ const transform = (data) => {
             row.countryOfOrigin.forEach(item => {
                 if(item.text.length > 0 && item.text.split('\n').length > 0){
                     item.text.split('\n').forEach(eachDesc =>{
-                        if(eachDesc.toLowerCase().indexOf('страна бренда') >=0)
-                            text += `${eachDesc.replace('Страна бренда','').replace('\n','')}`
+                        if(eachDesc.toLowerCase().indexOf('страна производитель') >=0)
+                            text += `${eachDesc.replace('Страна производитель','').replace('\n','')}`
                     })
                 }
             })
@@ -227,22 +244,22 @@ const transform = (data) => {
               },
             ];
           }
-          if (row.manufacturer) {
-            let text = '';
-            row.manufacturer.forEach(item => {
-                if(item.text.length > 0 && item.text.split('\n').length > 0){
-                    item.text.split('\n').forEach(eachDesc =>{
-                        if(eachDesc.toLowerCase().indexOf('страна производитель') >=0)
-                            text += `${eachDesc.replace('Страна производитель','').replace('\n','')}`
-                    })
-                }
-            })
-            row.manufacturer = [
-              {
-                text: text.trim()
-              },
-            ];
-          }
+          // if (row.manufacturer) {
+          //   let text = '';
+          //   row.manufacturer.forEach(item => {
+          //       if(item.text.length > 0 && item.text.split('\n').length > 0){
+          //           item.text.split('\n').forEach(eachDesc =>{
+          //               if(eachDesc.toLowerCase().indexOf('страна производитель') >=0)
+          //                   text += `${eachDesc.replace('Страна производитель','').replace('\n','')}`
+          //           })
+          //       }
+          //   })
+          //   row.manufacturer = [
+          //     {
+          //       text: text.trim()
+          //     },
+          //   ];
+          // }
           if (row.sku) {
             let text = '';
             row.sku.forEach(item => {
@@ -265,19 +282,19 @@ const transform = (data) => {
               },
             ];
           }
-          if (row.promotion) {
-            let text = '';
-            row.promotion.forEach(item => {
-                if(item.text.length > 0){
-                    text += `${item.text.replace(/\n/g,'')}`;
-                }
-            })
-            row.promotion = [
-              {
-                text: text.trim()
-              },
-            ];
-          }
+          // if (row.promotion) {
+          //   let text = '';
+          //   row.promotion.forEach(item => {
+          //       if(item.text.length > 0){
+          //           text += `${item.text.replace(/\n/g,'')}`;
+          //       }
+          //   })
+          //   row.promotion = [
+          //     {
+          //       text: text.trim()
+          //     },
+          //   ];
+          // }
           if (row.variants) {
             let text = '';
             row.variants.forEach(item => {
@@ -295,7 +312,7 @@ const transform = (data) => {
             let text = '';
             row.listPrice.forEach(item => {
                 if(item.text.length > 0){
-                    text += `${item.text.replace(/ /, ',')}`;
+                    text += `${item.text.replace(/ /, '')}`;
                 }
             })
             row.listPrice = [
@@ -308,12 +325,28 @@ const transform = (data) => {
             let text = '';
             row.price.forEach(item => {
                 if(item.text.length > 0){
-                    text += `${item.text.replace(/ /, ',')}`;
+                    text += `${item.text.replace(/ /, '')}`;
                 }
             })
             row.price = [
               {
                 text: text
+              },
+            ];
+          }
+          if (row.mpc) {
+            let text = '';
+            row.mpc.forEach(item => {
+                if(item.text.length > 0 && item.text.split('\n').length > 0){
+                    item.text.split('\n').forEach(eachDesc =>{
+                        if(eachDesc.toLowerCase().indexOf('модель') >=0)
+                            text += `${eachDesc.replace('Модель','').replace('\n','')}`
+                    })
+                }
+            })
+            row.mpc = [
+              {
+                text: text.trim()
               },
             ];
           }
