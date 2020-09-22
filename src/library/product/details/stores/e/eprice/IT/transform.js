@@ -66,15 +66,19 @@ const transform = (data) => {
         ];
       }
       if (row.variants) {
-        let text = '';
-        row.variants.forEach(item => {
-          text += `${item.text.replace('/', '')} | `;
-        });
-        row.variants = [
-          {
-            text: cleanUp(text.slice(0, -3)),
-          },
-        ];
+        if (row.variants.length == 1) {
+          row.variants.shift();
+        } else {
+          let text = '';
+          row.variants.forEach(item => {
+            text += `${item.text.replace('/', '')} | `;
+          });
+          row.variants = [
+            {
+              text: cleanUp(text.slice(0, -3)),
+            },
+          ];
+        }
       }
       if (row.variantUrl) {
         row.variantUrl.forEach(variantUrl => {

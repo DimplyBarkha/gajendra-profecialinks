@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class, 'contThumb')]/a[contains(@class,'Selector')]/img/@src
+    xpath: //div[contains(@class, 'contThumb')]/a[contains(@class,'Selector')][1]/following-sibling::*/img/@src
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -80,10 +80,12 @@ fields:
     singleValue: false
     description: The manufacturer model code (unique) of the product
     xpath: //meta[contains(@itemprop, 'mpn')]/@content
-  - name: ratingCount
-    singleValue: false
-    description: The number of ratings
-    xpath: //meta[contains(@itemprop, 'reviewCount')]/@content
+  # - name: ratingCount
+  #   singleValue: false
+  #   description: The number of ratings
+  #   xpath: //span[contains(@class, 'newStar')]/following-sibling::*
+  #   regExp: \((.*?)\)
+  #   regExpReplace: $1
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
@@ -91,11 +93,16 @@ fields:
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //button[contains(@itemprop, 'ratingValue')]
+    xpath: //span[contains(@class, 'newStar')]/following-sibling::*
+    regExp: \d+.\d+
+    regExpReplace: $1
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
     xpath: //p[contains(@class, 'infoSeller mktPlace')]
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //span[contains(text(), 'Dimensione Scatola')]/following-sibling::*
   - name: variantCount
     singleValue: false
     description: Number of variants listed
