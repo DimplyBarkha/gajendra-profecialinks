@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="product-item"]
+fields: 
+- name: rank
+  description: search/listing rank
+  type: NUMBER
+- name: rankOrganic
+  description: The position (rank) within the list excluding sponsored/paid results
+  type: NUMBER
+- name: id
+  description: Unique id (within this extractor)
+  xpath: ./@data-product-id
+- name: productUrl
+  description: The URL for the product details page
+  xpath: ./@data-product-url
+  regExp: (.+)
+  regExpReplace: https://www.teknosa.com$1
+- name: thumbnail
+  description: The URL for the product thumbnail image
+  xpath: //div[@class="product-image-item"]//img/@src
+  regExp: productimage(.+)$
+  regExpReplace: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/1200/1200/productimage$1
+- name: name
+  description: The product name
+  xpath: ./@data-product-name
+- name: gtin
+  xpath: ./@ean
+  description: GTIN code (includes UPC/EAN)
+- name: ratingCount
+  description: The number of ratings
+  regExp: (.\d+)
+- name: reviewCount
+  description: The number of reviews
+- name: price
+  description: The offered price for the product
+  xpath: //span[@class="price-tag new-price font-size-tertiary"]
+- name: manufacturer
+  description: Product manufacturer
+  xpath: //div[@class="product-brand"]/@alt 
