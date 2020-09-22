@@ -89,8 +89,7 @@ const transform = (data) => {
 			// 	});
 			// 	row.aggregateRating = [{ text: newText }];
 			// }
-			if (row.aggregateRating) {
-				//console.log('jjjjjjj', row.aggregateRating[0].text)
+/* 			if (row.aggregateRating) {
 				let newText = 0;
 				row.aggregateRating.forEach((item, index) => {
 					let data = item.text.split("/");
@@ -101,7 +100,7 @@ const transform = (data) => {
 					row.aggregateRating[index].text = newText.toString().replace('.', ',');
 
 				});
-			}
+			} */
 			if (row.weightNet) {
 				let newText = '';
 				row.weightNet.forEach(item => {
