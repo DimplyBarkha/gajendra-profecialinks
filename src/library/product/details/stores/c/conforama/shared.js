@@ -26,11 +26,15 @@ const transform = (data, context) => {
             }
           });
         }
-        // if (row.aggregateRating) {
-        //   row.aggregateRating.forEach(item => {
-        //     item.text = item.text.replace('.',',');
-        //   });
-        // }
+        if (row.availabilityText) {
+          row.availabilityText.forEach(item => {
+            if((item.text.includes('Ajouter au panier')) || (item.text.includes('Ajouter au panier'))){
+            item.text = 'In Stock';
+            }else{
+              item.text = 'Out of Stock';
+            }
+          });
+        }
       }
     }
     return data;

@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //ul[contains(@class,"sliderThumb")]/li[@class="pager"]/a/img/@src
+    xpath: //ul[contains(@class,"sliderThumb")]/li[position() > 1]//img/@src | //ul[contains(@class,"sliderThumb")]/li[@class="pager"]/a/img/@src
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -42,10 +42,10 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath:  //button[contains(@class, "btnGreen")]/span[text()="Ajouter au panier"]
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //button[contains(@class, "btnGreen")]/span[text()="Ajouter au panier"] | //button[contains(@onclick,"eventAddToCart()")]
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -95,8 +95,7 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    type: NUMBER
-    defaultValue: 1
+    defaultValue: '0'
   - name: color
     singleValue: false
     description: A textual description of the colour
