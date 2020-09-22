@@ -18,6 +18,13 @@ const transform = (data) => {
           item.text=skuArr1[0];
         });
       }
+      if(row.variantId){
+        row.variantId.forEach(item => {
+          var arr=item.text.split("/item/");
+          var arr1=arr[1].split(".");
+          item.text=arr1[0];
+        });
+      }      
       if(row.ratingCount){
         row.ratingCount.forEach(item => {
           var ratingCountArr=item.text.split(" ");
