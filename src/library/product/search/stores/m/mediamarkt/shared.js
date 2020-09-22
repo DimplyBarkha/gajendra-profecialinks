@@ -55,6 +55,7 @@ const transform = (data, context) => {
           const ean = Object.keys(jsonData).length ? (jsonData.ean ? jsonData.ean : '') : '';
           row.gtin = [{ text: ean }];
         }
+        row.gtin[0].text = row.gtin[0].text.split(":")[1].replace(/['"]+/g, '');
       }
 
       if (row.id && row.id[0]) {
@@ -64,6 +65,16 @@ const transform = (data, context) => {
           item.text = item.text.length ? (item.text.match(/[^-]+$/gm) ? item.text.match(/[^-]+$/gm)[0] : '') : '';
           row.id = [{ text: item.text }];
         }
+      }
+
+      if(row.brandText && row.brandText[0].text.indexOf(":") !== -1) {
+        row.brandText[0].text = row.brandText[0].text.split(":")[1].replace(/['"]+/g, '');
+      } else {
+        row.brandText = [{ text: row.name[0].text.split(' ')[0] }];
+      }
+
+      if(row.manufacturer && row.manufacturer[0].text.indexOf(":") !== -1) {
+        row.manufacturer[0].text = row.manufacturer[0].text.split(":")[1].replace(/['"]+/g, '');
       }
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
