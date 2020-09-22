@@ -66,16 +66,18 @@ const transform = (data) => {
 				row.firstVariant = [{ text: newText }];
 			}
 			if (row.aggregateRating2) {
-				let newText = 0;
-				row.aggregateRating.forEach(item => {
-					var received_per = item.raw.replace("width: ", "")
-					var received_per = received_per.replace("%", "");
+				var newText;
+				row.aggregateRating2.forEach(item => {
+					console.log('Girish = '+item.text);
+					var received_per = item.text.replace("width: ", "")
+					received_per = received_per.replace("%", "");
+					console.log('Girish = '+received_per);
 					if(received_per >= 1){
 						var aggregate_rating = ( received_per * 5 )/100;
-						newText = aggregate_rating;
+						newText = aggregate_rating.toString().replace('.',',');
 					}
 				});
-				row.aggregateRating = [{ text: newText }];
+				row.aggregateRating2 = [{ text: newText }];
 			}
 			// if (row.additionalDescBulletInfo) {  
 			// 	let newText = '';
