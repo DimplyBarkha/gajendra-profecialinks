@@ -24,9 +24,28 @@ const transform = (data) => {
           item.text=ratingCountArr[0];
         });
       }
-      if(row.nameExtended){
-        
+      if (row.nameExtended) {
+        row.nameExtended.forEach(item => {
+          var brandText = '';
+          row.brandText.forEach(item => {
+            brandText = item.text;
+          });
+          item.text = brandText + ' - ' + item.text;
+        });
       }
+      if(row.coupon){
+        row.coupon.forEach(item=>{
+          item.text = item.text.replace(' Купон нового пользователя','');
+        });
+      }
+      if(row.variantId){
+        row.variantId.forEach(item => {
+          var skuArr=item.text.split("/item/");
+          var skuArr1=skuArr[1].split(".");
+          item.text=skuArr1[0];
+        });
+      }
+      row.variantCount = [{ "text": 0 }];
     }
   }
   return data;

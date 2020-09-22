@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="product-main"]
+recordXPath: null
 fields:
   - name: image
     singleValue: false
@@ -38,7 +38,7 @@ fields:
     xpath: //div[@class="product-price-del"]/span[@class="product-price-value"]
   - name: variantId
     singleValue: false
-    xpath: //div[@class="product-info"]/meta[@itemprop="brand"]/@content
+    xpath: //div[@class="product-info"]/meta[@itemprop="url"]/@content
   - name: variantCount
     singleValue: false
     defultValue: 0
@@ -49,7 +49,7 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="next-message-content"]
-    defultValue: In Stock
+    defaultValue: 'In Stock'
   - name: shippingInfo
     singleValue: false
     xpath: //div[@class="sku-property"][2]//span[@class="sku-title-value"]
