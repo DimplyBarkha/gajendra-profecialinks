@@ -65,9 +65,9 @@ const transform = (data) => {
 				});
 				row.firstVariant = [{ text: newText }];
 			}
-			if (row.aggregateRating2) {
+			if (row.aggregateRating) {
 				var newText;
-				row.aggregateRating2.forEach(item => {
+				row.aggregateRating.forEach(item => {
 					console.log('Girish = '+item.text);
 					var received_per = item.text.replace("width: ", "")
 					received_per = received_per.replace("%", "");
@@ -77,7 +77,7 @@ const transform = (data) => {
 						newText = aggregate_rating.toString().replace('.',',');
 					}
 				});
-				row.aggregateRating2 = [{ text: newText }];
+				row.aggregateRating = [{ text: newText }];
 			}
 			// if (row.additionalDescBulletInfo) {  
 			// 	let newText = '';
