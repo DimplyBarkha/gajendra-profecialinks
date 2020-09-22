@@ -173,7 +173,7 @@ module.exports = {
       }
       const aggRating = document.querySelector('div.product-intro-details button[itemprop="ratingValue"]')
         ? document.querySelector('div.product-intro-details button[itemprop="ratingValue"]').innerText : '';
-      if (aggRating) addElementToDocument('aggRating', aggRating);
+      if (aggRating) addElementToDocument('aggRating', aggRating.replace(/\./g, ','));
     });
     await context.extract(productDetails);
   },
