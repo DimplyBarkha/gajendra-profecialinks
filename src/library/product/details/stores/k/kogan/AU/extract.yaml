@@ -125,7 +125,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //p//video/source/@src
+    xpath: //iframe[contains(@src,"youtube")]/@src
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
