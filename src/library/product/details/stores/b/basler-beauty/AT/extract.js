@@ -18,15 +18,12 @@ module.exports = {
 
       const ratingElem = document.createElement('div');
       ratingElem.id = 'ratingInfo';
-      let rating = JSON.parse(document.querySelectorAll('script[type="application/ld+json"]')[1].textContent.replace(/\s/g, '')).aggregateRating.ratingValue;
-      let ratingValue = 0;
-      if (rating > 0) {
-        ratingValue = rating;
-      } else {
-        ratingValue = JSON.parse(document.querySelectorAll('script[type="application/ld+json"]')[1].textContent.replace(/\s/g, '')).review.reduce((acc, { reviewRating: { ratingValue } = {} }, i, arr) => acc + ratingValue / arr.length, 0).toFixed(1)
-      }
+      
+      let ratingValue = JSON.parse(document.querySelectorAll('script[type="application/ld+json"]')[1].textContent.replace(/\s/g, '')).review.reduce((acc, { reviewRating: { ratingValue } = {} }, i, arr) => acc + ratingValue / arr.length, 0).toFixed(1)
+      
       ratingElem.innerText = ratingValue.toString().replace('.', ',')
       document.body.appendChild(ratingElem);
+
     });
 
 
