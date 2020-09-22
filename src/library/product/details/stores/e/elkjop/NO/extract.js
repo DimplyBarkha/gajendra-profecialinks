@@ -39,6 +39,10 @@ module.exports = {
         const formattedWeight = weight.stringValue.replace(/\n|Vekt|\(|\)\s/g, '');
         addElementToDocument('weight', formattedWeight);
       }
+      const warranty = document.evaluate("//*[contains(text(), 'garanti')]", document, null, XPathResult.STRING_TYPE, null);
+      if (warranty && warranty.stringValue) {
+        addElementToDocument('warranty', warranty);
+      }
     });
     await context.evaluate(async function getDataFromAPI (id) {
       function addHiddenDiv (vidurl, content) {

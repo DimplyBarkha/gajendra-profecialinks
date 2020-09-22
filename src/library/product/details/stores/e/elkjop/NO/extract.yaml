@@ -35,12 +35,14 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: concat(//meta[@itemprop='price']/@content,' ',//meta[@itemprop='priceCurrency']/@content)
+    #xpath: concat(//meta[@itemprop='price']/@content,' ',//meta[@itemprop='priceCurrency']/@content)
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: concat(//meta[@itemprop='price']/@content,' ',//meta[@itemprop='priceCurrency']/@content)
+    xpath: //div[contains(@class,'product-price')]/span
+    regExp: (\d*)(* )(\d*)
+    regExpReplace: $1$3
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -54,7 +56,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: (//*[contains(@class, "short-description")] | //*[contains(@class, "row misc-info")]/ul[position()<2]/li)
+    xpath: (//*[contains(@class, "short-description")] | //*[contains(@class, "row misc-info")]/ul[@class="specs"]/li)
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -69,7 +71,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    defaultValue: "Dyson"
+    #defaultValue: "Dyson"
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -94,6 +96,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: /html/head/script/@data-eky-mpn
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -145,9 +148,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[contains(@class,"article-text article-free-html")]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[contains(@class,"article-text article-free-html")]/img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -412,6 +417,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //*[@id='warranty']
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -474,14 +480,15 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: //div[contains(@class,"variation")][@class='variation active']/div/a
+    xpath: //div[contains(@class,"variation active")]/div/a
   - name: variants
     singleValue: false
     description: null
-    xpath: //div[contains(@class,"table-cell variations")]/div[@class="variation"]/div/a
+    xpath: //div[contains(@class,"variation")]/div/a
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //*[contains(@class, "row misc-info")]/ul[@class="specs"]/li
   - name: prop65Warning
     singleValue: true
     description: null

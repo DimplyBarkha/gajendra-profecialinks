@@ -2,7 +2,7 @@ input:
   _url: http://elkjop.no
   URL: https://www.elkjop.no/product/hjem-og-husholdning/stovsuger-og-rengjoring/53306/dyson-v8-animal-tradlos-stovsuger-dy24836701
 extractions:
-  - html: https://workbench.import.io/html/run=928ad660-2daf-4deb-a3b5-148fcaaf9133/task=3f21b535-7f73-4d50-acc6-9223007d27c9/1aa94cdd-1a85-41ba-98d5-f148d454d6fe.html
+  - html: https://workbench.import.io/html/run=0074594a-037d-4c32-bd19-92430c8e60f0/task=9e8028f0-250b-4cbb-8966-5c4a5224354a/fa1672b5-fe3c-42f5-80f7-c5d10420eb2f.html
     extractionConfigId: product/details/stores/e/elkjop/NO/extract
     data:
       - group:
@@ -36,9 +36,9 @@ extractions:
                 xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[3]/a[1]/@title
               - text: Dyson V8 Animal+ trådløs støvsuger DY24836701
                 xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[4]/a[1]/@title
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[4]/div[1]/div[1]/div[2]/span[1]/span[1]
+            price:
+              - text: 3 487
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[3]/div[1]/div[1]/div[1]/span[1]
             description:
               - text: Dyson V8 Animal+ 2-i-1 trådløs støvsuger DY24836701 byr på syklonisk
                   teknologi, to effektnivåer, samt godt med tilbehørsutstyr. I
@@ -61,19 +61,64 @@ extractions:
               - text: "53306"
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[3]/@content
             ratingCount:
-              - text: "84"
+              - text: "87"
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[1]/meta[1]/@content
                 type: NUMBER
-                raw: "84"
+                raw: "87"
                 locale: nb_NO
-                value: 84
+                value: 87
             aggregateRating:
-              - text: "4.45"
+              - text: "4.44"
                 xpath: /html/body/div[6]
                 type: NUMBER
-                raw: "4.45"
+                raw: "4.44"
                 locale: nb_NO
-                value: 4.45
+                value: 4.44
+            manufacturerDescription:
+              - text: >-
+                  Effektnivåer
+                   
+                  Støvsugeren lar deg velge mellom to effektnivåer. Gå for MAX-modus for kort og effektiv støvsuging, eller velg "Powerful"-modusen for lengre støvsugingsøkter.
+                xpath: /html/body/div[2]/main[1]/div[1]/div[1]/section[1]/div[1]/section[1]/div[2]/div[2]
+              - text: >-
+                  Brukstid
+                   
+                  Denne ledningsfrie støvsugerens batteritid varierer basert på det valgte effektnivået. I MAX-modus får du opptil 7 minutter med kraftig støvsuging. I "Powerful"-modus får du mellom 25 til 45 minutter brukstid, avhengig av hvilket munnstykke du bruker.
+                xpath: /html/body/div[2]/main[1]/div[1]/div[1]/section[1]/div[1]/section[1]/div[3]/div[2]
+              - text: >-
+                  Dokkingstasjon
+                   
+                  Plasser støvsugeren i den praktiske dokkingstasjonen og se hvor plasseffektiv løsningen er. Dokkingstasjonen vil også lade støvsugeren din, slik at den alltid er klar til dyst.
+                xpath: /html/body/div[2]/main[1]/div[1]/div[1]/section[1]/div[1]/section[1]/div[4]/div[2]
+              - text: >-
+                  Enkel tømming av støvbeholderen
+                   
+                  Støvbeholderen løsnes enkelt ved å løfte det røde håndtaket. Slik slipper du å komme i kontakt med støvet, da det kan slippes ut direkte i søppelbøtten din.
+                xpath: /html/body/div[2]/main[1]/div[1]/div[1]/section[1]/div[1]/section[1]/div[5]/div[2]
+              - text: >-
+                  2-i-1
+                   
+                  Støvsugeren lar deg rengjøre både gulv og tak takket være dens ergonomiske og lette design. Du kan også koble fra støvsugerrøret og munnstykke og få en ministøvsuger velegnet til støvsuging av mindre områder, møbler eller bilinteriør.
+                xpath: /html/body/div[2]/main[1]/div[1]/div[1]/section[1]/div[1]/section[1]/div[6]/div[2]
+              - text: Kontakt Oss
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[1]/div[1]
+              - text: Ofte stilte spørsmål
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[2]/div[1]
+              - text: Åpent kjøp
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[3]/div[1]
+              - text: Kundeklubb
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[4]/div[1]
+            manufacturerImages:
+              - text: /content/cnm/166187/dyson-enriched-03-01.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[1]/section[1]/div[1]/section[1]/div[2]/div[1]/img[1]/@src
+              - text: /content/cnm/166187/dyson-enriched-03-02.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[1]/section[1]/div[1]/section[1]/div[3]/div[1]/img[1]/@src
+              - text: /content/cnm/166187/dyson-enriched-03-03.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[1]/section[1]/div[1]/section[1]/div[4]/div[1]/img[1]/@src
+              - text: /content/cnm/166187/dyson-enriched-03-04.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[1]/section[1]/div[1]/section[1]/div[5]/div[1]/img[1]/@src
+              - text: /content/cnm/166187/dyson-enriched-03-05.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[1]/section[1]/div[1]/section[1]/div[6]/div[1]/img[1]/@src
             videos:
               - text: https://www.elkjop.no/video/DV_Vid_D180001001477269/53306/dyson-v8-animal-traadloes-stoevsuger-dy24836701.mp4
                 xpath: /html/body/div[7]
@@ -141,8 +186,15 @@ extractions:
                   Bruksanvisning (PDF)
                    Bruksanvisning
                 xpath: /html/body/div[2]/main[1]/div[1]/section[3]/div[2]/div[1]/div[3]
-            manufacturer:
-              - text: Dyson
+            additionalDescBulletInfo:
+              - text: 2-i-1-støvsuger
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[10]/ul[1]/li[1]
+              - text: Opptil 40 minutters brukstid
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[10]/ul[1]/li[2]
+              - text: Munnstykke med motorisert børste
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[10]/ul[1]/li[3]
+            availabilityText:
+              - text: Out of Stock
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -159,10 +211,6 @@ extractions:
               - text: https://www.elkjop.no/image/dv_web_D180001002419672/53306/dyson-v8-animal-traadloes-stoevsuger-dy24836701.jpg?$prod_all4one$
             nameExtended:
               - text: "Dyson V8 Animal+ trådløs støvsuger DY24836701 "
-            listPrice:
-              - text: 3487 NOK
-            price:
-              - text: 3487 NOK
             descriptionBullets:
               - text: "3"
                 type: NUMBER
@@ -184,4 +232,4 @@ extractions:
                    12,40 Dybde (cm) 
                    22,40
         xpath: /
-    timestamp: 1600251850590
+    timestamp: 1600788560993
