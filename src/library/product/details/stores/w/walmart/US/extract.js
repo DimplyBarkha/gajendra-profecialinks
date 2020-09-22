@@ -93,40 +93,6 @@ module.exports = {
 
     await context.click('body');
 
-    // await context.evaluate(()=>{
-    //   let fullDescription = '';
-    //   let descNodes = document.querySelectorAll('div[class*=about-desc],div[class*=DetailedHeroImage-ShortDescription],div[class*=AboutThisBundle-description],div[class*=about-item] div');
-    //   descNodes.forEach(topNode=>{
-    //     topNode.childNodes.forEach(node=>{
-    //       if(node.nodeType === 3){
-    //         fullDescription += node.textContent;
-    //       }
-    //     });
-
-    //     // let lis = topNode.querySelectorAll('li');
-    //     // lis.forEach(li=>{
-    //     //   fullDescription += ' || ' + li.textContent;
-    //     // });
-    //     // let other = topNode.querySelectorAll('*:not(li)');
-    //     // other.forEach(ot=>{
-    //     //   fullDescription += ot.textContent;
-    //     // });
-
-    //     function addHiddenDiv(id, content) {
-    //       const newDiv = document.createElement('div');
-    //       newDiv.id = id;
-    //       newDiv.textContent = content;
-    //       newDiv.style.display = 'none';
-    //       document.body.appendChild(newDiv);
-    //     }
-
-    //     let excludeIndex = Math.min(fullDescription.indexOf('DIRECTIONS'), fullDescription.indexOf('WARNINGS'), fullDescription.indexOf('INGREDIENTS'));
-    //     addHiddenDiv('my-desc', excludeIndex === -1 ? fullDescription : fullDescription.slice(0,excludeIndex));
-    //   });
-
-    //   return fullDescription;
-    // });
-
     const nutrTabPresentAndClicked = await context.evaluate(async () => {
       const nutrTab = document.evaluate('//span[contains(text(),"Nutrition Facts")]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
       if (nutrTab) {
@@ -156,6 +122,30 @@ module.exports = {
         .catch(() => console.log('no specTab'));
     }
 
+    // let scrollTop = 0;
+    // while (scrollTop !== 20000) {
+    //   try {
+    //     scrollTop += 1000;
+    //     await context.waitForFunction(async function (scrollTop) {
+    //       console.log("SCROLLING");
+    //       window.scroll(0, scrollTop);
+    //     }, { timeout: 1000 }, scrollTop)
+    //   } catch (err) {
+    //     console.log("Failed")
+    //   }
+    //   if (scrollTop === 20000) {
+    //     break;
+    //   }
+    // }
+    // try {
+    //   await context.waitForFunction(async function(){
+    //     console.log('Scrolling to the bottom')
+    //     window.scrollTo(0, document.body.scrollHeight);
+    //   }, { timeout:6000 });
+    // } catch(err){
+    //   console.log('Scrolling finished')
+    // }
+
     // Iframe logic for aplus_images & enhanced_content if not picked up in API:
     await context.evaluate(async () => {
       function addHiddenDiv (id, content) {
@@ -165,6 +155,9 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      // scroll to bottom of page, iframe should load if present!
+      window.scrollTo(0, document.body.scrollHeight);
+      await new Promise((resolve, reject) => setTimeout(resolve, 5000));
 
       const marketingIframe = document.querySelector('iframe#iframe-AboutThisItem-marketingContent');
       if (marketingIframe) {

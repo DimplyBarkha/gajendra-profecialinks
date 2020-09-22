@@ -270,6 +270,12 @@ const transform = (data, context) => {
           delete row.myEnhancedContent;
         }
 
+        if (row.manufacturerDescription) {
+          // remove json if present
+          const rawText = row.manufacturerDescription[0].text;
+          row.manufacturerDescription = [{ text: rawText.replace(/{.*}/, '') }];
+        }
+
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = el.text ? clean(el.text) : el.text;
         }));
