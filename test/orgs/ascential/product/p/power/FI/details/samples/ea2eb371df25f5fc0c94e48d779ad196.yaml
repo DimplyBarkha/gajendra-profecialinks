@@ -2,23 +2,22 @@ input:
   _url: http://power.fi
   URL: https://www.power.fi/koti-ja-vapaa-aika/ilmanlaatu-ja-viilennys/ilmanpuhdistimet/dyson-pure-cool-tp02-ilmanpuhdistin/p-603033/?q=dyson
 extractions:
-  - html: https://workbench.import.io/html/run=b60c2537-83a6-4d7e-b3c0-e0df5655b03c/task=0ead0c20-321c-49d3-abd2-944b144d19a9/f8409377-02ef-4514-b3df-3cfea26c3532.html
+  - html: https://workbench.import.io/html/run=abb25a51-9236-4295-ae91-5f3de124e5d6/task=3e59ca85-e3a2-4ca6-9c10-19683c5e6533/bc18e3fc-4cb7-4057-8f61-c4d0b8a4b9f9.html
     extractionConfigId: product/details/stores/p/power/FI/extract
     data:
       - group:
-          - imageAlt:
-              - text: DYSON PURE COOL TP02 ILMANPUHDISTIN
+          - image:
+              - text: https://media.power-cdn.net/images/h-af76a339c87e3d19ac9de700d2e10d48/products/603033/603033_4_600x600_w_g.jpg
                 xpath: /html/body/div[6]
+            imageAlt:
+              - text: DYSON PURE COOL TP ILMANPUHDISTIN
+                xpath: /html/body/div[10]
             alternateImages:
-              - text: https://media.power-cdn.net/images/h-af76a339c87e3d19ac9de700d2e10d48/products/603033/603033_4_600x600_t_g.webp
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[1]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
-              - text: https://media.power-cdn.net/images/h-cbe0d3b0dcc3566ef907472fef7e1772/products/603033/603033_1_600x600_w_g.webp
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[2]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
-              - text: https://media.power-cdn.net/images/h-1dad525fc117274eee0e2716bb2469b3/products/603033/603033_2_600x600_w_g.webp
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[3]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
+              - text: https://media.power-cdn.net/images/h-cbe0d3b0dcc3566ef907472fef7e1772/products/603033/603033_1_600x600_w_g.jpg
+                xpath: /html/body/div[7]
+              - text: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=
+                xpath: /html/body/div[8]
             category:
-              - text: Power.fi
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
               - text: Koti ja vapaa-aika
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
               - text: Ilmanlaatu ja viilennys
@@ -27,10 +26,10 @@ extractions:
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[4]
             price:
               - text: "399"
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[9]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[13]
             description:
               - text: >-
                   DYSON PURE COOL TP02 ILMANPUHDISTIN
@@ -54,19 +53,19 @@ extractions:
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
             brandText:
               - text: Dyson
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[11]
             manufacturer:
               - text: Dyson
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[11]
             weightNet:
               - text: 3,000 kg
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[15]
             gtin:
               - text: "5025155024492"
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[12]
             eangtin:
               - text: "5025155024492"
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[12]
             sku:
               - text: "603033"
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
@@ -75,131 +74,109 @@ extractions:
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
             mpc:
               - text: 305162-01
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[17]
             shippingDimensions:
               - text: 219,0 x 219,0 x 1131,0 mm
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[16]
             color:
               - text: Harmaa
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[14]
             manufacturerDescription:
-              - text: >-
-                  Dyson Pure Cool Link on tehokas lattialle sijoitettava
-                  ilmanpuhdistin, joka toimii myös tuulettimena. Se kykenee
-                  poistamaan jopa 99,95% kaikista ilman pienhiukkasista ja
-                  allergeeneistä automaattisesti. Älykästä ja erittäin
-                  tyylikästä ilmanpuhdistinta ohjataan kaukosäätimen tai
-                  älylaitteiden välityksellä.
-                   
-                  Air Multiplier™ -teknologia
-                   
-                  Dyson Air Multiplier™ -teknologian takaa erittäin tehokkaa tuuletuksen täysin ilman äänekkäitä lapoja. Tämän innovatiivisen muotoilun ansiosta tuulettimessa on erittäin hiljainen käyntiääni.
-                   
-                  Nauti puhtaammasta sisäilmasta
-                   
-                  Dyson HEPA-suodatin auttaa pitämään sisäilmasi mahdollisimman puhtaana. Se poistaa ilmasta jopa 99,95% erilaisista haitallisista hiukkasista, kuten epäpuhtauksista ja allergeeneista.
-                   
-                  Eroon hajuista
-                   
-                  Esimerkiksi ruoanlaiton yhteydessä syntyvät hajut ja käryt saadaan nyt helposti vangittua suodattimen aktiivihiilikerroksen avulla.
-                   
-                  Turvallinen käyttää ja puhdistaa
-                   
-                  Koska tuulettimessa ei ole lainkaan lapoja, sen puhdistaminen on helppoa. Se on myös erittäin turvallinen käyttää esimerkiksi lapsiperheissä.
-                   
-                  Dyson Link -sovellus
-                   
-                  Sovelluksen avulla voit seurata ja säätää kotisi ilmanlaatua ja lämpötilaa.
-                   Lue lisää
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[2]
+              - text: Dyson Pure Cool Link on tehokas lattialle sijoitettava ilmanpuhdistin,
+                  joka toimii myös tuulettimena. Se kykenee poistamaan jopa
+                  99,95% kaikista ilman pienhiukkasista ja allergeeneistä
+                  automaattisesti. Älykästä ja erittäin tyylikästä
+                  ilmanpuhdistinta ohjataan kaukosäätimen tai älylaitteiden
+                  välityksellä.Air Multiplier™ -teknologiaDyson Air Multiplier™
+                  -teknologian takaa erittäin tehokkaa tuuletuksen täysin ilman
+                  äänekkäitä lapoja. Tämän innovatiivisen muotoilun ansiosta
+                  tuulettimessa on erittäin hiljainen käyntiääni.Nauti
+                  puhtaammasta sisäilmastaDyson HEPA-suodatin auttaa pitämään
+                  sisäilmasi mahdollisimman puhtaana. Se poistaa ilmasta jopa
+                  99,95% erilaisista haitallisista hiukkasista, kuten
+                  epäpuhtauksista ja allergeeneista.Eroon hajuistaEsimerkiksi
+                  ruoanlaiton yhteydessä syntyvät hajut ja käryt saadaan nyt
+                  helposti vangittua suodattimen aktiivihiilikerroksen
+                  avulla.Turvallinen käyttää ja puhdistaaKoska tuulettimessa ei
+                  ole lainkaan lapoja, sen puhdistaminen on helppoa. Se on myös
+                  erittäin turvallinen käyttää esimerkiksi lapsiperheissä.Dyson
+                  Link -sovellusSovelluksen avulla voit seurata ja säätää kotisi
+                  ilmanlaatua ja lämpötilaa.The only purifying fan to clean a
+                  whole family room properly. To purify a whole family room
+                  properly, the Dyson Pure Cool™ purifying fan goes beyond
+                  standard test conditions¹, by also automatically sensing
+                  particles and gases, capturing 99.95% of ultrafine particles,
+                  and projecting & and circulating purified air using Air
+                  Multiplier™ technology². Only the Dyson purifying fan is
+                  designed and tested to do all of this. (based on competitor
+                  testing data, as at December 2017). Automatically senses
+                  particles and gases, the diagnoses and report them - in real
+                  time.³ Captures 99.95% of allergens and pollutants as small as
+                  0.1 microns.⁴ Projects purified air around the whole room with
+                  Air Multiplier™ technology. Intelligently control and monitor
+                  your air quality, with the Dyson Link app.⁶ 4.98 kg weight
+                  Glass HEPA Media HEPA filter 1.8 m cable length 1054 mm height
+                  All features Senses Automatically detects and reports air
+                  quality levels in real time on PM 2.5, PM 10, VOC and NO2.
+                  Captures pollutants with 360° sealed HEPA and activated Carbon
+                  filters The fully-sealed filter system combines an activated
+                  carbon filter to remove gases, and a Glass HEPA filter that
+                  captures 99.95% of microscopic allergens and pollutants as
+                  small as 0.1 microns.¹ Projects powerful airflow Air
+                  Multiplier™ technology delivers over 290 litres per second of
+                  smooth, yet powerful airflow – circulating purified air
+                  throughout the whole room.⁵ Intelligent reporting
+                  Automatically senses, captures and projects – then reports to
+                  your Dyson Link app.⁶ Oscillates up to 350° Adjustable
+                  oscillation angle from 45° to 350°, to help project purified
+                  air around the whole room. Draught-free diffused mode Purifies
+                  without the draught. Cools Purifies all year round. Cools you
+                  in summer. Quick and easy filter changing Low maintenance,
+                  easily changeable filters. With built-in notifications when
+                  they require replacing. Night-time mode Monitors and purifies
+                  using its quietest settings, with a dimmed display. Remote
+                  control Curved and magnetised to store neatly on top of the
+                  machine. Quiet mark accreditation Awarded for improved sound
+                  quality. Voice control Using a compatible voice service,
+                  control your machine with simple, spoken instructions. Sleep
+                  timer Dyson Pure Cool™ fans can be programmed to turn off
+                  after preset intervals, from 15 minutes to 9 hours. Certified
+                  asthma and allergy friendly™ This Dyson Pure Cool™ is
+                  certified asthma and allergy friendly™ by Allergy Standards
+                  Limited. In the box Dyson Pure Cool™ tower purifying fan
+                  Remote control Power supply Specifications HEPA filter Glass
+                  HEPA Media Amp diameter 117 mm Base diameter with plate 223 mm
+                  Cord length 1.8 mmFormat Tower Weight 4.98 kg Height 1054
+                  mmLength 117 mmWidth 206 mm ¹Tested to EN1822. Particles as
+                  small as 0.1 microns. ²The AHAM AC1-2015 standard defines
+                  purifier performance in a specified test chamber, based only
+                  on cleaning efficiency rates. ³PM 2.5, PM 10, VOC, NO2 ⁴Tested
+                  for filtration efficiency (EN1822) at 0.1 microns and whole
+                  room coverage (TM-003711 & DTM801) in a 27m2 room. ⁵Tested to
+                  Dyson internal test method TM-003711 in a 27m² room and
+                  DTM801. ⁶Requires iOS version 10 or above, or Android version
+                  5 or above. Your mobile device must have a 2.4GHz or 5GHz
+                  Wi-Fi connection and Bluetooth 4.0 support.
+                xpath: /html/body/div[21]
             name:
               - text: DYSON PURE COOL TP02 ILMANPUHDISTIN
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h1[1]
             specifications:
-              - text: 219,0 x 219,0 x 1131,0 mm
-                xpath: /html/body/div[12]
-            productOtherInformation:
-              - text: >-
-                  Tekniset tiedot
-                   Valmistaja 
-                  Dyson
-                   Valmistajan tuotekoodi 
-                  305162-01
-
-                  Design ja muotoilu
-                   Pääväri 
-                  Harmaa
-
-                  Toiminnot
-                   Ajastin 
-                  Kyllä
-                   Ohjelmoitava 
-                  Kyllä
-
-                  Ohjelmat ja asetukset
-                   Automaattiohjelma 
-                  Kyllä
-                   Säädettävä lämpötila 
-                  Ei
-
-                  Näyttöominaisuudet
-                   Näyttö 
-                  Ei
-
-                  Sisältyy
-                   Kaukosäädin mukana 
-                  Kyllä
-
-                  Muut
-                   Tuotenumero 
-                  DYSONTP02
-                   EAN 
-                  5025155024492
-                   Tuotteen koko (S x L x K) 
-                  110,0 x 119,0 x 1020,0 mm
-                   Pakkauksen koko (S x L x K) 
-                  219,0 x 219,0 x 1131,0 mm
-                   Nettopaino 
-                  3,000 kg
-                   Tuote ID 
-                  603033
-
-                  Myymäläsaatavuus
-
-                  Kuvaus
-
-                  Dyson Pure Cool Link on tehokas lattialle sijoitettava ilmanpuhdistin, joka toimii myös tuulettimena. Se kykenee poistamaan jopa 99,95% kaikista ilman pienhiukkasista ja allergeeneistä automaattisesti. Älykästä ja erittäin tyylikästä ilmanpuhdistinta ohjataan kaukosäätimen tai älylaitteiden välityksellä.
-                   
-                  Air Multiplier™ -teknologia
-                   
-                  Dyson Air Multiplier™ -teknologian takaa erittäin tehokkaa tuuletuksen täysin ilman äänekkäitä lapoja. Tämän innovatiivisen muotoilun ansiosta tuulettimessa on erittäin hiljainen käyntiääni.
-                   
-                  Nauti puhtaammasta sisäilmasta
-                   
-                  Dyson HEPA-suodatin auttaa pitämään sisäilmasi mahdollisimman puhtaana. Se poistaa ilmasta jopa 99,95% erilaisista haitallisista hiukkasista, kuten epäpuhtauksista ja allergeeneista.
-                   
-                  Eroon hajuista
-                   
-                  Esimerkiksi ruoanlaiton yhteydessä syntyvät hajut ja käryt saadaan nyt helposti vangittua suodattimen aktiivihiilikerroksen avulla.
-                   
-                  Turvallinen käyttää ja puhdistaa
-                   
-                  Koska tuulettimessa ei ole lainkaan lapoja, sen puhdistaminen on helppoa. Se on myös erittäin turvallinen käyttää esimerkiksi lapsiperheissä.
-                   
-                  Dyson Link -sovellus
-                   
-                  Sovelluksen avulla voit seurata ja säätää kotisi ilmanlaatua ja lämpötilaa.
-                   Lue lisää
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]
+              - text: Valmistaja Dyson Valmistajan tuotekoodi 305162-01 || Design ja muotoilu
+                  Pääväri Harmaa || Toiminnot Ajastin Kyllä Ohjelmoitava Kyllä
+                  || Ohjelmat ja asetukset Automaattiohjelma Kyllä Säädettävä
+                  lämpötila Ei || Näyttöominaisuudet Näyttö Ei || Sisältyy
+                  Kaukosäädin mukana Kyllä || Muut Tuotenumero DYSONTP02 EAN
+                  5025155024492 Tuotteen koko (S x L x K) 110,0 x 119,0 x 1020,0
+                  mm Pakkauksen koko (S x L x K) 219,0 x 219,0 x 1131,0 mm
+                  Nettopaino 3,000 kg Tuote ID 603033
+                xpath: /html/body/div[19]
             additionalDescBulletInfo:
-              - text: Kaksi toimintoa - tuuletin ja ilmanpuhdistin||Dyson link -sovelluksen
-                  yhteensopivuus||Air Multiplier™ -teknlogoia||Dyson
-                  HEPA-suodatin aktiivihiili-kerroksella||Auto- ja
-                  yötoiminnot||Ajastustoiminto||Mukana kaukosäädin
-                xpath: /html/body/div[15]
-            image:
-              - text: https://media.power-cdn.net/images/h-af76a339c87e3d19ac9de700d2e10d48/products/603033/603033_4_600x600_w_g.jpg
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[1]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/img[1]/@src
+              - text: "|| Kaksi toimintoa - tuuletin ja ilmanpuhdistin || Dyson link
+                  -sovelluksen yhteensopivuus || Air Multiplier™ -teknlogoia ||
+                  Dyson HEPA-suodatin aktiivihiili-kerroksella || Auto- ja
+                  yötoiminnot || Ajastustoiminto || Mukana kaukosäädin"
+                xpath: /html/body/div[20]
             nameExtended:
               - text: DYSON PURE COOL TP02 ILMANPUHDISTIN - 603033
             descriptionBullets:
@@ -215,4 +192,4 @@ extractions:
             Image360Present:
               - text: No
         xpath: /html
-    timestamp: 1600265346450
+    timestamp: 1600767959004

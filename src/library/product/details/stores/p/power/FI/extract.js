@@ -27,6 +27,18 @@ module.exports = {
         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       }
 
+      const images = document.querySelectorAll('div.product-main-card div.product-image-container img');
+      if (images) {
+        for (let index = 0; index < images.length; index++) {
+          document.querySelector('div.owl-next i.icon-expert-arrow').click();
+          await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+        images.forEach(e => {
+          const imageSrc = e.getAttribute('src');
+          addElementToDocument('images', imageSrc);
+        });
+      }
+
       const price = document.querySelector('*#product-intro div.prices-container')
         ? document.querySelector('*#product-intro div.prices-container').innerText : '';
       if (price) addElementToDocument('price', price.replace(' ', ','));
@@ -79,10 +91,10 @@ module.exports = {
         : '';
       if (weightGross) addElementToDocument('weightGross', weightGross);
 
-      const specifications = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Pakkauksen koko")]/following-sibling::div')
+      const dimensions = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Pakkauksen koko")]/following-sibling::div')
         ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Pakkauksen koko")]/following-sibling::div').textContent
         : '';
-      if (specifications) addElementToDocument('specifications', specifications);
+      if (dimensions) addElementToDocument('dimensions', dimensions);
 
       const mpc = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"tuotekoodi")]/following-sibling::div')
         ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"tuotekoodi")]/following-sibling::div').textContent
@@ -104,14 +116,27 @@ module.exports = {
         : '';
       if (shipingInfo) addElementToDocument('shipingInfo', shipingInfo);
 
+      const specifications = document.querySelectorAll('pwr-product-specifications > div');
+      const specArr = [];
+      if (specifications) {
+        specifications.forEach(e => {
+          specArr.push(e.innerText.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
+        });
+      }
+      addElementToDocument('specifications', specArr.join(' || '));
+
       const bulletInfo = document.querySelectorAll('div.product-intro-details ul.product-description-bullets li');
-      const descBulletInfo = [];
+      const descBulletInfo = [''];
       if (bulletInfo) {
         bulletInfo.forEach(e => {
           descBulletInfo.push(e.innerText);
         });
       }
-      addElementToDocument('descBulletInfo', descBulletInfo.join('||'));
+      addElementToDocument('descBulletInfo', descBulletInfo.join(' || '));
+
+      const manufacturerDesc = document.querySelector('div#product-tab-description')
+        ? document.querySelector('div#product-tab-description').innerText : '';
+      if (manufacturerDesc) addElementToDocument('manufacturerDesc', manufacturerDesc.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
 
       const legal = document.querySelector('*#footer-site div.e-maerket-notice.marg')
         ? document.querySelector('*#footer-site div.e-maerket-notice.marg').innerText : '';

@@ -2,35 +2,34 @@ input:
   _url: http://power.fi
   URL: https://www.power.fi/koti-ja-vapaa-aika/imurointi-ja-siivous/varsi-ja-rikkaimurit/dyson-v6-fluffy-varsi-imuri/p-394639/
 extractions:
-  - html: https://workbench.import.io/html/run=b60c2537-83a6-4d7e-b3c0-e0df5655b03c/task=4d6bf56c-5498-464d-b8c7-a031b8a89dc3/ea71ba2d-ec5d-4199-b8c9-df38e2e782f9.html
+  - html: https://workbench.import.io/html/run=abb25a51-9236-4295-ae91-5f3de124e5d6/task=ca9b2c71-6caf-4673-abc9-aa6e54be344f/b2238daa-ac72-45fa-849a-038fd28e56b7.html
     extractionConfigId: product/details/stores/p/power/FI/extract
     data:
       - group:
-          - imageAlt:
-              - text: DYSON V6 FLUFFY+ VARSI-IMURI
-                xpath: /html/body/div[7]
+          - image:
+              - text: https://media.power-cdn.net/images/h-978b1f8ece6b0c881b9156d6f93c09e7/products/394639/394639_9_600x600_w_g.jpg
+                xpath: /html/body/div[6]
+            imageAlt:
+              - text: DYSON V FLUFFY VARSIIMURI
+                xpath: /html/body/div[17]
             alternateImages:
-              - text: https://media.power-cdn.net/images/h-978b1f8ece6b0c881b9156d6f93c09e7/products/394639/394639_9_1200x1200_w_g.webp
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[1]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
-              - text: https://media.power-cdn.net/images/h-c461a1a879c5e0c4f16600e0cac5d7ea/products/394639/394639_1_1200x1200_w_g.webp
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[2]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
-              - text: https://media.power-cdn.net/images/h-36147cf32bb7f7b4b9cdc9d1ff1463e5/products/394639/394639_2_1200x1200_w_g.webp
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[3]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
-              - text: https://media.power-cdn.net/images/h-4305dd3453b24349110a43f6b1f9c566/products/394639/394639_3_1200x1200_w_g.webp
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[4]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
-              - text: https://media.power-cdn.net/images/h-e937c4b87c96356c3bd0d956a9167a97/products/394639/394639_4_1200x1200_w_g.webp
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[5]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
-              - text: https://media.power-cdn.net/images/h-fa0768484d7d9394a8f566eb9be39eeb/products/394639/394639_5_1200x1200_w_g.webp
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[6]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
-              - text: https://media.power-cdn.net/images/h-3e17fad1932488a1c1d719c63f6a962d/products/394639/394639_6_1200x1200_w_g.webp
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[7]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
-              - text: https://media.power-cdn.net/images/h-7557e54186a949536964ea2ef7849daf/products/394639/394639_7_600x600_w_g.webp
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[8]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
-              - text: https://media.power-cdn.net/images/h-294ae498943197bd0af442db50372be2/products/394639/394639_8_600x600_w_g.webp
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[9]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/source[1]/@data-srcset
+              - text: https://media.power-cdn.net/images/h-c461a1a879c5e0c4f16600e0cac5d7ea/products/394639/394639_1_600x600_w_g.jpg
+                xpath: /html/body/div[7]
+              - text: https://media.power-cdn.net/images/h-36147cf32bb7f7b4b9cdc9d1ff1463e5/products/394639/394639_2_600x600_w_g.jpg
+                xpath: /html/body/div[8]
+              - text: https://media.power-cdn.net/images/h-4305dd3453b24349110a43f6b1f9c566/products/394639/394639_3_600x600_w_g.jpg
+                xpath: /html/body/div[9]
+              - text: https://media.power-cdn.net/images/h-e937c4b87c96356c3bd0d956a9167a97/products/394639/394639_4_600x600_w_g.jpg
+                xpath: /html/body/div[10]
+              - text: https://media.power-cdn.net/images/h-fa0768484d7d9394a8f566eb9be39eeb/products/394639/394639_5_600x600_w_g.jpg
+                xpath: /html/body/div[11]
+              - text: https://media.power-cdn.net/images/h-3e17fad1932488a1c1d719c63f6a962d/products/394639/394639_6_600x600_w_g.jpg
+                xpath: /html/body/div[12]
+              - text: https://media.power-cdn.net/images/h-7557e54186a949536964ea2ef7849daf/products/394639/394639_7_600x600_w_g.jpg
+                xpath: /html/body/div[13]
+              - text: https://media.power-cdn.net/images/h-294ae498943197bd0af442db50372be2/products/394639/394639_8_600x600_w_g.jpg
+                xpath: /html/body/div[14]
             category:
-              - text: Power.fi
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
               - text: Koti ja vapaa-aika
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
               - text: Imurointi ja siivous
@@ -39,10 +38,10 @@ extractions:
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[4]
             price:
               - text: 399,55
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[15]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[20]
             description:
               - text: |-
                   DYSON V6 FLUFFY+ VARSI-IMURI
@@ -59,19 +58,19 @@ extractions:
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
             brandText:
               - text: Dyson
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[18]
             manufacturer:
               - text: Dyson
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[18]
             weightNet:
               - text: 2,300 kg
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[22]
             gtin:
               - text: "5025155024645"
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[19]
             eangtin:
               - text: "5025155024645"
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[19]
             sku:
               - text: "394639"
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
@@ -80,202 +79,142 @@ extractions:
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
             mpc:
               - text: "602626"
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[24]
             shippingDimensions:
               - text: 154,0 x 739,0 x 271,0 mm
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[23]
             color:
               - text: "-"
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[21]
             manufacturerDescription:
-              - text: >-
-                  Johdottomalla Dyson V6 Fluffy+ varsi-imurilla viet imurointi
-                  kokemuksesi aivan uudelle tasolle. Dyson varsi-imuri poistaa
-                  tehokkaasti samalla sekä roskat, että hienojakoisen pölyn.
-
-                  Radial™-syklonit kahdessa kerroksessa
-
-                  Voimakas keskipakovoima linkoaa pölyn ja lian imurin säiliöön. Patentoitu syklonitekologia, Dysonin digitaalimoottori ja uudelleen suunniteltu nikkeli-mangaani-kobolttiakku varmistavat Dysonin johdottomien imurien voimakkaan imutehon. Siivouksen alusta loppuun asti. 
-
-                  Pehmeä rullasuulake
-
-                  Johdottomaan Dyson V6 Fluffy -imuriin kuuluu pehmeä rullasuulake. Puhdasta koko suulakkeen leveydeltä: kudottu ja pehmeä nylonpinta ja riveissä sijaitsevat antistaattiset hiilikuituharjakset poistavat samanaikaisesti hienojakoisen pölyn ja roskat. 
-
-                  Rullasuulakkeessa on kudottu ja pehmeä nylonpinta. Roskat tarttuvat harjaksiin, kulkeutuvat suulakkeen alle ja siitä imuriin. Suulake pysyy koko ajan tiukasti kiinni lattiassa. 
-
-                  Hiilikuituharjakset ja imuteho, joka ei karkaa, poistavat hienojakoisen pölyn. Neljässä rivissä sijaitsevat antistaattiset hiilikuituharjakset estävät staattisen varauksen muodostumista, joten hienojakoinen pöly ei jää lattian pintaan vaan kulkeutuu imuriin.
-
-                  Koko laitteen kattava suodatus 
-
-                  Patentoidut, kahdessa kerroksessa olevat Radial™-syklonit vangitsevat pölyn ja pitävät sen laitteen sisällä. Kahteen kerrokseen asetellut 15 syklonia tuottavat voimakkaan keskipakovoiman, joka työntää pölyn ja lian ilmasta säiliöön. 
-
-                  Tehokas moottorin jälkeinen suodatin vangitsee jopa 0,3 mikronin kokoiset allergeenit ja bakteerit. Koko imuri on suunniteltu täysin tiiviiksi, joten imurin poistoilma on puhtaampaa kuin ilma, jota hengität.
-
-                  Muuntuu rikkaimuriksi
-
-                  Kaikki johdottomat Dyson-imurit muuntuvat nopeasti rikkaimuriksi. Rikkaimuri soveltuu nopeaan täsmäsiivoukseen ja vaikeapääsyisten kohteiden siivoamiseen.
-
-                  Tasapainoisella imurilla puhdistat pinnat lattiasta kattoon
-
-                  Tasapainoisella imurilla puhdistat ylhäältä, alhaalta ja kaikkialta siltä väliltä.
-
-                  Maksimitehotila
-
-                  Valitse teho nappia painamalla. Jopa 6 minuuttia vielä tehokkaampaa imua, kun tarvitaan lisätehoa.
-
-                  Kätevä latausteline
-
-                  Imurin lataamiseen ja säilytykseen ja lisävarusteiden säilytykseen. Kun imuria säilytetään lataustelineessä, se on välittömästi käyttövalmis.
-
-                  Hygieeninen säiliön tyhjennys
-
-                  Tyhjennä lika ja roskat säiliöstä yhdellä painalluksella.
-                   
-                   Lue lisää
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[2]
+              - text: "Johdottomalla Dyson V6 Fluffy+ varsi-imurilla viet imurointi kokemuksesi
+                  aivan uudelle tasolle. Dyson varsi-imuri poistaa tehokkaasti
+                  samalla sekä roskat, että hienojakoisen pölyn.Radial™-syklonit
+                  kahdessa kerroksessaVoimakas keskipakovoima linkoaa pölyn ja
+                  lian imurin säiliöön. Patentoitu syklonitekologia, Dysonin
+                  digitaalimoottori ja uudelleen suunniteltu
+                  nikkeli-mangaani-kobolttiakku varmistavat Dysonin johdottomien
+                  imurien voimakkaan imutehon. Siivouksen alusta loppuun
+                  asti.Pehmeä rullasuulakeJohdottomaan Dyson V6 Fluffy -imuriin
+                  kuuluu pehmeä rullasuulake. Puhdasta koko suulakkeen
+                  leveydeltä: kudottu ja pehmeä nylonpinta ja riveissä
+                  sijaitsevat antistaattiset hiilikuituharjakset poistavat
+                  samanaikaisesti hienojakoisen pölyn ja
+                  roskat.Rullasuulakkeessa on kudottu ja pehmeä nylonpinta.
+                  Roskat tarttuvat harjaksiin, kulkeutuvat suulakkeen alle ja
+                  siitä imuriin. Suulake pysyy koko ajan tiukasti kiinni
+                  lattiassa.Hiilikuituharjakset ja imuteho, joka ei karkaa,
+                  poistavat hienojakoisen pölyn. Neljässä rivissä sijaitsevat
+                  antistaattiset hiilikuituharjakset estävät staattisen
+                  varauksen muodostumista, joten hienojakoinen pöly ei jää
+                  lattian pintaan vaan kulkeutuu imuriin.Koko laitteen kattava
+                  suodatusPatentoidut, kahdessa kerroksessa olevat
+                  Radial™-syklonit vangitsevat pölyn ja pitävät sen laitteen
+                  sisällä. Kahteen kerrokseen asetellut 15 syklonia tuottavat
+                  voimakkaan keskipakovoiman, joka työntää pölyn ja lian ilmasta
+                  säiliöön.Tehokas moottorin jälkeinen suodatin vangitsee jopa
+                  0,3 mikronin kokoiset allergeenit ja bakteerit. Koko imuri on
+                  suunniteltu täysin tiiviiksi, joten imurin poistoilma on
+                  puhtaampaa kuin ilma, jota hengität.Muuntuu
+                  rikkaimuriksiKaikki johdottomat Dyson-imurit muuntuvat
+                  nopeasti rikkaimuriksi. Rikkaimuri soveltuu nopeaan
+                  täsmäsiivoukseen ja vaikeapääsyisten kohteiden
+                  siivoamiseen.Tasapainoisella imurilla puhdistat pinnat
+                  lattiasta kattoonTasapainoisella imurilla puhdistat ylhäältä,
+                  alhaalta ja kaikkialta siltä väliltä.MaksimitehotilaValitse
+                  teho nappia painamalla. Jopa 6 minuuttia vielä tehokkaampaa
+                  imua, kun tarvitaan lisätehoa.Kätevä lataustelineImurin
+                  lataamiseen ja säilytykseen ja lisävarusteiden säilytykseen.
+                  Kun imuria säilytetään lataustelineessä, se on välittömästi
+                  käyttövalmis.Hygieeninen säiliön tyhjennysTyhjennä lika ja
+                  roskat säiliöstä yhdellä painalluksella. Dyson V6 Fluffy Jump
+                  to: Features Image Gallery Cord-free. Hassle-free. Powerful
+                  Suction. Additional cleaner head invented for hard floors.
+                  Other cordless vacuum manufacturers compromise on either
+                  weight or suction, because they have to choose between motors
+                  that are either bulky or weak. Dyson cord-free vacuums are
+                  different. Thanks to the Dyson digital motor V6, they are
+                  small, light and powerful. Patented Dyson cyclone technology
+                  captures fine dust. 2 Tier Radial™ cyclones Dyson cord-free
+                  vacuums use patented cyclone technology, just like our corded
+                  machines. Powerful centrifugal forces spin dust and dirt out
+                  of the air and into the bin. This patented cyclone technology
+                  combines with the Dyson digital motor and a re-engineered
+                  nickel manganese cobalt battery to ensure that Dyson cord-free
+                  machines provide powerful suction. From the moment you start
+                  cleaning, to the moment you finish.12An entirely re-invented
+                  cleaner head. Picks up large debris and fine dust all at once.
+                  Soft woven nylon envelops large debris The cleaning roller is
+                  covered in a soft woven nylon. The fibers envelop large
+                  debris, allowing it to pass under the cleaner head and into
+                  the vacuum while maintaining a tight seal with the floor.
+                  Carbon fibre and sealed suction remove fine dust Four rows of
+                  soft anti-static carbon fibre filaments help to dissipate any
+                  static charge holding fine dust to the floor surface, allowing
+                  it to be sucked into the vacuum. Unlike with conventional
+                  brush bars, the roller has constant contact with the floor.
+                  There's no gap, so powerful suction is sealed in to draw up
+                  fine dust from crevices.123Improved pick up across every floor
+                  type. Cleans from the floor to the ceiling. Converts to a
+                  handheld for everything in between. The Dyson docking station
+                  stores and charges the machine. So it's always ready to go.
+                  Dyson V6 Fluffy Features Motorised cleaner head Motorised head
+                  cleans all floor types. Soft roller cleaner head Soft roller
+                  cleaner head removes large debris and fine dust
+                  simultaneously. Powered by the Dyson digital motor V6 The
+                  Dyson digital motor V6 creates the most powerful cordless
+                  vacuum. 2 Tier Radial™ cyclones 15 cyclones, arranged across
+                  two tiers, work in parallel to increase airflow and capture
+                  fine dust. Up to 20 minutes of powerful fade-free suction
+                  Dyson V6 Fluffy has a run-time enhancing trigger. Trigger grip
+                  releases instantly, meaning battery power is only used for
+                  vacuuming. (up to 16 minutes with motorised floor tool
+                  attached.) Max power mode Push button to select power.
+                  Provides 6 minutes of higher suction for more difficult tasks.
+                  Mini motorised tool Mini motorised tool removes pet hair and
+                  ground-in dirt. Balanced for floor to ceiling cleaning
+                  Balanced for cleaning up top, down below and in between.
+                  Converts for handheld cleaning All Dyson cordless vacuums
+                  quickly convert to a handheld for quick clean ups, spot
+                  cleaning and cleaning difficult places. Hygienic bin emptying
+                  Just push the button to release the dirt. Convenient docking
+                  station Stores and charges the machine, and holds additional
+                  attachments. Charging and storing the vacuum on the docking
+                  station means it's always ready to go. Dyson V6 Fluffy Image
+                  Gallery:"
+                xpath: /html/body/div[27]
             videos:
               - text: https://www.youtube.com/watch?v=L3UoYLcufu8
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[28]
             name:
               - text: DYSON V6 FLUFFY+ VARSI-IMURI
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h1[1]
             specifications:
-              - text: 154,0 x 739,0 x 271,0 mm
-                xpath: /html/body/div[13]
-            productOtherInformation:
-              - text: >-
-                  Tekniset tiedot
-                   Valmistaja 
-                  Dyson
-                   Valmistajan tuotekoodi 
-                  602626
-
-                  Design ja muotoilu
-                   Pussiton 
-                  Kyllä
-                   Pääväri 
-                  -
-
-                  Tehokkuus ja tilavuus
-                   Moottoriteho 
-                  100 W
-                   Imuteho 
-                  28 W
-                   Pölykapasiteetti 
-                  0.4 Litraa
-
-                  Virta ja akku
-                   Akun/pariston tyyppi 
-                  Li-Ion
-                   Ladattava 
-                  Kyllä
-                   Akun kesto 
-                  20 Minuuttia
-                   Akun ilmaisin 
-                  Kyllä
-                   Akkukäyttöinen 
-                  Kyllä
-                   12 voltin liitäntä 
-                  Ei
-                   Sähkökäyttöinen 
-                  Ei
-                   Vaihdettava akku 
-                  Ei
-                   Virtajohdon tyyppi 
-                  Virtajohto
-                   Latausjohdon tyyppi 
-                  Muu kaapelityyppi
-
-                  Toiminnot
-                   Irroitettava käsi-imuri 
-                  Kyllä
-                   Suodatin 
-                  Kyllä
-
-                  Ohjelmat ja asetukset
-                   Nopeuden säätö 
-                  Kyllä
-
-                  Sisältyy
-                   Lattiasuutin mukana 
-                  Kyllä
-                   Huonekalusuutin mukana 
-                  Kyllä
-                   Huonekaluharja 
-                  Kyllä
-
-                  Muut
-                   Tuotenumero 
-                  V6FLUFFYP
-                   EAN 
-                  5025155024645
-                   Tuotteen koko (S x L x K) 
-                  210,0 x 1210,0 x 250,0 mm
-                   Pakkauksen koko (S x L x K) 
-                  154,0 x 739,0 x 271,0 mm
-                   Nettopaino 
-                  2,300 kg
-                   Tuote ID 
-                  394639
-
-                  Myymäläsaatavuus
-
-                  Kuvaus
-
-                  Johdottomalla Dyson V6 Fluffy+ varsi-imurilla viet imurointi kokemuksesi aivan uudelle tasolle. Dyson varsi-imuri poistaa tehokkaasti samalla sekä roskat, että hienojakoisen pölyn.
-
-                  Radial™-syklonit kahdessa kerroksessa
-
-                  Voimakas keskipakovoima linkoaa pölyn ja lian imurin säiliöön. Patentoitu syklonitekologia, Dysonin digitaalimoottori ja uudelleen suunniteltu nikkeli-mangaani-kobolttiakku varmistavat Dysonin johdottomien imurien voimakkaan imutehon. Siivouksen alusta loppuun asti. 
-
-                  Pehmeä rullasuulake
-
-                  Johdottomaan Dyson V6 Fluffy -imuriin kuuluu pehmeä rullasuulake. Puhdasta koko suulakkeen leveydeltä: kudottu ja pehmeä nylonpinta ja riveissä sijaitsevat antistaattiset hiilikuituharjakset poistavat samanaikaisesti hienojakoisen pölyn ja roskat. 
-
-                  Rullasuulakkeessa on kudottu ja pehmeä nylonpinta. Roskat tarttuvat harjaksiin, kulkeutuvat suulakkeen alle ja siitä imuriin. Suulake pysyy koko ajan tiukasti kiinni lattiassa. 
-
-                  Hiilikuituharjakset ja imuteho, joka ei karkaa, poistavat hienojakoisen pölyn. Neljässä rivissä sijaitsevat antistaattiset hiilikuituharjakset estävät staattisen varauksen muodostumista, joten hienojakoinen pöly ei jää lattian pintaan vaan kulkeutuu imuriin.
-
-                  Koko laitteen kattava suodatus 
-
-                  Patentoidut, kahdessa kerroksessa olevat Radial™-syklonit vangitsevat pölyn ja pitävät sen laitteen sisällä. Kahteen kerrokseen asetellut 15 syklonia tuottavat voimakkaan keskipakovoiman, joka työntää pölyn ja lian ilmasta säiliöön. 
-
-                  Tehokas moottorin jälkeinen suodatin vangitsee jopa 0,3 mikronin kokoiset allergeenit ja bakteerit. Koko imuri on suunniteltu täysin tiiviiksi, joten imurin poistoilma on puhtaampaa kuin ilma, jota hengität.
-
-                  Muuntuu rikkaimuriksi
-
-                  Kaikki johdottomat Dyson-imurit muuntuvat nopeasti rikkaimuriksi. Rikkaimuri soveltuu nopeaan täsmäsiivoukseen ja vaikeapääsyisten kohteiden siivoamiseen.
-
-                  Tasapainoisella imurilla puhdistat pinnat lattiasta kattoon
-
-                  Tasapainoisella imurilla puhdistat ylhäältä, alhaalta ja kaikkialta siltä väliltä.
-
-                  Maksimitehotila
-
-                  Valitse teho nappia painamalla. Jopa 6 minuuttia vielä tehokkaampaa imua, kun tarvitaan lisätehoa.
-
-                  Kätevä latausteline
-
-                  Imurin lataamiseen ja säilytykseen ja lisävarusteiden säilytykseen. Kun imuria säilytetään lataustelineessä, se on välittömästi käyttövalmis.
-
-                  Hygieeninen säiliön tyhjennys
-
-                  Tyhjennä lika ja roskat säiliöstä yhdellä painalluksella.
-                   
-                   Lue lisää
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]
+              - text: Valmistaja Dyson Valmistajan tuotekoodi 602626 || Design ja muotoilu
+                  Pussiton Kyllä Pääväri - || Tehokkuus ja tilavuus Moottoriteho
+                  100 W Imuteho 28 W Pölykapasiteetti 0.4 Litraa || Virta ja
+                  akku Akun/pariston tyyppi Li-Ion Ladattava Kyllä Akun kesto 20
+                  Minuuttia Akun ilmaisin Kyllä Akkukäyttöinen Kyllä 12 voltin
+                  liitäntä Ei Sähkökäyttöinen Ei Vaihdettava akku Ei Virtajohdon
+                  tyyppi Virtajohto Latausjohdon tyyppi Muu kaapelityyppi ||
+                  Toiminnot Irroitettava käsi-imuri Kyllä Suodatin Kyllä ||
+                  Ohjelmat ja asetukset Nopeuden säätö Kyllä || Sisältyy
+                  Lattiasuutin mukana Kyllä Huonekalusuutin mukana Kyllä
+                  Huonekaluharja Kyllä || Muut Tuotenumero V6FLUFFYP EAN
+                  5025155024645 Tuotteen koko (S x L x K) 210,0 x 1210,0 x 250,0
+                  mm Pakkauksen koko (S x L x K) 154,0 x 739,0 x 271,0 mm
+                  Nettopaino 2,300 kg Tuote ID 394639
+                xpath: /html/body/div[25]
             promotion:
               - text: Säästä 49,45 €
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[16]
             additionalDescBulletInfo:
-              - text: Dyson V6 -digitaalimoottori||Kehitetty koville lattiapinnoille||Poistaa
-                  samanaikaisesti roskat ja hienojakoisen pölyn||Pehmeä
-                  rullasuulake||Muuntuu rikkaimuriksi||Maksimitehotila||Kätevä
-                  latausteline||Hygieeninen säiliön tyhjennys
-                xpath: /html/body/div[15]
-            image:
-              - text: https://media.power-cdn.net/images/h-978b1f8ece6b0c881b9156d6f93c09e7/products/394639/394639_9_600x600_w_g.jpg
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/pwr-product-image-carousel[1]/div[1]/owl-carousel-o[1]/div[1]/div[1]/owl-stage[1]/div[1]/div[1]/div[1]/pwr-image-item[1]/div[1]/pwr-product-image[1]/div[1]/picture[1]/img[1]/@src
+              - text: "|| Dyson V6 -digitaalimoottori || Kehitetty koville lattiapinnoille ||
+                  Poistaa samanaikaisesti roskat ja hienojakoisen pölyn ||
+                  Pehmeä rullasuulake || Muuntuu rikkaimuriksi ||
+                  Maksimitehotila || Kätevä latausteline || Hygieeninen säiliön
+                  tyhjennys"
+                xpath: /html/body/div[26]
             nameExtended:
               - text: DYSON V6 FLUFFY+ VARSI-IMURI - 394639
             descriptionBullets:
@@ -291,4 +230,4 @@ extractions:
             Image360Present:
               - text: No
         xpath: /html
-    timestamp: 1600265348252
+    timestamp: 1600767964244
