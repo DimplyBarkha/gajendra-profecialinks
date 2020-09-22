@@ -2,7 +2,7 @@ input:
   keywords: dyson
   _url: http://elgiganten.dk
 extractions:
-  - html: https://workbench.import.io/html/run=98142bff-f12d-411a-9eaa-d718d5f98d98/task=442ed802-bbb9-4d53-a0a1-74e0489d5ae6/cfe6accf-ef4a-4f2c-8cd1-4caf35d74ccc.html
+  - html: https://workbench.import.io/html/run=944464b1-2bd8-43ed-a2f8-68493e4cc333/task=3dee23c0-ba3b-4023-bcfa-ddc48e0bfb23/cbde8da0-c08e-4b14-8101-c4f9b0c7ec1e.html
     extractionConfigId: product/search/stores/e/elkjop/DK/extract
     data:
       - group:
@@ -76,13 +76,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D18000100292514/V8FLUFFY/dyson-v8-fluffy-plus-ledningsfri-stoevsuger.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,5
+              - text: "3.5"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "2"
+                locale: da
+                value: 2
             ratingCount:
               - text: "2"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 1 997
+              - text: 1 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "3"
@@ -107,13 +114,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D18000100291664/DYSAM07/dyson-cool-taarnventilator-am07.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: "4.5"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "21"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "21"
+                locale: da
+                value: 21
             ratingCount:
               - text: "21"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 2 490
+              - text: 2 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "4"
@@ -138,13 +152,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002298896/63974/dyson-pure-cool-me-luftrensende-ventilator-5025155040850.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,8
+              - text: "3.8"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "5"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "5"
+                locale: da
+                value: 5
             ratingCount:
               - text: "5"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 2 590
+              - text: 2 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "5"
@@ -169,13 +190,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D18000100291659/DYSAM09/dyson-hot-and-cool-ventilatorvarmeblaeser-am09-hvid.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "11"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "11"
+                locale: da
+                value: 11
             ratingCount:
               - text: "11"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 2 590
+              - text: 2 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[6]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "6"
@@ -200,13 +228,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002419672/53306/dyson-v8-animal-stoevsuger-dy24836701.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "75"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "75"
+                locale: da
+                value: 75
             ratingCount:
               - text: "75"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 2 790
+              - text: 2 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[7]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "7"
@@ -231,13 +266,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002250797/40303/dyson-supersonic-haartoerrer-dys316464.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,9
+              - text: "4.9"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "27"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "27"
+                locale: da
+                value: 27
             ratingCount:
               - text: "27"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 2 990
+              - text: 2 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[8]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "8"
@@ -262,13 +304,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D18000100291576/DYS305967/dyson-supersonic-haartoerrer-305967-fuschiagraa.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,9
+              - text: "4.9"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "26"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "26"
+                locale: da
+                value: 26
             ratingCount:
               - text: "26"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 2 990
+              - text: 2 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[9]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "9"
@@ -293,13 +342,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D18000100294706/DYSV8ABSOLUTE/dyson-v8-absolute-ledningsfri-stoevsuger.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: "4.5"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "144"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "144"
+                locale: da
+                value: 144
             ratingCount:
               - text: "144"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 2 990
+              - text: 2 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[10]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "10"
@@ -323,14 +379,18 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002475411/189496/dyson-pure-cool-link-luftrenser-dystp02.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "1"
+                locale: da
+                value: 1
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 3 190
+              - text: 3 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[11]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "11"
@@ -355,13 +415,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002175418/DYSHP02/dyson-pure-hotcool-link-luftrenser.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,1
+              - text: "4.1"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "22"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "22"
+                locale: da
+                value: 22
             ratingCount:
               - text: "22"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 3 390
+              - text: 3 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[1]/div[12]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "12"
@@ -386,13 +453,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D18000100291611/DYSV10MOTORHE/dyson-v10-motorhead-ledningsfri-stoevsuger.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "34"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "34"
+                locale: da
+                value: 34
             ratingCount:
               - text: "34"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 3 390
+              - text: 3 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "13"
@@ -416,14 +490,18 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002175409/DYSAM10/dyson-luftfugter-am10.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: "4"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "2"
+                locale: da
+                value: 2
             ratingCount:
               - text: "2"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 3 790
+              - text: 3 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "14"
@@ -448,13 +526,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D18000100291594/DYSV10ABSOLUT/dyson-v10-absolute-ledningsfri-stoevsuger.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,7
+              - text: "4.7"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "130"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "130"
+                locale: da
+                value: 130
             ratingCount:
               - text: "130"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 3 790
+              - text: 3 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "15"
@@ -478,14 +563,18 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002462349/179818/dyson-corrale-glattejern-dyscorale.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "1"
+                locale: da
+                value: 1
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 3 990
+              - text: 3 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[4]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "16"
@@ -510,13 +599,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002314518/66505/dyson-airwrap-complete-haarstyler-dys310733.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,8
+              - text: "4.8"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "23"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "23"
+                locale: da
+                value: 23
             ratingCount:
               - text: "23"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 3 990
+              - text: 3 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "17"
@@ -541,7 +637,7 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002434334/166988/dyson-lightcycle-morph-led-bordlampe-294677-01.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 4 190
+              - text: 4 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[6]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "18"
@@ -566,13 +662,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002273854/26177/dyson-v11-2019-animal-ledningsfri-stoevsuger.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,4
+              - text: "4.4"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "36"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "36"
+                locale: da
+                value: 36
             ratingCount:
               - text: "36"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 4 190
+              - text: 4 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[7]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "19"
@@ -597,13 +700,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002201379/DYSDP04/dyson-pure-cool-luftrenser.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: "4.2"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "8"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "8"
+                locale: da
+                value: 8
             ratingCount:
               - text: "8"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 4 190
+              - text: 4 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[8]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "20"
@@ -628,13 +738,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002455710/179558/dyson-v11-2020-torque-drive-extra-ledningsloes-stoevsuger.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,8
+              - text: "4.8"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "20"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "20"
+                locale: da
+                value: 20
             ratingCount:
               - text: "20"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 4 490
+              - text: 4 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[9]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "21"
@@ -659,13 +776,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002201368/DYSTP04/dyson-pure-cool-luftrenser.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,5
+              - text: "3.5"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "15"
+                locale: da
+                value: 15
             ratingCount:
               - text: "15"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 4 490
+              - text: 4 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[10]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "22"
@@ -690,13 +814,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002299277/63973/dyson-pure-hotcool-luftrenser-dyshp04.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,1
+              - text: "4.1"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "16"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "16"
+                locale: da
+                value: 16
             ratingCount:
               - text: "16"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 4 690
+              - text: 4 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[11]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "23"
@@ -721,13 +852,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002218757/26091/dyson-v11-2019-absolute-ledningsfri-stoevsuger.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,6
+              - text: "4.6"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "239"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "239"
+                locale: da
+                value: 239
             ratingCount:
               - text: "239"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 4 790
+              - text: 4 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "24"
@@ -752,13 +890,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002455677/179556/dyson-v11-2020-absolute-extra-ledningsfri-stoevsuger.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,7
+              - text: "4.7"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "63"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "63"
+                locale: da
+                value: 63
             ratingCount:
               - text: "63"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 4 890
+              - text: 4 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "25"
@@ -782,14 +927,18 @@ extractions:
             thumbnail:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002456051/179813/dyson-humidifycool-luftrenser-luftfugter-og-blaeser.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating2:
+            reviewCount:
               - text: "1"
-                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "1"
+                locale: da
+                value: 1
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 5 290
+              - text: 5 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "26"
@@ -814,7 +963,7 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002434333/166991/dyson-lightcycle-morph-led-gulvlampe-294681-01.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 5 890
+              - text: 5 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[3]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "27"
@@ -839,13 +988,20 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002455727/179557/dyson-v11-2020-absolute-extra-pro-ledningsloes-stoevsuger.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,8
+              - text: "4.8"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "27"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "27"
+                locale: da
+                value: 27
             ratingCount:
               - text: "27"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
             price:
-              - text: 5 990
+              - text: 5 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "28"
@@ -870,7 +1026,7 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002237484/DYSONAB14GR/dyson-airblade-db-haandtoerrer-graa.?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 10 890
+              - text: 10 
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[5]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/text()[1]
             rank:
               - text: "29"
@@ -895,8 +1051,15 @@ extractions:
               - text: https://www.elgiganten.dk/image/dv_web_D180001002362045/134181/dyson-v11-2019-dockingstation-96994404.jpg?$digital220x220$
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: "4.3"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
+                type: NUMBER
+                raw: "6"
+                locale: da
+                value: 6
             ratingCount:
               - text: "6"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[6]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]
@@ -1007,4 +1170,4 @@ extractions:
               - text: "34"
                 xpath: /html/body/div[2]/main[1]/section[1]/div[4]/div[4]/div[10]/div[1]/div[2]
         xpath: /html
-    timestamp: 1600775882825
+    timestamp: 1600786770752
