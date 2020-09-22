@@ -5,13 +5,16 @@ recordXPath: //div[contains(@class,'gridlist_item')]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[contains(@class, 'gridlist_item')]//a[contains(@class, 'productName')]//@title
+    xpath: //a[contains(@class, 'productName')]/@href
+    regExp: (.+)
+    regExpReplace: https://www.bellaffair.at$1
   - name: name
     singleValue: false
     xpath: //div[contains(@class, 'gridlist_item')]//a[contains(@class, 'productName')]//@title
   - name: price
     singleValue: false
     xpath: //div[contains(@class, 'gl_item_pricing')]//span[contains(@class, 'price')]
+    type: CURRENCY
   - name: productUrl
     singleValue: false
     xpath: //a[contains(@class, 'productName')]/@href
