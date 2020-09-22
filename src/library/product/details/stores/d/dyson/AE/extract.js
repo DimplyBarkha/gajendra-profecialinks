@@ -95,13 +95,7 @@ async function implementation (
     }
     if (document.querySelector('.contents')) {
        enhancedContent += ' ' + document.querySelector('.contents').innerText;
-      document.querySelector('.contents').querySelectorAll('img').forEach(img => {
-        manufacturerImages.push(img.getAttribute('src'));
-      });
-    }
-    if (document.querySelector('.promos__list')) {
-       enhancedContent += ' ' + document.querySelector('.layout').innerText;
-      document.querySelector('.promos__list').querySelectorAll('img').forEach(img => {
+      document.getElementById('see-all-features').querySelectorAll('img').forEach(img => {
         manufacturerImages.push(img.getAttribute('src'));
       });
     }
@@ -150,10 +144,10 @@ async function implementation (
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'NZ',
+    country: 'AE',
     store: 'dyson',
     transform,
-    domain: 'dyson.co.nz',
+    domain: 'dyson.ae',
     zipcode: '',
   },
   implementation,
