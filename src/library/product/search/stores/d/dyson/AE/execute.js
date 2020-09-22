@@ -2,10 +2,10 @@
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
-    country: 'AU',
+    country: 'AE',
     store: 'dyson',
-    domain: 'dyson.com.au',
-    url: 'https://www.dyson.com.au/catalogsearch/result/?q={searchTerms}',
+    domain: 'dyson.ae',
+    url: 'https://www.dyson.ae/en-AE/catalogsearch/result/?q={searchTerms}',
     loadedSelector: '.search-results__result',
     noResultsXPath: '//h2[contains(.,"returned no  results")]',
     zipcode: '',

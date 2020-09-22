@@ -86,7 +86,6 @@ async function implementation (
       }
       if (document.querySelector('.bv-off-screen')) {
         addHiddenDiv('rating', document.querySelector('.bv-off-screen').innerText.split(' ')[0]);
-        addHiddenDiv('ratingText', document.querySelector('.bv-off-screen').innerText.split(' ')[0] + ' out of 5');
       }
       if (document.querySelector('.dyson-bazaarvoice__reviews-link')) {
         addHiddenDiv('reviewCount', document.querySelector('.dyson-bazaarvoice__reviews-link').innerText.split(' ')[0]);
@@ -106,10 +105,10 @@ const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'NZ',
+    country: 'AE',
     store: 'dyson',
     transform: transform,
-    domain: 'dyson.co.nz',
+    domain: 'dyson.ae',
   },
   implementation,
 };
