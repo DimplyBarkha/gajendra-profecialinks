@@ -45,13 +45,6 @@ const transform = (data) => {
           item.text = item.text.replace(' Купон нового пользователя','');
         });
       }
-      if(row.variantId){
-        row.variantId.forEach(item => {
-          var skuArr=item.text.split("/item/");
-          var skuArr1=skuArr[1].split(".");
-          item.text=skuArr1[0];
-        });
-      }
       row.variantCount = [{ "text": 0 }];
     }
   }
