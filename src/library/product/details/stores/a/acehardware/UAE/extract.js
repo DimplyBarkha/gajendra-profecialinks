@@ -1,3 +1,4 @@
+/* eslint-disable promise/param-names */
 const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
@@ -33,6 +34,7 @@ module.exports = {
       }
       const productinfo = productInfo.join(' || ');
       document.body.setAttribute('productinfo', productinfo);
+      // Delay required for loading video link
       await new Promise(r => setTimeout(r, 5000));
     });
     await context.extract(productDetails);
