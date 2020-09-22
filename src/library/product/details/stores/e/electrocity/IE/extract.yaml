@@ -14,18 +14,18 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //li[@class='jet-woo-slick-control-thumbs__item slick-slide slick-active']//img/@src
-  - name: mpc
-    singleValue: true
-    description: The manufacturer model code (unique) of the product
-    xpath: //h1[contains(@class, "product_title")]/text()
-    regExp: (\|)(.*)
-    regExpReplace: $2
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
     xpath: //table[contains(@class, "shop_attributes")]//tbody//tr[contains(@class, "attribute-key-Dimensions")]//td//p
     regExp: (.*)(Weight\s)(.*)
     regExpReplace: $3
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+    xpath: //h1[contains(@class, "product_title")]/text()
+    regExp: (\|)(.*)
+    regExpReplace: $2
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
