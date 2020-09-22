@@ -45,9 +45,10 @@ fields:
     xpath: //div[@class="ui-search-result__image"]/a/@href
   - name: id
     singleValue: false
-    xpath: //div[@class="slick-slide slick-active"]/img/@src
-    regExp: D_NQ_NP_(.*)-
-    regExpReplace: $1
+    xpath: //input[@name="itemId"]/@value
+    # xpath: //div[@class="slick-slide slick-active"]/img/@src
+    # regExp: D_NQ_NP_(.*)-
+    # regExpReplace: $1
   - name: variantType
     singleValue: false
     xpath: //p[@class="ui-search-variations-picker__label"]
