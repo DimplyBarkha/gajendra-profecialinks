@@ -124,10 +124,19 @@ async function implementation (
 
       addHiddenDiv(newDiv, 'productName', decodeHtml(productName));
 
-      const secondaryImages = [];
+      let secondaryImages = [];
       if (variant.enrichment && variant.enrichment.images && variant.enrichment.images.length) {
         addHiddenDiv(newDiv, 'primaryImage', variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary);
+        if (variant.enrichment.images[0] && variant.enrichment.images[0].alternate_urls && variant.enrichment.images[0].alternate_urls.length) {
+          secondaryImages = variant.enrichment.images[0].alternate_urls.map(image => variant.enrichment.images[0].base_url + image);
+        }
+        if (variant.enrichment.images[0].content_labels && variant.enrichment.images[0].content_labels.length) {
+          secondaryImages = variant.enrichment.images[0].content_labels.filter((image, ind) => image.image_url != variant.enrichment.images[0].primary && image.image_url != variant.enrichment.images[0].swatch).map(image => variant.enrichment.images[0].base_url + image.image_url);
+        }
       }
+      secondaryImages = secondaryImages.filter(function(item, pos) {
+        return secondaryImages.indexOf(item) == pos;
+      });
 
       let videos = [];
       if (parentData.product &&
@@ -357,65 +366,66 @@ async function implementation (
               return;
             }
             const val = e.quantity || e.percentage || '0';
-            if (e.name === 'Calories') {
+            const name = e.name.toLowerCase();
+            if (name === 'calories') {
               addHiddenDiv(newDiv, 'caloriesPerServing', val);
             }
-            if (e.name === 'Calories From Fat' || e.name === 'Calories from Fat') {
+            if (name === 'calories from fat') {
               addHiddenDiv(newDiv, 'caloriesFromFat', val);
             }
-            if (e.name === 'Total Fat') {
+            if (name === 'total fat') {
               addHiddenDiv(newDiv, 'totalFatPerServing', val);
               addHiddenDiv(newDiv, 'totalFatPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Saturated Fat') {
+            if (name === 'saturated fat') {
               addHiddenDiv(newDiv, 'saturatedFatPerServing', val);
               addHiddenDiv(newDiv, 'saturatedFatPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Trans Fat') {
+            if (name === 'trans fat') {
               addHiddenDiv(newDiv, 'transFatPerServing', val);
               addHiddenDiv(newDiv, 'transFatPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Cholesterol') {
+            if (name === 'cholesterol') {
               addHiddenDiv(newDiv, 'cholesterolPerServing', val);
               addHiddenDiv(newDiv, 'cholesterolPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Sodium') {
+            if (name === 'sodium') {
               addHiddenDiv(newDiv, 'sodiumPerServing', val);
               addHiddenDiv(newDiv, 'sodiumPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Total Carb.' || e.name === 'Total Carbohydrate') {
+            if (name === 'total carb.' || name === 'total carbohydrate') {
               addHiddenDiv(newDiv, 'totalCarbPerServing', val);
               addHiddenDiv(newDiv, 'totalCarbPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Dietary Fiber') {
+            if (name === 'dietary fiber') {
               addHiddenDiv(newDiv, 'dietaryFibrePerServing', val);
               addHiddenDiv(newDiv, 'dietaryFibrePerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Sugars' || e.name === 'Total Sugars') {
+            if (name === 'sugars' || e.name === 'total sugars') {
               addHiddenDiv(newDiv, 'totalSugarsPerServing', val);
               addHiddenDiv(newDiv, 'totalSugarsPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Protein') {
+            if (name === 'protein') {
               addHiddenDiv(newDiv, 'proteinPerServing', val);
               addHiddenDiv(newDiv, 'proteinPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Vitamin A') {
+            if (name === 'vitamin a') {
               addHiddenDiv(newDiv, 'vitaminAPerServing', val);
               addHiddenDiv(newDiv, 'vitaminAPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Vitamin C') {
+            if (name === 'vitamin c') {
               addHiddenDiv(newDiv, 'vitaminCPerServing', val);
               addHiddenDiv(newDiv, 'vitaminCPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Calcium' || e.name.toLowerCase().indexOf('calcium') > -1) {
+            if (name === 'calcium' || name.indexOf('calcium') > -1) {
               addHiddenDiv(newDiv, 'calciumPerServing', val);
               addHiddenDiv(newDiv, 'calciumPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Iron' || e.name.toLowerCase().indexOf('iron') > -1) {
+            if (name === 'Iron' || name.indexOf('iron') > -1) {
               addHiddenDiv(newDiv, 'ironPerServing', val);
               addHiddenDiv(newDiv, 'ironPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Magnesium' || e.name.toLowerCase().indexOf('magnesium') > -1) {
+            if (name === 'magnesium' || name.indexOf('magnesium') > -1) {
               addHiddenDiv(newDiv, 'magnesiumPerServing', val);
               addHiddenDiv(newDiv, 'magnesiumPerServingUom', e.unit_of_measurement || '%');
             }
@@ -481,52 +491,54 @@ async function implementation (
         addHiddenDiv(newDiv, 'rotate', 'No');
       }
 
-      const moreImageBtn = document.querySelector('.styles__LegendGridButtonOverlay-beej2j-13');
-      if (moreImageBtn) {
-        moreImageBtn.click();
-        await stall(100);
-        const slideDeck = document.querySelector('.ZoomedSlideDeck__SlideList-sc-1nqe9sx-0');
-        if (slideDeck) {
-          console.log('has slide deck!');
-          slideDeck.querySelectorAll('.ZoomedSlide__Image-sc-10kwhw6-0').forEach(async (e, ind) => {
-            if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
-              e.click();
-              await new Promise((resolve, reject) => {
-                setTimeout(() => {
-                  resolve();
-                }, 1000);
-              });
-              if (document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
-                videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
+      if (!secondaryImages.length) {
+        const moreImageBtn = document.querySelector('.styles__LegendGridButtonOverlay-beej2j-13');
+        if (moreImageBtn) {
+          moreImageBtn.click();
+          await stall(100);
+          const slideDeck = document.querySelector('.ZoomedSlideDeck__SlideList-sc-1nqe9sx-0');
+          if (slideDeck) {
+            console.log('has slide deck!');
+            slideDeck.querySelectorAll('.ZoomedSlide__Image-sc-10kwhw6-0').forEach(async (e, ind) => {
+              if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
+                e.click();
+                await new Promise((resolve, reject) => {
+                  setTimeout(() => {
+                    resolve();
+                  }, 1000);
+                });
+                if (document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
+                  videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
+                }
+              } else if (ind > 0) {
+                secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://').replace('/sc/64x64', ''));
               }
-            } else if (ind > 0) {
-              secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://').replace('/sc/64x64', ''));
-            }
-          });
-        }
-      } else {
-        const sideImages = document.querySelectorAll('.styles__ThumbnailImage-beej2j-11');
-        if (sideImages) {
-          sideImages.forEach(async (e, ind) => {
-            if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
-              e.click();
-              await new Promise((resolve, reject) => {
-                setTimeout(() => {
-                  resolve();
-                }, 1000);
-              });
-              if (document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
-                videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
+            });
+          }
+        } else {
+          const sideImages = document.querySelectorAll('.styles__ThumbnailImage-beej2j-11');
+          if (sideImages) {
+            sideImages.forEach(async (e, ind) => {
+              if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
+                e.click();
+                await new Promise((resolve, reject) => {
+                  setTimeout(() => {
+                    resolve();
+                  }, 1000);
+                });
+                if (document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
+                  videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
+                }
+              } else if (ind > 0) {
+                secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://').replace('/sc/64x64', ''));
               }
-            } else if (ind > 0) {
-              secondaryImages.push(e.getAttribute('src').split('?')[0].replace('http://', 'https://').replace('/sc/64x64', ''));
-            }
-          });
+            });
+          }
         }
       }
 
-      addHiddenDiv(newDiv, 'secondaryImages', secondaryImages.filter(img => img !== variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).join(' | '));
       if (secondaryImages.length) {
+        addHiddenDiv(newDiv, 'secondaryImages', secondaryImages.filter(img => img !== variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).join(' | '));
         addHiddenDiv(newDiv, 'secondaryImageTotal', secondaryImages.filter(img => img !== variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).length);
       } else {
         addHiddenDiv(newDiv, 'secondaryImageTotal', '0');
@@ -697,6 +709,7 @@ async function implementation (
     await fetch(`${fullUrl}`)
       .then(data => data.json())
       .then(async function (res) {
+        console.log('productResponse', res);
         parentData = res;
         origData = res;
         if (res && res.product && res.product.item && res.product.item.parent_items && !isNaN(res.product.item.parent_items)) {
@@ -707,7 +720,7 @@ async function implementation (
             .then(data => data.json())
             .then(async function (parentRes) {
               parentData = parentRes;
-              console.log('childItems', parentRes.product.item.child_items);
+              console.log('parentResponse', parentRes);
               parentRes.product.item.child_items.forEach(async (variant) => {
                 await getProductInfo(variant, parentRes.product.item.product_description.title, parentRes.product.item.child_items.length);
               });
