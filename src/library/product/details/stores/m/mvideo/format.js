@@ -26,7 +26,7 @@ const transform = (data) => {
     for (const row of group) {
       if (row.description) {
         row.description.forEach(item => {
-          item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
+          item.text = '|| '+item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
         });
       }
       if (row.shippingInfo) {
@@ -63,8 +63,8 @@ const transform = (data) => {
       }
       if (row.variantId) {
         row.variantId.forEach(item => {
-          item.text = item.text.replace(/.+-(\d+)/g, '$1');
-          row.firstVariant = [{ "text": item.text, "xpath": row.variantId[0]["xpath"] }];          
+          item.text = item.text.replace(/.+-(\d+)/g, '$1');          
+          row.variantCount = [{ "text": 0, "xpath": row.variantId[0]["xpath"] }];
         });
       }
       if (row.specifications) {
@@ -79,6 +79,7 @@ const transform = (data) => {
           item.text = item.text.replace(/.+-(\d+)/g, '$1');
           temp_arr.push(item.text);
         });
+        row.firstVariant = [{ "text": row.variantId[0]["text"], "xpath": row.variantId[0]["xpath"] }];
         if (temp_arr.length) {
           row.variantCount = [{ "text": temp_arr.length, "xpath": row.variants[0]["xpath"] }];
           row.variants = [{ "text": temp_arr.join(' | '), "xpath": row.variants[0]["xpath"] }];
@@ -115,7 +116,14 @@ const transform = (data) => {
         } else {
           row.price = [{ "text": row.price[0]["text"], "xpath": row.price[0]["xpath"] }];
         }
-      }      
+      }
+      if (row.warranty) {
+        var temp_arr = [];
+        row.warranty.forEach(item => {          
+          temp_arr.push(item.text);
+        });
+        row.warranty = [{ "text": row.warranty[0]["text"], "xpath": row.warranty[0]["xpath"] }];        
+      }
     }
   }
   return data;

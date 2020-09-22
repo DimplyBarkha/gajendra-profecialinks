@@ -52,19 +52,19 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'c-multisku__group-controls')]//a/@href
   - name: variantCount
-    singleValue: false
+    singleValue: false    
   - name: weightNet
     singleValue: false
-    xpath: //span[@class="c-specification__name-text" and contains(text(), "Вес")]//ancestor::tr//td[2]
+    xpath: //span[@class="product-details-overview-specification" and contains(text(), "Вес")]//ancestor::tbody//td[2]
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class='o-about-product']//div[@class="c-about collapse-text"]
+    xpath: //h1[@class='e-h1 sel-product-title']
   - name: variantInformation
     singleValue: false
     xpath: //div[contains(@class,'c-multisku__group-controls')]//span
   - name: warranty
     singleValue: false
-    xpath: //div[@class="o-pay__best-price-guaranteen"]
+    xpath: //span[@class="product-details-overview-specification" and contains(text(), "Гарантия")]//ancestor::tr//td[2]
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="o-pdp-topic__raiting"]//span/@style
@@ -77,3 +77,6 @@ fields:
     singleValue: false
     xpath: //div[@class="c-notifications u-mt-16"]//span[@class="c-notifications__title"]
     defaultValue: "In Stock"
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //span[@class="product-details-overview-specification" and contains(text(), "Страна")]//ancestor::tr//td[2]
