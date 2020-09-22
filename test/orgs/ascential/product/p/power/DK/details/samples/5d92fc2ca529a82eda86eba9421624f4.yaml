@@ -2,7 +2,7 @@ input:
   _url: http://power.dk
   URL: https://www.power.dk/hus-og-fritid/stoevsugning/ledningsfrie-stoevsugere/dyson-v11-absolute-extra-ledningsfri/p-1076189/
 extractions:
-  - html: https://workbench.import.io/html/run=841645ae-9315-4c15-8748-90dc2e7fa7cf/task=b79b9b4c-b69a-4e90-892c-9e7afb77c638/ea6b6a9b-1549-470d-8a56-e1a3809e0024.html
+  - html: https://workbench.import.io/html/run=c470a7d5-ec32-4f01-8c0a-b91ad0dfffab/task=7266bc67-df37-44fb-84e2-85633c3863e7/860fe715-f576-4db6-8c3b-d48bff6f3eaa.html
     extractionConfigId: product/details/stores/p/power/DK/extract
     data:
       - group:
@@ -148,6 +148,16 @@ extractions:
               - text: Bemærk! Der er først indgået en bindende aftale, når vi har bekræftet din
                   bestilling.
                 xpath: /html/body/div[40]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/meta[1]/@content
+                type: NUMBER
+                raw: "2"
+                locale: da
+                value: 2
+            aggregateRating:
+              - text: 4,0
+                xpath: /html/body/div[48]
             shippingInfo:
               - text: Levering fra 29,-Spar fragten! Afhent i en af vores butikker.
                 xpath: /html/body/div[36]
@@ -159,17 +169,17 @@ extractions:
                 xpath: /html/body/div[30]
             manufacturerImages:
               - text: https://media.power.no/images/feelingimageoriginal/5025155046470/5025155046470_4.jpg
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[2]/div[1]/div[2]/img[1]/@src
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/div[2]/img[1]/@src
               - text: https://media.power.no/images/feelingimageoriginal/5025155046470/5025155046470_5.jpg
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[2]/div[1]/div[3]/img[1]/@src
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/div[3]/img[1]/@src
               - text: https://media.power.no/images/feelingimageoriginal/5025155046470/5025155046470_6.jpg
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[2]/div[1]/div[4]/img[1]/@src
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/div[4]/img[1]/@src
               - text: https://media.power.no/images/feelingimageoriginal/5025155046470/5025155046470_1.jpg
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[2]/div[1]/div[5]/img[1]/@src
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/div[5]/img[1]/@src
               - text: https://media.power.no/images/feelingimageoriginal/5025155046470/5025155046470_2.jpg
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[2]/div[1]/div[6]/img[1]/@src
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/div[6]/img[1]/@src
               - text: https://media.power.no/images/feelingimageoriginal/5025155046470/5025155046470_3.jpg
-                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[2]/div[1]/div[7]/img[1]/@src
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[2]/div[1]/div[7]/img[1]/@src
             videos:
               - text: https://www.youtube.com/watch?v=sYK-zWjxLdI
                 xpath: /html/body/div[41]
@@ -231,4 +241,4 @@ extractions:
             Image360Present:
               - text: No
         xpath: /html
-    timestamp: 1600702288896
+    timestamp: 1600791581282

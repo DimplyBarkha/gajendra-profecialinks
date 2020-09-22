@@ -2,7 +2,7 @@ input:
   _url: http://power.dk
   URL: https://www.power.dk/hus-og-fritid/stoevsugning/tilbehoer-til-stoevsugere/dyson-tool-kit-til-v6-stoevsugere/p-260083/
 extractions:
-  - html: https://workbench.import.io/html/run=841645ae-9315-4c15-8748-90dc2e7fa7cf/task=734caa3c-76e3-416b-803b-2ef0fbf9efbb/db12c5be-79d9-4624-81ad-c9ae93c040fe.html
+  - html: https://workbench.import.io/html/run=c470a7d5-ec32-4f01-8c0a-b91ad0dfffab/task=0fd43a9e-bac9-4dc5-843d-e50ecd38c151/6d7e3faf-c882-4ac5-b088-e9e7f9689635.html
     extractionConfigId: product/details/stores/p/power/DK/extract
     data:
       - group:
@@ -66,6 +66,16 @@ extractions:
               - text: Bemærk! Der er først indgået en bindende aftale, når vi har bekræftet din
                   bestilling.
                 xpath: /html/body/div[22]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/meta[1]/@content
+                type: NUMBER
+                raw: "1"
+                locale: da
+                value: 1
+            aggregateRating:
+              - text: 5,0
+                xpath: /html/body/div[26]
             shippingInfo:
               - text: Levering fra 29,-Spar fragten! Afhent i en af vores butikker.
                 xpath: /html/body/div[18]
@@ -100,4 +110,4 @@ extractions:
             Image360Present:
               - text: No
         xpath: /html
-    timestamp: 1600702272734
+    timestamp: 1600791568187

@@ -108,16 +108,16 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    xpath: //meta[@itemprop="reviewCount"]/@content
     type: NUMBER
-    xpath: //div[contains(@class, "ratings-summary")]//div[@id="ratings-summary"]/div[@class="bv_numReviews_component_container"]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
+    xpath: //div[@class='product-intro-details']//*[@itemprop='ratingValue']/@aria-label
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: //*[@id="avg-rating-button"]
+    xpath: //div[@id='aggRating']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
