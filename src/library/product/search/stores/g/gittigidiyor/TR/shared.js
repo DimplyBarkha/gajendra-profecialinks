@@ -35,6 +35,12 @@ const transform = (data, context) => {
       if (row.aggregateRating) {
         row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('.', ',') }]
       }
+
+      if (row.productUrl) {
+        if (!row.productUrl[0].text.includes('https:')) {
+          row.productUrl[0].text = `https:${row.productUrl[0].text}`
+        }
+      }
     }
   }
   context.setState({ rankCounter });
