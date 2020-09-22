@@ -2,7 +2,7 @@ input:
   _url: http://elkjop.no
   URL: https://www.elkjop.no/product/hjem-og-husholdning/inneklima/vifter/DYSAM07/dyson-cool-tarnvifte-am07
 extractions:
-  - html: https://workbench.import.io/html/run=928ad660-2daf-4deb-a3b5-148fcaaf9133/task=370addd9-38c9-4d6c-874f-076724d9206b/bdd2eaa2-0340-4a7e-84e0-4dcedd322456.html
+  - html: https://workbench.import.io/html/run=0074594a-037d-4c32-bd19-92430c8e60f0/task=35eb3d6c-a3e7-4991-b225-98019e3f4be7/7cca84df-f57b-46bf-ad08-04913db7cbb2.html
     extractionConfigId: product/details/stores/e/elkjop/NO/extract
     data:
       - group:
@@ -35,6 +35,9 @@ extractions:
                 xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[3]/a[1]/@title
               - text: Vifter
                 xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[4]/a[1]/@title
+            price:
+              - text: 3 790
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[3]/div[1]/div[1]/div[1]/span[1]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[5]/div[1]/div[1]/div[2]/span[1]/span[1]
@@ -76,9 +79,21 @@ extractions:
             color:
               - text: Sølv;Hvit
                 xpath: /html/body/div[2]/main[1]/div[1]/section[3]/div[2]/div[1]/div[3]/div[1]/div[1]/dl[4]/dd[1]/table[1]/tbody[1]/tr[1]/td[2]
+            manufacturerDescription:
+              - text: Kontakt Oss
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[1]/div[1]
+              - text: Ofte stilte spørsmål
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[2]/div[1]
+              - text: Åpent kjøp
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[3]/div[1]
+              - text: Kundeklubb
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[4]/div[1]
             name:
               - text: Dyson Cool tårnvifte AM07
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[1]/h1[1]
+            warranty:
+              - text: "[object XPathResult]"
+                xpath: /html/body/div[7]
             productOtherInformation:
               - text: >-
                   Mer informasjon
@@ -121,8 +136,13 @@ extractions:
 
                   Dette produktet har 2-års garanti.
                 xpath: /html/body/div[2]/main[1]/div[1]/section[3]/div[2]/div[1]/div[2]
-            manufacturer:
-              - text: Dyson
+            additionalDescBulletInfo:
+              - text: "Viftediameter: 35,6 cm"
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[11]/ul[1]/li[1]
+              - text: Air Multiplier-teknologi
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[11]/ul[1]/li[2]
+              - text: Fjernkontroll, enkel rengjøring
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[11]/ul[1]/li[3]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -139,10 +159,6 @@ extractions:
               - text: https://www.elkjop.no/image/dv_web_D18000100291664/DYSAM07/dyson-cool-taarnvifte-am07.jpg?$prod_all4one$
             nameExtended:
               - text: "Dyson Cool tårnvifte AM07 "
-            listPrice:
-              - text: 3790 NOK
-            price:
-              - text: 3790 NOK
             descriptionBullets:
               - text: "3"
                 type: NUMBER
@@ -164,4 +180,4 @@ extractions:
                    19,00 Dybde (cm) 
                    11,00
         xpath: /
-    timestamp: 1600251849960
+    timestamp: 1600788557557

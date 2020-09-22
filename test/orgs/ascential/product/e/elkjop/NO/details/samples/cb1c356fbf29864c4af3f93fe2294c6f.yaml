@@ -2,7 +2,7 @@ input:
   _url: http://elkjop.no
   URL: https://www.elkjop.no/product/hjem-og-husholdning/belysning/lamper/166988/dyson-lightcycle-morph-led-skrivebordslampe-294677-01
 extractions:
-  - html: https://workbench.import.io/html/run=928ad660-2daf-4deb-a3b5-148fcaaf9133/task=7b5508e6-a9cd-411b-a47d-9fd4280ee9b6/75b91040-d53f-4bac-a0ba-e0b22816d500.html
+  - html: https://workbench.import.io/html/run=0074594a-037d-4c32-bd19-92430c8e60f0/task=430a2444-ab29-49d7-be89-028deefa030d/c1ca9aa0-8af6-4b7d-80ca-28e8b2347158.html
     extractionConfigId: product/details/stores/e/elkjop/NO/extract
     data:
       - group:
@@ -36,6 +36,9 @@ extractions:
                 xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[3]/a[1]/@title
               - text: Lamper
                 xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[4]/a[1]/@title
+            price:
+              - text: 6 190
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[2]/div[3]/div[3]/div[1]/div[1]/div[1]/span[1]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[2]/div[3]/div[4]/div[1]/div[1]/div[2]/span[1]/span[1]
@@ -63,6 +66,15 @@ extractions:
             color:
               - text: Sølv
                 xpath: /html/body/div[2]/main[1]/div[1]/section[3]/div[2]/div[1]/div[3]/div[1]/div[1]/dl[4]/dd[1]/table[1]/tbody[1]/tr[1]/td[2]
+            manufacturerDescription:
+              - text: Kontakt Oss
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[1]/div[1]
+              - text: Ofte stilte spørsmål
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[2]/div[1]
+              - text: Åpent kjøp
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[3]/div[1]
+              - text: Kundeklubb
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[4]/div[1]
             videos:
               - text: https://www.elkjop.no/video/DV_Vid_D180001001434054/166988/dyson-lightcycle-morph-led-skrivebordslampe-294677-01.mp4
                 xpath: /html/body/div[6]
@@ -108,8 +120,16 @@ extractions:
             variantInformation:
               - text: Monteringsmuligheter
                 xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]
-            manufacturer:
-              - text: Dyson
+            variants:
+              - text: Frittstående
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]
+            additionalDescBulletInfo:
+              - text: 11,2 W, 4 lys i 1
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[2]/div[3]/div[10]/ul[1]/li[1]
+              - text: "Levetid: 181 000 timer"
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[2]/div[3]/div[10]/ul[1]/li[2]
+              - text: App tilgjengelig
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[2]/div[3]/div[10]/ul[1]/li[3]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -128,10 +148,6 @@ extractions:
               - text: |
                   Dyson Lightcycle Morph LED skrivebordslampe 294677-01 
                   Frittstående
-            listPrice:
-              - text: 6190 NOK
-            price:
-              - text: 6190 NOK
             descriptionBullets:
               - text: "3"
                 type: NUMBER
@@ -153,4 +169,4 @@ extractions:
                    20,02 Dybde (cm) 
                    41,44
         xpath: /
-    timestamp: 1600251852662
+    timestamp: 1600788564776
