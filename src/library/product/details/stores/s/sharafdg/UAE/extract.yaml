@@ -34,13 +34,13 @@ fields:
     xpath: //head/meta[@property="og:url"]/@content
   - name: category
     singleValue: false
-    xpath: //meta[@property="product:category"]/@content
+    xpath: //div[@class="breadcrumb"]//li
   - name: nameExtended
     singleValue: false
     xpath: //div[@class="product-title"]/h1[@itemprop="name"]
   - name: listPrice
     singleValue: false
-    xpath: //meta[@property="product:original_price:amount"]/@content
+    xpath: concat(//div[@class="pdp-price-cart"]//div[@class="product-price"]//div[@class="cross-price"]//span[@class="strike"],' ',//div[@class="pdp-price-cart"]//div[@class="product-price"]//div[@class="cross-price"]//span[@class="currency"])
   - name: sku
     singleValue: false
     xpath: //div[@class="product-title"]//div[@class="sku-wrap"]//div[contains(., 'SKU')]//span
@@ -108,3 +108,9 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //div[@class="product-title"]//div[@class="sku-wrap"]//div[contains(., 'SKU')]//span
+  - name: mpc
+    singleValue: false
+    xpath: (//div[@class="sku-wrap"]//p/span)[1]
+  - name: upc
+    singleValue: false
+    xpath: //script[@data-flix-inpage="flix-inpage"]/@data-flix-ean

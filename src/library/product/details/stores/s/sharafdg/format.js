@@ -54,6 +54,9 @@ const transform = (data) => {
         });
         row.variantInformation = [{ text: variantText.join(',') }];
       }
+      if (row.category) {
+        row.category.shift();
+      }
     }
   }
 
