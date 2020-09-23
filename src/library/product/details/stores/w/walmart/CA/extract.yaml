@@ -41,7 +41,7 @@ fields:
     xpath: //div[@id='ii_rating'][last()]
   - name: description
     singleValue: false
-    xpath: //div[@data-automation='long-description'] | //div[@data-automation='feature-specifications']
+    xpath: //div[@id='ii_desc'][last()]
   - name: brandText
     singleValue: false
     xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(.,'Brand')]/following-sibling::div
@@ -76,3 +76,12 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //span[@data-automation='buybox-price-old']
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='css-93ek76 e1fnyg632'] | //div[@class='css-93ek76 e1fnyg632']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@data-automation='feature-specifications']/ul/li
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[@data-automation='feature-specifications']/ul/li)
