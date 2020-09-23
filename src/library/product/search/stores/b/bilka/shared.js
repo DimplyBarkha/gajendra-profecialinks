@@ -31,7 +31,7 @@ const transform = (data, context) => {
 
 			if(row.price){			
 				let tempprice = row.price[0].text.replace(',-','');		
-				row.price = [{ text: tempprice.replace('.','')}];          
+				row.price = [{ text: tempprice.replace('.','').replace(',','.')}];          
 			  }
 
 			row.rank = [{text: rankCounter}];
