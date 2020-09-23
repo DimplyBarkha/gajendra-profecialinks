@@ -5,7 +5,8 @@ recordXPath: null
 fields:
   - name: availabilityText
     singleValue: false
-    xpath: //div[@data-widget='webAddToCart']//div[contains(text(),'Добавить в корзину')]
+    xpath: //div[@data-widget='webSale']//div[contains(text(),'Товар закончился')]
+    defaultValue: 'In Stock'
   - name: nameExtended
     singleValue: false
     xpath: //div[@data-widget='webProductHeading']//h1
@@ -77,7 +78,7 @@ fields:
     xpath: //div[@data-widget='webCharacteristics']//dl[contains(@class,'b0s1')]
   - name: variantCount
     singleValue: false
-    defaultValue: 0
+    defaultValue: '0'
   - name: variantInformation
     singleValue: false
   - name: variants
