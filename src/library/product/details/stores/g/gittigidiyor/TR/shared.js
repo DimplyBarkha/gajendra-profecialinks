@@ -49,15 +49,22 @@ const transform = (data) => {
 				}
 
 				finalDescription += featureStr.length > 0 ? ` || ${featureStr}` : '';
-				finalDescription += row.descriptionContent ? `${row.descriptionContent[0].text}` : '';
+				finalDescription += row.descriptionContent ? ` ${row.descriptionContent[0].text}` : '';
 				row.description = [{ text: finalDescription }]
 				// row.description = [{ text: `${row.description[0].text} ${row.featureHeading[0].text} || ${featureStr}` }];
 			}
 
 			if (row.aggregateRating) {
-        row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('.', ',') }]
+				row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('.', ',') }]
 			}
-			
+
+			if (row.name) {
+				let nameExtended = '';
+				nameExtended += row.brand ? `${row.brand[0].text} - ${row.name[0].text}` : row.name[0].text;
+				nameExtended += row.nameExtendedTail ? ` - ${row.nameExtendedTail[0].text}` : '';
+				row.nameExtended = [{ text: nameExtended }];
+			}
+
 		}
 	}
 

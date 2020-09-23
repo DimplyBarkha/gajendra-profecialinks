@@ -15,8 +15,8 @@ fields:
   xpath: //div[contains(@class, 'gallery-hidden-thumbs') and not(contains(@class, 'active-img'))]//img[contains(@class, 'swapImage')]/@data-original
   regExp: (.+)tn14(.+)
   regExpReplace: $1tn50$2
-- name: nameExtended
-  xpath: concat(//ul[contains(@class, 'productSpect') and contains(@class, 'product-items')]/li[contains(., 'Marka')]//ul/li/a,'- ',//h1[@id='sp-title'],' -',//span[@id='sp-subTitle'])
+- name: nameExtendedTail
+  xpath: //span[@id='sp-subTitle']
 - name: listPrice
   xpath: //span[@id='sp-price-highPrice' and contains(@class, 'strike')]
 - name: price
@@ -69,7 +69,7 @@ fields:
   xpath: "//div[@id='sp-desktopDescription']//li[contains(., 'Ağırlık:') or contains(., 'Ağırlık: ')] | //div[@id='sp-desktopDescription']//p[contains(., 'Ağırlık:') or contains(., 'Ağırlık: ') or contains(., 'Ağırlık : ')] | //div[@id='catalog-info-details']//div[contains(., 'Net Ağırlık') and contains(@class, 'spec-title')]/following-sibling::div[1] | //div[@class='item' and contains(., 'Net Ağırlık')]/div[2]"
   regExp: (.+):(.+)
   regExpReplace: $2
-- name: availability
+- name: availabilityText
   xpath: //div[@id='sp-soldInfoContainer']
 - name: specTitles
   xpath: //div[contains(@class, 'spec-group-container')]/ul/li/div[contains(@class,'spec-title')]
