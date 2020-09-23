@@ -46,7 +46,7 @@ module.exports = {
         const formattedRating = rating.stringValue.replace(',', '.');
         addElementToDocument('rating', formattedRating);
       }
-      const warranty = document.evaluate("//*[contains(text(), 'garanti')]", document, null, XPathResult.STRING_TYPE, null);
+      const warranty = document.evaluate("//*[contains(text(), ' garanti')]", document, null, XPathResult.STRING_TYPE, null);
       if (warranty) {
         if (warranty.stringValue.length === 0) {
           var cleanWarranty = document.evaluate("//div[@class='tab-slot']/p/text()[position() = last()]", document, null, XPathResult.STRING_TYPE, null).stringValue;
