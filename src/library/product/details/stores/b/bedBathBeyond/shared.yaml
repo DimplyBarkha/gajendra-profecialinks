@@ -7,13 +7,13 @@ fields:
     description: URL of the main product image
     xpath: td[@class="image"]
     regExp: (.+)
-    regExpReplace: https://b3h2.scene7.com/is/image/BedBathandBeyond/$1?$2000$&wid=2000&hei=2000
+    regExpReplace: https://b3h2.scene7.com/is/image/BedBathandBeyond/$1?&wid=2000&hei=2000
   - name: imageAlt
     description: Alt text of the main product image
   - name: alternateImages
     xpath: td[@class="alternateImages"]
     regExp: ([^,]+)
-    regExpReplace: https://b3h2.scene7.com/is/image/BedBathandBeyond/$1?$2000$&wid=2000&hei=2000
+    regExpReplace: https://b3h2.scene7.com/is/image/BedBathandBeyond/$1?$&wid=2000&hei=2000
     singleValue: false
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
@@ -74,18 +74,17 @@ fields:
     xpath: td[@class="variantId"]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    xpath: ancestor::html//div[@id="productDetails"]//ul/li[starts-with(text(),"Model")] | td[@class="mpc"]
+    xpath: ancestor::html//div[@id="productDetails"]//ul/li[starts-with(text(),"Model")] | td[@class="mpc"] | ancestor::html[count(//div[@id="product-detail-api"]/table/tbody/tr) = 1]//@data-mpn
     description: The manufacturer model code (unique) of the product
   - name: ratingCount
-    xpath: ancestor::html//div[contains(@class,"lazy-RatingsSnapshot")]/p[contains(@class,"lazy-RatingsSnapshot")][contains(.,'review') and contains(.,'rating')]
-    regExp: '[\s\d,]+(?=rating)'
+    xpath: ancestor::html/body/@rating-count
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
-    xpath: ancestor::html//div[@class="lazy-RatingsSnapshot_4XVJU5"]
+    xpath: ancestor::html/body/@rating-value
     description: The stated aggregate rating
   - name: aggregateRating
-    xpath: ancestor::html//div[@class="lazy-RatingsSnapshot_4XVJU5"]
+    xpath: ancestor::html/body/@rating-value
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: variantCount
@@ -99,11 +98,11 @@ fields:
     xpath: td[@class="colorGroup"]
     description: A textual description of the colour
   - name: manufacturerDescription
-    xpath: concat(//div[@id="webcollage"])
+    xpath: ancestor::html//div[@id="webcollage"])
     singleValue: false
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
-    xpath: concat(//div[@id="webcollage"]//img/@src)
+    xpath: ancestor::html//div[@id="webcollage"]//img/@src
     singleValue: false
     description: Images within the third party description
   - name: name
@@ -116,7 +115,7 @@ fields:
     xpath: td[@class="warranty"] | ancestor::html//div[@id="productDetails"]//ul/li[contains(text(),"warranty")]
     description: Guarantee associated with the product
   - name: countryOfOrigin
-    xpath: td[@class="countryOfOrigin"]
+    xpath: td[@class="countryOfOrigin"][not(.="Imported")]
     description: The country from which the product originates
   - name: variantInformation
     xpath: >-

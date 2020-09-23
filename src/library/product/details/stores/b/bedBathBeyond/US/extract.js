@@ -13,6 +13,20 @@ async function implementation (
     const API = `${window.location.origin}/apis/stateless/v1.0/sku/product?product=${productId}#[!opt!]{"type":"json"}[/!opt!]`;
     return API;
   }
+
+  async function addRating () {
+    if (!window.location.pathname.includes('/product/')) {
+      return false;
+    }
+    const productId = window.location.pathname.match(/[^/]+$/)[0];
+    const API = `${window.location.origin}/api/apps/conversations/query/reviews?ProductId=${productId}&Stats=Reviews`;
+    const response = await fetch(API);
+    const data = await response.json();
+    const ratingCount = data.ReviewStatistics && (data.ReviewStatistics.RatingsOnlyReviewCount + data.ReviewStatistics.TotalReviewCount);
+    const ratingValue = data.ReviewStatistics && data.ReviewStatistics.AverageOverallRating;
+    document.body.setAttribute('rating-count', ratingCount);
+    document.body.setAttribute('rating-value', (Math.round(ratingValue * 10) / 10).toString());
+  }
   async function getAPIData (api) {
     const response = await fetch(api);
     const json = await response.json();
@@ -28,7 +42,11 @@ async function implementation (
       const availabilityText = row.ONLINE_INVENTORY;
       const quantity = row.SKU_SIZE;
       const specifications = [...row.SPECS, ...row.FEATURES];
-      const weightNet = specifications && specifications.find(prop => prop['Weight Capacity']) && specifications.find(prop => prop['Weight Capacity'])['Weight Capacity'];
+      let weightNet = specifications && specifications.find(prop => prop['Weight Capacity']) && specifications.find(prop => prop['Weight Capacity'])['Weight Capacity'];
+      if (!weightNet) {
+        weightNet = specifications && specifications.find(prop => prop['roduct Weight (lb)']) && specifications.find(prop => prop['roduct Weight (lb)'])['Weight Capacity'];
+        weightNet = weightNet ? weightNet + 'lbs' : undefined;
+      }
       const gtin = row.UPC;
       const sku = row.PRODUCT_ID;
       const variantId = row.SKU_ID;
@@ -139,6 +157,7 @@ async function implementation (
   }
 
   await context.evaluate(generateDynamicTable, jsonData);
+  await context.evaluate(addRating);
   const { transform } = parameters;
   const { productDetails } = dependencies;
   return await context.extract(productDetails, { transform });
