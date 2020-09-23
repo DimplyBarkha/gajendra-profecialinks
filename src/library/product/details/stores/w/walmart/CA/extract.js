@@ -25,7 +25,7 @@ async function implementation (
   }
 
   async function preparePage (index, variantLength, variantColorLength, variantSizeLength) {
-    await context.evaluate(async (index, variantLength) => {
+    await context.evaluate(async (index, variantLength, variantColorLength, variantSizeLength) => {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -33,19 +33,26 @@ async function implementation (
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      let firstVariant = '';
       const productData = window.__PRELOADED_STATE__;
       if (productData) {
-        const totalVariant = Object.keys(productData.entities.skus).length;
+        let totalVariant = Object.keys(productData.entities.skus).length;
+        console.log('variantColorLength', variantColorLength, variantSizeLength);
+        if (variantColorLength === 0 && variantSizeLength === 0) {
+          totalVariant = 0;
+        } else {
+          firstVariant = productData.product.activeSkuId;
+          addHiddenDiv('ii_firstVariant', firstVariant);
+          const variants = productData.product.item.skus;
+          console.log('productData.product.skus.length', productData, productData.product, productData.product.skus)
+          addHiddenDiv('ii_variants', variants);
+        }
+        console.log('totalVariant', totalVariant);
         addHiddenDiv('ii_totalvariant', totalVariant);
-        const variants = productData.product.item.skus;
-        console.log('productData.product.skus.length', productData, productData.product, productData.product.skus)
-        addHiddenDiv('ii_variants', variants);
         const rating = productData.product.item.rating.averageRating;
         addHiddenDiv('ii_rating', rating);
-        const firstVariant = productData.product.activeSkuId;
-        addHiddenDiv('ii_firstVariant', firstVariant);
       }
-    }, index, variantLength);
+    }, index, variantLength, variantColorLength, variantSizeLength);
   }
 
   console.log(variantLength, variantColorLength, variantSizeLength);
@@ -79,7 +86,7 @@ async function implementation (
         await context.click(`button[class*='e30m82v3']:nth-child(${index + 1})`);
         if (index <= variantLength - 2) {
           console.log('Inside variants', index);
-          await preparePage(index, variantLength);
+          await preparePage(index, variantLength, variantColorLength, variantSizeLength);
           await context.extract(productDetails, { transform }, { type: 'APPEND' });
         }
       }
@@ -87,9 +94,9 @@ async function implementation (
   }
 
   if (variantLength) {
-    await preparePage(variantLength - 1, variantLength);
+    await preparePage(variantLength - 1, variantLength, variantColorLength, variantSizeLength);
   } else {
-    await preparePage(0, 0);
+    await preparePage(0, 0, variantColorLength, variantSizeLength);
   }
   return await context.extract(productDetails, { transform });
 }

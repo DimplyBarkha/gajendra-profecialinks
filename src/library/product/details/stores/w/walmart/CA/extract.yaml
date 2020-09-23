@@ -11,7 +11,7 @@ fields:
     xpath: //div[@class='css-7g4y5t e6g1c3f1']//div[contains(@class,'react-swipe-container ')]//div[@role='presentation']//img[1]/@alt
   - name: availabilityText
     singleValue: false
-    xpath:  //button[@class='css-1i45fk4 edzik9p0' and contains(.,'Add to cart')] | //button[@class='css-11m10q7 edzik9p0' and contains(.,'Out of stock')] | //p[@data-automation='online-only-label']
+    xpath:  //button[@class='css-1i45fk4 edzik9p0' and contains(.,'Add to cart')] | //button[@class='css-11m10q7 edzik9p0' and contains(.,'Out of stock')] | //p[@data-automation='online-only-label'] | //button[contains(@data-automation,'cta-button')]
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='css-7g4y5t e6g1c3f1']//div[contains(@class,'react-swipe-container ')]//div[@role='presentation']//img[1]/@src
