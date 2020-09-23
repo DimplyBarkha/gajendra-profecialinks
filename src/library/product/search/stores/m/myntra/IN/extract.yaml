@@ -28,8 +28,6 @@ fields:
   - name: aggregateRating2
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[@class="product-ratingsContainer"]/span[1]
-    regExp: (\d+)\.?(\d+)?
-    regExpReplace: $1,$2
   - name: reviewCount
     description: The number of reviews
     type: NUMBER
