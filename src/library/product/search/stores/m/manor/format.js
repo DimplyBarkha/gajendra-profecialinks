@@ -13,7 +13,7 @@ const transform = (data) => {
             rank_temp = rank_temp + 1;
             if (row.productUrl) {
                 row.productUrl.forEach(item => {
-                    item.text = 'https://www.manor.ch' + item.text;
+                    item.text = item.text;
                 });
             }
             if (row.thumbnail) {
@@ -26,6 +26,24 @@ const transform = (data) => {
                     item.text = item.text.replace('.',',');
                 });
             }
+            if (row.aggregateRating2) {
+                row.aggregateRating2.forEach(item => {
+                    item.text = item.text.replace('.',',');
+                });
+            }
+            if (row.name) {
+                var final_name = '';
+                if (row.brandText) {
+                    final_name = row.brandText[0].text;
+                }
+                if (row.subTitle) {
+                    final_name = final_name + '-' + row.subTitle[0].text;
+                }              
+                row.name[0].text = final_name + ' ' + row.name[0].text;
+                row.name[0].text = row.name[0].text.trim();
+                row.nameExtended[0].text = row.name[0].text.trim();
+            }
+            delete row.subTitle;
         }        
     }
     return data;

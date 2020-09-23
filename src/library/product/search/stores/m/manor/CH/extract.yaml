@@ -12,6 +12,12 @@ fields:
   - name: name
     SingleValue: false
     xpath: //div[contains(@class,"o-producttile__copy2")]
+  - name: nameExtended
+    SingleValue: false
+    xpath: //div[contains(@class,"o-producttile__copy2")]  
+  - name: subTitle
+    SingleValue: false
+    xpath: //div[contains(@class,"m-productdetailareaa__areaA__title-line-secondline")]
   - name: price
     SingleValue: false
     xpath: //span[contains(@class,"price__discount ")]
