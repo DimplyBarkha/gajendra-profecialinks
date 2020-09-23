@@ -8,33 +8,17 @@ const transform = (data) => {
     for (const { group } of data) {
         for (const row of group) {
             try {
-                /*  if (row.price) {
-                     row.price = [{ text: row.price[0].text.substring(0, row.price[0].text.length - 2) }, { text: row.price[0].text.charAt(row.price[0].text.length - 1) }];
-                 } */
-                /*  if (row.listPrice) {
-                     row.listPrice = [{ text: row.listPrice[0].text.substring(1, row.listPrice[0].text.length - 1) }];
-                 } */
+                if (row.price) {
+                    row.price[0].text = row.price[0].text.replace('.', ',')
+                }
+                if (row.listPrice) {
+                    row.listPrice[0].text = row.listPrice[0].text.replace('.', ',')
+                }
 
                 if (row.sku) {
                     var skuJson = row.sku[0].text;
                     if (skuJson) {
                         var skuJsonData = JSON.parse(skuJson);
-                        //  console.log(skuJsonData);
-                        /* var sku = JSON.stringify(skuJson)
-                            .replace(/\\n/g, "\\n")
-                            .replace(/\\'/g, "\\'").replace(/\\"/g, '\\"')
-                            .replace(/\\&/g, "\\&")
-                            .replace(/\\r/g, "\\r")
-                            .replace(/\\t/g, "\\t")
-                            .replace(/\\b/g, "\\b").replace(/\\f/g, "\\f")
-                            .replace(/[\u0000-\u0019]+/g, "")
-
-
-                        const skuJsonData = JSON.parse(sku);
-                        console.log('tttttt', skuJsonData);
-                        skuJsonData.forEach(item => {
-                            console.log('iiiiii',item);
-                        }); */
                         if (skuJsonData) {
                             row.sku[0].text = skuJsonData.sku;
                             row.variantId[0].text = skuJsonData.sku;
@@ -42,31 +26,29 @@ const transform = (data) => {
                     }
                 }
                 if (row.firstVariant) {
-                    var itemText = row.firstVariant[0].text.replace('sku: ','');
-                       itemText = itemText.replace('"','');
-                       itemText = itemText.replace('\'',''); 
-                         row.firstVariant = [
-                            {
-                              text: itemText,
-                            },
-                          ];                       
+                    var itemText = row.firstVariant[0].text.replace('sku: ', '');
+                    itemText = itemText.replace('"', '');
+                    itemText = itemText.replace('\'', '');
+                    row.firstVariant = [
+                        {
+                            text: itemText,
+                        },
+                    ];
                 }
-                if(row.variants)
-                {
+                if (row.variants) {
                     let nextText = '';
                     row.variants.forEach(item => {
-                       var itemText = item.text.replace('sku: ','');
-                       itemText = itemText.replace('"','');
-                       itemText = itemText.replace('\'','');                       
-                        if(nextText.toString().indexOf(itemText) < 0)
-                        {
-                        nextText += itemText.trim()+'|';
+                        var itemText = item.text.replace('sku: ', '');
+                        itemText = itemText.replace('"', '');
+                        itemText = itemText.replace('\'', '');
+                        if (nextText.toString().indexOf(itemText) < 0) {
+                            nextText += itemText.trim() + '|';
                         }
                     });
                     row.variants = [
-                      {
-                        text: nextText.substring(0,nextText.length-1),
-                      },
+                        {
+                            text: nextText.substring(0, nextText.length - 1),
+                        },
                     ];
                 }
             } catch (exception) {

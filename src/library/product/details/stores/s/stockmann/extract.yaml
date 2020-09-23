@@ -23,11 +23,9 @@ fields:
     xpath: //div[contains(@class,"product-view-headlines")]
   - name: listPrice
     singleValue: true
-    type: CURRENCY
     xpath: //div[contains(@class,"price-box")]//span[contains(@class,"skin-obsolete")]
   - name: price
     singleValue: true
-    type: CURRENCY
     xpath: //div[contains(@class,"price-box")]//span[1]
   - name: availabilityText
     xpath: //button[contains(@class,"btn-cart")]
