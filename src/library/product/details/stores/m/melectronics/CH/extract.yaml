@@ -6,9 +6,12 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[@class='detail-showcase--discount-content']
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //img[@class='detail-showcase--brand-img']/@src
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class='buybox--annotation']//span[contains(text(),'Sofort lieferbar')]
+    xpath: (//div[@class='buybox--annotation']//span[contains(@class,'buybox--annotation-text')])[1]
     defaultValue: 'In Stock'
   - name: price
     singleValue: false
@@ -16,9 +19,12 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //div[@class='detail-options--price']//span[@class='_3Zi7dtkU2jBQ9sI3wlbCp0']
-  - name: sku
+  - name: mpc
     singleValue: false
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Artikelnummer']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
+  - name: colorCode
+    singleValue: false
+    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Farbe']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
   - name: variantId
     singleValue: false
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Artikelnummer']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
@@ -75,10 +81,7 @@ fields:
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[contains(text(),'Speicherkapazität')]/parent::*/div[@class='detail-navigation-section--specification-item-tx']
   - name: warranty
     singleValue: false
-    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[contains(text(),'Garantie')]/parent::*/div[@class='detail-navigation-section--specification-item-tx']
-  - name: countryOfOrigin
-    singleValue: false
-    xpath: //div[@id="test-header-link-Language"]/div[1]  
+    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[contains(text(),'Garantie')]/parent::*/div[@class='detail-navigation-section--specification-item-tx']  
   - name: gtin
     singleValue: false
     xpath: //script[@id='state']
