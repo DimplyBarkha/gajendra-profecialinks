@@ -27,6 +27,7 @@ module.exports = {
         console.log('accordiancollapseFive.className');
         console.log(accordiancollapseFive.className);
         accordiancollapseFive.click();
+        accordiancollapseFive.click();
       }
     });
   
