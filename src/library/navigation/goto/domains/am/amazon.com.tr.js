@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'amazon.com.tr',
-    timeout: 50000,
+    timeout: 10000,
     country: 'TR',
     store: 'amazon',
     zipcode: '',
@@ -66,7 +66,7 @@ module.exports = {
       let status = 200;
       if (document.querySelector('a img[src*="503.png"], a[href*="ref=cs_503_link"]')) {
         status = 503;
-      } else if (document.evaluate("//script[contains(text(),'PageNotFound')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength > 0 || !!document.querySelector('a[href*="dogsofamazon"],img[alt*="unde"],img[alt*="Dogs"],img[alt*="hein"]') ) {
+      } else if (document.evaluate("//script[contains(text(),'PageNotFound')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength > 0 || !!document.querySelector('a[href*="dogsofamazon"],img[alt*="unde"],img[alt*="Dogs"],img[alt*="hein"]')) {
         status = 404;
       }
       return { status };
@@ -134,6 +134,11 @@ module.exports = {
         css_enabled: false,
         random_move_mouse: true,
       });
+      try {
+        await context.click('span[data-action="GLUXSignInAction"] input[type="submit"]');
+      } catch (error) {
+        console.log('pop up click failed!!');
+      }
       // Treating as 200 if no response.
       if (!lastResponseData.status) {
         return;

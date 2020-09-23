@@ -7,66 +7,97 @@ const { transform } = require('../../../../sharedAmazon/transformNew');
  * @param { Record<string, any> } dependencies
  */
 async function implementation (
+  // @ts-ignore
   inputs,
   parameters,
   context,
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails, Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
+  const { productDetails } = dependencies;
 
-  const helpers = new Helpers(context);
-  const amazonHelp = new AmazonHelp(context, helpers);
-
-  async function getLbb () {
-    const elem = await helpers.checkXpathSelector("//div[contains(@id, 'glow-toaster-body') and //*[contains(text(), 'Amazon Fresh')]]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']");
-    if (elem) {
-      await helpers.checkAndClick('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a', 'css', 20000);
-      // await helpers.checkURLFor('offer');
-
-      const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
-      await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
-
-      return await context.evaluate(function () {
-        function addHiddenDiv (id, content) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
-        }
-
-        const firstCheck = document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div');
-        const otherSellers = document.querySelectorAll('div#aod-offer');
-        const price = document.querySelector('span#price_inside_buybox');
-        if (firstCheck && price) {
-          // @ts-ignore
-          const priceText = parseFloat((price.innerText).slice(1));
-          // @ts-ignore
-          if (firstCheck.innerText !== 'Ships from and sold by Amazon.com.' && otherSellers) {
-            otherSellers.forEach((seller) => {
-              // @ts-ignore
-              const sellerPrice = seller.querySelector('span.a-offscreen') ? seller.querySelector('span.a-offscreen').innerText : '';
-              const priceNum = parseFloat(sellerPrice.slice(1));
-              const shipsFrom = seller.querySelector('div#aod-offer-shipsFrom div.a-column.a-span9.a-span-last');
-              const soldBy = seller.querySelector('div#aod-offer-soldBy div.a-column.a-span9.a-span-last');
-              // @ts-ignore
-              if (shipsFrom && shipsFrom.innerText === 'Amazon.com' && soldBy && soldBy.innerText === 'Amazon.com' && priceNum > priceText) {
-                addHiddenDiv('ii_lbb', 'YES');
-                addHiddenDiv('ii_lbbPrice', `${priceNum}`);
-              }
-            });
-          }
-        }
-      });
+  const getLbb = async () => {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
     }
+    const ship = document.evaluate('(//tr//td[contains(@class,"buybox-tabular-column") and ./span[contains(.,"Gönderici")]]/following-sibling::td/span/span)[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    const sold = document.evaluate('(//tr//td[contains(@class,"buybox-tabular-column") and ./span[contains(.,"Satıcı")]]/following-sibling::td/span/span)[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    if (ship && ship.innerText && sold && sold.innerText) {
+      const dt = (sold.innerText === ship.innerText ? `${sold.innerText} tarafından satılır ve gönderilir.` : `gönderilir tarafindan ${ship.innerText} ve satılır tarafindan ${sold.innerText}`);
+      dt && addHiddenDiv('ii_shipping_info', dt);
+    }
+    const brandText = document.evaluate('//a[@id="bylineInfo"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    if (brandText && brandText.innerText) {
+      addHiddenDiv('ii_brand_text', brandText.innerText);
+    } else {
+      const name = document.evaluate('//span[@id="productTitle"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (name && name.innerText.includes('Dyson')) {
+        addHiddenDiv('ii_brand_text', 'Dyson');
+      } else {
+        name && name.innerText && addHiddenDiv('ii_brand_text', name.innerText.split(' ')[0]);
+      }
+    }
+    const variants = document.evaluate(' //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    const variantsArray = [];
+    if (variants) {
+      for (var i = 0; i < variants.snapshotLength; i++) {
+        variantsArray.push(variants.snapshotItem(i).textContent.trim());
+      }
+      variantsArray && addHiddenDiv('ii_variants', variantsArray.join(' | '));
+    }
+    const description = document.evaluate('//*[@id="feature-bullets"]/ul/li[not(@id)]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    const descArray = [];
+    if (description) {
+      for (var i = 0; i < description.snapshotLength; i++) {
+        descArray.push(description.snapshotItem(i).textContent.trim());
+      }
+    }
+    const descriptionOne = document.evaluate('//div[@id="productDescription"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    if (description) {
+      descriptionOne && descriptionOne.innerText && descArray.push(`| ${descriptionOne.innerText.trim()}`);
+      descArray && descArray[0] && addHiddenDiv('ii_description', `|| ${descArray.join(' || ').trim().replace(/\|\| \|/g, '|')}`);
+    }
+    const specifications = document.evaluate('//table[contains(@id,"productDetails_techSpec")]//tbody/tr', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    const specArray = [];
+    if (specifications) {
+      for (var i = 0; i < specifications.snapshotLength; i++) {
+        specArray.push(specifications.snapshotItem(i).textContent.trim().replace(/\n/g, ' ').replace(/\s+/g, ' : '));
+      }
+      specArray && specArray.length && addHiddenDiv('ii_spec', specArray.join(' || '));
+    }
+    // @ts-ignore
+    const firstCheck = document.querySelector('#buyboxTabularTruncate-1 > span.a-truncate-cut') ? document.querySelector('#buyboxTabularTruncate-1 > span.a-truncate-cut').innerText : '';
+    const otherSellers = document.querySelectorAll('div.a-box.mbc-offer-row.pa_mbc_on_amazon_offer');
+    // @ts-ignore
+    const price = document.querySelector('span#price_inside_buybox') ? (document.querySelector('span#price_inside_buybox').innerText).replace(/₺(.*)/, '$1') : '';
+    if (firstCheck && price) {
+      // @ts-ignore
+      if (firstCheck !== 'Amazon.com.tr' && otherSellers) {
+        otherSellers.forEach((seller) => {
+          // @ts-ignore
+          const sellerPrice = seller.querySelector('span.a-color-price') ? seller.querySelector('span.a-color-price').innerText : '';
+          const priceNum = sellerPrice.replace(/₺(.*)/, '$1');
+          const shipsFrom = seller.querySelector('span.mbcMerchantName');
+          const soldBy = seller.querySelector('span.mbcMerchantName');
+          // @ts-ignore
+          if (shipsFrom && shipsFrom.innerText === 'Amazon.com.tr' && soldBy && soldBy.innerText === 'Amazon.com.tr' && priceNum > price) {
+            addHiddenDiv('ii_lbb', 'YES');
+            addHiddenDiv('ii_lbbPrice', `₺${priceNum}`);
+          }
+        });
+      }
+    }
+  };
+
+  try {
+    await context.evaluate(getLbb);
+  } catch (error) {
+    console.log('Lbb extraction failed!!');
   }
-
-  await amazonHelp.setLocale('10001');
-
-  await getLbb();
-  await helpers.addURLtoDocument('added-url');
-  await helpers.addURLtoDocument('added-asin', true);
 
   await context.extract(productDetails, { transform });
 }
@@ -78,11 +109,6 @@ module.exports = {
     store: 'amazon',
     transform,
     domain: 'amazon.com.tr',
-  },
-  dependencies: {
-    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
-    Helpers: 'module:helpers/helpers',
-    AmazonHelp: 'module:helpers/amazonHelp',
   },
   implementation,
 };
