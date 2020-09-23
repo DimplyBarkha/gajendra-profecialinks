@@ -18,11 +18,11 @@ const transform = (data) => {
         });
       }
 
-      if (row.description) {
+      if (row.specifications) {
         const nDesc = [];
         let newDesc = '';
         let idx = 0;
-        row.description.forEach(item => {
+        row.specifications.forEach(item => {
           nDesc[0] = item;
           if (idx > 0) {
             newDesc = newDesc + '||';
@@ -33,7 +33,7 @@ const transform = (data) => {
         nDesc.forEach(item => {
           item.text = newDesc;
         });
-        row.description = nDesc;
+        row.specifications = nDesc;
       }
 
       if (row.variants) {

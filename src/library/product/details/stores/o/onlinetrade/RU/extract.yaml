@@ -26,7 +26,7 @@ fields:
     singleValue: false
     #xpath: //meta[@itemprop='description']/@content
     #xpath: //li[@class="breadcrumbs__item"][position()>2]
-    xpath: //li[@class="breadcrumbs__item"][position()>2]//a//span[@itemprop="name"]
+    xpath: //ul//li[position()>1]//a[@itemprop='item']
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
@@ -44,12 +44,13 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
+    xpath: //link[@itemprop='availability']/@href
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Available
+    regExp: Out[\w]+
+    regExpReplace: OutOfStock
+    defaultValue: InStock
   - name: description
     singleValue: false 
     #xpath: //ul[@class='featureList js__backlightingClick']//li
@@ -65,10 +66,6 @@ fields:
     singleValue: false
     xpath: //meta[contains(@itemprop,"brand")]/@content
     description: Product brand shown - this may actually NOT be just a brand name, e.g. "Visit the Gillette Store"
-  # - name: manufacturer
-  #   singleValue: false
-  #   xpath: //meta[contains(@itemprop,"brand")]/@content
-  #   description: Product manufacturer
   - name: quantity
     singleValue: false
     xpath: //span[contains(@class,'catalog__displayedItem__availabilityCount green')]
@@ -104,15 +101,11 @@ fields:
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
-  - name: directions
-    singleValue: false
-    xpath: //div[@id='tabs_description']//p[@class='gray']
-    description: Content under "directions" header
   - name: specifications
     singleValue: false
     #xpath: //li//span[contains(text(), 'Размер:')]/../text()
     #//ul[@class='featureList js__backlightingClick']//li
-    xpath: //ul[@class="featureList js__backlightingClick"]/li
+    xpath: //ul[@class="featureList js__backlightingClick"]/li/text()
   - name: ratingCount
     singleValue: false
     xpath: //a[@id='goods_rating']/text()
@@ -157,6 +150,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
+    xpath: 
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
@@ -189,3 +183,4 @@ fields:
     singleValue:  false
     xpath:   //div[contains(@class,'oldContent')]//p//span[contains(text(),'хранения')]/text()/following::br[1]
     description: Suggested storage location for product
+ 
