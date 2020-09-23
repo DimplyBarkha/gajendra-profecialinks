@@ -63,7 +63,7 @@ const transform = (data) => {
       if (row.videos) {
         let video = [];
         row.videos.forEach(item => {
-          console.log(item)
+          
           if (item.text.split('/').length > 1) {
             video.push({
               text: 'https://www.elgiganten.dk' + item.text,
@@ -76,7 +76,7 @@ const transform = (data) => {
             })
           }
         });
-        console.log(video);
+        
 
         row.videos = video;
       }
