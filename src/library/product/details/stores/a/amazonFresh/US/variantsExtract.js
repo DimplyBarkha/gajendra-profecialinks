@@ -10,28 +10,30 @@ async function implementation (
   const helpers = new Helpers(context);
   const amazonHelp = new AmazonHelp(context, helpers);
 
+  await context.clickAndWaitForNavigation('span[data-component-type="s-product-image"]');
+  await context.waitForXPath('//span[@id="productTitle"]', { timeout: 20000 });
   // try {
-  await context.waitForXPath('//span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//span[@data-component-type="s-product-image"]//a[contains(@class, "a-link-normal")]/@href');
+  // await context.waitForXPath('//span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//span[@data-component-type="s-product-image"]//a[contains(@class, "a-link-normal")]/@href');
   // } catch (error) {
   // throw new Error('No product avail for this location');
   // }
-  const link = await context.evaluate(async function () {
-    const linkNode = document.querySelector('span[cel_widget_id="MAIN-SEARCH_RESULTS"] a.a-link-normal');
-    const link = (linkNode !== null) ? linkNode.getAttribute('href') : null;
-    return link;
-  });
+  // const link = await context.evaluate(async function () {
+  //   const linkNode = document.querySelector('span[cel_widget_id="MAIN-SEARCH_RESULTS"] a.a-link-normal');
+  //   const link = (linkNode !== null) ? linkNode.getAttribute('href') : null;
+  //   return link;
+  // });
 
-  if (link && link.toString().includes('almBrandId')) {
-    try {
-      await context.goto('https://www.amazon.com/' + link, {
-        timeout: 45000, waitUntil: 'load', checkBlocked: true,
-      });
-    } catch (err) {
-      await context.goto('https://www.amazon.com/' + link, {
-        timeout: 45000, waitUntil: 'load', checkBlocked: true,
-      });
-    }
-  }
+  // if (link && link.toString().includes('almBrandId')) {
+  //   try {
+  //     await context.goto('https://www.amazon.com/' + link, {
+  //       timeout: 45000, waitUntil: 'load', checkBlocked: true,
+  //     });
+  //   } catch (err) {
+  //     await context.goto('https://www.amazon.com/' + link, {
+  //       timeout: 45000, waitUntil: 'load', checkBlocked: true,
+  //     });
+  //   }
+  // }
   // catch (err) {
   //       throw new Error('Can\'t go to link');
   //     }
