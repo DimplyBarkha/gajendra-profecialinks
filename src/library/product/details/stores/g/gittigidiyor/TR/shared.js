@@ -29,7 +29,7 @@ const transform = (data) => {
 				specStr = specStr.substring(0, specStr.lastIndexOf(' ||'));
 				row.specifications = [
 					{
-						text: specStr
+						text: `|| ${specStr}`
 					}
 				]
 			}
@@ -63,6 +63,16 @@ const transform = (data) => {
 				nameExtended += row.brand ? `${row.brand[0].text} - ${row.name[0].text}` : row.name[0].text;
 				nameExtended += row.nameExtendedTail ? ` - ${row.nameExtendedTail[0].text}` : '';
 				row.nameExtended = [{ text: nameExtended }];
+			}
+
+			if (row.weightNet) {
+				if (row.weightNet[0].text.includes('Ağırlık :')) {
+					row.weightNet[0].text = row.weightNet[0].text.replace('Ağırlık :', '');
+				}
+			}
+
+			if (row.additionalDescBulletInfo) {
+				row.additionalDescBulletInfo[0].text = `|| ${row.additionalDescBulletInfo[0].text}`
 			}
 
 		}
