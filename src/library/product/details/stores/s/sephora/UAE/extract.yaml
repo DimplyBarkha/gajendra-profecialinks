@@ -40,6 +40,8 @@ fields:
     singleValue: false
     description: The product name
     xpath: //div[@id='ii_nameExtended']
+  - name: name
+    xpath: //span[contains(@class, "product-name")]
   - name: category
     xpath: //div[@class='breadcrumb-element']/a
   - name: warnings
@@ -61,7 +63,7 @@ fields:
     xpath: //div[@class="accordion"]//div[contains(., 'How to')]/div
   - name: alternateImages
     singleValue: false
-    xpath: //a[contains(@name, "product_detail_image")]//img/@src
+    xpath: //a[@name="product_detail_image"]/img/@data-src
   - name: availabilityText
     singleValue: false
     xpath: //span[contains(@class, 'availability-status')]
@@ -72,6 +74,8 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //div[contains(@class,"product-cart")]//span[contains(@class, 'price')]
+  - name: metaKeywords
+    xpath: //meta[@name="keywords"]/@content
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -81,7 +85,7 @@ fields:
   - name: variants
     xpath: //meta[contains(@itemprop,"sku")]/@content
   - name: variantInformation
-    xpath: //span[contains(@class, "selected-value-name")]
+    xpath: //span[contains(@class, "selected-value-name")]|//div[@class="product-variations"]//span[contains(@class, "variation-title")]
   - name: sku
     regExp: ([0-9]+$)
     xpath: (//meta[contains(@itemprop,"sku")])[1]/@content

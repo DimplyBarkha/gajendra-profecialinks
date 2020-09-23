@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, 'search-result-content')]//li|//div[@id="main"]
+recordXPath: //div[contains(@class, 'search-result-content')]//li|//div[contains(@id,"main") and(contains(@class, "full-width"))]
 fields:
   - name: brand
     singleValue: false

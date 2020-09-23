@@ -23,22 +23,12 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
 
-      // if(row.thumbnail){
-      //   let text = row.thumbnail[0].text;
-      //   let split = text.split("&");
-      //   if(split[0]){
-      //     let url = split[0];
-      //     if(url){
-      //       row.thumbnail[0].text = url;
-      //     }
-      //   }
-      // }
-
 
       if(row.productUrl){
         let url = row.productUrl[0].text;
         row.productUrl = [{text: url}];
       }
+      
 
       if(row.name){
         let names = [];
@@ -48,49 +38,6 @@ const transform = (data, context) => {
         let nameJoin = names.join(" - ")
         row.name = [{text: nameJoin}]
       }
-
-
-      // if(row.thumbnail){
-      //   let text = row.thumbnail[0].text;
-      //   let joins;
-      //   if(!text.includes("sephora.com")){
-      //     joins = "https://www.sephora.com" + text;
-      //   } else {
-      //     joins = text;
-      //   }
-
-      //   if(joins){
-      //     row.thumbnail[0].text = joins;
-      //   }
-      // }
-
-      // if(row.productUrl){
-      //   let text = row.productUrl[0].text;
-      //   let splits = text.split(" ");
-      //   let joins;
-      //   if(splits[0]){
-      //     if(!splits[0].includes("sephora.com")){
-      //       joins = "https://www.sephora.com" + splits[0];
-      //       row.productUrl[0].text = joins;
-      //     }
-      //   } else {
-      //     joins = splits[0];
-      //     row.productUrl[0].text = joins;
-      //   }
-      // }
-
-      // if(row.id){
-      //   if(row.id[0].text){
-      //     let text = row.id[0].text
-          
-      //     if(text){
-      //       let num = text.match(/[0-9]+/g);
-      //       if(num){
-      //         row.id = [{text: num[0]}];
-      //       }
-      //     }
-      //   }
-      // }
 
 
       if (row.id && row.id[0]) {

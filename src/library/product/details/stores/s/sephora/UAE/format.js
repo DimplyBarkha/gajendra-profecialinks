@@ -38,8 +38,7 @@ const transform = (data, context) => {
           //     if(row.alternateImages.length > 1){
           //       for(let i = 0; i < row.alternateImages.length; i++){
           //         let text = row.alternateImages[i].text
-          //         let splits = text.split("?");
-          //         imageArray.push(`https://sephora.com${splits[0]}`);
+          //         imageArray.push(text);
           //       }
           //       let oneLess = imageArray.slice(1);
           //       let joins = oneLess.join(" | ");
@@ -48,6 +47,7 @@ const transform = (data, context) => {
           //       row.alternateImages = [{text: ""}]
           //     }
           // }
+
           if(row.category){
             let catArray = [];
             if(row.category.length > 0){
@@ -56,10 +56,23 @@ const transform = (data, context) => {
                 if(text !== "Home" && !catArray.includes(`${text}`)){
                   catArray.push(text);
                 }
+                row.category[i].text = ""
               }
-              let joins = catArray.join(" | ");
-              row.category = [{text: joins}]
             }
+            
+            for(let i = 0; i < catArray.length; i++){
+              row.category[i].text = catArray[i]
+            }
+          }
+
+          if(row.manufacturerDescription){
+            let desArray = []
+            for(let i = 0; i < row.manufacturerDescription.length; i++){
+              let text = row.manufacturerDescription[i].text
+              desArray.push(text)
+            }
+            let joins = desArray.join(" ")
+            row.manufacturerDescription = [{text: joins}]
           }
 
 

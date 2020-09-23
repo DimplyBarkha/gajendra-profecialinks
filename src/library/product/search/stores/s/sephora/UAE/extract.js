@@ -1,4 +1,6 @@
 const { transform } = require('./format');
+const url = require('../../../../action');
+
 
 module.exports = {
   implements: 'product/search/extract',
@@ -8,6 +10,7 @@ module.exports = {
     transform,
     domain: 'sephora.ae',
     zipcode: '',
+    url
   },
   implementation
 };
@@ -19,9 +22,11 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
+  const { url } = parameters;
+
   const { productDetails } = dependencies;
 
-  const scrollFunc = await context.evaluate(async function () {
+  const scrollFunc = await context.evaluate(async function (url) {
     let items = '//div[contains(@class, "search-result-content")]//li'
     var itemsCheck = document.evaluate( items, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     if( itemsCheck.snapshotLength ) {
@@ -39,7 +44,7 @@ async function implementation (
         }
       }
     } 
-  });
+  }, url);
 
   return await context.extract(productDetails, { transform });
 }
