@@ -101,9 +101,13 @@ const transform = (data) => {
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {       
           item.text = item.text.replace('width: ', '').trim();       
-          item.text = item.text.replace('%', '').trim();
-          var aggregateRatingNumber = (parseFloat(item.text) * 5) / 100;            
-          item.text = aggregateRatingNumber.toFixed(1).replace('.', ',');
+          item.text = item.text.replace('%;', '').trim();         
+          if(item.text==1){
+            item.text = 0;
+          }else{
+            var aggregateRatingNumber = (parseFloat(item.text) * 5) / 100;            
+            item.text = aggregateRatingNumber.toFixed(1).replace('.', ',');
+          } 
         });
       }
       if (row.price) {
