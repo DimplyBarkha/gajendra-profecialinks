@@ -38,6 +38,19 @@ const transform = (data) => {
       if ((!row.listPrice || !row.listPrice.length) && row.price) {
         row.listPrice = row.price;
       }
+      if (row.price && row.price[0]) {
+        row.price[0].text = row.price[0].text.replace(/\s/, ',');
+      }
+      if (row.listPrice && row.listPrice[0]) {
+        row.listPrice[0].text = row.listPrice[0].text.replace(/\s/, ',');
+      }
+      if (row.aggregateRating) {
+        row.aggregateRating = [
+          {
+            text: row.aggregateRating[0].text.replace(/./, ','),
+          },
+        ];
+      }
       if (row.description) {
         const nDesc = [];
         let newDesc = '';

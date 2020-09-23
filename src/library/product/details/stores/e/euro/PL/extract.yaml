@@ -54,7 +54,7 @@ fields:
     description: Alt text of the main product image
   - name: category
     singleValue: false
-    xpath: normalize-space(//li[@class='selenium-last-breadcrumb']//a/text())
+    xpath: //div[@id='breadcrumb']//ul//li[position()>2]
     #regExp: category":\s"([^"]+)
     #regExpReplace: $1
     description: The categories (e.g. from breadcrumbs)
@@ -94,10 +94,7 @@ fields:
     #regExpReplace: $1
   - name: manufacturer
     singleValue: false
-    #xpath: //script[1][@type="text/javascript"][contains(text(),"brand")]
-    xpath: //a[@class="product-brand"]/@title
-    #regExp: brand":\s"([^"]+)
-    #regExpReplace: $1
+    xpath: normalize-space(//td[contains(text(),'Nazwa producenta / importera')]//following-sibling::td/text())
     description: Product manufacturer
   - name: weightGross
     singleValue: false
@@ -106,7 +103,7 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    xpath: //div[@class='selenium-product-code']/font/font[position()=1]
     regExp: sku":\s"([^"]+)
     regExpReplace: $1
   - name: shippingDimensions
@@ -119,14 +116,14 @@ fields:
     description: Stated shipping weight
   - name: color
     singleValue: false
-    xpath: normalized space(//div[@class='product-tab product-tab-opis']//tr//td[contains(text(),'Kolor')]//following-sibling::td)
+    xpath: normalize-space(//div[@class='product-tab product-tab-opis']//tr//td[contains(text(),'Kolor')]//following-sibling::td)
     description: A textual description of the colour
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: normalize-space(//td[contains(text(),'producenta / importera')]//following-sibling::td)
+    xpath: //p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
@@ -160,3 +157,17 @@ fields:
     singleValue: false
     description: Gross weight as described on the page
     xpath: normalize-space(//td[contains(text(),'Waga ')]/following-sibling::td) 
+  - name: weightNet
+    singleValue: false
+    description: Gross weight as described on the page
+    xpath: normalize-space(//td[contains(text(),"Waga") and not(contains(text(),"opakowaniem"))]//following-sibling::td)
+  - name: manufacturerImages
+    singleValue: false
+    description: Gross weight as described on the page
+    xpath: //div[@class='margin-t-lg-32']//div[@class='tct']//img[@class='lazy loaded']/@src
+    regExp: (.+)
+    regExpReplace: https://www.euro.com.pl$1
+  # - name: variantCount
+  #   singleValue: false
+  #   xpath: count(//div[@class='variant-list disable-active-item']//div//a)
+  
