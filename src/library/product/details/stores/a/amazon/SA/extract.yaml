@@ -43,7 +43,10 @@ fields:
     defaultValue: 'In Stock'
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)] | //div[@id="globalStoreInfoBullets_feature_div"]//ul/li | //div[@id="productDescription"] | //div[@id="detailBullets_feature_div"]/ul//li
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)] | //div[@id="globalStoreInfoBullets_feature_div"]//ul/li | //div[@id="detailBullets_feature_div"]/ul//li
+  - name: descriptionOne
+    singleValue: false
+    xpath: //div[@id="productDescription"]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@data-feature-name="featurebullets"]//ul/li | //div[@id="globalStoreInfoBullets_feature_div"]//ul/li | //div[@id="detailBullets_feature_div"]/ul//li)
@@ -459,5 +462,3 @@ fields:
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
-
-
