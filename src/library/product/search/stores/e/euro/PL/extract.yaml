@@ -33,8 +33,9 @@ fields:
     xpath: //div[@class="product-main"]//div[@class="price-normal selenium-price-normal"]/text()
     #regExp: ([0-9]+) 
     #regExpReplace: $1$2$3
-  - name: soldBy
+  - name: variantId
     singleValue: false
+    xpath: //div[@class='selenium-product-code']/text()
   - name: rank
     singleValue: false
   
