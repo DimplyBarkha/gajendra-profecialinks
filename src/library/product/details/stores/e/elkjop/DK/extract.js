@@ -29,14 +29,33 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      const nodeListH = document.querySelectorAll('.article-text.article-free-html h2');
+      const nodeListP = document.querySelectorAll('.article-text.article-free-html p');
+      var allEnhancedContent = '';
+      if (nodeListH && nodeListP && nodeListH.length > 0 && nodeListP.length > 0) {
+        for (var k = 0; k < nodeListH.length; k++) {
+          // @ts-ignore
+          allEnhancedContent = allEnhancedContent + ' ' + nodeListH[k].innerText;
+          // @ts-ignore
+          allEnhancedContent = allEnhancedContent + ' ' + nodeListP[k].innerText;
+        }
+        addElementToDocument('enhCont', allEnhancedContent);
+      }
       const rating = document.evaluate("//div[@itemprop='aggregateRating']/meta[@itemprop='ratingValue']/@content", document, null, XPathResult.STRING_TYPE, null);
       if (rating && rating.stringValue) {
         const formattedRating = rating.stringValue.replace(',', '.');
         addElementToDocument('rating', formattedRating);
       }
       const warranty = document.evaluate("//*[contains(text(), 'garanti')]", document, null, XPathResult.STRING_TYPE, null);
-      if (warranty && warranty.stringValue) {
-        addElementToDocument('warranty', warranty.stringValue);
+      if (warranty) {
+        if (warranty.stringValue.length === 0) {
+          var cleanWarranty = document.evaluate("//div[@class='tab-slot']/p/text()[position() = last()]", document, null, XPathResult.STRING_TYPE, null).stringValue;
+          if (cleanWarranty.includes('garanti')) {
+            addElementToDocument('warranty', cleanWarranty);
+          }
+        } else {
+          addElementToDocument('warranty', warranty.stringValue);
+        }
       }
       const weight = document.evaluate("//*[contains(text(), 'Vægt')]", document, null, XPathResult.STRING_TYPE, null);
       if (weight && weight.stringValue) {
