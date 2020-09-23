@@ -119,7 +119,8 @@ fields:
     # xpath: normalize-space(//div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(),'Bruttovægt') or starts-with(text(),'Vægt ekskl. stand') or starts-with(text(),'Vægt') or starts-with(text(),'Nettovægt')]/following-sibling::td[1])
   - name: availabilityText
     singleValue: false
-    xpath: boolean(substring-before(//div[contains(@class,'order-md-last order-first')]//div[contains(@class,'font-weight-bold')],' ('))
+    xpath: count(//script[@data-v-6280c757 and @type="application/ld+json" and contains(text(),'https://schema.org/InStock')])        
+    # xpath: boolean(substring-before(//div[contains(@class,'order-md-last order-first')]//div[contains(@class,'font-weight-bold')],' ('))
   - name: quantity
     singleValue: false
     xpath: //div[contains(@class,'summary')]//div[contains(@class,'grey--text')]

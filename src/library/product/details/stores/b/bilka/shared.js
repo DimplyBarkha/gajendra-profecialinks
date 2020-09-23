@@ -89,11 +89,11 @@ const transform = (data) => {
 		if (row.availabilityText) {
 			let text = '';
 			row.availabilityText.forEach(item => {
-			  if(item.text) {
+			  if(item.text === "1") {
 				text = "In Stock.";
 			  }
 			  else {
-				text = "";
+				text = "Out of Stock";
 			  }
 			});
 			row.availabilityText = [
