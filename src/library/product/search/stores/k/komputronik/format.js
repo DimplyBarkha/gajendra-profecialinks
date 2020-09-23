@@ -10,6 +10,7 @@ const transform = (data) => {
       if (row.aggregateRating2) {
         row.aggregateRating2.forEach(item => {
           item.text = item.text.replace(/(.+?)\/.+/g, "$1");
+          item.text = item.text.replace(".",",");
         });
       }
       if (row.reviewCount) {
