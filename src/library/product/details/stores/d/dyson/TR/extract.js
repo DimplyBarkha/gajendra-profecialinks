@@ -59,17 +59,17 @@ async function implementation (
     }
 
     document.querySelectorAll('.icon-info__body').forEach(el => {
-      if (el.innerText.includes('year guarantee')) {
+      if (el.innerText.includes('Yıl Garanti')) {
         addHiddenDiv('warranty', el.innerText);
       }
-      if (el.innerText.includes('shipping')) {
+      if (el.innerText.includes('Kargo')) {
         addHiddenDiv('shippingInfo', el.innerText);
       }
     });
 
     if (!document.getElementById('warranty')) {
       document.querySelectorAll('p').forEach(el => {
-        if (el.innerText.includes('year guarantee') && !document.getElementById('warranty')) {
+        if (el.innerText.includes('Yıl Garanti') && !document.getElementById('warranty')) {
           addHiddenDiv('warranty', el.innerText);
         }
       });
@@ -95,13 +95,7 @@ async function implementation (
     }
     if (document.querySelector('.contents')) {
        enhancedContent += ' ' + document.querySelector('.contents').innerText;
-      document.querySelector('.contents').querySelectorAll('img').forEach(img => {
-        manufacturerImages.push(img.getAttribute('src'));
-      });
-    }
-    if (document.querySelector('.promos__list')) {
-       enhancedContent += ' ' + document.querySelector('.layout').innerText;
-      document.querySelector('.promos__list').querySelectorAll('img').forEach(img => {
+      document.getElementById('see-all-features').querySelectorAll('img').forEach(img => {
         manufacturerImages.push(img.getAttribute('src'));
       });
     }
@@ -133,10 +127,10 @@ async function implementation (
       }
       const headerText = spec.querySelector('strong').innerText;
       const specText = spec.querySelector('.spec__text').innerText;
-      if (headerText === 'Height' || headerText === 'Length' || headerText === 'Width') {
+      if (headerText === 'Yükseklik' || headerText === 'Uzunluk' || headerText === 'Genişlik') {
         specifications.push(headerText + ' ' + specText);
       }
-      if (headerText === 'Weight') {
+      if (headerText === 'Ağırlık') {
         addHiddenDiv('weight', specText);
       }
     });
@@ -150,10 +144,10 @@ async function implementation (
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'NZ',
+    country: 'TR',
     store: 'dyson',
     transform,
-    domain: 'dyson.co.nz',
+    domain: 'dyson.com.tr',
     zipcode: '',
   },
   implementation,

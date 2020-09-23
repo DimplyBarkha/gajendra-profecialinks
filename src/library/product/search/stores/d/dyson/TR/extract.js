@@ -33,51 +33,31 @@ async function implementation (
     while(scrollTop < 5000) {
       scrollTop += 500;
       window.scroll(0, 500);
-      await stall(250);
+      await stall(500);
     }
 
-    if (document.querySelector('.card__inner')) {
-      document.querySelectorAll('.card__inner').forEach((el, ind) => {
-        if (results.length >= 150) {
-          return;
-        }
-        if (el.querySelector('h3')) {
-          const name = el.querySelector('h3').innerText;
-          const id = ind + 1;
-          const thumbnail  = el.querySelector('img').getAttribute('src');
-          const url = el.querySelector('a').getAttribute('href');
-          results.push({
-            name,
-            id,
-            thumbnail,
-            url,
-          });
-        }
-      });
-    } else {
-      document.querySelectorAll('.g-wrap').forEach((el, ind) => {
-        if (results.length >= 150) {
-          return;
-        }
-        if (el.querySelector('h3')) {
-          const name = el.querySelector('h3').innerText;
-          const id = ind + 1;
-          const thumbnail  = el.querySelector('img').getAttribute('src');
-          const url = el.querySelector('a').getAttribute('href');
-          results.push({
-            name,
-            id,
-            thumbnail,
-            url,
-          });
-        }
-      });
-    }
+    document.querySelectorAll('.g-wrap').forEach((el, ind) => {
+      if (results.length >= 3) {
+        return;
+      }
+      if (el.querySelector('h3')) {
+        const name = el.querySelector('h3').innerText;
+        const id = ind + 1;
+        const thumbnail  = el.querySelector('img').getAttribute('src');
+        const url = el.querySelector('a').getAttribute('href');
+        results.push({
+          name,
+          id,
+          thumbnail,
+          url,
+        });
+      }
+    });
     return results;
   });
 
   for (let result of resultsArr) {
-    await context.goto(result.url, {timeout: 50000});
+    await context.goto(result.url);
     await stall(2000);
     await context.evaluate(async function (result) {
 
@@ -125,10 +105,10 @@ const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'AU',
+    country: 'TR',
     store: 'dyson',
     transform: transform,
-    domain: 'dyson.com.au',
+    domain: 'dyson.com.tr',
   },
   implementation,
 };

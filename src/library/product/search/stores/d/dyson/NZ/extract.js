@@ -72,8 +72,8 @@ async function implementation (
       addHiddenDiv('name', result.name);
       addHiddenDiv('productUrl', result.url);
       addHiddenDiv('thumbnail', result.thumbnail);
-      if (document.querySelector('.price')) {
-        addHiddenDiv('price', document.querySelector('.price').innerText.split('includes')[0]);
+      if (document.querySelector('span[data-price-type="finalPrice"]')) {
+        addHiddenDiv('price', document.querySelector('span[data-price-type="finalPrice"]').innerText.split('includes')[0]);
       }
       if (document.querySelector('h5') && document.querySelector('h5').innerText.split(':')[1]) {
         addHiddenDiv('id', document.querySelector('h5').innerText.split(':')[1]);

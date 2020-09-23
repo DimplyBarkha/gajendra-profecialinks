@@ -1,0 +1,14 @@
+extends: ../shared
+recordXPath: //ul[@class='search-results__results-list']//li
+fields:
+  - name: name
+    singleValue: true
+    xpath: //h3//a
+  - name: productUrl 
+    singleValue: true
+    xpath: //h3//a/@href
+  - name: thumbnail 
+    singleValue: true
+    xpath: //div[@class="g-wrap"]//img/@src
+
+

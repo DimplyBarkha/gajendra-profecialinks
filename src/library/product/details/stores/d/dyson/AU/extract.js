@@ -36,6 +36,9 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
+    addHiddenDiv('url', window.location.href);
+    addHiddenDiv('pageTimeStamp', new Date());
+
     if (document.querySelector('h5') && document.querySelector('h5').innerText.split(':')[1]) {
       addHiddenDiv('sku', document.querySelector('h5').innerText.split(':')[1]);
     } else {
@@ -106,10 +109,13 @@ async function implementation (
     if (document.querySelector('button[data-modal="product_mini_gallery_video"]')) {
       document.querySelector('button[data-modal="product_mini_gallery_video"]').click();
       await stall(1000);
-      addHiddenDiv('videos', document.querySelector('video').querySelector('source').getAttribute('src'));
-
+      if (document.querySelector('video')) {
+        addHiddenDiv('videos', document.querySelector('video').querySelector('source').getAttribute('src'));
+      }
       document.querySelectorAll('picture').forEach(pic => {
-        alternateImages.push(pic.querySelector('img').getAttribute('src'));
+        if (pic.querySelector('img')) {
+          alternateImages.push(pic.querySelector('img').getAttribute('src'));
+        }
       });
     }
     addHiddenDiv('alternateImages', alternateImages.join(' | '));
