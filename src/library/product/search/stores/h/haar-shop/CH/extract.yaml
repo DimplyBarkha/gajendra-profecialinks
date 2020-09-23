@@ -12,10 +12,10 @@ fields:
     xpath: //div[@class='cs-product-tile__thumbnail']//a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //picture[@class='cs-product-tile__image']/img/@src
+    xpath: //img[@class="lazyload lazyloaded"]/@src
   - name: name
     singleValue: false
-    xpath: concat(//div[@class='cs-product-tile__brand'],' ',//div[@class='cs-product-tile__name']/a[contains(@class, 'cs-product-tile__name-link')])
+    xpath: //a[@class="cs-product-tile__name-link product-item-link"] #concat(//div[@class='cs-product-tile__brand'],' ',//div[@class='cs-product-tile__name']/a[contains(@class, 'cs-product-tile__name-link')])
   - name: price
     singleValue: false
     xpath: //span[@data-price-type='finalPrice']//span[@class="price"]
