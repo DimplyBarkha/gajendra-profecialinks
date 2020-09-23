@@ -11,7 +11,8 @@ fields:
     xpath: //img[(@class='image productDetailsImage__image loading')]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //li[contains(@class,'product-carousel__thumb')]//a[@class='product-carousel__thumb-link']//figure//img//@data-src
+    xpath: //div[contains(@class,'flickity-slider')]//div[@class='product-carousel__item']//img//@data-src
+    # xpath: //li[contains(@class,'product-carousel__thumb')]//a[@class='product-carousel__thumb-link']//figure//img//@data-src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
