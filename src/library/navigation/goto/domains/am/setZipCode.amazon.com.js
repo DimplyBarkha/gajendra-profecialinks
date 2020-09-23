@@ -1,8 +1,8 @@
 
 const implementation = async (inputs, parameters, context, dependencies) => {
-  const { zipcode } = inputs;
+  const { zipcode, url } = inputs;
 
-  await context.evaluate(async (zipcode) => {
+  const apiZipChange = await context.evaluate(async (zipcode) => {
     const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
 
     const response = await fetch('/gp/delivery/ajax/address-change.html', {
@@ -17,12 +17,38 @@ const implementation = async (inputs, parameters, context, dependencies) => {
       mode: 'cors',
       credentials: 'include',
     });
-    if (response.status !== 200) {
-      throw new Error('Zipcode change failed');
-    } else {
-      window.location.reload();
-    }
+    return response.status === 200;
   }, zipcode);
+
+  const { Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
+  const helpers = new Helpers(context);
+  const amazonHelp = new AmazonHelp(context, helpers);
+
+  const onCorrectZip = await context.evaluate((zipcode) => {
+    const zipText = document.querySelector('div#glow-ingress-block');
+    return zipText.textContent.includes(zipcode);
+  }, zipcode);
+
+  if (!onCorrectZip) {
+    if (!apiZipChange) {
+      await amazonHelp.setLocale(zipcode);
+      await context.evaluate((zipcode) => {
+        const zipText = document.querySelector('div#glow-ingress-block');
+        if (!zipText.textContent.includes(zipcode)) {
+          throw new Error('API and manual Zip change failed');
+        }
+      }, zipcode);
+    } else {
+      await context.goto(url, {
+        timeout: 20000,
+        waitUntil: 'load',
+        checkBlocked: false,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
+    }
+  }
 };
 
 module.exports = {
@@ -32,6 +58,10 @@ module.exports = {
     domain: 'amazon.com',
     store: 'amazonFresh',
     zipcode: '90210',
+  },
+  dependencies: {
+    Helpers: 'module:helpers/helpers',
+    AmazonHelp: 'module:helpers/amazonHelp',
   },
   implementation,
 };
