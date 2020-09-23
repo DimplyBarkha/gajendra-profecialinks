@@ -42,7 +42,6 @@ const transform = (data) => {
         });
         row.specifications = nDesc;
       }
-
       if (row.description) {
         const nDesc = [];
         let newDesc = '';
