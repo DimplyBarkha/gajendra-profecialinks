@@ -293,12 +293,16 @@ const transform = (data) => {
       }
       if (row.weightGross) {
         for (const item of row.weightGross) {
-          item.text = item.text.split(';') && item.text.split(';')[1] ? item.text.split(';')[1].trim() : item.text;
+          if (item.text.includes(' x ')) {
+            item.text = item.text.split(';') && item.text.split(';')[1] ? item.text.split(';')[1].trim() : '';
+          }
         }
       }
       if (row.shippingWeight) {
         for (const item of row.shippingWeight) {
-          item.text = item.text.split(';') && item.text.split(';')[1] ? item.text.split(';')[1].trim() : item.text;
+          if (item.text.includes(' x ')) {
+            item.text = item.text.split(';') && item.text.split(';')[1] ? item.text.split(';')[1].trim() : '';
+          }
         }
       }
       if (row.videos && row.videos[0]) {
