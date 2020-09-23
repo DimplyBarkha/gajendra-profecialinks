@@ -19,7 +19,7 @@ const transform = (data) => {
                     var skuJson = row.sku[0].text;
                     if (skuJson) {
                         var skuJsonData = JSON.parse(skuJson);
-                        console.log(skuJsonData);
+                        //  console.log(skuJsonData);
                         /* var sku = JSON.stringify(skuJson)
                             .replace(/\\n/g, "\\n")
                             .replace(/\\'/g, "\\'").replace(/\\"/g, '\\"')
@@ -39,6 +39,13 @@ const transform = (data) => {
                             row.sku[0].text = skuJsonData.sku;
                             row.variantId[0].text = skuJsonData.sku;
                         }
+                    }
+                }
+                if (row.firstVariant) {
+                    var firstVariantJson = row.firstVariant[0].text.split("PRODUCT_VIEW_VARIATIONS = ");
+                    if (firstVariantJson) {
+                        var variationData = firstVariantJson[1];
+                        console.log(variationData);
                     }
                 }
             } catch (exception) {

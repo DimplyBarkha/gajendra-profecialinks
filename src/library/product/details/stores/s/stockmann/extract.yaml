@@ -38,12 +38,19 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[contains(@class,"product-description")]
+  #- name: descriptionBullets
+  #  singleValue: true
+  #  type: NUMBER
+  #  xpath: count(//div[contains(@class,"product-detail-info")]//ul/li)
   - name: brandText
     singleValue: true
     xpath: //strong[contains(@class,"product-brand")]/a
+  #- name: manufacturer
+  #  singleValue: false
+  #  xpath: //strong[contains(@class,"product-brand")]/a
   - name: quantity
     singleValue: true
-    xpath: //div[contains(@class, "form-group-qty")]//ul/li[contains(@class, "selected")]
+    xpath: //div[contains(@class, "form-group-size")]//ul/li[contains(@class, "selected")]
     # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     # regExpReplace: $1$2$3$4
   - name: weightNet
@@ -106,7 +113,7 @@ fields:
     xpath: //div[contains(@class, "form-group-color")]//ul//li
   - name: firstVariant
     singleValue: true
-    xpath: //div[contains(@class, "form-group-color")]//ul//li[contains(@class, "selected")]
+    xpath: //script[contains(text(), "PRODUCT_VIEW_VARIATIONS")]
   #- name: variants
   #  singleValue: false
   #  xpath: //div[contains(@class, "form-group-color")]//ul//li
