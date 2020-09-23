@@ -43,8 +43,13 @@ module.exports = {
         }
         catch (error) { }
       }
+      try {
+        await context.waitForSelector('iframe.videoly-box', { timeout: 65000 });
+      } catch (error) {
+        console.log('No video ');
+      }
 
-      const videoData = document.querySelectorAll('iframe.videoly-box')[0].contentWindow.document.getElementsByTagName('ul')[0];
+      const videoData = document.querySelectorAll('iframe.videoly-box').length ? document.querySelectorAll('iframe.videoly-box')[0].contentWindow.document.getElementsByTagName('ul')[0] : null;
 
       if (videoData) {
         document.body.appendChild(videoData);
