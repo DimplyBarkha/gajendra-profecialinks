@@ -5,9 +5,8 @@ recordXPath: //div[contains(@class,'gridlist_item')]
 fields:
   - name: id
     singleValue: false
-    xpath: //a[contains(@class, 'productName')]/@href
-    regExp: (.+)
-    regExpReplace: https://www.bellaffair.at$1
+    xpath: //div[contains(@class,"gridlist_item_image_container")]//img[@class="lazy"]/@data-src
+    regExp: \d+(?=\D*$)
   - name: name
     singleValue: false
     xpath: //div[contains(@class, 'gridlist_item')]//a[contains(@class, 'productName')]//@title
