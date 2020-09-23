@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.js-product-tile',
-    noResultsXPath: '//span[contains(text(),"Leider konnten wir kein Ergebnis für Sie finden.")]',
+    noResultsXPath: "//div[contains(@class,'item_container')]//p[contains(text(),'Leider konnten wir kein Ergebnis für Sie finden')]",    
     openSearchDefinition: null,
     domain: 'manor.ch',
     zipcode: "''",    

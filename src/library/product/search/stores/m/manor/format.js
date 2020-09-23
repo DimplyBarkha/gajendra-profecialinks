@@ -38,10 +38,10 @@ const transform = (data) => {
                 }
                 if (row.subTitle) {
                     final_name = final_name + '-' + row.subTitle[0].text;
-                }              
-                row.name[0].text = final_name + ' ' + row.name[0].text;
-                row.name[0].text = row.name[0].text.trim();
-                row.nameExtended[0].text = row.name[0].text.trim();
+                }
+                final_name =  final_name + ' ' + row.name[0].text;
+                row.name = [{'text':final_name}]
+                row.nameExtended = [{'text':final_name}]                
             }
             delete row.subTitle;
         }        
