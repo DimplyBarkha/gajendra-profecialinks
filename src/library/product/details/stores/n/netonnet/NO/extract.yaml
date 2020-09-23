@@ -106,7 +106,7 @@ fields:
     description: A textual description of the colour
   - name: warranty
     singleValue: false
-    xpath: //table[@class='table table-striped']/tbody/tr/td[contains(text(),'Garanti')]/following::td[1]
+    xpath: //table[@class='table table-striped']/tbody/tr/td[contains(text(),'Garanti') and not (contains(text(),'Garantidetaljer'))]/following::td[1]
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
@@ -123,13 +123,14 @@ fields:
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
+    xpath: (//td//font[contains(text(), "Weight (shipping)") ]/following::td[1])|(//td[contains(text(), "Vekt (forsendelse)")]/following::td[1])
   - name: listPrice
     singleValue: false
     # xpath: concat(//div[@class="price-big"], //input[contains(@id,"CurrentCurrency")]/@value)
     description: The stated undiscounted price for the product 
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li
+    xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li[1]
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class, 'tracking')]/input[contains(@name,"ProductBrand")]/@value 
@@ -143,8 +144,8 @@ fields:
     xpath: (//td//font[contains(text(), "Weight (shipping)") ]/following::td[1])|(//td[contains(text(), "Vekt (forsendelse)")]/following::td[1])
     description: Stated shipping weight
   - name: nameExtended
-    singleValue: false
-    xpath: //ol[(@class='breadcrumb')]/following-sibling::h2
+    singleValue: true
+    xpath: //meta[@name='Description']/@content
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)       
   - name: descriptionBullets
     singleValue: false
@@ -185,14 +186,14 @@ fields:
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
-    xpath: (//td//font[contains(text(), 'Width (shipping)')]/following::td[1]|//td//font[contains(text(), 'Depth (shipping)')]/following::td[1]|//td//font[contains(text(), 'Height (shipping)')]/following::td[1]|//td//font[contains(text(), "Weight (shipping)") ]/following::td[1]|//td[contains(text(), 'Bredde (forsendelse)')]/following::td[1]|//td[contains(text(), 'Dybde (forsendelse)')]/following::td[1]|//td[contains(text(), 'Høyde (forsendelse)')]/following::td[1]|//td[contains(text(), "Vekt (forsendelse)")]/following::td[1])
+    xpath: (//td//font[contains(text(), 'Width (shipping)')]/following::td[1]|//td//font[contains(text(), 'Depth (shipping)')]/following::td[1]|//td//font[contains(text(), 'Height (shipping)')]/following::td[1]|//td//font[contains(text(), "Weight (shipping)") ]/following::td[1]|//td//font[contains(text(), 'Shipping width')]/following::td[1]|//td//font[contains(text(), 'Shipping depth')]/following::td[1]|//td//font[contains(text(), 'Shipping height')]/following::td[1]|//td//font[contains(text(), "Shipping weight") ]/following::td[1]|//td[contains(text(), 'Bredde (forsendelse)')]/following::td[1]|//td[contains(text(), 'Dybde (forsendelse)')]/following::td[1]|//td[contains(text(), 'Høyde (forsendelse)')]/following::td[1]|//td[contains(text(), "Vekt (forsendelse)")]/following::td[1]|//td[contains(text(), 'Fraktbredde')]/following::td[1]|//td[contains(text(), 'Fraktdybde')]/following::td[1]|//td[contains(text(), 'Frakthøyde')]/following::td[1]|//td[contains(text(), "Fraktvekt")]/following::td[1])
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id='collapseFive']//div[@class='panel-body']//div[@class='row'][1]//div[@class='col-xs-12']//p//text()
+    xpath: //div[@id='collapseFive']//div[@class='panel-body']//div[@class='row']//div[@class='col-xs-12']//p//text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
