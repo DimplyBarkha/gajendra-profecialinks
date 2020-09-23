@@ -64,7 +64,6 @@ module.exports = {
     url: 'https://www.tatacliq.com/search/?searchCategory=all&text={searchTerms}',
     loadedSelector: 'div#grid-wrapper_desktop>div>div>div>div>div:last-child',
     noResultsXPath: '/html[not(//div[contains(@id,"ProductModule")])]',
-    zipcode: '',
   },
   implementation,
 };

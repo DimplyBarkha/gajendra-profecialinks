@@ -4,7 +4,6 @@ module.exports = {
     country: 'IN',
     store: 'tatacliq',
     domain: 'tatacliq.com',
-    zipcode: '',
     mergeType: 'MERGE_ROWS',
   },
 };

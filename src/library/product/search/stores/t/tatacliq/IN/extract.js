@@ -6,7 +6,6 @@ module.exports = {
     store: 'tatacliq',
     transform,
     domain: 'tatacliq.com',
-    zipcode: '',
   },
   implementation: async function implementation (
     inputs,
