@@ -24,10 +24,8 @@ module.exports = {
       collapseFive.setAttribute('id','accordiancollapseFive');
       const accordiancollapseFive = document.getElementById('accordiancollapseFive');
       if (accordiancollapseFive !== undefined) {
-        console.log('accordiancollapseFive.className');
-        console.log(accordiancollapseFive.className);
-        accordiancollapseFive.click();
-        accordiancollapseFive.click();
+          accordiancollapseFive.classList.remove("collapsed");
+          document.getElementById('collapseFive').classList.add('in');
       }
     });
   
