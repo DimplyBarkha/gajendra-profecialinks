@@ -115,7 +115,7 @@ fields:
     singleValue: false
     xpath: //section[@id='review']/@data-revoo-sku
   - name: availabilityText
-    xpath: //div[@class="product-availability"]//span[contains(text(), "Disponibile")]/text()
+    xpath: //div[@class="product-availability"]//span[contains(text(), "Disponibile")]/text()  |  //div[@class="product-availability"]//div//span[contains(text(),"Ordinabile previa verifica disponibilità")]/text()
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -147,3 +147,6 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@class='dyson_shop_description flix-d-h5']/text() | //div[@class='flix-d-p']/text()
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class='flix-background-image']/img/@srcset | //div[@class='flix-background-image inpage_wowimg']/img/@srcset | //div[@class= 'inpage_ftgridimg']/img/@srcset
