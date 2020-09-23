@@ -21,23 +21,12 @@ fields:
   - name: description
     singleValue: false
     xpath: //meta[contains(@property,'og:description')]/@content
-  - name: firstVariant
-    singleValue: false
-    xpath: //div[@id='price']/div[@itemprop='sku']
   - name: image
     singleValue: false
     xpath: //a[@id='img-id-1']/@href
   - name: imageAlt
     singleValue: false
     xpath: //a[@id='img-id-1']//img/@alt
-  - name: listPrice
-    singleValue: false
-    xpath: //div[@id='pricing_summary']//div[contains(@class,'list_price')]/span
-    regExp: (.*)D(.*)
-    regExpReplace: $1D $2
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[@id='add-cart']//span[@itemprop='manufacturer']
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="description-text"]//img/@src
@@ -81,3 +70,5 @@ fields:
     singleValue: false
     xpath: //div[@itemprop="ratingValue"]
     type: NUMBER
+  - name: color
+    singleValue: false

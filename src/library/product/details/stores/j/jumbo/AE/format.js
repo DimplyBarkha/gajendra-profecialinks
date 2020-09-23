@@ -32,6 +32,14 @@ const transform = (data) => {
           item.text = item.text.replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' : ');
         });
       }
+      if (!row.color) {
+        let color = '';
+        if (row.nameExtended[0].text.includes(',')) {
+          color = row.nameExtended[0].text.split(',');
+          color = color[1];
+          row.color = [{ text: color.trim() }];
+        }
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
