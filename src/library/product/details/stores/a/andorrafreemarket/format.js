@@ -67,6 +67,23 @@ const transform = (data) => {
             },
           ];
         }
+        if (row.gtin) {
+          let text = "";
+          row.gtin.forEach((item) => {
+            text +=
+              item.text.indexOf("EAN") > 0
+                ? `${item.text
+                    .slice(item.text.indexOf("EAN") + 4, item.text.length)
+                    .split(".")[0]
+                    .trim()}`
+                : "";
+          });
+          row.gtin = [
+            {
+              text: text,
+            },
+          ];
+        }
         if (row.eangtin) {
           let text = "";
           row.eangtin.forEach((item) => {

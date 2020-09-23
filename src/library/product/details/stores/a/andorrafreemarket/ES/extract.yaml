@@ -33,6 +33,9 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //div[contains(@class,'product-name')]//h1//text()
+  - name: gtin
+    singleValue: false
+    xpath: //meta[contains(@itemprop, "description")]/@content
   - name: eangtin
     singleValue: false
     xpath: //meta[contains(@itemprop, "description")]/@content
@@ -52,6 +55,9 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //meta[contains(@itemprop,"brand")]/@content
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,'qty-wrapper')]//input[@id='qty']//@value
   - name: shippingDimensions
     singleValue: false
     xpath: //meta[contains(@itemprop, "description")]/@content
