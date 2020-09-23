@@ -18,9 +18,11 @@ module.exports = {
 
       const ratingElem = document.createElement('div');
       ratingElem.id = 'ratingInfo';
-      
-      let ratingValue = JSON.parse(document.querySelectorAll('script[type="application/ld+json"]')[1].textContent.replace(/\s/g, '')).review.reduce((acc, { reviewRating: { ratingValue } = {} }, i, arr) => acc + ratingValue / arr.length, 0).toFixed(1)
-      
+      let ratingValue = 0;
+      if (JSON.parse(document.querySelectorAll('script[type="application/ld+json"]')[1].textContent.replace(/\s/g, '')).review != undefined) {
+        let ratingValue = JSON.parse(document.querySelectorAll('script[type="application/ld+json"]')[1].textContent.replace(/\s/g, '')).review.reduce((acc, { reviewRating: { ratingValue } = {} }, i, arr) => acc + ratingValue / arr.length, 0).toFixed(1)
+      }
+
       ratingElem.innerText = ratingValue.toString().replace('.', ',')
       document.body.appendChild(ratingElem);
 
