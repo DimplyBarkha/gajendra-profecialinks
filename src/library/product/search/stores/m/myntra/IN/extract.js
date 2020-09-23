@@ -12,14 +12,11 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
-        const scrollBox = document.querySelector('body');
-        const elemClick = scrollBox.querySelector('div#product-list-load-more button');
         let scrollTop = 0;
-        while (scrollTop !== 6000 || elemClick) {
+        while (scrollTop !== 6000) {
           await stall(1000);
           scrollTop += 1000;
           window.scroll(0, scrollTop);
-          if (elemClick) elemClick.click();
           if (scrollTop === 6000) {
             await stall(1000);
             break;
