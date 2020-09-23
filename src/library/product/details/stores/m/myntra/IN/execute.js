@@ -5,7 +5,7 @@ module.exports = {
     country: 'IN',
     store: 'myntra',
     domain: 'myntra.com',
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },

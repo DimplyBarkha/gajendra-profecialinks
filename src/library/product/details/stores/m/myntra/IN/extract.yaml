@@ -128,6 +128,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //div[@class="index-rowKey"][contains(text(),'Colour')]/following-sibling::div
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
