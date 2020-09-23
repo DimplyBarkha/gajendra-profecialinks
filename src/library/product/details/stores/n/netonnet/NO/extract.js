@@ -20,13 +20,11 @@ module.exports = {
       if (overlay !== undefined) {
         overlay.click();
       }
-      const collapseFive = document.querySelector('div[data-target="#collapseFive"]')      
-      collapseFive.setAttribute('id','accordiancollapseFive');
-      const accordiancollapseFive = document.getElementById('accordiancollapseFive');
-      if (accordiancollapseFive !== undefined) {
-          accordiancollapseFive.classList.remove("collapsed");
+      
+          const collapseFive = document.querySelector('div[data-target="#collapseFive"]')      
+          collapseFive.classList.remove("collapsed");
           document.getElementById('collapseFive').classList.add('in');
-      }
+      
     });
   
     const { transform } = parameters;
