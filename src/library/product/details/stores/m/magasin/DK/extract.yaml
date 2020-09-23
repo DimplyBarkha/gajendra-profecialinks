@@ -58,7 +58,8 @@ fields:
     xpath: //script[contains(@type, "application/ld+json")]
   - name: sku
     singleValue: true
-    xpath: //product-details//@data-pid
+    xpath: //*[contains(@id,"tempSkuId")]
+    # xpath: //product-details//@data-pid    
   - name: variantId
     singleValue: true
     xpath: //product-details//@data-pid
