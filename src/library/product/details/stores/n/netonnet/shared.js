@@ -60,7 +60,6 @@ const transform = (data) => {
 			if (row.aggregateRating) {
 				let newText = '0';
 				row.aggregateRating.forEach(item => {
-					console.log(item);
 					/* var received_per = item.raw.replace("width: ", "")
 					var received_per = received_per.replace("%", ""); */
 					var received_per = item.value*100;
