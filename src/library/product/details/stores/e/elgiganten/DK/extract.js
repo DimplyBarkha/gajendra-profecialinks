@@ -27,17 +27,16 @@ module.exports = {
 
     await context.evaluate(async function () {
 
-/*       const overlay = document.getElementById('tab-specs-trigger');
-      if (overlay !== undefined) {
-        overlay.click();
-      }
-      const overlay1 = document.getElementById('tab-more-info-trigger');
-      if (overlay1 !== undefined) {
-        overlay1.click();
-      } */
+      /*       const overlay = document.getElementById('tab-specs-trigger');
+            if (overlay !== undefined) {
+              overlay.click();
+            }
+            const overlay1 = document.getElementById('tab-more-info-trigger');
+            if (overlay1 !== undefined) {
+              overlay1.click();
+            } */
 
       let btn = Boolean(!!document.querySelector('button.coi-banner__accept'))
-      console.log('BBBBBBB',btn);
       if (btn) {
         try {
           await context.click('button.coi-banner__accept');
@@ -45,17 +44,11 @@ module.exports = {
         catch (error) { }
       }
 
-      const videoData = document.querySelectorAll('iframe.videoly-box')[0].contentWindow.document.getElementsByTagName('ul')[0]
+      const videoData = document.querySelectorAll('iframe.videoly-box')[0].contentWindow.document.getElementsByTagName('ul')[0];
 
       if (videoData) {
-        console.log(videoData);
-        const packagingElem = document.createElement('div');
-        packagingElem.id = 'videoList';
-        packagingElem.innerText = videoData;
-
-        document.body.appendChild(packagingElem);
+        document.body.appendChild(videoData);
       }
-
     });
 
     const { transform } = parameters;

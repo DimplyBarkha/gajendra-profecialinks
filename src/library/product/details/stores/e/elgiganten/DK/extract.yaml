@@ -59,7 +59,7 @@ fields:
     xpath: //h1[contains(@class,"product-title")]
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,"el-product-video-slider")]//video[contains(@class,'el-videoplayer')]/@src
+    xpath: //div[contains(@class,"el-product-video-slider")]//video[contains(@class,'el-videoplayer')]/@src | //ul[contains(@class,"b-video-list")]//li//div[@class="b-video-item-tile"]/@data-videoid
     # regExp: (.+)
     # regExpReplace: https://www.elgiganten.dk$1
   - name: shippingInfo
