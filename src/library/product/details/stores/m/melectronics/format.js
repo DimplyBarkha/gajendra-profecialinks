@@ -69,6 +69,11 @@ const transform = (data) => {
         row.aggregateRating.forEach(item => {          
           item.text = item.text.replace('.', ',').trim();          
         });
+      }
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {          
+          item.text = item.text.replace('.', ',').trim();          
+        });
       }      
     }
   }
