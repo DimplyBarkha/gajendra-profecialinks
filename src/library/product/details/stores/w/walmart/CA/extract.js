@@ -52,6 +52,12 @@ async function implementation (
         const rating = productData.product.item.rating.averageRating;
         addHiddenDiv('ii_rating', rating);
       }
+      let description = document.evaluate("//div[@data-automation='long-description']", document, null, XPathResult.ANY_TYPE, null);
+      description = description.iterateNext().innerText;
+
+      const additionalDescription = document.querySelector("div[data-automation='feature-specifications']").innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim();
+      description = (description + ' ' + additionalDescription).replace(/•/g, '||');
+      addHiddenDiv('ii_desc', description);
     }, index, variantLength, variantColorLength, variantSizeLength);
   }
 

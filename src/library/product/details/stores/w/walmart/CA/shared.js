@@ -46,29 +46,6 @@ const transform = (data) => {
         ];
       }
 
-      if (row.description) {
-        if (row.additionalDescBulletInfo) {
-          for (const bullet of row.additionalDescBulletInfo) {
-            for (const item of row.description) {
-              item.text = item.text.replace(bullet.text, `|| ${bullet.text}`);
-            }
-          }
-        }
-      }
-
-      if (row.description) {
-        let text = '';
-        row.description.forEach(item => {
-          text = row.description.map(elm => elm.text).join(' ');
-        });
-        text = text.replace(/•/g, '||');
-        row.description = [
-          {
-            text: text,
-          },
-        ];
-      }
-
       if (row.specifications) {
         let text = '';
         row.specifications.forEach((item, index) => {
@@ -140,6 +117,18 @@ const transform = (data) => {
           text = row.warranty.map(elm => elm.text).join(' | ');
         });
         row.warranty = [
+          {
+            text: text,
+          },
+        ];
+      }
+
+      if (row.variantInformation) {
+        let text;
+        row.variantInformation.forEach(item => {
+          text = row.variantInformation.map(elm => elm.text).join(' | ');
+        });
+        row.variantInformation = [
           {
             text: text,
           },
