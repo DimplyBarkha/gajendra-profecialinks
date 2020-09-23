@@ -49,7 +49,9 @@ module.exports = {
       if (warranty) {
         if (warranty.stringValue.length === 0) {
           var cleanWarranty = document.evaluate("//div[@class='tab-slot']/p/text()[position() = last()]", document, null, XPathResult.STRING_TYPE, null).stringValue;
-          addElementToDocument('warranty', cleanWarranty);
+          if (cleanWarranty.includes('takuu')) {
+            addElementToDocument('warranty', cleanWarranty);
+          }
         } else {
           addElementToDocument('warranty', warranty.stringValue);
         }
