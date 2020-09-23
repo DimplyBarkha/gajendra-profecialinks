@@ -143,8 +143,8 @@ fields:
   - name: color
     singleValue: false
     description: A textual description of the colour
-    xpath: //section[contains(@class,"product-features")]//dd[1]
-    # xpath: //ul[6]
+    # xpath: //section[contains(@class,"product-features")]//dd[1]
+    xpath: //h5[contains(text(), "Farben")]/following::li[1]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -246,7 +246,8 @@ fields:
     singleValue: false
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-    xpath: //section[contains(@class,'product-features')]//dd[1]
+    # xpath: //section[contains(@class,'product-features')]//dd[1]
+    xpath: //h5[contains(text(), "Leistungsaufnahme")]/following::li[1]
     example: A+, A+++, B
   - name: technicalInformationPdfPresent
     singleValue: true
