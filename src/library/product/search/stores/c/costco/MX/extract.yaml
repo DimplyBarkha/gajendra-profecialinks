@@ -44,7 +44,7 @@ fields:
   - name: reviewCount
     description: The number of reviews
   - name: price
-    xpath: //span[@class="product-price-amount"]
+    xpath: translate(.//span[@class="product-price-amount"], '.,', ',')
     description: The offered price for the product
   - name: listPrice
     description: The stated undiscounted price for the product

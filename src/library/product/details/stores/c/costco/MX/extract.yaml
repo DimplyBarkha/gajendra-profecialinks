@@ -31,10 +31,10 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
-    xpath: //div[@class="price-original"]/span[@class="price-value"]
+    xpath: translate(//div[@class="price-original"]/span[@class="price-value"], '.,', ',')
     description: The stated undiscounted price for the product
   - name: price
-    xpath: //div[@class="price-after-discount"]/span[@class="you-pay-value"] | //div[@class="price-original"]/span[@class="product-price-amount"] | //meta[@property="product:price:amount"][ancestor::html[not(//div[@class="price-after-discount"]/span[@class="you-pay-value"] | //div[@class="price-original"]/span[@class="product-price-amount"])]]/@content
+    xpath: translate(//div[@class="price-after-discount"]/span[@class="you-pay-value"] | //div[@class="price-original"]/span[@class="product-price-amount"] | //meta[@property="product:price:amount"][ancestor::html[not(//div[@class="price-after-discount"]/span[@class="you-pay-value"] | //div[@class="price-original"]/span[@class="product-price-amount"])]]/@content, '.,', ',')
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -101,7 +101,7 @@ fields:
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
-    xpath: //div[contains(@class,"bv_avgRating_component_container")]
+    xpath: translate(//div[contains(@class,"bv_avgRating_component_container")], '.,', ',')
     description: The stated aggregate rating
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
