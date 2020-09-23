@@ -78,7 +78,7 @@ fields:
     regExpReplace:  $2
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    xpath: //div[contains(text(),'Model N')]/following-sibling::div
+    xpath: (//div[contains(text(),'Model N') and not(contains(.,'Name'))]/following-sibling::div)[1]
     description: The manufacturer model code (unique) of the product
   - name: mpc2
     xpath: //div[contains(text(),'Model No')][count(../div)=1]
@@ -128,9 +128,9 @@ fields:
     xpath:  //h3[contains(text(),'Colour:')]/following-sibling::*
     description: A textual description of the colour
   - name: colorCode
-    singleValue: true
     xpath: //h3[contains(text(),'Colour:')]/../following-sibling::div//div[contains(@style,'rgb')]/@style
-    regExp: 'background: (.+);'
+    regExp: >-
+      background: (.+);
     regExpReplace: $1
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
