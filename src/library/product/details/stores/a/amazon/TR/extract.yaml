@@ -43,7 +43,7 @@ fields:
     defaultValue: 'In Stock'
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
+    xpath: //div[@id="ii_description"]
   - name: descriptionOne
     singleValue: false
     xpath: //div[@id="productDescription"]
@@ -52,9 +52,7 @@ fields:
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
   - name: brandText
     singleValue: false
-    xpath: //a[@id="bylineInfo"]
-    regExp: (?:by)? ?(.+)
-    regExpReplace: $1
+    xpath: //div[@id="ii_brand_text"]
   - name: manufacturer
     singleValue: false
     xpath: (//tr/th[contains(text(),"Üretici")])[1]/following-sibling::td
@@ -70,7 +68,7 @@ fields:
   - name: gtin
     xpath:
   - name: asin
-    xpath: (//tr/th[contains(text(),"ASIN")])[1]/following-sibling::td
+    xpath: (//tr/th[contains(text(),"ASIN")])[1]/following-sibling::td | (//*[@data-asin])[1]/@data-asin
   - name: variantId
     singleValue: false
     xpath: (//tr/th[contains(text(),"Model Numarası")])[1]/following-sibling::td
@@ -104,7 +102,7 @@ fields:
     regExpReplace: $2
   - name: shippingInfo
     singleValue: false
-    xpath:
+    xpath: //div[@id="ii_shipping_info"]
   - name: ship
     singleValue: false
     xpath: (//tr//td[contains(@class,"buybox-tabular-column") and ./span[contains(.,"Gönderici")]]/following-sibling::td/span/span)[1]
@@ -122,6 +120,7 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: count(//li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href)
+    defaultValue: '0'
   - name: variantInformation
     singleValue: false
     xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
@@ -146,12 +145,6 @@ fields:
   - name: inStorePrice
     singleValue: false
     xpath:
-  - name: productUrl
-    singleValue: false
-    xpath: //div[@id='added-url']
-  - name: asin
-    singleValue: false
-    xpath: //div[@id='added-asin']
   - name: sku
     xpath:
   - name: coupon
@@ -229,7 +222,7 @@ fields:
     regExpReplace: $1
   - name: specifications
     singleValue: false
-    xpath: //table[contains(@id,"productDetails_techSpec")]//tbody/tr/child::*
+    xpath: //div[@id="ii_spec"]
   - name: primeFlag
     singleValue: false
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//div[contains(@id,"shipping")]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//span[contains(@id, "shipping-message")]//a[contains(@href, "prime") and contains(text(), "Amazon")] | //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell"))]//a[contains(text(), "Prime")]/text())[1]
@@ -249,7 +242,7 @@ fields:
   - name: otherSellersPrime
     singleValue: false
     xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//span[contains(@id,"mbc-shipping")]/a[contains(@target,"Amazon")]/@href
-    regExp: (.*)
+    regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
   - name: otherSellersPrice
@@ -435,7 +428,7 @@ fields:
     xpath: //div[@id='newerVersion_feature_div']//a[not(child::img)]
   - name: variants
     singleValue: false
-    xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
+    xpath: //div[@id="ii_variants"]
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
