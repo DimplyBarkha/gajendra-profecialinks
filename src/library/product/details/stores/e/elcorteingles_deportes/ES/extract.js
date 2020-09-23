@@ -12,7 +12,73 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
+
+    const mainURL = await context.evaluate(function () {
+      console.log("main URL")
+      return document.URL;
+    });
+
     try {
+      const navigateLink = await context.evaluate(function () {
+        console.log("getting navlink")
+        return document.querySelector('#loadbeeTabContent').getAttribute('src');
+      });
+
+      if (navigateLink) {
+        console.log(navigateLink, "Iframe Details")
+        console.log("Nagivating to Enahnced content");
+
+        await context.goto(navigateLink, {
+          timeout: 20000, waitUntil: 'load', checkBlocked: true,
+        });
+
+        console.log('In Enhanced content areas');
+
+        const otherSellersTable = await context.evaluate(function () {
+          return document.querySelector('.container').innerHTML;
+        });
+
+        console.log('Got otherSellersTable here');
+
+        console.log('mainURL' + mainURL);
+
+        await context.goto(mainURL, {
+          timeout: 10000,
+          waitUntil: 'load',
+          checkBlocked: false,
+          js_enabled: true,
+          css_enabled: false,
+          random_move_mouse: true,
+        });
+
+        await context.evaluate(function (eleInnerHtml) {
+          const cloneNode = document.createElement('div');
+          cloneNode.setAttribute("id", "enhancedContent");
+          cloneNode.innerHTML = eleInnerHtml;
+          document.querySelector('div.product_detail-description-in-image').appendChild(cloneNode);
+        }, otherSellersTable);
+      }
+
+    } catch (err) {
+      console.log('Additional other sellers error -' + JSON.stringify(err));
+      await context.goto(mainURL, {
+        timeout: 10000,
+        waitUntil: 'load',
+        checkBlocked: false,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
+    }
+
+    try {
+      await context.waitForSelector('#enhancedContent', { timeout: 30000 });
+    } catch (err) {
+      console.log('Manufacturer details did not load.');
+    }
+
+    try {
+
       await context.evaluate(async function () {
         // function to append the elements to DOM
         function addElementToDocument(key, value) {
