@@ -61,14 +61,24 @@ const transform = (data) => {
         ];
       }
       if (row.videos) {
-        let video = {};
+        let video = [];
         row.videos.forEach(item => {
-          video = {
-            text: 'https://www.elgiganten.dk' + item.text,
-            xpath: item.xpath
+          console.log(item)
+          if (item.text.split('/').length > 1) {
+            video.push({
+              text: 'https://www.elgiganten.dk' + item.text,
+              xpath: item.xpath
+            })
+          } else {
+            video.push({
+              text: 'https://www.youtube.com/watch?v=' + item.text + '&feature=emb_title',
+              xpath: item.xpath
+            })
           }
         });
-        row.videos = [video];
+        console.log(video);
+
+        row.videos = video;
       }
       if (row.manufacturerImages) {
         let text = '';
