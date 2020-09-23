@@ -10,7 +10,7 @@ const transform = (data) => {
       if (row.shippingDimensions) {
         let ship = '';
         row.shippingDimensions.forEach(item => {
-          ship = item.text.replace(/\n/g, ':')
+          ship = item.text.replace(/\n/g, ':');
           item.text = ship;
         });
       }
@@ -27,9 +27,9 @@ const transform = (data) => {
         }
       }
 
-      if (row.descriptionBulletsInfo) {
+      if (row.additionalDescBulletInfo) {
         let text = '';
-        row.descriptionBulletsInfo.forEach(item => {
+        row.additionalDescBulletInfo.forEach(item => {
           text += ` || ${item.text}`;
         });
         if (row.description) {
@@ -67,7 +67,7 @@ const transform = (data) => {
         row.specifications2 = [
           {
             text: text,
-          }
+          },
         ];
       }
 
@@ -114,18 +114,18 @@ const transform = (data) => {
 
       if (row.promotion) {
         row.promotion = [{
-          text: `${row.promotion[0].text}% off`
+          text: `${row.promotion[0].text}% off`,
         }];
       } else if (row.promotionAddText) {
         row.promotion = [{
-          text: `${row.promotionAddText[0].text}`
+          text: `${row.promotionAddText[0].text}`,
         }];
         delete row.promotionAddText;
       }
 
       if (row.promotionAddText && row.promotion) {
         row.promotion = [{
-          text: `${row.promotion[0].text} ${row.promotionAddText[0].text}`
+          text: `${row.promotion[0].text} ${row.promotionAddText[0].text}`,
         }];
       }
     }

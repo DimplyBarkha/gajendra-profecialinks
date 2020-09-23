@@ -1,11 +1,11 @@
 module.exports = {
-    implements: 'navigation/goto',
-    parameterValues: {
-        domain: 'tatacliq.com',
-        timeout: 90000,
-        country: 'IN',
-        store: 'tatacliq',
-        zipcode: '',
+  implements: 'navigation/goto',
+  parameterValues: {
+    domain: 'tatacliq.com',
+    timeout: 90000,
+    country: 'IN',
+    store: 'tatacliq',
+    zipcode: '',
 
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
@@ -15,5 +15,5 @@ module.exports = {
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
-  }
+  },
 };

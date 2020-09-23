@@ -41,8 +41,6 @@ fields:
     description: Number of ul > li tags in the description
     type: NUMBER
     xpath: count(//*[@itemprop="description"]/div[last()]/div[count(div)=0])
-  - name: descriptionBulletsInfo
-    xpath: //*[@itemprop="description"]/div[last()]/div[count(div)=0]
   - name: brandText
     xpath:  //*[@itemprop="brand"]//span[@itemprop="name"]
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -462,10 +460,9 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
     description: colour / scent / flavour / other
+    xpath: //h3[contains(text(),'Colour:')]/following-sibling::*
   - name: firstVariant
-    singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -475,12 +472,18 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath:  //*[@id="BPDT"]//a[@itemprop="url"]//@href
+    regExp: (0{8})(.+)
+    regExpReplace: $2
   - name: variants
-    singleValue: false
     description: null
+    xpath:  //*[@id="BPDT"]//a[@itemprop="url"]//@href
+    regExp: (0{8})(.+)
+    regExpReplace: $2
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //*[@itemprop="description"]/div[last()]/div[count(div)=0]
   - name: prop65Warning
     singleValue: true
     description: null

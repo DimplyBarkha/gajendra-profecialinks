@@ -24,11 +24,11 @@ async function implementation (
   try {
     await context.waitForFunction(function (xp) {
       return Boolean(document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, `//div[contains(.,'Exclude out of stock')]//div[contains(@style,'cancelGrey')]`);
+    }, { timeout: 10000 }, '//div[contains(.,\'Exclude out of stock\')]//div[contains(@style,\'cancelGrey\')]');
 
     // Check if out of stock items are excluded & click it if loaded
     await context.evaluate(function () {
-      const outOfStockCancelBtn = document.evaluate(`//div[contains(.,'Exclude out of stock')]//div[contains(@style,'cancelGrey')]`, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const outOfStockCancelBtn = document.evaluate('//div[contains(.,\'Exclude out of stock\')]//div[contains(@style,\'cancelGrey\')]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (outOfStockCancelBtn) {
         console.log('Clicking to remove the filter for including out of stock items also');
         // @ts-ignore
@@ -38,7 +38,6 @@ async function implementation (
   } catch (err) {
     console.log('Error while  removing the exclude items filter' + JSON.stringify(err));
   }
-
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -67,5 +66,5 @@ module.exports = {
     noResultsXPath: '/html[not(//div[contains(@id,"ProductModule")])]',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
