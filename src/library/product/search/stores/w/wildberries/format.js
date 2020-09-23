@@ -11,7 +11,7 @@ const transform = (data, context) => {
       for (const row of group) {
         try {
             if (row.price && row.price[0]) {
-              row.price[0].text = row.price[0].text !="" ? `${row.price[0].text.split("₽")[0].trim().split(' ').join(',')} ₽` :  "";
+              row.price[0].text = row.price[0].text !="" ? `${row.price[0].text.replace(/ /, '')}` :  "";
             }
 
             if (row.thumbnail) {
