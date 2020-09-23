@@ -32,10 +32,10 @@ fields:
   - name: brandText
     xpath: //meta[@itemprop="brand"]/@content
   - name: specifications
-    xpath: //div[contains(.,"Specifications")]/div//tbody//tr//td
+    xpath: //div[contains(.,"Specifications")]/div//tbody//tr//td | //body/@specifi
   - name: quantity
   - name: weightNet
-    xpath: //div[contains(@class,"flix-value")][contains(.,"Weight")]/following-sibling::div[contains(@class,"flix-title")] | //div[@id="specifications"]//p[contains(.,"Weight")]/following-sibling::p
+    xpath: //div[contains(@class,"flix-value")][contains(.,"Weight")]/following-sibling::div[contains(@class,"flix-title")] | //body/@weightnet
   - name: weightGross
   - name: gtin
     xpath: //div[@id="flix-inpage"]/script/@src
@@ -75,7 +75,7 @@ fields:
   - name: shippingDimensions
   - name: shippingWeight
   - name: variantCount
-    xpath: count(//ul[contains(@class,"color")]//li)
+    xpath: count(//ul[contains(@class,"color")]//li//img/@alt|//select//option[not(contains(.,"No Size"))][position()>1])
   - name: color
   - name: colorCode
   - name: manufacturerDescription
@@ -97,7 +97,7 @@ fields:
   - name: promotion
   - name: newDescription
   - name: variantInformation
-    xpath: concat(//ul[contains(@class,"color")]//li//span,' ',//select[@id="va-size"]//option[position()>1])
+    xpath: //ul[contains(@class,"color")]//li//img/@alt | //select[@id="va-size"]//option[not(contains(.,"No Size"))][position()>1]
     description: colour / scent / flavour / other
   - name: firstVariant
   - name: variants

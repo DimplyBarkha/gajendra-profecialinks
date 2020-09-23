@@ -54,11 +54,22 @@ module.exports = {
         const textContent = document.querySelectorAll('.eky-overlay-text');
         const videoEls = document.querySelectorAll('video');
         const imageEls = document.querySelectorAll('img[id*="eky-"]');
+        const specification = document.querySelectorAll('div[id="specifications"] p');
 
         let text = '';
         Array.from(textContent).forEach(el => {
           text += text ? ` | ${el.textContent}` : el.textContent;
         });
+
+        let specifications = '';
+        Array.from(specification).forEach((el, i) => {
+          if (i % 2 === 0) {
+            specifications += specification ? ` | ${el.textContent} : ` : el.textContent;
+          } else {
+            specifications += specification ? `${el.textContent}` : el.textContent;
+          }
+        });
+        const weight = document.evaluate('//div[@id="specifications"]//p[contains(.,"Weight")]/following-sibling::p', document).iterateNext().innerText;
 
         const videos = [];
         Array.from(videoEls).forEach(el => {
@@ -70,7 +81,7 @@ module.exports = {
           images.push(el.src);
         });
 
-        return { description: text.trim(), videos, images };
+        return { description: text.trim(), spec: specifications.trim(), videos, images, weight };
       });
 
       console.log('Navigating back to product page.');
@@ -89,8 +100,10 @@ module.exports = {
         console.log('Adding content to body');
         const body = document.querySelector('body');
         body.setAttribute('enhancedContent', content.description || '');
+        body.setAttribute('specifi', content.spec || '');
         body.setAttribute('videos', video);
         body.setAttribute('images', images);
+        body.setAttribute('weightNet', content.weight || '');
       }, enhancedContentInfo);
     }
     await context.evaluate(function () {

@@ -43,6 +43,21 @@ const transform = (data) => {
         });
       }
 
+      if (row.specifications) {
+        row.specifications.forEach(item => {
+          if (item.text.startsWith('|')) {
+            item.text = item.text.replace('|', '');
+          }
+        });
+      }
+
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          text = text + (text ? ' | ' : '') + item.text;
+        });
+        row.variantInformation = [{ text }];
+      }
     }
   }
 
