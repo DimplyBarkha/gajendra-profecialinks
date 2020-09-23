@@ -148,11 +148,13 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[contains(@class,"article-text article-free-html")]
+    xpath: //div[@id='enhCont']
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
     xpath: //div[contains(@class,"article-text article-free-html")]/img/@src
+    regExp: (.+)
+    regExpReplace: https://elkjop.no$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -468,7 +470,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: //div[contains(@class,"table-cell header")]
+    xpath: //div[contains(@class,"variation  active   ")]/div/a/@alt
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -480,11 +482,11 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: //div[contains(@class,"variation active")]/div/a
+    xpath: //div[contains(@class,"variation  active   ")]/@data-variation-sku
   - name: variants
     singleValue: false
     description: null
-    xpath: //div[contains(@class,"variation")]/div/a
+    xpath: //div[contains(@class,"variation")]/@data-variation-sku
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
