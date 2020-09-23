@@ -25,7 +25,7 @@ fields:
     xpath: boolean(//button[@class='btn btn-primary btn-block btn-lg']/@disabled) 
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="collapseFive"]//img[@src,'jpg')]/@src|//div[@id="collapseFive"]//img[@src,'png')]/@src
+    xpath: //div[@id="collapseFive"]//img//@data-src
     description: Images within the third party description
   - name: videos
     singleValue: false
