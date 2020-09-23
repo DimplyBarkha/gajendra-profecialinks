@@ -80,7 +80,7 @@ module.exports.implementation = async function implementation (
     addHiddenDiv('ii_variant', mainId);
 
     const allVariants = [...new Set(getVariants())];
-    if (allVariants.length < 1){
+    if (allVariants.length < 1) {
       addHiddenDiv('ii_variant', url.split('/dp/')[1]);
     }
 

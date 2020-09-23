@@ -1,6 +1,6 @@
 
 const implementation = async (inputs, parameters, context, dependencies) => {
-  const { zipcode } = inputs;
+  const { zipcode, url } = inputs;
 
   const apiZipChange = await context.evaluate(async (zipcode) => {
     const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
@@ -33,9 +33,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
       }
     }, zipcode);
   } else {
-    await context.evaluate(() => {
-      window.location.reload();
-    });
+    await context.goto(url, { timeout: 20000, checkBlocked: true, waitUntil: 'load' });
   }
 };
 
