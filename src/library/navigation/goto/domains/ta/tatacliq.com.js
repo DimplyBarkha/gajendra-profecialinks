@@ -2,11 +2,9 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'tatacliq.com',
-    timeout: 90000,
+    timeout: 50000,
     country: 'IN',
     store: 'tatacliq',
-    zipcode: '',
-
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;

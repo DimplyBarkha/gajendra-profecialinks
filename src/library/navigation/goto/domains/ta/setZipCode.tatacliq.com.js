@@ -5,6 +5,5 @@ module.exports = {
     country: 'IN',
     domain: 'tatacliq.com',
     store: 'tatacliq',
-    zipcode: '',
   },
 };
