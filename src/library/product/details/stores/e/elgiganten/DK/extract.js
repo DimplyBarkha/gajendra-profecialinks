@@ -24,6 +24,18 @@ module.exports = {
       if (overlay1 !== undefined) {
         overlay1.click();
       }
+
+      const videoData = document.querySelectorAll('iframe.videoly-box')[0].contentWindow.document.getElementsByTagName('ul')[0]
+
+      if (videoData) {
+        console.log(videoData);
+        const packagingElem = document.createElement('div');
+        packagingElem.id = 'videoList';
+        packagingElem.innerText = videoData;
+
+        document.body.appendChild(packagingElem);
+      }
+
     });
 
     const { transform } = parameters;
