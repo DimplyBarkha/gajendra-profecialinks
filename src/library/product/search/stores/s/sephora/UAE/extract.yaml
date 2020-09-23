@@ -1,48 +1,41 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, 'search-result-content')]//li
+recordXPath: //div[contains(@class, 'search-result-content')]//li|//div[@id="main"]
 fields:
   - name: brand
     singleValue: false
     description: The brand name
     example: Panasonic
-    xpath: //span[contains(@class, 'product-brand')]
+    xpath: //span[contains(@class, 'product-brand')]|//span[contains(@class,"brand-name")]
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: //a[@class='product-tile-link']/@href
+    xpath: //a[@class='product-tile-link']/@href|//div[contains(@class,"product-cart")]//a/@href
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //a[contains(@class, 'product-tile-link')]//img/@src
+    xpath: //a[contains(@class, 'product-tile-link')]//img/@src|(//a[contains(@name, "product_detail_image")]//img)[1]/@src
   - name: name
     singleValue: false
     description: The product name
-    xpath: //a[contains(@class, 'product-tile-link')]//span
+    xpath: //a[contains(@class, 'product-tile-link')]//span|//span[contains(@class,"product-name")]
   # - name: sku
   #   singleValue: false
   #   description: The store-specific product identifier
   #   xpath: //a[contains(@class, "top")]/@data-productid
-  - name: mpc
-    singleValue: false
-    description: The model code of the product
-  - name: gtin
-    singleValue: false
-    description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
+    xpath: //div[contains(@itemprop, "ratingValue")]
   - name: ratingCount
     singleValue: false
     description: The number of ratings
-  - name: reviewCount
-    singleValue: false
-    description: The number of reviews
+    xpath: //meta[contains(@itemprop,"reviewCount")]/@content
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[contains(@class, 'product-pricing')]//span[last()]
+    xpath: //div[contains(@class, 'product-pricing')]//span[last()]|//div[contains(@class,"product-cart")]//span[contains(@class, 'price')]
   # - name: listPrice
   #   singleValue: false
   #   description: The stated undiscounted price for the product
@@ -50,16 +43,7 @@ fields:
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
-    xpath: //span[contains(@class, 'product-brand')]
-  - name: soldBy
-    singleValue: false
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: false
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: false
-    description: Shipping information for the product
+    xpath: //span[contains(@class, 'product-brand')]|//span[contains(@class,"brand-name")]
   - name: rank
     singleValue: false
     description: search/listing rank
@@ -75,7 +59,7 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //a[contains(@class, "top")]/@data-productid
+    xpath: //a[contains(@class, "top")]/@data-productid|(//meta[contains(@itemprop,"sku")])[1]/@content
   # - name: nameExtended
   #   singleValue: false
   #   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -85,3 +69,4 @@ fields:
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //div[contains(@itemprop, "ratingValue")]
