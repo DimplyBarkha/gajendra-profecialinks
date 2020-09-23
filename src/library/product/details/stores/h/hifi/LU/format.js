@@ -61,6 +61,7 @@ const transform = (data) => {
         if (row.descriptionOne) {
           let text = '';
           row.descriptionOne.forEach(item => {
+            bulletInfo.push({ text: item.text });
             text += `|| ${item.text} `;
           });
           descriptionOne = text;
@@ -70,8 +71,11 @@ const transform = (data) => {
         if (descriptionOne) {
           desc = `${descriptionOne} | ${desc}`;
         }
-        const text = desc.match(/\|\|/g);
-        if (text) {
+        row.descriptionTwo && row.descriptionTwo[0] && row.descriptionTwo.forEach(item => {
+          const descItem = item.text.match(/•/g);
+          descItem && bulletInfo.push({ text: item.text.slice(1, -1) });
+        });
+        if (bulletInfo) {
           row.descriptionBullets = [
             {
               text: bulletInfo.length,

@@ -40,6 +40,9 @@ fields:
   - name: descriptionOne
     singleValue: false
     xpath: (//div[@class="product-info"]//ul/li)[position() <= (last() - 1)]
+  - name: descriptionTwo
+    singleValue: false
+    xpath: //section[@class="description"]//div[@class="content-wrap"]//div[@class="product radikal"]//span | //section[@class="description"]//div[@class="content-wrap"]//p/text()
   - name: description
     singleValue: false
     xpath: //div[@id="desc"]
@@ -114,6 +117,7 @@ fields:
   - name: color
     singleValue: false
     description: A textual description of the colour
+    xpath: //div[@class="specs-block"]//ul/li/span[contains(.,"Couleur")]/following-sibling::span
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[contains(@class,"preview")]
