@@ -5,22 +5,22 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@class='css-7g4y5t e6g1c3f1']//div[contains(@class,'react-swipe-container ')]//div[@role='presentation']//img[1]/@src
+    xpath: //div[contains(@class,'react-swipe-container ')]//div[@role='presentation']//img[1]/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class='css-7g4y5t e6g1c3f1']//div[contains(@class,'react-swipe-container ')]//div[@role='presentation']//img[1]/@alt
+    xpath: //div[contains(@class,'react-swipe-container ')]//div[@role='presentation']//img[1]/@alt
   - name: availabilityText
     singleValue: false
     xpath:  //button[@class='css-1i45fk4 edzik9p0' and contains(.,'Add to cart')] | //button[@class='css-11m10q7 edzik9p0' and contains(.,'Out of stock')] | //p[@data-automation='online-only-label'] | //button[contains(@data-automation,'cta-button')]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='css-7g4y5t e6g1c3f1']//div[contains(@class,'react-swipe-container ')]//div[@role='presentation']//img[1]/@src
+    xpath: //div[contains(@class,'react-swipe-container ')]//div[@role='presentation']//img[1]/@src
   - name: category
     singleValue: false
     xpath: //ol[@class='css-f0oitm e16uoh2c1']//li
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@class='css-1c6krh5 e1yn5b3f6']
+    xpath: //h1[contains(@data-automation,'product-title')]
   - name: price
     singleValue: false
     xpath: //span[@class='css-2vqe5n esdkp3p0'  and  @data-automation='buybox-price']
@@ -63,7 +63,8 @@ fields:
     xpath: //div[@id='ii_variants'][last()]
   - name: variantId
     singleValue: false
-    xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(.,'SKU')]/following-sibling::div
+    xpath: //*/@data-product-id
+    # xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(.,'SKU')]/following-sibling::div
   - name: firstVariant
     singleValue: false
     xpath: //div[@id='ii_firstVariant'][last()]
@@ -76,3 +77,5 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //span[@data-automation='buybox-price-old']
+  - name: name
+    xpath: //h1[contains(@data-automation,'product-title')]
