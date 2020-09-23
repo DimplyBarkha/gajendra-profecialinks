@@ -39,20 +39,25 @@ const transform = (data) => {
           info.push(item.text.trim());            
         });
         row.descriptionBullets = [{'text': info.length}];
-        row.additionalDescBulletInfo = [{'text':info.join(' | '),'xpath':row.additionalDescBulletInfo[0].xpath}];          
+        row.additionalDescBulletInfo = [{'text':info.join(' || '),'xpath':row.additionalDescBulletInfo[0].xpath}];          
       }
       if (row.specifications) {
         row.specifications.forEach(item => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
           item.text = item.text.replace(/(\s*Overview:\s*\|\|\s*)+/g, '').trim();
         });
+      } 
+      if (row.quantity) {
+        row.quantity.forEach(item => {
+          item.text = 1;          
+        });
       }        
       if (row.description) {
         let info = [];          
         row.description.forEach(item => {
-          info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());            
+          info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());            
         });
-        row.description = [{'text':info.join(' || '),'xpath':row.description[0].xpath}];          
+        row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
       }
       if (row.shippingInfo) {
         let info = [];          
