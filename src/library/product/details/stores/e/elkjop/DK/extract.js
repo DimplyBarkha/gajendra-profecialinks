@@ -36,7 +36,7 @@ module.exports = {
       }
       const warranty = document.evaluate("//*[contains(text(), 'garanti')]", document, null, XPathResult.STRING_TYPE, null);
       if (warranty && warranty.stringValue) {
-        addElementToDocument('warranty', warranty);
+        addElementToDocument('warranty', warranty.stringValue);
       }
       const weight = document.evaluate("//*[contains(text(), 'Vægt')]", document, null, XPathResult.STRING_TYPE, null);
       if (weight && weight.stringValue) {
