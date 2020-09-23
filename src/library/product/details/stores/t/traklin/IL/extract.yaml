@@ -137,6 +137,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //div[@class="video-container"]//iframe/@src
   - name: name
     singleValue: false
     description: The product name
@@ -374,7 +375,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //*[contains(text(), "מפרט טכנ") or contains(text(), "מאפיינים ומפרט")]/following-sibling::*[1]/text() | //div[contains(@class, "p_info")]//div[contains(@id, "div_tab") and not(.//descendant::*[contains(text(), "האותיות")])]//li
+    xpath: //*[contains(text(), "מפרט טכני")]/following-sibling::* | //*[contains(text(), "מפרט טכנ") or contains(text(), "מאפיינים ומפרט")]/following-sibling::*[1]/text() | //div[contains(@class, "p_info")]//div[contains(@id, "div_tab") and not(.//descendant::*[contains(text(), "האותיות")])]//li
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
