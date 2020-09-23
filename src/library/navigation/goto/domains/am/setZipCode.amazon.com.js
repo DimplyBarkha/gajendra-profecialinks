@@ -24,16 +24,30 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   const helpers = new Helpers(context);
   const amazonHelp = new AmazonHelp(context, helpers);
 
-  if (!apiZipChange) {
-    await amazonHelp.setLocale(zipcode);
-    await context.evaluate((zipcode) => {
-      const zipText = document.querySelector('div#glow-ingress-block');
-      if (!zipText.textContent.includes(zipcode)) {
-        throw new Error('API and manual Zip change failed');
-      }
-    }, zipcode);
-  } else {
-    await context.goto(url, { timeout: 20000, checkBlocked: true, waitUntil: 'load' });
+  const onCorrectZip = await context.evaluate((zipcode) => {
+    const zipText = document.querySelector('div#glow-ingress-block');
+    return zipText.textContent.includes(zipcode);
+  }, zipcode);
+
+  if (!onCorrectZip) {
+    if (!apiZipChange) {
+      await amazonHelp.setLocale(zipcode);
+      await context.evaluate((zipcode) => {
+        const zipText = document.querySelector('div#glow-ingress-block');
+        if (!zipText.textContent.includes(zipcode)) {
+          throw new Error('API and manual Zip change failed');
+        }
+      }, zipcode);
+    } else {
+      await context.goto(url, {
+        timeout: 20000,
+        waitUntil: 'load',
+        checkBlocked: false,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
+    }
   }
 };
 
