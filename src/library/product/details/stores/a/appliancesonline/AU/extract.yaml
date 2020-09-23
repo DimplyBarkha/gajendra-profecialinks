@@ -48,9 +48,9 @@ fields:
   - name: brandText
     singleValue: true
     xpath: //*[@class="specifications-panel ng-star-inserted"]//aol-product-specifications-attribute-row//a
-  - name: manufacturer
-    singleValue: true
-    xpath: //*[@class="specifications-panel ng-star-inserted"]//aol-product-specifications-attribute-row//a
+  # - name: manufacturer
+  #   singleValue: true
+  #   xpath: //*[@class="specifications-panel ng-star-inserted"]//aol-product-specifications-attribute-row//a
   - name: quantity
     singleValue: true
     xpath: //*[@class="swatch-text current ng-star-inserted"]//span
@@ -74,9 +74,9 @@ fields:
   - name: mpc
     singleValue: true
     xpath: //span[contains(text(), 'Model Number')]/following::div[1]
-  - name: packSize
-    singleValue: true
-    xpath: //span[contains(text(), 'Accessories included')]/following::div[1]
+  # - name: packSize
+  #   singleValue: true
+  #   xpath: //span[contains(text(), 'Accessories included')]/following::div[1]
   - name: productUrl
     singleValue: true
     xpath: //meta[@property='og:url']/@content
@@ -147,9 +147,9 @@ fields:
     xpath: //img[contains(@class,'feature-image')]/@src
     regExp: (.+)
     regExpReplace: https://www.appliancesonline.com.au$1
-  - name: upc
-    singleValue: true
-    xpath: //span[contains(text(), 'Model Number')]/following::div[1]
+  # - name: upc
+  #   singleValue: true
+  #   xpath: //span[contains(text(), 'Model Number')]/following::div[1]
   - name: eangtin
     singleValue: true
     xpath: //span[contains(text(), 'Model Number')]/following::div[1]
