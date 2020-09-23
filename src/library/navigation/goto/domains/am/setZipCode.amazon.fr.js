@@ -1,3 +1,4 @@
+/*
 async function implementation (
   inputs,
   parameters,
@@ -34,7 +35,7 @@ async function implementation (
     await context.waitForNavigation();
   }
 }
-
+*/
 module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {

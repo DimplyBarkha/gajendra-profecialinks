@@ -195,7 +195,6 @@ async function implementation (
   await context.extract(productDetails, { transform });
 }
 
-
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {

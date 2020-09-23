@@ -8,7 +8,7 @@ module.exports = {
     store: 'amazonMweb',
     zipcode: '',
   },
-  implementation: async ({ url }, parameterValues, context, dependencies) => {
+  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -35,7 +35,7 @@ module.exports = {
         imageElement: 'form img',
         autoSubmit: true,
       });
-      const [response] = await Promise.all([
+      await Promise.all([
         console.log('solved captcha, waiting for page change'),
         context.waitForNavigation(),
         await new Promise(resolve => setTimeout(resolve, 3000)),
@@ -77,7 +77,7 @@ module.exports = {
         return true;
       }
       if (lastResponseData.status === 503) {
-        const [response] = await Promise.all([
+        await Promise.all([
           console.log('Waiting for page to reload on homepage'),
           context.waitForNavigation(),
           console.log('Clicking 503 image'),

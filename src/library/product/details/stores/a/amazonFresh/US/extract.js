@@ -21,9 +21,9 @@ async function implementation (
 
   async function loadAllResources (timeout = 40000) {
     const loadManufacturerSelectors = async () => ((document.querySelector('div#dpx-aplus-product-description_feature_div') !== null) || (document.querySelector('div#aplus_feature_div div#aplus') !== null));
-  
+
     const loadManufacturer = await context.evaluate(loadManufacturerSelectors);
- 
+
     let shouldLoadAplusBody = false;
     if (loadManufacturer) {
       try {
@@ -62,7 +62,7 @@ async function implementation (
         document.body.appendChild(newDiv);
       }
       let allText = '';
-      [...document.querySelectorAll('div.apm-hovermodule-slides')].filter(element => element.style.display !== "block").forEach((element) => {
+      [...document.querySelectorAll('div.apm-hovermodule-slides')].filter(element => element.style.display !== 'block').forEach((element) => {
         if (element.querySelector('.apm-hovermodule-slides-inner')) {
           allText += element.querySelector('.apm-hovermodule-slides-inner').innerText;
         }
@@ -77,7 +77,7 @@ async function implementation (
   await new Promise(resolve => setTimeout(resolve, 5000));
   await amazonHelp.setLocale('90210');
   await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
- 
+
   await loadAllResources();
   addContent(parentInput);
   console.log('autoscroll end');

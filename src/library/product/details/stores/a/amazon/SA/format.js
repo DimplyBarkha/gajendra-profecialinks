@@ -193,21 +193,21 @@ const transform = (data, context) => {
           ];
         }
       }
-    //   if (row.variants) {
-    //     const asins = [];
-    //     row.variants.forEach(item => {
-    //       if (item.text) {
-    //         asins.push(item.text);
-    //       }
-    //     });
-    //     // @ts-ignore
-    //     const dedupeAsins = [...new Set(asins)];
-    //     row.variants = [
-    //       {
-    //         text: dedupeAsins,
-    //       },
-    //     ];
-    //   }
+      //   if (row.variants) {
+      //     const asins = [];
+      //     row.variants.forEach(item => {
+      //       if (item.text) {
+      //         asins.push(item.text);
+      //       }
+      //     });
+      //     // @ts-ignore
+      //     const dedupeAsins = [...new Set(asins)];
+      //     row.variants = [
+      //       {
+      //         text: dedupeAsins,
+      //       },
+      //     ];
+      //   }
       if (row.salesRankCategory) {
         const rankCat = [];
         row.salesRankCategory.forEach(item => {

@@ -8,7 +8,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails, Helpers: { Helpers } } = dependencies;
-  
+
   await context.waitForXPath('//div/@data-asin');
   const helpers = new Helpers(context);
   helpers.addURLtoDocument('added-searchurl');
