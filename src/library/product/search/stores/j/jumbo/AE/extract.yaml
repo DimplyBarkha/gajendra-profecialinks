@@ -50,3 +50,7 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class, "variant-image")]//img/@src
+    # //ul[@id="search-result-items"]//li//div[contains(@class, "variant-image")]//span[@data-media][1]/@data-src
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="added-searchurl"]
