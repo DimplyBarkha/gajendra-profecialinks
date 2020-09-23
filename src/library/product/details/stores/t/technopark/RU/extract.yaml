@@ -9,7 +9,8 @@ fields:
     description: URL of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='product-gallery-thumbs__container js-product-gallery-thumbs-container']//div/img/@data-src
+    #xpath: //div[@class='product-gallery-thumbs__container js-product-gallery-thumbs-container']//div/img/@data-src
+    xpath: //div[@class='product-gallery-thumbs__thumb js-product-gallery-thumb'][position()>2]/img/@data-src
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue:  false
@@ -28,10 +29,11 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue:  false
-    xpath: //span[@class='price product-card__price']/text()
+    #xpath: //span[@class='price product-card__price']/text()
     description: The stated undiscounted price for the product
   - name: price
     singleValue:  false
+    xpath: //span[@class='price product-card__price']/text()
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -45,22 +47,23 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //head/meta[contains(@property,"og:description")]/@content
+    #xpath: //head/meta[contains(@property,"og:description")]/@content
+    xpath: //section[@class='product__desc js-content-block-description is-visible']
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue:  false
-    xpath: count(//section[@class='product__specs js-content-block-specifications is-visible']//div)
+    xpath: count(//section[@class='product__desc js-content-block-description is-visible']//li)
     description: Number of ul > li tags in the description
   - name: brandText
     singleValue:  false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //body/section[@class='product']/div/meta[1]/@content
-  - name: manufacturer
-    singleValue:  false
-    xpath: //body/section[@class='product']/div/meta[1]/@content
-    description: Product manufacturer
+  # - name: manufacturer
+  #   singleValue:  false
+  #   xpath: //body/section[@class='product']/div/meta[1]/@content
+  #   description: Product manufacturer
   - name: quantity
     singleValue:  false
     description: Quantity as described on the page
@@ -149,7 +152,8 @@ fields:
     description: The product name
   - name: specifications
     singleValue:  false
-    xpath: //p[contains(text(),"Высота")]/following-sibling::p[contains(@class,"product__spec__text")] | //div[@class='product__spec__row']//p[contains(text(),'Ширина')]//following-sibling::p | //p[contains(text(),"Глубина")]/following-sibling::p[contains(@class,"product__spec__text")]
+    #xpath: //p[contains(text(),"Высота")]/following-sibling::p[contains(@class,"product__spec__text")] | //div[@class='product__spec__row']//p[contains(text(),'Ширина')]//following-sibling::p | //p[contains(text(),"Глубина")]/following-sibling::p[contains(@class,"product__spec__text")]
+    xpath: //section[@class="product__specs js-content-block-specifications is-visible"]//p/text()
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue:  false

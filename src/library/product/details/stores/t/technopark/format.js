@@ -4,6 +4,17 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  const clean = text => text.toString().replace(/\r\n|\r|\n \n|\n/gm, ' ');
+  // .replace(/&amp;nbsp;/g, ' ')
+  // .replace(/&amp;#160/g, ' ')
+  // .replace(/\u00A0/g, ' ')
+  // .replace(/\s{2,}/g, ' ')
+  // .replace(/"\s{1,}/g, '"')
+  // .replace(/\s{1,}"/g, '"')
+  // .replace(/^ +| +$|( )+/g, ' ')
+  // eslint-disable-next-line no-control-regex
+  // .replace(/[^\x00-\x7F]/g, '');
+
   for (const { group } of data) {
     for (const row of group) {
       if (row.shippingDimensions) {
@@ -20,21 +31,24 @@ const transform = (data) => {
 
       if (row.description) {
         const nDesc = [];
-        let newDesc = '';
-        let idx = 0;
+        // let newDesc = '';
+        // let idx = 0;
         row.description.forEach(item => {
+          const des = clean(item.text);
+          item.text = des;
+          // console.log('des: ', des);
           nDesc[0] = item;
-          if (idx > 0) {
-            newDesc = newDesc + '||';
-          }
-          newDesc = newDesc + item.text;
-          idx++;
+          // if (idx > 0) {
+          //   newDesc = newDesc + '||';
+          // }
+          // newDesc = newDesc + item.text;
+          // idx++;
         });
-        console.log(newDesc);
-        nDesc.forEach(item => {
-          item.text = newDesc;
-        });
-        row.description = nDesc;
+        // console.log(newDesc);
+        // nDesc.forEach(item => {
+        //   item.text = newDesc;
+        // });
+        // row.description = nDesc;
       }
 
       if (row.specifications) {
@@ -69,6 +83,13 @@ const transform = (data) => {
           item.text = newText;
         });
         row.variants = nvariants;
+      }
+
+      // Price
+      if (row.price && row.price[0]) {
+        console.log('row.price[0]:: ', row.price[0]);
+        row.price[0].text = row.price[0].text.replace(/\s/, ',');
+        console.log('row.price[0].text', row.price[0].text);
       }
     }
   }
