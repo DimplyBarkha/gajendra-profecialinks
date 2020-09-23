@@ -29,7 +29,7 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      const warranty = document.evaluate("//*[contains(text(), 'garanti')]", document, null, XPathResult.STRING_TYPE, null);
+      const warranty = document.evaluate("//*[contains(text(), ' garanti')]", document, null, XPathResult.STRING_TYPE, null);
       if (warranty) {
         if (warranty.stringValue.length === 0) {
           var cleanWarranty = document.evaluate("//div[@class='tab-slot']/p/text()[position() = last()]", document, null, XPathResult.STRING_TYPE, null).stringValue;
@@ -54,8 +54,8 @@ module.exports = {
       }
       const rating = document.evaluate("//div[@itemprop='aggregateRating']/meta[@itemprop='ratingValue']/@content", document, null, XPathResult.STRING_TYPE, null);
       if (rating && rating.stringValue) {
-        const formattedRating = rating.stringValue.replace(',', '.');
-        addElementToDocument('rating', formattedRating);
+        // const formattedRating = rating.stringValue.replace(',', '.');
+        addElementToDocument('rating', rating.stringValue);
       }
       const weight = document.evaluate("//div[contains(text(), 'Vekt')]", document, null, XPathResult.STRING_TYPE, null);
       if (weight && weight.stringValue) {
