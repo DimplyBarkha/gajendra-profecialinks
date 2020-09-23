@@ -282,6 +282,7 @@ const transform = (data, context) => {
         row.description.forEach(item => {
           text.push(item.text);
         });
+        row.descriptionOne && row.descriptionOne[0] && text.push(`| ${row.descriptionOne[0].text}`);
         row.description = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
       }
       if (row.amazonChoice && row.amazonChoice[0]) {
