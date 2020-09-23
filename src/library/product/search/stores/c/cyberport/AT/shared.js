@@ -27,6 +27,16 @@ const transform = (data, context) => {
           orgRankCounter += 1;
           row.rankOrganic = [{ text: orgRankCounter }];
         }
+
+
+        if (row.reviewCount) {
+            let text = '';
+            row.reviewCount.forEach(item => {
+              text = row.reviewCount.map(elm => elm.text).join(' ').replace(/\(/g, '');
+            });
+            row.reviewCount = [{ text }];
+          }
+  
         
         row.rank = [{ text: rankCounter }];
         Object.keys(row).forEach(header => row[header].forEach(el => {
