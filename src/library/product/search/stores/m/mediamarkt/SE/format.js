@@ -34,11 +34,7 @@ const transform = (data, context) => {
           priceItem.text = priceItem.text.replace(/[^\d]/gm, '') + ' SEK';
         });
       }
-      row.rank = [
-        {
-          text: rankCounter,
-        },
-      ];
+      row.rank = [{ text: rankCounter }];
       Object.keys(row).forEach(header =>
         row[header].forEach(el => {
           el.text = clean(el.text);

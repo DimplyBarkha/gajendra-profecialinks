@@ -29,12 +29,6 @@ const transform = (data) => {
       if (!row.brandText) {
         row.brandText = [{ text: row.name[0].text.replace(/^([\w]+).*/gm, '$1') }];
       }
-
-    //   if (row.specifications) {
-    //     row.specifications[0].text = cleanUp(row.specifications[0].text
-    //       .replace(/(\n\s*){4,}/g, ' || ')
-    //       .replace(/(\n\s*){2,}/g, ' : '));
-    //   }
       if (row.availabilityText) {
         row.availabilityText.forEach(availabilityTextItem => {
           if (availabilityTextItem.toLowerCase().includes('instore' || 'instock')) {

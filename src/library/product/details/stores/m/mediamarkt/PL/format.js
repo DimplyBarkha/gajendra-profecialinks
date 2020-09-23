@@ -70,7 +70,12 @@ const transform = (data) => {
       }
       if (row.listPrice) {
         row.listPrice.forEach((listPriceItem) => {
-          listPriceItem.text = listPriceItem.text.replace(/,-/g, '');
+          listPriceItem.text = listPriceItem.text.replace(/[^\d]/gm, '');
+        });
+      }
+      if (row.price) {
+        row.price.forEach(priceItem => {
+          priceItem.text = priceItem.text.replace('.', ',');
         });
       }
       if (row.warranty) {

@@ -30,6 +30,11 @@ const transform = (data, context) => {
       if (row.aggregateRating2 && row.aggregateRating2.length) {
         row.aggregateRating2 = [{ text: row.aggregateRating2.length / 2 }];
       }
+      if (row.price) {
+        row.price.forEach(priceItem => {
+          priceItem.text = priceItem.text.replace('.', ',');
+        });
+      }
       row.rank = [{ text: rankCounter }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
