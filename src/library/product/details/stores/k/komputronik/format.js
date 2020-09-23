@@ -57,6 +57,12 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
         });
       }
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = item.text.replace(/(.+?)\/.+/g, "$1");
+          item.text = item.text.replace(".",",");
+        });
+      }
       if (row.specifications) {
         let info = [];
         row.specifications.forEach(item => {
