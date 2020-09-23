@@ -24,6 +24,7 @@ const transform = (data) => {
         });
         row.shippingDimensions = nDesc;
       }
+
       if (row.specifications) {
         const nDesc = [];
         let newDesc = '';

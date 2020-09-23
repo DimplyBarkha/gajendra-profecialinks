@@ -35,11 +35,11 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
   - name: listPrice
     singleValue: false
-    xpath: concat(//div[@class='prices-content']//div[@class='price']//span[1]/text(),'',//div[@class='prices-content']//div[@class='price']//span[2]/text(), '',//div[@class='prices-content']//div[@class='price']//span[3]/text())
+    xpath: concat(//div[@class='discount']//span[@class='original-price']//span[1]/text(),'',//div[@class='discount']//span[@class='original-price']//span[2]/text(), '',//div[@class='discount']//span[@class='original-price']//span[3]/text())
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
-    xpath: concat(//div[@class='discount']//span[@class='original-price']//span[1]/text(),'',//div[@class='discount']//span[@class='original-price']//span[2]/text(), '',//div[@class='discount']//span[@class='original-price']//span[3]/text())
+    xpath: concat(//div[@class='prices-content']//div[@class='price']//span[1]/text(),'',//div[@class='prices-content']//div[@class='price']//span[2]/text(), '',//div[@class='prices-content']//div[@class='price']//span[3]/text())
   - name: category
     singleValue: false
     xpath: //section[@class="breadcrumbs"]/span[not(@class="active")]/a[not(@href="/online/")]
@@ -88,7 +88,7 @@ fields:
     description: The offered price for the selected product variant - if a user
   - name: specifications
     singleValue: false
-    xpath: //span[contains(text(), 'Dati su imballaggio')]//..//following-sibling::div
+    xpath: //div[@class='techs']/div[@class='item']
     description: The physical dimensions of the product including packaging
   - name: sku
     singleValue: false
@@ -130,10 +130,6 @@ fields:
     singleValue: false
     xpath: //@data-productdetail-manufactureraid
     description: null
-  - name: manufacturer
-    singleValue: false
-    xpath: //h1[@class='subtitle']
-    regExp: ^\S+
   - name: variantCount
     singleValue: false
     xpath: count(//div[@id='ii_variantCount'])
