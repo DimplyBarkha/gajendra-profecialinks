@@ -20,8 +20,11 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.description) {
-        const text = row.description[0].text.replace(/•\s*/g, ' || ').replace(/<li>/g, '<li> || ').replace(/(<([^>]+)>)/ig, '').replace(/\.{2,}/g, '').trim();
+        const text = row.description[0].text.replace(/•\s*/g, ' || ').replace(/&nbsp;/g, ' ').replace(/<li>/g, '<li> || ').replace(/(<([^>]+)>)/ig, '').replace(/\.{2,}/g, '').trim();
         row.description = [{ text }];
+      }
+      if (row.additionalDescBulletInfo) {
+        row.additionalDescBulletInfo.forEach(elm => { elm.text = elm.text.replace(/•/g, '').trim(); });
       }
       if (row.specifications) {
         const text = row.specifications.map(elm => elm.text.trim().replace(/\n/, ' : ')).join(' | ');
