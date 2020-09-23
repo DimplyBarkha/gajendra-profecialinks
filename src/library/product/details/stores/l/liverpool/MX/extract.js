@@ -25,7 +25,41 @@ async function implementation(
     return await context.evaluate(async (inputs) => {
       let skuAttributeMap;
       if (inputs) {
-        if (inputs.url) {
+        if (inputs.url.includes('?skuId=')) {
+          let productId = inputs.url.split('?skuId=');
+          console.log('productId: ', productId);
+          let length = productId.length;
+          if (length > 1) {
+            productId = productId[length - 1];
+            console.log('productId: ', productId);
+          }
+          if (productId) {
+            let data = {};
+            const url = `https://www.liverpool.com.mx/tienda/browse/getVariantDetails?productId=${productId}`;
+            var refURL = window.location.href;
+
+            const response = await fetch(url, {
+              // @ts-ignore
+              accept: 'application/json, text/plain, */*',
+              method: 'GET',
+              mode: 'cors',
+            });
+            if (response && response.status === 404) {
+              console.log('Product Not Found!!!!');
+            }
+
+            if (response && response.status === 200) {
+              console.log('Product Found!!!!');
+              data = await response.json();
+              console.log(data, response);
+              let variantsData = data ? data.variantsData : 'NO VARIANTS';
+              console.log('variantsData: ', variantsData);
+              skuAttributeMap = variantsData ? variantsData.skuAttributeMap : 'NO VARIANTS';
+              console.log('skuAttributeMap: ', skuAttributeMap);
+              // return skuAttributeMap;
+            }
+          }
+        }else{
           let productId = inputs.url.split('/');
           let length = productId.length;
           if (length > 1) {
