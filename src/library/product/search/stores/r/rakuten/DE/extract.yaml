@@ -21,8 +21,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
     description: The URL for the product thumbnail image
-    singleValue: false
-    regExp: //img[@class="image b-lazy b-loaded"]/@src
+    xpath: //li[@class="vw-productCard"]/@imageLink
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER

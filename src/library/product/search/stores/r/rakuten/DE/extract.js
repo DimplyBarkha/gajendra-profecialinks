@@ -17,20 +17,18 @@ async function implementation (
       document.querySelectorAll(selector)[allSelectorsNumber].setAttribute(propName, value);
     };
 
-    // if (document.querySelector('div.privacy_prompt.explicit_consent')) {
-    //   context.click('div#consent_prompt_submit');
-    // }
+    if (document.querySelector('div.privacy_prompt.explicit_consent')) {
+      document.querySelector('div.button.left').click();
+    }
 
     const productsWindowsSelectors = document.querySelectorAll('li.vw-productCard');
     const numberOfProductsOnPage = productsWindowsSelectors.length;
     for (let i = 0; i < numberOfProductsOnPage; i++) {
       addSelectorProp('li.vw-productCard', 'rankOrganic', i + 1, i);
+      const image = document.querySelectorAll('img.image.b-lazy')[i].getAttribute('data-src')
+        ? document.querySelectorAll('img.image.b-lazy')[i].getAttribute('data-src') : document.querySelectorAll('img.image.b-lazy')[i].getAttribute('src');
+      addSelectorProp('li.vw-productCard', 'imageLink', image, i);
     }
-    for (let j = 0; j + 1 < numberOfProductsOnPage; j++) {
-      productsWindowsSelectors[j].style.height = '20px';
-      productsWindowsSelectors[j].style.width = '20px';
-    }
-
   });
 
   return await context.extract(productDetails, { transform });
