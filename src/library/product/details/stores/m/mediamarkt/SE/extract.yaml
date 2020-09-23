@@ -54,7 +54,6 @@ fields:
     singleValue: true
     xpath: count(//div[@itemprop="description"]//li|//dl[@class="product-details"]//li|//div[contains(@id, "pdp_default_configuration-content_product_detail")]//article//li)
     description: Number of ul > li tags in the description
-    type: NUMBER
   - name: brandText
     singleValue: true
     xpath: //div[@class="logo"]//a//img/@alt
@@ -79,9 +78,6 @@ fields:
     singleValue: true
     xpath: (//script[contains(text(), "var product")])[1]
     description: GTIN code (includes UPC/EAN)
-  - name: gtin
-    singleValue: true
-    xpath: (//script[contains(text(), "var product")])[1]
   - name: sku
     singleValue: true
     xpath: //span[@itemprop="sku"]
@@ -111,11 +107,6 @@ fields:
     singleValue: true
     xpath: //span[@itemprop="reviewCount"]
     description: The number of ratings
-    type: NUMBER
-  - name: aggregateRatingText
-    singleValue: true
-    xpath: //span[@itemprop="ratingValue"]
-    description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
     xpath: //span[@itemprop="ratingValue"]
@@ -136,7 +127,6 @@ fields:
     singleValue: true
     xpath: count (//div[contains(@class,"product-attributes__color-item")])
     description: Number of variants listed
-    type: NUMBER
   - name: color
     singleValue: true
     xpath: (//dl[@class="specification"]//dt[contains(text(),"Color:")]//following-sibling::dd)[1]
@@ -219,7 +209,6 @@ fields:
   - name: largeImageCount
     singleValue: true
     description: null
-    type: NUMBER
   - name: variantAsins
     singleValue: true
     description: null
@@ -251,7 +240,6 @@ fields:
     xpath: count(//aside[contains(@id, "product-sidebar")]//following-sibling::ul//li[position()>1]//a/@data-magnifier)
     singleValue: true
     description: null
-    type: NUMBER
   - name: news
     singleValue: true
     description: null
@@ -261,6 +249,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //*[@id="features"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -276,14 +265,6 @@ fields:
   - name: recyclingInformation
     singleValue: true
     description: Recycling information associated with the product
-  - name: productOtherInformation
-    singleValue: false
-    xpath: //div[@id="features"]//section//h2|//div[@id="features"]//section//dl
-    description: Any other product information
-  - name: specificationList
-    singleValue: false
-    xpath: //div[@id="features"]//section//h2|//div[@id="features"]//section//dl
-    description: Any other product information
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -367,6 +348,3 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     regExp: Powered by (.+)
     regExpReplace: $1
-  - name: uninterruptedPDP
-    singleValue: true
-    xpath: //div[contains(@class, "recommendation-box")]//ul[@class="products-grid"]//li//div
