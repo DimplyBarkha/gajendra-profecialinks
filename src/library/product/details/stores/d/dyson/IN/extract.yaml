@@ -26,6 +26,9 @@ fields:
     regExp: (.*)
     regExpReplace: In Stock
     defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class, "hgroup product__claims")] | //div[contains(@class, "hero__content__preorder-container")]/div[contains(@class, "hgroup__prefix")]
   - name: weightNet 
     singleValue: false
     xpath: //span[contains(@class,"spec") and *[contains(text(),"Weight")]]//span
