@@ -19,12 +19,12 @@ fields:
     singleValue: false
     xpath: (//div[contains(@class,"product-img-column")]//div[contains(@class,'viewport')]//ul//li//a/@href)[position()>1]
   - name: metaKeywords
-    singleValue: false 
+    singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
   - name: category
     singleValue: false
-    xpath: //div[contains(@class,'breadcrumbs')]//ul/li[position()>1] 
-  - name: listPrice
+    xpath: //div[contains(@class,'breadcrumbs')]//ul/li[position()>1]
+  - name: price
     singleValue: false
     xpath: //div[contains(@class,'price-box')]//span[contains(@class,'regular-price')]//span[contains(@class,'price')]//text()
   - name: weightNet
@@ -41,21 +41,17 @@ fields:
     xpath: //meta[contains(@itemprop, "identifier")]/@content
     regExp: (sku.*?):(\d.*)
     regExpReplace: $2
-  - name: legalDisclaimer
+  - name: variantId
     singleValue: false
-    xpath: //div[@id='product-tabs']//div[contains(@class,'tabs-panels')][1]/div[contains(@class,'panel')][1]//p[2]//text()
+    xpath: //meta[contains(@itemprop, "identifier")]/@content
+    regExp: (sku.*?):(\d.*)
+    regExpReplace: $2
   - name: description
     singleValue: false
     xpath: //meta[contains(@itemprop, "description")]/@content
   - name: brandText
     singleValue: false
     xpath: //meta[contains(@itemprop,"brand")]/@content
-  - name: manufacturer
-    singleValue: false
-    xpath: //meta[contains(@itemprop,"brand")]/@content
-  - name: quantity
-    singleValue: false
-    xpath: //div[contains(@class,'qty-wrapper')]//input[@id='qty']//@value
   - name: shippingDimensions
     singleValue: false
     xpath: //meta[contains(@itemprop, "description")]/@content
