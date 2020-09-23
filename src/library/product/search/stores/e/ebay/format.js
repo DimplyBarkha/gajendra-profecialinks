@@ -25,6 +25,11 @@ const transform = (data, context) => {
         if (row.aggregateRating2 && row.decimalSeperator && row.decimalSeperator[0].text === 'EU') {
             row.aggregateRating2[0].text = row.aggregateRating2[0].text.replace('.',',')
         }
+        if (!row.id && row.productUrl) {
+          row.id = [{
+            text: row.productUrl[0].text.replace(/.*\/(.*?)\?.*/,'$1')
+          }]
+        }
         rankCounter += 1;
         if (!row.sponsored) {
           orgRankCounter += 1;
