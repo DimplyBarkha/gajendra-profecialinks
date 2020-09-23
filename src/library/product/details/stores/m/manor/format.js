@@ -131,8 +131,8 @@ const transform = (data) => {
         });
       }
       if (row.aggregateRating) {
-        row.aggregateRating.forEach(item => {
-          item.text = parseInt(item.text);
+        row.aggregateRating.forEach(item => {          
+          item.text = item.text.replace('.', ',').trim();
         });
       }
     }
