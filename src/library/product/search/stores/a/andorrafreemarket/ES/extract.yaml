@@ -7,7 +7,7 @@ fields:
     xpath: //ul[contains(@class,'searchindex-results')]//li[1]//a/@href[position()>0]
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="category-products"]//ul/li//div[@class="product-image-wrapper"]/img/@src
+    xpath: //div[@class="category-products"]//ul/li//div[1]//a//img/@src
   - name: brandText
     singleValue: false
     xpath: //div[@class="category-products"]//ul/li//div[1]//img[@title]/@title
