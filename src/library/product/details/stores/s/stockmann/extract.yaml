@@ -20,12 +20,14 @@ fields:
     xpath: //ol[contains(@class,"nav-breadcrumbs")]//li[position()>1 and position()<=last()]//a//span
   - name: nameExtended
     singleValue: true
-    xpath: //h1[contains(@class,"product-title")]
+    xpath: //div[contains(@class,"product-view-headlines")]
   - name: listPrice
     singleValue: true
+    type: CURRENCY
     xpath: //div[contains(@class,"price-box")]//span[contains(@class,"skin-obsolete")]
   - name: price
     singleValue: true
+    type: CURRENCY
     xpath: //div[contains(@class,"price-box")]//span[1]
   - name: availabilityText
     xpath: //button[contains(@class,"btn-cart")]
@@ -36,19 +38,19 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[contains(@class,"product-description")]
-  - name: descriptionBullets
-    singleValue: true
-    type: NUMBER
-    xpath: count(//div[contains(@class,"product-detail-info")]//ul/li)
+  #- name: descriptionBullets
+  #  singleValue: true
+  #  type: NUMBER
+  #  xpath: count(//div[contains(@class,"product-detail-info")]//ul/li)
   - name: brandText
     singleValue: true
     xpath: //strong[contains(@class,"product-brand")]/a
-  - name: manufacturer
-    singleValue: true
-    xpath: //strong[contains(@class,"product-brand")]/a
+  #- name: manufacturer
+  #  singleValue: false
+  #  xpath: //strong[contains(@class,"product-brand")]/a
   - name: quantity
     singleValue: true
-    xpath: //div[contains(@class, "form-group-qty")]//ul/li[contains(@class, "selected")]
+    xpath: //div[contains(@class, "form-group-size")]//ul/li[contains(@class, "selected")]
     # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     # regExpReplace: $1$2$3$4
   - name: weightNet
@@ -57,18 +59,18 @@ fields:
   - name: weightGross
     singleValue: true
     xpath:
-  - name: gtin
-    singleValue: true
-    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
-  - name: eangtin
-    singleValue: true
-    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
+  #- name: gtin
+  #  singleValue: true
+  #  xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
+  #- name: eangtin
+  #  singleValue: true
+  #  xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
   - name: sku
     singleValue: true
-    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
+    xpath: //script[contains(text(), "Product")]
   - name: variantId
     singleValue: true
-    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
+    xpath: //script[contains(text(), "Product")]
   - name: mpc
     singleValue: true
     xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Valmistajan tuotenumero')]/following::td[1]
@@ -111,11 +113,10 @@ fields:
     xpath: //div[contains(@class, "form-group-color")]//ul//li
   - name: firstVariant
     singleValue: true
-    xpath: //div[contains(@class, "form-group-color")]//ul//li[contains(@class, "selected")]
-  - name: variants
-    singleValue: false
-    xpath: //script[contains(text(),'PRODUCT_VIEW_VARIATIONS')]
-    regExp: (sku:.\S{0,}.\S{0,}.\d+)
+    xpath: //script[contains(text(), "PRODUCT_VIEW_VARIATIONS")]
+  #- name: variants
+  #  singleValue: false
+  #  xpath: //div[contains(@class, "form-group-color")]//ul//li
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@id,"stflix")]//div[contains(@id, "inpage_container")]//img//@srcset
