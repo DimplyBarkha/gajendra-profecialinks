@@ -111,6 +111,10 @@ module.exports = {
           return true;
         };
 
+        const cssListPrice = 'div[class*="ProductPage__priceContainer"] div[data-automation-id*="old-price"]';
+        const listPriceDom = (document.querySelector(cssListPrice) && document.querySelector(cssListPrice).textContent) ? document.querySelector(cssListPrice).textContent : '';
+        console.log('List price from the DOM : ' + listPriceDom);
+
         if (Object.keys(data).length) {
           console.log('parsing data ...');
           console.log(data);
@@ -122,8 +126,8 @@ module.exports = {
           const brandText = (data.detailed && data.detailed.brand) ? data.detailed.brand : '';
           const varianceList = (data.variantOffers) ? Object.values(data.variantOffers).map(value => value.productId) : [];
           const image = (data.basic && data.basic.image && data.basic.image.large) ? (data.basic.image.large) : '';
-          const salePrice = (data.store && data.store.price && data.store.price.list) ? data.store.price.list : '';
-          const listPrice = (data.store && data.store.price && data.store.price.previousPrice) ? data.store.price.previousPrice : '';
+          const salePrice = (data.store && data.store.price && data.store.price.list) ? data.store.price.list : '' || (data.store && data.store.price && data.store.price.displayPrice) ? data.store.price.displayPrice : '';
+          const listPrice = (data.store && data.store.price && data.store.price.previousPrice) ? data.store.price.previousPrice : listPriceDom;
           const available = (data.store && data.store.isInStock) ? data.store.isInStock : availableSelector();
           const pricePerUnit = (data.store && data.store.price && data.store.price.unit) ? data.store.price.unit : '';
           const pricePerUnitUOM = (data.store && data.store.price && data.store.price.displayUnitPrice) ? data.store.price.displayUnitPrice.split('/')[data.store.price.displayUnitPrice.split('/').length - 1] : '';
@@ -184,6 +188,8 @@ module.exports = {
     }
 
     const { productDetails } = dependencies;
+    const mainImageSelector = '.prod-HeroImage-container img';
+    await context.waitForSelector(mainImageSelector, { timeout: 20000 });
     return await context.extract(productDetails, { transform: transformParam });
   },
 
