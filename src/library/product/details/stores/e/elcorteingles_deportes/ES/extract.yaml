@@ -40,19 +40,19 @@ fields:
     xpath : (ancestor::html //div[@id='product_image'])[1]
   - name: imageAlt
     singleValue: true
-    xpath : ancestor::html //meta[@name="twitter:title"]/@content
+    xpath : 
   - name: alternateImages
-    xpath : ancestor::html //div[@class="image-layout-slides-group"]/div[position() > 1]/img/@data-zoom
-    regExp: (.*)
+    xpath : ancestor::html //div[@class="image-slides"]/img[position() > 1]/@data-zoom
+    regExp: (.+)
     regExpReplace: https:$1  
   - name: secondaryImageTotal
-    xpath: count(//div[@class="image-layout-slides-group"]/div[position() > 1]/img/@data-zoom)    
+    xpath: count(//div[@class="image-slides"]/img[position() > 1]/@data-zoom)    
   - name: category
     singleValue: false
     xpath : ancestor::html //li[@itemprop="itemListElement"]
   - name: nameExtended
     singleValue: true
-    xpath : //*/@nameExtended  
+    xpath : //*/@nameextended
   - name: listPrice
     singleValue: true
     xpath : ancestor::html //div[@id='listPrice']
@@ -72,6 +72,8 @@ fields:
   - name: brandText
     singleValue: true
     xpath : ancestor::html //div[@id="brand"]
+  - name: ingredientsList
+    xpath: ancestor::html //strong[contains(text(),"Ingredientes")]/following-sibling::*
   - name : weightNet    
     xpath : 
   - name : weightGross    
@@ -81,7 +83,7 @@ fields:
     xpath : ancestor::html //span[@itemprop="sku"] | ancestor::html //span[@class="js-product-gtin-number"]
   - name: directions
     singleValue: false
-    xpath: ancestor::html //div[contains(@class,'product_detail-description-in-image')]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | ancestor::html  //dt[contains(text(),"Modo de")]/following-sibling::dd[1]
+    xpath: ancestor::html  //div[contains(@class,'product_detail-description-in-image')]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | ancestor::html  //dt[contains(text(),"Modo de")]/following-sibling::dd[1] | //strong[contains(text(),"Modo")]/following-sibling::*
   - name: warnings 
     singleValue: true
     xpath:   

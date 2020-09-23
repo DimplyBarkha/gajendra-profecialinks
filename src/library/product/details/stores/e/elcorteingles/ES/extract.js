@@ -175,17 +175,20 @@ module.exports = {
                     let magnesium;
                     // Check for the magnesium with given text if it is present get the value and add it to DOM
                     if (content[1].textContent.includes(text)) {
-                      magnesium = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
-                      addElementToDocument('magnesium', magnesium);
+                      console.log("magnusium here ")
+                      magnesium = content[1].textContent.replace(/^(.*Magnesio)([\s\(\,\.\:])?[\s\(]([0-9.,]+)?[\.\s(\w+\/\w+)](.+)/g, '$3');
+                      addElementToDocument('magnesium', magnesium.replace(/\.$/g,""));
                       // If magnesium has data get the unit
                       if (magnesium) {
-                        const magnesiumUnit = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
+                        console.log("magnusium UOM")
+                        const magnesiumUnit = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.,]+)\s(\w+\/\w+)(.+)/g, '$3');
                         addElementToDocument('magnesiumUnit', magnesiumUnit);
                       }
                       // if magnesium didn't match with given text then get the magnesium value and append to DOM
                     } else {
-                      magnesium = content[1].textContent.replace(/(.+Magnesio)\s(\d+,\d+)\s(.*)/g, '$2');
-                      addElementToDocument('magnesium', magnesium);
+                      console.log("magnusium Only")
+                      magnesium = content[1].textContent.replace(/(.*Magnesio)([\s\(\,\.\:])?[\s\(]([0-9.,]+)?[\.\s(\w+\/\w+)](.+)/g, '$3');
+                      addElementToDocument('magnesium', magnesium.replace(/\.$/g,""));
                     }
                   }
                 }

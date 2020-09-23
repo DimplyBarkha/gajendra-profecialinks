@@ -207,8 +207,8 @@ module.exports = {
               console.log(name, "value")
               setAttributes(listItem, {
                 nameExtended: `${nameExtended()} ${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""} ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""} `,
-                quantity: `${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""}`,
-                color: variants[i].variant ? variants[i].variant[0].value : "",
+                quantity: `${variants[i].variant ? variants[i].variant[0] &&  variants[i].variant[0].title.toLowerCase() === "medida" ? variants[i].variant[0].value : "" : ""}`,
+                color: `${variants[i].variant ? variants[i].variant[0] &&  variants[i].variant[0].title.toLowerCase() === "color" ? variants[i].variant[0].value : "" : ""}`,
                 gtin: variants[i].gtin ? variants[i].gtin : "",
                 retailer_product_code: variants[i].id.trim(""),
                 title: `${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""} ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""}`,
