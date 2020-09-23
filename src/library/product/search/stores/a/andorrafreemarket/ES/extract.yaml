@@ -4,7 +4,7 @@ recordXPath: //div[@class="category-products"]//ul//li
 fields:
   - name: url
     singleValue: true
-    xpath: //ul[contains(@class,'searchindex-results')]//li[1]//a/@href[position()>0] 
+    xpath: //ul[contains(@class,'searchindex-results')]//li[1]//a/@href[position()>0]
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="category-products"]//ul/li//div[@class="product-image-wrapper"]/img/@src
@@ -31,9 +31,6 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //div[@class="category-products"]//ul/li//div[@class="product-image-wrapper"]/a/@href
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[@class="category-products"]//ul/li//div[@class="product-image-wrapper"]/img/@alt
   - name: brandText
     singleValue: false
     xpath: //div[@class="category-products"]//ul/li//div[@class="product-image-wrapper"]/img/@alt
