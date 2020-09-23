@@ -4,10 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'AT',
     store: 'cyberport',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a.nextLink',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    // loadedSelector: 'body',
+    loadedSelector: 'div.productsList',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'cyberport.at',

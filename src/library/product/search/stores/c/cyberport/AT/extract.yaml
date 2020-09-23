@@ -1,46 +1,31 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: 'ul[data-automation="product-grid"] > li[data-automation="product-grid-item"]'
+recordSelector: null
 recordXPath: null
 fields:
   - name: id
-    #xpath: //div[contains(@class,'productID')]/@data-product-id
-    #xpath: //div[contains(@class,'addToCart')]//input[contains(@name,'productId')]/@value
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(@class,'productsList')]/article/@data-product-id
   - name: name
-    xpath: //span[contains(@class,'productTitleName')]
-    singleValue: true
+    xpath: //div[contains(@class,'productsList')]/article/@data-product-name
+    singleValue: false
   - name: productUrl
-    #xpath: //div//h3//a//@href
     singleValue: true
+    xpath: //div[contains(@class,'productsList')]/article/a/@href
     regExp: (.+)
-    regExpReplace: https://www.myer.com.au$1
-  - name: manufacturer
-    #xpath: //div//h3//a//div[2]//span[1]
-    singleValue: true    
+    regExpReplace: https://www.cyberport.at$1
   - name: thumbnail
-    #xpath: //div//h3//a//div[1]//img//@src
     singleValue: true
-    regExp: (.+)
-    regExpReplace: https://www.myer.com.au$1
-  - name: price
-    #xpath: //ul[@class='css-1w5tqa5']/li/div[@class='css-m4cs32']/div[@class='h5 css-1fglnfk']/p[@class='css-15ro776 css-13veri3']/span[2]
-    singleValue: true 
-  - name: rankOrganic
-    singleValue: true 
-  - name: aggregateRating  
-    singleValue: true
-    #xpath: substring(//div[@class="bv-off-screen"],0,4)
-  - name: reviewCount  
-    singleValue: true
-    #xpath: //meta[@itemprop="reviewCount"]/@content
+    xpath: //div[contains(@class,'productImage')]/a/img/@data-src
   - name: ratingCount  
     singleValue: true
-    #xpath: //meta[@itemprop="reviewCount"]//@content
-  - name: rank
-    singleValue: true
-    description: search/listing rank
     type: NUMBER
-  - name: sponsored
+    xpath: //div[contains(@class, "ratingStars")]//a//following-sibling::span[not(contains(@class, "hidden-xs"))]
+  - name: price
+    xpath: //div[contains(@class,'productsList')]/article/@data-product-price
+    type: CURRENCY
     singleValue: true
-    description: search/listing rank
+  - name: reviewCount  
+    singleValue: true
+    xpath: //div[contains(@class,'stars orange')]/@style
+    regExp: (\([0-9]\S{0,})
