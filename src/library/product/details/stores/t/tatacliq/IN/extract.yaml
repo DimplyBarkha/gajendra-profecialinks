@@ -443,7 +443,7 @@ fields:
     xpath: //*[@itemprop="lowPrice"]/../following-sibling::div//span[contains(text(),'₹')]/following-sibling::span
     regExp: (\d+)
   - name: promotionAddText
-    xpath: //*[@itemprop="lowPrice"]/../following-sibling::div//span[contains(text(),'₹')]/following-sibling::span/../following-sibling::div
+    xpath: //*[@itemprop="lowPrice"]/../following-sibling::div//span[contains(text(),'₹')]/following-sibling::span/../following-sibling::div[not(contains(.,'Price Breakup'))]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
