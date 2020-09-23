@@ -12,7 +12,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'walmart',
-    transform: transform,
+    transform,
     domain: 'walmart.com',
   },
   dependencies: {
@@ -21,8 +21,10 @@ module.exports = {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, dependencies) => {
+    await context.addToDom('added-parentInput', parentInput);
+
     async function addAdditionalContent () {
-      await context.evaluate(async function (parentInput) {
+      await context.evaluate(async () => {
         async function getSellerInformation (url) {
           try {
             var data = await
@@ -43,7 +45,6 @@ module.exports = {
           document.body.appendChild(newDiv);
           return newDiv;
         }
-        addHiddenDiv('added-parentInput', parentInput);
         const node = document.querySelector("script[id='item']");
         if (node && node.textContent) {
           const jsonObj = node.textContent.startsWith('{"item":') ? JSON.parse(node.textContent) : null;
@@ -73,7 +74,7 @@ module.exports = {
         const result = await getSellerInformation(sellerUrl);
         const sellerDiv = addHiddenDiv('added-sellers', '');
         sellerDiv.innerHTML = result;
-      }, parentInput);
+      });
     };
 
     await context.waitForXPath("//meta[@property='og:image']/@content", { timeout: 5000 })
@@ -122,66 +123,47 @@ module.exports = {
         .catch(() => console.log('no specTab'));
     }
 
-    // let scrollTop = 0;
-    // while (scrollTop !== 20000) {
-    //   try {
-    //     scrollTop += 1000;
-    //     await context.waitForFunction(async function (scrollTop) {
-    //       console.log("SCROLLING");
-    //       window.scroll(0, scrollTop);
-    //     }, { timeout: 1000 }, scrollTop)
-    //   } catch (err) {
-    //     console.log("Failed")
-    //   }
-    //   if (scrollTop === 20000) {
-    //     break;
-    //   }
-    // }
-    // try {
-    //   await context.waitForFunction(async function(){
-    //     console.log('Scrolling to the bottom')
-    //     window.scrollTo(0, document.body.scrollHeight);
-    //   }, { timeout:6000 });
-    // } catch(err){
-    //   console.log('Scrolling finished')
-    // }
-
     // Iframe logic for aplus_images & enhanced_content if not picked up in API:
     await context.evaluate(async () => {
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
       // scroll to bottom of page, iframe should load if present!
-      window.scrollTo(0, document.body.scrollHeight);
-      await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-
-      const marketingIframe = document.querySelector('iframe#iframe-AboutThisItem-marketingContent');
-      if (marketingIframe) {
-        marketingIframe.scrollIntoView();
-        await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-        const images = marketingIframe.contentDocument.querySelectorAll('img');
-        const imagesSrc = [];
-        images.forEach(img => {
-          let imgUrl = img.getAttribute('src');
-          if (!imgUrl.startsWith('http')) {
-            imgUrl = 'https:' + imgUrl;
-          }
-          imagesSrc.push(imgUrl);
-        });
-        addHiddenDiv('my_manufact_images', imagesSrc.join(' | '));
-
-        const enhancedContent = marketingIframe.contentDocument.querySelectorAll('div');
-        if (enhancedContent) {
-          const setText = new Set();
-          Array.from(enhancedContent).forEach((el) => setText.add(el.innerText));
-          addHiddenDiv('my_enh_content', Array.from(setText).join(' '));
-        }
-      }
+      await window.scrollTo(0, document.body.scrollHeight);
     });
+    await context.waitForSelector('iframe#iframe-AboutThisItem-marketingContent', { timeout: 5000 })
+      .then(async () => {
+        await context.evaluate(async () => {
+          function addHiddenDiv (id, content) {
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
+
+          const marketingIframe = document.querySelector('iframe#iframe-AboutThisItem-marketingContent');
+          if (marketingIframe) {
+            marketingIframe.scrollIntoView();
+            await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+            const images = marketingIframe.contentDocument.querySelectorAll('img');
+            const imagesSrc = [];
+            images.forEach(img => {
+              let imgUrl = img.getAttribute('src');
+              if (!imgUrl.startsWith('http')) {
+                imgUrl = 'https:' + imgUrl;
+              }
+              imagesSrc.push(imgUrl);
+            });
+            addHiddenDiv('my_manufact_images', imagesSrc.join(' | '));
+
+            const enhancedContent = marketingIframe.contentDocument.querySelectorAll('div');
+            if (enhancedContent) {
+              const setText = new Set();
+              Array.from(enhancedContent).forEach((el) => setText.add(el.innerText));
+              addHiddenDiv('my_enh_content', Array.from(setText).join(' '));
+            }
+          }
+        });
+      })
+      .catch(() => console.log('no aplus iframe'));
 
     await addAdditionalContent();
     await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
