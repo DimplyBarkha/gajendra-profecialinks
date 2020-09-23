@@ -34,7 +34,7 @@ module.exports = {
           else
             !isStarSelected && averageRating--;
           if (ratingIndex === 5) {
-            productRatings.push(averageRating);
+            productRatings.push(averageRating.toString().replace(".", ","));
             parameters.push(JSON.parse(dataParams.iterateNext().nodeValue));
             urls.push(productURLs.iterateNext().nodeValue);
             images.push(thumbnails.iterateNext().nodeValue);

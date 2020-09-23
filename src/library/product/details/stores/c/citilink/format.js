@@ -6,8 +6,15 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (row.category) {
-        row.category = [{ text: row.category.map(item => item.text).join(" > ") }]
+      if (row.aggregateRating) {
+        row.aggregateRating.map(item => {
+          item.text = item.text.replace(".", ",");
+        });
+      }
+      if (row.price) {
+        row.price.map(item => {
+          item.text = item.text.replace(/(\n|\s)/gm, "");
+        });
       }
       if (row.promotion) {
         row.promotion.map(item => {
