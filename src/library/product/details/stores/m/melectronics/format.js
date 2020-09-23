@@ -69,12 +69,31 @@ const transform = (data) => {
         row.aggregateRating.forEach(item => {          
           item.text = item.text.replace('.', ',').trim();          
         });
-      }
-      if (row.aggregateRating) {
-        row.aggregateRating.forEach(item => {          
-          item.text = item.text.replace('.', ',').trim();          
-        });
       }      
+      if (row.gtin) {
+        row.gtin.forEach(item => {
+          //"ean":"5025155023631"
+          var myRegexp = /\"ean\"\s*:\s*\"(.+?)\"/g;
+          var match = myRegexp.exec(item.text);
+          if (match.length) {
+            item.text = match[1].trim();
+          } else {
+            delete row.gtin;
+          }
+        });
+      }
+      if (row.upc) {
+        row.upc.forEach(item => {
+          //"ean":"5025155023631"
+          var myRegexp = /\"ean\"\s*:\s*\"(.+?)\"/g;
+          var match = myRegexp.exec(item.text);
+          if (match.length) {
+            item.text = match[1].trim();
+          } else {
+            delete row.upc;
+          }
+        });
+      }
     }
   }
   return data;
