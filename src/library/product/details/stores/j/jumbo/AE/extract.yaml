@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id='images']//a[not(@data-img-id='img-id-1')]/img/@src
+    xpath: //li[contains(@class,"pdp-thumbnail") and not(contains(@class, "slick-cloned")) and not(@index="0")]//a[not(contains(@class, "selected"))]//img/@src
     regExp: (.*)60x60(.*)
     regExpReplace: $1800x800$2
   - name: availabilityText
