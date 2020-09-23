@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'elcorteingles_perfumeria',
-    nextLinkSelector: 'li#pagination-next>a',
+    nextLinkSelector: '#pagination-next > a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
