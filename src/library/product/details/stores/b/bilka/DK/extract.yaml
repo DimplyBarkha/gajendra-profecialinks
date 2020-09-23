@@ -116,6 +116,8 @@ fields:
     # xpath: normalize-space(//div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(),'Bruttovægt') or starts-with(text(),'Vægt ekskl. stand') or starts-with(text(),'Vægt') or starts-with(text(),'Nettovægt')]/following-sibling::td[1])
   - name: shippingWeight
     singleValue: false
+    xpath: //div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')] 
+    regExp: (\Bruttovægt.\S{0,}.\S{0,}.\S{0,})
     # xpath: normalize-space(//div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(),'Bruttovægt') or starts-with(text(),'Vægt ekskl. stand') or starts-with(text(),'Vægt') or starts-with(text(),'Nettovægt')]/following-sibling::td[1])
   - name: availabilityText
     singleValue: false
@@ -126,7 +128,8 @@ fields:
     xpath: //div[contains(@class,'summary')]//div[contains(@class,'grey--text')]
   - name: shippingDimensions
     singleValue: false
-    xpath: 
+    xpath: //div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')] 
+    regExp: (\Shippingvolumen.\S{0,}.\S{0,}.\S{0,})
   - name: variantCount
     singleValue: false
     xpath: '0'

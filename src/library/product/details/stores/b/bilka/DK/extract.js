@@ -56,6 +56,7 @@ module.exports = {
         variantArray = variantArray.replace(/<strong[^>]*>|<\/strong>/g,'');         
         variantArray = variantArray.replace(/<bold[^>]*>|<\/bold>/g,'');
         variantArray = variantArray.replace(/<ul[^>]*>|<\/ul>/g,'');
+        variantArray = variantArray.replace(/<h3[^>]*>|<\/h3>/g,'');
         variantArray = variantArray.replace(/<li[^>]*>/g,''); 
         variantArray = variantArray.replace(/<\/li>/g,' ||');
         variantArray = variantArray.replace('&nbsp;','');

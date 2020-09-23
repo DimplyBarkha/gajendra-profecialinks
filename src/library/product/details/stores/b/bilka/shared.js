@@ -120,6 +120,22 @@ const transform = (data) => {
 			];
 		}
 
+		if(row.shippingWeight){			
+			let tempshippingWeight =  row.shippingWeight[0].text.split(':');			
+			if(tempshippingWeight.length > 0)
+			{
+				row.shippingWeight = [{ text: tempshippingWeight[1].replace(' ','') }];
+			}			
+		  } 
+
+		  if(row.shippingDimensions){			
+			let tempshippingDimensions =  row.shippingDimensions[0].text.split(':');			
+			if(tempshippingDimensions.length > 0)
+			{
+				row.shippingDimensions = [{ text: tempshippingDimensions[1].replace(' ','') }];
+			}			
+		  } 
+
 		/* if (row.shippingDimensions) {
 			let text = '';
 			row.shippingDimensions.forEach(item => {
