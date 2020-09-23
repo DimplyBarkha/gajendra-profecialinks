@@ -112,8 +112,9 @@ fields:
     singleValue: true
     xpath: //div[contains(@class, "form-group-color")]//ul//li
   - name: firstVariant
-    singleValue: true
+    singleValue: false
     xpath: //script[contains(text(), "PRODUCT_VIEW_VARIATIONS")]
+    regExp: (sku:.\S{0,}.\S{0,}.\d+)
   - name: variants
     singleValue: false
     xpath: //script[contains(text(),'PRODUCT_VIEW_VARIATIONS')]

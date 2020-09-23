@@ -42,11 +42,14 @@ const transform = (data) => {
                     }
                 }
                 if (row.firstVariant) {
-                    var firstVariantJson = row.firstVariant[0].text.split("PRODUCT_VIEW_VARIATIONS = ");
-                    if (firstVariantJson) {
-                        var variationData = firstVariantJson[1];
-                        console.log(variationData);
-                    }
+                    var itemText = row.firstVariant[0].text.replace('sku: ','');
+                       itemText = itemText.replace('"','');
+                       itemText = itemText.replace('\'',''); 
+                         row.firstVariant = [
+                            {
+                              text: itemText,
+                            },
+                          ];                       
                 }
                 if(row.variants)
                 {
