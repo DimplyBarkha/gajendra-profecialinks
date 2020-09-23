@@ -54,6 +54,9 @@ fields:
     xpath: //span[contains(@class, "price--line-through")]
     regExp: (.*)\.(.*)
     regExpReplace: $1,$2
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class, "product-slider--container")]//div[contains(@class, "blog--box-description-short")]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class, "product-slider--container")]//img/@src
@@ -74,9 +77,6 @@ fields:
     xpath: //span[contains(@class, "price--content")]/.
     regExp: (.*)\.(.*)
     regExpReplace: $1,$2
-  - name: promotion
-    singleValue: false
-    xpath: //span[@class = "content--discount"]
   - name: quantity
     singleValue: false
     xpath: //select[@id = "sQuantity"]/option[position() = 1]
