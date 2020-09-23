@@ -273,7 +273,7 @@ const transform = (data, context) => {
         if (row.manufacturerDescription) {
           // remove json if present
           const rawText = row.manufacturerDescription[0].text;
-          row.manufacturerDescription = [{ text: rawText.replace(/{.*}/, '') }];
+          row.manufacturerDescription = [{ text: rawText.replace(/{.*}/g, '') }];
         }
 
         Object.keys(row).forEach(header => row[header].forEach(el => {
