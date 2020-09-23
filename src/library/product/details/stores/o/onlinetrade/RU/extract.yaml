@@ -24,7 +24,8 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //meta[@itemprop='description']/@content
+    #xpath: //meta[@itemprop='description']/@content
+    xpath: //li[@class="breadcrumbs__item"][position()>2]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
@@ -50,7 +51,8 @@ fields:
     defaultValue: Available
   - name: description
     singleValue: false 
-    xpath:    //ul[@class='featureList js__backlightingClick']//li
+    #xpath: //ul[@class='featureList js__backlightingClick']//li
+    xpath: //div[@class="descriptionText_cover richcontent__cover"]/p
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -62,10 +64,10 @@ fields:
     singleValue: false
     xpath: //meta[contains(@itemprop,"brand")]/@content
     description: Product brand shown - this may actually NOT be just a brand name, e.g. "Visit the Gillette Store"
-  - name: manufacturer
-    singleValue: false
-    xpath: //meta[contains(@itemprop,"brand")]/@content
-    description: Product manufacturer
+  # - name: manufacturer
+  #   singleValue: false
+  #   xpath: //meta[contains(@itemprop,"brand")]/@content
+  #   description: Product manufacturer
   - name: quantity
     singleValue: false
     xpath: //span[contains(@class,'catalog__displayedItem__availabilityCount green')]
@@ -107,8 +109,9 @@ fields:
     description: Content under "directions" header
   - name: specifications
     singleValue: false
-    xpath: //li//span[contains(text(), 'Размер:')]/../text()
+    #xpath: //li//span[contains(text(), 'Размер:')]/../text()
     #//ul[@class='featureList js__backlightingClick']//li
+    xpath: //ul[@class="featureList js__backlightingClick"]/li
   - name: ratingCount
     singleValue: false
     xpath: //a[@id='goods_rating']/text()
