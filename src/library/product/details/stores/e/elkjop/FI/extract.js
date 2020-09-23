@@ -42,8 +42,8 @@ module.exports = {
       }
       const rating = document.evaluate("//div[@itemprop='aggregateRating']/meta[@itemprop='ratingValue']/@content", document, null, XPathResult.STRING_TYPE, null);
       if (rating && rating.stringValue) {
-        // const formattedRating = rating.stringValue.replace(',', '.');
-        addElementToDocument('rating', rating.stringValue);
+        const formattedRating = rating.stringValue.replace(',', '.');
+        addElementToDocument('rating', formattedRating);
       }
       const warranty = document.evaluate("//*[contains(text(), 'takuu')]", document, null, XPathResult.STRING_TYPE, null);
       if (warranty) {
