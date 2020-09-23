@@ -55,7 +55,7 @@ module.exports = {
       const rating = document.evaluate("//div[@itemprop='aggregateRating']/meta[@itemprop='ratingValue']/@content", document, null, XPathResult.STRING_TYPE, null);
       if (rating && rating.stringValue) {
         const formattedRating = rating.stringValue.replace(',', '.');
-        addElementToDocument('rating', rating.stringValue);
+        addElementToDocument('rating', formattedRating);
       }
       const weight = document.evaluate("//div[contains(text(), 'Vekt')]", document, null, XPathResult.STRING_TYPE, null);
       if (weight && weight.stringValue) {
