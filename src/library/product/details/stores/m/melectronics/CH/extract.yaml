@@ -88,3 +88,13 @@ fields:
   - name: upc
     singleValue: false
     xpath: //script[@id='state']
+  - name: variants
+    singleValue: false
+    xpath: //script[@id='state']/text()
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: variantInformation
+    singleValue: false    
+  - name: firstVariant
+    singleValue: false    

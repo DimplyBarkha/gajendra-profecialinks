@@ -1,4 +1,5 @@
 const transform = (data) => {
+  let final_variations = [];  
   for (const { group } of data) {
     for (const row of group) {
       if (row.alternateImages) {
@@ -94,6 +95,48 @@ const transform = (data) => {
           }
         });
       }
+      if (row.variants) {
+        var temp_variant_ids = [];
+        var temp_variant_infos = [];
+        row.variants.forEach(item => {
+          var matches = /window.__INITIAL_STATE__\s+=\s*(.*?\})\;/isg.exec(item.text);
+          if (matches) {
+            var match_data = matches[1].replace(/(undefined)+/g, 'null');
+            let j_data = JSON.parse(match_data);                  
+            j_data['product']['data']['variantMatrix'];
+            if(j_data['product']['data']['variantMatrix'] && j_data['product']['data']['variantMatrix'].length > 0){                    
+              j_data['product']['data']['variantMatrix'].forEach(variants_data => {                        
+                let tmp_variations = {};                
+                tmp_variations["variantUrl"] = [];
+                tmp_variations["variant"] = [];
+                if(variants_data['variantOption']['code']){
+                  temp_variant_ids.push(variants_data['variantOption']['code']);
+                }                
+                if(variants_data['variantValueCategory']['name']){
+                  temp_variant_infos.push(variants_data['variantValueCategory']['name']);
+                }
+                //final_variations.push(tmp_variations);
+              });
+            }
+            else{
+              item.text = '';
+              //delete item.variantId;
+            }
+          } else{
+            item.text = '';
+            //delete item.variantId;
+          }
+        });        
+        if(temp_variant_ids.length){          
+          row.firstVariant = [{'text':row.variantId[0].text}];
+          row.variantCount = [{'text':temp_variant_ids.length}];
+          row.variants = [{'text' : temp_variant_ids.join(' | ')}];        
+          row.variantInformation = [{'text' : temp_variant_infos.join(' | ')}];
+        }
+        else{
+          delete row.variants;
+        }
+      }            
     }
   }
   return data;
