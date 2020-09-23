@@ -366,7 +366,7 @@ fields:
     singleValue: false
     description: null
   - name: additionalDescBulletInfo
-    xpath: translate(//div[@id="allviewButton"]/span[1]/*[not(@id)][not(name()="script" or name()="style")][not(normalize-space(.)="")]//text()[starts-with(normalize-space(.),"•")],'•', '')
+    xpath: //div[@id="allviewButton"]/span[1]/*[not(@id)][not(name()="script" or name()="style")][not(normalize-space(.)="")]//text()[starts-with(normalize-space(.),"•")]
     singleValue: false
     description: null
   - name: prop65Warning

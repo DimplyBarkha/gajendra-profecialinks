@@ -20,8 +20,11 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.description) {
-        const text = row.description.map(elm => elm.text.replace(/•/g,' || ').trim()).join(' ');
+        const text = row.description.map(elm => elm.text.replace(/•/g, ' || ').trim()).join(' ');
         row.description = [{ text }];
+      }
+      if (row.additionalDescBulletInfo) {
+        row.additionalDescBulletInfo.forEach(elm => { elm.text = elm.text.replace(/•/g, '').trim(); });
       }
       if (row.specifications) {
         const text = row.specifications.map(elm => elm.text.trim().replace(/\n/, ' : ')).join(' | ');
