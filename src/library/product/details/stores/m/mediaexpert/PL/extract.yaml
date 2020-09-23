@@ -23,16 +23,13 @@ fields:
     xpath: //div[@class="c-modal_container"]//div[@class="a-price clearfix2"]/div[@class="a-price_new  is-big  "]
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class="is-description"]//div[contains(@class,"cells_holder")]//div[@class="opis_market"][2]//div[@class="prawa"]
+    xpath: //h1[@class="a-typo is-primary"]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="is-carouselContainer"]//div[position()>1]/div[@class="c-offerBox_galleryItem"]/div[@data-component="magnifier modal"]/img/@src
+    xpath: //div[@class="c-offerBox_row is-row2"]//div[@class="is-carouselContainer"]//div[@data-component="magnifier modal"]//@data-settings
   - name: ratingCount
     singleValue: false
-    xpath: //span[@class="c-reviews-general_summaryCount"]
-  - name: manufacturer
-    singleValue: false
-    xpath: //*[contains(text(),"Nazwa producenta/importera")]//ancestor::div[contains(@class,"c-accordion_item")]
+    xpath: //div[contains(@class,"is-productNameInfobar")]//div[@class="c-reviews_count"]/a
   - name: warranty
     singleValue: false
     xpath: //*[contains(text(),"Parametry")]//ancestor::div[contains(@class,"c-accordion_item")]
@@ -42,9 +39,6 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //*[contains(text(),"Nazwa producenta/importera")]//ancestor::div[contains(@class,"c-accordion_item")]
-  - name: reviewCount
-    singleValue: false
-    xpath: //div[@class="c-reviews-general_typo"]
   - name: weightNet
     singleValue: false
     xpath: //table[@class='c-table is-specification']//tr//td[contains(text(),"Waga") or contains(text(),"kg")]/parent::*/td[2]
@@ -57,3 +51,43 @@ fields:
   - name: shippingInfo
     singleValue: false
     xpath: //div[contains(@class,"c-offerBox_row is-content")][1]//p[contains(@class,"a-typo is-tertiary")]
+  - name: url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+  - name: gtin
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][2]
+  - name: directions
+    singleValue: false
+    xpath: //div[@id="downloads"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class="c-reviews-general_summaryCount"]
+  - name: description
+    singleValue: false
+    xpath: //div[@class="c-offerBox_attributes"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //*[contains(text(),"Nazwa producenta/importera")]//ancestor::div[contains(@class,"c-accordion_item")]
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@class="c-offerBox_variantsContent"]//div[@class="c-offerBox_photo"]/@data-offer-id
+    defaultValue: '0'
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class="c-offerBox_variantsContent"]//div[@class="c-offerBox_photo"]/@data-offer-id
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="c-offerBox_variantsContent"]//div[@class="c-offerBox_photo"]/@data-offer-id
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="c-offerBox_variantsContent"]//div[contains(@class,"c-offerBox")]/@data-label
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[@id="downloads"]/a[contains(@class,'is-download')]/@href
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="c-offerBox_galleryItem"]/iframe[@data-component="youtube"]/@data-src
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,'is-specificationTabs')]//table[contains(@class,'is-specification')]//tr/td

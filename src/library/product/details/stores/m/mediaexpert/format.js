@@ -23,6 +23,7 @@ const transform = (data) => {
     return data;
   };
   for (const { group } of data) {
+    var totVariantCount=0;
     for (let row of group) {
       if(row.image){
         row.image.forEach(item => {
@@ -30,15 +31,54 @@ const transform = (data) => {
         });
       }
       if(row.alternateImages){
+        var mainImgArr=[];
+        var tot=0;
         row.alternateImages.forEach(item => {
-          item.text='https://www.mediaexpert.pl'+item.text;
+          if(tot>0){
+            var tmp=item.text.split(',');
+            var tmp1=tmp[0].split(':');
+            var tmp2=tmp1[1].substring(2, tmp1[1].length-1);
+            var tmp3={"text":'https://www.mediaexpert.pl'+tmp2,"xpath":item.xpath};
+            mainImgArr.push(tmp3);
+          }
+          tot++;
         });
+        row.alternateImages=mainImgArr;
       }
-      if(row.reviewCount){
-        row.reviewCount.forEach(item => {
-          let reviewCountData=item.text.split(' ');
-          item.text=reviewCountData[0];
+      if(row.gtin){
+        row.gtin.forEach(item => {
+          var tmp=item.text.split('"gtin13": ');
+          var tmp1=tmp[1].split(',');
+          item.text=tmp1[0].substring(2, tmp1[0].length-1);
+        })
+      }
+      if(row.variantCount){
+        var variantsArr=[];
+        row.variants.forEach(item => {
+          variantsArr.push(item.text);
         });
+        row.variantCount=[{"text":variantsArr.length,"xpath":row.firstVariant[0]['xpath']}];
+      }
+      if(row.firstVariant){
+        var variantsArr=[];
+        row.variants.forEach(item => {
+          variantsArr.push(item.text);
+        });
+        row.firstVariant=[{"text":variantsArr[0],"xpath":row.firstVariant[0]['xpath']}];
+      }
+      if(row.variants){
+        var variantsArr=[];
+        row.variants.forEach(item => {
+          variantsArr.push(item.text);
+        });
+        row.variants=[{"text":variantsArr.join(' | '),"xpath":row.variants[0]["xpath"]}];
+      }
+      if(row.variantInformation){
+        var variantsArrInf=[];
+        row.variantInformation.forEach(item => {
+          variantsArrInf.push(item.text);
+        });
+        row.variantInformation=[{"text":variantsArrInf.join(' | '),"xpath":row.variantInformation[0]["xpath"]}];
       }
       if(row.category){
         var arr=[];
@@ -48,8 +88,12 @@ const transform = (data) => {
         arr.shift();
         row.category=arr;
       }
-
-
+      if(row.aggregateRating){
+        row.aggregateRating.forEach(item => {
+          var tmp=item.text.split('/');
+          item.text=tmp[0];
+        });
+      }
       if (row.manufacturer) {
         row.manufacturer.forEach(item => {
           var myRegexp = /producenta\/importera\s+\n(.+?)\s*\n/g;
@@ -83,9 +127,22 @@ const transform = (data) => {
           }
         });
       }
-
-      
-
+      if(row.specifications){
+        var tdCLose=1;
+        var spec='';
+        var specifyData=[];
+        row.specifications.forEach(item => {
+          if(tdCLose==1){
+            spec=item.text;
+            tdCLose++;
+          }else if(tdCLose==2){
+            spec= spec+' : '+item.text;
+            tdCLose=1;
+            specifyData.push(spec);
+          }
+        });
+        row.specifications=[{"text":specifyData.join(' || '),"xpath":row.specifications[0]['xpath']}];
+      }
       if(row.color){
         row.color.forEach(item => {
           var data1Arr=item.text.split('Kolor ');
