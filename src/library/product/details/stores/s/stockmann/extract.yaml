@@ -22,11 +22,13 @@ fields:
     singleValue: true
     xpath: //div[contains(@class,"product-view-headlines")]
   - name: listPrice
-    singleValue: false
+    singleValue: true
     xpath: //div[contains(@class,"price-box")]//span[contains(@class,"skin-obsolete")]
+    type: CURRENCY
   - name: price
-    singleValue: false
+    singleValue: true
     xpath: //div[contains(@class,"price-box")]//span[1]
+    type: CURRENCY
   - name: availabilityText
     xpath: //button[contains(@class,"btn-cart")]
     singleValue: true
