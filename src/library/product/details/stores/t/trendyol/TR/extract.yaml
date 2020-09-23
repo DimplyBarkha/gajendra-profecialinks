@@ -9,7 +9,7 @@ fields:
     regExp: (.+_)(zoom)(.+)
   - name: imageAlt
     description: Alt text of the main product image
-    xpath: (//div[@class="slick-slide slick-active slick-current"]/div/div/img/@alt)[1]
+    xpath: //div[not (contains(@class,'slick-vertical'))]/div[@class="slick-list"]//div[@class="slick-slide slick-active slick-current"]/div/div/img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -29,7 +29,7 @@ fields:
   - name: price
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: (//span[@class="prc-slg"])[1]
+    xpath: //div[@class="pr-in-w"]//span[@class="prc-slg"]
   - name: availabilityText
     description: Availability as described on page for the selected variant. If there is no availability but the product can be added to cart, this field should be "In Stock"
     xpath: //div[@id="product-detail-app"]//div[@class="add-to-bs-tx"]
@@ -92,8 +92,9 @@ fields:
     xpath: //div[@class="pr-rnr-sm"]/div[@class="pr-rnr-sm-p"]/span
     regExp: (\d+)(\.)(\d+)
     regExpReplace: $1,$3
-  # - name: shippingInfo
-  #   description: Shipping information for the product
+  - name: shippingInfo
+    description: Shipping information for the product
+    xpath: //div[@class="pr-in-dt-cn"]//ul//li[contains(.,'Bu ürün ')]
   # - name: shippingDimensions
   #   description: Stated shipping dimensions
   # - name: shippingWeight
@@ -101,8 +102,9 @@ fields:
   - name: variantCount
     description: Number of variants listed
     defaultValue: "0"
-  # - name: color
-  #   description: A textual description of the colour
+  - name: color
+    description: A textual description of the colour
+    xpath: //th[contains(.,'Renk')]/following-sibling::td | //div[@class="item-key"][contains(.,'Renk')]/following-sibling::div
   # - name: colorCode
   #   description: A code description of the color (e.g. RGB hex)
   # - name: manufacturerDescription
@@ -309,8 +311,9 @@ fields:
   #   description: Allergy information associated with the product
   # - name: recyclingInformation
   #   description: Recycling information associated with the product
-  # - name: productOtherInformation
-  #   description: Any other product information
+  - name: productOtherInformation
+    description: Any other product information
+    xpath: //div[@class="pr-in-dt-cn"]//ul/span//li[contains(.,' ')]
   # - name: packaging
   #   description: Packaging information
   # - name: additives
