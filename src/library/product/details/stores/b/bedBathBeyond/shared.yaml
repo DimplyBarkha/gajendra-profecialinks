@@ -20,7 +20,7 @@ fields:
     xpath: ancestor::html//meta[@name="keywords"]/@content
     description: The <meta> keywords content
   - name: category
-    xpath: ancestor::html//ul[@data-locator="Breadcrumbs"]/li
+    xpath: ancestor::html//ul[@data-locator="Breadcrumbs"]/li/a
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
@@ -62,7 +62,9 @@ fields:
     xpath: td[@class="size"]
     description: Quantity as described on the page
   - name: weightNet
-    xpath: //td[@class="weightNet"] 
+    xpath: //td[@class="weightNet"] | ancestor::html[not(//td[@class="weightNet"])]//div[@id="productDetails"]//ul/li[starts-with(text(),"Weighs")]
+    regExp: ^(Weighs)?(.+)[.]*$
+    regExpReplace: $2
     description: Net weight as described on the page
   - name: gtin
     xpath: td[@class="gtin"]
@@ -109,7 +111,7 @@ fields:
     xpath: //td[@class="name"]
     description: The product name
   - name: specifications
-    xpath: td[@class="specifications"]
+    xpath: td[@class="specifications"] | ancestor::html[not(//td[@class="specifications"])]//div[@id="productDetails"]//ul/li[starts-with(text(),"Measures")]
     description: The physical dimensions of the product including packaging.
   - name: warranty
     xpath: td[@class="warranty"] | ancestor::html//div[@id="productDetails"]//ul/li[contains(text(),"warranty")]
@@ -170,4 +172,10 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: No  
+  - name: videos
+    xpath: ancestor::html//button[@data-locator="pdp-productalternateimage"]/img[@alt="Video"]/@src
+    regExp: ([^/]+)/thumbnail/
+    regExpReplace: https://video.bedbathandbeyond.ca/tvpembed/$1
+    singleValue: false
+    description: URLs of videos on page
