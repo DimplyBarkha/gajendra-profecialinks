@@ -34,6 +34,11 @@ const transform = (data, context) => {
           priceItem.text = priceItem.text.replace(/[^\d]/gm, '') + ' SEK';
         });
       }
+      if (row.productUrl) {
+        row.productUrl.forEach(productUrlItem => {
+          productUrlItem.text = productUrlItem.text.includes('https') ? productUrlItem.text : 'https://www.mediamarkt.se' + productUrlItem.text;
+        });
+      }
       row.rank = [{ text: rankCounter }];
       Object.keys(row).forEach(header =>
         row[header].forEach(el => {

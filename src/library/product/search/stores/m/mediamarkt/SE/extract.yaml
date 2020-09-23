@@ -6,8 +6,6 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //div[contains(@class,'product-wrapper')]//aside[contains(@class, "product-photo")]//a/@href
-    regExp: (.+)
-    regExpReplace: https://www.mediamarkt.nl$1
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false

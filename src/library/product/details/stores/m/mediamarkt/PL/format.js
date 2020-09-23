@@ -25,14 +25,12 @@ const transform = (data) => {
           descriptionItem.text = cleanUp(descriptionItem.text);
         });
       }
-
       if (!row.brandText) {
         row.brandText = [{ text: row.name[0].text.replace(/^([\w]+).*/gm, '$1') }];
       }
       if (row.category) {
         row.category.shift();
       }
-
       if (row.specifications) {
         row.specifications[0].text = cleanUp(row.specifications[0].text
           .replace(/(\n\s*){4,}/g, ' || ')
@@ -40,8 +38,7 @@ const transform = (data) => {
       }
       if (row.availabilityText) {
         row.availabilityText.forEach(availabilityTextItem => {
-          const availability = availabilityTextItem.text.replace(/.*availability": ?"(.*?)".*/gs, '$1');
-          if (availability && availability.toLowerCase().includes('instore' || 'instock')) {
+          if (availabilityTextItem.text.toLowerCase().includes('instock') || availabilityTextItem.text.toLowerCase().includes('instore')) {
             availabilityTextItem.text = 'In stock';
           } else {
             availabilityTextItem.text = 'Out of stock';
@@ -51,6 +48,11 @@ const transform = (data) => {
       if (row.image) {
         row.image.forEach(itemText => {
           itemText.text = itemText.text.includes('http') ? itemText.text : 'https:' + itemText.text;
+        });
+      }
+      if (row.videos) {
+        row.videos.forEach(videoText => {
+          videoText.text = videoText.text.includes('youtube') ? videoText.text : 'https://www.youtube.com/watch?v=' + videoText.text;
         });
       }
       if (row.manufacturerImages) {

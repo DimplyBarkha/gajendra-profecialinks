@@ -30,7 +30,7 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: false
-    xpath: (//div[contains(@class, "is-product")]//div[contains(@class, "m-priceBox_old")])[1]
+    xpath: (//div[@data-section="price"]//div[contains(@class, "m-priceBox_old")])[1]
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
@@ -45,7 +45,7 @@ fields:
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //div[@id="added-description"]
+    xpath: //div[contains(@class, "offerDescription")]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -137,7 +137,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="added-manufacturerDesc"]
+    xpath: //div[@class="description-product"]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
@@ -145,7 +145,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //video/@src|//div[contains(@class, "m-slider_item")]//iframe/@src|//div[@id="description"]//a/@href
+    xpath: //video/@src|//div[contains(@class, "m-slider_item")]//iframe/@src|//div[@id="description"]//a/@href | (//div[@data-media="yt"]/@data-yt)[1]
     description: URLs of videos on page
   - name: name
     singleValue: false
@@ -387,7 +387,7 @@ fields:
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: false
-    xpath: //dt[contains(@class,"m-offerShowData_name")]//p//span//font[contains(text(),"Guarantee")]//parent::font//parent::span//parent::p//parent::dt//following-sibling::dd
+    xpath: //dt[.//*[descendant::*[contains(text(), "Okres gwarancji")]]]/following-sibling::* | //dt[.//*[descendant::*[contains(text(), "okres gwarancji")]]]/following-sibling::*
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
@@ -403,9 +403,6 @@ fields:
     description: Recycling information associated with the product
   - name: productOtherInformation
     singleValue: false
-  - name: specificationLists
-    singleValue: false
-    description: Any other product information
   - name: packaging
     singleValue: false
     description: Packaging information
@@ -421,6 +418,7 @@ fields:
   - name: promotion
     singleValue: false
     description: promotion text on product page
+    xpath: //div[@data-section="price"]//*[contains(@class, "productAction_save")]
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information

@@ -48,3 +48,6 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'m-offerBox_rating')]//i[contains(@class, "icon-i_star is-active")]/@class
     description: The stated aggregate rating normalized to be out of 5
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class="m-offerBox_header"]//h2//a/@data-offer-ean

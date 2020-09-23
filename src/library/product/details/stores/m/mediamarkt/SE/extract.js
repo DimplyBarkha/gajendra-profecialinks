@@ -25,15 +25,14 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
-    // If images are present in description then add to manufacturerDescription else add to description
-    const manufacturerImageFlag = document.querySelector('div[id="description-product"] img');
-    const descriptionSelector = document.querySelector('div[class="description-product"]');
-    const description = descriptionSelector ? descriptionSelector.innerText : '';
-    if (manufacturerImageFlag) {
-      addHiddenDiv('added-manufacturerDesc', description);
-    } else {
-      addHiddenDiv('added-description', description);
+    // Fetching gtin through directly available function from script tag
+    let gtin = '';
+    try {
+      gtin = getEan();
+    } catch (e) {
+      console.log('Gtin function not available hence cannot be fetched....');
     }
+    addHiddenDiv('added_gtim', gtin);
   });
   await new Promise(resolve => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });

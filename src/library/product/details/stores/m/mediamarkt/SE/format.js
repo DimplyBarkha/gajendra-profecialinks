@@ -25,16 +25,15 @@ const transform = (data) => {
           descriptionItem.text = cleanUp(descriptionItem.text);
         });
       }
-
       if (!row.brandText) {
         row.brandText = [{ text: row.name[0].text.replace(/^([\w]+).*/gm, '$1') }];
       }
       if (row.availabilityText) {
         row.availabilityText.forEach(availabilityTextItem => {
-          if (availabilityTextItem.toLowerCase().includes('instore' || 'instock')) {
-            availabilityTextItem.text = 'In stock';
+          if (availabilityTextItem.text.toLowerCase().includes('instock') || availabilityTextItem.text.toLowerCase().includes('instore')) {
+            availabilityTextItem.text = 'In Stock';
           } else {
-            availabilityTextItem.text = 'Out of stock';
+            availabilityTextItem.text = 'Out Of Stock';
           }
         });
       }
@@ -46,6 +45,16 @@ const transform = (data) => {
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(manufacturerImagesText => {
           manufacturerImagesText.text = manufacturerImagesText.text.includes('http') ? manufacturerImagesText.text : 'https:' + manufacturerImagesText.text;
+        });
+      }
+      if (row.manufacturerDescription) {
+        row.manufacturerDescription.forEach(manufacturerDescriptionItem => {
+          manufacturerDescriptionItem.text = cleanUp(manufacturerDescriptionItem.text);
+        });
+      }
+      if (row.specifications) {
+        row.specifications.forEach(specificationsItem => {
+          specificationsItem.text = specificationsItem.text.replace(/(\n\s*){3,}/g, ' ').replace(/ ?:(\n\s*){2,}/g, ' : ').replace(/(\n\s*){2,}/g, ' || ');
         });
       }
       if (row.alternateImages) {
@@ -63,9 +72,9 @@ const transform = (data) => {
           listPriceItem.text = listPriceItem.text.replace(/,-/g, '');
         });
       }
-      if (row.warranty) {
-        row.warranty.forEach((warrantyItem) => {
-          warrantyItem.text = warrantyItem.text.replace(/[^\d]/gm, '');
+      if (row.price) {
+        row.price.forEach((priceItem) => {
+          priceItem.text = priceItem.text.replace('.', ',');
         });
       }
       if (row.ratingCount) {

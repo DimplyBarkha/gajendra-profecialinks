@@ -4,7 +4,7 @@ module.exports = {
     country: 'SE',
     store: 'mediamarkt',
     domain: 'mediamarkt.se',
-    url: 'https://www.mediamarkt.se/sv/search.html?query=%27dyson%27',
+    url: 'https://www.mediamarkt.se/sv/search.html?query=%27{searchTerms}%27',
     loadedSelector: 'ul[class="products-list"]',
     noResultsXPath: '//*[@class="no-result"]',
     zipcode: '',
