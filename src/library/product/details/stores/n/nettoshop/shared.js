@@ -11,11 +11,13 @@ const transform = (data) => {
           const regex = /\n/g;
           item.text = item.text.replace(regex, ' ');
         });
-        row.specifications.forEach(item => {
-          const regex = /\n/g;
-          item.text = item.text.replace(regex, '|');
+        row.specifications && row.specifications.forEach(item => {
+          const regexPi = /\n \n \n \n \n/g;
+          item.text = item.text.replace(regexPi, '|');
+          const regex = /\n \n \n/g;
+          item.text = item.text.replace(regex, ' ');
         });
-        row.shippingInfo.forEach(item => {
+        row.shippingInfo && row.shippingInfo.forEach(item => {
           const regex = /\n+/g;
           item.text = item.text.replace(regex, ' ');
         });

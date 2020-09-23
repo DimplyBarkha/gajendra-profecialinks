@@ -34,10 +34,11 @@ fields:
     # //meta[contains(@name, "description")]/@content
   - name: listPrice
     singleValue: false
-    xpath: //div[contains(@class,'c-product-detail-infos__price-total')]
+    #xpath: //div[contains(@class,'c-product-detail-infos__price-total')]
   - name: price
     singleValue: false
-    xpath: //span[contains(@class,'c-product-detail-infos__price-discount-price')]
+    #xpath: //span[contains(@class,'c-product-detail-infos__price-discount-price')]
+    xpath: //div[contains(@class,'c-product-detail-infos__price-total')]
   - name: availabilityText
     singleValue: false
     # xpath: //script[@type="application/ld+json"][contains(text(),'"availability":"https://schema.org/InStock"')]
@@ -89,9 +90,9 @@ fields:
     #xpath: //meta[contains(@name, "og:description")]/@content
   - name: descriptionBullets
     singleValue: false
-  - name: shippingInfo
-    singleValue: false
-    xpath: concat(//div[contains(@class,'c-product-info-label__state')], //div[contains(@class,'c-delivery-state__state')])
+  # - name: shippingInfo
+  #   singleValue: false
+  #   xpath: concat(//div[contains(@class,'c-product-info-label__state')], //div[contains(@class,'c-delivery-state__state')])
   - name: shippingDimensions
     singleValue: false
     #description: Stated shipping dimensions
@@ -104,7 +105,8 @@ fields:
     xpath: //dt[contains(text(),"Garantie")]/following-sibling::dd//div[@class="c-product-specifications__table-value"][text()]
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,'c-accordion__text')]
+    # xpath: //div[contains(@class,'c-accordion__text')]
+    xpath: //div[@class="c-product-specifications ember-view"]
   - name: gtin
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"gtin12")]

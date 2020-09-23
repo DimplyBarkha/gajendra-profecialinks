@@ -95,40 +95,31 @@ module.exports = {
     }
     // video end
     // product tour click
-    const tourSelector = 'div[class="c-product-tour__item-head"] button';
+    // const tourSelector = 'div[class="c-product-tour__item-head"] button';
 
-    console.log('.....waiting for tour....');
-    let tourAvailable;
-    try {
-      await context.waitForSelector(tourSelector, { timeout: 15000 });
-      tourAvailable = await isSelectorAvailable(tourSelector);
-      console.log('.....waiting......complete tour');
-    } catch (e) {
-    }
-    console.log(`tourAvailable: ${tourAvailable}`);
-    if (tourAvailable) {
-      try {
-        console.log('clicking tour button');
-        // let scrollTop = 500;
-        // while (true) {
-        //   window.scroll(0, scrollTop);
-        //   await stall(1000);
-        //   scrollTop += 500;
-        //   if (scrollTop === 50000) {
-        //     break;
-        //   }
-        // }
-        // await applyScroll(context);
-        await context.focus(tourSelector);
-        console.log('focus complete!!');
-        await context.click(tourSelector);
-        console.log('click complete!!');
-        await context.waitForNavigation({ timeout: 15000, waitUntil: 'load' });
-        console.log('navigation complete!!');
-      } catch (e) {
-        console.log(e);
-      }
-    }
+    // console.log('.....waiting for tour....');
+    // let tourAvailable;
+    // try {
+    //   await context.waitForSelector(tourSelector, { timeout: 15000 });
+    //   tourAvailable = await isSelectorAvailable(tourSelector);
+    //   console.log('.....waiting......complete tour');
+    // } catch (e) {
+    // }
+    // console.log(`tourAvailable: ${tourAvailable}`);
+    // if (tourAvailable) {
+    //   try {
+    //     console.log('clicking tour button');
+
+    //     await context.focus(tourSelector);
+    //     console.log('focus complete!!');
+    //     await context.click(tourSelector);
+    //     console.log('click complete!!');
+    //     await context.waitForNavigation({ timeout: 15000, waitUntil: 'load' });
+    //     console.log('navigation complete!!');
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
+    // }
     // product tour end
     const { transform } = parameters;
     const { productDetails } = dependencies;
