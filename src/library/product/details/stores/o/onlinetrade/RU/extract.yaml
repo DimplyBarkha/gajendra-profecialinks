@@ -25,7 +25,8 @@ fields:
   - name: category
     singleValue: false
     #xpath: //meta[@itemprop='description']/@content
-    xpath: //li[@class="breadcrumbs__item"][position()>2]
+    #xpath: //li[@class="breadcrumbs__item"][position()>2]
+    xpath: //li[@class="breadcrumbs__item"][position()>2]//a//span[@itemprop="name"]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false

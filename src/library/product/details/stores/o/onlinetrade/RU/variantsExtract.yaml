@@ -10,7 +10,8 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //select[@id='modelModeSelector_page']/option/@value  
+    #xpath: //select[@id='modelModeSelector_page']/option/@value 
+    xpath: //meta[contains(@itemprop,"sku")]/@content 
     regExp: ([0-9]+)
     regExpReplace: $1  
   - name: variantUrl
