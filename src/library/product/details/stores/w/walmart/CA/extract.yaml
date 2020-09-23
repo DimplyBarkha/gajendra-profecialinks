@@ -17,10 +17,10 @@ fields:
     xpath: //div[contains(@class,'react-swipe-container ')]//div[@role='presentation']//img[1]/@src
   - name: category
     singleValue: false
-    xpath: //ol[@class='css-f0oitm e16uoh2c1']//li
+    xpath: //ol[contains(@data-automation,'desktop-breadcrumbs')]//li
   - name: nameExtended
     singleValue: false
-    xpath: //h1[contains(@data-automation,'product-title')]
+    xpath: //div[@id='ii_nameExtended']
   - name: price
     singleValue: false
     xpath: //span[@class='css-2vqe5n esdkp3p0'  and  @data-automation='buybox-price']
@@ -35,7 +35,7 @@ fields:
     xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(.,'SKU')]/following-sibling::div
   - name: ratingCount
     singleValue: false
-    xpath: //button[@class='css-1qw5540 elkyjhv1']
+    xpath: //button[contains(@data-automation,'review-link')]
   - name: aggregateRating
     singleValue: false
     xpath: //div[@id='ii_rating'][last()]
@@ -44,7 +44,7 @@ fields:
     xpath: //div[@id='ii_desc'][last()]
   - name: brandText
     singleValue: false
-    xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(.,'Brand')]/following-sibling::div
+    xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(.,'Brand')]/following-sibling::div | //span[@data-automation='brand']
   - name: color
     singleValue: false
     xpath: //div[@class='css-93ek76 e1fnyg632' and contains(.,'Colour')]//span
@@ -53,7 +53,7 @@ fields:
     xpath: //div[@class='css-1dar8at e1cuz6d10']/div
   - name: warranty
     singleValue: false
-    xpath: //div[@class='css-w8lmum e1cuz6d11' and contains(.,'warranty')]
+    xpath: //div[@class='css-w8lmum e1cuz6d11' and contains(.,'warranty')] | //div[@class='css-w8lmum e1cuz6d11' and contains(.,'Warranty')]
   - name: variantCount
     singleValue: false
     xpath: //div[@id='ii_totalvariant'][last()]
@@ -63,7 +63,7 @@ fields:
     xpath: //div[@id='ii_variants'][last()]
   - name: variantId
     singleValue: false
-    xpath: //*/@data-product-id
+    xpath: //*/@data-bv-product-id
     # xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(.,'SKU')]/following-sibling::div
   - name: firstVariant
     singleValue: false
@@ -78,7 +78,7 @@ fields:
     singleValue: false
     xpath: //span[@data-automation='buybox-price-old']
   - name: name
-    xpath: //h1[contains(@data-automation,'product-title')]
+    xpath: //div[@id='ii_name']
   - name: variantInformation
     singleValue: false
     xpath: //div[@class='css-93ek76 e1fnyg632'] | //div[@class='css-93ek76 e1fnyg632']
@@ -88,3 +88,12 @@ fields:
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@data-automation='feature-specifications']/ul/li)
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id='ii_manufactureDesc']
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id='ii_enhancedimages']
+  - name: videos
+    singleValue: false
+    xpath: //div[@id='ii_videos']

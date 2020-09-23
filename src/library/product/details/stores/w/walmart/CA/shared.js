@@ -83,20 +83,19 @@ const transform = (data) => {
       }
 
       if (row.availabilityText) {
-        let newText = 'In Stock';
-        let text;
+        let newText = '';
         row.availabilityText.forEach(item => {
-          text = row.availabilityText.map(elm => elm.text).join(' ');
+          if (item.text.includes('Add to cart')) {
+            newText = 'In Stock';
+          } else {
+            newText = item.text;
+          }
         });
         row.availabilityText = [
           {
-            text: text,
+            text: newText,
           },
         ];
-        if (row.availabilityText[0].text.includes('Out of stock')) {
-          newText = 'Out Of Stock';
-        }
-        row.availabilityText = [{ text: newText }];
       }
 
       if (row.category && row.nameExtended) {
