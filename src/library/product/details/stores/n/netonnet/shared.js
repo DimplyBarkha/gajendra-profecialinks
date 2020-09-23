@@ -99,6 +99,21 @@ const transform = (data) => {
 				row.shippingDimensions = [{ text: newText }];
 			}
 
+			if(row.description)
+						{
+				let newText = '';
+
+				row.description.forEach(item => {									
+					var description = item.text;	
+					if(description.length > 0){				
+						newText += description.toString()+"||";
+					}
+					
+				});
+				newText = newText.substring(0,newText.length-2);
+				row.description = [{ text: newText }];
+			}
+
 			if (row.specifications) {  
 				let newText = '';
 				var index = 1;

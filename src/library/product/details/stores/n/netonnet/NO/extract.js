@@ -20,6 +20,14 @@ module.exports = {
       if (overlay !== undefined) {
         overlay.click();
       }
+      const collapseFive = document.querySelector('div[data-target="#collapseFive"]')      
+      collapseFive.setAttribute('id','accordiancollapseFive');
+      const accordiancollapseFive = document.getElementById('accordiancollapseFive');
+      if (accordiancollapseFive !== undefined) {
+        console.log('accordiancollapseFive.className');
+        console.log(accordiancollapseFive.className);
+        accordiancollapseFive.click();
+      }
     });
   
     const { transform } = parameters;
