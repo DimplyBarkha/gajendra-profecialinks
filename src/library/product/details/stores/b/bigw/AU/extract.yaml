@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,"productImageGallery")]//div[contains(@class,"slick-track")]//div[contains(@class,"slick-slide slick-cloned")]//a[contains(@class,"mZoomSlickThumb MagicThumb-swap")]/img/@src
+    xpath: //div[contains(@class,"productImageGallery")]//div[contains(@class,"slick-track")]//div[contains(@class,"slick-slide")]//a[contains(@class,"mZoomSlickThumb")]/img/@src
     regExp: (.+)
     regExpReplace: https://bigw.com.au$1
   - name: metaKeywords
@@ -26,14 +26,15 @@ fields:
     xpath: //ul[@class="breadcrumb hidden-xs hidden-is nvt-bdsm"]//li[position()>1]/a
   - name: nameExtended
     singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //div[@class="productDescription"]//h1
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[@class="priceClass"]
+    xpath: //span[@id="product_online_price"]
   - name: availabilityText
     singleValue: true
     xpath: //div[contains(@class,'addCartSection')]//button[contains(@class,'btn-orange')]
@@ -49,7 +50,7 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: true
-    xpath: normalize-space(concat(//ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Brand Name:')]/following-sibling::div,'  ',//div[contains(@class,'productDescription')]/h1 ))
+    xpath: //ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Brand Name:')]/following-sibling::div
   - name: manufacturer
     singleValue: true
     xpath: //ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Brand Name:')]/following-sibling::div
@@ -67,21 +68,22 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Model Number:')]/following-sibling::div
+    xpath: //script/@data-flix-ean
   - name: sku
     singleValue: true
-    xpath: //ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Model Number:')]/following-sibling::div
+    xpath: //script/@data-flix-sku
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Model Number:')]/following-sibling::div
+    xpath: //div/@data-productcode
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Model Number:')]/following-sibling::div
   - name: packSize
     singleValue: true
-    description: The number of packs in the product offer (if stated separately on
+    description:
+      The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: productUrl
     singleValue: true
@@ -102,9 +104,11 @@ fields:
   - name: shippingWeight
     singleValue: true
   - name: recyclingInformation
-    singleValue: true  
+    singleValue: true
   - name: variantCount
     singleValue: true
+    type: NUMBER
+    defaultValue: "0"
   - name: productOtherInformation
     singleValue: true
     xpath: //div[contains(@class,'contentList')]//ul
@@ -126,8 +130,8 @@ fields:
   - name: technicalInformationPdfPresent
     singleValue: true
     regExp: (.+)
-    regExpReplace: 'YES'
-    defaultValue: 'NO'  
+    regExpReplace: "YES"
+    defaultValue: "NO"
   - name: Image360Present
     xpath: boolean(//div[contains(@class,'MagicThumb-expanded')])
     singleValue: true
@@ -137,12 +141,12 @@ fields:
     xpath: //div[@class='inpage_ftgridimg']/img/@src
     regExp: (.+)
     regExpReplace: https://bigw.com.au$1
-  - name: upc
-    singleValue: true
-    xpath: //ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Model Number:')]/following-sibling::div
+  # - name: upc
+  #  singleValue: true
+  #  xpath: //ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Model Number:')]/following-sibling::div
   - name: eangtin
     singleValue: true
-    xpath: //ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Model Number:')]/following-sibling::div
+    xpath: //script/@data-flix-ean
   - name: listPrice
     singleValue: true
     xpath: //span[@class="priceClass"]
@@ -153,7 +157,7 @@ fields:
     xpath: //div[contains(@class,'contentList')]//span[contains(@itemprop,'description')]
   - name: lbbPrice
     singleValue: true
-    xpath: 
+    xpath:
   - name: firstVariant
     singleValue: false
   - name: variants
