@@ -16,12 +16,12 @@ fields:
   singleValue: false
   xpath: //div[contains(@class,"cProductItem")]//div[contains(@class,"panel-body")]//div[@class="smallHeader"]//div//a/@href
   regExp: (.+)
-  regExpReplace: https://www.netonnet.no$1
+  regExpReplace: https://www.netonnet.se$1
 - name: thumbnail
   singleValue: false
   xpath: //div[contains(@class,"cProductItem")]//div[@class="panel-body leftContent"]//div[@class="verticalTable"]//img//@src
   regExp: (.+)
-  regExpReplace: https://www.netonnet.no$1
+  regExpReplace: https://www.netonnet.se$1
 - name: aggregateRating
   singleValue: false
   xpath: //div[contains(@class,"panel-body")]//div[contains(@class,"smallHeader")]//div[@class="ratingBg"]//div[contains(@class,"ratingOverlay")]//@style

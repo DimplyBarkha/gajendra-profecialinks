@@ -8,13 +8,11 @@ async function implementation (
   const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
   
   if (nextLinkSelector) {
-
     const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
     if (!hasNextLink) {
       return false;
     }
   }
-
   if(!openSearchDefinition){
   const { pager } = dependencies;
   const success = await pager({ keywords, nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector });
@@ -22,7 +20,6 @@ async function implementation (
     return true;
   }
 }
-
   let url = await context.evaluate(function () {
     /** @type { HTMLLinkElement } */
     const next = document.querySelector('head link[rel="next"]');
@@ -31,14 +28,12 @@ async function implementation (
     }
     return next.href;
   });
-
   if (!url && openSearchDefinition) {
     url = openSearchDefinition.template
       .replace('{searchTerms}', encodeURIComponent(keywords))
       .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
       .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
   }
-
   if (!url) {
     return false;
   }
@@ -63,15 +58,15 @@ async function implementation (
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'NO',
+    country: 'SE',
     store: 'netonnet',
     nextLinkSelector: 'nav > ul.pagination > li:last-child > a',
     loadedSelector: 'body',
     noResultsXPath: '//div[contains(@class,"alert-warning search-warning")]',
     openSearchDefinition: {
-      template: 'https://www.netonnet.no/Search?query={searchTerms}&page={page}',
+      template: 'https://www.netonnet.se/Search?query={searchTerms}&page={page}',
     },
-    domain: 'netonnet.no',
+    domain: 'netonnet.se',
     zipcode: '',
   },
 };
