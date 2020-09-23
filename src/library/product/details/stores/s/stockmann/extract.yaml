@@ -114,9 +114,10 @@ fields:
   - name: firstVariant
     singleValue: true
     xpath: //script[contains(text(), "PRODUCT_VIEW_VARIATIONS")]
-  #- name: variants
-  #  singleValue: false
-  #  xpath: //div[contains(@class, "form-group-color")]//ul//li
+  - name: variants
+    singleValue: false
+    xpath: //script[contains(text(),'PRODUCT_VIEW_VARIATIONS')]
+    regExp: (sku:.\S{0,}.\S{0,}.\d+)
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@id,"stflix")]//div[contains(@id, "inpage_container")]//img//@srcset

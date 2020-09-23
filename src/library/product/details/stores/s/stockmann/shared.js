@@ -48,6 +48,24 @@ const transform = (data) => {
                         console.log(variationData);
                     }
                 }
+                if(row.variants)
+                {
+                    let nextText = '';
+                    row.variants.forEach(item => {
+                       var itemText = item.text.replace('sku: ','');
+                       itemText = itemText.replace('"','');
+                       itemText = itemText.replace('\'','');                       
+                        if(nextText.toString().indexOf(itemText) < 0)
+                        {
+                        nextText += itemText.trim()+'|';
+                        }
+                    });
+                    row.variants = [
+                      {
+                        text: nextText.substring(0,nextText.length-1),
+                      },
+                    ];
+                }
             } catch (exception) {
                 console.log('Error in transform', exception);
             }
