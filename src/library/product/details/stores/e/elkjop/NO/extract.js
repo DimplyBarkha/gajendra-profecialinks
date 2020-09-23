@@ -33,9 +33,9 @@ module.exports = {
       if (warranty) {
         if (warranty.stringValue.length === 0) {
           var cleanWarranty = document.evaluate("//div[@class='tab-slot']/p/text()[position() = last()]", document, null, XPathResult.STRING_TYPE, null).stringValue;
-		  if (cleanWarranty.includes('garanti')) {
-			addElementToDocument('warranty', cleanWarranty);
-		  }
+          if (cleanWarranty.includes('garanti')) {
+            addElementToDocument('warranty', cleanWarranty);
+          }
         } else {
           addElementToDocument('warranty', warranty.stringValue);
         }
@@ -61,10 +61,6 @@ module.exports = {
       if (weight && weight.stringValue) {
         const formattedWeight = weight.stringValue.replace(/\n|Vekt|\(|\)\s/g, '');
         addElementToDocument('weight', formattedWeight);
-      }
-      const warranty = document.evaluate("//*[contains(text(), 'garanti')]", document, null, XPathResult.STRING_TYPE, null);
-      if (warranty && warranty.stringValue) {
-        addElementToDocument('warranty', warranty);
       }
     });
     await context.evaluate(async function getDataFromAPI (id) {
