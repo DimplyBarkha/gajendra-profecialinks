@@ -199,10 +199,10 @@ const transform = (data, context) => {
         }
       }
       if (row.description && row.description[0]) {
-        const additionalDescription = row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] ?
-          row.additionalDescBulletInfo[0].text : ''
-        const descriptionText = additionalDescription ?
-          additionalDescription + ' | ' + row.description[0].text : row.description[0].text
+        const additionalDescription = row.additionalDescBulletInfo && row.additionalDescBulletInfo[0]
+          ? row.additionalDescBulletInfo[0].text : '';
+        const descriptionText = additionalDescription
+          ? additionalDescription + ' | ' + row.description[0].text : row.description[0].text;
         row.description = [{ text: descriptionText }];
       }
       if (row.amazonChoice && row.amazonChoice[0]) {
