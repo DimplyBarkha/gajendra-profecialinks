@@ -16,8 +16,19 @@ const transform = (data) => {
 				});
 				row.Image360Present = [{ text: newText }];
 			}
+
+			if (row.energyEfficiency) {
+				let text = '';
+				row.energyEfficiency.forEach(item => {
+				  text = row.energyEfficiency.map(elm => elm.text).join(' ').replace(/Energieeffizienzklasse/g, '');
+				});
+				row.energyEfficiency = [{ text }];
+			  }
+
 		}
 	}
+
+	
 
 	const clean = text => text.toString()
 		.replace(/\r\n|\r|\n/g, ' ')
@@ -37,6 +48,9 @@ const transform = (data) => {
 	}))));
 
 	return data;
+
+
+	
 };
 
 module.exports = { transform };
