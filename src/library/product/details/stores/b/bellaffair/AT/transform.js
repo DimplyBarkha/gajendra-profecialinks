@@ -6,8 +6,8 @@ const transform = (data) => {
                     row.price = [{ text: row.price[0].text.substring(1).trim() }, { text: row.price[0].text.charAt(0) }];
                 }
 
-                if (row.listprice) {
-                    row.listprice = [{ text: row.listprice[0].text.substring(1).trim() }, { text: row.listprice[0].text.charAt(0) }];
+                if (row.listPrice) {
+                    row.listPrice = [{ text: row.listPrice[0].text.substring(1).trim() }, { text: row.listPrice[0].text.charAt(0) }];
                 }
 
                 if (row.color) {
