@@ -43,8 +43,13 @@ const transform = (data) => {
         row.availabilityText[0].text = row.availabilityText[0].text === 'Out of Stock' ? row.availabilityText[0].text : 'In Stock';
       };
       if (row.alternateImages) {
-        if (row.alternateImages[0].text === row.image[0].text) {
+        var image = row.image[0].text.split('/');
+        var altImage = row.alternateImages[0].text.split('/');
+        if (image[image.length - 1] === altImage[altImage.length - 1]) {
           row.alternateImages.shift();
+        }
+        if (row.alternateImages.length === 0) {
+          delete row.alternateImages;
         }
       }
       if (row.category) {
@@ -67,6 +72,13 @@ const transform = (data) => {
           obj.text = ele;
           row.manufacturerImages.push(obj);
         });
+      }
+      if (row.largeImageCount) {
+        var count = (row.alternateImages && row.alternateImages.length) ? row.alternateImages.length : row.image.length;
+        row.largeImageCount = [
+          {
+            text: count,
+          }];
       }
       if (row.secondaryImageTotal && row.alternateImages) {
         row.secondaryImageTotal = [

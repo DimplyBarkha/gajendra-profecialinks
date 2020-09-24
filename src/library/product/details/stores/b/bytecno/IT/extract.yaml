@@ -11,7 +11,7 @@ fields:
     defaultValue: 'No'
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'swiper-wrapper')]//div/img/@src
+    xpath: //div[contains(@class,'swiper-wrapper')]//div[not(contains(@class,'swiper-slide-duplicate'))]/img/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -51,10 +51,11 @@ fields:
     xpath: //div[@class='product-name']//span[@class='name']
   - name: largeImageCount
     singleValue: false
-    xpath: count(//div[contains(@class,'swiper-wrapper')]//div/img/@src)
+    defaultValue: '1'
+    xpath: //div[contains(@class,'swiper-wrapper')]//div[not(contains(@class,'swiper-slide-duplicate'))]/img/@src
   - name: secondaryImageTotal
     singleValue: false
-    xpath: //div[contains(@class,'swiper-wrapper')]//div/img/@src
+    xpath: //div[contains(@class,'swiper-wrapper')]//div[not(contains(@class,'swiper-slide-duplicate'))]/img/@src
   - name: variantId
     singleValue: false
     xpath: (//span[contains(@id, 'product-price')]/@id)[1]
