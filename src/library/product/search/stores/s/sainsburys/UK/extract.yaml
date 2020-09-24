@@ -4,12 +4,11 @@ recordSelector: null
 recordXPath: //div[@id="productsContainer"]//ul[contains(@class,"productLister")]//li[@class="gridItem"]/div[contains(@class,"product")]
 fields:
   - name: productUrl
-    singleValue: false
     xpath: //div[@class='productInfo']//h3/a/@href
   - name: thumbnail
-    singleValue: false
     xpath: //div[@class='productInfo']//h3/a/img/@src
-    regExp: (http|c|w)(.+)
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: name
     xpath: //div[@class='productInfo']//h3/a
   - name: id
@@ -17,11 +16,9 @@ fields:
   - name: gtin
     xpath: //div[@class="FM_suitability_indicator"]/@barcode
   - name: reviewCount
-    singleValue: false
     xpath: //a[@class="numberOfReviews"]
     regExp: \d+
   - name: price
-    singleValue: false
     xpath: //p[@class="pricePerUnit"]
     regExp: ([0-9.]+)\w
   - name: aggregateRating2
