@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: body
+recordSelector: null
 recordXPath: null
 fields:
   - name: image
@@ -21,7 +21,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //span[contains(@class, "posted_in")]/a[2]
+    xpath: //span[@class="posted_in"]/@breadcrums
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -30,20 +30,18 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //del/span[contains(@class, "woocommerce-Price-amount amount")][1]
+    xpath: (//del/span[contains(@class, "woocommerce-Price-amount amount")])[1]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //ins/span[contains(@class, "woocommerce-Price-amount amount")][1]
+    xpath: (//ins/span[contains(@class, "woocommerce-Price-amount amount")])[1]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //script[contains(text(), 'mpn')]
-    regExp: http:[\\\/A-z]+[\.A-z]+\/([A-z]+)
-    regExpReplace: $1
+    xpath: //p[@class="stock in-stock"]/text()
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -74,7 +72,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //td[contains(@class, "woocommerce-product-attributes-item__value")][1]
+    xpath: (//td[contains(@class, "woocommerce-product-attributes-item__value")])[1]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -161,7 +159,7 @@ fields:
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
-    xpath: //ins/span[contains(@class, "woocommerce-Price-amount amount")][1]
+    xpath: (//ins/span[contains(@class, "woocommerce-Price-amount amount")])[1]
   - name: asin
     singleValue: true
     description: null

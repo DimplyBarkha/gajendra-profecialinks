@@ -37,6 +37,9 @@ module.exports = {
       });
       bulletDiv.textContent = bulletList.join('||');
       document.body.appendChild(bulletDiv);
+
+      const breadcrumbs = document.querySelector('span.posted_in').innerText.replace(',', ' >').replace(',', ' >');
+      document.querySelector('span.posted_in').setAttribute('breadcrums', breadcrumbs);
     });
     await context.extract(productDetails);
   },
