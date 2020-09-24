@@ -31,7 +31,7 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //span[@class='price--content content--default']
+    xpath: //span[@class='content--discount']/span[@class='price--line-through']
     regExp: (\€\s[\d\,]+)
   - name: price
     singleValue: true
