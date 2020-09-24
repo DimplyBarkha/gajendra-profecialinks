@@ -41,6 +41,10 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
+      function getElementByXpath (path) {
+        return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      }
+
       const data = document.querySelectorAll('script[type="application/ld+json"]');
       const json = data && data[1] && data[1].innerText ? JSON.parse(data[1].innerText) : '';
       if (json) {
@@ -50,6 +54,10 @@ module.exports = {
         addElementToDocument('sku', json.sku);
         addElementToDocument('mpc', json.mpn);
       }
+
+      const warranty = getElementByXpath('//p[@class="pdp-product-description-content"]/text()[position() = last()]')
+        ? getElementByXpath('//p[@class="pdp-product-description-content"]/text()[position() = last()]').textContent : '';
+      if (warranty.match('arranty')) addElementToDocument('warranty', warranty);
     });
     await context.extract(productDetails);
   },
