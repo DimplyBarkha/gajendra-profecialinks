@@ -5,7 +5,7 @@ module.exports = {
     country: 'FR',
     store: 'intermarche',
     domain: 'intermarche.com',
-    url: null,
+    url: 'https://www.intermarche.com/rechercheproduits/11833/recherche/{searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',

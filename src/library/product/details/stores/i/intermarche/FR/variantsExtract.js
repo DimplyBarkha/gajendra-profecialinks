@@ -1,12 +1,11 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/variants/variantsExtract',
   parameterValues: {
-    domain: 'intermarche.com',
-    timeout: 60000,
     country: 'FR',
     store: 'intermarche',
+    transform: null,
+    domain: 'intermarche.com',
     zipcode: '31130',
   },
 };
-

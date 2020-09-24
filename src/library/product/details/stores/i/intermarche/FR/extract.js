@@ -24,7 +24,9 @@ module.exports = {
       if(prodUrl[1]){
         addHiddenDiv(`ii_url`, prodUrl[1]);
       }
-    });
+      addHiddenDiv(`ii_parentInput`, parentInput);
+
+    }, parentInput);
 
     // const dataRaw = await context.evaluate(function () {
     //   fetch('https://api.intermarche.com/produits/v2/pdvs/11833/produits/0000040198125', {
