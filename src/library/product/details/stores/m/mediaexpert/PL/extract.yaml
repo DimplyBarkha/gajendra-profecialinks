@@ -65,7 +65,7 @@ fields:
     xpath: //span[@class="c-reviews-general_summaryCount"]
   - name: description
     singleValue: false
-    xpath: //div[@class="c-offerBox_attributes"]
+    xpath: //div[@class="c-offerBox_attributes"]/table//tr
   - name: manufacturer
     singleValue: false
     xpath: //*[contains(text(),"Nazwa producenta/importera")]//ancestor::div[contains(@class,"c-accordion_item")]
@@ -91,3 +91,7 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //div[contains(@class,'is-specificationTabs')]//table[contains(@class,'is-specification')]//tr/td
+  - name: availabilityText
+    singleValue: false
+    xpath:
+    defaultValue: 'In Stock'

@@ -158,7 +158,13 @@ const transform = (data) => {
           }
         });
       }
-
+      if(row.description){
+        var descriptionArr=[];
+        row.description.forEach(item=>{
+          descriptionArr.push(item.text);
+        });
+        row.description=[{"text":"|| "+descriptionArr.join(' || '),"xpath":row.description[0]['xpath']}];
+      }
       if (row.productOtherInformation) {
         row.productOtherInformation.forEach(item => {
           var data1Arr=item.text.split('Informacje dodatkowe ');
