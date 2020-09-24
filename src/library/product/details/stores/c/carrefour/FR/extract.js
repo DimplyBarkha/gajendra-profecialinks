@@ -49,8 +49,8 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-      let enhancedDesc = document.querySelector('div#flix-inpage');
-      enhancedDesc = enhancedDesc ? enhancedDesc..innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+      let enhancedDescHTML = document.querySelector('div#flix-inpage');
+      let enhancedDesc = enhancedDescHTML ? enhancedDescHTML.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
       addHiddenDiv('cr_enhancedContent',enhancedDesc);
       let specTrs = document.querySelectorAll('div.secondary-details__characteristics-table table tr');
       let finalSpecArr = [];
