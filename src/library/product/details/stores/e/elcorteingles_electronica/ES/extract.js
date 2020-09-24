@@ -197,6 +197,15 @@ module.exports = {
         }
       }
 
+      const getXpath = (xpath, prop) => {
+        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+      let videos = JSON.parse(getXpath('//div[contains(@class,"fullJwPlayerWarp")]/input/@value', 'nodeValue')) ? JSON.parse(getXpath('//div[contains(@class,"fullJwPlayerWarp")]/input/@value', 'nodeValue')).playlist.map(e => { return e.file }).join(" | ") : "";
+      addElementToDocument('videos', videos);
       // Secondry Image
       const alternateImages = [];
       document.querySelectorAll('link[as=image]').forEach(e => {
@@ -204,8 +213,6 @@ module.exports = {
       });
       addElementToDocument('alternateImages', alternateImages.slice(1).join(' | ').replace(/210x210/gm, '1200x1200'));
       // Specifications
-
-
       const description = document.querySelector('.product_detail-description-in-image');
       textContent(description, 'bulletDescription');
       textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');

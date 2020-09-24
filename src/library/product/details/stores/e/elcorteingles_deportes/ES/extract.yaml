@@ -37,7 +37,7 @@ fields:
 # Added New
   - name: image
     singleValue: true
-    xpath : (ancestor::html //div[@id='product_image'])[1]
+    xpath : ancestor::html  //div[@class="image-slides"]/img[1]/@data-zoom
   - name: imageAlt
     singleValue: true
     xpath : 

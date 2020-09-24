@@ -64,6 +64,17 @@ module.exports = {
         }
       }
 
+      const getXpath = (xpath, prop) => {
+        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+      let videos = JSON.parse(getXpath('//div[contains(@class,"fullJwPlayerWarp")]/input/@value', 'nodeValue')).playlist.map(e => { return e.file }).join(" | ")
+      addElementToDocument('videos',videos);
+      
+
       const makeApiCall = async (url, options) => {
         try {
           console.log(`Making API call to => ${url}`);

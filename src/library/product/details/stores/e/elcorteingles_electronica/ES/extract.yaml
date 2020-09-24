@@ -47,16 +47,14 @@ fields:
   - name: variantId
     xpath: //div[@id="retailer_product_code"]
   - name: mpc
-    xpath: //div[@class="sku-model"]
+    xpath: //div[@class="videos"]
     regExp: \s+(.+)$
     regExpReplace: $1
   - name: directions
     xpath : //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd |//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
   - name: videos
     singleValue: false
-    xpath : //div[contains(@class,"fullJwPlayerWarp")]/input/@value
-    regExp: \:\"(.+mp4)\"\,
-    regExpReplace: $1
+    xpath : //div[@class="videos"]
   - name: name
     xpath : //meta[@name="twitter:title"]/@content
   - name: ratingCount
@@ -86,7 +84,7 @@ fields:
   - name: imageZoomFeaturePresent
     xpath: //div[@id="imageZoomFeaturePresent"] 
   - name: shippingDimensions
-    xpath : //dt[contains(text(),"Medidas")]/following-sibling::dd[1] 
+    xpath : //dt[contains(text(),"Medidas")]/following-sibling::dd[1] | //dt[contains(text(),"Dimensiones")]/following-sibling::dd[1] 
   - name: shippingWeight
     xpath : 
   - name: variantCount
