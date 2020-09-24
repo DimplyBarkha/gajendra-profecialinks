@@ -38,7 +38,9 @@ fields:
     description: The number of ratings
   - name: price
     description: The offered price for the product
-    xpath: concat('€ ', //span[@class='current-price orange nl'])
+    xpath: //span[@class='current-price orange nl']
+    regExp: (\d+\.?(\,?(\d+)?)*)
+    regExpReplace: € $1
   - name: manufacturer
     description: Product manufacturer
   - name: soldBy

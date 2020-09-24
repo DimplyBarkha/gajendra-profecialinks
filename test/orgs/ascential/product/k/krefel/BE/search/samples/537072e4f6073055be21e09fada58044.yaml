@@ -2,14 +2,12 @@ input:
   keywords: dyson
   _url: http://krefel.be
 extractions:
-  - html: https://workbench.import.io/html/run=bb1df839-2d6e-4dbb-85d0-3f52e6694f95/task=dd97fffd-dbe1-4408-8b67-923c4b0f1e3c/f9401121-21eb-4890-81ea-57a1e0e6d175.html
+  - html: https://workbench.import.io/html/run=723df368-1a54-4dae-8c41-cdc86ce3176f/task=884fa15a-9f2d-4997-a009-8c00e3376c56/e3fe6d5c-60a5-4392-b239-5c4ea0e02350.html
     extractionConfigId: product/search/stores/k/krefel/BE/extract
     data:
       - group:
           - name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
               - text: "21005034"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/@data-tracking-commerce
@@ -36,15 +34,16 @@ extractions:
                 raw: "19"
                 locale: nl
                 value: 19
+            price:
+              - text: € 499,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "1"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "13000203"
+              - text: "13000239"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "2"
@@ -54,30 +53,31 @@ extractions:
                 locale: nl
                 value: 2
             productUrl:
-              - text: https://www.krefel.be/nl/p/13000203-luchtreiniger-hp04-pure-hot-plus-cool
+              - text: https://www.krefel.be/nl/p/13000239-luchtreiniger-pure-cool-me
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8858342883358/400x320.13000203_01.jpg
+              - text: https://media.krefel.be/sys-master/products/8886976544798/400x320.13000239_01_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: "4"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/a[1]/div[1]/@rating
             reviewCount:
-              - text: "2"
+              - text: "20"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
                 type: NUMBER
-                raw: "2"
+                raw: "20"
                 locale: nl
-                value: 2
+                value: 20
+            price:
+              - text: € 329,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "2"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "13000175"
+              - text: "13000203"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[3]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "3"
@@ -87,30 +87,31 @@ extractions:
                 locale: nl
                 value: 3
             productUrl:
-              - text: https://www.krefel.be/nl/p/13000175-luchtreiniger-pure-cool-tower
+              - text: https://www.krefel.be/nl/p/13000203-luchtreiniger-hp04-pure-hot-plus-cool
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8835950313502/400x320.13000175_1.jpg
+              - text: https://media.krefel.be/sys-master/products/8858342883358/400x320.13000203_01.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,5
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/a[1]/div[1]/@rating
             reviewCount:
-              - text: "5"
+              - text: "2"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
                 type: NUMBER
-                raw: "5"
+                raw: "2"
                 locale: nl
-                value: 5
+                value: 2
+            price:
+              - text: € 649,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "3"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[3]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "13000174"
+              - text: "13000175"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[4]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "4"
@@ -120,20 +121,31 @@ extractions:
                 locale: nl
                 value: 4
             productUrl:
-              - text: https://www.krefel.be/nl/p/13000174-luchtreiniger-pure-cool-desk
+              - text: https://www.krefel.be/nl/p/13000175-luchtreiniger-pure-cool-tower
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8835948052510/400x320.13000174_1.jpg
+              - text: https://media.krefel.be/sys-master/products/8835950313502/400x320.13000175_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/a[1]/div[1]/@rating
+            reviewCount:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
+                type: NUMBER
+                raw: "5"
+                locale: nl
+                value: 5
+            price:
+              - text: € 599,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "4"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[4]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "21005733"
+              - text: "21005662"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[5]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "5"
@@ -143,30 +155,31 @@ extractions:
                 locale: nl
                 value: 5
             productUrl:
-              - text: https://www.krefel.be/nl/p/21005733-luchtbevochtiger-pure-humidify-plus-cool
+              - text: https://www.krefel.be/nl/p/21005662-steelstofzuiger-v11-absolute-extra-pro
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[5]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8933183455262/400x320.21005733_1.jpg
+              - text: https://media.krefel.be/sys-master/products/8943457665054/400x320.21005662_01.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[5]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,5
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[5]/div[1]/div[1]/a[1]/div[1]/@rating
             reviewCount:
-              - text: "25"
+              - text: "74"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[5]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
                 type: NUMBER
-                raw: "25"
+                raw: "74"
                 locale: nl
-                value: 25
+                value: 74
+            price:
+              - text: € 799,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[5]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "5"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[5]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "13000239"
+              - text: "21005363"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[6]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "6"
@@ -176,13 +189,13 @@ extractions:
                 locale: nl
                 value: 6
             productUrl:
-              - text: https://www.krefel.be/nl/p/13000239-luchtreiniger-pure-cool-me
+              - text: https://www.krefel.be/nl/p/21005363-stijltang-corrale
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[6]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8886976544798/400x320.13000239_01_1.jpg
+              - text: https://media.krefel.be/sys-master/products/8924189130782/400x320.21005363_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[6]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: "4"
+              - text: 4,5
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[6]/div[1]/div[1]/a[1]/div[1]/@rating
             reviewCount:
               - text: "20"
@@ -191,15 +204,16 @@ extractions:
                 raw: "20"
                 locale: nl
                 value: 20
+            price:
+              - text: € 499,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[6]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "6"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[6]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "13000013"
+              - text: "21004261"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[7]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "7"
@@ -209,30 +223,21 @@ extractions:
                 locale: nl
                 value: 7
             productUrl:
-              - text: https://www.krefel.be/nl/p/13000013-torenventilator-am07-silver
+              - text: https://www.krefel.be/nl/p/21004261-stofzuiger-zonder-zak-cinetic-big-ball-multi-floor-2
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[7]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8836262264862/400x320.13000013_1.jpg
+              - text: https://media.krefel.be/sys-master/products/8850693062686/400x320.38332459_0108405598.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[7]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[7]/div[1]/div[1]/a[1]/div[1]/@rating
-            reviewCount:
-              - text: "6"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[7]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "6"
-                locale: nl
-                value: 6
+            price:
+              - text: € 399,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[7]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "7"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[7]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "21005662"
+              - text: "21005733"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "8"
@@ -242,30 +247,31 @@ extractions:
                 locale: nl
                 value: 8
             productUrl:
-              - text: https://www.krefel.be/nl/p/21005662-steelstofzuiger-v11-absolute-extra-pro
+              - text: https://www.krefel.be/nl/p/21005733-luchtbevochtiger-pure-humidify-plus-cool
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8943457665054/400x320.21005662_01.jpg
+              - text: https://media.krefel.be/sys-master/products/8933183455262/400x320.21005733_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,5
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/div[1]/div[1]/a[1]/div[1]/@rating
             reviewCount:
-              - text: "74"
+              - text: "25"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
                 type: NUMBER
-                raw: "74"
+                raw: "25"
                 locale: nl
-                value: 74
+                value: 25
+            price:
+              - text: € 699,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "8"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "21004767"
+              - text: "13000174"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[9]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "9"
@@ -275,30 +281,21 @@ extractions:
                 locale: nl
                 value: 9
             productUrl:
-              - text: https://www.krefel.be/nl/p/21004767-steelstofzuiger-v8-parquet
+              - text: https://www.krefel.be/nl/p/13000174-luchtreiniger-pure-cool-desk
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[9]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8893219078174/400x320.21004767_1.jpg
+              - text: https://media.krefel.be/sys-master/products/8835948052510/400x320.13000174_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[9]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,5
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[9]/div[1]/div[1]/a[1]/div[1]/@rating
-            reviewCount:
-              - text: "25"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[9]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "25"
-                locale: nl
-                value: 25
+            price:
+              - text: € 549,95
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[9]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "9"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[9]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "21005919"
+              - text: "13000013"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "10"
@@ -308,30 +305,31 @@ extractions:
                 locale: nl
                 value: 10
             productUrl:
-              - text: https://www.krefel.be/nl/p/21005919-airwrap-styler-complete-long
+              - text: https://www.krefel.be/nl/p/13000013-torenventilator-am07-silver
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8935329169438/400x320.80035118_9853259854.jpg
+              - text: https://media.krefel.be/sys-master/products/8836262264862/400x320.13000013_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: "5"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/a[1]/div[1]/@rating
             reviewCount:
-              - text: "19"
+              - text: "6"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
                 type: NUMBER
-                raw: "19"
+                raw: "6"
                 locale: nl
-                value: 19
+                value: 6
+            price:
+              - text: € 399,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "10"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "21005363"
+              - text: "21004767"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[11]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "11"
@@ -341,30 +339,31 @@ extractions:
                 locale: nl
                 value: 11
             productUrl:
-              - text: https://www.krefel.be/nl/p/21005363-stijltang-corrale
+              - text: https://www.krefel.be/nl/p/21004767-steelstofzuiger-v8-parquet
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8924189130782/400x320.21005363_1.jpg
+              - text: https://media.krefel.be/sys-master/products/8893219078174/400x320.21004767_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,5
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/a[1]/div[1]/@rating
             reviewCount:
-              - text: "20"
+              - text: "25"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
                 type: NUMBER
-                raw: "20"
+                raw: "25"
                 locale: nl
-                value: 20
+                value: 25
+            price:
+              - text: € 349,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "11"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[11]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "21005660"
+              - text: "21005919"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[12]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "12"
@@ -374,30 +373,31 @@ extractions:
                 locale: nl
                 value: 12
             productUrl:
-              - text: https://www.krefel.be/nl/p/21005660-steelstofzuiger-v11-torque-drive-extra
+              - text: https://www.krefel.be/nl/p/21005919-airwrap-styler-complete-long
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[12]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8934442237982/400x320.21005660_1.jpg
+              - text: https://media.krefel.be/sys-master/products/8935329169438/400x320.80035118_9853259854.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[12]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,5
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[12]/div[1]/div[1]/a[1]/div[1]/@rating
             reviewCount:
-              - text: "74"
+              - text: "19"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[12]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
                 type: NUMBER
-                raw: "74"
+                raw: "19"
                 locale: nl
-                value: 74
+                value: 19
+            price:
+              - text: € 499,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[12]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "12"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[12]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "21006123"
+              - text: "21005660"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[13]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "13"
@@ -407,20 +407,31 @@ extractions:
                 locale: nl
                 value: 13
             productUrl:
-              - text: https://www.krefel.be/nl/p/21006123-steelstofzuiger-v11-parquet-extra
+              - text: https://www.krefel.be/nl/p/21005660-steelstofzuiger-v11-torque-drive-extra
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[13]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8944186130462/400x320.80435203_7203045828.jpg
+              - text: https://media.krefel.be/sys-master/products/8934442237982/400x320.21005660_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[13]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[13]/div[1]/div[1]/a[1]/div[1]/@rating
+            reviewCount:
+              - text: "74"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[13]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
+                type: NUMBER
+                raw: "74"
+                locale: nl
+                value: 74
+            price:
+              - text: € 599,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[13]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "13"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[13]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "21004261"
+              - text: "21006123"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[14]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "14"
@@ -430,18 +441,19 @@ extractions:
                 locale: nl
                 value: 14
             productUrl:
-              - text: https://www.krefel.be/nl/p/21004261-stofzuiger-zonder-zak-cinetic-big-ball-multi-floor-2
+              - text: https://www.krefel.be/nl/p/21006123-steelstofzuiger-v11-parquet-extra
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[14]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8850693062686/400x320.38332459_0108405598.jpg
+              - text: https://media.krefel.be/sys-master/products/8944186130462/400x320.80435203_7203045828.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[14]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
+            price:
+              - text: € 599,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[14]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "14"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[14]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
               - text: "21005661"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[15]/div[1]/@data-tracking-commerce
@@ -468,13 +480,14 @@ extractions:
                 raw: "74"
                 locale: nl
                 value: 74
+            price:
+              - text: € 649,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[15]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "15"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[15]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
               - text: "21003412"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[16]/div[1]/@data-tracking-commerce
@@ -501,15 +514,16 @@ extractions:
                 raw: "5"
                 locale: nl
                 value: 5
+            price:
+              - text: € 499,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[16]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "16"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[16]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "61003861"
+              - text: "22000821"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[17]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "17"
@@ -519,20 +533,21 @@ extractions:
                 locale: nl
                 value: 17
             productUrl:
-              - text: https://www.krefel.be/nl/p/61003861-filter-voor-dyson-pure-hot-plus-cool-pure-cool
+              - text: https://www.krefel.be/nl/p/22000821-toolkit-big-ball-promotieartikel-geen-verkoop
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[17]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8922356940830/400x320.61003861_1.jpg
+              - text: https://media.krefel.be/sys-master/products/8935552352286/400x320.22000821_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[17]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
+            price:
+              - text: € 99,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[17]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "17"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[17]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "22000821"
+              - text: "61003861"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[18]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "18"
@@ -542,20 +557,21 @@ extractions:
                 locale: nl
                 value: 18
             productUrl:
-              - text: https://www.krefel.be/nl/p/22000821-toolkit-big-ball-promotieartikel-geen-verkoop
+              - text: https://www.krefel.be/nl/p/61003861-filter-voor-dyson-pure-hot-plus-cool-pure-cool
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[18]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8935552352286/400x320.22000821_1.jpg
+              - text: https://media.krefel.be/sys-master/products/8922356940830/400x320.61003861_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[18]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
+            price:
+              - text: € 65,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[18]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "18"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[18]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "21005360"
+              - text: "21006137"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[19]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "19"
@@ -565,20 +581,21 @@ extractions:
                 locale: nl
                 value: 19
             productUrl:
-              - text: https://www.krefel.be/nl/p/21005360-handdroger-airblade-9kj
+              - text: https://www.krefel.be/nl/p/21006137-stofzuiger-zonder-zak-big-ball-multi-floor-2
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[19]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8918590455838/400x320.21005360_1.jpg
+              - text: https://media.krefel.be/sys-master/products/8943199453214/400x320.38183709_1163686639.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[19]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
+            price:
+              - text: € 299,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[19]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "19"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[19]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "21006137"
+              - text: "21005238"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[20]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "20"
@@ -588,20 +605,31 @@ extractions:
                 locale: nl
                 value: 20
             productUrl:
-              - text: https://www.krefel.be/nl/p/21006137-stofzuiger-zonder-zak-big-ball-multi-floor-2
+              - text: https://www.krefel.be/nl/p/21005238-steelstofzuiger-cyclone-v10-absolute-pro
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[20]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8943199453214/400x320.38183709_1163686639.jpg
+              - text: https://media.krefel.be/sys-master/products/8912217210910/400x320.21005238_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[20]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[20]/div[1]/div[1]/a[1]/div[1]/@rating
+            reviewCount:
+              - text: "11"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[20]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
+                type: NUMBER
+                raw: "11"
+                locale: nl
+                value: 11
+            price:
+              - text: € 529,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[20]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "20"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[20]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "21005238"
+              - text: "21005360"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[21]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "21"
@@ -611,28 +639,19 @@ extractions:
                 locale: nl
                 value: 21
             productUrl:
-              - text: https://www.krefel.be/nl/p/21005238-steelstofzuiger-cyclone-v10-absolute-pro
+              - text: https://www.krefel.be/nl/p/21005360-handdroger-airblade-9kj
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[21]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8912217210910/400x320.21005238_1.jpg
+              - text: https://media.krefel.be/sys-master/products/8918590455838/400x320.21005360_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[21]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,5
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[21]/div[1]/div[1]/a[1]/div[1]/@rating
-            reviewCount:
-              - text: "11"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[21]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "11"
-                locale: nl
-                value: 11
+            price:
+              - text: € 1.330,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[21]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "21"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[21]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
               - text: "21005787"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[22]/div[1]/@data-tracking-commerce
@@ -649,15 +668,16 @@ extractions:
             thumbnail:
               - text: https://media.krefel.be/sys-master/products/8943454158878/400x320.21005787_01.png
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[22]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
+            price:
+              - text: € 449,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[22]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "22"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[22]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "21000888"
+              - text: "21004409"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[23]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "23"
@@ -667,20 +687,21 @@ extractions:
                 locale: nl
                 value: 23
             productUrl:
-              - text: https://www.krefel.be/nl/p/21000888-handdroger-airblade-db-ab14-grijs
+              - text: https://www.krefel.be/nl/p/21004409-handdroger-airblade-v-hu02-grijs
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[23]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8855542071326/400x320.21000888_01.jpg
+              - text: https://media.krefel.be/sys-master/products/8856779718686/400x320.21004409_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[23]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
+            price:
+              - text: € 906,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[23]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "23"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[23]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
           - id:
-              - text: "21004412"
+              - text: "21000258"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[24]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "24"
@@ -690,30 +711,29 @@ extractions:
                 locale: nl
                 value: 24
             productUrl:
-              - text: https://www.krefel.be/nl/p/21004412-handdroger-airblade-wash-plusdry-wd06-wandmontage
+              - text: https://www.krefel.be/nl/p/21000258-handdroger-airblade-db-ab14-wit
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[24]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8856789745694/400x320.21004412_01.jpg
+              - text: https://media.krefel.be/sys-master/products/8855540269086/400x320.21000258_01.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[24]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
+            price:
+              - text: € 1.330,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[24]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "24"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[24]/@count
             name:
               - text: Dyson, Airwrap Styler Complete
-            price:
-              - text: € 499,00
         xpath: /html
-    timestamp: 1600957679535
-  - html: https://workbench.import.io/html/run=bb1df839-2d6e-4dbb-85d0-3f52e6694f95/task=dd97fffd-dbe1-4408-8b67-923c4b0f1e3c/a78ef4a2-d11b-42de-9a9f-e79a99df8495.html
+    timestamp: 1600963360490
+  - html: https://workbench.import.io/html/run=723df368-1a54-4dae-8c41-cdc86ce3176f/task=884fa15a-9f2d-4997-a009-8c00e3376c56/8c34c007-6ba3-4c06-997c-698b3c687aec.html
     extractionConfigId: product/search/stores/k/krefel/BE/extract
     data:
       - group:
           - name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
+              - text: Dyson, Handdroger Airblade dB AB14 Grijs
           - id:
-              - text: "21000258"
+              - text: "21000888"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "1"
@@ -723,23 +743,24 @@ extractions:
                 locale: nl
                 value: 1
             productUrl:
-              - text: https://www.krefel.be/nl/p/21000258-handdroger-airblade-db-ab14-wit
+              - text: https://www.krefel.be/nl/p/21000888-handdroger-airblade-db-ab14-grijs
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8855540269086/400x320.21000258_01.jpg
+              - text: https://media.krefel.be/sys-master/products/8855542071326/400x320.21000888_01.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,5
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/@rating
+            price:
+              - text: € 1.330,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "1"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/@count
             name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
+              - text: Dyson, Handdroger Airblade dB AB14 Grijs
           - id:
-              - text: "21004410"
+              - text: "21004412"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "2"
@@ -749,23 +770,24 @@ extractions:
                 locale: nl
                 value: 2
             productUrl:
-              - text: https://www.krefel.be/nl/p/21004410-handdroger-airblade-wash-plusdry-wd04-korte-hals
+              - text: https://www.krefel.be/nl/p/21004412-handdroger-airblade-wash-plusdry-wd06-wandmontage
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8856788926494/400x320.59937856_0508231008.jpg
+              - text: https://media.krefel.be/sys-master/products/8856789745694/400x320.21004412_01.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: "4"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/a[1]/div[1]/@rating
+            price:
+              - text: € 1.693,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "2"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/@count
             name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
+              - text: Dyson, Handdroger Airblade dB AB14 Grijs
           - id:
-              - text: "21004408"
+              - text: "21004410"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[3]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "3"
@@ -775,23 +797,24 @@ extractions:
                 locale: nl
                 value: 3
             productUrl:
-              - text: https://www.krefel.be/nl/p/21004408-handdroger-airblade-v-hu02-wit
+              - text: https://www.krefel.be/nl/p/21004410-handdroger-airblade-wash-plusdry-wd04-korte-hals
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8856763957278/400x320.21004408_1.jpg
+              - text: https://media.krefel.be/sys-master/products/8856788926494/400x320.59937856_0508231008.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,5
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/a[1]/div[1]/@rating
+            price:
+              - text: € 1.693,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "3"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[3]/@count
             name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
+              - text: Dyson, Handdroger Airblade dB AB14 Grijs
           - id:
-              - text: "21004409"
+              - text: "21004408"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[4]/div[1]/@data-tracking-commerce
             rankOrganic:
               - text: "4"
@@ -801,54 +824,32 @@ extractions:
                 locale: nl
                 value: 4
             productUrl:
-              - text: https://www.krefel.be/nl/p/21004409-handdroger-airblade-v-hu02-grijs
+              - text: https://www.krefel.be/nl/p/21004408-handdroger-airblade-v-hu02-wit
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8856779718686/400x320.21004409_1.jpg
+              - text: https://media.krefel.be/sys-master/products/8856763957278/400x320.21004408_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/a[1]/div[1]/@rating
+            price:
+              - text: € 906,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[4]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
               - text: "4"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[4]/@count
             name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
-          - id:
-              - text: "21004411"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[5]/div[1]/@data-tracking-commerce
-            rankOrganic:
-              - text: "5"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[5]/@count
-                type: NUMBER
-                raw: "5"
-                locale: nl
-                value: 5
-            productUrl:
-              - text: https://www.krefel.be/nl/p/21004411-handdroger-airblade-wash-plusdry-wd05-lange-hals
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[5]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8856789680158/400x320.21004411_01.jpg
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[5]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,5
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[5]/div[1]/div[1]/a[1]/div[1]/@rating
-            rank:
-              - text: "5"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[5]/@count
-            name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
+              - text: Dyson, Handdroger Airblade dB AB14 Grijs
           - id:
               - text: "21005130"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[6]/div[1]/@data-tracking-commerce
             rankOrganic:
-              - text: "6"
+              - text: "5"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[6]/@count
                 type: NUMBER
-                raw: "6"
+                raw: "5"
                 locale: nl
-                value: 6
+                value: 5
             productUrl:
               - text: https://www.krefel.be/nl/p/21005130-haardroger-supersonic-plus-stand
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[6]/div[1]/div[1]/a[1]/@href
@@ -856,7 +857,7 @@ extractions:
               - text: https://media.krefel.be/sys-master/products/8907095506974/400x320.21005130_2.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[6]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: "4"
+              - text: 4,5
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[6]/div[1]/div[1]/a[1]/div[1]/@rating
             reviewCount:
               - text: "1"
@@ -865,326 +866,173 @@ extractions:
                 raw: "1"
                 locale: nl
                 value: 1
+            price:
+              - text: € 379,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[6]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
-              - text: "6"
+              - text: "5"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[6]/@count
             name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
+              - text: Dyson, Handdroger Airblade dB AB14 Grijs
           - id:
               - text: "21003946"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[7]/div[1]/@data-tracking-commerce
-            rankOrganic:
-              - text: "7"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[7]/@count
-                type: NUMBER
-                raw: "7"
-                locale: nl
-                value: 7
-            productUrl:
-              - text: https://www.krefel.be/nl/p/21003946-steelstofzuiger-cyclone-v10-absolute
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[7]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8934442369054/400x320.21003946_1.jpg
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[7]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[7]/div[1]/div[1]/a[1]/div[1]/@rating
-            reviewCount:
-              - text: "11"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[7]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "11"
-                locale: nl
-                value: 11
-            rank:
-              - text: "7"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[7]/@count
-            name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
-          - id:
-              - text: "21002671"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/div[1]/@data-tracking-commerce
             rankOrganic:
-              - text: "8"
+              - text: "6"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/@count
                 type: NUMBER
-                raw: "8"
+                raw: "6"
                 locale: nl
-                value: 8
+                value: 6
             productUrl:
-              - text: https://www.krefel.be/nl/p/21002671-haardroger-supersonic
+              - text: https://www.krefel.be/nl/p/21003946-steelstofzuiger-cyclone-v10-absolute
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8816655892510/400x320.33239734_2561093751.jpg
+              - text: https://media.krefel.be/sys-master/products/8934442369054/400x320.21003946_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,5
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/div[1]/div[1]/a[1]/div[1]/@rating
             reviewCount:
-              - text: "17"
+              - text: "11"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]
                 type: NUMBER
-                raw: "17"
+                raw: "11"
                 locale: nl
-                value: 17
+                value: 11
+            price:
+              - text: € 499,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
-              - text: "8"
+              - text: "6"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[8]/@count
             name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
+              - text: Dyson, Handdroger Airblade dB AB14 Grijs
           - id:
               - text: "21003415"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[9]/div[1]/@data-tracking-commerce
             rankOrganic:
-              - text: "9"
+              - text: "7"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[9]/@count
                 type: NUMBER
-                raw: "9"
+                raw: "7"
                 locale: nl
-                value: 9
+                value: 7
             productUrl:
               - text: https://www.krefel.be/nl/p/21003415-steelstofzuiger-v7-fluffy
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[9]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://media.krefel.be/sys-master/products/8819344113694/400x320.37877752_5113047405.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[9]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,5
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[9]/div[1]/div[1]/a[1]/div[1]/@rating
+            price:
+              - text: € 449,00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[9]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
-              - text: "9"
+              - text: "7"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[9]/@count
             name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
-          - id:
-              - text: "61001409"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/@data-tracking-commerce
-            rankOrganic:
-              - text: "10"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/@count
-                type: NUMBER
-                raw: "10"
-                locale: nl
-                value: 10
-            productUrl:
-              - text: https://www.krefel.be/nl/p/61001409-stofzuigermondstuk-turbo-turbine-head
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8822301261854/400x320.61001409_01.jpg
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,5
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/a[1]/div[1]/@rating
-            rank:
-              - text: "10"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/@count
-            name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
+              - text: Dyson, Handdroger Airblade dB AB14 Grijs
           - id:
               - text: "61001945"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[11]/div[1]/@data-tracking-commerce
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/@data-tracking-commerce
             rankOrganic:
-              - text: "11"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[11]/@count
+              - text: "8"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/@count
                 type: NUMBER
-                raw: "11"
+                raw: "8"
                 locale: nl
-                value: 11
+                value: 8
             productUrl:
               - text: https://www.krefel.be/nl/p/61001945-stofzuigermondstuk-homekit-912772-04
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://media.krefel.be/sys-master/products/8823112761374/400x320.61001945_1.jpg
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[11]/div[1]/div[1]/a[1]/div[1]/@rating
-            rank:
-              - text: "11"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[11]/@count
-            name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/a[1]/div[1]/@rating
             price:
-              - text: € 1 330,00
+              - text: € 99,95
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
+            rank:
+              - text: "8"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[10]/@count
+            name:
+              - text: Dyson, Handdroger Airblade dB AB14 Grijs
           - id:
-              - text: "083373"
+              - text: "083374"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[12]/div[1]/@data-tracking-commerce
             rankOrganic:
-              - text: "12"
+              - text: "9"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[12]/@count
                 type: NUMBER
-                raw: "12"
+                raw: "9"
                 locale: nl
-                value: 12
+                value: 9
             productUrl:
-              - text: https://www.krefel.be/nl/p/083373-stofzuigermondstuk-tangle-free-turbine
+              - text: https://www.krefel.be/nl/p/083374-stofzuigermondstuk-matress-tool-908940-02
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[12]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8813284491294/400x320.18402002_3373.jpg
+              - text: https://media.krefel.be/sys-master/products/8823112499230/400x320.083374_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[12]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,5
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[12]/div[1]/div[1]/a[1]/div[1]/@rating
+            price:
+              - text: € 24,90
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[12]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
-              - text: "12"
+              - text: "9"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[12]/@count
             name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
-          - id:
-              - text: "083374"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[13]/div[1]/@data-tracking-commerce
-            rankOrganic:
-              - text: "13"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[13]/@count
-                type: NUMBER
-                raw: "13"
-                locale: nl
-                value: 13
-            productUrl:
-              - text: https://www.krefel.be/nl/p/083374-stofzuigermondstuk-matress-tool-908940-02
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[13]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8823112499230/400x320.083374_1.jpg
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[13]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
-            rank:
-              - text: "13"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[13]/@count
-            name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
-          - id:
-              - text: "22000802"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[14]/div[1]/@data-tracking-commerce
-            rankOrganic:
-              - text: "14"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[14]/@count
-                type: NUMBER
-                raw: "14"
-                locale: nl
-                value: 14
-            productUrl:
-              - text: https://www.krefel.be/nl/p/22000802-toolkit-v11-promotieartikel-geen-verkoop
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[14]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8929620066334/400x320.22000802_01.jpg
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[14]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
-            rank:
-              - text: "14"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[14]/@count
-            name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
-          - id:
-              - text: "083371"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[15]/div[1]/@data-tracking-commerce
-            rankOrganic:
-              - text: "15"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[15]/@count
-                type: NUMBER
-                raw: "15"
-                locale: nl
-                value: 15
-            productUrl:
-              - text: https://www.krefel.be/nl/p/083371-stofzuigermondstuk-stofborstel-soft-dusting
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[15]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8816014262302/400x320.10752463-3457.jpg
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[15]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,5
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[15]/div[1]/div[1]/a[1]/div[1]/@rating
-            rank:
-              - text: "15"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[15]/@count
-            name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
-          - id:
-              - text: "083372"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[16]/div[1]/@data-tracking-commerce
-            rankOrganic:
-              - text: "16"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[16]/@count
-                type: NUMBER
-                raw: "16"
-                locale: nl
-                value: 16
-            productUrl:
-              - text: https://www.krefel.be/nl/p/083372-stofzuigermondstuk-flexi-crevice-t
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[16]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://media.krefel.be/sys-master/products/8822297853982/400x320.83372_01.jpg
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[16]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,5
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[16]/div[1]/div[1]/a[1]/div[1]/@rating
-            rank:
-              - text: "16"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[16]/@count
-            name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
+              - text: Dyson, Handdroger Airblade dB AB14 Grijs
           - id:
               - text: "61002679"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[17]/div[1]/@data-tracking-commerce
             rankOrganic:
-              - text: "17"
+              - text: "10"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[17]/@count
                 type: NUMBER
-                raw: "17"
+                raw: "10"
                 locale: nl
-                value: 17
+                value: 10
             productUrl:
               - text: https://www.krefel.be/nl/p/61002679-toolkit-v7-v8-v10
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[17]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://media.krefel.be/sys-master/products/8840541732894/400x320.61002679_01.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[17]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
+            price:
+              - text: € 99,95
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[17]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
-              - text: "17"
+              - text: "10"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[17]/@count
             name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
+              - text: Dyson, Handdroger Airblade dB AB14 Grijs
           - id:
               - text: "21004329"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[18]/div[1]/@data-tracking-commerce
             rankOrganic:
-              - text: "18"
+              - text: "11"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[18]/@count
                 type: NUMBER
-                raw: "18"
+                raw: "11"
                 locale: nl
-                value: 18
+                value: 11
             productUrl:
               - text: https://www.krefel.be/nl/p/21004329-schoonmaakset-voor-de-auto-v7-v8-v10
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[18]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://media.krefel.be/sys-master/products/8855567007774/400x320.21004329_01.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[18]/div[1]/div[1]/a[1]/div[1]/span[1]/img[1]/@src
+            price:
+              - text: € 99,95
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[18]/div[1]/div[1]/a[1]/div[2]/div[1]/div[2]/span[1]
             rank:
-              - text: "18"
+              - text: "11"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[18]/@count
             name:
-              - text: Dyson, Handdroger Airblade dB AB14 Wit
-            price:
-              - text: € 1 330,00
+              - text: Dyson, Handdroger Airblade dB AB14 Grijs
         xpath: /html
-    timestamp: 1600957679535
+    timestamp: 1600963360490
