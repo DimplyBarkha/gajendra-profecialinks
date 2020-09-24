@@ -8,7 +8,7 @@ fields:
       xpath: //a[contains(@class,"history-item")]
     - name: id
       singleValue: false
-      xpath: //a[contains(@class,"atwl-button")]/@data-product-id
+      xpath: //div[@class="add-to-wishlist"]/a/@data-product-id
     - name: productUrl
       singleValue: false
       xpath: //h3/a[contains(@class,"history-item")]/@href
