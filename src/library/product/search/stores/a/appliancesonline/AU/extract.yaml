@@ -19,7 +19,7 @@ fields:
     xpath: //div[contains(@class, 'main-image')]/@style
     regExp: (?:\(['|"]?)(.*?\.(png|jpg|gif|jpeg|tiff){1})(?:['|"]?\))
     regExpReplace: https://www.appliancesonline.com.au$1
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     xpath: //div//a[contains(@class, 'rating-text ng-star')]
     regExp: ^.{0,3}
