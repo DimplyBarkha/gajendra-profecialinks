@@ -15,7 +15,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //ul[contains(@class,'product-images js-qv-product-images')]//img//@data-image-large-src
+    xpath: //ul[contains(@class,'product-images js-qv-product-images')]//li[position()>1]//img//@data-image-large-src
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -24,11 +24,7 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)    
     # xpath: //nav[contains(@class, 'breadcrumb')]//ol//li[position()=2]
-    xpath: //nav[contains(@class, 'breadcrumb')]//ol//li
-  - name: subCategory
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: //nav[contains(@class, 'breadcrumb')]//ol//li[position()>2 and position()<last()]
+    xpath: //nav[contains(@class, 'breadcrumb')]//ol//li[position()<last()]  
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -37,7 +33,7 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //span[@itemprop="price"]//@content
+    # xpath: //span[@itemprop="price"]//@content
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
