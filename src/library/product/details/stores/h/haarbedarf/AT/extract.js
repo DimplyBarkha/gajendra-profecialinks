@@ -1,16 +1,17 @@
-const { cleanUp } = require('../../../../shared');
+const { cleanUp } = require("../../../../shared");
 
 module.exports = {
-  implements: 'product/details/extract',
+  implements: "product/details/extract",
   parameterValues: {
-    country: 'AT',
-    store: 'haarbedarf',
+    country: "AT",
+    store: "haarbedarf",
     transform: cleanUp,
-    domain: 'haarbedarf.at',
+    domain: "haarbedarf.at",
   },
 
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    await context.waitForSelector("#tab-description");
     await context.evaluate(async function () {
       // Removing spaces between colors e.g. 'schwarz / nickel' to 'schwarz/nickel'
       const colorInH1 = document.querySelector('h1.product_title.entry-title');
