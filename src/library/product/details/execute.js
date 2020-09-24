@@ -17,7 +17,7 @@ async function implementation (
   if (!url && !id) throw new Error('No id or url provided');
   const destinationURL = url || await dependencies.createUrl({ id });
 
-  await dependencies.goto({ destinationURL, zipcode, storeId });
+  await dependencies.goto({ url: destinationURL, zipcode, storeId });
 
   if (loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
