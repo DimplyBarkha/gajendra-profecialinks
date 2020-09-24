@@ -48,7 +48,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //button[@data-button-action="add-to-cart" and @type="submit"]
+    xpath: //span[@id="product-availability"]//i[@class='material-icons product-available']
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -65,21 +65,23 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    # xpath: //nav[contains(@class, 'breadcrumb')]//ol//li[position()=3]
     xpath: //script//@data-flix-brand
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
     xpath: //div[contains(@class,'product-description-short')]//img//@alt  
   - name: quantity
-    singleValue: false
+    singleValue: true
     description: Quantity as described on the page
-    xpath: //input[@id='quantity_wanted']//@value
+    xpath: //div[contains(text(), "Größe")]/following::div[1]
+    # xpath: //input[@id='quantity_wanted']//@value
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    # xpath: //h1[@itemprop="name"]//font[3]
-    xpath: //ul[contains(@class,'product-features')]/li[contains(text(),'Gewicht')]
+    xpath: //ul[contains(@class,'product-features')]/li[contains(text(),'Gewicht')]    
     regExp: (?<=:).*
+    # xpath: //h1[@itemprop="name"]//font[3]    
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -98,7 +100,8 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //script//@data-flix-mpn
+    xpath: //*[contains(text(),'Bestellnummer')]/following::dd[1]
+    # xpath: //script//@data-flix-mpn
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -135,7 +138,9 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    type: NUMBER
+    xpath: count(//div[@class='textvariantCount'])
+    defaultValue: 0
+    type: NUMBER    
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -145,16 +150,19 @@ fields:
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
-    singleValue: false
+    singleValue: false    
     description: The extended description of the product supplied by the lister
+    xpath: //div[contains(@class,'product-description')]//p
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[contains(@class,'product-description-short')]//img//@src
+    xpath: //div[@id='flix-std-inpage']//img//@srcset
+    regExp: (.+)
+    regExpReplace: https://ek-onlineshop.at$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //iframe[contains(@src,"youtube")]/@src
+    xpath: //div[@class="product-description-short"]//iframe[contains(@src,"youtube")]/@src
   - name: name
     singleValue: true
     description: The product name
@@ -242,8 +250,8 @@ fields:
     singleValue: false
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-    # xpath: //section[contains(@class,'product-features')]//dd[1]
-    xpath: //h5[contains(text(), "Leistungsaufnahme")]/following::li[1]
+    xpath: //dt[contains(text(), "Energieeffizienklasse")]/following::dd[1]
+    # xpath: //h5[contains(text(), "Leistungsaufnahme")]/following::li[1]
     example: A+, A+++, B
   - name: technicalInformationPdfPresent
     singleValue: true
@@ -268,7 +276,7 @@ fields:
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   - name: Image360Present
     singleValue: true
-    xpath: count(//div[contains(@class,'images-container')])
+    xpath: count(//div[contains(@class,'images-container-test98745')])
   - name: imageZoomFeaturePresent
     singleValue: true
     description: If Zoom feature is available for Main image or images in the

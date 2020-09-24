@@ -25,6 +25,10 @@ const transform = (data) => {
 				row.energyEfficiency = [{ text }];
 			  }
 
+			  if (row.weightNet) {
+				row.weightNet = [{ text: row.weightNet[0].text.trim() }];
+			  }
+
 		}
 	}
 
