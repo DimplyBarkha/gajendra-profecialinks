@@ -13,7 +13,7 @@ const transform = (data) => {
             rank_temp = rank_temp + 1;
             if (row.productUrl) {
                 row.productUrl.forEach(item => {
-                    item.text = item.text;
+                    item.text = 'https://www.manor.ch' + item.text;
                 });
             }
             if (row.thumbnail) {
