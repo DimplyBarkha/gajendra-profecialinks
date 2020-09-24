@@ -16,10 +16,10 @@ module.exports = {
       for (let i = 0; i < numberOfProducts; i++) {
         if (productBoxes[i].querySelector('div.rating-wrap').querySelector('div.rating')) {
           let fullRate = productBoxes[i].querySelector('div.rating').querySelectorAll('span.plug.filled').length;
-          if (!productBoxes[i].querySelector('div.rating').querySelectorAll('span.plug')[fullRate].querySelector('svg').querySelectorAll('path')[0].className.baseVal) {
+          if (fullRate !== 5 && !productBoxes[i].querySelector('div.rating').querySelectorAll('span.plug')[fullRate].querySelector('svg').querySelectorAll('path')[0].className.baseVal) {
             fullRate = fullRate + 0.5;
           }
-          fullRate = fullRate.toString().replace('.', ',')
+          fullRate = fullRate.toString().replace('.', ',');
           document.querySelectorAll('div.top-content')[i].setAttribute('rating', fullRate);
         };
       };
