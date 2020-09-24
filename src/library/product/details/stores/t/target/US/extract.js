@@ -8,7 +8,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
+  await context.waitForXPath("//li");
 
   const productUrl = await context.evaluate(async function () {
     function stall (ms) {
