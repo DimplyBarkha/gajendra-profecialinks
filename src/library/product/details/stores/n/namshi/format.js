@@ -13,9 +13,9 @@ const transform = (data) => {
           item.text = item.text.replace(/\n\s*\n\s*/g, ' : ').trim();
         });
       }
-      if (row.description) {
+      if (row.additionalDescBulletInfo) {
         let bullet_count = '';
-        row.description.forEach(item => {
+        row.additionalDescBulletInfo.forEach(item => {
           item.text = "|| " + item.text.replace(/\n/g, ' || ').trim();
           bullet_count = item.text.split("||").length;
         });
