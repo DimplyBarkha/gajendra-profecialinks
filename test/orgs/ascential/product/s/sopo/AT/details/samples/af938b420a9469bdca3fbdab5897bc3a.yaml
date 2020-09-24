@@ -1,0 +1,92 @@
+input:
+  _url: http://sopo.at
+  URL: https://www.sopo.at/haushaltsgeraete/staubsaugerzubehoer/33872/nedis-motorvorfilter-vcad400-fa-r-dyson
+extractions:
+  - html: https://workbench.import.io/html/run=2dc57eb1-e235-4622-a742-58bb86f390f5/task=bafbc6cf-a8fa-4bf2-bbf4-40d859acefb7/9688f5f8-8848-47d3-8932-82b801781441.html
+    extractionConfigId: product/details/stores/s/sopo/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.sopo.at/media/image/71/86/f1/5412810310456_600x600.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]/span[1]/img[1]/@srcset
+            imageAlt:
+              - text: Nedis Motorvorfilter VCAD400, fÃ¼r Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]/span[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.sopo.at/media/image/e8/b9/08/5412810310456_1.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[2]/@href
+              - text: https://www.sopo.at/media/image/76/ea/93/5412810310456_2.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[3]/@href
+              - text: https://www.sopo.at/media/image/60/38/0f/5412810310456_3.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[4]/@href
+            metaKeywords:
+              - text: Nedis;Motorvorfilter;VCAD400,;fÃ¼r;Dyson
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Haushaltsgeräte
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[1]/a[1]/span[1]
+              - text: Staubsaugerzubehör
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+            nameExtended:
+              - text: Nedis Motorvorfilter VCAD400, fÃ¼r Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            price:
+              - text: € 6,86
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
+            description:
+              - text: Geeignet für Dyson-Staubsauger DC58, DC59, DC61, DC62, V6, V7 und V8
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Nedis
+                xpath: /html/head[1]/meta[13]/@content
+            manufacturer:
+              - text: Nedis
+                xpath: /html/head[1]/meta[13]/@content
+            gtin:
+              - text: "5412810310456"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            sku:
+              - text: "5412810310456"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            variantId:
+              - text: "5412810310456"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            name:
+              - text: Nedis Motorvorfilter VCAD400, fÃ¼r Dyson
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            inStorePrice:
+              - text: € 6,86
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            quantity:
+              - text: "1"
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: de_DE
+                value: 0
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: de_DE
+                value: 0
+            specifications:
+              - text: ""
+        xpath: /
+    timestamp: 1600954103849

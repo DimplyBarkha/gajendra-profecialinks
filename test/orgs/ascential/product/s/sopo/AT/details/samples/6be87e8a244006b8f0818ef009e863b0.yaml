@@ -1,0 +1,129 @@
+input:
+  _url: http://sopo.at
+  URL: https://www.sopo.at/kuechengeraete-klein/sodastream-entsafter-zitruspressen/33045/wmf-entsafter-07.9780.9990
+extractions:
+  - html: https://workbench.import.io/html/run=2dc57eb1-e235-4622-a742-58bb86f390f5/task=1eda02d4-3827-45aa-9941-b7a4a90dfb85/a3e7d0a7-e8b0-4932-ac1e-41d197f0783e.html
+    extractionConfigId: product/details/stores/s/sopo/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.sopo.at/media/image/15/a2/5e/18564753_2498456601_600x600.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]/span[1]/img[1]/@srcset
+            imageAlt:
+              - text: WMF Entsafter, 07.9780.9990,
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]/span[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.sopo.at/media/image/76/6e/7c/18564753_8129976415.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[2]/@href
+            metaKeywords:
+              - text: WMF;Entsafter,;07.9780.9990,;;
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Küchengeräte Klein
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[1]/a[1]/span[1]
+              - text: Sodastream, Entsafter & Zitruspressen
+                xpath: /html/body/div[1]/nav[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
+            nameExtended:
+              - text: WMF Entsafter, 07.9780.9990,
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            listPrice:
+              - text: € 149,00
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[3]/span[1]
+            price:
+              - text: € 107,96
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
+            description:
+              - text: >-
+                  Kurzbeschreibung
+                   
+                  Frucht- und Gemüsesäfte sind wahre Power Drinks, schmecken lecker, spenden Energie und stärken die Abwehrkräfte. Mit dem WMF Entsafter können Sie auf schonende Art aus Früchten oder Gemüse Saft gewinnen. Der WMF Entsafter aus Cromargan® ist geschmacksneutral, beständig gegen Speisesäuren, hygienisch, pflegeleicht und für die Spülmaschine geeignet. Zudem ist der Entsafter mit einem TransTherm -Allherdboden ausgestattet, hat ergonomische Griffe und einen Güteglasdeckel zum Sichtkochen. Mit dem WMF Entsafter können Sie Früchte ohne Konservierungsstoffe und chemische Zusätze verarbeiten. Beim Entsaften im Dampf werden die Früchte nicht gekocht, sondern nur erhitzt, so bleiben Aroma, Farbe, Geschmack, Mineralien und Vitamine erhalten. Der moderne, platzsparende Entsafter mit ergonomischen Griffen überzeugt durch die verschiedenen Module die auch einzeln verwendet werden können, wie z.B. als Fruchtkorb und Kochtopf mit Deckel.
+                   
+
+                   
+
+                   
+                  Funktionen
+                   
+
+                   
+                  Produkttyp: Entsafter||
+                   
+                  Produktfarbe: Edelstahl||
+                   
+                  Saftcontainer: Nein||
+                   
+                  Schüsselkapazität: 7 l||
+                   
+                  Griff(e): Ja||
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]
+            brandText:
+              - text: WMF
+                xpath: /html/head[1]/meta[13]/@content
+            manufacturer:
+              - text: WMF
+                xpath: /html/head[1]/meta[13]/@content
+            gtin:
+              - text: "4000530649201"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            sku:
+              - text: "4000530649201"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            variantId:
+              - text: "4000530649201"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/div[1]/div[1]/div[2]
+            color:
+              - text: " Edelstahl||"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]
+            name:
+              - text: WMF Entsafter, 07.9780.9990,
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/header[1]/div[1]/h1[1]
+            inStorePrice:
+              - text: € 107,96
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[1]
+            coupon:
+              - text: (27,54% gespart)
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/span[3]/span[2]
+            additionalDescBulletInfo:
+              - text: "Produkttyp: Entsafter||"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]
+              - text: "Produktfarbe: Edelstahl||"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]
+              - text: "Saftcontainer: Nein||"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]
+              - text: "Schüsselkapazität: 7 l||"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[4]
+              - text: "Griff(e): Ja||"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[5]
+            quantity:
+              - text: "1"
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: de_DE
+                value: 0
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "5"
+                type: NUMBER
+                raw: "5"
+                locale: de_DE
+                value: 5
+            specifications:
+              - text: ""
+        xpath: /
+    timestamp: 1600954103769
