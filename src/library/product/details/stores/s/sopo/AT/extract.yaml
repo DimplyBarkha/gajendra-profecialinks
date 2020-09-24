@@ -139,11 +139,13 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    defaultValue: "0"
     type: NUMBER
   - name: color
     singleValue: true
     description: A textual description of the colour
     xpath: //li[contains(text(), 'Produktfarbe')]
+    regExp: \s(.+)
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -415,6 +417,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: concat(//li[contains(text(), 'Gewicht:')] , //div[@class='dimension'])
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
