@@ -3,9 +3,6 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: shippingInfo
-    singleValue: false
-    xpath: //div[@class="product-usp"]/i[@class="icon-delivery"]/parent::div
   - name: price
     singleValue: false
     xpath: //p[@class="product__price"]/span[1]
@@ -23,7 +20,7 @@ fields:
     xpath: //ul[@class="product__breadcrumb flex-container"]
   - name: nameExtended
     singleValue: false
-    xpath: //h2[@class="product__brandname"]
+    xpath: //div[@class="follow-brand__title"]
   - name: listPrice
     singleValue: false
     xpath: //p[@class="product__price"]/span[@class="pre-reduction"]
@@ -62,7 +59,6 @@ fields:
     xpath: //div[@class="info_content"]
   - name: variantInformation
     singleValue: false
-    xpath: //div[@id="sizeSelector"]//ul[@id="product_size"]/li
   - name: variantId
     singleValue: false
     xpath: //button[@class="wishlist-button"]/@data-sku
@@ -70,3 +66,6 @@ fields:
     singleValue: false
     xpath: //div[@id="sizeSelector"]//p[@class="outofstock__cta"]
     defaultValue: 'In Stock'
+  - name: quantity
+    singleValue: false
+    xpath: //ul[@id="product_size"]//label[@class="selected available"]

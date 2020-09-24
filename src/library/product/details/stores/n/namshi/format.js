@@ -14,9 +14,12 @@ const transform = (data) => {
         });
       }
       if (row.description) {
+        let bullet_count = '';
         row.description.forEach(item => {
           item.text = "|| " + item.text.replace(/\n/g, ' || ').trim();
+          bullet_count = item.text.split("||").length;
         });
+        row.descriptionBullets = [{"text":bullet_count}];
       }
       if (row.category) {
         var category_arr = [];
@@ -33,17 +36,6 @@ const transform = (data) => {
           });
         }
       }
-      if (row.variantInformation) {
-        let info = [];
-        row.variantInformation.forEach(item => {
-          info.push(item.text);
-        });
-        if (info.length) {
-          row.variantInformation = [{ "text": info.join(' | ') }];
-        } else {
-          delete row.variantInformation;
-        }
-      }
       if (row.alternateImages) {
         let info = [];
         row.alternateImages.forEach(item => {
@@ -52,12 +44,14 @@ const transform = (data) => {
       }
       if (row.variants) {
         let variations = [];
+        let v_info = [];
         let color = null;
         row.variants.forEach(item => {
           let data = JSON.parse(item.text);
           if (data['variations']) {
             data['variations'].forEach(variation => {
               variations.push(variation['sku']);
+              v_info.push(variation['color']);
               if(variation['sku'] == row.sku[0]['text']){
                 row.firstVariant = [{ "text": variation['sku'] }];
               }
@@ -73,6 +67,9 @@ const transform = (data) => {
           row.variants = [{ "text": variations.join(' | ') }];
         } else {
           delete row.variants;
+        }
+        if(v_info.length){
+          row.variantInformation = [{ "text": v_info.join(' | ') }];
         }
       }
       if (row.nameExtended) {
