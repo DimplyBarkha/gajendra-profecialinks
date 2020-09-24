@@ -66,7 +66,7 @@ fields:
     xpath: (//*[@data-asin])[1]/@data-asin
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Model Number')]/../td | //tr[contains(@class,'item-model-number')][1]//td[2] | //*[contains(text(),'Model Number')]/following-sibling::*[1]
+    xpath: (//*[@data-asin])[1]/@data-asin
   - name: mpc
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Model Number')]/../td | //tr[contains(@class,'item-model-number')][1]//td[2] | //*[contains(text(),'Model Number')]/following-sibling::*[1] | //* [contains(text(),'Item model number')]/following-sibling::*[1]
@@ -184,3 +184,12 @@ fields:
     singleValue: false
     xpath: //span[@data-action='enhanced-content-open-file']/a/@href
     defaultValue: No
+  - name: warnings
+    singleValue: false
+    xpath: //div[@id='cpsia-block']//div
+  - name: weightNet1
+    singleValue: false
+    xpath: //div[@id='productDescription']
+  - name: color1
+    singleValue: false
+    xpath: //div[@id='productDescription']

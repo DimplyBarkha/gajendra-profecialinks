@@ -278,6 +278,21 @@ const transform = (data, context) => {
       if (row.technicalInformationPdfPresent) {
         row.technicalInformationPdfPresent = row.technicalInformationPdfPresent[0].text !== 'No' ? [{ text: 'Yes' }] : [{ text: 'No' }];
       }
+      if (!row.weightNet) {
+        if (row.weightNet1 && row.weightNet1[0].text.includes('Item Weight')) {
+          const text = row.weightNet1[0].text.replace(/\n/g, '').replace(/.*Item Weight: (.*)/, '$1').replace(/^((?:\S+\s+){2}\S+).*/, '$1');
+          row.weightNet = [{ text }];
+        }
+      }
+      if (!row.color) {
+        if (row.color1 && row.color1[0].text.includes('Color Category')) {
+          const text = row.color1[0].text.replace(/\n/g, '').replace(/.*Color Category: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
+          row.color = [{ text }];
+        } else if (row.color1 && row.color1[0].text.includes('Color')) {
+          const text = row.color1[0].text.replace(/\n/g, '').replace(/.*Color: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
+          row.color = [{ text }];
+        }
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
