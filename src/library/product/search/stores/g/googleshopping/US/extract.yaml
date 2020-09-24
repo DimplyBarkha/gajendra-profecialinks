@@ -3,7 +3,30 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@class='productCardContainer deepFourCardProductGrid gxLayout-column gxFlex-xl-16 gxFlex-25 gxFlex-md-33 gxFlex-sm-33 gxFlex-xs-50 gxFlex-xxs-100 ng-star-inserted']
 fields:
-  - name: image
+  - name: thumbnail
     singleValue: false
     xpath: //div[@class= 'gxLayout-row gxFlex-100 gxLayoutWrap']//gx-image[@class='image gxLayout-row gxLayoutAlign-center-center']//img/@src
-  
+  - name: name
+    xpath: //div[@class= 'gxLayout-row gxFlex-100 gxLayoutWrap']//div[@class='productTitle ng-star-inserted']/@title
+    singleValue: false
+    description: The product name 
+  - name: price
+    xpath: //div[@class= 'gxLayout-row gxFlex-100 gxLayoutWrap']//span[@class='effectivePrice']/text()
+    singleValue: false
+    description: The offered price for the product
+  - name: id
+    xpath: //div[@class= 'gxLayout-row gxFlex-100 gxLayoutWrap']//gx-vertical-product-card//a/@href
+    regExp: product\W([^?]+)
+    regExpReplace: $1
+    singleValue: false
+    description: Unique id (within this extractor)
+  - name: rank
+  - name: rankOrganic
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class= 'gxLayout-row gxFlex-100 gxLayoutWrap']//gx-star-rating//div//span[@class='screenReaderOnly']/text()
+    regExp: Rated ([^()]+)out of 5 stars
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class= 'gxLayout-row gxFlex-100 gxLayoutWrap']//gx-star-rating//following-sibling::span/text()
