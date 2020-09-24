@@ -45,10 +45,6 @@ const transform = (data) => {
                             text: text.slice(0, -3).trim(),
                         },
                     ];
-
-                    /* let text = '';
-                    text = row.additionalDescBulletInfo[0].text.replace(/\n/g, ' || ');;
-                    row.additionalDescBulletInfo = [{ text }]; */
                 }
                 if (row.name && row.brandText) {
                     let text = '';
@@ -71,6 +67,18 @@ const transform = (data) => {
                 if (row.aggregateRating) {
 
                     row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
+                }
+                if (row.subCategory) {
+
+                    let text = '';
+                    row.subCategory.forEach(item => {
+                        text += `${item.text} > `;
+                    });
+                    row.subCategory = [
+                        {
+                            text: text.slice(0, -2).trim(),
+                        },
+                    ];
                 }
             } catch (exception) { console.log('Error in transform', exception); }
         }
