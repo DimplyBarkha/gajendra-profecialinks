@@ -1,0 +1,118 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@itemprop="offers"]//meta[@itemprop="availability"]/@content
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@data-zone-name="productSeller"]//div[@data-auto="info"]
+  - name: price
+    singleValue: false
+    xpath: concat(//meta[@itemprop="priceCurrency"]/@content,' ', //meta[@itemprop="price"]/@content)
+  - name: priceCurrency
+    singleValue: false
+    xpath: //meta[@itemprop="priceCurrency"]/@content
+  - name: promotion
+    singleValue: false
+    xpath: //div[@data-zone-name="discountBadge"]
+  - name: image
+    singleValue: false
+    xpath: //head[1]//meta[20]/@content
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="_2ke8Y2fll7"]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //meta[@property="og:image"]/@content
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: url
+    singleValue: false
+    xpath: //div[@itemtype="https://schema.org/Product"]//meta[@itemprop="url"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@data-auto="breadcrumb-item-1"]//div[@itemprop="itemListElement"]//meta[@itemprop="name"]/@content
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@itemref="SkuPictureGallery"]//meta[@itemprop="name"]/@content
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@data-auto="old-price"]
+  - name: variants
+    singleValue: false
+    xpath: //div[@data-zone-name="filter"]//div//span//input[@type="radio"]/@value
+  - name: sku
+    singleValue: false
+    xpath: //div[@data-apiary-widget-name="@marketplace/Fink"]//div/@data-zone-data
+    regExp: \"skuId":"(\d+)
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
+    regExp: ([^/]+$)
+    regExpReplace: $1
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[@class="section _3yiPi47kNr _2xwcHVtjcy"]//p[@class="adX77e3BzC"]
+  - name: directions
+    singleValue: false
+    xpath: //div[@data-auto="sku-specs"]//font[contains(text(),'Indication') or contains(text(),'Direction')]/ancestor::span/ancestor::div/following-sibling::div/span
+  - name: warnings
+    singleValue: false
+    xpath: //div[@data-auto="sku-specs"]//font[contains(text(),'effect') or contains(text(),'Warning') or contains(text(),'warning')]/ancestor::span/ancestor::div/following-sibling::div/span
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
+  - name: description
+    singleValue: false
+    xpath: //div[@class="_3MuYV-4raz"]//div[@class="_1xQdt6zCoE"]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@data-zone-name,'specs')]//ul//li)
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@data-zone-name,'specs')]//ul//li 
+  - name: brandText
+    singleValue: false
+    xpath: //meta[@itemprop="brand"]/@content
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@data-zone-name="schema"]//div[@itemtype="https://schema.org/Product"]//meta[@itemprop="brand"]/@content
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@class,"cui")]//span[contains(@data-auto, "radio")])
+  - name: color
+    singleValue: false
+    xpath: //span[@class="orEV9DcwNt"]
+  - name: colorCode
+    singleValue: false
+    xpath: //div[@data-zone-name="filter"]//span[2]
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //div[@class="jgixRQsL0c"]//font[contains(text(),'kWh')]
+  - name: name
+    singleValue: false
+    xpath: //meta[@property="og:title"]/@content
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class="_2cmrAtTCHQ"]
+  - name: storage
+    singleValue: false
+    xpath: //div[@class="jgixRQsL0c"]//font[contains(text(),'хранить')]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //font[contains(text(), 'Country')]/ancestor::span[1]/ancestor::div[1]/following-sibling::div//span
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //meta[@property="og:image"]
+  - name: newDescription
+    singleValue: false
+    xpath: //meta[@property="og:description"]/@content
