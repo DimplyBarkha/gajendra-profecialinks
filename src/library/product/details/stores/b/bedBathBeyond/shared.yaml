@@ -61,9 +61,11 @@ fields:
   - name: quantity
     xpath: td[@class="size"]
     description: Quantity as described on the page
+  - name: weightNet2
+    xpath: //td[@class="weightNet"]
   - name: weightNet
-    xpath: //td[@class="weightNet"] | ancestor::html[not(//td[@class="weightNet"])]//div[@id="productDetails"]//ul/li[starts-with(text(),"Weighs")]
-    regExp: ^(Weighs)?(.+)[.]*$
+    xpath: ancestor::html[not(//td[@class="weightNet"][.=""])]//th[@aria-label="Product weight"]/following-sibling::th[1]/@aria-label | ancestor::html[not(//td[@class="weightNet"][.=""])]//div[@id="productDetails"]//ul/li[starts-with(text(),"Weighs")] | //td[@class="weightNet"]
+    regExp: ^(Weighs)?(.+)(\s)?[.]?$
     regExpReplace: $2
     description: Net weight as described on the page
   - name: gtin
@@ -76,7 +78,7 @@ fields:
     xpath: td[@class="variantId"]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    xpath: ancestor::html//div[@id="productDetails"]//ul/li[starts-with(text(),"Model")] | td[@class="mpc"] | ancestor::html[count(//div[@id="product-detail-api"]/table/tbody/tr) = 1]//@data-mpn
+    xpath: ancestor::html//div[@id="productDetails"]//ul/li[starts-with(text(),"Model")] | ancestor::html[count(//div[@id="product-detail-api"]/table/tbody/tr) = 1]//@data-mpn | td[@class="mpc"]
     description: The manufacturer model code (unique) of the product
   - name: ratingCount
     xpath: ancestor::html/body/@rating-count
@@ -100,7 +102,7 @@ fields:
     xpath: td[@class="colorGroup"]
     description: A textual description of the colour
   - name: manufacturerDescription
-    xpath: ancestor::html//div[@id="webcollage"])
+    xpath: ancestor::html//div[@id="webcollage"]
     singleValue: false
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
@@ -111,7 +113,7 @@ fields:
     xpath: //td[@class="name"]
     description: The product name
   - name: specifications
-    xpath: td[@class="specifications"] | ancestor::html[not(//td[@class="specifications"])]//div[@id="productDetails"]//ul/li[starts-with(text(),"Measures")]
+    xpath: td[@class="specifications"]
     description: The physical dimensions of the product including packaging.
   - name: warranty
     xpath: td[@class="warranty"] | ancestor::html//div[@id="productDetails"]//ul/li[contains(text(),"warranty")]
@@ -119,11 +121,15 @@ fields:
   - name: countryOfOrigin
     xpath: td[@class="countryOfOrigin"][not(.="Imported")]
     description: The country from which the product originates
+  - name: warning
+    xpath: ancestor::html//div[@class="alert-feo"][contains(.,"WARNING")]
+    description: The country from which the product originates
   - name: variantInformation
     xpath: >-
-      concat('Color: ', td[@class="color"], ' | ', 'Size: ', td[@class="size"])
+      concat('Color: ', td[@class="color"], ' | ', 'Size/Type: ', td[@class="size"])
     description: colour / scent / flavour / other
   - name: firstVariant
+    xpath: td[@class="sku"]
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -176,6 +182,6 @@ fields:
   - name: videos
     xpath: ancestor::html//button[@data-locator="pdp-productalternateimage"]/img[@alt="Video"]/@src
     regExp: ([^/]+)/thumbnail/
-    regExpReplace: https://video.bedbathandbeyond.ca/tvpembed/$1
+    regExpReplace: https://video.bedbathandbeyond.com/tvpembed/$1
     singleValue: false
     description: URLs of videos on page

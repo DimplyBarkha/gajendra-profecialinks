@@ -44,7 +44,7 @@ async function implementation (
       const specifications = [...row.SPECS, ...row.FEATURES];
       let weightNet = specifications && specifications.find(prop => prop['Weight Capacity']) && specifications.find(prop => prop['Weight Capacity'])['Weight Capacity'];
       if (!weightNet) {
-        weightNet = specifications && specifications.find(prop => prop['roduct Weight (lb)']) && specifications.find(prop => prop['roduct Weight (lb)'])['Weight Capacity'];
+        weightNet = specifications && specifications.find(prop => prop['Product Weight (lb)']) && specifications.find(prop => prop['Product Weight (lb)'])['Product Weight (lb)'];
         weightNet = weightNet ? weightNet + 'lbs' : undefined;
       }
       const gtin = row.UPC;
