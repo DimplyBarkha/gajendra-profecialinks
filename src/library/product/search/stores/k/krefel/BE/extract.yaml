@@ -14,7 +14,7 @@ fields:
     type: NUMBER 
   - name: name
     description: The product name
-    xpath: //span[@class='product-name']//span[@class='name']
+    xpath: concat(//span[@class='product-name']//span[@class='brand'], ', ', //span[@class='product-name']//span[@class='name'])
   - name: productUrl
     description: The URL for the product details page
     xpath: //a[@class='product-content__link']/@href
@@ -22,9 +22,6 @@ fields:
     regExpReplace: https://www.krefel.be$1
   - name: gtin
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[contains(@class, 'col-md-1')]/div/@data-tracking-commerce
-    regExp: \"id\":\"([\d]+)
-    regExpReplace: $1
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //div[contains(@class, 'col-md-1')]//img[@class='product-image']/@src
@@ -44,9 +41,6 @@ fields:
     xpath: concat('€ ', //span[@class='current-price orange nl'])
   - name: manufacturer
     description: Product manufacturer
-    xpath: //div[contains(@class, 'col-md-1')]/div/@data-tracking-commerce
-    regExp: \"brand\":\"([A-z]+)
-    regExpReplace: $1
   - name: soldBy
     description: The name of the seller of the item (if available)
   - name: rank
