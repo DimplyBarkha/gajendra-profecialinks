@@ -13,5 +13,11 @@ module.exports = {
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
+    await context.evaluate(async function () {
+      if (document.URL === 'https://www.tatacliq.com/') {
+        console.log('Navigated to home page, redirecting to the product page');
+        await context.goto(url, { timeout: timeout, waitUntil: 'networkidle0', checkBlocked: true });
+      }
+    });
   },
 };
