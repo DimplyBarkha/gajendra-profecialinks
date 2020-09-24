@@ -29,7 +29,7 @@ fields:
     xpath: //p[@class='price']/span[contains(@class,'amount ')]
   - name: availabilityText
     singleValue: false
-    xpath: //a[contains(@class,'btn cart add-from-product ')]//span
+    xpath: //a[contains(@class,'btn cart add-from-product ')]//span | //a[contains(@class,'btn instore cart modal')]//span
   - name: description
     singleValue: false
     xpath: //div[@id='desc']
@@ -71,7 +71,7 @@ fields:
     xpath: //ul//p[contains(.,'warranty')]
   - name: color
     singleValue: false
-    xpath: //ul//p[contains(.,'colour')]
+    xpath: //ul//p[contains(.,'colour')] | //ul//p[contains(.,'Colour')]
   - name: variantCount
     singleValue: false
     defaultValue: '0'
@@ -85,3 +85,5 @@ fields:
     xpath: count(//div[contains(@class,'info')]//div[contains(@itemprop,'description')]//li)
   - name: videos
     xpath: //div[@id='ii_video']
+  - name: gtin
+    xpath: //div[@id='ii_gtin']

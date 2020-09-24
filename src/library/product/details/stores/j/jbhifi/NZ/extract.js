@@ -16,6 +16,7 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+
     // description
     let descContent = document.querySelector("div[class*='info'] div[itemprop*='description'] ul") ? document.querySelector("div[class*='info'] div[itemprop*='description'] ul").innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
     descContent = descContent.substring(descContent.indexOf('||')).trim();
@@ -66,6 +67,9 @@ async function implementation (
         }
         videoNodeEle = videoNodes.iterateNext();
       }
+      const gtin = iframeDom.querySelector('script[id="flix-iframe-async"]');
+      const gtinValue = gtin.getAttribute('data-flix-ean');
+      addHiddenDiv('ii_gtin', gtinValue);
     }
     // specifications
     const specTab = document.querySelector("li[class*='tab2'] a") ? document.querySelector("li[class*='tab2'] a") : null;
@@ -103,7 +107,10 @@ async function implementation (
     }
     // nameExtended
     // @ts-ignore
-    const brand = document.querySelector("div[class*='brand'] img") ? document.querySelector("div[class*='brand'] img").getAttribute('alt') : '';
+    let brand = document.querySelector("div[class*='brand'] img") ? document.querySelector("div[class*='brand'] img").getAttribute('alt') : '';
+    if (!brand) {
+      brand = document.querySelector("meta[property='brand']") ? document.querySelector("meta[property='brand']").getAttribute('content') : '';
+    }
     const title = document.querySelector("meta[property*='title']") ? document.querySelector("meta[property*='title']").getAttribute('content') : '';
     let nameExtended = '';
     if (brand && title) {
