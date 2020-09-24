@@ -23,16 +23,16 @@ const transform = (data) => {
         ];
       }
 
-      if (row.variants) {
+      if (row.variantId) {
         let text = '';
         let xpath = '';
         const searchRegExp = / /g;
         const replaceWith = '_';
-        row.variants.forEach(item => {
+        row.variantId.forEach(item => {
           text = item.text.replace(searchRegExp, replaceWith);
           xpath = item.xpath;
         });
-        row.variants = [
+        row.variantId = [
           {
             text: text,
             xpath: xpath,
