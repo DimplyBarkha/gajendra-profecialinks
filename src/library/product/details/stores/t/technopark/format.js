@@ -57,8 +57,9 @@ const transform = (data) => {
         let idx = 0;
         row.specifications.forEach(item => {
           nDesc[0] = item;
+          item.text = clean(item.text);
           if (idx > 0) {
-            newDesc = newDesc + ' X ';
+            newDesc = newDesc + ' | ';
           }
           newDesc = newDesc + item.text;
           idx++;

@@ -10,7 +10,7 @@ fields:
   - name: alternateImages
     singleValue: false
     #xpath: //div[@class='product-gallery-thumbs__container js-product-gallery-thumbs-container']//div/img/@data-src
-    xpath: //div[@class='product-gallery-thumbs__thumb js-product-gallery-thumb'][position()>2]/img/@data-src
+    xpath: //div[@class='product-gallery-thumbs__container js-product-gallery-thumbs-container']//div/img[1]/../following-sibling::div//@data-src
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue:  false
@@ -20,13 +20,11 @@ fields:
     singleValue: false
     #xpath: normalize-space(//div[@class='header-menu js-header-menu']//div[4]//div[2]//ul[1]//li[5])
     #xpath: //a[@class='product-card__back-link']/@title
-    xpath: //ul[@class='footer-breadcrumbs__element']
-    description: The categories (e.g. from breadcrumbs)
+    xpath: //ul[@class="footer-breadcrumbs__element"]//li//span
+    #//ul[@class='footer-breadcrumbs__element']
   - name: nameExtended
     singleValue:  false
     xpath: //h1[@class='product-card__pseudo-name']
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue:  false
     #xpath: //span[@class='price product-card__price']/text()
@@ -34,26 +32,19 @@ fields:
   - name: price
     singleValue:  false
     xpath: //span[@class='price product-card__price']/text()
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue:  false
     xpath: //div[contains(@class,'product-card__availability')]/text()
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
     #xpath: //head/meta[contains(@property,"og:description")]/@content
-    xpath: //section[@class='product__desc js-content-block-description is-visible']
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: //section[contains(@class,'product__desc js-content-block-description')]
   - name: descriptionBullets
     singleValue:  false
-    xpath: count(//section[@class='product__desc js-content-block-description is-visible']//li)
+    xpath: count(//section[contains(@class,'product__desc js-content-block-description')]//li)
     description: Number of ul > li tags in the description
   - name: brandText
     singleValue:  false
@@ -153,8 +144,7 @@ fields:
   - name: specifications
     singleValue:  false
     #xpath: //p[contains(text(),"Высота")]/following-sibling::p[contains(@class,"product__spec__text")] | //div[@class='product__spec__row']//p[contains(text(),'Ширина')]//following-sibling::p | //p[contains(text(),"Глубина")]/following-sibling::p[contains(@class,"product__spec__text")]
-    xpath: //section[@class="product__specs js-content-block-specifications is-visible"]//p/text()
-    description: The physical dimensions of the product including packaging.
+    xpath: //section[contains(@class,"product__specs js-content-block-specifications")]//div[@class="product__spec__row"]
   - name: warranty
     singleValue:  false
     xpath: //div[contains(@class,"product__specification-text")]
@@ -183,8 +173,4 @@ fields:
   - name: materials
     singleValue:  false
     xpath: //p[contains(text(),"Материал корпуса")]/following-sibling::p[contains(@class,"product__spec__text")]
-    description: Materials used to make the product
-  - name: thumbnail
-    singleValue: false
-    xpath: //div[@class='product-gallery-thumbs__container js-product-gallery-thumbs-container']//div/img/@data-src
   
