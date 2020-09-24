@@ -26,7 +26,19 @@ const transform = (data, context) => {
     .replace(/&#(\d+);/g, function (match, dec) {
       return String.fromCharCode(dec);
     })
-    .replace(/\s{2,}/g, ' ');
+    .replace(/\s{2,}/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&amp/g, '&')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&nbsp/g, ' ')
+    .replace(/&gt;/g, '>')
+    .replace(/&gt/g, '>')
+    .replace(/&lt;/g, '<')
+    .replace(/&lt/g, '<')
+    .replace(/&copy;/g, ' copyright')
+    .replace(/&copy/g, ' copyright')
+    .replace(/&reg;/g, ' registered trademark')
+    .replace(/&reg/g, ' registered trademark');
 
   for (const { group } of data) {
     for (const row of group) {
