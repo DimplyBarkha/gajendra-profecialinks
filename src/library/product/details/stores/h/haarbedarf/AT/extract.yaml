@@ -42,10 +42,9 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //p[contains(@class, "stock")]/text()
-    regExp: (\b(?![0]\b)\d{1,5}\b)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //script[contains(text(), 'mpn')]
+    regExp: http:[\\\/A-z]+[\.A-z]+\/([A-z]+)
+    regExpReplace: $1
   - name: description
     singleValue: false
     description:
@@ -62,12 +61,13 @@ fields:
     description:
       Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    defaultValue: Dyson
-    xpath: //td[contains(@class, "woocommerce-product-attributes-item__value")][2]
+    xpath: //h1[@class='product_title entry-title']
+    regExp: ^([A-z]+)
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    defaultValue: Dyson
+    xpath: //h1[@class='product_title entry-title']
+    regExp: ^([A-z]+)
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -84,6 +84,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //th[contains(text(), 'ean')]/following::td
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -94,6 +95,9 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //script[contains(text(), 'mpn')]
+    regExp: mpn":"([\dA-z]+)
+    regExpReplace: $1
   - name: packSize
     singleValue: true
     description:
@@ -124,7 +128,6 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //div[contains(@class, "summary entry-summary")]/p[contains(@class, "wc-gzd-additional-info delivery-time-info")]/text()
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -146,6 +149,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[@class='enchanceddescription']
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -497,6 +501,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@class='descbulletinfo']
   - name: prop65Warning
     singleValue: true
     description: null
