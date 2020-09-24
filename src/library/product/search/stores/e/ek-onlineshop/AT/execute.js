@@ -7,7 +7,7 @@ module.exports = {
     domain: 'ek-onlineshop.at',
     url: 'https://ek-onlineshop.at/suche?controller=search&orderby=position&orderway=desc&ssa_submit=&search_query={searchTerms}',
     loadedSelector: 'div[id="js-product-list"]',
-    noResultsXPath: null,
+    noResultsXPath: '//section[@class="page-content page-not-found"]',
     zipcode: '',
   },
 };

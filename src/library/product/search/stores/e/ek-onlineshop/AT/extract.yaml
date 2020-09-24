@@ -1,25 +1,25 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: div.laberProductGrid > div.row > div.item-inner
 recordXPath: null
 fields:
   - name: id
-    xpath: //div[contains(@class,'laberProductGrid')]//article//@data-id-product
+    xpath: //@data-id-product
     singleValue: true
   - name: name
-    xpath: //div[contains(@class,'laberProductGrid')]//h2//a
+    xpath: //h2//a
     singleValue: true
   - name: productUrl
-    xpath: //div[contains(@class,'laberProductGrid')]//h2//a//@href
+    xpath: //h2//a//@href
     singleValue: true
   - name: manufacturer
-    singleValue: true    
-    xpath: //div[contains(@class,'laberProductList')]//img[contains(@class,'cstm-brand-logo')]//@alt
+    singleValue: true        
   - name: thumbnail
-    xpath: //div[contains(@class,'laberProductGrid')]//a//img//@src
-    singleValue: false
+    xpath: //a//img//@src
+    singleValue: true
   - name: price
-    xpath: //div[contains(@class,'laberProductGrid')]//span[@itemprop="price"]
+    xpath: //span[@itemprop="price"]
+    type: CURRENCY
     singleValue: true 
   - name: rankOrganic
     singleValue: true 
