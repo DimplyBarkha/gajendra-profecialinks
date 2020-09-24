@@ -39,17 +39,16 @@ fields:
     xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1]
   - name: availabilityText
     singleValue: false
-    xpath: //*[@id='availability']
-    defaultValue: 'In Stock'
+    xpath: //*[@id='availability']/span
+    regExp: In Stock
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)] | //div[@id="globalStoreInfoBullets_feature_div"]//ul/li | //div[@id="detailBullets_feature_div"]/ul//li
-  - name: descriptionOne
-    singleValue: false
-    xpath: //div[@id="productDescription"]
+    xpath: //div[@id="ii_description"]
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[@data-feature-name="featurebullets"]//ul/li | //div[@id="globalStoreInfoBullets_feature_div"]//ul/li | //div[@id="detailBullets_feature_div"]/ul//li)
+    xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
   - name: brandText
     singleValue: false
     xpath: //a[@id="bylineInfo"]
@@ -144,7 +143,7 @@ fields:
     singleValue: false
     xpath: //div[@id='added-url']
   - name: sku
-    # xpath: (//tr/th[contains(text(),"Model Numarası")])[1]/following-sibling::td
+    xpath: (//input[contains(@id,"Asin") or contains(@id,"ASIN")][1]/@value|(//*[@data-asin])[1]/@data-asin)[1]
   - name: coupon
     singleValue: false
     xpath: //div[@id="price"]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text()
@@ -221,7 +220,7 @@ fields:
     regExpReplace: $1
   - name: specifications
     singleValue: false
-    xpath: //table[contains(@id,"productDetails_techSpec")]//tbody/tr/child::*
+    xpath: //div[@id="ii_spec"]
   - name: primeFlag
     singleValue: false
     xpath: 
@@ -424,9 +423,9 @@ fields:
     xpath: 
   - name: variants
     singleValue: false
-    xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
+    xpath: //div[@id="ii_variants"]
   - name: additionalDescBulletInfo
-    xpath: //div[@data-feature-name="featurebullets"]//ul/li | //div[@id="globalStoreInfoBullets_feature_div"]//ul/li | //div[@id="detailBullets_feature_div"]/ul//li
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
   - name: prop65Warning
     singleValue: false
     xpath: 
@@ -453,9 +452,6 @@ fields:
     xpath: (//tr/th[contains(text(),"Malzeme")])[1]/following-sibling::td
   - name: Image360Present
     singleValue: false
-    xpath: (//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(),"360")])[1]
-    regExp: (.+)
-    regExpReplace: Yes
     defaultValue: No
   - name: imageZoomFeaturePresent
     xpath: //span[@id="canvasCaption" and contains(text(),"Roll over")] | //span[@id="canvasCaption" and contains(text(),"expanded")]
