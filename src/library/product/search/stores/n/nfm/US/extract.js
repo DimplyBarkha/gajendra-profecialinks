@@ -15,6 +15,11 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    try {
+      await context.waitForSelector('img.img-responsive.list.space-bottom-medium');
+    } catch (e) {
+      console.log(e);
+    }
     async function addUrl () {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');

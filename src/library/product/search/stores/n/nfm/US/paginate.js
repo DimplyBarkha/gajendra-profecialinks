@@ -3,12 +3,14 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'nfm',
-    nextLinkSelector: 'ul.pagination-ap.pagination a.no-padding-right',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: "//p[contains(text(), 'No Results Found')]",
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.nfm.com/{searchTerms}?pg={page}',
+    },
     domain: 'nfm.com',
     zipcode: '',
   },
