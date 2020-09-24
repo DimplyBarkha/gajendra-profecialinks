@@ -2,11 +2,59 @@ input:
   _url: http://krefel.be
   URL: https://www.krefel.be/nl/p/13000013-torenventilator-am07-silver
 extractions:
-  - html: https://workbench.import.io/html/run=94c6f7a3-424d-408c-bfd1-1d3fc846aa1a/task=fe175f62-baab-4711-a6a8-7f11da98df2e/94f1998f-4b7b-4245-9541-d05e9f8b8729.html
+  - html: https://workbench.import.io/html/run=356223b8-8ae7-4d82-b9f4-4689ed1013ae/task=5d63302b-78b9-4da9-b0a0-1c76a132f65e/e0286dd2-9e7c-424e-99dc-ace794c09315.html
     extractionConfigId: product/details/stores/k/krefel/BE/extract
     data:
       - group:
-          - image:
+          - category:
+              - text: Huishouden & Groot Elektro
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Klimaatbeheersing
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Ventilatoren
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Torenventilator AM07 Silver
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]
+            gtin:
+              - text: "5025155017838"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
+            sku:
+              - text: "13000013"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            variantId:
+              - text: "13000013"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[8]/section[1]/div[2]/div[1]/div[1]/a[1]/h2[1]/span[1]
+                type: NUMBER
+                raw: "6"
+                locale: nl
+                value: 6
+            aggregateRating:
+              - text: 4,8
+                xpath: /html/body/div[4]
+            color:
+              - text: Zilver
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            specifications:
+              - text: Product || Krëfel code 13000013 || Merk Dyson || EAN 5025155017838 ||
+                  Algemene eigenschappen || Type Torenventilator || Diameter 19
+                  cm || Breedte 29.8 cm || Diepte 17.8 cm || Hoogte 98.3 cm ||
+                  Vermogen 56 W || Geluidsniveau 64 dB || Fysieke eigenschappen
+                  || Kleur Zilver || Aantal bladen 0 || LED controlepaneel ||
+                  Functies || Aantal snelheden 10 || Turbo functie || Silence
+                  functie || Oscillatie || Richting || Gebruiksgemak || Handvat
+                  || Timer || Automatische stop || Afstandsbediening ||
+                  Snoeropberging || Regelbare hoogte
+                xpath: /html/body/div[5]
+            warranty:
+              - text: 2 jaar garantie
+                xpath: /html/body/div[7]
+            image:
               - text: https://media.krefel.be/sys-master/products/8836262264862/570x450.13000013_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
@@ -31,158 +79,30 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://media.krefel.be/sys-master/products/8841658761246/98x98.13000013_5.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-            metaKeywords:
-              - text: Dyson Torenventilator AM07 Silver bij Krëfel - voor 22u00 besteld,
-                  levering de volgende dag, ook op zondag. Bestel nu online!
-                xpath: /html/head[1]/meta[2]/@content
-            category:
-              - text: Huishouden & Groot Elektro
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[1]
-              - text: Klimaatbeheersing
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]
-              - text: Ventilatoren
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
-              - text: Torenventilator AM07 Silver
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
-            availabilityText:
-              - text: InStock
-                xpath: /html/body/@availability
-            description:
-              - text: >-
-                  Beschrijving
-
-                  DysonTorenventilator AM07 Silver
-
-                  Gepatenteerde Air Multiplier™ technologie:
-                   
-                  Een ringvormige luchtstroom versnelt de omringende lucht en versterkt deze. Er zijn geen bladen die in de lucht hakken, zodat een gladde luchtstroom koelt zonder onaangename trillingen.
-                   
-
-                   
-
-                   
-                  60% stiller dan AM02:
-                   
-                  Door de grotere ruimte onderin de vermenigvuldigingsring kan lucht binnenstromen met minder turbulentie, waardoor geluid wordt verminderd.
-                   
-
-                   
-
-                   
-                  10% energiezuiniger dan AM02:
-                   
-                  Dankzij de opnieuw ontworpen luchtstroompaden gaat de lucht stiller en efficiënter door de machine. Verder is de borstelloze DC motor zuiniger dan voorheen.
-                   
-
-                   
-
-                   
-                  Sleep timer:
-                   
-                  De ventilator kan worden geprogrammeerd om na een bepaalde tijd uit te schakelen – van 15 minuten tot 9 uur.
-                   
-
-                   
-
-                   
-                  Afstandsbediening:
-                   
-                  Alle functies inclusief 10 luchtstroominstellingen zijn te bedienen. Gebogen en gemagnetiseerd om netjes op de machine op te bergen.
-                   
-
-                   
-
-                   
-                  Veilig en gemakkelijk schoon te maken:
-                   
-                  Er zijn geen sneldraaiende bladen of vervelende roosters.
-                   
-
-                   
-
-                   
-                  Automatische draaibeweging:
-                   
-                  Om de luchtstroom over de ruimte te verspreiden.
-                   
-
-                   
-
-                   
-                  2 jaar garantie
-                   
-                  Volledige beschrijving
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[2]
+            nameExtended:
+              - text: Dyson - Torenventilator AM07 Silver
+            price:
+              - text: 399,00 €
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl
+                value: 0
             brandText:
               - text: Dyson
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[1]
-            gtin:
-              - text: "5025155017838"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
-            sku:
-              - text: "13000013"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
-            mpc:
-              - text: "5025155017838"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
-            ratingCount:
-              - text: "6"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[8]/section[1]/div[2]/div[1]/div[1]/a[1]/h2[1]/span[1]
+            variantCount:
+              - text: "0"
                 type: NUMBER
-                raw: "6"
+                raw: "0"
                 locale: nl
-                value: 6
-            aggregateRatingText:
-              - text: "4.8"
-                xpath: /html/body/@ratingvalue
-            aggregateRating:
-              - text: "4.8"
-                xpath: /html/body/@ratingvalue
-                type: NUMBER
-                raw: "4.8"
-                locale: nl
-                value: 4.8
-            color:
-              - text: Zilver
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/span[3]
+                value: 0
             name:
               - text: Torenventilator AM07 Silver
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[2]
-            specifications:
-              - text: |-
-                  Product
-                  Krëfel code13000013
-                  MerkDyson
-                  EAN5025155017838
-                  Algemene eigenschappen
-                  TypeTorenventilator
-                  Diameter19 cm
-                  Breedte29.8 cm
-                  Diepte17.8 cm
-                  Hoogte98.3 cm
-                  Vermogen56 W
-                  Geluidsniveau64 dB
-                  Fysieke eigenschappen
-                  KleurZilver
-                  Aantal bladen0
-                  LED controlepaneel
-                  Functies
-                  Aantal snelheden10
-                  Turbo functie
-                  Silence functie
-                  Oscillatie
-                  Richting
-                  Gebruiksgemak
-                  Handvat
-                  Timer
-                  Automatische stop
-                  Afstandsbediening
-                  Snoeropberging
-                  Regelbare hoogte
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]
+            inStorePrice:
+              - text: 399,00 €
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -195,32 +115,5 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
-            nameExtended:
-              - text: Dyson - Torenventilator AM07 Silver
-            listPrice:
-              - text: 399,00 €
-            price:
-              - text: 399,00 €
-            descriptionBullets:
-              - text: "0"
-                type: NUMBER
-                raw: "0"
-                locale: nl
-                value: 0
-            shippingInfo:
-              - text: "Op voorraad + Click&Collect: afhalen in een Krëfel-winkel - kies
-                  postcodeStandaard thuislevering  - kies postcodeAfhaalpunt:
-                  afhalen in een bpost afhaalpunt  - kies postcode + Gratis
-                  verzending vanaf €20Prijsgarantie: altijd de laagste prijsVoor
-                  22u00 besteld, morgen in huisLevering op zaterdag en zondag30
-                  dagen bedenktijdKlanten geven Krëfel 8.6/10"
-            variantCount:
-              - text: "0"
-                type: NUMBER
-                raw: "0"
-                locale: nl
-                value: 0
-            inStorePrice:
-              - text: 399,00 €
-        xpath: /
-    timestamp: 1599821820113
+        xpath: /html
+    timestamp: 1600957317957

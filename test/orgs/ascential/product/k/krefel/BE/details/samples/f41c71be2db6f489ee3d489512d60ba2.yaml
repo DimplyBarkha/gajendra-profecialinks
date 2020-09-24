@@ -1,0 +1,74 @@
+input:
+  _url: http://krefel.be
+  URL: https://www.krefel.be/nl/p/22000821-toolkit-big-ball-promotieartikel-geen-verkoop
+extractions:
+  - html: https://workbench.import.io/html/run=356223b8-8ae7-4d82-b9f4-4689ed1013ae/task=53eadf9f-f756-4a14-b48d-e6e8de98c326/a569e0f5-8463-4fac-8e87-6a634b301dbd.html
+    extractionConfigId: product/details/stores/k/krefel/BE/extract
+    data:
+      - group:
+          - availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]
+            image:
+              - text: https://media.krefel.be/sys-master/products/8935552352286/570x450.22000821_1.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Toolkit Big Ball *Promotieartikel/ geen verkoop
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://media.krefel.be/sys-master/products/8935552417822/570x450.22000821_2.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8935552614430/570x450.22000821_3.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8935552745502/570x450.22000821_4.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8944249896990/570x450.22000821_5.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8935552352286/98x98.22000821_1.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8935552417822/98x98.22000821_2.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8935552614430/98x98.22000821_3.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8935552745502/98x98.22000821_4.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://media.krefel.be/sys-master/products/8944249896990/98x98.22000821_5.jpg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            nameExtended:
+              - text: Dyson - Toolkit Big Ball *Promotieartikel/ geen verkoop
+            price:
+              - text: 99,00 €
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl
+                value: 0
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[2]/div[1]/h1[1]/span[1]
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl
+                value: 0
+            name:
+              - text: Toolkit Big Ball *Promotieartikel/ geen verkoop
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[2]/div[1]/h1[1]/span[2]
+            inStorePrice:
+              - text: 99,00 €
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1600957318788

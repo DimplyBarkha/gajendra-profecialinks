@@ -2,11 +2,129 @@ input:
   _url: http://krefel.be
   URL: https://www.krefel.be/nl/p/21005661-steelstofzuiger-v11-absolute-extra
 extractions:
-  - html: https://workbench.import.io/html/run=94c6f7a3-424d-408c-bfd1-1d3fc846aa1a/task=3cf83af4-9b27-4d38-a1d2-3ba3dff4b2b7/4a2365b2-7bcd-4319-b979-ef076c1b8397.html
+  - html: https://workbench.import.io/html/run=356223b8-8ae7-4d82-b9f4-4689ed1013ae/task=35fe574f-0731-4bac-baa1-909401048626/b0a6f6a8-1d76-4194-8bd9-f738d0cc2278.html
     extractionConfigId: product/details/stores/k/krefel/BE/extract
     data:
       - group:
-          - image:
+          - category:
+              - text: Huishouden & Groot Elektro
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Stofzuigen
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Steelstofzuigers
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Steelstofzuiger V11 Absolute Extra
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]
+            description:
+              - text: "Verwisselbare accu: Met één druk op de knop te verwijderen en te plaatsen
+                  voor nog langere reinigingssessies. De verwisselbare accu's
+                  kunnen in of buiten de machine worden opgeladen. ||
+                  Aangedreven door de Dyson digitale motor V11: De hoogste
+                  zuigkracht van alle snoerloze stofzuigers in gebruik. || 14
+                  cyclonen: 14 cyclonen genereren krachten van meer dan 79.000g
+                  om microscopische deeltjes – zoals pollen en bacteriën – het
+                  stofreservoir in te slingeren. || Constante zuigkracht: Met de
+                  zevencellige nikkel-kobalt-aluminiumbatterij beschikt u over
+                  een constante zuigkracht waarmee u overal in en om het huis
+                  kunt schoonmaken. || Filtratie in de hele machine: Het
+                  volledig afgedichte filtratiesysteem vangt 99,97% van de
+                  deeltjes zo klein als 0,3 micrometer op – en blaast schonere
+                  lucht uit. || Akoestisch ontwerp: Zo ontworpen dat hij
+                  trillingen absorbeert en geluid dempt, voor een lager
+                  geluidsniveau. || Inline configuratie: De motor, het
+                  stofreservoir en de cyclonen zijn uitgelijnd, zodat de lucht
+                  in een rechte lijn de cyclonen in wordt gezogen – waardoor een
+                  hoge zuigkracht wordt gegenereerd. || Geïntegreerd
+                  energiebeheersysteem: De accutechnologie en accubesparende
+                  trigger functie van Dyson zorgen voor een zo lang mogelijke
+                  machine gebruiksduur, doordat u alleen vermogen gebruikt als u
+                  dat nodig hebt. || De juiste reinigingsstand voor elke taak:
+                  Drie reinigingsstanden geoptimaliseerd voor uiteenlopende
+                  taken. De juiste balans tussen vermogen en gebruiksduur, waar
+                  u die nodig heeft. || Rapporteert op intelligente wijze
+                  meldingen in real time: Controleert de systeemprestaties 8000
+                  keer per seconde, en rapporteert hierover in real time op het
+                  LCD scherm. || Grondige reiniging van vloeren en tapijten: Een
+                  geïntegreerde digitale motor laat de borstel tot 60 keer per
+                  seconde draaien. De stugge nylonborstels dringen diep door in
+                  het tapijt om vuil te verwijderen, en koolstofvezelharen
+                  verwijderen fijn stof van harde vloeren. || Hygiënisch legen
+                  van het stofreservoir met één enkele handeling: Al het stof en
+                  vuil in het stofreservoir wordt door het 'point and
+                  shoot-mechanisme' in één handeling hygiënisch uitgeworpen – u
+                  hoeft het vuil dus niet aan te raken. || Drop-in
+                  oplaadstation: U kunt uw Dyson V11™stofzuiger eenvoudig in het
+                  oplaadstation aan de muur hangen. U kunt er ook uw accessoires
+                  bij opbergen. Altijd binnen handbereik om snel te reinigen."
+                xpath: /html/body/div[6]
+            weightNet:
+              - text: 3.09 kg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[4]/span[3]
+            gtin:
+              - text: "5025155046470"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
+            sku:
+              - text: "21005661"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            variantId:
+              - text: "21005661"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            ratingCount:
+              - text: "74"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[8]/section[1]/div[2]/div[1]/div[1]/a[1]/h2[1]/span[1]
+                type: NUMBER
+                raw: "74"
+                locale: nl
+                value: 74
+            aggregateRating:
+              - text: 4,5
+                xpath: /html/body/div[4]
+            color:
+              - text: Blauw
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[6]/span[3]
+            videos:
+              - text: https://video.autheos.com/1195445/generic/360p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://video.autheos.com/1197053/generic/360p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://video.autheos.com/1195448/generic/360p
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            specifications:
+              - text: Product || Krëfel code 21005661 || Merk Dyson || EAN 5025155046470 ||
+                  Algemene eigenschappen || Lengte 26.1 cm || Breedte 25 cm ||
+                  Hoogte 128.6 cm || Gewicht 3.09 kg || Geluidsniveau 82 dB ||
+                  Kleur Blauw || Functies || Aantal snelheden 3 || Stofzuigen ||
+                  Turbofunctie || Stroomvoorziening || Draadloos ||
+                  Verwisselbare batterij || Aantal batterijen meegeleverd 1 ||
+                  Autonomie max. 60 min || Gem. autonomie 45 min || Autonomie
+                  (Turbo) 7 min || Autonomie (2 batterijen) 60 min || Oplaadtijd
+                  4.5 u || Oplaadstation || Batterijstatus || Type batterij
+                  Lithium-ion || Opslag & Filtering || Type opslag Zonder zak ||
+                  Capaciteit stofkamer 760 ml || HEPA filter || Gebruiksgemak ||
+                  Geïntegreerde kruimeldief || Parkeerstand || Wieltjes || LED
+                  lampjes || Geschikt voor vloertype Harde vloeren, Houten
+                  vloeren, Hoogpolig tapijt, Laagpolig tapijt || Meegeleverde
+                  accessoires || Vloerborstel || Tapijtborstel || Parketborstel
+                  || Combiborstel || Turboborstel || Meubelzuigmond ||
+                  Kierenzuiger
+                xpath: /html/body/div[5]
+            variantInformation:
+              - text: V11 Absolute Extra
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/select[1]/option[1]
+            firstVariant:
+              - text: V11 Absolute Extra
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/select[1]/option[1]
+            variants:
+              - text: "21005661"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/select[1]/option[1]/@value
+              - text: "21005662"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/select[1]/option[2]/@value
+              - text: "21005660"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/select[1]/option[3]/@value
+            image:
               - text: https://media.krefel.be/sys-master/products/8933181784094/570x450.21005661_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
@@ -59,232 +177,30 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[14]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://media.krefel.be/sys-master/products/8943485419550/98x98.21005661_92.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[15]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-            metaKeywords:
-              - text: Dyson Steelstofzuiger V11 Absolute Extra bij Krëfel - voor 22u00 besteld,
-                  levering de volgende dag, ook op zondag. Bestel nu online!
-                xpath: /html/head[1]/meta[2]/@content
-            category:
-              - text: Huishouden & Groot Elektro
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[1]
-              - text: Stofzuigen
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]
-              - text: Steelstofzuigers
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
-              - text: Steelstofzuiger V11 Absolute Extra
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
-            availabilityText:
-              - text: InStock
-                xpath: /html/body/@availability
-            description:
-              - text: >-
-                  Beschrijving
-
-                  DysonSteelstofzuiger V11 Absolute Extra
-
-                  Verwisselbare accu:
-                   Met één druk op de knop te verwijderen en te plaatsen voor nog langere reinigingssessies. De verwisselbare accu's kunnen in of buiten de machine worden opgeladen.
-
-                   
-                  Aangedreven door de Dyson digitale motor V11:
-                   De hoogste zuigkracht van alle snoerloze stofzuigers in gebruik.
-
-                   
-                  14 cyclonen:
-                   14 cyclonen genereren krachten van meer dan 79.000g om microscopische deeltjes – zoals pollen en bacteriën – het stofreservoir in te slingeren.
-
-                   
-                  Constante zuigkracht:
-                   Met de zevencellige nikkel-kobalt-aluminiumbatterij beschikt u over een constante zuigkracht waarmee u overal in en om het huis kunt schoonmaken.
-
-                   
-                  Filtratie in de hele machine:
-                   Het volledig afgedichte filtratiesysteem vangt 99,97% van de deeltjes zo klein als 0,3 micrometer op – en blaast schonere lucht uit.
-
-                   
-                  Akoestisch ontwerp:
-                   Zo ontworpen dat hij trillingen absorbeert en geluid dempt, voor een lager geluidsniveau.
-
-                   
-                  Inline configuratie:
-                   De motor, het stofreservoir en de cyclonen zijn uitgelijnd, zodat de lucht in een rechte lijn de cyclonen in wordt gezogen – waardoor een hoge zuigkracht wordt gegenereerd.
-
-                   
-                  Geïntegreerd energiebeheersysteem:
-                   De accutechnologie en accubesparende trigger functie van Dyson zorgen voor een zo lang mogelijke machine gebruiksduur, doordat u alleen vermogen gebruikt als u dat nodig hebt.
-
-                   
-                  De juiste reinigingsstand voor elke taak:
-                   Drie reinigingsstanden geoptimaliseerd voor uiteenlopende taken. De juiste balans tussen vermogen en gebruiksduur, waar u die nodig heeft.
-
-                   
-                  Rapporteert op intelligente wijze meldingen in real time:
-                   Controleert de systeemprestaties 8000 keer per seconde, en rapporteert hierover in real time op het LCD scherm.
-
-                   
-                  Grondige reiniging van vloeren en tapijten:
-                   Een geïntegreerde digitale motor laat de borstel tot 60 keer per seconde draaien. De stugge nylonborstels dringen diep door in het tapijt om vuil te verwijderen, en koolstofvezelharen verwijderen fijn stof van harde vloeren.
-
-                   
-                  Hygiënisch legen van het stofreservoir met één enkele handeling:
-                   Al het stof en vuil in het stofreservoir wordt door het 'point and shoot-mechanisme' in één handeling hygiënisch uitgeworpen – u hoeft het vuil dus niet aan te raken.
-
-                   
-                  Drop-in oplaadstation:
-                   U kunt uw Dyson V11™stofzuiger eenvoudig in het oplaadstation aan de muur hangen. U kunt er ook uw accessoires bij opbergen. Altijd binnen handbereik om snel te reinigen.
-
-                   
-                  Volledige beschrijving
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[2]
+            nameExtended:
+              - text: Dyson - Steelstofzuiger V11 Absolute Extra
+            price:
+              - text: 649,00 €
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl
+                value: 0
             brandText:
               - text: Dyson
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[1]
-            weightNet:
-              - text: 3.09 kg
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[4]/span[3]
-            gtin:
-              - text: "5025155046470"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
-            sku:
-              - text: "21005661"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
-            mpc:
-              - text: "5025155046470"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
-            ratingCount:
-              - text: "73"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[8]/section[1]/div[2]/div[1]/div[1]/a[1]/h2[1]/span[1]
+            variantCount:
+              - text: "3"
                 type: NUMBER
-                raw: "73"
+                raw: "3"
                 locale: nl
-                value: 73
-            aggregateRatingText:
-              - text: "4.5"
-                xpath: /html/body/@ratingvalue
-            aggregateRating:
-              - text: "4.5"
-                xpath: /html/body/@ratingvalue
-                type: NUMBER
-                raw: "4.5"
-                locale: nl
-                value: 4.5
-            color:
-              - text: Blauw
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[6]/span[3]
-            videos:
-              - text: https://video.autheos.com/1195448/generic/360p
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://video.autheos.com/1195445/generic/360p
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://video.autheos.com/1197053/generic/360p
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+                value: 3
             name:
               - text: Steelstofzuiger V11 Absolute Extra
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[2]
-            specifications:
-              - text: >-
-                  Product
-
-                  Krëfel code21005661
-
-                  MerkDyson
-
-                  EAN5025155046470
-
-                  Algemene eigenschappen
-
-                  Lengte26.1 cm
-
-                  Breedte25 cm
-
-                  Hoogte128.6 cm
-
-                  Gewicht3.09 kg
-
-                  Geluidsniveau82 dB
-
-                  KleurBlauw
-
-                  Functies
-
-                  Aantal snelheden3
-
-                  Stofzuigen
-
-                  Turbofunctie
-
-                  Stroomvoorziening
-
-                  Draadloos
-
-                  Verwisselbare batterij
-
-                  Aantal batterijen meegeleverd1
-
-                  Autonomie max.60 min
-
-                  Gem. autonomie45 min
-
-                  Autonomie (Turbo)7 min
-
-                  Autonomie (2 batterijen)60 min
-
-                  Oplaadtijd4.5 u
-
-                  Oplaadstation
-
-                  Batterijstatus
-
-                  Type batterijLithium-ion
-
-                  Opslag & Filtering
-
-                  Type opslagZonder zak
-
-                  Capaciteit stofkamer760 ml
-
-                  HEPA filter
-
-                  Gebruiksgemak
-
-                  Geïntegreerde kruimeldief
-
-                  Parkeerstand
-
-                  Wieltjes
-
-                  LED lampjes
-
-                  Geschikt voor vloertypeHarde vloeren, Houten vloeren, Hoogpolig tapijt, Laagpolig tapijt
-
-                  Meegeleverde accessoires
-
-                  Vloerborstel
-
-                  Tapijtborstel
-
-                  Parketborstel
-
-                  Combiborstel
-
-                  Turboborstel
-
-                  Meubelzuigmond
-
-                  Kierenzuiger
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]
-            firstVariant:
-              - text: V11 Absolute Extra
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/select[1]/option[1]
-            variants:
-              - text: "21005661"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/select[1]/option[1]/@value
-              - text: "21005662"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/select[1]/option[2]/@value
-              - text: "21005660"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[2]/select[1]/option[3]/@value
+            inStorePrice:
+              - text: 649,00 €
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -297,32 +213,5 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
-            nameExtended:
-              - text: Dyson - Steelstofzuiger V11 Absolute Extra
-            listPrice:
-              - text: 649,00 €
-            price:
-              - text: 649,00 €
-            descriptionBullets:
-              - text: "0"
-                type: NUMBER
-                raw: "0"
-                locale: nl
-                value: 0
-            shippingInfo:
-              - text: "Op voorraad + Click&Collect: afhalen in een Krëfel-winkel - kies
-                  postcodeStandaard thuislevering  - kies postcodeAfhaalpunt:
-                  afhalen in een bpost afhaalpunt  - kies postcode + Gratis
-                  verzending vanaf €20Prijsgarantie: altijd de laagste prijsVoor
-                  22u00 besteld, morgen in huisLevering op zaterdag en zondag30
-                  dagen bedenktijdKlanten geven Krëfel 8.6/10"
-            variantCount:
-              - text: "3"
-                type: NUMBER
-                raw: "3"
-                locale: nl
-                value: 3
-            inStorePrice:
-              - text: 649,00 €
-        xpath: /
-    timestamp: 1599821818460
+        xpath: /html
+    timestamp: 1600957315411

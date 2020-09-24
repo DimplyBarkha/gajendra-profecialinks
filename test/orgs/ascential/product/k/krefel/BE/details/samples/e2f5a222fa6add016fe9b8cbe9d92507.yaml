@@ -2,11 +2,87 @@ input:
   _url: http://krefel.be
   URL: https://www.krefel.be/nl/p/13000175-luchtreiniger-pure-cool-tower
 extractions:
-  - html: https://workbench.import.io/html/run=94c6f7a3-424d-408c-bfd1-1d3fc846aa1a/task=4f82414b-716a-4451-ad11-d958a55fbbb2/f32d4257-c7f3-4fe2-8f8e-593126348dab.html
+  - html: https://workbench.import.io/html/run=356223b8-8ae7-4d82-b9f4-4689ed1013ae/task=56af7053-3e10-4748-b1ae-014a11e5ea1f/e3f218e8-3708-4191-9ba0-92ff6a34341c.html
     extractionConfigId: product/details/stores/k/krefel/BE/extract
     data:
       - group:
-          - image:
+          - category:
+              - text: Huishouden & Groot Elektro
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Klimaatbeheersing
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Ventilatoren
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Luchtreiniger Pure Cool Tower
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]
+            description:
+              - text: "De Dyson Pure Cool detecteert automatisch stofdeeltjes en gassen en maakt
+                  daar real-time melding van. Een uniek Dyson-algoritme verwerkt
+                  de invoer van drie sensoren en geeft vervolgens de
+                  luchtkwaliteitsmetingen weer. Op het ingebouwde lcd-scherm
+                  kunt u door middel van live rapporten zien welke gassen en
+                  stofdeeltjes er op dit moment in uw kamer zijn.De Air
+                  Multiplier™ technologie zorgt ervoor dat iedere seconde een
+                  gelijkmatige, krachtige luchtstroom van 290 liter wordt
+                  verspreidt, zodat er door de hele kamer gezuiverde lucht
+                  circuleert. Het volledig afgedichte filtersysteem verwijdert
+                  samen met een actief koolstoffilter gassen, en een HEPA-filter
+                  van glasvezel vangt 99,95% van all microscopische allergenen
+                  en verontreinigende stoffen tot slechts 0,1 micron uit de
+                  lucht. En aangezien u kunt kiezen uit een gerichte modus en
+                  een oscillatiemodus, kunt u de lucht naar elke gewenste plek
+                  sturen. Nieuwe 350° oscillatie maakt het mogelijk lucht in de
+                  hele kamer te laten circuleren. Met ingebouwde en aanpasbare
+                  instellingen, zodat u kunt kiezen waar u de lucht wilt hebben.
+                  In de verspreide modus projecteert de unieke Dyson luchtklep
+                  lucht door de achterkant van het apparaat, terwijl het
+                  tegelijkertijd de lucht effectief blijft reinigen. In de
+                  nachtmodus worden de stilste luchtstroominstellingen gebruikt.
+                  Het apparaat blijft veranderingen in de luchtkwaliteit in de
+                  gaten houden en daarop reageren, maar gebruikt daarbij de
+                  stilste instellingen en een gedimd scherm. Eenvoudig te
+                  onderhouden filters. Ingebouwde herinneringen geven aan
+                  wanneer het filter vervangen moet worden. Ontdek hier een
+                  volledig overzicht van alle Dyson luchtreinigers en hun eigen
+                  attributten: PDF"
+                xpath: /html/body/div[7]
+            gtin:
+              - text: "5025155034316"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
+            sku:
+              - text: "13000175"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            variantId:
+              - text: "13000175"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[8]/section[1]/div[2]/div[1]/div[1]/a[1]/h2[1]/span[1]
+                type: NUMBER
+                raw: "5"
+                locale: nl
+                value: 5
+            aggregateRating:
+              - text: 4,4
+                xpath: /html/body/div[4]
+            color:
+              - text: Wit
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            specifications:
+              - text: Product || Krëfel code 13000175 || Merk Dyson || EAN 5025155034316 ||
+                  Algemene eigenschappen || Lengte 11.7 cm || Breedte 20.6 cm ||
+                  Hoogte 105.4 cm || Vermogen 40 W || Fysieke eigenschappen ||
+                  Kleur Wit || Functies || Aantal snelheden 10 || Silence
+                  functie || Oscillatie || Gebruiksgemak || Timer ||
+                  Automatische stop || Afstandsbediening
+                xpath: /html/body/div[6]
+            technicalInformationPdfPresent:
+              - text: Yes
+                xpath: /html/body/div[5]
+            image:
               - text: https://media.krefel.be/sys-master/products/8835950313502/570x450.13000175_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
@@ -47,103 +123,30 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://media.krefel.be/sys-master/products/8940275630110/98x98.13000175_99.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-            metaKeywords:
-              - text: Dyson Luchtreiniger Pure Cool Tower bij Krëfel - voor 22u00 besteld,
-                  levering de volgende dag, ook op zondag. Bestel nu online!
-                xpath: /html/head[1]/meta[2]/@content
-            category:
-              - text: Huishouden & Groot Elektro
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[1]
-              - text: Klimaatbeheersing
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]
-              - text: Ventilatoren
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
-              - text: Luchtreiniger Pure Cool Tower
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
-            availabilityText:
-              - text: InStock
-                xpath: /html/body/@availability
-            description:
-              - text: >-
-                  Beschrijving
-
-                  DysonLuchtreiniger Pure Cool Tower
-
-                  De Dyson Pure Cool detecteert automatisch stofdeeltjes en gassen en maakt daar real-time melding van. Een uniek Dyson-algoritme verwerkt de invoer van drie sensoren en geeft vervolgens de luchtkwaliteitsmetingen weer. Op het ingebouwde lcd-scherm kunt u door middel van live rapporten zien welke gassen en stofdeeltjes er op dit moment in uw kamer zijn.De Air Multiplier™ technologie zorgt ervoor dat iedere seconde een gelijkmatige, krachtige luchtstroom van 290 liter wordt verspreidt, zodat er door de hele kamer gezuiverde lucht circuleert. 
-                   
-                   Het volledig afgedichte filtersysteem verwijdert samen met een actief koolstoffilter gassen, en een HEPA-filter van glasvezel vangt 99,95% van all microscopische allergenen en verontreinigende stoffen tot slechts 0,1 micron uit de lucht. En aangezien u kunt kiezen uit een gerichte modus en een oscillatiemodus, kunt u de lucht naar elke gewenste plek sturen. 
-                   
-                   Nieuwe 350° oscillatie maakt het mogelijk lucht in de hele kamer te laten circuleren. Met ingebouwde en aanpasbare instellingen, zodat u kunt kiezen waar u de lucht wilt hebben. In de verspreide modus projecteert de unieke Dyson luchtklep lucht door de achterkant van het apparaat, terwijl het tegelijkertijd de lucht effectief blijft reinigen. In de nachtmodus worden de stilste luchtstroominstellingen gebruikt. Het apparaat blijft veranderingen in de luchtkwaliteit in de gaten houden en daarop reageren, maar gebruikt daarbij de stilste instellingen en een gedimd scherm. Eenvoudig te onderhouden filters.
-                   
-                   Ingebouwde herinneringen geven aan wanneer het filter vervangen moet worden.
-                   
-                   Ontdek hier een volledig overzicht van alle Dyson luchtreinigers en hun eigen attributten: PDF
-
-                   
-                  Volledige beschrijving
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[2]
+            nameExtended:
+              - text: Dyson - Luchtreiniger Pure Cool Tower
+            price:
+              - text: 599,00 €
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl
+                value: 0
             brandText:
               - text: Dyson
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[1]
-            gtin:
-              - text: "5025155034316"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
-            sku:
-              - text: "13000175"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
-            mpc:
-              - text: "5025155034316"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
-            ratingCount:
-              - text: "5"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[8]/section[1]/div[2]/div[1]/div[1]/a[1]/h2[1]/span[1]
+            variantCount:
+              - text: "0"
                 type: NUMBER
-                raw: "5"
+                raw: "0"
                 locale: nl
-                value: 5
-            aggregateRatingText:
-              - text: "4.4"
-                xpath: /html/body/@ratingvalue
-            aggregateRating:
-              - text: "4.4"
-                xpath: /html/body/@ratingvalue
-                type: NUMBER
-                raw: "4.4"
-                locale: nl
-                value: 4.4
-            color:
-              - text: Wit
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/span[3]
+                value: 0
             name:
               - text: Luchtreiniger Pure Cool Tower
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[2]
-            specifications:
-              - text: |-
-                  Product
-                  Krëfel code13000175
-                  MerkDyson
-                  EAN5025155034316
-                  Algemene eigenschappen
-                  Lengte11.7 cm
-                  Breedte20.6 cm
-                  Hoogte105.4 cm
-                  Vermogen40 W
-                  Fysieke eigenschappen
-                  KleurWit
-                  Functies
-                  Aantal snelheden10
-                  Silence functie
-                  Oscillatie
-                  Gebruiksgemak
-                  Timer
-                  Automatische stop
-                  Afstandsbediening
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[4]/div[1]/div[2]
-            technicalInformationPdfPresent:
-              - text: No
+            inStorePrice:
+              - text: 599,00 €
             termsAndConditions:
               - text: No
             privacyPolicy:
@@ -154,32 +157,5 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
-            nameExtended:
-              - text: Dyson - Luchtreiniger Pure Cool Tower
-            listPrice:
-              - text: 599,00 €
-            price:
-              - text: 599,00 €
-            descriptionBullets:
-              - text: "0"
-                type: NUMBER
-                raw: "0"
-                locale: nl
-                value: 0
-            shippingInfo:
-              - text: "Op voorraad + Click&Collect: afhalen in een Krëfel-winkel - kies
-                  postcodeStandaard thuislevering  - kies postcodeAfhaalpunt:
-                  afhalen in een bpost afhaalpunt  - kies postcode + Gratis
-                  verzending vanaf €20Prijsgarantie: altijd de laagste prijsVoor
-                  22u00 besteld, morgen in huisLevering op zaterdag en zondag30
-                  dagen bedenktijdKlanten geven Krëfel 8.6/10"
-            variantCount:
-              - text: "0"
-                type: NUMBER
-                raw: "0"
-                locale: nl
-                value: 0
-            inStorePrice:
-              - text: 599,00 €
-        xpath: /
-    timestamp: 1599821817747
+        xpath: /html
+    timestamp: 1600957313585

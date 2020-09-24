@@ -2,11 +2,74 @@ input:
   _url: http://krefel.be
   URL: https://www.krefel.be/nl/p/21006137-stofzuiger-zonder-zak-big-ball-multi-floor-2
 extractions:
-  - html: https://workbench.import.io/html/run=94c6f7a3-424d-408c-bfd1-1d3fc846aa1a/task=988376cf-3c0b-4f35-b667-eff5c7d2aed2/7f17b1e7-e826-4bb6-9b9b-35e283a4feb8.html
+  - html: https://workbench.import.io/html/run=356223b8-8ae7-4d82-b9f4-4689ed1013ae/task=7c1771b2-e140-46c3-9cfd-e7f08fd4981b/2a72bee4-85c1-4d32-a099-803eaed41ad1.html
     extractionConfigId: product/details/stores/k/krefel/BE/extract
     data:
       - group:
-          - image:
+          - category:
+              - text: Huishouden & Groot Elektro
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Stofzuigen
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Sledestofzuigers
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Stofzuiger zonder zak Big Ball Multi Floor 2
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]
+            description:
+              - text: De Dyson Big Ball stofzuiger zet zichzelf weer rechtop, zodat u
+                  probleemloos kunt schoonmaken. Met krachtige Dyson
+                  cycloontechnologie, een hygiënisch te legen stofreservoir en
+                  een vloerzuigmond die zichzelf aanpast voor een effectieve
+                  reiniging van alle soorten oppervlakken. || Radial Root
+                  Cyclone ™ technologie De Radial Root Cyclone technologie zorgt
+                  voor maximale zuigkracht om microscopisch stof en allergenen
+                  te verwijderen. Ball™ technologie De Dyson Ball Allergy is
+                  uitgerust met een centraal stuurmechanisme – voor betere
+                  controle. Geen lastige bewegingen. Pneumatische vloerzuigmond
+                  De nieuwe Dyson pneumatische vloerzuigmond past zich
+                  automatisch in hoogte aan op verschillende oppervlakken en
+                  biedt een hoge zuigkracht op alle soorten vloeren. Produceert
+                  25% minder geluid Het akoestisch ontwerp is aangepast om het
+                  geluidsniveau te verlagen en de geluidskwaliteit te
+                  verbeteren. Geen bijkomende kosten Geen stofzakken of filters
+                  te vervangen. Hygiënisch en snel te legen Met één druk op de
+                  knop. 5 jaar garantie Met unieke reparatieservice aan huis.
+                  Combinatie- en trapaccessoires Stofzuig de trap, reinig kieren
+                  en verwijder stof overal in huis.
+                xpath: /html/body/div[5]
+            weightNet:
+              - text: 8 kg
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[4]/span[3]
+            gtin:
+              - text: "5025155028049"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
+            sku:
+              - text: "21006137"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            variantId:
+              - text: "21006137"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            color:
+              - text: Rood
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            specifications:
+              - text: Product || Krëfel code 21006137 || Merk Dyson || EAN 5025155028049 ||
+                  Algemene eigenschappen || Breedte 383 cm || Diepte 295 cm ||
+                  Hoogte 347 cm || Gewicht 8 kg || Geluidsniveau 80 dB ||
+                  Fysieke eigenschappen || Kleur Rood || Telescopische buis ||
+                  Energie & Prestatie || Vermogen 600 W || Opslag & Filtering ||
+                  Type Zonder zak || Capaciteit 1.5 L || HEPA filter ||
+                  Gebruiksgemak || Lengte snoer 6.63 m || Actieradius 10.49 m ||
+                  Buishaak || Op wieltjes || Automatische snoeropwinder ||
+                  Meegeleverde accessoires || Combiborstel || Meubelzuigmond
+                xpath: /html/body/div[4]
+            warranty:
+              - text: 5 jaar garantie
+                xpath: /html/body/div[6]
+            image:
               - text: https://media.krefel.be/sys-master/products/8943199453214/570x450.38183709_1163686639.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
@@ -31,106 +94,30 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://media.krefel.be/sys-master/products/8943199715358/98x98.38183709_5655004694.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-            metaKeywords:
-              - text: Dyson Stofzuiger zonder zak Big Ball Multi Floor 2 bij Krëfel - voor 22u00
-                  besteld, levering de volgende dag, ook op zondag. Bestel nu
-                  online!
-                xpath: /html/head[1]/meta[2]/@content
-            category:
-              - text: Huishouden & Groot Elektro
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[1]
-              - text: Stofzuigen
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]
-              - text: Sledestofzuigers
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
-              - text: Stofzuiger zonder zak Big Ball Multi Floor 2
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
-            availabilityText:
-              - text: InStock
-                xpath: /html/body/@availability
-            description:
-              - text: >-
-                  Beschrijving
-
-                  DysonStofzuiger zonder zak Big Ball Multi Floor 2
-
-                  De Dyson Big Ball stofzuiger zet zichzelf weer rechtop, zodat u probleemloos kunt schoonmaken. Met krachtige Dyson cycloontechnologie, een hygiënisch te legen stofreservoir en een vloerzuigmond die zichzelf aanpast voor een effectieve reiniging van alle soorten oppervlakken.
-                   
-                  Radial Root Cyclone ™ technologie
-                   De Radial Root Cyclone technologie zorgt voor maximale zuigkracht om microscopisch stof en allergenen te verwijderen.
-                   Ball™ technologie
-                   De Dyson Ball Allergy is uitgerust met een centraal stuurmechanisme – voor betere controle. Geen lastige bewegingen.
-                   Pneumatische vloerzuigmond
-                   De nieuwe Dyson pneumatische vloerzuigmond past zich automatisch in hoogte aan op verschillende oppervlakken en biedt een hoge zuigkracht op alle soorten vloeren.
-                   Produceert 25% minder geluid
-                   Het akoestisch ontwerp is aangepast om het geluidsniveau te verlagen en de geluidskwaliteit te verbeteren.
-                   Geen bijkomende kosten
-                   Geen stofzakken of filters te vervangen.
-                   Hygiënisch en snel te legen
-                   Met één druk op de knop.
-                   5 jaar garantie
-                   Met unieke reparatieservice aan huis.
-                   Combinatie- en trapaccessoires 
-                   Stofzuig de trap, reinig kieren en verwijder stof overal in huis.
-
-                   
-                  Volledige beschrijving
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[1]
+            nameExtended:
+              - text: Dyson - Stofzuiger zonder zak Big Ball Multi Floor 2
+            price:
+              - text: 299,00 €
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl
+                value: 0
             brandText:
               - text: Dyson
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[1]
-            weightNet:
-              - text: 8 kg
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[4]/span[3]
-            gtin:
-              - text: "5025155028049"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
-            sku:
-              - text: "21006137"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
-            mpc:
-              - text: "5025155028049"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
-            color:
-              - text: Rood
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl
+                value: 0
             name:
               - text: Stofzuiger zonder zak Big Ball Multi Floor 2
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[2]
-            specifications:
-              - text: |-
-                  Product
-                  Krëfel code21006137
-                  MerkDyson
-                  EAN5025155028049
-                  Algemene eigenschappen
-                  Breedte383 cm
-                  Diepte295 cm
-                  Hoogte347 cm
-                  Gewicht8 kg
-                  Geluidsniveau80 dB
-                  Fysieke eigenschappen
-                  KleurRood
-                  Telescopische buis
-                  Energie & Prestatie
-                  Vermogen600 W
-                  Opslag & Filtering
-                  TypeZonder zak
-                  Capaciteit1.5 L
-                  HEPA filter
-                  Gebruiksgemak
-                  Lengte snoer6.63 m
-                  Actieradius10.49 m
-                  Buishaak
-                  Op wieltjes
-                  Automatische snoeropwinder
-                  Meegeleverde accessoires
-                  Combiborstel
-                  Meubelzuigmond
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]
+            inStorePrice:
+              - text: 299,00 €
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -143,32 +130,5 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
-            nameExtended:
-              - text: Dyson - Stofzuiger zonder zak Big Ball Multi Floor 2
-            listPrice:
-              - text: 299,00 €
-            price:
-              - text: 299,00 €
-            descriptionBullets:
-              - text: "0"
-                type: NUMBER
-                raw: "0"
-                locale: nl
-                value: 0
-            shippingInfo:
-              - text: "Op voorraad + Click&Collect: afhalen in een Krëfel-winkel - kies
-                  postcodeStandaard thuislevering  - kies postcodeAfhaalpunt:
-                  afhalen in een bpost afhaalpunt  - kies postcode + Gratis
-                  verzending vanaf €20Prijsgarantie: altijd de laagste prijsVoor
-                  22u00 besteld, morgen in huisLevering op zaterdag en zondag30
-                  dagen bedenktijdKlanten geven Krëfel 8.6/10"
-            variantCount:
-              - text: "0"
-                type: NUMBER
-                raw: "0"
-                locale: nl
-                value: 0
-            inStorePrice:
-              - text: 299,00 €
-        xpath: /
-    timestamp: 1599821819919
+        xpath: /html
+    timestamp: 1600957315283

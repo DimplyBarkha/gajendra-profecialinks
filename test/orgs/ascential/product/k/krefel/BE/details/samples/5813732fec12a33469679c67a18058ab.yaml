@@ -2,11 +2,45 @@ input:
   _url: http://krefel.be
   URL: https://www.krefel.be/nl/p/61003861-filter-voor-dyson-pure-hot-plus-cool-pure-cool
 extractions:
-  - html: https://workbench.import.io/html/run=94c6f7a3-424d-408c-bfd1-1d3fc846aa1a/task=3a76f09f-b6ad-49c5-9c02-164635768e09/6a524996-799a-490b-8c24-5918704dc46b.html
+  - html: https://workbench.import.io/html/run=356223b8-8ae7-4d82-b9f4-4689ed1013ae/task=4e9364f3-8078-4eab-9057-022292972957/07de2d29-c773-4d95-8a54-1abdfbfbd7df.html
     extractionConfigId: product/details/stores/k/krefel/BE/extract
     data:
       - group:
-          - image:
+          - category:
+              - text: Huishouden & Groot Elektro
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Klimaatbeheersing
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Accessoires
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Filter voor Dyson Pure Hot + Cool/ Pure Cool
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]
+            description:
+              - text: Vervangingsfilter voor Dyson Pure Hot + Cool™ en Dyson Pure Cool™ tower en
+                  desk || Hermetisch afgesloten filtratiesysteem, vangt 99,95%
+                  van de deeltjes op tot 0,1 micron. || Dit filter is niet
+                  compatibel met Dyson Pure Cool LINK en Dyson Pure Hot+Cool
+                  LINK reinigers.
+                xpath: /html/body/div[5]
+            gtin:
+              - text: "5025155036723"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
+            sku:
+              - text: "61003861"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            variantId:
+              - text: "61003861"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
+            specifications:
+              - text: Product || Krëfel code 61003861 || Merk Dyson || EAN 5025155036723 ||
+                  Algemene eigenschappen || Type Filter || Geschikt voor || Merk
+                  Dyson || Type toestel Luchtreiniger || Dyson Pure Cool, Pure
+                  Hot+Cool || Verpakking || Aantal 1
+                xpath: /html/body/div[4]
+            image:
               - text: https://media.krefel.be/sys-master/products/8922356940830/570x450.61003861_1.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
@@ -27,68 +61,30 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://media.krefel.be/sys-master/products/8922357137438/98x98.61003861_4.jpg
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-            metaKeywords:
-              - text: Dyson Filter voor Dyson Pure Hot + Cool/ Pure Cool bij Krëfel - voor 22u00
-                  besteld, levering de volgende dag, ook op zondag. Bestel nu
-                  online!
-                xpath: /html/head[1]/meta[2]/@content
-            category:
-              - text: Huishouden & Groot Elektro
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[1]
-              - text: Klimaatbeheersing
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[2]
-              - text: Accessoires
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
-              - text: Filter voor Dyson Pure Hot + Cool/ Pure Cool
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
-            availabilityText:
-              - text: InStock
-                xpath: /html/body/@availability
-            description:
-              - text: >-
-                  Beschrijving
-
-                  DysonFilter voor Dyson Pure Hot + Cool/ Pure Cool
-
-                  Vervangingsfilter voor Dyson Pure Hot + Cool™ en Dyson Pure Cool™ tower en desk
-                   
-                  Hermetisch afgesloten filtratiesysteem, vangt 99,95% van de deeltjes op tot 0,1 micron. 
-                   
-                  Dit filter is niet compatibel met Dyson Pure Cool LINK en Dyson Pure Hot+Cool LINK reinigers.
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[1]
+            nameExtended:
+              - text: Dyson - Filter voor Dyson Pure Hot + Cool/ Pure Cool
+            price:
+              - text: 65,00 €
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl
+                value: 0
             brandText:
               - text: Dyson
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[1]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[1]
-            gtin:
-              - text: "5025155036723"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
-            sku:
-              - text: "61003861"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[3]
-            mpc:
-              - text: "5025155036723"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[3]
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nl
+                value: 0
             name:
               - text: Filter voor Dyson Pure Hot + Cool/ Pure Cool
                 xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/div[3]/div[1]/h1[1]/span[2]
-            specifications:
-              - text: |-
-                  Product
-                  Krëfel code61003861
-                  MerkDyson
-                  EAN5025155036723
-                  Algemene eigenschappen
-                  TypeFilter
-                  Geschikt voor
-                  MerkDyson
-                  Type toestelLuchtreiniger
-                  DysonPure Cool, Pure Hot+Cool
-                  Verpakking
-                  Aantal1
-                xpath: /html/body/div[1]/div[1]/div[2]/div[2]/div[2]/div[4]/div[1]/section[3]/div[1]/div[2]
+            inStorePrice:
+              - text: 65,00 €
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -101,32 +97,5 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
-            nameExtended:
-              - text: Dyson - Filter voor Dyson Pure Hot + Cool/ Pure Cool
-            listPrice:
-              - text: 65,00 €
-            price:
-              - text: 65,00 €
-            descriptionBullets:
-              - text: "0"
-                type: NUMBER
-                raw: "0"
-                locale: nl
-                value: 0
-            shippingInfo:
-              - text: "Op voorraad + Click&Collect: afhalen in een Krëfel-winkel - kies
-                  postcodeStandaard thuislevering  - kies postcodeAfhaalpunt:
-                  afhalen in een bpost afhaalpunt  - kies postcode + Gratis
-                  verzending vanaf €20Prijsgarantie: altijd de laagste prijsVoor
-                  22u00 besteld, morgen in huisLevering op zaterdag en zondag30
-                  dagen bedenktijdKlanten geven Krëfel 8.6/10"
-            variantCount:
-              - text: "0"
-                type: NUMBER
-                raw: "0"
-                locale: nl
-                value: 0
-            inStorePrice:
-              - text: 65,00 €
-        xpath: /
-    timestamp: 1599821820097
+        xpath: /html
+    timestamp: 1600957319858

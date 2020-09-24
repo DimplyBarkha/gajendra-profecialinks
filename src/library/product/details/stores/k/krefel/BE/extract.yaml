@@ -1,14 +1,12 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //body
 fields:
   - name: image
-    singleValue: true
     description: URL of the main product image
     xpath: (//div[@class='media-wrapper']/img/@src)[1]
   - name: imageAlt
-    singleValue: true
     description: Alt text of the main product image
     xpath: (//div[@class='media-wrapper']/img/@alt)[1]
   - name: alternateImages
@@ -18,77 +16,63 @@ fields:
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
-    xpath: //meta[@name='description']/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //ul[@class='breadcrumbs']/li
   - name: nameExtended
-    singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: concat((//span[@class='brand'])[1],'- ', //span[@class='product'])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: concat((//span[@class='current-price orange nl'])[1], ' €')
   - name: price
-    singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: concat((//span[@class='current-price orange nl'])[1], ' €')
   - name: availabilityText
-    singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //body/@availability
+    xpath: //div[@id='availability']
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //section[@class='description']
+    xpath: //div[@id='description']
   - name: descriptionBullets
-    singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
     xpath: count(//section[@class='description']//li)
   - name: brandText
-    singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: (//span[@class='brand'])[1]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: (//span[@class='brand'])[1]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
     description: Net weight as described on the page
     xpath: //span[contains(text(), 'Gewicht')]/following::span[1]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
-    singleValue: true
     description: GTIN code (includes UPC/EAN)
     xpath: //span[contains(text(), 'EAN')]/following::span[1]
   - name: sku
-    singleValue: true
     description: The store-specific product identifier
     xpath: //span[contains(text(), 'Krëfel code')]/following::span[1]
   - name: variantId
-    singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //span[contains(text(), 'Krëfel code')]/following::span[1]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //span[contains(text(), 'EAN')]/following::span[1]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -103,7 +87,6 @@ fields:
     singleValue: true
     description: Content under "warnings" header
   - name: ratingCount
-    singleValue: true
     description: The number of ratings
     xpath: //h2//span[contains(text(), 'Beoordelingen')]
     regExp: (\d+)
@@ -111,16 +94,13 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    xpath: //body/@ratingvalue
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //body/@ratingvalue
-    type: NUMBER
+    xpath: //div[@id='ratingValue']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: concat(//div[@class='delivery-info'], ' + ',//div[@class='delivery-options'], ' + ', //div[@class='product-usp-overview'])
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -128,12 +108,10 @@ fields:
     singleValue: true
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
     description: Number of variants listed
     xpath: count(//select[@class='product-variant-select']/option)
     type: NUMBER
   - name: color
-    singleValue: true
     description: A textual description of the colour
     xpath: //span[contains(text(), 'Kleur')]/following::span[1]
   - name: colorCode
@@ -152,11 +130,9 @@ fields:
     regExp: (.+p)-
     regExpReplace: $1
   - name: name
-    singleValue: true
     description: The product name
     xpath: (//span[@class='product'])[1]
   - name: inStorePrice
-    singleValue: true
     description: Price in the selected store
     xpath: concat((//span[@class='current-price orange nl'])[1], ' €')
   - name: asin
@@ -406,12 +382,11 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@class='specs-overview']
+    xpath: //div[@id='specifications']
   - name: warranty
-    singleValue: true
     description: Guarantee associated with the product
+    xpath: //div[@id='warranty']
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -458,10 +433,9 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
     description: colour / scent / flavour / other
+    xpath: //select[@class="product-variant-select"]/option[1]
   - name: firstVariant
-    singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -495,22 +469,22 @@ fields:
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
   - name: technicalInformationPdfPresent
-    singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
+    xpath: //div[@id='pdfExists']
+    defaultValue: "No"
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
+    defaultValue: "No"
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    defaultValue: "No"
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    defaultValue: "No"
   - name: materials
     singleValue: true
     description: Materials used to make the product
@@ -519,10 +493,10 @@ fields:
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
+    defaultValue: "No"
   - name: imageZoomFeaturePresent
     singleValue: true
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: "No"
