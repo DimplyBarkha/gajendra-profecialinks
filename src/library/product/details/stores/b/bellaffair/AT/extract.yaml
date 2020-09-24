@@ -20,10 +20,10 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category 
     singleValue: false
-    xpath: //div[contains(@id,'breadCrumb')]//li[position()>1 and position()<3]
-  - name: subCategory 
-    singleValue: false
-    xpath: //div[contains(@id,'breadCrumb')]//li[position()>2 and position()<last()]
+    xpath: //div[contains(@id,'breadCrumb')]//li[position()>1 and position()<last()]
+  # - name: subCategory 
+  #   singleValue: false
+  #   xpath: //div[contains(@id,'breadCrumb')]//li[position()>1 and position()<last()]
   - name: price
     singleValue: true
     xpath: //div[@class="detail-price"]//p[@class="price actual-price black"]
@@ -70,7 +70,7 @@ fields:
   #  regExp: (?<=:).*
   - name: mpc
     singleValue: true
-    xpath: //meta[@itemprop='sku']/@content
+    # xpath: //meta[@itemprop='sku']/@content
   - name: nameExtended
     singleValue: true
     xpath: //h1[contains(@class,'js-title')]
