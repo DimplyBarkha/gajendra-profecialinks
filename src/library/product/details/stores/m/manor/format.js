@@ -110,6 +110,12 @@ const transform = (data) => {
         row.variantCount.forEach(item => {
           tot++;
         });
+        if(tot==1){
+          tot = 0;
+          row.variants = [{'text':''}]
+          row.firstVariant = [{'text':''}]
+          row.variantInformation = [{'text':''}]          
+        }
         row.variantCount=[{text:tot}];
       }
       if(row.variantInformation){
