@@ -36,6 +36,7 @@ const cleanUp = (data, context) => {
         }
         if (row.aggregateRating) {
           row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('.', ',').trim() }];
+          row.aggregateRatingText = [{ text: row.aggregateRating[0].text }];
         }
 
         if (row.sku) {

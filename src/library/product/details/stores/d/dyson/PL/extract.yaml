@@ -9,10 +9,10 @@ fields:
     xpath: //h2[contains(concat(' ',normalize-space(@class),' '),'hgroup__title')] | //div[@class="hgroup__image"]//h1
   - name: price
     singleValue: true
-    xpath: //span[@data-price-type="finalPrice"]/@data-price-amount
+    xpath: translate(//span[@data-price-type="finalPrice"]/@data-price-amount|//meta[@property="product:price:amount"]/@content, ".", ",")
   - name: listPrice
     singleValue: true
-    xpath: //span[@data-price-type="oldPrice"]/@data-price-amount
+    xpath: translate(//span[@data-price-type="oldPrice"]/@data-price-amount, ".", ",")
   - name: priceCurrency
     default: zł
   - name: availabilityText
@@ -46,7 +46,7 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    xpath: (//div[@class="rating-result"]//span)[1]
+    xpath: (//span[@itemprop="ratingValue"])[1]
   - name: aggregateRating
     singleValue: true
     xpath: (//span[@itemprop="ratingValue"])[1]
