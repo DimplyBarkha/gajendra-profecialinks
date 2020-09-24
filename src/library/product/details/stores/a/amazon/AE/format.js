@@ -282,7 +282,7 @@ const transform = (data, context) => {
           row.weightNet = [{ text }];
         }
       }
-      if (!row.mpc | row.mpc[0].text.includes(':')) {
+      if (!row.mpc || row.mpc[0].text.includes(':')) {
         if (row.mpc1 && row.mpc1[0].text.includes('Model Number')) {
           let text = row.mpc1[0].text.replace(/\n/g, '').replace(/.*Model Number: (.*)/, '$1').replace(/^((?:\S+\s+){2}\S+).*/, '$1');
           text = text.slice(0, -4);
