@@ -103,6 +103,10 @@ module.exports = {
     });
     //
     var dataRef = await context.data();
+    if (!('directions' in dataRef[0].data[0].group[0])) {
+      dataRef[0].data[0].group[0].directions = [];
+      dataRef[0].data[0].group[0].directions.push({ text: '' });
+    }
     dataRef[0].data[0].group[0].directions[0].text += '\n';
     dataRef[0].data[0].group[0].directions[0].text += directions;
     dataRef[0].data[0].group[0].specifications[0].text = specifications;
