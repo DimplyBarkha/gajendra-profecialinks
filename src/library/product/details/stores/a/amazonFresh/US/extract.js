@@ -88,34 +88,15 @@ async function implementation (
     }, parentInput);
   }
 
-  // await context.waitForXPath('//span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//span[@data-component-type="s-product-image"]//a[contains(@class, "a-link-normal")]/@href');
-  // const link = await context.evaluate(async function () {
-  //   const linkNode = document.querySelector('span[cel_widget_id="MAIN-SEARCH_RESULTS"] a.a-link-normal');
-  //   const link = (linkNode !== null) ? linkNode.getAttribute('href') : null;
-  //   return link;
-  // });
+  // await context.clickAndWaitForNavigation('span[data-component-type="s-product-image"]');
+  const endUrlFirstItem = await context.evaluate(()=>{
+    const firstItem = document.querySelector('span[data-component-type="s-product-image"] a')
+    return firstItem.getAttribute('href')
+  });
+  const itemUrl = 'https://www.amazon.com' + endUrlFirstItem;
+  await context.goto(itemUrl);
+  await amazonHelp.handleErrorsAndCaptchas(itemUrl);
 
-  // if (link && link.toString().includes('almBrandId')) {
-  //   try {
-  //     await context.goto('https://www.amazon.com/' + link, {
-  //       timeout: 45000, waitUntil: 'load', checkBlocked: true,
-  //     });
-  //   } catch (err) {
-  //     try {
-  //       await context.goto('https://www.amazon.com/' + link, {
-  //         timeout: 45000, waitUntil: 'load', checkBlocked: true,
-  //       });
-  //     } catch (err) {
-  //       console.log('couldn\'t go to link')
-  //       // throw new Error('Can\'t go to link');
-  //     }
-  //   }
-  // }
-  // else {
-  // throw new Error('Not found in Amazon Fresh');
-  // return;
-  // }
-  await context.clickAndWaitForNavigation('span[data-component-type="s-product-image"]');
   await context.waitForXPath('//span[@id="productTitle"]', { timeout: 20000 });
 
   await loadAllResources();
@@ -137,6 +118,7 @@ module.exports = {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
     Helpers: 'module:helpers/helpers',
     AmazonHelp: 'module:helpers/amazonHelp',
+    goto: 'action:navigation/goto',
   },
   implementation,
 };
