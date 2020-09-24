@@ -61,10 +61,8 @@ fields:
   - name: quantity
     xpath: td[@class="size"]
     description: Quantity as described on the page
-  - name: weightNet2
-    xpath: //td[@class="weightNet"]
   - name: weightNet
-    xpath: ancestor::html[not(//td[@class="weightNet"][.=""])]//th[@aria-label="Product weight"]/following-sibling::th[1]/@aria-label | ancestor::html[not(//td[@class="weightNet"][.=""])]//div[@id="productDetails"]//ul/li[starts-with(text(),"Weighs")] | //td[@class="weightNet"]
+    xpath: ancestor::html[not(//td[@class="weightNet"][.=""])]//th[@aria-label="Weight"]/following-sibling::td[1] | ancestor::html[not(//td[@class="weightNet"][.=""])]//th[@aria-label="Product weight"]/following-sibling::th[1]/@aria-label | ancestor::html[not(//td[@class="weightNet"][.=""])]//div[@id="productDetails"]//ul/li[starts-with(text(),"Weighs")] | //td[@class="weightNet"]
     regExp: ^(Weighs)?(.+)(\s)?[.]?$
     regExpReplace: $2
     description: Net weight as described on the page
