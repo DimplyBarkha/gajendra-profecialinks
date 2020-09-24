@@ -49,7 +49,10 @@ fields:
     xpath: //script[@data-flix-sku]/@data-flix-sku | //small[contains(@class,"product-id")]
   - name: variantId
     singleValue: false
-    manualSelector: small.product-id
+    xpath: //input[contains(@name,"product_id")]/@value
+  - name: mpc
+    singleValue: false
+    xpath: //script[@data-flix-mpn]/@data-flix-mpn
   - name: variantCount
     singleValue: false
     defaultValue: '0'
