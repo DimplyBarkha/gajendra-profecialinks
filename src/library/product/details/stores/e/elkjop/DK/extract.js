@@ -29,6 +29,13 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      function addElementToDocumentClass (key, value) {
+        const catElement = document.createElement('div');
+        catElement.className = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
       const nodeListH = document.querySelectorAll('.article-text.article-free-html h2');
       const nodeListP = document.querySelectorAll('.article-text.article-free-html p');
       var allEnhancedContent = '';
@@ -40,6 +47,24 @@ module.exports = {
           allEnhancedContent = allEnhancedContent + ' ' + nodeListP[k].innerText;
         }
         addElementToDocument('enhCont', allEnhancedContent);
+      }
+      const bulletInfo = document.querySelectorAll('div.row.misc-info ul.specs li');
+      if (bulletInfo) {
+        var bulletInfoText = '';
+        for (var n = 0; n < bulletInfo.length; n++) {
+          // @ts-ignore
+          bulletInfoText = bulletInfoText + '||' + bulletInfo[n].innerText;
+          addElementToDocument('bulletInfoText', bulletInfoText);
+        }
+      }
+      const category = document.querySelectorAll('ol.breadcrumbs.S-1-1 li a');
+      if (category) {
+        var categoryText = '';
+        for (var q = 0; q < category.length - 1; q++) {
+          // @ts-ignore
+          categoryText = category[q].title;
+          addElementToDocumentClass('bulletInfoText', categoryText);
+        }
       }
       const rating = document.evaluate("//div[@itemprop='aggregateRating']/meta[@itemprop='ratingValue']/@content", document, null, XPathResult.STRING_TYPE, null);
       if (rating && rating.stringValue) {
