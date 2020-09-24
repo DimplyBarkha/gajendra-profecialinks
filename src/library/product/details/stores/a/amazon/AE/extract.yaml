@@ -88,7 +88,7 @@ fields:
     xpath: //div[@id='buybox-tabular']//tr[1]/td[1] | //div[@id='buybox-tabular']//tr[1]/td[2]/span/span[2] | //div[@id='buybox-tabular']//tr[2]/td[1] | //div[@id='buybox-tabular']//tr[2]/td[2]/span/span[2]
   - name: shippingDimensions
     singleValue: false
-    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
+    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1] | //div[@id='detailBullets_feature_div']//span[normalize-space(.)="Package Dimensions :"]/following::span[1]
   - name: variantCount
     singleValue: false
     xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
@@ -177,7 +177,7 @@ fields:
     singleValue: false
     xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
     defaultValue: No
-  - name: manufacturer
+  - name: manufacturer(//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
     singleValue: false
     xpath: //div[@id='detailBullets_feature_div']//span[normalize-space(.)="Manufacturer :"]/following::span[1]
   - name: technicalInformationPdfPresent
