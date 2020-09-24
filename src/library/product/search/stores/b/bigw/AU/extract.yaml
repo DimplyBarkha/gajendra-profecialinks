@@ -14,9 +14,9 @@ fields:
     singleValue: false
     regExp: (https:\/\/www.bigw.com.au)?(.+)
     regExpReplace: https://www.bigw.com.au$2
-  - name: manufacturer
-    xpath: //div[contains(@class,'productSlot')]//div[contains(@class,'productThumbnail')]//div[contains(@class,'image')]//div[contains(@class,'quickViewContainer')]//a/@data-product-brand
-    singleValue: false    
+  #- name: manufacturer
+  #  xpath: //div[contains(@class,'productSlot')]//div[contains(@class,'productThumbnail')]//div[contains(@class,'image')]//div[contains(@class,'quickViewContainer')]//a/@data-product-brand
+  #  singleValue: false
   - name: thumbnail
     xpath: //div[contains(@class,'productSlot')]//div[contains(@class,'productThumbnail')]//div[contains(@class,'image')]//div[contains(@class,'quickViewContainer')]//a[contains(@class,'gtmListerTitleTracking trackRichRelClickUrl')]/img/@src
     singleValue: false
@@ -24,18 +24,18 @@ fields:
     regExpReplace: https://www.bigw.com.au$2
   - name: price
     xpath: //div[@class='quickViewContainer']/button/@data-product-price
-    singleValue: true 
+    singleValue: true
   - name: rankOrganic
-    singleValue: true 
-  - name: aggregateRating  
     singleValue: true
-    defaultValue: '0'
-  - name: reviewCount  
+  - name: aggregateRating
     singleValue: true
-    defaultValue: '0'
-  - name: ratingCount  
+    defaultValue: "0"
+  - name: reviewCount
     singleValue: true
-    defaultValue: '0'
+    defaultValue: "0"
+  - name: ratingCount
+    singleValue: true
+    defaultValue: "0"
   - name: rank
     singleValue: true
     description: search/listing rank
@@ -43,5 +43,3 @@ fields:
   - name: sponsored
     singleValue: true
     description: search/listing rank
-
-    
