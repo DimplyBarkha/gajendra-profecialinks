@@ -26,7 +26,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//*[contains(@class, "breadcrumbs S-1-1")]/li/a/@title)[position()<4]
+    xpath: //div[contains(@class,'category')]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -56,7 +56,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: (//*[contains(@class, "short-description")] | //*[contains(@class, "row misc-info")]/ul[@class="specs"]/li)
+    xpath: (//*[contains(@class, "short-description")] | //div[@id='bulletInfoText'])
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -93,10 +93,11 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //meta[@itemprop='productID']/@content
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: /html/head/script/@data-eky-mpn
+    xpath: //td[contains(@class, "any-3-4 S-1-2")][@data-md-value-id="31416"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -126,6 +127,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //span[contains(@class,'seller-name-pdp')]/a
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -489,7 +491,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //*[contains(@class, "row misc-info")]/ul[@class="specs"]/li
+    xpath: //div[@id='bulletInfoText']
   - name: prop65Warning
     singleValue: true
     description: null
