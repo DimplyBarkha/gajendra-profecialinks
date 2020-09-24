@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'IE',
     store: 'brownthomas',
-    nextLinkSelector: 'div.js-product-load-more[data-grid-url*="https://www.brownthomas.com/search"]',
+    nextLinkSelector: 'div.js-product-load-more',
     spinnerSelector: 'div[class="loader"][style="display: block;"]',
     noResultsXPath: '//p[contains(@class,"no-hits-content-results")]',
     domain: 'brownthomas.com',

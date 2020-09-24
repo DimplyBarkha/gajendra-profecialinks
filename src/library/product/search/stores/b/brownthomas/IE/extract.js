@@ -1,7 +1,7 @@
 
 const { transform } = require('../../../../shared');
 
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -26,6 +26,16 @@ async function implementation (
     console.log('Redirected to details page');
     throw new Error('ERROR: Loaded details page');
   }
+
+  try {
+    await context.waitForSelector('#onetrust-accept-btn-handler', { timeout: 10000 });
+    await context.evaluate(function () {
+      document.querySelector('#onetrust-accept-btn-handler').click();
+    });
+  } catch (err) {
+    console.log('Accepting cookies failed');
+  }
+
   return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
 }
 
