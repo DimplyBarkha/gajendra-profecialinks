@@ -43,7 +43,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: true
-    xpath: //div[contains(@class,'contentList')]//span[contains(@itemprop,'description')]
+    xpath: //div[contains(@class,'contentList')]
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[contains(@class,'contentList')]//ul//li)
@@ -96,6 +96,9 @@ fields:
     singleValue: true
     type: NUMBER
     xpath: count(//div[contains(@class,"productImageGallery")]//div[contains(@class,"slick-track")]//div[contains(@class,"slick-slide slick-cloned")]//a[contains(@class,"mZoomSlickThumb MagicThumb-swap")]/img/@src)
+  - name: specifications
+    singleValue: true
+    xpath: //div[contains(@class,'tab-Specification')]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -127,6 +130,9 @@ fields:
     singleValue: true
   - name: energyEfficiency
     singleValue: true
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath: //div[contains(@class,'contentList')]//ul//li
   - name: technicalInformationPdfPresent
     singleValue: true
     regExp: (.+)
@@ -149,12 +155,12 @@ fields:
     xpath: //script/@data-flix-ean
   - name: listPrice
     singleValue: true
-    xpath: //span[@class="priceClass"]
+    xpath: //div[@class="priceMeta hide-sm hide-prv"]
   - name: colorCode
     singleValue: true
-  - name: newDescription
-    singleValue: true
-    xpath: //div[contains(@class,'contentList')]//span[contains(@itemprop,'description')]
+  #- name: newDescription
+  #  singleValue: true
+  #  xpath: //div[contains(@class,'contentList')]//span[contains(@itemprop,'description')]
   - name: lbbPrice
     singleValue: true
     xpath:

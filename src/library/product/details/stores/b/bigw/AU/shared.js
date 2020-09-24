@@ -12,7 +12,16 @@ const transform = (data) => {
                     row.price[0].text = row.price[0].text.replace('.', ',');
                 }
                 if (row.listPrice) {
-                    row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
+                    row.listPrice[0].text = row.listPrice[0].text.split(' ')[1].replace('.', ',');
+                }
+                if (row.nameExtended) {
+                    var nameExtended = row.nameExtended[0].text;
+                    if (row.brandText) {
+                        var brand = nameExtended.includes(row.brandText[0].text);
+                        if (!brand) {
+                            row.nameExtended[0].text = row.brandText[0].text + ' ' + nameExtended;
+                        }
+                    }
                 }
             } catch (exception) {
                 console.log('Error in transform', exception);
