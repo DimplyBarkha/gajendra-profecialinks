@@ -193,3 +193,10 @@ fields:
   - name: color1
     singleValue: false
     xpath: //div[@id='productDescription']
+  - name: quantity
+    singleValue: false
+    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
+    regExp: (.+)
+  - name: mpc1
+    singleValue: false
+    xpath: //div[@id='productDescription']

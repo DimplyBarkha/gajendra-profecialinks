@@ -282,9 +282,17 @@ const transform = (data, context) => {
           row.weightNet = [{ text }];
         }
       }
+      if (!row.mpc | row.mpc[0].text.includes(':')) {
+        if (row.mpc1 && row.mpc1[0].text.includes('Model Number')) {
+          let text = row.mpc1[0].text.replace(/\n/g, '').replace(/.*Model Number: (.*)/, '$1').replace(/^((?:\S+\s+){2}\S+).*/, '$1');
+          text = text.slice(0, -4);
+          row.mpc = [{ text }];
+        }
+      }
       if (!row.color) {
         if (row.color1 && row.color1[0].text.includes('Color Category')) {
-          const text = row.color1[0].text.replace(/\n/g, '').replace(/.*Color Category: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
+          let text = row.color1[0].text.replace(/\n/g, '').replace(/.*Color Category: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
+          text = text.slice(0, -3);
           row.color = [{ text }];
         } else if (row.color1 && row.color1[0].text.includes('Color')) {
           const text = row.color1[0].text.replace(/\n/g, '').replace(/.*Color: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
