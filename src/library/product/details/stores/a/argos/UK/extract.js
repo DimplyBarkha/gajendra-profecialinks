@@ -155,7 +155,7 @@ module.exports = {
               evaluationState = true;
             } catch (err) {
               console.log('Action failed, waiting for a while before retry.');
-              await delay(5000);
+              await delay(retryCount * 3000);
 
               if (retryCount === retryLimit) {
                 console.log(`Failed to get availability after ${retryLimit} retries.`);
