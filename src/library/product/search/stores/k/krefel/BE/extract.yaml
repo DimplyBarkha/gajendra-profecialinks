@@ -28,6 +28,7 @@ fields:
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //div[@class="top-content"]/@rating
   - name: reviewCount
     description: The number of reviews
     xpath: //div[@class='rating-amount']

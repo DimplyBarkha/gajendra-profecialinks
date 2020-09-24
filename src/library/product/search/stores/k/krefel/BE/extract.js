@@ -10,6 +10,22 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
+      const productBoxes = document.querySelectorAll('div.col-md-4.product') ? document.querySelectorAll('div.col-md-4.product') : 0;
+      const numberOfProducts = productBoxes.length;
+
+      for (let i = 0; i < numberOfProducts; i++) {
+        if (productBoxes[i].querySelector('div.rating-wrap').querySelector('div.rating')) {
+          const fullRate = productBoxes[i].querySelector('div.rating').querySelectorAll('span.plug.filled').length;
+          if (fullRate === 5) {
+            document.querySelectorAll('div.top-content')[i].setAttribute('rating', fullRate);
+          } else if (productBoxes[i].querySelector('div.rating').querySelectorAll('span.plug')[fullRate].querySelector('svg').querySelectorAll('path')[0].className.baseVal) {
+            document.querySelectorAll('div.top-content')[i].setAttribute('rating', fullRate);
+          } else { document.querySelectorAll('div.top-content')[i].setAttribute('rating', fullRate + 0.5); }
+        };
+      };
+    });
+
+    await context.evaluate(async function () {
       const numberOfResults = document.querySelectorAll('div[class^="col-md-4"]');
       for (let x = 0; numberOfResults.length > x; x++) {
         numberOfResults[x].classList.replace('col-md-4', 'col-md-1');
@@ -18,6 +34,7 @@ module.exports = {
       }
       window.scroll(1, 1);
     });
+
     await context.evaluate(async function () {
       const allProducts = document.querySelectorAll('div[class^="col-md-1"]');
       let x;
