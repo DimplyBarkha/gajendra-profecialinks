@@ -57,6 +57,9 @@ fields:
     singleValue: false
     description: Product manufacturer
     xpath: //td[contains(text(), 'Hersteller')]/following-sibling::*[1]
+  - name: weightGross
+    singleValue: false
+    xpath: //thead//*[contains(text(), 'Verpackungsdimensionen')]/parent::*/parent::*/parent::*/following-sibling::*//td[contains(text(), 'Gewicht')]/following-sibling::*
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -114,12 +117,6 @@ fields:
     singleValue: false
     description: A textual description of the colour
     xpath: //td[contains(text(), 'Genaue Farbbezeichnung')]/following-sibling::*
-  - name: videos
-    singleValue: false
-    description: URLs of videos on page
-    xpath: //div[contains(@class, 'slides')]//img[contains(@src, 'youtube')]/@src
-    regExp: vi/(.*?)/
-    regExpReplace: https://www.youtube.com/$1
   - name: name
     singleValue: false
     description: The product name
@@ -154,10 +151,6 @@ fields:
     singleValue: false
     description: Guarantee associated with the product
     xpath: //td[contains(text(), 'Garantie')]/following-sibling::*
-  - name: packaging
-    singleValue: false
-    description: Packaging information
-    xpath: //*[contains(text(), 'Verpackungsdimensionen')]/parent::*/parent::*/parent::*/following-sibling::*
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
@@ -173,21 +166,20 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: //script[@type='application/ld+json'][contains(text(),'sku')]
-    regExp: sku":(.*?),
-    regExpReplace: $1
   - name: variants
     singleValue: false
     description: null
   - name: technicalInformationPdfPresent
     singleValue: false
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    xpath: //a[contains(@class, 'styled__StyledLink-sc-5q25ol-0 cpGyOz') and contains(., 'Technisches Datenblatt')]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: termsAndConditions
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: Yes
+    defaultValue: No
   - name: privacyPolicy
     singleValue: false
     description: Privacy Policy information text ['Yes','No']
