@@ -76,9 +76,6 @@ fields:
   - name: packaging
     singleValue: false
     xpath: (//div[@class="detailspecbox"]//table//tr[td[contains(text(), 'Packaging')]]//td)[2]
-  - name: quantity
-    singleValue: false
-    xpath: //div[contains(@class,"product-addcart")]//div[contains(@class,'quantity')]//input[@title='Qty']/@value
   - name: name
     singleValue: false
     xpath: //div[@class="product-title"]/h1[@itemprop="name"]
