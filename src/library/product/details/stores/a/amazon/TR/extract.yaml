@@ -71,7 +71,7 @@ fields:
     xpath: (//tr/th[contains(text(),"ASIN")])[1]/following-sibling::td | (//*[@data-asin])[1]/@data-asin
   - name: variantId
     singleValue: false
-    xpath: (//tr/th[contains(text(),"Model Numarası")])[1]/following-sibling::td
+    xpath: (//tr/th[contains(text(),"ASIN")])[1]/following-sibling::td | (//*[@data-asin])[1]/@data-asin
   - name: mpc
     singleValue: false
     xpath: (//tr/th[contains(text(),"Model Numarası")])[1]/following-sibling::td
@@ -132,10 +132,10 @@ fields:
     xpath:
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//p[not(img) and text()]
+    xpath: //div[@id="ii_manufacturerDescription"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="aplus"]//img[not(contains(@src, "common"))]/@src
+    xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
     singleValue: false
     xpath: //script[contains(text(), "ImageBlockBTF")]/text()
@@ -146,7 +146,8 @@ fields:
     singleValue: false
     xpath:
   - name: sku
-    xpath:
+    singleValue: false
+    xpath: (//tr/th[contains(text(),"ASIN")])[1]/following-sibling::td | (//*[@data-asin])[1]/@data-asin
   - name: coupon
     singleValue: false
     xpath: //div[@id="price"]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text()
@@ -458,9 +459,6 @@ fields:
     xpath: (//tr/th[contains(text(),"Malzeme")])[1]/following-sibling::td
   - name: Image360Present
     singleValue: false
-    xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
-    regExp: (.+)
-    regExpReplace: Yes
     defaultValue: No
   - name: imageZoomFeaturePresent
     singleValue: false
