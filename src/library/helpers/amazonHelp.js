@@ -10,13 +10,11 @@ module.exports.AmazonHelp = class {
     await new Promise(resolve => setTimeout(resolve, 5000));
     const shouldChangeAddress = await this.helpers.checkAndReturnProp('div#nav-global-location-slot', 'css', 'innerText');
 
-    if (shouldChangeAddress && shouldChangeAddress.includes(wantedZip)) {
-      return;
-    }
+    if (shouldChangeAddress && shouldChangeAddress.includes(wantedZip)) return;
 
     try {
       await this.helpers.checkAndClick('span#glow-ingress-line2.nav-line-2', 'css', 6000);
-      await new Promise(r => setTimeout(r, 2000));
+      await new Promise(resolve => setTimeout(resolve, 2000));
       try {
         await this.helpers.checkAndClick('a#GLUXChangePostalCodeLink', 'css', 6000);
       } catch (e) {}
@@ -28,6 +26,6 @@ module.exports.AmazonHelp = class {
       throw exception;
     }
 
-    await new Promise(r => setTimeout(r, 5000));
+    await new Promise(resolve => setTimeout(resolve, 5000));
   }
 };

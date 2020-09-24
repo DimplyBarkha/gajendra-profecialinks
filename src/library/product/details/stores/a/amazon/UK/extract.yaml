@@ -79,11 +79,11 @@ fields:
     # regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //td[contains(text(),'Weight')]/following-sibling::*[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Item Weight')]/../td
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //td[contains(text(),'Weight')]/following-sibling::*[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Item Weight')]/../td | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Item Weight")]/following-sibling::td[1]/text()
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
-    xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //tr[contains(@class,'shipping-weight')][1]//td[2]
+    xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1] | //tr[contains(@class,'shipping-weight')][1]//td[2] | (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1] | //tr//td[contains(text(),'Product Dimensions')]/../td[2]| //*[contains(text(),'Package Dimensions')]/following-sibling::*[1]
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
@@ -99,11 +99,11 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Model Number')]/../td | //tr[contains(@class,'item-model-number')][1]//td[2]
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Model Number')]/../td | //tr[contains(@class,'item-model-number')][1]//td[2] | //*[contains(text(),'Model Number')]/following-sibling::*[1]
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
-    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Number of Items')]/../td | //td[contains(text(),'Item Package Quantity')]/following-sibling::*[1] | //div[@id='ii_packSize']
+    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Number of Items')]/../td | //td[contains(text(),'Item Package Quantity')]/following-sibling::*[1] | //div[@id='ii_packSize'] | //th[contains(text(),'Item Package Quantity')]/following-sibling::*[1]
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
@@ -137,7 +137,7 @@ fields:
     # type: NUMBER
   - name: shippingInfo
     singleValue: true
-    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]
+    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]  | //div[contains(@id, 'merchant-info')]
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
@@ -145,7 +145,7 @@ fields:
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: true
-    xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1]
+    xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1] | (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1] | //tr//td[contains(text(),'Product Dimensions')]/../td[2]| //*[contains(text(),'Package Dimensions')]/following-sibling::*[1]
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
@@ -154,7 +154,7 @@ fields:
     # type: NUMBER
   - name: color
     singleValue: true
-    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
+    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")] | //table[contains(@id,'productDetails_techSpec')]//th[contains(.,'Colour')]/following-sibling::td
     description: A textual description of the colour
   - name: colorCode
     singleValue: true
@@ -169,7 +169,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[@aria-label="Video Player"]//@src | //div[@data-vendor-name="Manufacturer Video"]/video/@data-video-url
+    xpath: //script[contains(text(), "ImageBlockBTF")]/text()
     description: URLs of videos on page
   - name: name
     singleValue: true
@@ -539,6 +539,7 @@ fields:
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()] | //*[@class='secHeader']//*[contains(text(),'Additional')]/../following-sibling::*[1]//tbody/tr
   - name: warranty
     singleValue: true
+    xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div | //table[contains(@id,'product-specification-table')]//th[contains(.,'Warranty')]/following-sibling::td
     description: Guarantee associated with the product
   - name: storage
     singleValue: true
@@ -546,7 +547,7 @@ fields:
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: true
-    xpath: //td[contains(text(),'Country of origin')]/following-sibling::*[1]
+    xpath: //td[contains(text(),'Country of origin')]/following-sibling::*[1] | //*[contains(text(),'Country of origin')]/following-sibling::*[1]
     description: The country from which the product originates
   - name: allergyAdvice
     singleValue: true
@@ -615,9 +616,11 @@ fields:
       this will need analysis
   - name: variants
     singleValue: false
+    xpath: //script[contains(., "ImageBlockBTF")]/text() | //*[@id='twisterJsInitializer_feature_div']//script
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
     description: null
   - name: prop65Warning
     singleValue: true
@@ -629,10 +632,12 @@ fields:
     example: 4 - 99 years
   - name: energyEfficiency
     singleValue: true
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/*[contains(text(), "Energy efficiency class")]/../p[text()]/text() | //table[contains(@id,'productDetails_techSpec')]//th[contains(.,'Energy Efficiency Class')]/following-sibling::td
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
   - name: technicalInformationPdfPresent
+    xpath: //*/@href[contains(.,'.pdf')]
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
@@ -654,11 +659,12 @@ fields:
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   - name: Image360Present
-    singleValue: true
+    singleValue: false
+    xpath: //div[@id="altImages"]//ul/li[contains(@class, "pos-360")]//img/@src[contains(.,'360')]
     # xpath: //div[@id="altImages"]//ul/li[contains(@class, "pos-360")]//img/@src
-    # regExp: (.+)
-    # regExpReplace: Yes
-    # defaultValue: No
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   - name: imageZoomFeaturePresent

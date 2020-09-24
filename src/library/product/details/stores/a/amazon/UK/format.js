@@ -270,6 +270,9 @@ const transform = (data) => {
         row.variantCount.forEach(variantCount => {
           variantCount.text = asinLength;
         });
+        if (row.variants) {
+          row.variants = row.variantAsins;
+        }
       }
       if (row.largeImageCount) {
         for (const item of row.largeImageCount) {
@@ -286,6 +289,35 @@ const transform = (data) => {
       if (row.brandText) {
         for (const item of row.brandText) {
           item.text = item.text.replace('Brand: ', '');
+        }
+      }
+      if (row.weightGross) {
+        for (const item of row.weightGross) {
+          if (item.text.includes(' x ')) {
+            item.text = item.text.split(';') && item.text.split(';')[1] ? item.text.split(';')[1].trim() : '';
+          }
+        }
+      }
+      if (row.shippingWeight) {
+        for (const item of row.shippingWeight) {
+          if (item.text.includes(' x ')) {
+            item.text = item.text.split(';') && item.text.split(';')[1] ? item.text.split(';')[1].trim() : '';
+          }
+        }
+      }
+      if (row.videos && row.videos[0]) {
+        // eslint-disable-next-line no-useless-escape
+        const regex = /\"url\":\"([^"]+)/g;
+        const rawArray = row.videos[0].text.toString().match(regex);
+        const videos = [];
+        if (rawArray) {
+          rawArray.forEach(item => {
+            const regex2 = /(https.+mp4)/s;
+            videos.push(item.match(regex2)[0]);
+          });
+          row.videos = [{ text: videos.join(' | ').trim().replace(/\| \|/g, '|') }];
+        } else {
+          row.videos = [{ text: '' }];
         }
       }
       if (row.alternateImages) {
