@@ -12,18 +12,27 @@ fields:
   description: The URL for the product thumbnail image
   regExp: ^(.+)$
   regExpReplace: https://www.docmorris.de$1
-  xpath: //img[contains(@class,"productlist__image")]/@src
+  xpath: //img[contains(@class,"productlist__image")]/@data-src
+- name: nameExtended
+  xpath: //h2[contains(@class,"productlist__name")]
 - name: name
   xpath: //h2[contains(@class,"productlist__name")]
+- name: aggregateRating
+  description: The stated aggregate rating
+  xpath: //div/@data-rating-value
 - name: aggregateRatingText
   description: The stated aggregate rating
-  xpath: //span[@class="rating__totalCount"]
+  xpath: //div/@data-rating-value
 - name: ratingCount
   description: The number of ratings
   xpath: //span[@class="rating__totalCount"]
 - name: reviewCount
   description: The number of reviews
   xpath: //span[@class="rating__totalCount"]
+- name: listPrice
+  xpath: //div[@class="productlist__uvp"]
+  regExp: (.*?)\s(.*)
+  regExpReplace: $2
 - name: price
   description: The offered price for the product
   xpath: //div[@class="productlist__price"]

@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(.,"Kein Suchergebnis")]',
     openSearchDefinition: null,
     domain: 'docmorris.de',
     zipcode: '',

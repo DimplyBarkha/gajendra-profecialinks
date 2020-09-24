@@ -1,0 +1,262 @@
+input:
+  Keywords: a-z komplett
+  _url: http://docmorris.de
+extractions:
+  - html: https://workbench.import.io/html/run=5f012e35-6df8-4d3b-aecc-01ef13ba69ee/task=d46da476-5765-41b8-b105-4b73c478c146/967841b1-395a-4cea-9991-98a01ba89598.html
+    extractionConfigId: product/search/stores/d/docmorris/DE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.docmorris.de/abtei-az-komplett/13876768
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.docmorris.de/images/produkte/thumb/13876768/AbteiAZKomplett.jpg
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/img[1]/@data-src
+            nameExtended:
+              - text: Abtei A-Z Komplett
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]/h2[1]
+            name:
+              - text: Abtei A-Z Komplett
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]/h2[1]
+            aggregateRating:
+              - text: "0.0"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            aggregateRatingText:
+              - text: "0.0"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            listPrice:
+              - text: 6,29 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]/div[4]
+            price:
+              - text: 6,10 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]/div[5]
+          - productUrl:
+              - text: https://www.docmorris.de/az-komplex-ratiopharm/01433391
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://www.docmorris.de/images/produkte/thumb/01433391/AZKomplexratiopharm.jpg
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/img[1]/@data-src
+            nameExtended:
+              - text: A-Z Komplex ratiopharm
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/h2[1]
+            name:
+              - text: A-Z Komplex ratiopharm
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/h2[1]
+            aggregateRating:
+              - text: "4.75"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            aggregateRatingText:
+              - text: "4.75"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            ratingCount:
+              - text: "15"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]
+            listPrice:
+              - text: 29,39 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/div[4]
+            price:
+              - text: 17,46 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/div[5]
+          - productUrl:
+              - text: https://www.docmorris.de/dystologes/12346471
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
+            thumbnail:
+              - text: https://www.docmorris.de/images/produkte/thumb/12346471/dystoLoges.jpg
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[1]/img[1]/@data-src
+            nameExtended:
+              - text: dystoLoges
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/h2[1]
+            name:
+              - text: dystoLoges
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/h2[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            aggregateRatingText:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            ratingCount:
+              - text: "27"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]
+            reviewCount:
+              - text: "27"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]
+            listPrice:
+              - text: 21,34 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/div[4]
+            price:
+              - text: 15,66 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/div[5]
+          - productUrl:
+              - text: https://www.docmorris.de/amorolfin-nagelkur-heumann/09296195
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
+            thumbnail:
+              - text: https://www.docmorris.de/images/produkte/thumb/09296195/AmorolfinNagelkurHeumann.jpg
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[1]/img[1]/@data-src
+            nameExtended:
+              - text: Amorolfin Nagelkur Heumann
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[2]/h2[1]
+            name:
+              - text: Amorolfin Nagelkur Heumann
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[2]/h2[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            aggregateRatingText:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            ratingCount:
+              - text: "53"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]
+            reviewCount:
+              - text: "53"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]
+            listPrice:
+              - text: 29,15 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[2]/div[4]
+            price:
+              - text: 14,72 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[2]/div[5]
+          - productUrl:
+              - text: https://www.docmorris.de/vitamin-bloges-komplett/11101520
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
+            thumbnail:
+              - text: https://www.docmorris.de/images/produkte/thumb/11101520/vitaminBLogeskomplett.jpg
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[1]/img[1]/@data-src
+            nameExtended:
+              - text: vitamin B-Loges komplett
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[2]/h2[1]
+            name:
+              - text: vitamin B-Loges komplett
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[2]/h2[1]
+            aggregateRating:
+              - text: "4.75"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            aggregateRatingText:
+              - text: "4.75"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            ratingCount:
+              - text: "55"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]
+            reviewCount:
+              - text: "55"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]
+            listPrice:
+              - text: 34,90 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[2]/div[4]
+            price:
+              - text: 26,16 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[2]/div[5]
+          - productUrl:
+              - text: https://www.docmorris.de/anabox-1x7-bunt-deckel-klar-display/11313009
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
+            thumbnail:
+              - text: https://www.docmorris.de/images/produkte/thumb/11313009/Anabox1x7buntDeckelklarDisplay.jpg
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[1]/img[1]/@data-src
+            nameExtended:
+              - text: Anabox 1x7 bunt, Deckel klar Display
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[2]/h2[1]
+            name:
+              - text: Anabox 1x7 bunt, Deckel klar Display
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[2]/h2[1]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            aggregateRatingText:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]
+            listPrice:
+              - text: 4,25 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[2]/div[4]
+            price:
+              - text: 3,37 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[2]/div[5]
+          - productUrl:
+              - text: https://www.docmorris.de/formel-z-tabletten-fuer-katzen/00012807
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
+            thumbnail:
+              - text: https://www.docmorris.de/images/produkte/thumb/00012807/FormelZTablettenfrKatzen.jpg
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[1]/img[1]/@data-src
+            nameExtended:
+              - text: Formel Z Tabletten für Katzen
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/h2[1]
+            name:
+              - text: Formel Z Tabletten für Katzen
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/h2[1]
+            aggregateRating:
+              - text: "4.75"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            aggregateRatingText:
+              - text: "4.75"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            ratingCount:
+              - text: "11"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]
+            reviewCount:
+              - text: "11"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/div[1]/div[1]/div[2]/span[1]/span[1]
+            listPrice:
+              - text: 9,95 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/div[4]
+            price:
+              - text: 7,88 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/div[5]
+          - productUrl:
+              - text: https://www.docmorris.de/biochemie-pflueger-komplett-set-127/05919788
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
+            thumbnail:
+              - text: https://www.docmorris.de/images/produkte/thumb/05919788/BiochemiePflgerKomplettSet127.jpg
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[1]/img[1]/@data-src
+            nameExtended:
+              - text: Biochemie Pflüger Komplett Set 1-27
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[2]/h2[1]
+            name:
+              - text: Biochemie Pflüger Komplett Set 1-27
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[2]/h2[1]
+            aggregateRating:
+              - text: "0.0"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            aggregateRatingText:
+              - text: "0.0"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            listPrice:
+              - text: 80,86 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[2]/div[4]
+            price:
+              - text: 67,11 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[2]/div[5]
+          - productUrl:
+              - text: https://www.docmorris.de/scholl-amorolfin-nagelpilz-behandlungsset/14131409
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
+            thumbnail:
+              - text: https://www.docmorris.de/images/produkte/thumb/14131409/SCHOLLAmorolfinNagelpilzBehandlungsset.jpg
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[1]/img[1]/@data-src
+            nameExtended:
+              - text: SCHOLL Amorolfin Nagelpilz…
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[2]/h2[1]
+            name:
+              - text: SCHOLL Amorolfin Nagelpilz…
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[2]/h2[1]
+            aggregateRating:
+              - text: "0.0"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            aggregateRatingText:
+              - text: "0.0"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            listPrice:
+              - text: 29,23 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[2]/div[4]
+            price:
+              - text: 24,26 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[2]/div[5]
+        xpath: /html
+    timestamp: 1600867395787
