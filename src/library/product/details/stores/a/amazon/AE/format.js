@@ -101,19 +101,11 @@ const transform = (data, context) => {
         }
       }
       if (row.variantAsins) {
-        let asins = [];
-        if (row.variantAsins[0]) {
-          if ((row.variantAsins[0].text.includes('asinVariationValues') && (row.variantAsins[0].text.includes('dimensionValuesData')))) {
-            let jsonStr = row.variantAsins[0].text.split('"asinVariationValues" : ')[1].split('"dimensionValuesData" : ')[0];
-            jsonStr = jsonStr.slice(0, -2);
-            const jsonObj = JSON.parse(jsonStr);
-            asins = Object.keys(jsonObj);
-          } else {
-            asins = [];
-          }
-        }
-        const dedupeAsins = [...new Set(asins)];
-        row.variantAsins = [{ text: joinArray(dedupeAsins) }];
+        const variant = row.variantAsins.reduce((variant = '', item) => {
+          variant += item.text + ' | ';
+          return variant;
+        }, '');
+        row.variantAsins = [{ text: variant.slice(0, -2).trim() }];
       }
       if (row.variantCount && row.variantCount[0]) {
         if (typeof row.variantCount[0].text !== 'number') {
@@ -204,6 +196,12 @@ const transform = (data, context) => {
         const descriptionText = additionalDescription
           ? additionalDescription + ' | ' + row.description[0].text : row.description[0].text;
         row.description = [{ text: descriptionText }];
+      } else if (!row.description) {
+        const desc = row.additionalDescBulletInfo && row.additionalDescBulletInfo[0]
+          ? row.additionalDescBulletInfo[0].text : '';
+        if (desc.length > 0) {
+          row.description = [{ text: desc }];
+        }
       }
       if (row.amazonChoice && row.amazonChoice[0]) {
         if (row.amazonChoice[0].text.includes('Amazon')) {
@@ -284,9 +282,17 @@ const transform = (data, context) => {
           row.weightNet = [{ text }];
         }
       }
+      if (!row.mpc || row.mpc[0].text.includes(':')) {
+        if (row.mpc1 && row.mpc1[0].text.includes('Model Number')) {
+          let text = row.mpc1[0].text.replace(/\n/g, '').replace(/.*Model Number: (.*)/, '$1').replace(/^((?:\S+\s+){2}\S+).*/, '$1');
+          text = text.slice(0, -4);
+          row.mpc = [{ text }];
+        }
+      }
       if (!row.color) {
         if (row.color1 && row.color1[0].text.includes('Color Category')) {
-          const text = row.color1[0].text.replace(/\n/g, '').replace(/.*Color Category: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
+          let text = row.color1[0].text.replace(/\n/g, '').replace(/.*Color Category: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
+          text = text.slice(0, -3);
           row.color = [{ text }];
         } else if (row.color1 && row.color1[0].text.includes('Color')) {
           const text = row.color1[0].text.replace(/\n/g, '').replace(/.*Color: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
