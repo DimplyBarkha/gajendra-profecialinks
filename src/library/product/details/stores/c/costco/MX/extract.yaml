@@ -104,8 +104,8 @@ fields:
     xpath: translate(//div[contains(@class,"bv_avgRating_component_container")], '.,', ',')
     description: The stated aggregate rating
   - name: aggregateRating
+    xpath: translate(//div[contains(@class,"bv_avgRating_component_container")], '.,', ',')
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
   - name: shippingInfo
     description: Shipping information for the product
   - name: shippingDimensions
