@@ -27,7 +27,7 @@ module.exports = {
       try {
         const pdfDocument = document.evaluate('//div[contains(@class, "documents")]//a/@href', document, null, XPathResult.ANY_UNORDERED_NODE_TYPE).singleNodeValue;
         addHiddenDiv('import_availability_text', window.dataLayer[0].productAvailability);
-        addHiddenDiv('import_list_price', window.dataLayer[0].productOldPrice);
+        addHiddenDiv('import_list_price', "RUB" + parseInt(window.dataLayer[0].productOldPrice));
         pdfDocument && addHiddenDiv('import_document_pdf', pdfDocument.nodeValue && "Yes");
       } catch (error) {
         console.log('Error: ', error);
