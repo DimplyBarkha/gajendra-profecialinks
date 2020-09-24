@@ -8,12 +8,12 @@ const transform = (data) => {
     for (const { group } of data) {
         for (const row of group) {
             try {
-                if (row.price) {
-                    row.price[0].text = row.price[0].text.replace('.', ',')
-                }
-                if (row.listPrice) {
-                    row.listPrice[0].text = row.listPrice[0].text.replace('.', ',')
-                }
+                // if (row.price) {
+                //     row.price[0].text = row.price[0].text.replace('.', ',')
+                // }
+                // if (row.listPrice) {
+                //     row.listPrice[0].text = row.listPrice[0].text.replace('.', ',')
+                // }
 
                 if (row.sku) {
                     var skuJson = row.sku[0].text;
