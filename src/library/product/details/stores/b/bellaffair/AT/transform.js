@@ -5,6 +5,11 @@ const transform = (data) => {
                 if (row.price) {
                     row.price = [{ text: row.price[0].text.substring(1).trim() }, { text: row.price[0].text.charAt(0) }];
                 }
+
+                if (row.listprice) {
+                    row.listprice = [{ text: row.listprice[0].text.substring(1).trim() }, { text: row.listprice[0].text.charAt(0) }];
+                }
+
                 if (row.color) {
                     row.color = [{ text: row.color[0].text.substring(1) }];
                 }
