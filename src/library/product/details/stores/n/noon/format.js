@@ -55,6 +55,7 @@ const transform = (data) => {
       }
       if(row.additionalDescBulletInfo){
         var additionalDescBulletInfoStr='';
+        var count_temp=0;
         var oldXpath='';
         row.additionalDescBulletInfo.forEach(item => {
           oldXpath=item.xpath;
@@ -63,8 +64,11 @@ const transform = (data) => {
           }else{
             additionalDescBulletInfoStr=additionalDescBulletInfoStr+' | '+item.text
           }
+          count_temp = count_temp + 1
         });
+        additionalDescBulletInfoStr = '| ' + additionalDescBulletInfoStr
         row.additionalDescBulletInfo=[{text:additionalDescBulletInfoStr,xpath:oldXpath}];
+        row.descriptionBullets=[{text:count_temp}];
       }
       if(row.mpc){
         row.mpc.forEach(item => {
