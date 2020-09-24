@@ -23,7 +23,7 @@ const transform = (data) => {
           }
           if (row.manufacturerImages) {
             row.manufacturerImages.forEach(item => {
-              if(item.text.includes('https:')){
+              if((item.text.includes('https:')) ||(item.text.includes('http:'))){
                 item.text = item.text;
               }else{
                 item.text = 'https:'+item.text;
@@ -33,10 +33,10 @@ const transform = (data) => {
           if (row.videos) {
             row.videos.forEach(item => {
               item.text = item.text.replace(/\\/g, "");
-              if(item.text.includes('https:')){
-                item.text = item.text;
+              if((item.text.includes('https:'))|| (item.text.includes('https:'))){
+                item.text = item.text+'.mp4';
               }else{
-                item.text = 'https:'+item.text;
+                item.text = 'https:'+item.text+'.mp4';
               } 
             });
           }
@@ -48,6 +48,36 @@ const transform = (data) => {
             row.specifications = [
               {
                 text: text.slice(0, -4),
+              },
+            ];
+          }
+          if (row.availabilityText) {
+            row.availabilityText.forEach(item => {
+              if((item.text.includes('InStoreOnly')) || (item.text.includes('Product to be collected in store in 2 hours'))){
+                item.text = 'In Stock';
+              }else{
+                item.text = 'Out Of Stock';
+              } 
+            });
+          }
+          if (row.category) {
+            row.category.pop(); 
+          }
+          if (row.nameExtended) {
+            row.nameExtended.forEach(item => {
+              if(item.text){
+                item.text = item.text.replace(/\n/g,'-');
+              } 
+            });
+          }
+          if (row.description) {
+            let text = '';
+            row.description.forEach(item => {
+              text += `${item.text} | `;
+            });
+            row.description = [
+              {
+                text: text,
               },
             ];
           }
