@@ -23,6 +23,23 @@ const transform = (data) => {
         ];
       }
 
+      if (row.variants) {
+        let text = '';
+        let xpath = '';
+        const searchRegExp = / /g;
+        const replaceWith = '_';
+        row.variants.forEach(item => {
+          text = item.text.replace(searchRegExp, replaceWith);
+          xpath = item.xpath;
+        });
+        row.variants = [
+          {
+            text: text,
+            xpath: xpath,
+          },
+        ];
+      }
+
       // if (row.weightNet) {
       //   let text = '';
       //   let xpath = '';
