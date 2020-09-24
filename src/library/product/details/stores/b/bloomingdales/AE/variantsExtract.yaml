@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-attr="color"]//button[contains(@class,"b-attribute__color")]
+fields:
+  - name: variantId
+    singleValue: false
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: ancestor::html//meta[@property="product:retailer_item_id"]/@content
+  - name: variantUrl
+    singleValue: false
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //@data-color-url
+    regExp: (.+)
+    regExpReplace: https://bloomingdales.ae/$1

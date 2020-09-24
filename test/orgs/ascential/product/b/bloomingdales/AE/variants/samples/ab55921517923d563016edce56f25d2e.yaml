@@ -1,0 +1,16 @@
+input:
+  _url: http://bloomingdales.ae
+  URL: https://bloomingdales.ae/dyson-dyson-airwrap%E2%84%A2-hair-styler-BEA213023377.html
+extractions:
+  - html: https://workbench.import.io/html/run=badc7743-d52d-42c5-bcec-3bd0858f0800/task=680993a2-c414-40a6-a43a-58d13e9f7ac0/ca9e9e76-0daa-4895-89ee-c022788614e4.html
+    extractionConfigId: product/details/stores/b/bloomingdales/AE/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://bloomingdales.ae//dyson-dyson-airwrap%E2%84%A2-hair-styler-BEA213023377.html?dwvar_BEA213023377_color=Fuchsia%20Pink
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/button[1]/@data-color-url
+            variantId:
+              - text: "213023378"
+                xpath: /html/head[1]/meta[20]/@content
+        xpath: /html
+    timestamp: 1600927231059

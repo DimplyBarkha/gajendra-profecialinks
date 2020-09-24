@@ -2,7 +2,7 @@ input:
   _url: http://bloomingdales.ae
   URL: https://bloomingdales.ae/dyson-dyson-airwrap%E2%84%A2-hair-styler-BEA213023377.html
 extractions:
-  - html: https://workbench.import.io/html/run=9f701e39-d9b7-4836-9afd-b1d22b7e53b0/task=7d6c902e-0bca-4bd5-b179-85826db29ec0/f63ccaa5-e870-4c90-ab21-40b61508ea9e.html
+  - html: https://workbench.import.io/html/run=07af550a-e259-42d4-80a0-e80bdc81e4e0/task=cb126e1c-081d-4894-a2a9-2c5a5ad6ba86/d5d0c23b-fd0e-4c8c-9b90-7cd8486ed641.html
     extractionConfigId: product/details/stores/b/bloomingdales/AE/extract
     data:
       - group:
@@ -91,12 +91,24 @@ extractions:
             sku:
               - text: "213023378"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/@data-pid
+            variantId:
+              - text: "213023378"
+                xpath: /html/head[1]/meta[20]/@content
             mpc:
               - text: "213023378"
                 xpath: /html/head[1]/meta[20]/@content
             name:
               - text: Dyson Airwrap™ Hair Styler
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            variants:
+              - text: "213023378"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/button[1]/span[1]/img[1]/@src
+            firstVariant:
+              - text: "213023378"
+                xpath: /html/head[1]/meta[20]/@content
+            color:
+              - text: Fuchsia Pink
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
             productUrl:
               - text: https://bloomingdales.ae/dyson-dyson-airwrap%E2%84%A2-hair-styler-BEA213023377.html
                 xpath: /html/head[1]/link[8]/@href
@@ -108,7 +120,11 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: Yes
+            variantCount:
+              - text: "1"
+            variantInformation:
+              - text: "Color: Fuchsia Pink"
             secondaryImageTotal:
               - text: "10"
         xpath: /
-    timestamp: 1600322382158
+    timestamp: 1600936346352

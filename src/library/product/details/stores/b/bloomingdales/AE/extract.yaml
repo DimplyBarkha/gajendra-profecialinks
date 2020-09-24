@@ -48,6 +48,18 @@ fields:
   - name: name 
     xpath: //h1[contains(@class,"b-pdp__product-name")]
   - name: priceCurrency
+  - name: variants
+    xpath: //div[contains(@class,'b-attribute')]//img/@src
+    regExp: (.*)Dyson/(.*?)/(.*)
+    regExpReplace: $2
+  - name: firstVariant
+    xpath: //meta[@property="product:retailer_item_id"]/@content
+  - name: variantCount
+    xpath: count(//div[@data-attr="color"]//button[contains(@class,"b-attribute__color")]//@data-color-url)
+  - name: variantInformation
+    xpath: normalize-space(//div[@data-attr="color"]//div[@class="b-attribute__heading"])
+  - name: color
+    xpath: //div[@data-attr="color"]//a
   - name: secondaryImageTotal
     xpath: count(//div[contains(@class,"carousel__images-item--zoom")][position()>1]//img/@src)
   - name: technicalInformationPdfPresent

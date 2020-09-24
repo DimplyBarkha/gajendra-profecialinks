@@ -1,0 +1,22 @@
+input:
+  _url: http://bloomingdales.ae
+  URL: https://bloomingdales.ae/dyson-dyson-supersonic%E2%84%A2-hair-dryer-BEA211706123.html
+extractions:
+  - html: https://workbench.import.io/html/run=badc7743-d52d-42c5-bcec-3bd0858f0800/task=c8883674-08e1-4fcc-bc6b-95afb7a92ef4/a86331cd-0541-444c-affd-d412528ff03e.html
+    extractionConfigId: product/details/stores/b/bloomingdales/AE/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://bloomingdales.ae//dyson-dyson-supersonic%E2%84%A2-hair-dryer-BEA211706123.html?dwvar_BEA211706123_color=White
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/button[1]/@data-color-url
+            variantId:
+              - text: "212264172"
+                xpath: /html/head[1]/meta[20]/@content
+          - variantUrl:
+              - text: https://bloomingdales.ae//dyson-dyson-supersonic%E2%84%A2-hair-dryer-BEA211706123.html?dwvar_BEA211706123_color=Fuchsia
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/button[2]/@data-color-url
+            variantId:
+              - text: "212264172"
+                xpath: /html/head[1]/meta[20]/@content
+        xpath: /html
+    timestamp: 1600927232691

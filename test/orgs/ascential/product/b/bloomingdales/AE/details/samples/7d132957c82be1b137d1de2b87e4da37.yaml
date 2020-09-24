@@ -2,7 +2,7 @@ input:
   _url: http://bloomingdales.ae
   URL: https://bloomingdales.ae/dyson-dyson-supersonic%E2%84%A2-hair-dryer-BEA211706123.html
 extractions:
-  - html: https://workbench.import.io/html/run=9f701e39-d9b7-4836-9afd-b1d22b7e53b0/task=71ce7802-9fa3-4e1c-a2ed-f9b608eba413/97e1617a-c5be-42ce-96bc-d9bfb8197705.html
+  - html: https://workbench.import.io/html/run=07af550a-e259-42d4-80a0-e80bdc81e4e0/task=b5ababa5-24c7-480b-a192-27f4aea74a2e/e86177a8-695f-4162-9749-e94deab7bd81.html
     extractionConfigId: product/details/stores/b/bloomingdales/AE/extract
     data:
       - group:
@@ -67,12 +67,26 @@ extractions:
             sku:
               - text: "212264172"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/@data-pid
+            variantId:
+              - text: "212264172"
+                xpath: /html/head[1]/meta[20]/@content
             mpc:
               - text: "212264172"
                 xpath: /html/head[1]/meta[20]/@content
             name:
               - text: Dyson Supersonic™ Hair Dryer
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            variants:
+              - text: "212264172"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/button[1]/span[1]/img[1]/@src
+              - text: "211706125"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/button[2]/span[1]/img[1]/@src
+            firstVariant:
+              - text: "212264172"
+                xpath: /html/head[1]/meta[20]/@content
+            color:
+              - text: White
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
             productUrl:
               - text: https://bloomingdales.ae/dyson-dyson-supersonic%E2%84%A2-hair-dryer-BEA211706123.html
                 xpath: /html/head[1]/link[8]/@href
@@ -82,7 +96,11 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: Yes
+            variantCount:
+              - text: "2"
+            variantInformation:
+              - text: "Color: White"
             secondaryImageTotal:
               - text: "8"
         xpath: /
-    timestamp: 1600322383595
+    timestamp: 1600936350408
