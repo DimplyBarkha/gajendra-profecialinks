@@ -16,6 +16,24 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  await context.evaluate(async function () {
+    let scrollSelector = document.querySelector('div[id~="navFooter"]');
+    let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+    let yPos = 0;
+    while (scrollLimit && yPos < scrollLimit) {
+      yPos = yPos + 350;
+      window.scrollTo(0, yPos);
+      scrollSelector = document.querySelector('div[id~="navFooter"]');
+      scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+      await new Promise(resolve => setTimeout(resolve, 1500));
+    }
+  });
+  try {
+    await context.waitForSelector('div[cel_widget_id*="aplus"] img');
+  } catch (error) {
+    console.log('Enhanced content not loaded!!');
+  }
+
   const getLbb = async () => {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -23,15 +41,6 @@ async function implementation (
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
-    }
-    var element = (document.querySelectorAll("div[cel_widget_id*='aplus'] img")) ? document.querySelectorAll("div[cel_widget_id*='aplus'] img") : [];
-    if (element) {
-      element.forEach(async (node) => {
-        node.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-        await new Promise((resolve) => {
-          setTimeout(resolve, 1000);
-        });
-      });
     }
     let manufacturerDescription = document.querySelector('.aplus-v2.desktop.celwidget');
     // @ts-ignore
