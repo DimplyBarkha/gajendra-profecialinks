@@ -124,14 +124,14 @@ fields:
     singleValue: true
     xpath: count(//ul[contains(@id,"variants-list")]//li[contains(@class,"variant-item")])
     type: NUMBER
-  - name: color
-    singleValue: true
-    description: A textual description of the colour
-    xpath: //*[@id="description"]/ul/li[contains(text(),'Farbe')]
+  #- name: color
+  #  singleValue: true
+  #  description: A textual description of the colour
+  #  xpath: //*[@id="description"]/ul/li[contains(text(),'Farbe')]
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //*[@id="wrapper"]//div[@class="dd-shortcode-text"]//text()
+    xpath: //div[contains(@class,'dd-ve-container')]//div[contains(@class,'dd-shortcode-text')]/span/p
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description

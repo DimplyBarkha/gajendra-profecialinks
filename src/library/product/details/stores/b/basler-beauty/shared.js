@@ -7,10 +7,15 @@
 const transform = (data) => {
 	for (const { group } of data) {
 		for (const row of group) {
-			if (row.nameExtended) {
+			if (row.nameExtended && row.variantInformation) {
 				let newText = '';
 				row.nameExtended.forEach(item => {
-					newText = item.text;
+
+					if (item.text.indexOf(row.variantInformation[0].text) > -1) {
+						newText = item.text;
+					} else {
+						newText = item.text + ' ' + row.variantInformation[0].text
+					}
 				});
 				row.nameExtended = [{ text: newText }];
 			}
@@ -82,25 +87,7 @@ const transform = (data) => {
 				});
 				row.price = [{ text: newText }];
 			}
-			// if (row.aggregateRating) {
-			// 	let newText = 0;
-			// 	row.aggregateRating.forEach(item => {
-			// 		newText = JSON.parse(item.text).aggregateRating.ratingValue;
-			// 	});
-			// 	row.aggregateRating = [{ text: newText }];
-			// }
-/* 			if (row.aggregateRating) {
-				let newText = 0;
-				row.aggregateRating.forEach((item, index) => {
-					let data = item.text.split("/");
-					newText = Number(data[0])
-					if (Number(data[1]) === 1) {
-						newText = newText + 0.5;
-					}
-					row.aggregateRating[index].text = newText.toString().replace('.', ',');
 
-				});
-			} */
 			if (row.weightNet) {
 				let newText = '';
 				row.weightNet.forEach(item => {
@@ -114,6 +101,34 @@ const transform = (data) => {
 					newText = item.text.replace("Farbe", "").replace(":", "");
 				});
 				row.color = [{ text: newText.trim() }];
+			}
+			if (row.productOtherInformation) {
+				let text = '';
+				row.productOtherInformation.forEach(item => {
+					text += item.text.replace(/\n \n/g, ' || ');
+				});
+				row.productOtherInformation = [
+					{
+						text: text.slice(0, -4),
+					},
+				];
+			}
+			if (row.nameExtended) {
+
+				if (row.nameExtended[0].text.indexOf(row.variantInformation[0].text) > -1) {
+
+				} else {
+					row.nameExtended[0].text + ' ' + row.variantInformation[0].text
+				}
+				/* let text = '';
+				row.productOtherInformation.forEach(item => {
+					text += item.text.replace(/\n \n/g, ' || ');
+				});
+				row.productOtherInformation = [
+					{
+						text: text.slice(0, -4),
+					},
+				]; */
 			}
 		}
 	}
