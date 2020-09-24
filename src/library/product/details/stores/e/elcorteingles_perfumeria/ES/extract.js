@@ -98,6 +98,16 @@ module.exports = {
           return result && result.trim ? result.trim() : result;
         };
 
+        function getPathDirections(xpathToExecute) {
+          var result = [];
+          var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
+            result.push(nodesSnapshot.snapshotItem(i).textContent);
+          }
+          return result;
+        }
+        let directions = getPathDirections('//div[contains(@class,"product_detail-description-in-image")]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | //dt[contains(text(),"Modo de")]/following-sibling::dd[1] | //strong[contains(text(),"Modo")]/following-sibling::*');
+        addElementToDocument('directions', directions ? directions.join(" ") : "");
 
 
         function nameExtended() {
@@ -188,7 +198,7 @@ module.exports = {
         const apiDataResponse = await makeApiCall(productsData, {});
         addElementToDocument('SKU', JSON.parse(apiDataResponse).id);
         addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
-        addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? JSON.parse(apiDataResponse).discount + " %" : "");
+        addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? "-" + JSON.parse(apiDataResponse).discount + " %" : "");
 
 
         //Append a UL and LI tag append the variant info in the DOM
@@ -207,8 +217,8 @@ module.exports = {
               console.log(name, "value")
               setAttributes(listItem, {
                 nameExtended: `${nameExtended()} ${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""} ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""} `,
-                quantity: `${variants[i].variant ? variants[i].variant[0] &&  variants[i].variant[0].title.toLowerCase() === "medida" ? variants[i].variant[0].value : "" : ""}`,
-                color: `${variants[i].variant ? variants[i].variant[0] &&  variants[i].variant[0].title.toLowerCase() === "color" ? variants[i].variant[0].value : "" : ""}`,
+                quantity: `${variants[i].variant ? variants[i].variant[0] && variants[i].variant[0].title.toLowerCase() === "medida" ? variants[i].variant[0].value : "" : ""}`,
+                color: `${variants[i].variant ? variants[i].variant[0] && variants[i].variant[0].title.toLowerCase() === "color" ? variants[i].variant[0].value : "" : ""}`,
                 gtin: variants[i].gtin ? variants[i].gtin : "",
                 retailer_product_code: variants[i].id.trim(""),
                 title: `${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""} ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""}`,

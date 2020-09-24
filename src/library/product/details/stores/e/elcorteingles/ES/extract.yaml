@@ -117,11 +117,11 @@ fields:
     regExp: \s(.+)
     regExpReplace: $1
   - name: ratingCount
-    xpath: /html/body/@rating-count
+    xpath: //div[@id="rating-count"]
   - name: reviewCount
-    xpath: /html/body/@review-count
+    xpath: //div[@id="review-count"]
   - name: aggregateRating
-    xpath: /html/body/@rating-value
+    xpath: //div[@id="rating-value"]
   - name: aggregateRatingText
     xpath: /html/body/@rating-value
   - name: videos
@@ -179,7 +179,7 @@ fields:
     regExp: (.+Cantidad Neta)\:\s(\d+\s\w)(.*)
     regExpReplace: $2
   - name: promotion
-    xpath: //div[@class="product_tile-offer offer _pdp"]//div[@class="offer-right"]/div[@class="offer-description"]
+    xpath: //div[@class="product_tile-offer offer _pdp"][1]//div[@class="offer-right"]/div[@class="offer-description"]
   - name: allergyAdvice
     xpath: //h3[normalize-space(text())="Ingredientes y alérgenos"]/following-sibling::ul[1]/li/b
   - name: warnings

@@ -175,6 +175,19 @@ module.exports = {
           return name
         }
 
+        //Directions 
+
+        function getPathDirections(xpathToExecute) {
+          var result = [];
+          var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
+            result.push(nodesSnapshot.snapshotItem(i).textContent);
+          }
+          return result;
+        }
+        let directions = getPathDirections('//div[contains(@class,"product_detail-description-in-image")]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | //dt[contains(text(),"Modo de")]/following-sibling::dd[1] | //strong[contains(text(),"Modo")]/following-sibling::*');
+        addElementToDocument('directions', directions ? directions.join(" ") : "");
+
         // For FirstVariant
         let firstVariant = getXpath('//div[@id="variants_container"]//select//option[@color][1]/@value', 'nodeValue')
         addElementToDocument('firstVariant', firstVariant);
@@ -352,24 +365,6 @@ module.exports = {
           });
           addElementToDocument('bulletDescription', specifcations.join(" ").replace(/\,/g, " "));
         }
-
-
-        // (function nameExtended() {
-        //   const getXpath = (xpath, prop) => {
-        //     const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-        //     let result;
-        //     if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-        //     else result = elem ? elem.singleNodeValue : '';
-        //     return result && result.trim ? result.trim() : result;
-        //   };
-
-        //   let name = getXpath('//h1[@id="js-product-detail-title"]', 'textContent') ? getXpath('//h1[@id="js-product-detail-title"]', 'textContent') : "";
-        //   let color = getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') ? getXpath("//span[contains(text(),'Color') or contains(text(),'color')]/following-sibling::span", 'textContent') : "";
-        //   let size = getXpath("//div[contains(@class,'variants-select')]/select/option[@color][1]", 'text') ? getXpath("//div[contains(@class,'variants-select')]/select/option[@color][1]", 'text') : "";
-        //   let nameExtended = name + " " + color + " " + size;
-        //   addElementToDocument('quantity', size);
-        //   addElementToDocument('nameExtended', nameExtended);
-        // }())
 
       });
     } catch (error) {

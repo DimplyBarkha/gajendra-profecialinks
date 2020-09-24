@@ -37,7 +37,7 @@ fields:
 # Added New
   - name: image
     singleValue: true
-    xpath : ancestor::html  //div[@class="image-slides"]/img[1]/@data-zoom
+    xpath : (ancestor::html //div[@id='product_image'])[1]
   - name: imageAlt
     singleValue: true
     xpath : 
@@ -83,7 +83,7 @@ fields:
     xpath : ancestor::html //span[@itemprop="sku"] | ancestor::html //span[@class="js-product-gtin-number"]
   - name: directions
     singleValue: false
-    xpath: ancestor::html  //div[contains(@class,'product_detail-description-in-image')]/strong[contains(text(),"Modo de aplicación:") or contains(text(),"Modo de")]/following-sibling::p | ancestor::html  //dt[contains(text(),"Modo de")]/following-sibling::dd[1] | //strong[contains(text(),"Modo")]/following-sibling::*
+    xpath: ancestor::html //div[@id='directions']
   - name: warnings 
     singleValue: true
     xpath:   

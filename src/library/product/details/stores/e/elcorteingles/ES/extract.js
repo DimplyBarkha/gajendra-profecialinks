@@ -141,34 +141,34 @@ module.exports = {
                   if (ingredientName.toLowerCase() === 'calcio') {
                     // Check for the calcium with given text if it is present get the value and add it to DOM
                     if (content[1].textContent.includes(text)) {
-                      calcium = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$2');
-                      addElementToDocument('calcium', calcium);
+                      calcium = content[1].textContent.replace(/(.*Calcio)([\s\(\,\.\:])?[\s\(]([0-9.,]+)?[\;\.\s(\w+\/\w+)](.+)/g, '$3');
+                      addElementToDocument('calcium', calcium.replace(/\.$/g,""));
                       // If calcium has data get the unit
                       if (calcium) {
-                        const calciumUnit = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.]+)\s(\w+\/\w+)(.+)/g, '$3');
+                        const calciumUnit = content[1].textContent.replace(/(.+Calcio)\s\(([0-9.,]+)\s?(\w+\/\w+)(.+)/g, '$3'); 
                         addElementToDocument('calciumUnit', calciumUnit);
                       }
                       // if calcium didn't match with given text then get the calcium value and append to DOM
                     } else {
-                      calcium = content[1].textContent.replace(/(.+Calcio)\s(\d+,\d+)\s(.*)/g, '$2');
-                      addElementToDocument('calcium', calcium);
+                      calcium = content[1].textContent.replace(/(.*Calcio)([\s\(\,\.\:])?[\s\(]([0-9.,]+)?[\;\.\s(\w+\/\w+)](.+)/g, '$3');
+                      addElementToDocument('calcium', calcium.replace(/\.$/g,""));
                     }
                     // Check for sodium
                   } else if (ingredientName.toLowerCase() === 'sodio') {
                     // Check for the sodium with given text if it is present get the value and add it to DOM
                     let sodium;
                     if (content[1].textContent.includes(text)) {
-                      sodium = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+(,\d+)?)\s(\w+\/\w+)(.+)/g, '$2');
-                      addElementToDocument('sodium', sodium);
+                      sodium = content[1].textContent.replace(/(.*Sodio)([\s\(\,\.\:])?[\s\(]([0-9.,]+)?[\;\.\s(\w+\/\w+)](.+)/g, '$3');
+                      addElementToDocument('sodium', sodium.replace(/\.$/g,""));
                       // If sodium has data get the unit
                       if (sodium) {
-                        const sodiumUnit = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.]+(,\d+)?)\s(\w+\/\w+)(.+)/g, '$4');
+                        const sodiumUnit = content[1].textContent.replace(/(.+Sodio)\s\(([0-9.,]+)\s?(\w+\/\w+)(.+)/g, '$3'); 
                         addElementToDocument('sodiumUnit', sodiumUnit);
                       }
                       // if sodium didn't match with given text then get the sodium value and append to DOM
                     } else {
-                      sodium = content[1].textContent.replace(/(.+Sodio)\s(\d+,\d+)[.\s](.*)/g, '$2');
-                      addElementToDocument('sodium', sodium);
+                      sodium = content[1].textContent.replace(/(.*Sodio)([\s\(\,\.\:])?[\s\(]([0-9.,]+)?[\;\.\s(\w+\/\w+)](.+)/g, '$3');
+                      addElementToDocument('sodium', sodium.replace(/\.$/g,""));
                     }
                     // Check for magnesium
                   } else if (ingredientName.toLowerCase() === 'magnesio') {
@@ -181,7 +181,7 @@ module.exports = {
                       // If magnesium has data get the unit
                       if (magnesium) {
                         console.log("magnusium UOM")
-                        const magnesiumUnit = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.,]+)\s(\w+\/\w+)(.+)/g, '$3');
+                        const magnesiumUnit = content[1].textContent.replace(/(.+Magnesio)\s\(([0-9.,]+)\s?(\w+\/\w+)(.+)/g, '$3');
                         addElementToDocument('magnesiumUnit', magnesiumUnit);
                       }
                       // if magnesium didn't match with given text then get the magnesium value and append to DOM
@@ -224,12 +224,14 @@ module.exports = {
         }
         return { ratingCount, ratingValue, reviewCount };
       }
-
+      console.log("Ratings GOIN");
       if (!searchPage) {
         const ratings = await getRatings();
-        document.body.setAttribute('rating-count', ratings.ratingCount);
-        document.body.setAttribute('rating-value', ratings.ratingValue);
-        document.body.setAttribute('review-count', ratings.reviewCount.toString());
+        console.log(ratings, "Ratings");
+        addElementToDocument('rating-count', ratings.ratingCount);
+        addElementToDocument('rating-value', ratings.ratingValue);
+        addElementToDocument('review-count', ratings.reviewCount.toString());
+
       }
 
       // Get quantity
