@@ -14,7 +14,6 @@ fields:
   - name: name
     xpath: //div[contains(@class,"product-tile")]//span[contains(@class,"product-name")]
   - name: gtin
-    xpath: //span[@class="product-collection"]
   - name: aggregateRating2
     xpath: //div[contains(@class,"product-tile")]/@data-component-product-tile
     regExp: (.+ratingNumber.:)(\d+)(.+)

@@ -6,7 +6,6 @@ module.exports = {
     store: 'brownthomas',
     domain: 'brownthomas.com',
     url: 'https://www.brownthomas.com/search/?q={searchTerms}&lang=default',
-    loadedSelector: 'ul#product-search-result-items > li:nth-last-child(1)',
     noResultsXPath: '//p[contains(@class,"no-hits-content-results")]',
     zipcode: '',
   },
