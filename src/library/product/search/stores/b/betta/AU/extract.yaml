@@ -1,44 +1,47 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: "div.ais-infinite-hits--item"
 recordXPath: null
 fields:
   - name: id
     xpath: //div[contains(@class,'product-item-details')]//a[@itemprop="url"]//@data-objectid
-    singleValue: true
+    singleValue: false
   - name: name
-    xpath: //div[contains(@class,'product-item-details')]//strong[@itemprop="name"]
-    singleValue: true
+    xpath: //div[contains(@class,'product-item-details')]//a[@itemprop="url"]//strong[@itemprop="name"]
+    singleValue: false
   - name: productUrl
     xpath: //div[contains(@class,'product-item-details')]//a[@itemprop="url"]//@href
-    singleValue: true    
+    singleValue: false    
   - name: manufacturer
-    xpath: //div[contains(@class,'product-item-info')]//a//@data-brand
-    singleValue: true    
+    singleValue: false    
   - name: thumbnail
     xpath: //img[@itemprop="image"]//@src
-    singleValue: true    
+    singleValue: false
+    regExp: (.+)
+    regExpReplace: http:$1
   - name: price
     xpath: //span[@itemprop="lowPrice"]//span
     singleValue: true 
   - name: rankOrganic
     singleValue: true 
   - name: aggregateRating  
-    singleValue: true
-    xpath: //div[contains(@class,'product-item-info')]//a[@itemprop="aggregateRating"]
-    regExp: ([^()^\s]+)
-    defaultValue: '0'
+    singleValue: false
+    xpath: //a[contains(@itemprop, "aggregateRating")]//@aria-label
+    regExp: (\d.\d+)
+    defaultValue: 0
+    type: NUMBER
   - name: reviewCount  
-    singleValue: true
-    xpath: //div[contains(@class,'product-item-info')]//a[@itemprop="aggregateRating"]
+    singleValue: false
+    xpath: //a[contains(@itemprop, "aggregateRating")]
     regExp: \(([0-9]+?)\)
-    defaultValue: '0'
+    defaultValue: 0
     type: NUMBER
   - name: ratingCount  
-    xpath: //div[contains(@class,'product-item-info')]//a[@itemprop="aggregateRating"]
+    xpath: //a[contains(@itemprop, "aggregateRating")]
     singleValue: true
-    regExp: ([^()^\s]+)
-    defaultValue: '0'
+    regExp: \(([0-9]+?)\)
+    defaultValue: 0
+    type: NUMBER
   - name: rank
     singleValue: true
     description: search/listing rank

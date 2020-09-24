@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'betta',
-    nextLinkSelector: 'button.ais-infinite-hits--showmoreButton',
-    loadedSelector: 'div.item-list',
+    nextLinkSelector: 'div#instant-search-results-container > div > div.ais-infinite-hits--showmore > button',
+    loadedSelector: 'div.ais-infinite-hits',
     domain: 'betta.com.au',
     zipcode: '',
   },

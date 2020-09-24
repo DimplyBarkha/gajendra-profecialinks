@@ -5,8 +5,8 @@ module.exports = {
     store: 'betta',
     domain: 'betta.com.au',
     url: "https://www.betta.com.au/catalogsearch/result/?q={searchTerms}",
-    loadedSelector: 'div.item-list',
-    noResultsXPath: '//div[@class="no-results"]',
+    loadedSelector: 'div.ais-infinite-hits',
+    noResultsXPath: null,
     zipcode: '',
   },
 };
