@@ -8,7 +8,11 @@ const transform = (data) => {
     for (const row of group) {
       if(row.alternateImages){
         row.alternateImages.forEach(item => {
-          item.text=item.text.replace("_50x50.jpg", "");
+          if(item.text.search('_50x50.jpg')>-1){
+            item.text=item.text.replace("_50x50.jpg", "");
+          }else if(item.text.search('_50x50.jpeg')>-1){
+            item.text=item.text.replace("_50x50.jpeg", "");
+          }
         });
       }
       if(row.sku){
@@ -42,8 +46,15 @@ const transform = (data) => {
       }
       if(row.coupon){
         row.coupon.forEach(item=>{
-          item.text = item.text.replace(' Купон нового пользователя','');
+          item.text = item.text.replace('\n','');
         });
+      }
+      if(row.specifications){
+        var specificationsAr=[];
+        row.specifications.forEach(item=>{
+          specificationsAr.push(item.text);
+        });
+        row.specifications=[{"text":specificationsAr.join(' || '),"xpath":row.specifications[0]['xpath']}]
       }
       row.variantCount = [{ "text": 0 }];
     }

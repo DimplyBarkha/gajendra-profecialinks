@@ -55,4 +55,7 @@ fields:
     xpath: //div[@class="sku-property"][2]//span[@class="sku-title-value"]
   - name: coupon
     singleValue: false
-    xpath: //div[@class="coupon-mark-new"]
+    xpath: //div[@class="product-coupon-display"]
+  - name: specifications
+    singleValue: false
+    xpath: //ul[contains(@class,"product-specs-list")]/li
