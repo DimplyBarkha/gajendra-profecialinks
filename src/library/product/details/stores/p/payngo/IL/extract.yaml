@@ -28,7 +28,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="product-details"]/div[@class="description"] | //div[@id="Tab-2"]/div[1]
+    xpath: //div[@class="product-details"]/div[@class="description"] | //section/div[contains(@class,"product-tabs")]//div[contains(@class, "description") and not(contains(@class, "product-tab"))]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@class="product-details"]/div[@class="description"]//ul/li)
@@ -39,22 +39,19 @@ fields:
   - name: name
     singleValue: false
     manualSelector: div.wrapper-title > h1
-  - name: nameExtended
-    singleValue: false
-    manualSelector: div.wrapper-title > h1
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@class="owl-item"]/img)
     type: NUMBER
   - name: warranty
     singleValue: false
-    xpath: //div[contains(@class, 'tab-content product.conditions.tab')]//p
+    xpath: //div[contains(@class, 'tab-content product.conditions.tab')]//p | //div[contains(@class, 'tab-content product.conditions.tab')]/div
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class="product-details"]/div[@class="description"]//ul/li
+    xpath: //div[@class="product-details"]/div[@class="description"]//ul/li | //section/div[contains(@class,"product-tabs")]//div[contains(@class, "description")]//ul/li
   - name: additionalDescBulletInfoCount
     singleValue: false
-    xpath: count(//div[@class="product-details"]/div[@class="description"]//ul/li)
+    xpath: count(//div[@class="product-details"]/div[@class="description"]//ul/li | //section/div[contains(@class,"product-tabs")]//div[contains(@class, "description")]//ul/li)
   - name: variantCount
     singleValue: false
     defaultValue: "0"
@@ -69,7 +66,7 @@ fields:
     xpath: //div[contains(@class, 'tab-content additional')]/ul
   - name: weightNet
     singleValue: false
-    xpaht: //div[contains(@class, 'tab-content additional')]/ul/li[contains(string(), 'משקל')]/p
+    xpath: //div[contains(@class, 'description') and not(contains(@class, "product-tab"))]/ul/li[contains(string(), 'משקל')]/p
   - name: color
     singleValue: false
     xpath: //div[contains(@class, 'tab-content additional')]/ul/li[contains(string(), 'צבע')]/p
@@ -85,3 +82,6 @@ fields:
     singleValue: false
     xpath: //span[contains(@class,"yotpo-star-digits")]
     type: NUMBER
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content

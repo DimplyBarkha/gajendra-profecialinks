@@ -23,25 +23,29 @@ const transform = (data) => {
         if (row.description) {
             row.description[0].text = row.description[0].text.replace(/(\n){1,}/g, ' || ');
             if(row.description[1]) {
-                row.description[0].text = cleanUp(row.description[0].text) + '. ' + cleanUp(row.description[1].text);
-                row.description.pop();
+              row.description[0].text = cleanUp(row.description[0].text) + '. ' + cleanUp(row.description[1].text);
+              row.description.pop();
             }
         }
 
         if (row.specifications) {
-            row.specifications[0].text = row.specifications[0].text.replace(/(:\n\s){1,}/g, ':');
-            row.specifications[0].text = row.specifications[0].text.split('\n').join(' || ');
+          row.specifications[0].text = row.specifications[0].text.replace(/(:\n\s){1,}/g, ':');
+          row.specifications[0].text = row.specifications[0].text.split('\n').join(' || ');
         }
 
-        // if (row.imageZoomFeaturePresent) {
-        //     row.imageZoomFeaturePresent[0].text = "Yes"
-        // } else {
-        //     row.imageZoomFeaturePresent[0].text = "No"
-        // }
+        if(row.additionalDescBulletInfo) {
+          row.additionalDescBulletInfo[0].text = "|| " + row.additionalDescBulletInfo[0].text;
+        }
 
-        // if(row.aggregateRating) {
-        //     row.aggregateRating[0].text = Number(row.aggregateRating[0].text).toFixed(1);
-        // }
+        if(row.brandText && row.name) {
+          if(row.brandText[0].text !== row.name[0].text.split(' ')[0]) {
+            row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
+          }
+        }
+
+        if(!row.brandText) {
+          row.brandText = [{ text: row.name[0].text.split(' ')[0] }];
+        }
       }
     }
     return data;
