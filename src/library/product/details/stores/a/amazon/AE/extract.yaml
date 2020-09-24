@@ -69,7 +69,7 @@ fields:
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Model Number')]/../td | //tr[contains(@class,'item-model-number')][1]//td[2] | //*[contains(text(),'Model Number')]/following-sibling::*[1]
   - name: mpc
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Model Number')]/../td | //tr[contains(@class,'item-model-number')][1]//td[2] | //*[contains(text(),'Model Number')]/following-sibling::*[1]
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Model Number')]/../td | //tr[contains(@class,'item-model-number')][1]//td[2] | //*[contains(text(),'Model Number')]/following-sibling::*[1] | //* [contains(text(),'Item model number')]/following-sibling::*[1]
   - name: ratingCount
     singleValue: false
     xpath: //div[@id="averageCustomerReviews_feature_div"]//*[@id="acrCustomerReviewText"]/text()
@@ -77,12 +77,12 @@ fields:
     regExpReplace: $1
   - name: aggregateRating
     singleValue: false
-    xpath: //table[@id='productDetails_detailBullets_sections1']//span[@id='acrPopover']
+    xpath: (//span[@id='acrPopover'])[1]
     regExp: ([0-9\.]{1,}) out of
     regExpReplace: $1
   - name: aggregateRatingText
     singleValue: false
-    xpath: //table[@id='productDetails_detailBullets_sections1']//span[@id='acrPopover']
+    xpath: (//span[@id='acrPopover'])[1]
   - name: shippingInfo
     singleValue: false
     xpath: //div[@id='buybox-tabular']//tr[1]/td[1] | //div[@id='buybox-tabular']//tr[1]/td[2]/span/span[2] | //div[@id='buybox-tabular']//tr[2]/td[1] | //div[@id='buybox-tabular']//tr[2]/td[2]/span/span[2]
@@ -92,12 +92,13 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
+    defaultValue: '0'
   - name: variantInformation
     singleValue: false
     xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
   - name: color
     singleValue: false
-    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
+    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")] | //table[contains(@id,'productDetails_techSpec_section_1')]//th[contains(text(), 'Color')]/../td
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//p[not(img) and text()]
@@ -175,4 +176,11 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+    defaultValue: No
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@id='detailBullets_feature_div']//span[normalize-space(.)="Manufacturer :"]/following::span[1]
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //span[@data-action='enhanced-content-open-file']/a/@href
     defaultValue: No
