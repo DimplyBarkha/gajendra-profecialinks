@@ -8,7 +8,7 @@ fields:
     xpath: //ul[@id="isp_search_results_container"]/li/div[@class="isp_product_info"]/a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //ul[@id="isp_search_results_container"]/li/div/a/@src
+    xpath: //ul[@id="isp_search_results_container"]//li/div/a/img/@src
   - name: name
     singleValue: false
     xpath: //div[@class="isp_product_info"]//div[@class="isp_product_title"]
