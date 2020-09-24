@@ -30,6 +30,7 @@ const transform = (data) => {
             if (row.aggregateRating2) {
                 row.aggregateRating2.forEach(item => {
                     var myRegexp = /Keine/ig;
+                    item.text = item.text.replace('.', ',').trim();
                     var match = myRegexp.exec(item.text);
                     if (match) {
                         delete row.aggregateRating2;
