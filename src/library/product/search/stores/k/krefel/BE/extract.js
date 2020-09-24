@@ -15,12 +15,12 @@ module.exports = {
 
       for (let i = 0; i < numberOfProducts; i++) {
         if (productBoxes[i].querySelector('div.rating-wrap').querySelector('div.rating')) {
-          const fullRate = productBoxes[i].querySelector('div.rating').querySelectorAll('span.plug.filled').length;
-          if (fullRate === 5) {
-            document.querySelectorAll('div.top-content')[i].setAttribute('rating', fullRate);
-          } else if (productBoxes[i].querySelector('div.rating').querySelectorAll('span.plug')[fullRate].querySelector('svg').querySelectorAll('path')[0].className.baseVal) {
-            document.querySelectorAll('div.top-content')[i].setAttribute('rating', fullRate);
-          } else { document.querySelectorAll('div.top-content')[i].setAttribute('rating', fullRate + 0.5); }
+          let fullRate = productBoxes[i].querySelector('div.rating').querySelectorAll('span.plug.filled').length;
+          if (!productBoxes[i].querySelector('div.rating').querySelectorAll('span.plug')[fullRate].querySelector('svg').querySelectorAll('path')[0].className.baseVal) {
+            fullRate = fullRate + 0.5;
+          }
+          fullRate = fullRate.toString().replace('.', ',')
+          document.querySelectorAll('div.top-content')[i].setAttribute('rating', fullRate);
         };
       };
     });

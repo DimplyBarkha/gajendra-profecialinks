@@ -25,9 +25,8 @@ fields:
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //div[contains(@class, 'col-md-1')]//img[@class='product-image']/@src
-  - name: aggregateRating
+  - name: aggregateRating2
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
     xpath: //div[@class="top-content"]/@rating
   - name: reviewCount
     description: The number of reviews
