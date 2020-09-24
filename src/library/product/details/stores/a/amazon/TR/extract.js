@@ -24,27 +24,46 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+    var element = (document.querySelectorAll("div[cel_widget_id*='aplus'] img")) ? document.querySelectorAll("div[cel_widget_id*='aplus'] img") : [];
+    if (element) {
+      element.forEach(async (node) => {
+        node.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        await new Promise((resolve) => {
+          setTimeout(resolve, 1000);
+        });
+      });
+    }
+    let manufacturerDescription = document.querySelector('.aplus-v2.desktop.celwidget');
+    // @ts-ignore
+    manufacturerDescription = manufacturerDescription !== null ? manufacturerDescription.innerText : '';
+    addHiddenDiv('ii_manufacturerDescription', manufacturerDescription);
     const ship = document.evaluate('(//tr//td[contains(@class,"buybox-tabular-column") and ./span[contains(.,"Gönderici")]]/following-sibling::td/span/span)[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     const sold = document.evaluate('(//tr//td[contains(@class,"buybox-tabular-column") and ./span[contains(.,"Satıcı")]]/following-sibling::td/span/span)[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    // @ts-ignore
     if (ship && ship.innerText && sold && sold.innerText) {
+      // @ts-ignore
       const dt = (sold.innerText === ship.innerText ? `${sold.innerText} tarafından satılır ve gönderilir.` : `gönderilir tarafindan ${ship.innerText} ve satılır tarafindan ${sold.innerText}`);
       dt && addHiddenDiv('ii_shipping_info', dt);
     }
     const brandText = document.evaluate('//a[@id="bylineInfo"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    // @ts-ignore
     if (brandText && brandText.innerText) {
+      // @ts-ignore
       addHiddenDiv('ii_brand_text', brandText.innerText);
     } else {
       const name = document.evaluate('//span[@id="productTitle"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      // @ts-ignore
       if (name && name.innerText.includes('Dyson')) {
         addHiddenDiv('ii_brand_text', 'Dyson');
       } else {
+        // @ts-ignore
         name && name.innerText && addHiddenDiv('ii_brand_text', name.innerText.split(' ')[0]);
       }
     }
     const variants = document.evaluate(' //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     const variantsArray = [];
     if (variants) {
-      for (var i = 0; i < variants.snapshotLength; i++) {
+      for (let i = 0; i < variants.snapshotLength; i++) {
         variantsArray.push(variants.snapshotItem(i).textContent.trim());
       }
       variantsArray && addHiddenDiv('ii_variants', variantsArray.join(' | '));
@@ -52,19 +71,20 @@ async function implementation (
     const description = document.evaluate('//*[@id="feature-bullets"]/ul/li[not(@id)]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     const descArray = [];
     if (description) {
-      for (var i = 0; i < description.snapshotLength; i++) {
+      for (let i = 0; i < description.snapshotLength; i++) {
         descArray.push(description.snapshotItem(i).textContent.trim());
       }
     }
     const descriptionOne = document.evaluate('//div[@id="productDescription"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     if (description) {
+      // @ts-ignore
       descriptionOne && descriptionOne.innerText && descArray.push(`| ${descriptionOne.innerText.trim()}`);
       descArray && descArray[0] && addHiddenDiv('ii_description', `|| ${descArray.join(' || ').trim().replace(/\|\| \|/g, '|')}`);
     }
     const specifications = document.evaluate('//table[contains(@id,"productDetails_techSpec")]//tbody/tr', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     const specArray = [];
     if (specifications) {
-      for (var i = 0; i < specifications.snapshotLength; i++) {
+      for (let i = 0; i < specifications.snapshotLength; i++) {
         specArray.push(specifications.snapshotItem(i).textContent.trim().replace(/\n/g, ' ').replace(/\s+/g, ' : '));
       }
       specArray && specArray.length && addHiddenDiv('ii_spec', specArray.join(' || '));
