@@ -7,34 +7,38 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.description) {
+        const descs = [];
+        let newTxt = '';
+        let cnt = 0;
         row.description.forEach(item => {
-          item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
+          descs[0] = item;
+          item.text = item.text.replace(/(\s?\n)+/g, ' ').trim();
+          if (cnt > 0) newTxt = newTxt + '||' + item.text;
+          else newTxt = newTxt + item.text;
+          cnt++;
         });
+        descs.forEach(item => {
+          item.text = newTxt;
+        });
+        row.description = descs;
       }
 
-      const categs = [];
-      let idx = 0;
-      if (row.category) {
-        row.category.forEach(item => {
-          if (idx > 0) {
-            categs.push(item);
-          }
-          idx++;
+      if (row.specifications) {
+        const specs = [];
+        let newTxt = '';
+        let cnt = 0;
+        row.specifications.forEach(item => {
+          specs[0] = item;
+          item.text = item.text.replace(/(\s?\n)+/g, ' ');
+          if (cnt > 0) newTxt = newTxt + '|' + item.text;
+          else newTxt = newTxt + item.text;
+          cnt++;
         });
-        row.category = categs;
-      }
 
-      if (row.additionalDescBulletInfo) {
-        let desc = '';
-        row.additionalDescBulletInfo.forEach(item => {
-          item.text = item.text.replace(/(\s?\n)+/g, ' | ').trim();
-          desc = desc + '||' + item.text;
+        specs.forEach(item => {
+          item.text = newTxt;
         });
-        if (row.description) {
-          row.description.forEach(item => {
-            item.text = item.text + desc;
-          });
-        }
+        row.specifications = specs;
       }
 
       if (row.aggregateRating) {
@@ -70,11 +74,11 @@ const transform = (data) => {
         });
       }
 
-      if (row.listPrice) {
-        row.listPrice.forEach(item => {
-          if (item.text && item.text.indexOf('PLN') > -1) {
-            item.text = item.text.replace('PLN', '');
-            item.text = item.text + 'zl';
+      if (row.price) {
+        row.price.forEach(item => {
+          if (item.text) {
+            item.text = item.text.replace(' ', '');
+            item.text = item.text.replace('.', ',');
           }
         });
       }
