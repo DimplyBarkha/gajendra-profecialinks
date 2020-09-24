@@ -36,7 +36,6 @@ fields:
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class,"summaryStrate__raw")]//ul/li)
-    type: NUMBER
   - name: brandText
     singleValue: false
     manualSelector: div#brandText
@@ -64,7 +63,6 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: "0"
-    type: NUMBER
   - name: color
     singleValue: false
     xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Color')]//parent::div/dd/p
@@ -87,6 +85,7 @@ fields:
   - name: additionalDescBulletInfoCount
     singleValue: false
     xpath: count(//div[contains(@class,"summaryStrate__raw")]//ul/li)
+    type: NUMBER
   - name: imageZoomFeaturePresent
     singleValue: false
     manualSelector: div.f-productVisuals-mainIconZoom > svg.f-icon

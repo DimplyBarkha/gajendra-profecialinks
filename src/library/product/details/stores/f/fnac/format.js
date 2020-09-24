@@ -36,8 +36,7 @@ const transform = (data) => {
           row.imageZoomFeaturePresent[0].text = "No"
         }
 
-        if(row.brandText && row.name) {
-          row.brandText[0].text = row.brandText[0].text.replace(/['"]+/g, '');
+        if(row.brandText && row.name) {          
           if(row.name[0].text.split(' ')[0] !== row.brandText[0].text) {
             row.nameExtended[0].text = row.brandText[0].text + " - " + row.name[0].text;
           }
@@ -45,10 +44,6 @@ const transform = (data) => {
 
         if(!row.brandText) {
           row.brandText = [{ text : row.name[0].text.split(' ')[0] }];
-        }
-
-        if(row.manufacturer) {
-          row.manufacturer[0].text = row.manufacturer[0].text.replace(/['"]+/g, '');
         }
 
         if(row.mpc) {

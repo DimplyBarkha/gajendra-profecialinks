@@ -20,13 +20,10 @@ async function implementation (inputs, parameters, context, dependencies) {
       addHiddenDiv('desc', desc);
     }
     
-    let desc = document.evaluate('//script[@type="application/ld+json"]', document, null, XPathResult.ANY_TYPE, null);
-    let brandString = desc.iterateNext();
-    brandString = brandString ? brandString.innerText : '';
-    if(brandString.indexOf('brand') !== -1) {
-      let brandStr = brandString.replace(/.*("brand":.*)/g, '$1');
-      brandStr = brandStr.split(',')[1].split(':')[1];
-      addHiddenDiv('brandText', brandStr);
+    let desc = document.querySelector('script[type="application/ld+json"]').innerText
+    desc = JSON.parse(desc);
+    if(desc.brand) {
+      addHiddenDiv('brandText', desc.brand.name);
     }
   });
 
