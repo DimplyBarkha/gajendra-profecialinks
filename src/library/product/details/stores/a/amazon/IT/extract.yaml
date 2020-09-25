@@ -11,9 +11,10 @@ fields:
     xpath: (//img[@id="landingImage"])[1]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //*[@id="imageBlock_feature_div"]/script
-    regExp: large\":\"(.{40,200})\"\,\"main
-    regExpReplace: $1
+    xpath: //div[@id='ii_alternateImages']
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@id='ii_alternateImages'])
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -34,10 +35,7 @@ fields:
     xpath: //*[@id='availability']/span
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
-  - name: descriptionBottom
-    singleValue: false
-    xpath: //*[@id="productDescription"]/p
+    xpath: //div[@id='ii_desc']
   - name: productOtherInformation
     singleValue: false
     xpath: //*[@id="productDescription"]/p
@@ -98,9 +96,6 @@ fields:
   - name: shippingInfo
     singleValue: false
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
-  - name: shippingDimensions
-    singleValue: false
-    xpath: //*[contains(text(), 'Dimensioni')]/following-sibling::*[1] | //li/b[contains(text(), 'Dimensioni')]/following::text()[1]
   - name: shippingWeight
     singleValue: false
   - name: variantCount
@@ -114,7 +109,7 @@ fields:
     xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div#aplus
+    xpath: //div[@id='ii_manufacturerDesc']
   - name: videos
     singleValue: false
     xpath: //script[contains(text(), 'durationTimestamp')]
@@ -181,19 +176,13 @@ fields:
     defaultValue: NO
   - name: largeImageCount
     singleValue: false
-    xpath: //script[contains(., "ImageBlockATF")]/text()
+    xpath: count(//li[contains(@class, 'image')]//img/@src)
   - name: variantAsins
     singleValue: false
-    xpath: //script[contains(text(),"asinVariationValues")] | //*[contains(@id, 'twisterContainer')]//option/@value
-    regExp: >-
-        "ASIN":\s*"([^\"]+)
-    regExpReplace: $1
+    xpath: //div[@id='ii_variant']
   - name: variants
     singleValue: false
-    xpath: //script[contains(text(),"asinVariationValues")] | //*[contains(@id, 'twisterContainer')]//option/@value
-    regExp: >-
-        "ASIN":\s*"([^\"]+)
-    regExpReplace: $1
+    xpath: //div[@id='ii_variant']
   - name: primeFlag
     singleValue: false
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
