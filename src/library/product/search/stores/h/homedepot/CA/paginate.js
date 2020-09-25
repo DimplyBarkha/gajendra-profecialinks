@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'homedepot',
-    nextLinkSelector: 'nav[aria-label*="Pages"] a[class*="tail"]',
+    nextLinkSelector: 'a[class*="link-next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'acl-product-card-group[evtperfname*="acl-product-card-group"]',
