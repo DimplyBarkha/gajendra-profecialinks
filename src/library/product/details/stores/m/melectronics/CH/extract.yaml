@@ -6,9 +6,6 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[@class='detail-showcase--discount-content']
-  - name: manufacturerDescription
-    singleValue: false
-    xpath: //img[@class='detail-showcase--brand-img']/@src
   - name: availabilityText
     singleValue: false
     xpath: (//div[@class='buybox--annotation']//span[contains(@class,'buybox--annotation-text')])[1]
@@ -22,9 +19,9 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Artikelnummer']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
-  - name: colorCode
+  - name: sku
     singleValue: false
-    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Farbe']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
+    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Artikelnummer']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
   - name: variantId
     singleValue: false
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Artikelnummer']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
@@ -39,25 +36,25 @@ fields:
     xpath: //div[@class='detail-showcase--additional-imgs']//div[not(@data-active)]//img[@class='detail-showcase--additional-img']/@src
   - name: category
     singleValue: false
-    xpath: //div[@class='_9yxos7T0YNnslpWJEfrD9 _1eeHdGL1eQGdh2zWVt2iX9']//ol[contains(@class,'breadcrumbs--container')]//li//a[@class='u-reset']
+    xpath: //header//ol[contains(@class,'breadcrumbs--container')]//li//a[@class='u-reset']
   - name: weightNet
+    singleValue: false
+    xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Leergewicht']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
+  - name: weightGross
     singleValue: false
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Gewicht']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
   - name: ratingCount
     singleValue: false
-    xpath: //div[@id="msrc-widget"]/div[contains(@class,"sc-fznMAR")]/a/span[contains(@class,"sc-fzolEj")]
+    xpath: //span[@class="sc-fznLPX kRYZuI"]
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@id="msrc-widget"]/div[contains(@class,"sc-fznMAR")]/a/span[contains(@class,"sc-fznWOq")]
+    xpath: //span[@class="sc-fzoXWK iIptZR"]
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //ul[@class='detail-options--topfacts']
+    xpath: //ul[@class='detail-options--topfacts']/li
   - name: description
     singleValue: false
-    xpath: //div[@name='description']
-  - name: descriptionBullets
-    singleValue: false
-    xpath: //ul[@class='detail-options--topfacts']//li
+    xpath: //div[@name='description']//div[@class="detail-navigation-section--description"]
   - name: brandText
     singleValue: false
     xpath: //div[@class='detail-showcase--brand']/img/@alt

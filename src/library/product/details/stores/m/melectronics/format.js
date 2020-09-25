@@ -15,20 +15,22 @@ const transform = (data) => {
 
       if (row.description) {
         row.description.forEach(item => {
-          item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
+          item.text = "|| " + item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
         });
       }
 
       if (row.additionalDescBulletInfo) {
+        let bullet = [];
         row.additionalDescBulletInfo.forEach(item => {
-          item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
+          bullet.push(item.text.trim());
         });
+        if(bullet.length){
+          row.additionalDescBulletInfo = [{"text": "| " + bullet.join(" | ")}]
+          row.descriptionBullets = [{ 'text': bullet.length }];
+        }else{
+          delete row.additionalDescBulletInfo;
+        }
       }
-
-      if (row.descriptionBullets) {
-        row.descriptionBullets = [{ 'text': row.descriptionBullets.length, 'xpath': row.descriptionBullets[0].xpath }];
-      }
-
       if (row.specifications) {
         let info = [];
         row.specifications.forEach(item => {
@@ -67,8 +69,9 @@ const transform = (data) => {
         });
       }
       if (row.aggregateRating) {
-        row.aggregateRating.forEach(item => {          
-          item.text = item.text.replace('.', ',').trim();          
+        row.aggregateRating.forEach(item => {
+          item.text = item.text.replace('Durchschnittsbewertung', ''); 
+          item.text = item.text.replace('.', ',').trim();
         });
       }      
       if (row.gtin) {
@@ -136,7 +139,13 @@ const transform = (data) => {
         else{
           delete row.variants;
         }
-      }            
+      }
+      if(row.weightGross){
+        if(!row.weightNet){
+          row.weightNet = row.weightGross;
+          delete row.weightGross;
+        }
+      }          
     }
   }
   return data;
