@@ -44,7 +44,7 @@ fields:
   - name: descriptionBullets
     singleValue: true
     type: NUMBER
-    xpath: count(//div[contains(@class, 'specification-item')]/aol-product-specifications-attribute-row)
+    xpath: count(//span[contains(text(), 'Features')]/following::div[1]/ul/li)
   - name: brandText
     singleValue: true
     xpath: //*[@class="specifications-panel ng-star-inserted"]//aol-product-specifications-attribute-row//a
@@ -62,9 +62,9 @@ fields:
   - name: weightGross
     singleValue: true
     xpath: //span[contains(text(), 'Package Weight (kg)')]/following::div[1]
-  - name: gtin
-    singleValue: true
-    xpath: //span[contains(text(), 'Model Number')]/following::div[1]
+  #- name: gtin
+  #  singleValue: true
+  #  xpath: //span[contains(text(), 'Model Number')]/following::div[1]
   - name: sku
     singleValue: true
     xpath: //span[contains(text(), 'Model Number')]/following::div[1]
@@ -90,9 +90,6 @@ fields:
     singleValue: true
     type: NUMBER
     xpath: count(//div[contains(@class,'product-thumbnail-slider')]//div[contains(@class,'wrapper')]//li[contains(@class,'ng-star-inserted')]/img/@src)
-  - name: specifications
-    singleValue: true
-    xpath: //span[contains(text(), 'Package Dimensions (H x W x D)')]/following::div[1]
   - name: warranty
     singleValue: true
     xpath: //span[contains(text(), 'Manufacturer Warranty')]/following::div[1]
@@ -102,9 +99,9 @@ fields:
   - name: shippingWeight
     singleValue: true
     xpath: //span[contains(text(), 'Package Weight (kg)')]/following::div[1]
-  - name: recyclingInformation
-    singleValue: true
-    xpath: //div[contains(@class, 'default-delivery ng-star-inserted')]/span
+  #- name: recyclingInformation
+  #  singleValue: true
+  #  xpath: //div[contains(@class, 'default-delivery ng-star-inserted')]/span
   - name: variantCount
     singleValue: true
     type: NUMBER
@@ -124,6 +121,9 @@ fields:
   - name: ratingCount
     singleValue: true
     xpath: //div[contains(@class, 'review-count')]
+  - name: aggregateRating
+    singleValue: true
+    xpath: //span[@class='rating']/strong
   - name: countryOfOrigin
     singleValue: true
     xpath: //span[contains(text(), 'Origin')]/following::div[1]
@@ -132,13 +132,11 @@ fields:
     xpath: //span[contains(text(), 'Energy Star Rating')]/following::div[1]
   - name: additionalDescBulletInfo
     singleValue: true
-    xpath: //span[contains(text(), 'Features')]/following::div[1]
+    xpath: //span[contains(text(), 'Features')]/following::div[1]/ul
   - name: technicalInformationPdfPresent
     xpath: //ul//li[contains(@class,'manual-item ng-star-inserted')]
     singleValue: true
-    regExp: (.+)
-    regExpReplace: 'YES'
-    defaultValue: 'NO'
+    defaultValue: "No"
   - name: Image360Present
     xpath: boolean(//li//div[contains(@class,'svg-icon-360')])
     singleValue: true
@@ -150,24 +148,32 @@ fields:
   # - name: upc
   #   singleValue: true
   #   xpath: //span[contains(text(), 'Model Number')]/following::div[1]
-  - name: eangtin
-    singleValue: true
-    xpath: //span[contains(text(), 'Model Number')]/following::div[1]
+  #- name: eangtin
+  #  singleValue: true
+  #  xpath: //span[contains(text(), 'Model Number')]/following::div[1]
   - name: listPrice
     singleValue: true
     xpath: //aol-product-price-details[contains(@class,'cart-panel__details')]//div[contains(@class,'__discount')]//span[contains(@class,'__discount-desc')]/descendant::text()
   - name: colorCode
     singleValue: true
     xpath: //a[contains(@class,'swatch-color current')]/span/@style
-  - name: newDescription
-    singleValue: true
-    xpath: //div[contains(@class,'features')]
+  #- name: newDescription
+  #  singleValue: true
+  #  xpath: //div[contains(@class,'features')]
   - name: lbbPrice
     singleValue: true
-    xpath: 
+    xpath:
   - name: firstVariant
     singleValue: false
     xpath: //span[contains(text(), 'Finish Colour')]/following::div[1]
   - name: variants
     singleValue: false
     xpath:
+  - name: specifications
+    xpath: //div[1]/aol-specifications-panel[1]/div/aol-product-specifications-attribute-row
+    singleValue: false
+  - name: manufacturerDescription
+    xpath: //div[contains(@class,'features')]/figure
+    singleValue: false
+  - name: variantInformation
+    xpath: //span[contains(text(), 'Finish Colour')]/following::div[1]

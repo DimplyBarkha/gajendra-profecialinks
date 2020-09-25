@@ -24,6 +24,50 @@ const transform = (data, context) => {
           row.colorCode = [{ text: colorCodeJson }];
         }
 
+        if (row.additionalDescBulletInfo) {
+          row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/●/g, '||').replace(/\n/g, '').slice(3);
+        }
+
+        if (row.technicalInformationPdfPresent) {
+          row.technicalInformationPdfPresent[0].text = row.technicalInformationPdfPresent[0].text != 'No' ? 'Yes' : 'No';
+        }
+
+        if (row.manufacturerImages) {
+          let text = '';
+          row.manufacturerImages.forEach(item => {
+            text += `${item.text} | `;
+          });
+          row.manufacturerImages = [
+            {
+              text: text.slice(0, -3),
+            },
+          ];
+        }
+
+        if (row.specifications) {
+          let text = '';
+          row.specifications.forEach(item => {
+            text += `${item.text.replace('\n', ':')} | `;
+          });
+          row.specifications = [
+            {
+              text: text.slice(0, -3),
+            },
+          ];
+        }
+
+        if (row.manufacturerDescription) {
+          let text = '';
+          row.manufacturerDescription.forEach(item => {
+            text += `${item.text}  \n `;
+          });
+          row.manufacturerDescription = [
+            {
+              text: text.slice(0, -3),
+            },
+          ];
+        }
+
       } catch (exception) { console.log('Error in transform', exception); }
 
     }
