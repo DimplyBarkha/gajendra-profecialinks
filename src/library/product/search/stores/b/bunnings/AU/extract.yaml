@@ -9,7 +9,7 @@ fields:
   - name: name
     xpath: //div[contains(@class, "codified-product-tile__product-details")]/div[contains(@class, "codified-product-tile__row codified-product-tile__row--title")]/p/span/span[2]
     singleValue: false
-  - name: producturl
+  - name: productUrl
     xpath: //a//@href
     regExp: (.+)
     regExpReplace: https://www.bunnings.com.au$1
