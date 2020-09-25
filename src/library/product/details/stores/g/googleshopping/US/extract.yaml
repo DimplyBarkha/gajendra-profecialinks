@@ -34,22 +34,26 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
+    xpath: //span[@class='Sj5GPe']/text()
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
+    xpath: //ul[@class='xpDPYb']//li//span/text()
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: false
+    xpath: count(//ul[@class='xpDPYb']//li//span/text())
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
     singleValue: false
+    xpath: //td[contains(text(),'Brand')]//following-sibling::td/text()
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
@@ -62,18 +66,21 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
+    xpath: //div[contains(text(),'Weight')]//..//following-sibling::td/text()
     description: Net weight as described on the page
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
+    xpath: //td[contains(text(),'GTIN')]//following-sibling::td/text()
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
     description: The store-specific product identifier
   - name: variantId
     singleValue: false
+    xpath: //div[@class='JTvRab sh-ssb__savebtn sh-ssb__savebtn-unsaved']/@data-catalogid
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: false
@@ -88,8 +95,9 @@ fields:
   - name: directions
     singleValue: false
     description: Content under "directions" header
-  - name: warnings
+  - name: warranty
     singleValue: false
+    xpath: //div[contains(text(),'Warranty')]//..//following-sibling::td/text()
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
@@ -109,6 +117,7 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: false
+    xpath: //concat(//div[contains(text(),'Width')]//..//following-sibling::td/text(),' X  ',//div[contains(text(),'Depth')]//..//following-sibling::td/text(), ' X ', //div[contains(text(),'Height')]//..//following-sibling::td/text())
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: false
@@ -119,20 +128,27 @@ fields:
     #type: NUMBER
   - name: color
     singleValue: false
+    xpath: //div[contains(text(),'Color')]//..//following-sibling::td/text()
     description: A textual description of the colour
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
+    xpath: //div[@class='RmXrwd']//span/text()
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
+    xpath: //div[@class='dr0BFf vWzOrb sh-img__image']//img/@src | //div[@class='FM6uVc']//div//img/@src
     singleValue: false
     description: Images within the third party description
   - name: videos
     singleValue: false
+    xpath: //a[@class='ibRpPe']/@href
+    regExp: (.+)
+    regExpReplace: https://www.google.com/shopping$1
     description: URLs of videos on page
   - name: name
     singleValue: false
+    xpath: //span[@class='BvQan sh-t__title-pdp sh-t__title translate-content']/text()
     description: The product name
  
