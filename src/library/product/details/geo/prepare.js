@@ -38,13 +38,13 @@ module.exports = {
       name: 'storeId',
       description: '',
       type: 'string',
-      optional: false,
+      optional: true,
     },
     {
       name: 'zipcode',
       description: '',
       type: 'string',
-      optional: false,
+      optional: true,
     },
   ],
   dependencies: {
