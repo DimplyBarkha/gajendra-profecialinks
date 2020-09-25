@@ -23,7 +23,10 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
 
-
+      // if(row.productUrl){
+      //   let text = row.productUrl[0].text
+      //   row.productUrl[0].text = `https://www.intermarche.com/rechercheproduits/11833/recherche/product/${text}`
+      // }
      
 
 
