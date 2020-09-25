@@ -58,14 +58,7 @@ const transform = (data) => {
           info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());            
         });
         row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
-      }
-      if (row.shippingInfo) {
-        let info = [];          
-        row.shippingInfo.forEach(item => {
-          info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());            
-        });
-        row.shippingInfo = [{'text':info.join(' | '),'xpath':row.shippingInfo[0].xpath}];
-      }      
+      }           
       if (row.featureBullets) {
         row.featureBullets.forEach(item => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();

@@ -44,6 +44,9 @@ fields:
   - name: shippingWeight
     singleValue: false
     xpath: //div[@id='full-desc']//strong[text()='Shipping Weight:']/following-sibling::text()[1]
+  - name: weightGross
+    singleValue: false
+    xpath: //div[@id='full-desc']//strong[text()='Shipping Weight:']/following-sibling::text()[1]
   - name: ratingCount
     singleValue: false
     xpath: //div[@class='ratings pull-left flip']//p[@class='rating-links pull-left flip']//a/text()
@@ -53,10 +56,7 @@ fields:
     singleValue: false
     xpath: //div[@class='ratings pull-left flip']//p[@class='rating-links pull-left flip']//a/text()
     regExp: (.*)\/.+
-    regExpReplace: $1    
-  - name: shippingInfo
-    singleValue: false
-    xpath: //ul[@class='add-to-links add-to-links-edits']/following-sibling::*
+    regExpReplace: $1  
   - name: shippingDimensions
     singleValue: false
     xpath: //div[@id='full-desc']//strong[text()='Package Dimensions:']/following-sibling::text()[1]
