@@ -5,9 +5,9 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@data-index="0"]//img//@src
-    regExp: (.+)
-    regExpReplace: https://www.netonnet.se$1
+    xpath: //meta[@property="og:image"]//@content
+    # regExp: (.+)
+    # regExpReplace: https://www.netonnet.se$1
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
@@ -15,7 +15,8 @@ fields:
     description: Alt text of the main product image
   - name: name
     singleValue: false
-    xpath: //ol[contains(@class, 'breadcrumb')]/following::h2[1]
+    #xpath: //ol[contains(@class, 'breadcrumb')]/following::h2[1]
+    xpath: //div[contains(@class, 'subTitle big')]/h1
     description: The product name    
   - name: alternateImages
     singleValue: false
@@ -28,10 +29,11 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: boolean(//div[@class='heading']//span[contains(@class,'stockStatusInStock')])
+    # xpath: boolean(//div[@class='heading']//span[contains(@class,'stockStatusInStock')])
+    xpath: boolean(//button[@class='btn btn-primary btn-block btn-lg']/@disabled)
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="collapseFive"]//img//@src
+    xpath: //div[@id="collapseFive"]//img//@data-src
     description: Images within the third party description
   - name: videos
     singleValue: false
@@ -90,7 +92,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku. Here We have tasken last id of URL 
   - name: description
     singleValue: false
-    xpath: //div[contains(@id,'collapseFive')]//div[@class="panel-body"]
+    xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li
     description: Product description supplied by website - may be concatenanted from multiple places; specifically not the manufacturer description
   - name: technicalInformationPdfPresent
     singleValue: false
@@ -104,7 +106,7 @@ fields:
     singleValue: false
     xpath: //a[contains(@data-action,"writeReview")]//div[contains(@class,"ratingOverlay")]//@style
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER  
+    # type: NUMBER  
   - name: eangtin
     singleValue: false
     xpath: //*[contains(text(), 'EAN')]/following::td[1]
@@ -122,19 +124,22 @@ fields:
     description: Suggested storage location for product
   - name: specifications
     singleValue: false
-    xpath: //td[contains(text(), 'Höjd')]/following::td[1] | //td[contains(text(), 'Bredd')]/following::td[1] | //td[contains(text(), 'Djup')]/following::td[1]
+    #xpath: //td[contains(text(), 'Höjd')]/following::td[1] | //td[contains(text(), 'Bredd')]/following::td[1] | //td[contains(text(), 'Djup')]/following::td[1]
+    xpath: //table[@class='table table-striped']//td//text()
     description: The physical dimensions of the product including packaging. here its taken as Height , width and Depth    
   - name: weightNet
     singleValue: false
-    xpath: //td[contains(text(), 'Vikt')]/following::td[1]/text()
+    # xpath: //td[contains(text(), 'Vikt')]/following::td[1]/text()
+    xpath: //td[contains(text(), "Vikt") and not(contains(text(), "Vikt (frakt)"))]/following::td[1]
     description: Net weight as described on the page
   - name: weightGross
     singleValue: false
-    xpath: //td[contains(text(), 'Vikt')]/following::td[1]/text()
+    xpath: (//td//font[contains(text(), "Weight (shipping)") ]/following::td[1])|(//td[contains(text(), "Vikt (frakt)")]/following::td[1])
     description: Gross weight as described on the page
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,'product-sellingPoints hidden-xs')]//div[contains(@class,"product-usps")]
+    # xpath: //div[contains(@class,'product-sellingPoints hidden-xs')]//div[contains(@class,"product-usps")]
+    xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li[1]
     description: null
   - name: brandText
     singleValue: false
@@ -149,11 +154,11 @@ fields:
     # regExpReplace: $1$2$3$4
   - name: shippingWeight
     singleValue: false
-    xpath: //td[contains(text(), 'Vikt')]/following::td[1]/text()
+    xpath: (//td//font[contains(text(), "Weight (shipping)") ]/following::td[1])|(//td[contains(text(), "Vikt (frakt)")]/following::td[1])
     description: Stated shipping weight
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@id,'collapseFive')]//div[@class="panel-body"]
+    xpath: //ol[contains(@class, 'breadcrumb')]/following::h2[1]
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)       
   - name: descriptionBullets
     singleValue: false
@@ -180,10 +185,12 @@ fields:
     singleValue: true
     description: Product manufacturer
   - name: gtin
-    singleValue: true
+    singleValue: false
+    xpath: //*[contains(text(), 'EAN')]/following::td[1]
     description: GTIN code (includes UPC/EAN)
   - name: mpc
-    singleValue: true
+    singleValue: false
+    xpath: //span[@itemprop='mpn']
     description: The manufacturer model code (unique) of the product  
   - name: legalDisclaimer
     singleValue: true
@@ -201,13 +208,15 @@ fields:
     singleValue: true
     description: Shipping information for the product
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
+    xpath: (//td//font[contains(text(), 'Width (shipping)')]/following::td[1]|//td//font[contains(text(), 'Depth (shipping)')]/following::td[1]|//td//font[contains(text(), 'Height (shipping)')]/following::td[1]|//td//font[contains(text(), "Weight (shipping)") ]/following::td[1]|//td//font[contains(text(), 'Shipping width')]/following::td[1]|//td//font[contains(text(), 'Shipping depth')]/following::td[1]|//td//font[contains(text(), 'Shipping height')]/following::td[1]|//td//font[contains(text(), "Shipping weight") ]/following::td[1]|//td[contains(text(), 'Bredde (forsendelse)')]/following::td[1]|//td[contains(text(), 'Dybde (forsendelse)')]/following::td[1]|//td[contains(text(), 'Høyde (forsendelse)')]/following::td[1]|//td[contains(text(), "Vekt (forsendelse)")]/following::td[1]|//td[contains(text(), 'Fraktbredde')]/following::td[1]|//td[contains(text(), 'Fraktdybde')]/following::td[1]|//td[contains(text(), 'Frakthøyde')]/following::td[1]|//td[contains(text(), "Fraktvekt")]/following::td[1]| //td[contains(text(), 'Höjd')]/following::td[1] | //td[contains(text(), 'Bredd')]/following::td[1] | //td[contains(text(), 'Djup')]/following::td[1])
     description: Stated shipping dimensions
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
+    xpath: //div[@id='collapseFive']//div[@class='panel-body']//div[@class='row']//div[@class='col-xs-12']//p//text()
     description: The extended description of the product supplied by the lister
   - name: inStorePrice
     singleValue: true
@@ -297,7 +306,8 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
-    singleValue: true
+    singleValue: false
+    xpath: count(//div[@class='owl-item']//img[contains(@class,'productImage')]//@data-src)
     description: null
     type: NUMBER
   - name: news

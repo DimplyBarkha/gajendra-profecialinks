@@ -10,7 +10,7 @@ const transform = (data) => {
 			if (row.availabilityText) {
 				let newText = 'Out Of Stock';
 				row.availabilityText.forEach(item => {
-					if (item.text.trim() === 'true') {
+					if (item.text.trim() === 'false') {
 						newText = 'In Stock';
 					}
 				});
@@ -59,27 +59,35 @@ const transform = (data) => {
 			} */
 			if (row.aggregateRating) {
 				let newText = '0';
-				row.aggregateRating.forEach(item => {
-					/* var received_per = item.raw.replace("width: ", "")
-					var received_per = received_per.replace("%", ""); */
+				var received_per = row.aggregateRating[0].text.replace("width: ", "")
+				var received_per = received_per.replace("%", "");
+
+				if(received_per >= 1){
+					var aggregate_rating = ( received_per * 5 )/100;    
+					var newaggregate_rating = aggregate_rating.toString().replace(".", ",");
+					newText = newaggregate_rating;
+				}
+
+				/* row.aggregateRating.forEach(item => {
+					
 					var received_per = item.value*100;
 					if(received_per >= 1){
-						/* var aggregate_rating = ( received_per * 5 )/100;
-						newText = aggregate_rating; */
+						// var aggregate_rating = ( received_per * 5 )/100;
+						//newText = aggregate_rating; 
 						var aggregate_rating = ( received_per * 5 )/100;    
                         var newaggregate_rating = aggregate_rating.toString().replace(".", ",");
                         newText = newaggregate_rating;
 					}
-				});
+				}); */
 				row.aggregateRating = [{ text: newText }];
 			}
-			if (row.additionalDescBulletInfo) {  
+			/* if (row.additionalDescBulletInfo) {  
 				let newText = '';
 				row.additionalDescBulletInfo.forEach(item => {
 					newText +=  `${item.text.replace(/ \n|&dash;|\r/g, ' || ')}`;
 				});
 				row.additionalDescBulletInfo = [{ text: newText.slice(0, -4) }];
-			}
+			} */
 
 			if (row.videos) {
 				let newText = "";
@@ -111,6 +119,53 @@ const transform = (data) => {
 					}
 				});
 				row.technicalInformationPdfPresent = [{ text: newText }];
+			}
+			if(row.shippingDimensions){	
+				let newText = '';	
+				row.shippingDimensions.forEach(item => {										
+					var shippingDimensions = item.text;		
+					if(shippingDimensions.length > 0){					
+						newText += shippingDimensions.toString()+" X ";	
+					}
+				});	
+				newText = newText.substring(0,newText.length-2).trim();	
+				row.shippingDimensions = [{ text: newText }];	
+			}
+			if(row.description){	
+				let newText = '';	
+				row.description.forEach(item => {										
+					var description = item.text;		
+					if(description.length > 0){					
+						newText += description.toString()+"||";	
+					}	
+						
+				});	
+				newText = newText.substring(0,newText.length-2);	
+				row.description = [{ text: newText }];	
+			}
+			if (row.specifications) {  	
+				let newText = '';	
+				var index = 1;	
+				row.specifications.forEach(item => {										
+					var specifications = item.text;		
+					if(specifications.length > 0){		
+						if(index %2 != 0){	
+						 newText += specifications+":";	
+						}	
+						else {	
+							newText += specifications+"|";	
+						}	
+					}	
+					index++;	
+				});	
+				newText = newText.substring(0,newText.length-1);	
+				row.specifications = [{ text: newText }];	
+			}
+
+			if (row.alternateImages) {  	
+				row.alternateImages.forEach(item => {	
+					item.text = item.text.replace('Large','Extra');	
+				});	
 			}
 		}
 	}
