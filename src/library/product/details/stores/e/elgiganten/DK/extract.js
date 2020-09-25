@@ -16,17 +16,20 @@ module.exports = {
   ) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
-
-    //let btn = await context.evaluate(() => { return Boolean(!!document.querySelector('button.coi-banner__accept')) });
+    // let btn = await context.evaluate(() => { return Boolean(!!document.querySelector('button.coi-banner__accept')) });
     /* if (btn) {
       try {
         await context.click('button.coi-banner__accept');
       }
       catch (error) { }
     } */
+    try {
+      await context.waitForSelector('iframe.videoly-box', { timeout: 95000 });
+    } catch (error) {
+      console.log('No video ');
+    }
 
     await context.evaluate(async function () {
-
       /*       const overlay = document.getElementById('tab-specs-trigger');
             if (overlay !== undefined) {
               overlay.click();
@@ -36,17 +39,11 @@ module.exports = {
               overlay1.click();
             } */
 
-      let btn = Boolean(!!document.querySelector('button.coi-banner__accept'))
+      const btn = Boolean(document.querySelector('button.coi-banner__accept'));
       if (btn) {
         try {
           await context.click('button.coi-banner__accept');
-        }
-        catch (error) { }
-      }
-      try {
-        await context.waitForSelector('iframe.videoly-box', { timeout: 65000 });
-      } catch (error) {
-        console.log('No video ');
+        } catch (error) { }
       }
 
       const videoData = document.querySelectorAll('iframe.videoly-box').length ? document.querySelectorAll('iframe.videoly-box')[0].contentWindow.document.getElementsByTagName('ul')[0] : null;
