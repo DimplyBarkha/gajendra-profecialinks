@@ -11,23 +11,11 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
         });
       }
-      const categs = [];
-      const idx = 0;
-
-      if (row.additionalDescBulletInfo) {
-        let desc = '';
-        row.additionalDescBulletInfo.forEach(item => {
+      if (row.specifications) {
+        row.specifications.forEach(item => {
           item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
-          item.text = item.text.replace(/(\s?\n)+/g, ' | ').trim();
-          desc = desc + '||' + item.text;
         });
-        if (row.description) {
-          row.description.forEach(item => {
-            item.text = item.text + desc;
-          });
-        }
       }
-      // aggregateRating
     }
   }
   return data;
