@@ -120,10 +120,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //span[@class="sr-only"]/text()
-    regExp: (.*)(\sstar)
-    regExpReplace: $1
-    defaultvalue: 0
+    xpath: //div[@id='added_aggregateRating']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -138,7 +135,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
-    defaultValue : 0
+    xpath: //div[@id="added_variantCount"]
   - name: color
     singleValue: true
     description: A textual description of the colour
