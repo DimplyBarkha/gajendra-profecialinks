@@ -14,7 +14,7 @@ const transform = (data) => {
       }
       if (row.price && row.price.length) {
         let str = row.price[0].text;
-        str = str.replace('٫', ',').replace('٬', ',').replace('.', ',');
+        str = str.replace('٫', '.').replace('٬', '');
         row.price[0].text = str;
       }
       if (row.rankOrganic) {
