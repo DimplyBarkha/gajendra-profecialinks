@@ -63,13 +63,13 @@ const transform = (data) => {
           if (row.category) {
             row.category.pop(); 
           }
-          if (row.nameExtended) {
-            row.nameExtended.forEach(item => {
-              if(item.text){
-                item.text = item.text.replace(/\n/g,'-');
-              } 
-            });
-          }
+          // if (row.nameExtended) {
+          //   row.nameExtended.forEach(item => {
+          //     if(item.text){
+          //       item.text = item.text.replace(/\n/g,'-');
+          //     } 
+          //   });
+          // }
           if (row.description) {
             let text = '';
             row.description.forEach(item => {
@@ -77,7 +77,7 @@ const transform = (data) => {
             });
             row.description = [
               {
-                text: text,
+                text: text.slice(0, -2),
               },
             ];
           }
