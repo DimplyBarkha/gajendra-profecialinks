@@ -41,6 +41,9 @@ fields:
     singleValue: false
     xpath: (//*[contains(@id,'availability')] |  //*[contains(@id,'vailability')]//*[contains(text(),'tock')])[1]
     defaultValue: 'InStock'
+  - name: unavailableMsg
+    singleValue: false
+    xpath: //span[contains(text(),"Currently unavailable")] | //span[contains(text(),"out of stock")]
   - name: description
     singleValue: false
     xpath: //*[@id='feature-bullets']//ul/li[not(@id)]
@@ -104,7 +107,7 @@ fields:
     regExpReplace: $1
   - name: shippingInfo
     singleValue: false
-    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")]
+    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")] | //span[contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")]
   - name: shippingDimensions
     singleValue: false
     xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
@@ -405,7 +408,8 @@ fields:
     xpath: 
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
+    xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li 
+    # | //span[contains(@data-maple-math,"cost")]//parent::div
   - name: alcoholContent
     singleValue: true
     xpath: 

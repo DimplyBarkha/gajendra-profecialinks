@@ -249,6 +249,10 @@ const transform = (data, context) => {
           },
         ];
       }
+      if (row.unavailableMsg){
+        row.availabilityText = [{ text: 'Out of stock' }];
+      }
+
       if (row.otherSellersShipping2) {
         row.otherSellersShipping2 = row.otherSellersShipping2.map(item => {
           if (item.text.includes('+ $')) {
