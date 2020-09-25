@@ -6,8 +6,8 @@
 const transform = (data) => {
 	for (const { group } of data) {
 		for (const row of group) {
-			if (row.availability) {
-				row.availability[0].text = row.availability[0].text.includes('adet ürün stokta') ? 'InStock' : 'OutOfStock'
+			if (row.availabilityText) {
+				row.availabilityText[0].text = row.availabilityText[0].text.includes('adet ürün stokta') ? 'InStock' : 'OutOfStock'
 			}
 
 			if (row.nameExtended) {
@@ -66,15 +66,25 @@ const transform = (data) => {
 			}
 
 			if (row.weightNet) {
-				if (row.weightNet[0].text.includes('Ağırlık :')) {
-					row.weightNet[0].text = row.weightNet[0].text.replace('Ağırlık :', '');
+				let netWeight = row.weightNet[0].text;
+				if (netWeight.includes('Ağırlık :') ||
+					netWeight.includes('Ağırlık:') ||
+					netWeight.includes('Net Ağırlık:')) {
+					netWeight = row.weightNet[0].text.split(':')[1];
 				}
+				if (netWeight.length > 20 && row.weightNetFromLi) {
+					netWeight = row.weightNetFromLi[0].text;
+				}
+				row.weightNet = [{ text: netWeight }];
 			}
 
 			if (row.additionalDescBulletInfo) {
 				row.additionalDescBulletInfo[0].text = `|| ${row.additionalDescBulletInfo[0].text}`
 			}
 
+			if (row.shippingDimensions) {
+				row.shippingDimensions[0].text = row.shippingDimensions[0].text === 'x' ? '' : row.shippingDimensions[0].text
+			}
 		}
 	}
 

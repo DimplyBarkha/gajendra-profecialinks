@@ -67,6 +67,8 @@ fields:
   xpath: //span[@id='sp-price-discountPercentage']
 - name: weightNet
   xpath: "//div[@id='sp-desktopDescription']//li[contains(., 'Ağırlık:') or contains(., 'Ağırlık: ')] | //div[@id='sp-desktopDescription']//p[contains(., 'Ağırlık:') or contains(., 'Ağırlık: ') or contains(., 'Ağırlık : ')] | //div[@id='catalog-info-details']//div[contains(., 'Net Ağırlık') and contains(@class, 'spec-title')]/following-sibling::div[1] | //div[@class='item' and contains(., 'Net Ağırlık')]/div[2]"
+- name: weightNetFromLi
+  xpath: //div[contains(@class,'spec-title') and contains(., 'Ağırlık')]/following-sibling::div[contains(@class, 'productFeaturesitemList')]
 - name: availabilityText
   xpath: //div[@id='sp-soldInfoContainer']
 - name: specTitles
@@ -74,5 +76,5 @@ fields:
 - name: specValues
   xpath: //div[contains(@class, 'spec-group-container')]/ul/li/div[contains(@class,'productFeaturesitemList')]
 - name: shippingDimensions
-  xpath: concat(//div[contains(., 'En') and contains(@class, 'spec-title')]/following-sibling::div[contains(@class, 'productFeaturesitemList')], 'x' , //div[contains(., 'Boy') and contains(@class, 'spec-title')]/following-sibling::div[contains(@class, 'productFeaturesitemList')] ,x, //div[contains(., 'Derinlik') and contains(@class, 'spec-title')]/following-sibling::div[contains(@class, 'productFeaturesitemList')]) 
+  xpath: concat(//div[contains(., 'En') and contains(@class, 'spec-title') and not(contains(.,' Isı'))]/following-sibling::div[contains(@class, 'productFeaturesitemList')], 'x' , //div[contains(., 'Boy') and contains(@class, 'spec-title')]/following-sibling::div[contains(@class, 'productFeaturesitemList')] ,x, //div[contains(., 'Derinlik') and contains(@class, 'spec-title')]/following-sibling::div[contains(@class, 'productFeaturesitemList')])
   
