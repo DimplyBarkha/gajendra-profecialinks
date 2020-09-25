@@ -19,3 +19,6 @@ fields:
     description: Is sponsored/paid
     type: BOOLEAN
     xpath: //span[@class='s-label-popover-default']/span[contains(text(),'Sponsored')]
+  - name: price
+    singleValue: false
+    xpath: //span[@class="a-offscreen"]
