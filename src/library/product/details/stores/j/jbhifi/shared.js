@@ -23,7 +23,17 @@ const transform = (data) => {
           },
         ];
       }
-
+      if (row.productOtherInformation) {
+        const text = [];
+        row.productOtherInformation.forEach(item => {
+          text.push(item.text.trim());
+        });
+        row.productOtherInformation = [
+          {
+            text: text.join(' | '),
+          },
+        ];
+      }
       if (row.alternateImages && row.image) {
         const alternateImagesArray = [];
         row.alternateImages.forEach((item, index) => {
