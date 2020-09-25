@@ -12,7 +12,9 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[@class='media-wrapper']/img/@src)[position()>1]
+    xpath: (//div[@class="c-product-thumbnails__item"]/div/img/@src)[position()>1]
+    regExp: (.*)(98x98\.)(.*)
+    regExpReplace: $1$3
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
