@@ -93,18 +93,22 @@ module.exports = {
         addHiddenDiv('ii_directions', joins);
       }
 
-      if(descriptionCheck.snapshotLength > 0){
+      if(descriptionCheck.snapshotLength > 0 || descriptionCheck2.snapshotLength > 0){
         let fullDesc = [];
-        for(let i = 1; i < descriptionCheck.snapshotLength; i++) {
-          let line = descriptionCheck.snapshotItem(i).textContent;
+        let snapshotLength = descriptionCheck.snapshotLength || descriptionCheck2.snapshotLength
+        for(let i = 1; i < snapshotLength; i++) {
+          let line = descriptionCheck.snapshotItem(i) || descriptionCheck2.snapshotItem(i)
           if(descriptionBCheck.snapshotLength > 0){
-            for(let i = 0; i < descriptionBCheck.snapshotLength; i++) {
-              if(line.includes(descriptionBCheck.snapshotItem(i).textContent)){
-                line = ` || ${line}`;
+            let snapLength = descriptionBCheck.snapshotLength || descriptionBCheck2.snapshotLength
+            addHiddenDiv('ii_descriptionBullets', snapLength);
+            for(let i = 0; i < snapLength; i++) {
+              let content = descriptionBCheck.snapshotItem(i) || descriptionBCheck2.snapshotItem(i)
+              if(line.textContent.includes(content.textContent)){
+                line.textContent = ` || ${line.textContent}`;
               }
             }
           }
-          fullDesc.push(line)
+          fullDesc.push(line.textContent)
         }
         let joins = fullDesc.join(" ");
         addHiddenDiv('ii_description', joins);
