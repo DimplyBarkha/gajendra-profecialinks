@@ -8,13 +8,16 @@ fields:
     description: URL of the main product image
     regExp: (.+)476x/(.+)
     regExpReplace: $1$2
+  - name: imageAlt
+    description: Alt text of the main product image
+    xpath: (//a[@class="fancybox"]/img/@alt)[1]
   - name: alternateImages
     xpath: //div[@class="cycle-slideshow gallery"]/div[position()>2]//a[@class="fancybox"]/img/@src
     regExp: (.+)476x/(.+)
     regExpReplace: $1$2
     singleValue: false
   - name: metaKeywords
-    xpath: //div[@class="klevu-pt-rs-keywords"]
+    xpath: //meta[@name="keywords"]//@content
     description: The <meta> keywords content
   - name: category
     xpath: //a[@class="append_category"]/@href
@@ -47,9 +50,9 @@ fields:
     xpath: //th[contains(text(),"Brand")]/following-sibling::td
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-  - name: manufacturer
-    xpath: //th[contains(text(),"Brand")]/following-sibling::td
-    description: Product manufacturer
+  - name: variantCount
+    description: Number of variants listed
+    defaultValue: "0"
   - name: weightNet
     xpath: //span[contains(text(),"Weight")]/parent::div/following-sibling::div/span
     description: Net weight as described on the page
@@ -83,21 +86,21 @@ fields:
     xpath: //th[contains(text(),"Colour")]/following-sibling::td
     description: A textual description of the colour
   - name: videos
-    xpath: //div[@class="video-container"]/iframe/@src
+    xpath: //div[@class="video-container"]/iframe/@src | //body//@video
     description: URLs of videos on page
   - name: name
     xpath: //h1
     description: The product name
   - name: specifications
-    xpath: //table[@class="data-table"]//tbody
+    xpath: //table[@class="data-table"]//tbody//tr//text()
     description: The physical dimensions of the product including packaging.
   - name: warranty
-    xpath: //th[contains(text(),"Manufacturer's Guarantee")]/following-sibling::td
+    xpath: //th[contains(text(),"Manufacturer's Guarantee")]/following-sibling::td | //ul[@class="tick-list"]//li[contains(.,'Warranty')]
+    regExp: \d\sYears
     description: Guarantee associated with the product
   - name : manufacturerDescription
     xpath: //div[@class="flix-std-row"]
   - name : manufacturerImages
-    xpath: //div[@id="inpage_container"]//img/@srcset
-    regExp: //(.+)
-    regExpReplace: https://$1
-  
+    xpath: //div[@id="inpage_container"]//img/@data-flixsrcset[contains(.,'jpg')]
+    regExp: (.+800w,\s)(.+.jpg)(.+)
+    regExpReplace: $2

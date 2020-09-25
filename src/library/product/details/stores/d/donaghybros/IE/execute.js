@@ -6,6 +6,6 @@ module.exports = {
     store: 'donaghybros',
     domain: 'donaghybros.ie',
     loadedSelector: 'h1',
-    noResultsXPath: '//div[@class="kuNoRecordFound"]//div[contains(text(),"Please try another search term...")]',
+    noResultsXPath: '//div[@class="kuNoRecordFound"]//div[contains(text(),"Please try another search term...")] | //h1[contains(.,"404 Not Found")]',
   },
 };

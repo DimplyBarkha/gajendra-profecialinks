@@ -14,6 +14,17 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    await context.waitForNavigation({ timeout: 100000, waitUntil: 'networkidle0' });
+    await context.evaluate(function () {
+      console.log('Scrolling to the bottom of page.');
+      document.querySelector('footer.container').scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+    });
+
+    try {
+      await context.waitForSelector('#flix-std-inpage', { timeout: 10000 });
+    } catch (err) {
+      console.log('Enhanced content did not load');
+    }
     await context.evaluate(async function () {
       const categoryArr = dataLayer[3].ecommerce.detail.products[0].category.split('/');
       categoryArr.map(ele => {
@@ -33,6 +44,10 @@ module.exports = {
           document.body.setAttribute('review_count', reviewCount);
           document.body.setAttribute('rating', rating);
         });
+
+      const video = document.querySelector('div.fullJwPlayerWarp > div > input') ? document.querySelector('div.fullJwPlayerWarp > div > input').getAttribute('value') : '';
+      const videoUrl = video.replace(new RegExp('(.+"file":")(.+.mp4)(.+)', 'g'), '$2').replace(/\\/gi, '').replace(/\/\//gi, '');
+      document.body.setAttribute('video', videoUrl);
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;

@@ -14,7 +14,7 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
@@ -32,6 +32,24 @@ const transform = (data) => {
         row.manufacturerDescription = [{
           text: text,
         }];
+      }
+      if (row.specifications) {
+        let text = '';
+        let count = 0;
+        row.specifications.forEach(item => {
+          count++;
+          const val = (count % 2);
+          if (val === 0) {
+            text += `: ${item.text}`;
+          } else {
+            text += ` | ${item.text}`;
+          }
+        });
+        row.specifications = [
+          {
+            text: text.replace(new RegExp('(\\s\\|\\s)(.+)', 'g'), '$2'),
+          },
+        ];
       }
     }
   }
