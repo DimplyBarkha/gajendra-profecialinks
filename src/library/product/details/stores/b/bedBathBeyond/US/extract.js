@@ -13,6 +13,20 @@ async function implementation (
     const API = `${window.location.origin}/apis/stateless/v1.0/sku/product?product=${productId}#[!opt!]{"type":"json"}[/!opt!]`;
     return API;
   }
+
+  async function addRating () {
+    if (!window.location.pathname.includes('/product/')) {
+      return false;
+    }
+    const productId = window.location.pathname.match(/[^/]+$/)[0];
+    const API = `${window.location.origin}/api/apps/conversations/query/reviews?ProductId=${productId}&Stats=Reviews`;
+    const response = await fetch(API);
+    const data = await response.json();
+    const ratingCount = data.ReviewStatistics && (data.ReviewStatistics.RatingsOnlyReviewCount + data.ReviewStatistics.TotalReviewCount);
+    const ratingValue = data.ReviewStatistics && data.ReviewStatistics.AverageOverallRating;
+    document.body.setAttribute('rating-count', ratingCount);
+    document.body.setAttribute('rating-value', (Math.round(ratingValue * 10) / 10).toString());
+  }
   async function getAPIData (api) {
     const response = await fetch(api);
     const json = await response.json();
@@ -27,8 +41,12 @@ async function implementation (
       const price = row.IS_PRICE;
       const availabilityText = row.ONLINE_INVENTORY;
       const quantity = row.SKU_SIZE;
-      const specifications = [...row.SPECS, ...row.FEATURES].length && [...row.SPECS, ...row.FEATURES];
-      const weightNet = specifications && specifications.find(prop => prop['Weight Capacity']) && specifications.find(prop => prop['Weight Capacity'])['Weight Capacity'];
+      const specifications = [...row.SPECS, ...row.FEATURES];
+      let weightNet = specifications && specifications.find(prop => prop['Weight Capacity']) && specifications.find(prop => prop['Weight Capacity'])['Weight Capacity'];
+      if (!weightNet) {
+        weightNet = specifications && specifications.find(prop => prop['Product Weight (lb)']) && specifications.find(prop => prop['Product Weight (lb)'])['Product Weight (lb)'];
+        weightNet = weightNet ? weightNet + 'lbs' : undefined;
+      }
       const gtin = row.UPC;
       const sku = row.PRODUCT_ID;
       const variantId = row.SKU_ID;
@@ -38,7 +56,8 @@ async function implementation (
       const name = row.SKU_FOR_SWATCH && row.SKU_FOR_SWATCH.SKU_TITLE;
       const warranty = specifications && specifications.find(prop => prop.Warranty) && specifications.find(prop => prop.Warranty).Warranty;
       const countryOfOrigin = specifications && specifications.find(prop => prop['Made In']) && specifications.find(prop => prop['Made In'])['Made In'];
-      return { image, alternateImages, nameExtended, listPrice, price, availabilityText, size: quantity, weightNet, gtin, sku, variantId, mpc, color, colorGroup, name, specifications: JSON.stringify(specifications), warranty, countryOfOrigin };
+      const specificationsString = (specifications.length && JSON.stringify(specifications)) || undefined;
+      return { image, alternateImages, nameExtended, listPrice, price, availabilityText, size: quantity, weightNet, gtin, sku, variantId, mpc, color, colorGroup, name, specifications: specificationsString, warranty, countryOfOrigin };
     });
     return data;
   }
@@ -47,14 +66,13 @@ async function implementation (
     const dataLength = jsonData.length;
 
     if (dataLength > 0) {
-      // CREATE DYNAMIC TABLE.
       const table = document.createElement('table');
       table.style.width = '50%';
       table.setAttribute('border', '1');
       table.setAttribute('cellspacing', '0');
       table.setAttribute('cellpadding', '5');
 
-      const col = []; // define an empty array
+      const col = [];
       for (let i = 0; i < dataLength; i++) {
         for (const key in jsonData[i]) {
           if (col.indexOf(key) === -1) {
@@ -62,14 +80,9 @@ async function implementation (
           }
         }
       }
-
-      // CREATE TABLE HEAD .
       const tHead = document.createElement('thead');
-
-      // CREATE ROW FOR TABLE HEAD .
       const hRow = document.createElement('tr');
 
-      // ADD COLUMN HEADER TO ROW OF TABLE HEAD.
       for (let i = 0; i < col.length; i++) {
         const th = document.createElement('th');
         th.innerHTML = col[i];
@@ -78,12 +91,10 @@ async function implementation (
       tHead.appendChild(hRow);
       table.appendChild(tHead);
 
-      // CREATE TABLE BODY .
       const tBody = document.createElement('tbody');
 
-      // ADD COLUMN HEADER TO ROW OF TABLE HEAD.
       for (let i = 0; i < dataLength; i++) {
-        const bRow = document.createElement('tr'); // CREATE ROW FOR EACH RECORD .
+        const bRow = document.createElement('tr');
         for (let j = 0; j < col.length; j++) {
           const td = document.createElement('td');
           td.setAttribute('class', col[j]);
@@ -96,7 +107,6 @@ async function implementation (
       }
       table.appendChild(tBody);
 
-      // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
       const container = document.createElement('div');
       container.setAttribute('id', 'product-detail-api');
       container.setAttribute('style', 'overflow:auto;');
@@ -147,6 +157,7 @@ async function implementation (
   }
 
   await context.evaluate(generateDynamicTable, jsonData);
+  await context.evaluate(addRating);
   const { transform } = parameters;
   const { productDetails } = dependencies;
   return await context.extract(productDetails, { transform });

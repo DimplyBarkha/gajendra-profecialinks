@@ -6,7 +6,7 @@ fields:
   - name: thumbnail
     xpath: //div[starts-with(@class,"Thumbnail")]/img/@src
     regExp: ^([^?]+)
-    regExpReplace: $1?$2000$&wid=2000&hei=2000
+    regExpReplace: $1?&wid=2000&hei=2000
     description: The URL for the product thumbnail image
   - name: name
     xpath: //div[@data-locator="product_tile_title"]/@title
