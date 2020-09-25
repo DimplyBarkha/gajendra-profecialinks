@@ -31,12 +31,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[contains(@class,'top-info')]//div[contains(@class,'top-info__price')]//div[contains(@itemprop,"price")]//span[contains(@class,'price--dollars')]
+    xpath: //div[contains(@class,'top-info')]//div[contains(@class,'top-info__price')]//div[contains(@class,"price--was")]//span[contains(@class,'price--strike')]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[contains(@class,'top-info')]//div[contains(@class,'top-info__price')]//div[contains(@itemprop,"price")]//span[contains(@class,'price--dollars')]
+    xpath: //div[contains(@class,'top-info')]//div[contains(@class,'top-info__price')]//div[contains(@class,"price--sell-price")]//div[contains(@class,'price--price-parts')]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -63,10 +63,10 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //meta[@itemprop='brand']//@content
-  - name: manufacturer
-    singleValue: true
-    xpath: //meta[@itemprop='brand']//@content
-    description: Product manufacturer
+  #- name: manufacturer
+  #  singleValue: true
+  #  xpath: //meta[@itemprop='brand']//@content
+  # description: Product manufacturer
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
