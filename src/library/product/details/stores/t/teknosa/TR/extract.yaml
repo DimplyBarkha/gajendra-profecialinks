@@ -55,9 +55,8 @@ fields:
     xpath: //div[@class="product-stats-item brand-logo"]//a/img/@alt
     description: Product manufacturer
   - name: quantity
+    xpath: //td[contains(.,"Miktar") or contains(.,"miktar")]/following-sibling::td[1]
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
   - name: weightNet
     xpath: //td[contains(.,"Ağırlık")]/following-sibling::td[1]
     description: Net weight as described on the page
@@ -91,8 +90,8 @@ fields:
     xpath: //span[@class="rating"]
     description: The stated aggregate rating
   - name: aggregateRating
+    xpath: //span[@class="rating"]
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
   - name: shippingInfo
     xpath: //div[@id="pt0"]/ul
     description: Shipping information for the product
@@ -119,6 +118,8 @@ fields:
     description: Images within the third party description
   - name: videos
     xpath: //video/source/@src
+    regExp: (http[s]+)?(.+)
+    regExpReplace: https$2
     singleValue: false
     description: URLs of videos on page
   - name: name
@@ -315,6 +316,7 @@ fields:
   - name: dietaryInformation
     description: null
   - name: specifications
+    xpath: //*[@class="technical-specs-title"]/following-sibling::div[@class="product-classifications"]/table/tbody/tr
     description: The physical dimensions of the product including packaging.
   - name: warranty
     description: Guarantee associated with the product
