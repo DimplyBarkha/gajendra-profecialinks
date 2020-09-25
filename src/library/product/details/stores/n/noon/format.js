@@ -23,8 +23,12 @@ const transform = (data) => {
       }
       if (row.alternateImages) {
         var  img_arr = [];
+        var count = 0;
         row.alternateImages.forEach(item => {
-          img_arr.push({"text": item.text});
+          if (count == 0){
+            img_arr.push({"text": item.text});
+          }
+          count = count + 1
         });
         if (img_arr.length > 1){
           img_arr.splice(0,1);
