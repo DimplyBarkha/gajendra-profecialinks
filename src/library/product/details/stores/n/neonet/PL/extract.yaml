@@ -21,29 +21,26 @@ fields:
   - name: category
     singleValue: false
     xpath: //div[@class="productFullDetailDesktopCss-root-2xZ"]//ul[@class="breadcrumbsCss-list-2MN"]/li//following-sibling::li
-  #- name: shippingInfo
-  #  singleValue: false
-  #  xpath: //ul[@class="productAvailabilityDesktopCss-list-3W2"]//span[text()]
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@property="og:title"]/@content
-  #- name: listPrice
-  #  singleValue: false
-  #  xpath: concat(//meta[@property="product:original_price:currency"]/@content, //meta[@property="product:original_price:amount"]/@content)
+    xpath: //div[@id="productData"]//h1
+    # //meta[@property="og:title"]/@content
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="productShopCss-shock__old__price-276"]/span
   - name: price
     singleValue: false
     xpath: concat(//div[@class="productShopCss-sp__integer-1z1"], '.', normalize-space(//div[@class="productShopCss-sp__formatter-XUK"]))
   - name: availabilityText
     singleValue: false
     xpath: //link[@itemprop="availability"]/@href
-    #  //*[@id="productShop"]//div[contains(@class, "inStore")]//span/text()|//div[@class="productShopCss-cart__title-1Aq cart__title"]//text()
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock    
   - name: description
     singleValue: false
-    xpath: //div[@class="productFullDetailDesktopCss-details__content-3BZ"]//ul[@class="productAttributesCss-attributes__group-q5V productAttributesCss-attributes__group_product-HeK"]//li
-    #//meta[@property="og:description"]/@content
+    xpath: //div[@id="productData"]//h1|//div[@class="productFullDetailDesktopCss-details__content-3BZ"]//ul[@class="productAttributesCss-attributes__group-q5V productAttributesCss-attributes__group_product-HeK"]//li
+    #  //div[@id="productData"]//h1
   - name: descriptionBullets
     singleValue: false
     type: NUMBER
@@ -51,7 +48,6 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@id="productData"]//div[@class="productFullDetailDesktopCss-details__content-3BZ"]//ul//li
-    #  //div[@itemprop="description"]/div[1]//ul
   - name: sku
     singleValue: false
     xpath: //div[@class="pageContainer-root-1fe"]//span[@itemprop="sku"]
@@ -70,7 +66,6 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //div[@class="productSpecificationCss-root-3rN"]//div[@class="productSpecificationCss-row-14w"]
-    #  //li[@data-role="tab-specification"]/div[@id="productSpecification"]//descendant::div//div[@class="productSpecificationCss-row-14w"]
   - name: warranty
     singleValue: false
     xpath: //span[contains(text(), 'gwarancji') or contains(text(), 'Gwarancja')]//following-sibling::span/text()
@@ -103,7 +98,6 @@ fields:
     singleValue: false
     type: NUMBER
     xpath: (//div[@class="productRatingCss-rating-2Og"])[1]/@style
-    #xpath: //div[@id="productData"]//div[@class="productRatingCss-ratings-8MD"]
     regExp: (.*width:)(.\d+)(%)
     regExpReplace: $2    
   - name: aggregateRatingText  
@@ -119,15 +113,14 @@ fields:
     singleValue: false
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class="description-col-md-4"]
+  #  xpath: //div[@class="description-col-md-4"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="description-product"]/div[@class="description-py5"]/following-sibling::div//div[@class="description-col-md-12"]//img/@src
-    # //div[@id="rich-content-own"]//div[@class="productTechnologies-big__photo-2SB"]//img/@src
+  #  xpath: //div[@class="description-product"]/div[@class="description-py5"]/following-sibling::div//div[@class="description-col-md-12"]//img/@src
   - name: videos
     singleValue: false
-    xpath: //iframe[@title="movie"]/@src
-    #  //div[@class="ytp-title"]/div/a/@href
+    #xpath: //div[@id="added-video"]
+  #  xpath: //iframe[@title="movie"]/@src
   - name: coupon
     singleValue: false
   - name: storage
@@ -162,3 +155,12 @@ fields:
   - name: energyEfficiency
     singleValue: false
     xpath: //div[@class="productExtraInfoCss-energy__class-2Tl"]//img/@src
+  - name: manufacturerImages1
+    singleValue: false
+    xpath: //div[contains(@id, "added-manufacturer-images")]
+  - name: manufacturerDescription1
+    singleValue: false
+    xpath: //div[@id="added-manufacturer-description"]        
+  - name: video1
+    singleValue: false
+    xpath: //div[@id="added-video"]            
