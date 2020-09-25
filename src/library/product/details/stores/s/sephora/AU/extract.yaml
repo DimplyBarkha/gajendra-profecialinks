@@ -100,7 +100,7 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
-    xpath: //div[contains(@id, "shipping-collapse")]/div
+    xpath: //div[contains(@id, "shipping-collapse")]/div|//div[contains(@class,"free-shipping-message")]
   - name: variantCount
     singleValue: false
     description: Number of variants listed
@@ -136,7 +136,7 @@ fields:
     singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //div[contains(@class, "product-ingredients-values")]
+    xpath: //div[contains(@class, "product-ingredients-values")]|//div[contains(@class, "product-description")]//div[contains(@id,"product-ingredients")]
   - name: promotion
     singleValue: false
     description: promotion text on product page
