@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="product-list--page product-list--current-page"]/div/ul/li
+recordXPath: //div[contains(@class,"product-list--page product-list--current-page")]/div/ul/li
 fields:
   - name: productUrl
     xpath: //a[@data-auto="product-tile--title"]/@href
