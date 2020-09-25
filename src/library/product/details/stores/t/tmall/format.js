@@ -56,6 +56,9 @@ const transform = (data) => {
         });
         row.specifications=[{"text":specificationsAr.join(' || '),"xpath":row.specifications[0]['xpath']}]
       }
+      if(row.aggregateRating){
+        row.aggregateRating=[{"text":row.aggregateRating[0]['text'].replace('.',','),"xpath":row.specifications[0]['xpath']}]
+      }
       row.variantCount = [{ "text": 0 }];
     }
   }
