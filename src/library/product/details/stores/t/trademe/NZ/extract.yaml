@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -49,12 +49,12 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//div[@class='tm-markdown']
+  # - name: additionalDescBulletInfo
+  #   singleValue: false
+  #   xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//div[@class='tm-markdown']
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//div[@class='tm-markdown']
-  - name: descriptionBullets
-    singleValue: false
-    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//div[@class='tm-markdown']
+    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//li
   - name: nameExtended
     singleValue: false
     xpath: //tg-col[@class="l-col"]//h1

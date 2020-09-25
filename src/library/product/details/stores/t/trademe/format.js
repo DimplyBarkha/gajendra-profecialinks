@@ -40,17 +40,17 @@ const transform = (data) => {
         });
       }
       if (row.additionalDescBulletInfo) {
+        var arr_info = []
         row.additionalDescBulletInfo.forEach(item => {
-          item.text = item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();
+          arr_info.push(item.text.trim());          
         });
-      }
-      if (row.descriptionBullets) {
-        row.descriptionBullets.forEach(item => {
-          let dec = item.text.replace(/(\s*\n\s*)+/g, ' > ').trim();
-          let bul = dec.split('>');
-          item.text = bul.length;
-        });
-      }
+        if (arr_info.length) {
+          row.descriptionBullets = [{'text':arr_info.length}];
+          var temp_text = arr_info.join(' || ');
+          temp_text = ' || ' + temp_text;
+          row.additionalDescBulletInfo = [{'text':temp_text}];
+        }
+      }      
       if (row.shippingInfo) {
         row.shippingInfo.forEach(item => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
