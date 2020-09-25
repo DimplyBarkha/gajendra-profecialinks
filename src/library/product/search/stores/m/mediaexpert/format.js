@@ -13,13 +13,11 @@ const transform = (data) => {
             item.text='https://www.mediaexpert.pl'+item.text;
           });
         }
-
         if(row.thumbnail){
           row.thumbnail.forEach(item => {
             item.text='https:'+item.text;
           });
         }
-
         if(row.aggregateRating){
           var totRatting=0;
       
@@ -30,7 +28,6 @@ const transform = (data) => {
           });
           row.aggregateRating = [{"text":totRatting, "xpath": row.aggregateRating[0]['xpath']}];
         }
-
         if(row.brandText){
           var bText;
           row.brandText.forEach(item =>{
@@ -43,7 +40,6 @@ const transform = (data) => {
             });
           });
         }
-
         if(row.id){
           var bText;
           row.id.forEach(item =>{
@@ -56,7 +52,6 @@ const transform = (data) => {
             });
           });
         }
-
         if(row.id){
           var bText;
           row.id.forEach(item =>{
@@ -67,6 +62,18 @@ const transform = (data) => {
                 item.text=bText1[1].substring(1, (bText1[1].length-1)) ;
               }
             });
+          });
+        }
+        if(row.reviewCount){
+          row.reviewCount.forEach(item=>{
+            var tmp=item.text.replace('(','');
+            item.text=tmp.replace(')','');
+          });
+        }
+        if(row.ratingCount){
+          row.ratingCount.forEach(item=>{
+            var tmp=item.text.replace('(','');
+            item.text=tmp.replace(')','');
           });
         }
         row.rank = [{"text":rank}];
