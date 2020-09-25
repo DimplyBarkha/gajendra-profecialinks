@@ -6,10 +6,13 @@ fields:
   - name: name
     singleValue: false
     description: URL of the main product image
-    xpath: //div[@class="productTitle"]/*[not(self::div[@data-bv-show])]
+    xpath: //*[contains(@class, "accrocheProduitFicheProduit")] | //div[@class="name"]/h1
   - name: image
     singleValue: false
     xpath: //div[@class="productPics"]/a/img[1]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="productPics"]/a/img[1]/@alt
   - name: url
     xpath: //meta[@property="og:url"]/@content
     singleValue: false
@@ -27,9 +30,11 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //div[contains(@class , "breadcrumb" )]/*[not(self::script)][position() > 2 ]
+    # //div[contains(@class , "breadcrumb" )]/a[@href="/"]/following-sibling::a
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class="productTitle"]/*[not(self::div[@data-bv-show])]
+    # xpath: //div[@class="productTitle"]/*[not(self::div[@data-bv-show])]
+    xpath: //*[contains(@class, "accrocheProduitFicheProduit")] | //div[@class="name"]/h1
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -42,7 +47,8 @@ fields:
     xpath: //div[@id="tabs-1"]/ul/li
   - name: description
     singleValue: false
-    xpath: //div[@id="description"]
+    xpath: //div[@id="co_description"]
+    # xpath: //div[@id="description"]
     # xpath: //div[@class="productInformationsArea"]/div/div[@id="tabs-1"]/ul/following-sibling::p | //div[@id="tabs-1"]/ul/li
   - name: descriptionBullets
     singleValue: false
@@ -50,21 +56,24 @@ fields:
     xpath:  count(//div[@id="tabs-1"]/ul/li)
   - name: brandText
     singleValue: false
-    xpath: //div[@class='productTitle']/ul/li[1] | //div[@class="productTitle"]/*[not(self::div[@data-bv-show])]
+    xpath: //*[contains(@class, "accrocheProduitFicheProduit")] | //div[@class="name"]/h1
+    # xpath: //div[@class='productTitle']/ul/li[1] | //div[@class="productTitle"]/*[not(self::div[@data-bv-show])]
   # - name: manufacturer
   #   singleValue: false
   #   description: Product manufacturer
   #   xpath: //div[@class='productTitle']/ul/li
   - name: weightNet
     singleValue: false
+    xpath: //*[contains(text(), "Poids")]//..//following-sibling::*
     # xpath: //div/table[contains(@class , "productSpecifications")]/tbody/tr/td/strong[contains(text(), "Poids")]//..//following-sibling::*
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin
+    xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin | //@data-loadbee-gtin
   - name: sku
     singleValue: false
-    xpath: //span[@class='normal product-ref sous-pointFort']
+    xpath: //@data-flix-sku
+    # xpath: //@data-flix-sku | //span[@class='normal product-ref sous-pointFort']
     # regExp: \"sku\"\:\s\"(.*)\"\,\s
     # regExpReplace: $1
     # xpath: //script[contains(text(), '"sku":')]
@@ -76,7 +85,7 @@ fields:
     xpath: //div[@class='bv_numReviews_component_container']
     regExp: \((.*)\)
     regExpReplace: $1
-  - name: aggregateRatingText
+  - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[@class="bv_avgRating_component_container notranslate"]
@@ -90,32 +99,53 @@ fields:
     singleValue: false
     description: URLs of videos on page
     xpath: //img[@alt="video"]/parent::a/@onclick
-    regExp: afficherPopInVideo\(\'(.*)\'\)\;t
+    regExp: afficherPopInVideo\(\'(.*).mp4
     regExpReplace: $1
   - name: availabilityText
     singleValue: false
-    xpath: //button[contains(@class, "btnGreen")]/span[text()="Ajouter au panier"]
+    xpath: //button[contains(@class, "btnGreen")]/span[text()="Ajouter au panier"] |//*[@data-popinname="dispo-product"]
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //div/table/tbody/tr[position() > 1] | //div[@class="inpage_selector_specification"]//div/table/tbody/tr[position() > 1]/td
+    xpath: //div[@id="cr_specification"]
+    # xpath: //div/table/tbody/tr[position() > 1] | //div[@class="inpage_selector_specification"]//div/table/tbody/tr[position() > 1]/td
   - name: warranty
     singleValue: false
     xpath: //div[@class="garantie-date"]/a | //td/strong[contains(text(),"Garantie")]/parent::td/parent::tr
   - name: color
     singleValue: false
     description: A textual description of the colour
-    xpath: //div/table[contains(@class , "productSpecifications")]/tbody/tr/td/strong[contains(text(), "Couleur")]//..//following-sibling::*
+    xpath: //*[contains(text(), "Couleur")]//..//following-sibling::*
   - name: manufacturerDescription
     xpath: //div[@id="enhancedContent"]
     singleValue: false
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party descripti
-    xpath: //div[@class="flix-inpage"]//img/@src
+    xpath: //div[@class="flix-inpage"]//*/img/@srcset
+    # xpath: //div[@class="flix-inpage"]//img/@src
   - name: shippingDimensions
     singleValue: false
     xpath: //div/table[contains(@class , "productSpecifications")]/tbody/tr/td/strong[contains(text(), "Dimension colis")]//..//following-sibling::*
   - name: shippingWeight
     singleValue: false
     xpath: //div/table[contains(@class , "productSpecifications")]/tbody/tr/td/strong[contains(text(), "Poids total colis")]//..//following-sibling::*
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="m_cart_confo"]
+  - name: variantId
+    singleValue: false
+    # xpath: //@data-flix-sku | //span[@class='normal product-ref sous-pointFort']
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //*[contains(text(), "Efficacité énergétique")]//..//following-sibling::*
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[@class="linkFiche"]/a
+    regExp: (.+)
+    regExpReplace: 'YES'
+    defaultValue: 'NO'
+

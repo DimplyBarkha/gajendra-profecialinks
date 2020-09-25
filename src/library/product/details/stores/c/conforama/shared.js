@@ -18,21 +18,14 @@ const transform = (data) => {
             },
           ];
         }
-        if (row.description) {
-          let text = '';
-          row.description.forEach(item => {
-            text += `${item.text.replace(/\n/g, ' ')} `;
-          });
-          row.description = [
-            {
-              text: text.slice(0, -4),
-            },
-          ];
-        }
-  
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {
             item.text = item.text ? item.text.replace(/[()]/g, '') : '';
+          });
+        }
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
+            item.text = item.text.replace('.', ',');
           });
         }
         if (row.manufacturerImages) {
@@ -46,10 +39,10 @@ const transform = (data) => {
         }
         if (row.availabilityText) {
           row.availabilityText.forEach(item => {
-            if (item.text.includes('Ajouter au panier')) {
-              item.text = 'In Stock';
-            } else {
+            if (item.text.includes("M'alerter de la disponiblité produit")) {
               item.text = 'Out of Stock';
+            } else{
+              item.text = 'In Stock';
             }
           });
         }
@@ -65,21 +58,6 @@ const transform = (data) => {
             },
           ];
         }
-
-        if (row.name) {
-          let text = '';
-          row.name.forEach(item => {
-            if (item.text) {
-              text += `${item.text}  `;
-            }
-          });
-          row.name = [
-            {
-              text: text,
-            },
-          ];
-        }
-
         if (row.price) {
           row.price.forEach(item => {
             if (item.text) {
@@ -88,11 +66,9 @@ const transform = (data) => {
           });
         }
 
-        if (row.sku) {
-          row.sku.forEach(item => {
-            if (item.text) {
-              item.text = item.text.split(':')[1].trim();
-            }
+        if (row.videos) {
+          row.videos.forEach(item => {
+              item.text = item.text+'.mp4';
           });
         }
 
@@ -109,30 +85,9 @@ const transform = (data) => {
             item.text = item.text ? item.text.split(' ')[0] : ' ';
           });
         }
-
-         if (row.technicalInformationPdfPresent) {
-          row.technicalInformationPdfPresent.forEach(item => {
-            if(item.text.includes('https:')){
-              item.text = item.text;
-            }else{
-              item.text = 'https:'+item.text;
-            } 
-          });
-        }
-        if (row.nameExtended) {
-          let text = '';
-          row.nameExtended.forEach(item => {
-            if (item.text) {
-              text += `${item.text}  `;
-            }
-          });
-          row.nameExtended = [
-            {
-              text: text,
-            },
-          ];
-        }
-        
+        if (row.category) {
+          row.category.pop();
+        }  
       }
     }
     return data;
