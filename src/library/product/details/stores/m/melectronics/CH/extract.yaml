@@ -49,12 +49,15 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //span[@class="sc-fzoXWK iIptZR"]
-  - name: additionalDescBulletInfo
+  - name: specification1
     singleValue: false
     xpath: //ul[@class='detail-options--topfacts']/li
   - name: description
     singleValue: false
-    xpath: //div[@name='description']//div[contains(@class,"detail-navigation-section--description")]/div
+    xpath: //div[@name='description']//div[contains(@class,"detail-navigation-section--description")]/div//p
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@name='description']//div[contains(@class,"detail-navigation-section--description")]/div//li
   - name: brandText
     singleValue: false
     xpath: //div[@class='detail-showcase--brand']/img/@alt

@@ -14,31 +14,43 @@ const transform = (data) => {
       }
 
       if (row.description) {
+        let desc = [];
         row.description.forEach(item => {
-          item.text = "|| " + item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
+          item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
+          desc.push(item.text);
         });
-      }
-
-      if (row.additionalDescBulletInfo) {
-        let bullet = [];
-        row.additionalDescBulletInfo.forEach(item => {
-          bullet.push(item.text.trim());
-        });
-        if(bullet.length){
-          row.additionalDescBulletInfo = [{"text": "| " + bullet.join(" | ")}]
-          row.descriptionBullets = [{ 'text': bullet.length }];
-        }else{
-          delete row.additionalDescBulletInfo;
+        let bullet_info = [];
+        if (row.descriptionBullets) {
+          row.descriptionBullets.forEach(item => {
+            bullet_info.push(item.text);
+          });          
+        }        
+        if(desc.length){
+          let str = '';
+          if(bullet_info.length){
+            str = "|| " + bullet_info.join(" || ");
+          }
+          row.description = [{"text": str + " " + desc.join(" | ")}]
         }
       }
+
+      if (row.descriptionBullets) {
+        row.descriptionBullets = [{"text":row.descriptionBullets.length}];
+      }      
+      
       if (row.specifications) {
         let info = [];
+        if (row.specification1) {
+          row.specification1.forEach(item => {
+            info.push(item.text.replace(/(\s*\n\s*)+/g, ' : ').trim());
+          });
+        }
         row.specifications.forEach(item => {
           info.push(item.text.replace(/(\s*\n\s*)+/g, ' : ').trim());
         });
         row.specifications = [{ 'text': info.join(' || '), 'xpath': row.specifications[0].xpath }];
       }
-
+      delete row.specification1;
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           var matches = /(\d+)/isg.exec(item.text);
