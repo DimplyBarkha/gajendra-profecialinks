@@ -146,6 +146,12 @@ async function implementation (
     await context.click(showMoreSelector2);
     await context.waitForNavigation({ waitUntil: 'load' });
   }
+  const showMoreSelector3 = '[onclick="_wcsite.readmore.buttonOnClick()"]';
+  const showMore3 = await context.evaluate((selector) => !!document.querySelector(selector), showMoreSelector3);
+  if (showMore3) {
+    await context.click(showMoreSelector3);
+    await context.waitForNavigation({ waitUntil: 'load' });
+  }
 
   await closePopUp();
 
