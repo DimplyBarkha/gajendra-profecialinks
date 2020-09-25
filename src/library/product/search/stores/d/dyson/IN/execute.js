@@ -6,7 +6,7 @@ module.exports = {
     store: 'dyson',
     domain: 'dyson.in',
     url: 'https://www.dyson.in/catalogsearch/result/?q={searchTerms}',
-    loadedSelector: 'div.search-results',
+    loadedSelector: 'div.row--miniscule',
     noResultsXPath: '//*[contains(text(),"no results")]',
     zipcode: '',
   },
