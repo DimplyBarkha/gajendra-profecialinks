@@ -13,13 +13,13 @@ fields:
     singleValue: false
   - name: nameExtended
     singleValue: false
-    manualSelector: h2.rating-set__title,h2.hgroup__title
+    xpath: //h2[contains(@class,"rating-set__title")] | //h1[contains(@class,"hgroup__motif__h1-cdn-img-replace")]
   - name: listPrice
     singleValue: false
     manualSelector: div.hero__content__preorder-container > div.price-mrp > strike
   - name: price
     singleValue: false
-    manualSelector: div.product__price span[data-price-type*='finalPrice'] > span.price
+    xpath: //div[contains(@class,"card__pricing")]//*[@class="price"]
   - name: availabilityText
     singleValue: false
     manualSelector: button[title*="Add to cart"]
@@ -46,7 +46,7 @@ fields:
     xpath: //video/source[@src]/@src
   - name: name
     singleValue: false
-    manualSelector: h2.rating-set__title,h2.hgroup__title
+    xpath: //h2[contains(@class,"rating-set__title")] | //*[contains(@class,"hgroup__motif__h1-cdn-img-replace")]
   - name: specifications
     singleValue: false
     manualSelector: div#added_specs
