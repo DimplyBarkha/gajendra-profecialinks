@@ -13,7 +13,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //span[contains(@class,'alternate_image_url')]
+    xpath: //div[contains(@class, "image-wrapper")]//img[contains(@class, "slider-image")]//@src
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content    
@@ -26,12 +26,14 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //span[@data-price-type="oldPrice"]//@data-price-amount
+    xpath: //span[contains(@class, "old-price")]//span//span[contains(@data-price-type, "oldPrice")]//@data-price-amount
+    type: CURRENCY
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //span[@data-price-type="finalPrice"]//@data-price-amount
+    type: CURRENCY
   - name: priceCurrency
     singleValue: false
     xpath: //meta[@itemprop="priceCurrency"]//@content
