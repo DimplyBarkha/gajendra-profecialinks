@@ -113,22 +113,13 @@ const transform = (data) => {
 					},
 				];
 			}
-			if (row.nameExtended) {
+			if (row.nameExtended && row.variantInformation) {
 
 				if (row.nameExtended[0].text.indexOf(row.variantInformation[0].text) > -1) {
 
 				} else {
 					row.nameExtended[0].text + ' ' + row.variantInformation[0].text
 				}
-				/* let text = '';
-				row.productOtherInformation.forEach(item => {
-					text += item.text.replace(/\n \n/g, ' || ');
-				});
-				row.productOtherInformation = [
-					{
-						text: text.slice(0, -4),
-					},
-				]; */
 			}
 		}
 	}
