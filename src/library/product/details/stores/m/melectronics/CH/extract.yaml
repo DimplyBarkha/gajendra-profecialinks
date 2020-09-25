@@ -54,7 +54,7 @@ fields:
     xpath: //ul[@class='detail-options--topfacts']/li
   - name: description
     singleValue: false
-    xpath: //div[@name='description']//div[@class="detail-navigation-section--description"]
+    xpath: //div[@name='description']//div[contains(@class,"detail-navigation-section--description")]/div
   - name: brandText
     singleValue: false
     xpath: //div[@class='detail-showcase--brand']/img/@alt
