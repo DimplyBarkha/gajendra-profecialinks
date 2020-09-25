@@ -1,10 +1,9 @@
-
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'AE',
     store: 'emax',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div[class*="grid"]+div[class*="toolbar-products"] a[title="Next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class*="wrapper grid"]',
