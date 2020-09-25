@@ -52,7 +52,7 @@ fields:
     defaultValue: Dyson
     singleValue: true
     description: The name of the seller of the item (if available)
-  - name: sku
+  - name: id
     singleValue: true
     xpath: //a//img/@src
     description: The store-specific product identifier
@@ -79,10 +79,6 @@ fields:
     singleValue: true
     description: Is sponsored/paid
     type: BOOLEAN
-  - name: id 
-    singleValue: true
-    description: Unique id (within this extractor)
-    xpath: //div[@id='added_row']/@added_sku
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"

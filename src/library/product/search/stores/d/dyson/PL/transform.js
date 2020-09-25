@@ -29,9 +29,9 @@ const transform = (data, context) => {
       }
       row.rank = [{ text: rankCounter }];
 
-      if (row.sku) {
-        const imgLink = row.sku[0].text.match(/(\d+)-(\d+)/gm) ? row.sku[0].text.match(/(\d+)-(\d+)/gm)[0] : '';
-        row.sku = [{ text: imgLink }];
+      if (row.id) {
+        const imgLink = row.id[0].text.match(/(\d+)-(\d+)/gm) ? row.id[0].text.match(/(\d+)-(\d+)/gm)[0] : '';
+        row.id = [{ text: imgLink }];
       }
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
