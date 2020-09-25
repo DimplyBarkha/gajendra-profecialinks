@@ -16,8 +16,8 @@ const transform = (data) => {
       if (row.additionalDescBulletInfo) {
         let bullet_count = '';
         row.additionalDescBulletInfo.forEach(item => {
-          item.text = "|| " + item.text.replace(/\n/g, ' || ').trim();
-          bullet_count = item.text.split("||").length;
+          bullet_count = item.text.split(/\n/g).length;
+          item.text = "| " + item.text.replace(/\n/g, ' | ').trim();
         });
         row.descriptionBullets = [{"text":bullet_count}];
       }
@@ -76,6 +76,15 @@ const transform = (data) => {
         row.nameExtended.forEach(item => {
           item.text = item.text + " - " + row.name[0]["text"];
         });
+      }
+      if (row.description) {
+        let description_ar = [];
+        row.description.forEach(item => {
+          description_ar.push(item.text);
+        });
+        if(description_ar.length){
+          row.description = [{"text": "|| " + description_ar.join(" || ")}]
+        }
       }      
     }
   }

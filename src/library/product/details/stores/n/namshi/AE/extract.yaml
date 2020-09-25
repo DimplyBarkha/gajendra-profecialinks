@@ -41,9 +41,12 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //span[@class="ratings-stat__avg-rating"]
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]/descendant::text()[not(ancestor::div/li)]
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]
+    xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]/li
   - name: brandText
     singleValue: false
     xpath: //div[@class="follow-brand__title"]
@@ -68,4 +71,4 @@ fields:
     defaultValue: 'In Stock'
   - name: quantity
     singleValue: false
-    xpath: //ul[@id="product_size"]//label[@class="selected available"]
+    xpath: //ul[@id="product_size"]//label[contains(@class,"selected")]
