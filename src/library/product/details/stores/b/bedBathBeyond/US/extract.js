@@ -161,7 +161,18 @@ async function implementation (
     await context.click(variantSelector);
     await context.waitForMutuation('h1[itemprop="name"],#specs,html', { timeout: 20000 });
   }
-
+  // get iframe videos from enhanced content.
+  await context.evaluate(() => {
+    let videos = [];
+    const iframes = Array.from(document.querySelectorAll('[title="Product Videos"]'));
+    for (const iframe of iframes) {
+      const videoLinks = [...iframe.contentWindow.document.querySelectorAll('video')].map(elm => elm.src);
+      videos = videos.concat(videoLinks);
+    }
+    if (videos.length) {
+      document.body.setAttribute('video', videos.join('|'));
+    }
+  });
   await context.evaluate(generateDynamicTable, jsonData);
   await context.evaluate(addRating);
   const { transform } = parameters;

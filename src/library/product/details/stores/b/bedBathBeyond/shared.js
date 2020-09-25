@@ -76,6 +76,14 @@ const transform = (data, context) => {
         }
       }
 
+      if (row.manufacturerVideos) {
+        if (row.videos) {
+          row.videos = row.videos.concat(row.manufacturerVideos);
+        } else {
+          row.videos = row.manufacturerVideos;
+        }
+      }
+
       row.imageAlt = [{ text: row.nameExtended[0].text + '. View a larger version of this product image.' }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
