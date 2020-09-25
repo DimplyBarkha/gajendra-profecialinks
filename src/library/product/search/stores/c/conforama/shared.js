@@ -43,12 +43,12 @@ const transform = (data, context) => {
             }
           });
         }
-        if (row.listPrice) {
-          row.listPrice.forEach(item => {
-            item.text = item.text ? item.text.split(' ')[0] : '';
-            item.text = item.text.replace('€', ',').replace('*','').trim();
-          });
-        }
+        // if (row.listPrice) {
+        //   row.listPrice.forEach(item => {
+        //     item.text = item.text ? item.text.split(' ')[0] : '';
+        //     item.text = item.text.replace('€', ',').replace('*','').trim();
+        //   });
+        // }
         if (row.brandText) {
           row.brandText.forEach(item => {
             item.text = item.text ? item.text.split(' ')[0] : '';
