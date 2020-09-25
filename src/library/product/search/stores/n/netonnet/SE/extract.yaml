@@ -1,25 +1,25 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: //*[contains(@class,"cProductItem")]
+recordSelector: div#productList > div.row > div.cProductItem
+# recordXPath: //*[contains(@class,"cProductItem")]
 fields: 
 - name: id
-  singleValue: false
-  xpath: //div[contains(@class,"cProductItem")]/div/input[contains(@name,"ProductId")]/@value
+  singleValue: true
+  xpath: //input[contains(@name,"ProductId")]/@value
 - name: name
-  singleValue: false
-  xpath: //div[contains(@class,"cProductItem")]//div[contains(@class,"panel-body")]//div[@class="smallHeader"]//div//a
+  singleValue: true
+  xpath: //a[@data-track=//input[contains(@name,"ProductId")]/@value]
 - name: price
-  singleValue: false
-  xpath: //div[contains(@class,"cProductItem")]/div/input[contains(@name,"ProductPrice")]/@value
+  singleValue: true
+  xpath: //input[contains(@name,"ProductPrice")]/@value
 - name: productUrl
-  singleValue: false
-  xpath: //div[contains(@class,"cProductItem")]//div[contains(@class,"panel-body")]//div[@class="smallHeader"]//div//a/@href
+  singleValue: true
+  xpath: //a[@data-track=//input[contains(@name,"ProductId")]/@value]//@href
   regExp: (.+)
   regExpReplace: https://www.netonnet.se$1
 - name: thumbnail
-  singleValue: false
-  xpath: //div[contains(@class,"cProductItem")]//div[@class="panel-body leftContent"]//div[@class="verticalTable"]//img//@src
+  singleValue: true
+  xpath: //picture//img//@src
   regExp: (.+)
   regExpReplace: https://www.netonnet.se$1
 # - name: aggregateRating
