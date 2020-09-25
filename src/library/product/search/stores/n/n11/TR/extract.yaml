@@ -13,7 +13,9 @@ fields:
     singleValue: true
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //a[@class="plink"]/img/@src
+    xpath: //a[@class='plink']/img/@data-original
+    regExp: (.+\/)(\d+)(\/.+)
+    regExpReplace: $1480$3
   - name: name
     description: The product name
     xpath: //h3[contains(@class, "productName")]
@@ -34,6 +36,8 @@ fields:
   - name: listPrice
     description: The stated undiscounted price for the products
     xpath: //*[@class="oldPrice"]
+  - name: soldBy
+    xpath: //span[@class="sellerName"] | //span[@class="sallerName"]
   - name: rank
     description: search/listing rank
     type: NUMBER

@@ -12,10 +12,35 @@ const transform = (data, context) => {
         row.aggregateRating2.forEach(item => {
           rating = item.text.match(/\d+/g);
           rating = rating / 20;
+          rating = rating.toString().replace('.', ',');
         });
         text = text + rating;
         row.aggregateRating2 = [{ text }];
       }
+
+      // if (row.price) {
+      //   let text = '';
+      //   let price;
+      //   row.price.forEach(item => {
+      //     price = item.text.replace(/[,.]/g, (c) => {
+      //       return c === ',' ? '.' : ',';
+      //     });
+      //   });
+      //   text = text + price;
+      //   row.price = [{ text }];
+      // }
+
+      // if (row.listPrice) {
+      //   let text = '';
+      //   let listPrice;
+      //   row.listPrice.forEach(item => {
+      //     listPrice = item.text.replace(/[,.]/g, (c) => {
+      //       return c === ',' ? '.' : ',';
+      //     });
+      //   });
+      //   text = text + listPrice;
+      //   row.listPrice = [{ text }];
+      // }
     }
   }
 

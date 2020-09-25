@@ -6,8 +6,8 @@ module.exports = {
     store: 'n11',
     domain: 'n11.com',
     url: 'https://www.n11.com/arama?q={searchTerms}',
-    loadedSelector: 'a.plink>img',
-    noResultsXPath: '//div[@id="searchResultNotFound"]//h6',
+    loadedSelector: '#view>ul>li:nth-last-child(2)',
+    noResultsXPath: '//p[@class="result-mean-text-mm"] | //div[@class="notFoundContainer"]',
     zipcode: '',
   },
 };
