@@ -32,6 +32,27 @@ const transform = (data, context) => {
         el.text = clean(el.text);
       }));
 
+      if (row.aggregateRating) {
+				let newText = 0;
+				row.aggregateRating.forEach(item => {
+					var received_per = item.raw.replace("width: ", "")
+          var received_per = received_per.replace("%", "");
+          var received_per = received_per.replace(";", "");
+					if(received_per >= 1){
+						var aggregate_rating = ( received_per * 5 )/100;
+						newText = aggregate_rating;
+					}
+				});
+				row.aggregateRating = [{ text: newText }];
+			}
+
+      if (row.id) {
+				let newText = 0;
+				row.id.forEach(item => {
+					 newText = item.text.replace("Item #", "")
+				});
+				row.id = [{ text: newText }];
+			}
 
     }
   }
