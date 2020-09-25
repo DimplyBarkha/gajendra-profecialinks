@@ -41,7 +41,7 @@ fields:
     xpath: //*[contains(text(),"Nazwa producenta/importera")]//ancestor::div[contains(@class,"c-accordion_item")]
   - name: weightNet
     singleValue: false
-    xpath: //table[@class='c-table is-specification']//tr//td[contains(text(),"Waga") or contains(text(),"kg")]/parent::*/td[2]
+    xpath: //table[@class='c-table is-specification']//tr//td[contains(text(),"Waga [kg]") or contains(text(),"Waga [g]")]/parent::*/td[2]
   - name: color
     singleValue: false
     xpath: //*[contains(text(),"Kolor")]//ancestor::div[contains(@class,"c-accordion_item")]
