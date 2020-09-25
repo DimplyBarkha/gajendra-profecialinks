@@ -9,7 +9,7 @@ async function implementation (
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
     function stall (ms) {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         setTimeout(() => {
           resolve();
         }, ms);
@@ -19,7 +19,7 @@ async function implementation (
     let scrollTop = 500;
     while (true) {
       window.scroll(0, scrollTop);
-      await stall(1000);
+      await stall(5000);
       scrollTop += 500;
       if (scrollTop === 10000) {
         break;
