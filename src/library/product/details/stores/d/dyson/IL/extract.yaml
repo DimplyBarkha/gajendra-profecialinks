@@ -14,10 +14,10 @@ fields:
     manualSelector: h2.hgroup__title~h1, h2.hgroup__title, h1.hgroup__motif__h1-cdn-img-replace
   - name: listPrice
     singleValue: false
-    manualSelector: div.product__price span[data-price-type*='oldPrice'] > span.price
+    manualSelector: div.product__price .price__was span.price
   - name: price
     singleValue: false
-    manualSelector: div.product__price span[data-price-type*='finalPrice'] > span.price
+    manualSelector: div.product__price .price__is span.price
   - name: availabilityText
     singleValue: false
     manualSelector: button[title*="Add to basket"]
@@ -51,6 +51,9 @@ fields:
   - name: termsAndConditions
     singleValue: false
     xpath: //b[contains(text(),"Terms and conditions")]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
   - name: manufacturerDescription
     singleValue: false
     manualSelector: div.promos__list
