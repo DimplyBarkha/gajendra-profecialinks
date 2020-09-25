@@ -152,7 +152,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //video/@src
+    xpath: //div[contains(@class,"el-product-video-slider")]//video[contains(@class,'el-videoplayer')]/@src | //ul[contains(@class,"b-video-list")]//li//div[@class="b-video-item-tile"]/@data-videoid
   - name: name
     singleValue: true
     description: The product name

@@ -16,15 +16,41 @@ module.exports = {
   ) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
-    // let btn = await context.evaluate(() => { return Boolean(!!document.querySelector('button.coi-banner__accept')) });
-    /* if (btn) {
+    const btn = await context.evaluate(() => { return Boolean(document.querySelector('button.coi-banner__accept')); });
+    if (btn) {
       try {
         await context.click('button.coi-banner__accept');
-      }
-      catch (error) { }
-    } */
+      } catch (error) { }
+    }
+    if (btn) {
+      await context.evaluate(async function () {
+        document.querySelector('button.coi-banner__accept').click();
+      });
+    }
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          await stall(500);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(5000);
+            break;
+          }
+        }
+        function stall (ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
     try {
-      await context.waitForSelector('iframe.videoly-box', { timeout: 95000 });
+      await context.waitForSelector('iframe.videoly-box', { timeout: 65000 });
     } catch (error) {
       console.log('No video ');
     }
@@ -44,6 +70,10 @@ module.exports = {
         try {
           await context.click('button.coi-banner__accept');
         } catch (error) { }
+      }
+
+      if (btn) {
+        document.querySelector('button.coi-banner__accept').click();
       }
 
       const videoData = document.querySelectorAll('iframe.videoly-box').length ? document.querySelectorAll('iframe.videoly-box')[0].contentWindow.document.getElementsByTagName('ul')[0] : null;
