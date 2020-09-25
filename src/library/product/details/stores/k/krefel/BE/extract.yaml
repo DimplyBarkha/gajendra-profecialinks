@@ -21,7 +21,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@class='breadcrumbs']/li
+    xpath: //ul[@class='breadcrumbs']/li[position() < last()]
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
@@ -32,7 +32,7 @@ fields:
   - name: price
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: concat((//span[@class='current-price orange nl'])[1], ' €')
+    xpath: //div[@id="price"]
   - name: availabilityText
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
@@ -134,7 +134,7 @@ fields:
     xpath: (//span[@class='product'])[1]
   - name: inStorePrice
     description: Price in the selected store
-    xpath: concat((//span[@class='current-price orange nl'])[1], ' €')
+    xpath: //div[@id="price"]
   - name: asin
     singleValue: true
     description: null
@@ -435,7 +435,7 @@ fields:
       new desription info
   - name: variantInformation
     description: colour / scent / flavour / other
-    xpath: //select[@class="product-variant-select"]/option[1]
+    xpath: //select[@class="product-variant-select"]/option[@selected]
   - name: firstVariant
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a

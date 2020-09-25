@@ -32,24 +32,28 @@ module.exports = {
       if (foundRatingValue) {
         addElementToDocument("ratingValue", foundRatingValue[1]);
       }
-      const pdfExists = document.evaluate('//div[@class="description-wrap"]//a[contains(text(), "PDF")]/@href', document, null, XPathResult.STRING_TYPE, null);
-      if (pdfExists && pdfExists.stringValue) addElementToDocument("pdfExists", "Yes");
-      const specifications = document.querySelectorAll("div.block-header, div.specs-overview li");
+
+      const price = document.querySelector('div.product-info span.current-price.orange.nl')
+        ? document.querySelector('div.product-info span.current-price.orange.nl').innerText : '';
+      if (price) {
+        addElementToDocument('price', `€ ${price.replace(/\.|\s/g, '')}`);
+      }
+      const pdfExists = document.evaluate('//div[@class="description-wrap"]//a/@href[contains(.,"pdf") or contains(.,"PDF")]', document, null, XPathResult.STRING_TYPE, null);
+      if (pdfExists && pdfExists.stringValue) addElementToDocument('pdfExists', 'Yes');
+      const specifications = document.querySelectorAll('div.block-header, div.specs-overview li');
+
       const specArr = [];
       if (specifications.length) {
         specifications.forEach((e) => {
           specArr.push(e.innerText.replace(/\n/g, " "));
         });
       }
-      addElementToDocument("specifications", specArr.join(" || "));
-      const description = document.querySelectorAll("section.description div p");
-      const descArr = [];
-      if (description.length) {
-        description.forEach((e) => {
-          descArr.push(e.innerText);
-        });
-      }
-      addElementToDocument("description", descArr.join(" || "));
+
+      addElementToDocument('specifications', specArr.join(' || '));
+      const description = document.querySelector('section.description div.description-wrap')
+        ? document.querySelector('section.description div.description-wrap').innerText.replace(/•/g, '||').replace(/\s{2,}/g, ' ') : '';
+      addElementToDocument('description', description);
+
       const warrantyXpath = document.evaluate('//div[@class="description-wrap"]//*[contains(text(),"garantie")]', document, null, XPathResult.STRING_TYPE, null);
       const warranty = warrantyXpath ? warrantyXpath.stringValue : "";
       if (warranty) addElementToDocument("warranty", warranty);
