@@ -55,7 +55,7 @@ fields:
     xpath: //div[@class="product-stats-item brand-logo"]//a/img/@alt
     description: Product manufacturer
   - name: quantity
-    xpath: //td[contains(.,"Miktar") or contains(.,"miktar")]/following-sibling::td[1]
+    xpath: //td[contains(.,"Miktar")]/following-sibling::td[1]
     description: Quantity as described on the page
   - name: weightNet
     xpath: //td[contains(.,"Ağırlık")]/following-sibling::td[1]
@@ -73,6 +73,7 @@ fields:
   - name: mpc
     description: The manufacturer model code (unique) of the product
   - name: packSize
+    xpath: //td[contains(.,"Paket başına miktar")]/following-sibling::td[1]
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
