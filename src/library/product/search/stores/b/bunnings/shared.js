@@ -31,10 +31,6 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
-
-      if(row.producturl){
-        row.producturl = [{ text: "https://www.bunnings.com.au" + row.producturl[0].text.trim()}]
-      }
     }
   }
   context.setState({ rankCounter });

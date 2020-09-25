@@ -11,9 +11,10 @@ fields:
     singleValue: false
   - name: producturl
     xpath: //a//@href
+    regExp: (.+)
+    regExpReplace: https://www.bunnings.com.au$1
     singleValue: true
   - name: manufacturer
-    xpath: //div[contains(@class, "codified-product-tile__brand-image--image")]//@alt
     singleValue: false    
   - name: thumbnail
     xpath: //div[contains(@class, "codified-product-tile__product-image__image--product")]//@style
@@ -21,7 +22,8 @@ fields:
     regExp: (?<=").*(?=")
   - name: price
     xpath: //div[contains(@class, "codified-product-tile__price--value price-value")]
-    singleValue: false 
+    singleValue: false
+    type: CURRENCY 
   - name: rankOrganic
     singleValue: true 
   - name: aggregateRating  
