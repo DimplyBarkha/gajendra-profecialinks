@@ -58,11 +58,11 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[contains(@class, "product-brand")]/a
+    xpath: //div[contains(@class, "product-brand")]/a|//div[contains(@class, "product-info")]//*[contains(@class, "product-brand")]
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
-    xpath: //div[contains(@class, "product-brand")]/a
+    xpath: //div[contains(@class, "product-brand")]/a|//div[contains(@class, "product-info")]//*[contains(@class, "product-brand")]
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
@@ -120,14 +120,14 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: //div[@class="basic-information-section"]//div[contains(@class, "product-heading")]
+    xpath: //div[@class="basic-information-section"]//div[contains(@class, "product-heading")]|//div[@class="basic-information-section"]//div[contains(@class, "product-heading")]|//h1[contains(@class, "product-name")]
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
   - name: brandLink
     singleValue: false
     description: null
-    xpath: //div[contains(@class, "product-brand")]/a/@href
+    xpath: //div[contains(@class, "product-brand")]/a/@href|//h2[contains(@class, "product-brand")]//a/@href
   - name: secondaryImageTotal
     singleValue: false
     description: null
@@ -143,7 +143,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: //span[contains(@class, 'current-variant-name')]
+    xpath: //span[contains(@class, 'current-variant-name')]|//*[contains(@class, "product-variant-swatch")]//li[@class="product-variant-swatch active"]/img/@title
   - name: firstVariant
     singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
@@ -158,7 +158,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
-    xpath: //div[contains(@class, "variant-selector")]//li[contains(@class, "product-variant")]/@class
+    xpath: //div[contains(@class, "variant-selector")]//li[contains(@class, "product-variant")]/@class|//*[contains(@class, "product-variant-swatch")]//li/img/@title
   - name: additionalDescBulletInfo
     singleValue: false
     description: null

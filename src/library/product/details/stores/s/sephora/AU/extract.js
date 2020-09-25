@@ -28,6 +28,7 @@ module.exports = {
       let name = [];
       let variant = '//span[contains(@class, "current-variant-name")]';
       let names = '//div[@class="basic-information-section"]//div[contains(@class, "product-")]';
+      let names2 = '//h1[contains(@class, "product-name")]'
       let directions = '//div[contains(@class, "how-to")]//text()'
       let directionBullets = '//div[contains(@class, "how-to")]//li'
       let description = '//div[contains(@class, "product-description")]//text()'
