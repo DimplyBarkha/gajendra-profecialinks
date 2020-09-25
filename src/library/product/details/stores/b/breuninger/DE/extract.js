@@ -10,7 +10,7 @@ module.exports = {
   },
 
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    // await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+    // checking if popup exists and if so, closing it
     const acceptButtonPresent = await context.evaluate(async function () {
       return document.querySelector('button[id="uc-btn-accept-banner"]');
     });
@@ -18,7 +18,7 @@ module.exports = {
       await context.click('button[id="uc-btn-accept-banner"]');
       await new Promise((resolve, reject) => setTimeout(resolve, 100));
     }
-    //
+    // checking if down arrow for photos exist and if so, pressing it
     const arrowDownPresent = await context.evaluate(async function () {
       return document.querySelector('div[class*="bewerten-slider"]>svg[class*="arrows--down"]');
     });
@@ -26,10 +26,10 @@ module.exports = {
       await context.click('div[class*="bewerten-slider"]>svg[class*="arrows--down"]');
       await new Promise((resolve, reject) => setTimeout(resolve, 100));
     }
-    //
+    // extracting data automatically
     await context.extract(productDetails);
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
-    //
+    // manually extracting description
     const description = await context.evaluate(async function () {
       const descParts = document.querySelectorAll('div>div[class="bewerten-textformat"]>p');
       var description = '';
@@ -38,7 +38,7 @@ module.exports = {
       }
       return description;
     });
-    //
+    // manually extracting directions
     const directions = await context.evaluate(async function () {
       const rawDirections = document.querySelectorAll('section[class*="akkordeon"] p');
       var directions = '';
@@ -47,24 +47,24 @@ module.exports = {
       }
       return directions;
     });
-    //
+    // manually extracting shippingInfo
     const shippingInfo = await context.evaluate(async function () {
       document.querySelector('div[class*="desktop"]>h2+h2').click();
       await new Promise((resolve, reject) => setTimeout(resolve, 100));
       return document.querySelector('div[class*="tab-content"]>section').innerText;
     });
-    //
+    // manually extracting json stored data
     const jsonData = await context.evaluate(async function () {
       return JSON.parse(document.querySelector('bewerten-vue-data').getAttribute('data-bewerten-json-content'));
     });
-    //
+    // manually extracting iframe url and navigating to it
     const gotoIframe = await context.evaluate(async function () {
       return document.querySelector('iframe[id=loadbeeIframeId]').src;
     });
     await context.goto(gotoIframe);
     await context.waitForNavigation();
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-    //
+    // manually extracting manufacturer description and images
     const manufacturerDescImg = await context.evaluate(async function () {
       const descParts = document.querySelectorAll('div[class="wrapper preview"]>*');
       const imagesRaw = document.querySelectorAll('div[class="wrapper preview"] img');
@@ -82,7 +82,7 @@ module.exports = {
       images = [...new Set(images)];
       return [description, images];
     });
-    //
+    // manually extracting videos
     const videos = await context.evaluate(async function () {
       var videos = [];
       const rawVideos = document.querySelectorAll('div[data-video]');
@@ -92,7 +92,7 @@ module.exports = {
       videos = [...new Set(videos)];
       return videos;
     });
-    //
+    // manually extracting specifications
     const specifications = await context.evaluate(async function () {
       var specifications = '';
       const rawSpecifications = document.querySelectorAll('div[class*="info"]>div[class*="info"]');
@@ -101,8 +101,11 @@ module.exports = {
       }
       return specifications;
     });
-    //
+    // inserting manually extracted data to output data ref
     var dataRef = await context.data();
+    if (dataRef[0].data[0].group[0]) {
+      console.log('aa');
+    }
     if (!('directions' in dataRef[0].data[0].group[0])) {
       dataRef[0].data[0].group[0].directions = [];
       dataRef[0].data[0].group[0].directions.push({ text: '' });
@@ -129,8 +132,13 @@ module.exports = {
         dataRef[0].data[0].group[0].alternateImages[i].text = jsonData.artikel[jsonData.artikelKey].ansichten[i + 1].zoomUrl;
         delete dataRef[0].data[0].group[0].alternateImages[i].xpath;
       }
+      if (!('image' in dataRef[0].data[0].group[0])) {
+        dataRef[0].data[0].group[0].image = [];
+        dataRef[0].data[0].group[0].image.push({ text: ' ' });
+      } else {
+        delete dataRef[0].data[0].group[0].image[0].xpath;
+      }
       dataRef[0].data[0].group[0].image[0].text = jsonData.artikel[jsonData.artikelKey].ansichten[0].zoomUrl;
-      delete dataRef[0].data[0].group[0].image[0].xpath;
     }
   },
 };
