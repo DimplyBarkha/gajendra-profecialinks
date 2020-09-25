@@ -1,3 +1,4 @@
+const { transform } = require('../../../../shared');
 async function implementation (
   inputs,
   parameters,
@@ -239,7 +240,7 @@ module.exports = {
   parameterValues: {
     country: 'IE',
     store: 'euronics',
-    transform: null,
+    transform: transform,
     domain: 'euronics.ie',
   },
   implementation,
