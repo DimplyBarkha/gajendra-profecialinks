@@ -30,6 +30,11 @@ const transform = (data) => {
           item.text = 'https://www.mediaexpert.pl' + item.text;
         });
       }
+      if (row.technicalInformationPdfPresent) {
+        row.technicalInformationPdfPresent.forEach(item => {
+          item.text = 'https://www.mediaexpert.pl' + item.text;
+        });
+      }
       if (row.alternateImages) {
         var mainImgArr = [];
         var tot = 0;
