@@ -58,7 +58,7 @@ async function implementation (
           firstVariant = productData.product.activeSkuId;
           addHiddenDiv('ii_firstVariant', firstVariant);
           const variants = productData.product.item.skus;
-          console.log('productData.product.skus.length', productData, productData.product, productData.product.skus);
+          console.log('productData.product.skus.length', productData.product.item.skus);
           addHiddenDiv('ii_variants', variants);
         }
         console.log('totalVariant', totalVariant);
@@ -71,7 +71,7 @@ async function implementation (
       const brand = document.querySelector("span[data-automation*='brand']") ? document.querySelector("span[data-automation*='brand']").innerText.trim() : '';
       const title = document.querySelector("h1[data-automation*='product-title']") ? document.querySelector("h1[data-automation*='product-title']").innerText.trim() : '';
       let nameExtended = '';
-      if (brand && title) {
+      if (brand && title && !title.startsWith(brand)) {
         nameExtended = brand + ' - ' + title;
       } else {
         nameExtended = title;
@@ -79,11 +79,10 @@ async function implementation (
       addHiddenDiv('ii_name', title);
       addHiddenDiv('ii_nameExtended', nameExtended);
       // decription
-      let description = document.evaluate("//div[@data-automation='long-description']", document, null, XPathResult.ANY_TYPE, null);
-      description = description.iterateNext().innerText;
+      let description = document.querySelector("div[data-automation*='long-description']").innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/gm, ' ').trim();
 
       const additionalDescription = document.querySelector("div[data-automation='feature-specifications']").innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/gm, ' ').trim();
-      description = (description + ' ' + additionalDescription).replace(/•/g, '||').replace(/\s{2,}/gm, ' ').trim();
+      description = (description + ' ' + additionalDescription).replace(/•/g, '||').replace(/(\|\| ){3,}/g, '').replace(/(\|\| ){2,2}/g, '|| ').replace(/\s{2,}/gm, ' ').trim();
       addHiddenDiv('ii_desc', description);
       // Enhanced Content
       const iframe = document.querySelectorAll('div[id*="wc-power-page"] iframe') ? document.querySelectorAll('div[id*="wc-power-page"] iframe') : null;
@@ -93,7 +92,7 @@ async function implementation (
         const dom = (iframe[i].contentDocument.documentElement.innerHTML).toString();
         // console.log('dom', dom);
         if (iframe) {
-          const manufactureImage = dom.replace(/\n{2,}/, ' ').replace(/\s{2,}/, ' ').match(/<img src="(.*?)"|<img .*src="(.*?)"/);
+          const manufactureImage = dom.replace(/\n{2,}/, ' ').replace(/\s{2,}/, ' ').match(/<img src="(.*?)"|<img .*?src="(.*?)"/);
           const video = dom.replace(/\n{2,}/, ' ').replace(/\s{2,}/, ' ').match(/<video src="(.*?)"|<video .*src="(.*?)"/);
           // console.log(video);
           if (manufactureImage) {
@@ -131,6 +130,8 @@ async function implementation (
         nodeEle = nodes.iterateNext();
       }
       addHiddenDiv('ii_manufactureDesc', manufactureDesc.replace(/\n/gm, ' ').replace(/\s{2,}/gm, ' ').trim());
+      const threeSixtyImg = document.querySelector("div[id*='wc-power-page'] [class*='wc-mediaGalleryThreeSixty']") ? document.querySelector("div[id*='wc-power-page'] [class*='wc-mediaGalleryThreeSixty']").getAttribute('data-resources-base') : null;
+      threeSixtyImg && addHiddenDiv('ii_threeSixtyImg', 'Yes');
     }, index, variantLength, variantColorLength, variantSizeLength);
   }
 

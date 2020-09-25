@@ -17,7 +17,7 @@ fields:
     xpath: //div[contains(@class,'react-swipe-container ')]//div[@role='presentation']//img[1]/@src
   - name: category
     singleValue: false
-    xpath: //ol[contains(@data-automation,'desktop-breadcrumbs')]//li
+    xpath: //ol[contains(@data-automation,'desktop-breadcrumbs')]//li[position()>1 and position()<last()]
   - name: nameExtended
     singleValue: false
     xpath: //div[@id='ii_nameExtended']
@@ -84,10 +84,10 @@ fields:
     xpath: //div[@class='css-93ek76 e1fnyg632'] | //div[@class='css-93ek76 e1fnyg632']
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@data-automation='feature-specifications']/ul/li
+    xpath: //div[contains(@data-automation,'long-description')]//li | //div[@data-automation='feature-specifications']//li
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[@data-automation='feature-specifications']/ul/li)
+    xpath: count(//div[contains(@data-automation,'long-description')]//li | //div[@data-automation='feature-specifications']//li)
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id='ii_manufactureDesc']
@@ -97,3 +97,11 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[@id='ii_videos']
+  - name: 360ImagePresent
+    singleValue: false
+    xpath: //div[@id='ii_threeSixtyImg']
+    defaultValue: 'No'
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //*[contains(@data-automation,'flex-accordion')]//a/@href[contains(.,'.pdf')]
+    defaultValue: 'No'

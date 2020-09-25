@@ -62,7 +62,6 @@ async function implementation (
         for (let i = 0; i < nodes.length; i++) {
           // eslint-disable-next-line eqeqeq
           if (nodes[i].getAttribute('data-ii-id') == newID) {
-            // console.log(`Adding fields :: ${fields}`, nodes[i].getAttribute('data-ii-id'));
             originalDiv = nodes[i];
             originalDiv && originalDiv.appendChild(newDiv);
             break;
@@ -112,9 +111,8 @@ async function implementation (
       };
       console.log('End of page fetch');
     } else {
-      console.log('Window::', window.__PRELOADED_STATE__);
+      console.log('Window variable::', window.__PRELOADED_STATE__);
       const mainDataObj = window.__PRELOADED_STATE__ && window.__PRELOADED_STATE__.results && window.__PRELOADED_STATE__.results.entities && window.__PRELOADED_STATE__.results.entities.products ? window.__PRELOADED_STATE__.results.entities.products : {};
-      console.log('main::', mainDataObj);
       mainDataObj && await fetchGTIN(mainDataObj);
       productsToFetch.products = window.__PRELOADED_STATE__ && window.__PRELOADED_STATE__.results && window.__PRELOADED_STATE__.results.entities && window.__PRELOADED_STATE__.results.entities.products ? window.__PRELOADED_STATE__.results.entities.productsToFetch : {};
     }
@@ -129,7 +127,7 @@ async function implementation (
         body: JSON.stringify(productsToFetch),
         method: 'POST',
       }).then((x) => x.text()).catch(e => JSON.stringify({ error: e }));
-      console.log('response::', response, 'end');
+      console.log('Product fetch response::', response, 'end');
       if (response && response.includes('{') && response.includes('}') && JSON.parse(response)) {
         console.log('Inside responses');
         let responseJSON = JSON.parse(response);
@@ -154,7 +152,7 @@ async function implementation (
         if (price.error) {
           console.log('Failed to fetch price', price.error);
         }
-        console.log('price::', price);
+        console.log('Price API response::', price);
         const priceJSON = JSON.parse(price);
         const priceSKU = priceJSON.skus ? priceJSON.skus : {};
         const priceOffer = priceJSON.offers ? priceJSON.offers : {};
@@ -168,7 +166,7 @@ async function implementation (
           let productCurrentPrice = '';
           for (const [skuId, skuIdValue] of Object.entries(value.skus)) {
             // skuId = Number(skuId);
-            console.log('type ', typeof skuId, skuId);
+            console.log('SKU ', typeof skuId, skuId);
             console.log('price ', priceSKU, priceSKU[skuId]);
             const productOffer = priceSKU[skuId] && priceSKU[skuId][0] ? priceSKU[skuId][0] + '' : '';
             productCurrentPrice = productOffer && priceOffer[productOffer] && priceOffer[productOffer].currentPrice ? priceOffer[productOffer].currentPrice : '';

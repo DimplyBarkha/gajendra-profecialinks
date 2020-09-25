@@ -77,7 +77,7 @@ const transform = (data) => {
         });
         row.variants = [
           {
-            text: text.slice(0, -3),
+            text: text.trim(),
           },
         ];
       }
@@ -98,10 +98,10 @@ const transform = (data) => {
         ];
       }
 
-      if (row.category && row.nameExtended) {
+      if (row.category) {
         const shortArray = [];
         row.category.forEach(item => {
-          if (!item.text.includes('Walmart.ca') && !item.text.includes('Home') && !item.text.includes(row.nameExtended[0].text)) {
+          if (item.text !== '›Home') {
             shortArray.push({
               text: item.text.replace('›', ''),
             });
@@ -109,7 +109,13 @@ const transform = (data) => {
         });
         row.category = shortArray;
       }
-
+      if (row.technicalInformationPdfPresent) {
+        row.technicalInformationPdfPresent.forEach(item => {
+          if (item.text !== 'No') {
+            item.text = 'Yes';
+          }
+        });
+      }
       if (row.warranty) {
         let text = '';
         row.warranty.forEach(item => {
