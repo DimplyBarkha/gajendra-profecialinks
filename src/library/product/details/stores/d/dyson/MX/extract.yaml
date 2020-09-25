@@ -2,10 +2,10 @@ extends: ../shared
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class, "hgroup__main-image")]/img/@src
+    xpath: //div[contains(@class, "hgroup__main-image")]/img/@src | //div[contains(@class,"hero--product-variant")]//div[contains(@class,"image--stretch")]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class, "hgroup__main-image")]/img/@alt
+    xpath: //div[contains(@class, "hgroup__main-image")]/img/@alt | //div[contains(@class,"hero--product-variant")]//div[contains(@class,"image--stretch")]//img/@alt
   - name: category
     singleValue: false
     manualSelector: footer ol.crumb__list > li:first-child~li > a
