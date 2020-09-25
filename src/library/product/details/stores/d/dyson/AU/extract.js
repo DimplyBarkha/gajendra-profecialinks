@@ -49,6 +49,15 @@ async function implementation (
       });
     }
 
+    if (!document.getElementById('sku')) {
+      document.querySelectorAll('script').forEach(script => {
+        const matches = script.innerText.match(/productSKU: \"[0-9]+\-[0-9]+\"/);
+        if(matches && matches.length) {
+          addHiddenDiv('sku', matches[0].replace('productSKU: ', '').replace(/"/g, ''));
+        }
+      });
+    }
+
     if (document.querySelector('.bv-off-screen')) {
       addHiddenDiv('rating', document.querySelector('.bv-off-screen').innerText.split(' ')[0]);
     }

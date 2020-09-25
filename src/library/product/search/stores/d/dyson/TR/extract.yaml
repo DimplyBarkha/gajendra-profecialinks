@@ -32,9 +32,10 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class="price"]
-  #- name: manufacturer
-  #  singleValue: false
-  #  xpath: //a[@data-test="itemDetail-brand"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //a[@data-test="itemDetail-brand"]
+    defaultValue: Dyson
   #- name: soldBy
   #  singleValue: false
   #- name: endorsementText

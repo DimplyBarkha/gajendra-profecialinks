@@ -49,11 +49,22 @@ async function implementation (
       });
     }
 
-    if (document.querySelector('.bv-off-screen')) {
-      addHiddenDiv('rating', document.querySelector('.bv-off-screen').innerText.split(' ')[0]);
+    if (!document.getElementById('sku')) {
+      document.querySelectorAll('script').forEach(script => {
+        const matches = script.innerText.match(/productSKU: \"[0-9]+\-[0-9]+\"/);
+        if(matches && matches.length) {
+          addHiddenDiv('sku', matches[0].replace('productSKU: ', '').replace(/"/g, ''));
+        }
+      });
     }
-    if (document.querySelector('.dyson-bazaarvoice__reviews-link')) {
-      addHiddenDiv('reviewCount', document.querySelector('.dyson-bazaarvoice__reviews-link').innerText.split(' ')[0]);
+
+    if (document.querySelector('span[itemprop="ratingValue"]')) {
+      const rating = document.querySelector('span[itemprop="ratingValue"]').innerText / 20;
+      addHiddenDiv('rating', rating);
+      addHiddenDiv('ratingText', rating + ' out of 5');
+    }
+    if (document.querySelector('span[itemprop="reviewCount"]')) {
+      addHiddenDiv('reviewCount', document.querySelector('span[itemprop="reviewCount"]').innerText);
     } else {
       addHiddenDiv('reviewCount', 0);
     }

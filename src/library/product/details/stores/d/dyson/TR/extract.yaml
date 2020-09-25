@@ -33,7 +33,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
+    xpath: //title
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -128,8 +128,6 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    regExp: (^.{3,3})
-    regExpReplace: $1
     xpath: //div[@id="ratingText"]
   - name: aggregateRating
     singleValue: true
@@ -173,7 +171,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
+    xpath: //title
   - name: inStorePrice #missing
     singleValue: true
     description: Price in the selected store
@@ -528,7 +526,7 @@ fields:
   - name: termsAndConditions #localedependent
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: Yes
+    defaultValue: No
     #xpath: ((//ul//li[.//*[contains(text(), 'Terms and Conditions')]])[1]//a)[1]/text()
   - name: privacyPolicy #localedependent
     singleValue: true
