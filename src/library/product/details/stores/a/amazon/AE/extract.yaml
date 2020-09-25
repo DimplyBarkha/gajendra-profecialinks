@@ -57,7 +57,7 @@ fields:
     xpath: //a[@id="bylineInfo"]
   - name: weightNet
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Item Weight")]/following-sibling::td[1]/text()
+    manualSelector: div#productWeight
   - name: asin
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
@@ -85,7 +85,7 @@ fields:
     xpath: (//span[@id='acrPopover'])[1]
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@id='buybox-tabular']//tr[1]/td[1] | //div[@id='buybox-tabular']//tr[1]/td[2]/span/span[2] | //div[@id='buybox-tabular']//tr[2]/td[1] | //div[@id='buybox-tabular']//tr[2]/td[2]/span/span[2]
+    manualSelector: div#shippingInfo
   - name: shippingDimensions
     singleValue: false
     xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1] | //div[@id='detailBullets_feature_div']//span[normalize-space(.)="Package Dimensions :"]/following::span[1]
@@ -98,7 +98,7 @@ fields:
     xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
   - name: color
     singleValue: false
-    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")] | //table[contains(@id,'productDetails_techSpec_section_1')]//th[contains(text(), 'Color')]/../td
+    xpath: div#productColor
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//p[not(img) and text()]
