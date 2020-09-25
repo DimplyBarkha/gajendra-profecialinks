@@ -19,7 +19,7 @@ fields:
     xpath:  //*[@id="BPDT"]/../../preceding-sibling::div/div[position()<last() and position()>1]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
-    xpath:  concat(//*[@itemprop="brand"]//h2, ' - ', //*[@itemprop="name"]//h1)
+    xpath:  //*[@itemprop="name"]//h1
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -78,12 +78,8 @@ fields:
     regExpReplace:  $2
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    xpath: (//div[contains(text(),'Model N') and not(contains(.,'Name'))]/following-sibling::div)[1]
+    xpath: //script/@data-flix-mpn
     description: The manufacturer model code (unique) of the product
-  - name: mpc2
-    xpath: //div[contains(text(),'Model No')][count(../div)=1]
-    regExp: (.+)\s:\s(.+)
-    regExpReplace: $2
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on

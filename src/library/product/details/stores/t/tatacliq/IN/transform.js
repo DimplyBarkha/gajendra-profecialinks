@@ -92,12 +92,6 @@ const transform = (data) => {
         }];
       }
 
-      if (!row.mpc && row.mpc2) {
-        row.mpc = [{
-          text: row.mpc2[0].text,
-        }];
-      }
-
       if (!row.countryOfOrigin && row.countryOfOrigin2) {
         row.countryOfOrigin = [{
           text: row.countryOfOrigin2[0].text,
