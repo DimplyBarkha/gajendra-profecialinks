@@ -124,23 +124,6 @@ const transform = (data) => {
             },
           ];
         }
-        if (row.shippingDimensions) {
-          let text = "";
-          row.shippingDimensions.forEach((item) => {
-            if (item.text.length > 0 && item.text.split("\n").length > 0) {
-              item.text.split("\n").forEach((eachDesc) => {
-                if (eachDesc.toLowerCase().indexOf("dimension") > 0) {
-                  text += `${eachDesc} | `;
-                }
-              });
-            }
-          });
-          row.shippingDimensions = [
-            {
-              text: text.trim().slice(0, -2),
-            },
-          ];
-        }
         if (row.color) {
           let text = "";
           row.color.forEach((item) => {
@@ -164,10 +147,10 @@ const transform = (data) => {
             if (item.text.length > 0 && item.text.split("\n").length > 0) {
               item.text.split("\n").forEach((eachDesc) => {
                 if (
-                  eachDesc.toLowerCase().indexOf("peso") > 0 ||
-                  eachDesc.toLowerCase().indexOf("alto") > 0 ||
-                  eachDesc.toLowerCase().indexOf("ancho") > 0 ||
-                  eachDesc.toLowerCase().indexOf("fondo") > 0
+                  eachDesc.toLowerCase().indexOf("peso (") > 0 ||
+                  eachDesc.toLowerCase().indexOf("alto (") > 0 ||
+                  eachDesc.toLowerCase().indexOf("ancho (") > 0 ||
+                  eachDesc.toLowerCase().indexOf("fondo (") > 0
                 ) {
                   text += `${eachDesc} | `;
                 }
@@ -177,19 +160,6 @@ const transform = (data) => {
           row.specifications = [
             {
               text: text.trim().slice(0, -2),
-            },
-          ];
-        }
-        if (row.price) {
-          let text = "";
-          row.price.forEach((item) => {
-            if (item.text.length > 0) {
-              text += `${item.text.replace(/,/, "")}`;
-            }
-          });
-          row.price = [
-            {
-              text: text,
             },
           ];
         }

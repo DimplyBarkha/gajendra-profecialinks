@@ -6,9 +6,6 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[contains(@class,'add-to-cart')]//button[@type='button'][contains(@class,'btn-cart')]//text()
-  - name: shippingInfo
-    singleValue: false
-    xpath: //div[contains(@class,'custom-sidebar-right')]//div//div[2]//div[contains(@class,'feature')][1]//p//text()
   - name: promotion
     singleValue: false
     xpath: //div[contains(@class,'sku')][2]
@@ -58,9 +55,6 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //div[contains(@class,'qty-wrapper')]//input[@id='qty']//@value
-  - name: shippingDimensions
-    singleValue: false
-    xpath: //meta[contains(@itemprop, "description")]/@content
   - name: color
     singleValue: false
     xpath: //meta[contains(@itemprop, "description")]/@content
@@ -78,3 +72,6 @@ fields:
     xpath: //script[contains(@type,"text/javascript")]//text()
     regExp: \"url":(.*)
     regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    xpath: count(//meta[contains(@itemprop, "identifier")]/@content)
