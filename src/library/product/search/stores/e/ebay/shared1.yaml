@@ -1,23 +1,20 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div.p-box
-recordXPath: //div[contains(@class,"p-box")]
+recordSelector: div.tpgv > div.wp
+recordXPath: //div[contains(@class,'tpgv')]/div[contains(@class,"wp")]
 fields:
   - name: name
     singleValue: false
-    manualSelector: span.p-title
+    xpath: //div[@class='title']/a/@title | //div[@class='title']/a
   - name: productUrl
     singleValue: false
-    xpath: //a/@href
+    xpath: //div[@class='title']/a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //img/@src
+    xpath: //img[@alt='Item image']/@src
   - name: price
     singleValue: false
-    manualSelector: span.p-price
+    manualSelector: span.vl
   - name: searchUrl
     singleValue: false
     xpath: ancestor::html//div[@id='search-url']
-  - name: decimalSeperator
-    singleValue: false
-    defaultValue: EU

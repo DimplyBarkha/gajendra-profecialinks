@@ -10,7 +10,7 @@ module.exports = {
     loadedSelector: 'ul.srp-results > li[data-view]',
     noResultsXPath: null,
     openSearchDefinition: null,
-    domain: 'ebay.com',
+    domain: 'ebaystores.com',
     zipcode: '',
   },
 };

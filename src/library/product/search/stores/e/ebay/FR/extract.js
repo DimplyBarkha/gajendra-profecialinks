@@ -7,7 +7,7 @@ module.exports = {
     country: 'FR',
     store: 'ebay',
     transform,
-    domain: 'ebay.fr',
+    domain: 'ebaystores.fr',
     zipcode: '',
   },
   implementation,

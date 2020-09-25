@@ -2,9 +2,9 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'ebay.com',
+    domain: 'ebaystores.fr',
     timeout: null,
-    country: 'US',
+    country: 'FR',
     store: 'ebay',
     zipcode: '',
   },

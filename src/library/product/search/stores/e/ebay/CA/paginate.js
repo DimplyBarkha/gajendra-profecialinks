@@ -4,13 +4,13 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'ebay',
-    nextLinkSelector: 'a.pagination__next:not([aria-disabled])',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'ul.srp-results > li[data-view]',
+    loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
-    domain: 'ebay.ca',
+    domain: 'ebaystores.ca',
     zipcode: '',
   },
 };
