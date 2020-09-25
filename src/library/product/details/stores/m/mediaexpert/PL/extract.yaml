@@ -83,7 +83,7 @@ fields:
     xpath: //div[@class="c-offerBox_variantsContent"]//div[contains(@class,"c-offerBox")]/@data-label
   - name: technicalInformationPdfPresent
     singleValue: false
-    xpath: //div[@id="downloads"]/a[contains(@class,'is-download')]/@href
+    xpath: //div[@id="downloads"]//a[contains(@class,"is-download")]/@href
   - name: videos
     singleValue: false
     xpath: //div[@class="c-offerBox_galleryItem"]/iframe[@data-component="youtube"]/@data-src
