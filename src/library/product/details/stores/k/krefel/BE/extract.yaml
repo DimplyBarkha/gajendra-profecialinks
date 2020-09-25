@@ -126,9 +126,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@class='autheos-videothumbnail']/img/@src
-    regExp: (.+p)-
-    regExpReplace: $1
+    xpath: //div[@id="videosText"]
   - name: name
     description: The product name
     xpath: (//span[@class='product'])[1]
@@ -417,6 +415,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //div[@id="promotionText"]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
