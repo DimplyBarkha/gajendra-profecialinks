@@ -26,6 +26,26 @@ module.exports = {
       };
     });
 
+    await context.evaluate(() => {
+      function addElementToDocument (elem, id, value) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = value;
+        newDiv.style.display = 'none';
+        elem.appendChild(newDiv);
+      }
+      const arr = document.querySelectorAll('div.col-md-4.product');
+      for (let i = 0; i < arr.length; i++) {
+        let item = document.querySelectorAll('div.col-md-4.product')
+          ? document.querySelectorAll('div.col-md-4.product')[i] : [];
+        let productName = item.querySelector('span.product-name span.name')
+          ? item.querySelector('span.product-name span.name').innerText : '';
+        let productBrand = item.querySelector('span.product-name span.brand')
+          ? item.querySelector('span.product-name span.brand').innerText : '';
+        addElementToDocument(item, 'nameExtended', `${productBrand} ${productName}`);
+      }
+    });
+
     await context.evaluate(async function () {
       const numberOfResults = document.querySelectorAll('div[class^="col-md-4"]');
       for (let x = 0; numberOfResults.length > x; x++) {

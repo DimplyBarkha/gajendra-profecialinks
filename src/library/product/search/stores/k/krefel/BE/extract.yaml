@@ -14,7 +14,7 @@ fields:
     type: NUMBER 
   - name: name
     description: The product name
-    xpath: concat(//span[@class='product-name']//span[@class='brand'], ', ', //span[@class='product-name']//span[@class='name'])
+    xpath: //div[@id ='nameExtended']
   - name: productUrl
     description: The URL for the product details page
     xpath: //a[@class='product-content__link']/@href
