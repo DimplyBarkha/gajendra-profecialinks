@@ -1,42 +1,59 @@
-
 module.exports = {
-  implements: 'navigation/goto',
+  implements: "navigation/goto",
   parameterValues: {
-    domain: 'darty.com',
+    domain: "darty.com",
     timeout: 20000,
-    country: 'FR',
-    store: 'darty',
-    zipcode: '',
+    country: "FR",
+    store: "darty",
+    zipcode: "",
   },
-  implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
+  implementation: async (
+    { url, zipcode, storeId },
+    parameters,
+    context,
+    dependencies
+  ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
+    await context.setLoadAllResources(true);
     await context.goto(url, {
       antiCaptchaOptions: {
-        type: 'GEETEST',
-        libPath: '',
+        provider: "2-captcha",
+        type: "GEETEST",
       },
       timeout: timeout,
-      waitUntil: 'load',
+      waitUntil: "load",
       checkBlocked: false,
+      js_enabled: true,
+      load_timeout: 30,
+      css_enabled: true,
     });
 
-    try {
-      await context.waitForSelector('div.product_body');
-    } catch (error) {
-      try {
-        await context.waitForSelector('div.geetest_btn');
-      } catch (error) {
-        
-      }
-      await context.solveCaptcha({
-        type: 'GEETEST',
-        inputElement: 'div.geetest_btn',
-      });
-    }
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000))
 
-    console.log(zipcode);
-    if (zipcode) {
-      await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
-    }
+    await context.evaluate(
+      function () {
+        const code = geetest
+          .toString()
+          .replace(
+            /appendTo\("#([^"]+)"\)/,
+            'appendTo(document.getElementById("$1"))'
+          );
+        return eval(`(${code})('/captcha/geetest');`);
+      },
+      undefined,
+      "iframe"
+    );
+
+    await new Promise((r) => setTimeout(r, 500));
+
+    await context.evaluate(
+      function () {
+        document.querySelector(".captcha-handler").click();
+      },
+      undefined,
+      "iframe"
+    );
+
+    await context.waitForNavigtion();
   },
 };
