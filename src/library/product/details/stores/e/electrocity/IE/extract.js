@@ -76,12 +76,13 @@ module.exports = {
       }
 
       const other_description_xpath = "//div[@class='elementor-widget-wrap']//div[contains(@class, 'elementor-element')]//table[@class='shop_attributes']/tbody/tr[position()>1]";
-      const other_description_str = getAllXpath(other_description_xpath, 'innerText').join(',');
-      const other_description_list = other_description_str.split(',');
+      const other_description_str = getAllXpath(other_description_xpath, 'innerText').join(' | ');
+      addElementToDocument('added_productOtherInformation', other_description_str); 
+      // const other_description_list = other_description_str.split(',');
 
-      other_description_list.forEach(function(other_description) {
-        addElementToDocument('added_productOtherInformation', other_description);   
-      });
+      // other_description_list.forEach(function(other_description) {
+      //   addElementToDocument('added_productOtherInformation', other_description);   
+      // });
       
       const specifications_xpath = "//table[@class='flix-std-specs-table']/tbody/tr";
       const specifications_str = getAllXpath(specifications_xpath, 'innerText').join(',');
