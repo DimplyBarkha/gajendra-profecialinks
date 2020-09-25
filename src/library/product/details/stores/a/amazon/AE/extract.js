@@ -1,4 +1,4 @@
-const { transform } = require('./format');
+const { transform } = require('../../../../sharedAmazon/transformNew');
 /**
  *
  * @param { { url?: string,  id?: string} } inputs
@@ -132,16 +132,16 @@ async function implementation (
     // Description has Li and <P>. Handled it wisely
     const description = document.querySelector('div#productDescription');
     const additionalDescription = document.querySelector('div#feature-bullets > ul');
-    const additionalDescriptionText = additionalDescription && additionalDescription.innerHTML ? 
-      additionalDescription.innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim() : ''
-    const descriptionText = description && description.innerHTML ?
-      description.innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim() : ''
+    const additionalDescriptionText = additionalDescription && additionalDescription.innerHTML
+      ? additionalDescription.innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim() : '';
+    const descriptionText = description && description.innerHTML
+      ? description.innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim() : '';
     const formattedDescriptionText = additionalDescriptionText ? descriptionText ? additionalDescriptionText + ' | ' + descriptionText : additionalDescriptionText : descriptionText;
     addHiddenDiv('productDescriptionExtract', formattedDescriptionText);
 
     const shippingInfo = document.querySelector('div#buybox-tabular > table > tbody');
-    let shippingInfoText = shippingInfo && shippingInfo.innerHTML ? 
-      shippingInfo.innerHTML.replace(/<tr>/gm, '').replace(/<td>/gm, '').replace(/<span>/gm, '').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim() : ''
+    let shippingInfoText = shippingInfo && shippingInfo.innerHTML
+      ? shippingInfo.innerHTML.replace(/<tr>/gm, '').replace(/<td>/gm, '').replace(/<span>/gm, '').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim() : '';
     shippingInfoText = shippingInfoText.replace(/\s+/g, ' ');
     addHiddenDiv('shippingInfo', shippingInfoText);
 
@@ -153,7 +153,33 @@ async function implementation (
     weightText = weightText.replace(/(\s\d.*)/gm, '$1');
     addHiddenDiv('productWeight', weightText);
 
-  })
+    const technicalInfo = document.querySelector('div#prodDetails span[data-action="enhanced-content-open-file"] a')
+      ? document.querySelector('div#prodDetails span[data-action="enhanced-content-open-file"] a').getAttribute('href') : '';
+    const info = technicalInfo.length > 1 ? 'Yes' : 'No';
+    addHiddenDiv('technicalDescription', info);
+
+    const weight1 = document.querySelector('div#productDescription');
+    if (weight1.innerHTML.includes('Item Weight')) {
+      const weightText1 = weight1.innerHTML.replace(/.*Item Weight: (.*)/, '$1').replace(/^((?:\S+\s+){2}\S+).*/, '$1');
+      addHiddenDiv('productWeight1', weightText1);
+    }
+
+    const color1 = document.querySelector('div#productDescription');
+    if (color1.innerHTML.includes('Color Category')) {
+      const colorDemo1 = color1.innerHTML.replace(/.*Color Category: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
+      addHiddenDiv('productColor1', colorDemo1);
+    } else if (color1.innerHTML.includes('Color')) {
+      let colorDemo1 = color1.innerHTML.replace(/.*Color: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
+      colorDemo1 = colorDemo1.replace(/<br>.*/, '');
+      addHiddenDiv('productColor1', colorDemo1);
+    }
+
+    const mpc1 = document.querySelector('div#productDescription');
+    if (mpc1.innerHTML.includes('Model Number')) {
+      const mpcDemo1 = mpc1.innerHTML.replace(/.*Model Number: (.*)/, '$1').replace(/^((?:\S+\s+){2}\S+).*/, '$1');
+      addHiddenDiv('productMpc', mpcDemo1);
+    }
+  });
   await helpers.addURLtoDocument('added-url');
   await helpers.addURLtoDocument('added-asin', true);
   await context.extract(productDetails, { transform });
