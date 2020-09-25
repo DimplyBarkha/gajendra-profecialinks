@@ -10,10 +10,15 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //picture[contains(concat(' ', normalize-space(@class), ' '), ' wp-post-image')]/@title    
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //li[@class='jet-woo-slick-control-thumbs__item slick-slide slick-active']//img/@src
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+    xpath: //div[@class='flix-background-image']/img/@srcset
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -23,9 +28,6 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //h1[contains(@class, "product_title")]/text()
-    regExp: (\|)(.*)
-    regExpReplace: $2
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -37,7 +39,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //nav[@class="woocommerce-breadcrumb"]//a
+    xpath: //nav[@class="woocommerce-breadcrumb"]//a[position()>1]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -73,7 +75,6 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //tr[@class="attribute-key-pa_brand"]//td//div[@class="woocommerce-attribute-image"]//img/@alt
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -111,9 +112,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //script[contains(text(),"productReviewCount")]
-    regExp: (\"productReviewCount\":)(.*)
-    regExpReplace: $2
+    xpath: //div[@id="added_ratingCount"]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -121,14 +120,17 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //span[@class="sr-only"]/text()
+    regExp: (.*)(\sstar)
+    regExpReplace: $1
+    defaultvalue: 0
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //div[contains(@id,'tab-delivery_tab')]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //table[contains(@class, "shop_attributes")]//tbody//tr[contains(@class, "attribute-key-Dimensions")]//td//p
+    xpath: //div[@id = "added_shipping_dimensions"] 
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -136,6 +138,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    defaultValue : 0
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -146,11 +149,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //meta[@name='dc.description']/@content
-  - name: manufacturerImages
-    singleValue: false
-    description: Images within the third party description
-    xpath: //tr[@class="attribute-key-pa_brand"]//td//div[@class="woocommerce-attribute-image"]//img/@src
+    xpath: //div[@id="added_manufacturerDescription"]
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -411,7 +410,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(@class,'flix-std-table')]//table[contains(@class, "flix-std-specs-table")]/tbody/tr[text()]
+    xpath: //div[@id="added_specifications"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -431,7 +430,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //div[@class='elementor-widget-wrap']//div[@class='elementor-element elementor-element-5dd24b85 elementor-widget elementor-widget-woocommerce-product-additional-information']
+    xpath: //div[@id = "added_productOtherInformation"]
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -447,7 +446,6 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
-    xpath: //div[@class='elementor-element elementor-element-81a3138 elementor-widget elementor-widget-heading']//div[@class='elementor-widget-container']//span[@class='elementor-heading-title elementor-size-default']
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -483,7 +481,6 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[contains(@id,'tab-description')]//p
   - name: prop65Warning
     singleValue: true
     description: null
@@ -501,12 +498,11 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
-    xpath: //div[contains(@class, 'elementor-element-dfd5028')]//span[contains(@class, 'elementor-heading-title')]//a/@href
+    xpath: //div[@id="added_technicalInformationPresent"] 
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: Yes
+    defaultValue: No
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']

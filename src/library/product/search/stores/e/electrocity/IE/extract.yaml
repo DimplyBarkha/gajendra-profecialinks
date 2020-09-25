@@ -14,7 +14,7 @@ fields:
     xpath: //h2[@class='woocommerce-loop-product__title']/text()
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class='astra-shop-thumbnail-wrap']//picture[contains(@class,'thumbnail')]//img/@src
+    xpath: //div[@class='astra-shop-thumbnail-wrap']//picture[contains(@class,'thumbnail')]//img/@src | //div[@class='astra-shop-thumbnail-wrap']//img[contains(@class,'attachment-woocommerce_thumbnail')]/@src
   - name: id
     singleValue: false
     xpath: //p[@class='sku']/text()
