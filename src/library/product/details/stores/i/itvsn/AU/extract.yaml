@@ -7,6 +7,8 @@ fields:
   singleValue: true
   description: URL of the main product image
   xpath: //div[contains(@class,'tvsn-productmedia')]//div[contains(@class,'tvsn-productmedia-viewer')]//div//img/@src 
+  regExp: (.+)
+  regExpReplace: https://www.itvsn.com.au$1
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
@@ -114,11 +116,10 @@ fields:
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
-- name: aggregateRating
+- name: aggregateRating2
   singleValue: true   
   description: The stated aggregate rating normalized to be out of 5
   xpath: //div[@class="col-sm-6 tvsn-products-reviews-avg"]//div//strong
-  type: NUMBER
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -414,6 +415,7 @@ fields:
 - name: specifications
   singleValue: true
   description: The physical dimensions of the product including packaging.
+  xpath: //*[contains(text(),'Specifications')]/following::ul[1]
 - name: storage
   singleValue: true
   description: Suggested storage location for product

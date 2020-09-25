@@ -20,7 +20,7 @@ const transform = (data) => {
 			if (row.warranty) {
 				let newText = '';
 				row.warranty.forEach(item => {
-					newText =  `${item.text.replace(/&nbsp;|\*/g, '')}`
+					newText = `${item.text.replace(/&nbsp;|\*/g, '')}`
 				});
 				row.warranty = [{ text: newText }];
 			}
@@ -84,6 +84,38 @@ const transform = (data) => {
 				});
 				row.additionalDescBulletInfo = [{ text: newText.slice(0, -4) }];
 			} */
+			if (row.image) {
+				const url = new URL(row.image[0].text);
+				if (url.host == 'www.itvsn.com.au') {
+					row.image = [{ text: row.image[0].text }];
+				} else {
+					row.image = [{ text: 'https://www.itvsn.com.au' + row.image[0].text }];
+				}
+			}
+			if (row.alternateImages) {
+				const url = new URL(row.image[0].text);
+				row.alternateImages.forEach((item, index) => {
+					if (url.host == 'www.itvsn.com.au') {
+						row.alternateImages[index].text = row.alternateImages[index].text;
+					} else {
+						row.alternateImages[index].text = 'https://www.itvsn.com.au' + row.alternateImages[index].text;
+					}
+				});
+			}
+			if (row.aggregateRating2) {
+				let newText = "";
+				row.aggregateRating2.forEach(item => {
+					newText = item.text.replace(".", ",");
+				});
+				row.aggregateRating2 = [{ text: newText }];
+			}
+			if (row.specifications) {
+				let newText = '';
+				row.specifications.forEach(item => {
+					newText += `${item.text.replace(/ \n|&dash;|\r/g, ' || ')}`;
+				});
+				row.specifications = [{ text: newText.slice(0, -4) }];
+			}
 		}
 	}
 
