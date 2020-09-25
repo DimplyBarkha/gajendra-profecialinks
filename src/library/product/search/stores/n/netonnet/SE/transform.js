@@ -33,21 +33,24 @@ const transform = (data, context) => {
         }));
   
         if (row.aggregateRating2) {
+                  /*
                   let newText = '0';
-                  row.aggregateRating2.forEach(item => {
+                   row.aggregateRating2.forEach(item => {
                       
-                      /*var received_per = item.raw.replace("width: ", "")
-                       var received_per = received_per.replace("%", ""); */
+                      //var received_per = item.raw.replace("width: ", "")
+                       //var received_per = received_per.replace("%", "");
                       var received_per = item.value*100;
                       
                       if(received_per >= 1){
                           var aggregate_rating = ( received_per * 5 )/100;    
                           var newaggregate_rating = aggregate_rating.toString().replace(".", ",");
                           newText = newaggregate_rating;
-
                       }
                   });
                   row.aggregateRating2 = [{ text: newText }];
+                  */
+                  var aggregateRating2 = row.aggregateRating2[0].raw.replace('.',','); 
+                  row.aggregateRating2 =  [{ text:  aggregateRating2 }];
               }
       }
     }
