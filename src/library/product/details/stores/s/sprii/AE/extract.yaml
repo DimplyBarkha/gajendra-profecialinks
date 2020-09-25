@@ -71,10 +71,6 @@ fields:
     singleValue: false
     description:
     xpath: //span[@data-price-type='oldPrice']
-  - name: promotion
-    singleValue: false
-    description:
-    xpath: //meta[@name='description']/@content
   - name: metaKeywords
     singleValue: false
     description:
@@ -86,7 +82,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description:
-    xpath: //div[contains(@class,'fotorama__loaded--img') and @aria-hidden="true"]//img/@src
+    xpath: (//div[contains(@class,'fotorama__thumb')]//img/@src)[position()>1]
   - name: videos
     singleValue: false
     description:
@@ -99,11 +95,11 @@ fields:
     singleValue: false
     description:
     xpath: //td[@data-th='الحجم/العمر']
-  - name: promotion
-    singleValue: false
-    description:
-    xpath: //div[@id= 'stock-threshold-block']
   - name: variantId
     singleValue: false
     description:
-    xpath: //td[@data-th='رمز المنتج']
+    xpath: //div[@data-product-id]/@data-product-id
+  - name: variantCount
+    singleValue: false
+    description:
+    xpath: //div[@data-product-id]/@data-product-id

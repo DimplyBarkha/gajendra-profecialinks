@@ -141,14 +141,14 @@ const transform = (data) => {
       if (row.price) {
         var i = 0;
         for (var price of row.price) {
-          row.price[i].text = price.text.replace('٫', ',').replace('٬', ',').replace('.', ',');
+          row.price[i].text = price.text.replace('٫', '.').replace('٬', '.');
           i++;
         }
       }
       if (row.listPrice) {
         var i = 0;
         for (var listPrice of row.listPrice) {
-          row.listPrice[i].text = listPrice.text.replace('٫', ',').replace('.', ',');
+          row.listPrice[i].text = listPrice.text.replace('٫', '.');
           i++;
         }
       }
@@ -159,31 +159,33 @@ const transform = (data) => {
           i++;
         }
       }
-      // if (row.alternateImages) {
-      //   try {
-      //     var regex = /(\/)(?!.*\/)(.*_)(.*)(\.)/g;
-      //     var regex1 = /(\/)(?!.*\/)(.*_)(.*)(\.)/g;
-
-      //     const altImgs = row.alternateImages;
-      //     if (altImgs && altImgs.length > 1) {
-      //       const prevImage = altImgs[0];
-      //       const nextImage = altImgs[altImgs.length - 1];
-      //       const match1 = regex.exec(prevImage.text);
-      //       const match2 = regex1.exec(nextImage.text);
-      //       const endNumber = Number(match1[3]);
-      //       const startNumber = Number(match2[3]);
-      //       const newAltImg = [];
-      //       for (let i = startNumber; i <= endNumber; i++) {
-      //         newAltImg.push({
-      //           text: prevImage.text.replace(`_${endNumber}.`, `_${i}.`),
-      //           xpath: prevImage.xpath
-      //         })
-      //       }
-      //       row.alternateImages = newAltImg;
-      //     }
-      //   }
-      //   catch { }
-      // }
+      if (row.variantCount) {
+        row.variantCount.forEach((element, index) => {
+          row.variantCount[index].text = '0';
+        });
+      }
+      if (row.alternateImages) {
+        try {
+          var pI = row.image[0].text.split('/');
+          var cacheNumber = '';
+          pI.forEach((element, index) => {
+            if (element === 'cache') {
+              cacheNumber = pI[++index];
+            }
+          });
+          console.log('cacheNumber', cacheNumber);
+          row.alternateImages.forEach((element, i) => {
+            var sI = element.text.split('/');
+            sI.forEach((element, index) => {
+              if (element === 'cache') {
+                sI[++index] = cacheNumber;
+              }
+            });
+            row.alternateImages[i].text = sI.join('/');
+          });
+        }
+        catch (e) { }
+      }
     }
   }
   return data;
