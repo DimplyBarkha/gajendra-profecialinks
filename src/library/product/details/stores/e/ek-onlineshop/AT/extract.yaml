@@ -66,11 +66,14 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     # xpath: //nav[contains(@class, 'breadcrumb')]//ol//li[position()=3]
-    xpath: //script//@data-flix-brand
+    xpath: //h1[@itemprop="name"]  
+    regExp: ^([\w\-]+)
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
-    xpath: //div[contains(@class,'product-description-short')]//img//@alt  
+    xpath: //h1[@itemprop="name"]  
+    regExp: ^([\w\-]+)
+    # xpath: //div[contains(@class,'product-description-short')]//img//@alt      
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -166,7 +169,8 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //meta[@property="og:description"]//@content
+    xpath: //h1[@itemprop="name"]
+    # xpath: concat(//script//@data-flix-brand," ",//meta[@property="og:description"]//@content)
   - name: url
     singleValue: true
     description: The Url of the page
