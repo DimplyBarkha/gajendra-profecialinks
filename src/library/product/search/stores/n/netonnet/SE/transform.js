@@ -32,9 +32,9 @@ const transform = (data, context) => {
           el.text = clean(el.text);
         }));
   
-        if (row.aggregateRating) {
+        if (row.aggregateRating2) {
                   let newText = '0';
-                  row.aggregateRating.forEach(item => {
+                  row.aggregateRating2.forEach(item => {
                       
                       /*var received_per = item.raw.replace("width: ", "")
                        var received_per = received_per.replace("%", ""); */
@@ -47,7 +47,7 @@ const transform = (data, context) => {
 
                       }
                   });
-                  row.aggregateRating = [{ text: newText }];
+                  row.aggregateRating2 = [{ text: newText }];
               }
       }
     }
