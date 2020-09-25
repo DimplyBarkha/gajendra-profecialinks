@@ -36,7 +36,7 @@ fields:
     xpath: //div[@class='detail-showcase--additional-imgs']//div[not(@data-active)]//img[@class='detail-showcase--additional-img']/@src
   - name: category
     singleValue: false
-    xpath: //header//ol[contains(@class,'breadcrumbs--container')]//li//a[@class='u-reset']
+    xpath: (//header//ol[contains(@class,'breadcrumbs--container')])[1]//li//a[@class='u-reset']
   - name: weightNet
     singleValue: false
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Leergewicht']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
