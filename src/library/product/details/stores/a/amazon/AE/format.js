@@ -190,19 +190,19 @@ const transform = (data, context) => {
           ];
         }
       }
-      if (row.description && row.description[0]) {
-        const additionalDescription = row.additionalDescBulletInfo && row.additionalDescBulletInfo[0]
-          ? row.additionalDescBulletInfo[0].text : '';
-        const descriptionText = additionalDescription
-          ? additionalDescription + ' | ' + row.description[0].text : row.description[0].text;
-        row.description = [{ text: descriptionText }];
-      } else if (!row.description) {
-        const desc = row.additionalDescBulletInfo && row.additionalDescBulletInfo[0]
-          ? row.additionalDescBulletInfo[0].text : '';
-        if (desc.length > 0) {
-          row.description = [{ text: desc }];
-        }
-      }
+      // if (row.description && row.description[0]) {
+      //   const additionalDescription = row.additionalDescBulletInfo && row.additionalDescBulletInfo[0]
+      //     ? row.additionalDescBulletInfo[0].text : '';
+      //   const descriptionText = additionalDescription
+      //     ? additionalDescription + ' | ' + row.description[0].text : row.description[0].text;
+      //   row.description = [{ text: descriptionText }];
+      // } else if (!row.description) {
+      //   const desc = row.additionalDescBulletInfo && row.additionalDescBulletInfo[0]
+      //     ? row.additionalDescBulletInfo[0].text : '';
+      //   if (desc.length > 0) {
+      //     row.description = [{ text: desc }];
+      //   }
+      // }
       if (row.amazonChoice && row.amazonChoice[0]) {
         if (row.amazonChoice[0].text.includes('Amazon')) {
           row.amazonChoice = [{ text: 'Yes' }];
@@ -276,21 +276,29 @@ const transform = (data, context) => {
       if (row.technicalInformationPdfPresent) {
         row.technicalInformationPdfPresent = row.technicalInformationPdfPresent[0].text !== 'No' ? [{ text: 'Yes' }] : [{ text: 'No' }];
       }
-      if (!row.weightNet) {
-        if (row.weightNet1 && row.weightNet1[0].text.includes('Item Weight')) {
-          const text = row.weightNet1[0].text.replace(/\n/g, '').replace(/.*Item Weight: (.*)/, '$1').replace(/^((?:\S+\s+){2}\S+).*/, '$1');
-          row.weightNet = [{ text }];
+      // if (!row.weightNet) {
+      //   if (row.weightNet1 && row.weightNet1[0].text.includes('Item Weight')) {
+      //     const text = row.weightNet1[0].text.replace(/\n/g, '').replace(/.*Item Weight: (.*)/, '$1').replace(/^((?:\S+\s+){2}\S+).*/, '$1');
+      //     row.weightNet = [{ text }];
+      //   }
+      // }
+      if (!row.mpc || row.mpc[0].text.includes(':')) {
+        if (row.mpc1 && row.mpc1[0].text.includes('Model Number')) {
+          let text = row.mpc1[0].text.replace(/\n/g, '').replace(/.*Model Number: (.*)/, '$1').replace(/^((?:\S+\s+){2}\S+).*/, '$1');
+          text = text.slice(0, -4);
+          row.mpc = [{ text }];
         }
       }
-      if (!row.color) {
-        if (row.color1 && row.color1[0].text.includes('Color Category')) {
-          const text = row.color1[0].text.replace(/\n/g, '').replace(/.*Color Category: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
-          row.color = [{ text }];
-        } else if (row.color1 && row.color1[0].text.includes('Color')) {
-          const text = row.color1[0].text.replace(/\n/g, '').replace(/.*Color: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
-          row.color = [{ text }];
-        }
-      }
+      // if (!row.color) {
+      //   if (row.color1 && row.color1[0].text.includes('Color Category')) {
+      //     let text = row.color1[0].text.replace(/\n/g, '').replace(/.*Color Category: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
+      //     text = text.slice(0, -3);
+      //     row.color = [{ text }];
+      //   } else if (row.color1 && row.color1[0].text.includes('Color')) {
+      //     const text = row.color1[0].text.replace(/\n/g, '').replace(/.*Color: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
+      //     row.color = [{ text }];
+      //   }
+      // }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

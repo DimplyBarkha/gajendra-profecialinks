@@ -131,10 +131,29 @@ async function implementation (
 
     // Description has Li and <P>. Handled it wisely
     const description = document.querySelector('div#productDescription');
-    const descriptionText = description && description.innerHTML
-      ? description.innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim() : '';
-    addHiddenDiv('productDescriptionExtract', descriptionText);
-  });
+    const additionalDescription = document.querySelector('div#feature-bullets > ul');
+    const additionalDescriptionText = additionalDescription && additionalDescription.innerHTML ? 
+      additionalDescription.innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim() : ''
+    const descriptionText = description && description.innerHTML ?
+      description.innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim() : ''
+    const formattedDescriptionText = additionalDescriptionText ? descriptionText ? additionalDescriptionText + ' | ' + descriptionText : additionalDescriptionText : descriptionText;
+    addHiddenDiv('productDescriptionExtract', formattedDescriptionText);
+
+    const shippingInfo = document.querySelector('div#buybox-tabular > table > tbody');
+    let shippingInfoText = shippingInfo && shippingInfo.innerHTML ? 
+      shippingInfo.innerHTML.replace(/<tr>/gm, '').replace(/<td>/gm, '').replace(/<span>/gm, '').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim() : ''
+    shippingInfoText = shippingInfoText.replace(/\s+/g, ' ');
+    addHiddenDiv('shippingInfo', shippingInfoText);
+
+    const color = document.querySelector('div#variation_color_name > div > span') || document.querySelector('div#prodDetails > span > strong');
+    addHiddenDiv('productColor', color);
+
+    const weight = document.querySelector('table#productDetails_techSpec_section_1 > tbody');
+    let weightText = weight && weight.innerHTML ? weight.innerHTML.replace(/<tr>/gm, '').replace(/<.*?>/gm, '').replace(/\s+/gm, ' ').replace(/(\sItem\sWeight\s.*)(")/gm, '$1').trim() : '';
+    weightText = weightText.replace(/(\s\d.*)/gm, '$1');
+    addHiddenDiv('productWeight', weightText);
+
+  })
   await helpers.addURLtoDocument('added-url');
   await helpers.addURLtoDocument('added-asin', true);
   await context.extract(productDetails, { transform });
