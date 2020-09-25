@@ -46,6 +46,15 @@ module.exports = {
         return result;
       };
 
+      let scrollTop = 500;
+      while (true) {
+        window.scroll(0, scrollTop);
+        await stall(1000);
+        scrollTop += 500;
+        if (scrollTop === 10000) {
+          break;
+        }
+      }
       const product_name = getXpath("//h1[contains(@class, 'product_title')]/text()", 'nodeValue');
       
       if(product_name && typeof product_name == 'string'){
@@ -93,16 +102,6 @@ module.exports = {
       const manufacturerDescription_xpath = "//div[@class='flix-Text-block']";
       const manufacturerDescription = getAllXpath(manufacturerDescription_xpath, 'innerText');
       addElementToDocument('added_manufacturerDescription', manufacturerDescription);
-
-      let scrollTop = 500;
-      while (true) {
-        window.scroll(0, scrollTop);
-        await stall(1000);
-        scrollTop += 500;
-        if (scrollTop === 10000) {
-          break;
-        }
-      }
 
     });
     await context.extract(productDetails);
