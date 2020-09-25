@@ -86,7 +86,7 @@ const transform = (data) => {
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
           var tmp = item.text.split('/');
-          item.text = tmp[0];
+          item.text = tmp[0].replace('.',',');
         });
       }
       if (row.manufacturer) {
