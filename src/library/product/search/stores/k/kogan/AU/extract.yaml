@@ -26,6 +26,10 @@ fields:
   - name: seller
     xpath: //span[contains(@class,'_2MTjQ vAAKf')]//span[contains(@class,'_1nVaV')]/strong
     singleValue : false
+  - name: aggregateRating2  
+    singleValue: true
+    xpath: //meta[@itemprop="ratingValue"]/@content
+    defaultValue: '0'
   - name: ratingCount  
     singleValue: true
     xpath: //meta[@itemprop="ratingValue"]/@content
@@ -39,4 +43,6 @@ fields:
     singleValue: true
     description: Product manufacturer
     xpath: //div[@itemprop="name"]
-  
+  - name: searchUrl
+    singleValue: true
+    xpath: //tempWebUrl-id[@id="tempWebUrl"]  

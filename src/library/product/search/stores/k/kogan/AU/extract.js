@@ -12,12 +12,16 @@ async function implementation (
 
   await context.evaluate(async function () {
     let tempUrl ='';
-    let tempCheck = document.evaluate('//ul[contains(@class,"page-list")]//li[@class="current"]//a//@href', document).iterateNext();      
+    let tempCheck = document.evaluate('//link[@rel="canonical"]//@href', document).iterateNext();      
     if(tempCheck !=null)
     {
-      tempUrl = document.evaluate('//ul[contains(@class,"page-list")]//li[@class="current"]//a//@href', document).iterateNext().textContent.trim();                        
+      tempUrl = document.evaluate('//link[@rel="canonical"]//@href', document).iterateNext().textContent.trim();                        
     }
-
+    
+    if (tempUrl.indexOf('kogan.com') === -1) {
+      tempUrl = "https://www.kogan.com" + tempUrl;
+    }
+    
     function addHiddenDiv (node, id, content) {
       const newDiv = document.createElement('tempWebUrl-id');
       newDiv.id = id;
@@ -27,7 +31,7 @@ async function implementation (
     }
 
     let i = 0;
-    document.querySelectorAll('div.laberProductGrid > div.row > div.item-inner').forEach(node => {
+    document.querySelectorAll('div.rs-infinite-scroll > div._3dbuB').forEach(node => {    
       console.log(node);      
       addHiddenDiv(node,'tempWebUrl',tempUrl);
       i++;
@@ -45,4 +49,5 @@ module.exports = {
     domain: 'kogan.com',
     zipcode: '',
   },    
+  implementation
 };
