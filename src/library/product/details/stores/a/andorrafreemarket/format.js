@@ -156,17 +156,16 @@ const transform = (data) => {
                     startIndex = index;
                   }
                   if (
-                    (startIndex > 0 || endIndex == 0) &&
-                    eachDesc.toLowerCase().indexOf("-") >= 0
-                  ) {
-                    endIndex = index;
-                  }
-
-                  if (
-                    index > 0 &&
                     startIndex > 0 &&
-                    (index == startIndex || index == endIndex)
-                  )
+                    index > startIndex &&
+                    endIndex == 0 &&
+                    eachDesc.toLowerCase().indexOf("-") < 0
+                  ) {
+                    endIndex = index - 1;
+                  }
+                });
+                item.text.split("\n").forEach((eachDesc, index) => {
+                  if (index > startIndex && index <= endIndex)
                     text += `${eachDesc}`;
                 });
               } else {
