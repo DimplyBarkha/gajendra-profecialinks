@@ -22,7 +22,7 @@ fields:
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
-    xpath: //meta[@name="description"]/@content
+    # xpath: //meta[@name="description"]/@content
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -38,7 +38,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //img[contains(@class,'image-gallery-image')]/@src
+    xpath: //img[contains(@class,'image-gallery-thumbnail-image')]//@src
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -74,7 +74,8 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //h3[contains(@class,'_2gfEE')]
+    xpath: concat(//meta[@property="product:price:amount"]//@content," ", //meta[@property="product:price:currency"]//@content)
+    type: CURRENCY
   - name: packaging
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -111,8 +112,9 @@ fields:
     xpath: //small[contains(@class,'_39KzI')]
   - name: listPrice
     singleValue: true
-    description: The stated undiscounted price for the product
+    description: The stated undiscounted price for the product    
     xpath: //div[contains(@class,'j-vur')]//span[contains(@class,'_1AyjV')]
+    type: CURRENCY    
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
@@ -126,3 +128,9 @@ fields:
     singleValue: false
     description: URLs of videos on page
     xpath: //p//video/source/@src
+  - name: colour
+    singleValue: true
+    xpath: //td//p[contains(text(), "Colour")]/following::td[1]
+  - name: brandText
+    xpath: //td//p[contains(text(), "Compatible Brand")]/following::td[1]
+    singleValue: true
