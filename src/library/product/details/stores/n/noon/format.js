@@ -36,9 +36,12 @@ const transform = (data) => {
         }
       }      
       if (row.description) {
+        var temp_text = '';
         row.description.forEach(item => {
-          item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
+          temp_text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
         });
+        temp_text = '|| '+temp_text;
+        row.description = [{'text':temp_text}]
       }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
