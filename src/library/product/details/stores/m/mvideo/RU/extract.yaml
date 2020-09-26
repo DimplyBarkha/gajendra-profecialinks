@@ -11,10 +11,10 @@ fields:
     xpath: //h1[@class='e-h1 sel-product-title']
   - name: description
     singleValue: flase
-    xpath: //div[@class='o-about-product']//div[@class="c-about collapse-text"]
+    xpath: //div[@class='o-about-product']//div[@class="collapse-text-initial"]
   - name: category
     singleValue: false
-    xpath: //div[@class='c-breadcrumbs']//ul/li/a
+    xpath: //div[@class='c-breadcrumbs']//ul/li[position()>1]/a
   - name: sku
     singleValue: false
     xpath: //meta[@property="og:url"]/@content
@@ -41,7 +41,7 @@ fields:
     xpath: //meta[@property="og:url"]/@content
   - name: shippingInfo
     singleValue: false
-    xpath: //div[contains(@class,"sel-pdp-delivery-shop")]
+    xpath: //div[contains(@class,"sel-pdp-delivery-courier")]/a/@data-target
   - name: listPrice
     singleValue: false
     xpath: //div[@class="u-mr-8 c-pdp-price__old"]
@@ -70,7 +70,7 @@ fields:
     xpath: //div[@class="o-pdp-topic__raiting"]//span/@style
   - name: color
     singleValue: false
-    xpath: //span[@class="c-multisku__label u-block" and contains(text(), "Цвет")]/span
+    xpath: //span[@class="product-details-overview-specification" and text()="Цвет"]/parent::td/parent::tr/td[2]/span
   - name: firstVariant
     singleValue: false
   - name: availabilityText
@@ -80,3 +80,10 @@ fields:
   - name: countryOfOrigin
     singleValue: false
     xpath: //span[@class="product-details-overview-specification" and contains(text(), "Страна")]//ancestor::tr//td[2]
+  - name: Image360Present
+    singleValue: false
+    xpath: //i[contains(@class,"icon-360")]/parent::div/parent::a/@data-type
+    defultValue: 'No'
+  - name: technicalInformationPdfPresent
+    singleValue: flase
+    xpath: //li[@class="download-file"]//a[@class="download-file-title"]/@href

@@ -26,8 +26,15 @@ const transform = (data) => {
     for (const row of group) {
       if (row.description) {
         row.description.forEach(item => {
-          item.text = '|| '+item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
+          item.text = '|| '+item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();
         });
+      }
+      if(row.category){
+        var tmp=[];
+        row.category.forEach(item=>{
+          tmp.push(item.text);
+        });
+        row.category = [{ "text":tmp.join(' > '), "xpath": row.category[0]["xpath"] }];  
       }
       if (row.shippingInfo) {
         row.shippingInfo.forEach(item => {
@@ -126,7 +133,19 @@ const transform = (data) => {
         row.warranty.forEach(item => {          
           temp_arr.push(item.text);
         });
-        row.warranty = [{ "text": row.warranty[0]["text"], "xpath": row.warranty[0]["xpath"] }];        
+        row.warranty = [{ "text": row.warranty[0]["text"], "xpath": row.warranty[0]["xpath"] }];     
+      }
+      if(row.Image360Present){
+        if(row.Image360Present[0]['text']=='3d'){
+          row.Image360Present = [{ "text":'Yes', "xpath": row.warranty[0]["xpath"] }];
+        }
+      }else{
+        row.Image360Present = [{ "text":'No'}];
+      }
+      if(row.technicalInformationPdfPresent){
+        row.technicalInformationPdfPresent.forEach(item=>{
+          item.text='https:'+item.text;
+        });
       }
     }
   }
