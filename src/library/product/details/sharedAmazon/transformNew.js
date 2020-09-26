@@ -249,7 +249,7 @@ const transform = (data, context) => {
           },
         ];
       }
-      if (row.unavailableMsg){
+      if (row.unavailableMsg) {
         row.availabilityText = [{ text: 'Out of stock' }];
       }
 

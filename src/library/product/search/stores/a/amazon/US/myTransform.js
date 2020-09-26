@@ -51,10 +51,21 @@ const transform = (data, context) => {
 
       if (row.sponsName && !row.name) {
         row.name = [{ text: row.sponsName[0].text }];
+        delete row.sponsName;
       }
 
       if (row.sponsRatingCount && !row.ratingCount) {
         row.ratingCount = [{ text: row.sponsRatingCount[0].text }];
+        delete row.sponsRatingCount;
+      }
+
+      if (row.sponsAgRating && !row.aggregateRating2) {
+        row.aggregateRating2 = [{ text: row.sponsAgRating[0].text }];
+        delete row.sponsAgRating;
+      }
+      if (row.sponsThumbnail && !row.thumbnail) {
+        row.thumbnail = [{ text: row.sponsThumbnail[0].text }];
+        delete row.sponsThumbnail;
       }
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
