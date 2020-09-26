@@ -145,21 +145,48 @@ const transform = (data) => {
           let text = "";
           row.specifications.forEach((item) => {
             if (item.text.length > 0 && item.text.split("\n").length > 0) {
-              item.text.split("\n").forEach((eachDesc) => {
-                if (
-                  eachDesc.toLowerCase().indexOf("peso (") > 0 ||
-                  eachDesc.toLowerCase().indexOf("alto (") > 0 ||
-                  eachDesc.toLowerCase().indexOf("ancho (") > 0 ||
-                  eachDesc.toLowerCase().indexOf("fondo (") > 0
-                ) {
-                  text += `${eachDesc} | `;
-                }
-              });
+              if (item.text.toLowerCase().indexOf("especificaciones") >= 0) {
+                let startIndex = 0,
+                  endIndex = 0;
+                item.text.split("\n").forEach((eachDesc, index) => {
+                  if (
+                    eachDesc.toLowerCase().indexOf("especificaciones") >= 0 &&
+                    startIndex == 0
+                  ) {
+                    startIndex = index;
+                  }
+                  if (
+                    (startIndex > 0 || endIndex == 0) &&
+                    eachDesc.toLowerCase().indexOf("-") >= 0
+                  ) {
+                    endIndex = index;
+                  }
+
+                  if (
+                    index > 0 &&
+                    startIndex > 0 &&
+                    (index == startIndex || index == endIndex)
+                  )
+                    text += `${eachDesc}`;
+                });
+              } else {
+                item.text.split("\n").forEach((eachDesc) => {
+                  if (
+                    eachDesc.toLowerCase().indexOf("peso (") > 0 ||
+                    eachDesc.toLowerCase().indexOf("alto (") > 0 ||
+                    eachDesc.toLowerCase().indexOf("ancho (") > 0 ||
+                    eachDesc.toLowerCase().indexOf("fondo (") > 0
+                  ) {
+                    text += `${eachDesc} | `;
+                  }
+                });
+                text = text.trim().slice(0, -2);
+              }
             }
           });
           row.specifications = [
             {
-              text: text.trim().slice(0, -2),
+              text: text,
             },
           ];
         }
