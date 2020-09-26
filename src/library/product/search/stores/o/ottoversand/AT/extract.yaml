@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+# recordSelector: div.Row-sc-1fpt6l5 > div.ProductCol-sc-9tzwht
 recordXPath: //div[contains(@class,'ProductCol-sc-9tzwht hMAycV')]
 fields:
   - name: id
@@ -8,7 +8,7 @@ fields:
     singleValue: false
   - name: name
     xpath: //div[contains(@class,'NameNoBrand-sc-1ifpr6 juQXTU')]
-    singleValue: true
+    singleValue: false
   - name: producturl
     xpath: //a[contains(@class,'sc-psDhf bAPYME')]/@href
     singleValue: false
@@ -18,9 +18,9 @@ fields:
     xpath: //div[contains(@class,'ImageWrapper-sc-jbg5ox lkewrK')]/img/@src
     singleValue: false
   - name: manufacturer
-    xpath: //span[contains(@class,'BrandName-sc-1hwvb2t hdRRnK')]
-    singleValue: true  
+    # xpath: //span[contains(@class,'BrandName-sc-1hwvb2t hdRRnK')]
+    singleValue: false  
   - name: price
     xpath: //div[contains(@class,'sc-qQxFs eyrJNR PriceWrapper-sc-p7sel8 cJzxCo')]/div
-    singleValue: true
+    singleValue: false
   
