@@ -13,7 +13,13 @@ module.exports = {
     await context.waitForSelector('product-details', { timeout: 5000 });
 
     await context.evaluate(async function () {
-      const productInfo = preFetchProductDetails();
+      const productInfo = preFetchProductDetails();      
+      let tempPrice=0;
+      if(productInfo['offers'].price != null)
+      {
+        tempPrice = productInfo['offers'].price;
+      }
+      addEleToDoc('tempPriceCurrencyId', tempPrice + " " + productInfo['offers'].priceCurrency);
       addEleToDoc('tempSkuId', productInfo['sku']);
 
       function preFetchProductDetails() {

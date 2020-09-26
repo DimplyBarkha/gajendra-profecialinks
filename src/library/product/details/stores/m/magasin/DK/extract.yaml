@@ -5,13 +5,15 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //img[(@class='image productDetailsImage__image loading')]/@src
+    xpath: //product-details//div[contains(@class,'product-carousel__item is-active is-selected')]//img//@src
+    # xpath: //img[(@class='image productDetailsImage__image loading')]/@src
   - name: imageAlt
-    singleValue: true
+    singleValue: true    
     xpath: //img[(@class='image productDetailsImage__image loading')]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'flickity-slider')]//div[@class='product-carousel__item']//img//@data-src
+    xpath: //product-details//div[contains(@class,'product-carousel__item') and not(contains(@class,'product-carousel__item is-active is-selected'))]//img//@data-src
+    # xpath: //div[contains(@class,'flickity-slider')]//div[@class='product-carousel__item']//img//@data-src
     # xpath: //li[contains(@class,'product-carousel__thumb')]//a[@class='product-carousel__thumb-link']//figure//img//@data-src
   - name: metaKeywords
     singleValue: true
@@ -28,7 +30,9 @@ fields:
     description: The stated undiscounted price for the product    
   - name: price
     singleValue: true
-    xpath: //script[contains(@type, "application/ld+json")]
+    xpath: //*[contains(@id,"tempPriceCurrencyId")]
+    type: CURRENCY
+    # xpath: //script[contains(@type, "application/ld+json")]    
   - name: availabilityText
     xpath: //div[@class='pdp__top']/div[@class='pdp__details']/div[@class='pdp__details__inner']/div[@class='pdp__addtocart mt4 -hidden-until-lg']/div[@class='add-to-cart-actions']/add-to-cart[@data-product-available='true']
     singleValue: true
@@ -80,7 +84,8 @@ fields:
     xpath: //h1[@class='pdp__title js-productName']
   - name: secondaryImageTotal
     singleValue: true
-    xpath : count(//li[contains(@class,'product-carousel__thumb')]//a[@class='product-carousel__thumb-link']//figure//img//@data-src)
+    xpath: count(//product-details//div[contains(@class,'product-carousel__item') and not(contains(@class,'product-carousel__item is-active is-selected'))]//img//@src)
+    # xpath : count(//li[contains(@class,'product-carousel__thumb')]//a[@class='product-carousel__thumb-link']//figure//img//@data-src)
     type: NUMBER
   - name: specifications
     singleValue: true
