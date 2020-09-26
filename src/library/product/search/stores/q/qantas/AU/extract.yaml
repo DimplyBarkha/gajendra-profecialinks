@@ -1,0 +1,45 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //div[contains(@class,'ProductCardstyled__Thumbnail-jzts4d-3')]//a/@href
+  - name: name
+    singleValue: false
+    xpath: //span[contains(@class,'ProductCardstyled__Name-jzts4d-8')]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'ProductCardstyled__Price-jzts4d-13')]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,'ProductCardstyled__Thumbnail-jzts4d-3')]//a/@href
+    regExp: (.+)
+    regExpReplace: https://store.qantas.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,'ProductCardstyled__Thumbnail-jzts4d-3')]//a//img/@src
+  - name: manufacturer
+    singleValue: false
+  - name: aggregateRating
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: searchUrl
+    singleValue: true
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN
