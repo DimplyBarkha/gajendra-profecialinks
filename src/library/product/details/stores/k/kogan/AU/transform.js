@@ -30,10 +30,12 @@ const transform = (data, context) => {
             }            
         }
 
-        } catch (exception) { console.log('Error in transform', exception); }
+        if (row.sku) {          
+          let tempSku=row.sku[0].text.split(':')
+          row.sku = [{ text: tempSku[1].replace('\\u0022','').replace('\\u00','').replace('\\u0022','').replace('\\u00','').replace(',','').trim() }];
+        }
 
-        
-         if (row.description) {
+        if (row.description) {
           let text = '';
           row.description.forEach(item => {
             text = row.description.map(elm => elm.text).join(' ').replace(/\n/g, '||');
@@ -41,6 +43,8 @@ const transform = (data, context) => {
           row.description = [{ text }];
         }
 
+        } catch (exception) { console.log('Error in transform', exception); }       
+                 
       }
     }
     return data;

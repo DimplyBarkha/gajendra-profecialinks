@@ -134,3 +134,7 @@ fields:
   - name: brandText
     xpath: //td//p[contains(text(), "Compatible Brand")]/following::td[1]
     singleValue: true
+  - name: sku
+    xpath: //script[contains(text(),'sku')]
+    singleValue: true
+    regExp: (\\u0022sku\S{0,}.\S{0,})
