@@ -128,8 +128,9 @@ fields:
     singleValue: false
     description: URLs of videos on page
     xpath: //iframe[contains(@src,"youtube")]/@src
-  - name: brandText
+  - name: colour
     singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
-    xpath: //meta[@itemprop='name']/@content
+    xpath: //td//p[contains(text(), "Colour")]/following::td[1]
+  - name: brandText
+    xpath: //td//p[contains(text(), "Compatible Brand")]/following::td[1]
+    singleValue: true
