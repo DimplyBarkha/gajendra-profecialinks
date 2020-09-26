@@ -29,7 +29,7 @@ fields:
     xpath: //tg-content-slider2-item[position()>1]/tg-aspect-ratio/@style
   - name: shippingInfo
     singleValue: false 
-    xpath: //section[@class="member-summary-box"]  
+    xpath: //section[@class="member-summary-box"]
   - name: brandText
     singleValue: false 
     xpath: //tg-col[@class="l-col"]//h1
@@ -40,6 +40,7 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //form[@class='ng-untouched ng-valid ng-dirty']//button[contains(text(),'Buy Now')]
+    defaultValue:'In Stock'
   - name: weightNet
     singleValue: false
     xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//ul[@class='o-list2 o-list2--bullet']//li[contains (text(), 'Weight:')]
@@ -48,10 +49,7 @@ fields:
     defaultValue: 0
   - name: specifications
     singleValue: false
-    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//p[contains(text(),'Specifications')]//following-sibling::ul
-  # - name: additionalDescBulletInfo
-  #   singleValue: false
-  #   xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//div[@class='tm-markdown']
+    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//p[contains(text(),'Specifications')]//following-sibling::ul  
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//li

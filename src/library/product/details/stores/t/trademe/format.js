@@ -46,19 +46,21 @@ const transform = (data) => {
         });
         if (arr_info.length) {
           row.descriptionBullets = [{'text':arr_info.length}];
-          var temp_text = arr_info.join(' || ');
-          temp_text = ' || ' + temp_text;
+          var temp_text = arr_info.join(' | ');
+          temp_text = ' | ' + temp_text;
           row.additionalDescBulletInfo = [{'text':temp_text}];
         }
       }      
-      if (row.shippingInfo) {
-        row.shippingInfo.forEach(item => {
-          item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
-        });
-      }
+      // if (row.shippingInfo) {
+      //   row.shippingInfo.forEach(item => {
+      //     item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
+      //   });
+      // }
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-          item.text = 'In Stock'
+          if (item.text=='Buy Now'){
+            item.text = 'In Stock'
+          }
         });
       }
       
