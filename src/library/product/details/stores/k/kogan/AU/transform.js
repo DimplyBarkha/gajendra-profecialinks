@@ -31,7 +31,16 @@ const transform = (data, context) => {
         }
 
         } catch (exception) { console.log('Error in transform', exception); }
-  
+
+        
+         if (row.description) {
+          let text = '';
+          row.description.forEach(item => {
+            text = row.description.map(elm => elm.text).join(' ').replace(/\n/g, '||');
+          });
+          row.description = [{ text }];
+        }
+
       }
     }
     return data;

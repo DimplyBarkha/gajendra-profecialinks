@@ -80,7 +80,7 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: //div[contains(@class,'react-sanfona-item-body')]//div[contains(@class,"react-sanfona-item-body")]/span/ul
+    xpath: //div[contains(@class,'react-sanfona-item-body-wrapper')]/span/ul
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -127,10 +127,9 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //p//video/source/@src
-  - name: colour
-    singleValue: true
-    xpath: //td//p[contains(text(), "Colour")]/following::td[1]
+    xpath: //iframe[contains(@src,"youtube")]/@src
   - name: brandText
-    xpath: //td//p[contains(text(), "Compatible Brand")]/following::td[1]
     singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //meta[@itemprop='name']/@content
