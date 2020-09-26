@@ -39,7 +39,7 @@ const transform = (data) => {
           info.push(item.text.trim());            
         });
         row.descriptionBullets = [{'text': info.length}];
-        row.additionalDescBulletInfo = [{'text':info.join(' || '),'xpath':row.additionalDescBulletInfo[0].xpath}];          
+        row.additionalDescBulletInfo = [{'text':'|| ' + info.join(' || '),'xpath':row.additionalDescBulletInfo[0].xpath}];          
       }
       if (row.specifications) {
         row.specifications.forEach(item => {
@@ -53,17 +53,16 @@ const transform = (data) => {
         });
       }        
       if (row.description) {
-        let info = [];          
+        let info = []
         row.description.forEach(item => {
-          info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());            
+          var matches = /Description\s*:\s(.+)/isg.exec(item.text);
+          if (matches) {
+            item.text = matches[1]
+          }
+          info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
         });
         row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
-      }           
-      if (row.featureBullets) {
-        row.featureBullets.forEach(item => {
-          item.text = item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();
-        });
-      }                   
+      }                        
     }
   }
   return cleanUp(data);

@@ -32,7 +32,7 @@ fields:
     xpath: //div[@class='price-box']//div[@class='regular-price' or @class='special-price']
   - name: description
     singleValue: false
-    xpath: xpath: //div[@id='full-desc']//strong[contains(text(),'Overview:')]/parent::*
+    xpath: //div[@id='full-desc']//div[@class='col-sm-6'][1]
   - name: brandText
     singleValue: false
     xpath: //div[@class='product_logo mbot12']//a
@@ -68,13 +68,13 @@ fields:
     xpath: //div[@class='product-name']//h1
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class='product-name']//h1
-  - name: featureBullets
-    singleValue: false
-    xpath: //div[@class='desc_divider']//ul  
+    xpath: //div[@class='product-name']//h1   
   - name: variantCount
     singleValue: false
-    defaultValue: '0'  
+    defaultValue: '0'
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='full-desc']//strong[contains(text(),'Overview:')]/parent::*
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@id='full-desc']//div[@class='desc_divider']//ul//li
@@ -98,4 +98,4 @@ fields:
     xpath: //div[@id='country-autoswitch-toggle']//span[@class='country-autoswitch-label']
   - name: quantity
     singleValue: false
-    xpath: //input[@id='qty']    
+    xpath: //input[@id='qty']
