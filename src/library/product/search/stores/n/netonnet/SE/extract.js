@@ -1,5 +1,5 @@
 const { transform } = require('./transform');
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -8,7 +8,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
-    function addHiddenDiv (node, id, content) {
+    function addHiddenDiv(node, id, content) {
       const newDiv = document.createElement('reviewRatings-id');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -17,11 +17,12 @@ async function implementation (
     }
     let i = 0;
     document.querySelectorAll('div.bigHeader > div.rating > div.ratingBg > div.ratingOverlay').forEach(node => {
-      var productTileObject =  node.attributes[1].value.trim();
-      productTileObject = productTileObject.replace('width: ','');
-      productTileObject = productTileObject.replace('%','');
-      var reviewRatings = (Number(productTileObject)*5)/100;      
-      addHiddenDiv(node,'reviewRatings',reviewRatings.toString().replace('.',','))
+      var productTileObject = node.attributes[1].value.trim();
+      productTileObject = productTileObject.replace('width: ', '');
+      productTileObject = productTileObject.replace('%', '');
+      var reviewRatings = (Number(productTileObject) * 5) / 100;
+      console.log('JJJJ', reviewRatings.toString().replace('.', ','))
+      addHiddenDiv(node, 'reviewRatings', reviewRatings.toString().replace('.', ','))
       i++;
     });
   });
