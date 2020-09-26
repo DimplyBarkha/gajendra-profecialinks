@@ -19,20 +19,11 @@ const transform = (data) => {
 			
 			if (row.description) {				
 				let newText = '';
-				row.description.forEach(item => {                    			
-					newText +=  `${item.text.replace('- ', ' || ').replace(/\r\n|\r|\n/g, ' ')}`;
+				row.description.forEach(item => {
+					newText +=  `${item.text.trim() + ' || '}`;
 				});
 				
 				row.description = [{ text: newText.slice(0, -4) }];
-			}
-
-			if (row.category) {				
-				let newText = '';
-				row.category.forEach(item => {                			
-					newText +=  `${item.text.trim() + ' > '}`;
-				});
-				
-				row.category = [{ text: newText.slice(0, -3) }];
 			}
 			
 			if (row.brandLink) {				
@@ -85,6 +76,24 @@ const transform = (data) => {
 			if (row.videos) {
 				row.videos = [{ text: row.videos[0].text.slice(5) }];
 			}
+
+			if (row.sku) {
+				row.sku = [{ text: row.sku[0].text.slice(5) }];
+			}
+
+			if (row.nameExtended) {
+				console.log(row.nameExtended);
+				let newText = "";
+				row.nameExtended.forEach(item => {
+				  if (item.text.trim().includes(row.brandText[0].text.trim())){
+					newText += `${item.text.trim()}`;
+				  } else {
+					newText += `${row.brandText[0].text.trim() + ' ' + item.text.trim()}`;
+				  }
+				});    
+				   
+				row.nameExtended = [{ text: newText }];
+			  }
 		}
 	}
 
