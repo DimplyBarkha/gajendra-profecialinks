@@ -26,15 +26,8 @@ const transform = (data) => {
     for (const row of group) {
       if (row.description) {
         row.description.forEach(item => {
-          item.text = '|| '+item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();
+          item.text = item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();
         });
-      }
-      if(row.category){
-        var tmp=[];
-        row.category.forEach(item=>{
-          tmp.push(item.text);
-        });
-        row.category = [{ "text":tmp.join(' > '), "xpath": row.category[0]["xpath"] }];  
       }
       if (row.shippingInfo) {
         row.shippingInfo.forEach(item => {
