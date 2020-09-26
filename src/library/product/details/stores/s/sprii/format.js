@@ -141,7 +141,7 @@ const transform = (data) => {
       if (row.price) {
         var i = 0;
         for (var price of row.price) {
-          row.price[i].text = price.text.replace('٫', '.').replace('٬', '.');
+          row.price[i].text = price.text.replace('٫', '.').replace('٬', '');
           i++;
         }
       }
