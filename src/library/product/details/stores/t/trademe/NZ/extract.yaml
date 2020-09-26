@@ -8,7 +8,7 @@ fields:
     xpath: //div//tm-breadcrumbs//ol//li[position()>1]//a
   - name: name
     singleValue: false 
-    xpath: //div//tg-row/tg-col//tm-buyer-options//h1  
+    xpath: //div//tg-row/tg-col//tm-buyer-options//h1
   - name: description
     singleValue: false
     xpath: //div[@class="tm-markdown"]
@@ -48,7 +48,7 @@ fields:
     defaultValue: 0
   - name: specifications
     singleValue: false
-    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//div[@class='tm-markdown']
+    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//p[contains(text(),'Specifications')]//following-sibling::ul
   # - name: additionalDescBulletInfo
   #   singleValue: false
   #   xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//div[@class='tm-markdown']
