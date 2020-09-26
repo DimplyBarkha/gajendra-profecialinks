@@ -14,12 +14,13 @@ const transform = (data) => {
         });
       }
       if (row.additionalDescBulletInfo) {
-        let bullet_count = '';
+        let bullet_info = [];
         row.additionalDescBulletInfo.forEach(item => {
-          bullet_count = item.text.split(/\n/g).length;
-          item.text = "| " + item.text.replace(/\n/g, ' | ').trim();
+          bullet_info.push(item.text);
         });
-        row.descriptionBullets = [{"text":bullet_count}];
+        if(bullet_info.length){
+          row.additionalDescBulletInfo = [{"text": "| " + bullet_info.join(" | ")}];
+        }
       }
       if (row.category) {
         var category_arr = [];
@@ -67,6 +68,7 @@ const transform = (data) => {
           row.variants = [{ "text": variations.join(' | ') }];
         } else {
           delete row.variants;
+          row.variantCount = [{ "text": 0 }];
         }
         if(v_info.length){
           row.variantInformation = [{ "text": v_info.join(' | ') }];
@@ -83,7 +85,7 @@ const transform = (data) => {
           description_ar.push(item.text);
         });
         if(description_ar.length){
-          row.description = [{"text": "|| " + description_ar.join(" || ")}]
+          row.description = [{"text": description_ar.join(" | ")}];
         }
       }      
     }

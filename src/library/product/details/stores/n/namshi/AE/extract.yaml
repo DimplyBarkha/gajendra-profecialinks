@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: price
     singleValue: false
-    xpath: //p[@class="product__price"]/span[1]
+    xpath: //p[@class="product__price"]/span[not(@class='pre-reduction')][1]
   - name: image
     singleValue: false
     xpath: //div[@class="slim-slide zoom active"]/img/@src
@@ -35,7 +35,6 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //span[@class="ratings-stat__total-ratings"]
-    defaultValue: 0
     regExp: (\d+)(\s*.*)
     regExpReplace: $1    
   - name: aggregateRating
@@ -43,15 +42,16 @@ fields:
     xpath: //span[@class="ratings-stat__avg-rating"]
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]/descendant::text()[not(ancestor::div/li)]
+    xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]//p
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]/li
+    xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]//li
   - name: brandText
     singleValue: false
     xpath: //div[@class="follow-brand__title"]
   - name: variantCount
     singleValue: false
+    defaultValue: '0'
   - name: color
     singleValue: false
   - name: name
