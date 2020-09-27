@@ -87,7 +87,7 @@ fields:
     singleValue: true
   - name: aggregateRating
     singleValue: true
-    xpath: translate(count(//div[@class="c-product-shop-box"]//ul[contains(@class,"rating__stars")]/li[@style]),"0","")
+    xpath: //div[@id ="aggregateRating"]
   - name: shippingInfo
     singleValue: true
   - name: shippingDimensions
@@ -125,60 +125,60 @@ fields:
     description: List of Ingredients from site - can be string of data if no discernible start/end point
   - name: servingSize
     singleValue: true
-    xpath: //div[@id="servingSize"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Serving") and not(contains(.,"RDI"))]//td
     regExp: (\d*\.?\d+)
   - name: servingSizeUom
     singleValue: true
-    xpath: //div[@id="servingSize"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Serving") and not(contains(.,"RDI"))]//td
     regExp: ([a-zA-Z\s*]+)
   - name: numberOfServingsInPackage
     singleValue: true
   - name: caloriesPerServing
     singleValue: true
-    xpath: //div[@id="caloriesPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Calories") and not(contains(.,"RDI"))]//td
     regExp: (\d*\.?\d+)
   - name: caloriesFromFatPerServing
     singleValue: true
-    xpath: //div[@id="caloriesFromFatPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Calories from Fat") and not(contains(.,"RDI"))]//td
   - name: totalFatPerServing
     singleValue: true
-    xpath: //div[@id="totalFatPerServing"]
+    xpath: //div[contains(@class, "c-expandable-list-block ")]//table[contains(@class, "performance-facts__table")]//tr[contains(.,"Total Fat") and not(contains(.,"RDI")) and not(contains(.,"Less"))]//td
     regExp: (\d*\.?\d+)
   - name: totalFatPerServingUom
     singleValue: true
-    xpath: //div[@id="totalFatPerServing"]
+    xpath: //div[contains(@class, "c-expandable-list-block ")]//table[contains(@class, "performance-facts__table")]//tr[contains(.,"Total Fat") and not(contains(.,"RDI")) and not(contains(.,"Less"))]//td
     regExp: ([a-zA-Z\s*]+)
   - name: saturatedFatPerServing
     singleValue: true
-    xpath: //div[@id="saturatedFatPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Saturated Fat") and not(contains(.,"RDI")) and not(contains(.,"Less"))]//td
     regExp: (\d*\.?\d+)
   - name: saturatedFatPerServingUom
     singleValue: true
-    xpath: //div[@id="saturatedFatPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Saturated Fat") and not(contains(.,"RDI")) and not(contains(.,"Less"))]//td
     regExp: ([a-zA-Z\s*]+)
   - name: transFatPerServing
     singleValue: true
-    xpath: //div[@id="transFatPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Trans Fat") and not(contains(.,"RDI"))]//td
     regExp: (\d*\.?\d+)
   - name: transFatPerServingUom
     singleValue: true
-    xpath: //div[@id="transFatPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Trans Fat") and not(contains(.,"RDI"))]//td
     regExp: ([a-zA-Z\s*]+)
   - name: cholesterolPerServing
     singleValue: true
-    xpath: //div[@id="cholestrolPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Cholesterol") and not(contains(.,"RDI")) and not(contains(.,"Less"))]//td
     regExp: (\d*\.?\d+)
   - name: cholesterolPerServingUom
     singleValue: true
-    xpath: //div[@id="cholestrolPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Cholesterol") and not(contains(.,"RDI"))]//td[not(contains(.,"Less"))]
     regExp: ([a-zA-Z\s*]+)
   - name: sodiumPerServing
     singleValue: true
-    xpath: //div[@id="sodiumPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Sodium") and not(contains(.,"RDI")) and not(contains(.,"Less"))]//td
     regExp: (\d*\.?\d+)
   - name: sodiumPerServingUom
     singleValue: true
-    xpath: //div[@id="sodiumPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Sodium") and not(contains(.,"RDI")) and not(contains(.,"Less"))]//td
     regExp: ([a-zA-Z\s*]+)
   - name: totalCarbPerServing
     singleValue: true
@@ -190,19 +190,19 @@ fields:
     regExp: ([a-zA-Z\s*]+)
   - name: dietaryFibrePerServing
     singleValue: true
-    xpath: //div[@id="dietaryFibrePerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Dietary Fiber") and not(contains(.,"RDI"))]//td
     regExp: (\d*\.?\d+)
   - name: dietaryFibrePerServingUom
     singleValue: true
-    xpath: //div[@id="dietaryFibrePerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Dietary Fiber") and not(contains(.,"RDI"))]//td
     regExp: ([a-zA-Z\s*]+)
   - name: totalSugarsPerServing
     singleValue: true
-    xpath: //div[@id="totalSugarsPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Sugars") and not(contains(.,"RDI")) and not(contains(.,"Less"))]//td
     regExp: (\d*\.?\d+)
   - name: totalSugarsPerServingUom
     singleValue: true
-    xpath: //div[@id="totalSugarsPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Sugars") and not(contains(.,"RDI")) and not(contains(.,"Less"))]//td
     regExp: ([a-zA-Z\s*]+)
   - name: proteinPerServing
     singleValue: true
@@ -222,27 +222,27 @@ fields:
     regExp: ([a-zA-Z\s*]+)
   - name: vitaminCPerServing
     singleValue: true
-    xpath: //div[@id="vitaminCPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Vitamin C") and not(contains(.,"RDI"))]//td
     regExp: (\d*\.?\d+)
   - name: vitaminCPerServingUom
     singleValue: true
-    xpath: //div[@id="vitaminCPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Vitamin C") and not(contains(.,"RDI"))]//td
     regExp: ([a-zA-Z\s*]+)
   - name: calciumPerServing
     singleValue: true
-    xpath: //div[@id="calciumPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Calcium") and not(contains(.,"RDI"))]//td
     regExp: (\d*\.?\d+)
   - name: calciumPerServingUom
     singleValue: true
-    xpath: //div[@id="calciumPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Calcium") and not(contains(.,"RDI"))]//td
     regExp: ([a-zA-Z\s*]+)
   - name: ironPerServing
     singleValue: true
-    xpath: //div[@id="ironPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Iron") and not(contains(.,"RDI"))]//td
     regExp: (\d*\.?\d+)
   - name: ironPerServingUom
     singleValue: true
-    xpath: //div[@id="ironPerServing"]
+    xpath: //table[contains(@class, "performance-facts__table")]//tr[contains(.,"Iron") and not(contains(.,"RDI"))]//td
     regExp: ([a-zA-Z\s*]+)
   - name: dietarySymbols
     singleValue: true

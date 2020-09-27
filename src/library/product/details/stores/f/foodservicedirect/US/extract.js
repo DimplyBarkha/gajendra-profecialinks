@@ -24,87 +24,38 @@ module.exports = {
         return element;
       }
 
-      function addAllergensList () {
-        const allergenTab = getEleByXpath('//div[contains(@class, "p-product-detail__product-features-table")]// div[contains(@class, "c-tab-box__tab-links")][text()="Allergens"]');
-        if (allergenTab) {
-          allergenTab.click();
+      function getAllNodes (STR_XPATH, context) {
+        var xresult = document.evaluate(STR_XPATH, context, null, XPathResult.ANY_TYPE, null);
+        var xnodes = [];
+        var xres;
+        while ((xres = xresult.iterateNext())) {
+          xnodes.push(xres);
         }
-
-        const allergensList = [];
-        const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
-        for (let i = 0; i < rowDiv.length; i++) {
-          const div = rowDiv[i];
-          if (div.textContent && div.textContent.includes('Allergens')) {
-            const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item');
-            for (let i = 0; i < allList.length; i++) {
-              const element = allList[i];
-              if (element.textContent.includes('Yes')) {
-                allergensList.push(element.querySelector('div').textContent);
-              } else if (element.textContent.includes('Allergens') && element.querySelectorAll('div') && element.querySelectorAll('div')[1]) {
-                allergensList.push(element.querySelectorAll('div')[1].textContent);
-              }
-            }
-            break;
-          }
-        }
-
-        addHiddenDiv('allergens', allergensList.join(', '));
-        const prodSpecTab = getEleByXpath('//div[contains(@class, "p-product-detail__product-features-table")]// div[contains(@class, "c-tab-box__tab-links")][text()="Product Specifications"]');
-        prodSpecTab.click();
+        return xnodes;
       }
 
-      function nurtitionInfo () {
-        const nutritionTab = getEleByXpath('//div[contains(@class, "p-product-detail__product-features-table")]//div[contains(@class, "c-tab-box__tab-links")][text()="Nutrition Facts"]');
-        if (nutritionTab) {
-          nutritionTab.click();
-        }
+      const allergensXpath = '//div[contains(@class, "c-expandable-list-block__container") and contains(.,"Allergens")]//div[contains(@class, "c-expandable-list-block__content")]//ul//li[contains(., "Yes")]//div[contains(@class, "label")]';
 
-        const nutriObj = {
-          serving: 'servingSize',
-          calories: 'caloriesPerServing',
-          'calories from fat': 'caloriesFromFatPerServing',
-          'total fat': 'totalFatPerServing',
-          'saturated fat': 'saturatedFatPerServing',
-          'trans fat': 'transFatPerServing',
-          'transfatty acids': 'transFatPerServing',
-          cholesterol: 'cholestrolPerServing',
-          'total carbohydrates': 'totalCarbPerServing',
-          'dietary fiber': 'dietaryFibrePerServing',
-          sugars: 'totalSugarsPerServing',
-          protein: 'proteinPerServing',
-          'vitamin a': 'vitaminAPerServing',
-          'vitamin c': 'vitaminCPerServing',
-          calcium: 'calciumPerServing',
-          iron: 'ironPerServing',
-          magnesium: 'magnesiumPerServing',
-          salt: 'saltPerServing',
-          sodium: 'sodiumPerServing',
-        };
-        const rowDiv = document.querySelectorAll('.c-expandable-list-block__caption-title');
-        for (let i = 0; i < rowDiv.length; i++) {
-          const div = rowDiv[i];
-          if (div.textContent.includes('Nutrition Facts')) {
-            const allList = div.parentElement.parentElement.querySelectorAll('.c-expandable-list-block__item');
-            for (let i = 0; i < allList.length; i++) {
-              const element = allList[i];
-              const nurtiItem = (element.children[0] && element.children[0].textContent) ? (element.children[0].textContent).toLowerCase() : '';
-              if (nurtiItem.length && nutriObj[nurtiItem]) {
-                addHiddenDiv(nutriObj[nurtiItem], element.children[1].textContent);
-              }
-            }
-            break;
-          }
-        }
+      const allergenText = [];
+      const allergenNodes = getAllNodes(allergensXpath, document);
+      allergenNodes.forEach(node => {
+        allergenText.push(node.innerText);
+      });
+      addHiddenDiv('allergens', allergenText.join(', '));
 
-        const prodSpecTab = getEleByXpath('//div[contains(@class, "p-product-detail__product-features-table")]// div[contains(@class, "c-tab-box__tab-links")][text()="Product Specifications"]');
-        prodSpecTab.click();
-      }
-
-      addAllergensList();
-      nurtitionInfo();
+      const prodSpecTab = getEleByXpath('//div[contains(@class, "p-product-detail__product-features-table")]// div[contains(@class, "c-tab-box__tab-links")][text()="Product Specifications"]');
+      prodSpecTab.click();
       addHiddenDiv('imageZoomFeaturePresent', document.querySelector('a.c-product-viewer__action-zoom') !== null ? 'Yes' : 'No');
+      const scriptTag = [...document.querySelectorAll("script[type = 'application/ld+json']")].filter((ele) => {
+        if (ele.textContent.includes('rating')) {
+          return ele;
+        }
+      });
+      if (scriptTag.length > 0) {
+        const scriptContent = JSON.parse(scriptTag[0].innerText);
+        addHiddenDiv('aggregateRating', scriptContent.aggregateRating && scriptContent.aggregateRating.ratingValue ? scriptContent.aggregateRating.ratingValue : '');
+      }
     });
-
     return await context.extract(productDetails, { transform: transformParam });
   },
 };
