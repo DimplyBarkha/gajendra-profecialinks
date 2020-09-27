@@ -47,7 +47,7 @@ fields:
     regExp: ratingValue":\s"([^"]+)
     regExpReplace: $1
     description: The stated aggregate rating normalized to be out of 5
-    #type: NUMBER
+    type: NUMBER
   - name: imageAlt
     singleValue: false
     xpath: //a[@id='big-photo']//img//@alt
