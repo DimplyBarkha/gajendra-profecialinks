@@ -136,7 +136,10 @@ const transform = (data) => {
         row.availabilityText[0].text = product.offers.availability.replace('http://schema.org/', '');
         if (row.availabilityText[0].text == 'InStock') {
           row.availabilityText[0].text = 'In Stock';
+        } else if (row.availabilityText[0].text == 'OutOfStock') {
+          row.availabilityText[0].text = 'Out Of Stock';
         }
+
       }
       if (row.price) {
         var i = 0;
