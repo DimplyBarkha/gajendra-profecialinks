@@ -26,18 +26,11 @@ module.exports = {
     const isCaptcha = async function () {
       return await context.evaluate(async function () {
         return document.querySelector('div.g-recaptcha') ? 'true' : 'false';
-      //   const captchaEl = document.evaluate('div.g-recaptcha', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      //   if (captchaEl.snapshotLength) {
-      //     return 'true';
-      //   } else {
-      //     return 'false';
-      //   }
       });
     };
 
     const solveCaptcha = async function () {
       console.log('isCaptcha', true);
-      // await context.goto('https://www.google.com/recaptcha/api2/demo');
       await context.solveCaptcha({
         type: 'RECAPTCHA',
         inputElement: '.g-recaptcha',
@@ -47,25 +40,11 @@ module.exports = {
 
       await context.waitForNavigation();
       console.log('Captcha vanished');
-      // const html = context.getHtml();
-
-      // return html.includes('Verification Success... Hooray!');
-
-      // await context.solveCaptcha({
-      //   type: 'IMAGECAPTCHA',
-      //   inputElement: 'form input[type=text][name]',
-      //   imageElement: 'form img',
-      //   autoSubmit: true,
-      // });
-      // console.log('solved captcha, waiting for page change');
-      // context.waitForNavigation();
-      // console.log('Captcha vanished');
     };
 
     const solveCaptchaIfNecessary = async function () {
       console.log('Checking for CAPTCHA');
       await new Promise((resolve) => setTimeout(resolve, 10000));
-      console.log(await isCaptcha())
       while (await isCaptcha() === 'true' && captchas < MAX_CAPTCHAS) {
         captchas++;
         await context.waitForSelector('iframe[role="presentation"]', { timeout: 30000 });
@@ -103,26 +82,6 @@ module.exports = {
         return;
       }
 
-      // console.log('Go to some random page');
-      // const clickedOK = await context.evaluate(async function () { //* [contains(@id,'contextualIngressPtLabel_deliveryShortLine')]/spa
-      //   const randomLinkEls = document.evaluate("a[href*='/dp/']", document, null, XPathResult.ANY_TYPE, null);
-      //   const randomLinkEl = randomLinkEls.iterateNext();
-      //   if (randomLinkEl) {
-      //     // @ts-ignore
-      //     randomLinkEl.click();
-      //     return 'true';
-      //   } else {
-      //     return 'false';
-      //   }
-      // });
-
-      // if (clickedOK === 'false') {
-      //   console.log('Could not click a product, aborting... :/');
-      //   return;
-      // } else {
-      //   context.waitForNavigation();
-      // }
-
       console.log('Going back to desired page');
       lastResponseData = await context.goto(url, {
         timeout: 20000,
@@ -133,21 +92,6 @@ module.exports = {
         random_move_mouse: true,
       });
       console.log('lastResponseData', lastResponseData);
-
-      // if (lastResponseData.status === 404 || lastResponseData.status === 410) {
-      //   return;
-      // }
-
-      // if (lastResponseData.status !== 200) {
-      //   console.log('Blocked: ' + lastResponseData.status);
-      //   if (benchmark) {
-      //     return;
-      //   }
-      //   if (backconnect) {
-      //     throw Error('Bad response code: ' + lastResponseData.code);
-      //   }
-      //   return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
-      // }
 
       if (!await solveCaptchaIfNecessary) {
         hasCaptcha = true;
