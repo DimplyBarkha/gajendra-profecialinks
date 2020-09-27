@@ -9,7 +9,7 @@ module.exports = {
     domain: 'kastner-oehler.at',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
       const cookies = document.querySelector('span.tao_button_cookie_settings');
       if (cookies) cookies.click();
@@ -48,6 +48,6 @@ module.exports = {
       }
     });
 
-    await context.extract(productDetails);
+    await context.extract(productDetails, {transform});
   },
 };
