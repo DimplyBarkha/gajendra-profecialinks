@@ -1,13 +1,13 @@
-
 const { transform } = require('./transform');
 // const { implementation } = require('../shared');
+
 module.exports = {
-  implements: 'product/details/extract',
+  implements: 'product/search/extract',
   parameterValues: {
-    country: 'AE',
+    country: 'SA',
     store: 'dyson',
-    transform,
-    domain: 'dyson.ae',
+    transform: null,
+    domain: 'dyson.sa',
     zipcode: '',
   },
   // implementation,

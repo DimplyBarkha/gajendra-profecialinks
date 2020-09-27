@@ -1,20 +1,20 @@
 extends: ../shared 
 fields:
   - name: image
-    xpath: (//div[contains(@class,'hero__media')]//img)[1]/@src
+    xpath: (//div[contains(@class,'hgroup__main-image')]//img)[1]/@src
   - name: imageAlt
-    xpath: (//div[contains(@class,'hero__media')]//img)[1]/@alt
+    xpath: (//div[contains(@class,'hgroup__main-image')]//img)[1]/@alt
   - name: nameExtended
     singleValue: true
-    xpath: //h2[contains(concat(' ',normalize-space(@class),' '),'hgroup__title')] | //div[@class="hgroup__image"]//h1
+    xpath: (//h2[contains(concat(' ',normalize-space(@class),' '),'hgroup__title')] | //div[@class="hgroup__image"]//h1)[1]
   - name: price
     singleValue: true
-    xpath: translate(//span[@data-price-type="finalPrice"]/@data-price-amount|//meta[@property="product:price:amount"]/@content, ".", ",")
+    xpath: (//span[@data-price-type="finalPrice"]/@data-price-amount|//meta[@property="product:price:amount"]/@content)[1]
   - name: listPrice
     singleValue: true
-    xpath: translate(//span[@data-price-type="oldPrice"]/@data-price-amount, ".", ",")
+    xpath: (//span[@data-price-type="oldPrice"]/@data-price-amount)[1]
   - name: priceCurrency
-    default: zł
+    default: SAR
   - name: availabilityText
     singleValue: true
     xpath: //div[contains(concat(' ',normalize-space(@class),' '),'hero__body')]//div[contains(@class, "hero__content")]/@class
@@ -67,7 +67,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //h2[contains(concat(' ',normalize-space(@class),' '),'hgroup__title')] | //div[@class="hgroup__image"]//h1
+    xpath: (//h2[contains(concat(' ',normalize-space(@class),' '),'hgroup__title')] | //div[@class="hgroup__image"]//h1)[1]
   - name: warranty #localedependent
     singleValue: true
     description: Guarantee associated with the product

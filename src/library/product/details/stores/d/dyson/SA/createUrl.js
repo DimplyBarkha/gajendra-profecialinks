@@ -2,10 +2,10 @@
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
-    domain: 'dyson.ae',
+    domain: 'dyson.sa',
     prefix: null,
-    url: null,
-    country: 'AE',
+    url: 'https://www.sa.dyson.com/en-SA/',
+    country: 'SA',
     store: 'dyson',
     zipcode: '',
   },

@@ -30,14 +30,14 @@ const cleanUp = (data, context) => {
           });
           row.manufacturerDescription = [{ text: text.join(' ') }];
         }
-        // if (row.aggregateRating12) {
-        //   const rating = (row.aggregateRating12[0].text / 100) * 5;
-        //   row.aggregateRating = [{ text: (rating.toFixed(1)).toString() }];
-        // }
-        // if (row.aggregateRating) {
-        //   row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('.', ',').trim() }];
-        //   row.aggregateRatingText = [{ text: row.aggregateRating[0].text }];
-        // }
+        if (row.aggregateRating12) {
+          const rating = (row.aggregateRating12[0].text / 100) * 5;
+          row.aggregateRating = [{ text: (rating.toFixed(1)).toString() }];
+        }
+        if (row.aggregateRating) {
+          row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('.', ',').trim() }];
+          row.aggregateRatingText = [{ text: row.aggregateRating[0].text }];
+        }
 
         if (row.sku) {
           const id = (row.sku[0].text.match(/(?<={ productSKU:)(.*)(?=productName)/gm) || []).length ? row.sku[0].text.match(/(?<={ productSKU:)(.*)(?=productName)/gm)[0].replace(/(\")/gm, '').replace(',', '').trim() : '';

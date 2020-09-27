@@ -2,9 +2,9 @@
 module.exports = {
   implements: 'product/details',
   parameterValues: {
-    country: 'AE',
+    country: 'SA',
     store: 'dyson',
-    domain: 'dyson.ae',
+    domain: 'dyson.sa',
     zipcode: '',
   },
 };
