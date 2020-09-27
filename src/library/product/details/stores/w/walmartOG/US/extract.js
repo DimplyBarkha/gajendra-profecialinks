@@ -189,7 +189,11 @@ module.exports = {
 
     const { productDetails } = dependencies;
     const mainImageSelector = '.prod-HeroImage-container img';
-    await context.waitForSelector(mainImageSelector, { timeout: 20000 });
+    try {
+      await context.waitForSelector(mainImageSelector, { timeout: 20000 });
+    } catch (error) {
+      console.log('Cannot find ".prod-HeroImage-container img" selector');
+    }
     return await context.extract(productDetails, { transform: transformParam });
   },
 

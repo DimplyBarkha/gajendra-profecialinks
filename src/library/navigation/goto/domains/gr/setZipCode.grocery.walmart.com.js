@@ -8,7 +8,7 @@ module.exports = {
   },
   implementation: async (inputs, parameters, context, dependencies) => {
     const { timeout = 60000, waitUntil = 'load', checkBlocked = true } = {};
-    const mainUrl = 'https://grocery.walmart.com';
+    const mainUrl = 'https://www.walmart.com/grocery';
     await context.goto(mainUrl, { timeout, waitUntil, checkBlocked });
     const { zipcode } = inputs;
     let locationStreetAddress = '';
