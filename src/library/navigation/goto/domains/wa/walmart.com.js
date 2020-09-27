@@ -45,7 +45,7 @@ module.exports = {
         type: 'RECAPTCHA',
         inputElement: 'g-recaptcha',
       });
-      await new Promise(r => setTimeout(r, 5000));
+      await new Promise((resolve) => setTimeout(resolve, 5000));
       await context.click({
         constructor: 'MouseEvent',
         target: {
