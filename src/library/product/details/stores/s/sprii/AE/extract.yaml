@@ -78,7 +78,7 @@ fields:
   - name: nameExtended
     singleValue: false
     description:
-    xpath: //meta[@name='description']/@content
+    xpath: //h1[contains(@class, 'page-title')]
   - name: alternateImages
     singleValue: false
     description:

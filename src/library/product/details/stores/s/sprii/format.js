@@ -24,11 +24,13 @@ const transform = (data) => {
             var counter = 0;
             features.forEach(element => {
               if (element.indexOf(':') === -1 && featureFlag) {
-                counter++;
-                row.additionalDescBulletInfo.push({
-                  text: element,
-                  xpath: ''
-                });
+                if (element.trim() !== '') {
+                  counter++;
+                  row.additionalDescBulletInfo.push({
+                    text: element,
+                    xpath: ''
+                  });
+                }
               } else {
                 featureFlag = false;
               }
