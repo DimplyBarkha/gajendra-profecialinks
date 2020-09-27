@@ -11,7 +11,7 @@ module.exports = {
     zipcode: '',
   },
   // @ts-ignore
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     await context.click('li#tab-description a');
     await context.evaluate(async function () {
@@ -125,6 +125,6 @@ module.exports = {
         ? document.querySelector('span.ts-reviewSummary-ratingValue').innerText : '';
       addElementToDocument('aggRating', aggRating.replace(/(\d+)\.?(\d+)?/g, '$1,$2'));
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, {transform});
   },
 };
