@@ -6,48 +6,37 @@ fields:
   - name: image
     singleValue: false
     xpath: //a[@id='big-photo']//img/@src
-    description: URL of the main product image
+    # regExp: (.+)
+    # regExpReplace: https:$1
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='product-photos']//li/a/@href
-    description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name,"keyword")]/@content
-    description: The <meta> keywords content
   - name: description
     singleValue: false
-    xpath: //meta[contains(@property,"description")]/@content
-    #xapth: //div[@class='desc']/text()
-    #xapth: //table[@class="description-tech-details js-tech-details"]//tbody//tr[not(@class="group-name")]
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath:   //meta[contains(@property,"description")][1]/@content | //div[@id='description-text']//ul//li 
   - name: gtin
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"gtin13")]
     regExp: gtin13":\s"([^"]+)
     regExpReplace: $1
-    description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
     regExp: sku":\s"([^"]+)
     regExpReplace: $1
-    description: The store-specific product identifier
   - name: ratingCount
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
     regExp: reviewCount":\s"([^"]+)
     regExpReplace: $1
-    description: The number of ratings
-    type: NUMBER
   - name: aggregateRating
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
     regExp: ratingValue":\s"([^"]+)
     regExpReplace: $1
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
   - name: imageAlt
     singleValue: false
     xpath: //a[@id='big-photo']//img//@alt
@@ -55,9 +44,6 @@ fields:
   - name: category
     singleValue: false
     xpath: //div[@id='breadcrumb']//ul//li[position()>2]
-    #regExp: category":\s"([^"]+)
-    #regExpReplace: $1
-    description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
     xpath: //div//script[@type="text/javascript"][contains(text(),"name")][1]
@@ -65,45 +51,34 @@ fields:
     regExpReplace: $1
   - name: listPrice
     singleValue: false
-    xpath: normalize-space(normalize-space(//div[@class='price-old']))
+    xpath: normalize-space(//div[@class='price-old'])
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
     xpath: normalize-space(//div[@class='price-normal selenium-price-normal']/text())
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"availability")]
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    regExp: (.+)
+    regExp: availability":\s"http:\W\Wschema.org\W([^"]+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class,'about-desc')]//ul/li)
+    xpath: count(//div[@id='description-text']//ul//li)
     description: Number of ul > li tags in the description
-    type: NUMBER
   - name: brandText
     singleValue: false
-    #xpath: //script[1][@type="text/javascript"][contains(text(),"brand")]
     xpath: //a[@class="product-brand"]/@title
-    #regExp: brand":\s"([^"]+)
-    #regExpReplace: $1
   - name: manufacturer
     singleValue: false
     xpath: normalize-space(//td[contains(text(),'Nazwa producenta / importera')]//following-sibling::td/text())
-    description: Product manufacturer
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
     xpath: normalize-space(//td[contains(.//text(),'Waga z opakowaniem')]//following-sibling::td)
   - name: variantId
     singleValue: false
-    description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@class='selenium-product-code']/font/font[position()=1]
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
     regExp: sku":\s"([^"]+)
     regExpReplace: $1
   - name: shippingDimensions
@@ -118,16 +93,10 @@ fields:
     singleValue: false
     xpath: normalize-space(//div[@class='product-tab product-tab-opis']//tr//td[contains(text(),'Kolor')]//following-sibling::td)
     description: A textual description of the colour
-  - name: colorCode
-    singleValue: false
-    description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
     xpath: //p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()
     description: The extended description of the product supplied by the lister
-  - name: manufacturerImages
-    singleValue: false
-    description: Images within the third party description
   - name: name
     singleValue: false
     xpath: //meta[contains(@property,"og:title")]/@content
@@ -139,31 +108,18 @@ fields:
   - name: warranty
     singleValue: false
     xpath: //td[contains(text(),'Gwarancja')][1]//following-sibling::td/text()
-    description: Guarantee associated with the product
-  - name: countryOfOrigin
-    singleValue: false
-    description: The country from which the product originates
   - name: energyEfficiency
     singleValue: false
     xpath: normalize-space(//a[contains(text(),'Klasa energetyczna')]//..//following-sibling::td)
-    description: Energy rating of a product.
-      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-    example: A+, A+++, B
   - name: videos
     singleValue: 
     xpath: //button[@class='video-preview js-video-preview']/@data-src
     description: URLs of videos on page
   - name: weightNet
     singleValue: false
-    description: Gross weight as described on the page
-    xpath: normalize-space(//td[contains(text(),'Waga ')]/following-sibling::td) 
-  - name: weightNet
-    singleValue: false
-    description: Gross weight as described on the page
-    xpath: normalize-space(//td[contains(text(),"Waga") and not(contains(text(),"opakowaniem"))]//following-sibling::td)
+    xpath: normalize-space(//td[contains(text(),"Waga") and not(contains(text(),"opakowaniem"))]//following-sibling::td) 
   - name: manufacturerImages
     singleValue: false
-    description: Gross weight as described on the page
     xpath: //div[@class='margin-t-lg-32']//div[@class='tct']//img[@class='lazy loaded']/@src
     regExp: (.+)
     regExpReplace: https://www.euro.com.pl$1

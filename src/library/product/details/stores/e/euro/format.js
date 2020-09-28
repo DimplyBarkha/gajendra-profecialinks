@@ -18,56 +18,37 @@ const transform = (data) => {
         });
       }
       if (row.specifications) {
-        const nDesc = [];
-        let newDesc = '';
-        let idx = 0;
+        const specs = [];
+        let newTxt = '';
+        let cnt = 0;
         row.specifications.forEach(item => {
-          nDesc[0] = item;
-          if (idx > 0) {
-            newDesc = newDesc + ' || ';
-          }
-          newDesc = newDesc + item.text;
-          idx++;
+          specs[0] = item;
+          item.text = item.text.replace(/(\s?\n)+/g, ' ');
+          if (cnt > 0) newTxt = newTxt + ' || ' + item.text;
+          else newTxt = newTxt + item.text;
+          cnt++;
         });
-        console.log(newDesc);
-        nDesc.forEach(item => {
-          item.text = newDesc;
+
+        specs.forEach(item => {
+          item.text = newTxt;
         });
-        row.specifications = nDesc;
-      }
-      if ((!row.listPrice || !row.listPrice.length) && row.price) {
-        row.listPrice = row.price;
-      }
-      if (row.price && row.price[0]) {
-        row.price[0].text = row.price[0].text.replace(/\s/, ',');
-      }
-      if (row.listPrice && row.listPrice[0]) {
-        row.listPrice[0].text = row.listPrice[0].text.replace(/\s/, ',');
-      }
-      if (row.aggregateRating) {
-        row.aggregateRating = [
-          {
-            text: row.aggregateRating[0].text.replace(/./, ','),
-          },
-        ];
+        row.specifications = specs;
       }
       if (row.description) {
-        const nDesc = [];
-        let newDesc = '';
-        let idx = 0;
+        const descs = [];
+        let newTxt = '';
+        let cnt = 0;
         row.description.forEach(item => {
-          nDesc[0] = item;
-          if (idx > 0) {
-            newDesc = newDesc + '||';
-          }
-          newDesc = newDesc + item.text;
-          idx++;
+          descs[0] = item;
+          item.text = item.text.replace(/(\s?\n)+/g, ' ').trim();
+          if (cnt > 0) newTxt = newTxt + '||' + item.text;
+          else newTxt = newTxt + item.text;
+          cnt++;
         });
-        console.log(newDesc);
-        nDesc.forEach(item => {
-          item.text = newDesc;
+        descs.forEach(item => {
+          item.text = newTxt;
         });
-        row.description = nDesc;
+        row.description = descs;
       }
     }
   }
