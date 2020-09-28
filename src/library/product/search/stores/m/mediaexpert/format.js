@@ -28,7 +28,7 @@ const transform = (data) => {
               totRatting=totRatting+0.5;
             }
           });
-          row.aggregateRating2 = [{"text":totRatting, "xpath": row.aggregateRating2[0]['xpath']}];
+          row.aggregateRating2 = [{"text":totRatting.toString().replace('.',','), "xpath": row.aggregateRating2[0]['xpath']}];
         }
         if(row.brandText){
           var bText;
