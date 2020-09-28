@@ -43,8 +43,9 @@ const transform = (data) => {
 
       if (row.variantId) {
         const prodInfo = JSON.parse(row.variantId[0].text);
-        if (prodInfo && prodInfo.productID) {
-          row.variantId[0].text = prodInfo.productID
+        if (prodInfo && prodInfo.pdpTaxonomyObj && prodInfo.pdpTaxonomyObj.productInfo) {
+          const prodData = prodInfo.pdpTaxonomyObj.productInfo[0];
+          prodData ? row.variantId[0].text = prodData.ean : delete row.variantId;
         } else {
           delete row.variantId
         }
