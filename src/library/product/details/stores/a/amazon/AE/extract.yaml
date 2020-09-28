@@ -135,8 +135,7 @@ fields:
     regExpReplace: https://www.amazon.com$1
   - name: variantAsins
     singleValue: false
-    # xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
-    manualSelector: div#allVariants
+    xpath: //div[@id='twisterJsInitializer_feature_div']/script[@type='text/javascript']
   - name: firstVariant
     singleValue: false
     xpath: //script[contains(@type,"a-state") and contains(text(), "parentAsin")]
