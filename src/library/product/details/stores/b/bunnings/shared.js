@@ -65,7 +65,7 @@ const transform = (data) => {
 			if (row.technicalInformationPdfPresent) {				
 				let newText = "No";
 				row.technicalInformationPdfPresent.forEach(item => {
-					if (item.text.trim().length > 0) {
+					if (item.text.trim().includes(".pdf")) {
 						newText = "Yes";
 					}
 				});

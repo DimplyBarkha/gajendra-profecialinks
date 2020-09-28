@@ -21,7 +21,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[contains(@class, "bui-breadcrumbs__list")]/li[position() > 1]//a//span
+    xpath: //ul[contains(@class, "bui-breadcrumbs__list")]/li[position() > 3]//a//span
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)
@@ -477,7 +477,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[@class="bui-accordion__panel-inner"]//div//ul//li
+    xpath: //dl[contains(@id, "product-detail-description")]//dd//div[@class="bui-accordion__panel-inner"]//div//ul//li
   - name: prop65Warning
     singleValue: true
     description: null
