@@ -14,7 +14,7 @@ fields:
     xpath: //h1[@class="product-title-text"]
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"price-m")]/span[contains(@class,"value")]
+    xpath: //div[@class="product-price-current"]/span[@class="product-price-value"]
   - name: sku
     singleValue: false
     xpath: //div[@class="product-info"]/meta[@itemprop="url"]/@content
@@ -38,7 +38,7 @@ fields:
     xpath: //div[@class="product-sku"]//div[@class="sku-property"][1]//span[@class="sku-title-value"]
   - name: listPrice
     singleValue: false
-    xpath: //del[contains(@class,"price-before-discount")]
+    xpath: //div[@class="product-price-del"]/span[@class="product-price-value"]
   - name: variantCount
     singleValue: false
     defultValue: 0
