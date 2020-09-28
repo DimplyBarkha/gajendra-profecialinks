@@ -3,87 +3,85 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: image
+  - name: image #to
     singleValue: true
     description: URL of the main product image
     xpath: //div[@class="item carousel-cell owl-lazy"]/@data-src
-  - name: imageAlt
+  - name: imageAlt #to
     singleValue: true
     description: Alt text of the main product image
-  - name: alternateImages 
+  - name: alternateImages #to
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: ('//div[@class="gallery-thumbs"]/div/img/@src', 'thumbs/90', 'images')
-  - name: metaKeywords #to
+    xpath: //div[@class="gallery-thumbs"]/div/img/@src
+    regExp: (.*)(thumbs\/90)(.*)
+    regExpReplace: $1images$3
+  - name: metaKeywords #to 
     singleValue: true
     description: The <meta> keywords content
-  - name: catego #to
+    xpath: //meta[@property="og:title"]/@content
+  - name: category #to
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //span[contains(@class, "posted_in")]/a[2]
-  - name: nameExtende #to
+    xpath: //div[@class="vw-breadcrumb"]/@bredcrumb
+  - name: nameExtended #to -
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[contains(@class, 'product_title')]
-  - name: listPric #to
+    xpath: //h1[@class="title"]
+  - name: listPrice #to
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //del/span[contains(@class, "woocommerce-Price-amount amount")][1]
-  - name: pric #to
+    xpath: concat((//li[@class="feature -old-price"]/span)[1] , (//li[@class="feature -old-price"]/span)[2])
+  - name: price #to
     singleValue: true
     description: The offered price for the selected product variant - if a user clicks
-      add to basket this is the price they would be charged
-    xpath: //ins/span[contains(@class, "woocommerce-Price-amount amount")][1]
-  - name: availabilityTex #to
+      add to basket this is the price they would be charged 
+    xpath: (//li[@class="feature -price"])[1]
+  - name: availabilityText #to
     singleValue: true
     description: Availability as described on page for the selected variant. If there
       is no availability but the product can be added to cart, this field should be
       "In Stock"
     xpath: //p[contains(@class, "stock")]/text()
-    regExp: (\b(?![0]\b)\d{1,5}\b)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
-  - name: descriptio #to
+    defaultValue: In Stock
+  - name: description #to
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@id, "tab-description")]
+    xpath: //div[@class="product-description"]
   - name: descriptionBullets #to
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[contains(@id, "tab-description")]/ul/li)
+    xpath: count(//div[@class="product-description"]/ul/li)
   - name: brandText #to
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name, e.g.
       "Visit the Gillette Store"
-    defaultValue: Dyson
-    xpath: //td[contains(@class, "woocommerce-product-attributes-item__value")][2]
+    xpath: (//li[@class="item"]/span[@class="value"])[1]
   - name: manufacturer #to
     singleValue: true
     description: Product manufacturer
-    defaultValue: Dyson
+    xpath: (//li[@class="item"]/span[@class="value"])[1]
   - name: quantity #to
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
-    defaultValue: 1
   - name: weightNet #to
     singleValue: true
     description: Net weight as described on the page
-    xpath: //td[contains(@class, "woocommerce-product-attributes-item__value")][1]
+    xpath: (//div[@class="info2"])[4]/p
   - name: weightGross #to
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin #to
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: (//li[@class="item"]/span[@class="value"])[3]
   - name: sku #to
     singleValue: true
     description: The store-specific product identifier
-    xpath: //span/span[contains(@class, "sku")]
+    xpath: (//li[@class="item"]/span[@class="value"])[2]
   - name: variantId #to
     singleValue: true
     description: Identifier for a variant from a store where variants share the same
@@ -91,6 +89,7 @@ fields:
   - name: mpc #to
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: (//li[@class="item"]/span[@class="value"])[4]
   - name: packSize #to
     singleValue: true
     description: The number of packs in the product offer (if stated separately on the
@@ -108,8 +107,6 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //a[contains(@href, "#tab-reviews")]/text()
-    regExp: (\b(\b)\d{1,5}\b)
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -120,8 +117,7 @@ fields:
   - name: shippingInfo #to
     singleValue: true
     description: Shipping information for the product
-    xpath: //div[contains(@class, "summary entry-summary")]/p[contains(@class, "wc-gzd-additional-info
-      delivery-time-info")]/text()
+    xpath: normalize-space(concat((//li[@class="feature -shipping -green"]/div[@class="text"]/span)[1], (//li[@class="feature -delivery -green"]/div)[1] ))
   - name: shippingDimensions #to
     singleValue: true
     description: Stated shipping dimensions
