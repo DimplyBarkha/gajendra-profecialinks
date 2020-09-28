@@ -17,6 +17,16 @@ const transform = (data) => {
 				row.Image360Present = [{ text: newText }];
 			}
 
+			if (row.technicalInformationPdfPresent) {				
+				let newText = 'No';
+				row.technicalInformationPdfPresent.forEach(item => {   					               			
+					if (item.text.trim() > '0') {
+						newText = 'YES';
+					}
+				});
+				row.technicalInformationPdfPresent = [{ text: newText }];
+			}
+
 			if (row.energyEfficiency) {
 				let text = '';
 				row.energyEfficiency.forEach(item => {
@@ -28,6 +38,14 @@ const transform = (data) => {
 			  if (row.weightNet) {
 				row.weightNet = [{ text: row.weightNet[0].text.trim() }];
 			  }
+
+
+			  if (row.mpc1) {
+				if (row.mpc1[0].text.indexOf('-') >= 1) {					
+						row.mpc = [{ text: row.mpc1[0].text.trim() }];
+					}								
+			  }
+
 
 		}
 	}

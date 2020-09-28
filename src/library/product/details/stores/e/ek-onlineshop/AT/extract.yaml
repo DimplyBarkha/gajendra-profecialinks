@@ -24,7 +24,7 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)    
     # xpath: //nav[contains(@class, 'breadcrumb')]//ol//li[position()=2]
-    xpath: //nav[contains(@class, 'breadcrumb')]//ol//li[position()<last()]  
+    xpath: //nav[contains(@class, 'breadcrumb')]//ol//li[position()> 1 and position()<last()]  
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -56,10 +56,12 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id="description"]
+    xpath: //ul[contains(@class,'product-highlights')]//li
+    # xpath: //div[@id="description"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
+    xpath: count(//ul[contains(@class,'product-highlights')]//li)
     type: NUMBER
   - name: brandText
     singleValue: false
@@ -77,7 +79,8 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //div[contains(text(), "Größe")]/following::div[1]
+    xpath: //input[@id="quantity_wanted"]//@value
+    # xpath: //div[contains(text(), "Größe")]/following::div[1]
     # xpath: //input[@id='quantity_wanted']//@value
   - name: weightNet
     singleValue: true
@@ -103,8 +106,11 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //*[contains(text(),'Bestellnummer')]/following::dd[1]
+    # xpath: //*[contains(text(),'Bestellnummer')]/following::dd[1]
     # xpath: //script//@data-flix-mpn
+  - name: mpc1
+    singleValue: true    
+    xpath: //*[contains(text(),'Bestellnummer')]/following::dd[1]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -155,7 +161,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false    
     description: The extended description of the product supplied by the lister
-    xpath: //div[contains(@class,'product-description')]//p
+    # xpath: //div[contains(@class,'product-description')]//p
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -190,7 +196,8 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id="product-details"]
+    xpath: concat(//div[@id="product-details"] ,' ',//li[contains(text(),'Breite')],' ',//li[contains(text(),'Höhe')],' ', //li[contains(text(),'Tiefe')],' ', //li[contains(text(),'Gewicht')],' ',//li[contains(text(),'integrierter')],' ',//li[contains(text(),'Wandmontage')])
+    # xpath: //div[@id="product-details"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -259,9 +266,9 @@ fields:
     example: A+, A+++, B
   - name: technicalInformationPdfPresent
     singleValue: true
+    xpath: count(//*[contains(text(),'Produktdatenblatt')])
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6        
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
