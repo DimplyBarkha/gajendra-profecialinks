@@ -124,7 +124,7 @@ const transform = (data) => {
             arr_info.push(item.text);
           });
           row.descriptionBullets = [{'text':arr_info.length}];
-          row.additionalDescBulletInfo = [{'text':arr_info.join(' | ')}];
+          row.additionalDescBulletInfo = [{'text':'| '+arr_info.join(' | ')}];
         }
         if (row.specifications) {
           let info = [];          
