@@ -84,7 +84,12 @@ module.exports = {
       addElementToDocument('added_productOtherInformation', other_description_str); 
 
       const specifications_xpath = "//table[@class='flix-std-specs-table']/tbody/tr";
-      const specifications_str = getAllXpath(specifications_xpath, 'innerText').join(',');
+      var specifications_str = getAllXpath(specifications_xpath, 'innerText').join(',');
+
+      const specifications_part = getXpath("//div[@id='flix-inpage']//div[@id='inpage_container']//iframe",'innerText');
+      if(specifications_part){
+        specifications_str = specifications_str.concat(specifications_part);
+      }
       addElementToDocument('added_specifications', specifications_str);
 
       const ratingCount =  getXpath("//span[@class='yotpo-sum-reviews']//span[contains(concat(' ', normalize-space(@class), ' '), ' font-color-gray')]/text()", 'nodeValue');
@@ -130,8 +135,8 @@ module.exports = {
       }
 
       const weight_net_str = getXpath("//table[@class='flix-std-specs-table']", 'innerText');
-      const weight_net = weight_net_str.substring(weight_net_str.lastIndexOf("Weight")+7, weight_net_str.lastIndexOf("KG")+2);
-      if(weight_net){
+      if(weight_net_str){
+        const weight_net = weight_net_str.substring(weight_net_str.lastIndexOf("Weight")+7, weight_net_str.lastIndexOf("KG")+2);
         addElementToDocument('added_weight', weight_net);
       }
 
