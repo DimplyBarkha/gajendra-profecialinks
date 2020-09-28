@@ -1,4 +1,4 @@
-const { transform } = require('./format');
+
 async function implementation (
   // @ts-ignore
   // @ts-ignore
@@ -12,7 +12,7 @@ async function implementation (
   const { transform } = parameters;
   // @ts-ignore
   const { productDetails } = dependencies;
-  await context.evaluate(async (parentInput) => {
+  const warrantyNode = await context.evaluate(async (parentInput) => {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -199,8 +199,298 @@ async function implementation (
         }
       }
     }
-  // @ts-ignore
+    // New code
+    const altNode = document.querySelectorAll('li.imageThumbnail img');
+    const altHref = [];
+    if (altNode && altNode.length) {
+      altNode.forEach((ele) => {
+        var href = (ele.getAttribute('src')).replace('SS40', 'SX679');
+        altHref.push(href);
+      });
+    }
+    altHref.shift();
+    if (altHref.length) {
+      const altImgP = document.createElement('div');
+      altImgP.id = 'alternate-images';
+      altHref.forEach((ele) => {
+        const s = document.createElement('span');
+        s.innerText = ele;
+        altImgP.appendChild(s);
+      });
+      document.body.appendChild(altImgP);
+    }
+
+    const desNode = document.querySelectorAll('#feature-bullets li');
+    const btmDescNode = document.querySelector('#productDescription');
+    var desText = '';
+    var bulletsInfo = '';
+    if (desNode && desNode.length) {
+      var count = 0;
+      desNode.forEach((ele) => {
+        desText += ' ' + ele.innerText;
+        bulletsInfo += ' || ' + ele.innerText;
+        count++;
+      });
+    }
+    if (btmDescNode && btmDescNode.innerText) {
+      desText += ' ' + btmDescNode.innerText;
+      addHiddenDiv('product-btm-desc', clean(btmDescNode.innerText));
+    }
+    if (desText) {
+      addHiddenDiv('product-description-bullets', desText);
+      addHiddenDiv('additional-info-bullets', bulletsInfo);
+      addHiddenDiv('bullets-count', count);
+    }
+
+    const fastNode = document.querySelector('#ddmDeliveryMessage');
+    if (fastNode) {
+      addHiddenDiv('fast-track-msg', fastNode.innerText);
+    }
+
+    const specNode = document.querySelectorAll('#detailBullets_feature_div > ul span.a-text-bold ');
+    const specValuesNode = document.querySelectorAll('#detailBullets_feature_div > ul span.a-text-bold +span');
+    var specKeys = [];
+    var specValues = [];
+    var specText = '';
+    if (specNode && specNode.length) {
+      specKeys = getItems(specNode);
+    }
+    if (specValuesNode && specValuesNode.length) {
+      specValues = getItems(specValuesNode);
+    }
+    var tempSpec = {};
+    if (specKeys.length && specValues.length) {
+      for (var i = 0; i < specKeys.length; i++) {
+        tempSpec[specKeys[i]] = specValues[i];
+        specText += ' || ' + specKeys[i] + specValues[i];
+      }
+    }
+    specKeys = [];
+    specValues = [];
+    const techSpecNode = document.querySelectorAll('#productDetails_techSpec_section_1 th');
+    const techValuesNode = document.querySelectorAll('#productDetails_techSpec_section_1 td');
+    if (techSpecNode && techSpecNode.length) {
+      specKeys = getItems(techSpecNode);
+    }
+    if (techValuesNode && techValuesNode.length) {
+      specValues = getItems(techValuesNode);
+    }
+    if (specKeys.length && specValues.length) {
+      for (var s = 0; s < specKeys.length; s++) {
+        if (!(tempSpec[specKeys[s]])) {
+          specText += ' || ' + specKeys[s] + ' : ' + specValues[s];
+        }
+      }
+    }
+    if (specText) {
+      addHiddenDiv('product-spec', specText.slice(3));
+    }
+
+    const manDescNode = document.querySelectorAll('.aplus-module-wrapper td.apm-top');
+    const mDesc = [];
+    if (manDescNode && manDescNode.length) {
+      manDescNode.forEach((ele) => {
+        var des = clean(ele.innerText);
+        mDesc.push(des);
+      });
+    }
+    if (mDesc.length) {
+      const manfactDesc = document.createElement('div');
+      manfactDesc.id = 'manufacturer-desc';
+      mDesc.forEach((ele) => {
+        const s = document.createElement('span');
+        s.innerText = ele;
+        manfactDesc.appendChild(s);
+      });
+      document.body.appendChild(manfactDesc);
+    }
+
+    // variants
+    var variantNode = document.querySelector('#twisterJsInitializer_feature_div script');
+    var variantScript = document.getElementsByTagName('script');
+    // var asinNode = document.querySelector('[data-asin]');
+    var variantsText = [];
+    // var asinText = '';
+    var variantAsinText = '';
+    // if (asinNode) {
+    //   asinText = asinNode.getAttribute('data-asin');
+    // }
+    if (variantNode && variantNode.innerText) {
+      var temp = {};
+      temp.text = variantNode.innerText;
+      variantsText.push(temp);
+    }
+    for (var j = 0; j < variantScript.length; j++) {
+      if (variantScript[j].innerText && variantScript[j].innerText.includes('ImageBlockBTF')) {
+        var temp1 = {};
+        temp1.text = variantScript[j].innerText;
+        variantsText.push(temp1);
+        break;
+      }
+    }
+    if (variantsText.length) {
+      let asinLength = 0;
+      let asinValArr = [];
+      variantsText.forEach(item => {
+        const asinArr = item.text.match(/"asin":"(.*?)"/gmi);
+        if (asinArr) {
+          const asins = asinArr.map(el => el.replace(/.*?:"?(.*)/, '$1').slice(0, -1));
+          asinValArr = asinValArr.concat(asins);
+        }
+      });
+      const value = new Set(asinValArr);
+      asinValArr = Array.from(value);
+      if (asinValArr.length > 0) asinLength = asinValArr.length;
+      variantAsinText = asinValArr.join(' | ');
+      addHiddenDiv('variant-count', asinLength);
+      addHiddenDiv('variant-asin', variantAsinText);
+    }
+
+    const variantInfoNode = document.querySelectorAll("[id*='variation'] ul[class*='swatch'] li[class*='swatch'] img");
+    const variantFlavor = document.querySelectorAll("#variation_flavor_name [class*='a-row']");
+    const variantStyle = document.querySelectorAll("#variation_style_name [class*='a-row']");
+    const variantSize = document.querySelectorAll("#variation_size_name [class*='a-row']");
+    const variantColor = document.querySelectorAll("#variation_color_name [class*='a-row']");
+    const variantPackage = document.querySelectorAll("#variation_item_package_quantity [class*='a-row']");
+    const variantTwist = document.querySelectorAll("ul[class*='swatch'] li[class*='swatch'] div[class*='twisterText']");
+    const variantDrop = document.querySelectorAll("[id*='variation'] select[name*='dropdown'] > option");
+    var variantInfo = [];
+    if (variantInfoNode && variantInfoNode.length) {
+      variantInfoNode.forEach((ele) => {
+        variantInfo.push(ele.getAttribute('alt'));
+      });
+    }
+    variantInfo = getVariantInfo(variantStyle, variantInfo);
+    variantInfo = getVariantInfo(variantFlavor, variantInfo);
+    variantInfo = getVariantInfo(variantSize, variantInfo);
+    variantInfo = getVariantInfo(variantColor, variantInfo);
+    variantInfo = getVariantInfo(variantPackage, variantInfo);
+    variantInfo = getVariantInfo(variantTwist, variantInfo);
+    variantInfo = getVariantInfo(variantDrop, variantInfo);
+    if (variantInfo.length) {
+      addHiddenDiv('product-variant-info', variantInfo.join(' || '));
+    }
+
+    const ssoNode = document.querySelector('#SSOFpopoverLink');
+    const merchantInfo = document.querySelector('#merchant-info');
+    const metaInfo = document.getElementsByTagName('meta');
+    var primeInfo = [];
+    if (ssoNode) {
+      primeInfo.push({ text: ssoNode.innerText });
+    }
+    if (merchantInfo) {
+      primeInfo.push({ text: merchantInfo.innerText });
+    }
+    for (var k = 0; k < metaInfo.length; k++) {
+      var atr = metaInfo[k].getAttribute('content');
+      if (atr && atr.includes('Prime')) {
+        var temp2 = {};
+        temp2.text = atr;
+        primeInfo.push(temp1);
+        break;
+      }
+    }
+    if (primeInfo.length) {
+      let value = '';
+      primeInfo.forEach(item => {
+        if (!item.text.includes('NO')) {
+          if (item.text.includes('sold by Amazon') && !value.includes('Yes - Shipped and Sold')) {
+            value += 'Yes - Shipped and Sold | ';
+          } else if (item.text.includes('Fulfilled by Amazon') && !value.includes('Yes - Fulfilled')) {
+            value += 'Yes - Fulfilled | ';
+          } else if (item.text.includes('Prime') && !value.includes('Prime')) {
+            value += 'Prime Pantry | ';
+          }
+        }
+      });
+      if (value) {
+        addHiddenDiv('prime-info', value.slice(0, value.length - 3));
+      } else {
+        addHiddenDiv('prime-info', 'NO');
+      }
+    }
+
+    if (variantScript && variantScript.length) {
+      for (var m = 0; m < variantScript.length; m++) {
+        if (variantScript[m].getAttribute('type') === 'a-state' && variantScript[m].innerText && variantScript[m].innerText.includes('parentAsin')) {
+          var pText = (JSON.parse(variantScript[m].innerText));
+          if (pText && pText.pageRefreshUrlParams && pText.pageRefreshUrlParams.parentAsin) {
+            addHiddenDiv('product-pasin', pText.pageRefreshUrlParams.parentAsin);
+          }
+        }
+      }
+    }
+
+    const warningNode = document.querySelectorAll('#important-information div[class*="content"] h4');
+    if (warningNode && warningNode.length) {
+      warningNode.forEach(ele => {
+        if (ele.innerText && ele.innerText.includes('Safety Information')) {
+          var wText = ele.parentElement.innerText;
+          wText = (wText.replace('Safety Information', ' ')).trim();
+          addHiddenDiv('product-warnings', clean(wText));
+        }
+      });
+    }
+    const warrantyNode = document.querySelector('.warranty-content');
+    if (warrantyNode) {
+      warrantyNode.click();
+      return warrantyNode;
+    }
+    function getVariantInfo (node, varinats) {
+      if (node && node.length) {
+        var a = getItems(node);
+        if (a.length) {
+          varinats = varinats.concat(a);
+        }
+      }
+      return varinats;
+    }
+
+    function getItems (data) {
+      var items = [];
+      data.forEach(ele => {
+        items.push(ele.innerText);
+      });
+      return items;
+    }
+
+    function clean (text) {
+      text = text.toString()
+        .replace(/\r\n|\r|\n/g, ' ')
+        .replace(/\n/g, ' ')
+        .replace(/&amp;nbsp;/g, ' ')
+        .replace(/&amp;#160/g, ' ')
+        .replace(/\u00A0/g, ' ')
+        .replace(/\s{2,}/g, ' ')
+        .replace(/"\s{1,}/g, '"')
+        .replace(/\s{1,}"/g, '"')
+        .replace(/^ +| +$|( )+/g, ' ')
+        .replace(/[\x00-\x1F]/g, '')
+        .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+        .replace(/&nbsp;/g, ' ');
+      return text;
+    }
+    // @ts-ignore
   }, parentInput);
+  if (warrantyNode) {
+    await context.waitForSelector('.a-popover-content div[class*="icon-farm-bottom-sheet-content"]');
+  }
+  await context.evaluate(async () => {
+    const warrantyNode = document.querySelector('.warranty-content');
+    if (warrantyNode) {
+      const contentNode = document.querySelector('.a-popover-content div[class*="icon-farm-bottom-sheet-content"]');
+      if (contentNode) {
+        addHiddenDiv('product-warranty', contentNode.innerText);
+      }
+    }
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+  });
   return await context.extract(productDetails, { transform });
 }
 
@@ -209,7 +499,7 @@ module.exports = {
   parameterValues: {
     country: 'IN',
     store: 'amazon',
-    transform: transform,
+    transform: null,
     domain: 'amazon.in',
     zipcode: '',
   },
