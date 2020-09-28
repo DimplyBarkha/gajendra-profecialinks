@@ -147,6 +147,8 @@ module.exports = {
         ? document.querySelector('*#footer-site div.e-maerket-notice.marg').innerText : '';
       if (legal) addElementToDocument('legal', legal);
 
+      await timeout(5000);
+
       const iframe = document.querySelector('iframe.videoly-box');
       if (iframe) {
         const videos = iframe.contentDocument ? iframe.contentDocument.querySelectorAll('li.b-video-item div.b-video-item-tile') : [];
@@ -156,7 +158,7 @@ module.exports = {
       const videoWrapper = getElementByXpath('//div[@class="video-wrapper"]//iframe/@src')
         ? getElementByXpath('//div[@class="video-wrapper"]//iframe/@src').textContent
         : '';
-      addElementToDocument('urlsForVideos', videoWrapper);
+      if (videoWrapper) addElementToDocument('urlsForVideos', videoWrapper);
 
       const cookies = document.querySelector('button#cookie-notification-accept');
       if (cookies) {

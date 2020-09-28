@@ -2,33 +2,33 @@ input:
   _url: http://power.fi
   URL: https://www.power.fi/koti-ja-vapaa-aika/imurointi-ja-siivous/varsi-ja-rikkaimurit/dyson-v6-fluffy-varsi-imuri/p-394639/
 extractions:
-  - html: https://workbench.import.io/html/run=4a418bc2-944e-48c5-b77b-97d014dc9dc4/task=8ef90d5c-5484-4950-9428-af2b97f18b95/b9b73bc7-1629-45bf-adaf-7019030c2d72.html
+  - html: https://workbench.import.io/html/run=1d71792a-8618-47ba-a67b-9739b5ab72f1/task=22389695-32bd-4517-9bb1-51567886fab8/d988b2bb-794b-4548-838f-f85fbcf82c74.html
     extractionConfigId: product/details/stores/p/power/FI/extract
     data:
       - group:
           - image:
               - text: https://media.power-cdn.net/images/h-978b1f8ece6b0c881b9156d6f93c09e7/products/394639/394639_9_600x600_w_g.jpg
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[5]
             imageAlt:
-              - text: DYSON V FLUFFY VARSIIMURI
-                xpath: /html/body/div[17]
+              - text: DYSON V6 FLUFFY+ VARSI-IMURI
+                xpath: /html/body/div[16]
             alternateImages:
               - text: https://media.power-cdn.net/images/h-c461a1a879c5e0c4f16600e0cac5d7ea/products/394639/394639_1_600x600_w_g.jpg
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[6]
               - text: https://media.power-cdn.net/images/h-36147cf32bb7f7b4b9cdc9d1ff1463e5/products/394639/394639_2_600x600_w_g.jpg
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[7]
               - text: https://media.power-cdn.net/images/h-4305dd3453b24349110a43f6b1f9c566/products/394639/394639_3_600x600_w_g.jpg
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[8]
               - text: https://media.power-cdn.net/images/h-e937c4b87c96356c3bd0d956a9167a97/products/394639/394639_4_600x600_w_g.jpg
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[9]
               - text: https://media.power-cdn.net/images/h-fa0768484d7d9394a8f566eb9be39eeb/products/394639/394639_5_600x600_w_g.jpg
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[10]
               - text: https://media.power-cdn.net/images/h-3e17fad1932488a1c1d719c63f6a962d/products/394639/394639_6_600x600_w_g.jpg
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[11]
               - text: https://media.power-cdn.net/images/h-7557e54186a949536964ea2ef7849daf/products/394639/394639_7_600x600_w_g.jpg
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[12]
               - text: https://media.power-cdn.net/images/h-294ae498943197bd0af442db50372be2/products/394639/394639_8_600x600_w_g.jpg
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[13]
             category:
               - text: Koti ja vapaa-aika
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
@@ -38,10 +38,10 @@ extractions:
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[4]
             price:
               - text: 399,55
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[14]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[19]
             description:
               - text: |-
                   DYSON V6 FLUFFY+ VARSI-IMURI
@@ -61,19 +61,19 @@ extractions:
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
             brandText:
               - text: Dyson
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[17]
             manufacturer:
               - text: Dyson
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[17]
             weightNet:
               - text: 2,300 kg
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[21]
             gtin:
               - text: "5025155024645"
-                xpath: /html/body/div[19]
+                xpath: /html/body/div[18]
             eangtin:
               - text: "5025155024645"
-                xpath: /html/body/div[19]
+                xpath: /html/body/div[18]
             sku:
               - text: "394639"
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
@@ -82,7 +82,7 @@ extractions:
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
             mpc:
               - text: "602626"
-                xpath: /html/body/div[24]
+                xpath: /html/body/div[23]
             ratingCount:
               - text: "2"
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/meta[1]/@content
@@ -92,13 +92,13 @@ extractions:
                 value: 2
             aggregateRating:
               - text: 4,5
-                xpath: /html/body/div[32]
+                xpath: /html/body/div[29]
             shippingDimensions:
               - text: 154,0 x 739,0 x 271,0 mm
-                xpath: /html/body/div[23]
+                xpath: /html/body/div[22]
             color:
               - text: "-"
-                xpath: /html/body/div[21]
+                xpath: /html/body/div[20]
             manufacturerDescription:
               - text: "Johdottomalla Dyson V6 Fluffy+ varsi-imurilla viet imurointi kokemuksesi
                   aivan uudelle tasolle. Dyson varsi-imuri poistaa tehokkaasti
@@ -140,65 +140,8 @@ extractions:
                   lataamiseen ja säilytykseen ja lisävarusteiden säilytykseen.
                   Kun imuria säilytetään lataustelineessä, se on välittömästi
                   käyttövalmis.Hygieeninen säiliön tyhjennysTyhjennä lika ja
-                  roskat säiliöstä yhdellä painalluksella. Dyson V6 Fluffy Jump
-                  to: Features Image Gallery Cord-free. Hassle-free. Powerful
-                  Suction. Additional cleaner head invented for hard floors.
-                  Other cordless vacuum manufacturers compromise on either
-                  weight or suction, because they have to choose between motors
-                  that are either bulky or weak. Dyson cord-free vacuums are
-                  different. Thanks to the Dyson digital motor V6, they are
-                  small, light and powerful. Patented Dyson cyclone technology
-                  captures fine dust. 2 Tier Radial™ cyclones Dyson cord-free
-                  vacuums use patented cyclone technology, just like our corded
-                  machines. Powerful centrifugal forces spin dust and dirt out
-                  of the air and into the bin. This patented cyclone technology
-                  combines with the Dyson digital motor and a re-engineered
-                  nickel manganese cobalt battery to ensure that Dyson cord-free
-                  machines provide powerful suction. From the moment you start
-                  cleaning, to the moment you finish.12An entirely re-invented
-                  cleaner head. Picks up large debris and fine dust all at once.
-                  Soft woven nylon envelops large debris The cleaning roller is
-                  covered in a soft woven nylon. The fibers envelop large
-                  debris, allowing it to pass under the cleaner head and into
-                  the vacuum while maintaining a tight seal with the floor.
-                  Carbon fibre and sealed suction remove fine dust Four rows of
-                  soft anti-static carbon fibre filaments help to dissipate any
-                  static charge holding fine dust to the floor surface, allowing
-                  it to be sucked into the vacuum. Unlike with conventional
-                  brush bars, the roller has constant contact with the floor.
-                  There's no gap, so powerful suction is sealed in to draw up
-                  fine dust from crevices.123Improved pick up across every floor
-                  type. Cleans from the floor to the ceiling. Converts to a
-                  handheld for everything in between. The Dyson docking station
-                  stores and charges the machine. So it's always ready to go.
-                  Dyson V6 Fluffy Features Motorised cleaner head Motorised head
-                  cleans all floor types. Soft roller cleaner head Soft roller
-                  cleaner head removes large debris and fine dust
-                  simultaneously. Powered by the Dyson digital motor V6 The
-                  Dyson digital motor V6 creates the most powerful cordless
-                  vacuum. 2 Tier Radial™ cyclones 15 cyclones, arranged across
-                  two tiers, work in parallel to increase airflow and capture
-                  fine dust. Up to 20 minutes of powerful fade-free suction
-                  Dyson V6 Fluffy has a run-time enhancing trigger. Trigger grip
-                  releases instantly, meaning battery power is only used for
-                  vacuuming. (up to 16 minutes with motorised floor tool
-                  attached.) Max power mode Push button to select power.
-                  Provides 6 minutes of higher suction for more difficult tasks.
-                  Mini motorised tool Mini motorised tool removes pet hair and
-                  ground-in dirt. Balanced for floor to ceiling cleaning
-                  Balanced for cleaning up top, down below and in between.
-                  Converts for handheld cleaning All Dyson cordless vacuums
-                  quickly convert to a handheld for quick clean ups, spot
-                  cleaning and cleaning difficult places. Hygienic bin emptying
-                  Just push the button to release the dirt. Convenient docking
-                  station Stores and charges the machine, and holds additional
-                  attachments. Charging and storing the vacuum on the docking
-                  station means it's always ready to go. Dyson V6 Fluffy Image
-                  Gallery:"
-                xpath: /html/body/div[27]
-            videos:
-              - text: https://www.youtube.com/watch?v=L3UoYLcufu8
-                xpath: /html/body/div[28]
+                  roskat säiliöstä yhdellä painalluksella."
+                xpath: /html/body/div[26]
             name:
               - text: DYSON V6 FLUFFY+ VARSI-IMURI
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h1[1]
@@ -217,17 +160,17 @@ extractions:
                   5025155024645 Tuotteen koko (S x L x K) 210,0 x 1210,0 x 250,0
                   mm Pakkauksen koko (S x L x K) 154,0 x 739,0 x 271,0 mm
                   Nettopaino 2,300 kg Tuote ID 394639
-                xpath: /html/body/div[25]
+                xpath: /html/body/div[24]
             promotion:
               - text: Säästä 49,45 €
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[15]
             additionalDescBulletInfo:
               - text: "|| Dyson V6 -digitaalimoottori || Kehitetty koville lattiapinnoille ||
                   Poistaa samanaikaisesti roskat ja hienojakoisen pölyn ||
                   Pehmeä rullasuulake || Muuntuu rikkaimuriksi ||
                   Maksimitehotila || Kätevä latausteline || Hygieeninen säiliön
                   tyhjennys"
-                xpath: /html/body/div[26]
+                xpath: /html/body/div[25]
             nameExtended:
               - text: DYSON V6 FLUFFY+ VARSI-IMURI - 394639
             descriptionBullets:
@@ -243,4 +186,4 @@ extractions:
             Image360Present:
               - text: No
         xpath: /html
-    timestamp: 1600790375080
+    timestamp: 1601282819296

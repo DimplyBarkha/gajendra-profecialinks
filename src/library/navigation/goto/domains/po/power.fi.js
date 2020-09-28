@@ -12,7 +12,13 @@ module.exports = {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     await context.setBlockAds(false);
     await context.setFirstRequestTimeout(60000);
-    await context.goto(url, { timeout: timeout, waitUntil: 'load' });
+    await context.goto(url,
+      {
+        timeout: timeout,
+        waitUntil: 'load',
+        load_all_resources: true,
+        images_enabled: true,
+      });
     console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
