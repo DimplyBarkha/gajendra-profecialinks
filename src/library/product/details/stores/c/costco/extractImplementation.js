@@ -52,26 +52,20 @@ const implementation = async (inputs, parameters, context, dependencies) => {
       let text = '';
 
       while (el) {
-        const listItems = el.querySelectorAll('li');
-
-        // if (el.nodeName.toLowerCase() === 'li') {
-        //   text += `||${el.textContent}`;
-        // } else if (listItems && listItems.length) {
-        //   listItems.forEach(list => {
-        //     if (list.nodeName.toLowerCase() === 'li') {
-        //       text += `||${list.textContent}`;
-        //     } else {
-        //       text += text ? ` ${list.textContent}` : list.textContent;
-        //     }
-        //   });
-        // } else if (el.nodeName.toLowerCase() !== 'li' && el.nodeName.toLowerCase() !== 'ul') {
-        //   text += text ? `${el.textContent}` : el.textContent;
-        // }
-
-        Array.from(listItems).forEach(item => {
-          item.textContent = `|| ${item.textContent}`;
-        });
-
+        const listItems = el.querySelectorAll('*');
+        if (el.nodeName.toLowerCase() === 'li') {
+          text += `||${el.textContent}`;
+        } else if (listItems && listItems.length) {
+          listItems.forEach(list => {
+            if (list.nodeName.toLowerCase() === 'li') {
+              text += `||${list.textContent}`;
+            } else {
+              text += text ? ` ${list.textContent}` : list.textContent;
+            }
+          });
+        } else if (el.nodeName.toLowerCase() !== 'li' && el.nodeName.toLowerCase() !== 'ul') {
+          text += text ? `${el.textContent}` : el.textContent;
+        }
         el = descNodes.iterateNext();
       }
 
