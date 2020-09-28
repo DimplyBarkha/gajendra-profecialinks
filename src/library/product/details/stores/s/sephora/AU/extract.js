@@ -15,7 +15,61 @@ module.exports = {
       document.cookie = "locale=au;";
     })
 
-    const nameExtended = await context.evaluate(function(parentInput) {
+    let scrollTop = 0;
+    while (scrollTop !== 10000) {
+      try{
+        scrollTop += 1000;
+        await context.waitForFunction(async function(scrollTop){
+          console.log("SCROLLING");
+          window.scroll(0, scrollTop);
+          let allProds = document.querySelectorAll('a[data-comp="ProductItem "]')
+          let prodsWithImg = document.querySelectorAll('a[data-comp="ProductItem "] img')
+        }, { timeout: 1000 }, scrollTop)
+      } catch(err) {
+        console.log("Failed")
+      }
+      if (scrollTop === 10000) {
+        break;
+      }
+    }
+
+    // async function selectorClick(sel) {
+    //   await context.click(sel);
+    //   await new Promise(resolve => setTimeout(resolve, 5000));
+    //   await context.click('button[aria-label="Close"]');
+    // }
+
+    const videoSources = await context.evaluate(async function(selectorClick){
+      let videoSrcArr = [];
+      let closeSel = document.querySelector('button[aria-label="Close"]')
+      let videoSelectors = document.querySelectorAll('div.video-image-overlay')
+      let videoSrcXpath = '//iframe[@id="video-article-details"]/@src'
+      let srcSel = document.querySelector('iframe#video-article-details')
+
+      let i = 0;
+      debugger
+      while(i < videoSelectors.length) {
+        videoSelectors[i].click();
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        var videoSrcCheck = document.evaluate( videoSrcXpath, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if(videoSrcCheck.snapshotLength > 0 ){
+          let checkSrc = videoSrcCheck.snapshotItem(0);
+          videoSrcArr.push(`https:${checkSrc.textContent}`);
+        }
+        closeSel.click();
+        await new Promise(resolve => setTimeout(resolve, 4000));
+        i++
+      }
+      return videoSrcArr
+    });
+
+    // for(let i = 0; i < videoSelectors.length; i++){
+    //   context.click(videoSelectors[i])
+    //   await new Promise(resolve => setTimeout(resolve, 5000));
+    //   context.click('button[aria-label="Close"]')
+    // }
+
+    const nameExtended = await context.evaluate(function(parentInput, videoSources) {
 
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -39,6 +93,8 @@ module.exports = {
       let description2 = '//div[contains(@class, "product-description")]//div[contains(@id,"product-description")]//text()'
       let descriptionBullets = '//div[contains(@class, "product-description")]//li'
       let descriptionBullets2 = '//div[contains(@class, "product-description")]//div[contains(@id,"product-description")]//li'
+      let videoSelectors = document.querySelectorAll('div.video-image-overlay')
+      let videoLinks = [];
       var directionsBCheck = document.evaluate( directionBullets, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       var descriptionBCheck = document.evaluate( descriptionBullets, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       var directionsCheck = document.evaluate( directions, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -52,6 +108,12 @@ module.exports = {
       var variantCheck2 = document.evaluate( variant2, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       var namesCheck2 = document.evaluate( names2, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       var brandCheck2 = document.evaluate( brand2, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+
+      if(videoSources){
+        videoSources.forEach(src => {
+          addHiddenDiv('ii_video', src);
+        })
+      }
 
 
       if(namesCheck.snapshotLength > 0 || namesCheck2.snapshotLength > 0){
@@ -98,9 +160,8 @@ module.exports = {
         let snapshotLength = descriptionCheck.snapshotLength || descriptionCheck2.snapshotLength
         for(let i = 1; i < snapshotLength; i++) {
           let line = descriptionCheck.snapshotItem(i) || descriptionCheck2.snapshotItem(i)
-          if(descriptionBCheck.snapshotLength > 0){
+          if(descriptionBCheck.snapshotLength > 0 || descriptionBCheck2.snapshotLength > 0){
             let snapLength = descriptionBCheck.snapshotLength || descriptionBCheck2.snapshotLength
-            addHiddenDiv('ii_descriptionBullets', snapLength);
             for(let i = 0; i < snapLength; i++) {
               let content = descriptionBCheck.snapshotItem(i) || descriptionBCheck2.snapshotItem(i)
               if(line.textContent.includes(content.textContent)){
@@ -110,13 +171,17 @@ module.exports = {
           }
           fullDesc.push(line.textContent)
         }
+        if(descriptionBCheck.snapshotLength > 0 || descriptionBCheck2.snapshotLength > 0){
+          let snapLength = descriptionBCheck.snapshotLength || descriptionBCheck2.snapshotLength
+          addHiddenDiv('ii_descriptionBullets', snapLength);
+        }
         let joins = fullDesc.join(" ");
         addHiddenDiv('ii_description', joins);
       }
 
 
 
-    }, parentInput)
+    }, parentInput, videoSources)
     
     // await new Promise(resolve => setTimeout(resolve, 10000));
     return await context.extract(productDetails, { transform: transformParam });

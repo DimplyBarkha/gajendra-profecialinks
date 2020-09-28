@@ -32,6 +32,11 @@ const transform = (data, context) => {
       for (let row of group) {
         try {
 
+          if(row.brandLink){
+            let text = row.brandLink[0].text;
+            row.brandLink[0].text = `https://www.sephora.nz${text}`
+          }
+
           // if(row.description){
           //   let text = row.description[0].text;
           //   let bulletReplace = text.replace(/ - /g, " || ")
@@ -63,8 +68,9 @@ const transform = (data, context) => {
               if(row.alternateImages.length > 1){
                 for(let i = 0; i < row.alternateImages.length; i++){
                   let text = row.alternateImages[i].text
-                  let splits = text.split("?");
-                  imageArray.push(`${splits[0]}`);
+                  if(!imageArray.includes(text)){
+                    imageArray.push(text);
+                  }
                 }
                 let oneLess = imageArray.slice(1);
                 let joins = oneLess.join(" | ");
