@@ -6,7 +6,7 @@ module.exports = {
   parameterValues: {
     country: 'SA',
     store: 'dyson',
-    transform: null,
+    transform,
     domain: 'dyson.sa',
     zipcode: '',
   },
