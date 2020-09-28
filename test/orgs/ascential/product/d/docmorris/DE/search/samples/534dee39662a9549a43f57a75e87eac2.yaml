@@ -2,7 +2,7 @@ input:
   Keywords: abführmittel
   _url: http://docmorris.de
 extractions:
-  - html: https://workbench.import.io/html/run=5f012e35-6df8-4d3b-aecc-01ef13ba69ee/task=42aeb51a-06a7-4235-8aae-bc85cc542ec4/38620294-acbc-426e-a06f-b8b3a8f7b024.html
+  - html: https://workbench.import.io/html/run=80804ef5-9437-4d95-87c8-896d20ba0e35/task=a1bbd3a4-9261-45a4-ae3c-52f3e893b7e3/eb76e038-7f4f-48f3-8f09-0ec3aa1fd59f.html
     extractionConfigId: product/search/stores/d/docmorris/DE/extract
     data:
       - group:
@@ -36,6 +36,12 @@ extractions:
             price:
               - text: 11,73 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06800196"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/a[1]/@href
+            id:
+              - text: "06800196"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/macrogol-hexal-plus-elektrolyte/08875442
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]/@href
@@ -66,6 +72,12 @@ extractions:
             price:
               - text: 30,26 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]/div[2]/div[5]
+            sku:
+              - text: "08875442"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]/@href
+            id:
+              - text: "08875442"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/midro-tee/08604967
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[3]/a[1]/@href
@@ -96,6 +108,12 @@ extractions:
             price:
               - text: 2,46 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[3]/a[1]/div[2]/div[5]
+            sku:
+              - text: "08604967"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[3]/a[1]/@href
+            id:
+              - text: "08604967"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[3]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/movicol-zitronelimone/07722044
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[4]/a[1]/@href
@@ -126,6 +144,12 @@ extractions:
             price:
               - text: 28,00 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[4]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07722044"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[4]/a[1]/@href
+            id:
+              - text: "07722044"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[4]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/laxans-ratiopharm-75-mgml/04687809
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[5]/a[1]/@href
@@ -156,6 +180,12 @@ extractions:
             price:
               - text: 11,15 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[5]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04687809"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[5]/a[1]/@href
+            id:
+              - text: "04687809"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[5]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/microlax-rektalloesung/09651615
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[6]/a[1]/@href
@@ -186,6 +216,12 @@ extractions:
             price:
               - text: 13,96 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[6]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09651615"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[6]/a[1]/@href
+            id:
+              - text: "09651615"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[6]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/docmorris-indische-flohsamen/08041151
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[7]/a[1]/@href
@@ -213,6 +249,12 @@ extractions:
             price:
               - text: 4,86 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[7]/a[1]/div[2]/div[5]
+            sku:
+              - text: "08041151"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[7]/a[1]/@href
+            id:
+              - text: "08041151"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[7]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/laxans-al/10916160
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[8]/a[1]/@href
@@ -243,6 +285,12 @@ extractions:
             price:
               - text: 6,31 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[8]/a[1]/div[2]/div[5]
+            sku:
+              - text: "10916160"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[8]/a[1]/@href
+            id:
+              - text: "10916160"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[8]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/macrogol-hexal-orange/11553713
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[9]/a[1]/@href
@@ -273,6 +321,12 @@ extractions:
             price:
               - text: 20,24 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[9]/a[1]/div[2]/div[5]
+            sku:
+              - text: "11553713"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[9]/a[1]/@href
+            id:
+              - text: "11553713"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[9]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/movicol-junior-schoko/09086865
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[10]/a[1]/@href
@@ -303,6 +357,12 @@ extractions:
             price:
               - text: 13,97 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[10]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09086865"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[10]/a[1]/@href
+            id:
+              - text: "09086865"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[10]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/lactulose-al-sirup/08423898
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[11]/a[1]/@href
@@ -333,6 +393,12 @@ extractions:
             price:
               - text: 8,86 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[11]/a[1]/div[2]/div[5]
+            sku:
+              - text: "08423898"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[11]/a[1]/@href
+            id:
+              - text: "08423898"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[11]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/lactulose1a-pharma-sirup/01418948
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[12]/a[1]/@href
@@ -363,6 +429,12 @@ extractions:
             price:
               - text: 9,77 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[12]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01418948"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[12]/a[1]/@href
+            id:
+              - text: "01418948"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[12]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/movicol-aromafrei/12742474
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[13]/a[1]/@href
@@ -393,6 +465,12 @@ extractions:
             price:
               - text: 7,54 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[13]/a[1]/div[2]/div[5]
+            sku:
+              - text: "12742474"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[13]/a[1]/@href
+            id:
+              - text: "12742474"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[13]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/tirgon-5-mg/00777496
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[14]/a[1]/@href
@@ -417,6 +495,12 @@ extractions:
             price:
               - text: 22,14 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[14]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00777496"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[14]/a[1]/@href
+            id:
+              - text: "00777496"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[14]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/movicol-fluessig-orange/09632084
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[15]/a[1]/@href
@@ -447,6 +531,12 @@ extractions:
             price:
               - text: 24,95 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[15]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09632084"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[15]/a[1]/@href
+            id:
+              - text: "09632084"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[15]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/bekunis-kraeutertee-n/03952592
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[16]/a[1]/@href
@@ -471,6 +561,12 @@ extractions:
             price:
               - text: 4,03 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[16]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03952592"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[16]/a[1]/@href
+            id:
+              - text: "03952592"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[16]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/macrogo-klinge/16382765
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[17]/a[1]/@href
@@ -495,6 +591,12 @@ extractions:
             price:
               - text: 46,07 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[17]/a[1]/div[2]/div[5]
+            sku:
+              - text: "16382765"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[17]/a[1]/@href
+            id:
+              - text: "16382765"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[17]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/movicol-junior-aromafrei/04951755
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[18]/a[1]/@href
@@ -510,6 +612,12 @@ extractions:
             price:
               - text: 23,80 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[18]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04951755"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[18]/a[1]/@href
+            id:
+              - text: "04951755"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[18]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/movicol-trinkfertig/11163969
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[19]/a[1]/@href
@@ -534,6 +642,12 @@ extractions:
             price:
               - text: 18,94 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[19]/a[1]/div[2]/div[5]
+            sku:
+              - text: "11163969"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[19]/a[1]/@href
+            id:
+              - text: "11163969"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[19]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/abfuehrmittel-nat-flosalax-koerner/04181889
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[20]/a[1]/@href
@@ -558,5 +672,11 @@ extractions:
             price:
               - text: 6,43 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[20]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04181889"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[20]/a[1]/@href
+            id:
+              - text: "04181889"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[3]/div[1]/div[20]/a[1]/@href
         xpath: /html
-    timestamp: 1600867397351
+    timestamp: 1600941656934

@@ -1,0 +1,104 @@
+input:
+  _url: http://docmorris.de
+  URL: http://www.docmorris.de/rausch-weidenrinden-spezial-shampoo/04127513
+extractions:
+  - html: https://workbench.import.io/html/run=6f5b4eaa-74cf-4220-9bc2-6600160a2101/task=a3743817-a7fc-40e9-bd45-174823fe0156/7b6c147d-91ba-4bbc-bd13-a057d0d9c08e.html
+    extractionConfigId: product/details/stores/d/docmorris/DE/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.docmorris.de//images/produkte/large/04127513/RauschWeidenrindenSpezialShampoo.jpg
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+            imageAlt:
+              - text: "Abbildung: Rausch Weidenrinden Spezial Shampoo, 200 ml"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            category:
+              - text: Produkte
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Rausch Weidenrinden Spezial Shampoo
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]
+            nameExtended:
+              - text: Rausch Weidenrinden Spezial Shampoo
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]
+            description:
+              - text: >-
+                  reinigt schonend und mild||leicht antiseptische
+                  Wirkung||Mildert schnell und nachhaltig den Juckreiz||reinigt
+                  schonend und mild||leicht antiseptische Wirkung||Mildert
+                  schnell und nachhaltig den JuckreizPackungsgröße:	200 ml
+
+                  PZN:	04127513
+
+                  Darreichungsform:	Shampoo
+
+                  Verordnungsart:	Ohne Rezept
+
+                  Anbieter:	Rausch (Deutschland) GmbH
+
+                  Verfügbarkeit:	
+
+                  Auf LagerBefreit nachhaltig und mild von fettigen Schuppen. Lindert Rötungen und Juckreiz. Mit Kokosöl Weidenrinden- und Thymianextrakt.
+                xpath: /html/head[1]/@fulldescriptions
+            listPrice:
+              - text: 12,50 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/table[1]/tbody[1]/tr[2]/td[3]
+            price:
+              - text: 9,68 €
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/table[1]/tbody[1]/tr[3]/td[3]/span[1]
+            manufacturer:
+              - text: Rausch (Deutschland) GmbH
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[5]/td[2]
+            sku:
+              - text: "04127513"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/@id
+            variantId:
+              - text: "04127513"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/@id
+            mpc:
+              - text: "04127513"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/@id
+            warnings:
+              - text: >-
+                  Zu Risiken und Nebenwirkungen lesen Sie die Packungsbeilage
+                  (bei Heilwassern das Etikett)
+
+                  und fragen Sie Ihren Arzt oder Apotheker. Bei Tierarznei lesen Sie die Packungsbeilage und fragen Sie den Tierarzt oder Apotheker.
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[2]/section[1]/div[5]/text()[2]
+            ratingCount:
+              - text: "10"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/span[2]/span[1]
+                type: NUMBER
+                raw: "10"
+                locale: de_DE
+                value: 10
+            aggregateRatingText:
+              - text: "4.9"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/span[1]
+            aggregateRating:
+              - text: "4.9"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/span[1]
+            name:
+              - text: Rausch Weidenrinden Spezial Shampoo
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[3]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "3"
+                type: NUMBER
+                raw: "3"
+                locale: de_DE
+                value: 3
+        xpath: /
+    timestamp: 1601029099110

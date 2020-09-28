@@ -20,9 +20,8 @@ fields:
 - name: aggregateRating
   description: The stated aggregate rating
   xpath: //div/@data-rating-value
-- name: aggregateRatingText
-  description: The stated aggregate rating
-  xpath: //div/@data-rating-value
+  regExp: (.*).(.*)
+  regExpReplace: $1,$2
 - name: ratingCount
   description: The number of ratings
   xpath: //span[@class="rating__totalCount"]
@@ -36,11 +35,16 @@ fields:
 - name: price
   description: The offered price for the product
   xpath: //div[@class="productlist__price"]
+- name: sku
+  description: Unique id (within this extractor)
+  xpath: //a/@href
+  regExp: (.*)/(.*)
+  regExpReplace: $2
 - name: id
   description: Unique id (within this extractor)
-  xpath: //span[@data-json]/@data-json
-  regExp: \"id":"([^"]+)
-  regExpReplace: $1
+  xpath: //a/@href
+  regExp: (.*)/(.*)
+  regExpReplace: $2
 - name: rank
 - name: rankOrganic
 - name: sponsored

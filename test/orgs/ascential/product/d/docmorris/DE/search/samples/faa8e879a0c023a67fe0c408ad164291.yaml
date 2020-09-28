@@ -2,7 +2,7 @@ input:
   Keywords: a-z komplett
   _url: http://docmorris.de
 extractions:
-  - html: https://workbench.import.io/html/run=5f012e35-6df8-4d3b-aecc-01ef13ba69ee/task=d46da476-5765-41b8-b105-4b73c478c146/967841b1-395a-4cea-9991-98a01ba89598.html
+  - html: https://workbench.import.io/html/run=80804ef5-9437-4d95-87c8-896d20ba0e35/task=2b6b8f12-9627-4087-8aec-eeec7bc5b3bf/78aa341f-963a-4092-8f65-fe3865752185.html
     extractionConfigId: product/search/stores/d/docmorris/DE/extract
     data:
       - group:
@@ -30,6 +30,12 @@ extractions:
             price:
               - text: 6,10 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]/div[5]
+            sku:
+              - text: "13876768"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            id:
+              - text: "13876768"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/az-komplex-ratiopharm/01433391
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
@@ -60,6 +66,12 @@ extractions:
             price:
               - text: 17,46 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01433391"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
+            id:
+              - text: "01433391"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/dystologes/12346471
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
@@ -90,6 +102,12 @@ extractions:
             price:
               - text: 15,66 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/div[5]
+            sku:
+              - text: "12346471"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
+            id:
+              - text: "12346471"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/amorolfin-nagelkur-heumann/09296195
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
@@ -120,6 +138,12 @@ extractions:
             price:
               - text: 14,72 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09296195"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
+            id:
+              - text: "09296195"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/vitamin-bloges-komplett/11101520
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
@@ -150,6 +174,12 @@ extractions:
             price:
               - text: 26,16 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[2]/div[5]
+            sku:
+              - text: "11101520"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
+            id:
+              - text: "11101520"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/anabox-1x7-bunt-deckel-klar-display/11313009
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
@@ -180,6 +210,12 @@ extractions:
             price:
               - text: 3,37 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[2]/div[5]
+            sku:
+              - text: "11313009"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
+            id:
+              - text: "11313009"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/formel-z-tabletten-fuer-katzen/00012807
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
@@ -210,6 +246,12 @@ extractions:
             price:
               - text: 7,88 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00012807"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
+            id:
+              - text: "00012807"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/biochemie-pflueger-komplett-set-127/05919788
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
@@ -234,6 +276,12 @@ extractions:
             price:
               - text: 67,11 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[2]/div[5]
+            sku:
+              - text: "05919788"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
+            id:
+              - text: "05919788"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/scholl-amorolfin-nagelpilz-behandlungsset/14131409
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
@@ -256,7 +304,13 @@ extractions:
               - text: 29,23 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[2]/div[4]
             price:
-              - text: 24,26 €
+              - text: 21,05 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[2]/div[5]
+            sku:
+              - text: "14131409"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
+            id:
+              - text: "14131409"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
         xpath: /html
-    timestamp: 1600867395787
+    timestamp: 1600941654664

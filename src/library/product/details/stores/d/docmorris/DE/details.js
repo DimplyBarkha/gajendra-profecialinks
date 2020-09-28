@@ -1,10 +1,9 @@
-const { transform } = require('../../../../shared');
+
 module.exports = {
-  implements: 'product/search/extract',
+  implements: 'product/details',
   parameterValues: {
     country: 'DE',
     store: 'docmorris',
-    transform,
     domain: 'docmorris.de',
     zipcode: '',
   },

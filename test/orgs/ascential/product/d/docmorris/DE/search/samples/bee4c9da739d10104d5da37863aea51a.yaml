@@ -2,7 +2,7 @@ input:
   Keywords: Abführtabletten
   _url: http://docmorris.de
 extractions:
-  - html: https://workbench.import.io/html/run=5f012e35-6df8-4d3b-aecc-01ef13ba69ee/task=71f64e81-5e69-43eb-aa5d-60331b080aa0/7f08c2be-976a-4678-bd11-c02b367348cb.html
+  - html: https://workbench.import.io/html/run=80804ef5-9437-4d95-87c8-896d20ba0e35/task=684ba358-5db7-42d6-a870-84dc71c280c9/eb1ee878-d320-47be-a8ca-4b69e3f6852f.html
     extractionConfigId: product/search/stores/d/docmorris/DE/extract
     data:
       - group:
@@ -36,6 +36,12 @@ extractions:
             price:
               - text: 7,82 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03766139"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            id:
+              - text: "03766139"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/vivimed-mit-coffein-gegen-kopfschmerzen/00410330
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
@@ -43,10 +49,10 @@ extractions:
               - text: https://www.docmorris.de/images/produkte/thumb/00410330/vivimedmitCoffeingegenKopfschmerzen.jpg
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/img[1]/@data-src
             nameExtended:
-              - text: vivimed mit Coffein gegen Kopfschmerzen
+              - text: vivimed mit Coffein gegen…
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/h2[1]
             name:
-              - text: vivimed mit Coffein gegen Kopfschmerzen
+              - text: vivimed mit Coffein gegen…
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/h2[1]
             aggregateRating:
               - text: "4.75"
@@ -66,6 +72,12 @@ extractions:
             price:
               - text: 5,46 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00410330"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
+            id:
+              - text: "00410330"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/nurofen-ibuprofen-ueberzogene-tabletten-400mg/08794436
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
@@ -73,10 +85,10 @@ extractions:
               - text: https://www.docmorris.de/images/produkte/thumb/08794436/NUROFENIbuprofenberzogeneTabletten400mg.jpg
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[1]/img[1]/@data-src
             nameExtended:
-              - text: NUROFEN Ibuprofen überzogene Tabletten 400mg
+              - text: NUROFEN Ibuprofen überzogene…
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/h2[1]
             name:
-              - text: NUROFEN Ibuprofen überzogene Tabletten 400mg
+              - text: NUROFEN Ibuprofen überzogene…
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/h2[1]
             aggregateRating:
               - text: "4.5"
@@ -96,6 +108,12 @@ extractions:
             price:
               - text: 4,60 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/div[5]
+            sku:
+              - text: "08794436"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
+            id:
+              - text: "08794436"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/aspirin-500-mg/10203632
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
@@ -126,6 +144,12 @@ extractions:
             price:
               - text: 13,39 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[2]/div[5]
+            sku:
+              - text: "10203632"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
+            id:
+              - text: "10203632"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/aspirin-coffein/05461711
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
@@ -156,6 +180,12 @@ extractions:
             price:
               - text: 5,64 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[2]/div[5]
+            sku:
+              - text: "05461711"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
+            id:
+              - text: "05461711"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/lorano-akut/07222904
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
@@ -186,6 +216,12 @@ extractions:
             price:
               - text: 9,12 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07222904"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
+            id:
+              - text: "07222904"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/paracetamol-bc-500-mg/04088345
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
@@ -216,6 +252,12 @@ extractions:
             price:
               - text: 0,82 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04088345"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
+            id:
+              - text: "04088345"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/reactine-duo/07387580
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
@@ -246,6 +288,12 @@ extractions:
             price:
               - text: 3,71 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07387580"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
+            id:
+              - text: "07387580"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/spalt-schmerztabletten/01743393
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
@@ -276,6 +324,12 @@ extractions:
             price:
               - text: 7,35 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01743393"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
+            id:
+              - text: "01743393"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/eudorlin-schmerztabletten/02653255
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
@@ -306,6 +360,12 @@ extractions:
             price:
               - text: 3,54 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02653255"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
+            id:
+              - text: "02653255"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/aspirin-migraene/00958298
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
@@ -336,6 +396,12 @@ extractions:
             price:
               - text: 9,96 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00958298"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
+            id:
+              - text: "00958298"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/reactine-allergietabletten/02152240
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
@@ -366,6 +432,12 @@ extractions:
             price:
               - text: 9,73 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02152240"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
+            id:
+              - text: "02152240"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/biolectra-magnesium-243-forte-zitrone-br/06716372
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
@@ -396,6 +468,12 @@ extractions:
             price:
               - text: 18,45 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06716372"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
+            id:
+              - text: "06716372"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/vivinox-sleep-stark/02083906
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
@@ -426,6 +504,12 @@ extractions:
             price:
               - text: 5,97 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02083906"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
+            id:
+              - text: "02083906"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/azur-tabletten/01384681
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
@@ -448,8 +532,14 @@ extractions:
               - text: 3,36 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/div[2]/div[4]
             price:
-              - text: 2,79 €
+              - text: 2,50 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01384681"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
+            id:
+              - text: "01384681"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/betadorm-d-tabletten/03241684
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
@@ -480,6 +570,12 @@ extractions:
             price:
               - text: 7,60 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03241684"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
+            id:
+              - text: "03241684"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/demex-zahnschmerztabletten/04346304
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
@@ -487,10 +583,10 @@ extractions:
               - text: https://www.docmorris.de/images/produkte/thumb/04346304/DemexZahnschmerztabletten.jpg
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[1]/img[1]/@data-src
             nameExtended:
-              - text: Demex Zahnschmerztabletten
+              - text: Demex…
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[2]/h2[1]
             name:
-              - text: Demex Zahnschmerztabletten
+              - text: Demex…
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[2]/h2[1]
             aggregateRating:
               - text: "4.5"
@@ -510,6 +606,12 @@ extractions:
             price:
               - text: 4,67 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04346304"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
+            id:
+              - text: "04346304"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/baldriparan-stark-fuer-die-nacht/01819245
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
@@ -537,6 +639,12 @@ extractions:
             price:
               - text: 35,78 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01819245"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
+            id:
+              - text: "01819245"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/baldrian-dispert-45-mg-ueberzogene-tabletten/04491756
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
@@ -544,10 +652,10 @@ extractions:
               - text: https://www.docmorris.de/images/produkte/thumb/04491756/BaldrianDispert45mgberzogeneTabletten.jpg
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[1]/img[1]/@data-src
             nameExtended:
-              - text: Baldrian Dispert 45 mg überzogene Tabletten
+              - text: Baldrian Dispert 45 mg überzogene…
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[2]/h2[1]
             name:
-              - text: Baldrian Dispert 45 mg überzogene Tabletten
+              - text: Baldrian Dispert 45 mg überzogene…
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[2]/h2[1]
             aggregateRating:
               - text: "4.75"
@@ -567,6 +675,12 @@ extractions:
             price:
               - text: 9,38 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04491756"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
+            id:
+              - text: "04491756"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/imodium-akut-lingual/01689854
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
@@ -597,6 +711,12 @@ extractions:
             price:
               - text: 6,85 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01689854"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
+            id:
+              - text: "01689854"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/milchsaeure-pflueger-tabletten/01222381
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
@@ -625,8 +745,14 @@ extractions:
               - text: 14,81 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/div[2]/div[4]
             price:
-              - text: 12,29 €
+              - text: 11,90 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01222381"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
+            id:
+              - text: "01222381"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/basica-compact/04787669
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
@@ -657,6 +783,12 @@ extractions:
             price:
               - text: 25,19 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04787669"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
+            id:
+              - text: "04787669"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/pascallerg/07703644
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
@@ -681,6 +813,12 @@ extractions:
             price:
               - text: 9,99 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07703644"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
+            id:
+              - text: "07703644"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/baldrian-dispert-nacht/02859873
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
@@ -711,6 +849,12 @@ extractions:
             price:
               - text: 11,83 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02859873"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
+            id:
+              - text: "02859873"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/vivinox-sleep/04132508
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
@@ -741,6 +885,12 @@ extractions:
             price:
               - text: 11,65 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04132508"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
+            id:
+              - text: "04132508"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/biolectra-magnesium-243-forte-orange-bra/06789307
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
@@ -771,6 +921,12 @@ extractions:
             price:
               - text: 12,96 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06789307"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
+            id:
+              - text: "06789307"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/tardyferon-retardtabletten/03125794
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
@@ -801,6 +957,12 @@ extractions:
             price:
               - text: 19,18 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03125794"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
+            id:
+              - text: "03125794"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/cefamadar-tabletten/07306995
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
@@ -831,6 +993,12 @@ extractions:
             price:
               - text: 25,47 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07306995"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
+            id:
+              - text: "07306995"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/rennie-pfefferminz/01459634
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
@@ -861,6 +1029,12 @@ extractions:
             price:
               - text: 17,53 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01459634"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
+            id:
+              - text: "01459634"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/basentabs-phbalance-pascoe/02246521
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
@@ -891,6 +1065,12 @@ extractions:
             price:
               - text: 16,59 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02246521"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
+            id:
+              - text: "02246521"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/gaviscon-dual-kautabletten/11528394
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
@@ -921,6 +1101,12 @@ extractions:
             price:
               - text: 11,86 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/div[2]/div[5]
+            sku:
+              - text: "11528394"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
+            id:
+              - text: "11528394"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/rennie-fresh/09543481
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
@@ -948,6 +1134,12 @@ extractions:
             price:
               - text: 4,77 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09543481"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
+            id:
+              - text: "09543481"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/midro-abfuehr-tabletten/07142097
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
@@ -966,6 +1158,12 @@ extractions:
             aggregateRatingText:
               - text: "0.0"
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/div[2]/div[1]/div[1]/div[1]/@data-rating-value
+            sku:
+              - text: "07142097"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
+            id:
+              - text: "07142097"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/reisetabletten-al/00243607
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
@@ -996,6 +1194,12 @@ extractions:
             price:
               - text: 1,93 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00243607"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
+            id:
+              - text: "00243607"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/laxans-al/10916160
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
@@ -1026,6 +1230,12 @@ extractions:
             price:
               - text: 6,31 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/div[2]/div[5]
+            sku:
+              - text: "10916160"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
+            id:
+              - text: "10916160"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/magnerot-n-magnesiumtabletten/06963366
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
@@ -1056,9 +1266,15 @@ extractions:
             price:
               - text: 13,78 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06963366"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
+            id:
+              - text: "06963366"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
         xpath: /html
-    timestamp: 1600867420727
-  - html: https://workbench.import.io/html/run=5f012e35-6df8-4d3b-aecc-01ef13ba69ee/task=71f64e81-5e69-43eb-aa5d-60331b080aa0/dc15dca0-6fee-4a0f-8e2d-33a4c8246ec6.html
+    timestamp: 1600941678457
+  - html: https://workbench.import.io/html/run=80804ef5-9437-4d95-87c8-896d20ba0e35/task=684ba358-5db7-42d6-a870-84dc71c280c9/e5116840-467f-46b8-a8ab-8d34cc092829.html
     extractionConfigId: product/search/stores/d/docmorris/DE/extract
     data:
       - group:
@@ -1092,6 +1308,12 @@ extractions:
             price:
               - text: 4,42 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03078669"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            id:
+              - text: "03078669"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/kukident-aktiv-plus-tabs/02753703
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
@@ -1122,6 +1344,12 @@ extractions:
             price:
               - text: 3,44 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02753703"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
+            id:
+              - text: "02753703"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/orthomol-junior-c-plus-waldfrucht/10013239
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
@@ -1152,6 +1380,12 @@ extractions:
             price:
               - text: 33,71 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/div[5]
+            sku:
+              - text: "10013239"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
+            id:
+              - text: "10013239"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/vivinox-day/01126884
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
@@ -1182,6 +1416,12 @@ extractions:
             price:
               - text: 6,69 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01126884"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
+            id:
+              - text: "01126884"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/kneipp-magnesium-400-c-e-tabletten/06089449
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
@@ -1212,6 +1452,12 @@ extractions:
             price:
               - text: 3,49 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06089449"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
+            id:
+              - text: "06089449"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/kukident-zahnweiss-tabs/02782194
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
@@ -1242,6 +1488,12 @@ extractions:
             price:
               - text: 1,76 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02782194"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
+            id:
+              - text: "02782194"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/loratadin-al-10-mg-tabletten/01653945
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
@@ -1270,8 +1522,14 @@ extractions:
               - text: 18,70 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/div[4]
             price:
-              - text: 15,52 €
+              - text: 13,10 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01653945"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
+            id:
+              - text: "01653945"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/riopan-magen-tabletten/00749301
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
@@ -1302,6 +1560,12 @@ extractions:
             price:
               - text: 10,97 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00749301"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
+            id:
+              - text: "00749301"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/kukident-anti-zahnstein-tabletten/00403330
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
@@ -1332,6 +1596,12 @@ extractions:
             price:
               - text: 1,76 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00403330"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
+            id:
+              - text: "00403330"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/xls-medical-fettbinder-tabletten-monatspackung/09731981
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
@@ -1354,8 +1624,14 @@ extractions:
               - text: 69,95 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/div[2]/div[4]
             price:
-              - text: 58,06 €
+              - text: 52,93 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09731981"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
+            id:
+              - text: "09731981"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/xls-medical-fettbinder-tabletten/09076364
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
@@ -1384,8 +1660,14 @@ extractions:
               - text: 34,95 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/div[2]/div[4]
             price:
-              - text: 29,01 €
+              - text: 27,56 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09076364"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
+            id:
+              - text: "09076364"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/krophan-blasentangtabletten/04072953
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
@@ -1410,6 +1692,12 @@ extractions:
             price:
               - text: 11,22 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04072953"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
+            id:
+              - text: "04072953"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/vivimed-n/00410353
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
@@ -1438,8 +1726,14 @@ extractions:
               - text: 5,82 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/div[2]/div[4]
             price:
-              - text: 4,83 €
+              - text: 4,41 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00410353"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
+            id:
+              - text: "00410353"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/neukoenigsfoerder-mineraltabletten-ne/03050470
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
@@ -1470,6 +1764,12 @@ extractions:
             price:
               - text: 14,31 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03050470"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
+            id:
+              - text: "03050470"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/kneipp-entwaesserungsbrause-tabletten/06089432
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
@@ -1500,6 +1800,12 @@ extractions:
             price:
               - text: 4,43 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06089432"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
+            id:
+              - text: "06089432"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/neuralgin-extra-ibu-lysinat-filmtabletten/09042974
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
@@ -1530,6 +1836,12 @@ extractions:
             price:
               - text: 6,73 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09042974"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
+            id:
+              - text: "09042974"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/nobilin-fettblocker-tabletten/01647123
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
@@ -1551,6 +1863,12 @@ extractions:
             price:
               - text: 17,84 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01647123"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
+            id:
+              - text: "01647123"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/riopan-magen-tabletten-mint-800-mg-kautabletten-/07110186
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
@@ -1579,8 +1897,14 @@ extractions:
               - text: 7,77 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/div[2]/div[4]
             price:
-              - text: 6,45 €
+              - text: 5,97 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07110186"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
+            id:
+              - text: "07110186"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/rodavan-s-gruenwalder-tabletten/03240176
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
@@ -1605,6 +1929,12 @@ extractions:
             price:
               - text: 5,18 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03240176"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
+            id:
+              - text: "03240176"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/cimicifuga-al-filmtabletten/00425082
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
@@ -1635,6 +1965,12 @@ extractions:
             price:
               - text: 4,48 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00425082"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
+            id:
+              - text: "00425082"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/solidago-steiner-tabletten/06877158
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
@@ -1665,6 +2001,12 @@ extractions:
             price:
               - text: 8,49 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06877158"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
+            id:
+              - text: "06877158"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/calcium-vitamin-d3-zentiva-1000-mg880-i/10315696
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
@@ -1695,6 +2037,12 @@ extractions:
             price:
               - text: 28,90 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/div[2]/div[5]
+            sku:
+              - text: "10315696"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
+            id:
+              - text: "10315696"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/zinkorot-25/06890727
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
@@ -1725,6 +2073,12 @@ extractions:
             price:
               - text: 18,10 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06890727"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
+            id:
+              - text: "06890727"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/denttabs-zahnputztabletten-steviamint/09303765
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
@@ -1755,6 +2109,12 @@ extractions:
             price:
               - text: 5,66 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09303765"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
+            id:
+              - text: "09303765"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/paro-plak-2-phasen-faerbetabletten/07110192
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
@@ -1779,6 +2139,12 @@ extractions:
             price:
               - text: 3,53 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07110192"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
+            id:
+              - text: "07110192"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/venoplant-retard-s/07118839
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
@@ -1803,6 +2169,12 @@ extractions:
             price:
               - text: 44,39 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07118839"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
+            id:
+              - text: "07118839"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/lymphdiaral-basistabletten/04864973
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
@@ -1833,6 +2205,12 @@ extractions:
             price:
               - text: 16,02 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04864973"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
+            id:
+              - text: "04864973"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/lactulose-al-sirup/08423898
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
@@ -1863,6 +2241,12 @@ extractions:
             price:
               - text: 8,86 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/div[2]/div[5]
+            sku:
+              - text: "08423898"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
+            id:
+              - text: "08423898"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/rennie-direkt/10334038
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
@@ -1890,6 +2274,12 @@ extractions:
             price:
               - text: 4,28 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/div[2]/div[5]
+            sku:
+              - text: "10334038"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
+            id:
+              - text: "10334038"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/kochsalztabletten/02352370
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
@@ -1920,6 +2310,12 @@ extractions:
             price:
               - text: 4,38 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02352370"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
+            id:
+              - text: "02352370"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/strophanthus-compherztabletten/03915071
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
@@ -1950,6 +2346,12 @@ extractions:
             price:
               - text: 28,37 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03915071"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
+            id:
+              - text: "03915071"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/nobilin-kohlenhydratblocker-tabletten/01647181
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
@@ -1977,6 +2379,12 @@ extractions:
             price:
               - text: 15,78 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01647181"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
+            id:
+              - text: "01647181"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/biodolor-tabletten/04531728
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
@@ -2001,6 +2409,12 @@ extractions:
             price:
               - text: 12,29 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04531728"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
+            id:
+              - text: "04531728"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/doppelherz-aktiv-bkomplex-folsaeure-depot/07189437
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
@@ -2031,6 +2445,12 @@ extractions:
             price:
               - text: 4,59 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07189437"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
+            id:
+              - text: "07189437"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/lactrase-3300-fcc-tabletten-im-klickspender/09545215
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
@@ -2061,6 +2481,12 @@ extractions:
             price:
               - text: 9,03 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09545215"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
+            id:
+              - text: "09545215"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/cefamagar-tabletten/07127867
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
@@ -2091,9 +2517,15 @@ extractions:
             price:
               - text: 24,87 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07127867"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
+            id:
+              - text: "07127867"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
         xpath: /html
-    timestamp: 1600867420727
-  - html: https://workbench.import.io/html/run=5f012e35-6df8-4d3b-aecc-01ef13ba69ee/task=71f64e81-5e69-43eb-aa5d-60331b080aa0/4dc0ce13-cec3-4cf3-8430-a07009d61133.html
+    timestamp: 1600941678457
+  - html: https://workbench.import.io/html/run=80804ef5-9437-4d95-87c8-896d20ba0e35/task=684ba358-5db7-42d6-a870-84dc71c280c9/7aba2efd-9bd3-400e-a026-a57cb9656eab.html
     extractionConfigId: product/search/stores/d/docmorris/DE/extract
     data:
       - group:
@@ -2121,6 +2553,12 @@ extractions:
             price:
               - text: 19,54 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]/div[5]
+            sku:
+              - text: "10013245"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            id:
+              - text: "10013245"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/ass-al-100-tah-tabletten/03024202
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
@@ -2151,6 +2589,12 @@ extractions:
             price:
               - text: 1,58 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03024202"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
+            id:
+              - text: "03024202"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/jodid-200-hexal/03105998
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
@@ -2181,6 +2625,12 @@ extractions:
             price:
               - text: 4,34 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03105998"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
+            id:
+              - text: "03105998"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/neurexan-tabletten/04115272
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
@@ -2211,6 +2661,12 @@ extractions:
             price:
               - text: 18,41 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04115272"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
+            id:
+              - text: "04115272"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/paracetamol-al-500-tabletten/06718342
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
@@ -2241,6 +2697,12 @@ extractions:
             price:
               - text: 1,00 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06718342"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
+            id:
+              - text: "06718342"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/schlafsterne-tabletten/02026021
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
@@ -2271,6 +2733,12 @@ extractions:
             price:
               - text: 4,30 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02026021"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
+            id:
+              - text: "02026021"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/tromcardin-complex/15640662
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
@@ -2301,6 +2769,12 @@ extractions:
             price:
               - text: 25,87 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/div[5]
+            sku:
+              - text: "15640662"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
+            id:
+              - text: "15640662"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/magnesium-verla-n-dragees/04911945
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
@@ -2331,6 +2805,12 @@ extractions:
             price:
               - text: 10,83 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04911945"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
+            id:
+              - text: "04911945"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/paracetamol-500-mg-hexal-bei-fieber-und-schmerzen/03485558
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
@@ -2361,6 +2841,12 @@ extractions:
             price:
               - text: 1,71 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03485558"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
+            id:
+              - text: "03485558"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/ass-abz-protect-100-mg-magensaftresistente-tabletten/01696794
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
@@ -2391,6 +2877,12 @@ extractions:
             price:
               - text: 2,61 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01696794"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
+            id:
+              - text: "01696794"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/unizink-50/03441638
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
@@ -2421,6 +2913,12 @@ extractions:
             price:
               - text: 13,08 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03441638"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
+            id:
+              - text: "03441638"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/vomacur-50-mg/03815234
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
@@ -2451,6 +2949,12 @@ extractions:
             price:
               - text: 2,94 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03815234"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
+            id:
+              - text: "03815234"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/ass-al-protect-100-mg/00149989
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
@@ -2481,6 +2985,12 @@ extractions:
             price:
               - text: 1,91 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00149989"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
+            id:
+              - text: "00149989"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/canesten-extra-nagelset-zur-behandlung-von-nagelpilz/00619053
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
@@ -2511,6 +3021,12 @@ extractions:
             price:
               - text: 25,35 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00619053"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
+            id:
+              - text: "00619053"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/femiloges/07580408
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
@@ -2541,6 +3057,12 @@ extractions:
             price:
               - text: 35,75 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07580408"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
+            id:
+              - text: "07580408"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/traumeel-s-tabletten/03515288
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
@@ -2571,6 +3093,12 @@ extractions:
             price:
               - text: 8,18 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03515288"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
+            id:
+              - text: "03515288"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/vertigoheel-tabletten/06979686
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
@@ -2601,6 +3129,12 @@ extractions:
             price:
               - text: 13,13 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06979686"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
+            id:
+              - text: "06979686"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/bromelaintabletten-hysan/09246122
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
@@ -2631,6 +3165,12 @@ extractions:
             price:
               - text: 10,18 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09246122"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
+            id:
+              - text: "09246122"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/magium-k-forte/02881826
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
@@ -2661,6 +3201,12 @@ extractions:
             price:
               - text: 9,76 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02881826"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
+            id:
+              - text: "02881826"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/rhinopront-kombi-tabletten/07387611
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
@@ -2691,6 +3237,12 @@ extractions:
             price:
               - text: 5,17 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07387611"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
+            id:
+              - text: "07387611"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/schuessler-salze-kennenlernset-/07000664
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
@@ -2721,6 +3273,12 @@ extractions:
             price:
               - text: 31,72 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07000664"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
+            id:
+              - text: "07000664"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/folsaeure-abz-5-mg-tabletten/01234562
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
@@ -2751,6 +3309,12 @@ extractions:
             price:
               - text: 9,27 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01234562"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
+            id:
+              - text: "01234562"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/zinkorotat-pos-40-mg/06340903
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
@@ -2781,6 +3345,12 @@ extractions:
             price:
               - text: 14,98 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06340903"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
+            id:
+              - text: "06340903"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/aspirin-n-100-mg/05387239
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
@@ -2811,6 +3381,12 @@ extractions:
             price:
               - text: 3,96 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/div[2]/div[5]
+            sku:
+              - text: "05387239"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
+            id:
+              - text: "05387239"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/doppelherz-aktiv-magnesium-400-mg-b1-b6-b12-folsaeure/07625045
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
@@ -2841,6 +3417,12 @@ extractions:
             price:
               - text: 5,37 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07625045"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
+            id:
+              - text: "07625045"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/neuralgin-tabletten/03875041
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
@@ -2871,6 +3453,12 @@ extractions:
             price:
               - text: 4,06 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03875041"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
+            id:
+              - text: "03875041"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/klimaktoplant-n/04187656
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
@@ -2901,6 +3489,12 @@ extractions:
             price:
               - text: 11,43 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04187656"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
+            id:
+              - text: "04187656"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/vitamin-b-komplex-forte-hevert-tabletten/05003931
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
@@ -2931,6 +3525,12 @@ extractions:
             price:
               - text: 17,50 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/div[2]/div[5]
+            sku:
+              - text: "05003931"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
+            id:
+              - text: "05003931"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/godamed-100-tah-tabletten/08621204
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
@@ -2961,6 +3561,12 @@ extractions:
             price:
               - text: 3,54 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/div[2]/div[5]
+            sku:
+              - text: "08621204"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
+            id:
+              - text: "08621204"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/heuschnupfenmittel-dhu/08436903
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
@@ -2991,6 +3597,12 @@ extractions:
             price:
               - text: 10,79 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/div[2]/div[5]
+            sku:
+              - text: "08436903"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
+            id:
+              - text: "08436903"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/imodium-akut-n-duo/07628581
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
@@ -3021,6 +3633,12 @@ extractions:
             price:
               - text: 6,98 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07628581"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
+            id:
+              - text: "07628581"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/remifemin-tabletten/04540259
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
@@ -3051,6 +3669,12 @@ extractions:
             price:
               - text: 17,88 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04540259"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
+            id:
+              - text: "04540259"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/vitamin-d3-hevert-tabletten/09887387
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
@@ -3081,6 +3705,12 @@ extractions:
             price:
               - text: 10,17 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09887387"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
+            id:
+              - text: "09887387"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/gallexier-kraeutertabletten-salus/08815049
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
@@ -3105,6 +3735,12 @@ extractions:
             price:
               - text: 9,74 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/div[2]/div[5]
+            sku:
+              - text: "08815049"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
+            id:
+              - text: "08815049"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/dhu-schuesslersalz-nr-11-silicea-d12/02581030
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
@@ -3135,6 +3771,12 @@ extractions:
             price:
               - text: 6,13 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02581030"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
+            id:
+              - text: "02581030"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/tirgon-5-mg/00777496
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
@@ -3159,9 +3801,15 @@ extractions:
             price:
               - text: 22,14 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00777496"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
+            id:
+              - text: "00777496"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
         xpath: /html
-    timestamp: 1600867420727
-  - html: https://workbench.import.io/html/run=5f012e35-6df8-4d3b-aecc-01ef13ba69ee/task=71f64e81-5e69-43eb-aa5d-60331b080aa0/9f97af5a-63aa-47f4-be9f-02d143582b6b.html
+    timestamp: 1600941678457
+  - html: https://workbench.import.io/html/run=80804ef5-9437-4d95-87c8-896d20ba0e35/task=684ba358-5db7-42d6-a870-84dc71c280c9/3d577218-6401-4bff-9390-c6216e788ffe.html
     extractionConfigId: product/search/stores/d/docmorris/DE/extract
     data:
       - group:
@@ -3195,6 +3843,12 @@ extractions:
             price:
               - text: 4,62 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03665071"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            id:
+              - text: "03665071"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/lopedium-t-akut/03928406
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
@@ -3225,6 +3879,12 @@ extractions:
             price:
               - text: 2,55 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03928406"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
+            id:
+              - text: "03928406"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/aspirin-protect-100-mg/06706149
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
@@ -3255,6 +3915,12 @@ extractions:
             price:
               - text: 4,55 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06706149"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
+            id:
+              - text: "06706149"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/ichthraletten-magensaftresistente-tabletten/04303298
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
@@ -3285,6 +3951,12 @@ extractions:
             price:
               - text: 19,86 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04303298"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
+            id:
+              - text: "04303298"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/neurodoron-tabletten/06059282
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
@@ -3315,6 +3987,12 @@ extractions:
             price:
               - text: 22,23 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06059282"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
+            id:
+              - text: "06059282"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/pantoprazol-hexal-bei-sodbrennen-20-mg/05523582
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
@@ -3345,6 +4023,12 @@ extractions:
             price:
               - text: 5,43 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[2]/div[5]
+            sku:
+              - text: "05523582"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
+            id:
+              - text: "05523582"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/b12-ankermann/01502726
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
@@ -3375,6 +4059,12 @@ extractions:
             price:
               - text: 27,85 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01502726"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
+            id:
+              - text: "01502726"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/sinupret-extract/09285547
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
@@ -3405,6 +4095,12 @@ extractions:
             price:
               - text: 18,99 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09285547"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
+            id:
+              - text: "09285547"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/lebertabletten/10272745
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
@@ -3435,6 +4131,12 @@ extractions:
             price:
               - text: 16,52 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[2]/div[5]
+            sku:
+              - text: "10272745"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
+            id:
+              - text: "10272745"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/folsan-5-mg-tabletten/01300106
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
@@ -3465,6 +4167,12 @@ extractions:
             price:
               - text: 11,03 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01300106"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
+            id:
+              - text: "01300106"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/nexium-control/10251973
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
@@ -3495,6 +4203,12 @@ extractions:
             price:
               - text: 9,53 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/div[2]/div[5]
+            sku:
+              - text: "10251973"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
+            id:
+              - text: "10251973"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/orthomol-vitamin-c-depo/01247300
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
@@ -3525,6 +4239,12 @@ extractions:
             price:
               - text: 6,72 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01247300"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
+            id:
+              - text: "01247300"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/dhu-schuesslersalz-nr-8-natrium-chloratum-d6/02580786
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
@@ -3555,6 +4275,12 @@ extractions:
             price:
               - text: 6,33 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02580786"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
+            id:
+              - text: "02580786"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/imodium-akut/07296788
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
@@ -3585,6 +4311,12 @@ extractions:
             price:
               - text: 6,37 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07296788"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
+            id:
+              - text: "07296788"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/vitagamma-d3-1000ie/01486045
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
@@ -3615,6 +4347,12 @@ extractions:
             price:
               - text: 6,10 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01486045"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
+            id:
+              - text: "01486045"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/bullrich-salz-tabletten/03977089
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
@@ -3642,6 +4380,12 @@ extractions:
             price:
               - text: 3,97 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03977089"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
+            id:
+              - text: "03977089"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/gaviscon-advance-pfefferminz/02240777
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
@@ -3672,6 +4416,12 @@ extractions:
             price:
               - text: 11,99 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02240777"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
+            id:
+              - text: "02240777"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/cefasel-200-nutri-selen-tabs/02330807
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
@@ -3702,6 +4452,12 @@ extractions:
             price:
               - text: 28,89 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02330807"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
+            id:
+              - text: "02330807"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/sinupret-forte/08625573
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
@@ -3732,6 +4488,12 @@ extractions:
             price:
               - text: 16,56 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[2]/div[5]
+            sku:
+              - text: "08625573"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
+            id:
+              - text: "08625573"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/abtei-biotin-10-mg-tabletten/05388492
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
@@ -3762,6 +4524,12 @@ extractions:
             price:
               - text: 5,85 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/div[2]/div[5]
+            sku:
+              - text: "05388492"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
+            id:
+              - text: "05388492"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/dolopyrin-al-tabletten/00190791
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
@@ -3792,6 +4560,12 @@ extractions:
             price:
               - text: 1,95 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00190791"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
+            id:
+              - text: "00190791"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/selen-loges-200-ne-tabletten/05703410
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
@@ -3822,6 +4596,12 @@ extractions:
             price:
               - text: 25,12 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/div[2]/div[5]
+            sku:
+              - text: "05703410"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
+            id:
+              - text: "05703410"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/traumeel-s-creme/01292358
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
@@ -3852,6 +4632,12 @@ extractions:
             price:
               - text: 10,67 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01292358"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
+            id:
+              - text: "01292358"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/doppelherz-aktiv-magnesium-calcium-d3/00773216
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
@@ -3882,6 +4668,12 @@ extractions:
             price:
               - text: 8,86 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00773216"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
+            id:
+              - text: "00773216"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/kyttasedativum-dragees/03531850
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
@@ -3912,6 +4704,12 @@ extractions:
             price:
               - text: 18,35 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03531850"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
+            id:
+              - text: "03531850"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/canephron-n-dragees/04568223
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
@@ -3942,6 +4740,12 @@ extractions:
             price:
               - text: 14,53 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04568223"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
+            id:
+              - text: "04568223"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/formoline-l112-tabletten/01366335
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
@@ -3972,6 +4776,12 @@ extractions:
             price:
               - text: 35,46 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01366335"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
+            id:
+              - text: "01366335"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/biochemie-pflueger-11-silicea-d-12/06320042
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
@@ -4002,6 +4812,12 @@ extractions:
             price:
               - text: 8,55 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06320042"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
+            id:
+              - text: "06320042"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/bromelain-pos/02260001
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
@@ -4032,6 +4848,12 @@ extractions:
             price:
               - text: 23,54 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02260001"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
+            id:
+              - text: "02260001"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/molevac-dragees/00683476
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
@@ -4062,6 +4884,12 @@ extractions:
             price:
               - text: 32,59 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00683476"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
+            id:
+              - text: "00683476"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/sinusitis-hevert-sl-tabletten/02785005
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
@@ -4092,6 +4920,12 @@ extractions:
             price:
               - text: 13,04 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02785005"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
+            id:
+              - text: "02785005"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/orthomol-immun/01319933
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
@@ -4122,6 +4956,12 @@ extractions:
             price:
               - text: 43,89 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01319933"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
+            id:
+              - text: "01319933"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/calmvalera-tabletten/09263534
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
@@ -4152,6 +4992,12 @@ extractions:
             price:
               - text: 29,88 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09263534"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
+            id:
+              - text: "09263534"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/sedacur-forte-beruhigungsdragees/06876733
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
@@ -4182,6 +5028,12 @@ extractions:
             price:
               - text: 14,48 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06876733"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
+            id:
+              - text: "06876733"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/titralgan-gegen-schmerzen/02653278
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
@@ -4212,6 +5064,12 @@ extractions:
             price:
               - text: 3,09 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02653278"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
+            id:
+              - text: "02653278"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/biohtin-vitamin-h-5-mg-fuer-6-monate-tabletten/09900484
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
@@ -4242,9 +5100,15 @@ extractions:
             price:
               - text: 33,48 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/div[2]/div[5]
+            sku:
+              - text: "09900484"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
+            id:
+              - text: "09900484"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
         xpath: /html
-    timestamp: 1600867420727
-  - html: https://workbench.import.io/html/run=5f012e35-6df8-4d3b-aecc-01ef13ba69ee/task=71f64e81-5e69-43eb-aa5d-60331b080aa0/a6611fbe-9e40-465b-a525-f0990286b0cb.html
+    timestamp: 1600941678457
+  - html: https://workbench.import.io/html/run=80804ef5-9437-4d95-87c8-896d20ba0e35/task=684ba358-5db7-42d6-a870-84dc71c280c9/f4ae8816-604a-4345-9016-7050fa1ea17d.html
     extractionConfigId: product/search/stores/d/docmorris/DE/extract
     data:
       - group:
@@ -4278,6 +5142,12 @@ extractions:
             price:
               - text: 68,61 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02718724"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
+            id:
+              - text: "02718724"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/wick-erste-abwehr-mikrogel-spray/02369761
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
@@ -4308,6 +5178,12 @@ extractions:
             price:
               - text: 7,34 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02369761"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
+            id:
+              - text: "02369761"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/abtei-magnesium-400/00272158
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
@@ -4338,6 +5214,12 @@ extractions:
             price:
               - text: 4,24 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00272158"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
+            id:
+              - text: "00272158"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/nobilin-biotin-5-mg-n-tabletten/05541640
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
@@ -4365,6 +5247,12 @@ extractions:
             price:
               - text: 9,14 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/div[2]/div[5]
+            sku:
+              - text: "05541640"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
+            id:
+              - text: "05541640"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/avitale-lactase-3500-fcc/10183674
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
@@ -4395,6 +5283,12 @@ extractions:
             price:
               - text: 6,86 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/div[2]/div[5]
+            sku:
+              - text: "10183674"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
+            id:
+              - text: "10183674"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[5]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/doppelherz-aktiv-magnesium-400-fuer-die-nacht-mit-melisse-lavendeloel/10389542
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
@@ -4425,6 +5319,12 @@ extractions:
             price:
               - text: 3,84 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/div[2]/div[5]
+            sku:
+              - text: "10389542"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
+            id:
+              - text: "10389542"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[6]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/formel-z-tabletten-fuer-hunde/08760130
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
@@ -4455,6 +5355,12 @@ extractions:
             price:
               - text: 8,19 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/div[2]/div[5]
+            sku:
+              - text: "08760130"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
+            id:
+              - text: "08760130"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[7]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/aspirin-protect-300-mg/05387268
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
@@ -4485,6 +5391,12 @@ extractions:
             price:
               - text: 9,95 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/div[2]/div[5]
+            sku:
+              - text: "05387268"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
+            id:
+              - text: "05387268"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[8]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/doppelherz-aktiv-magnesium-kalium-400/11692343
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
@@ -4515,6 +5427,12 @@ extractions:
             price:
               - text: 6,61 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/div[2]/div[5]
+            sku:
+              - text: "11692343"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
+            id:
+              - text: "11692343"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[9]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/doppelherz-aktiv-frauen-mineralien-2phasen-depot/01534703
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
@@ -4545,6 +5463,12 @@ extractions:
             price:
               - text: 3,58 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01534703"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
+            id:
+              - text: "01534703"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[10]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/doppel-spalt-compact/07135335
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
@@ -4575,6 +5499,12 @@ extractions:
             price:
               - text: 6,27 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07135335"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
+            id:
+              - text: "07135335"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[11]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/magnesium-100-mg-jenapharm-tabletten/04016995
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
@@ -4605,6 +5535,12 @@ extractions:
             price:
               - text: 10,11 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04016995"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
+            id:
+              - text: "04016995"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[12]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/doppelherz-aktiv-calcium-750-d3-biotin-folsaeure/00896522
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
@@ -4635,6 +5571,12 @@ extractions:
             price:
               - text: 3,94 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00896522"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
+            id:
+              - text: "00896522"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[13]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/doppelherz-aktiv-kieselerde-biotin-zink/00263432
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
@@ -4665,6 +5607,12 @@ extractions:
             price:
               - text: 5,43 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00263432"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
+            id:
+              - text: "00263432"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[14]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/klosterfrau-baldrian-forte-600-nervenruh/04787729
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
@@ -4695,6 +5643,12 @@ extractions:
             price:
               - text: 6,42 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04787729"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
+            id:
+              - text: "04787729"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[15]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/abtei-kieselerde-plus-biotin-depot-table/07724528
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
@@ -4725,6 +5679,12 @@ extractions:
             price:
               - text: 4,99 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07724528"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
+            id:
+              - text: "07724528"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[16]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/myrrhinilintest/06612810
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
@@ -4755,6 +5715,12 @@ extractions:
             price:
               - text: 26,64 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06612810"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
+            id:
+              - text: "06612810"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[17]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/lymphomyosot-tabletten/06979663
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
@@ -4785,6 +5751,12 @@ extractions:
             price:
               - text: 16,77 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06979663"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
+            id:
+              - text: "06979663"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[18]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/tonsipret-tabletten/03524554
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
@@ -4815,6 +5787,12 @@ extractions:
             price:
               - text: 7,94 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03524554"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
+            id:
+              - text: "03524554"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[19]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/dhu-schuesslersalz-nr-11-silicea-d6/02580935
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
@@ -4845,6 +5823,12 @@ extractions:
             price:
               - text: 6,77 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02580935"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
+            id:
+              - text: "02580935"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[20]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/dormutil-n-tabletten/04609554
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
@@ -4875,6 +5859,12 @@ extractions:
             price:
               - text: 3,53 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04609554"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
+            id:
+              - text: "04609554"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[21]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/kneipp-magnesium-calcium-d3-tabletten/03311551
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
@@ -4905,6 +5895,12 @@ extractions:
             price:
               - text: 4,92 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03311551"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
+            id:
+              - text: "03311551"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[22]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/selenase-200-xxl-tabletten/06075068
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
@@ -4935,6 +5931,12 @@ extractions:
             price:
               - text: 28,61 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/div[2]/div[5]
+            sku:
+              - text: "06075068"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
+            id:
+              - text: "06075068"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[23]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/avitale-lactase-14000-fcc/10326122
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
@@ -4965,6 +5967,12 @@ extractions:
             price:
               - text: 14,70 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/div[2]/div[5]
+            sku:
+              - text: "10326122"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
+            id:
+              - text: "10326122"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[24]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/ambroxol-al-30-tabletten/04765780
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
@@ -4995,6 +6003,12 @@ extractions:
             price:
               - text: 1,51 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04765780"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
+            id:
+              - text: "04765780"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[25]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/imupret-n-dragees/05501617
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
@@ -5025,6 +6039,12 @@ extractions:
             price:
               - text: 16,17 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/div[2]/div[5]
+            sku:
+              - text: "05501617"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
+            id:
+              - text: "05501617"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[26]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/sinupret/02493283
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
@@ -5055,6 +6075,12 @@ extractions:
             price:
               - text: 9,55 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02493283"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
+            id:
+              - text: "02493283"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[27]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/curcuma-kapseln-mit-triplex3-extrakt-500-mg/08768953
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
@@ -5085,6 +6111,12 @@ extractions:
             price:
               - text: 25,29 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/div[2]/div[5]
+            sku:
+              - text: "08768953"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
+            id:
+              - text: "08768953"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[28]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/baldriparan-zur-beruhigung/10124803
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
@@ -5112,6 +6144,12 @@ extractions:
             price:
               - text: 23,85 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/div[2]/div[5]
+            sku:
+              - text: "10124803"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
+            id:
+              - text: "10124803"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[29]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/stozzon-chlorophylldragees/00977427
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
@@ -5142,6 +6180,12 @@ extractions:
             price:
               - text: 28,00 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00977427"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
+            id:
+              - text: "00977427"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[30]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/nervo-opt-n-tabletten/03417551
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
@@ -5172,6 +6216,12 @@ extractions:
             price:
               - text: 3,34 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/div[2]/div[5]
+            sku:
+              - text: "03417551"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
+            id:
+              - text: "03417551"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[31]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/formel-z-tabletten-fuer-katzen/00012807
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
@@ -5202,6 +6252,12 @@ extractions:
             price:
               - text: 7,88 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/div[2]/div[5]
+            sku:
+              - text: "00012807"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
+            id:
+              - text: "00012807"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[32]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/panthenol-100-mg-jenapharm-tabletten/04020790
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
@@ -5232,6 +6288,12 @@ extractions:
             price:
               - text: 3,43 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/div[2]/div[5]
+            sku:
+              - text: "04020790"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
+            id:
+              - text: "04020790"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[33]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/cefasel-100-nutri-selentabs/07008795
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
@@ -5262,6 +6324,12 @@ extractions:
             price:
               - text: 31,44 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/div[2]/div[5]
+            sku:
+              - text: "07008795"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
+            id:
+              - text: "07008795"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[34]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/folsaeure-lomapharm-5-mg-tabletten/01713357
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
@@ -5292,6 +6360,12 @@ extractions:
             price:
               - text: 11,37 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/div[2]/div[5]
+            sku:
+              - text: "01713357"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
+            id:
+              - text: "01713357"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[35]/a[1]/@href
           - productUrl:
               - text: https://www.docmorris.de/hevert-dorm-tabletten/02567828
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
@@ -5322,5 +6396,11 @@ extractions:
             price:
               - text: 7,54 €
                 xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/div[2]/div[5]
+            sku:
+              - text: "02567828"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
+            id:
+              - text: "02567828"
+                xpath: /html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[36]/a[1]/@href
         xpath: /html
-    timestamp: 1600867420727
+    timestamp: 1600941678457
