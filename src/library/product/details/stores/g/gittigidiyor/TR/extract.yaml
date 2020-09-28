@@ -4,7 +4,7 @@ recordSelector: null
 recordxpath: null
 fields:
 - name: category
-  xpath: //div[@class='horizontal-menu-item robot-header-horizontalMenu-menuItem']/p
+  xpath: //ul[contains(@class, 'breadcrumb-hiddenBreadCrumb')][2]/li[position()>1]
 - name: name
   xpath: //h1[@id='sp-title']
 - name: image
@@ -12,7 +12,7 @@ fields:
 - name: imageAlt
   xpath: //img[@id='big-photo']/@alt
 - name: alternateImages
-  xpath: //div[contains(@class, 'gallery-hidden-thumbs') and not(contains(@class, 'active-img'))]//img[contains(@class, 'swapImage')]/@data-original
+  xpath: //div[contains(@class, 'gallery-hidden-thumbs')]//img[contains(@class, 'swapImage') and not(contains(@class, 'active-img')) ]/@data-original
   regExp: (.+)tn14(.+)
   regExpReplace: $1tn50$2
 - name: nameExtendedTail
@@ -39,7 +39,7 @@ fields:
   xpath: count(//div[@id='sp-desktopDescription']//li)
 - name: additionalDescBulletInfo
   xpath: //div[@id='sp-desktopDescription']//li
-- name: brand
+- name: brandText
   xpath: //ul[contains(@class, 'productSpect') and contains(@class, 'product-items')]/li[contains(., 'Marka')]//ul/li/a
 - name: quantity
   xpath: //li[@id='CountInput']/input/@value
@@ -49,20 +49,24 @@ fields:
   xpath: //span[@id='DescriptionTabProductId']
 - name: variantId
   xpath: //span[@id='DescriptionTabProductId']
+- name: variantCount
+  defaultValue: 0
 - name: mpc
   xpath: //ul[contains(@class, 'productSpect') and contains(@class, 'product-items')]/li[contains(., 'Model')]/div[contains(@class, 'productFeaturesitemList')]
 - name: ratingCount
   xpath: //span[@id='sp-reviewCommentCount']
 - name: aggregateRating
   xpath: //a[contains(@class, 'catalog-review-link-small')]//strong[@id='sp-reviewAverage']
-- name: manufacturerImages
-  xpath: //div[@id='sp-desktopDescription']//img/@data-original
+# - name: manufacturerImages
+#   xpath: //div[@id='sp-desktopDescription']//img/@data-original
 - name: shippingInfo
   xpath: //li[@class='member-name']/a
 - name: specifications
   xpath: //div[@class='spec-group-container']//ul[contains(@class, 'productSpect')]/li/div[contains(@class, 'spec-title')] | //div[@class='spec-group-container']//ul[contains(@class, 'productSpect')]/li/div[contains(@class, 'productFeaturesitemList')]
 - name: warranty
   xpath: //div[@id='sp-productTabFeatures']//div[contains(., 'Garanti Süresi') and contains(@class, 'desktopDescription')]/following-sibling::div[1]
+- name: warrantySecondary
+  xpath: //div[@id='sp-productTabFeatures']//div[contains(., 'Garanti') and contains(@class, 'desktopDescription')]/following-sibling::div[1]
 - name: promotion
   xpath: //span[@id='sp-price-discountPercentage']
 - name: weightNet

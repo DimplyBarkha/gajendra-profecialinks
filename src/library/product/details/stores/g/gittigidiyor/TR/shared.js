@@ -7,7 +7,7 @@ const transform = (data) => {
 	for (const { group } of data) {
 		for (const row of group) {
 			if (row.availabilityText) {
-				row.availabilityText[0].text = row.availabilityText[0].text.includes('adet ürün stokta') ? 'InStock' : 'OutOfStock'
+				row.availabilityText[0].text = row.availabilityText[0].text.includes('adet ürün stokta') ? 'In Stock' : 'Out Of Stock'
 			}
 
 			if (row.nameExtended) {
@@ -60,7 +60,7 @@ const transform = (data) => {
 
 			if (row.name) {
 				let nameExtended = '';
-				nameExtended += row.brand ? `${row.brand[0].text} - ${row.name[0].text}` : row.name[0].text;
+				nameExtended += row.name[0].text;
 				nameExtended += row.nameExtendedTail ? ` - ${row.nameExtendedTail[0].text}` : '';
 				row.nameExtended = [{ text: nameExtended }];
 			}
@@ -85,6 +85,19 @@ const transform = (data) => {
 			if (row.shippingDimensions) {
 				row.shippingDimensions[0].text = row.shippingDimensions[0].text === 'x' ? '' : row.shippingDimensions[0].text
 			}
+
+			if (!row.brandText) {
+				if (row.name) {
+					let brandText = row.name[0].text.split(' ')[0];
+					row.brandText = [{ text: brandText }]
+				}
+			}
+
+			if (!row.warranty && row.warrantySecondary) {
+				row.warranty = [{ text: row.warrantySecondary[0].text }]
+			}
+
+			row.variantCount = [{ text: 0 }]
 		}
 	}
 
