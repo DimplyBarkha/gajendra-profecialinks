@@ -43,7 +43,11 @@ const transform = (data, context) => {
             newText = aggregate_rating;
           }
         });
-        row.aggregateRating2 = [{ text: newText }];
+        if (newText !== 0) {
+          row.aggregateRating2 = [{ text: newText.toString() }];
+        } else {
+          row.aggregateRating2 = [{ text: "" }];
+        }
       }
 
       if (row.id) {

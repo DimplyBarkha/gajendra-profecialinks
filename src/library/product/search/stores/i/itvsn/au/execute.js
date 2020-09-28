@@ -1,21 +1,21 @@
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  
+
   //const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   //const url = parameters.url.replace(/{searchTerms}/g, encodeURIComponent(inputs.keywords));
 
   let urlVar = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords))
-  const url = urlVar.replace('{searchTerms}', inputs.keywords.replace(/ /g,"+"));
-  
+  const url = urlVar.replace('{searchTerms}', inputs.keywords.replace(/ /g, "+"));
+
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, { timeout: 100000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {
