@@ -21,10 +21,10 @@ async function implementation (
   await context.evaluate(async () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 5000));
-    }catch(error){
-      console.log(error)
+    } catch (error) {
+      console.log(error);
     }
-    async function infiniteScroll() {
+    async function infiniteScroll () {
       let prevScroll = document.documentElement.scrollTop;
       while (true) {
         window.scrollBy(0, document.documentElement.clientHeight);
@@ -41,7 +41,7 @@ async function implementation (
       await new Promise((resolve) => setTimeout(resolve, 5000));
       await context.waitForSelector('script#productMicroData');
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
     function addHiddenDiv (id, content, index) {
       const newDiv = document.createElement('div');
@@ -63,7 +63,7 @@ async function implementation (
     }
     function findJsonObj2 () {
       try {
-        const xpath = `//script[contains(id,'productMicroData')]`;
+        const xpath = '//script[contains(id,\'productMicroData\')]';
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         let jsonStr = element.textContent;
         jsonStr = jsonStr.trim();
@@ -72,92 +72,90 @@ async function implementation (
         console.log(error.message);
       }
     }
-    let str = '"@type":"Product"';
-    let JSONArr
-    let JSONArr1 = findJsonObj1(str);
-    let JSONArr2 = findJsonObj2();
-    console.log(JSONArr , 'JSONArr');
-    if(JSONArr1){
+    const str = '"@type":"Product"';
+    let JSONArr;
+    const JSONArr1 = findJsonObj1(str);
+    const JSONArr2 = findJsonObj2();
+    console.log(JSONArr, 'JSONArr');
+    if (JSONArr1) {
+      JSONArr = JSONArr1;
+    } else if (JSONArr2) {
+      JSONArr = JSONArr2;
+    } else if (JSONArr1 && JSONArr2) {
+      if (JSONArr1.length >= JSONArr2.length) {
         JSONArr = JSONArr1;
-    }else if(JSONArr2){
-        JSONArr = JSONArr2;
-    }else if(JSONArr1 && JSONArr2){
-      if(JSONArr1.length >= JSONArr2.length){
-        JSONArr = JSONArr1;
-      }else if(JSONArr2.length >= JSONArr1.length){
+      } else if (JSONArr2.length >= JSONArr1.length) {
         JSONArr = JSONArr2;
       }
     }
-      let offer_text = JSONArr ? JSONArr.offers : '';
-      let availability_text = offer_text ? offer_text.availability : ''
-      if(availability_text.includes('OutOfStock'))  {
-        availability_text = "Out of Stock"
-      } else {
-        availability_text = "In Stock"
+    const offer_text = JSONArr ? JSONArr.offers : '';
+    let availability_text = offer_text ? offer_text.availability : '';
+    if (availability_text.includes('OutOfStock')) {
+      availability_text = 'Out of Stock';
+    } else {
+      availability_text = 'In Stock';
+    }
+    addHiddenDiv('availability', availability_text);
+    const gtin = JSONArr ? JSONArr.gtin13 : '';
+    addHiddenDiv('gtin', gtin);
+    const Sku = JSONArr ? JSONArr.sku : '';
+    addHiddenDiv('Sku', Sku);
+    // let sellerText = offer_text ? offer_text.seller : ''
+    // let seller = sellerText ? sellerText.name : ''
+    // addHiddenDiv('sellerName', seller);
+    const RatingText = JSONArr ? JSONArr.aggregateRating : '';
+    const reviewCount = RatingText ? RatingText.reviewCount : '';
+    addHiddenDiv('reviewCount', reviewCount);
+    let aggregateRating = RatingText ? RatingText.ratingValue : '';
+    aggregateRating = aggregateRating ? Number(aggregateRating).toFixed(1) : '';
+    console.log('aggregateRating: ', aggregateRating);
+    addHiddenDiv('aggregateRating', aggregateRating.replace('.', ','));
+    // let enhancedContent = document.querySelector('div#flix-inpage').innerHTML;
+    // enhancedContent = enhancedContent ? enhancedContent.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+    // addHiddenDiv('li_enhancedContent', enhancedContent);
+    const specTrs = document.querySelectorAll('#Dettaglio table tr');
+    const finalSpecArr = [];
+    const fieldVal = '';
+    let field;
+    let value;
+    for (let index = 0; index < specTrs.length; index++) {
+      const element = specTrs[index];
+      field = element.querySelector('td.tdSinistro');
+      // @ts-ignore
+      const fieldStr = field ? field.innerText : '';
+      value = element.querySelector('td.tdDestro');
+      // @ts-ignore
+      const valueStr = value ? value.innerText : '';
+      if (fieldStr && valueStr) {
+        const fieldVal = fieldStr + ' : ' + valueStr;
+        finalSpecArr.push(fieldVal);
       }
-      addHiddenDiv('availability', availability_text);
-      let gtin = JSONArr ? JSONArr.gtin13 : ''
-      addHiddenDiv('gtin', gtin);
-      let Sku = JSONArr ? JSONArr.sku : ''
-      addHiddenDiv('Sku', Sku);
-      // let sellerText = offer_text ? offer_text.seller : ''
-      // let seller = sellerText ? sellerText.name : ''
-      // addHiddenDiv('sellerName', seller);
-      let RatingText = JSONArr ? JSONArr.aggregateRating : '';
-      let reviewCount = RatingText? RatingText.reviewCount : ''
-      addHiddenDiv('reviewCount', reviewCount);
-      let aggregateRating = RatingText? RatingText.ratingValue : '';
-      aggregateRating = aggregateRating ? Number(aggregateRating).toFixed(1) : '';
-      console.log('aggregateRating: ', aggregateRating);
-      addHiddenDiv('aggregateRating', aggregateRating.replace('.',','));
-      // let enhancedContent = document.querySelector('div#flix-inpage').innerHTML;
-      // enhancedContent = enhancedContent ? enhancedContent.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
-      // addHiddenDiv('li_enhancedContent', enhancedContent);
-      let specTrs = document.querySelectorAll('#Dettaglio table tr');
-      let finalSpecArr = [];
-      let fieldVal = '';
-      let field;
-      let value;
-      for (let index = 0; index < specTrs.length; index++) {
-        const element = specTrs[index];
-        field = element.querySelector('td.tdSinistro')
-        // @ts-ignore
-        let fieldStr = field ? field.innerText : '';
-        value = element.querySelector('td.tdDestro');
-        // @ts-ignore
-        let valueStr = value ? value.innerText : '';
-        if(fieldStr && valueStr){
-          let fieldVal = fieldStr+' : '+valueStr;
-          finalSpecArr.push(fieldVal);
-        }
-
-      }
-      let finalSpecStr
-      if(finalSpecArr.length > 0){
-        finalSpecStr = finalSpecArr.join(' || ');
-      }
-      addHiddenDiv('ex_specification',finalSpecStr );
-      let brand = JSONArr ? JSONArr.brand : '';
-      console.log('brand: ', brand);
-      let brandText = brand ? brand.name : '';
-      console.log('brandText: ', brandText);
-      addHiddenDiv('ex_brand', brandText);
-      let descArr = [];
-      let finalDes;
-      let descriptionLi = document.querySelectorAll('div[class="skywalker_scheda_descrizione"] ul li');
-      for (let index = 0; index < descriptionLi.length; index++) {
-        const li = descriptionLi[index];
-        // @ts-ignore
-        let descTxt = li.innerText;
-        descArr.push(descTxt);
-      }
-      if(descArr.length > 0){
+    }
+    let finalSpecStr;
+    if (finalSpecArr.length > 0) {
+      finalSpecStr = finalSpecArr.join(' || ');
+    }
+    addHiddenDiv('ex_specification', finalSpecStr);
+    const brand = JSONArr ? JSONArr.brand : '';
+    console.log('brand: ', brand);
+    const brandText = brand ? brand.name : '';
+    console.log('brandText: ', brandText);
+    addHiddenDiv('ex_brand', brandText);
+    const descArr = [];
+    let finalDes;
+    const descriptionLi = document.querySelectorAll('div[class="skywalker_scheda_descrizione"] ul li');
+    for (let index = 0; index < descriptionLi.length; index++) {
+      const li = descriptionLi[index];
+      // @ts-ignore
+      const descTxt = li.innerText;
+      descArr.push(descTxt);
+    }
+    if (descArr.length > 0) {
       finalDes = descArr.join(' || ');
-      finalDes = "|| "+finalDes;
-      }
-      addHiddenDiv('ex_description',finalDes );
-
-  })
+      finalDes = '|| ' + finalDes;
+    }
+    addHiddenDiv('ex_description', finalDes);
+  });
 
   try {
     await new Promise((resolve) => setTimeout(resolve, 6000));
