@@ -197,15 +197,32 @@ module.exports = {
         }
       }
 
-      const getXpath = (xpath, prop) => {
-        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-        let result;
-        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-        else result = elem ? elem.singleNodeValue : '';
-        return result && result.trim ? result.trim() : result;
-      };
-      let videos = JSON.parse(getXpath('//div[contains(@class,"fullJwPlayerWarp")]/input/@value', 'nodeValue')) ? JSON.parse(getXpath('//div[contains(@class,"fullJwPlayerWarp")]/input/@value', 'nodeValue')).playlist.map(e => { return e.file }).join(" | ") : "";
+      function getPathDirections(xpathToExecute) {
+        var result = [];
+        var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
+          result.push(JSON.parse(nodesSnapshot.snapshotItem(i).textContent));
+        }
+        return result;
+      }
+
+      function videoData(data) {
+
+        if (data[0].playlist.length > 1) {
+          return data[0].playlist.map(e => { return "https:" + e.file }).join(" | ")
+        }
+
+        if (data[0].playlist.length === 1) {
+          return data.map(e => { return "https:" + e.playlist[0].file }).join(" | ")
+        }
+      }
+
+      let videos = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value') ? videoData(getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value')) : "";
+
+      let apluseImages = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value') ? getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').map(e => { return e.playlist[0].image }).join(" | ") : "";
+
       addElementToDocument('videos', videos);
+      addElementToDocument('apluseImages', apluseImages);
       // Secondry Image
       const alternateImages = [];
       document.querySelectorAll('link[as=image]').forEach(e => {

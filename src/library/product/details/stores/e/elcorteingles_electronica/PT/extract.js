@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../../elcorteingles/ES/transform');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -10,7 +10,7 @@ module.exports = {
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain,transform }, context, { productDetails }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
 

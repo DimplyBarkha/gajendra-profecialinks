@@ -150,8 +150,19 @@ module.exports = {
         const imageData = findJsonObj('image');
         // Check for the data and append to DOM
         if (imageData) {
+          console.log("Image here")
           addElementToDocument('product_image', `https:${imageData.image.slice(-1)[0]}`);
           addElementToDocument('product_description', imageData.description);
+        } else {
+          let sliderImage = document.querySelectorAll('.image-layout-slides-group div')[0].querySelector('img').getAttribute('src');
+          let linkImage = document.querySelectorAll('link[as="image"]')[0].getAttribute('href');
+          if (sliderImage) {
+            console.log("slider here")
+            addElementToDocument('product_image', `https:${sliderImage}`);
+          } else {
+            console.log("link here")
+            addElementToDocument('product_image', `https:${linkImage}`);
+          }
         }
 
         const getXpath = (xpath, prop) => {
@@ -243,6 +254,14 @@ module.exports = {
           }
         }
 
+        function variantInformation(variantsData) {
+          if (variantsData.variant[0].value && variantsData.variant[1].value) {
+            return variantsData.variant[0].value + "-" + variantsData.variant[1].value
+          } else {
+            return variantsData.variant[0].value + "" + variantsData.variant[1].value
+          }
+        }
+
         // Number of reviews and rating
         const passKey = 'caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ';
         const productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json';
@@ -263,7 +282,7 @@ module.exports = {
         const apiDataResponse = await makeApiCall(productsData, {});
         addElementToDocument('SKU', JSON.parse(apiDataResponse).id);
         addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
-        addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? JSON.parse(apiDataResponse).discount + " %" : "");
+        addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? "-" + JSON.parse(apiDataResponse).discount + "%" : "");
 
 
         //Append a UL and LI tag append the variant info in the DOM
@@ -282,12 +301,12 @@ module.exports = {
               let listItem = document.createElement("li");
               console.log(i, "value")
               setAttributes(listItem, {
-                nameExtended: `${nameExtended()}  ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""} ${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""}`,
+                nameExtended: `${nameExtended()}  ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""} ${variants[i].variant ? variants[i].variant[1] ? "-" : "" : ""} ${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""}`,
                 quantity: `${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""}`,
                 color: variants[i].variant ? variants[i].variant[0].value : "",
                 gtin: variants[i].gtin ? variants[i].gtin : "",
                 retailer_product_code: variants[i].id.trim(""),
-                title: variants[i].variant ? variants[i].variant[1] ? variants[i].variant[0].value + " " + variants[i].variant[1].value : "" : "",
+                title: variants[i].variant ? variants[i].variant[1] ? variantInformation(variants[i]) : "" : "",
                 variantDetails: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).map((e) => { return e.id }).join(' | ') : "" : "",
                 variantcount: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).length : 0 : 0
               })

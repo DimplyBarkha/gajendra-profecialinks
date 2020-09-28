@@ -198,30 +198,30 @@ module.exports = {
         const apiDataResponse = await makeApiCall(productsData, {});
         addElementToDocument('SKU', JSON.parse(apiDataResponse).id);
         addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
-        addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? "-" + JSON.parse(apiDataResponse).discount + " %" : "");
+        addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? "-" + JSON.parse(apiDataResponse).discount + "%" : "");
 
 
         //Append a UL and LI tag append the variant info in the DOM
         let variants = JSON.parse(apiDataResponse)._delivery_options[0].skus
+        console.log(variants, "Data")
         let targetElement = document.querySelector('body');
         let newUl = document.createElement('ul');
         newUl.id = "variantsadd";
         targetElement.appendChild(newUl);
         let ul = document.querySelector("#variantsadd");
         let name = nameExtended();
-        console.log("ul created", ul)
         try {
           if (variants.length) {
             for (let i = 0; i < variants.length; i++) {
               let listItem = document.createElement("li");
               console.log(name, "value")
               setAttributes(listItem, {
-                nameExtended: `${nameExtended()} ${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""} ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""} `,
-                quantity: `${variants[i].variant ? variants[i].variant[0] && variants[i].variant[0].title.toLowerCase() === "medida" ? variants[i].variant[0].value : "" : ""}`,
+                nameExtended: `${nameExtended()} ${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""} ${variants[i].variant ? variants[i].variant[0] && variants[i].variant[0] ? "-" : "" : ""} ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""} `,
+                quantity: `${variants[i].variant ? variants[i].variant.filter(e => {return e.title.toLowerCase() === "medida"}).length === 1 ? variants[i].variant.filter(e => {return e.title.toLowerCase() === "medida"})[0].value : "": ""}`,
                 color: `${variants[i].variant ? variants[i].variant[0] && variants[i].variant[0].title.toLowerCase() === "color" ? variants[i].variant[0].value : "" : ""}`,
                 gtin: variants[i].gtin ? variants[i].gtin : "",
                 retailer_product_code: variants[i].id.trim(""),
-                title: `${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""} ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""}`,
+                title: `${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""} ${variants[i].variant ? variants[i].variant[0] ? "-" : "" : ""} ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""}`,
                 variantDetails: variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0] ? variants.map((e) => { return e.id.trim(" ") }).join(' | ') : "" : "" : "",
                 variantcount: variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0] ? variants.map((e) => { return e.id.trim(" ") }).length : "" : "" : ""
               })
