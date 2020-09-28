@@ -24,6 +24,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
+    xpath: concat(//h1[contains(@class,'Pricestyled__Brand-sc-1brdkdv-0')], ' ', //h2[contains(@class,'Pricestyled__Name-sc-1brdkdv-1')])
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
@@ -32,6 +33,7 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
+    xpath: concat(//div[contains(@class,'Pricestyled__Price-sc-1brdkdv-4')],' ',//div[contains(@class,'Pricestyled__Unit-sc-1brdkdv-5')])
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -83,6 +85,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
+    xpath: //div[contains(text(), 'Model number:')]/following::ul[1]
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
@@ -120,13 +123,16 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
+    xpath: count(//div[contains(@class,'VariantSelectorstyled__GridContainer-yn6r3s-0')]//div)
     description: Number of variants listed
     type: NUMBER
   - name: color
     singleValue: true
+    xpath: //sup[contains(text(), 'colour')]/following::sup
     description: A textual description of the colour
   - name: colorCode
     singleValue: true
+    xpath: //div[contains(@class,'VariantSelectorstyled__GridContainer-yn6r3s-0')]//div[1]/@color
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
@@ -461,6 +467,7 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: true
+    xpath: //sup[contains(text(), 'colour')]/following::sup
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
@@ -478,6 +485,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: //section[contains(@class,'Detailsstyled__Details-sc-3xmr9b-0')]//div[1]//div[contains(@class,'Accordionstyled__CollapseContainer-sc-17mlj8y-3')]//div[1]//div//ul/li
     description: null
   - name: prop65Warning
     singleValue: true
@@ -524,3 +532,6 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: productUrl
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
