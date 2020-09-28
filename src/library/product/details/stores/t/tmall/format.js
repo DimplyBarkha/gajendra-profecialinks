@@ -36,13 +36,16 @@ const transform = (data) => {
         });
       }
       if (row.nameExtended) {
-        row.nameExtended.forEach(item => {
-          var brandText = '';
-          row.brandText.forEach(item => {
-            brandText = item.text;
-          });
-          item.text = brandText + ' - ' + item.text;
-        });
+        var nameVar=row.nameExtended[0]['text'];
+        if(nameVar.indexOf('Dyson -')==-1){
+          //var brandText = row.brandText[0]['text'];
+          row.nameExtended=[{"text":'Dyson - '+nameVar,"xpath":row.nameExtended[0]['xpath']}]
+        }
+      }
+      if(row.brandText){
+        if(row.name.indexOf('Dyson -')!=-1){
+          row.brandText=[{"text":'Dyson',"xpath":row.brandText[0]['xpath']}]
+        }
       }
       if(row.coupon){
         row.coupon.forEach(item=>{

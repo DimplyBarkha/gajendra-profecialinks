@@ -26,7 +26,7 @@ fields:
     xpath: //div[@class="product-info"]/meta[@itemprop="brand"]/@content
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class="product-info"]/meta[@itemprop="description"]/@content
+    xpath: //h1[@class="product-title-text"]
   - name: ratingCount
     singleValue: false
     xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="reviewCount"]
@@ -52,10 +52,16 @@ fields:
     defaultValue: 'In Stock'
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@class="sku-property"][2]//span[@class="sku-title-value"]
+    xpath: //ul[@class="sku-property-list"]/li[1]
   - name: coupon
     singleValue: false
-    xpath: //div[@class="product-coupon-display"]
+    xpath: //div[@class="coupon-mark-new"]
   - name: specifications
     singleValue: false
     xpath: //ul[contains(@class,"product-specs-list")]/li
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: videos
+    singleValue: false
+    xpath: //video/@src
