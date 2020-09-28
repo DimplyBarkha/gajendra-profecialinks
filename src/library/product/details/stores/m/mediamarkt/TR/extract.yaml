@@ -8,130 +8,110 @@ fields:
     xpath: //aside[@id="product-sidebar"]//div[contains(@class, "preview")]//img[@itemprop="image"]/@src
     regExp: (.+)
     regExpReplace: https:$1
-    description: URL of the main product image
   - name: imageAlt
     singleValue: false
     xpath: //aside[@id="product-sidebar"]//div[contains(@class, "preview")]//img[@itemprop="image"]/@alt
-    description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
     xpath: //ul[contains(@class, "thumbs")]//li[position()>1]//a/@data-magnifier
-    description: Other product images (not in manufacturer description)
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
     xpath: //meta[@name="keywords"]/@content
-    description: The <meta> keywords content
   - name: category
     singleValue: false
     xpath: //nav[@class="breadcrumbs-nav"]//ul[@class="breadcrumbs"]//li[position()>1 and position() < last()]
-    description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     xpath: //h1[@itemprop="name"]
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
-    singleValue: true
+    singleValue: false
     xpath: (//div[contains(@class, "price-sidebar")]//div[contains(@class, "price-old")])[1]
     description: The stated undiscounted price for the product
   - name: price
-    singleValue: true
-    xpath: //meta[@property="product:price:amount"]/@content
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
+    singleValue: false
+    xpath: //meta[@property="product:price:amount"]/@content    
   - name: availabilityText
-    singleValue: true
-    xpath: (//meta[@itemprop="availability"]/@content)[1]
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
+    singleValue: false
+    manualSelector: div.price-button > a > span
+    regExp: (.+)
+    regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //dl[@class="product-details"]|//div[contains(@id, "pdp_default_configuration-content_product_detail")]//article
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     xpath: count(//dl[@class="product-details"]//li|//div[contains(@id, "pdp_default_configuration-content_product_detail")]//article//li)
-    description: Number of ul > li tags in the description
     type: NUMBER
   - name: promotion
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class, "dy-icon-info-promo-popup")]
   - name: brandText
-    singleValue: true
+    singleValue: false
     xpath: //meta[@itemprop="brand"]/@content
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
   - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
+    singleValue: false
+    xpath: (//dl[@class="specification"]//dt[contains(text(),"Üretici firma")]//following-sibling::dd)[1]
   - name: quantity
-    singleValue: true
+    singleValue: false
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
+    singleValue: false
     xpath: (//dl[@class="specification"]//dt[contains(text(),"Ağırlık")]//following-sibling::dd)[1]
     description: Net weight as described on the page
   - name: weightGross
-    singleValue: true
+    singleValue: false
     description: Gross weight as described on the page
   - name: gtin
-    singleValue: true
+    singleValue: false
     xpath: (//script[contains(text(), "var product")])[1]
     description: GTIN code (includes UPC/EAN)
   - name: eangtin
-    singleValue: true
+    singleValue: false
     xpath: (//script[contains(text(), "var product")])[1]
   - name: sku
-    singleValue: true
-    xpath: //span[@itemprop="sku"]
+    singleValue: false
+    xpath: //span[@itemprop="sku"]/@content
     description: The store-specific product identifier
-    regExp: ^[\w]+:\s(\d+)
+    regExp: (.\d+)
     regExpReplace: $1
   - name: variantId
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="product-wrapper"]/@data-modelnumber
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    singleValue: true
-    description: The manufacturer model code (unique) of the product
+    singleValue: false
     xpath: //div[@id="product-wrapper"]/@data-modelnumber
   - name: legalDisclaimer
-    singleValue: true
+    singleValue: false
     xpath: //footer//div[contains(@class, "ms-site-footer__row--legal")]
     description: Content under "legal disclaimer" header
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     xpath: //dd[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
     xpath: //dd[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
     description: The stated aggregate rating
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     xpath: //dd[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
     description: The stated aggregate rating normalized to be out of 5
-  - name: shippingInfo
-    singleValue: false
-    xpath: //div[@class="price-sidebar"]//div[contains(@class, "price-details")]//small
-    description: Shipping information for the product
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
     xpath: (//dl[@class="specification"]//dt[contains(text(),"Ambalaj Boyutu")]//following-sibling::dd)[1]
     description: Stated shipping dimensions
   - name: variantCount
-    singleValue: true
+    singleValue: false
     xpath: count (//div[contains(@class,"product-attributes__color-item")])
     description: Number of variants listed
     type: NUMBER
   - name: color
-    singleValue: true
+    singleValue: false
     xpath: (//dl[@class="specification"]//dt[contains(text(),"Renk:")]//following-sibling::dd)[1]
     description: A textual description of the colour
   - name: videos
@@ -139,47 +119,39 @@ fields:
     xpath: //div[contains(@class, "contentspot")]//article[contains(@class, "description")]//iframe/@src|//div[contains(@id,"product-details")]//iframe/@src
     description: URLs of videos on page
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //h1[@itemprop="name"]
     description: The product name
   - name: secondaryImageTotal
-    singleValue: true
+    singleValue: false
     xpath: count(//ul[contains(@class, "thumbs")]//li[position()>1]//a/@data-magnifier)
     description: null
     type: NUMBER
   - name: specifications
-    singleValue: true
-    xpath: //div[@id="features"]/section/dl
-    description: concat(//dl[@class="specification"]//dt[contains(text(),"Ambalaj Genişliği:")], ' ',(//dl[@class="specification"]//dt[contains(text(),"Ambalaj Genişliği:")]//following-sibling::dd)[1], ' ', (//dl[@class="specification"]//dt[contains(text(),"Ambalaj Yüksekliği:")]), ' ', (//dl[@class="specification"]//dt[contains(text(),"Ambalaj Yüksekliği:")]//following-sibling::dd)[1],  ' ',(//dl[@class="specification"]//dt[contains(text(),"Ambalaj Derinliği:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Ambalaj Derinliği")]//following-sibling::dd)[1], ' ',(//dl[@class="specification"]//dt[contains(text(),"Ambalaj Ağırlığı:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Ambalaj Ağırlığı:")]//following-sibling::dd)[1])
+    singleValue: false
+    xpath: //div[@id="features"]//section//dl
   - name: warranty
-    singleValue: true
-    description: Guarantee associated with the product
+    singleValue: false
     xpath: (//dl[@class="specification"]//dt[contains(text(),"Üretici Garantisi:")]//following-sibling::dd)[1]
   - name: countryOfOrigin
-    singleValue: true
-    description: The country from which the product originates
-    xpath: (//dl[@class="specification"]//dt[contains(text(),"Üretim Yeri:")]//following-sibling::dd)[1]
-  - name: productOtherInformation
     singleValue: false
-    xpath: //div[@id="features"]//section//h2|//div[@id="features"]//dl
-    description: Any other product information
+    xpath: (//dl[@class="specification"]//dt[contains(text(),"Üretim Yeri:")]//following-sibling::dd)[1]
   - name: specificationList
     singleValue: false
     xpath: //div[@id="features"]
   - name: packaging
-    singleValue: true
-    xpath: (//dl[@class="specification"]//dt[contains(text(),"Kutu İçeriği")]//following-sibling::dd)[1]
-    description: Packaging information
+    singleValue: false
+    xpath: (//dl[@class="specification"]//dt[contains(text(),"Ambalaj Boyutu")]//following-sibling::dd)[1]
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //dl[@class="product-details"]//li|//div[contains(@id, "pdp_default_configuration-content_product_detail")]//article//li
     type: NUMBER
     description: null
   - name: energyEfficiency
-    singleValue: true
+    singleValue: false
     xpath: (//dl[contains(@class, "energy-efficiency")]//dt[contains(text(),"Enerji verimlilik sınıfı")]//following-sibling::dd)[1]
   - name: technicalInformationPdfPresent
-    singleValue: true
+    singleValue: false
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     xpath: (//a[contains(@href, "pdf")]/@href)[1]

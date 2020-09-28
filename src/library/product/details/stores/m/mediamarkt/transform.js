@@ -134,7 +134,7 @@ const transform = (data, context) => {
 
       if (row.specifications) {
         row.specifications[0].text = row.specifications[0].text.replace(/(:\\n\s\\n)/g, '').replace(/(\n\s*){2,}/g, ' || ');
-        row.specifications[0].text = clean(row.specifications[0].text.trim());
+        row.specifications = [{ text : clean(row.specifications[0].text.trim()) }];
       }
       if (row.productOtherInformation) {
         let text = '';
@@ -165,8 +165,7 @@ const transform = (data, context) => {
           },
         ];
 
-        row.description = clean(row.description[0].text);
-        console.log(row.description);
+        row.description = [{ text: clean(row.description[0].text) }];
       }
       if (row.aggregateRating) {
         row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
@@ -182,7 +181,7 @@ const transform = (data, context) => {
       if (row.listPrice) {
         row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
       }
-
+      
       if (row.mpc) {
         console.log(row.mpc);
         console.log(row.mpc.length);
@@ -218,9 +217,12 @@ const transform = (data, context) => {
       }
     }
   }
-  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+  
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach((header) => {
+    console.log(header);
+    row[header].forEach(el => {
     el.text = clean(el.text);
-  }))));
+  })})));
   return data;
 };
 
