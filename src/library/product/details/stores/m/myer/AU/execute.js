@@ -5,7 +5,7 @@ module.exports = {
     country: 'AU',
     store: 'myer',
     domain: 'myer.com.au',
-    loadedSelector: "head",
+    loadedSelector: "body",
     noResultsXPath: '//div[@class="error-page__containt"]',
     zipcode: '',
   },
