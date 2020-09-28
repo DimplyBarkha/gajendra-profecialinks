@@ -69,11 +69,19 @@ const transform = (data, context) => {
 
       row.secondaryImageTotal = [
         {
-          text: row.alternateImages && row.alternateImages.length,
+          text: (row.alternateImages && row.alternateImages.length) || '0',
           type: 'NUMBER',
-          value: row.alternateImages && row.alternateImages.length,
+          value: (row.alternateImages && row.alternateImages.length) || 0,
         },
       ];
+      if (row.color) {
+        const text = row.nameExtended[0].text + ' - ' + row.color[0].text;
+        row.nameExtended = [
+          {
+            text,
+          },
+        ];
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

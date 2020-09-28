@@ -21,6 +21,11 @@ async function implementation (
     return videoLinks;
   }
   await context.evaluate(getVideoLinks);
+  await context.evaluate(() => {
+    if (!document.querySelector('li[id^="size_combo_button_pdp"][onclick]')) {
+      document.body.classList.add('no-variants');
+    }
+  });
   return await context.extract(productDetails, { transform });
 }
 

@@ -7,7 +7,7 @@ module.exports = {
     country: 'UK',
     store: 'boots',
     transform,
-    domain: 'boots.ie',
+    domain: 'boots.com',
     zipcode: '',
   },
   implementation,
