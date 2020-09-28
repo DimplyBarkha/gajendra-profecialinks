@@ -118,7 +118,14 @@ const transform = (data) => {
           });          
           row.shippingInfo = [{'text':info.join(' | '),'xpath':row.shippingInfo[0].xpath}];          
         }
-
+        if(row.additionalDescBulletInfo){
+          let arr_info = [];
+          row.additionalDescBulletInfo.forEach(item=>{
+            arr_info.push(item.text);
+          });
+          row.descriptionBullets = [{'text':arr_info.length}];
+          row.additionalDescBulletInfo = [{'text':arr_info.join(' | ')}];
+        }
         if (row.specifications) {
           let info = [];          
           row.specifications.forEach(item => {
@@ -171,6 +178,7 @@ const transform = (data) => {
                 row.variantCount = [{"text": variations.length, "xpath": row.variants[0]["xpath"]}];
                 row.variantInformation = [{"text": variant_info.join(' | '), "xpath": row.variants[0]["xpath"]}];
                 row.variants = [{"text": variations.join(' | '), "xpath": row.variants[0]["xpath"]}];
+                row.firstVariant = [{'text':variations[0]}];
             }else{
                 delete row.variants;
             }          

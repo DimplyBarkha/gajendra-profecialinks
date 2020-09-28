@@ -27,10 +27,7 @@ fields:
     xpath: //div[@class='magnifier-container' or @class='a8n3']//img/@alt
   - name: alternateImages
     singleValue: false    
-    xpath: //script[contains(@id,'state-webGallery-')]/text()
-  - name: metaKeywords
-    singleValue: false
-    xpath: //title/text()
+    xpath: //script[contains(@id,'state-webGallery-')]/text()  
   - name: category
     singleValue: false    
     xpath: //ol[@class='b6z4']//li
@@ -61,26 +58,40 @@ fields:
   - name: shippingInfo
     singleValue: false
     xpath: //div[@data-widget='webTrustFactors']//div[@class='a1e7']//span[@class='a1f']  
-  - name: weightNet
+  - name: shippingWeight
     singleValue: false
     xpath: //div[@data-widget='webCharacteristics']//span[contains(text(),'Вес в упаковке')]/parent::*/parent::*/dd
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@data-widget='webCharacteristics']//span[contains(text(),'Вес товара')]/parent::*/parent::*/dd
   - name: color
     singleValue: false
-    xpath: //span[@class='b0r3']//span[contains(text(),'Цвет:')]//following-sibling::span
-  - name: colorCode
-    singleValue: false
-    xpath: //span[@class='b0r3']//span[contains(text(),'Цвет:')]//following-sibling::span
+    xpath: //div[@data-widget='webCharacteristics']//span[contains(text(),'Цвет')]/parent::*/parent::*/dd  
   - name: specifications
     singleValue: false
-    xpath: //div[@data-widget='webCharacteristics']//dl[contains(@class,'b0s8')]
+    xpath: //div[@data-widget='webCharacteristics']//dl[contains(@class,'b0s8')]  
+  - name: warranty
+    singleValue: false
+    xpath: //div[@data-widget='webCharacteristics']//span[contains(text(),'Гарантия')]/parent::*/parent::*/dd  
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@id='section-description']//li
+  - name: descriptionBullets
+    singleValue: false    
   - name: productOtherInformation
     singleValue: false
     xpath: //div[@data-widget='webCharacteristics']//dl[contains(@class,'b0s1')]
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
+    defaultValue: '0'  
+  - name: packSize
+    singleValue: false
+    xpath: //div[@data-widget='webCharacteristics']//span[contains(text(),'Количество в упаковке')]/parent::*/parent::*/dd
   - name: variantInformation
     singleValue: false
   - name: variants
     singleValue: false
-    xpath: //script[contains(@id,'state-webAspects-')]/text()
+    xpath: //div[contains(@id,'state-webAspects-')]/@data-state
+  - name: firstVariant
+    singleValue: false    
+  
