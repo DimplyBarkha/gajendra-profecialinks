@@ -5,6 +5,18 @@
 * @returns {ImportIO.Group[]}
 */
 const transform = (data) => {
+  const cleanUp = text => text.toString()
+  .replace(/\r\n|\r|\n/g, ' ')
+  .replace(/&amp;nbsp;/g, ' ')
+  .replace(/&amp;#160/g, ' ')
+  .replace(/\u00A0/g, ' ')
+  .replace(/\s{2,}/g, ' ')
+  .replace(/"\s{1,}/g, '"')
+  .replace(/\s{1,}"/g, '"')
+  .replace(/^ +| +$|( )+/g, ' ')
+// eslint-disable-next-line no-control-regex
+  .replace(/[\x00-\x1F]/g, '')
+  .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
     for (const { group } of data) {
       for (const row of group) {
         
@@ -25,6 +37,7 @@ const transform = (data) => {
         if (row.description) {
           row.description.forEach(item => {
           item.text = item.text.replace(/(\s*[\r\n]\s*)+/g, ' ').trim();
+          item.text = cleanUp(item.text);
           });
         }
         if (row.aggregateRating) {
@@ -46,18 +59,20 @@ const transform = (data) => {
                   text = item.text.split(' ')[0];
                });
               }
-              item.text = text;
+              item.text = cleanUp(text);
             }
          });
         }
         if (row.description) {
           row.description.forEach(item => {
              item.text = item.text.replace(/(\|\|\s\|\|)/g,'||').replace(/(\s*[\r\n]\s*)+/g, ' ').replace(/&nbsp;/g, ' ').replace('&amp;','&').trim();
+             item.text = cleanUp(item.text);
           });
         }
         if (row.specifications) {
           row.specifications.forEach(item => {
             item.text = item.text.replace(/(\|\|\s\|\|)/g,'||').replace(/(\s*[\r\n]\s*)+/g, ' ').replace(/&nbsp;/g, ' ').replace('&amp;','&').trim();
+            item.text = cleanUp(item.text);
           });
         }
         if (row.image) {
@@ -85,7 +100,7 @@ const transform = (data) => {
           });
           row.additionalDescBulletInfo = [
             {
-              text: text,
+              text: cleanUp(text),
             },
           ];
         }
