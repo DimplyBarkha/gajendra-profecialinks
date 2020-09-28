@@ -32,7 +32,17 @@ const transform = (data, context) => {
       for (let row of group) {
         try {
 
-   
+          if(row.nameExtended){
+            let nameArr = [];
+            row.nameExtended.forEach(name => {
+              console.log("NAME123")
+              console.log(name)
+              nameArr.push(name);
+            })
+            row.nameExtended = [{text: " "}]
+            let joins = nameArr.join(" ")
+            row.nameExtended[0].text = joins;
+          }
 
           if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
             row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
