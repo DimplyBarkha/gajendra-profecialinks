@@ -17,11 +17,11 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ol[@class="breadcrumb"]/li
+    xpath: //ol[@class="breadcrumb"]/li[position()>1]
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //*[contains(@class,"product-hero")]//*[@class="product-main-heading"]/span
+    xpath: //*[contains(@class,"product-hero")]//*[@class="product-main-heading"]/span[@class='heading-text']
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: //*[contains(@class,"product-hero")]//*[@class="strikethrough"]
@@ -92,7 +92,6 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     description: Stated shipping dimensions
-    xpath: //li/div[@class='row']/div[contains(text(),'Dimension')]/following-sibling::div
   - name: shippingWeight
     description: Stated shipping weight
   - name: variantCount

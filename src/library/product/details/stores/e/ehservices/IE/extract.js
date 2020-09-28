@@ -13,6 +13,7 @@ async function implementation (
       return await Boolean(document.querySelector(currentSelector));
     }, selector);
   };
+  const delay = t => new Promise(resolve => setTimeout(resolve, t));
   const footerSelector = '#footer';
   console.log('footer - ', checkExistance(footerSelector));
   if (await checkExistance(footerSelector)) {
@@ -26,7 +27,6 @@ async function implementation (
   });
   const iframeSelector = '#eky-dyson-iframe';
   if (await checkExistance(iframeSelector)) {
-    const delay = t => new Promise(resolve => setTimeout(resolve, t));
     const iframeUrl = await context.evaluate((iframeSelector) => {
       return document.querySelector(iframeSelector).getAttribute('src');
     }, iframeSelector);
@@ -96,8 +96,8 @@ async function implementation (
       desc = desc.join(' | ');
       document.querySelector('body').setAttribute('desc', desc);
     }, desc);
-    await delay(10000);
   }
+  await delay(10000);
   return await context.extract(productDetails, { transform });
 }
 
