@@ -1,9 +1,9 @@
 extends: ../shared 
 fields:
   - name: image
-    xpath: (//div[contains(@class,'hgroup__main-image')]//img)[1]/@src
+    xpath: (//div[contains(@class,'hgroup__main-image')]//img)[1]/@src|(//div[contains(@class,'hero__media')]//img)[1]/@src
   - name: imageAlt
-    xpath: (//div[contains(@class,'hgroup__main-image')]//img)[1]/@alt
+    xpath: (//div[contains(@class,'hgroup__main-image')]//img)[1]/@alt|(//div[contains(@class,'hero__media')]//img)[1]/@alt
   - name: nameExtended
     singleValue: true
     xpath: (//h2[contains(concat(' ',normalize-space(@class),' '),'hgroup__title')] | //div[@class="hgroup__image"]//h1)[1]
