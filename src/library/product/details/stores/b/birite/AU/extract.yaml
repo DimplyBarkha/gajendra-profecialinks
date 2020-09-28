@@ -33,22 +33,22 @@ fields:
     xpath: //h1[contains(@class, 'product_title')]
   - name: sku
     singleValue: true
-    xpath: //span[contains(@class,'sku_wrapper')]//span[contains(@class,'sku')]
+    xpath: //script/@data-flix-sku
   - name: variantId  
     singleValue: true
-    xpath: //span[contains(@class,'sku_wrapper')]//span[contains(@class,'sku')]
+    xpath: //script/@data-flix-distributor
   - name: mpc  
     singleValue: true
-    xpath: //span[contains(@class,'sku_wrapper')]//span[contains(@class,'sku')]
+    xpath: //script/@data-flix-mpn
   - name: warranty  
-    singleValue: true
+    singleValue: false
     xpath: //td[contains(text(), 'Warranty')]/following-sibling::td
   - name: productUrl 
     singleValue: true
     xpath: //meta[@property='og:url']/@content
   - name: category
     singleValue: false
-    xpath: //nav[contains(@class, 'woocommerce-breadcrumb')]//a[position()<last()]
+    xpath: //nav[contains(@class, 'woocommerce-breadcrumb')]
   - name: nameExtended
     singleValue: true
     xpath: //h1[contains(@class, 'product_title')]
@@ -67,19 +67,19 @@ fields:
   - name: manufacturer
     singleValue: true
     xpath: //th[contains(text(), 'Brand')]/following-sibling::td
-  - name: description
-    singleValue: false
-    xpath: //div[contains(@class, 'woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab')]//table//tbody//tr
-  - name: descriptionBullets
-    singleValue: true
-    type: NUMBER
-    xpath: count(//div[contains(@class, 'woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab')]//table//tbody//tr)
+  #- name: description
+  #  singleValue: false
+  #  xpath: //div[contains(@class, 'woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab')]//table//tbody//tr
+  #- name: descriptionBullets
+  #  singleValue: true
+  #  type: NUMBER
+  #  xpath: count(//div[contains(@class, 'woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab')]//table//tbody//tr)
   - name: productOtherInformation
     singleValue: false
     xpath: //div[contains(@class, 'woocommerce-Tabs-panel--additional_information')]//table//tbody//tr
-  - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //div[contains(@class, 'woocommerce-Tabs-panel--additional_information')]/table/tbody/tr/td
+  #- name: additionalDescBulletInfo
+  #  singleValue: false
+  #  xpath: //div[contains(@class, 'woocommerce-Tabs-panel--additional_information')]/table/tbody/tr/td
   - name: termsAndConditions
     xpath: boolean(//A[@href='/terms-conditions/'][contains(text(),'Terms ')])
     singleValue: true
@@ -89,7 +89,13 @@ fields:
   - name: shippingDimensions
     singleValue: true
     xpath: //td[contains(text(), 'Packing Dimensions (Carton ) WxDxH (mm)')]/following-sibling::td
-  
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: //div[@id='inpage_container']//div[@class='inpage_selector_feature']//div[contains(@class,'flix-std-p')]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id='inpage_container']//div[@class='inpage_selector_feature']//img/@srcset
+
   
     
   
