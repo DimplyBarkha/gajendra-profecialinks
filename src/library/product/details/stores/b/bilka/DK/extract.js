@@ -12,33 +12,38 @@ module.exports = {
     
     await context.waitForSelector('div.v-application--wrap', { timeout: 50000 });
 
-    await context.evaluate(async function () {       
-     const productInfo = preFetchProductDetails();          
-     var combinepriceCurrency= productInfo['offers']['price'] + ' ' + productInfo['offers']['priceCurrency'];     
-     //var combinepriceCurrency= productInfo['offers']['price'];     
-      addEleToDoc('hidskuId', productInfo['sku']);
-      addEleToDoc('hidpriceCurrency', combinepriceCurrency);      
-     
-      function preFetchProductDetails () {
-        let productInfo = findProductDetails('//script[@data-v-6280c757 and @type="application/ld+json"]');                        
-        productInfo = JSON.parse(productInfo.textContent);        
-        return productInfo;
-      }      
+    await context.evaluate(async function () {  
+      
+      try {
+                const productInfo = preFetchProductDetails();          
+                var combinepriceCurrency= productInfo['offers']['price'] + ' ' + productInfo['offers']['priceCurrency'];     
+                //var combinepriceCurrency= productInfo['offers']['price'];     
+                  addEleToDoc('hidskuId', productInfo['sku']);
+                  addEleToDoc('hidpriceCurrency', combinepriceCurrency);      
+                
+                  function preFetchProductDetails () {        
+                    let productInfo = findProductDetails('//script[@type="application/ld+json" and contains(text(),"price")]');                        
+                    productInfo = JSON.parse(productInfo.textContent);        
+                    return productInfo;
+                  }      
 
-      function findProductDetails (xpath) {        
-        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;                
-        const productDetails = element;
-        return productDetails;
-      }
+                  function findProductDetails (xpath) {        
+                    const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;                
+                    const productDetails = element;
+                    return productDetails;
+                  }
 
-      function addEleToDoc (key, value) {
-        const prodEle = document.createElement('div');
-        prodEle.id = key;
-        prodEle.textContent = value;
-        prodEle.style.display = 'none';
-        document.body.appendChild(prodEle);
-      }
-
+                  function addEleToDoc (key, value) {
+                    const prodEle = document.createElement('div');
+                    prodEle.id = key;
+                    prodEle.textContent = value;
+                    prodEle.style.display = 'none';
+                    document.body.appendChild(prodEle);
+                  }
+          } catch (error) {
+            console.log(error.message);
+          }
+          
       let tempadditionalDescBulletInfo = document.querySelectorAll('div.product-panel-slot div.description').length;               
       if(tempadditionalDescBulletInfo > 0)
       {
