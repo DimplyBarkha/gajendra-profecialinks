@@ -100,6 +100,7 @@ fields:
   singleValue: true
   description: The number of packs in the product offer (if stated separately on
     the site to quantity)
+  xpath: //div[contains(@class,'tvsn-product-details')]//h1[contains(text(),"Pack")]
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
@@ -139,7 +140,8 @@ fields:
 - name: color
   singleValue: true
   description: A textual description of the colour
-  xpath: //div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button[1]/@title
+  # xpath: //div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button[1]/@title
+  xpath: //*[contains(text(), "Wand Colour")]
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -481,6 +483,7 @@ fields:
   singleValue: false
   description: null
   # xpath: //div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-sku')]
+  xpath: //div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button//img/@alt
 - name: additionalDescBulletInfo
   singleValue: false
   description: null

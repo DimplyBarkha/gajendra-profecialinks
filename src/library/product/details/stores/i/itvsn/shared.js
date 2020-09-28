@@ -130,12 +130,37 @@ const transform = (data) => {
 				});
 				row.additionalDescBulletInfo = [{ text: newText }];
 			}
+			if (row.variants) {
+				let newText = '';
+				row.variants.forEach((item, index) => {
+					newText += `${item.text + ' | '}`;
+				});
+				row.variants = [{ text: newText.slice(0, -3) }];
+			}
 			if (row.weightNet) {
 				let newText = '';
 				row.weightNet.forEach(item => {
 					newText += `${item.text.replace("Product weight - ", "")}`;
 				});
-				row.weightNet = [{ text: newText }];
+				row.weightNet = [{ text: newText.trim() }];
+			}
+			if (row.color) {
+				let newText = '';
+				row.color.forEach(item => {
+					newText += `${item.text.replace("Wand Colour -", "")}`;
+				});
+				row.color = [{ text: newText.trim() }];
+			}
+			if (row.packSize) {
+				let newText = '';
+				row.packSize.forEach(item => {
+					let stringArr = item.text.split("-");
+					console.log(stringArr);
+					if (stringArr.length > 2) {
+						newText += `${stringArr[stringArr.length - 1]}`;
+					}
+				});
+				row.packSize = [{ text: newText.trim() }];
 			}
 		}
 	}
