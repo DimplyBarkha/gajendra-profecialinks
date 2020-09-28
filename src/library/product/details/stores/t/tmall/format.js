@@ -40,10 +40,8 @@ const transform = (data) => {
         if(nameVar.indexOf('Dyson -')==-1){
           //var brandText = row.brandText[0]['text'];
           row.nameExtended=[{"text":'Dyson - '+nameVar,"xpath":row.nameExtended[0]['xpath']}];
-          row.brandText=[{"text":row.brandText[0]['text'],"xpath":row.brandText[0]['xpath']}];
-        }else{
-          row.brandText=[{"text":'Dyson',"xpath":row.brandText[0]['xpath']}];
         }
+        row.brandText=[{"text":'Dyson',"xpath":row.brandText[0]['xpath']}];
       }
       if(row.coupon){
         row.coupon.forEach(item=>{
