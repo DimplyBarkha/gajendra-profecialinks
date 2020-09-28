@@ -81,6 +81,10 @@ const transform = (data) => {
 				row.sku = [{ text: row.sku[0].text.slice(5) }];
 			}
 
+			if (row.variantId) {
+				row.variantId = [{ text: row.variantId[0].text.slice(5) }];
+			}
+
 			if (row.nameExtended) {
 				let newText = "";
 				row.nameExtended.forEach(item => {
