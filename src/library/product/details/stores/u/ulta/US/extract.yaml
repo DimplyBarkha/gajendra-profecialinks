@@ -87,8 +87,8 @@ fields:
     regExpReplace: $1 
   - name: variantId
     singleValue: false
-    xpath: //meta[@property="og:url"]/@content
-    regExp: .*?productId=(.*?)&.*
+    manualSelector: div.ProductMainSection__itemNumber
+    regExp: Item\s*(.*)
     regExpReplace: $1
   - name: variantCount
     singleValue: false
