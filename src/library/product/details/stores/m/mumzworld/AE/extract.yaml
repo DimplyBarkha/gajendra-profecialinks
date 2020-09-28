@@ -49,9 +49,7 @@ fields:
     xpath: //div[@id='full-desc']//strong[text()='Shipping Weight:']/following-sibling::text()[1]
   - name: ratingCount
     singleValue: false
-    xpath: //div[@class='ratings pull-left flip']//p[@class='rating-links pull-left flip']//a/text()
-    regExp: (.*)\/.+
-    regExpReplace: $1
+    xpath: //div[@id='loadReviews']//div[@class='current-review-verdict row']
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class='ratings pull-left flip']//p[@class='rating-links pull-left flip']//a/text()
@@ -62,7 +60,7 @@ fields:
     xpath: //div[@id='full-desc']//strong[text()='Package Dimensions:']/following-sibling::text()[1]
   - name: warnings
     singleValue: false
-    xpath: //div[@id='full-desc']//div[@class='col-sm-6'][2]//li[contains(text(),'Warning!')]  
+    xpath: //div[@id='full-desc']//div[@class='col-sm-6'][2]//li[contains(text(),'Warning!') or contains(text(),'Hazard') or contains(text(),'WARNING') or contains(text(),'Warning')]
   - name: name
     singleValue: false
     xpath: //div[@class='product-name']//h1
@@ -92,10 +90,10 @@ fields:
     defaultValue: 'In Stock'
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@class,'product-img-box')]//div[contains(@class,'productlabel-sale')]//span[@class='label-sale-value']
-  - name: countryOfOrigin
-    singleValue: false
-    xpath: //div[@id='country-autoswitch-toggle']//span[@class='country-autoswitch-label']
+    xpath: //div[contains(@class,'product-img-box')]//div[contains(@class,'productlabel-sale')]//span[@class='label-sale-value']  
   - name: quantity
     singleValue: false
     xpath: //input[@id='qty']
+  - name: packSize
+    singleValue: false
+    xpath: //div[@class='product-name']//h1

@@ -46,11 +46,25 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
           item.text = item.text.replace(/(\s*Overview:\s*\|\|\s*)+/g, '').trim();
         });
+      }
+      if (row.packSize) {
+        row.packSize.forEach(item => {
+          var matches = /.*Pack\s+Of\s+(\d+).*/isg.exec(item.text);
+          if (matches){
+            item.text = matches[1];
+          }
+          else{
+            delete row.packSize;
+          }
+        });
       } 
       if (row.quantity) {
         row.quantity.forEach(item => {
           item.text = 1;          
         });
+      }
+      if (row.ratingCount) {        
+        row.ratingCount = [{'text':row.ratingCount.length,'xpath':row.ratingCount[0].xpath}];
       }        
       if (row.description) {
         let info = []
