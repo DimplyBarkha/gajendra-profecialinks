@@ -7,10 +7,10 @@ fields:
     singleValue: false
     xpath: //span[@class='a-size-base' and @dir='auto']
   - name: aggregateRating2
-    singleValue: true
+    singleValue: false
     xpath: //span[contains(@data-action,'a-popover')]//i/span
   - name: productUrl
-    singleValue: true
+    singleValue: false
     xpath: //h2/a/@href
     regExp: (.+)
     regExpReplace: https://www.amazon.ae$1
@@ -21,4 +21,4 @@ fields:
     xpath: //span[@class='s-label-popover-default']/span[contains(text(),'Sponsored')]
   - name: price
     singleValue: false
-    xpath: //span[@class="a-offscreen"]
+    xpath: //span[contains(@class, "price") and not(@data-a-strike="true")]//span[contains(@class, "offscreen")]//text()

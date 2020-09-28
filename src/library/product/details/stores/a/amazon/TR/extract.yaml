@@ -55,13 +55,15 @@ fields:
     xpath: //div[@id="ii_brand_text"]
   - name: manufacturer
     singleValue: false
-    xpath: (//tr/th[contains(text(),"Üretici")])[1]/following-sibling::td
+    xpath: (//tr/th[contains(text(),"Üretici") and not(contains(text(),"Üretici "))])[1]/following-sibling::td
   - name: quantity
     singleValue: false
-    xpath:
+    xpath: //select[@name="quantity"]/option[@selected]/@value
   - name: weightNet
     singleValue: false
-    xpath: (//tr/th[contains(text(),"Ürün Ağırlığı")])[1]/following-sibling::td
+    xpath: (//tr/th[contains(text(),"Ürün Boyutları")])[1]/following-sibling::td
+    regExp: (.*); (.*)
+    regExpReplace: $2
   - name: weightGross
     singleValue: false
     xpath:
@@ -74,7 +76,7 @@ fields:
     xpath: (//tr/th[contains(text(),"ASIN")])[1]/following-sibling::td | (//*[@data-asin])[1]/@data-asin
   - name: mpc
     singleValue: false
-    xpath: (//tr/th[contains(text(),"Model Numarası")])[1]/following-sibling::td
+    xpath: (//tr/th[contains(text(),"Model Numarası")])[1]/following-sibling::td | (//tr/th[contains(.,"Model Number")])[1]/following-sibling::td
   - name: packSize
     singleValue: false
     xpath: //div[@id="variation_item_package_quantity"]//label[contains(text(),"Ürünün Paket")]/following-sibling::span
@@ -111,10 +113,10 @@ fields:
     xpath: (//tr//td[contains(@class,"buybox-tabular-column") and ./span[contains(.,"Satıcı")]]/following-sibling::td/span/span)[1]
   - name: shippingDimensions
     singleValue: false
-    xpath: (//tr/th[contains(text(),"Paket Boyutları")])[1]/following-sibling::td | (//tr/th[contains(text(),"Ürün Boyutları")])[1]/following-sibling::td
+    xpath: (//tr/th[contains(text(),"Paket Boyutları")])[1]/following-sibling::td
   - name: shippingWeight
     singleValue: false
-    xpath: (//tr/th[contains(text(),"Paket Boyutları")])[1]/following-sibling::td | (//tr/th[contains(text(),"Ürün Boyutları")])[1]/following-sibling::td
+    xpath: (//tr/th[contains(text(),"Paket Boyutları")])[1]/following-sibling::td
     regExp: (.*); (.*)
     regExpReplace: $2
   - name: variantCount
@@ -126,7 +128,7 @@ fields:
     xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
   - name: color
     singleValue: false
-    xpath: //div[@id="variation_color_name"]//label[contains(text(),"Renk")]/following-sibling::span | (//tr/th[contains(text(),"Renk")])[1]/following-sibling::td
+    xpath: //div[@id="variation_color_name"]//label[contains(text(),"Renk")]/following-sibling::span | (//tr/th[contains(text(),"Renk")])[1]/following-sibling::td | (//tr/th[contains(.,"Color")])[1]/following-sibling::td
   - name: colorCode
     singleValue: false
     xpath:

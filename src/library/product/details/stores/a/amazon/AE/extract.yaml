@@ -57,7 +57,7 @@ fields:
     xpath: //a[@id="bylineInfo"]
   - name: weightNet
     singleValue: false
-    manualSelector: div#productWeight
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Item Weight")]/following-sibling::td[1]/text() | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Weight")]/following-sibling::td[1]/text()
   - name: asin
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
@@ -98,7 +98,7 @@ fields:
     xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
   - name: color
     singleValue: false
-    xpath: div#productColor
+    manualSelector: div#productColor
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//p[not(img) and text()]
@@ -135,7 +135,7 @@ fields:
     regExpReplace: https://www.amazon.com$1
   - name: variantAsins
     singleValue: false
-    xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
+    xpath: //div[@id='twisterJsInitializer_feature_div']/script[@type='text/javascript']
   - name: firstVariant
     singleValue: false
     xpath: //script[contains(@type,"a-state") and contains(text(), "parentAsin")]

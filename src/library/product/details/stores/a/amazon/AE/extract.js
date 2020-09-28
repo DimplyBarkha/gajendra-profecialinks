@@ -145,40 +145,20 @@ async function implementation (
     shippingInfoText = shippingInfoText.replace(/\s+/g, ' ');
     addHiddenDiv('shippingInfo', shippingInfoText);
 
-    const color = document.querySelector('div#variation_color_name > div > span') || document.querySelector('div#prodDetails > span > strong');
-    addHiddenDiv('productColor', color);
-
-    const weight = document.querySelector('table#productDetails_techSpec_section_1 > tbody');
-    let weightText = weight && weight.innerHTML ? weight.innerHTML.replace(/<tr>/gm, '').replace(/<.*?>/gm, '').replace(/\s+/gm, ' ').replace(/(\sItem\sWeight\s.*)(")/gm, '$1').trim() : '';
-    weightText = weightText.replace(/(\s\d.*)/gm, '$1');
-    addHiddenDiv('productWeight', weightText);
+    const color = document.querySelector('div#variation_color_name > div > span');
+    if (color && color.innerHTML) {
+      const col = color.innerHTML;
+      addHiddenDiv('productColor', col);
+    } else {
+      const color1 = document.querySelector('table#productDetails_techSpec_section_1');
+      const col1 = color1 && color1.innerHTML && color1.innerHTML.includes('Color') ? color1.innerHTML.replace(/<tr>/g, '').replace(/<.*?>/g, '').replace(/\s+/g, ' ').replace(/.*Color (.*)/g, '$1').replace(/^((?:\S+)).*/, '$1').trim() : '';
+      addHiddenDiv('productColor', col1);
+    }
 
     const technicalInfo = document.querySelector('div#prodDetails span[data-action="enhanced-content-open-file"] a')
       ? document.querySelector('div#prodDetails span[data-action="enhanced-content-open-file"] a').getAttribute('href') : '';
-    const info = technicalInfo.length > 1 ? 'Yes' : 'No';
+    const info = technicalInfo && technicalInfo.length > 1 ? 'Yes' : 'No';
     addHiddenDiv('technicalDescription', info);
-
-    const weight1 = document.querySelector('div#productDescription');
-    if (weight1.innerHTML.includes('Item Weight')) {
-      const weightText1 = weight1.innerHTML.replace(/.*Item Weight: (.*)/, '$1').replace(/^((?:\S+\s+){2}\S+).*/, '$1');
-      addHiddenDiv('productWeight1', weightText1);
-    }
-
-    const color1 = document.querySelector('div#productDescription');
-    if (color1.innerHTML.includes('Color Category')) {
-      const colorDemo1 = color1.innerHTML.replace(/.*Color Category: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
-      addHiddenDiv('productColor1', colorDemo1);
-    } else if (color1.innerHTML.includes('Color')) {
-      let colorDemo1 = color1.innerHTML.replace(/.*Color: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
-      colorDemo1 = colorDemo1.replace(/<br>.*/, '');
-      addHiddenDiv('productColor1', colorDemo1);
-    }
-
-    const mpc1 = document.querySelector('div#productDescription');
-    if (mpc1.innerHTML.includes('Model Number')) {
-      const mpcDemo1 = mpc1.innerHTML.replace(/.*Model Number: (.*)/, '$1').replace(/^((?:\S+\s+){2}\S+).*/, '$1');
-      addHiddenDiv('productMpc', mpcDemo1);
-    }
   });
   await helpers.addURLtoDocument('added-url');
   await helpers.addURLtoDocument('added-asin', true);

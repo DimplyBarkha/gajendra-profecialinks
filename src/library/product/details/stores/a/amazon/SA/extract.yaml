@@ -36,11 +36,11 @@ fields:
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")] | //div[@id="almDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
   - name: price
     singleValue: false
-    xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1]
+    xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1] | //span[contains(@id,"priceblock_saleprice")]
   - name: availabilityText
     singleValue: false
     xpath: //*[@id='availability']/span
-    regExp: In Stock
+    regExp: ([Ii]n [Ss]tock)|([Aa]vailable)
     regExpReplace: In Stock
     defaultValue: Out Of Stock
   - name: description
@@ -59,10 +59,12 @@ fields:
     xpath: //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]|//span[contains(text(), 'Manufacturer')][not(contains(text(), "Is Discontinued By Manufacturer:"))]/following-sibling::*[1]
   - name: quantity
     singleValue: false
-    xpath:
+    xpath: //div[@id="productDescription"]/p/text()[following-sibling::br and contains(.,"Quantity")]
+    regExp: (.*)(:) (.*)
+    regExpReplace: $3
   - name: weightNet
     singleValue: false
-    xpath: (//div[@id="productDescription"]/p/text()[following-sibling::br and contains(.,"Product weight")] | //div[@id="productDescription"]/p/text()[following-sibling::br and contains(.,"Package weight")] | //div[@id="productDescription"]/p/text()[following-sibling::br and contains(.,"Package Weight")])[1] | (//tr/th[contains(text(),"Package weight")])[1]/following-sibling::td | (//tr/th[contains(text(),"Product Dimensions")])[1]/following-sibling::td  | (//tr/th[contains(text(),"Package Dimensions")])[1]/following-sibling::td | //div[@id="detailBullets_feature_div"]//ul//li//span[contains(.,"Package Dimensions")]/following-sibling::span
+    xpath: //div[@id="productDescription"]/p/text()[following-sibling::br and contains(.,"Product weight")] | (//tr/th[contains(text(),"Product Dimensions")])[1]/following-sibling::td | //div[@id="detailBullets_feature_div"]//ul//li//span//span[contains(.,"Product Dimensions")]/following-sibling::span | //tr/th[contains(.,"Item Weight")]/following-sibling::td
     regExp: (.*)(:|;)(.*)
     regExpReplace: $3
   - name: weightGross
@@ -106,10 +108,12 @@ fields:
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]
   - name: shippingDimensions
     singleValue: false
-    xpath: //div[@id="productDescription"]/p/text()[following-sibling::br and contains(.,"Package size")] | (//tr/th[contains(text(),"Product Dimensions")])[1]/following-sibling::td | (//tr/th[contains(text(),"Package Dimensions")])[1]/following-sibling::td
+    xpath: //div[@id="productDescription"]/p/text()[following-sibling::br and contains(.,"Package size")]| //div[@id="productDescription"]/p/text()[following-sibling::br and contains(.,"Package Size")] | (//tr/th[contains(text(),"Package Dimensions")])[1]/following-sibling::td
+    regExp: (.*)(:) (.*)
+    regExpReplace: $3
   - name: shippingWeight
     singleValue: false
-    xpath: (//div[@id="productDescription"]/p/text()[following-sibling::br and contains(.,"Package weight")] | //div[@id="productDescription"]/p/text()[following-sibling::br and contains(.,"Package Weight")])[1] | (//tr/th[contains(text(),"Package weight")])[1]/following-sibling::td | (//tr/th[contains(text(),"Product Dimensions")])[1]/following-sibling::td  | (//tr/th[contains(text(),"Package Dimensions")])[1]/following-sibling::td | //div[@id="detailBullets_feature_div"]//ul//li//span[contains(.,"Package Dimensions")]/following-sibling::span
+    xpath: (//div[@id="productDescription"]/p/text()[following-sibling::br and contains(.,"Package weight")] | //div[@id="productDescription"]/p/text()[following-sibling::br and contains(.,"Package Weight")])[1] | (//tr/th[contains(text(),"Package weight")])[1]/following-sibling::td | (//tr/th[contains(text(),"Package Dimensions")])[1]/following-sibling::td | //div[@id="detailBullets_feature_div"]//ul//li//span[contains(.,"Package Dimensions")]/following-sibling::span
     regExp: (.*)(:|;)(.*)
     regExpReplace: $3
   - name: variantCount
@@ -120,7 +124,9 @@ fields:
     xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
   - name: color
     singleValue: false
-    xpath: (//div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")] | (//tr/th[contains(text(),"Color")])[1]/following-sibling::td)[1]
+    xpath: (//div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")] | (//tr/th[contains(text(),"Color")])[1]/following-sibling::td)[1] | //div[@id="productDescription"]/p/text()[following-sibling::br and contains(.,"Color")]
+    regExp: (.*)(:*) (.*)
+    regExpReplace: $3
   - name: colorCode
     singleValue: false
     xpath:
