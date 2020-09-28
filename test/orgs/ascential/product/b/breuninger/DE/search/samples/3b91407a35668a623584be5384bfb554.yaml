@@ -1,0 +1,58 @@
+input:
+  keywords: dyson
+  _url: http://breuninger.de
+extractions:
+  - html: https://workbench.import.io/html/run=b948dd9f-c886-4f2c-9054-7076a4e2e72f/task=1de7c4bb-5262-4979-881b-07f13390541e/2e9b6ac3-71b1-46b5-a480-ec40b9cbde55.html
+    extractionConfigId: product/search/stores/b/breuninger/DE/extract
+    data:
+      - group:
+          - id:
+              - text: "1000867018"
+                xpath: /html/body/main[1]/suchen-ladebereich[1]/section[1]/div[2]/suchen-produktliste[1]/section[1]/div[1]/suchen-produkt-stage[1]/suchen-produkt[1]/a[1]/@data-syan
+            rankOrganic:
+              - text: "0"
+                xpath: /html/body/main[1]/suchen-ladebereich[1]/section[1]/div[2]/suchen-produktliste[1]/section[1]/div[1]/@data-order
+                type: NUMBER
+                raw: "0"
+                locale: de_DE
+                value: 0
+            name:
+              - text: AIRWRAP™ HAARSTYLER COMPLETE
+                xpath: /html/body/main[1]/suchen-ladebereich[1]/section[1]/div[2]/suchen-produktliste[1]/section[1]/div[1]/suchen-produkt-stage[1]/suchen-produkt[1]/a[1]/div[1]/span[1]/span[2]/span[1]
+            productUrl:
+              - text: https://www.breuninger.com/de/marken/dyson/airwrap-haarstyler-complete/1000867018/p/
+                xpath: /html/body/main[1]/suchen-ladebereich[1]/section[1]/div[2]/suchen-produktliste[1]/section[1]/div[1]/suchen-produkt-stage[1]/suchen-produkt[1]/a[1]/@href
+              - text: https://www.breuninger.com
+                xpath: /html/body/main[1]/suchen-ladebereich[1]/section[1]/div[2]/suchen-produktliste[1]/section[1]/div[1]/suchen-produkt-stage[1]/suchen-produkt[1]/a[1]/@href
+            thumbnail:
+              - text: https://cms.brnstc.de/product_images/287x393/20/08/5025155038390_0.jpg
+                xpath: /html/body/main[1]/suchen-ladebereich[1]/section[1]/div[2]/suchen-produktliste[1]/section[1]/div[1]/suchen-produkt-stage[1]/suchen-produkt[1]/a[1]/span[1]/img[1]/@src
+            price:
+              - text: 499 €
+                xpath: /html/body/main[1]/suchen-ladebereich[1]/section[1]/div[2]/suchen-produktliste[1]/section[1]/div[1]/suchen-produkt-stage[1]/suchen-produkt[1]/a[1]/div[1]/span[2]/span[1]/span[1]/span[1]
+          - id:
+              - text: "1001037589"
+                xpath: /html/body/main[1]/suchen-ladebereich[1]/section[1]/div[2]/suchen-produktliste[1]/section[1]/div[2]/suchen-produkt-stage[1]/suchen-produkt[1]/a[1]/@data-syan
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/main[1]/suchen-ladebereich[1]/section[1]/div[2]/suchen-produktliste[1]/section[1]/div[2]/@data-order
+                type: NUMBER
+                raw: "1"
+                locale: de_DE
+                value: 1
+            name:
+              - text: CORRALE
+                xpath: /html/body/main[1]/suchen-ladebereich[1]/section[1]/div[2]/suchen-produktliste[1]/section[1]/div[2]/suchen-produkt-stage[1]/suchen-produkt[1]/a[1]/div[1]/span[1]/span[2]/span[1]
+            productUrl:
+              - text: https://www.breuninger.com/de/marken/dyson/corrale/1001037589/p/
+                xpath: /html/body/main[1]/suchen-ladebereich[1]/section[1]/div[2]/suchen-produktliste[1]/section[1]/div[2]/suchen-produkt-stage[1]/suchen-produkt[1]/a[1]/@href
+              - text: https://www.breuninger.com
+                xpath: /html/body/main[1]/suchen-ladebereich[1]/section[1]/div[2]/suchen-produktliste[1]/section[1]/div[2]/suchen-produkt-stage[1]/suchen-produkt[1]/a[1]/@href
+            thumbnail:
+              - text: https://cms.brnstc.de/product_images/287x393/20/03/5025155046289_0.jpg
+                xpath: /html/body/main[1]/suchen-ladebereich[1]/section[1]/div[2]/suchen-produktliste[1]/section[1]/div[2]/suchen-produkt-stage[1]/suchen-produkt[1]/a[1]/span[1]/img[1]/@src
+            price:
+              - text: 499 €
+                xpath: /html/body/main[1]/suchen-ladebereich[1]/section[1]/div[2]/suchen-produktliste[1]/section[1]/div[2]/suchen-produkt-stage[1]/suchen-produkt[1]/a[1]/div[1]/span[2]/span[1]/span[1]/span[1]
+        xpath: /html
+    timestamp: 1601308917913

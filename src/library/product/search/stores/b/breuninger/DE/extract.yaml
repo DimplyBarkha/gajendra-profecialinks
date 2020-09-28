@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //*[@data-order]
+fields:
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //suchen-produkt/a[@data-syan]/@data-syan
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    xpath: //*[@data-order]/@data-order
+    type: NUMBER 
+  - name: name
+    description: The product name
+    xpath: //span[contains(@class, "name__text")]
+  - name: productUrl
+    description: The URL for the product details page
+    regExp: (.*)
+    regExpReplace: https://www.breuninger.com$1
+    xpath: //a[@itemprop="url"]/@href
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //img[@class="suchen-produkt__bild"]/@src
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: reviewCount
+    description: The number of reviews
+    type: NUMBER
+  - name: ratingCount
+    description: The number of ratings
+  - name: price
+    description: The offered price for the product
+    xpath: //span[@class="shop-offer"]/span/span[contains(@class, "schwarzpreis")]
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: rank
+    description: search/listing rank
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
