@@ -17,7 +17,8 @@ fields:
     default: zł
   - name: availabilityText
     singleValue: true
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),'hero__body')]//div[contains(@class, "hero__content")]/@class
+    xpath: //div[contains(@class, "product__action")]//button[@title="Dodaj do koszyka"]
+    default: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//p

@@ -17,7 +17,8 @@ fields:
     default: SAR
   - name: availabilityText
     singleValue: true
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),'hero__body')]//div[contains(@class, "hero__content")]/@class
+    xpath: //div[contains(@class, "product__action")]//button[@title="Add to cart"]
+    default: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//p
@@ -71,7 +72,7 @@ fields:
   - name: warranty #localedependent
     singleValue: true
     description: Guarantee associated with the product
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),'icon-info-set')][.//.//*[contains(text(),'gwarancji')]])//strong[contains(text(),'gwarancji')]
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),'icon-info-set')][.//.//*[contains(text(),'arranty')]])//strong[contains(text(),'arranty')]
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
