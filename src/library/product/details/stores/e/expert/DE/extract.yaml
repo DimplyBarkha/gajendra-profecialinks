@@ -463,7 +463,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@class, "widget-ArticlePromotion--container")]//text()
+    xpath: //div[contains(@class, "widget-ArticlePromotion--container")]//div[contains(@class, "widget-ArticlePromotion--title")]//text()
     description: promotion text on product page
   - name: alcoholContent
     singleValue: true
