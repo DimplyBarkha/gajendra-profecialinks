@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'laredoute.fr',
     prefix: null,
-    url: null,
+    url: 'https://www.laredoute.fr/ppdp/prod-{id}',
     country: 'FR',
     store: 'laredoute',
     zipcode: '',
