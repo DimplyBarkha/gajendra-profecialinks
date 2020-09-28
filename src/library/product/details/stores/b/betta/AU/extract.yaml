@@ -13,7 +13,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class, "image-wrapper")]//img[contains(@class, "slider-image")]//@src
+    xpath: //div[contains(@class, "image-wrapper")]//img[contains(@class, "slider-image")]//@data-zoom
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content    
@@ -66,7 +66,6 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //table[@id="product-attribute-specs-table"]/tbody/tr[4]/td
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
