@@ -20,7 +20,7 @@ const cleanUp = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.specifications) {
-        const text = row.specifications.map(elm => elm.text.replace('-','').replace('\"','').trim()).join(' | ');
+        const text = row.specifications.map(elm => elm.text.replace('-', '').replace('"', '').trim()).join(' | ');
         row.specifications = [{ text }];
       }
       if (row.metaKeywords) {

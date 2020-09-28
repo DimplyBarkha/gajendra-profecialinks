@@ -26,8 +26,7 @@ module.exports = {
       await context.waitForNavigation();
     }
     await context.evaluate(async function () {
-      let videoArr = [];
-
+      const videoArr = [];
       var thumbnailVideo = document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext() && document.evaluate('//script[contains(text(),"__PRELOADED_STATE__")]', document).iterateNext().textContent;
       const obj = JSON.parse(thumbnailVideo && thumbnailVideo.split('window.__PRELOADED_STATE__ =')[1] && thumbnailVideo.split('window.__PRELOADED_STATE__ =')[1].split('window.__NODE_ENV__')[0]);
       const videoLinks = obj && obj.productReducer && obj.productReducer.product && obj.productReducer.product.media.find(ele => ele.type === 'video');
@@ -35,15 +34,13 @@ module.exports = {
       if (videoLinks) {
         videoArr.push(videoLinks.url);
       }
- 
       const descriptionVideo = document.querySelectorAll('section iframe');
       if (descriptionVideo.length) {
-        descriptionVideo.forEach(ele=>{
-          const videoLinks = ele.getAttribute('src')
-        videoArr.push(videoLinks);
-      })
-    }
-     
+        descriptionVideo.forEach(ele => {
+          const videoLinks = ele.getAttribute('src');
+          videoArr.push(videoLinks);
+        });
+      }
       if (videoArr.length) {
         videoArr.forEach(res => {
           const newLink = document.createElement('li');
@@ -53,23 +50,21 @@ module.exports = {
         });
       }
       const skuIds = obj && obj.productReducer && obj.productReducer.product && obj.productReducer.product.options;
-      if(skuIds && skuIds.length) {
-        skuIds.forEach(res=>{
+      if (skuIds && skuIds.length) {
+        skuIds.forEach(res => {
           const newLink = document.createElement('li');
           newLink.className = 'sku';
           newLink.textContent = res.product_id;
           document.body.appendChild(newLink);
-      });
+        });
       }
-      const how_to_use = obj && obj.productReducer && obj.productReducer.product && obj.productReducer.product.how_to_use.replace(/<[^>]*>/g, "");
-      document.body.setAttribute('how_to_use',how_to_use);
-      let brand = document.evaluate('//*[@class="pdp-description-tab-item description-expand"]//p[contains(text(),"Name of")]', document).iterateNext() && document.evaluate('//*[@class="pdp-description-tab-item description-expand"]//p[contains(text(),"Name of")]', document).iterateNext().textContent.replace(/(.+):(.+)/g,'$2');
-      if(!brand) {
-         brand = obj && obj.productReducer && obj.productReducer.product && obj.productReducer.product.brand_name[0];
+      const howToUse = obj && obj.productReducer && obj.productReducer.product && obj.productReducer.product.how_to_use.replace(/<[^>]*>/g, '');
+      document.body.setAttribute('how_to_use', howToUse);
+      let brand = document.evaluate('//*[@class="pdp-description-tab-item description-expand"]//p[contains(text(),"Name of")]', document).iterateNext() && document.evaluate('//*[@class="pdp-description-tab-item description-expand"]//p[contains(text(),"Name of")]', document).iterateNext().textContent.replace(/(.+):(.+)/g, '$2');
+      if (!brand) {
+        brand = obj && obj.productReducer && obj.productReducer.product && obj.productReducer.product.brand_name[0];
       }
-      document.body.setAttribute('brand',brand);
-
-
+      document.body.setAttribute('brand', brand);
     });
     return await context.extract(productDetails, { transform });
   },
