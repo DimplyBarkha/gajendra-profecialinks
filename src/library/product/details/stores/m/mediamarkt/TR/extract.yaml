@@ -75,8 +75,8 @@ fields:
     singleValue: false
     xpath: //span[@itemprop="sku"]/@content
     description: The store-specific product identifier
-    regExp: (.\d+)
-    regExpReplace: $1
+    regExp: (\w+:\s)(.\d+)
+    regExpReplace: $2
   - name: variantId
     singleValue: false
     xpath: //div[@id="product-wrapper"]/@data-modelnumber
