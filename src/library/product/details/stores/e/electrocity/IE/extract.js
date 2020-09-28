@@ -62,11 +62,15 @@ module.exports = {
         addElementToDocument('added_mpc', mpc[1]);
       }
 
-      const alternate_image_str =  getXpath("(//div[@class='container-image-and-badge  ']//picture[contains(@class, 'wp-post-image')]/source/@srcset)[1]", 'nodeValue');
+      const alternate_image_xpath = "//div[@class='slick-track']//div[contains(@class,'slick-slide')]//div[@class='jet-woo-product-gallery__image ']//a[@class='jet-woo-product-gallery__image-link']/@href";
+      const alternate_image_str =  getAllXpath(alternate_image_xpath, 'nodeValue').join(',');
       if(alternate_image_str && typeof alternate_image_str == 'string'){
         const alternate_image_list = alternate_image_str.split(',');
-        alternate_image_list.forEach(function(image_url_data) {
-          addElementToDocument('added_alternate_image', (image_url_data.split('.webp'))[0]);   
+        var unique_alternate_image_list = alternate_image_list.filter(function(item, pos){
+          return alternate_image_list.indexOf(item)== pos; 
+        });
+        unique_alternate_image_list.forEach(function(image_url_data) {
+          addElementToDocument('added_alternate_image', (image_url_data));   
         });       
       }
 
@@ -86,8 +90,10 @@ module.exports = {
       const ratingCount =  getXpath("//span[@class='yotpo-sum-reviews']//span[contains(concat(' ', normalize-space(@class), ' '), ' font-color-gray')]/text()", 'nodeValue');
       product_name ? product_name.split('| ') : [];
       const added_ratingCount = ratingCount?ratingCount.split(' Review') : [];
-      addElementToDocument('added_ratingCount', added_ratingCount[0]);
-
+      if(added_ratingCount[0] > 0) {
+        addElementToDocument('added_ratingCount', added_ratingCount[0]);
+      }
+  
       const technicalInformationPdfUrl = getXpath("//div[contains(@class, 'elementor-element-dfd5028')]//span[contains(@class, 'elementor-heading-title')]//a/@href", 'nodeValue');
       var technicalInformationPresent = 'No';
       if(technicalInformationPdfUrl && technicalInformationPdfUrl != ''){
@@ -96,7 +102,11 @@ module.exports = {
       addElementToDocument('added_technicalInformationPresent', technicalInformationPresent);
 
       const manufacturerDescription_xpath = "//div[@class='flix-Text-block']";
-      const manufacturerDescription = getAllXpath(manufacturerDescription_xpath, 'innerText');
+      var manufacturerDescription = getAllXpath(manufacturerDescription_xpath, 'innerText');
+      const manufacturerDescription_part =  getAllXpath("//div[contains(@class,'flix-std-featureslist')]//div[contains(@class,'flix-std-clmn-lg-4 flix-std-clmn-sm-6')]",'innerText').join(',');
+      if(manufacturerDescription_part){
+        manufacturerDescription = manufacturerDescription.concat(manufacturerDescription_part);
+      }
       addElementToDocument('added_manufacturerDescription', manufacturerDescription);
 
       const aggregateRatingTxt = getXpath('//span[@class="sr-only"]/text()', 'nodeValue');
@@ -107,6 +117,23 @@ module.exports = {
       }
 
       addElementToDocument('added_variantCount', 0);
+
+      const video_url_path = getXpath("//div[@class='fullJwPlayerWarp']//input[@class='flix-jw']/@value", 'nodeValue');
+      if(video_url_path && typeof video_url_path == 'string'){
+        var video_url_obj = JSON.parse(video_url_path);
+        addElementToDocument('added_video_url', video_url_obj.playlist[0].file);
+      }
+      
+      const promotion_str = getXpath("(//div[@class='elementor-widget-wrap']//div[contains(@class, 'elementor-clearfix')]/p)[1]", 'innerText');
+      if(promotion_str && typeof promotion_str == 'string' && promotion_str.includes('SAVE')){
+        addElementToDocument('added_promotion', promotion_str);
+      }
+
+      const weight_net_str = getXpath("//table[@class='flix-std-specs-table']", 'innerText');
+      const weight_net = weight_net_str.substring(weight_net_str.lastIndexOf("Weight")+7, weight_net_str.lastIndexOf("KG")+2);
+      if(weight_net){
+        addElementToDocument('added_weight', weight_net);
+      }
 
     });
     await context.extract(productDetails);

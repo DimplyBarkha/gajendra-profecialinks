@@ -14,17 +14,16 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //li[@class='jet-woo-slick-control-thumbs__item slick-slide slick-active']//img/@src
+    xpath: //div[@id='added_alternate_image']
+    # xpath: //div[contains(@class, 'jet-woo-product-gallery__image-item ')]//div[@class='jet-woo-product-gallery__image ']//a[@class='jet-woo-product-gallery__image-link']/@href
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class='flix-background-image']/img/@srcset
+    xpath: //div[contains(@class,'flix-background-image')]//img/@srcset | //h4//picture//img/@src
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //table[contains(@class, "shop_attributes")]//tbody//tr[contains(@class, "attribute-key-Dimensions")]//td//p
-    regExp: (.*)(Weight\s)(.*)
-    regExpReplace: $3
+    xpath: //div[@id='added_weight']
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -150,7 +149,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[contains(@class,'woocommerce-Tabs-panel--product_video_tab')]//div[@class='rll-youtube-player']/@data-src
+    xpath:  //div[contains(@class,'woocommerce-Tabs-panel--product_video_tab')]//div[@class='rll-youtube-player']/@data-src | //div[@class = 'ast-oembed-container']//div[@class='rll-youtube-player']/@data-src | //div[@id="added_video_url"]
   - name: name
     singleValue: true
     description: The product name
@@ -443,6 +442,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //div[@id="added_promotion"]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
