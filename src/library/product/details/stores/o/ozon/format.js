@@ -178,7 +178,7 @@ const transform = (data) => {
                 row.variantCount = [{"text": variations.length, "xpath": row.variants[0]["xpath"]}];
                 row.variantInformation = [{"text": variant_info.join(' | '), "xpath": row.variants[0]["xpath"]}];
                 row.variants = [{"text": variations.join(' | '), "xpath": row.variants[0]["xpath"]}];
-                row.firstVariant = [{'text':variations[0]}];
+                row.firstVariant = [{'text':row.variantId[0].text}];
             }else{
                 delete row.variants;
             }          
