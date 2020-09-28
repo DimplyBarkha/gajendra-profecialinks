@@ -36,7 +36,7 @@ module.exports.AmazonHelp = class {
     await new Promise(r => setTimeout(r, 5000));
   }
 
-  async handleErrorsAndCaptchas(url){
+  async handleErrorsAndCaptchas (url) {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -212,5 +212,4 @@ module.exports.AmazonHelp = class {
     };
     await run();
   }
-
 };

@@ -25,6 +25,9 @@ fields:
   - name: _url
     singleValue: true
     xpath: //link[@rel='canonical']/@href
+  - name: _input
+    singleValue: true
+    xpath: //div[@id="added-id"]
   - name: category
     singleValue: false
     xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
@@ -141,7 +144,7 @@ fields:
   # xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//h5[text()] | //div[@id="aplus"]//h6[text()] | //div[@id="aplus"]//p[not(img) and text()] | //div[@id="productDescription"]//*[contains(text(), "From the Manufacturer")]/following-sibling::p/text() | //div[contains(@class,"aplus-module")]//span[@class and text()]/text()
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="aplus"]//img[not(contains(@data-src, "common"))]/@data-src | //div[contains(@class, "apm-tablemodule")]//img[not(contains(@src, "common"))]/@src
+    xpath: //div[@id="aplus"]//img[not(contains(@data-src, "common"))]/@data-src | //div[contains(@class, "apm-tablemodule")]//img[not(contains(@src, "common"))]/@src | //div[@class="aplus"]//img/@src
     # xpath: //div[@id="aplus"]//img[not(contains(@src, "common"))]/@src | //div[@id="aplus"]//img[not(contains(@src, "common"))]/@data-src
   - name: videos
     singleValue: false

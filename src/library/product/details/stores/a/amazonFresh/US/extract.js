@@ -9,7 +9,7 @@ const { transform } = require('./transform');
  */
 
 async function implementation (
-  { parentInput },
+  { parentInput, id },
   parameters,
   context,
   dependencies,
@@ -53,8 +53,8 @@ async function implementation (
     }
   }
 
-  async function addContent (parentInput) {
-    await context.evaluate(async (parentInput) => {
+  async function addContent (parentInput, id) {
+    await context.evaluate(async (parentInput, id) => {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -68,7 +68,7 @@ async function implementation (
           allText += element.querySelector('.apm-hovermodule-slides-inner').innerText;
         }
       });
-      const manufContent = document.querySelector('div#aplus');
+      const manufContent = document.querySelector('div#aplus') || document.querySelector('div.aplus');
       let manufContentText = '';
       if (manufContent) {
         const clonedManufContent = manufContent.cloneNode(true);
@@ -85,13 +85,14 @@ async function implementation (
         addHiddenDiv('added-parentInput', parentInput);
       }
       addHiddenDiv('added-url', window.location.href);
-    }, parentInput);
+      addHiddenDiv('added-id', id);
+    }, parentInput, id);
   }
 
   // await context.clickAndWaitForNavigation('span[data-component-type="s-product-image"]');
-  const endUrlFirstItem = await context.evaluate(()=>{
-    const firstItem = document.querySelector('span[data-component-type="s-product-image"] a')
-    return firstItem.getAttribute('href')
+  const endUrlFirstItem = await context.evaluate(() => {
+    const firstItem = document.querySelector('span[data-component-type="s-product-image"] a');
+    return firstItem.getAttribute('href');
   });
   const itemUrl = 'https://www.amazon.com' + endUrlFirstItem;
   await context.goto(itemUrl);
@@ -100,7 +101,7 @@ async function implementation (
   await context.waitForXPath('//span[@id="productTitle"]', { timeout: 20000 });
 
   await loadAllResources();
-  addContent(parentInput);
+  addContent(parentInput, id);
   console.log('autoscroll end');
 
   return await context.extract(productDetails, { transform });
