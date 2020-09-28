@@ -42,7 +42,7 @@ fields:
     xpath: //table[@class='jsx-1537324451']//tr//td[contains(text(),"Weight")]/parent::*/td[2]
   - name: additionalDescBulletInfo
     singlgeValue: false
-    xpath: //div[contains(@class,'primaryOverviewContent')]//li[@class="jsx-1889249662"]
+    xpath: //div[contains(@class,'primaryOverviewContent')]//ul[@class="jsx-1889249662 highlights"]//li
   - name: shippingInfo
     singlgeValue: false
     xpath: //p[contains(@class,"sellerName")]/a
@@ -70,6 +70,7 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: //div[contains(@class,'variantContainer')]//div[contains(@class,'mediaContainer')]//img/@src
+    defaultValue: '0'
   - name: availabilityText
     singleValue: false
     xpath: //p[contains(@class,"notAvailableNote")]
@@ -79,16 +80,12 @@ fields:
     xpath: //strong[@class="jsx-20458038"]
   - name: description
     singlgeValue: false
-    xpath: //div[contains(@class,'primaryOverviewContent')]//li[@class="jsx-1889249662"]
-  - name: descriptionBullets
-    singlgeValue: false
-    defaultValue: 0
+    xpath: //div[contains(@class,'primaryOverviewContent')]//p[contains(@class,"sectionHeading") and text()="Overview"]//parent::div
   - name: firstVariant
     singleValue: false
-    xpath: //div[contains(@class,'variantContainer')]//div[contains(@class,'mediaContainer')]//img/@src
   - name: variants
     singleValue: false
     xpath: //div[contains(@class,'variantContainer')]//div[contains(@class,'mediaContainer')]//img/@src
   - name: variantInformation
     singleValue: false
-    xpath: //button[contains(@class,"thumbnailContainer")]/@title
+    xpath: //table[@class='jsx-1537324451']//tr//td[contains(text(),"Colour Name")]/parent::*/td[2]

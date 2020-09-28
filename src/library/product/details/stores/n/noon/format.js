@@ -5,10 +5,7 @@
  */
 const transform = (data) => {
   for (const { group } of data) {
-    var totBullet = 0;
-    var isVariant = 'no';
     for (let row of group) {
-      var totBullet = 0;
       if (row.sku) {
         row.sku.forEach(item => {
           var myRegexp = /.+\/(.+?)_.+/g;
@@ -56,26 +53,12 @@ const transform = (data) => {
         row.specifications = [{ 'text': info.join(' || '), 'xpath': row.specifications[0].xpath }];
       }
       if (row.additionalDescBulletInfo) {
-        var additionalDescBulletInfoStr = '';
-        var oldXpath = '';
+        var additional_desc_b_info = [];
         row.additionalDescBulletInfo.forEach(item => {
-          oldXpath = item.xpath; totBullet++;
-          if (additionalDescBulletInfoStr == '') {
-            additionalDescBulletInfoStr = item.text
-          } else {
-            additionalDescBulletInfoStr = additionalDescBulletInfoStr + ' | ' + item.text
-          }
+          additional_desc_b_info.push(item.text);
         });
-        additionalDescBulletInfoStr = '| ' + additionalDescBulletInfoStr;
-        row.additionalDescBulletInfo = [{ "text": additionalDescBulletInfoStr, xpath: oldXpath }];
-      }
-      if (row.description) {
-        var additionalDescBulletInfoArr = [];
-        row.description.forEach(item => {
-          additionalDescBulletInfoArr.push(item.text);
-        });
-        if (additionalDescBulletInfoArr.length) {
-          row.description = [{ "text": "|| " + additionalDescBulletInfoArr.join(" || "), "xpath": row.description[0]["xpath"] }];
+        if (additional_desc_b_info.length) {
+          row.additionalDescBulletInfo = [{ "text": "|| " + additional_desc_b_info.join(" || ") }];
         }
       }
       if (row.mpc) {
@@ -91,41 +74,20 @@ const transform = (data) => {
         }
       }
       if (row.variantCount) {
-        var tot = 0;
-        if (row.variantCount.length > 0) {
-          row.variantCount.forEach(item => {
-            tot++;
-          });
-          row.variantCount = [{ "text": row.variantCount.length }];
-        }
-      }
-      if (totBullet > 0) {
-        totBullet++;
-        row.descriptionBullets = [{ "text": totBullet }]
-      }
-      if (row.firstVariant) {
-        if (row.firstVariant.length > 0) {
-          var myRegexp = /.+\/(.+?)_.+/g;
-          var match = myRegexp.exec(row.firstVariant[0]["text"]);
-          if (match.length) {
-            row.firstVariant = [{ "text": match[1].trim(), "xpath": row.firstVariant[0]["xpath"] }];
-            isVariant = 'yes';
-          }
-        } else {
-          delete row.firstVariant
-        }
+        row.variantCount = [{ "text": row.variantCount.length }];
       }
       if (row.variants) {
         var allvariantsArr = [];
-        if (row.variants.length > 0) {
-          row.variants.forEach(item => {
-            var myRegexp = /.+\/(.+?)_.+/g;
-            var match = myRegexp.exec(item.text);
-            if (match.length) {
-              allvariantsArr.push(match[1].trim());
-            }
-          });
-          row.variants = [{ "text": allvariantsArr.join(' | '), "xpath": row.variants[0]["xpath"] }]
+        row.variants.forEach(item => {
+          var myRegexp = /.+\/(.+?)_.+/g;
+          var match = myRegexp.exec(item.text);
+          if (match.length) {
+            allvariantsArr.push(match[1].trim());
+          }
+        });
+        if (allvariantsArr.length) {
+          row.variants = [{ "text": allvariantsArr.join(' | ') }];
+          row.firstVariant = row.variantId[0]["text"];
         }
       }
       if (row.variantInformation) {
@@ -134,10 +96,6 @@ const transform = (data) => {
           allvariantsInfArr.push(item.text);
         });
         row.variantInformation = [{ "text": allvariantsInfArr.join(' | '), "xpath": row.variantInformation[0]["xpath"] }]
-      }
-
-      if (isVariant == 'no') {
-        row.variantCount = [{ "text": 0 }];
       }
     }
   }
