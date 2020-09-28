@@ -114,7 +114,28 @@ const transform = (data) => {
 				row.specifications.forEach(item => {
 					newText += `${item.text.replace(/ \n|&dash;|\r/g, ' || ')}`;
 				});
-				row.specifications = [{ text: newText.slice(0, -4) }];
+				row.specifications = [{ text: newText }];
+			}
+			if (row.description) {
+				let newText = '';
+				row.description.forEach(item => {
+					newText += `${item.text.replace(/ \n|&dash;|\r/g, ' || ')}`;
+				});
+				row.description = [{ text: newText }];
+			}
+			if (row.additionalDescBulletInfo) {
+				let newText = '';
+				row.additionalDescBulletInfo.forEach(item => {
+					newText += `${item.text.replace(/ \n|&dash;|\r/g, ' || ')}`;
+				});
+				row.additionalDescBulletInfo = [{ text: newText }];
+			}
+			if (row.weightNet) {
+				let newText = '';
+				row.weightNet.forEach(item => {
+					newText += `${item.text.replace("Product weight - ", "")}`;
+				});
+				row.weightNet = [{ text: newText }];
 			}
 		}
 	}

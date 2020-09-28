@@ -55,7 +55,7 @@ fields:
   singleValue: true
   description: Number of ul > li tags in the description
   type: NUMBER
-  # xpath: count(//div[contains(@class,'tvsn-product-tabs-items')]//div[contains(@class,'tvsn-product-tabs-element')]//div[contains(@class,'tvsn-product-tabs-collapse collapse')]//ul//li)
+  xpath: count(//div[contains(@class,'tvsn-product-tabs-items')]//div[contains(@class,'tvsn-product-tabs-element')]//div[contains(@class,'tvsn-product-tabs-collapse collapse')]//ul//li)-count(//*[contains(text(),'Specifications')]/following::ul[1]//li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name,
@@ -68,11 +68,12 @@ fields:
   singleValue: true
   # description: Quantity as described on the page
   xpath: //div[contains(@class,'tvsn-product-details-quantity')]//div[contains(@class,'tvsn-control-inputnumber-display')]
-  regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-  regExpReplace: $1$2$3$4
+  # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+  # regExpReplace: $1$2$3$4
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
+  xpath: //*[contains(text(),'Product weight')]
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
@@ -90,7 +91,7 @@ fields:
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
-  xpath: //div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-sku')]
+  # xpath: //div[contains(@class,'tvsn-product-details')]//div[contains(@class,'tvsn-product-details-sku')]
 - name: promotion
   singleValue: true
   description: promotion text on product page  
@@ -133,7 +134,8 @@ fields:
   singleValue: true
   description: Number of variants listed
   type: NUMBER
-  # xpath: count(//div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button)
+  xpath: count(//div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button)
+  defaultValue: 0
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -462,7 +464,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
-  xpath: //div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button/@title
+  xpath: //div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button[1]/img/@alt
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of
@@ -474,7 +476,7 @@ fields:
     all variants of a product, this rpc becomes the common link between other
     variants. method 3 = apply some logic to determine link between variants,
     this will need analysis
-  # xpath: //div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button[1]/@title
+  xpath: //div[contains(@class,'tvsn-product-swatches-wrapper')]//div//button[1]/img/@alt
 - name: variants
   singleValue: false
   description: null
@@ -482,6 +484,7 @@ fields:
 - name: additionalDescBulletInfo
   singleValue: false
   description: null
+  xpath: //div[contains(@class,'tvsn-product-tabs-html')]//ul
 - name: prop65Warning
   singleValue: true
   description: null
