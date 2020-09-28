@@ -7,7 +7,7 @@ const { transform } = require('../../../../sharedAmazon/transformNew');
  * @param { Record<string, any> } dependencies
  */
 
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -33,7 +33,7 @@ async function implementation (
     }
   };
   // Code to fetch aplus (enhanced content)
-  async function waitForAplus () {
+  async function waitForAplus() {
     // Scrolling to bottom of page where aplus images are located
     await new Promise((resolve) => setTimeout(resolve, 3000));
     await context.evaluate(async function () {
@@ -70,14 +70,14 @@ async function implementation (
   }
   // Code to get lbb and adding new div in dom for customise fields.
   await context.evaluate(async () => {
-    function addHiddenDiv (id, content) {
+    function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    async function getLbb (otherSellersDocument) {
+    async function getLbb(otherSellersDocument) {
       if (otherSellersDocument) {
         const otherSellersDiv = "div#olpOfferList div[class*='olpOffer']";
         const shipFromOri = document.querySelector('div#buybox-tabular tr:nth-child(1) td:nth-child(2)');
@@ -155,27 +155,27 @@ async function implementation (
 
     const technicalInfo = document.querySelector('div#prodDetails span[data-action="enhanced-content-open-file"] a')
       ? document.querySelector('div#prodDetails span[data-action="enhanced-content-open-file"] a').getAttribute('href') : '';
-    const info = technicalInfo.length > 1 ? 'Yes' : 'No';
+    const info = technicalInfo && technicalInfo.length > 1 ? 'Yes' : 'No';
     addHiddenDiv('technicalDescription', info);
 
     const weight1 = document.querySelector('div#productDescription');
-    if (weight1.innerHTML.includes('Item Weight')) {
+    if (weight1 && weight1.innerHTML.includes('Item Weight')) {
       const weightText1 = weight1.innerHTML.replace(/.*Item Weight: (.*)/, '$1').replace(/^((?:\S+\s+){2}\S+).*/, '$1');
       addHiddenDiv('productWeight1', weightText1);
     }
 
     const color1 = document.querySelector('div#productDescription');
-    if (color1.innerHTML.includes('Color Category')) {
+    if (color1 && color1.innerHTML.includes('Color Category')) {
       const colorDemo1 = color1.innerHTML.replace(/.*Color Category: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
       addHiddenDiv('productColor1', colorDemo1);
-    } else if (color1.innerHTML.includes('Color')) {
+    } else if (color1 && color1.innerHTML.includes('Color')) {
       let colorDemo1 = color1.innerHTML.replace(/.*Color: (.*)/, '$1').replace(/^((?:\S+)).*/, '$1');
       colorDemo1 = colorDemo1.replace(/<br>.*/, '');
       addHiddenDiv('productColor1', colorDemo1);
     }
 
     const mpc1 = document.querySelector('div#productDescription');
-    if (mpc1.innerHTML.includes('Model Number')) {
+    if (mpc1 && mpc1.innerHTML.includes('Model Number')) {
       const mpcDemo1 = mpc1.innerHTML.replace(/.*Model Number: (.*)/, '$1').replace(/^((?:\S+\s+){2}\S+).*/, '$1');
       addHiddenDiv('productMpc', mpcDemo1);
     }
