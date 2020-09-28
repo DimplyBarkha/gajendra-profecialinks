@@ -40,7 +40,7 @@ module.exports = {
         // const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
         console.log(`productDescAvailable: ${productDescAvailable}`);
         if (!productDescAvailable) {
-          // throw new Error('ERROR: Failed to load product details page');
+          //  throw new Error('ERROR: Failed to load product details page');
         }
         console.log('navigation complete!!');
       }

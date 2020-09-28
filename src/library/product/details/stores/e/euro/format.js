@@ -28,7 +28,6 @@ const transform = (data) => {
           else newTxt = newTxt + item.text;
           cnt++;
         });
-
         specs.forEach(item => {
           item.text = newTxt;
         });
@@ -49,6 +48,20 @@ const transform = (data) => {
           item.text = newTxt;
         });
         row.description = descs;
+      }
+      if (row.price) {
+        row.price = [
+          {
+            text: row.price[0].text.replace(' ', ''),
+          },
+        ];
+      }
+      if (row.listPrice) {
+        row.listPrice = [
+          {
+            text: row.listPrice[0].text.replace(' ', ''),
+          },
+        ];
       }
     }
   }

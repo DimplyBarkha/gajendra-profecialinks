@@ -51,11 +51,11 @@ fields:
     regExpReplace: $1
   - name: listPrice
     singleValue: false
-    xpath: normalize-space(//div[@id='product-top']//div[@class='price-old']/text())
+    xpath: //div[@id='product-top']//div[@class='price-old']
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
-    xpath: normalize-space(//div[@id='product-top']//div[@class='price-normal selenium-price-normal']/text())    
+    xpath: //div[@id='product-top']//div[@class='price-normal selenium-price-normal']
   - name: availabilityText
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"availability")]
