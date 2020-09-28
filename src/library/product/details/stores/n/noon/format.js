@@ -41,7 +41,7 @@ const transform = (data) => {
         row.aggregateRating.forEach(item => {
           var matches = /\s*(\d+)/isg.exec(item.text);
           if (matches) {
-            item.text = matches[1]
+            item.text = matches[1];
           }
         });
       }
@@ -61,6 +61,15 @@ const transform = (data) => {
           row.additionalDescBulletInfo = [{ "text": "|| " + additional_desc_b_info.join(" || ") }];
         }
       }
+      if (row.manufacturerImages) {
+        var m_images = [];
+        row.manufacturerImages.forEach(item => {
+          m_images.push(item.text);
+        });
+        if (m_images.length) {
+          row.manufacturerImages = [{ "text": m_images.join(" | ") }];
+        }
+      }      
       if (row.mpc) {
         row.mpc.forEach(item => {
           item.text = item.text.replace('Model Number: ', '');
@@ -87,15 +96,8 @@ const transform = (data) => {
         });
         if (allvariantsArr.length) {
           row.variants = [{ "text": allvariantsArr.join(' | ') }];
-          row.firstVariant = row.variantId[0]["text"];
+          row.firstVariant = [{"text": row.variantId[0]["text"]}];
         }
-      }
-      if (row.variantInformation) {
-        var allvariantsInfArr = [];
-        row.variantInformation.forEach(item => {
-          allvariantsInfArr.push(item.text);
-        });
-        row.variantInformation = [{ "text": allvariantsInfArr.join(' | '), "xpath": row.variantInformation[0]["xpath"] }]
       }
     }
   }

@@ -80,7 +80,7 @@ fields:
     xpath: //strong[@class="jsx-20458038"]
   - name: description
     singlgeValue: false
-    xpath: //div[contains(@class,'primaryOverviewContent')]//p[contains(@class,"sectionHeading") and text()="Overview"]//parent::div
+    xpath: //div[contains(@class,'primaryOverviewContent')]//p[contains(@class,"sectionHeading") and contains(text(),"Overview")]//parent::div
   - name: firstVariant
     singleValue: false
   - name: variants
@@ -89,3 +89,6 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //table[@class='jsx-1537324451']//tr//td[contains(text(),"Colour Name")]/parent::*/td[2]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,"richContent")]//div[contains(@class,"bannerWrapper")]//img/@src
