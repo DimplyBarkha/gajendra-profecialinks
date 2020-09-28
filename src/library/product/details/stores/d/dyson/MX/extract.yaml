@@ -2,16 +2,16 @@ extends: ../shared
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,'hgroup__main-image')]/img/@src | //div[contains(@class,"hero--product-variant")]//div[contains(@class,"image--stretch")]//img/@src
+    xpath: //div[contains(@class, "hgroup__main-image")]/img/@src | //div[contains(@class,"hero--product-variant")]//div[contains(@class,"image--stretch")]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,'hgroup__main-image')]/img/@alt | //div[contains(@class,"hero--product-variant")]//div[contains(@class,"image--stretch")]//img/@alt
+    xpath: //div[contains(@class, "hgroup__main-image")]/img/@alt | //div[contains(@class,"hero--product-variant")]//div[contains(@class,"image--stretch")]//img/@alt
   - name: category
     singleValue: false
     manualSelector: footer ol.crumb__list > li:first-child~li > a
   - name: nameExtended
     singleValue: false
-    manualSelector: h2.hgroup__title~h1, h2.hgroup__title, h1.hgroup__motif__h1-cdn-img-replace
+    manualSelector: h2.hgroup__title, h2.rating-set__title, h2.hgroup__title~h1
   - name: listPrice
     singleValue: false
     manualSelector: div.product__price .price__was span.price
@@ -20,13 +20,13 @@ fields:
     manualSelector: div.product__price .price__is span.price
   - name: availabilityText
     singleValue: false
-    manualSelector: button[title*="Add to basket"]
-    regExp: (.*)
+    manualSelector: div.hero__content__preorder-container button.product__variant__add-to-cart--animated-smaller:not([value="Notify Me"])
+    regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: weightNet
     singleValue: false
-    xpath: //span[contains(@class,"spec") and *[contains(text(),"Weight")]]//span
+    xpath: //span[contains(@class,"spec") and *[contains(text(),"Peso")]]//span
   - name: aggregateRating
     singleValue: false
     xpath: //span[contains(@class,"rating__data__value")] | //div[contains(@class,"hgroup")]//span[@itemprop="ratingValue"] div 20
@@ -38,19 +38,19 @@ fields:
     xpath: //video/source[@src]/@src
   - name: name
     singleValue: false
-    manualSelector: h2.hgroup__title~h1, h2.hgroup__title, h1.hgroup__motif__h1-cdn-img-replace
+    manualSelector: h2.hgroup__title, h2.rating-set__title, h2.hgroup__title~h1
   - name: specifications
     singleValue: false
     manualSelector: div#added_specs
   - name: warranty
     singleValue: false
-    xpath: //strong[contains(text(),"Guarantee")]
+    xpath: //strong[contains(text(),"Garantía")]
   - name: promotion
     singleValue: false
     manualSelector: div.product__price .price__save
   - name: termsAndConditions
     singleValue: false
-    xpath: //b[contains(text(),"Terms and conditions")]
+    xpath: //b[contains(text(),"Términos y condiciones")]
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
@@ -59,7 +59,7 @@ fields:
     manualSelector: div.promos__list
   - name: manufacturerImages
     singleValue: false
-    xapth: //div[contains(@class,"promos__list")]//img/@src
+    xpath: //div[contains(@class, "promos__list")]//img/@src
   - name: description
     singleValue: false
     xpath: //div[contains(@class, "hgroup product__claims")] | //div[contains(@class, "hero__content__preorder-container")]/div[contains(@class, "hgroup__prefix")]
