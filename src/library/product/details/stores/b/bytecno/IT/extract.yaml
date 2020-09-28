@@ -33,7 +33,7 @@ fields:
   - name: availabilityText
     singleValue: false
     defaultValue: Out of Stock
-    xpath: (//div[@class='price-box']//div[@class='prezzomercato'])[1]
+    xpath: //div[contains(@class,'availability in-stock')]
   - name: brandText
     singleValue: false
     xpath: //div[@class='product-name']//span[@class='manufacturer']
@@ -69,16 +69,16 @@ fields:
     xpath: //div[contains(@id,'video-url')]
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div#inpage_container
+    xpath: //div[@id='inpage_container'] | //div[contains(@class,'longdesc')]//img/ancestor::div[@class='longdesc']/p
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@id,'manufacture-images')]
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,'inpage_selector_specification')]//td
+    xpath: //div[@id='product-spec']
   - name: weightNet
     singleValue: false
-    xpath: //div[contains(@class,'inpage_selector_specification')]//*[contains(text(),'Peso')] | //th[text()='Peso']//parent::tr//td
+    xpath: //div[@id='product-weight']
   - name: mpc
     singleValue: false
     xpath: //th[contains(text(), 'Cod. Prod.')]//parent::tr//td
@@ -90,5 +90,7 @@ fields:
     xpath: //th[contains(text(), 'Peso dell')]//parent::tr//td
   - name: shippingDimensions
     singleValue: false
-    xpath: //th[(text()='Larghezza imballo')]//parent::tr//td | //th[(text()='Altezza imballo')]//parent::tr//td
-
+    xpath: //th[(text()='Larghezza imballo')]//parent::tr//td | //th[(text()='Altezza imballo')]//parent::tr//td | //th[(text()='Spessore imballo')]//parent::tr//td
+  - name: manufacturer
+    singleValue: false
+    xpath: //span[@class='manufacturer']

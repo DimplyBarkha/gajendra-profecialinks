@@ -26,18 +26,32 @@ module.exports = {
     if (videoEle) {
       await context.waitForSelector('div.demoupUI-videocontainer video source');
     }
-
+    const ImgaeEleNode = await context.evaluate(async () => {
+      const ImgaeEle = document.querySelectorAll('div#inpage_container img');
+      if (ImgaeEle) {
+        return ImgaeEle;
+      }
+    });
+    if (ImgaeEleNode && Object.keys(ImgaeEleNode).length) {
+      await context.waitForSelector('div#inpage_container img');
+    }
     await context.evaluate(async () => {
       var src = '';
       const imageEle = document.querySelectorAll('div#inpage_container img');
-      var ele = document.getElementsByTagName('source');
-      src = (ele && ele.length > 0 && ele[0].src) ? ele[0].src : '';
-      console.log('src', src);
+      const imageMan = document.querySelectorAll('div.longdesc img');
+      var ele = document.querySelectorAll('source');
+      if (ele && ele.length) {
+        ele.forEach(e => {
+          if (e.src.includes('.mp4') || e.src.includes('.webm')) {
+            src = e.src;
+          }
+        });
+      };
       if (src) {
         addHiddenDiv('video-url', src);
       }
+      var urls = [];
       if (imageEle) {
-        var urls = [];
         imageEle.forEach((ele) => {
           var imageUrls = ele.getAttribute('data-flixsrcset');
           if (imageUrls && imageUrls.length > 0) {
@@ -45,9 +59,45 @@ module.exports = {
             urls.push('https:' + str);
           };
         });
+        if (imageMan && imageMan.length) {
+          imageMan.forEach((ele) => {
+            var ImageSrc = ele.getAttribute('src');
+            if (ImageSrc && !ImageSrc.includes('loading')) {
+              urls.push(ImageSrc);
+            }
+          });
+        }
         if (urls.length > 0) {
           addHiddenDiv('manufacture-images', urls.join(','));
         }
+      }
+      const speNode = document.querySelectorAll('div.inpage_selector_specification td');
+      var specificationValues = {};
+      var spec = '';
+      if (speNode && speNode.length) {
+        speNode.forEach((ele) => {
+          var data = ele.innerText.split('\n');
+          if (data[0] && data[1]) {
+            specificationValues[data[0].trim()] = data[1].trim();
+            spec += ' || ' + data[0].trim() + ': ' + data[1].trim();
+          }
+        });
+      }
+      const desSpecNodeTh = document.querySelectorAll('#product-attribute-specs-table1 th');
+      const desSpecNodeTd = document.querySelectorAll('#product-attribute-specs-table1 td');
+      if (desSpecNodeTh.length && desSpecNodeTd.length) {
+        for (var l = 0; l < desSpecNodeTh.length; l++) {
+          var spekey = (desSpecNodeTh[l].innerText).trim();
+          if (!specificationValues.spekey) {
+            spec += ' || ' + spekey + ': ' + desSpecNodeTd[l].innerText;
+          }
+        }
+      }
+      if (specificationValues && specificationValues.Peso) {
+        addHiddenDiv('product-weight', specificationValues.Peso);
+      }
+      if (spec) {
+        addHiddenDiv('product-spec', (spec.slice(3)).trim());
       }
       function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');

@@ -25,20 +25,6 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      if (row.specifications) {
-        var specificationValues = {};
-        var spec = '';
-        row.specifications.forEach((ele) => {
-          var data = ele.text.split('\n \n');
-          if (data.length !== 0) {
-            specificationValues[data[0].trim()] = data[1].trim();
-            spec += ' || ' + data[0].trim() + ': ' + data[1].trim();
-          }
-        });
-        row.specifications = [{
-          text: (spec.trim()).slice(3),
-        }];
-      }
       if (row.availabilityText) {
         row.availabilityText[0].text = row.availabilityText[0].text === 'Out of Stock' ? row.availabilityText[0].text : 'In Stock';
       };
@@ -54,9 +40,6 @@ const transform = (data) => {
       }
       if (row.category) {
         row.category.pop();
-      }
-      if (row.weightNet && specificationValues && specificationValues.Peso) {
-        row.weightNet[0].text = specificationValues.Peso;
       }
       if (row.manufacturerDescription) {
         row.manufacturerDescription = row.manufacturerDescription.map((ele) => {
@@ -93,7 +76,7 @@ const transform = (data) => {
         });
         row.shippingDimensions = [
           {
-            text: (dimentions.trim()).slice(3),
+            text: (dimentions.slice(3)).trim(),
           },
         ];
       }
