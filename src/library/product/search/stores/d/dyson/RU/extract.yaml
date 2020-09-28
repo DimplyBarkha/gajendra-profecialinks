@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: .item
+recordXPath: null
+
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="id"]
+  #- name: sponsored
+  #  singleValue: false
+  #  description: Is sponsored/paid
+  #  type: BOOLEAN
+  #  selector: div.detail-messaging-sponsored-wrapper
+  - name: name
+    singleValue: false
+    xpath: //h5[@class="product-name"]
+  - name: productUrl
+    singleValue: false
+    xpath: //h5[@class="product-name"]/a/@href
+  #- name: gtin
+  #  singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="thumbnail"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class="rating"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="ratingCount"]
+  - name: price
+    singleValue: false
+    xpath: //span[@class="price"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //a[@data-test="itemDetail-brand"]
+    defaultValue: Dyson
+  - name: soldBy
+    singleValue: false
+    defaultValue: Dyson
+  #- name: endorsementText
+  #  singleValue: false
+  #  xpath: //div[@class="endorsement"]

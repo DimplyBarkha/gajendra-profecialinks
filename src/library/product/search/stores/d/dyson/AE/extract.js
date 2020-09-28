@@ -7,8 +7,6 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  let allResults = [];
-
   function stall(ms) {
     return new Promise(resolve => {
       setTimeout(() => {
@@ -89,9 +87,7 @@ async function implementation (
       });
     }
   });
-  const extract = await context.extract(productDetails, { transform });
-  allResults.push(extract);
-  return allResults;
+  return await context.extract(productDetails, { transform });
 }
 
 const { transform } = require('../../../../shared');
