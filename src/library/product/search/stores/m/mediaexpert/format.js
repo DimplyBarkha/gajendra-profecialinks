@@ -18,15 +18,17 @@ const transform = (data) => {
             item.text='https:'+item.text;
           });
         }
-        if(row.aggregateRating){
+        if(row.aggregateRating2){
           var totRatting=0;
-      
-          row.aggregateRating.forEach(item => {
-            if(item.text.indexOf('is-full') !== -1){
+          row.aggregateRating2.forEach(item => {
+            if(item.text.indexOf('is-full') != -1){
               totRatting=totRatting+1;
             }
+            if(item.text.indexOf('is-half') != -1){
+              totRatting=totRatting+0.5;
+            }
           });
-          row.aggregateRating = [{"text":totRatting, "xpath": row.aggregateRating[0]['xpath']}];
+          row.aggregateRating2 = [{"text":totRatting, "xpath": row.aggregateRating2[0]['xpath']}];
         }
         if(row.brandText){
           var bText;
@@ -52,18 +54,7 @@ const transform = (data) => {
             });
           });
         }
-        if(row.id){
-          var bText;
-          row.id.forEach(item =>{
-            bText=item.text.split(',');
-            bText.forEach(item1 =>{
-              if(item1.indexOf('"id":')>-1){
-                var bText1=item1.split(':');
-                item.text=bText1[1].substring(1, (bText1[1].length-1)) ;
-              }
-            });
-          });
-        }
+        
         if(row.reviewCount){
           row.reviewCount.forEach(item=>{
             var tmp=item.text.replace('(','');
