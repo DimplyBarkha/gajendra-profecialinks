@@ -40,6 +40,7 @@ const cleanUp = (data, context) => {
         }
 
         if (row.sku) {
+          // eslint-disable-next-line no-useless-escape
           const id = (row.sku[0].text.match(/(?<={ productSKU:)(.*)(?=productName)/gm) || []).length ? row.sku[0].text.match(/(?<={ productSKU:)(.*)(?=productName)/gm)[0].replace(/(\")/gm, '').replace(',', '').trim() : '';
           row.sku = [{ text: id }];
           row.variantId = [{ text: id }];
