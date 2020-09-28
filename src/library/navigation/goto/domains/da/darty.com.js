@@ -28,9 +28,7 @@ module.exports = {
       css_enabled: true,
     });
 
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000))
-
-    await context.evaluate(
+    await context.evaluateInFrame(
       function () {
         const code = geetest
           .toString()
