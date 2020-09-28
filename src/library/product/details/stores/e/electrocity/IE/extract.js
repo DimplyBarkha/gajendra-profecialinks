@@ -118,7 +118,7 @@ module.exports = {
       
       if(aggregateRatingTxt && typeof aggregateRatingTxt  == 'string' ){
         const aggregateRating = aggregateRatingTxt?aggregateRatingTxt.split(' ') : [];
-        if(aggregateRating[0] != '0'){
+        if(aggregateRating[0] != '0.0'){
           addElementToDocument('added_aggregateRating', aggregateRating[0]);
         }
         
@@ -137,10 +137,22 @@ module.exports = {
         addElementToDocument('added_promotion', promotion_str);
       }
 
-      const weight_net_str = getXpath("//table[@class='flix-std-specs-table']", 'innerText');
-      if(weight_net_str && weight_net_str.includes('Weight') && weight_net_str.includes('KG')){
-        const weight_net = weight_net_str.substring(weight_net_str.lastIndexOf("Weight")+7, weight_net_str.lastIndexOf("KG")+2);
-        addElementToDocument('added_weight', weight_net);
+      var weight_net_str = getXpath("//table[@class='flix-std-specs-table']", 'innerText');
+      
+      if(weight_net_str){
+        weight_net_str = weight_net_str.toLowerCase();
+        if(weight_net_str.includes('weight') && weight_net_str.includes('kg')){
+          const weight_net = weight_net_str.substring(weight_net_str.lastIndexOf("weight")+7, weight_net_str.lastIndexOf("kg")+2);
+          addElementToDocument('added_weight', weight_net);
+        }
+        
+      }else{
+        weight_net_str = getXpath("//tr[@class='attribute-key-Dimensions']", 'innerText');
+        weight_net_str = weight_net_str.toLowerCase();
+        if(weight_net_str.includes('weight') && weight_net_str.includes('kg')){
+          const weight_net = weight_net_str.substring(weight_net_str.lastIndexOf("weight")+7, weight_net_str.lastIndexOf("kg")+2);
+          addElementToDocument('added_weight', weight_net);
+        }
       }
 
     });
