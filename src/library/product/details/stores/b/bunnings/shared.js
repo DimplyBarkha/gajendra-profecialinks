@@ -82,7 +82,6 @@ const transform = (data) => {
 			}
 
 			if (row.nameExtended) {
-				console.log(row.nameExtended);
 				let newText = "";
 				row.nameExtended.forEach(item => {
 				  if (item.text.trim().includes(row.brandText[0].text.trim())){
