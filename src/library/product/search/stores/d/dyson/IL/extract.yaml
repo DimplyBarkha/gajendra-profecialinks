@@ -1,14 +1,17 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: ul.search-results__results-list > li
-recordXPath: //ul[contains(@class,"search-results__results-list")]/li
+recordSelector: null
+recordXPath: //body
 fields:
+  - name: id
+    singleValue: true
+    xpath: //div[@id="id"]
   - name: name
-    singleValue: false
-    manualSelector: h3 > a
-  - name: productUrl 
-    singleValue: false
-    xpath: //h3/a/@href
-  - name: thumbnail 
-    singleValue: false
-    xpath: //a//img/@src
+    singleValue: true
+    xpath: //div[@id="name"]
+  - name: productUrl
+    singleValue: true
+    xpath: //div[@id="productUrl"]
+  - name: thumbnail
+    singleValue: true
+    xpath: //div[@id="thumbnail"]
