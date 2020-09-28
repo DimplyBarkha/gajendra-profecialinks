@@ -19,6 +19,12 @@ async function implementation (
     url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
+  try {
+    //await context.click('button#wzrk-cancel');
+    await context.click('label.a-toggle_label');
+  }catch (e) {
+    console.log(e);
+  }
 
   await new Promise((resolve, reject) => setTimeout(resolve, 10000));
 

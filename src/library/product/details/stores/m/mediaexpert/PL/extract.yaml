@@ -92,5 +92,11 @@ fields:
     xpath: //div[contains(@class,'is-specificationTabs')]//table[contains(@class,'is-specification')]//tr/td
   - name: availabilityText
     singleValue: false
-    xpath:
+    xpath: //div[contains(@class,"c-availabilityNotification_text")][1]
     defaultValue: 'In Stock'
+  - name: aplus_images
+    singleValue: false
+    xpath: //div[@id="description"]//div[contains(@class,"js-widget_holder")]//table//tr/td/img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="description"]//div[contains(@class,"js-widget_holder")]//table//tr/td/text()

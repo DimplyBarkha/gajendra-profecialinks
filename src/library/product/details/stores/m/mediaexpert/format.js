@@ -57,7 +57,7 @@ const transform = (data) => {
           if(tmp.length>1){
             isgtin=1;
             var tmp1 = tmp[1].split(',');
-            item.text = tmp1[0].substring(2, tmp1[0].length - 1);
+            item.text = tmp1[0].substring(1, tmp1[0].length - 1);
           }
         });
         if(isgtin==0){
@@ -78,7 +78,7 @@ const transform = (data) => {
         row.variantInformation.forEach(item => {
           variantsArrInf.push(item.text);
         });
-        row.variantInformation = [{ "text": variantsArrInf.join(' | '), "xpath": row.variantInformation[0]["xpath"] }];
+        row.variantInformation = [{ "text": variantsArrInf[0], "xpath": row.variantInformation[0]["xpath"] }];
       }
       if (row.category) {
         var arr = [];
@@ -86,6 +86,7 @@ const transform = (data) => {
           arr.push({ text: item.text, xpath: item.xpath });
         });
         arr.shift();
+        arr.pop();
         row.category = arr;
       }
       if (row.aggregateRating) {
@@ -164,6 +165,13 @@ const transform = (data) => {
           descriptionArr.push(item.text);
         });
         row.description = [{ "text": "|| " + descriptionArr.join(' || '), "xpath": row.description[0]['xpath'] }];
+      }
+      if(row.manufacturerDescription){
+        var manufacturerDescriptionArr = [];
+        row.manufacturerDescription.forEach(item=>{
+          manufacturerDescriptionArr.push(item.text);
+        });
+        row.manufacturerDescription = [{ "text": "| " + manufacturerDescriptionArr.join(' | '), "xpath": row.description[0]['xpath'] }];
       }
       if (row.productOtherInformation) {
         row.productOtherInformation.forEach(item => {
