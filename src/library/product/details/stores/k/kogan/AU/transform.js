@@ -35,6 +35,11 @@ const transform = (data, context) => {
           row.sku = [{ text: tempSku[1].replace('\\u0022','').replace('\\u00','').replace('\\u0022','').replace('\\u00','').replace(',','').trim() }];
         }
 
+         if (row.variantId) {          
+          let tempSku=row.variantId[0].text.split(':')
+          row.variantId = [{ text: tempSku[1].replace('\\u0022','').replace('\\u00','').replace('\\u0022','').replace('\\u00','').replace(',','').trim() }];
+        }
+
         if (row.description) {
           let text = '';
           row.description.forEach(item => {
