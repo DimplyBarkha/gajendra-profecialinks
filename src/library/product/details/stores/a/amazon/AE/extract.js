@@ -155,10 +155,6 @@ async function implementation (
       addHiddenDiv('productColor', col1);
     }
 
-    const weight = document.querySelector('table#productDetails_techSpec_section_1 > tbody');
-    const weightText = weight && weight.innerHTML ? weight.innerHTML.replace(/<tr>/g, '').replace(/<.*?>/g, '').replace(/\s+/g, ' ').replace(/.*Item Weight (.*)/g, '$1').trim() : '';
-    addHiddenDiv('productWeight', weightText);
-
     const technicalInfo = document.querySelector('div#prodDetails span[data-action="enhanced-content-open-file"] a')
       ? document.querySelector('div#prodDetails span[data-action="enhanced-content-open-file"] a').getAttribute('href') : '';
     const info = technicalInfo && technicalInfo.length > 1 ? 'Yes' : 'No';
