@@ -36,11 +36,11 @@ fields:
     xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")] | //div[@id="almDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
   - name: price
     singleValue: false
-    xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1]
+    xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1] | //span[contains(@id,"priceblock_saleprice")]
   - name: availabilityText
     singleValue: false
     xpath: //*[@id='availability']/span
-    regExp: In Stock
+    regExp: ([Ii]n [Ss]tock)|([Aa]vailable)
     regExpReplace: In Stock
     defaultValue: Out Of Stock
   - name: description
