@@ -55,7 +55,7 @@ fields:
     xpath: //div[@id="ii_brand_text"]
   - name: manufacturer
     singleValue: false
-    xpath: (//tr/th[contains(text(),"Üretici")])[1]/following-sibling::td
+    xpath: (//tr/th[contains(text(),"Üretici") and not(contains(text(),"Üretici "))])[1]/following-sibling::td
   - name: quantity
     singleValue: false
     xpath: //select[@name="quantity"]/option[@selected]/@value
