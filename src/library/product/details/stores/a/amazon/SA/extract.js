@@ -1,4 +1,4 @@
-const { transform } = require('./format');
+const { transform } = require('../../../../sharedAmazon/transformNew');
 /**
  *
  * @param { { url?: string,  id?: string} } inputs
@@ -13,7 +13,7 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails, Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
+  const { productDetails, Helpers: { Helpers } } = dependencies;
 
   const helpers = new Helpers(context);
   await context.evaluate(async () => {
@@ -23,6 +23,34 @@ async function implementation (
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
+    }
+    const specifications = document.evaluate('//table[contains(@id,"productDetails_techSpec")]//tbody/tr', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    const specArray = [];
+    if (specifications) {
+      for (var i = 0; i < specifications.snapshotLength; i++) {
+        specArray.push(specifications.snapshotItem(i).textContent.trim().replace(/\n/g, ' ').replace(/\s+/g, ' : '));
+      }
+      specArray && specArray.length && addHiddenDiv('ii_spec', specArray.join(' || '));
+    }
+    const description = document.evaluate('//*[@id="feature-bullets"]/ul/li[not(@id)] | //div[@id="globalStoreInfoBullets_feature_div"]//ul/li | //div[@id="detailBullets_feature_div"]/ul//li', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    const descArray = [];
+    if (description) {
+      for (let i = 0; i < description.snapshotLength; i++) {
+        descArray.push(description.snapshotItem(i).textContent.trim());
+      }
+    }
+    const descriptionOne = document.evaluate('//div[@id="productDescription"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    if (description) {
+      descriptionOne && descriptionOne.innerText && descArray.push(`| ${descriptionOne.innerText.trim()}`);
+      descArray && descArray[0] && addHiddenDiv('ii_description', `|| ${descArray.join(' || ').trim().replace(/\|\| \|/g, '|')}`);
+    }
+    const variants = document.evaluate(' //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    const variantsArray = [];
+    if (variants) {
+      for (let i = 0; i < variants.snapshotLength; i++) {
+        variantsArray.push(variants.snapshotItem(i).textContent.trim());
+      }
+      variantsArray && addHiddenDiv('ii_variants', variantsArray.join(' | '));
     }
     async function buttonCheck () {
       const button = '#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a, #mbc-olp-link';
@@ -124,9 +152,9 @@ async function implementation (
       const otherSellersPrime = otherSellersDocument.querySelectorAll(sellerPrimeSelector);
       otherSellersPrime && otherSellersPrime.forEach(prime => {
         if (prime.innerText.includes('Details') && samePageFlag) {
-          sellerPrime.push('Yes');
+          sellerPrime.push('mazon');
         } else if (prime.querySelector('i.a-icon-prime')) {
-          sellerPrime.push('Yes');
+          sellerPrime.push('mazon');
         } else {
           sellerPrime.push('No');
         }
@@ -195,7 +223,6 @@ async function implementation (
   await context.extract(productDetails, { transform });
 }
 
-
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -208,7 +235,6 @@ module.exports = {
   dependencies: {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
     Helpers: 'module:helpers/helpers',
-    AmazonHelp: 'module:helpers/amazonHelp',
   },
   implementation,
 };

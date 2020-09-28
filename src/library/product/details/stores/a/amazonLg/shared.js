@@ -46,18 +46,18 @@ const transform = (data) => {
         });
       }
       if (row.alternateImages) {
-        row.alternateImages.splice(0,1);
+        row.alternateImages.splice(0, 1);
         row.alternateImages.forEach(item => {
           item.text = `${item.text.replace('US40_', '')}`;
         });
       }
       if (row.secondaryImageTotal) {
-        if(row.alternateImages.length > 1){
+        if (row.alternateImages.length > 1) {
           row.secondaryImageTotal.forEach(item => {
             item.text = row.alternateImages.length;
             // item.text = row.alternateImages.length - 1;
           });
-        }else{
+        } else {
           row.secondaryImageTotal.forEach(item => {
             item.text = '';
           });

@@ -19,7 +19,7 @@ const transform = (data, context) => {
     .replace(/[\x00-\x1F]/g, '');
 
   const sg = item => item[0].text;
-  const joinArray = array => array.join(' | ').trim().replace(/\| \|/g, '|');
+  const joinArray = (array, delim = ' | ') => array.join(delim).trim().replace(/\| \|/g, '|');
 
   const doubleRegexSearch = (regex1, regex2, item) => {
     const matchArray = sg(item).toString().match(regex1);
@@ -60,19 +60,21 @@ const transform = (data, context) => {
           return array.length === 0 ? 0 : array.length - 1; // why minus 1???
         },
         alternateImages: array => joinArray(array.map(item => item.text)),
-        videos: item => doubleRegexSearch(/\"url\":\"([^"]+)/g, /(https.+mp4)/s, item),
-        videoLength: item => doubleRegexSearch(/\"durationTimestamp\":\"([^"]+)/g, /([0-9\:]{3,})/s, item),
+        videos: item => doubleRegexSearch(/"url":"([^"]+)/g, /(https.+mp4)/s, item),
+        videoLength: item => doubleRegexSearch(/"durationTimestamp":"([^"]+)/g, /([0-9:]{3,})/s, item),
         brandLink: item => {
           if (!sg(item).includes(hostName)) return `https://${hostName}${sg(item)}`;
           return sg(item);
         },
         brandText: item => regexTestNReplace(/([B|b]rand:)|([B|b]y)|([B|b]rand)|([V|v]isit the)/gm, sg(item)),
         name: item => regexTestNReplace(new RegExp(String.raw`(${websiteName.replace(/\./g, '\\.')}\s*:)`), sg(item)),
-        pricePerUnit: item => regexTestNReplaceArray(/[{()}]/g, item, { extraRegex: /[\/].*$/g }),
-        pricePerUnitUom: item => regexTestNReplaceArray(/[{()}]/g, item, { matchRegex: /([^\/]+$)/g }),
+        pricePerUnit: item => regexTestNReplaceArray(/[{()}]/g, item, { extraRegex: /[/].*$/g }),
+        pricePerUnitUom: item => regexTestNReplaceArray(/[{()}]/g, item, { matchRegex: /([^/]+$)/g }),
         secondaryImageTotal: item => castToInt(sg(item)),
         ratingCount: item => castToInt(sg(item)),
         descriptionBullets: item => castToInt(sg(item)),
+        shippingInfo: array => [{ text: array.map(item => `${item.text}`).join(' ') }],
+        ingredientsList: array => [{ text: array.map(item => `${item.text}`).join(' ') }],
       };
 
       Object.entries(mappingObject).forEach(([key, fct]) => {
@@ -84,7 +86,7 @@ const transform = (data, context) => {
       });
       if (!(row.quantity && row.quantity[0] && row.quantity[0].text) && (row.nameExtended && row.nameExtended[0] && row.nameExtended[0].text)) {
         const quantityText = row.nameExtended[0].text;
-        const quantityRe = /(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[s,S]ingle-serve K-Cup|[wW]ipe[s]?).?)(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[s,S]ingle-serve K-Cup|[wW]ipe[s]?).?\s)*/;
+        const quantityRe = /(?:\s?([\d.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][.]?\s?[oO][zZ][.]?|FO|[mM][lL]|[oO][zZ][.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[s,S]ingle-serve K-Cup|[wW]ipe[s]?).?)(?:\s?([\d.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][.]?\s?[oO][zZ][.]?|FO|[mM][lL]|[oO][zZ][.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[s,S]ingle-serve K-Cup|[wW]ipe[s]?).?\s)*/;
         const packQuantityRe = /([(]Pack of \d*[)])/;
         const quantity = quantityRe.test(quantityText) ? quantityRe.exec(quantityText) : '';
         const packText = packQuantityRe.test(quantityText) ? packQuantityRe.exec(quantityText) : '';
@@ -150,9 +152,9 @@ const transform = (data, context) => {
       if (row.salesRankCategory) {
         row.salesRankCategory = row.salesRankCategory.map(item => {
           if (item.text.includes('#')) {
-            const regex = /\#[0-9,]{1,} in (.+) \(/s;
+            const regex = /#[0-9,]{1,} in (.+) \(/s;
             const rawCat = item.text.match(regex);
-            return { text: rawCat ? rawCat[1] : ''};
+            return { text: rawCat ? rawCat[1] : '' };
           }
           return { text: item.text };
         });
@@ -201,23 +203,13 @@ const transform = (data, context) => {
         row.specifications.forEach(item => {
           text.push(`${item.text.replace(/\n \n/g, ':')}`);
         });
-        row.specifications = [
-          {
-            text: text.join(' || ').trim().replace(/\|\| \|/g, '|'),
-          },
-        ];
+        row.specifications = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
       }
       if (row.productOtherInformation) {
         const text = [];
-        row.productOtherInformation.forEach(item => {
-          text.push(item.text);
-        });
+        row.productOtherInformation.forEach(item => { text.push(item.text); });
         if (text.length > 0) {
-          row.productOtherInformation = [
-            {
-              text: text.join(' | ').trim().replace(/\| \|/g, '|'),
-            },
-          ];
+          row.productOtherInformation = [{ text: text.join(' | ').trim().replace(/\| \|/g, '|') }];
         }
       }
       if (row.additionalDescBulletInfo) {
@@ -226,11 +218,7 @@ const transform = (data, context) => {
           if (item.text.length > 0) { text.push(item.text); }
         });
         if (text.length > 0) {
-          row.additionalDescBulletInfo = [
-            {
-              text: text.join(' || ').trim().replace(/\|\| \|/g, '|'),
-            },
-          ];
+          row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
         }
       }
       if (row.otherSellersPrime) {
@@ -252,7 +240,7 @@ const transform = (data, context) => {
       if (row.otherSellersShipping2) {
         row.otherSellersShipping2 = row.otherSellersShipping2.map(item => {
           if (item.text.includes('+ $')) {
-            const regex = /\$([0-9\.]{3,})/s;
+            const regex = /\$([0-9.]{3,})/s;
             const mtch = item.text.match(regex);
             return { text: mtch && mtch[1] ? item.text.match(regex)[1] : '0.00' };
           }
@@ -265,9 +253,6 @@ const transform = (data, context) => {
       }
       if (row.primeFlag) {
         row.primeFlag = [{ text: 'Yes' }];
-      }
-      if (row.ingredientsList) {
-        row.ingredientsList = [{ text: row.ingredientsList.map(item => `${item.text}`).join(' ') }];
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);

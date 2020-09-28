@@ -1,3 +1,4 @@
+const { implementation } = require('../../../../sharedAmazon/variantExtract');
 
 module.exports = {
   implements: 'product/details/variants/variantsExtract',
@@ -8,4 +9,5 @@ module.exports = {
     domain: 'amazon.sa',
     zipcode: '',
   },
+  implementation,
 };

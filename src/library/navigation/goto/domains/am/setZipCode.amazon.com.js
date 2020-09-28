@@ -1,3 +1,4 @@
+/*
 async function implementation (
   inputs,
   parameters,
@@ -21,7 +22,7 @@ async function implementation (
   await context.waitForNavigation();
   await new Promise(resolve => setTimeout(resolve, 5261));
 }
-
+*/
 module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {
