@@ -63,6 +63,7 @@ module.exports = {
           imageMan.forEach((ele) => {
             var ImageSrc = ele.getAttribute('src');
             if (ImageSrc && !ImageSrc.includes('loading')) {
+              ImageSrc = ImageSrc.includes('https') ? ImageSrc : 'https:' + ImageSrc;
               urls.push(ImageSrc);
             }
           });
