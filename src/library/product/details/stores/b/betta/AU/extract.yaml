@@ -48,29 +48,30 @@ fields:
     defaultValue: 'Out of Stock'
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    description: Product description supplied by website - may be concatenanted from multiple places; specifically not the manufacturer description
     xpath: //div[@itemprop="description"]
   - name: brandText
     singleValue: true
-    xpath: //div[contains(@class,'brand-logo')]//a//img/@alt
+    xpath: //span[@class = "brand"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //span[@class = "manufacturer"]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //table[@id = "product-attribute-specs-table"]//tbody//tr//th[contains(text(), "Size")]//following-sibling::td
   - name: weightNet
-    singleValue: true
+    singleValue: false
     description: Net weight as described on the page
+    xpath: //div[contains(@class, "flix-tech-spacs-contents")]//ul//li//div//div[contains(text(), "Weight")]//following-sibling::div
   - name: weightGross
-    singleValue: true
+    singleValue: false
     description: Gross weight as described on the page
-    xpath: //*[@id="page-container"]/aol-product-page-container/aol-product-page/ul/li[3]/aol-product-page-content-middle/aol-product-navigation/div/aol-product-page-section[2]/section/div[3]/aol-product-specifications/div/div[2]/aol-specifications-panel[1]/div/aol-product-specifications-attribute-row[2]/div[2]
+    xpath: //div[contains(@class, "flix-tech-spacs-contents")]//ul//li//div//div[contains(text(), "Weight")]//following-sibling::div
   - name: gtin
     singleValue: true
+    xpath: //div[contains(@class, "flix-tech-spacs-contents")]//ul//li//div//div[contains(text(), "EAN")]//following-sibling::div
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -90,30 +91,37 @@ fields:
     singleValue: false
   - name: name
     singleValue: true
-    xpath: //meta[@name="title"]/@content
+    xpath: //meta[@property = "og:title"]/@content
   - name: secondaryImageTotal
     singleValue: true
     type: NUMBER
     xpath: count(//img[contains(@class,'thumb image')])
   - name: specifications
     singleValue: false
-    xpath: //table[@id="product-attribute-specs-table"]/tbody/tr
-    regExp: ^(?:.*?)(?:\s*–\s*|\s+)(.*?)(?:\s*–\s*|$)
+    xpath: //div[contains(@class, "additional-attributes-wrapper table-wrapper")]//div
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
     xpath: //table[contains(@class,'data table additional-attributes')][2]/tbody/tr/td
   - name: recyclingInformation
     singleValue: true
-    xpath: //div[@id="delivery.returns.tab"]
   - name: variantCount
     singleValue: true
+    xpath: count(//div[contains(@class, "dummy-text-for-variant")])
     type: NUMBER
+    defaultValue: 0
   - name: productOtherInformation
     singleValue: false
     xpath: //div[contains(@class,'feature-data')]/ul/li
   - name: color
-    singleValue: false 
+    singleValue: false
+    xpath: //table[@id = "product-attribute-specs-table"]//tbody//tr//th[contains(text(), "Colour")]//following-sibling::td
+  - name: mnufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class, "inpage_selector_feature")]
+  - name: manufacturerImages
+    singleValue: true
+    xpath: //img[contains(@class, "flix_logo")]//@src
   - name: packaging
     singleValue: false
   - name: promotion
@@ -122,6 +130,11 @@ fields:
   - name: ratingCount
     singleValue: true
     xpath: sum(//div[contains(@class,'bv-inline-histogram-ratings-bar')]//@data-bv-histogram-rating-count)
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[contains(@itemprop, "ratingValue")]
+    type: NUMBER
   - name: countryOfOrigin
     singleValue: true    
   - name: energyEfficiency
@@ -129,7 +142,7 @@ fields:
     xpath: //p[contains(@class,'feature-icons')]//img//@src
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //table[contains(@class,'data table additional-attributes')]//tbody
+    xpath: //ul[contains(@class, "flix-key-feature")]//li
   - name: technicalInformationPdfPresent    
     singleValue: true
     regExp: (.+)
@@ -137,7 +150,6 @@ fields:
     defaultValue: 'NO'
   - name: Image360Present    
     singleValue: true
-    xpath: count(//div[contains(@class,'thumb-inner')])
   - name: termsAndConditions    
     singleValue: true
     xpath: count(//a[(@href="https://www.betta.com.au/terms-and-conditions/")])
