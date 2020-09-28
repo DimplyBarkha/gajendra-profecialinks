@@ -79,12 +79,12 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath: //p[@class="prd-code"]
-    regExp: \d+
+    xpath: //script[@data-flix-mpn]/@data-flix-mpn
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
-    xpath: //script[@data-flix-mpn]/@data-flix-mpn
+    xpath: //p[@class="prd-code"]
+    regExp: \d+
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
