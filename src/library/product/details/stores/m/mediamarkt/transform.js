@@ -133,7 +133,7 @@ const transform = (data, context) => {
       }
 
       if (row.specifications) {
-        row.specifications[0].text = row.specifications[0].text.replace(/(:\\n\s\\n)/g, '').replace(/(\n\s*){2,}/g, ' || ');
+        row.specifications[0].text = row.specifications[0].text.replace(/(:\n\s\n)/g, ': ').replace(/(\n\s*){2,}/g, ' || ');
         row.specifications = [{ text : clean(row.specifications[0].text.trim()) }];
       }
       if (row.productOtherInformation) {

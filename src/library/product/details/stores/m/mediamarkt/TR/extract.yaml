@@ -129,7 +129,7 @@ fields:
     type: NUMBER
   - name: specifications
     singleValue: false
-    xpath: //div[@id="features"]//section//dl
+    xpath: //div[@id="features"]
   - name: warranty
     singleValue: false
     xpath: (//dl[@class="specification"]//dt[contains(text(),"Üretici Garantisi:")]//following-sibling::dd)[1]
