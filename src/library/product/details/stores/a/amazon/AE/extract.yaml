@@ -98,7 +98,7 @@ fields:
     xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
   - name: color
     singleValue: false
-    xpath: div#productColor
+    manualSelector: div#productColor
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//p[not(img) and text()]
@@ -135,7 +135,8 @@ fields:
     regExpReplace: https://www.amazon.com$1
   - name: variantAsins
     singleValue: false
-    xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
+    # xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
+    manualSelector: div#allVariants
   - name: firstVariant
     singleValue: false
     xpath: //script[contains(@type,"a-state") and contains(text(), "parentAsin")]
