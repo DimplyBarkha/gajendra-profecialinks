@@ -63,9 +63,10 @@ const transform = (data, context) => {
         row.aggregateRating2 = [{ text: row.sponsAgRating[0].text }];
         delete row.sponsAgRating;
       }
+
       if (row.sponsThumbnail && !row.thumbnail) {
         row.thumbnail = [{ text: row.sponsThumbnail[0].text }];
-        delete row.sponsThumbnail;
+        // delete row.sponsThumbnail;
       }
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
