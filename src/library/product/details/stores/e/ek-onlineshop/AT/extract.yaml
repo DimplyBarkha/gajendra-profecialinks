@@ -175,8 +175,8 @@ fields:
     description: Images within the third party description
     xpath: //ul[contains(@class,'inpage_features_grid')]//img//@srcset
     # xpath: //div[@id='flix-std-inpage']//img//@srcset
-    regExp: (.+)
-    regExpReplace: https://ek-onlineshop.at$1
+    # regExp: (.+)
+    # regExpReplace: https://ek-onlineshop.at$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
