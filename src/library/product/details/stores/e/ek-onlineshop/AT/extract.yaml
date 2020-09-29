@@ -196,9 +196,10 @@ fields:
     singleValue: true
     description: null 
   - name: specifications
-    singleValue: true
+    singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: concat(//div[@id="product-details"] ,' || ',//li[contains(text(),'Breite')],' || ',//li[contains(text(),'Höhe')],' || ', //li[contains(text(),'Tiefe')],' || ', //li[contains(text(),'Gewicht')],' || ',//li[contains(text(),'integrierter')],' || ',//li[contains(text(),'Wandmontage')])
+    xpath: //*[contains(text(),'Gehäuse-Eigenschaften')]/following::ul[1]
+    # xpath: concat(//div[@id="product-details"] ,' || ',//li[contains(text(),'Breite')],' || ',//li[contains(text(),'Höhe')],' || ', //li[contains(text(),'Tiefe')],' || ', //li[contains(text(),'Gewicht')],' || ',//li[contains(text(),'integrierter')],' || ',//li[contains(text(),'Wandmontage')])
     # xpath: //div[@id="product-details"]
   - name: warranty
     singleValue: true

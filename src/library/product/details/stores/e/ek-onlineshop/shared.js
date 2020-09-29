@@ -63,7 +63,7 @@ const transform = (data) => {
 				itemp = itemp+ 1;
 				});				
 				newText1 = newText;
-				row.additionalDescBulletInfo = [{ text: newText }];
+				row.additionalDescBulletInfo = [{ text: newText.trim() }];
 			  }
 
 			  if (row.description) {
@@ -80,7 +80,25 @@ const transform = (data) => {
 					newText += `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
 					itemp = itemp + 1;
 				});						
-				row.description = [{ text: newText + newText1 }];
+				row.description = [{ text: newText.trim() + ' '+ newText1.trim() }];
+			  }
+
+			  if (row.specifications) {
+				let newText = '';
+				let itemp=1;				
+				row.specifications.forEach(item => {	
+				if(itemp===row.specifications.length)
+				{
+					item.text = item.text;
+				}								
+				else{
+					item.text = item.text + ' || ';
+				}	
+				newText += `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
+				itemp = itemp+ 1;
+				});				
+				newText1 = newText;
+				row.specifications = [{ text: newText.trim() }];
 			  }
 
 
