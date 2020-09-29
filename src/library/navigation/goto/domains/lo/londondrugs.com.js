@@ -31,9 +31,6 @@ module.exports = {
       antiCaptchaOptions: {
         type: 'RECAPTCHA',
       },
-      proxy: {
-        use_relay_proxy: false,
-      },
     });
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
