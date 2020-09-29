@@ -39,9 +39,6 @@ fields:
     xpath: //div[@id="product-specs"]/table/tbody/tr/th[contains(text(), "Weight")]/following-sibling::td
     regExp: (.+)
     regExpReplace: $1 Kg
-  - name: varianId
-    singleValue: false
-    xpath: //*[contains(@class,"product-id")][1]
   - name: gtin
     singleValue: false
     xpath: //*[contains(@class,"product-id")][2]
@@ -117,7 +114,7 @@ fields:
     xpath: //div[@id="product-specs"]/table/tbody/tr/th[contains(text(), "Colour")]/following-sibling::td
   - name: variantCount
     singleValue: false
-    defaultValue: 0
+    defaultValue: "0"
   - name: mpc
     singleValue: false
     xpath: //div[@id="product-specs"]/table/tbody/tr/th[contains(text(), "Model")]/following-sibling::td
