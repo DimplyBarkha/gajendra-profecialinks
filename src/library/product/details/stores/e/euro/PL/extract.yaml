@@ -6,8 +6,8 @@ fields:
   - name: image
     singleValue: false
     xpath: //a[@id='big-photo']//img/@src
-    # regExp: (.+)
-    # regExpReplace: https:$1
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='product-photos']//li/a/@href
@@ -16,7 +16,7 @@ fields:
     xpath: //meta[contains(@name,"keyword")]/@content
   - name: description
     singleValue: false
-    xpath:   //meta[contains(@property,"description")][1]/@content | //div[@id='description-text']//ul//li 
+    xpath:   //meta[contains(@property,"description")][1]/@content 
   - name: gtin
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"gtin13")]
@@ -46,9 +46,9 @@ fields:
     xpath: //div[@id='breadcrumb']//ul//li[position()>2]
   - name: nameExtended
     singleValue: false
-    xpath: //div//script[@type="text/javascript"][contains(text(),"name")][1]
-    regExp: name":\s"([^"]+)
-    regExpReplace: $1
+    xpath: //div[@class='product-header-left']//h1/text()
+    #regExp: name":\s"([^"]+)
+    #regExpReplace: $1
   - name: listPrice
     singleValue: false
     xpath: //div[@id='product-top']//div[@class='price-old']
@@ -126,4 +126,12 @@ fields:
   # - name: variantCount
   #   singleValue: false
   #   xpath: count(//div[@class='variant-list disable-active-item']//div//a)
-  
+  - name: -url
+    singleValue: false
+    xpath: //meta[contains(@property,"og:url")]/@content
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='current-variant']//div[@class='name']/text()
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class='current-variant']//div[@class='value']/text()

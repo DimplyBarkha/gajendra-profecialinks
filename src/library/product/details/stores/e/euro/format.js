@@ -63,6 +63,18 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.alternateImages) {
+        const images = row.alternateImages.filter(img => !img.text.match('#'));
+        // console.log('images:: ', images);
+        row.alternateImages = images;
+      }
+      // if (row.alternateImages) {
+      //   row.alternateImages = [
+      //     {
+      //       text: row.alternateImages[0].text.replace('#', ''),
+      //     },
+      //   ];
+      // }
     }
   }
   return data;
