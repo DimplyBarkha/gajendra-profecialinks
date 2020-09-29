@@ -154,16 +154,20 @@ const transform = (data) => {
       //     item.text = `${item.text.replace(/(\s*[\r\n]\s*)+/g, ' ')}`;
       //   });
       // }
-      if (row.description) {
+      if (row.description || row.descriptionBottom) {
         let text = '';
-        row.description.forEach(item => {
+        row.description && row.description.forEach(item => {
           text += ` || ${item.text}`;
         });
         let descriptionBottom = [];
         if (row.descriptionBottom) {
           descriptionBottom = row.descriptionBottom;
         }
-        descriptionBottom = [text.trim(), ...descriptionBottom.map(({ text }) => text.replace(/(\s*[\r\n]\s*)+/g, ' '))];
+        if (text) {
+          descriptionBottom = [text.trim(), ...descriptionBottom.map(({ text }) => text.replace(/(\s*[\r\n]\s*)+/g, ' '))];
+        } else {
+          descriptionBottom = [...descriptionBottom.map(({ text }) => text.replace(/(\s*[\r\n]\s*)+/g, ' '))];
+        }
         row.description = [
           {
             text: clean(descriptionBottom.join(' | ')),
@@ -270,8 +274,8 @@ const transform = (data) => {
         row.variantCount.forEach(variantCount => {
           variantCount.text = asinLength;
         });
-        if (row.variants) {
-          row.variants = row.variantAsins;
+        if (row.variants && row.variantCount && row.variantAsins) {
+          row.variants = row.variantCount[0].text > 1 ? row.variantAsins : [];
         }
       }
       if (row.largeImageCount) {
