@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,"columns-4")]//li
+fields:
+  - name: price
+    singleValue: false
+    xpath: //span[@class="price"]//span[@class="woocommerce-Price-amount amount"]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,'woocommerce-loop-product__link')]/@href
+  - name: searchUrl
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
+  - name: id
+    singleValue: false
+    xpath: //a[contains(@class, "ajax_add_to_cart")]/@data-product_sku
+  - name: name
+    singleValue: false
+    xpath: //h2[@class='woocommerce-loop-product__title']/text()
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="star-rating"]//span[@style="width:100%"]
+  
+
+
+  
+   
+ 
