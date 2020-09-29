@@ -39,7 +39,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: true
-    xpath: //div[contains(@class,'description')]//div[contains(@class,'css-i3pbo')]//ul
+    xpath: //meta[@name='description']//@content
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@class='container css-zkg6nm']/div[@class='css-1iqvlww']/div[@id='combined-product-description']/div/ul/li)
@@ -83,19 +83,16 @@ fields:
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
-    xpath : //div[@class='css-upho4v']/div[@class='css-1mgncdh']
+      the site to quantity)    
   - name: productUrl
     singleValue: true
     description: Content under "legal disclaimer" header
-    xpath: //link[@rel="canonical"]/@href
-    # regExp: (.+)
-    # regExpReplace: https://myer.com.au$1
+    xpath: //link[@rel="canonical"]/@href    
   - name: name
     singleValue: true
     xpath: //div/h1[@class='css-1nb9gtf']/div/span[2]
   - name: secondaryImageTotal
-    singleValue: true
+    singleValue: false
     type: NUMBER
     xpath: count(//div[contains(@class,"productImageGallery")]//div[contains(@class,"slick-track")]//div[contains(@class,"slick-slide slick-cloned")]//a[contains(@class,"mZoomSlickThumb MagicThumb-swap")]/img/@src)
   - name: coupon
@@ -114,16 +111,22 @@ fields:
     singleValue: true
   - name: shippingWeight
     singleValue: true
+    xpath : //ul//li[contains(text(),'Box weight:')]
   - name: recyclingInformation
     singleValue: true
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    xpath : //div[@class='bv-secondary-rating-summary-stars bv-table-row']/span[@class='bv-secondary-rating-summary-rating bv-table-cell']
+    xpath : //div[@itemprop='ratingValue']
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath : //div[@class='bv_avgRating_component_container notranslate']
+    xpath : //div[@itemprop='ratingValue']
+    type: NUMBER
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    xpath : //div[@class='bv_numReviews_text']
     type: NUMBER
   - name: variantCount
     singleValue: true
@@ -141,11 +144,6 @@ fields:
   - name: promotion
     singleValue: true
     xpath: boolean(//div[@class='css-1efj9ct']/span)
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-    xpath : div[@class='bv-secondary-rating-summary-stars bv-table-row']/span[@class='bv-secondary-rating-summary-rating bv-table-cell']
-    type: NUMBER
   - name: countryOfOrigin
     singleValue: true
   - name: energyEfficiency
@@ -168,7 +166,6 @@ fields:
     singleValue: true    
   - name: eangtin
     singleValue: true
-    xpath: //div[@id='combined-product-description']//p[@data-automation='product-part-number']//span
   - name: listPrice
     singleValue: true
     xpath: //list-price[@id='list-price']
