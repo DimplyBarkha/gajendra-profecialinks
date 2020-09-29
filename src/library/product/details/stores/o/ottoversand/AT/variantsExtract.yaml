@@ -6,12 +6,19 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //div[@class='swatch']/a/@href
-    regExp: (https:\/\/www.appliancesonline.com.au)?(.+)
-    regExpReplace: www.appliancesonline.com.au$2
+    xpath: //div[contains(text(),"Größe")]//following::div[contains(@class,'TileContainer-sc-1so4cwz')]/text()
+    # regExp: (https://www.ottoversand.at)?(.+)
+    # regExpReplace: https://www.ottoversand.at$2
   - name: variantUrl
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //div[@class='swatch']/a/@href
-    regExp: (https:\/\/www.appliancesonline.com.au)?(.+)
-    regExpReplace: www.appliancesonline.com.au$2
+    xpath: //div[contains(text(),"Größe")]//following::div[contains(@class,'TileContainer-sc-1so4cwz')]/text()
+  - name: productUrl
+    singleValue: true
+    description: Taken for use in transform
+    #xpath: //div[@id="fragment-product-master"]//script[@id="schemaorg-product"]//text()
+    xpath: //link[contains(@rel,'canonical')]//@href
+  - name: sku
+    singleValue: true
+    description: Taken for use in transform
+    xpath: //span[contains(@class,'OrderNumber-sc-16ohlta ihUzmb')]/text()

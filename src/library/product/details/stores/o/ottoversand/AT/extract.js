@@ -5,20 +5,21 @@ module.exports = {
   parameterValues: {
     country: 'AT',
     store: 'ottoversand',
-    transform: null,
+    transform,
     domain: 'ottoversand.at',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain,transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {      
       
      const productInfo = preFetchProductDetails();
       addEleToDoc('skuId', productInfo.sku);
-      addEleToDoc('agreegateRatingId',productInfo.aggregateRating.ratingValue);
+      if(typeof productInfo.aggregateRating !== "undefined")
+      {
+        addEleToDoc('agreegateRatingId',productInfo.aggregateRating.ratingValue);
+      }
       addEleToDoc('priceId',productInfo.offers.price);
       addEleToDoc('currencyId',productInfo.offers.priceCurrency);
-
-
 
       function preFetchProductDetails () {
         let productInfo = findProductDetails('//script[@type="application/ld+json" and @id="schemaorg-product"]');        
@@ -41,6 +42,8 @@ module.exports = {
       }
 
     });
-    return await context.extract(productDetails);
+    
+    //return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform: transformParam });
   },  
 };

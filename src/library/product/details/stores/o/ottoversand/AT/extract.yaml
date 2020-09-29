@@ -71,7 +71,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[contains(@class,'BrandImageWrapper-sc-g3lp1v hImRjX')]//a//img/@alt
+    # xpath: //div[contains(@class,'BrandImageWrapper-sc-g3lp1v hImRjX')]//a//img/@alt
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -95,6 +95,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //*[contains(@id,"skuId")]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -141,11 +142,13 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    xpath: count(//div[contains(@class,'TilesContainer-sc-gvw13e fPnUeK')]/div[contains(@class,'TileContainer-sc-1so4cwz hnwqWq')])
     type: NUMBER
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //div[contains(@class,'TextElement-sc-19laj2z gXOLpv')]
+    # xpath: //div[contains(@class,'TextElement-sc-19laj2z gXOLpv')]
+    xpath: //div[contains(@class,'TextElement-sc-19laj2z gXOLpv')] | //div[contains(@class,'ProductSelectionContainer-sc-1m3eevz rfSgt')]//div[contains(text(),"Farbe")]/strong
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -452,7 +455,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
-    xpath: //div[contains(@class,'sc-pczax jdnwCF')]/span
+    xpath: //div[contains(@class,"StyledPayback-sc-wfkxog jA-DdQj")]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -472,7 +475,8 @@ fields:
     singleValue: true
     description: colour / scent / flavour / other
   - name: firstVariant
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(text(),"Größe")]//following::div[contains(@class,'TileContainer-sc-1so4cwz')]/text()|//span[contains(@class,'OrderNumber-sc-16ohlta ihUzmb')]/text()
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -485,8 +489,10 @@ fields:
   - name: variants
     singleValue: false
     description: null
-    type: NUMBER
-    xpath: //div[contains(@class,'TilesContainer-sc-gvw13e fPnUeK')]/div[contains(@class,'TileContainer-sc-1so4cwz hnwqWq')]
+    # type: NUMBER
+    # xpath: //div[contains(@class,'TilesContainer-sc-gvw13e fPnUeK')]/div[contains(@class,'TileContainer-sc-1so4cwz hnwqWq')]
+    # xpath: //div[contains(text(),"Größe")]//following::div[contains(@class,'TileContainer-sc-1so4cwz')]/text()
+    xpath: //span[contains(@class,'OrderNumber-sc-16ohlta ihUzmb')]/text() | //div[contains(text(),"Größe")]//following::div[contains(@class,'TileContainer-sc-1so4cwz')]/text()
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
