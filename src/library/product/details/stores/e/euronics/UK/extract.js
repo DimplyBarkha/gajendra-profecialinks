@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 async function implementation (
   inputs,
   parameters,
@@ -242,7 +242,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'euronics',
-    transform: transform,
+    transform: cleanUp,
     domain: 'euronics.co.ok',
   },
   implementation,
