@@ -44,6 +44,29 @@ const transform = (data) => {
 			if (row.promotion) {		
 				row.promotion = [{ text: row.promotion[0].text.trim(), xpath: row.promotion[0].xpath }];
 			}
+
+			if (row.tempWeight) {
+				let netWeight = [];
+				let grossWeight = [];
+				if(row.tempWeight.length == 1){
+					netWeight.push({
+						text: row.tempWeight[0].text.trim(),
+						xpath: row.tempWeight[0].xpath
+					});
+				} else if (row.tempWeight.length > 1) {
+					netWeight.push({
+						text: row.tempWeight[1].text.trim(),
+						xpath: row.tempWeight[1].xpath
+					});
+
+					grossWeight.push({
+						text: row.tempWeight[0].text.trim(),
+						xpath: row.tempWeight[0].xpath
+					});
+				}
+				row.weightNet = netWeight;
+				row.weightGross = grossWeight;
+			}
 		}
 	}
 

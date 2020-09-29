@@ -64,10 +64,13 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath: //div[contains(@class, "flix-tech-spacs-contents")]//ul//li//div//div[contains(text(), "Weight")]//following-sibling::div
+    # xpath: //div[contains(@class, "flix-tech-spacs-contents")]//ul//li//div//div[contains(text(), "Weight")]//following-sibling::div
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
+    # xpath: //div[contains(@class, "flix-tech-spacs-contents")]//ul//li//div//div[contains(text(), "Weight")]//following-sibling::div
+  - name: tempWeight
+    singleValue: false
     xpath: //div[contains(@class, "flix-tech-spacs-contents")]//ul//li//div//div[contains(text(), "Weight")]//following-sibling::div
   - name: gtin
     singleValue: true
