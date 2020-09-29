@@ -89,7 +89,7 @@ const transform = (data) => {
 					else{
 						item.text = item.text + ' || ';
 					}	
-					newText += `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
+					newText += `${item.text.replace(/\n|&dash;|\r/g, '')}`;
 					itemp = itemp + 1;
 				});		
 				newText3=newText.trim();				
@@ -107,7 +107,7 @@ const transform = (data) => {
 					else{
 						item.text = item.text + ' || ';
 					}	
-					newText += `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
+					newText += `${item.text.replace(/\n|&dash;|\r/g, '')}`;
 					itemp = itemp + 1;
 				});		
 				newText4 = newText.trim()
