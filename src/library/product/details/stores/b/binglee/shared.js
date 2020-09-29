@@ -5,30 +5,37 @@
 * @returns {ImportIO.Group[]}
 */
 
-const transform = (data,context) => {
+const transform = (data, context) => {
   //var $ = context.jQuery;
   //var jsonLD = $('script[type="application/ld+json"]');
   //console.log("data0=============="+JSON.stringify(data))
   for (const { group } of data) {
-    for (const row of group) {  
-     // console.log("row=============="+JSON.stringify(row))   
+    for (const row of group) {
+      // console.log("row=============="+JSON.stringify(row))   
 
       if (row.ratingCount) {
         let text = '';
         row.ratingCount.forEach(item => {
-         // console.log("ratingCount======"+JSON.stringify(JSON.parse(item.raw).aggregateRating.reviewCount));
+          // console.log("ratingCount======"+JSON.stringify(JSON.parse(item.raw).aggregateRating.reviewCount));
           text = JSON.parse(item.raw).aggregateRating.reviewCount;
         });
         row.ratingCount = [{ text }];
       }
 
-      if (row.aggregateRating) {
+      if (row.aggregateRating2) {
         let text = '';
-        row.aggregateRating.forEach(item => {
+        row.aggregateRating2.forEach(item => {
+          console.log('IIIII', item);
           //console.log("aggregateRating======"+JSON.stringify(JSON.parse(item.raw).aggregateRating.ratingValue));
-          text = JSON.parse(item.raw).aggregateRating.ratingValue;
+          if (item.text) {
+            if (JSON.parse(item.text)) {
+              text = JSON.parse(item.text).aggregateRating.ratingValue.toString().replace('.', ',')
+            }
+          }
+          
+            console.log('TTTTTTTT', text)
         });
-        row.aggregateRating = [{ text }];
+        row.aggregateRating2 = [{ text }];
       }
 
     }
