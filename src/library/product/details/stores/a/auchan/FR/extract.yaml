@@ -67,7 +67,7 @@ fields:
     singleValue: false
     description: selected variant of product
     xpath: (//div[contains(@class, 'product-detail--reference')]//span/text())[position() = 1]
-    regExp: (.*)\:(.*)
+    regExp: (.*)\:\s*([^\s]*)
     regExpReplace: $2
   - name: variantCount
     singleValue: false
