@@ -14,6 +14,7 @@ module.exports = {
     context,
     dependencies,
   ) => {
+
     const iframeLink = 'iframe[id="eky-dyson-iframe"]';
 
     const optionalWait = async (sel) => {
@@ -109,6 +110,12 @@ module.exports = {
     await context.evaluate(function () {
       const isFound = document.querySelector('div#inpage_container img[data-flixsrcset*="flixcar"]');
       const isVideo = document.querySelector('#pdp-carousel-video a');
+      const nameExtended = document.querySelector('h1[itemprop="name"]');
+      if (nameExtended) {
+        let extended = nameExtended.innerText.replace(/Dyson/g, '');
+        const body = document.querySelector('body');
+        body.setAttribute('nameextended', extended);
+      }
       if (isFound) {
         const images = [];
 

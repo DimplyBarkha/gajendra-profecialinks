@@ -15,7 +15,7 @@ fields:
   - name: category
     xpath: //div[contains(@class,"breadcrumb")]//div[@class="breadcrumb-element-wrapper"][position()>1]//div[@itemprop="itemListElement"]//meta[@itemprop="url"]/preceding-sibling::meta[@itemprop="name"]/@content
   - name: nameExtended
-    xpath: //meta[@property="og:title"]/@content
+    xpath: //body/@nameextended
   - name: listPrice
     xpath: //div[@id="product-content-wrapper"]//div[@itemprop="offers"]//span[contains(@class,"was-price")]
   - name: price
@@ -26,7 +26,7 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    xpath: //div[@itemprop="description"]
+    xpath: //div[@itemprop="description"]/p | //div[@itemprop="description"]//li | //div[@itemprop="description"]/p | //div[@itemprop="description"]/text()
   - name: descriptionBullets
     xpath: count(//div[@itemprop="description"]//li)
   - name: brandText
@@ -46,13 +46,11 @@ fields:
     regExp: (.+)(ean=)(.+)(&br.+)
     regExpReplace: $3
   - name: sku
-    xpath: //meta[@property="og:url"]/@content
+    xpath: //div[@id="product-content"]//span[@itemprop="url"]
     regExp: (.+/)(.+)(\..+)
     regExpReplace: $2
   - name: variantId
-    xpath: //meta[@property="og:url"]/@content
-    regExp: (.+/)(.+)(\..+)
-    regExpReplace: $2
+    xpath: //div[@id="pdpMain"]/@data-master-product-id
   - name: mpc
     xpath: //h1//span[@class="product-collection"]
   - name: packSize
@@ -75,8 +73,9 @@ fields:
   - name: shippingDimensions
   - name: shippingWeight
   - name: variantCount
-    xpath: count(//ul[contains(@class,"color")]//li//img/@alt|//select//option[not(contains(.,"No Size"))][position()>1])
+    xpath: count(//ul[contains(@class,"color")]//li[position()>1]//a | //select//option[not(contains(.,"No Size"))][not(contains(@selected,"selected"))][position()>1])
   - name: color
+    xpath: //ul[contains(@class,"color")]//li[position()=1]//a//img/@alt
   - name: colorCode
   - name: manufacturerDescription
     xpath: //div[@id="inpage_container"]|//body/@enhancedcontent
@@ -101,3 +100,5 @@ fields:
     description: colour / scent / flavour / other
   - name: firstVariant
   - name: variants
+  - name: additionalDescBulletInfo
+    xpath: //div[@itemprop="description"]//li

@@ -27,6 +27,14 @@ const transform = (data) => {
         row.manufacturerDescription = [{ text }];
       }
 
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text = text + (text ? ' || ' : '') + item.text;
+        });
+        row.description = [{ text }];
+      }
+
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(item => {
           if (item.text.startsWith('|')) {
@@ -57,6 +65,14 @@ const transform = (data) => {
           text = text + (text ? ' | ' : '') + item.text;
         });
         row.variantInformation = [{ text }];
+      }
+
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text = text + (text ? ' || ' : '') + item.text;
+        });
+        row.additionalDescBulletInfo = [{ text }];
       }
     }
   }

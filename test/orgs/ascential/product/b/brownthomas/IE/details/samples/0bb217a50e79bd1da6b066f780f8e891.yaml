@@ -2,7 +2,7 @@ input:
   id: 136544867
   _url: http://brownthomas.com
 extractions:
-  - html: https://workbench.import.io/html/run=23e48467-18eb-4b74-9ff1-98c9fce063f0/task=4095cd29-9ff9-4297-ab00-98f7d0d031c6/8c121b54-17e8-4a56-b2a9-3f26af0c402a.html
+  - html: https://workbench.import.io/html/run=8e255571-151b-472a-9072-3b6c78e6d6b4/task=75eef3a5-e68e-4294-9602-6553e8395695/d89a7fe3-baf7-466e-a897-7741129eb080.html
     extractionConfigId: product/details/stores/b/brownthomas/IE/extract
     data:
       - group:
@@ -28,8 +28,11 @@ extractions:
               - text: https://i8.amplience.net/i/brown_thomas/5661x516741x30978101_08
                 xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/ul[1]/li[9]/a[1]/picture[1]/img[1]/@data-src
             nameExtended:
-              - text: DYSON 30978101 Airwrap™ Volume + Shape - Multi
-                xpath: /html/head[1]/meta[12]/@content
+              - text: |-
+                  DYSON
+                  30978101
+                  Airwrap™ Volume + Shape
+                xpath: /html/body/@nameextended
             listPrice:
               - text: was €449.99
                 xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/span[2]
@@ -42,29 +45,32 @@ extractions:
               - text: In Stock
                 xpath: /html/head[1]/meta[7]/@content
             description:
-              - text: >-
-                  Hair care, re-engineered. 
-                   Discover Dyson hair care technology. 
-                   Powerful, precise styling with no extreme heat. Helps protect your natural shine, every time you style. 
-                   Curl. Wave. Smooth. Dry. With no extreme heat. Explore the Dyson Airwrap™ styler. 
-                   
-                   Dyson Airwrap™ styler Volume+Shape
-
-                   
-                  30mm Airwrap™ barrels
-                   
-                  Soft smoothing brush
-                   
-                  Round volumising brush
-                   
-                  Pre-styling dryer
-                   
-                  Storage case
-                   
-                  Non-slip Mat
-                   
-                  Filter cleaning brush
-                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]
+              - text: Hair care, re-engineered.
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/text()[1]
+              - text: Discover Dyson hair care technology.
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/text()[2]
+              - text: Powerful, precise styling with no extreme heat. Helps protect your natural
+                  shine, every time you style.
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/text()[3]
+              - text: Curl. Wave. Smooth. Dry. With no extreme heat. Explore the Dyson Airwrap™
+                  styler.
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/text()[4]
+              - text: Dyson Airwrap™ styler Volume+Shape
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[1]
+              - text: 30mm Airwrap™ barrels
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[3]
+              - text: Soft smoothing brush
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[5]
+              - text: Round volumising brush
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[7]
+              - text: Pre-styling dryer
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[9]
+              - text: Storage case
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[11]
+              - text: Non-slip Mat
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[13]
+              - text: Filter cleaning brush
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[15]
             brandText:
               - text: DYSON
                 xpath: /html/head[1]/meta[8]/@content
@@ -130,10 +136,10 @@ extractions:
                 xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/script[1]/@src
             sku:
               - text: "136544867"
-                xpath: /html/head[1]/meta[11]/@content
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/span[1]
             variantId:
-              - text: "136544867"
-                xpath: /html/head[1]/meta[11]/@content
+              - text: 5661x516741x30978101
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/@data-master-product-id
             mpc:
               - text: "30978101"
                 xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/h1[1]/span[1]
@@ -146,6 +152,9 @@ extractions:
             aggregateRating:
               - text: "5.0"
                 xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/div[1]/div[1]/a[1]/@aria-label
+            color:
+              - text: Multi
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[2]/ul[1]/li[1]/a[1]/img[1]/@alt
             manufacturerDescription:
               - text: >-
                   Curl. Wave. Smooth. Dry.
@@ -570,18 +579,34 @@ extractions:
               - text: "|
                   https://i8.amplience.net/v/brown_thomas/5661x516741x30978101_v/mp4_720p"
                 xpath: /html/body/@videosele
-              - text: https://media.flixcar.com/delivery/static/jwplayer/jwiframe.html?fjw=%7B%22playlist%22%3A%5B%7B%22file%22%3A%22%5C%2F%5C%2Fcontent.jwplatform.com%5C%2Fvideos%5C%2F5FXipqHh-oPzTg8Ym.mp4%22%2C%22image%22%3A%22%5C%2F%5C%2Fassets-jpcust.jwpsrv.com%5C%2Fthumbs%5C%2F5FXipqHh-1280.jpg%22%2C%22mediaid%22%3A%225FXipqHh%22%2C%22code%22%3A%22feature-1-Curl.%20Wave.%20Smooth.%20Dry.%3Cbr%3EWith%20no%20extreme%20heat.%22%7D%5D%2C%22listbar%22%3A%7B%22position%22%3A%22right%22%2C%22size%22%3A%22234%22%7D%7D&vidno=undefined&p=1501527&d=14330&l=en&sid=7B6ECDD9-1FDD-6278-EEC2-BFAC10357AA8&mpn=30978101&ean=5025155037232&base=//media.flixcar.com&pn=https|dub|forwww.brownthomas.com/tech-skus/airwrap-volume-shape/136544867.html
+              - text: https://media.flixcar.com/delivery/static/jwplayer/jwiframe.html?fjw=%7B%22playlist%22%3A%5B%7B%22file%22%3A%22%5C%2F%5C%2Fcontent.jwplatform.com%5C%2Fvideos%5C%2F5FXipqHh-oPzTg8Ym.mp4%22%2C%22image%22%3A%22%5C%2F%5C%2Fassets-jpcust.jwpsrv.com%5C%2Fthumbs%5C%2F5FXipqHh-1280.jpg%22%2C%22mediaid%22%3A%225FXipqHh%22%2C%22code%22%3A%22feature-1-Curl.%20Wave.%20Smooth.%20Dry.%3Cbr%3EWith%20no%20extreme%20heat.%22%7D%5D%2C%22listbar%22%3A%7B%22position%22%3A%22right%22%2C%22size%22%3A%22234%22%7D%7D&vidno=undefined&p=1501527&d=14330&l=en&sid=4639EECA-7487-68FA-B515-279814128B05&mpn=30978101&ean=5025155037232&base=//media.flixcar.com&pn=https|dub|forwww.brownthomas.com/tech-skus/airwrap-volume-shape/136544867.html
                 xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[5]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/iframe[1]/@src
             name:
               - text: Airwrap™ Volume + Shape
                 xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/h1[1]/span[2]
+            variantInformation:
+              - text: Multi
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[2]/ul[1]/li[1]/a[1]/img[1]/@alt
+            additionalDescBulletInfo:
+              - text: Dyson Airwrap™ styler Volume+Shape
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[1]
+              - text: 30mm Airwrap™ barrels
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[3]
+              - text: Soft smoothing brush
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[5]
+              - text: Round volumising brush
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[7]
+              - text: Pre-styling dryer
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[9]
+              - text: Storage case
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[11]
+              - text: Non-slip Mat
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[13]
+              - text: Filter cleaning brush
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/li[15]
             descriptionBullets:
               - text: "15"
             variantCount:
-              - text: "1"
-            variantInformation:
-              - text: |2
-                   
-                  No Size
+              - text: "0"
         xpath: /
-    timestamp: 1600845150950
+    timestamp: 1601305856177
