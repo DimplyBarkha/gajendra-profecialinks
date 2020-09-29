@@ -1,9 +1,13 @@
 extends: ../shared 
 fields:
   - name: image
-    xpath: (//div[contains(@class,'hero__media')]//img)[1]/@src
+    xpath: (//div[contains(@class,'hero__media')]//img)[1]/@src|(//div[contains(@class,'hgroup__main-image')]//img)[1]/@src
   - name: imageAlt
-    xpath: (//div[contains(@class,'hero__media')]//img)[1]/@alt
+    xpath: (//div[contains(@class,'hero__media')]//img)[1]/@alt|(//div[contains(@class,'hgroup__main-image')]//img)[1]/@alt
+  - name: alternateImages #missing
+    singleValue: false
+    xpath: //div[contains(@class, "slider__list__slide")]//img/@src
+    description: Other product images (not in manufacturer description)
   - name: nameExtended
     singleValue: true
     xpath: //h2[contains(concat(' ',normalize-space(@class),' '),'hgroup__title')] | //div[@class="hgroup__image"]//h1
@@ -28,7 +32,7 @@ fields:
   - name: weightNet #localedependent
     singleValue: true
     regExp: ([0-9,\.]+.+)
-    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),'g-wrap')]//li[.//*[contains(text(), 'Weight')]])[1]
+    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),'g-wrap')]//li[.//*[contains(text(), 'Waga')]])[1]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -37,10 +41,10 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //script[contains(text(), "productSKU")]
-  - name: mpc
-    singleValue: true
-    description: The manufacturer model code (unique) of the product
-    xpath: //script[contains(text(), "productSKU")]
+  # - name: mpc
+  #   singleValue: true
+  #   description: The manufacturer model code (unique) of the product
+  #   xpath: //script[contains(text(), "productSKU")]
   - name: ratingCount
     singleValue: true
     xpath: (//span[@itemprop="reviewCount"])
@@ -77,3 +81,11 @@ fields:
     singleValue: false
     description: null
     xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//li
+  - name: termsAndConditions #localedependent
+    singleValue: false
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: specifications
+    singleValue: false
+    description: The physical dimensions of the product including packaging.
+    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),'g-wrap')]//li[.//*[contains(text(), 'Długość') or contains(text(), 'Szerokość') or contains(text(), 'Wysokość') or contains(text(), 'Średnica')] ])
