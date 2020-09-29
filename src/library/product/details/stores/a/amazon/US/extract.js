@@ -61,6 +61,11 @@ async function implementation (
   await getLbb();
   await helpers.addURLtoDocument('added-url');
   await helpers.addURLtoDocument('added-asin', true);
+  const variants = await amazonHelp.getVariants();
+
+  if (variants && variants.length) {
+    helpers.addItemToDocument('my-variants', variants.join(' | '));
+  }
 
   await context.extract(productDetails, { transform });
 }

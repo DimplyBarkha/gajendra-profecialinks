@@ -5,6 +5,10 @@ module.exports.implementation = async function implementation (
   dependencies,
 ) {
   const { variants } = dependencies;
+  // const { variants, Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
+
+  // const helpers = new Helpers(context);
+  // const amazonHelp = new AmazonHelp(context, helpers);
 
   await context.evaluate(function () {
     function getVariants () {
@@ -75,19 +79,22 @@ module.exports.implementation = async function implementation (
       return newDiv;
     }
     const url = window.location.href;
-    const splits = url && url.split('dp/product/')[1] ? url.split('dp/product/')[1].split('/?') : [];
-    const mainId = (splits.length > 1) ? splits[splits.length - 2] : '';
-    addHiddenDiv('ii_variant', mainId);
+    let splits = url && url.split('dp/product/')[1] ? url.split('dp/product/')[1].split('/?') : [];
+    if (splits.length < 1) {
+      splits = url && url.split('dp/')[1] ? url.split('dp/')[1].split('/') : [];
+    }
+    // if (splits[0]){
+    //   addHiddenDiv('ii_variant', splits[0]);
+    // }
 
     const allVariants = [...new Set(getVariants())];
-    if (allVariants.length < 1) {
-      addHiddenDiv('ii_variant', url.split('/dp/')[1]);
+    if (splits[0] && !allVariants.includes(splits[0].slice(0, 10))) {
+      allVariants.push(splits[0].slice(0, 10));
     }
 
-    for (let i = 0; i < allVariants.length; i++) {
-      const id = allVariants[i];
-      addHiddenDiv('ii_variant', id);
-    }
+    allVariants.forEach(variant => {
+      addHiddenDiv('ii_variant', variant);
+    });
   });
   return await context.extract(variants);
 };
