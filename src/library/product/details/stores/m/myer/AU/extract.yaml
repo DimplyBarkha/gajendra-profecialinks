@@ -25,12 +25,12 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[contains(@class,'css-gh4o5n')]//div[contains(@class,'css-841znr')]//h1
+    xpath: //meta[@name='description']//@content
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[contains(@class,'css-j12b3k')]//p[2]//span
+    xpath: //online-price[@id='online-price']
   - name: availabilityText
     singleValue: true
     xpath: //div[contains(@class,'css-1brxp6w')]
@@ -60,10 +60,11 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath : //h1[@class='css-1nb9gtf']/div/span[1]
+    xpath : //ul//li[contains(text(),'Product weight:')]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
+    xpath : //ul//li[contains(text(),'Box weight:')]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -88,6 +89,8 @@ fields:
     singleValue: true
     description: Content under "legal disclaimer" header
     xpath: //link[@rel="canonical"]/@href
+    # regExp: (.+)
+    # regExpReplace: https://myer.com.au$1
   - name: name
     singleValue: true
     xpath: //div/h1[@class='css-1nb9gtf']/div/span[2]
@@ -168,7 +171,7 @@ fields:
     xpath: //div[@id='combined-product-description']//p[@data-automation='product-part-number']//span
   - name: listPrice
     singleValue: true
-    xpath: //div[contains(@class,'css-j12b3k')]//p[1]//span
+    xpath: //list-price[@id='list-price']
   - name: colorCode
     singleValue: true
     xpath : //div[@class='css-1i2mwr2']/span
