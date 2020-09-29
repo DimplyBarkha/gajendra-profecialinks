@@ -89,6 +89,7 @@ fields:
     xpath: //meta[@property='og:url']/@content
   - name: videos
     singleValue: false
+    xpath: //input[@class="flix-jw"]//@value
   - name: name
     singleValue: true
     xpath: //meta[@property = "og:title"]/@content
@@ -116,17 +117,17 @@ fields:
   - name: color
     singleValue: false
     xpath: //table[@id = "product-attribute-specs-table"]//tbody//tr//th[contains(text(), "Colour")]//following-sibling::td
-  - name: mnufacturerDescription
-    singleValue: false
-    xpath: //div[contains(@class, "inpage_selector_feature")]
   - name: manufacturerImages
     singleValue: true
     xpath: //img[contains(@class, "flix_logo")]//@src
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: //div[contains(@class, "inpage_selector_feature")]
   - name: packaging
     singleValue: false
   - name: promotion
     singleValue: true
-    xpath: //div[contains(@class,'price-box price-final_price')]//span[contains(@class,'special-price')]
+    xpath: //div[contains(@class, "tagline")]//span[not(contains(@class, "learn-more"))]
   - name: ratingCount
     singleValue: true
     xpath: sum(//div[contains(@class,'bv-inline-histogram-ratings-bar')]//@data-bv-histogram-rating-count)

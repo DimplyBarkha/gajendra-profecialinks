@@ -28,6 +28,22 @@ const transform = (data) => {
 				row.termsAndConditions = [{ text: newText }];
 			}
 
+			if (row.videos) {
+				let video = [];
+				row.videos.forEach(item => {
+					var newObj = JSON.parse(item.text.trim());
+					video.push({
+						text: newObj.playlist[0].file,
+						xpath: item.xpath
+					});
+				});
+		
+				row.videos = video;
+			}
+
+			if (row.promotion) {		
+				row.promotion = [{ text: row.promotion[0].text.trim(), xpath: row.promotion[0].xpath }];
+			}
 		}
 	}
 
