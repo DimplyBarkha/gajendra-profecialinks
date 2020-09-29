@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //img[@class='bop-gallery__image']/@src
+    xpath: //div[contains(@class, 'chosen')]//img[@class='bop-gallery__image']/@src
     regExp: (.+)
     regExpReplace: https://groceries.morrisons.com/$1
   - name: metaKeywords
@@ -13,5 +13,89 @@ fields:
     xpath: //a[@class='gn-breadcrumbs__path']
   - name: nameExtended
     xpath: //header[@class='bop-title']/h2
+  - name: price
+    xpath: //h2[contains(@class,'bop-price__current')]
+  - name: availabilityText
+    xpath: //div[@class='bop-outOfStock']/h1
+    defaultValue: In Stock
+  - name: description
+    xpath: //section[contains(@id, 'productInformation')]//div[contains(@class, 'gn-accordionElement') and contains(., 'Description')]//div[contains(@class, 'accordionElement__content--expanded')]
+  - name: ingredientsList
+    xpath: //h6[contains(., 'Ingredients')]/following-sibling::div[1]
   - name: brandText
     xpath: //h6[contains(., 'Brand')]/following-sibling::div[1]
+  - name: manufacturer
+    xpath: //div[contains(., 'Manufacturer') and contains(@class, 'bop-info__field')]
+  - name: sku
+    xpath: //iframe[contains(@title, 'sessionClientIframeUrl')]/@src
+  - name: directions
+    xpath: //h6[contains(., 'Preparation and Usage')]/following-sibling::div
+  - name: warnings
+    xpath: //div[contains(@class, 'bop-info__content') and contains(., 'Safety Warning')]/text()
+  - name: servingSize
+    xpath: //span[contains(@class, 'bop-price__per')]
+    regExp: >-
+      (.+)per(.\d+)(.+)
+    regExpReplace: $2
+  - name: pricePerUnit
+    xpath: //span[contains(@class, 'bop-price__per')]
+    regExp: >-
+      (.+)per(.\d+)(.+)
+    regExpReplace: $1
+  - name: servingSizeUom
+    xpath: //span[contains(@class, 'bop-price__per')]
+    regExp: >-
+      (.+)per(.\d+)(.+)
+    regExpReplace: $3
+  - name: caloriesPerServing
+    xpath: concat(//tr[contains(., 'Energy')]/td[2],"/",//tr[contains(., 'Energy')]/following-sibling::tr/td[2])
+  - name: totalFatPerServing
+    xpath: //tr[contains(., 'Fat')]/td[2]
+  - name: saturatedFatPerServing
+    xpath: //tr[contains(., 'of which saturates') or contains(.,'Of which saturates')]/td[2]
+  - name: sodiumPerServing
+    xpath: //tr[contains(., 'Sodium')]/td[2]
+  - name: totalCarbPerServing
+    xpath: //tr[contains(., 'Carbohydrates')]/td[2]
+  - name: dietaryFibrePerServing
+    xpath: //tr[contains(., 'Fibre')]/td[2]
+  - name: totalSugarsPerServing
+    xpath: //tr[contains(., 'of which sugars')]/td[2] | //tr[contains(., 'Of which sugars')]/td[2]
+  - name: proteinPerServing
+    xpath: //tr[contains(., 'Protein')]/td[2]
+  - name: vitaminAPerServing
+    xpath: //tr[contains(., 'Vitamin A')]/td[2]
+  - name: vitaminCPerServing
+    xpath: //tr[contains(., 'Vitamin C')]/td[2]
+  - name: calciumPerServing
+    xpath: //tr[contains(., 'Calcium')]/td[2]
+  - name: ironPerServing
+    xpath: //tr[contains(., 'Iron')]/td[2]
+  - name: alternateImages
+    xpath: //img[contains(@class, 'bop-gallery__miniature') and not(contains(@class, 'chosen'))]/@src
+    regExp: (.+)75x75(.+)
+    regExpReplace: https://groceries.morrisons.com$1640x640$2
+  - name: ratingCount
+    xpath: //span[contains(@class, 'gn-rating__voteCount')]
+    regExp: (\d+)
+  - name: aggregateRating
+    xpath: //div[contains(@class, 'bop-titleInfoWrapper')]//meta[@itemprop='ratingValue']/@content
+  - name: aggregateRating2
+    xpath: //div[contains(@class, 'bop-titleInfoWrapper')]//meta[@itemprop='ratingValue']/@content
+  - name: storage
+    xpath: //h6[contains(., 'Storage')]/following-sibling::div
+  - name: allergyAdvice
+    xpath: //h6[contains(., 'Dietary Information')]/following-sibling::div
+  - name: recyclingInformation
+    xpath: //h6[contains(., 'Recycling Information')]/following-sibling::div
+  - name: saltPerServing
+    xpath: //tr[contains(., 'salt') or contains(., 'Salt')]/td[2]
+  - name: promotion
+    xpath: //p[contains(@class, 'bop-promotion__title--offer')]
+  - name: listPrice
+    xpath: //span[contains(@class, 'bop-price__old')]
+  - name: alcoholContent
+    xpath: //div[contains(@class, 'bop-info__content')]//text()[contains(.,'Alcohol By Volume')]
+    regExp: >-
+      (.+):(.+)
+    regExpReplace: $2
