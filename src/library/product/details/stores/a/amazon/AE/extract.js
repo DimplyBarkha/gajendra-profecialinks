@@ -7,7 +7,7 @@ const { transform } = require('../../../../sharedAmazon/transformNew');
  * @param { Record<string, any> } dependencies
  */
 
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -33,7 +33,7 @@ async function implementation (
     }
   };
   // Code to fetch aplus (enhanced content)
-  async function waitForAplus () {
+  async function waitForAplus() {
     // Scrolling to bottom of page where aplus images are located
     await new Promise((resolve) => setTimeout(resolve, 3000));
     await context.evaluate(async function () {
@@ -70,14 +70,14 @@ async function implementation (
   }
   // Code to get lbb and adding new div in dom for customise fields.
   await context.evaluate(async () => {
-    function addHiddenDiv (id, content) {
+    function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    async function getLbb (otherSellersDocument) {
+    async function getLbb(otherSellersDocument) {
       if (otherSellersDocument) {
         const otherSellersDiv = "div#olpOfferList div[class*='olpOffer']";
         const shipFromOri = document.querySelector('div#buybox-tabular tr:nth-child(1) td:nth-child(2)');

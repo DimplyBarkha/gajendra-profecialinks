@@ -1,4 +1,4 @@
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -7,7 +7,7 @@ async function implementation (
   const { variants } = dependencies;
 
   await context.evaluate(function () {
-    function getVariants () {
+    function getVariants() {
       const variantList = [];
       const variantCards = document.querySelectorAll('li[data-defaultasin]');
       const variantDropdown = document.querySelectorAll('[id*="variation"] option');
@@ -66,7 +66,7 @@ async function implementation (
       return variantList;
     }
 
-    function addHiddenDiv (id, content) {
+    function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
