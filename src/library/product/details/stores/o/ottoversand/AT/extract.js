@@ -18,7 +18,8 @@ module.exports = {
       {
         addEleToDoc('agreegateRatingId',productInfo.aggregateRating.ratingValue);
       }
-      addEleToDoc('priceId',productInfo.offers.price);
+            
+      addEleToDoc('priceId',productInfo.offers.price.replace('.',','));
       addEleToDoc('currencyId',productInfo.offers.priceCurrency);
 
       function preFetchProductDetails () {
