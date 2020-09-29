@@ -1,3 +1,4 @@
+const { transform } = require('../../../../shared');
 async function implementation (
   inputs,
   parameters,
@@ -33,6 +34,7 @@ async function implementation (
           id,
           thumbnail,
           url,
+          searchUrl: window.location.href,
         });
       }
     });
@@ -50,10 +52,10 @@ async function implementation (
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-
       addHiddenDiv('name', result.name);
       addHiddenDiv('productUrl', result.url);
       addHiddenDiv('thumbnail', result.thumbnail);
+      addHiddenDiv('added-searchurl', result.searchUrl);
       const skuScript = document.evaluate('//script[contains(text(),"SKU")]', document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
       if (skuScript && skuScript.singleNodeValue) {
         addHiddenDiv('id', skuScript.singleNodeValue.innerText.match(/productSKU: "(.*)",/)[1]);
@@ -65,15 +67,13 @@ async function implementation (
   return allResults;
 }
 
-const { transform } = require('../../../../shared');
-
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'IL',
+    country: 'IN',
     store: 'dyson',
     transform,
-    domain: 'dyson.co.il',
+    domain: 'dyson.in',
     zipcode: '',
   },
   implementation,
