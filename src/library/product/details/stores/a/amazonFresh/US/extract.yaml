@@ -25,9 +25,6 @@ fields:
   - name: _url
     singleValue: true
     xpath: //link[@rel='canonical']/@href
-  - name: _input
-    singleValue: true
-    xpath: //div[@id="added-id"]
   - name: category
     singleValue: false
     xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
@@ -145,7 +142,6 @@ fields:
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="aplus"]//img[not(contains(@data-src, "common"))]/@data-src | //div[contains(@class, "apm-tablemodule")]//img[not(contains(@src, "common"))]/@src | //div[@class="aplus"]//img/@src
-    # xpath: //div[@id="aplus"]//img[not(contains(@src, "common"))]/@src | //div[@id="aplus"]//img[not(contains(@src, "common"))]/@data-src
   - name: videos
     singleValue: false
     xpath: //script[contains(text(), "ImageBlockBTF")]/text()
@@ -158,9 +154,6 @@ fields:
   - name: productUrl
     singleValue: true
     xpath: //div[@id='added-url']
-  # - name: baseUrl
-  #   singleValue: true
-  #   xpath: //div[@id='added-url']
   - name: asin
     singleValue: true
     xpath: (//div[@id='added-asin']|//div[contains(@id, "averageCustomerReviews")]/@data-asin)[1]
