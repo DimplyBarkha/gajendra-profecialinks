@@ -68,7 +68,7 @@ fields:
     xpath: //script[contains(text(), "Product")]
   - name: variantId
     singleValue: true
-    xpath: //script[contains(text(), "Product")]
+    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
   - name: mpc
     singleValue: true
     xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Valmistajan tuotenumero')]/following::td[1]

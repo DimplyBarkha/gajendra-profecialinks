@@ -21,7 +21,6 @@ const transform = (data) => {
                         var skuJsonData = JSON.parse(skuJson);
                         if (skuJsonData) {
                             row.sku[0].text = skuJsonData.sku;
-                            row.variantId[0].text = skuJsonData.sku;
                         }
                     }
                 }
