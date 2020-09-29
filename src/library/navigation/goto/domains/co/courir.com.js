@@ -17,10 +17,14 @@ module.exports = {
     await context.setAntiFingerprint(false);
 
     const responseStatus = await context.goto(url, {
-      timeout: timeout,
-      waitUntil: 'load',
-      checkBlocked: true,
-      embed_iframes: true,
+      js_enabled: true,
+      css_enabled: true,
+      load_timeout: 30,
+      load_all_resources: true,
+      antiCaptchaOptions: {
+        provider: '2-captcha',
+        type: 'GEETEST',
+      },
     });
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
