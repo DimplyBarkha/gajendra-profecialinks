@@ -30,7 +30,9 @@ async function implementation (
   async function getAPIData (api) {
     const response = await fetch(api);
     const json = await response.json();
-
+    if (!json.data) {
+      return;
+    }
     const data = json.data.map(row => {
       row.SPECS = row.SPECS || [];
       row.FEATURES = row.FEATURES || [];
@@ -173,7 +175,9 @@ async function implementation (
       document.body.setAttribute('video', videos.join('|'));
     }
   });
-  await context.evaluate(generateDynamicTable, jsonData);
+  if (jsonData) {
+    await context.evaluate(generateDynamicTable, jsonData);
+  }
   await context.evaluate(addRating);
   const { transform } = parameters;
   const { productDetails } = dependencies;
