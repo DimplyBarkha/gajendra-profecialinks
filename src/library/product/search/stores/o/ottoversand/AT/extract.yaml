@@ -9,8 +9,9 @@ fields:
   - name: name
     xpath: //div[contains(@class,'NameNoBrand-sc-1ifpr6 juQXTU')]
     singleValue: false
-  - name: producturl
-    xpath: //a[contains(@class,'sc-psDhf bAPYME')]/@href
+  - name: productUrl
+    xpath: //a[@data-testid="product-link"]/@href
+    # xpath: //a[contains(@class,'sc-psDhf bAPYME')]/@href
     singleValue: false
     regExp: (https:\/\/www.ottoversand.at)?(.+)
     regExpReplace: https://www.ottoversand.at$2
@@ -23,4 +24,5 @@ fields:
   - name: price
     xpath: //div[contains(@class,'sc-qYUWV jpJVcE PriceWrapper-sc-p7sel8 cJzxCo')]/div
     singleValue: false
+    type: CURRENCY
   
