@@ -63,9 +63,8 @@ async function implementation (
     }
     if (document.querySelector('.productDetails__originalPrice') && document.querySelector('.productDetails__originalPrice').innerText) {
       addHiddenDiv('listPrice', document.querySelector('.productDetails__originalPrice').innerText.trim());
-    } else {
-      addHiddenDiv('listPrice', document.querySelector('.productDetails__price.pdpPrice').innerText.trim());
     }
+    
     if (document.querySelector('.productDetails__originalPrice') && document.querySelector('.productDetails__originalPrice').innerText && document.querySelector('.productDetails__discount') && document.querySelector('.productDetails__discount').innerText) {
       addHiddenDiv('promotion', document.querySelector('.productDetails__discount').innerText.trim());
     }

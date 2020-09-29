@@ -14,7 +14,7 @@ fields:
     xpath: //div[@id="alternateImages"]
   - name: metaKeywords
     singleValue: true
-    xpath: //meta[@name="description"]/@content
+    xpath: //meta[@name="keywords"]/@content
   - name: pageTimeStamp
     singleValue: true
     xpath: //div[@id="pageTimeStamp"]
@@ -30,9 +30,9 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //h1[@itemprop="name"]
-  - name: listPrice
-    singleValue: true
-    xpath: //div[@id="price"]
+  #- name: listPrice
+  #  singleValue: true
+  #  xpath: //div[@id="price"]
   - name: availabilityText
     singleValue: true
     xpath: //div[@id="availabilityText"]
