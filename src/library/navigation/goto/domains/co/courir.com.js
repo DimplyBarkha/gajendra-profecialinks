@@ -19,8 +19,21 @@ module.exports = {
     const responseStatus = await context.goto(url, {
       js_enabled: true,
       css_enabled: true,
-      load_timeout: 30,
+      discard_CSP_header: true,
+      embed_iframes: true,
+      images_enabled: true,
       load_all_resources: true,
+      force200: true,
+      block_ads: true,
+      proxy: {
+        use_relay_proxy: false,
+      },
+      anti_fingerprint: true,
+      first_request_timeout: 100,
+      timeout: 12000000,
+      goto_timeout: 100,
+      random_move_mouse: false,
+      load_timeout: 30,
       antiCaptchaOptions: {
         provider: '2-captcha',
         type: 'GEETEST',
@@ -48,6 +61,7 @@ module.exports = {
         autoSubmit: true,
       });
       console.log('solved captcha, waiting for page change');
+      await new Promise(r => setTimeout(r, 50000));
       await context.waitForNavigation({ timeout });
     }
   },
