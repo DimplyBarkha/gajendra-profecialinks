@@ -4,7 +4,7 @@ recordXPath: //div[contains(@data-component-type,"s-search-result") and not(cont
 recordSelector: null
 fields:
   - name: price
-    xpath: //span[@cel_widget_id="MAIN-SEARCH_RESULTS"]//div[contains(@class, "sg-col-inner")]/div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
+    xpath: //*[@class='a-price']/span[@class='a-offscreen']
     regExp: (.+)
     regExpReplace: $1
   - name: name
