@@ -63,6 +63,8 @@ module.exports = {
       // console.log('20 seconds delay');
       // const delay = t => new Promise(resolve => setTimeout(resolve, t));
       // await delay(20000);
+      // @ts-ignore
+      // eslint-disable-next-line no-undef
       await context.evaluateInFrame('iframe', () => grecaptcha.execute());
       await context.solveCaptcha({
         type: 'RECAPTCHA',
