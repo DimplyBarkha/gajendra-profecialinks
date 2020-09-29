@@ -64,7 +64,7 @@ fields:
     # type: NUMBER
   - name: brandText
     singleValue: true
-    xpath: //*[@id='bylineInfo']
+    xpath: //th[contains(text(),'Brand')]/following-sibling::*[1] | //*[@id='bylineInfo'] | //div[contains(@id, 'brandBar_feature_div')]
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
@@ -83,11 +83,11 @@ fields:
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
-    xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1] | //tr[contains(@class,'shipping-weight')][1]//td[2] | (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1] | //tr//td[contains(text(),'Product Dimensions')]/../td[2]| //*[contains(text(),'Package Dimensions')]/following-sibling::*[1]
+    xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1] | //tr[contains(@class,'shipping-weight')][1]//td[2] | (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1] | //tr//td[contains(text(),'Product Dimensions')]/../td[2]| //*[contains(text(),'Package Dimensions')]/following-sibling::*[1] | //div[contains(@id, 'detailBullets_feature_div')]//li[contains(.,'Product Dimensions')]
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'UPC')]/../td
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'UPC')]/../td | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Ean')]/../td
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
@@ -99,7 +99,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Model Number')]/../td | //tr[contains(@class,'item-model-number')][1]//td[2] | //*[contains(text(),'Model Number')]/following-sibling::*[1]
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Model Number')]/../td | //tr[contains(@class,'item-model-number')][1]//td[2] | //*[contains(text(),'Model Number')]/following-sibling::*[1] | //*[contains(text(),'Item model number')]/following-sibling::*[1]
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
@@ -137,7 +137,7 @@ fields:
     # type: NUMBER
   - name: shippingInfo
     singleValue: true
-    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]  | //div[contains(@id, 'merchant-info')]
+    xpath: //div[contains(@id, 'usedbuyBox')]//div[contains(@class, 'a-row') and contains(.,'by')] | //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]  | //div[contains(@id, 'merchant-info')]
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
@@ -145,7 +145,7 @@ fields:
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: true
-    xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1] | (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1] | //tr//td[contains(text(),'Product Dimensions')]/../td[2]| //*[contains(text(),'Package Dimensions')]/following-sibling::*[1]
+    xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1] | (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1] | //tr//td[contains(text(),'Product Dimensions')]/../td[2]| //*[contains(text(),'Package Dimensions')]/following-sibling::*[1] | //div[contains(@id, 'detailBullets_feature_div')]//li[contains(.,'Product Dimensions')]
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
@@ -154,7 +154,7 @@ fields:
     # type: NUMBER
   - name: color
     singleValue: true
-    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")] | //table[contains(@id,'productDetails_techSpec')]//th[contains(.,'Colour')]/following-sibling::td
+    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")] | //table[contains(@id,'productDetails_techSpec')]//th[contains(.,'Colour')]/following-sibling::td | //*[contains(.,'Color')]/following-sibling::td
     description: A textual description of the colour
   - name: colorCode
     singleValue: true
@@ -198,7 +198,7 @@ fields:
     xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-keyword")]//text()
   - name: brandLink
     singleValue: false
-    xpath: //a[@id="bylineInfo"]/@href
+    xpath: //a[@id="bylineInfo"]/@href | //div[contains(@id, 'brandBar_feature_div')]//a[contains(@id, 'brand')]/@href
     # regExp: (.+)
     # regExpReplace: http://www.amazon.co.uk$1
     description: null
@@ -351,7 +351,8 @@ fields:
     description: The size of serving Nutritional information is based on.
   - name: servingSizeUom
     singleValue: false
-    xpath: //*[contains(text(),'Serving')]/following-sibling::*[1]
+    xpath: //div[@id='ii_servingSizeUom']
+    # xpath: //*[contains(text(),'Serving')]/following-sibling::*[1]
     # regExp: >-
     #    (?:[\d]+(?:.[\d]+)?)\s{0,}(.*)
     # regExpReplace: $1
@@ -536,10 +537,10 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()] | //*[@class='secHeader']//*[contains(text(),'Additional')]/../following-sibling::*[1]//tbody/tr
+    xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()] | //*[@class='secHeader']//*[contains(text(),'Additional')]/../following-sibling::*[1]//tbody/tr | //table[contains(@id,'product-specification-table')]//tr
   - name: warranty
     singleValue: true
-    xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div | //table[contains(@id,'product-specification-table')]//th[contains(.,'Warranty')]/following-sibling::td
+    xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]//div[contains(@class,'table-padding')] | //table[contains(@id,'product-specification-table')]//th[contains(.,'Warranty')]/following-sibling::td
     description: Guarantee associated with the product
   - name: storage
     singleValue: true
@@ -578,7 +579,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
-    xpath: //span[contains(@class, 'priceBlockDealPriceString')] | //td[contains(@id, 'priceblock_dealprice_lbl')] | //td[contains(@class, 'priceBlockSaving')]
+    xpath: //tr[contains(@id, 'regularprice_savings')] | //span[contains(@class, 'priceBlockDealPriceString')] | //td[contains(@id, 'priceblock_dealprice_lbl')] | //td[contains(@class, 'priceBlockSaving')]
     description: promotion text on product page
   - name: alcoholContent
     singleValue: true
