@@ -56,7 +56,8 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //ul[contains(@class,'product-highlights')]//li
+    xpath: concat(//div[@id='inpage_container']," ",//div[@id="description"]//p , " ", //div[@id="description"]//ul[contains(@class,'product-features')])
+    # xpath: //ul[contains(@class,'product-highlights')]//li
     # xpath: //div[@id="description"]
   - name: descriptionBullets
     singleValue: true
@@ -165,7 +166,8 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@id='flix-std-inpage']//img//@srcset
+    xpath: //ul[contains(@class,'inpage_features_grid')]//img//@srcset
+    # xpath: //div[@id='flix-std-inpage']//img//@srcset
     regExp: (.+)
     regExpReplace: https://ek-onlineshop.at$1
   - name: videos
@@ -196,7 +198,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: concat(//div[@id="product-details"] ,' ',//li[contains(text(),'Breite')],' ',//li[contains(text(),'Höhe')],' ', //li[contains(text(),'Tiefe')],' ', //li[contains(text(),'Gewicht')],' ',//li[contains(text(),'integrierter')],' ',//li[contains(text(),'Wandmontage')])
+    xpath: concat(//div[@id="product-details"] ,' || ',//li[contains(text(),'Breite')],' || ',//li[contains(text(),'Höhe')],' || ', //li[contains(text(),'Tiefe')],' || ', //li[contains(text(),'Gewicht')],' || ',//li[contains(text(),'integrierter')],' || ',//li[contains(text(),'Wandmontage')])
     # xpath: //div[@id="product-details"]
   - name: warranty
     singleValue: true
@@ -248,6 +250,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: //ul[contains(@class,'product-highlights')]//li
     description: null
   - name: prop65Warning
     singleValue: true

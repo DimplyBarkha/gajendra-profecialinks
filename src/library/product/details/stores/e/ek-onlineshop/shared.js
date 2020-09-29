@@ -45,6 +45,43 @@ const transform = (data) => {
 						row.mpc = [{ text: row.mpc1[0].text.trim() }];
 					}								
 			  }
+			
+			 
+			  let newText1 = '';
+			  if (row.additionalDescBulletInfo) {
+				let newText = '';
+				let itemp=1;				
+				row.additionalDescBulletInfo.forEach(item => {	
+				if(itemp===row.additionalDescBulletInfo.length)
+				{
+					item.text = item.text;
+				}								
+				else{
+					item.text = item.text + ' || ';
+				}	
+				newText += `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
+				itemp = itemp+ 1;
+				});				
+				newText1 = newText;
+				row.additionalDescBulletInfo = [{ text: newText }];
+			  }
+
+			  if (row.description) {
+				let newText = '';
+				let itemp=1;				
+				row.description.forEach(item => {	
+					if(itemp===row.description.length)
+					{
+						item.text = item.text;
+					}								
+					else{
+						item.text = item.text + ' || ';
+					}	
+					newText += `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
+					itemp = itemp + 1;
+				});						
+				row.description = [{ text: newText + newText1 }];
+			  }
 
 
 		}
