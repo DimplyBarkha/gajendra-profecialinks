@@ -1,0 +1,51 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"product-blk")]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,"product-blk")]/@data-prodid
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"product-blk")]//span[@data-saleprice]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,"product-blk")]//a/@href
+    description: The URL for the product details page
+    regExp: https://www.rakuten.com(.*)
+    regExpReplace: https://www.rakuten.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,"product-blk")]//img/@src
+    regExp: (.*)-(\d+)X(\d+).jpeg
+    regExpReplace: $1-540X540.jpeg
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"product-blk")]//img/@alt
+  - name: aggregateRating
+    singleValue: false
+    xpath:
+    regExp: (.+)(\sout.+)
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath:
+    regExp: \d+
+  - name: reviewCount
+    singleValue: false
+    xpath:
+    regExp: \d+
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,"product-blk")]/@data-prodid
+  - name: rank
+    singleValue: false
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBERs
+  - name: soldBy
+    singleValue: false
+    xpath: //div[contains(@class,"product-blk")]//a/@data-amp-store_name
