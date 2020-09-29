@@ -112,7 +112,7 @@ async function implementation (
 
     if (document.querySelector('.nosto_product')) {
       addHiddenDiv('price', '€' + document.querySelector('.nosto_product').querySelector('.price').innerText);
-      if (document.querySelector('.nosto_product').querySelector('.price').innerText) !== document.querySelector('.nosto_product').querySelector('.list_price').innerText) {
+      if (document.querySelector('.nosto_product').querySelector('.price').innerText !== document.querySelector('.nosto_product').querySelector('.list_price').innerText) {
         addHiddenDiv('listPrice', '€' + document.querySelector('.nosto_product').querySelector('.list_price').innerText);
       }
     }
