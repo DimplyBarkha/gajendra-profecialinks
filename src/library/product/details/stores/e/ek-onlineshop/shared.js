@@ -65,11 +65,41 @@ const transform = (data) => {
 				newText1 = newText;
 				row.additionalDescBulletInfo = [{ text: newText.trim() }];
 			  }
-
+			
+			  let newText2="";
+			  if (row.description1) {
+				let newText = '';
+				let itemp=1;								
+				row.description1.forEach(item => {											
+					newText += `${item.text.replace(/\n|&dash;|\r/g, '')}`;
+					itemp = itemp + 1;
+				});		
+				newText2=newText.trim();				
+				row.description1 = [{ text: newText.trim() }];
+			  }
+			  let newText3="";
+			  if (row.description2) {
+				let newText = '';
+				let itemp=1;								
+				row.description2.forEach(item => {						
+					if(itemp===row.description2.length)
+					{
+						item.text = item.text;
+					}								
+					else{
+						item.text = item.text + ' || ';
+					}	
+					newText += `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
+					itemp = itemp + 1;
+				});		
+				newText3=newText.trim();				
+				row.description2 = [{ text: newText.trim() }];
+			  }
+			  let newText4="";
 			  if (row.description) {
 				let newText = '';
-				let itemp=1;				
-				row.description.forEach(item => {	
+				let itemp=1;								
+				row.description.forEach(item => {						
 					if(itemp===row.description.length)
 					{
 						item.text = item.text;
@@ -79,9 +109,11 @@ const transform = (data) => {
 					}	
 					newText += `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
 					itemp = itemp + 1;
-				});						
-				row.description = [{ text: newText.trim() + ' '+ newText1.trim() }];
-			  }
+				});		
+				newText4 = newText.trim()
+				//row.description = [{ text: newText.trim() + newText2.trim() + newText3.trim() + ' '+ newText1.trim() }];
+			  }			  
+			  row.description = [{text: newText4.trim() + newText2.trim() + newText3.trim() + newText1.trim() }];
 
 			  if (row.specifications) {
 				let newText = '';
