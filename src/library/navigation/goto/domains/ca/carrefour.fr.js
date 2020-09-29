@@ -20,9 +20,11 @@ module.exports = {
         antiCaptchaOptions: {
         type: 'RECAPTCHA',
         },
-        // proxy: {
-        //   use_relay_proxy: false
-        // },
+        proxy: {
+          use_relay_proxy: false
+        },
         });
+        // @ts-ignore
+        await context.evaluateInFrame('iframe', ()=> grecaptcha.execute())
   }
 };
