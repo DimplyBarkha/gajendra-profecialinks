@@ -8,7 +8,7 @@ fields:
   - name: sponsored
     defaultValue: false
   - name: id
-    xpath: //*[@id="partNumber"]/@value
+    xpath: //div[starts-with(@class,"product-tile-model")]
   - name: name
     xpath: //*[@class="product-tile-name"]
   - name: price
