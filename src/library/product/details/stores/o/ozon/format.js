@@ -23,9 +23,9 @@ const transform = (data) => {
         if (row.description) {
           let info = [];          
           row.description.forEach(item => {
-            info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());            
+            info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());            
           });
-          row.description = [{'text':info.join(' || '),'xpath':row.description[0].xpath}];          
+          row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
         }
         if (row.availabilityText) {          
           row.availabilityText.forEach(item => {
