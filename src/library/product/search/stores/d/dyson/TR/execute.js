@@ -7,7 +7,7 @@ module.exports = {
     domain: 'dyson.com.tr',
     url: 'https://www.dyson.com.tr/catalogsearch/result/?q={searchTerms}',
     loadedSelector: '.search-results__result',
-    noResultsXPath: '//h2[contains(.,"returned no  results")]',
+    noResultsXPath: '//h2[contains(.,"aramanız hiçbir sonuç vermedi")]',
     zipcode: '',
   },
 };

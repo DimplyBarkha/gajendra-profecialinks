@@ -49,11 +49,22 @@ async function implementation (
       });
     }
 
-    if (document.querySelector('.bv-off-screen')) {
-      addHiddenDiv('rating', document.querySelector('.bv-off-screen').innerText.split(' ')[0]);
+    if (!document.getElementById('sku')) {
+      document.querySelectorAll('script').forEach(script => {
+        const matches = script.innerText.match(/productSKU: \"[0-9]+\-[0-9]+\"/);
+        if(matches && matches.length) {
+          addHiddenDiv('sku', matches[0].replace('productSKU: ', '').replace(/"/g, ''));
+        }
+      });
     }
-    if (document.querySelector('.dyson-bazaarvoice__reviews-link')) {
-      addHiddenDiv('reviewCount', document.querySelector('.dyson-bazaarvoice__reviews-link').innerText.split(' ')[0]);
+
+    if (document.querySelector('span[itemprop="ratingValue"]')) {
+      const rating = document.querySelector('span[itemprop="ratingValue"]').innerText / 20;
+      addHiddenDiv('rating', rating);
+      addHiddenDiv('ratingText', rating + ' out of 5');
+    }
+    if (document.querySelector('span[itemprop="reviewCount"]')) {
+      addHiddenDiv('reviewCount', document.querySelector('span[itemprop="reviewCount"]').innerText);
     } else {
       addHiddenDiv('reviewCount', 0);
     }
@@ -79,7 +90,13 @@ async function implementation (
       addHiddenDiv('name', document.querySelector('.hgroup__prefix.hgroup__prefix--lead').childNodes[0].innerText);
     }
 
-    if (document.querySelector('.hero__pricing__sold-out')) {
+    let outOfStock = false;
+    if (document.querySelector('.legacy__product__availability-messaging')
+    && document.querySelector('.legacy__product__availability-messaging').innerText.includes('Unfortunately, this product is no longer available.')) {
+      outOfStock = true;
+    }
+
+    if (document.querySelector('.hero__pricing__sold-out') || outOfStock) {
       addHiddenDiv('availabilityText', 'Out of Stock');
     } else {
       addHiddenDiv('availabilityText', 'In Stock')
@@ -87,15 +104,18 @@ async function implementation (
 
     const manufacturerImages = [];
     let enhancedContent = '';
-    if (document.getElementById('see-all-features')) {
-      enhancedContent = document.getElementById('see-all-features').innerText;
-      document.getElementById('see-all-features').querySelectorAll('img').forEach(img => {
-        manufacturerImages.push(img.getAttribute('src'));
-      });
-    }
-    if (document.querySelector('.contents')) {
-       enhancedContent += ' ' + document.querySelector('.contents').innerText;
-      document.getElementById('see-all-features').querySelectorAll('img').forEach(img => {
+    document.querySelectorAll('.layout').forEach(el => {
+      if(el.querySelector('h2')
+      && (el.querySelector('h2').innerText.includes('Kutu İçeriği')
+      || el.querySelector('h2').innerText.includes('Tüm özellikler'))) {
+        enhancedContent += el.innerText + ' ';
+        el.querySelectorAll('img').forEach(img => {
+          manufacturerImages.push(img.getAttribute('src'));
+        });
+      }
+    });
+    if (document.querySelector('.spec-set__image-set__image')) {
+      document.querySelector('.spec-set__image-set__image').querySelectorAll('img').forEach(img => {
         manufacturerImages.push(img.getAttribute('src'));
       });
     }
@@ -112,7 +132,7 @@ async function implementation (
       if (document.querySelector('video')) {
         addHiddenDiv('videos', document.querySelector('video').querySelector('source').getAttribute('src'));
       }
-      document.querySelectorAll('picture').forEach(pic => {
+      document.getElementById('product_mini_gallery_video').querySelectorAll('picture').forEach(pic => {
         if (pic.querySelector('img')) {
           alternateImages.push(pic.querySelector('img').getAttribute('src'));
         }

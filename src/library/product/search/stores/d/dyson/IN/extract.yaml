@@ -1,14 +1,17 @@
-extends: ../shared
-recordXPath: //div[@class="layout"]//ul[@class='search-results__results-list']//li
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //body
 fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@id="id"]
   - name: name
     singleValue: false
-    xpath: //h3//a
-  - name: productUrl 
+    xpath: //div[@id="name"]
+  - name: productUrl
     singleValue: false
-    xpath: //h3//a/@href
-  - name: thumbnail 
+    xpath: //div[@id="productUrl"]
+  - name: thumbnail
     singleValue: false
-    xpath: //div[@class="g-wrap"]//img/@src
-
-
+    xpath: //div[@id="thumbnail"]
