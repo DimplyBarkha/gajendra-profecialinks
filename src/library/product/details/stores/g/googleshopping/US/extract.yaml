@@ -22,7 +22,7 @@ fields:
     singleValue: false
   - name: listPrice
     singleValue: false
-    xpath: normalize-space(//div//span['NVfoXb']/b/text())
+    #xpath: normalize-space(//div//span['NVfoXb']/b/text())
   - name: price
     singleValue: false
     xpath: string(//div//span['NVfoXb']/b/text())
@@ -60,12 +60,16 @@ fields:
   - name: gtin
     singleValue: false
     xpath: //div[@id="added-gtin"]
+    regExp: ([^ ]+),.*
+    regExpReplace: $1
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
   - name: variantId
     singleValue: false
-    xpath: //div[@class='JTvRab sh-ssb__savebtn sh-ssb__savebtn-unsaved']/@data-catalogid
+    xpath: //a[@data-sid='online']/@href
+    regExp: product\W([^?]+)
+    regExpReplace: $1
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
