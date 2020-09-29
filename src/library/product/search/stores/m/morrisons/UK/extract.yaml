@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[contains(@class, 'fops-item--cluster')]
+fields:
+  - name: id
+    xpath: //li[contains(@class, 'fops-item--cluster')]//div[@data-sku]/@data-sku
+  - name: name
+    xpath: //h4[contains(@class, 'fop-title')]
+  - name: productUrl
+    xpath: //li[contains(@class, 'fops-item--cluster')]//div[@role='presentation']/a/@href
+    regExp: (.+)
+    regExpReplace: https://groceries.morrisons.com$1
+  - name: thumbnail
+    xpath: //img[@class='fop-img']/@src
+    regExp: (.+)
+    regExpReplace: https://groceries.morrisons.com$1
+  - name: aggregateRating
+    xpath: //span[@class='fop-rating-inner']/@title
+    regExp: Reviews (.+) out of 5
+    regExpReplace: $1
+  - name: price
+    xpath: //span[@class='fop-price']
