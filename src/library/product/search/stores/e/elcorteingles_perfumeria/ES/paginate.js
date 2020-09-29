@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'elcorteingles_perfumeria',
+    loadedSelector: 'img.js_preview_image.lazyloaded',
     nextLinkSelector: '#pagination-next > a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'elcorteingles.es',
