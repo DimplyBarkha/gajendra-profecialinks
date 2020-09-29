@@ -63,8 +63,16 @@ const transform = (data) => {
           item.text = 1;          
         });
       }
-      if (row.ratingCount) {        
-        row.ratingCount = [{'text':row.ratingCount.length,'xpath':row.ratingCount[0].xpath}];
+      if (row.ratingCount) {
+        row.ratingCount.forEach(item => {
+          let data = JSON.parse(item.text);                          
+          if(data.length>0 && data[0]['aggregateRating'] && data[0]['aggregateRating']['reviewCount']){
+            item.text = data[0]['aggregateRating']['reviewCount'];
+          }
+          else{
+            delete row.ratingCount;
+          }
+        });
       }        
       if (row.description) {
         let info = []

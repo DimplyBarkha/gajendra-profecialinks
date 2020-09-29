@@ -49,7 +49,7 @@ fields:
     xpath: //div[@id='full-desc']//strong[text()='Shipping Weight:']/following-sibling::text()[1]
   - name: ratingCount
     singleValue: false
-    xpath: //div[@id='loadReviews']//div[@class='current-review-verdict row']
+    xpath: //script[@type='application/ld+json']/text()
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class='ratings pull-left flip']//p[@class='rating-links pull-left flip']//a/text()
