@@ -21,17 +21,71 @@ const cleanUp = (data, context) => {
     }))));
     for (const { group } of data) {
         for (const row of group) {         
-        //   if (row.productUrl) {
-        //     let text = '';
-        //     row.description.forEach(item => {
-        //       text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
-        //     });
-        //     row.productUrl = [
-        //       {
-        //         text: text,
-        //       },
-        //     ];
-        //   }          
+          if (row.productUrl) {
+            var text = '';
+           text = 'https://www.myer.com.au'+row.productUrl[0].text;
+           console.log(text)
+            row.productUrl = [
+              {
+                text: text,
+              },
+            ];
+          }
+          if (row.manufacturerDescription) {
+            let text = '';
+            row.manufacturerDescription.forEach(item => {
+              text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+            });
+            row.manufacturerDescription = [
+              {
+                text: text,
+              },
+            ];
+            if (row.weightNet) {
+              let text = '';
+              row.weightNet.forEach(item => {
+                text += item.text.replace('Product weight: ','').trim();
+              });
+              row.weightNet = [
+                {
+                  text: text,
+                },
+              ];
+            }
+            if (row.weightGross) {
+              let text = '';
+              row.weightGross.forEach(item => {
+                text += item.text.replace('Box weight: ','').trim();
+              });
+              row.weightGross = [
+                {
+                  text: text,
+                },
+              ];
+            }
+            if (row.shippingWeight) {
+              let text = '';
+              row.shippingWeight.forEach(item => {
+                text += item.text.replace('Box weight: ','').trim();
+              });
+              row.shippingWeight = [
+                {
+                  text: text,
+                },
+              ];
+            }
+            if (row.shippingDimensions) {
+              let text = '';
+              row.shippingDimensions.forEach(item => {
+                text += item.text.replace('Box dimensions (mm):','').trim();
+              });
+              row.shippingDimensions = [
+                {
+                  text: text,
+                },
+              ];
+            }
+          }          
         }
       }
     return data;

@@ -1,7 +1,3 @@
-singleRecord: false
-regionsSelector: null
-recordSelector: null
-recordXPath: null
 fields:
   - name: image
     singleValue: true
@@ -40,9 +36,12 @@ fields:
   - name: description
     singleValue: true
     xpath: //meta[@name='description']//@content
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id='combined-product-description']//text()
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[@class='container css-zkg6nm']/div[@class='css-1iqvlww']/div[@id='combined-product-description']/div/ul/li)
+    xpath: count(//div[@data-automation='product-description-description']//ul//li)
     type: NUMBER  
   - name: brandText
     singleValue: true
@@ -68,7 +67,6 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //h1[@class='css-1nb9gtf']/div/span[1]
   - name: sku
     singleValue: true
     xpath: //div[@id='combined-product-description']//p[@data-automation='product-part-number']//span
@@ -94,7 +92,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     type: NUMBER
-    xpath: count(//div[contains(@class,"productImageGallery")]//div[contains(@class,"slick-track")]//div[contains(@class,"slick-slide slick-cloned")]//a[contains(@class,"mZoomSlickThumb MagicThumb-swap")]/img/@src)
+    xpath: count(//div[contains(@class,'css-2rkizr')]//div[contains(@class,'css-14ae9o2')]//ol//li//div//a//img/@src)
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
@@ -102,13 +100,14 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath  : //div[@class='css-i3pbo']/ul/li[@class='css-vktjwr'][1]
+    xpath: //div[@id='combined-product-description']//p[contains(text(),'Specifications')]//following::ul
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath : //div[@id='combined-product-description']/div/p[3]    
+    xpath : //div[@id='combined-product-description']//div[contains(text(),'guarantee')]|//div[@id='combined-product-description']//p[contains(text(),'Warranty')]|//div[@id='combined-product-description']//p[contains(text(),'guarantee')]   
   - name: shippingDimensions
     singleValue: true
+    xpath : //div[@id='combined-product-description']//li[contains(text(),'Box dimensions')]  
   - name: shippingWeight
     singleValue: true
     xpath : //ul//li[contains(text(),'Box weight:')]
