@@ -71,7 +71,7 @@ fields:
     description: The store-specific product identifier
     xpath: ancestor::html//div[@id="productId"]
   - name: variantId
-    xpath: //*[@id="cvosVariantId_1"]/@value | //div[@class="productVarient"]/label/img/@src
+    xpath: //div[@id="productId"] | //div[@class="productVarient"]/label/img/@src
     regExp: ([^/]+)\?[^?]+$|(^\d+$)
     regExpReplace: $1$2
     description: Identifier for a variant from a store where variants share the same sku
