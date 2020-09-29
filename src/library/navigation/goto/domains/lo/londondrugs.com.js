@@ -27,7 +27,6 @@ module.exports = {
       timeout: timeout,
       waitUntil: 'load',
       checkBlocked: true,
-      embed_iframes: true,
       antiCaptchaOptions: {
         type: 'RECAPTCHA',
       },
