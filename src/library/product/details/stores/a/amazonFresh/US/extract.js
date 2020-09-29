@@ -89,14 +89,16 @@ async function implementation (
     }, parentInput, id);
   }
 
-  // await context.clickAndWaitForNavigation('span[data-component-type="s-product-image"]');
   const endUrlFirstItem = await context.evaluate(() => {
     const firstItem = document.querySelector('span[data-component-type="s-product-image"] a');
     return firstItem.getAttribute('href');
   });
   const itemUrl = 'https://www.amazon.com' + endUrlFirstItem;
-  await context.goto(itemUrl);
-  await amazonHelp.handleErrorsAndCaptchas(itemUrl);
+  await context.setLoadAllResources(true)
+    .then(async()=>{
+      await context.goto(itemUrl);
+      await amazonHelp.handleErrorsAndCaptchas(itemUrl);
+    })
 
   await context.waitForXPath('//span[@id="productTitle"]', { timeout: 20000 });
 
