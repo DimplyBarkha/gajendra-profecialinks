@@ -255,10 +255,12 @@ module.exports = {
         }
 
         function variantInformation(variantsData) {
-          if (variantsData.variant[0].value && variantsData.variant[1].value) {
-            return variantsData.variant[0].value + "-" + variantsData.variant[1].value
+          if (variantsData.variant[1]) {
+            if (variantsData.variant[0]) {
+              return variantsData.variant[0].value + "-" + variantsData.variant[1].value
+            }
           } else {
-            return variantsData.variant[0].value + "" + variantsData.variant[1].value
+            return variantsData.variant[1] ? variantsData.variant[1].value : "" + "" + variantsData.variant[0] ? variantsData.variant[0].value : ""
           }
         }
 
@@ -306,7 +308,7 @@ module.exports = {
                 color: variants[i].variant ? variants[i].variant[0].value : "",
                 gtin: variants[i].gtin ? variants[i].gtin : "",
                 retailer_product_code: variants[i].id.trim(""),
-                title: variants[i].variant ? variants[i].variant[1] ? variantInformation(variants[i]) : "" : "",
+                title: variants[i].variant ? variantInformation(variants[i]) : "",
                 variantDetails: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).map((e) => { return e.id }).join(' | ') : "" : "",
                 variantcount: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).length : 0 : 0
               })

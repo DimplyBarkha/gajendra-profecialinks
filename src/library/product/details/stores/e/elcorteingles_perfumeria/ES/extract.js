@@ -178,6 +178,17 @@ module.exports = {
           }
         }
 
+        function variantInformation(variantsData) {
+          if (variantsData.variant[1]) {
+            if (variantsData.variant[0]) {
+              return variantsData.variant[1].value + "-" + variantsData.variant[0].value
+            }
+          } else {
+            return variantsData.variant[1] ? variantsData.variant[1].value : "" + "" + variantsData.variant[0] ? variantsData.variant[0].value : ""
+          }
+        }
+
+
         // Number of reviews and rating
         const passKey = 'caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ';
         const productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json';
@@ -217,11 +228,11 @@ module.exports = {
               console.log(name, "value")
               setAttributes(listItem, {
                 nameExtended: `${nameExtended()} ${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""} ${variants[i].variant ? variants[i].variant[0] && variants[i].variant[0] ? "-" : "" : ""} ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""} `,
-                quantity: `${variants[i].variant ? variants[i].variant.filter(e => {return e.title.toLowerCase() === "medida"}).length === 1 ? variants[i].variant.filter(e => {return e.title.toLowerCase() === "medida"})[0].value : "": ""}`,
+                quantity: `${variants[i].variant ? variants[i].variant.filter(e => { return e.title.toLowerCase() === "medida" }).length === 1 ? variants[i].variant.filter(e => { return e.title.toLowerCase() === "medida" })[0].value : "" : ""}`,
                 color: `${variants[i].variant ? variants[i].variant[0] && variants[i].variant[0].title.toLowerCase() === "color" ? variants[i].variant[0].value : "" : ""}`,
                 gtin: variants[i].gtin ? variants[i].gtin : "",
                 retailer_product_code: variants[i].id.trim(""),
-                title: `${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : "" : ""} ${variants[i].variant ? variants[i].variant[0] ? "-" : "" : ""} ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : "" : ""}`,
+                title: variants[i].variant ? variantInformation(variants[i]) : "",
                 variantDetails: variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0] ? variants.map((e) => { return e.id.trim(" ") }).join(' | ') : "" : "" : "",
                 variantcount: variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0] ? variants.map((e) => { return e.id.trim(" ") }).length : "" : "" : ""
               })

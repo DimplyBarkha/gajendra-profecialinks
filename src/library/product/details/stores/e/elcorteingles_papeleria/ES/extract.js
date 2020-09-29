@@ -1,15 +1,13 @@
 const { transform } = require('../../elcorteingles/ES/transform');
-
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'ES',
-    store: 'elcorteingles_electronica',
+    store: 'elcorteingles_papeleria',
     transform: transform,
     domain: 'elcorteingles.es',
     zipcode: '',
   },
-
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
@@ -216,13 +214,13 @@ module.exports = {
           return data.map(e => { return "https:" + e.playlist[0].file }).join(" | ")
         }
       }
-3
-      let videos = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value') ? videoData(getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value')) : "";
 
-      let apluseImages = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value') ? getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').map(e => { return e.playlist.length > 1 ? e.playlist.map(i => {return "https:"+i.image}) : "https:"+e.playlist[0].image }).join(" | ") : "";
+      // let videos = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value') ? videoData(getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value')) : "";
 
-      addElementToDocument('videos', videos);
-      addElementToDocument('apluseImages', apluseImages);
+      // let apluseImages = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value') ? getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').map(e => { return e.playlist.length > 1 ? e.playlist.map(i => { return "https:" + i.image }) : "https:" + e.playlist[0].image }).join(" | ") : "";
+
+      // addElementToDocument('videos', videos);
+      // addElementToDocument('apluseImages', apluseImages);
       // Secondry Image
       const alternateImages = [];
       document.querySelectorAll('link[as=image]').forEach(e => {

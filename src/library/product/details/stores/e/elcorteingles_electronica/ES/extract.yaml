@@ -47,7 +47,7 @@ fields:
   - name: variantId
     xpath: //div[@id="retailer_product_code"]
   - name: mpc
-    xpath: //div[@class="mpc"]
+    xpath: //div[@id="mpc"]
     regExp: \s+(.+)$
     regExpReplace: $1
   - name: directions
