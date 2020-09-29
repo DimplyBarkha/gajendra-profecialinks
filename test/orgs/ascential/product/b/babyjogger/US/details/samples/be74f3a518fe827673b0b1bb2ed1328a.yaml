@@ -1,0 +1,47 @@
+input:
+  _url: http://babyjogger.com
+  URL: http://www.babyjogger.com/en-US/bug-canopy---city-select%C2%AE
+extractions:
+  - html: https://workbench.import.io/html/run=96ae4d05-8d30-4ef3-af7a-d64d5a36e30e/task=0d8e8cc9-b2c2-4b78-b339-d922024572cc/4a5b5a3a-6093-45ad-a785-71f27a1a3b3a.html
+    extractionConfigId: product/details/stores/b/babyjogger/US/extract
+    data:
+      - group:
+          - metaKeywords:
+              - text: Baby Jogger Logo
+                xpath: /html/body/meta[5]/@content
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            secondaryImageTotal:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            availabilityText:
+              - text: In Stock
+            brandText:
+              - text: Baby Jogger
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+        xpath: /html
+    timestamp: 1601386127042

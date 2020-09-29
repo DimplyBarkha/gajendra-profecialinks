@@ -1,0 +1,89 @@
+input:
+  _url: http://babyjogger.com
+  URL: http://www.babyjogger.com/en-US/baby-jogger-city-tour%E2%84%A2-2-double-carry-cot-bj-carry-cot-city-tour-2-double
+extractions:
+  - html: https://workbench.import.io/html/run=96ae4d05-8d30-4ef3-af7a-d64d5a36e30e/task=dbb77f69-1892-45a1-b6d2-03cec91bdf87/7525cf15-b19a-4ec9-88ce-8c0090824577.html
+    extractionConfigId: product/details/stores/b/babyjogger/US/extract
+    data:
+      - group:
+          - metaKeywords:
+              - text: Baby Jogger Logo
+                xpath: /html/body/meta[5]/@content
+            category:
+              - text: accessories
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[1]/a[1]
+            description:
+              - text: The Baby Jogger Cooler Bag is the best way to keep things cool on the go!
+                  It holds six small baby bottles or 12 oz. cans and attaches
+                  seamlessly to the frame of your stroller.
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]
+            featureBullets:
+              - text: Easily connects to stroller
+                xpath: /html/body/div[6]/div[1]/div[2]/div[2]/div[4]/div[15]/div[1]/div[1]/ul[1]/li[1]
+              - text: Holds six small baby bottles or 12 oz. cans to keep them cool
+                xpath: /html/body/div[6]/div[1]/div[2]/div[2]/div[4]/div[15]/div[1]/div[1]/ul[1]/li[2]
+              - text: "Compatible Stroller Platforms: City Mini® 2, City Mini® GT2, City
+                  Select®, City Select® LUX, City Tour™ 2, City Tour™ LUX, City
+                  Tour™ 2 Double, Summit™ X3, City Mini® Double, City Mini® GT
+                  Double, Summit™ X3 Double"
+                xpath: /html/body/div[6]/div[1]/div[2]/div[2]/div[4]/div[15]/div[1]/div[1]/ul[1]/li[3]
+              - text: "Color: Black"
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[1]
+              - text: "Model#: 2084014"
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[2]
+            specifications:
+              - text: "Color: Black"
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[1]
+              - text: "Model#: 2084014"
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[2]
+            firstVariant:
+              - text: SP_258154
+                xpath: /html/body/div[6]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@data-product-id
+            image:
+              - text: https://s7d1.scene7.com/is/image/NewellRubbermaid/2084014_Refresh%20Accessory_CoolerBag?wid=180&hei=180
+                xpath: /html/body/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/img[1]/@src
+            imageAlt:
+              - text: Cooler Bag image number 0
+                xpath: /html/body/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "5"
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+            sku:
+              - text: "2084014"
+                xpath: /html/body/div[6]/div[1]/div[2]/div[2]/div[4]/div[13]/span[1]/@data-manufacturersku
+            variantId:
+              - text: SAP_2084014
+                xpath: /html/body/div[6]/div[1]/div[2]/div[2]/div[4]/div[13]/span[2]/@data-productid
+            variantCount:
+              - text: "1"
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            secondaryImageTotal:
+              - text: "1"
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            availabilityText:
+              - text: In Stock
+            brandText:
+              - text: Baby Jogger
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+        xpath: /html
+    timestamp: 1601386126719

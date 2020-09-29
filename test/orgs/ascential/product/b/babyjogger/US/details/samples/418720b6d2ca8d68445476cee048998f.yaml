@@ -1,0 +1,108 @@
+input:
+  _url: http://babyjogger.com
+  URL: https://www.babyjogger.com/en-US/baby-jogger-parent-console-bj-parentconsole
+extractions:
+  - html: https://workbench.import.io/html/run=96ae4d05-8d30-4ef3-af7a-d64d5a36e30e/task=ed474c99-fbfe-4e5a-8b58-bd470d1aea4b/42d11da1-a7eb-4923-a7d6-c393954e993a.html
+    extractionConfigId: product/details/stores/b/babyjogger/US/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://s7d1.scene7.com/is/image/NewellRubbermaid/2084000_city%20mini%202%203W_parentconsole_onstroller?wid=180&hei=180
+                xpath: /html/body/div[14]/input[1]/@value
+            metaKeywords:
+              - text: Baby Jogger Logo
+                xpath: /html/body/meta[5]/@content
+            category:
+              - text: accessories
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[1]/a[1]
+            description:
+              - text: The Baby Jogger Parent Console offers convenient storage for parents on
+                  the go! The console attaches to your stroller's handlebar and
+                  features an insulated cup holder, a large covered storage
+                  pouch with interior pockets, and a secondary, open pouch that
+                  doubles as a second cup holder.
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]
+            featureBullets:
+              - text: Parent console easily connects to stroller handle
+                xpath: /html/body/div[6]/div[1]/div[2]/div[2]/div[4]/div[15]/div[1]/div[1]/ul[1]/li[1]
+              - text: Large covered storage pouch with interior pockets to store your belongings
+                xpath: /html/body/div[6]/div[1]/div[2]/div[2]/div[4]/div[15]/div[1]/div[1]/ul[1]/li[2]
+              - text: Secondary open pouch can double as a second cup holder or hold your
+                  valuables
+                xpath: /html/body/div[6]/div[1]/div[2]/div[2]/div[4]/div[15]/div[1]/div[1]/ul[1]/li[3]
+              - text: Insulated cup holder to keep your drinks cold or warm
+                xpath: /html/body/div[6]/div[1]/div[2]/div[2]/div[4]/div[15]/div[1]/div[1]/ul[1]/li[4]
+              - text: "Compatible Stroller Platforms: City Mini® 2, City Mini® GT2, City
+                  Select®, City Select® LUX, City Tour™ 2, City Tour™ LUX, City
+                  Tour™ 2 Double, Summit™ X3, City Mini® Double, City Mini® GT
+                  Double, Summit™ X3 Double"
+                xpath: /html/body/div[6]/div[1]/div[2]/div[2]/div[4]/div[15]/div[1]/div[1]/ul[1]/li[5]
+              - text: "Color: Black"
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[1]
+              - text: "Model#: 2084000"
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[2]
+            specifications:
+              - text: "Color: Black"
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[1]
+              - text: "Model#: 2084000"
+                xpath: /html/body/div[6]/div[1]/div[3]/div[1]/div[2]/div[1]/ul[1]/li[2]
+            firstVariant:
+              - text: SP_258151
+                xpath: /html/body/div[6]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@data-product-id
+            image:
+              - text: https://s7d1.scene7.com/is/image/NewellRubbermaid/2084000_Refresh%20Accessory_ParentConsole?wid=180&hei=180
+                xpath: /html/body/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/img[1]/@src
+            imageAlt:
+              - text: Parent Console image number 0
+                xpath: /html/body/div[6]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "7"
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+            sku:
+              - text: "2084000"
+                xpath: /html/body/div[6]/div[1]/div[2]/div[2]/div[4]/div[13]/span[1]/@data-manufacturersku
+            variantId:
+              - text: SAP_2084000
+                xpath: /html/body/div[6]/div[1]/div[2]/div[2]/div[4]/div[13]/span[2]/@data-productid
+            ratingCount:
+              - text: "33"
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/button[1]/div[3]/meta[1]/@content
+            aggregateRatingText:
+              - text: "3.1"
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/button[1]/div[2]
+            aggregateRating:
+              - text: "3.1"
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/button[1]/div[2]
+            variantCount:
+              - text: "1"
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            secondaryImageTotal:
+              - text: "2"
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
+            availabilityText:
+              - text: In Stock
+            brandText:
+              - text: Baby Jogger
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+        xpath: /html
+    timestamp: 1601386127826

@@ -1,0 +1,47 @@
+input:
+  _url: http://babyjogger.com
+  URL: https://www.babyjogger.com/en-US/city-select%C2%AE-lux
+extractions:
+  - html: https://workbench.import.io/html/run=96ae4d05-8d30-4ef3-af7a-d64d5a36e30e/task=de3df1a7-937f-4ccf-8d7f-c1b1bba31c5e/e40ac56e-08ba-4466-809e-71d1156d70b9.html
+    extractionConfigId: product/details/stores/b/babyjogger/US/extract
+    data:
+      - group:
+          - metaKeywords:
+              - text: Baby Jogger Logo
+                xpath: /html/body/meta[5]/@content
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            secondaryImageTotal:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            availabilityText:
+              - text: In Stock
+            brandText:
+              - text: Baby Jogger
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+        xpath: /html
+    timestamp: 1601386128085
