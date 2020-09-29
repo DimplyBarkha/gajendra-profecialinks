@@ -74,9 +74,7 @@ async function implementation (
     }
     if (document.querySelector('.prd-price__was')) {
       addHiddenDiv('listPrice', document.querySelector('.prd-price__was').innerText.replace('Was', '').trim());
-    } else if (document.querySelector('.prd-price__now')) {
-      addHiddenDiv('listPrice', document.querySelector('.prd-price__now').innerText.replace('Now', '').trim());
-    }
+    } 
 
     if (document.querySelector('.prd-price__save')) {
       addHiddenDiv('promotion', document.querySelector('.prd-price__save').innerText);
