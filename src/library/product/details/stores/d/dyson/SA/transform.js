@@ -47,9 +47,9 @@ const cleanUp = (data, context) => {
           row.mpc = [{ text: id }];
         }
 
-        if (row.availabilityText) {
-          row.availabilityText = [{ text: 'In Stock' }];
-        }
+        // if (row.availabilityText) {
+        //   row.availabilityText = [{ text: 'In Stock' }];
+        // }
 
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);

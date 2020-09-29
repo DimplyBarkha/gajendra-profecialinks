@@ -25,10 +25,10 @@ fields:
     default: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//p
+    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//div[contains(@class, "hgroup__prefix")]
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//li)
+    xpath: count(//div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//div[contains(@class, "hgroup__prefix")]//li)
   - name: weightNet #localedependent
     singleValue: true
     regExp: ([0-9,\.]+.+)
@@ -80,7 +80,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//li
+    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//div[contains(@class, "hgroup__prefix")]//li
   - name: termsAndConditions #localedependent
     singleValue: false
     description: Terms and conditions information text ['Yes','No']

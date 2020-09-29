@@ -21,10 +21,10 @@ fields:
     default: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//p
+    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//*[contains(@class, "hgroup")]|//div[contains(@class, "hgroup product__claims")]//div
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//li)
+    xpath: count(//div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//*[contains(@class, "hgroup")]//li|//div[contains(@class, "hgroup product__claims")]//li)
   - name: weightNet #localedependent
     singleValue: true
     regExp: ([0-9,\.]+.+)
@@ -40,7 +40,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //script[contains(text(), "productSKU")]
+    # xpath: //script[contains(text(), "productSKU")]
   - name: ratingCount
     singleValue: true
     xpath: (//span[@itemprop="reviewCount"])
@@ -76,4 +76,12 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//li
+    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//*[contains(@class, "hgroup")]//li|//div[contains(@class, "hgroup product__claims")]//li
+  - name: specifications
+    singleValue: true
+    description: The physical dimensions of the product including packaging.
+    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),'g-wrap')]//li[.//*[contains(text(), 'height') or contains(text(), 'Height') or contains(text(), 'length') or contains(text(), 'Width')]])
+  - name: termsAndConditions #localedependent
+    singleValue: false
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
