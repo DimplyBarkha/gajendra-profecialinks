@@ -26,6 +26,12 @@ module.exports = {
       waitUntil: 'load',
       checkBlocked: true,
       embed_iframes: true,
+      antiCaptchaOptions: {
+        type: 'RECAPTCHA',
+      },
+      proxy: {
+        use_relay_proxy: false,
+      },
     });
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
@@ -73,6 +79,7 @@ module.exports = {
       });
       console.log('solved captcha, waiting for page change');
       await context.waitForNavigation({ timeout });
+      await context.waitForXPath('//span[@itemprop="productID"]', { timeout });
     }
 
     if (responseStatus.url === 'https://www.londondrugs.com/on/demandware.store/Sites-LondonDrugs-Site/default/DDUser-Challenge') {
