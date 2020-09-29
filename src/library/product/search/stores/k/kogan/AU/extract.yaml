@@ -29,20 +29,20 @@ fields:
   - name: aggregateRating2  
     singleValue: true
     xpath: //meta[@itemprop="ratingValue"]/@content
-    defaultValue: '0'
+    # defaultValue: '0'
   - name: ratingCount  
     singleValue: true
     xpath: //meta[@itemprop="ratingValue"]/@content
-    defaultValue: '0'
+    # defaultValue: '0'
   - name: reviewCount  
     singleValue: true
     type: NUMBER
     xpath: //meta[@itemprop="reviewCount"]/@content
-    defaultValue: '0'
+    # defaultValue: '0'
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[@itemprop="name"]
+    # xpath: //div[@itemprop="name"]
   - name: searchUrl
     singleValue: true
     xpath: //tempWebUrl-id[@id="tempWebUrl"]  
