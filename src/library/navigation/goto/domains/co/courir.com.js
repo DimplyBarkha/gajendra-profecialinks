@@ -28,12 +28,12 @@ module.exports = {
     });
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
-    const captchaFrame = 'iframe[_src*="https://geo.captcha"]';
+    const captchaFrame = 'iframe[src*="https://geo.captcha"]';
     // const captchaSelector = '.g-recaptcha';
     const checkExistance = async (selector) => {
-      return await context.evaluate(async (captchaSelector) => {
+      return await context.evaluate(async (captchaFrame) => {
         console.log('captcha present');
-        return Boolean(document.querySelector(captchaSelector));
+        return Boolean(document.querySelector(captchaFrame));
       }, selector);
     };
     // await checkExistance(captchaSelector);
