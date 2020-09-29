@@ -46,6 +46,14 @@ module.exports = {
       if (colorXpath && colorXpath.stringValue) {
         addElementToDocument('productColor', colorXpath.stringValue.replace(/Farbe:\s(.+)$/g, '$1'));
       }
+      const nameExtended = document.querySelector('meta[property="og:title"]');
+      // @ts-ignore
+      if (nameExtended && nameExtended.content) {
+        // @ts-ignore
+        const newNameExtended = nameExtended.content.replace(/,/, '');
+        // @ts-ignore
+        nameExtended.content = newNameExtended;
+      }
     });
 
     await context.extract(productDetails);
