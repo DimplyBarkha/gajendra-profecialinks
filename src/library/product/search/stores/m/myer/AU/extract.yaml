@@ -1,28 +1,28 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: ul[data-automation='product-grid'] > li[data-automation='product-grid-item']
 recordXPath: null
 fields:
   - name: id
-    xpath: //li[@data-automation='product-grid-item']//@id
+    xpath: //@id
     singleValue: true
   - name: name
-    xpath: //li[@data-automation='product-grid-item']//div//h3//a//div[2]//span[2]
-    singleValue: true
+    xpath: //h3//a//span[@class='screen-reader-text']
+    singleValue: false
   - name: productUrl
-    xpath: //li[@data-automation='product-grid-item']//div//h3//a//@href
-    singleValue: true
+    xpath: //h3//a//@href
+    singleValue: false
     regExp: (.+)
     regExpReplace: https://www.myer.com.au$1
   - name: manufacturer
-    xpath: //li[@data-automation='product-grid-item']//div//h3//a//div[2]//span[1]
+    xpath: //h3//a//div[2]//span[1]
     singleValue: true    
   - name: thumbnail
-    xpath: //li[@data-automation='product-grid-item']//div//h3//a//div[1]//img//@src
+    xpath: //h3//a//div[1]//img//@src
     singleValue: true
   - name: price    
-    xpath: //li[@data-automation='product-grid-item']//div//div[@data-automation='product-price']//p[@class='css-15ro776 css-13veri3']/span[2]|//li[@data-automation='product-grid-item']//div//div[@data-automation='product-price']//p[@class='css-zvc3xo css-13veri3']/span[2]
-    singleValue: true 
+    xpath: //p[contains(@class,'css-15ro776')]|//p[(@data-automation='product-price-now')]
+    singleValue: false 
   - name: rankOrganic
     singleValue: true 
   - name: aggregateRating  
