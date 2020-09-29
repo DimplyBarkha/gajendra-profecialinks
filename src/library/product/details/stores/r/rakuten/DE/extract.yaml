@@ -13,9 +13,7 @@ fields:
   - name: alternateImages #to
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="gallery-thumbs"]/div/img/@src
-    regExp: (.*)(thumbs\/90)(.*)
-    regExpReplace: $1images$3
+    xpath: //div[contains(@class, "gallery")]//div[@class="owl-item"]/div/@data-src
   - name: metaKeywords #to 
     singleValue: true
     description: The <meta> keywords content
@@ -23,7 +21,6 @@ fields:
   - name: category #to
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="vw-breadcrumb"]/@bredcrumb
   - name: nameExtended #to -
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -49,12 +46,12 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="product-description"]
+    xpath: //div[@class="vw-productInformation"][@style=""]//div[@class="product-description"]
   - name: descriptionBullets #to
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[@class="product-description"]/ul/li)
+    xpath: count(//div[@class="vw-productInformation"][@style=""]//div[@class="product-description"]//ul/li)
   - name: brandText #to
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -70,18 +67,18 @@ fields:
   - name: weightNet #to
     singleValue: true
     description: Net weight as described on the page
-    xpath: (//div[@class="info2"])[4]/p
+    xpath: div(//[@class="info2"])[4]/p
   - name: weightGross #to
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin #to
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: (//li[@class="item"]/span[@class="value"])[3]
+    xpath: //div[@class="product-data"]//span[@class="key"][text()="EAN"]/following-sibling::span[@class="value"]
   - name: sku #to
     singleValue: true
     description: The store-specific product identifier
-    xpath: (//li[@class="item"]/span[@class="value"])[2]
+    xpath: //div[@class="product-data"]//span[@class="key"][text()="Artikelnummer"]/following-sibling::span[@class="value"]
   - name: variantId #to
     singleValue: true
     description: Identifier for a variant from a store where variants share the same
@@ -89,7 +86,7 @@ fields:
   - name: mpc #to
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: (//li[@class="item"]/span[@class="value"])[4]
+    xpath: //div[@class="product-data"]//span[@class="key"][text()="MPN"]/following-sibling::span[@class="value"]
   - name: packSize #to
     singleValue: true
     description: The number of packs in the product offer (if stated separately on the
@@ -145,6 +142,7 @@ fields:
   - name: videos #to
     singleValue: false
     description: URLs of videos on page
+    xpath: //@*[contains(., ".mp4")]
   - name: name #to
     singleValue: true
     description: The product name

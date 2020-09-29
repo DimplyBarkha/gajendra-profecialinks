@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'rakuten',
     domain: 'rakuten.de',
-    loadedSelector: 'div.vw-productMain',
+    loadedSelector: 'body[data-base-url]',
     noResultsXPath: null,
     zipcode: '',
   },
