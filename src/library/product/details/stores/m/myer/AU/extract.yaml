@@ -70,15 +70,15 @@ fields:
     xpath: //h1[@class='css-1nb9gtf']/div/span[1]
   - name: sku
     singleValue: true
-    xpath: //div[@class='css-fy5x41']/div[@id='combined-product-description']/p
+    xpath: //div[@id='combined-product-description']//p[@data-automation='product-part-number']//span
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@class='css-fy5x41']/div[@id='combined-product-description']/p
+    xpath: //div[@id='combined-product-description']//p[@data-automation='product-part-number']//span
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@class='css-fy5x41']/div[@id='combined-product-description']/p
+    xpath: //div[@id='combined-product-description']//p[@data-automation='product-part-number']//span
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -106,7 +106,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath : //div[@class='css-kkq4y9']/div[@id='combined-product-description']/div/p[3]    
+    xpath : //div[@id='combined-product-description']/div/p[3]    
   - name: shippingDimensions
     singleValue: true
   - name: shippingWeight
@@ -165,7 +165,7 @@ fields:
     singleValue: true    
   - name: eangtin
     singleValue: true
-    xpath: //div[@class='css-fy5x41']/div[@id='combined-product-description']/p
+    xpath: //div[@id='combined-product-description']//p[@data-automation='product-part-number']//span
   - name: listPrice
     singleValue: true
     xpath: //div[contains(@class,'css-j12b3k')]//p[1]//span
