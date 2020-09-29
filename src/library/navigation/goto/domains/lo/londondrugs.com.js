@@ -53,21 +53,16 @@ module.exports = {
       }
     }
     const captchaFrame = 'iframe[src*="https://geo.captcha"]';
-    // const captchaSelector = '.g-recaptcha';
     const checkExistance = async (selector) => {
       return await context.evaluate(async (captchaSelector) => {
         return Boolean(document.querySelector(captchaSelector));
       }, selector);
     };
-    // await checkExistance(captchaSelector);
     const isCaptchaFramePresent = await checkExistance(captchaFrame);
 
     if (isCaptchaFramePresent) {
       console.log('isCaptcha', true);
       await context.waitForNavigation({ timeout });
-      // console.log('20 seconds delay');
-      // const delay = t => new Promise(resolve => setTimeout(resolve, t));
-      // await delay(20000);
       // @ts-ignore
       // eslint-disable-next-line no-undef
       await context.evaluateInFrame('iframe', () => grecaptcha.execute());
