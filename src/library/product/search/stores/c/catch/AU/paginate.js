@@ -48,7 +48,7 @@ async function implementation(
   if (loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 100000 }, loadedSelector, noResultsXPath);
+    }, { timeout: 200000 }, loadedSelector, noResultsXPath);
   }
   console.log('Checking no results', noResultsXPath);
   return await context.evaluate(function (xp) {
@@ -68,8 +68,8 @@ module.exports = {
     nextLinkSelector: 'button.css-wzwbsc-Button-Button',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.grid-row product-flex',
-    noResultsXPath: '//div[@class="css-q8itik"]',
+    loadedSelector: null,
+    noResultsXPath: null,
     domain: 'catch.com.au',
     zipcode: '',
     openSearchDefinition: {

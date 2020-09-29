@@ -7,7 +7,7 @@ module.exports = {
     domain: 'catch.com.au',
     url: 'https://www.catch.com.au/search?query={searchTerms}',
     //loadedSelector: 'div.grid-row product-flex',
-    noResultsXPath: '//div[@class="css-q8itik"]',
+    //noResultsXPath: '//div[@class="css-q8itik"]',
     zipcode: '',
   },
 };
