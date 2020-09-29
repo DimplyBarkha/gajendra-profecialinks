@@ -1,0 +1,147 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+- name: image
+  singleValue: true
+  xpath: //div[@class='imgProduct']//img/@src
+- name: metaKeywords
+  singleValue: true
+  xpath: //meta[@name="keywords"]/@content
+- name: category
+  singleValue: false
+  xpath: //div[@class='tab-content']//ul[@class='current-description list-unstyled']//li[1]/b
+- name: price
+  singleValue: true
+  xpath: //div[@class='bg_gray']//span[@id='saleprice']
+- name: listPrice
+  singleValue: true
+  xpath: //div[@class='bg_gray']//span[@id='saleprice']
+- name: availabilityText
+  singleValue: true
+  xpath: //meta[@property='product:availability']/@content
+  defaultValue: In stock
+  regExp: OutOfStock
+  regExpReplace: Out of Stock
+- name: description
+  singleValue: false
+  xpath: //meta[@property='og:description']/@content
+# - name: descriptionBullets
+#   singleValue: true
+#   xpath: count(div[@class='tab-pane active']//ul[@class])
+- name: brandText
+  singleValue: true
+  xpath: //div[@class='tab-content']//ul[@class='current-description list-unstyled']//li[6]
+# - name: color
+#   singleValue: true
+#   xpath: //div[@class='tab-pane active']//ul[@class='current-description list-unstyled']//li[1]//b
+- name: nameExtended
+  singleValue: true
+  xpath: //div[@class='tab-content']/div[@id='mytab_0']
+- name: promotion 
+  singleValue: false
+  xpath: //div[@id='P2']//a[@data-attr='my654951']
+- name: shippingInfo
+  singleValue: true 
+  xpath: //div[@class='col-xs-12 col-sm-12 col-md-4 col-lg-4 ']//div[@class='top-menu text-center']//ul[@class='list-inline']
+- name: imageAlt
+  singleValue: true
+  xpath: //div[@class='imgProduct']//img/@alt
+# - name: videos
+#   singleValue: true
+#   xpath: //div[@class='ytp-title-text']//a[@class='ytp-title-link yt-uix-sessionlink']
+#   regExp: ("versions":{"\w+":")(http[^"]+mp4)(\")
+#   regExpReplace: $2
+
+
+         
+- name: servingSizeUom
+  singleValue: false
+
+- name: numberOfServingsInPackage
+  singleValue: false
+
+- name: caloriesPerServing
+  singleValue: false
+  
+- name: caloriesFromFatPerServing
+  singleValue: false
+
+- name: totalFatPerServing
+  singleValue: false
+
+- name: totalFatPerServingUom
+  singleValue: false
+
+- name: saturatedFatPerServing
+  singleValue: false
+
+- name: saturatedFatPerServingUom
+  singleValue: false
+
+- name: transFatPerServing
+  singleValue: false
+
+- name: transFatPerServingUom
+  singleValue: false
+
+- name: cholesterolPerServing
+  singleValue: false 
+- name: cholesterolPerServingUom
+  singleValue: false
+- name: saltPerServing
+  singleValue: true   
+- name: saltPerServingUom
+  singleValue: true   
+- name: sodiumPerServing
+  singleValue: false
+- name: sodiumPerServingUom
+  singleValue: false
+- name: totalCarbPerServing
+  singleValue: false
+- name: totalCarbPerServingUom
+  singleValue: false
+
+- name: dietaryFibrePerServing
+  singleValue: false
+
+- name: dietaryFibrePerServingUom
+  singleValue: false
+
+- name: totalSugarsPerServing
+  singleValue: false
+  
+- name: totalSugarsPerServingUom
+  singleValue: false
+
+- name: proteinPerServing
+  singleValue: false
+
+- name: proteinPerServingUom
+  singleValue: false  
+
+- name: vitaminAPerServing
+  singleValue: false
+
+- name: vitaminAPerServingUom
+  singleValue: false
+ 
+- name: vitaminCPerServing
+  singleValue: false
+
+- name: vitaminCPerServingUom
+  singleValue: false
+
+- name: calciumPerServing
+  singleValue: false
+
+- name: calciumPerServingUom
+  singleValue: false
+
+- name: ironPerServing
+  singleValue: false
+
+- name: ironPerServingUom
+  singleValue: false
+  
