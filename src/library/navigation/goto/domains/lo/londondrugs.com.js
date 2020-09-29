@@ -65,11 +65,11 @@ module.exports = {
       // @ts-ignore
       // eslint-disable-next-line no-undef
       await context.evaluateInFrame('iframe', () => grecaptcha.execute());
-      await context.solveCaptcha({
-        type: 'RECAPTCHA',
-        inputElement: '.g-recaptcha',
-        autoSubmit: true,
-      });
+      // await context.solveCaptcha({
+      //   type: 'RECAPTCHA',
+      //   inputElement: '.g-recaptcha',
+      //   autoSubmit: true,
+      // });
       console.log('solved captcha, waiting for page change');
       await context.waitForNavigation({ timeout });
       await context.waitForXPath('//span[@itemprop="productID"]', { timeout });
