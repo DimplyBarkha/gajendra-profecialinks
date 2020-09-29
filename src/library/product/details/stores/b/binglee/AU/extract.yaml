@@ -113,10 +113,11 @@ fields:
     xpath: //script[@type='application/ld+json']
     description: The number of ratings
     type: NUMBER
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: true
     xpath: //script[@type='application/ld+json']
     description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product

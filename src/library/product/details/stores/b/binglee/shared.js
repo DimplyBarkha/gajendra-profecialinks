@@ -22,22 +22,24 @@ const transform = (data, context) => {
         row.ratingCount = [{ text }];
       }
 
-      if (row.aggregateRating2) {
-        let text = '';
-        row.aggregateRating2.forEach(item => {
-          console.log('IIIII', item);
-          //console.log("aggregateRating======"+JSON.stringify(JSON.parse(item.raw).aggregateRating.ratingValue));
+      if (row.aggregateRating) {
+        //console.log('ARRRRRRRRR2', row.aggregateRating);
+        let rating = JSON.parse(row.aggregateRating[0].raw).aggregateRating.ratingValue
+        row.aggregateRating = [{
+          "text": rating,
+          "raw": rating,
+          "locale": "en_AU",
+          "value": rating
+        }]
+        /* row.aggregateRating2.forEach(item => {
           if (item.text) {
             if (JSON.parse(item.text)) {
               text = JSON.parse(item.text).aggregateRating.ratingValue.toString().replace('.', ',')
             }
           }
-          
-            console.log('TTTTTTTT', text)
-        });
-        row.aggregateRating2 = [{ text }];
+        }); */
+        //row.aggregateRating2 = [{ text }];
       }
-
     }
   }
 
