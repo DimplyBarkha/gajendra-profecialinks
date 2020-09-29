@@ -68,13 +68,13 @@ module.exports = {
     nextLinkSelector: 'button.css-wzwbsc-Button-Button',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
-    noResultsXPath: null,    
+    loadedSelector: 'div.grid-row product-flex',
+    noResultsXPath: '//div[@class="css-q8itik"]',
     domain: 'catch.com.au',
     zipcode: '',
     openSearchDefinition: {
       template: 'https://www.catch.com.au/search?query={searchTerms}&search_src=topbar&ac=0&page={page}',
     },
   },
-  implementation,  
+  implementation,
 };

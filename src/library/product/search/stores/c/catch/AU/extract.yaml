@@ -1,18 +1,19 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: null
+recordSelector: div.product
+recordXPath: //div[@class="product"]
 fields:
   - name: name
     xpath: //div[@class='product--title']//a
   - name: price
-    xpath: //span[@class='price--dollars']
+    # xpath: //span[@class='price--dollars']
+    xpath: //div[@class='price--price-parts']
   - name: productUrl
     xpath: //div[@class='product--title']//a/@href
     regExp: (.+)
     regExpReplace: https://www.catch.com.au$1
   - name: thumbnail
-    xpath: //div[@class='product--image-container']//img/@src
+    xpath: //div[@class='product--image-container']//img//@data-src
   - name: aggregateRating2
     type: NUMBER
     xpath: //div[@class='rating-stars']//*[name()='svg']/@data-rating
