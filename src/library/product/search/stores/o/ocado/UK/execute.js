@@ -62,7 +62,7 @@ module.exports = {
     domain: 'ocado.com',
     url: 'https://www.ocado.com/search?entry={searchTerms}',
     loadedSelector: 'div.main-column > ul.fops',
-    noResultsXPath: 'div.nf-resourceNotFound',
+    noResultsXPath: '//div[@class="nf-resourceNotFound"]',
   },
   implementation,
 };
