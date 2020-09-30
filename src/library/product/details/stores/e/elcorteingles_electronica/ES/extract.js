@@ -11,8 +11,13 @@ module.exports = {
   },
 
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
+    const enhancedContent = '#tab-content-3 .js-media-holder';
+    console.log('.....waiting......');
+    await context.waitForSelector(enhancedContent, { timeout: 90000 });
+
     await context.evaluate(async function () {
 
       let productPage = document.querySelector('h1[id="js-product-detail-title"]');
@@ -216,9 +221,9 @@ module.exports = {
           return data.map(e => { return "https:" + e.playlist[0].file }).join(" | ")
         }
       }
-      let videos = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0  ? videoData(getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value')) : "";
+      let videos = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0 ? videoData(getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value')) : "";
 
-      let apluseImages = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0  ? getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').map(e => { return e.playlist.length > 1 ? e.playlist.map(i => {return "https:"+i.image}) : "https:"+e.playlist[0].image }).join(" | ") : "";
+      let apluseImages = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0 ? getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').map(e => { return e.playlist.length > 1 ? e.playlist.map(i => { return "https:" + i.image }) : "https:" + e.playlist[0].image }).join(" | ") : "";
 
       addElementToDocument('videos', videos);
       addElementToDocument('apluseImages', apluseImages);
