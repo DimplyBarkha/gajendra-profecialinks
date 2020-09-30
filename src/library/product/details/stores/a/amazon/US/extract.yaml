@@ -64,7 +64,7 @@ fields:
     regExp: (.+)
   - name: weightNet
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Item Weight")]/following-sibling::td[1]/text()
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Item Weight")]/following-sibling::td[1]/text() | //th[contains(text(),'Item Weight')]/following-sibling::*
     regExp: ([^()]+)
     regExpReplace: $1
   - name: weightGross
@@ -82,7 +82,7 @@ fields:
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(),'odel')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(text(),"odel")]/following-sibling::td[1]/text() | //div[contains(@id,"prodDetails")]//*[contains(text(),"odel")]/following-sibling::td[1]/text() | //table[@id="product-specification-table"]//th[contains(text(),  "Manufacturer") and contains(text(), "Number")]/following-sibling::td/text()
   - name: packSize
     singleValue: false
-    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
+    xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1] | //div[@class="bundle-title"]/*[contains(text(),"contains")]
   - name: legalDisclaimer
     singleValue: false
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
@@ -122,7 +122,7 @@ fields:
     xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
   - name: color
     singleValue: true
-    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
+    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")] | //td/span[contains(text(),"Color")]//parent::td//following-sibling::td/span
   - name: colorCode
     singleValue: true
     xpath: 
@@ -409,7 +409,6 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li 
-    # | //span[contains(@data-maple-math,"cost")]//parent::div
   - name: alcoholContent
     singleValue: true
     xpath: 
@@ -428,8 +427,8 @@ fields:
     singleValue: true
     xpath: //div[@id="my-variants"]
   - name: additionalDescBulletInfo
-    singleValue: true
-    xpath: 
+    singleValue: false
+    xpath: //div[@id="feature-bullets"]//ul/li
   - name: prop65Warning
     singleValue: true
     xpath: 
