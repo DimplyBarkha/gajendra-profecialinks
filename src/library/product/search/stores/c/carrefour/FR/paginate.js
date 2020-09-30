@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'div[class="pagination__button-wrap"] button',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div[class="error-block"] div',
+    loadedSelector: 'section[class="side-template__section"]',
     noResultsXPath: '//div[@class="error-block"]/div',
     openSearchDefinition: null,
     domain: 'carrefour.fr',
