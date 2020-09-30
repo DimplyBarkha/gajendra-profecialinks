@@ -21,7 +21,7 @@ async function implementation (
   await dependencies.goto({ url, zipcode, storeId });
   try {
     await context.click('div#currency-autoswitch-toggle');
-    await context.click('a[data-code="SAR"]'); 
+    await context.clickAndWaitForNavigation('a[data-code="SAR"]'); 
   } catch (error) {
     console.log(error);
   }
