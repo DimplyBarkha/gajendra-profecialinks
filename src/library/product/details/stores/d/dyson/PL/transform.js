@@ -53,7 +53,7 @@ const cleanUp = (data, context) => {
           const id = (row.sku[0].text.match(/(?<={ productSKU:)(.*)(?=productName)/gm) || []).length ? row.sku[0].text.match(/(?<={ productSKU:)(.*)(?=productName)/gm)[0].replace(/(\")/gm, '').replace(',', '').trim() : '';
           row.sku = [{ text: id }];
           row.variantId = [{ text: id }];
-          row.mpc = [{ text: id }];
+        //   row.mpc = [{ text: id }];
         }
 
         if (row.availabilityText) {
