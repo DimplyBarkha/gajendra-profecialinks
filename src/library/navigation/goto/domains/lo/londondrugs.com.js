@@ -14,6 +14,8 @@ module.exports = {
     dependencies,
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
+    const maxRetries = 3;
+    let numberOfCaptchas = 0;
 
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
@@ -59,7 +61,8 @@ module.exports = {
     };
     const isCaptchaFramePresent = await checkExistance(captchaFrame);
 
-    if (isCaptchaFramePresent) {
+    // eslint-disable-next-line no-unmodified-loop-condition
+    while (isCaptchaFramePresent && numberOfCaptchas < maxRetries) {
       console.log('isCaptcha', true);
       await context.waitForNavigation({ timeout });
       try {
@@ -69,25 +72,21 @@ module.exports = {
         // @ts-ignore
         // eslint-disable-next-line no-undef
         await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+        numberOfCaptchas++;
         console.log('solved captcha, waiting for page change');
         await context.waitForNavigation({ timeout });
       } catch (e) {
         console.log('Captcha did not load');
       }
-
-      try {
-        await context.waitForXPath('//span[@itemprop="productID"]', { timeout });
-      } catch (e) {
-        console.log('Redirecting to the product page');
-        await context.evaluate((url) => {
-          window.location.href = url;
-        }, url);
-        await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
-      }
     }
-
-    if (zipcode) {
-      await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
+    try {
+      await context.waitForXPath('//span[@itemprop="productID"]', { timeout });
+    } catch (e) {
+      console.log('Redirecting to the product page');
+      await context.evaluate((url) => {
+        window.location.href = url;
+      }, url);
+      await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
     }
   },
 };
