@@ -50,9 +50,9 @@ fields:
     manualSelector: div.product__price .price__save
   - name: termsAndConditions
     singleValue: false
-    xpath: //b[contains(text(),"Terms and conditions")]
+    manualSelector: h2.hgroup__title~h1, h2.hgroup__title, h1.hgroup__motif__h1-cdn-img-replace
     regExp: (.+)
-    regExpReplace: Yes
+    regExpReplace: No
     defaultValue: No
   - name: manufacturerDescription
     singleValue: false
