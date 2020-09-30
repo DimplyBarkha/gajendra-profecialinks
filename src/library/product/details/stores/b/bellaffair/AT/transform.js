@@ -13,12 +13,6 @@ const transform = (data) => {
                 if (row.color) {
                     row.color = [{ text: row.color[0].text.substring(1) }];
                 }
-                /* if (row.firstVariant) {
-                    row.firstVariant = [{ text: row.firstVariant[0].text.substring(1) }];
-                } */
-                /* if (row.variantInformation) {
-                    row.variantInformation = [{ text: row.variantInformation[0].text.substring(1) }];
-                } */
                 if (row.packSize) {
                     row.packSize = [{ text: row.packSize[0].text.substring(1) }];
                 }
@@ -88,6 +82,24 @@ const transform = (data) => {
             } catch (exception) { console.log('Error in transform', exception); }
         }
     }
+    // Clean up data
+    const clean = text => text.toString()
+        .replace(/\r\n|\r|\n/g, ' ')
+        .replace(/&amp;nbsp;/g, ' ')
+        .replace(/&amp;#160/g, ' ')
+        .replace(/\u00A0/g, ' ')
+        .replace(/\s{2,}/g, ' ')
+        .replace(/"\s{1,}/g, '"')
+        .replace(/\s{1,}"/g, '"')
+        .replace(/^ +| +$|( )+/g, ' ')
+        // eslint-disable-next-line no-control-regex
+        .replace(/[\x00-\x1F]/g, '')
+        .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+
+    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+    }))));
+
     return data;
 };
 
