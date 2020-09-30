@@ -33,7 +33,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
-    xpath: //script[contains(.,"https://schema.org/InStock")] | //p[@data-testhook="product-availability-label"]
+    xpath: //script[contains(.,"https://schema.org/InStock")][not(ancestor::html//p[@data-testhook="product-availability-label"])] | //p[@data-testhook="product-availability-label"]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -219,7 +219,7 @@ fields:
     description: The size of serving Nutritional information is based on.
   - name: servingSizeUom
     xpath: //th[contains(.,"Soort")]/following-sibling::*[1]
-    regExp: '([^\s]+)[.]*$'
+    regExp: ([^\s\.]+)[.]*$
     regExpReplace: $1
     description: Unit of measure of serving
   - name: numberOfServingsInPackage
@@ -234,6 +234,8 @@ fields:
       based on per 100g serving
   - name: totalFatPerServing
     xpath: //td[contains(.,"Vet")]/following-sibling::*[1]
+    regExp: '(.+)[^\s]+$'
+    regExpReplace: $1
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
   - name: totalFatPerServingUom
@@ -242,6 +244,8 @@ fields:
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
     xpath: //td[contains(.,"Waarvan verzadigd")]/following-sibling::*[1]
+    regExp: '(.+)[^\s]+$'
+    regExpReplace: $1
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
   - name: saturatedFatPerServingUom
@@ -260,6 +264,8 @@ fields:
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
     xpath: //td[contains(.,"Natrium")]/following-sibling::*[1]
+    regExp: '(.+)[^\s]+$'
+    regExpReplace: $1
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
   - name: sodiumPerServingUom
@@ -268,6 +274,8 @@ fields:
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     xpath: //td[contains(.,"Koolhydraten")]/following-sibling::*[1]
+    regExp: '(.+)[^\s]+$'
+    regExpReplace: $1
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
   - name: totalCarbPerServingUom
@@ -276,6 +284,8 @@ fields:
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
     xpath: //td[contains(.,"Voedingsvezel")]/following-sibling::*[1]
+    regExp: '(.+)[^\s]+$'
+    regExpReplace: $1
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
   - name: dietaryFibrePerServingUom
@@ -284,6 +294,8 @@ fields:
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
     xpath: //td[contains(.,"Waarvan suikers	")]/following-sibling::*[1]
+    regExp: '(.+)[^\s]+$'
+    regExpReplace: $1
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
   - name: totalSugarsPerServingUom
@@ -291,6 +303,8 @@ fields:
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
+    regExp: '(.+)[^\s]+$'
+    regExpReplace: $1
     xpath: //td[contains(.,"Eiwitten")]/following-sibling::*[1]
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
@@ -299,6 +313,8 @@ fields:
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
+    regExp: '(.+)[^\s]+$'
+    regExpReplace: $1
     xpath: //td[contains(.,"Vitamine A")]/following-sibling::*[1]
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
@@ -307,6 +323,8 @@ fields:
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
+    regExp: '(.+)[^\s]+$'
+    regExpReplace: $1
     xpath: //td[contains(.,"Vitamine C")]/following-sibling::*[1]
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
@@ -315,6 +333,8 @@ fields:
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
+    regExp: '(.+)[^\s]+$'
+    regExpReplace: $1
     xpath: //td[contains(.,"Calcium")]/following-sibling::*[1]
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
@@ -323,6 +343,8 @@ fields:
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Calcium
   - name: ironPerServing
+    regExp: '(.+)[^\s]+$'
+    regExpReplace: $1
     xpath: //td[contains(.,"Ijzer")]/following-sibling::*[1]
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
@@ -334,6 +356,8 @@ fields:
     xpath: //ul[starts-with(@class,"product-card-features_root")]/li
     description: Information related to the dietary symbols of a specific product
   - name: magnesiumPerServing
+    regExp: '(.+)[^\s]+$'
+    regExpReplace: $1
     xpath: //td[contains(.,"Magnesium")]/following-sibling::*[1]
     description: Nutritional Information for Magnesium content - Usually based on
       per 100g serving
@@ -342,6 +366,8 @@ fields:
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Magnesium
   - name: saltPerServing
+    regExp: '(.+)[^\s]+$'
+    regExpReplace: $1
     xpath: //td[contains(.,"Zout")]/following-sibling::*[1]
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
