@@ -32,7 +32,7 @@ fields:
     regExpReplace: https://www.ocado.com$1280x280$2
   - name: name
     description: The product name
-    xpath: //h4[contains(@class,'fop-title')]/span[1]
+    xpath: //h4[contains(@class,'fop-title')]/@title
   - name: sku
     singleValue: true
     description: The store-specific product identifier
