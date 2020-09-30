@@ -1,0 +1,97 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //img[@name="main-gallery-image"]/@src
+    regExp: (.+)&w=(.+)&h=
+    regExpReplace: $1w=780&h=1196
+  - name: imageAlt
+    xpath: //img[@name="main-gallery-image"]/@alt
+  - name: alternateImages
+    xpath: //div[@id="product-page-thumbnail-gallery"]//ul//li[contains(@dataelement,"thumbnail-gallery")][position()>1]//img/@src
+    regExp: (.+)&w=(.+)&h=
+    regExpReplace: $1w=780&h=1196
+  - name: nameExtended
+    xpath: //section//span[@itemprop="name"] | //h1[@itemprop="name"]
+  - name: listPrice
+    xpath: //section[@id="product-page-price-lockup"]//span[contains(text(),'After Sale:')]/following-sibling::span
+  - name: price
+    xpath: //section[@id="product-page-price-lockup"]//span[@id="current-price"]/span[last()]
+    regExp: ^[^–]+
+  - name: availabilityText
+    xpath: //span[contains(text(),'Add to Bag')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath:  //div[contains(text(),"Details & Care")]/following-sibling::div[1]/p
+    singleValue: false
+  - name: descriptionBullets
+    xpath: count(//div[contains(text(),"Details & Care")]/following-sibling::ul/li)
+  - name: brandText
+    xpath: //section//span[@itemprop="name"]
+  - name: brandLink
+    xpath: //section//span[@itemprop="name"]/parent::a/@href
+    regExp: (.+)
+    regExpReplace: https://www.nordstrom.com$1
+  - name: sku
+    xpath:  //body/@retailer_product_code
+  - name: ratingCount
+    xpath: //span[@itemprop="reviewCount"]/@content
+    description: The number of ratings
+  - name: aggregateRating
+    xpath: //span[@itemprop="ratingValue"]/@content
+  - name: videos
+    xpath: //a[@class='appendedvideo']/@href
+    description: URLs of videos on page
+  - name: name
+    xpath: //h1[@itemprop="name"]
+  - name: variantInformation
+    xpath: //ul[@id="product-page-swatches"]//li//img/@alt | //img[contains(@alt,'selected')]/@alt
+    regExp: selected\s(.+)
+    regExpReplace: $1
+  - name: firstVariant
+    xpath: //ul[@id="product-page-swatches"]//li//img/@alt | //img[contains(@alt,'selected')]/@alt
+    regExp: selected\s(.+)
+    regExpReplace: $1
+  - name: variantId
+    xpath:  //body/@retailer_product_code
+  - name: variants
+    xpath: //a[@class='appendedvariantid']/@href
+  - name: variantCount
+    xpath: count(//a[@class='appendedvariantid']/@href)
+  - name: color
+    xpath: //img[contains(@alt,'selected')]/@alt
+    regExp: selected\s(.+)
+    regExpReplace: $1
+  - name: size
+    xpath: //span[contains(text(),'Size Info')]/following-sibling::ul | //body/@size
+  - name: coupon
+    xpath: //a[contains(text(),'Apply now')]/parent::div
+  - name: additionalDescBulletInfo
+    xpath: //div[contains(text(),"Details & Care")]/following-sibling::ul/li
+  - name: quantity
+    xpath: //span[contains(text(),'Size Info')]/following-sibling::ul
+  - name: shippingDimensions
+    xpath: //div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x')]
+  - name: warranty
+    xpath: //div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),'warranty')]
+  - name: specifications
+    xpath: //div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x') or contains(text(),'cord')]
+    singleValue: true
+  - name: weightNet
+    xpath: //div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' lb.')]
+  - name: mpc
+    xpath: //div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),'Model')]
+    regExp: (.+):\s(.+)
+    regExpReplace: $2
+  - name: metaKeywords
+    xpath: //meta[@name="keywords"]/@content
+  - name: ingredientsList
+    xpath: //span[contains(text(),'Ingredients')]/following-sibling::p[1]
+  - name: legalDisclaimer
+    xpath: //p[@class="disclaimer"]
+  - name: directions
+    xpath: //strong[contains(text(),'How to use')]/parent::p | //p[contains(text(),'How to use')]
