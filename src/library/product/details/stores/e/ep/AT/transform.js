@@ -7,32 +7,6 @@
 const transform = (data) => {
     for (const { group } of data) {
       for (const row of group) {
-
-        if (row.gtin) {
-            let text = '';            
-              text = row.gtin[0].text.toString().replace("Art.-Nr.: ","");            
-            row.gtin = [{ text }];
-          }
-
-          if (row.mpc) {
-            let text = '';            
-              text = row.mpc[0].text.toString().replace("Art.-Nr.: ","");            
-            row.mpc = [{ text }];
-          }
-
-          if (row.sku) {
-            let text = '';            
-              text = row.sku[0].text.toString().replace("Art.-Nr.: ","");            
-            row.sku = [{ text }];
-          }
-
-          if (row.variantId) {
-            let text = '';            
-              text = row.variantId[0].text.toString().replace("Art.-Nr.: ","");            
-            row.variantId = [{ text }];
-          }
-        
-  
         if (row.description) {
           let text = '';
           row.description.forEach(item => {
