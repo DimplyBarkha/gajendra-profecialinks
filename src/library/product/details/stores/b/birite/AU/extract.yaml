@@ -14,47 +14,56 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'woocommerce-product-gallery')]//ol//li//img/@src
+    xpath: //div[contains(@class,'woocommerce-product-gallery')]//ol//li//img[not(@class='flex-active')]/@src
   - name: listPrice
     singleValue: true
     xpath: //DIV[@class='rrp']
   - name: weightNet
     singleValue: true
     xpath: //td[contains(text(), 'Weight')]/following-sibling::td
+  - name: weightGross
+    singleValue: true
+    xpath: //td[contains(text(), 'Shipping Weight')]/following-sibling::td | //td[contains(text(), 'Packed weight')]/following-sibling::td
   - name: brandText
     singleValue: true
     xpath: //meta[@property="product:brand"]/@content
     defaultValue: ""
-  - name: specifications 
-    singleValue: true
-    xpath: //th[contains(text(), 'Dimensions')]/following-sibling::td
-  - name: name 
+  - name: specifications
+    singleValue: false
+    xpath: //tbody[@class='row-hover']//tr//td[not(strong)]
+  - name: name
     singleValue: true
     xpath: //h1[contains(@class, 'product_title')]
   - name: sku
     singleValue: true
     xpath: //script/@data-flix-sku
-  - name: variantId  
+  - name: variantId
     singleValue: true
     xpath: //script/@data-flix-sku
-  - name: mpc  
+  - name: mpc
     singleValue: true
     xpath: //script/@data-flix-mpn
-  - name: warranty  
-    singleValue: false
-    xpath: //td[contains(text(), 'Warranty')]/following-sibling::td
-  - name: productUrl 
+  - name: gtin
+    singleValue: true
+    xpath: //script/@data-flix-ean
+  - name: eangtin
+    singleValue: true
+    xpath: //script/@data-flix-ean
+  - name: warranty
+    singleValue: true
+    xpath: //img[@title='warranty card']/@src
+  - name: productUrl
     singleValue: true
     xpath: //meta[@property='og:url']/@content
   - name: category
     singleValue: false
-    xpath: //nav[contains(@class, 'woocommerce-breadcrumb')]
+    xpath: //nav[contains(@class, 'woocommerce-breadcrumb')]/a
   - name: nameExtended
     singleValue: true
     xpath: //h1[contains(@class, 'product_title')]
-  - name: color 
+  - name: color
     singleValue: true
-    xpath: //th[contains(text(), 'Colour')]/following-sibling::td
+    xpath: //td[text()='Colour']/following-sibling::td
   - name: price
     singleValue: false
     xpath: (//SPAN[@class='woocommerce-Price-amount amount'])[1]
@@ -67,9 +76,9 @@ fields:
   - name: manufacturer
     singleValue: true
     xpath: //th[contains(text(), 'Brand')]/following-sibling::td
-  #- name: description
-  #  singleValue: false
-  #  xpath: //div[contains(@class, 'woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab')]//table//tbody//tr
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class, 'woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab')]//table//tbody//tr
   #- name: descriptionBullets
   #  singleValue: true
   #  type: NUMBER
@@ -83,19 +92,18 @@ fields:
   - name: termsAndConditions
     xpath: boolean(//A[@href='/terms-conditions/'][contains(text(),'Terms ')])
     singleValue: true
-  - name: energyEfficiency 
+  - name: energyEfficiency
     singleValue: true
     xpath: //th[contains(text(), 'Energy Rating')]/following-sibling::td
   - name: shippingDimensions
     singleValue: true
-    xpath: //td[contains(text(), 'Packing Dimensions (Carton ) WxDxH (mm)')]/following-sibling::td
+    xpath: //td[contains(text(), 'Shipping Dimensions')]/following-sibling::td
   - name: manufacturerDescription
     singleValue: true
-    xpath: //div[@id='inpage_container']//div[@class='inpage_selector_feature']//div[contains(@class,'flix-std-p')]
+    xpath: //div[contains(@class,'flix-std-content')]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id='inpage_container']//div[@class='inpage_selector_feature']//img/@srcset
-
-  
-    
-  
+  - name: shippingWeight
+    singleValue: true
+    xpath: //td[contains(text(), 'Shipping Weight')]/following-sibling::td | //td[contains(text(), 'Packed weight')]/following-sibling::td

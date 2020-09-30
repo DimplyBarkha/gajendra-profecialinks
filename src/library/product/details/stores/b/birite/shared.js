@@ -49,7 +49,50 @@ const transform = (data) => {
         });
         row.alternateImages = newAltImage;
       }
-      
+      if (row.specifications) {
+        let text = '';
+        let rowCount = 0
+        row.specifications.forEach(item => {
+          rowCount++;
+
+          if (rowCount % 2 !== 0) {
+            text += `${item.text} : `;
+          } else {
+            text += `${item.text} || `;
+          }
+        });
+        row.specifications = [
+          {
+            text: (text.substr(text.length - 3) == '|| ' || text.substr(text.length - 3) == ' : ') ? text.slice(0, -3) : text,
+          },
+        ];
+      }
+
+      if (row.warranty) {
+        let text = '';
+        row.warranty.forEach(item => {
+          let warrentyArr = item.text.match(/\d+/g);
+          text = warrentyArr[0] + ' Years';
+        });
+        row.warranty = [
+          {
+            text: text,
+          },
+        ];
+      }
+
+      if (row.termsAndConditions) {
+        let text = '';
+        row.termsAndConditions.forEach(item => {
+          text = (item.text) ? 'Yes' : 'No'
+        });
+        row.termsAndConditions = [
+          {
+            text
+          },
+        ];
+      }
+
     }
   }
   // Clean up data
