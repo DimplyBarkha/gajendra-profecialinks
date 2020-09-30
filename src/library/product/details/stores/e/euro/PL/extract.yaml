@@ -16,7 +16,7 @@ fields:
     xpath: //meta[contains(@name,"keyword")]/@content
   - name: description
     singleValue: false
-    xpath:   //meta[contains(@property,"description")][1]/@content 
+    xpath: //meta[contains(@property,"description")][1]/@content 
   - name: gtin
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"gtin13")]
@@ -126,9 +126,9 @@ fields:
   # - name: variantCount
   #   singleValue: false
   #   xpath: count(//div[@class='variant-list disable-active-item']//div//a)
-  - name: -url
-    singleValue: false
-    xpath: //meta[contains(@property,"og:url")]/@content
+  # - name: -url
+  #   singleValue: false
+  #   xpath: //meta[contains(@property,"og:url")]/@content
   - name: variantInformation
     singleValue: false
     xpath: //div[@class='current-variant']//div[@class='name']/text()
