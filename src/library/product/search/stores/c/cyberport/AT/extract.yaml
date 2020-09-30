@@ -24,6 +24,7 @@ fields:
   - name: price
     xpath: //div[contains(@class,'productsList')]//div[@class='price']//text()|//div[contains(@class,'productsList')]//div[@class='price orange']//text()
     singleValue: true
+    type: CURRENCY
   - name: reviewCount  
     singleValue: true
     xpath: //div[contains(@class,'stars orange')]/@style

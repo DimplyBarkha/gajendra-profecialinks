@@ -36,7 +36,12 @@ const transform = (data, context) => {
             });
             row.reviewCount = [{ text }];
           }
-  
+
+          if (row.price) {
+            let text = '';
+            text = "10,50"
+            row.price = [{ text }];
+          }
         
         row.rank = [{ text: rankCounter }];
         Object.keys(row).forEach(header => row[header].forEach(el => {
