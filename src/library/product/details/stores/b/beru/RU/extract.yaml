@@ -11,13 +11,7 @@ fields:
     xpath: //div[@data-zone-name="productSeller"]//div[@data-auto="info"]
   - name: price
     singleValue: false
-    xpath: concat(//meta[@itemprop="priceCurrency"]/@content,' ', //meta[@itemprop="price"]/@content)
-  - name: priceCurrency
-    singleValue: false
-    xpath: //meta[@itemprop="priceCurrency"]/@content
-  - name: promotion
-    singleValue: false
-    xpath: //div[@data-zone-name="discountBadge"]
+    xpath: //div[@data-apiary-widget-name="@marketplace/SkuCart"]//div[@data-auto="price"]
   - name: image
     singleValue: false
     xpath: //head[1]//meta[20]/@content
@@ -36,13 +30,15 @@ fields:
     xpath: //div[@itemtype="https://schema.org/Product"]//meta[@itemprop="url"]/@content
   - name: category
     singleValue: false
-    xpath: //div[@data-auto="breadcrumb-item-1"]//div[@itemprop="itemListElement"]//meta[@itemprop="name"]/@content
+    xpath: //div[contains(@data-auto, "breadcrumb-item")]//div[@itemprop="itemListElement"]//meta[@itemprop="name"]/@content
   - name: nameExtended
     singleValue: false
-    xpath: //div[@itemref="SkuPictureGallery"]//meta[@itemprop="name"]/@content
+    xpath: //meta[@property="og:title"]/@content
   - name: listPrice
     singleValue: false
-    xpath: //div[@data-auto="old-price"]
+    xpath: //div[@data-apiary-widget-name="@marketplace/SkuCart"]//div[@data-auto="old-price"]
+    regExp: (.+)
+    regExpReplace: RUR$1
   - name: variants
     singleValue: false
     xpath: //div[@data-zone-name="filter"]//div//span//input[@type="radio"]/@value
@@ -79,22 +75,22 @@ fields:
     xpath: count(//div[contains(@data-zone-name,'specs')]//ul//li)
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@data-zone-name,'specs')]//ul//li 
+    xpath: //div[contains(@data-zone-name,'specs')]//ul//li
   - name: brandText
     singleValue: false
     xpath: //meta[@itemprop="brand"]/@content
   - name: manufacturer
     singleValue: false
-    xpath: //div[@data-zone-name="schema"]//div[@itemtype="https://schema.org/Product"]//meta[@itemprop="brand"]/@content
+    xpath: (//div[@data-zone-name = "productVendor"]//div[@data-auto = "info"]//text())[1]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@data-auto = "item"]//div[@class = "_3bNl7A8hOl"]//span[@data-tid ="52906e8d"]
   - name: variantCount
     singleValue: false
     xpath: count(//div[contains(@class,"cui")]//span[contains(@data-auto, "radio")])
   - name: color
     singleValue: false
     xpath: //span[@class="orEV9DcwNt"]
-  - name: colorCode
-    singleValue: false
-    xpath: //div[@data-zone-name="filter"]//span[2]
   - name: energyEfficiency
     singleValue: false
     xpath: //div[@class="jgixRQsL0c"]//font[contains(text(),'kWh')]
@@ -103,16 +99,24 @@ fields:
     xpath: //meta[@property="og:title"]/@content
   - name: specifications
     singleValue: false
-    xpath: //div[@class="_2cmrAtTCHQ"]
+    xpath: //div[@id="import_specs"]
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id="import_weight"]
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id="import_warranty"]
   - name: storage
     singleValue: false
     xpath: //div[@class="jgixRQsL0c"]//font[contains(text(),'хранить')]
   - name: countryOfOrigin
     singleValue: false
-    xpath: //font[contains(text(), 'Country')]/ancestor::span[1]/ancestor::div[1]/following-sibling::div//span
+    xpath: //span[@data-tid = "d4bc8f4c"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //meta[@property="og:image"]
-  - name: newDescription
+    xpath: //div[@data-auto = "item"]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: firstVariant
     singleValue: false
-    xpath: //meta[@property="og:description"]/@content
+    xpath: //div[@class = "B84GCIY2HI"]//span[contains(@data-auto, "selected-true")]//input/@value

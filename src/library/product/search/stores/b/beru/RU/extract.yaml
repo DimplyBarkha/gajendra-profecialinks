@@ -2,18 +2,18 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields: 
+fields:
   - name: thumbnail
     singleValue: false
-    xpath: //div[@data-auto="SerpPage"]//div//div//div//div//img/@src 
+    xpath: //div[@data-auto="SerpPage"]//div//div//div//div//img/@src
     regExp: (.+)
     regExpReplace: https:$1
   - name: gtin
     singleValue: false
-    xpath: 
+    xpath:
   - name: manufacturer
     singleValue: false
-    xpath: 
+    xpath:
   - name: brandText
     singleValue: false
     xpath:
@@ -29,17 +29,11 @@ fields:
   - name: rankOrganic
     xpath: //div[@data-zone-name="SearchSerp"]//div[@class="cia-vs"]/@data-zone-data
     regExp: \"position":(\d+)
-    regExpReplace: $1 
-  - name: aggregateRating
-    singleValue: false
-    xpath: //a[@rel="nofollow noopener"]//div[contains(@style, "width:")]/@style
+    regExpReplace: $1
   - name: aggregateRating2
     singleValue: false
     xpath: //a[@rel="nofollow noopener"]//div[contains(@style, "width:")]/@style
   - name: reviewCount
-    singleValue: false
-    xpath:
-  - name: ratingCount
     singleValue: false
     xpath: //div[@data-zone-name="SearchSerp"]//div[@class="cia-vs"]//div[@data-cs-name="navigate"]//a[@rel="nofollow noopener"]//div//div//div//div//span[@data-tid="52906e8d"]/span
   - name: soldBy
@@ -49,7 +43,7 @@ fields:
     singleValue: false
     xpath: //div[@data-zone-name="SearchSerp"]//div[@class="cia-vs"]/@data-zone-data
     regExp: \"position":(\d+)
-    regExpReplace: $1 
+    regExpReplace: $1
   - name: endorsementText
     singleValue: false
     xpath:
@@ -72,7 +66,7 @@ fields:
     singleValue: false
     xpath: //div[@data-zone-name="SearchSerp"]//div[@class="cia-vs"]//div[@data-cs-name="navigate"]//a[@rel="nofollow noopener"]/@href
     regExp: (\/.*)
-    regExpReplace: https://beru.ru$1 
+    regExpReplace: https://beru.ru$1
   - name: (PARAM)
     singleValue: false
     xpath:
@@ -83,8 +77,4 @@ fields:
     singleValue: false
     xpath: //div[@data-zone-name="SearchSerp"]//div[@class="cia-vs"]/@data-zone-data
     regExp: \"productId":(\d+)
-    regExpReplace: $1 
-  - name: pageTimestamp 
-    singleValue: false
-    xpath:   
-  
+    regExpReplace: $1
