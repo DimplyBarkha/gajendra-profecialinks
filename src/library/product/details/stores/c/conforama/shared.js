@@ -30,6 +30,17 @@ const transform = (data) => {
             },
           ];
         }
+        if (row.additionalDescBulletInfo) {
+          let text = '';
+          row.additionalDescBulletInfo.forEach(item => {
+            text += ` || ${item.text}`;
+          });
+          row.additionalDescBulletInfo = [
+            {
+              text: text.trim(),
+            },
+          ];
+        }
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {
             item.text = item.text ? item.text.replace(/[()]/g, '') : '';
