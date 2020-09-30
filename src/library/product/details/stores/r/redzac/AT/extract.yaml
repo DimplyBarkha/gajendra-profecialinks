@@ -14,6 +14,7 @@ fields:
     - name: alternateImages
       singleValue: false
       description: Other product images (not in manufacturer description)
+      xpath: //*[@id="carouselcatalogItemThumbnails11392111"]/ul/li//a/@data-image_zoom
     - name: metaKeywords
       singleValue: true
       description: The <meta> keywords content
@@ -151,7 +152,7 @@ fields:
     #   singleValue: true
     #   description: A code description of the color (e.g. RGB hex)
     - name: manufacturerDescription
-      singleValue: false
+      singleValue: true
       description: The extended description of the product supplied by the lister
       xpath: //*[@id="dyson_jump_features"]
     - name: manufacturerImages
@@ -434,9 +435,10 @@ fields:
     # - name: dietaryInformation
     #   singleValue: true
     #   description: null
-    # - name: specifications
-    #   singleValue: true
-    #   description: The physical dimensions of the product including packaging.
+    - name: specifications
+      singleValue: true
+      description: The physical dimensions of the product including packaging.
+      xpath: //*[@id="filter_ci_tech_description"]/tbody//*[contains(text(),"Gehäuse-Eigenschaften")]/../../../../..
     - name: warranty
       singleValue: true
       description: Guarantee associated with the product
