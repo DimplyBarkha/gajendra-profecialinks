@@ -56,9 +56,9 @@ module.exports = {
       }
 
       const finalArray = [];
-      const retailer_product_code = dataArr && dataArr.skus && dataArr.skus.allIds && dataArr.skus.allIds[0] || '';
-      const size = dataArr && dataArr.filters && dataArr.filters.size && dataArr.filters.size.allIds[0] || '';
-      const object = {retailer_product_code, size};
+      const rpc = dataArr && dataArr.skus && dataArr.skus.allIds && dataArr.skus.allIds[0] ? dataArr.skus.allIds[0] : '';
+      const size = dataArr && dataArr.filters && dataArr.filters.size && dataArr.filters.size.allIds[0] ? dataArr.filters.size.allIds[0] : '';
+      const object = { rpc, size };
       finalArray.push(object);
       if (finalArray) {
         for (const key in finalArray[0]) {
