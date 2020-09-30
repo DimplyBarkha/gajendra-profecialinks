@@ -5,8 +5,8 @@ module.exports = {
     country: 'AT',
     store: 'ep',
     domain: 'ep.at',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'body',
+    noResultsXPath: 'div[class="page-not-found-component component content"]',
     zipcode: '',
   },
 };
