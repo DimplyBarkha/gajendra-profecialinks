@@ -22,7 +22,7 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: true
-    xpath: //div[@class="caption"]//p[@class="description"]/a/@href
+    xpath: //div[@class="caption"]//span[@class="description"]/a/@href
     description: The URL for the product details page
   - name: thumbnail
     singleValue: true
@@ -30,7 +30,7 @@ fields:
     description: The URL for the product thumbnail image
   - name: name
     singleValue: true
-    xpath: //div[@class="caption"]//p[@class="description"]/a
+    xpath: //div[@class="caption"]//span[@class="description"]/a
     description: The product name
   - name: sku
     singleValue: true
