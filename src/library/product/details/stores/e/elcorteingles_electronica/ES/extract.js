@@ -216,10 +216,9 @@ module.exports = {
           return data.map(e => { return "https:" + e.playlist[0].file }).join(" | ")
         }
       }
-3
-      let videos = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value') ? videoData(getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value')) : "";
+      let videos = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0  ? videoData(getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value')) : "";
 
-      let apluseImages = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value') ? getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').map(e => { return e.playlist.length > 1 ? e.playlist.map(i => {return "https:"+i.image}) : "https:"+e.playlist[0].image }).join(" | ") : "";
+      let apluseImages = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0  ? getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').map(e => { return e.playlist.length > 1 ? e.playlist.map(i => {return "https:"+i.image}) : "https:"+e.playlist[0].image }).join(" | ") : "";
 
       addElementToDocument('videos', videos);
       addElementToDocument('apluseImages', apluseImages);

@@ -10,13 +10,13 @@ module.exports = {
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain,transform }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
 
     await context.evaluate(async function () {
       // function to append the elements to DOM
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -24,7 +24,7 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       // function to get the json data from the string
-      function findJsonData (scriptSelector, startString, endString) {
+      function findJsonData(scriptSelector, startString, endString) {
         try {
           const xpath = `//script[contains(.,'${scriptSelector}')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -47,7 +47,7 @@ module.exports = {
       }
 
       // function to get the json data from the textContent
-      function findJsonObj (scriptSelector, video) {
+      function findJsonObj(scriptSelector, video) {
         if (video) {
           var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           return result;
@@ -64,16 +64,34 @@ module.exports = {
         }
       }
 
-      const getXpath = (xpath, prop) => {
-        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-        let result;
-        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-        else result = elem ? elem.singleNodeValue : '';
-        return result && result.trim ? result.trim() : result;
-      };
-      let videos = JSON.parse(getXpath('//div[contains(@class,"fullJwPlayerWarp")]/input/@value', 'nodeValue')).playlist.map(e => { return e.file }).join(" | ")
-      addElementToDocument('videos',videos);
-      
+
+      function getPathDirections(xpathToExecute) {
+        var result = [];
+        var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
+          result.push(JSON.parse(nodesSnapshot.snapshotItem(i).textContent));
+        }
+        return result;
+      }
+
+
+      function videoData(data) {
+
+        if (data[0].playlist.length > 1) {
+          return data[0].playlist.map(e => { return "https:" + e.file }).join(" | ")
+        }
+
+        if (data[0].playlist.length === 1) {
+          return data.map(e => { return "https:" + e.playlist[0].file }).join(" | ")
+        }
+      }
+      let videos = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0 ? videoData(getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value')) : "";
+
+      let apluseImages = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0 ? getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').map(e => { return e.playlist.length > 1 ? e.playlist.map(i => { return "https:" + i.image }) : "https:" + e.playlist[0].image }).join(" | ") : "";
+
+
+      addElementToDocument('videos', videos);
+      addElementToDocument('apluseImages', apluseImages);
 
       const makeApiCall = async (url, options) => {
         try {
@@ -114,29 +132,29 @@ module.exports = {
         addElementToDocument('product_description', imageData.description);
       }
 
-      // Get the video
-      try {
-        const inputVideo = findJsonObj('', '//input[@class="flix-jw"]/@value');
-        const imagelayoutVideo = findJsonObj('', '//div[@class="image-layout-slides-group-item"]/img/@data-url');
-        console.log('Weighting for Video');
-        if (inputVideo.snapshotLength > 0) {
-          console.log('addig in Video');
-          for (let i = 0; i < inputVideo.snapshotLength; i++) {
-            addElementToDocument('video', JSON.parse(findJsonObj('', inputVideo).snapshotItem(0).value).playlist[0].file);
-          }
-        } else {
-          if (imagelayoutVideo.snapshotLength === 1) {
-            console.log('addig Imag Video');
-            addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
-          } else {
-            for (let i = 0; i < imagelayoutVideo.snapshotLength; i++) {
-              addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
-            }
-          }
-        }
-      } catch (error) {
-        console.log('eror in video');
-      }
+      // // Get the video
+      // try {
+      //   const inputVideo = findJsonObj('', '//input[@class="flix-jw"]/@value');
+      //   const imagelayoutVideo = findJsonObj('', '//div[@class="image-layout-slides-group-item"]/img/@data-url');
+      //   console.log('Weighting for Video');
+      //   if (inputVideo.snapshotLength > 0) {
+      //     console.log('addig in Video');
+      //     for (let i = 0; i < inputVideo.snapshotLength; i++) {
+      //       addElementToDocument('video', JSON.parse(findJsonObj('', inputVideo).snapshotItem(0).value).playlist[0].file);
+      //     }
+      //   } else {
+      //     if (imagelayoutVideo.snapshotLength === 1) {
+      //       console.log('addig Imag Video');
+      //       addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
+      //     } else {
+      //       for (let i = 0; i < imagelayoutVideo.snapshotLength; i++) {
+      //         addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
+      //       }
+      //     }
+      //   }
+      // } catch (error) {
+      //   console.log('eror in video');
+      // }
 
       // elements from data Layer object
       const dataObj = findJsonData('dataLayer', '=', ';');
@@ -237,7 +255,7 @@ module.exports = {
       }
 
       // Get the ratingCount
-      function ratingFromDOM () {
+      function ratingFromDOM() {
         const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
         let ratingCount;
         if (reviewsCount) {
@@ -262,7 +280,7 @@ module.exports = {
         }
       }
 
-      function allergyAdvice () {
+      function allergyAdvice() {
         const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         if (element) {
@@ -273,7 +291,7 @@ module.exports = {
       } allergyAdvice();
 
       // Function to remove the `\n` from the textContent
-      function textContent (element, attributeName) {
+      function textContent(element, attributeName) {
         const text = (element && element.innerText.trim()
           .split(/[\n]/)
           .filter((ele) => ele)
@@ -291,6 +309,6 @@ module.exports = {
       textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
     });
 
-    await context.extract(productDetails,{transform});
+    await context.extract(productDetails, { transform });
   },
 };

@@ -150,8 +150,7 @@ module.exports = {
         const imageData = findJsonObj('image');
         // Check for the data and append to DOM
         if (imageData) {
-          console.log("Image here")
-          addElementToDocument('product_image', `https:${imageData.image.slice(-1)[0]}`);
+          addElementToDocument('product_image', `${imageData.image ? "https:" : ""}${imageData.image.slice(-1)[0]}`);
           addElementToDocument('product_description', imageData.description);
         } else {
           let sliderImage = document.querySelectorAll('.image-layout-slides-group div')[0].querySelector('img').getAttribute('src');
