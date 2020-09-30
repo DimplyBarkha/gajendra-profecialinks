@@ -2,7 +2,7 @@ extends: ../shared
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,'hgroup__main-image')]/img/@src
+    xpath: //div[contains(@class,'hgroup__main-image')]/img/@src | //div[contains(@class,"hero--product-variant")]//div[contains(@class,"image--stretch")]//img/@src
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class,'hgroup__main-image')]/img/@alt
@@ -13,13 +13,13 @@ fields:
     singleValue: false
   - name: nameExtended
     singleValue: false
-    xpath: //h2[contains(@class,"rating-set__title")] | //h1[contains(@class,"hgroup__motif__h1-cdn-img-replace")]
+    xpath: //h2[contains(@class,"rating-set__title")] | //h1[contains(@class,"hgroup__motif__h1-cdn-img-replace")] | //div[contains(@class,"hgroup hero")] //h1
   - name: listPrice
     singleValue: false
     manualSelector: div.hero__content__preorder-container > div.price-mrp > strike
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"card__pricing")]//*[@class="price"]
+    xpath: //div[contains(@class,"card__pricing")]//*[@class="price"] | //*[contains(@class,"price__is")]//*[@class="price"]
   - name: availabilityText
     singleValue: false
     manualSelector: button[title*="Add to cart"]
@@ -28,7 +28,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, "hgroup product__claims")] | //div[contains(@class, "hero__content__preorder-container")]/div[contains(@class, "hgroup__prefix")]
+    xpath: //div[contains(@class,"hgroup product__claims") ] | //div[contains(@class, "hero__content__preorder-container")]/div[contains(@class, "hgroup__prefix")]
   - name: weightNet 
     singleValue: false
     xpath: //span[contains(@class,"spec") and *[contains(text(),"Weight")]]//span
@@ -46,7 +46,7 @@ fields:
     xpath: //video/source[@src]/@src
   - name: name
     singleValue: false
-    xpath: //h2[contains(@class,"rating-set__title")] | //*[contains(@class,"hgroup__motif__h1-cdn-img-replace")]
+    xpath: //h2[contains(@class,"rating-set__title")] | //*[contains(@class,"hgroup__motif__h1-cdn-img-replace")] | //div[contains(@class,"hgroup hero")] //h1
   - name: specifications
     singleValue: false
     manualSelector: div#added_specs
@@ -56,13 +56,17 @@ fields:
   - name: promotion
     singleValue: false
     manualSelector: div.product__price .price__save
-  - name: termsAndConditions
-    singleValue: false
-    xpath: //b[contains(text(),"Terms and conditions")]
   - name: manufacturerDescription
     singleValue: false
     manualSelector: div.promos__list
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class,"promos__list")]//img/@src
+  - name: termsAndConditions #localedependent
+    xpath: //h2[contains(@class,"rating-set__title")] | //*[contains(@class,"hgroup__motif__h1-cdn-img-replace")] | //div[contains(@class,"hgroup hero")] //h1
+    regExp: (.+)
+    regExpReplace: No
+    singleValue: false
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
  
