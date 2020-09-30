@@ -83,9 +83,6 @@ module.exports.implementation = async function implementation (
     if (splits.length < 1) {
       splits = url && url.split('dp/')[1] ? url.split('dp/')[1].split('/') : [];
     }
-    // if (splits[0]){
-    //   addHiddenDiv('ii_variant', splits[0]);
-    // }
 
     const allVariants = [...new Set(getVariants())];
     if (splits[0] && !allVariants.includes(splits[0].slice(0, 10))) {
