@@ -18,18 +18,17 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ol//li[@class="breadcrumb-item"][position()>1]//a | //ol//li[@class="breadcrumb-item"]//a
+    xpath: //head//li//input/@value
   - name: nameExtended
     xpath: (//h1[contains(@class,"product-name")])[1]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-  - name: listPrice
-    description: The stated undiscounted price for the product
-    xpath: //div[@class="pdp-tile"]//span[@class="price-tag"]//div[@class="strike"]//span/@content
   - name: price
     xpath: (//div[contains(@class,"price")]//span[contains(@class,"sales")])[1]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+  - name: listPrice
+    xpath: (//span[contains(@class,"strike-through list")]//span/@content)[1]
   - name: availabilityText
     xpath: (//div[@class='row tile']//div[@class='attributes']//div[contains(.,'not available')])[1]
     description: Availability as described on page for the selected variant. If

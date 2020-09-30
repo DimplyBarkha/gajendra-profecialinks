@@ -15,6 +15,25 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
+      let breadcrumbs = document.querySelectorAll('li.breadcrumb-item');
+      for (i = 0; i < breadcrumbs.length - 1; i++) {
+        if (breadcrumbs.length > 1) {
+          var div = document.createElement('li');
+          div.className = 'categories';
+          var getInput = document.createElement('input');
+          div.appendChild(getInput);
+          document.head.appendChild(div);
+          getInput.setAttribute("value", breadcrumbs[i + 1].querySelector('a').innerText);
+        }
+        else {
+          var div = document.createElement('li');
+          div.className = 'categories';
+          var getInput = document.createElement('input');
+          div.appendChild(getInput);
+          document.head.appendChild(div);
+          getInput.setAttribute("value", breadcrumbs[i].querySelector('a').innerText);
+        }
+      }
       let getAllImages = document.querySelectorAll('button.carousel-img-wrap img');
       let allImages = [];
       for (i = 0; i < getAllImages.length; i++) {
