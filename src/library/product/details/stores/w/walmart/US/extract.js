@@ -66,8 +66,10 @@ module.exports = {
           }
         }
         const url = window.location.href;
-        const splits = url ? url.split('?')[0].split('/') : [];
-        const id = (splits.length > 1) ? splits[splits.length - 2] : '';
+        // const splits = url ? url.split('?')[0].split('/') : [];
+        // const id = (splits.length > 1) ? splits[splits.length - 2] : '';
+        // addHiddenDiv('added-sku', id);
+        const id = url.replace(/[^\d]/g, ''); 
         addHiddenDiv('added-sku', id);
         const sellerUrl = `https://www.walmart.com/product/${id}/sellers`;
         const result = await getSellerInformation(sellerUrl);
