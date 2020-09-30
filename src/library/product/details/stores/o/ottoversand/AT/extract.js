@@ -17,8 +17,7 @@ module.exports = {
       if(typeof productInfo.aggregateRating !== "undefined")
       {
         addEleToDoc('agreegateRatingId',productInfo.aggregateRating.ratingValue);
-      }
-            
+      }        
       addEleToDoc('priceId',productInfo.offers.price.replace('.',','));
       addEleToDoc('currencyId',productInfo.offers.priceCurrency);
 

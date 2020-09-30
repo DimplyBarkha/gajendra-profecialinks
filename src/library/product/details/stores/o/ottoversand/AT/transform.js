@@ -4,7 +4,7 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
-  
+
       // Default transform function
       const clean = text => text.toString()
       .replace(/\r\n|\r|\n/g, ' ')
@@ -26,7 +26,7 @@ const transform = (data, context) => {
       for (const row of group) {  
         try {
             if (row.price) {
-              //row.price = [{ text: row.price[0].text }, { text: row.priceCurrency[0].text }];            
+              row.price = [{ text: row.price[0].text }, { text: row.priceCurrency[0].text }];            
               //console.log(row.price)
              }
              if (row.variants) {
