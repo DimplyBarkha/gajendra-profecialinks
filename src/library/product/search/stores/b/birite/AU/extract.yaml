@@ -1,23 +1,23 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: 
+recordXPath: //ul[contains(@class,'products')]/li[contains(@class,'product')]
 fields:
   - name: name
     singleValue: false
-    xpath: //span[@class="gtm4wp_productdata"]/@ data-gtm4wp_product_name
+    xpath: //span[@class="gtm4wp_productdata"]/@data-gtm4wp_product_name
   - name: productUrl
     singleValue: false
-    xpath: //span[@class="gtm4wp_productdata"]/@ data-gtm4wp_product_url
+    xpath: //span[@class="gtm4wp_productdata"]/@data-gtm4wp_product_url
   - name: thumbnail
     singleValue: false
     xpath: //img[@class='attachment-woocommerce_thumbnail size-woocommerce_thumbnail']/@src
   - name: id
     singleValue: false
-    xpath: //span[@class="gtm4wp_productdata"]/@ data-gtm4wp_product_id
+    xpath: //span[@class="gtm4wp_productdata"]/@data-gtm4wp_product_id
   - name: price
     singleValue: false
-    xpath: //span[@class="gtm4wp_productdata"]/@ data-gtm4wp_product_price
+    xpath: //span[@class="gtm4wp_productdata"]/@data-gtm4wp_product_price
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
