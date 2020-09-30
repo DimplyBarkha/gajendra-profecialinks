@@ -1,15 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
 fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[contains(@class,'thumbs-carousel')]//div[contains(@class,'thumb')][1]//div[contains(@class,'thumbnail-link')][1]/img[1]/@src
+    xpath: //img[@class='primary-image']//@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image    
-    xpath: //div[@id='wrapper']/div[@id='main']/div[@class='pdp-details']/div[@id='primary']/div[@id='pdpMain']/div[@class='product-detail-ouline clearfix']/div[@class='product-col-1 product-image-container']/div[@class='product-primary-image desktop-only']/a[@class='product-image main-image']/img[@class='primary-image']/@alt
+    xpath: //img[@class='primary-image']//@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //img[@class='productthumbnail']//@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -22,7 +27,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class='pdp-top-left']/h1[@class='product-name']
+    xpath: //meta[@name='description']//@content
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -37,72 +42,67 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //button[@class="button-fancy-large add-to-cart"]
+    xpath: //div[@class='group-btn-button']//button[@class='button-fancy-large add-to-cart']
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    singleValue: true
+    singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath : //div[@class='product-long-description']
+    xpath : //meta[@name='description']//@content
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     description: Number of ul > li tags in the description
-    xpath : count(//div[@class='product-long-description']/ul/li)
-    type: NUMBER
+    xpath : count(//div[@class='product-long-description']/ul/li)    
   - name: brandText
-    singleValue: true
+    singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath : //div[@class='brand-name']/a  
+    xpath : //brand  
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
-    xpath : //div[@class='brand-name']/a
+    xpath : //brand
   - name: manufacturerImages
-    singleValue: true
-    description: Manufacture Image 
-    xpath : //div[@class='pdp-top-left']/div[@class='brand-name']/img/@src
+    singleValue: false
+    description: Manufacture Image    
   - name: quantity
-    singleValue: true
+    singleValue: false
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
+    singleValue: false
     description: Net weight as described on the page
     xpath : (//strong[contains(text(),'Product weight:')]/following-sibling::text())[1]
   - name: weightGross
-    singleValue: true
+    singleValue: false
     description: Gross weight as described on the page
     xpath : //strong[contains(text(),'Product weight:')]/following-sibling::text()[1]
   - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-    xpath : //span[@itempro="productID"]
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)   
   - name: upc
-    singleValue: true
-    xpath: //span[@itempro="productID"]
+    singleValue: false    
   - name: eangtin
-    singleValue: true
-    xpath: //span[@itempro="productID"]
+    singleValue: true   
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
-    xpath : //span[@itempro="productID"]
+    xpath : //isapplepay/@sku
   - name: variantId
-    singleValue: true
+    singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath : //span[@itempro="productID"]
+    xpath : //isapplepay/@sku
   - name: mpc
-    singleValue: true
+    singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //span[@itempro="productID"]
+    xpath: //div[@class='product-number']//span
   - name: productUrl
-    singleValue: true
+    singleValue: false
     description: Url of the page 
-    xpath: //link[@rel="canonical"]/@href
+    xpath: //link[@rel="canonical"]//@href
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -140,10 +140,8 @@ fields:
     singleValue: true
     description: null  
   - name: secondaryImageTotal
-    singleValue: true
-    description: null
-    type: NUMBER
-    xpath: count(//div[@class='owl-stage']/div[contains(@class,'owl-item')])
+    singleValue: true 
+    xpath: count(//img[@class='productthumbnail']//@src)
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
@@ -196,7 +194,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    description: null  
+    xpath : count(//div[@class='product-long-description']/ul/li)  
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product.
@@ -222,4 +220,7 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     xpath: boolean(//div[@class='product-primary-image desktop-only']/a[@class='btn-zoom'])
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class='product-long-description-outline']
     
