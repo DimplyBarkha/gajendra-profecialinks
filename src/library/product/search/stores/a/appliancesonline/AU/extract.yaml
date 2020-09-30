@@ -23,10 +23,6 @@ fields:
     singleValue: false
     xpath: //div//a[contains(@class, 'rating-text ng-star')]
     regExp: ^.{0,3}
-  # - name: ratingCount
-  #   singleValue: false
-  #   xpath: //div//a[contains(@class, 'rating-text ng-star')]
-  #   regExp: ^.{0,3}
   - name: reviewCount
     singleValue: false
     xpath: //div//a[contains(@class, 'rating-text ng-star')]/span
@@ -50,8 +46,6 @@ fields:
     description: Unique id (within this extractor)
     xpath: //aol-product/div/@class
     regExp: ([0-9]+)
-    #regExp: \/(\d+)\??[^\/]*$
-    #regExpReplace: $1 
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
