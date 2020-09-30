@@ -5,9 +5,9 @@ module.exports = {
     country: 'SE',
     store: 'power',
     domain: 'power.se',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.power.se/search/?q={searchTerms}',
+    loadedSelector: 'div#product-section',
+    noResultsXPath: '//span[@class="total-qty" and text()=" 0"]',
     zipcode: '',
   },
 };

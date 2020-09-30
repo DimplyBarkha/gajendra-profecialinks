@@ -1,10 +1,11 @@
+const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'SE',
     store: 'power',
-    transform: null,
+    transform,
     domain: 'power.se',
     zipcode: '',
   },
