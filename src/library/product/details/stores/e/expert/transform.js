@@ -20,6 +20,25 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
+        if (row.gtin && row.gtin[0] && row.gtin[0].text) {
+          let jsonObj = row.gtin[0].text;
+          console.log(jsonObj);
+          if (jsonObj.includes('https:')) {
+            if (jsonObj.includes('&ean=')) {
+              jsonObj = jsonObj.split('/ean/');
+              jsonObj = jsonObj.length === 2 ? jsonObj[1] : '';
+              jsonObj = jsonObj.split('?&ean=')[0];
+              row.gtin[0].text = jsonObj;
+              row.upc[0].text = jsonObj;
+              row.eangtin[0].text = jsonObj;
+            } else {
+              row.gtin[0].text = '';
+              row.upc[0].text = '';
+              row.eangtin[0].text = '';
+            }
+          }
+        }
+
         if (row.specifications) {
           const textArr = [];
           row.specifications.forEach(item => {

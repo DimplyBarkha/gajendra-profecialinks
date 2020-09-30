@@ -5,19 +5,19 @@ recordXPath: null
 fields:
   - name: id
     singleValue: true
-    xpath: (//div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")][2])
+    xpath: (//div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber-articleNumber")][2])
   - name: image
     singleValue: true
-    xpath: (//img[contains(@class, "widget-ArticleImage--articleImage")]/@src)[1]
+    xpath: (//img[contains(@class, "widget-ArticleImage")]/@src)[1]
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
-    xpath: (//img[contains(@class, "widget-ArticleImage--articleImage")]/@alt)[1]
+    xpath: (//img[contains(@class, "widget-ArticleImage")]/@alt)[1]
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[contains(@class, "widget-ArticleImageGallery--articleGalleryImageContainer")][@aria-hidden="true"]//a[contains(@class, "widget-ArticleImageGallery")]//img[contains(@class, "widget-ArticleImageGallery--img") and contains(@data-type, "Image")]/@data-attr-zoom)[position()>1]
+    xpath: (//div[contains(@class, "widget-ArticleImage-gallery")]//div[contains(@class, "widget-ArticleImageGallery")]//a[contains(@class, "widget-ArticleImageGallery")]//img[contains(@class, "widget-ArticleImageGallery") and contains(@data-type, "Image")]/@data-attr-zoom)[position()>1]
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="description"]
@@ -33,11 +33,11 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
-    xpath: (//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-FormerPrice--cross")]//span)[last()]
+    xpath: (//div[contains(@class, "widget-Column")]//div[contains(@class, "widget-FormerPrice")]//span)[last()]
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: (//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticlePrice---view-article-price")]//div[contains(@class, "widget-ArticlePrice--price---view-article-price")]/text()|(//div[contains(@class, "widget-Grid--subContent")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticlePrice---view-article-price")]//div[contains(@class, "widget-ArticlePrice--price---view-article-price") and not(contains(@style,'display:none'))]/text()))[last()]
+    xpath: (//div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column")]//div[contains(@class, "widget-Container-subContent")]//div[contains(@class, "widget-ArticlePrice-price")]//div[contains(@class, "widget-ArticlePrice-price")])[last()]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: priceCurrency
@@ -45,7 +45,7 @@ fields:
     defaultValue: €
   - name: onlinePriceCurrency
     singleValue: true
-    xpath: (//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticlePrice---view-article-price")]//div[contains(@class, "widget-ArticlePrice--price---view-article-price")]/text()|(//div[contains(@class, "widget-Grid--subContent")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticlePrice---view-article-price")]//div[contains(@class, "widget-ArticlePrice--price---view-article-price") and not(contains(@style,'display:none'))]/text()))[last()]
+    xpath: (//div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column")]//div[contains(@class, "widget-Container-subContent")]//div[contains(@class, "widget-ArticlePrice-price")]//div[contains(@class, "widget-ArticlePrice-price")])[last()]
     regExp: (.*)
     regExpReplace: €
   - name: availabilityText
@@ -53,23 +53,23 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //span[contains(@class, "widget-ArticleStatus--statusPointText") and text()="Online auf Lager"]
+    xpath: //span[contains(@class, "widget-ArticleStatus") and text()="Online auf Lager"]
     regExp: (.*)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, "widget-ArticlePriceTagText")]//ul//text()|(//div[contains(@class,'widget-Accordion--header')]//*[contains(text(),"Beschreibung")]/parent::p/parent::div/parent::div/following-sibling::div//div)[1]
+    xpath: //div[contains(@class, "widget-ArticlePriceTagText")]//ul//text()|(//div[contains(@class,'widget-Accordion-header')]//*[contains(text(),"Beschreibung")]/parent::p/parent::div/parent::div/following-sibling::div//div)[1]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[contains(@class, "widget-ArticlePriceTagText")]//ul//li[contains(@class, "widget-ArticlePriceTagText--detail")]//text()|(//div[contains(@class,'widget-Accordion--header')]//*[contains(text(),"Beschreibung:")]/parent::p/parent::div/parent::div/following-sibling::div//div//li//text())[1])
+    xpath: count(//div[contains(@class, "widget-ArticlePriceTagText")]//ul//li[contains(@class, "widget-ArticlePriceTagText-detail")]//text()|(//div[contains(@class,'widget-Accordion-header')]//*[contains(text(),"Beschreibung:")]/parent::p/parent::div/parent::div/following-sibling::div//div//li//text())[1])
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
     singleValue: true
-    xpath: (//img[contains(@class, "widget-ArticleBrand--articleBrandLogo")]/@alt)[1]
+    xpath: (//img[contains(@class, "widget-ArticleBrand-articleBrandLogo")]/@alt)[1]
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
@@ -82,11 +82,11 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
-    xpath: (//th[contains(text(),'Gewicht')]//ancestor::th//parent::tr//td|//div[contains(@class,"widget-ArticleDescription--articleDescription")]//li[contains(text(), "Nettogewicht")])[1]
+    xpath: (//th[contains(text(),'Gewicht')]//ancestor::th//parent::tr//td|//div[contains(@class,"widget-ArticleDescription-articleDescription")]//li[contains(text(), "Nettogewicht")])[1]
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
-    xpath: (//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr//td|//div[contains(@class,"widget-ArticleDescription--articleDescription")]//li[contains(text(), "Bruttogewicht")])[1]
+    xpath: (//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr//td|//div[contains(@class,"widget-ArticleDescription-articleDescription")]//li[contains(text(), "Bruttogewicht")])[1]
     description: Gross weight as described on the page
   - name: upc
     singleValue: true
@@ -100,11 +100,11 @@ fields:
     xpath: (//div[@id="loadbeeTab"]/@data-loadbee-product)[1]|//script[contains(@onload, "initFlixMedia")]/@src
   - name: sku
     singleValue: true
-    xpath: //span[contains(@class, "widget-ArticleNumber--articleNumber")][2]
+    xpath: //span[contains(@class, "widget-ArticleNumber-articleNumber")][2]
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
-    xpath: //span[contains(@class, "widget-ArticleNumber--articleNumber")][2]
+    xpath: //span[contains(@class, "widget-ArticleNumber-articleNumber")][2]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
@@ -168,7 +168,7 @@ fields:
     xpath: //*[@id='ii_manufContentImg']
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class, "widget-ArticleImageGallery--articleGalleryImageContainer")]//div[@title="Play video"]//meta[@itemprop="embedURL"]/@content|//div[contains(@class, "widget-ArticleImageGallery--articleGalleryImageContainer")]//img[contains(@data-type, "Video")]/@src|//*[@id="ii_manufVideo"]
+    xpath: //div[contains(@class, "widget-ArticleImageGallery")]//div[@title="Play video"]//meta[@itemprop="embedURL"]/@content|//div[contains(@class, "widget-ArticleImageGallery")]//img[contains(@data-type, "Video")]/@src|//*[@id="ii_manufVideo"]
     description: URLs of videos on page
   - name: name
     xpath: //meta[@itemprop="name"]/@content
@@ -263,7 +263,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: true
-    xpath: count((//div[contains(@class, "widget-ArticleImageGallery--articleGalleryImageContainer")]//a//img[contains(@class, "widget-ArticleImageGallery--img") and contains(@data-type, "Image")]/@data-attr-zoom)[position()>1])
+    xpath: count((//div[contains(@class, "widget-ArticleImage-gallery")]//div[contains(@class, "widget-ArticleImageGallery")]//a[contains(@class, "widget-ArticleImageGallery")]//img[contains(@class, "widget-ArticleImageGallery") and contains(@data-type, "Image")]/@data-attr-zoom)[position()>1])
     description: null
     type: NUMBER
   - name: news
@@ -446,7 +446,7 @@ fields:
     description: Recycling information associated with the product
   - name: productOtherInformation
     singleValue: false
-    xpath: //div[contains(@class, "widget-Accordion--subContent")]//div[contains(@class, "widget-ArticleTechnicalData")]
+    xpath: //div[contains(@class, "widget-Accordion-subContent")]//div[contains(@class, "widget-ArticleTechnicalData")]
     description: Any other product information
   - name: packaging
     singleValue: false
@@ -463,7 +463,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@class, "widget-ArticlePromotion--container")]//div[contains(@class, "widget-ArticlePromotion--title")]//text()
+    xpath: //div[contains(@class, "widget-ArticlePromotion-container")]//div[contains(@class, "widget-ArticlePromotion-title")]//text()
     description: promotion text on product page
   - name: alcoholContent
     singleValue: true
@@ -499,7 +499,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class, "widget-ArticlePriceTagText")]//ul//li//text()|(//div[contains(@class,'widget-Accordion--header')]//*[contains(text(),"Beschreibung")]/parent::p/parent::div/parent::div/following-sibling::div//div//li)[1]
+    xpath: //div[contains(@class, "widget-ArticlePriceTagText")]//ul//li//text()|(//div[contains(@class,'widget-Accordion-header')]//*[contains(text(),"Beschreibung")]/parent::p/parent::div/parent::div/following-sibling::div//div//li)[1]
     description: null
   - name: prop65Warning
     singleValue: true
@@ -562,7 +562,7 @@ fields:
     singleValue: false
   - name: specificationList
     singleValue: false
-    xpath: //div[contains(@class,"widget-Accordion--header")]//*[text()="Technische Daten"]/ancestor::div[position()=1]/ancestor::div[position()=1]/following-sibling::div[position()=1]
+    xpath: //div[contains(@class,"widget-Accordion-header")]//*[text()="Technische Daten"]/ancestor::div[position()=1]/ancestor::div[position()=1]/following-sibling::div[position()=1]
   - name: compareTheRange
     singleValue: false
   - name: uninterrupedPDP

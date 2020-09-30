@@ -39,17 +39,18 @@ module.exports = {
       location = '/mannheim1';
     }
 
-    await context.setBlockAds(false);
+    // await context.setBlockAds(false);
     await context.goto(`https://www.expert.de${location}`, {
+      block_ads: false,
       anti_fingerprint: true,
       discard_CSP_header: false,
-      timeout: 100000,
+      timeout: 300000,
       waitUntil: 'load',
     });
 
     if (zipcode && zipcode.length) {
       // const zipcodeHref = document.querySelector('a[class^="widget-ExpertLogo--link"]') ? document.querySelector('a[class^="widget-ExpertLogo--link"]').getAttribute('href') : '';
-      await context.waitForSelector('a[class^="widget-ExpertLogo--link"][href="' + location + '"]', { timeout: 55000 });
+      await context.waitForSelector('a[class^="widget-ExpertLogo--link"][href="' + location + '"]', { timeout: 75000 });
     }
 
     // if (zipcode.length) {
@@ -64,8 +65,9 @@ module.exports = {
     // const loerrach = 'loerrach';
     // location = `/${ahlen}`;
 
-    await context.setBlockAds(false);
+    // await context.setBlockAds(false);
     await context.goto(`${url}`, {
+      block_ads: false,
       anti_fingerprint: true,
       discard_CSP_header: false,
       timeout: 100000,

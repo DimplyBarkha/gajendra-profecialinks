@@ -9,7 +9,7 @@ fields:
     type: BOOLEAN
   - name: brand
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//img[contains(@class, "widget-ArticleBrand--articleBrandLogo")]/@title
+    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//img[contains(@class, "widget-ArticleBrand-articleBrandLogo")]/@title
     description: The brand name
     example: Panasonic
   - name: category
@@ -31,45 +31,44 @@ fields:
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleImage")]//div[contains(@class, "widget-ArticleImage--articleImageContainer")]//div[contains(@class, "widget-ArticleImage--imageContainer")]//img/@data-src
-    description: The URL for the product thumbnail image
+    xpath:  //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticleImage")]//div[contains(@class, "widget-ArticleImage-articleImageContainer")]//div[contains(@class, "widget-ArticleImage-imageContainer")]//img/@data-src
   - name: name
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleName")]//div[contains(@class, "content font-brand")]/text()
+    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticleName")]//div[contains(@class, "content font-brand")]/text()
     description: The product name
   - name: sku
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")][2]
+    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber-articleNumber")][2]
     description: The store-specific product identifier
   - name: mpc
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")][2]
+    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber-articleNumber")][2]
     description: The model code of the product
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[@itemprop="ratingValue"]//text()
+    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[@itemprop="ratingValue"]//text()
     description: The stated aggregate rating
   - name: ratingCount
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//meta[@itemprop="reviewCount"]/@content
+    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//meta[@itemprop="reviewCount"]/@content
     description: The number of ratings
   - name: reviewCount
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//meta[@itemprop="reviewCount"]/@content
+    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//meta[@itemprop="reviewCount"]/@content
     description: The number of reviews
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticlePrice--priceWrapper")]//div[contains(@class, "widget-ArticlePrice--price")]
+    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticlePrice-priceWrapper")]//div[contains(@class, "widget-ArticlePrice-price")]
     description: The offered price for the product
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
   - name: manufacturer
     singleValue: true
-    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//img[contains(@class, "widget-ArticleBrand--articleBrandLogo")]/@title
+    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//img[contains(@class, "widget-ArticleBrand-articleBrandLogo")]/@title
     description: Product manufacturer
   - name: soldBy
     singleValue: true
@@ -97,20 +96,20 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber--articleNumber")][2]
+    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticleNumber")]//span[contains(@class, "widget-ArticleNumber-articleNumber")][2]
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[contains(@class, "widget-ArticleName")]//div[contains(@class, "content font-brand")]/text()
+    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticleName")]//div[contains(@class, "content font-brand")]/text()
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[@itemprop="ratingValue"]//text()
+    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[@itemprop="ratingValue"]//text()
     description: The stated aggregate rating normalized to be out of 5
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid--content")]//div[contains(@class, "widget-Column--content")]//div[@itemprop="ratingValue"]//text()
+    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[@itemprop="ratingValue"]//text()
     description: The stated aggregate rating normalized to be out of 5
   - name: refererUrl
     singleValue: false
