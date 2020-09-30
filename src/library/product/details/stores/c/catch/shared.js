@@ -25,8 +25,57 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.alternateImages) {
-        console.log(row.alternateImages);
-        console.log(typeof row.alternateImages);
+        let altImg = [];
+        row.alternateImages.forEach(item => {
+          if (row.image[0].text !== item.text) {
+            altImg.push({ text: item.text, xpath: item.xpath });
+          }
+        });
+        row.alternateImages = altImg;
+      }
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} || `;
+        });
+        row.specifications = [{ text: text.slice(0, -4) }];
+      }
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} || `;
+        });
+        row.description = [{ text: text.slice(0, -4) }];
+      }
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} || `;
+        });
+        row.additionalDescBulletInfo = [{ text: text.slice(0, -4) }];
+      }
+      if (row.color) {
+        let text = '';
+        row.color.forEach(item => {
+          text = `${item.text.replace("Colour:", "")}`;
+        });
+        row.color = [{ text: text.trim() }];
+      }
+      if (row.sku) {
+        let data = row.sku[0].text.split(":");
+        if (data.length > 1) {
+          row.sku[0].text = data[1].replace('"', '').replace('\"', '');
+        } else {
+          row.sku[0].text = "";
+        }
+      }
+      if (row.variantId) {
+        let data = row.variantId[0].text.split(":");
+        if (data.length > 1) {
+          row.variantId[0].text = data[1].replace('"', '').replace('\"', '');
+        } else {
+          row.variantId[0].text = "";
+        }
       }
     }
   }

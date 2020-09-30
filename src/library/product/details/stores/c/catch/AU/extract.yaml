@@ -52,11 +52,13 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //section[contains(@class, 'product-description')]/div[contains(@class,'description-block')]/p[1]  
+    # xpath: //section[contains(@class, 'product-description')]/div[contains(@class,'description-block')]/p[1]  
+    xpath: //div[@class="description-block"]//text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    xpath: count(//section[contains(@class,'product-description')]//div/ul/li)
+    #xpath: count(//section[contains(@class,'product-description')]//div/ul/li)
+    xpath: count(//section[contains(@class,'product-description')]//div/ul/li)-count(//*[contains(text(),'Specifications')]/following::ul[1]//li)
     type: NUMBER
   - name: brandText
     singleValue: true
@@ -86,16 +88,20 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[contains(@class,'aside-container')]//input[@name='product_id']/@value
+    # xpath: //div[contains(@class,'aside-container')]//input[@name='product_id']/@value
+    xpath: //script[contains(text(),"sku_id")]
+    regExp: (\"sku_id".\S[^,]*)
   - name: variantId
     singleValue: true
-    xpath: //div[contains(@class,'aside-container')]//input[@name='product_id']/@value
+    # xpath: //div[contains(@class,'aside-container')]//input[@name='product_id']/@value
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //script[contains(text(),"sku_id")]
+    regExp: (\"sku_id".\S[^,]*)
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
     #xpath: //div[contains(@class,'description-block')]/ul/li[contains(text(),'Model')]
-    xpath: //div[contains(@class,'aside-container')]//input[@name='product_id']/@value
+    # xpath: //div[contains(@class,'aside-container')]//input[@name='product_id']/@value
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -133,7 +139,7 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
-    xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Dimensions')]
+    # xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Dimensions')]
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: true
@@ -142,11 +148,12 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
-    xpath: count(//section[contains(@class,'for-product')]//div[contains(@class,'container')]//div[contains(@class,'grid-row')]//div[contains(@class,'product--card')])
+    # xpath: count(//section[contains(@class,'for-product')]//div[contains(@class,'container')]//div[contains(@class,'grid-row')]//div[contains(@class,'product--card')])
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Colour')]
+    # xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Colour')]
+    xpath: //section[contains(@class,'product-description')]//ul/li[contains(text(),'Colour')]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -416,14 +423,14 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
+    singleValue: false
     description: The physical dimensions of the product including packaging.
     #xpath: //div[contains(@class,'description-block')]//ul[text()]
-    xpath: //*[contains(text(),'Specifications')]/following::ul[1]
+    xpath: //*[contains(text(),'Specifications')]/following::ul[1]//li//text()
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: //div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]//li/strong[contains(text(),'WARRANTY')]
+    xpath: //div[contains(@class,'description-block')]//ul//*[contains(text(),'WARRANTY')] | //div[contains(@class,'description-block')]//ul//*[contains(text(),'Guarantee')]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -442,7 +449,7 @@ fields:
     description: Any other product information
   - name: packaging
     singleValue: true
-    xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Dimensions')]
+    # xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Dimensions')]
     description: Packaging information
   - name: additives
     singleValue: true
@@ -469,16 +476,16 @@ fields:
       new asin info
   - name: newDescription
     singleValue: true
-    xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[@id='sublist']
+    # xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[@id='sublist']
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
     singleValue: true
-    xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Colour')]
+    # xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Colour')]
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
-    xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Colour')]
+    # xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Colour')]
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -494,6 +501,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@class="description-block"]//ul//li
   - name: prop65Warning
     singleValue: true
     description: null
