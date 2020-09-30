@@ -2,7 +2,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'londondrugs.com',
-    timeout: 50000,
+    timeout: 70000,
     country: 'CA',
     store: 'londondrugs',
     zipcode: '',
@@ -21,8 +21,7 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
-
-    const responseStatus = await context.goto(url, {
+    await context.goto(url, {
       firstRequestTimeout: 60000,
       timeout: timeout,
       waitUntil: 'load',
@@ -31,8 +30,7 @@ module.exports = {
         type: 'RECAPTCHA',
       },
     });
-    console.log('Status :', responseStatus.status);
-    console.log('URL :', responseStatus.url);
+
     const searchPageSelector = 'section.search-result-options';
     const searchPage = await context.evaluate(async (searchPageSelector) => {
       return Boolean(document.querySelector(searchPageSelector));
@@ -52,6 +50,8 @@ module.exports = {
       }
     }
     const captchaFrame = 'iframe[src*="https://geo.captcha"]';
+    // const delay = t => new Promise(resolve => setTimeout(resolve, t));
+    // delay(20000);
     const checkExistance = async (selector) => {
       return await context.evaluate(async (captchaSelector) => {
         return Boolean(document.querySelector(captchaSelector));
@@ -62,16 +62,28 @@ module.exports = {
     if (isCaptchaFramePresent) {
       console.log('isCaptcha', true);
       await context.waitForNavigation({ timeout });
-      // @ts-ignore
-      // eslint-disable-next-line no-undef
-      await context.evaluateInFrame('iframe', () => grecaptcha.execute());
-      console.log('solved captcha, waiting for page change');
-      await context.waitForNavigation({ timeout });
-      await context.waitForXPath('//span[@itemprop="productID"]', { timeout });
-    }
+      try {
+        await context.waitForFunction(() => {
+          return document.querySelector('iframe[src*="https://geo.captcha"]');
+        }, { timeout });
+        // @ts-ignore
+        // eslint-disable-next-line no-undef
+        await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+        console.log('solved captcha, waiting for page change');
+        await context.waitForNavigation({ timeout });
+      } catch (e) {
+        console.log('Captcha did not load');
+      }
 
-    if (responseStatus.url === 'https://www.londondrugs.com/on/demandware.store/Sites-LondonDrugs-Site/default/DDUser-Challenge') {
-      return context.reportBlocked(responseStatus.url, 'Blocked: ' + responseStatus.url);
+      try {
+        await context.waitForXPath('//span[@itemprop="productID"]', { timeout });
+      } catch (e) {
+        console.log('Redirecting to the product page');
+        await context.evaluate((url) => {
+          window.location.href = url;
+        }, url);
+        await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
+      }
     }
 
     if (zipcode) {

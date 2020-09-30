@@ -405,9 +405,6 @@ fields:
     defaultValue: No
   - name: termsAndConditions
     description: Terms and conditions information text ['Yes','No']
-    xpath: //div[@class="copyright-legal"]//a[contains(text(),"Terms")]
-    regExp: .+
-    regExpReplace: Yes
     defaultValue: No
   - name: privacyPolicy
     description: Privacy Policy information text ['Yes','No']
