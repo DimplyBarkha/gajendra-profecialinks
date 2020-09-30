@@ -22,8 +22,7 @@ fields:
     type: NUMBER
     xpath: //div[contains(@class, "ratingStars")]//a//following-sibling::span[not(contains(@class, "hidden-xs"))]
   - name: price
-    xpath: //div[contains(@class,'productsList')]/article/@data-product-price
-    type: CURRENCY
+    xpath: //div[contains(@class,'productsList')]//div[@class='price']//text()|//div[contains(@class,'productsList')]//div[@class='price orange']//text()
     singleValue: true
   - name: reviewCount  
     singleValue: true
