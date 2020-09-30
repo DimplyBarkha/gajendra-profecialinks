@@ -23,6 +23,9 @@ const cleanUp = (data, context) => {
         if (row.price) {
           row.price = [{ text: row.price[0].text.replace('.', ',').trim() }];
         }
+        if (row.weightNet) {
+          row.weightNet = [{ text: row.weightNet[0].text.replace('.', ',').trim() }];
+        }
         if (row.manufacturerDescription) {
           const text = [];
           row.manufacturerDescription.forEach(item => {
