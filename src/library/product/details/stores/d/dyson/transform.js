@@ -5,6 +5,21 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  for (const { group } of data) {
+    for (const row of group) {
+      if (row.description) {
+        let text = '';
+        for (let i = 0; i < row.description.length; i++) {
+          text += ' ' + row.description[i].text;
+        }
+        row.description = [{
+          text: text,
+        },
+        ];
+      }
+    }
+  }
+
   const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
