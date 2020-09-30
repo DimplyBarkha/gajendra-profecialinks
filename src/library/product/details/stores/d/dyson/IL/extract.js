@@ -3,6 +3,7 @@ const { transform } = require('../transform');
 
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails, Helpers } = dependencies;
+  const { transform } = parameters;
   // eslint-disable-next-line no-unused-vars
   const helpers = new Helpers(context);
   await context.evaluate(async () => {
