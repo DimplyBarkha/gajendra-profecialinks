@@ -14,7 +14,7 @@ fields:
     xpath: //meta[@property='og:url']/@content
   - name: id
     singleValue: false
-    xpath: //a[contains(@class, "ajax_add_to_cart")]/@data-product_sku
+    xpath: //a[contains(@class, "product_type_simple")]/@data-product_sku
   - name: name
     singleValue: false
     xpath: //h2[@class='woocommerce-loop-product__title']/text()
