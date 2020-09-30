@@ -48,6 +48,8 @@ module.exports = {
         return eval(`(${code})('/captcha/geetest');`);
       });
 
+      await new Promise(r => setTimeout(r, 5000));
+
       await context.evaluateInFrame('iframe', () => {
         document.querySelector('.geetest_radar_tip_content').click();
       });
