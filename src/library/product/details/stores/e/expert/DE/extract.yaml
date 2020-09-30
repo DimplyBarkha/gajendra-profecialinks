@@ -171,7 +171,7 @@ fields:
     xpath: //div[contains(@class, "widget-ArticleImageGallery")]//div[@title="Play video"]//meta[@itemprop="embedURL"]/@content|//div[contains(@class, "widget-ArticleImageGallery")]//img[contains(@data-type, "Video")]/@src|//*[@id="ii_manufVideo"]
     description: URLs of videos on page
   - name: name
-    xpath: //meta[@itemprop="name"]/@content
+    xpath: (//meta[@itemprop="name"]/@content|//li[@itemprop="itemListElement"][last()])[1]
     singleValue: true
     description: The product name
   - name: inStorePrice
