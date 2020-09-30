@@ -13,6 +13,7 @@ module.exports = {
     await context.waitForSelector('div.vw-productMain');
     await new Promise((resolve, reject) => setTimeout(resolve, 100));
     // closing cookie consent popup, if present
+    // ====================================================================================
     const cookieConsent = await context.evaluate(async function () {
       return document.querySelector('div.privacy_prompt.explicit_consent');
     });
@@ -20,8 +21,10 @@ module.exports = {
       context.click('div.button.left');
     }
     // automatic data extraction
+    // ====================================================================================
     await context.extract(productDetails);
     // manualy extracting category
+    // ====================================================================================
     const category = await context.evaluate(async function () {
       const rawCategory = document.querySelectorAll('span[property="name"]');
       let category = '';
@@ -33,9 +36,14 @@ module.exports = {
       }
       return category
     });
-    // 
+    // checking for iframe exists, and if so redirecting to it
+    // ====================================================================================
     const iframeUrl = await context.evaluate(async function () {
-      return document.querySelector('iframe[id="loadbeeIframeId"]').getAttribute('src');
+      let iframeUrl = document.querySelector('iframe[id="loadbeeIframeId"]');
+      if (iframeUrl){
+        return iframeUrl.getAttribute('src');
+      }
+      return null;
     });
     if (iframeUrl) {
       context.goto(iframeUrl);
@@ -43,15 +51,18 @@ module.exports = {
       await new Promise((resolve, reject) => setTimeout(resolve, 1000));
     }
     // manually extracting iframe data
+    // ====================================================================================
     const iframeData = await context.evaluate(async function () {
       var iframeData = {};
       // manually extracting videos
+      // ====================================================================================
       iframeData.videos = [];
       const rawVideos = document.querySelectorAll('*[data-video]');
       for (let i = 0; i < rawVideos.length; i++) {
         iframeData.videos.push(rawVideos[i].getAttribute('data-video'));
       }
       // manually extracting manufacturer description and images
+      // ====================================================================================
       const chapterTitles = document.querySelectorAll('*[class="next-chapter"]');
       const rawChapters = document.querySelectorAll('*[class="next-chapter"]+div');
       iframeData.manufacturerDescription = '';
@@ -70,6 +81,8 @@ module.exports = {
         }
       }
       // manually extracting technical data
+      // ====================================================================================
+      iframeData.specifications = '';
       const rawTitles = document.querySelectorAll('div[class*="info"]>h5');
       const rawValues = document.querySelectorAll('div[class*="info"]>h5+p');
       if (rawTitles.length === rawValues.length) {
@@ -77,16 +90,20 @@ module.exports = {
           if (rawTitles[i].innerText === 'Gewicht') {
             iframeData.weightNet = rawValues[i].innerText;
           }
+          if (rawValues[i].innerText.includes('m') || rawValues[i].innerText.includes('cm') || rawValues[i].innerText.includes('mm')) {
+            iframeData.specifications += `${rawTitles[i].innerText} ${rawValues[i].innerText}\n`;
+          }
         }
       } else {
         return null;
       }
       return iframeData;
     });
-    console.log('3333333333333333333333333333333333333', iframeData);
     // creating output data reference
+    // ====================================================================================
     var dataRef = await context.data();
     // inserting manualy extrcted data
+    // ====================================================================================
     dataRef[0].data[0].group[0].category = [{ text: category }];
     if ('weightNet' in iframeData) {
       dataRef[0].data[0].group[0].weightNet = [{ text: iframeData.weightNet }];
@@ -94,20 +111,23 @@ module.exports = {
     if (iframeData.manufacturerDescription != '') {
       dataRef[0].data[0].group[0].manufacturerDescription = [{ text: iframeData.manufacturerDescription }];
     }
-    if (iframeData.manufacturerImages != []) {
+    if (iframeData.manufacturerImages.length > 0) {
       iframeData.manufacturerImages = [...new Set(iframeData.manufacturerImages)];
       dataRef[0].data[0].group[0].manufacturerImages = [];
       for (let i = 0; i < iframeData.manufacturerImages.length; i++) {
         dataRef[0].data[0].group[0].manufacturerImages.push({ text: iframeData.manufacturerImages[i] });
       }
     }
-    if (iframeData.videos != []) {
+    if (iframeData.videos.length > 0) {
       if (!('videos' in dataRef[0].data[0].group[0])) {
         dataRef[0].data[0].group[0].videos = [];
       }
       for (let i = 0; i < iframeData.videos.length; i++) {
         dataRef[0].data[0].group[0].videos.push({ text: iframeData.videos[i] });
       }
+    }
+    if (iframeData.specifications != '') {
+      dataRef[0].data[0].group[0].specifications = [{ text: iframeData.specifications }];
     }
   },
 };

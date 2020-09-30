@@ -21,6 +21,7 @@ fields:
   - name: category #to
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //h1[@class="title"]
   - name: nameExtended #to -
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -157,6 +158,7 @@ fields:
   - name: coupon #to
     singleValue: true
     description: Text of any coupon offer
+    xpath: //div[@class="vw-productFeatures "]//li[@class="voucher-information"]/span[@class="voucher-reduced-price"][contains(text(), ",")]
   - name: amazonChoice
     singleValue: true
     description: YES or Blank
@@ -399,9 +401,11 @@ fields:
   - name: specifications #to
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: concat(//tr[td[p[text()="Länge:"]]], " ", //tr[td[p[text()="Breite:"]]], " ", //tr[td[p[text()="Höhe:"]]])
   - name: warranty #to
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //h3[text()="Garantieerklärung"]/ancestor::a[contains(@href, ".pdf")]/@href
   - name: storage #to
     singleValue: true
     description: Suggested storage location for product
@@ -430,8 +434,9 @@ fields:
     singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion #to
-    singleValue: tru
+    singleValue: true
     description: promotion text on product page
+    xpath: normalize-space(//div[@class="vw-productMain"]//li[@class="feature -discount"])
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -485,6 +490,9 @@ fields:
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
     defaultValue: false
+    path: //h3[text()="Garantieerklärung"]/ancestor::a[contains(@href, ".pdf")]/@href
+    regExp: (.*)
+    regExpReplace: Yes
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
