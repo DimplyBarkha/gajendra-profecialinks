@@ -48,6 +48,6 @@ module.exports = {
       }
     );
 
-    await context.waitForNavigtion();
+    await context.waitForNavigation();
   },
 };
