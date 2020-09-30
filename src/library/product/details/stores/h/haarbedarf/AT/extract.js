@@ -9,7 +9,7 @@ module.exports = {
     domain: "haarbedarf.at",
   },
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     await context.waitForSelector("#tab-description");
     await context.evaluate(async function () {
@@ -41,6 +41,6 @@ module.exports = {
       const breadcrumbs = document.querySelector('span.posted_in').innerText.replace(',', ' >').replace(',', ' >');
       document.querySelector('span.posted_in').setAttribute('breadcrums', breadcrumbs);
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, {transform: transformParam });
   },
 };
