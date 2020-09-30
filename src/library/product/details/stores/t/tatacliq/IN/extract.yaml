@@ -109,7 +109,7 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
-    xpath:  (//*[@id="DWSN"]//div)[1] | //*[@id="root"]//ul//li[contains(text(),'Free Shipping')]
+    xpath:  (//*[@id="DWSN"]//div)[1]
     description: Shipping information for the product
   - name: shippingDimensions
     description: Stated shipping dimensions
@@ -468,14 +468,8 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath:  //*[@id="BPDT"]//a[@itemprop="url"]//@href
-    regExp: (0{8})(.+)
-    regExpReplace: $2
   - name: variants
     description: null
-    xpath:  //*[@id="BPDT"]//a[@itemprop="url"]//@href
-    regExp: (0{8})(.+)
-    regExpReplace: $2
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
