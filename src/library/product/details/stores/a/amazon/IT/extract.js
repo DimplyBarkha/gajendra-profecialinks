@@ -98,6 +98,12 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
+    const additionalDescBullets = document.querySelector('div#feature-bullets');
+    if (additionalDescBullets && additionalDescBullets.innerHTML) {
+      const ii_additionalDescBullets = additionalDescBullets.innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim();
+      addHiddenDiv('ii_additionalDescBullets', ii_additionalDescBullets);
+    }
+
     // ManufacturerDescription
     const manufacturerDesc = document.querySelector('div#aplus');
     if (manufacturerDesc && manufacturerDesc.innerText) {
@@ -107,7 +113,7 @@ async function implementation (
 
     // Description
     const descBullets = document.querySelectorAll('#feature-bullets li');
-    const descParagraph = document.querySelector('#productDescription p');
+    const descParagraph = document.querySelector('#productDescription');
 
     let ii_desc = '';
     if (descBullets) {
@@ -117,29 +123,20 @@ async function implementation (
     }
     let descriptionBottom = '';
     if (descParagraph && descParagraph.innerText) {
-      descriptionBottom = descParagraph.innerText;
+      descriptionBottom = ` | ${descParagraph.innerText}`;
     }
     ii_desc += descriptionBottom;
     addHiddenDiv('ii_desc', ii_desc);
 
-    // AlternateImages
-    const regex = /._(.*?).jpg/g;
-    const alternateImagesScript = document.querySelectorAll('span.a-list-item img');
-    if (alternateImagesScript) {
-      for (let i = 1; i < alternateImagesScript.length; i++) {
-        const alternateImages = alternateImagesScript[i].getAttribute('src').replace(regex, '._AC_.jpg');
-        addHiddenDiv('ii_alternateImages', alternateImages);
-      }
-    }
-
     // Specifications
-    const specsArrSelector = document.querySelectorAll('table.productDetails_techSpec_section_1 tr');
+    const specsArrSelector = document.querySelectorAll('table#productDetails_techSpec_section_1 tr');
     if (specsArrSelector) {
       const specsArr = [];
       for (let i = 0; i < specsArrSelector.length; i++) {
         specsArr.push(specsArrSelector[i].querySelector('th').innerText + ': ' + specsArrSelector[i].querySelector('td').innerText);
-        addHiddenDiv('specsArr', specsArr[i]);
       }
+      const specs = specsArr.join(' || ');
+      addHiddenDiv('specsArr', specs);
     }
   });
 
