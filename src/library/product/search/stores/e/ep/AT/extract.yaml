@@ -21,9 +21,8 @@ fields:
   - name: thumbnail
     singleValue: true
     xpath: //div[contains(@class,'cmsproduct-list-image')]/a/img/@src
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
-    defaultValue: '0'
     xpath: //div[@class='cmsproductlist-stars-container']/div[@class='product-stars-container']/@data-rating
   - name: reviewCount
     singleValue: true
@@ -33,7 +32,7 @@ fields:
     defaultValue: '0'
   - name: price
     singleValue: true
-    xpath: //div[contains(@class,'cmsproductlist-desktop-layout-item')]/@data-et-name
+    xpath: //div[@class='priceOfProduct cmsproductlist-price']
   - name: manufacturer
     singleValue: true
     xpath: //h4[@class='cmsproductlist-brand']/a[@class='cmsproductlist-brand-link']
