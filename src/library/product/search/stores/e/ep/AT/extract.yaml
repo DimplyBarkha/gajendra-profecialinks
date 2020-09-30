@@ -12,7 +12,7 @@ fields:
     singleValue: true
     xpath: //div[contains(@class,'cmsproductlist-desktop-layout-item')]/@data-et-name
   - name: productUrl
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'cmsproduct-list-image')]//a[contains(@class,'cmsproduct-list-image-link')]/@href
     regExp: ^(.+)$
     regExpReplace: https://www.ep.at$1
