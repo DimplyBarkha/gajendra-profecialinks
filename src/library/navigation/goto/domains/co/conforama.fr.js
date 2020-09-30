@@ -59,31 +59,11 @@ module.exports = {
       await context.evaluateInFrame('iframe', () => grecaptcha.execute());
       console.log('solved captcha, waiting for page change');
       await context.waitForNavigation({ timeout });
-      await context.waitForXPath('//div[@id="product-detail-page"]', { timeout });
-      try {
-        let cookieButton = document.querySelector('button#footer_tc_privacy_button');
-        if (cookieButton) {
-          // @ts-ignore
-          cookieButton.click();
-        }
-      } catch (error) {
-        console.log('error: ', error);
-
-      }
+      await context.waitForXPath('//section[@id="contentSegment"]/article', { timeout });
     }
     //   if (responseStatus.url) {
     //     console.log('responseStatus.url: ', responseStatus.url);
     //   return context.reportBlocked(responseStatus.url, 'Blocked: ' + responseStatus.url);
     // }
-    try {
-      let cookieButton = document.querySelector('button#footer_tc_privacy_button');
-      if (cookieButton) {
-        // @ts-ignore
-        cookieButton.click();
-      }
-    } catch (error) {
-      console.log('error: ', error);
-
-    }
   },
 };
