@@ -17,19 +17,9 @@ module.exports = {
     await context.setAntiFingerprint(false);
 
     const responseStatus = await context.goto(url, {
-      js_enabled: true,
-      css_enabled: true,
-      discard_CSP_header: true,
-      embed_iframes: true,
-      images_enabled: true,
-      load_all_resources: true,
-      force200: true,
-      block_ads: true,
-      anti_fingerprint: true,
-      first_request_timeout: 100,
-      goto_timeout: 100,
-      random_move_mouse: false,
-      load_timeout: 30,
+      timeout: 50000,
+      waitUntil: 'load',
+      checkBlocked: true,
       antiCaptchaOptions: {
         provider: '2-captcha',
         type: 'GEETEST',
@@ -45,17 +35,28 @@ module.exports = {
         return Boolean(document.querySelector(captchaFrame));
       }, selector);
     };
-    // await checkExistance(captchaSelector);
+
     const isCaptchaFramePresent = await checkExistance(captchaFrame);
 
     if (isCaptchaFramePresent) {
       console.log('isCaptcha', true);
       // context.evaluateInFrame(captchaFrame, () => grecaptcha.execute());
-      await context.solveCaptcha({
-        type: 'GEETEST',
-        inputElement: 'div.captcha__human__captcha-container',
-        autoSubmit: true,
+
+      await context.evaluateInFrame('iframe', () => {
+        const code = geetest.toString().replace(/appendTo\("#([^"]+)"\)/g, 'appendTo(document.getElementById("$1"))');
+        console.log(code);
+        return eval(`(${code})('/captcha/geetest');`);
       });
+
+      await context.evaluateInFrame('iframe', () => {
+        document.querySelector('.geetest_radar_tip_content').click();
+      });
+
+      // await context.solveCaptcha({
+      //   type: 'GEETEST',
+      //   inputElement: 'div.captcha__human__captcha-container',
+      //   autoSubmit: true,
+      // });
       console.log('solved captcha, waiting for page change');
       await new Promise(r => setTimeout(r, 50000));
       await context.waitForNavigation({ timeout });
