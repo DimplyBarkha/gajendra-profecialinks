@@ -5,7 +5,7 @@ recordXPath: //ul[contains(@class,"columns-4")]//li
 fields:
   - name: price
     singleValue: false
-    xpath: //span[@class="price"]//span[@class="woocommerce-Price-amount amount"]/text()
+    xpath: //span[@class="price"]//span[@class="woocommerce-Price-amount amount"]
   - name: productUrl
     singleValue: false
     xpath: //a[contains(@class,'woocommerce-loop-product__link')]/@href
@@ -21,9 +21,17 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="star-rating"]//span[@style="width:100%"]
+  - name: thumbnail
+    singleValue: false
+    xpath: //ul[contains(@class,"products")]//li//a[contains(@class,'woocommerce-LoopProduct-link')]/img/@src
+  - name: brand
+    singleValue: false
+    xpath: //ul[contains(@class,"products")]//li//a[contains(@class,'woocommerce-LoopProduct-link')]/h2
+    regExp: (Dyson)
+    regExpReplace: $1
+  
   
 
 
   
-   
  

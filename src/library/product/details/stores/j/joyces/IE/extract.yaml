@@ -25,11 +25,10 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@class="product_title entry-title"]
+    xpath: //h1[@class="product_title entry-title"] 
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    # xpath: //p[@class="price"]//span[contains(@class,"amount")]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -41,7 +40,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //div[contains(@class,"summary")]//p[contains(@class,'stock')]/text()  
-    regExp: (.+)
+    regExp: (in stock)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
@@ -57,7 +56,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //nav[@class="breadcrumb"]/li[position()=2]//a/text()
+    xpath: //nav[@class="breadcrumb"]//a[@href="https://www.joyces.ie/product-category/dyson/"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -69,7 +68,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //p[@class='eky-specs-label-bottom']
+    xpath: //div[@id="added_weightNet"]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -84,7 +83,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@class="product_meta"]//span[contains(@class,'sku_wrapper')]/text()
+    xpath: //div[@class="product_meta"]//span//span[@class="sku"]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -402,13 +401,14 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //u/text()
-
+    xpath: //div[@class="inpage_selector_specification"]//div[contains(@class, 'flix-std-row')] 
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: //div[contains(@class,"wp-video")]/following-sibling::p[15]/text()
-
+    xpath: (//div[@id="tab-description"]/p)[5]
+    regExp: (.*)(–)(.*)
+    regExpReplace: $3
+    # xpath: //div[contains(@class,"wp-video")]/following-sibling::p[15]/text()
   - name: storage
     singleValue: true
     description: Suggested storage location for product

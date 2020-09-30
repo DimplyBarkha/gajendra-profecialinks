@@ -1,10 +1,11 @@
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'IE',
     store: 'joyces',
-    transform: null,
+    transform: cleanUp,
     domain: 'joyces.ie',
     zipcode: '',
   },
@@ -43,13 +44,22 @@ module.exports = {
     
       const manufacturerDescription_xpath = "//div[@class='flix-Text-block']";
       const manufacturerDescription = getAllXpath(manufacturerDescription_xpath, 'innerText');
-      console.log(manufacturerDescription);
       addElementToDocument('added_manufacturerDescription', manufacturerDescription);
      
-      const weightNet_xpath = "//div[@class='eky-specs-container'][1]//p[@class='eky-specs-label-bottom']";
-      const weightNet = getAllXpath(weightNet_xpath, 'innerText');
-      console.log(weightNet);
-      addElementToDocument('added_weightNet', weightNet);
+      // const weightNet_xpath = "//div[@class='eky-specs-container'][1]//p[@class='eky-specs-label-bottom']";
+      // const weightNet = getAllXpath(weightNet_xpath, 'innerText');
+      // console.log(weightNet);
+      // addElementToDocument('added_weightNet', weightNet);
+
+      var weight_net_str = getXpath("//table[@class='flix-std-specs-table']", 'innerText');
+      
+      if(weight_net_str){
+        weight_net_str = weight_net_str.toLowerCase();
+        if(weight_net_str.includes('weight') && weight_net_str.includes('kg')){
+          const weight_net = weight_net_str.substring(weight_net_str.lastIndexOf("weight")+7, weight_net_str.lastIndexOf("kg")+2);
+          addElementToDocument('added_weightNet', weight_net);
+        }
+      }
 
       const shippingSpecification = document.querySelectorAll('.inpage_selector_specification .flix-std-table .flix-std-specs-table .flix-title');
       let dimension="";
