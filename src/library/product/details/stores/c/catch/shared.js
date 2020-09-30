@@ -45,7 +45,7 @@ const transform = (data) => {
         row.description.forEach(item => {
           text += `${item.text.replace(/\n \n/g, ':')} || `;
         });
-        row.description = [{ text: text.slice(0, -4) }];
+        row.description = [{ text: text.replace(" || Specifications:", "").slice(0, -4) }];
       }
       if (row.additionalDescBulletInfo) {
         let text = '';

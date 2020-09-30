@@ -58,7 +58,7 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     #xpath: count(//section[contains(@class,'product-description')]//div/ul/li)
-    xpath: count(//section[contains(@class,'product-description')]//div/ul/li)-count(//*[contains(text(),'Specifications')]/following::ul[1]//li)
+    xpath: count(//section[contains(@class,'product-description')]//div/ul/li)
     type: NUMBER
   - name: brandText
     singleValue: true
@@ -426,7 +426,8 @@ fields:
     singleValue: false
     description: The physical dimensions of the product including packaging.
     #xpath: //div[contains(@class,'description-block')]//ul[text()]
-    xpath: //*[contains(text(),'Specifications')]/following::ul[1]//li//text()
+    #xpath: //*[contains(text(),'Specifications')]/following::ul[1]//li//text()
+    xpath: //div[@id="specifications"]//ul//li
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
