@@ -29,7 +29,7 @@ fields:
     description: The URL for the product thumbnail image
     xpath: //div//img/@src
     regExp: (.+)150x150(.+)
-    regExpReplace: https://www.ocado.com$1280x280$2
+    regExpReplace: https://www.ocado.com$1640x640$2
   - name: name
     description: The product name
     xpath: //h4[contains(@class,'fop-title')]/@title
