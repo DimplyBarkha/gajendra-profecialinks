@@ -1,11 +1,11 @@
 module.exports = {
-  implements: "navigation/goto",
+  implements: 'navigation/goto',
   parameterValues: {
-    domain: "darty.com",
+    domain: 'darty.com',
     timeout: 20000,
-    country: "FR",
-    store: "darty",
-    zipcode: "",
+    country: 'FR',
+    store: 'darty',
+    zipcode: '',
   },
   implementation: async (
     { url, zipcode, storeId },
@@ -17,39 +17,35 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.goto(url, {
       antiCaptchaOptions: {
-        provider: "2-captcha",
-        type: "GEETEST",
+        provider: '2-captcha',
+        type: 'GEETEST',
       },
       timeout: timeout,
-      waitUntil: "load",
+      waitUntil: 'load',
       checkBlocked: false,
       js_enabled: true,
       load_timeout: 30,
       css_enabled: true,
     });
 
-    await context.evaluateInFrame(
+    await context.evaluateInFrame('iframe',
       function () {
         const code = geetest
           .toString()
           .replace(
             /appendTo\("#([^"]+)"\)/,
-            'appendTo(document.getElementById("$1"))'
+            'appendTo(document.getElementById("$1"))',
           );
         return eval(`(${code})('/captcha/geetest');`);
-      },
-      undefined,
-      "iframe"
+      }
     );
 
     await new Promise((r) => setTimeout(r, 500));
 
-    await context.evaluate(
+    await context.evaluateInFrame('iframe',
       function () {
-        document.querySelector(".captcha-handler").click();
-      },
-      undefined,
-      "iframe"
+        document.querySelector('.captcha-handler').click();
+      }
     );
 
     await context.waitForNavigtion();

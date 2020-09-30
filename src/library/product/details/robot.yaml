@@ -2,9 +2,9 @@ proxy:
   zone: USA
   type: DATA_CENTER
 policy:
-  numberRetries: 3
+  numberRetries: 1
   priority: MEDIUM
-  retryDelay: 60
+  retryDelay: 0
   backoffPolicy: EXPONENTIAL
   retryWithResidentialProxyAfter: 99
 honorRobots: false
