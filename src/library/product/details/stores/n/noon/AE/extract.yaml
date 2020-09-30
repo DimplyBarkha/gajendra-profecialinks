@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -14,7 +14,7 @@ fields:
     xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@src
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'standardSlider')]//img/@src
+    xpath: //div[contains(@class,'primaryDetails')]//img[contains(@class,"pdpImage")]/@src
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@alt
@@ -41,7 +41,7 @@ fields:
     xpath: //table[@class='jsx-1537324451']//tr//td[contains(text(),"Colour Name")]/parent::*/td[2]
   - name: description
     singleValue: false
-    xpath: //ul[contains(@class,'highlights')]
+    xpath: //div[contains(@class,'primaryOverviewContent')]//p[contains(@class,"sectionHeading") and contains(text(),"Overview")]//parent::div
   - name: specifications
     singleValue: false
     xpath: //div[@class='jsx-1537324451 groupContainer']//table//tr
@@ -62,22 +62,16 @@ fields:
     xpath: //div[contains(@class,'primaryDetails')]//div[contains(@class,"jsx-2771165322")]//h1
   - name: additionalDescBulletInfo
     singlgeValue: false
-    xpath: //div[contains(@class,'primaryOverviewContent')]//li[@class="jsx-1889249662"]
+    xpath: //div[contains(@class,'primaryOverviewContent')]//ul[@class="jsx-1889249662 highlights"]//li
   - name: mpc
     singleValue: false
     xpath: //div[contains(@class,"coreWrapper")]//p[contains(@class,'modelNumber')]
   - name: variantId
     singleValue: false
     xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@src
-  - name: firstVariant
-    singleValue: false
-    xpath: //div[contains(@class,'standardSlider')]//div[contains(@class,'swiper-slide-active')]//img/@src
   - name: variantCount
     singleValue: false
-    xpath: //div[contains(@class,'variantContainer')]//div[contains(@class,'mediaContainer')]//img/@src  
-  - name: descriptionBullets
-    singleValue: false
-    xpath: ''
+    defaultValue: '0'
   - name: variants
     singleValue: false
     xpath: //div[contains(@class,'variantContainer')]//div[contains(@class,'mediaContainer')]//img/@src
@@ -87,4 +81,4 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //p[contains(@class,"notAvailableNote")]
-    defaultValue: In Stock
+    defaultValue: 'In Stock'
