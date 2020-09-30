@@ -9,9 +9,7 @@ module.exports = {
   },
   implementation: async (
     { url, zipcode, storeId },
-    parameters,
-    context,
-    dependencies,
+    parameters, context, dependencies
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     const maxRetries = 3;
@@ -23,6 +21,7 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
+
     await context.goto(url, {
       firstRequestTimeout: 60000,
       timeout: timeout,
@@ -43,50 +42,69 @@ module.exports = {
       keyword = keyword.toLowerCase();
       if (keyword === 'dyson') {
         await context.click('#learnMoreBTN');
-        await context.waitForFunction(
-          () => {
-            return document.querySelector('.ld-sg-button.ld-sg-button--secondary.ld-sg-button--secondary-flex.js-load-more__btn.load-more__btn.hide');
-          },
-          { timeout },
-        );
+        await context.waitForFunction(() => {
+          return document.querySelector('.ld-sg-button.ld-sg-button--secondary.ld-sg-button--secondary-flex.js-load-more__btn.load-more__btn.hide');
+        }, { timeout });
       }
     }
+
     const captchaFrame = 'iframe[src*="https://geo.captcha"]';
-    // const delay = t => new Promise(resolve => setTimeout(resolve, t));
-    // delay(20000);
+
     const checkExistance = async (selector) => {
       return await context.evaluate(async (captchaSelector) => {
         return Boolean(document.querySelector(captchaSelector));
       }, selector);
     };
+
+    const checkRedirection = async () => {
+      try {
+        await context.waitForSelector('#my-account-option, span[itemprop="productID"]', { timeout });
+        console.log('Redirected to another page.');
+        return true;
+      } catch (e) {
+        console.log('Redirection did not happen.');
+        return false;
+      }
+    };
+
     let isCaptchaFramePresent = await checkExistance(captchaFrame);
 
     while (isCaptchaFramePresent && numberOfCaptchas < maxRetries) {
       console.log('isCaptcha', true);
+      ++numberOfCaptchas;
       await context.waitForNavigation({ timeout });
       try {
-        await context.waitForFunction(() => {
-          return document.querySelector('iframe[src*="https://geo.captcha"]');
-        }, { timeout });
+        console.log(`Trying to solve captcha - count [${numberOfCaptchas}]`);
         // @ts-ignore
         // eslint-disable-next-line no-undef
         await context.evaluateInFrame('iframe', () => grecaptcha.execute());
-        numberOfCaptchas++;
         console.log('solved captcha, waiting for page change');
         await context.waitForNavigation({ timeout });
+        const redirectionSuccess = await checkRedirection();
+
+        if (redirectionSuccess) {
+          await context.evaluate((url) => {
+            window.location.href = url;
+          }, url);
+          await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
+          break;
+        } else {
+          await context.evaluate((url) => {
+            window.location.reload;
+          });
+          await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
+        }
+
         isCaptchaFramePresent = await checkExistance(captchaFrame);
       } catch (e) {
         console.log('Captcha did not load');
       }
     }
-    try {
-      await context.waitForXPath('//span[@itemprop="productID"]', { timeout });
-    } catch (e) {
-      console.log('Redirecting to the product page');
-      await context.evaluate((url) => {
-        window.location.href = url;
-      }, url);
-      await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
+
+    isCaptchaFramePresent = await checkExistance(captchaFrame);
+
+    if (isCaptchaFramePresent) {
+      throw new Error('Failed to solve captcha');
     }
   },
 };
