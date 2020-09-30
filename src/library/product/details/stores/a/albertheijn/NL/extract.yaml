@@ -234,7 +234,7 @@ fields:
       based on per 100g serving
   - name: totalFatPerServing
     xpath: //td[contains(.,"Vet")]/following-sibling::*[1]
-    regExp: '(.+)[^\s]+$'
+    regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
@@ -244,7 +244,7 @@ fields:
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
     xpath: //td[contains(.,"Waarvan verzadigd")]/following-sibling::*[1]
-    regExp: '(.+)[^\s]+$'
+    regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
@@ -264,7 +264,7 @@ fields:
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
     xpath: //td[contains(.,"Natrium")]/following-sibling::*[1]
-    regExp: '(.+)[^\s]+$'
+    regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
@@ -274,7 +274,7 @@ fields:
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     xpath: //td[contains(.,"Koolhydraten")]/following-sibling::*[1]
-    regExp: '(.+)[^\s]+$'
+    regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
@@ -284,7 +284,7 @@ fields:
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
     xpath: //td[contains(.,"Voedingsvezel")]/following-sibling::*[1]
-    regExp: '(.+)[^\s]+$'
+    regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
@@ -294,7 +294,7 @@ fields:
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
     xpath: //td[contains(.,"Waarvan suikers	")]/following-sibling::*[1]
-    regExp: '(.+)[^\s]+$'
+    regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
@@ -303,7 +303,7 @@ fields:
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
-    regExp: '(.+)[^\s]+$'
+    regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     xpath: //td[contains(.,"Eiwitten")]/following-sibling::*[1]
     description: Nutritional Information for Protein content - Usually based on per
@@ -313,7 +313,7 @@ fields:
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
-    regExp: '(.+)[^\s]+$'
+    regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     xpath: //td[contains(.,"Vitamine A")]/following-sibling::*[1]
     description: Nutritional Information for Vitamin A content - Usually based on
@@ -323,7 +323,7 @@ fields:
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
-    regExp: '(.+)[^\s]+$'
+    regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     xpath: //td[contains(.,"Vitamine C")]/following-sibling::*[1]
     description: Nutritional Information for Vitamin C content - Usually based on
@@ -333,7 +333,7 @@ fields:
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
-    regExp: '(.+)[^\s]+$'
+    regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     xpath: //td[contains(.,"Calcium")]/following-sibling::*[1]
     description: Nutritional Information for Calcium content - Usually based on per
@@ -343,7 +343,7 @@ fields:
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Calcium
   - name: ironPerServing
-    regExp: '(.+)[^\s]+$'
+    regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     xpath: //td[contains(.,"Ijzer")]/following-sibling::*[1]
     description: Nutritional Information for Iron content - Usually based on per
@@ -356,7 +356,7 @@ fields:
     xpath: //ul[starts-with(@class,"product-card-features_root")]/li
     description: Information related to the dietary symbols of a specific product
   - name: magnesiumPerServing
-    regExp: '(.+)[^\s]+$'
+    regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     xpath: //td[contains(.,"Magnesium")]/following-sibling::*[1]
     description: Nutritional Information for Magnesium content - Usually based on
@@ -366,7 +366,7 @@ fields:
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Magnesium
   - name: saltPerServing
-    regExp: '(.+)[^\s]+$'
+    regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     xpath: //td[contains(.,"Zout")]/following-sibling::*[1]
     description: Nutritional Information for Salt content - Usually based on per
