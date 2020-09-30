@@ -59,9 +59,8 @@ module.exports = {
         return Boolean(document.querySelector(captchaSelector));
       }, selector);
     };
-    const isCaptchaFramePresent = await checkExistance(captchaFrame);
+    let isCaptchaFramePresent = await checkExistance(captchaFrame);
 
-    // eslint-disable-next-line no-unmodified-loop-condition
     while (isCaptchaFramePresent && numberOfCaptchas < maxRetries) {
       console.log('isCaptcha', true);
       await context.waitForNavigation({ timeout });
@@ -75,6 +74,7 @@ module.exports = {
         numberOfCaptchas++;
         console.log('solved captcha, waiting for page change');
         await context.waitForNavigation({ timeout });
+        isCaptchaFramePresent = await checkExistance(captchaFrame);
       } catch (e) {
         console.log('Captcha did not load');
       }
