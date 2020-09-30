@@ -34,7 +34,7 @@ fields:
     xpath: //div[contains(@class, "bigPricerFA")]/div[@class="floatl"]/span[@class="oldPrice"]
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,"Article-list")]//div[@class="thumbnail-toolbar"]/button/@data-prid
+    xpath: //div[contains(@class,"Article-list")]//div[@class="thumbnail-toolbar"]/button[position()=1]/@data-prid
   - name: nameExtended
     singleValue: false
     xpath: //div[contains(@class,"Article-infoContent")]/p[@class="Article-desc"]/a
