@@ -8,16 +8,16 @@ fields:
     xpath: //div[@class='product_infotop']/@data-sku
   - name: variantId
     singleValue: false
-    xpath: //div[@class='product_infotop']/@data-sku    
+    xpath: //div[@class='product_infotop']/@data-sku     
   - name: image
     singleValue: false
-    xpath: //a[@class='cloudZoom']/@href
+    xpath: //div[contains(@class,'product-img-box')]//p[contains(@class,'product-image')]//a/@href
   - name: imageAlt
     singleValue: false
-    xpath: //ul[@class='bxslides']//li//a[@class='cloud-zoom-gallery']/@alt
+    xpath: //div[contains(@class,'product-img-box')]//p[contains(@class,'product-image')]//a//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //ul[@class='bxslides']//li//a[@class='cloud-zoom-gallery']/@href
+    xpath: //ul[@class='bxslides']//li[@class='gal_images']//a[@class='cloud-zoom-gallery' and @index_val>'0']/@href
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name='keywords']/@content
@@ -32,23 +32,21 @@ fields:
     xpath: //div[@class='price-box']//div[@class='regular-price' or @class='special-price']
   - name: description
     singleValue: false
-    xpath: //div[@id='full-desc']//strong[contains(text(),'Description:')]/following-sibling::text()
+    xpath: //div[@id='full-desc']//div[@class='col-sm-6'][1]
   - name: brandText
-    singleValue: false
-    xpath: //div[@class='product_logo mbot12']//a
-    regExp: See all products from\s*(.+)
-    regExpReplace: $1
-  - name: manufacturer
     singleValue: false
     xpath: //div[@class='product_logo mbot12']//a
     regExp: See all products from\s*(.+)
     regExpReplace: $1  
   - name: weightNet
     singleValue: false
-    xpath: //div[@id='full-desc']
+    xpath: //div[@id='full-desc']//strong[text()='Weight:']/following-sibling::text()[1]
   - name: shippingWeight
     singleValue: false
-    xpath: //div[@id='full-desc']  
+    xpath: //div[@id='full-desc']//strong[text()='Shipping Weight:']/following-sibling::text()[1]
+  - name: weightGross
+    singleValue: false
+    xpath: //div[@id='full-desc']//strong[text()='Shipping Weight:']/following-sibling::text()[1]
   - name: ratingCount
     singleValue: false
     xpath: //div[@class='ratings pull-left flip']//p[@class='rating-links pull-left flip']//a/text()
@@ -58,25 +56,22 @@ fields:
     singleValue: false
     xpath: //div[@class='ratings pull-left flip']//p[@class='rating-links pull-left flip']//a/text()
     regExp: (.*)\/.+
-    regExpReplace: $1    
-  - name: shippingInfo
-    singleValue: false
-    xpath: //ul[@class='countdown mtop20']
+    regExpReplace: $1  
   - name: shippingDimensions
     singleValue: false
-    xpath: //div[@id='full-desc']          
-  - name: manufacturerImages
+    xpath: //div[@id='full-desc']//strong[text()='Package Dimensions:']/following-sibling::text()[1]
+  - name: warnings
     singleValue: false
-    xpath: //div[@class='product_logo mbot12']//a//img/@src
+    xpath: //div[@id='full-desc']//div[@class='col-sm-6'][2]//li[contains(text(),'Warning!')]  
   - name: name
     singleValue: false
     xpath: //div[@class='product-name']//h1
-  - name: featureBullets
+  - name: nameExtended
     singleValue: false
-    xpath: //div[@class='desc_divider']//ul  
+    xpath: //div[@class='product-name']//h1   
   - name: variantCount
     singleValue: false
-    defaultValue: 0
+    defaultValue: '0'
   - name: specifications
     singleValue: false
     xpath: //div[@id='full-desc']//strong[contains(text(),'Overview:')]/parent::*
@@ -91,3 +86,16 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //select[@id='attribute211']/option[preceding::option]
+  - name: availabilityText
+    singleValue: false
+    xpath: //span[contains(@class,'prod-no-stock')]
+    defaultValue: 'In Stock'
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'product-img-box')]//div[contains(@class,'productlabel-sale')]//span[@class='label-sale-value']
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[@id='country-autoswitch-toggle']//span[@class='country-autoswitch-label']
+  - name: quantity
+    singleValue: false
+    xpath: //input[@id='qty']    
