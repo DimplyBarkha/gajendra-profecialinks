@@ -25,12 +25,8 @@ module.exports = {
       load_all_resources: true,
       force200: true,
       block_ads: true,
-      proxy: {
-        use_relay_proxy: false,
-      },
       anti_fingerprint: true,
       first_request_timeout: 100,
-      timeout: 12000000,
       goto_timeout: 100,
       random_move_mouse: false,
       load_timeout: 30,
