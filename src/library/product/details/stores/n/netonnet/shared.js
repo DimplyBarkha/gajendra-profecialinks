@@ -37,7 +37,7 @@ const transform = (data) => {
 				row.price.forEach(item => {
 					newText = item.text.trim().replace(":-", "");
 				}); */
-				row.price = [{ text: row.price[0].text}, { text: row.price[1].text.trim().replace(":-", "") }];
+				row.price = [{ text: row.price[0].text }, { text: row.price[1].text.trim().replace(":-", "") }];
 			}
 
 			if (row.listPrice) {
@@ -62,8 +62,8 @@ const transform = (data) => {
 				var received_per = row.aggregateRating[0].text.replace("width: ", "")
 				var received_per = received_per.replace("%", "");
 
-				if(received_per >= 1){
-					var aggregate_rating = ( received_per * 5 )/100;    
+				if (received_per >= 1) {
+					var aggregate_rating = (received_per * 5) / 100;
 					var newaggregate_rating = aggregate_rating.toString().replace(".", ",");
 					newText = newaggregate_rating;
 				}
@@ -75,29 +75,28 @@ const transform = (data) => {
 						// var aggregate_rating = ( received_per * 5 )/100;
 						//newText = aggregate_rating; 
 						var aggregate_rating = ( received_per * 5 )/100;    
-                        var newaggregate_rating = aggregate_rating.toString().replace(".", ",");
-                        newText = newaggregate_rating;
+						var newaggregate_rating = aggregate_rating.toString().replace(".", ",");
+						newText = newaggregate_rating;
 					}
 				}); */
 				row.aggregateRating = [{ text: newText }];
 			}
-			/* if (row.additionalDescBulletInfo) {  
-				let newText = '';
+			if (row.additionalDescBulletInfo) {
+				let text = '';
 				row.additionalDescBulletInfo.forEach(item => {
-					newText +=  `${item.text.replace(/ \n|&dash;|\r/g, ' || ')}`;
+					text += `${item.text.replace(/\n \n/g, ':')} || `;
 				});
-				row.additionalDescBulletInfo = [{ text: newText.slice(0, -4) }];
-			} */
-
+				row.additionalDescBulletInfo = [{ text: text.slice(0, -4) }];
+			}
 			if (row.videos) {
 				let newText = "";
 				let finalText = "";
 				let extraChar = "";
 				row.videos.forEach(item => {
 					finalText = newText = item.text.trim();
-					 extraChar = newText.substring(0, 2);
-					if(extraChar=='//'){
-						 finalText = newText.replace("//", "");
+					extraChar = newText.substring(0, 2);
+					if (extraChar == '//') {
+						finalText = newText.replace("//", "");
 					}
 				});
 				row.videos = [{ text: finalText }];
@@ -114,58 +113,68 @@ const transform = (data) => {
 			if (row.technicalInformationPdfPresent) {
 				let newText = "NO";
 				row.technicalInformationPdfPresent.forEach(item => {
-					if(item.text == 'YES'){
-						newText = 'YES';		
+					if (item.text == 'YES') {
+						newText = 'YES';
 					}
 				});
 				row.technicalInformationPdfPresent = [{ text: newText }];
 			}
-			if(row.shippingDimensions){	
-				let newText = '';	
-				row.shippingDimensions.forEach(item => {										
-					var shippingDimensions = item.text;		
-					if(shippingDimensions.length > 0){					
-						newText += shippingDimensions.toString()+" X ";	
+			if (row.shippingDimensions) {
+				let newText = '';
+				row.shippingDimensions.forEach(item => {
+					var shippingDimensions = item.text;
+					if (shippingDimensions.length > 0) {
+						newText += shippingDimensions.toString() + " X ";
 					}
-				});	
-				newText = newText.substring(0,newText.length-2).trim();	
-				row.shippingDimensions = [{ text: newText }];	
+				});
+				newText = newText.substring(0, newText.length - 2).trim();
+				row.shippingDimensions = [{ text: newText }];
 			}
-			if(row.description){	
-				let newText = '';	
-				row.description.forEach(item => {										
-					var description = item.text;		
-					if(description.length > 0){					
-						newText += description.toString()+"||";	
-					}	
-						
-				});	
-				newText = newText.substring(0,newText.length-2);	
-				row.description = [{ text: newText }];	
+			if (row.description) {
+				let newText = '';
+				row.description.forEach(item => {
+					var description = item.text;
+					if (description.length > 0) {
+						newText += description.toString() + "||";
+					}
+
+				});
+				newText = newText.substring(0, newText.length - 2);
+				row.description = [{ text: newText }];
 			}
-			if (row.specifications) {  	
-				let newText = '';	
-				var index = 1;	
-				row.specifications.forEach(item => {										
-					var specifications = item.text;		
-					if(specifications.length > 0){		
-						if(index %2 != 0){	
-						 newText += specifications+":";	
-						}	
-						else {	
-							newText += specifications+"|";	
-						}	
-					}	
-					index++;	
-				});	
-				newText = newText.substring(0,newText.length-1);	
-				row.specifications = [{ text: newText }];	
+			if (row.specifications) {
+				let newText = '';
+				var index = 1;
+				row.specifications.forEach(item => {
+					var specifications = item.text;
+					if (specifications.length > 0) {
+						if (index % 2 != 0) {
+							newText += specifications + ":";
+						}
+						else {
+							newText += specifications + "|";
+						}
+					}
+					index++;
+				});
+				newText = newText.substring(0, newText.length - 1);
+				row.specifications = [{ text: newText }];
 			}
 
-			if (row.alternateImages) {  	
-				row.alternateImages.forEach(item => {	
-					item.text = item.text.replace('Large','Extra');	
-				});	
+			if (row.alternateImages) {
+				row.alternateImages.forEach(item => {
+					item.text = item.text.replace('Large', 'Extra');
+				});
+			}
+
+			if (row.nameExtended) {
+				var nameExtended = row.nameExtended[0].text;
+				if (row.brandText) {
+					var brand = nameExtended.includes(row.brandText[0].text);
+					if (!brand) {
+						row.nameExtended[0].text = row.brandText[0].text + ' ' + nameExtended;
+					}
+				}
 			}
 		}
 	}
