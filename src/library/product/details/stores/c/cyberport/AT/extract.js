@@ -1,10 +1,10 @@
-
+const{cleanUp} = require('./transform');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'AT',
     store: 'cyberport',
-    transform: null,
+    transform: cleanUp,
     domain: 'cyberport.at',
     zipcode: '',
   },
@@ -15,10 +15,6 @@ module.exports = {
        addEleToDoc('divhiddenproductAvgRating', productInfo['productAvgRating']);
        addEleToDoc('divhiddenproductRatingCount', productInfo['productRatingCount']);
        addEleToDoc('divhiddenproductGrossPrice', productInfo['productGrossPrice'].analyticsFormat);
-      // addEleToDoc('gtinId', productInfo[0].gtin13);
-      // addEleToDoc('priceCurrency', productInfo[0].offers[0].priceCurrency);  
-     
-
       function preFetchProductDetails () {
         let productInfo = findProductDetails('//section//@data-productinfofordatalayer');                        
         productInfo = JSON.parse(productInfo.textContent);   

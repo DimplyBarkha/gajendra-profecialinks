@@ -13,8 +13,7 @@ fields:
     xpath : //div[contains(@class,'thumbnails-container')]//a[contains(@class,'thumbnail-wrapper')]/img/@alt
   - name: alternateImages
     singleValue: false
-    description: Other product images (not in manufacturer description)
-    #xpath: //div[contains(@class,'imgWrapper')]//picture[1]//img//@src
+    description: Other product images (not in manufacturer description)    
     xpath: //div[contains(@class,'imgWrapper')]//picture//img//@data-src
   - name: metaKeywords
     singleValue: true
@@ -23,16 +22,16 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[contains(@class,'breadcrumbs')]//ul//li
+    xpath: //div[contains(@class,'breadcrumbs')]//ul//li[position()>1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //meta[@property="og:title"]/@content  
+    xpath: //meta[@name='description']/@content  
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //section[contains(@class,'productDetailSection ')]/@data-product-price
+    xpath: //div[@class='tab delivery']//span[@class='oldPrice']//span//text()
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -75,7 +74,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //div[contains(@class,'boxContentWrapper')]//tr[10]//div[contains(@class,'article')]//p[2]
+    xpath: //td//font[contains(text(),'Weight')]//following::td[1]|//td[contains(text(),'Gewicht')]//following::td[1]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -86,7 +85,7 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     #xpath: //div[contains(@class,'title')]//font[contains(@style,'vertical-align')][1]
-    xpath: //div[contains(@class,'productID')]/@data-product-id
+    xpath: //span[@class='articleNumber copySmall']
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -94,7 +93,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div[contains(@class,'titlepage')]
+    xpath: //span[@class='manufacturerNumber copySmall']
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -127,6 +126,7 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
+    xpath: //td//font[contains(text(),'Dimensions (W x H x D)')]//following::td[1]|//td[contains(text(),'Abmessungen (B x H x T)')]//following::td[1]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -145,10 +145,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[contains(@class,'descriptionText')]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[contains(@class,'manufactureLogo')]/img/@src
+    xpath: //div[@class='descriptionImages col-lg-4 col-xs-12']//img//@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -248,7 +249,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-    type: NUMBER
+    xpath: count(//div[contains(@class,'imgWrapper')]//picture//img//@data-src)
   - name: news
     singleValue: true
     description: null
@@ -410,11 +411,11 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(@class,'keyfacts')]/ul[text()]
+    xpath: //section[@id='productDetailDatasheet']//*[div]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: //table[contains(@class,'tblProductDataSheet')]//td[contains(@class,'detailTitle')][contains(text(),'Garantie')]//following::td[1]
+    xpath: //td[contains(text(),'Herstellergarantie')]//following::p[1]|//td//font[contains(text(),'Manufacturer guarantee')]//following::p[1]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -430,7 +431,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //div[contains(@class,'descriptionText')]//p
+    xpath: //div[contains(@class,'descriptionText')]
   - name: packaging
     singleValue: true
     description: Packaging information

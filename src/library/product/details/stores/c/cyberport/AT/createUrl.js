@@ -2,9 +2,7 @@
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
-    domain: 'cyberport.at',
-    prefix: null,
-    url: null,
+    domain: 'cyberport.at',    
     country: 'AT',
     store: 'cyberport',
     zipcode: '',
