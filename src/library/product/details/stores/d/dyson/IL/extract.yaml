@@ -50,17 +50,17 @@ fields:
     manualSelector: div.product__price .price__save
   - name: termsAndConditions
     singleValue: false
-    xpath: //b[contains(text(),"Terms and conditions")]
+    manualSelector: h2.hgroup__title~h1, h2.hgroup__title, h1.hgroup__motif__h1-cdn-img-replace
     regExp: (.+)
-    regExpReplace: Yes
+    regExpReplace: No
     defaultValue: No
   - name: manufacturerDescription
     singleValue: false
     manualSelector: div.promos__list
   - name: manufacturerImages
     singleValue: false
-    xapth: //div[contains(@class,"promos__list")]//img/@src
+    manualSelector: div#added_aplus
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, "hgroup product__claims")] | //div[contains(@class, "hero__content__preorder-container")]/div[contains(@class, "hgroup__prefix")]
+    xpath: //div[contains(@class, "hgroup product__claims")]/*[not(self::a)] | //div[contains(@class, "hero__content__preorder-container")]/div[contains(@class, "hgroup__prefix")]
   

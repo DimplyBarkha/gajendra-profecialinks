@@ -11,7 +11,7 @@ fields:
     manualSelector: footer ol.crumb__list > li:first-child~li > a
   - name: nameExtended
     singleValue: false
-    manualSelector: h2.hgroup__title, h2.rating-set__title, h2.hgroup__title~h1
+    manualSelector: h2.hgroup__title, h2.rating-set__title, h2.hgroup__title~h1, h1.hgroup__motif__h1-cdn-img-replace
   - name: listPrice
     singleValue: false
     manualSelector: div.product__price .price__was span.price
@@ -38,29 +38,29 @@ fields:
     xpath: //video/source[@src]/@src
   - name: name
     singleValue: false
-    manualSelector: h2.hgroup__title, h2.rating-set__title, h2.hgroup__title~h1
+    manualSelector: h2.hgroup__title, h2.rating-set__title, h2.hgroup__title~h1, h1.hgroup__motif__h1-cdn-img-replace
   - name: specifications
     singleValue: false
     manualSelector: div#added_specs
   - name: warranty
     singleValue: false
-    xpath: //strong[contains(text(),"Garantía")]
+    xpath: //strong[contains(text(),"Garantía") or contains(text(),"garantía")]
   - name: promotion
     singleValue: false
     manualSelector: div.product__price .price__save
   - name: termsAndConditions
     singleValue: false
-    xpath: //b[contains(text(),"Términos y condiciones")]
+    manualSelector: h2.hgroup__title, h2.rating-set__title, h2.hgroup__title~h1, h1.hgroup__motif__h1-cdn-img-replace
     regExp: (.+)
-    regExpReplace: Yes
+    regExpReplace: No
     defaultValue: No
   - name: manufacturerDescription
     singleValue: false
     manualSelector: div.promos__list
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@class, "promos__list")]//img/@src
+    manualSelector: div#added_aplus
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, "hgroup product__claims")] | //div[contains(@class, "hero__content__preorder-container")]/div[contains(@class, "hgroup__prefix")]
+    xpath: //div[contains(@class, "hgroup product__claims")]/*[not(self::a)] | //div[contains(@class, "hero__content__preorder-container")]/div[contains(@class, "hgroup__prefix")]
   
