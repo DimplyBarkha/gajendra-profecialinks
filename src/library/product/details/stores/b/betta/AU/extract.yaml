@@ -102,7 +102,7 @@ fields:
     xpath: count(//img[contains(@class,'thumb image')])
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class, "additional-attributes-wrapper table-wrapper")]//div
+    xpath: //table[@id="product-attribute-specs-table"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -121,10 +121,10 @@ fields:
     singleValue: false
     xpath: //table[@id = "product-attribute-specs-table"]//tbody//tr//th[contains(text(), "Colour")]//following-sibling::td
   - name: manufacturerImages
-    singleValue: true
-    xpath: //img[contains(@class, "flix_logo")]//@src
+    singleValue: false
+    xpath: //div[contains(@class, "inpage_selector_feature")]//img/@srcset
   - name: manufacturerDescription
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class, "inpage_selector_feature")]
   - name: packaging
     singleValue: false

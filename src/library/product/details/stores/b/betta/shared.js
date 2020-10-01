@@ -67,6 +67,24 @@ const transform = (data) => {
 				row.weightNet = netWeight;
 				row.weightGross = grossWeight;
 			}
+
+			if (row.specifications) {
+				let newText = '';
+				row.specifications.forEach(item => {
+					newText += `${item.text.trim().replace(/[\n]/g, ':').replace(/ :+/g, '|').replace('|||', ' || ').replace(/(\:)[|]{3}/g, ' || ').replace(/(\:)[|]{1}/g, ': ')}`;
+				});
+				
+				row.specifications = [{ text: newText, xpath: row.specifications[0].xpath }];
+			}
+
+			if (row.productOtherInformation) {
+				let newText = '';
+				row.productOtherInformation.forEach(item => {
+					newText += `${item.text.trim() + ' || '}`;
+				});
+
+				row.productOtherInformation = [{ text: newText.slice(0, -4), xpath: row.productOtherInformation[0].xpath }];
+			}
 		}
 	}
 
