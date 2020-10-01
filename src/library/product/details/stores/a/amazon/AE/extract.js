@@ -139,9 +139,13 @@ async function implementation (
     const formattedDescriptionText = additionalDescriptionText ? descriptionText ? additionalDescriptionText + ' | ' + descriptionText : additionalDescriptionText : descriptionText;
     addHiddenDiv('productDescriptionExtract', formattedDescriptionText);
 
-    const shippingInfo = document.querySelector('div#buybox-tabular > table > tbody');
-    let shippingInfoText = shippingInfo && shippingInfo.innerHTML
-      ? shippingInfo.innerHTML.replace(/<tr>/gm, '').replace(/<td>/gm, '').replace(/<span>/gm, '').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim() : '';
+    const ship = document.querySelector('div#buybox-tabular tr:nth-child(1) td:nth-child(1)');
+    const shipsFromCompany = document.querySelector('div#buybox-tabular tr:nth-child(1) td:nth-child(2) span span:nth-child(1)');
+    const sold = document.querySelector('div#buybox-tabular tr:nth-child(2) td:nth-child(1)');
+    const soldByCompany = document.querySelector('div#buybox-tabular tr:nth-child(2) td:nth-child(2) span span:nth-child(1)');
+    const shippingInfo = ship.innerHTML + shipsFromCompany.innerHTML + sold.innerHTML + soldByCompany.innerHTML;
+    let shippingInfoText = shippingInfo
+      ? shippingInfo.replace(/<tr>/gm, '').replace(/<td>/gm, '').replace(/<span>/gm, '').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim() : '';
     shippingInfoText = shippingInfoText.replace(/\s+/g, ' ');
     addHiddenDiv('shippingInfo', shippingInfoText);
 
