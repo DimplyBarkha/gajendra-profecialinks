@@ -68,36 +68,33 @@ fields:
     singleValue: true
     description: Product manufacturer
     xpath: //div[@class='product-details-panel']/@data-brandname
-  # - name: quantity
-  #   singleValue: true
-  #   description: Quantity as described on the page
-  #   regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-  #   regExpReplace: $1$2$3$4
-  #   xpath: //div[@class='product-details-bottom shipment-type-pickup']/div[@class='product-cart-panel default']/form/div[@class='product-cart-deliverymode product-cart-pickup']/div[@class='product-cart-pickup-header']/div[@class='product-cart-pickup-availability']/div[@class='stocklevel green-stock-level']/input/@value
-  # - name: weightNet
-  #   singleValue: true
-  #   description: Net weight as described on the page
-  #   xpath: //div[@id='main-body-wrapper']/div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='classifications-tab']/div[@class='product-details-classifications']/div[@class='product-classifications-right']/div[@class='product-classifications'][6]/table[@class='product-classifications-table']/tbody/tr[4]/td[2]
-  # - name: weightGross
-  #   singleValue: true
-  #   description: Gross weight as described on the page
-  #   xpath: //div[@id='main-body-wrapper']/div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='classifications-tab']/div[@class='product-details-classifications']/div[@class='product-classifications-right']/div[@class='product-classifications'][7]/table[@class='product-classifications-table']/tbody/tr[3]/td[2]
-  # - name: gtin
-  #   singleValue: true
-  #   description: GTIN code (includes UPC/EAN)
-  #   xpath: //div[@class="product-flixdata"]//@data-ean
-  # - name: sku
-  #   singleValue: true
-  #   description: The store-specific product identifier
-  #   xpath: //div[@class="product-details-panel"]//@data-product-code
-  # - name: variantId
-  #   singleValue: true
-  #   description: Identifier for a variant from a store where variants share the same sku
-  #   xpath: //div[@class="product-details-panel"]//@data-product-code
-  # - name: mpc
-  #   singleValue: true
-  #   description: The manufacturer model code (unique) of the product
-  #   xpath: //div[@class="product-flixdata"]//@data-distributor
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page    
+  - name: weightNet
+    singleValue: true
+    description: Net weight as described on the page
+    xpath: //div[@id='main-body-wrapper']/div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='classifications-tab']/div[@class='product-details-classifications']/div[@class='product-classifications-right']/div[@class='product-classifications'][6]/table[@class='product-classifications-table']/tbody/tr[4]/td[2]
+  - name: weightGross
+    singleValue: true
+    description: Gross weight as described on the page
+    xpath: //div[@id='main-body-wrapper']/div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='classifications-tab']/div[@class='product-details-classifications']/div[@class='product-classifications-right']/div[@class='product-classifications'][7]/table[@class='product-classifications-table']/tbody/tr[3]/td[2]
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class="product-flixdata"]//@data-ean
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@class="product-details-panel"]//@data-product-code
+  - name: variantId
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@class="product-details-panel"]//@data-product-code
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+    xpath: //div[@class="product-flixdata"]//@data-distributor
   # - name: packSize
   #   singleValue: true
   #   description: The number of packs in the product offer (if stated separately on
