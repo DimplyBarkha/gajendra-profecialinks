@@ -1,12 +1,11 @@
-
+const { transform } = require('../../../../shared');
 module.exports = {
-  implements: 'product/details/execute',
+  implements: 'product/search/extract',
   parameterValues: {
     country: 'IE',
     store: 'jccampbellelectrics',
+    transform: transform,
     domain: 'jccampbellelectrics.com',
-    loadedSelector: null,
-    noResultsXPath: null,
     zipcode: '',
   },
 };

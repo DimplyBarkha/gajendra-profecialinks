@@ -13,7 +13,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //ul[@id='media-thumbs']//li[@class='item img0 active']//a//img//@src
+    xpath: //div[@class='media-thumbs-container has-slider nav-btm']//ul//li[position()>1]//a//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -21,7 +21,11 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[contains(@class, 'breadcrumbs')]//ul
+    xpath: 
+    # xpath: //div[@class='breadcrumbs']//ul/li[position()>1]/span/text()
+  - name: _url
+    singleValue: true
+    xpath: //link[@rel='canonical']/@href
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -30,15 +34,16 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //p[@class='old-price']//span[@class='price']//text()
   - name: price
     singleValue: true
-    xpath: //div//span[@class='regular-price']//span[@class='price']
+    xpath: (//div//p[@class='special-price']//span[@class='price']  |  //div//span[@class='regular-price']//span[@class='price'])
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[@class='availability']//p
+    xpath: //button[@title='Add to basket']//span[contains(text(),'Add to basket')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -46,16 +51,18 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class, 'tab-content')]//div[@id='description']
+    xpath: //div[@id='added_description']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[contains(@class, 'tab-content')]/div[@id='description']/p)
+    xpath: count(//p[contains(@class,'MsoListParagraph')]//font/text())
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@class='product-title']/h1
+    regExp: ^\w+
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -63,34 +70,38 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //div[@class='add-to-cart']//input[@id='qty']/@value
-    #regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    #regExpReplace: $1$2$3$4
+    xpath: //div//label[contains(text(), 'Qty')]/following::input[@id='qty']/@value
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //table[@id='product-attribute-specs-table']//tbody//tr[@class='first odd']//td[@class='data last']
+    xpath: //div/span[contains(text(),'Weight')]/following::div/span/text()
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //table[@id='product-attribute-specs-table']//tbody//tr[@class='first odd']//td[@class='data last']
+    xpath: 
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //table[@id='product-attribute-specs-table']//tbody//tr[@class='even']//td[@class='data last']
+    xpath: //table[@id='product-attribute-specs-table']//tbody//th[contains(text(), 'ean')]/following-sibling::td[@class='data last']
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //span[@class='image_url']/text()
+    regExp: (\d....)-(\d)
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //span[@class='image_url']/text()
+    regExp: (\d....)-(\d)
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: 
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: 
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -103,6 +114,8 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    xpath: //li[@class='first']//a[@href='#customer-reviews']
+    regExp: (\d.)
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
@@ -111,12 +124,17 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //div[@id='added_rating']
+    # xpath: //div[@class='rating']/@style
+    # regExp: \:(\w+)\%
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: 
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
+    xpath: //table[@id='product-attribute-specs-table']//tbody//tr/th[contains(text(), 'Dimenisions (H x W x D)')]/following-sibling::td
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -127,21 +145,27 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //tr//th[contains(text(),'Colour')]/following::td/text()
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[@id='added_manufacturerDescription']
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[@id='added_manufacturerImages']
   - name: videos
-    singleValue: false
+    singleValue: true
     description: URLs of videos on page
+    xpath: //div[@id='added_video']
+    # xpath: //iframe[@id="flix-iframe0"]/@src
   - name: name
     singleValue: true
     description: The product name
+    xpath: //title
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -394,9 +418,11 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id='added_specifications']
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //table[@id='product-attribute-specs-table']//tr//th[contains(text(), 'Warranty Included')]/following::td[contains(text(),'years')]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -412,6 +438,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
+    xpath: //div[@id='added_productOtherInformation']
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -442,6 +469,7 @@ fields:
     singleValue: true
     description: In product page, information about a new version of the product -
       new desription info
+    xpath: 
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
@@ -462,6 +490,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@id='added_additionalDescBulletInfo']
   - name: prop65Warning
     singleValue: true
     description: null
@@ -475,6 +504,7 @@ fields:
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
+    xpath: //tr//th[contains(text(), 'Energy Rating')]/following::td/text()
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
@@ -483,6 +513,9 @@ fields:
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
+    xpath: //a[contains(text(),  'Terms and Conditions')]
+    regExp: (.*)
+    regExpReplace: 'YES'
     defaultValue: No
   - name: privacyPolicy
     singleValue: true

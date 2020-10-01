@@ -1,12 +1,10 @@
 
 module.exports = {
-  implements: 'product/details/createUrl',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'jccampbellelectrics.com',
-    prefix: null,
-    url: null,
     country: 'IE',
     store: 'jccampbellelectrics',
+    domain: 'jccampbellelectrics.com',
     zipcode: '',
   },
 };
