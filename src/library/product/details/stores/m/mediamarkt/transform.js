@@ -47,12 +47,12 @@ const transform = (data, context) => {
         });
       }
       if (row.gtin) {
-        if (row.gtin[0].text.includes('var product')) {
-          let jsonStr = row.gtin[0].text.split('var product');
-          jsonStr = jsonStr.length === 2 ? jsonStr[1].split(' = ') : [];
-          jsonStr = jsonStr.length === 2 ? jsonStr[1].slice(0, -1) : '';
+        if (row.gtin[0].text.includes('@context')) {
+          let jsonStr = row.gtin[0].text;
+          // jsonStr = jsonStr.length === 2 ? jsonStr[1].split(' = ') : [];
+          // jsonStr = jsonStr.length === 2 ? jsonStr[1].slice(0, -1) : '';
           const jsonObj = jsonStr.length ? JSON.parse(jsonStr) : '';
-          const ean = Object.keys(jsonObj).length ? (jsonObj.ean ? jsonObj.ean : '') : '';
+          const ean = Object.keys(jsonObj).length ? (jsonObj.gtin13 ? jsonObj.gtin13 : '') : '';
           row.gtin = [
             {
               text: ean,

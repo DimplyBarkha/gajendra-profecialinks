@@ -19,19 +19,20 @@ async function implementation (
     const variantList = [];
 
     function getVariantsText (url) {
-      let variantUrl = url.match(/(?<=-)(.*?)(?=\.)/gm) ? url.match(/(?<=-)(.*?)(?=\.)/gm)[0] : '';
+      let variantUrl = url.match(/((?<=-)(.*?)(?=\.))/gm) ? url.match(/((?<=-)(.*?)(?=\.))/gm)[0] : '';
       variantUrl = variantUrl.length ? (variantUrl.match(/[^-]+$/gm) ? variantUrl.match(/[^-]+$/gm)[0] : '') : '';
       return variantUrl;
+      // return `https://www.mediamarkt.at/${url}`;
     }
 
     const url = window.location.href;
     const mainVariant = getVariantsText(url);
     variantList.push(mainVariant);
 
-    const variantNodes = document.querySelectorAll('div.product-attributes__color-item');
+    const variantNodes = document.querySelectorAll('div[class^="ProductVar"] a[class^="Linkstyle"]');
     if (variantNodes.length) {
       [...variantNodes].forEach((element) => {
-        const text = getVariantsText(element.getAttribute('data-action-id'));
+        const text = getVariantsText(element.getAttribute('href'));
         variantList.push(text);
       });
     }
