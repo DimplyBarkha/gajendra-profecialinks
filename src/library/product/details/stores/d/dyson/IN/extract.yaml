@@ -3,6 +3,9 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[contains(@class,'hgroup__main-image')]/img/@src | //div[contains(@class,"hero--product-variant")]//div[contains(@class,"image--stretch")]//img/@src
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"product__claim-section__gallery--images")]/img/@src
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class,'hgroup__main-image')]/img/@alt
