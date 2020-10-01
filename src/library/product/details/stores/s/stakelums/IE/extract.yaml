@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -6,61 +6,51 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@id="product-page"]//div[@id="product-images"]//div[@class="big-image "]//img/@src
-  - name: shippingDimensions
-    singleValue: true
-    description: Stated shipping dimensions
-    xpath: //div[@class="inpage_selector_specification"]//div[@class="flix-std-table"]//table[@class="flix-std-specs-table"]/tbody[text()]
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: //div[@class='product_review']//span/@class
-    regExp: (\d)(\d)
-    regExpReplace: $1.$2
-    defaultValue: 0
+    xpath: //div[@id="add_image"]
+    regExp: [^(.*)$]
+    regExpReplace: 'https://www.stakelums.ie$1'
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[@id="product-page"]//div[@id="product-images"]//div[@class="big-image "]//img/@alt
+    xpath: //div[@id="add_imageAlt"]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id="product-page"]//div[@class="row"]//ul[contains(@class,"small-block-grid-5")]//li//img/@src
+    xpath: //div[@id="product-page"]//div[@class="row"]//ul[contains(@class,"small-block-grid-5")]//li//a/@href
+    regExp: [^(.*)$]
+    regExpReplace: 'https://www.stakelums.ie$1'
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
-    xpath: //meta[contains(@name, "keywords")]/@content
-  - name: weightNet
-    singleValue: true
-    description: Net weight as described on the page
-    xpath: //table[@class='flix-std-specs-table']//tbody//tr[1]/td[4]//div[contains(@class,'flix-title')]//span/text()
+    xpath: //div[@id="add_metaKeywords"]
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@id="subBarWrapperTransparent"]//div[@class="right"]//ul[@class="breadcrumbs"]//li//a/text()
+    xpath: //div[@id="subBarWrapperTransparent"]//div[@class="right"]//ul[@class="breadcrumbs"]//li[position()>=3 and position()<last()]//a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //*[@class="page-title"]/text()
+    xpath: //div[@id="add_nameExtended"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //span[@class="rrp-price"]/text()
-    regExp: (.*)(RRP\s)(.*)
-    regExpReplace: $3
+    xpath: //div[@id="add_listprice"]
+    #xpath: //span[@class="rrp-price"]
+    #regExp: (.*)(RRP\s)(.*)
+    #regExpReplace: $3
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[@class="product-price"]/text()
+    xpath: //div[@id="add_price"]
+    #xpath: //span[@class="product-price"]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //a[@href="#cart-added-message"]/text()
+    xpath: //a[@href="#cart-added-message"]
     regExp: (Add to Cart)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -68,43 +58,49 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class='product_review']/following-sibling::p/text()
+    #xpath: //div[@class='product_review']/following-sibling::p
+    xpath: //div[@id="additional_description"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    xpath: count(//ul[@id="productAttributesBold"]//li)
     type: NUMBER
+    xpath: count(//ul[@id="productAttributesBold"]//li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@itemprop='brand']//span/text()
+    xpath: //div[@itemprop='brand']//span
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[@itemprop='manufacturer']//span/text()
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue: true
+    description: Net weight as described on the page
+    xpath: //div[@id="product_weight"]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //span[@itemprop='model']
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //span[@itemprop='model']/text()
+    xpath: //span[@itemprop='model']
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //span[@itemprop='model']/text()
+    xpath: //span[@itemprop='model']
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //span[@itemprop='model']
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -121,22 +117,32 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    type: NUMBER
     xpath: count(//ul[@id="review-list"]//li)
+    type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div[@id="aggregate_rating"]
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //div[@id="deliveryTab"]
+  - name: shippingDimensions
+    singleValue: true
+    description: Stated shipping dimensions
+    xpath: //div[@id="product_dimension"]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
+    xpath: //div[@id="shipping_weight"]
   - name: variantCount
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: //div[@id="added_variantCount"]
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -146,19 +152,21 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //meta[@name='Description']/@content
+    xpath: //div[@id='added_manufacturerDescription']
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class="flix-std-row"]//img/@src
+    xpath: //div[contains(@id,"flix-inpage")]//img/@srcset
+    regExp: [^(.*)$]
+    regExpReplace: 'http:$1'
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //iframe[@id="flix-iframe0"]/@src
+    xpath: //div[@id="added_video_url"]
   - name: name
     singleValue: true
     description: The product name
-    xpath: //*[@class="page-title"]/text()
+    xpath: //div[@id="add_nameExtended"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -411,11 +419,10 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //table[@class="flix-std-specs-table"]//tr[text()]
+    xpath: //div[@id="added_specifications"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: //div[@id="warrantyTab"]//p
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -430,8 +437,9 @@ fields:
     description: Recycling information associated with the product
   - name: productOtherInformation
     singleValue: false
-    xpath:  //div[@class="flix-std-content"]//div[contains(@class,"flix-d-p")]
     description: Any other product information
+    #xpath: //div[@id="added_productOtherInformation"]
+    xpath: //div[@id="product_other_information"]
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -482,7 +490,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[contains(@id,"flix-inpage")]/following-sibling::p[not(strong) and not(contains(text(),'articulates'))]/text()[not(.='')]
+    xpath: //ul[@id="productAttributesBold"]//li
   - name: prop65Warning
     singleValue: true
     description: null
@@ -504,11 +512,11 @@ fields:
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: Yes
+    defaultValue: No
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: Yes
+    defaultValue: No
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']

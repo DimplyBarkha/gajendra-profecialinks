@@ -5,7 +5,7 @@ module.exports = {
     country: 'IE',
     store: 'stakelums',
     domain: 'stakelums.ie',
-    loadedSelector: 'div[id="product"]',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },
