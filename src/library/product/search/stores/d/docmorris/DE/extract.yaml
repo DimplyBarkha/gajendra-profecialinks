@@ -1,0 +1,39 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"productlist__row")]/div[contains(@class,"item")]
+fields: 
+  - name: productUrl
+    xpath: //a[contains(@class,"productlist__tile")]/@href
+    regExp: (.+)
+    regExpReplace: https://www.docmorris.de$1
+    description: The URL for the product details page
+  - name: thumbnail
+    xpath: //div[contains(@class,"image-wrap")]/img/@data-src
+    regExp: (.+)
+    regExpReplace: https://www.docmorris.de$1
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //h2[contains(@class,"productlist__name")]
+    description: The product name
+  - name: id
+    xpath: //a[contains(@class,"productlist__tile")]/@href
+    description: The store-specific product identifier
+    regExp: (.+)/(\d+)
+    regExpReplace: $2
+  - name: price
+    xpath: //*[contains(@class,"_price")]
+    description: The offered price for the product
+  - name: rankOrganic
+  - name: rank
+  - name: sponsored
+  - name: aggregateRating2
+    xpath: //*[contains(@class,"rating__star")]/@data-rating-value
+    regExp: (\d+).(\d+)
+    regExpReplace: $1,$2
+  - name: reviewCount
+    xpath: //div[contains(@class,"values")]/span/span
+  - name: searchUrl
+    xpath: ancestor::html//*[contains(@class,"page-link")]
+  - name: manufacturer
+    xpath: //*[contains(@class,"supplier")]
