@@ -76,7 +76,10 @@ module.exports = {
         finalSpecStr = finalSpecArr.join(' || ');
       }
       addHiddenDiv('cr_specification',finalSpecStr );
-
+      // @ts-ignore
+      let tc_vars = window.tc_vars;
+      let brand = tc_vars ? tc_vars.product_brand : '';
+      addHiddenDiv('cr_brand',brand);
     })
     return await context.extract(productDetails, { transform });
   }

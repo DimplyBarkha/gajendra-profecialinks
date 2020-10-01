@@ -31,7 +31,14 @@ const transform = (data) => {
             });
           }
           if (row.alternateImages) {
-            row.alternateImages.shift(); 
+            row.alternateImages.shift();
+            row.alternateImages.forEach(item => {
+              if((item.text.includes('https://www.carrefour.fr'))){
+                item.text = item.text;
+              }else{
+                item.text = 'https://www.carrefour.fr'+item.text;
+              } 
+            }); 
           }
           if (row.manufacturerImages) {
             row.manufacturerImages.forEach(item => {
@@ -39,6 +46,15 @@ const transform = (data) => {
                 item.text = item.text;
               }else{
                 item.text = 'https:'+item.text;
+              } 
+            });
+          }
+          if (row.image) {
+            row.image.forEach(item => {
+              if((item.text.includes('https://www.carrefour.fr'))){
+                item.text = item.text;
+              }else{
+                item.text = 'https://www.carrefour.fr'+item.text;
               } 
             });
           }
@@ -75,13 +91,19 @@ const transform = (data) => {
           if (row.category) {
             row.category.pop(); 
           }
-          // if (row.nameExtended) {
-          //   row.nameExtended.forEach(item => {
-          //     if(item.text){
-          //       item.text = item.text.replace(/\n/g,'-');
-          //     } 
-          //   });
-          // }
+          if (row.brandText) {
+            let Btext = '';
+            if(row.name){
+              row.name.forEach(item => {
+                  Btext = item.text.split(' ')[0];
+              });
+              }
+            row.brandText.forEach(item => {
+              if(item.text === 'BRAND'){
+                item.text = Btext;
+              } 
+            });
+          }
           if (row.description) {
             let text = '';
             row.description.forEach(item => {

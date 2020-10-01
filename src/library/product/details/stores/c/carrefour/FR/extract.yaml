@@ -26,8 +26,8 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@id="data-produit-card"]//h1[contains(@class, "pdp-card__title")]
-    # xpath: //div[@class="pdp-card__header--text"]/*[not(self::div)] 
+    # xpath: //div[@id="data-produit-card"]//h1[contains(@class, "pdp-card__title")]
+    xpath: //div[@class="pdp-card__header--text"]/*[not(self::div)] 
     # xpath: //div[@class="pdp-card__header--text"]
   - name: listPrice
     singleValue: false
@@ -58,7 +58,8 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@id="data-produit-card"]//span[contains(@class, "pdp-card__brand")]
+    xpath: //div[@id="data-produit-card"]//span[contains(@class, "pdp-card__brand")] | //div[@id="cr_brand"]
+    defaultValue: 'BRAND'
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -114,6 +115,7 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
+    xpath: //div[@class="marketplace-seller-label"]
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
