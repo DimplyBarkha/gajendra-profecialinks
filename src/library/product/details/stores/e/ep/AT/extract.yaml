@@ -128,19 +128,19 @@ fields:
     singleValue: true
     description: A textual description of the colour
     xpath: substring-after(//div[@class='main-right-column']/div[@class='product-details-panel']/div[@class='product-details-left']/h1[@class='product-details-name'], '-')
-  # - name: colorCode
-  #   singleValue: true
-  #   description: A code description of the color (e.g. RGB hex)
-  # - name: manufacturerDescription
-  #   singleValue: false
-  #   description: The extended description of the product supplied by the lister
-  # - name: manufacturerImages
-  #   singleValue: false
-  #   description: Images within the third party description
-  # - name: videos
-  #   singleValue: true
-  #   description: URLs of videos on page
-  #   xpath: //div[@class="flix-videodiv"]/iframe[@id="flix-iframe0"]/@src
+  - name: colorCode
+    singleValue: true
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+  - name: videos
+    singleValue: true
+    description: URLs of videos on page
+    xpath: //div[@class="flix-videodiv"]/iframe[@id="flix-iframe0"]/@src
   # - name: name
   #   singleValue: true
   #   description: The product name
