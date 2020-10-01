@@ -1,0 +1,22 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="styled__ProductGridWrapper-sc-15s6tne-0 bLxuUB"]/div
+fields:
+  - name: name
+    xpath: //div[@class="styled__ProductGridWrapper-sc-15s6tne-0 bLxuUB"]/div//div[contains(@class,'DescriptionWrapper')]
+  - name: thumbnail
+    xpath: //div[@class="styled__ProductGridWrapper-sc-15s6tne-0 bLxuUB"]/div//div[contains(@class,'PictureWrapper')]/img/@src
+  - name: price
+    xpath: //div[contains(@class,"ProductPrice__PriceProductWrapper")]
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    type: NUMBER
+  - name: sponsored
+    type: BOOLEAN
+  - name: id
+    xpath: //div[contains(@class,"ProductGridCell")]/@data-id
+  - name: manufacturer
+    xpath: //div[@class="productTileV2Styled__OverlayWrapper-sc-19ad4vz-12 ieShhq"]//span/@data-tip
