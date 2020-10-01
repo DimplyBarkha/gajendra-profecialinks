@@ -110,24 +110,24 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-  # - name: shippingInfo
-  #   singleValue: true
-  #   description: Shipping information for the product
-  #   xpath: //div[@class='product-details-bottom shipment-type-pickup']/div[@class='product-cart-panel default']/form/div[@class='product-cart-deliverymode product-cart-pickup']/div[@class='product-cart-pickup-header']/div[@class='product-cart-pickup-availability']/div[@class='stocklevel green-stock-level']/div
-  # - name: shippingDimensions
-  #   singleValue: true
-  #   description: Stated shipping dimensions
-  # - name: shippingWeight
-  #   singleValue: true
-  #   description: Stated shipping weight
-  #   xpath: //div[@id='main-body-wrapper']/div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='classifications-tab']/div[@class='product-details-classifications']/div[@class='product-classifications-right']/div[@class='product-classifications'][8]/table[@class='product-classifications-table']/tbody/tr[4]/td[2]
-  # - name: variantCount
-  #   singleValue: true
-  #   description: Number of variants listed
-  # - name: color
-  #   singleValue: true
-  #   description: A textual description of the colour
-  #   xpath: substring-after(//div[@class='main-right-column']/div[@class='product-details-panel']/div[@class='product-details-left']/h1[@class='product-details-name'], '-')
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+    xpath: //div[@class='product-details-bottom shipment-type-pickup']/div[@class='product-cart-panel default']/form/div[@class='product-cart-deliverymode product-cart-pickup']/div[@class='product-cart-pickup-header']/div[@class='product-cart-pickup-availability']/div[@class='stocklevel green-stock-level']/div
+  - name: shippingDimensions
+    singleValue: true
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    singleValue: true
+    description: Stated shipping weight
+    xpath: //div[@id='main-body-wrapper']/div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='classifications-tab']/div[@class='product-details-classifications']/div[@class='product-classifications-right']/div[@class='product-classifications'][8]/table[@class='product-classifications-table']/tbody/tr[4]/td[2]
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+  - name: color
+    singleValue: true
+    description: A textual description of the colour
+    xpath: substring-after(//div[@class='main-right-column']/div[@class='product-details-panel']/div[@class='product-details-left']/h1[@class='product-details-name'], '-')
   # - name: colorCode
   #   singleValue: true
   #   description: A code description of the color (e.g. RGB hex)
