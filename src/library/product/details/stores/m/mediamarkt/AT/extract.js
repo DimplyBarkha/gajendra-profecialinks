@@ -30,6 +30,12 @@ module.exports = {
       console.log('No manufacturer content');
     }
 
+    const avail = await sharedhelpers.getEleByXpath('//button[contains(text(), "In den Warenkorb")]');
+
+
+
+    await sharedhelpers.addHiddenInfo('ii_availText', avail ? 'In Stock' : 'Out of Stock');
+
     await context.extract(productDetails, { transform: transformParam });
   },
 };

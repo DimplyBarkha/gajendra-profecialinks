@@ -41,13 +41,13 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    xpath: //button[contains(text(), "In den Warenkorb")]
+    xpath: //*[@id="ii_availText"]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.*)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    # regExp: (.*)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[@data-test="mms-accordion-description"]
@@ -56,7 +56,7 @@ fields:
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
-    xpath: //div[@data-test="mms-accordion-description"]//li
+    xpath: count(//div[@data-test="mms-accordion-description"]//li)
     # xpath: count(//dl[@class="product-details"]//li|//div[contains(@data-cms-id, "product_detail-content_product_detail")]//article//li)
     description: Number of ul > li tags in the description
     type: NUMBER
@@ -120,16 +120,17 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
-    xpath: //span[@itemprop="reviewCount"]
+    xpath: (//div[contains(@class, "ReviewHeader")]//p)[1]
+    regExp: (?<=auf\s)(.*?)(?=\sBewertungen)
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
-    xpath: //span[@itemprop="ratingValue"]
+    xpath: (//div[contains(@class, "ReviewHeader")]//span)[1]
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
-    xpath: //span[@itemprop="ratingValue"]
+    xpath: (//div[contains(@class, "ReviewHeader")]//span)[1]
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     singleValue: false
@@ -168,7 +169,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: true
-    xpath: //h1[@itemprop="name"]
+    xpath: //div[@data-test="mms-select-details-header"]//h1
     description: The product name
   - name: inStorePrice
     singleValue: true
