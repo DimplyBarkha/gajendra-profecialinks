@@ -12,41 +12,62 @@ module.exports = {
     { url, zipcode, storeId },
     parameters,
     context,
-    dependencies
+    dependencies,
   ) => {
-    const timeout = parameters.timeout ? parameters.timeout : 10000;
+    const timeout = parameters.timeout ? parameters.timeout : 60000;
+    await context.setJavaScriptEnabled(true);
+    await context.setCssEnabled(true);
     await context.setLoadAllResources(true);
-    await context.goto(url, {
+    await context.setLoadImages(true);
+    await context.setBlockAds(false);
+
+    const responseStatus = await context.goto(url, {
       antiCaptchaOptions: {
-        provider: "2-captcha",
-        type: "GEETEST",
+        provider: '2-captcha',
+        type: 'GEETEST',
       },
+      firstRequestTimeout: 60000,
       timeout: timeout,
-      waitUntil: "load",
+      waitUntil: 'load',
       checkBlocked: false,
-      js_enabled: true,
-      load_timeout: 30,
-      css_enabled: true,
     });
+    console.log('Status :', responseStatus.status);
+    console.log('URL :', responseStatus.url);
 
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000))
+    await context.waitForNavigation({ timeout: 30000 });
 
-    await context.evaluate(
-      function () {
-        const code = geetest.toString().replace(/appendTo\("#([^"]+)"\)/,'appendTo(document.getElementById("$1"))');
-        return eval(`(${code})('/captcha/geetest');`);
-      }, undefined, 'iframe');
+    try {
+      await context.evaluateInFrame('iframe',
+        function () {
+          const code = geetest
+            .toString()
+            .replace(
+              /appendTo\("#([^"]+)"\)/,
+              'appendTo(document.getElementById("$1"))',
+            );
+          return eval(`(${code})('/captcha/geetest');`);
+        },
+      );
 
-    await new Promise((r) => setTimeout(r, 500));
-
-    await context.evaluate(
-      function () {
-        document.querySelector(".captcha-handler").click();
-      },
-      undefined,
-      "iframe"
-    );
-
-    await context.waitForNavigtion();
+      await new Promise(resolve => setTimeout(resolve, 500));
+      await context.evaluateInFrame('iframe',
+        function () {
+          document.querySelector('.captcha-handler').click();
+        },
+      );
+      await new Promise(resolve => setTimeout(resolve, 60000));
+      try {
+        await context.waitForSelector('div[class~="f-productVisuals-mainIconZoom"]');
+      } catch (e) {
+        console.log('No details page');
+      }
+      try {
+        await context.waitForSelector('div[class~="Article-itemInfo"] p[class~="Article-desc"]');
+      } catch (e) {
+        console.log('No details page');
+      }
+    } catch (e) {
+      console.log('No captcha encountered');
+    }
   },
 };
