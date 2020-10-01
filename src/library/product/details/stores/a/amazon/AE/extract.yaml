@@ -114,7 +114,7 @@ fields:
     xpath: //div[@id="aplus"]//img[not(contains(@src, "common"))]/@src
   - name: videos
     singleValue: false
-    xpath: //video/@src
+    manualSelector: div#videos
   - name: name
     singleValue: false
     xpath: //span[@id="productTitle"]

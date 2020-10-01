@@ -139,6 +139,11 @@ async function implementation (
     const formattedDescriptionText = additionalDescriptionText ? descriptionText ? additionalDescriptionText + ' | ' + descriptionText : additionalDescriptionText : descriptionText;
     addHiddenDiv('productDescriptionExtract', formattedDescriptionText);
 
+    const videoSelectors = Array.from(document.querySelectorAll('video[src]'));
+    const videos = videoSelectors.map((videoSelector) => videoSelector && videoSelector.src ? `"url":"${videoSelector.src}"` : '');
+    const videosURL = videos.join(',');
+    addHiddenDiv('videos', videosURL);
+
     const ship = document.querySelector('div#buybox-tabular tr:nth-child(1) td:nth-child(1)');
     const shipsFromCompany = document.querySelector('div#buybox-tabular tr:nth-child(1) td:nth-child(2) span span:nth-child(1)');
     const sold = document.querySelector('div#buybox-tabular tr:nth-child(2) td:nth-child(1)');
