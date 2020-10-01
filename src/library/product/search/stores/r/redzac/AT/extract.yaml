@@ -5,33 +5,48 @@ recordXPath: //div[@class='product_search_result_wrapper']//ul[@id='product_sear
 fields:
   - name: id
     description: Unique id (within this extractor)
+    xpath: //li[@class='product_cell']//button[@data-usage_log_object_name='add2watchlist']/@data-usage_log_object_identifier
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
+    xpath: //li[@class='product_cell']/@count
     type: NUMBER 
   - name: name
     description: The product name
-    xpath: //span[@class='product_name']
+    xpath: //li[@class='product_cell']//span[@class='product_name']
   - name: productUrl
     description: The URL for the product details page
+    xpath: //li[@class='product_cell']//div[@class='module_product_teaser']/a/@href
   - name: gtin
     description: GTIN code (includes UPC/EAN)
+    xpath: //li[@class='product_cell']//span[@class='product_name']
+    regExp: ([\d\-]{6,})
   - name: thumbnail
     description: The URL for the product thumbnail image
+    xpath: //li[@class='product_cell']//div[@class='product_image_wrapper']//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.redzac.at$1
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
+    xpath: //li[@class='product_cell']//div[@class='bv-off-screen']
+    regExp: (^[\d\,]+)
     type: NUMBER
   - name: reviewCount
     description: The number of reviews
+    xpath: //li[@class='product_cell']//meta[@itemprop='reviewCount']/@content
     type: NUMBER
   - name: ratingCount
     description: The number of ratings
+    xpath: //li[@class='product_cell']//meta[@itemprop='reviewCount']/@content
   - name: price
     description: The offered price for the product
+    xpath: //li[@class='product_cell']//div[@class='single_price']
   - name: manufacturer
     description: Product manufacturer
+    xpath: //li[@class='product_cell']//div[@class='manufacturer_logo']//img/@alt |//li[@class='product_cell']//div[@class='manufacturer_logo']/span
   - name: soldBy
     description: The name of the seller of the item (if available)
   - name: rank
     description: search/listing rank
+    xpath: //li[@class='product_cell']/@count
   - name: endorsementText
     description: The text that signifies that a product is endorsed
