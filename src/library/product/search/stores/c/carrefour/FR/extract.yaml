@@ -25,7 +25,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //span[@class='ds-title product-card-price__price--final ds-title--m']
+    xpath: //span[contains(@class,'ds-title product-card-price__price--final ds-title--m')]
   # - name: listPrice
   #   singleValue: false
   #   description: The stated undiscounted price for the product

@@ -48,6 +48,15 @@ const transform = (data, context) => {
             }
           });
         }
+        if (row.thumbnail) {
+          row.thumbnail.forEach(item => {
+            if (item.text.includes('https://www.carrefour.fr')) {
+              item.text = item.text;
+            } else {
+              item.text = 'https://www.carrefour.fr' + item.text;
+            }
+          });
+        }
       }
     }
     return data;
