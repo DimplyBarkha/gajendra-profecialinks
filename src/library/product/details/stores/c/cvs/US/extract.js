@@ -17,14 +17,15 @@ module.exports = {
       return document.body.innerText;
     });
     const json = JSON.parse(jsonText);
+
     // Checks to see if required information is present before continuing
     if (json && json.records && json.totalRecordCount > 0) {
+      console.log("Converted body text to json successfully");
     // Saving the URL of the client side product page to use to check for variant names
       const productPageUrl = await context.evaluate(function (records) {
         const product = records[0].allMeta;
         return product.gbi_ParentProductPageUrl;
       }, json.records);
-
       // Collecting all variant SKUs from API object to be used for constructing the URL for fetching manufacturer information
       const prodSkus = await context.evaluate(function (records, cnt) {
         if (records[0].allMeta) {
@@ -413,7 +414,7 @@ module.exports = {
 
                 const packSizes = [];
                 const variantInfoArray = [];
-
+                // addHiddenDiv('ii_color', colorVariantsArr[i], newDiv);
                 // Collecting variant information
                 if (variantOptions.length > 0) {
                   variantOptions.forEach(option => {
@@ -421,9 +422,13 @@ module.exports = {
 
                     if (variant.p_Sku_Color) {
                       addHiddenDiv('ii_color', variant.p_Sku_Color, newDiv);
+                      console.log("color div appended");
                       if ('p_Sku_Color'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Color)) {
                         variantInfoArray.push(variant.p_Sku_Color);
                       }
+                    }
+                    else {
+                      console.log("no color present");
                     }
 
                     if (variant.p_Sku_Size) {
@@ -518,6 +523,7 @@ module.exports = {
         }
       }, json.records, json.totalRecordCount, htmlList, stockArr, variantOptions);
     } else {
+      console.log("cannot convert body text to json obj.")
       throw new Error('notFound');
     }
 
