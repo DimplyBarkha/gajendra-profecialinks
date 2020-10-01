@@ -37,7 +37,7 @@ const transform = (data) => {
 				row.price.forEach(item => {
 					newText = item.text.trim().replace(":-", "");
 				}); */
-				row.price = [{ text: row.price[0].text }, { text: row.price[1].text.trim().replace(":-", "") }];
+				row.price = [{ text: row.price[1].text.trim().replace(":-", "") }, { text: row.price[0].text }];
 			}
 
 			if (row.listPrice) {
@@ -87,6 +87,13 @@ const transform = (data) => {
 					text += `${item.text.replace(/\n \n/g, ':')} || `;
 				});
 				row.additionalDescBulletInfo = [{ text: text.slice(0, -4) }];
+			}
+			if (row.manufacturerDescription) {
+				let text = '';
+				row.manufacturerDescription.forEach(item => {
+					text += `${item.text.replace(/\n \n/g, ':')} | `;
+				});
+				row.manufacturerDescription = [{ text: text.slice(0, -4) }];
 			}
 			if (row.videos) {
 				let newText = "";

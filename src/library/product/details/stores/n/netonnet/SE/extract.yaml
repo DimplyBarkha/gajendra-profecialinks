@@ -16,7 +16,7 @@ fields:
   - name: name
     singleValue: false
     #xpath: //ol[contains(@class, 'breadcrumb')]/following::h2[1]
-    xpath: //div[contains(@class, 'subTitle big')]/h1
+    xpath: //div[contains(@class,'product-leftInfo')]//h2
     description: The product name
   - name: alternateImages
     singleValue: false
@@ -30,7 +30,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     # xpath: boolean(//div[@class='heading']//span[contains(@class,'stockStatusInStock')])
-    xpath: boolean(//button[@class='btn btn-primary btn-block btn-lg']/@disabled)
+    xpath: //span[@itemprop="availability"]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="collapseFive"]//img//@data-src
@@ -93,7 +93,8 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku. Here We have tasken last id of URL
   - name: description
     singleValue: false
-    xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li
+    #xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li
+    xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li | //div[@id="collapseFive"]//text()
     description: Product description supplied by website - may be concatenanted from multiple places; specifically not the manufacturer description
   - name: technicalInformationPdfPresent
     singleValue: false
@@ -103,7 +104,7 @@ fields:
     regExp: (.+)
     regExpReplace: "YES"
     defaultValue: "NO"
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     xpath: //a[contains(@data-action,"writeReview")]//div[contains(@class,"ratingOverlay")]//@style
     description: The stated aggregate rating normalized to be out of 5
@@ -164,7 +165,8 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class,'product-sellingPoints hidden-xs')]//div[contains(@class,"product-usps")]//ul//li)
+    # xpath: count(//div[contains(@class,'product-sellingPoints hidden-xs')]//div[contains(@class,"product-usps")]//ul//li)
+    xpath: count(//div[contains(@class,'product-sellingPoints hidden-xs')]//div[contains(@class,"product-usps")]//ul//li | //div[contains(@class,'productSpec')]//ul[@class="bulletList"]//li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: energyEfficiency
