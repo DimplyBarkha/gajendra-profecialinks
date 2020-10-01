@@ -32,34 +32,125 @@ const transform = (data, context) => {
              if (row.variants) {
               let newText = "";
               let artNo = '';
+              let i=1;
               row.variants.forEach(item => {
-                if(item.text.indexOf('Art.-Nr.:') != -1){
-                  artNo = item.text.replace("Art.-Nr.: ", "");
+                if(item.text.indexOf(':') != -1){
+                  var temp= item.text.split(':');
+                  if(row.variants.length==1)
+                  {
+                    artNo += temp[1].trim();
+                  }
+                  else
+                  {
+                    if(row.variants.length==i)
+                    {
+                      artNo += temp[1].trim();
+                    }
+                    else{
+                      artNo += temp[1].trim() + ' | ';
+                    }                    
+                  }
+                  i= i+1;
               }
             });
 
-              row.variants.forEach(item => {
-                if(item.text.indexOf('Art.-Nr.:') == -1){
-                  newText += artNo+'-'+item.text+" || ";
-              }});
-              newText = newText.substring(0,newText.length-3);
-              row.variants = [{ text: newText }];
+              // row.variants.forEach(item => {
+              //   if(item.text.indexOf('Art.-Nr.:') == -1){
+              //     newText += artNo+'-'+item.text+" || ";
+              // }});
+              // newText = newText.substring(0,newText.length-3);
+              row.variants = [{ text: artNo }];
             }
 
             if (row.firstVariant) {
               let newText = "";
               let artNo = '';
-              row.firstVariant.forEach(item => {
-                if(item.text.indexOf('Art.-Nr.:') != -1){
-                  artNo = item.text.replace("Art.-Nr.: ", "");
+              let i=0;
+              row.firstVariant.forEach(item => {                
+                if(item.text.indexOf(':') != -1){
+                  var temp= item.text.split(':');
+                  if(row.variants.length==1)
+                  {
+                    artNo += temp[1].trim();
+                  }
+                  else
+                  {
+                    if(row.variants.length==i)
+                    {
+                      artNo += temp[1].trim();
+                    }
+                    else{
+                      artNo += temp[1].trim() + ' | ';
+                    }                    
+                  }
+                  i= i+1;
               }
             });
+              
+              row.firstVariant = [{ text: artNo }];
+            }
 
-              newText = artNo+'-'+row.firstVariant[0].text;  
-              row.firstVariant = [{ text: newText }];
+            let newText1 = '';
+            if (row.additionalDescBulletInfo) {
+                  let newText = '';
+                  let itemp=1;				
+                  row.additionalDescBulletInfo.forEach(item => {	
+                  if(itemp===row.additionalDescBulletInfo.length)
+                  {
+                    item.text = item.text;
+                  }								
+                  else{
+                    item.text = item.text + ' || ';
+                  }	
+                  newText += `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
+                  itemp = itemp+ 1;
+                  });				  
+                newText1 = newText.trim();                      
+              }
+
+              if (row.description) {
+                let newText = '';
+                let itemp=1;				
+                row.description.forEach(item => {	
+                if(itemp===row.description.length)
+                {
+                  item.text = item.text;
+                }								
+                else{
+                  item.text = item.text + ' || ';
+                }	
+                newText += `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
+                itemp = itemp+ 1;
+                });				  
+                row.description = [{ text: newText1.trim()  + newText.trim()}];                    
             }
             
-             
+            if (row.specifications) {
+              let newText = '';
+              let itemp=1;				
+              row.specifications.forEach(item => {	
+              if(itemp===row.specifications.length)
+              {
+                item.text = item.text;
+              }								
+              else{
+                item.text = item.text + ' || ';
+              }	
+              newText += `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
+              itemp = itemp+ 1;
+              });				  
+              row.specifications = [{ text: newText.trim()}];                    
+          }
+
+            if (row.technicalInformationPdfPresent) {				
+              let newText = 'No';
+              row.technicalInformationPdfPresent.forEach(item => {                   				               			
+                if (item.text.trim() > '0') {
+                  newText = 'Yes';
+                }
+              });
+              row.technicalInformationPdfPresent = [{ text: newText }];
+            }
 
         } catch (exception) { console.log('Error in transform', exception); }
   

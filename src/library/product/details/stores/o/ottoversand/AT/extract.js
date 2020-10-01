@@ -9,21 +9,30 @@ module.exports = {
     domain: 'ottoversand.at',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain,transform: transformParam }, context, { productDetails }) => {
-    await context.evaluate(async function () {      
-      
-     const productInfo = preFetchProductDetails();
-      addEleToDoc('skuId', productInfo.sku);
-      if(typeof productInfo.aggregateRating !== "undefined")
+  implementation: async ({ inputString }, { country, domain,transform: transformParam }, context, { productDetails }) => {   
+
+    await context.waitForSelector("script#schemaorg-product", { timeout: 90000 });
+
+    await context.evaluate(async function () {            
+     const productInfo = preFetchProductDetails(); 
+      if(productInfo!=null)
       {
-        addEleToDoc('agreegateRatingId',productInfo.aggregateRating.ratingValue);
-      }        
-      addEleToDoc('priceId',productInfo.offers.price.replace('.',','));
-      addEleToDoc('currencyId',productInfo.offers.priceCurrency);
+        addEleToDoc('skuId', productInfo['sku']);
+        if(typeof productInfo['aggregateRating'] !== "undefined")
+        {
+          addEleToDoc('agreegateRatingId',productInfo['aggregateRating'].ratingValue);
+        }        
+        addEleToDoc('priceId',productInfo['offers'].price.replace('.',','));
+        addEleToDoc('currencyId',productInfo['offers'].priceCurrency);
+        addEleToDoc('tempBrandId',productInfo['brand'].name);
+      }      
 
       function preFetchProductDetails () {
-        let productInfo = findProductDetails('//script[@type="application/ld+json" and @id="schemaorg-product"]');        
-        productInfo = JSON.parse(productInfo.textContent); 
+        let productInfo = findProductDetails('//script[@type="application/ld+json" and @id="schemaorg-product"]');                
+        if(productInfo!=null)
+        {
+          productInfo = JSON.parse(productInfo.textContent); 
+        }        
         return productInfo;
       }      
             
