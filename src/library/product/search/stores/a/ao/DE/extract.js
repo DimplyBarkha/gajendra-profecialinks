@@ -42,7 +42,7 @@ module.exports = {
       if (rating) {
         for (let n = 0; n < rating.length; n++) {
           // @ts-ignore
-          rating[n].setAttribute('normRating', rating[n].content.replace('.', ','));
+          rating[n].setAttribute('normrating', rating[n].content.replace('.', ','));
         }
       }
       const promotedProducts = document.querySelectorAll("li[data-testid='product-card--featured']");

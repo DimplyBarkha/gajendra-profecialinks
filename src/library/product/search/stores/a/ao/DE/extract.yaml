@@ -25,7 +25,7 @@ fields:
     regExpReplace: https:$1
   - name: aggregateRating2
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[contains(@class,'lister__inner')]//ul[contains(@class,'o-flex-container')]/li//meta[@itemprop='ratingValue']/@normRating
+    xpath: //div[contains(@class,'lister__inner')]//ul[contains(@class,'o-flex-container')]/li//meta[@itemprop='ratingValue']/@normrating
   - name: reviewCount
     description: The number of reviews
     type: NUMBER
