@@ -20,7 +20,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     xpath: //head//li//input/@value
   - name: nameExtended
-    xpath: (//h1[contains(@class,"product-name")])[1]
+    xpath: (//*[contains(@class,"product-name")])[1]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: price
@@ -126,7 +126,7 @@ fields:
     description: URLs of videos on page
   - name: name
     description: The product name
-    xpath: //h1[contains(@class,"product-name")]
+    xpath: (//*[contains(@class,"product-name")])[1]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
