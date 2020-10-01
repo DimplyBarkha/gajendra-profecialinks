@@ -1,0 +1,154 @@
+input:
+  _url: http://flipkart.com
+  URL: https://www.flipkart.com/dyson-supersonic-hair-dryer/p/itmf8xg7krqzhgzt?pid=HDRF8XG7J4ZFNAKE&lid=LSTHDRF8XG7J4ZFNAKEOWRZ7Y&marketplace=FLIPKART&srno=s_1_6&otracker=search&otracker1=search&fm=SEARCH&iid=aff8f7ce-f5a0-49df-af5b-1aa2e55bcaf8.HDRF8XG7J4ZFNAKE.SEARCH&ppt=sp&ppn=sp&ssid=iiz67t3c5s0000001601332658980&qH=04e49fc47ab2074c
+extractions:
+  - html: https://workbench.import.io/html/run=07ed8c10-5e9f-4dd7-84fa-8467ec370d60/task=59ed9f8a-9b31-4a36-bd21-44fcb0543b7b/dd456018-d941-40da-af1a-ce2586de4fe2.html
+    extractionConfigId: product/details/stores/f/flipkart/IN/extract
+    data:
+      - group:
+          - image:
+              - text: https://rukminim1.flixcart.com/image/416/416/jmi22kw0/hair-dryer/a/k/e/dyson-supersonic-original-imaf9e7qxzvx5wbe.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/@style
+            imageAlt:
+              - text: Dyson Supersonic Hair Dryer
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://rukminim1.flixcart.com/image/416/416/jmi22kw0/hair-dryer/a/k/e/dyson-supersonic-original-imaf9e7qxzvx5wbe.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/@style
+              - text: https://rukminim1.flixcart.com/image/416/416/jmi22kw0/hair-dryer/a/k/e/dyson-supersonic-original-imaf9e7rpkwmrzhb.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/@style
+              - text: https://rukminim1.flixcart.com/image/416/416/jmi22kw0/hair-dryer/a/k/e/dyson-supersonic-original-imaf9e7rbwkqtebp.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/@style
+              - text: https://rukminim1.flixcart.com/image/416/416/jmjhifk0/hair-dryer/a/k/e/dyson-supersonic-original-imaf9f99cppgtyge.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/@style
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/button[1]
+            nameExtended:
+              - text: Dyson Supersonic Hair Dryer (110 W, Fuchsia)
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            color:
+              - text: (110 W, Fuchsia)
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            name:
+              - text: Dyson Supersonic Hair Dryer (110 W, Fuchsia)
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: 29,999
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]
+            price:
+              - text: 28,900
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]
+            promotion:
+              - text: 3% off
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/span[1]
+            category:
+              - text: Home
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]
+              - text: Health & Personal Care Appliances
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]
+              - text: Personal Care Appliances
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/a[1]
+              - text: Hair Dryers
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/a[1]
+              - text: Dyson Hair Dryers
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/a[1]
+            warranty:
+              - text: 2 Years Warranty
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]
+            description:
+              - text: The Dyson Supersonic hair dryer is all you need to transform your hair
+                  game. While the Air Multiplier technology amplifies the
+                  airflow to produce a controlled, high-velocity jet of air for
+                  faster drying of your hair, the multiple speed settings let
+                  you choose from multiple options to suit your specific
+                  requirement.
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[3]/div[1]/div[2]
+            quantity:
+              - text: 1 Hair Dryer, Smoothing Nozzle, Styling Concentrator, Diffuser, Non-slip
+                  Heat Mat, Storage Hanger
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[4]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/ul[1]/li[1]
+            ratingCount:
+              - text: "17"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+                type: NUMBER
+                raw: "17"
+                locale: en
+                value: 17
+            aggregateRating:
+              - text: "4.4"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[5]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+                type: NUMBER
+                raw: "4.4"
+                locale: en
+                value: 4.4
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "4"
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            shippingInfo:
+              - text: Usually delivered in 8 days
+            secondaryImageTotal:
+              - text: "4"
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+        xpath: /html
+      - group:
+          - weightNet:
+              - text: 649 g
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[4]/div[1]/div[2]/div[1]/div[5]/table[1]/tbody[1]/tr[2]/td[2]/ul[1]/li[1]
+            specifications:
+              - text: |-
+                  Weight
+                   649 g
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[4]/div[1]/div[2]/div[1]/div[5]/table[1]/tbody[1]/tr[2]
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "4"
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            shippingInfo:
+              - text: Usually delivered in 8 days
+            secondaryImageTotal:
+              - text: "4"
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+        xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[4]/div[1]/div[2]/div[1]/div[5]/table[1]/tbody[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=07ed8c10-5e9f-4dd7-84fa-8467ec370d60/task=59ed9f8a-9b31-4a36-bd21-44fcb0543b7b/dd456018-d941-40da-af1a-ce2586de4fe2.html
+    timestamp: 1601572719268

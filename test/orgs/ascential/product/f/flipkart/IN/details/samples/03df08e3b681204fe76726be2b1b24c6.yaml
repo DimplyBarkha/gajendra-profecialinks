@@ -1,0 +1,146 @@
+input:
+  _url: http://flipkart.com
+  URL: https://www.flipkart.com/dyson-cyclone-v10-absolute-pro-cordless-vacuum-cleaner/p/itmb656a76fdb499?pid=VCLF84UFNDYF97UT&lid=LSTVCLF84UFNDYF97UT69TR1F&marketplace=FLIPKART&srno=s_1_1&otracker=search&otracker1=search&fm=SEARCH&iid=aff8f7ce-f5a0-49df-af5b-1aa2e55bcaf8.VCLF84UFNDYF97UT.SEARCH&ppt=sp&ppn=sp&ssid=iiz67t3c5s0000001601332658980&qH=04e49fc47ab2074c
+extractions:
+  - html: https://workbench.import.io/html/run=07ed8c10-5e9f-4dd7-84fa-8467ec370d60/task=a644701f-e183-443e-90f3-307a938f45a8/6b170bdc-eb7c-4b2f-80af-b3610b31786e.html
+    extractionConfigId: product/details/stores/f/flipkart/IN/extract
+    data:
+      - group:
+          - image:
+              - text: https://rukminim1.flixcart.com/image/416/416/jlfh6kw0/vacuum-cleaner/7/u/t/dyson-v10-absolute-pro-original-imaf8jp364adfebv.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/@style
+            imageAlt:
+              - text: Dyson Cyclone V10 Absolute Pro Cordless Vacuum Cleaner
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://rukminim1.flixcart.com/image/416/416/jlfh6kw0/vacuum-cleaner/7/u/t/dyson-v10-absolute-pro-original-imaf8jp364adfebv.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/@style
+              - text: https://rukminim1.flixcart.com/image/416/416/jlfh6kw0/vacuum-cleaner/7/u/t/dyson-v10-absolute-pro-original-imaf8jp3nmuahzez.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/@style
+              - text: https://rukminim1.flixcart.com/image/416/416/jlfh6kw0/vacuum-cleaner/7/u/t/dyson-v10-absolute-pro-original-imaf8jp3agkvhhph.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/@style
+              - text: https://rukminim1.flixcart.com/image/416/416/jlfh6kw0/vacuum-cleaner/7/u/t/dyson-v10-absolute-pro-original-imaf8jp3yykf4qxp.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/@style
+              - text: https://rukminim1.flixcart.com/image/416/416/jlfh6kw0/vacuum-cleaner/7/u/t/dyson-v10-absolute-pro-original-imaf8jp3gfguafzw.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[1]/@style
+              - text: https://rukminim1.flixcart.com/image/416/416/jlfh6kw0/vacuum-cleaner/7/u/t/dyson-v10-absolute-pro-original-imaf8jp3u2486kte.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[1]/@style
+            metaKeywords:
+              - text: Dyson Cyclone V10 Absolute Pro Cordless Vacuum Cleaner Price
+                xpath: /html/head[1]/meta[26]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]
+              - text: Home & Kitchen
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]
+              - text: Home Appliances
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/a[1]
+              - text: Vacuum Cleaners
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/a[1]
+              - text: Dyson Vacuum Cleaners
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/a[1]
+            nameExtended:
+              - text: Dyson Cyclone V10 Absolute Pro Cordless Vacuum Cleaner (Copper)
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]/span[1]
+            listPrice:
+              - text: 49,900
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]
+            price:
+              - text: 45,900
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/button[1]
+            description:
+              - text: Dyson V10 Absolute Pro cord-free vacuum provides up to 60 minutes of
+                  powerful fade-free suction to remove hidden dust from your
+                  home. The Radial Root Cyclones-a concentric array of 14
+                  cyclones that captures microscopic dust. Powered by the Dyson
+                  digital motor V10, it creates powerful suction to deep clean
+                  every nook and cranny in your home. Whole machine filtration
+                  captures dust and seals in 99.97% of microns as small as 0.3
+                  microns. High integrity seals prevents dust and bacteria from
+                  leaking back into the room, so the machine expels cleaner air.
+                  The Soft Roller Cleaner Head removes large debris and fine
+                  dust simultaneously. The Direct Drive Cleaner Head drives
+                  bristles deeper into the carpet to remove ground-in dirt.
+                  Stiff nylon bristles of the Mini Motorized tool removes pet
+                  hair and ground-in dirt from furniture and car seats. Has a
+                  total of 9 attachments to deep clean your home and car. The
+                  'Point and Shoot' bin emptying mechanism ejects all the dust
+                  and debris deep into the bin, in one action , so there's no
+                  need to touch the dirt. There are three suction power modes.
+                  The 'Point and Shoot' bin emptying mechanism. The convenient
+                  docking station that comes with Dyson cord-free vacuum
+                  cleaners stores and charges the machine and holds additional
+                  attachments.
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[3]/div[1]/div[2]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            quantity:
+              - text: docking station, 1 Wand, 1 manual, 7 additional attachments, 1 Vacuum
+                  Cleaner, 2 Cleaner heads, 1 charger
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[5]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/ul[1]/li[1]
+            weightNet:
+              - text: 2.59 kg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[5]/div[1]/div[2]/div[1]/div[7]/table[1]/tbody[1]/tr[2]/td[2]/ul[1]/li[1]
+            ratingCount:
+              - text: "92"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+                type: NUMBER
+                raw: "92"
+                locale: en
+                value: 92
+            aggregateRating:
+              - text: "4.7"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+                type: NUMBER
+                raw: "4.7"
+                locale: en
+                value: 4.7
+            color:
+              - text: (Copper)
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            name:
+              - text: Dyson Cyclone V10 Absolute Pro Cordless Vacuum Cleaner (Copper)
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            specifications:
+              - text: |-
+                  Net Weight
+                   2.59 kg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[5]/div[1]/div[2]/div[1]/div[7]/table[1]/tbody[1]/tr[2]
+            warranty:
+              - text: 2 years International Warranty
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]
+            promotion:
+              - text: 8% off
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/span[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "5"
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+            shippingInfo:
+              - text: Usually delivered and Installed in 7 days
+            secondaryImageTotal:
+              - text: "6"
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+        xpath: /
+    timestamp: 1601572715025

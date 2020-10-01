@@ -1,0 +1,130 @@
+input:
+  _url: http://flipkart.com
+  URL: https://www.flipkart.com/dyson-v11-absolute-pro-cordless-vacuum-cleaner/p/itme01d2d756a7d7?pid=VCLFJRAGAEDDZ4TG&lid=LSTVCLFJRAGAEDDZ4TG5OG3D8&marketplace=FLIPKART&srno=s_1_3&otracker=search&otracker1=search&fm=SEARCH&iid=aff8f7ce-f5a0-49df-af5b-1aa2e55bcaf8.VCLFJRAGAEDDZ4TG.SEARCH&ppt=sp&ppn=sp&ssid=iiz67t3c5s0000001601332658980&qH=04e49fc47ab2074c
+extractions:
+  - html: https://workbench.import.io/html/run=07ed8c10-5e9f-4dd7-84fa-8467ec370d60/task=65cc0c76-32ee-435a-9966-1d72d1955a3b/28cda7ad-e424-49aa-8e7d-380df13e7251.html
+    extractionConfigId: product/details/stores/f/flipkart/IN/extract
+    data:
+      - group:
+          - image:
+              - text: https://rukminim1.flixcart.com/image/416/416/k0o69ow0/vacuum-cleaner/4/t/g/dyson-v11-absolute-pro-original-imafk9dsf9dg2avk.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/@style
+            imageAlt:
+              - text: Dyson V11 Absolute Pro Cordless Vacuum Cleaner
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://rukminim1.flixcart.com/image/416/416/k0jvy4w0/vacuum-cleaner/4/t/g/dyson-v11-absolute-pro-original-imafkb58ws3gdsha.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/@style
+              - text: https://rukminim1.flixcart.com/image/416/416/k0jvy4w0/vacuum-cleaner/4/t/g/dyson-v11-absolute-pro-original-imafkb58c8gvhyeh.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/@style
+              - text: https://rukminim1.flixcart.com/image/416/416/k0jvy4w0/vacuum-cleaner/4/t/g/dyson-v11-absolute-pro-original-imafkb58qvv3cvsx.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/@style
+              - text: https://rukminim1.flixcart.com/image/416/416/k0jvy4w0/vacuum-cleaner/4/t/g/dyson-v11-absolute-pro-original-imafkb58yhht4zzz.jpeg?q=70
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/@style
+            metaKeywords:
+              - text: Dyson V11 Absolute Pro Cordless Vacuum Cleaner Price
+                xpath: /html/head[1]/meta[26]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]
+              - text: Home & Kitchen
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]
+              - text: Home Appliances
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/a[1]
+              - text: Vacuum Cleaners
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/a[1]
+              - text: Dyson Vacuum Cleaners
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/a[1]
+            nameExtended:
+              - text: Dyson V11 Absolute Pro Cordless Vacuum Cleaner (Blue, Nickel)
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]/span[1]
+            listPrice:
+              - text: 56,600
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]
+            price:
+              - text: 52,900
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/button[1]
+            description:
+              - text: If you are tired of manually cleaning the floors, carpets, and the dusty
+                  upholstery furniture of your house, then save yourself from
+                  these tasks and get this Dyson vacuum cleaner. Its cordless
+                  design makes it easy to clean overhead areas and crevices. It
+                  is equipped with the Dyson digital motor V11 which ensures
+                  fade-free and effective suction. It also comes with the Dyson
+                  DLS System, which changes the speed automatically depending on
+                  the type of floor which requires cleaning. What’s more, it
+                  comes with an LCD screen too, which delivers real-time data.
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[3]/div[1]/div[2]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            quantity:
+              - text: 1 Vacuum Cleaner, Soft Roller Cleaner Head, Torque Drive Cleaner Head,
+                  Crevice tool, Mattress Tool, Extension Hose, Wand Storage
+                  Clip, Charger
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[5]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/ul[1]/li[1]
+            weightNet:
+              - text: 2.97 kg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[5]/div[1]/div[2]/div[1]/div[5]/table[1]/tbody[1]/tr[2]/td[2]/ul[1]/li[1]
+            ratingCount:
+              - text: "23"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+                type: NUMBER
+                raw: "23"
+                locale: en
+                value: 23
+            aggregateRating:
+              - text: "4.7"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+                type: NUMBER
+                raw: "4.7"
+                locale: en
+                value: 4.7
+            color:
+              - text: (Blue, Nickel)
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            name:
+              - text: Dyson V11 Absolute Pro Cordless Vacuum Cleaner (Blue, Nickel)
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/h1[1]
+            specifications:
+              - text: |-
+                  Net Weight
+                   2.97 kg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[7]/div[5]/div[1]/div[2]/div[1]/div[5]/table[1]/tbody[1]/tr[2]
+            warranty:
+              - text: 2 Years Warranty
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]
+            promotion:
+              - text: 6% off
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/span[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "3"
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            shippingInfo:
+              - text: Usually delivered and Installed in 7 days
+            secondaryImageTotal:
+              - text: "4"
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+        xpath: /
+    timestamp: 1601572724853

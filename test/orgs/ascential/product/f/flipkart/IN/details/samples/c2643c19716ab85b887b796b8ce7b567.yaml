@@ -1,0 +1,55 @@
+input:
+  _url: http://flipkart.com
+  URL: https://www.flipkart.com/dyson-v8-absolute-cordless-vacuum-cleaner/product-reviews/itmee96ba127465f?pid=VCLF8FBAAH4GRNSH&lid=LSTVCLF8FBAAH4GRNSH4CXATH&marketplace=FLIPKART
+extractions:
+  - html: https://workbench.import.io/html/run=07ed8c10-5e9f-4dd7-84fa-8467ec370d60/task=b83c1e38-0279-4c7b-876a-ac77bf9eb4b7/c9965058-6eef-41c4-8098-bd9d76dae9c6.html
+    extractionConfigId: product/details/stores/f/flipkart/IN/extract
+    data:
+      - group:
+          - metaKeywords:
+              - text: Dyson V8 Absolute Cordless Vacuum Cleaner Reviews
+                xpath: /html/head[1]/meta[26]/@content
+            ratingCount:
+              - text: "78"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+                type: NUMBER
+                raw: "78"
+                locale: en
+                value: 78
+            aggregateRating:
+              - text: "4.6"
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+                type: NUMBER
+                raw: "4.6"
+                locale: en
+                value: 4.6
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            shippingInfo:
+              - text: " "
+            secondaryImageTotal:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+        xpath: /
+    timestamp: 1601572719323
