@@ -5,29 +5,25 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,'gallery-top swiper-container swiper-container-initialized swiper-container-horizontal')]
-          //div[contains(@class,'swiper-wrapper')]
-          //div[contains(@class,'swiper-slide swiper-slide-active')]
-          //div[contains(@class,'image__wrapper')]
-          //div[contains(@class,'image__container contain animate')]
-          /img[contains(@class,'fade-in')]/@src
+    xpath:
+      //div[contains(@class,'gallery-top swiper-container swiper-container-initialized swiper-container-horizontal')]
+      //div[contains(@class,'swiper-wrapper')]
+      //div[contains(@class,'swiper-slide swiper-slide-active')]
+      //div[contains(@class,'image__wrapper')]
+      //div[contains(@class,'image__container contain animate')]
+      /img[contains(@class,'fade-in')]/@src
   - name: imageAlt
     singleValue: false
-    xpath: normalize-space(//div[contains(@class,'gallery-top swiper-container swiper-container-initialized swiper-container-horizontal')]
-          //div[contains(@class,'swiper-wrapper')]
-          //div[contains(@class,'swiper-slide swiper-slide-active')]
-          //div[contains(@class,'image__wrapper')]
-          //div[contains(@class,'image__container contain animate')]
-          /img[contains(@class,'fade-in')]/@alt)
+    xpath:
+      normalize-space(//div[contains(@class,'gallery-top swiper-container swiper-container-initialized swiper-container-horizontal')]
+      //div[contains(@class,'swiper-wrapper')]
+      //div[contains(@class,'swiper-slide swiper-slide-active')]
+      //div[contains(@class,'image__wrapper')]
+      //div[contains(@class,'image__container contain animate')]
+      /img[contains(@class,'fade-in')]/@alt)
   - name: alternateImages
     singleValue: false
     xpath: //nav//div[@class='gallery']//div[contains(@class,'swiper-wrapper')]//div[contains(@class,'swiper-slide') and not(contains(@class,'swiper-slide swiper-slide-active'))]//img//@src
-    # xpath: //div[contains(@class,'gallery-thumbs swiper-container swiper-container-initialized swiper-container-horizontal')]
-    #       //div[contains(@class,'swiper-wrapper')]
-    #       //div[contains(@class,'swiper-slide')]
-    #       //div[contains(@class,'image__wrapper')]
-    #       //div[contains(@class,'image__container contain animate')]
-    #       /img[contains(@class,'fade-in')]/@src
   - name: category
     singleValue: false
     xpath: //ul[contains(@class,'v-breadcrumbs')]//li[position()>2]/a
@@ -36,9 +32,9 @@ fields:
     xpath: //div[contains(@class,'name')]/h1
   - name: nameExtended
     singleValue: false
-    xpath: concat(//div[contains(@class,'brand')], ' - ', 
-                  //div[contains(@class,'name')]//h1, ' - ',
-                  //div[contains(@class,'summary')]//div[contains(@class,'grey--text')])
+    xpath: concat(//div[contains(@class,'brand')], ' - ',
+      //div[contains(@class,'name')]//h1, ' - ',
+      //div[contains(@class,'summary')]//div[contains(@class,'grey--text')])
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class,'brand')]
@@ -113,26 +109,23 @@ fields:
     xpath: normalize-space(//div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(),'Nettovægt') or starts-with(text(),'Vægt ekskl. stand') or starts-with(text(),'Vægt') or starts-with(text(),'Bruttovægt')]/following-sibling::td[1])
   - name: weightGross
     singleValue: false
-    # xpath: normalize-space(//div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(),'Bruttovægt') or starts-with(text(),'Vægt ekskl. stand') or starts-with(text(),'Vægt') or starts-with(text(),'Nettovægt')]/following-sibling::td[1])
   - name: shippingWeight
     singleValue: false
-    xpath: //div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')] 
+    xpath: //div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')]
     regExp: (\Bruttovægt.\S{0,}.\S{0,}.\S{0,})
-    # xpath: normalize-space(//div[contains(@class,'v-data-table__wrapper')]/table/tbody/tr/td[starts-with(text(),'Bruttovægt') or starts-with(text(),'Vægt ekskl. stand') or starts-with(text(),'Vægt') or starts-with(text(),'Nettovægt')]/following-sibling::td[1])
   - name: availabilityText
     singleValue: false
-    xpath: count(//script[@data-v-6280c757 and @type="application/ld+json" and contains(text(),'https://schema.org/InStock')])        
-    # xpath: boolean(substring-before(//div[contains(@class,'order-md-last order-first')]//div[contains(@class,'font-weight-bold')],' ('))
+    xpath: count(//script[contains(text(),'https://schema.org/InStock')])
   - name: quantity
     singleValue: false
     xpath: //div[contains(@class,'summary')]//div[contains(@class,'grey--text')]
   - name: shippingDimensions
     singleValue: false
-    xpath: //div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')] 
+    xpath: //div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')]
     regExp: (\Shippingvolumen.\S{0,}.\S{0,}.\S{0,})
   - name: variantCount
     singleValue: false
-    xpath: '0'
+    xpath: "0"
   - name: promotion
     singleValue: false
     xpath: //div[contains(@class,'no-sm-elevation')]//div[contains(@class,'stickers')]//div[contains(@class,'left')]//div[contains(@class,'sticker promotion')]
@@ -144,7 +137,7 @@ fields:
     xpath: //div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')]//a[contains(@href, '.pdf')]
   - name: termsAndConditions
     singleValue: false
-    xpath: 'No'
+    xpath: "No"
   - name: warranty
     singleValue: false
     xpath: substring-before(substring-after(//div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')], 'Inklusiv'), substring-after(//div[contains(@class,'product-panel-slot')]//div[contains(@class,'description')], 'garanti'))
