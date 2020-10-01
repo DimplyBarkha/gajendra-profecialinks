@@ -1,11 +1,14 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
     - name: image
+      singleValue: false
       description: URL of the main product image
-      xpath: //*[@id="container"]//*[@class="_3BTv9X _3iN4zu"]/img/@src
+      xpath: (//li[@class='_4f8Q22 _2y_FdK']//div/@style)[1]
+      regExp: \((.*)(128\/128)(.*)\)
+      regExpReplace: $1416/416$3
     - name: imageAlt
       singleValue: false
       description: Alt text of the main product image
@@ -111,7 +114,7 @@ fields:
       singleValue: true
       description: Content under "warnings" header
     - name: ratingCount
-      singleValue: false
+      singleValue: true
       description: The number of ratings
       type: NUMBER
       xpath: //span[contains(text(), "Ratings &")]
@@ -124,7 +127,6 @@ fields:
       description: The stated aggregate rating normalized to be out of 5
       type: NUMBER
       xpath: //div[contains(@class, '_1i0wk8')]
-      regExp: \d\.\d
     - name: shippingInfo
       singleValue: true
       description: Shipping information for the product
@@ -143,9 +145,8 @@ fields:
     - name: color
       singleValue: true
       description: A textual description of the colour
-      xpath: //*[@id="container"]//h1
-      regExp: \((.*)\)
-      regExpReplace: $1
+      xpath: //h1
+      regExp: \(.*\)
     - name: colorCode
       singleValue: false
       description: A code description of the color (e.g. RGB hex)
