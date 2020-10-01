@@ -108,7 +108,7 @@ fields:
     type: NUMBER
   - name: color
     description: A textual description of the colour
-    xpath: //ul[@data-unif-seovari="renk"]
+    xpath: //ul[@data-unif-seovari="renk"] | //section[contains(@class, "details")]//*[contains(text(), 'Renk')]
   - name: colorCode
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
@@ -122,7 +122,7 @@ fields:
     xpath: //section[contains(@class,"details")]//iframe/@src | //section[contains(@class,"details")]//video/@src | //div[@id="unf-info"]//video/@src
   - name: name
     description: The product name
-    xpath: //h1[@class="proName"]
+    xpath: //div[@class="nameHolder"]
   - name: inStorePrice
     description: Price in the selected store
   - name: asin
@@ -332,7 +332,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     description: promotion text on product page
-    xpath: //div[contains(@class,"bonusCampaign")]
+    xpath: //div[@class="price"]/div[contains(@class,"discount")]
   - name: alcoholContent
     description: Alcohol content information
   - name: newVersion
@@ -377,9 +377,6 @@ fields:
     defaultValue: No
   - name: termsAndConditions
     description: Terms and conditions information text ['Yes','No']
-    xpath: //a[@title="Kullanım Koşullarımız"]
-    regExp: (.+)
-    regExpReplace: Yes
     defaultValue: No
   - name: privacyPolicy
     description: Privacy Policy information text ['Yes','No']

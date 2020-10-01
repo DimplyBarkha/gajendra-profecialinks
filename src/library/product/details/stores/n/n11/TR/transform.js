@@ -12,6 +12,10 @@ const transform = (data, context) => {
         row.aggregateRating.forEach(item => {
           rating = item.raw.match(/\d+/g);
           rating = rating / 20;
+          if (rating === 0) {
+            rating = rating.toString();
+            rating = '';
+          }
           rating = rating.toString().replace('.', ',');
         });
         text = text + rating;
@@ -44,6 +48,24 @@ const transform = (data, context) => {
         row.weightNet = [{ text }];
       }
 
+      if (row.color) {
+        let text = '';
+        row.color.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        text = text.replace(/(.+:)(\s*)(\w+)/g, '$3');
+        row.color = [{ text }];
+      }
+
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text = text + (text ? ' || ' : '') + item.text;
+        });
+        text = '|| ' + text;
+        row.additionalDescBulletInfo = [{ text }];
+      }
+
       if (row.description || row.additionalDescBulletInfo) {
         let text = '';
         if (row.description) {
@@ -57,9 +79,9 @@ const transform = (data, context) => {
             text2 = text2 + (text2 ? ' || ' : '') + item.text;
           });
           if (text !== '') {
-            text = text + ' || ' + text2;
+            text = text + ' ' + text2;
           } else {
-            text = '|| ' + text2;
+            text = text2;
           }
         }
         row.description = [{ text }];
