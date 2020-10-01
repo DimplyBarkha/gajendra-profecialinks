@@ -42,6 +42,14 @@ const cleanUp = (data, context) => {
           row.specifications = [{ text: text.join(' ') }];
         }
         
+        if (row.videos) {
+          row.videos.forEach(item => {
+            if (!(item.text.startsWith('http'))) {
+                item.text = '';
+            }
+          });
+        }
+        
         if (row.aggregateRating12) {
           const rating = (row.aggregateRating12[0].text / 100) * 5;
           row.aggregateRating = [{ text: (rating.toFixed(1)).toString() }];
@@ -61,6 +69,10 @@ const cleanUp = (data, context) => {
 
         if (row.availabilityText) {
           row.availabilityText = [{ text: 'In Stock' }];
+        }
+
+        if (row.termsAndConditions) {
+          row.termsAndConditions = [{ text: 'No' }];
         }
 
         Object.keys(row).forEach(header => row[header].forEach(el => {

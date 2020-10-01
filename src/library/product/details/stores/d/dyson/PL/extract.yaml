@@ -16,7 +16,7 @@ fields:
     xpath: translate(//span[@data-price-type="finalPrice"]/@data-price-amount|//meta[@property="product:price:amount"]/@content, ".", ",")
   - name: listPrice
     singleValue: true
-    xpath: translate(//span[@data-price-type="oldPrice"]/@data-price-amount, ".", ",")
+    xpath: translate(//div[contains(@class, "hero")]//span[@data-price-type="oldPrice"]/@data-price-amount, ".", ",")
   - name: priceCurrency
     default: zł
   - name: availabilityText
@@ -25,10 +25,10 @@ fields:
     default: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//div[contains(@class, "hgroup__prefix")]
+    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//div[contains(@class, "hgroup__prefix")]|//div[contains(@class, "product__claims")]
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//div[contains(@class, "hgroup__prefix")]//li)
+    xpath: count(//div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//div[contains(@class, "hgroup__prefix")]//li|//div[contains(@class, "product__claims")]//li)
   - name: weightNet #localedependent
     singleValue: true
     regExp: ([0-9,\.]+.+)
@@ -80,11 +80,11 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//div[contains(@class, "hgroup__prefix")]//li
+    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//div[contains(@class, "hgroup__prefix")]//li||//div[contains(@class, "product__claims")]//li
   - name: termsAndConditions #localedependent
-    singleValue: false
+    singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
+    defaultValue: 'No'
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
