@@ -1,5 +1,5 @@
 const { implementation } = require('../common');
-const { transform } = require('../../../../shared');
+const { transform } = require('../transform');
 
 module.exports = {
   implements: 'product/details/extract',

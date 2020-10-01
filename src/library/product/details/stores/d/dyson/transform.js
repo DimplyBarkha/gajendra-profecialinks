@@ -17,6 +17,16 @@ const transform = (data) => {
         },
         ];
       }
+
+      if (row.nameExtended) {
+        if (!row.nameExtended[0].text.match(/[dD]yson/g)) {
+          if (row.brandText) {
+            row.nameExtended = [
+              { text: row.brandText[0].text + ' - ' + row.name[0].text },
+            ];
+          }
+        }
+      }
     }
   }
 
