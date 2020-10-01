@@ -11,7 +11,7 @@ fields:
   xpath: //li[contains(@class,'slider-slide')]//div[@data-tl-id='ProductPage-alt-image0']/img/@alt
 - name: alternateImages
   singleValue: false
-  xpath: //li[@class='slider-slide']//img/@src
+  xpath: (//div [@class="c-carousel__items"]//div/@thumbindex)
 - name: metaKeywords
   singleValue: true
   xpath: //meta[@name="keywords"]/@content
