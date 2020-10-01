@@ -6,15 +6,16 @@ fields:
     - name: image
       singleValue: true
       description: URL of the main product image
-      xpath: //*[@id="product_detail_image_wrapper__details_image_container"]/picture/source/@srcset
+      xpath: //div[@id="image"]
     - name: imageAlt
       singleValue: true
       description: Alt text of the main product image
       xpath: //*[@id="product_detail_image_wrapper__details_image_container"]/picture/img/@alt
     - name: alternateImages
-      singleValue: false
+      # singleValue: false
       description: Other product images (not in manufacturer description)
-      xpath: //*[@id="carouselcatalogItemThumbnails11392111"]/ul/li//a/@data-image_zoom
+      xpath: //*[@class="data_column_left flix_hotspot_container"]//li[@class="jcarousel-item"]//*[@class="product_image_list_item"]//a/@data-image_detail
+      regExp: (https.*version=\d*)
     - name: metaKeywords
       singleValue: true
       description: The <meta> keywords content
@@ -156,9 +157,9 @@ fields:
       description: The extended description of the product supplied by the lister
       xpath: //*[@id="dyson_jump_features"]
     - name: manufacturerImages
-      singleValue: false
+      singleValue: true
       description: Images within the third party description
-      xpath: //*[@id="dyson_jump_features"]//*/@srcset
+      xpath: //*[@id="manufacturerImages"]
     # - name: videos
     #   singleValue: false
     #   description: URLs of videos on page
@@ -436,9 +437,9 @@ fields:
     #   singleValue: true
     #   description: null
     - name: specifications
-      singleValue: true
+      # singleValue: true
       description: The physical dimensions of the product including packaging.
-      xpath: //*[@id="filter_ci_tech_description"]/tbody//*[contains(text(),"Gehäuse-Eigenschaften")]/../../../../..
+      xpath: //*[@id="specifications"]
     - name: warranty
       singleValue: true
       description: Guarantee associated with the product
