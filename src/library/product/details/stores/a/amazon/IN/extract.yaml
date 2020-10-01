@@ -24,7 +24,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //div[contains(@id, 'wayfinding-breadcrumbs_feature_div')]
+    xpath: //div[contains(@id, 'wayfinding-breadcrumbs_feature_div')]//li[not(contains(@class,'a-breadcrumb-divider'))]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
