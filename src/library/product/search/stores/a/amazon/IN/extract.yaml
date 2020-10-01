@@ -8,3 +8,6 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[@class="a-price"]//span[@class="a-offscreen"]//text()
+  - name: reviewCount
+    singleValue: true
+    xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
