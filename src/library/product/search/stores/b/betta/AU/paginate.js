@@ -67,10 +67,7 @@ module.exports = {
     nextLinkSelector: 'button.ais-infinite-hits--showmoreButton',
     loadedSelector: 'div#instant-search-results-container',
     noResultsXPath: '//div[contains(@class, "no-results")]',
-    // openSearchDefinition: {
-    //   template: 'https://www.betta.com.au/catalogsearch/result/index/?p={page}&q={searchTerms}',
-    // },
     domain: 'betta.com.au',
     zipcode: '',
-  }, //implementation
+  }
 };
