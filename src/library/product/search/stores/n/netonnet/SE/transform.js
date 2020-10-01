@@ -32,6 +32,12 @@ const transform = (data, context) => {
         el.text = clean(el.text);
       }));
 
+      if (row.thumbnail) {
+        row.thumbnail.forEach((item, index) => {
+          row.thumbnail[index].text = 'https://www.netonnet.se' + item.text;
+        });
+      }
+
       /*if (row.aggregateRating2) {
         
         let newText = '0';
