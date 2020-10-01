@@ -14,7 +14,7 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    console.log('abcd test');
+    
     await context.evaluate(async function () {
 
       function getElementByXpath(path) {
