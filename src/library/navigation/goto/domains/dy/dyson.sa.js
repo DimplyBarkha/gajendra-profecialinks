@@ -2,9 +2,9 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'dyson.pl',
-    timeout: 40000,
-    country: 'PL',
+    domain: 'dyson.sa',
+    timeout: 35000,
+    country: 'SA',
     store: 'dyson',
     zipcode: '',
   },

@@ -1,0 +1,87 @@
+extends: ../shared 
+fields:
+  - name: image
+    xpath: (//div[contains(@class,'hgroup__main-image')]//img)[1]/@src|(//div[contains(@class,'hero__media')]//img)[1]/@src
+  - name: imageAlt
+    xpath: (//div[contains(@class,'hgroup__main-image')]//img)[1]/@alt|(//div[contains(@class,'hero__media')]//img)[1]/@alt
+  - name: nameExtended
+    singleValue: true
+    xpath: (//h2[contains(concat(' ',normalize-space(@class),' '),'hgroup__title')] | //div[@class="hgroup__image"]//h1)[1]
+  - name: price
+    singleValue: true
+    xpath: (//span[@data-price-type="finalPrice"]/@data-price-amount|//meta[@property="product:price:amount"]/@content)[1]
+  - name: listPrice
+    singleValue: true
+    xpath: (//span[@data-price-type="oldPrice"]/@data-price-amount)[1]
+  - name: priceCurrency
+    default: SAR
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@class, "product__action")]//button[@title="Add to cart"]
+    default: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//*[contains(@class, "hgroup")]|//div[contains(@class, "hgroup product__claims")]//div
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//*[contains(@class, "hgroup")]//li|//div[contains(@class, "hgroup product__claims")]//li)
+  - name: weightNet #localedependent
+    singleValue: true
+    regExp: ([0-9,\.]+.+)
+    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),'g-wrap')]//li[.//*[contains(text(), 'Weight')]])[1]
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //script[contains(text(), "productSKU")]
+  - name: variantId
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //script[contains(text(), "productSKU")]
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+    # xpath: //script[contains(text(), "productSKU")]
+  - name: ratingCount
+    singleValue: true
+    xpath: (//span[@itemprop="reviewCount"])
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+    xpath: (//span[@itemprop="ratingValue"])[1]
+  - name: aggregateRating
+    singleValue: true
+    xpath: (//span[@itemprop="ratingValue"])[1]
+  - name: aggregateRating12
+    singleValue: true
+    xpath: (//span[@itemprop="ratingValue"])[1]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,'promos')]//text()
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+    xpath: //div[contains(@class,'promos')]//img/@src
+  - name: videos #localedependent
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[contains(@id, "product_mini_gallery_video")]//video//source/@src
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: (//h2[contains(concat(' ',normalize-space(@class),' '),'hgroup__title')] | //div[@class="hgroup__image"]//h1)[1]
+  - name: warranty #localedependent
+    singleValue: true
+    description: Guarantee associated with the product
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),'icon-info-set')][.//.//*[contains(text(),'arranty')]])//strong[contains(text(),'arranty')]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    description: null
+    xpath: //div[contains(@class, "hero__content")]//div[contains(@class, "hgroup hero__content")]//*[contains(@class, "hgroup")]//li|//div[contains(@class, "hgroup product__claims")]//li
+  - name: specifications
+    singleValue: true
+    description: The physical dimensions of the product including packaging.
+    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),'g-wrap')]//li[.//*[contains(text(), 'height') or contains(text(), 'Height') or contains(text(), 'length') or contains(text(), 'Width')]])
+  - name: termsAndConditions #localedependent
+    singleValue: false
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
