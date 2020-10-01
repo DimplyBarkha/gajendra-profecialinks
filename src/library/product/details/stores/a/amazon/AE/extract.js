@@ -145,10 +145,14 @@ async function implementation (
     addHiddenDiv('videos', videosURL);
 
     const ship = document.querySelector('div#buybox-tabular tr:nth-child(1) td:nth-child(1)');
+    const shipText = ship && ship.innerHTML ? ship.innerHTML : '';
     const shipsFromCompany = document.querySelector('div#buybox-tabular tr:nth-child(1) td:nth-child(2) span span:nth-child(1)');
+    const shipsFromCompanyText = shipsFromCompany && shipsFromCompany.innerHTML ? shipsFromCompany.innerHTML : '';
     const sold = document.querySelector('div#buybox-tabular tr:nth-child(2) td:nth-child(1)');
+    const soldText = sold && sold.innerHTML ? sold.innerHTML : '';
     const soldByCompany = document.querySelector('div#buybox-tabular tr:nth-child(2) td:nth-child(2) span span:nth-child(1)');
-    const shippingInfo = ship.innerHTML + shipsFromCompany.innerHTML + sold.innerHTML + soldByCompany.innerHTML;
+    const soldByCompanyText = soldByCompany && soldByCompany.innerHTML ? soldByCompany.innerHTML : '';
+    const shippingInfo = shipText + shipsFromCompanyText + soldText + soldByCompanyText;
     let shippingInfoText = shippingInfo
       ? shippingInfo.replace(/<tr>/gm, '').replace(/<td>/gm, '').replace(/<span>/gm, '').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim() : '';
     shippingInfoText = shippingInfoText.replace(/\s+/g, ' ');
