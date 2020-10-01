@@ -4,7 +4,7 @@ module.exports = {
     country: 'UK',
     store: 'asos',
     domain: 'asos.com',
-    loadedSelector: null,
+    loadedSelector: '#asos-product',
     noResultsXPath: '//section[@class="grid-text__container"]//h2',
     zipcode: '',
   },
