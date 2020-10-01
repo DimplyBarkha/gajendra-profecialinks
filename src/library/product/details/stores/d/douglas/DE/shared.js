@@ -78,6 +78,10 @@ const transform = (data) => {
           row.description = row.description.concat(row.descriptionliChunck);
         }
       }
+
+      if (row.additionalDescBulletInfo) {
+        row.additionalDescBulletInfo[0].text = `|| ${row.additionalDescBulletInfo[0].text}`;
+      }
     }
   }
 
