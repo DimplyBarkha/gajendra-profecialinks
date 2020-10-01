@@ -57,7 +57,7 @@ const transform = (data, context) => {
         grossWeight: item => sg(item).replace(/\s\(/g, '').trim(),
         largeImageCount: item => {
           const array = sg(item).toString().split('SL1500');
-          return array.length === 0 ? 0 : array.length - 1; // why minus 1???
+          return array.length === 0 ? 0 : array.length - 1;
         },
         alternateImages: array => joinArray(array.map(item => item.text)),
         videos: item => doubleRegexSearch(/\"url\":\"([^"]+)/g, /(https.+mp4)/s, item),
@@ -66,7 +66,11 @@ const transform = (data, context) => {
           if (!sg(item).includes(hostName)) return `https://${hostName}${sg(item)}`;
           return sg(item);
         },
-        brandText: item => regexTestNReplace(/([B|b]rand:)|([B|b]y)|([B|b]rand)|([V|v]isit the)/gm, sg(item)),
+        brandText: item => {
+          let txt = regexTestNReplace(/([B|b]rand:)|([B|b]y)|([B|b]rand)|([V|v]isit the)/gm, sg(item));
+          if (txt.includes('Dyson Store')) txt = 'Dyson';
+          return txt.trim();
+        },
         name: item => regexTestNReplace(new RegExp(String.raw`(${websiteName.replace(/\./g, '\\.')}\s*:)`), sg(item)),
         pricePerUnit: item => regexTestNReplaceArray(/[{()}]/g, item, { extraRegex: /[\/].*$/g }),
         pricePerUnitUom: item => regexTestNReplaceArray(/[{()}]/g, item, { matchRegex: /([^\/]+$)/g }),

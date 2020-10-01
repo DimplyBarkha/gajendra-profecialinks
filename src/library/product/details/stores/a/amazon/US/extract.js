@@ -22,7 +22,6 @@ async function implementation (
     const elem = await helpers.checkXpathSelector("//div[contains(@id, 'glow-toaster-body') and //*[contains(text(), 'Amazon Fresh')]]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']");
     if (elem) {
       await helpers.checkAndClick('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a', 'css', 20000);
-      // await helpers.checkURLFor('offer');
 
       const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
       await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
