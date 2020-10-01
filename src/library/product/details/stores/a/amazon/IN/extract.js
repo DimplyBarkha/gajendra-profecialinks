@@ -224,17 +224,17 @@ async function implementation (
     const btmDescNode = document.querySelector('#productDescription');
     var desText = '';
     var bulletsInfo = '';
-    if (desNode && desNode.length) {
-      var count = 0;
-      desNode.forEach((ele) => {
-        desText += ' ' + ele.innerText;
-        bulletsInfo += ' || ' + ele.innerText;
-        count++;
-      });
-    }
     if (btmDescNode && btmDescNode.innerText) {
       desText += ' ' + btmDescNode.innerText;
       addHiddenDiv('product-btm-desc', clean(btmDescNode.innerText));
+    }
+    if (desNode && desNode.length) {
+      var count = 0;
+      desNode.forEach((ele) => {
+        desText += ' || ' + ele.innerText;
+        bulletsInfo += ' || ' + ele.innerText;
+        count++;
+      });
     }
     if (desText) {
       addHiddenDiv('product-description-bullets', desText);
@@ -287,34 +287,25 @@ async function implementation (
     }
 
     const manDescNode = document.querySelectorAll('.aplus-module-wrapper td.apm-top');
-    const mDesc = [];
+    var enhanceContent = '';
     if (manDescNode && manDescNode.length) {
       manDescNode.forEach((ele) => {
-        var des = clean(ele.innerText);
-        mDesc.push(des);
+        enhanceContent += ' ' + clean(ele.innerText);
       });
     }
-    if (mDesc.length) {
-      const manfactDesc = document.createElement('div');
-      manfactDesc.id = 'manufacturer-desc';
-      mDesc.forEach((ele) => {
-        const s = document.createElement('span');
-        s.innerText = ele;
-        manfactDesc.appendChild(s);
-      });
-      document.body.appendChild(manfactDesc);
+    if (enhanceContent) {
+      addHiddenDiv('manufacturer-desc', enhanceContent);
     }
-
     // variants
     var variantNode = document.querySelector('#twisterJsInitializer_feature_div script');
     var variantScript = document.getElementsByTagName('script');
-    // var asinNode = document.querySelector('[data-asin]');
+    var asinNode = document.querySelector('[data-asin]');
     var variantsText = [];
-    // var asinText = '';
+    var asinText = '';
     var variantAsinText = '';
-    // if (asinNode) {
-    //   asinText = asinNode.getAttribute('data-asin');
-    // }
+    if (asinNode) {
+      asinText = asinNode.getAttribute('data-asin');
+    }
     if (variantNode && variantNode.innerText) {
       var temp = {};
       temp.text = variantNode.innerText;
@@ -340,8 +331,14 @@ async function implementation (
       });
       const value = new Set(asinValArr);
       asinValArr = Array.from(value);
-      if (asinValArr.length > 0) asinLength = asinValArr.length;
-      variantAsinText = asinValArr.join(' | ');
+      if (asinValArr.length === 1 && asinText === asinValArr[0]) {
+        asinValArr.pop();
+      }
+      if (asinValArr.length > 0) {
+        asinLength = asinValArr.length;
+        variantAsinText = asinValArr.join(' | ');
+        addHiddenDiv('product-first-variant', asinValArr[0]);
+      }
       addHiddenDiv('variant-count', asinLength);
       addHiddenDiv('variant-asin', variantAsinText);
     }
@@ -349,8 +346,6 @@ async function implementation (
     const variantInfoNode = document.querySelectorAll("[id*='variation'] ul[class*='swatch'] li[class*='swatch'] img");
     const variantFlavor = document.querySelectorAll("#variation_flavor_name [class*='a-row']");
     const variantStyle = document.querySelectorAll("#variation_style_name [class*='a-row']");
-    const variantSize = document.querySelectorAll("#variation_size_name [class*='a-row']");
-    const variantColor = document.querySelectorAll("#variation_color_name [class*='a-row']");
     const variantPackage = document.querySelectorAll("#variation_item_package_quantity [class*='a-row']");
     const variantTwist = document.querySelectorAll("ul[class*='swatch'] li[class*='swatch'] div[class*='twisterText']");
     const variantDrop = document.querySelectorAll("[id*='variation'] select[name*='dropdown'] > option");
@@ -362,8 +357,6 @@ async function implementation (
     }
     variantInfo = getVariantInfo(variantStyle, variantInfo);
     variantInfo = getVariantInfo(variantFlavor, variantInfo);
-    variantInfo = getVariantInfo(variantSize, variantInfo);
-    variantInfo = getVariantInfo(variantColor, variantInfo);
     variantInfo = getVariantInfo(variantPackage, variantInfo);
     variantInfo = getVariantInfo(variantTwist, variantInfo);
     variantInfo = getVariantInfo(variantDrop, variantInfo);
