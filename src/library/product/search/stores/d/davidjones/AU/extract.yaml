@@ -12,17 +12,16 @@ fields:
   - name: productUrl
     xpath: //div//figure//a//@href
     singleValue: true
-  - name: manufacturer
-    xpath: //div//div[@class="item-brand"]
-    singleValue: false    
+  - name: manufacturer  
+    singleValue: true    
   - name: thumbnail
     xpath: //div//figure//a//img//@src
-    singleValue: true
+    singleValue: false
     regExp: (.+)
     regExpReplace: https://www.davidjones.com$1
   - name: price
-    xpath: //span[@itemprop='price']
-    singleValue: true 
+    xpath: //p[@class="price now"]//span[@itemprop="price"]|//p[@class="price"]//span[@itemprop="price"]
+    singleValue: false 
   - name: rankOrganic
     singleValue: true 
   - name: aggregateRating  
