@@ -5,7 +5,7 @@ module.exports = {
     country: 'SE',
     store: 'power',
     domain: 'power.se',
-    loadedSelector: null,
+    loadedSelector: 'div#product-image-carousel',
     noResultsXPath: null,
     zipcode: '',
   },
