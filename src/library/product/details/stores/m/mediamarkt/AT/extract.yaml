@@ -32,7 +32,7 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
-    xpath: //div[contains(@class, "PriceContainer")]//div[contains(@class, "Strike")]//span[contains(@class, "Strike")]
+    xpath: //div[contains(@class, "PriceAnd")]//div[contains(@class, "PriceContainer")]//div[contains(@class, "Strike")]//span[contains(@class, "Strike")]
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
@@ -332,13 +332,11 @@ fields:
     singleValue: true
     xpath: //label[contains(@class, "ProductVariants")]
     regex: (:\s(.*))
-    regExp: $1
+    # regExp: $1
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
-    xpath: //label[contains(@class, "ProductVariants")]
-    regex: (:\s(.*))
-    regExp: $1
+    xpath: (//div[contains(@class, "ProductVariants")]//a/@href)[1]
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use

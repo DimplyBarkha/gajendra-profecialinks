@@ -32,9 +32,12 @@ module.exports = {
 
     const avail = await sharedhelpers.getEleByXpath('//button[contains(text(), "In den Warenkorb")]');
 
-
-
     await sharedhelpers.addHiddenInfo('ii_availText', avail ? 'In Stock' : 'Out of Stock');
+    await context.evaluate(function () {
+      if (document.querySelector('div[class^="ProductFeatures"] a[class^="Linkstyled"]')) {
+        document.querySelector('div[class^="ProductFeatures"] a[class^="Linkstyled"]').click();
+      }
+    });
 
     await context.extract(productDetails, { transform: transformParam });
   },
