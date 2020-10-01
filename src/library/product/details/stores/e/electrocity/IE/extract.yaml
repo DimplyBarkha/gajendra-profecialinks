@@ -10,7 +10,7 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //picture[contains(concat(' ', normalize-space(@class), ' '), ' wp-post-image')]/@title    
+    xpath: //picture[contains(concat(' ', normalize-space(@class), ' '), ' wp-post-image')]/img/@alt   
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -27,6 +27,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //script[@data-flix-inpage="flix-inpage"]/@data-flix-mpn
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content

@@ -62,6 +62,8 @@ module.exports = {
         addElementToDocument('added_mpc', mpc[1]);
       }
 
+      const image = getXpath("(//div[@class='slick-list draggable']//div[contains(@class,'slick-active')]//div[@class='jet-woo-product-gallery__image ']//a[@class='jet-woo-product-gallery__image-link']/@href)[1]",'nodeValue');
+
       const alternate_image_xpath = "//div[@class='slick-track']//div[contains(@class,'slick-slide')]//div[@class='jet-woo-product-gallery__image ']//a[@class='jet-woo-product-gallery__image-link']/@href";
       const alternate_image_str =  getAllXpath(alternate_image_xpath, 'nodeValue').join(',');
       if(alternate_image_str && typeof alternate_image_str == 'string'){
@@ -70,7 +72,9 @@ module.exports = {
           return alternate_image_list.indexOf(item)== pos; 
         });
         unique_alternate_image_list.forEach(function(image_url_data) {
-          addElementToDocument('added_alternate_image', (image_url_data));   
+          if(image != image_url_data){
+            addElementToDocument('added_alternate_image', (image_url_data)); 
+          }        
         });       
       }
 
@@ -83,12 +87,12 @@ module.exports = {
       const other_description_str = getAllXpath(other_description_xpath, 'innerText').join(' | ');
       addElementToDocument('added_productOtherInformation', other_description_str); 
 
-      const specifications_xpath = "//table[@class='flix-std-specs-table']/tbody/tr";
-      var specifications_str = getAllXpath(specifications_xpath, 'innerText').join(',');
+      const specifications_xpath = "//table[@class='flix-std-specs-table']/tbody/tr/td";
+      var specifications_str = getAllXpath(specifications_xpath, 'innerText').join(' || ');
 
       const specifications_part = getXpath("//div[@id='flix-inpage']//div[@id='inpage_container']//iframe",'innerText');
       if(specifications_part){
-        specifications_str = specifications_str.concat(specifications_part);
+        specifications_str = specifications_str.concat(" || ").concat(specifications_part);
       }
       addElementToDocument('added_specifications', specifications_str);
 
@@ -111,6 +115,10 @@ module.exports = {
       const manufacturerDescription_part =  getAllXpath("//div[contains(@class,'flix-std-featureslist')]//div[contains(@class,'flix-std-clmn-lg-4 flix-std-clmn-sm-6')]",'innerText').join(',');
       if(manufacturerDescription_part){
         manufacturerDescription = manufacturerDescription.concat(manufacturerDescription_part);
+      }
+      const manufacturerDescription_part2 = getAllXpath("(//div[@id='tab-description']/h2) | (//div[@id='tab-description']/h4) |(//div[@id='tab-description']/p)", 'innerText').join(',');
+      if(manufacturerDescription_part2){
+        manufacturerDescription = manufacturerDescription.concat(manufacturerDescription_part2);
       }
       addElementToDocument('added_manufacturerDescription', manufacturerDescription);
 
