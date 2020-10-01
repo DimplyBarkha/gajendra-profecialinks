@@ -141,37 +141,37 @@ fields:
     singleValue: true
     description: URLs of videos on page
     xpath: //div[@class="flix-videodiv"]/iframe[@id="flix-iframe0"]/@src
-  # - name: name
-  #   singleValue: true
-  #   description: The product name
-  #   xpath: //div[@class='product-details-panel']/div[@class='product-details-left']/h1[@class='product-details-name']
-  # - name: coupon
-  #   singleValue: true
-  #   description: Text of any coupon offer
-  # - name: lbb
-  #   singleValue: true
-  #   description: Check Lost by Box Requirements (just for Amazon and a couple of
-  #     other stores) - LBB occurs when a product is bought from someone other
-  #     than Amazon (on Amazon Website) - even though Amazon has the product "in
-  #     Stock"
-  # - name: productOtherInformation
-  #   singleValue: false
-  #   description: Any other product information
-  #   xpath: //div[@id='main-body-wrapper']/div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='details-tab']/div[@class='product-details-tab']/div[@class='product-description product-description-summary']
-  # - name: energyEfficiency
-  #   singleValue: true
-  #   description: Energy rating of a product.
-  #     https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-  #   example: A+, A+++, B
-  #   xpath: //div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='classifications-tab']/div[@class='product-details-classifications']/div[@class='product-classifications-right']/div[@class='product-classifications'][4]/table[@class='product-classifications-table']/tbody/tr[1]/td[2]
-  # - name: technicalInformationPdfPresent
-  #   singleValue: true
-  #   description: If there is for example a manual in pdf format on the website. ['Yes','No']
-  #   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  #   xpath: boolean(//div[@class='product-details-left']/ul[@class='product-detail-links']/li[@class='product-detail-link-item product-detail-print-item']/a[@class='product-detail-print-link'])
-  # - name: termsAndConditions
-  #   singleValue: true
-  #   description: Terms and conditions information text ['Yes','No']
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class='product-details-panel']/div[@class='product-details-left']/h1[@class='product-details-name']
+  - name: coupon
+    singleValue: true
+    description: Text of any coupon offer
+  - name: lbb
+    singleValue: true
+    description: Check Lost by Box Requirements (just for Amazon and a couple of
+      other stores) - LBB occurs when a product is bought from someone other
+      than Amazon (on Amazon Website) - even though Amazon has the product "in
+      Stock"
+  - name: productOtherInformation
+    singleValue: false
+    description: Any other product information
+    xpath: //div[@id='main-body-wrapper']/div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='details-tab']/div[@class='product-details-tab']/div[@class='product-description product-description-summary']
+  - name: energyEfficiency
+    singleValue: true
+    description: Energy rating of a product.
+      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+    xpath: //div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='classifications-tab']/div[@class='product-details-classifications']/div[@class='product-classifications-right']/div[@class='product-classifications'][4]/table[@class='product-classifications-table']/tbody/tr[1]/td[2]
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    xpath: boolean(//div[@class='product-details-left']/ul[@class='product-detail-links']/li[@class='product-detail-link-item product-detail-print-item']/a[@class='product-detail-print-link'])
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
   # - name: Image360Present
   #   singleValue: true
   #   description: If 360 image is present in the carousel ['Yes','No']
