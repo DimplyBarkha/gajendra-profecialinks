@@ -132,13 +132,8 @@ const transform = (data) => {
 				newText1 = newText;
 				row.specifications = [{ text: newText.trim() }];
 			  }
-
-
 		}
 	}
-
-	
-
 	const clean = text => text.toString()
 		.replace(/\r\n|\r|\n/g, ' ')
 		.replace(/&amp;nbsp;/g, ' ')
