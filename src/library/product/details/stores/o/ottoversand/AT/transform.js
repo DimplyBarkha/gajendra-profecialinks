@@ -25,14 +25,38 @@ const transform = (data, context) => {
     for (const { group } of data) {
       for (const row of group) {  
         try {
-            if (row.price) {
-              row.price = [{ text: row.price[0].text }, { text: row.priceCurrency[0].text }];            
-              //console.log(row.price)
+          
+          
+
+          if (row.priceCurrency) {
+              let temppriceCurrency= row.priceCurrency[0].text.split(':')
+              row.priceCurrency = [{ text: temppriceCurrency[1].replace('"','').replace('"','').replace(',','').trim() }];                          
              }
+
+            if (row.price) {
+              let tempPrice= row.price[0].text.split(':')
+              row.price = [{ text: tempPrice[1].replace('"','').replace('.',',').trim() }, { text: row.priceCurrency[0].text }];                          
+             }
+
+             if (row.aggregateRating) {
+              let tempaggregateRating= row.aggregateRating[0].text.split(':')
+              row.aggregateRating = [{ text: tempaggregateRating[1].replace('"','').replace('.',',').trim() }];                          
+             }
+
+             if (row.sku) {
+              let tempsku= row.sku[0].text.split(':')
+              row.sku = [{ text: tempsku[1].replace('"','').replace('"','').replace(',','').trim() }];                          
+             }
+
+             if (row.brandText) {               
+              let tempbrandText= row.brandText[1].text.split(':')
+              row.brandText = [{ text: tempbrandText[1].replace('"','').replace('"','').replace(',','').trim() }];                          
+             }
+
              if (row.variants) {
               let newText = "";
               let artNo = '';
-              let i=1;
+              let i=1;              
               row.variants.forEach(item => {
                 if(item.text.indexOf(':') != -1){
                   var temp= item.text.split(':');
@@ -49,9 +73,26 @@ const transform = (data, context) => {
                     else{
                       artNo += temp[1].trim() + ' | ';
                     }                    
-                  }
-                  i= i+1;
+                  }                 
               }
+              else{
+
+                 if(row.variants.length==1)
+                  {
+                    artNo += item.text.trim();
+                  }
+                  else
+                  {
+                    if(row.variants.length==i)
+                    {
+                      artNo += item.text.trim();
+                    }
+                    else{
+                      artNo += item.text.trim() + ' | ';
+                    }                    
+                  }                    
+              }
+              i= i+1;
             });
 
               // row.variants.forEach(item => {

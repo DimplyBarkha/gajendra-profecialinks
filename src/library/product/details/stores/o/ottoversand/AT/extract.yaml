@@ -11,7 +11,9 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //*[contains(@id,"currencyId")]
+    xpath: //script[@type="application/ld+json" and @id="schemaorg-product"]
+    regExp: (\"priceCurrency".\S{0,}.\S{0,}.)
+    # xpath: //*[contains(@id,"currencyId")]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -28,7 +30,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@data-testid="breadcrumb-list-wrapper"]//li[position()>1]/a
+    xpath: //ul[@data-testid="breadcrumb-list-wrapper"]//li[position()>1]//a
     # xpath: //ul[@class="sc-pzXPE iCmAUa"]//li[position()>0]/a
   - name: nameExtended
     singleValue: true
@@ -43,8 +45,9 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    # xpath: //div[@class="sc-pQdCa iewpDR"]
-    xpath: //*[contains(@id,"priceId")]
+    xpath: //script[@type="application/ld+json" and @id="schemaorg-product"]
+    regExp: (\"price".\S{0,}.\S{0,}.\d+)
+    # xpath: //*[contains(@id,"priceId")]
     # type: CURRENCY
   - name: availabilityText
     singleValue: true
@@ -67,10 +70,12 @@ fields:
     xpath: count(//div[contains(@class,'Description-sc-bljq7d hvxUel')]//ul//li)
     type: NUMBER
   - name: brandText
-    singleValue: true
+    singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //*[contains(@id,"tempBrandId")]
+    xpath: //script[@type="application/ld+json" and @id="schemaorg-product"]
+    regExp: (\"name".*?\S{0,}.\S{0,}.)
+    # xpath: //*[contains(@id,"tempBrandId")]
     # xpath: //div[contains(@class,'BrandImageWrapper-sc-g3lp1v hImRjX')]//a//img/@alt
   - name: manufacturer
     singleValue: true
@@ -95,7 +100,9 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //*[contains(@id,"skuId")]
+    xpath: //script[@type="application/ld+json" and @id="schemaorg-product"]
+    regExp: (\"sku".\S{0,}.\S{0,}.)
+    # xpath: //*[contains(@id,"skuId")]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -133,7 +140,9 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //*[contains(@id,"agreegateRatingId")]
+    xpath: //script[@type="application/ld+json" and @id="schemaorg-product"]
+    # xpath: //*[contains(@id,"agreegateRatingId")]
+    regExp: (\"ratingValue".\S{0,}.\S{0,}.\d+)
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
