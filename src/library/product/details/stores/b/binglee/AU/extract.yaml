@@ -6,29 +6,21 @@ fields:
   - name: image
     singleValue: true
     xpath: //div[@class='item slick-slide slick-active']//img[@class='img-responsive']//@src
-    #regExp: (.+)
-    #regExpReplace: https://www.binglee.com.au/$1
   - name: imageAlt
     singleValue: true
     xpath: //div[@class='item slick-slide slick-active']//img[@class='img-responsive']//@alt
-    description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='product-image']//div[@id='image-gallery']//ul[@class='slick-dots']//img//@src
-    description: Other product images (not in manufacturer description)
+    xpath: //div[@id='image-gallery']/div[@class='slick-list draggable']/div/div[not(contains(@class,'slick-cloned')) and not(contains(@class,'slick-active'))]//img/@src
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name='keywords']//@content
-    description: The <meta> keywords content
   - name: category
     singleValue: false
     xpath: //div[@class='breadcrumbs']//li[position()>1 and position()<last()]//span
-    description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
-    singleValue: 
-    xpath: concat(//meta[@property='product:brand']//@content,' - ',//div[@class='product-view']//h1/text(),' - ',//div[@id='specification']//tr[1]//td[@class='data'])   
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
+    singleValue:
+    xpath: //div[@class='product-view']//h1/text()
   - name: listPrice
     singleValue: false
     xpath: //div[@class='product-shop-wrapper col-md-4 col-sm-6']//meta/@content | //div[@class='price-box']//meta/@content
@@ -48,20 +40,19 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-  - name: description
-    singleValue: false
-    xpath: //div[@class='std']//h2[@class='blproduct_heading'] | //div[@class='std']//p[@class='blproduct_heading_text']
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
-  - name: descriptionBullets
-    singleValue: true
-    xpath: count(//div[@id='specification']//tr//td)
-    description: Number of ul > li tags in the description
-    type: NUMBER
+  #- name: description
+  #  singleValue: false
+  #  xpath: //div[@class='std']//h2[@class='blproduct_heading'] | //div[@class='std']//p[@class='blproduct_heading_text']
+  #- name: descriptionBullets
+  #  singleValue: true
+  #  xpath: count(//div[@id='specification']//tr//td)
+  #  description: Number of ul > li tags in the description
+  #  type: NUMBER
   - name: brandText
     singleValue: true
     xpath: //meta[@property='product:brand']//@content
-    description: Product brand shown - this may actually NOT be just a brand name,
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     singleValue: true
@@ -84,23 +75,25 @@ fields:
     xpath: //div[@id='specification']//tr[1]//td[@class='data']
     description: GTIN code (includes UPC/EAN)
   - name: eangtin
-    singleValue: true    
+    singleValue: true
   - name: sku
     singleValue: true
     xpath: //meta[@id='sku']/@content
   - name: variantId
     singleValue: true
-    xpath: //form[@id='product_addtocart_form']//button[contains(@class,'button-add-to-cart')]/@data-add-to-cart
+    xpath: //script[contains(text(),'currentProductData')]
+    regExp: ("id":(\d+))
   #- name: mpc
   #  singleValue: true
   #  xpath: //div[@id='specification']//tr[1]//td[@class='data']
   #  description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
-    description: The number of packs in the product offer (if stated separately on
+    description:
+      The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
-    singleValue: true    
+    singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
@@ -130,6 +123,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    defaultValue: 0
     type: NUMBER
   - name: color
     singleValue: true
@@ -140,11 +134,11 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: true
-    xpath: //div[@id='specification']//div[@class='std']
+    xpath: //div[@id='overview']//div[@class='std']
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //img[@class='img-responsive bl_product_img_l']//@src
+    xpath: //div[@id='overview']//div[@class='std']//img//@src
     description: Images within the third party description
   - name: videos
     singleValue: false
@@ -180,11 +174,13 @@ fields:
     description: Text next to bullet point
   - name: salesRank
     singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
+    description:
+      Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: salesRankCategory
     singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
+    description:
+      Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: subscriptionPrice
     singleValue: true
@@ -273,7 +269,8 @@ fields:
     type: NUMBER
   - name: caloriesPerServing
     singleValue: true
-    description: Nutritional Information for Calories Per Serving content - Usually
+    description:
+      Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
   - name: caloriesFromFatPerServing
     singleValue: true
@@ -282,7 +279,8 @@ fields:
     type: NUMBER
   - name: totalFatPerServing
     singleValue: true
-    description: Nutritional Information for Total Fat content - Usually based on
+    description:
+      Nutritional Information for Total Fat content - Usually based on
       per 100g serving
     type: NUMBER
   - name: totalFatPerServingUom
@@ -290,7 +288,8 @@ fields:
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
     singleValue: true
-    description: Nutritional Information for Saturated Fat content - Usually based
+    description:
+      Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
     type: NUMBER
   - name: saturatedFatPerServingUom
@@ -298,7 +297,8 @@ fields:
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
     singleValue: true
-    description: Nutritional Information for Trans Fat content - Usually based on
+    description:
+      Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
     type: NUMBER
   - name: transFatPerServingUom
@@ -306,7 +306,8 @@ fields:
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
     singleValue: true
-    description: Nutritional Information for Cholesterol content - Usually based on
+    description:
+      Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
     type: NUMBER
   - name: cholesterolPerServingUom
@@ -314,7 +315,8 @@ fields:
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
     singleValue: true
-    description: Nutritional Information for Sodium content - Usually based on per
+    description:
+      Nutritional Information for Sodium content - Usually based on per
       100g serving
     type: NUMBER
   - name: sodiumPerServingUom
@@ -322,7 +324,8 @@ fields:
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: true
-    description: Nutritional Information for Total Carbohydrate content - Usually
+    description:
+      Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
     type: NUMBER
   - name: totalCarbPerServingUom
@@ -330,7 +333,8 @@ fields:
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
     singleValue: true
-    description: Nutritional Information for Dietary Fibre content - Usually based
+    description:
+      Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
     type: NUMBER
   - name: dietaryFibrePerServingUom
@@ -338,7 +342,8 @@ fields:
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
     singleValue: true
-    description: Nutritional Information for Total Sugar content - Usually based on
+    description:
+      Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
     type: NUMBER
   - name: totalSugarsPerServingUom
@@ -346,7 +351,8 @@ fields:
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
     singleValue: true
-    description: Nutritional Information for Protein content - Usually based on per
+    description:
+      Nutritional Information for Protein content - Usually based on per
       100g serving
     type: NUMBER
   - name: proteinPerServingUom
@@ -354,7 +360,8 @@ fields:
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
     singleValue: true
-    description: Nutritional Information for Vitamin A content - Usually based on
+    description:
+      Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
     type: NUMBER
   - name: vitaminAPerServingUom
@@ -362,7 +369,8 @@ fields:
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
     singleValue: true
-    description: Nutritional Information for Vitamin C content - Usually based on
+    description:
+      Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
     type: NUMBER
   - name: vitaminCPerServingUom
@@ -370,7 +378,8 @@ fields:
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
     singleValue: true
-    description: Nutritional Information for Calcium content - Usually based on per
+    description:
+      Nutritional Information for Calcium content - Usually based on per
       100g serving
     type: NUMBER
   - name: calciumPerServingUom
@@ -389,7 +398,8 @@ fields:
     description: Information related to the dietary symbols of a specific product
   - name: magnesiumPerServing
     singleValue: true
-    description: Nutritional Information for Magnesium content - Usually based on
+    description:
+      Nutritional Information for Magnesium content - Usually based on
       per 100g serving
     type: NUMBER
   - name: magnesiumPerServingUom
@@ -454,29 +464,19 @@ fields:
       (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
   - name: newAsin
     singleValue: true
-    description: In product page, information about a new version of the product -
+    description:
+      In product page, information about a new version of the product -
       new asin info
-  - name: newDescription
-    singleValue: true
-    xpath: //div[@id='overview']
-    description: In product page, information about a new version of the product -
-      new desription info
+  #- name: newDescription
+  #  singleValue: true
+  #  xpath: //div[@id='overview']
   - name: variantInformation
     singleValue: true
     xpath: //div[@id='specification']//th[contains(text(), 'Colour/Finish')]/following::td[1]
     description: colour / scent / flavour / other
-  - name: firstVariant
-    singleValue: true
-    xpath: //div[@id='specification']//tr[1]//td[@class='data']
-    description: Unique identifier for a collection of variants. For a subset of
-      core feeds (43) we have a column "first_variant" that is populated with a
-      common code to link all variants for a product. method 1 (Preferred) = use
-      common tag (Could be parent sku) that is same value for all variants of a
-      product. method 2 = first_variant method technique, Identify the first
-      varient in the sequence and use this rpc to populate "first_variant" for
-      all variants of a product, this rpc becomes the common link between other
-      variants. method 3 = apply some logic to determine link between variants,
-      this will need analysis
+  #- name: firstVariant
+  #  singleValue: true
+  # xpath: //div[@id='specification']//tr[1]//td[@class='data']
   - name: variants
     singleValue: false
     description: null

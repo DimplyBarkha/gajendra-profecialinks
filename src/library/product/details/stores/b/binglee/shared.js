@@ -6,24 +6,18 @@
 */
 
 const transform = (data, context) => {
-  //var $ = context.jQuery;
-  //var jsonLD = $('script[type="application/ld+json"]');
-  //console.log("data0=============="+JSON.stringify(data))
   for (const { group } of data) {
     for (const row of group) {
-      // console.log("row=============="+JSON.stringify(row))   
 
       if (row.ratingCount) {
         let text = '';
         row.ratingCount.forEach(item => {
-          // console.log("ratingCount======"+JSON.stringify(JSON.parse(item.raw).aggregateRating.reviewCount));
           text = JSON.parse(item.raw).aggregateRating.reviewCount;
         });
         row.ratingCount = [{ text }];
       }
 
       if (row.aggregateRating) {
-        //console.log('ARRRRRRRRR2', row.aggregateRating);
         let rating = JSON.parse(row.aggregateRating[0].raw).aggregateRating.ratingValue
         row.aggregateRating = [{
           "text": rating,
@@ -31,14 +25,25 @@ const transform = (data, context) => {
           "locale": "en_AU",
           "value": rating
         }]
-        /* row.aggregateRating2.forEach(item => {
-          if (item.text) {
-            if (JSON.parse(item.text)) {
-              text = JSON.parse(item.text).aggregateRating.ratingValue.toString().replace('.', ',')
-            }
-          }
-        }); */
-        //row.aggregateRating2 = [{ text }];
+      }
+
+      if (row.variantId) {
+        if (row.variantId[0].text.split(':')[1]) {
+          let variantId = row.variantId[0].text.split(':')[1]
+          row.variantId[0].text = variantId;
+        }
+      }
+
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          text += `${item.text} || `;
+        });
+        row.specifications = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
       }
     }
   }
