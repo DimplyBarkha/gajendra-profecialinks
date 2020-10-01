@@ -37,7 +37,9 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.nordstrom.com$1
   - name: sku
-    xpath:  //body/@retailer_product_code
+    xpath: //span[contains(text(),'Item')]
+    regExp: "Item #(.+)"
+    regExpReplace: $1
   - name: ratingCount
     xpath: //span[@itemprop="reviewCount"]/@content
     description: The number of ratings
@@ -57,7 +59,7 @@ fields:
     regExp: selected\s(.+)
     regExpReplace: $1
   - name: variantId
-    xpath:  //body/@retailer_product_code
+    xpath:  //body/@rpc
   - name: variants
     xpath: //a[@class='appendedvariantid']/@href
   - name: variantCount

@@ -8,7 +8,6 @@ module.exports = {
     domain: 'nordstrom.com',
   },
   implementation: async (
-    // @ts-ignore
     inputs,
     parameters,
     context,
@@ -17,16 +16,12 @@ module.exports = {
     await context.evaluate(async function () {
       var checkPriceRange = document.querySelector('section#product-page-price-lockup span#current-price-string') && document.querySelector('section#product-page-price-lockup span#current-price-string').textContent && document.querySelector('section#product-page-price-lockup span#current-price-string').textContent.includes('–');
       if (checkPriceRange) {
-        // @ts-ignore
         document.querySelector('div#size-filter-product-page-anchor') && document.querySelector('div#size-filter-product-page-anchor').click();
-        // @ts-ignore
         document.querySelector('ul#size-filter-product-page-option-list li') && document.querySelector('ul#size-filter-product-page-option-list li').click();
-        // @ts-ignore
         document.querySelector('ul#product-page-swatches li button') && document.querySelector('ul#product-page-swatches li button').click();
       }
 
       const videoUrls = [];
-      // @ts-ignore
       const dataArr = window.__INITIAL_CONFIG__.viewData;
       const videoID = dataArr.salesVideoShot ? dataArr.salesVideoShot.id : dataArr.vendorVideoShot ? dataArr.vendorVideoShot.id : '';
       if (videoID) {
