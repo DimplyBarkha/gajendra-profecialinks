@@ -9,7 +9,7 @@ module.exports = {
   },
   implementation: async (
     { url, zipcode, storeId },
-    parameters, context, dependencies
+    parameters, context, dependencies,
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     const maxRetries = 3;
@@ -31,22 +31,6 @@ module.exports = {
         type: 'RECAPTCHA',
       },
     });
-
-    const searchPageSelector = 'section.search-result-options';
-    const searchPage = await context.evaluate(async (searchPageSelector) => {
-      return Boolean(document.querySelector(searchPageSelector));
-    }, searchPageSelector);
-
-    if (searchPage) {
-      let keyword = url.split('=')[3];
-      keyword = keyword.toLowerCase();
-      if (keyword === 'dyson') {
-        await context.click('#learnMoreBTN');
-        await context.waitForFunction(() => {
-          return document.querySelector('.ld-sg-button.ld-sg-button--secondary.ld-sg-button--secondary-flex.js-load-more__btn.load-more__btn.hide');
-        }, { timeout });
-      }
-    }
 
     const captchaFrame = 'iframe[src*="https://geo.captcha"]';
 
@@ -90,6 +74,7 @@ module.exports = {
           break;
         } else {
           await context.evaluate((url) => {
+            // eslint-disable-next-line no-unused-expressions
             window.location.reload;
           });
           await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });

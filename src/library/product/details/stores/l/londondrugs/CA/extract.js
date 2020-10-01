@@ -67,9 +67,13 @@ async function implementation (inputs, parameters, context, dependencies) {
       await context.evaluate(() => {
         const thumbVideo = document.querySelector('div[class*="thumb-video"]>a');
         const dataVideo = thumbVideo.getAttribute('data-video');
-        const videoLink = dataVideo.match(/(https:.+);/g);
+        const videoLink = dataVideo.match(/(https:.+)\?/g);
         const body = document.querySelector('body');
-        body.setAttribute('prod-video', videoLink[0]);
+        let videos = '';
+        videoLink.forEach(video => {
+          videos = videos + (videos ? ' | ' : '') + video;
+        });
+        body.setAttribute('prod-video', videos);
       });
     }
 

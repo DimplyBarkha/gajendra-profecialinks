@@ -4,6 +4,17 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
   const timeout = parameters.timeout ? parameters.timeout : 10000;
+  const searchTerm = await context.evaluate(() => {
+    return window.location.pathname;
+  });
+  if (searchTerm === '/dyson/') {
+    await context.click('#learnMoreBTN');
+    const delay = t => new Promise(resolve => setTimeout(resolve, t));
+    await delay(5000);
+    await context.waitForFunction(() => {
+      return document.querySelector('.ld-sg-button.ld-sg-button--secondary.ld-sg-button--secondary-flex.js-load-more__btn.load-more__btn.hide');
+    }, { timeout });
+  }
   await context.waitForFunction(
     () => {
       return document.querySelector('.bv-off-screen');
@@ -19,7 +30,7 @@ module.exports = {
     country: 'CA',
     store: 'londondrugs',
     transform,
-    timeout: 40000,
+    timeout: 50000,
     domain: 'londondrugs.com',
     zipcode: '',
   },
