@@ -5,33 +5,45 @@ recordXPath: //li[@class='product']
 fields:
   - name: id
     description: Unique id (within this extractor)
+    xpath: //li[@class='product']/@data-sdg-id
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER 
+    type: NUMBER
+    xpath: //li[@class='product']/@count
   - name: name
     description: The product name
     xpath: //li[@class='product']//span[@class='productBrandDesc']
   - name: productUrl
     description: The URL for the product details page
+    xpath: //li[@class='product']//a[@class='productTitle']/@href
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
     description: The URL for the product thumbnail image
+    xpath: //li[@class='product']//a[@class='productMainImage']/img/@src
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
+    xpath: //li[@class='product']//div[@class='bvReviewStars']//a[@class='productRating']/@title
+    regExp: ([\d\,]+)
     type: NUMBER
   - name: reviewCount
     description: The number of reviews
+    xpath: //li[@class='product']//div[@class='bvReviewsNumber']
+    regExp: (\d)+
     type: NUMBER
   - name: ratingCount
     description: The number of ratings
+    xpath: //li[@class='product']/@ratingcount
   - name: price
     description: The offered price for the product
+    xpath: //dd[@class="productPrice"]|//dd[@class="productWasPrice"]
   - name: manufacturer
     description: Product manufacturer
+    xpath: //em[@class="productBrand"]
   - name: soldBy
     description: The name of the seller of the item (if available)
   - name: rank
     description: search/listing rank
+    xpath: //li[@class='product']/@count
   - name: endorsementText
     description: The text that signifies that a product is endorsed
