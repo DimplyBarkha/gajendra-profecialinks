@@ -2,7 +2,7 @@ input:
   keywords: dyson marken
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=373f674e-6b8c-4c36-a152-52f9389c476c/task=e86c9399-d624-466c-89f9-af16289d2e85/3d7c4ab4-b387-4bd5-9633-fc675e875e42.html
+  - html: https://workbench.import.io/html/run=9ded7622-ce39-4bab-be59-da95568cf212/task=0f9233ba-e47e-456f-89e0-21b3d603c189/b4a761da-9956-4545-a43b-6d79f668e82a.html
     extractionConfigId: product/search/stores/a/ao/DE/extract
     data:
       - group:
@@ -72,6 +72,9 @@ extractions:
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/am07_wh_dyson_ventilatoren_ux_01_m_p.jpg
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
             reviewCount:
               - text: "1"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
@@ -161,6 +164,9 @@ extractions:
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/v11absolute_blnk_dyson_sta_frn1_m_p.jpg
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating:
+              - text: 4,6
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
             reviewCount:
               - text: "7"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
@@ -249,6 +255,9 @@ extractions:
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/am09hotpluscool_wh_dyson_wkg_fr_m_p.jpg
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
             reviewCount:
               - text: "1"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
@@ -285,6 +294,9 @@ extractions:
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/cyclonev10motorhead_rd_dyson_hast_1_ux_m_p.jpg
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
             reviewCount:
               - text: "23"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
@@ -321,6 +333,9 @@ extractions:
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/v8absolute_ye_dyson_handstaubsauger_1_ux_m_p.jpg
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating:
+              - text: 4,4
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
             reviewCount:
               - text: "9"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
@@ -364,8 +379,8 @@ extractions:
               - text: "12"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/meta[1]/@rank
         xpath: /html
-    timestamp: 1601585186023
-  - html: https://workbench.import.io/html/run=373f674e-6b8c-4c36-a152-52f9389c476c/task=e86c9399-d624-466c-89f9-af16289d2e85/db18096f-32ad-456c-91e8-40fb7d48d6b0.html
+    timestamp: 1601590329839
+  - html: https://workbench.import.io/html/run=9ded7622-ce39-4bab-be59-da95568cf212/task=0f9233ba-e47e-456f-89e0-21b3d603c189/057af49d-949a-44a7-9307-94c7bf04bf77.html
     extractionConfigId: product/search/stores/a/ao/DE/extract
     data:
       - group:
@@ -416,6 +431,9 @@ extractions:
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/cyclonev10absolute_cop_dyson_hast_1_ux_m_p.jpg
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating:
+              - text: 4,4
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
             reviewCount:
               - text: "21"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
@@ -478,6 +496,9 @@ extractions:
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/v11animalplus_punk_dyson_sta_frn1_m_p.jpg
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
             reviewCount:
               - text: "6"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
@@ -514,6 +535,9 @@ extractions:
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/tp04_whsi_dyson_weiterekuechengeraete_fr_m_p.jpg
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
             reviewCount:
               - text: "1"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
@@ -557,4 +581,4 @@ extractions:
               - text: "18"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/meta[1]/@rank
         xpath: /html
-    timestamp: 1601585186023
+    timestamp: 1601590329839
