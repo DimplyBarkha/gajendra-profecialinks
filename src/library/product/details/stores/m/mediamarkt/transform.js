@@ -48,7 +48,7 @@ const transform = (data, context) => {
       }
       if (row.gtin) {
         if (row.gtin[0].text.includes('@context')) {
-          let jsonStr = row.gtin[0].text;
+          const jsonStr = row.gtin[0].text;
           // jsonStr = jsonStr.length === 2 ? jsonStr[1].split(' = ') : [];
           // jsonStr = jsonStr.length === 2 ? jsonStr[1].slice(0, -1) : '';
           const jsonObj = jsonStr.length ? JSON.parse(jsonStr) : '';
@@ -134,7 +134,7 @@ const transform = (data, context) => {
 
       if (row.specifications) {
         row.specifications[0].text = row.specifications[0].text.replace(/(:\n\s\n)/g, ': ').replace(/(\n\s*){2,}/g, ' || ');
-        row.specifications = [{ text : clean(row.specifications[0].text.trim()) }];
+        row.specifications = [{ text: clean(row.specifications[0].text.trim()) }];
       }
       if (row.productOtherInformation) {
         let text = '';
@@ -181,7 +181,7 @@ const transform = (data, context) => {
       if (row.listPrice) {
         row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
       }
-      
+
       if (row.mpc) {
         console.log(row.mpc);
         console.log(row.mpc.length);
@@ -217,12 +217,13 @@ const transform = (data, context) => {
       }
     }
   }
-  
+
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach((header) => {
     console.log(header);
     row[header].forEach(el => {
-    el.text = clean(el.text);
-  })})));
+      el.text = clean(el.text);
+    });
+  })));
   return data;
 };
 
