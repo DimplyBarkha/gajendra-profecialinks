@@ -51,6 +51,11 @@ const transform = (data) => {
             item.text = item.text.replace('.', ',');
           });
         }
+        if (row.description) {
+          row.description.forEach(item => {
+            item.text = item.text.replace('La marque vous parle La marque vous parle','');
+          });
+        }
         if (row.manufacturerImages) {
           row.manufacturerImages.forEach(item => {
             if(item.text.includes('https:')){
