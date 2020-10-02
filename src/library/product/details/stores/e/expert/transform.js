@@ -115,17 +115,22 @@ const transform = (data, context) => {
           }
         }
 
+        console.log(row.alternateImages)
+
         if (row.alternateImages && row.alternateImages[0]) {
           if (row.alternateImages[0].text.includes('product/cache/')) {
             let mainPictureSrc = row.alternateImages[0].text.split('product/cache/');
             mainPictureSrc = mainPictureSrc.length === 2 ? mainPictureSrc[1] : '';
             mainPictureSrc = mainPictureSrc.length ? mainPictureSrc.split('/')[0] : '';
             row.alternateImages = row.alternateImages.slice(1);
-            row.alternateImages.forEach(item => {
-              item.text = item.text.replace(/(?<=product\/cache\/)(.*)(?=\/)/gm, mainPictureSrc);
-            });
+            console.log(row.alternateImages)
+            if (row.alternateImages.length) {
+              row.alternateImages.forEach(item => {
+                item.text = item.text.replace(/(?<=product\/cache\/)(.*)(?=\/)/gm, mainPictureSrc);
+              });
+            }
           }
-          if (row.alternateImages[0].text.includes('produkte/bilder/')) {
+          else if (row.alternateImages[0].text.includes('produkte/bilder/')) {
             row.alternateImages.forEach(item => {
               item.text = 'https://www.expert.at/' + item.text;
             });

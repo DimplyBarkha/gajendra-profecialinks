@@ -5,7 +5,7 @@ module.exports = {
     country: 'IE',
     store: 'expert',
     domain: 'expert.ie',
-    loadedSelector: 'main#maincontent div.columns',
+    loadedSelector: 'div.product-info-main',
     noResultsXPath: '//*[contains(text(), "The page you requested was not found")]',
     zipcode: '',
   },

@@ -55,7 +55,9 @@ const transform = (data, context) => {
           row.sku = [{ text: row.sku[0].text.replace(/\|(.*)/gm, '') }];
         }
 
-        row.id = [{ text: row.sku[0].text }];
+        row.sku = [{ text: row.sku[0].text.trim() }];
+
+        row.id = [{ text: row.sku[0].text.trim() }];
       }
       if (row.aggregateRatingText) {
         row.aggregateRatingText = [{ text: row.aggregateRatingText[0].text.replace('.', ',') }];

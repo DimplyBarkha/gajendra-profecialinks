@@ -9,12 +9,12 @@ fields:
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
-    xpath: (//img[contains(@class, "gallery-placeholder__image")]/@alt)[1]
+    xpath: ((//img[contains(@class, "gallery-placeholder__image")]/@alt)[1]|(//div[contains(@class, "gallery-placeholder")]//img/@alt)[1])[1]
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[contains(@class, "gallery-placeholder")]//img/@src)[1]|(//div[contains(@class, "fotorama__thumb")]//img/@src)[position()>1]
+    xpath: (//div[contains(@class, "fotorama__thumb")]//img/@src)[position()>1]
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content  
@@ -159,7 +159,7 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="flix-inpage"]//div[@id="inpage_container"]//img/@srcset|//*[@id="added_ii_manufImg"]
+    xpath: //div[@id="flix-inpage"]//div[@id="inpage_container"]//img/@src|//*[@id="added_ii_manufImg"]
     description: Images within the third party description
   - name: videos
     singleValue: false

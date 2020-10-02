@@ -59,6 +59,12 @@ module.exports = {
 
     sharedhelpers.addHiddenInfo('ii_termCond', termAndCond ? 'Yes' : 'No');
 
+    try {
+      await context.waitForSelector('div.fotorama-item', { timeout: 45000});
+    } catch (error) {
+      console.log('No secondary images loading.');
+    }
+
     return await context.extract(productDetails, { transform: transformParam });
   },
 };
