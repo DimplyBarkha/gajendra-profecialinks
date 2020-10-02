@@ -28,13 +28,17 @@ const transform = (data) => {
       if (row.aggregateRating2) {
         row.aggregateRating2.forEach(item => {
           item.text = item.text.replace(/(.+?)\/.+/g, "$1");
+          item.text = item.text.replace(".",",");
         });
       }
       if (row.reviewCount) {
         row.reviewCount.forEach(item => {
           item.text = item.text.replace(/.+?\|.+?(\d+).+/g, "$1");
         });
-        row.ratingCount = row.reviewCount;
+        row.ratingCount = [{'text':row.reviewCount[0].text}];
+        if (row.reviewCount[0].text==0){
+          row.aggregateRating2 = [{'text':''}];
+        }
       }
       if (row.shippingInfo) {
         row.shippingInfo.forEach(item => {
