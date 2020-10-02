@@ -65,3 +65,6 @@ fields:
   - name: videos
     singleValue: false
     xpath: //video/@src
+  - name: url
+    singleValue: false
+    xpath: //div[@class="product-info"]/meta[@itemprop="url"]/@content
