@@ -53,14 +53,14 @@ const transform = (data) => {
           row.sku[0].text = "";
         }
       }
-      if (row.variantId) {
+     /*  if (row.variantId) {
         let data = row.variantId[0].text.split(":");
         if (data.length > 1) {
           row.variantId[0].text = data[1].replace('"', '').replace('\"', '');
         } else {
           row.variantId[0].text = "";
         }
-      }
+      } */
 
       if (row.shippingInfo) {
         let data = row.shippingInfo[0].text.split("\n");

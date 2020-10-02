@@ -88,7 +88,6 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //div[contains(@class,'aside-container')]//input[@name='product_id']/@value
-    regExp: (\"sku_id".\S[^,]*)
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
