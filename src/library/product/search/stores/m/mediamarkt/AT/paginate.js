@@ -4,12 +4,14 @@ module.exports = {
   parameterValues: {
     country: 'AT',
     store: 'mediamarkt',
-    nextLinkSelector: 'li.pagination-next a[rel="next"]',
+    nextLinkSelector: null,
     mutationSelector: null,
-    spinnerSelector: 'div.spinner',
+    spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: null,
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.mediamarkt.at/de/search.html?page={page}&query={searchTerms}'
+    },
     domain: 'mediamarkt.at',
     zipcode: '',
   },
