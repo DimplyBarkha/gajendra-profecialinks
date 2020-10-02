@@ -30,3 +30,8 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //div[@class= 'gxLayout-row gxFlex-100 gxLayoutWrap']//gx-star-rating//following-sibling::span/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class= 'gxLayout-row gxFlex-100 gxLayoutWrap']//a/@href
+    regExp: https([^?]+)
+    regExpReplace: https$1
