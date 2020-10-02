@@ -64,8 +64,21 @@ const transform = (data, context) => {
           row.brandText = [{ text: row.brandText1[0].text.trim() }];
         }
 
+        if (row.weightNet) {                         
+          let tempweightNet =  row.weightNet[0].text.replace( /^\D+/g, ''); 
+          tempweightNet = tempweightNet.replace('kg','');                   
+          row.weightNet = [{ text: tempweightNet.trim() + ' kg' }];
+        }
+
         if (row.warranty1) {                    
           row.warranty = [{ text: row.warranty1[0].text.trim() + ' Year' }];
+        }
+
+        if (row.colour) {             
+          if (row.colour[0].text.indexOf(':') > -1) {                               
+            var tempColour = row.colour[0].text.split(':');
+            row.colour = [{ text: tempColour[1].replace('\\u003C/p\\u003E\\u003Cp\\u00','').trim() }];
+          }          
         }
 
 

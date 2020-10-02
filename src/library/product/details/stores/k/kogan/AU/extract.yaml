@@ -10,7 +10,8 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //div[contains(@class,'react-sanfona-item-body')]/div[contains(h3,'dimensions')]//dl//div[contains(dt,'Weight')]//dd
+    xpath: concat(//p[contains(text(),'Weight')] ,'',//div[contains(@class,'react-sanfona-item-body')]/div[contains(h3,'dimensions')]//dl//div[contains(dt,'Weight')]//dd)
+    regExp: \d+(\.\d{1,2})?
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
