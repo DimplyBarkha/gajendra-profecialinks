@@ -114,8 +114,7 @@ const transform = (data) => {
       }
     }
   }
-  cleanUp(data);
-  return data;
+  return cleanUp(data);
 };
 
 module.exports = { transform };
