@@ -6,7 +6,7 @@ module.exports = {
     store: 'trademe',
     domain: 'trademe.co.nz',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//p[contains(text(),"The page you requested was not found")]',
     zipcode: "''",
   },
 };

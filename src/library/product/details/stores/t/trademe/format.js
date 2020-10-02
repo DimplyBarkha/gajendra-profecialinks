@@ -5,6 +5,24 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  const cleanUp = (data, context) => {
+    const clean = text => text.toString()
+      .replace(/\r\n|\r|\n/g, ' ')
+      .replace(/&amp;nbsp;/g, ' ')
+      .replace(/&amp;#160/g, ' ')
+      .replace(/\u00A0/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/"\s{1,}/g, '"')
+      .replace(/\s{1,}"/g, '"')
+      .replace(/^ +| +$|( )+/g, ' ')
+      // eslint-disable-next-line no-control-regex
+      .replace(/[\x00-\x1F]/g, '')
+      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+      el.text = clean(el.text);
+    }))));
+    return data;
+  };
   for (const { group } of data) {
     for (const row of group) {
       if (row.shippingInfo) {
@@ -42,28 +60,23 @@ const transform = (data) => {
       if (row.additionalDescBulletInfo) {
         var arr_info = []
         row.additionalDescBulletInfo.forEach(item => {
-          arr_info.push(item.text.trim());          
+          arr_info.push(item.text.trim());
         });
         if (arr_info.length) {
-          row.descriptionBullets = [{'text':arr_info.length}];
-          var temp_text = arr_info.join(' | ');
-          temp_text = ' | ' + temp_text;
-          row.additionalDescBulletInfo = [{'text':temp_text}];
+          row.descriptionBullets = [{ 'text': arr_info.length }];
+          var temp_text = arr_info.join(' || ');
+          temp_text = '|| ' + temp_text;
+          row.additionalDescBulletInfo = [{ 'text': temp_text }];
         }
-      }      
-      // if (row.shippingInfo) {
-      //   row.shippingInfo.forEach(item => {
-      //     item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
-      //   });
-      // }
+      }
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-          if (item.text=='Buy Now'){
+          if (item.text == 'Buy Now') {
             item.text = 'In Stock'
           }
         });
       }
-      
+
       if (row.image) {
         row.image.forEach(item => {
           item.text = item.text.match(/\(([^)]+)\)/)[1].slice(1, -1);
@@ -75,9 +88,9 @@ const transform = (data) => {
           item.text = item.text.match(/\(([^)]+)\)/)[1].slice(1, -1);
           item.text = item.text.replace(/\/thumb\//, '\/full\/');
         });
-        if(row.alternateImages.length > 1){
-          row.alternateImages.splice(0,1);
-        }else{
+        if (row.alternateImages.length > 1) {
+          row.alternateImages.splice(0, 1);
+        } else {
           delete row.alternateImages;
         }
       }
@@ -86,7 +99,7 @@ const transform = (data) => {
           item.text = item.text.replace(/\s\n/g, '').slice();
         });
       }
-      
+
       if (row.sku) {
         row.sku.forEach(item => {
           item.text = item.text.match(/[^#]*$/g);
@@ -101,6 +114,7 @@ const transform = (data) => {
       }
     }
   }
+  cleanUp(data);
   return data;
 };
 
