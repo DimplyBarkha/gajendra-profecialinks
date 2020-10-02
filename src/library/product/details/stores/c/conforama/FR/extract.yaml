@@ -6,7 +6,8 @@ fields:
   - name: name
     singleValue: false
     description: URL of the main product image
-    xpath: //*[contains(@class, "accrocheProduitFicheProduit")] | //div[@class="name"]/h1
+    xpath: //*[contains(@class, "accrocheProduitFicheProduit")]
+    # xpath: //*[contains(@class, "accrocheProduitFicheProduit")] | //div[@class="name"]/h1
   - name: image
     singleValue: false
     xpath: //div[@class="productPics"]/a/img[1]/@src
@@ -19,7 +20,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //ul[contains(@class,"sliderThumb")]/li[@class="pager"]//img/@src
+    xpath: //ul[contains(@class,"sliderThumb")]/li[@class="pager"]//img/@src | //ul[contains(@class,"sliderThumb")]/li[contains(@class,"swiper-slide")][position() > 1]//img/@src
   # - name: secondaryImageTotal
   #   xpath: count(//div[@class='sliderWithVideo']/div/div/ul/li/a/img/@src)
   #   singleValue: false
@@ -33,8 +34,9 @@ fields:
     # //div[contains(@class , "breadcrumb" )]/a[@href="/"]/following-sibling::a
   - name: nameExtended
     singleValue: false
+    xpath: //*[contains(@class, "accrocheProduitFicheProduit")]
     # xpath: //div[@class="productTitle"]/*[not(self::div[@data-bv-show])]
-    xpath: //*[contains(@class, "accrocheProduitFicheProduit")] | //div[@class="name"]/h1
+    # xpath: //*[contains(@class, "accrocheProduitFicheProduit")] | //div[@class="name"]/h1
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -56,7 +58,8 @@ fields:
     xpath:  count(//div[@id="tabs-1"]/ul/li)
   - name: brandText
     singleValue: false
-    xpath: //*[contains(@class, "accrocheProduitFicheProduit")] | //div[@class="name"]/h1
+    xpath: //div[@id="cr_brandText"]
+    defaultValue: "BRAND"
     # xpath: //div[@class='productTitle']/ul/li[1] | //div[@class="productTitle"]/*[not(self::div[@data-bv-show])]
   # - name: manufacturer
   #   singleValue: false
@@ -103,7 +106,8 @@ fields:
     regExpReplace: $1
   - name: availabilityText
     singleValue: false
-    xpath: //button[contains(@class, "btnGreen")]/span[text()="Ajouter au panier"] |//*[@data-popinname="dispo-product"]
+    xpath: //button[contains(@class, "btnGreen")]/span[text()="Ajouter au panier"] |//*[@data-popinname="dispo-product"] | //button[@onclick="eventAddToCart()"]/span[text()="Ajouter au panier"]
+    defaultValue: In Stock
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.

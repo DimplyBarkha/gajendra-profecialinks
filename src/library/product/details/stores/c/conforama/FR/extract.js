@@ -49,7 +49,7 @@ module.exports = {
        
         let des= document.querySelector('div[id="tabs-1"]');
         // @ts-ignore
-        let des1 = des ? des.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').replace('Description du produit','').trim() : '';
+        let des1 = des ? des.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').replace('Description du produit','').replace('La marque vous parle La marque vous parle','').trim() : '';
         addHiddenDiv('co_description',des1);
         let enhancedContent = document.querySelector('div#flix-inpage');
         // @ts-ignore
@@ -82,6 +82,24 @@ module.exports = {
           finalSpecStr = finalSpecArr.join(' || ');
         }
         addHiddenDiv('cr_specification',finalSpecStr );
+        async function findJsonObj () {
+          try {
+            const xpath = `//script[contains(.,'"brand": {')]`;
+            const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+            let jsonStr = element.textContent;
+            jsonStr = jsonStr.trim();
+            return JSON.parse(jsonStr);
+          } catch (error) {
+            console.log(error.message);
+          }
+        }
+        let JSONp = await findJsonObj();
+        console.log('JSON: ', JSONp);
+        let brand = JSONp ? JSONp.brand : '';
+        console.log('brand: ', brand);
+        let brandText = brand ? brand.name : '';
+        console.log('brandText: ', brandText);
+        addHiddenDiv('cr_brandText',brandText );
       
     });
     const { transform } = parameters;

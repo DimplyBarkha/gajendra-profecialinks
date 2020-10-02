@@ -104,8 +104,16 @@ const transform = (data) => {
         }
 
         if (row.brandText) {
+          let Btext = '';
+          if(row.name){
+            row.name.forEach(item => {
+                Btext = item.text.split(' ')[0];
+            });
+            }
           row.brandText.forEach(item => {
-            item.text = item.text ? item.text.split(' ')[0] : ' ';
+            if(item.text === 'BRAND'){
+              item.text = Btext;
+            } 
           });
         }
         if (row.category) {
