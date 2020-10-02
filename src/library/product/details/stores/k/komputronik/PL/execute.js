@@ -6,7 +6,7 @@ module.exports = {
     store: 'komputronik',
     domain: 'komputronik.pl',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//h2[contains(text(),"404")]',
     zipcode: "''",
   },
 };
