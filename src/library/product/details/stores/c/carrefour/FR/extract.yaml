@@ -26,8 +26,9 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: concat(//div[@id="data-produit-card"]//span[contains(@class,"ds-title pdp-card__brand ds-title--light ds-title--m")]," ",//h1[contains(@class,"ds-title ds-title--light ds-title--l")])
     # xpath: //div[@id="data-produit-card"]//h1[contains(@class, "pdp-card__title")]
-    xpath: //div[@class="pdp-card__header--text"]/*[not(self::div)] 
+    # xpath: //div[@class="pdp-card__header--text"]/*[not(self::div)] 
     # xpath: //div[@class="pdp-card__header--text"]
   - name: listPrice
     singleValue: false

@@ -115,6 +115,17 @@ const transform = (data) => {
               },
             ];
           }
+          // if (row.nameExtended) {
+          //   let text = '';
+          //   row.nameExtended.forEach(item => {
+          //     text += `${item.text} - `;
+          //   });
+          //   row.nameExtended = [
+          //     {
+          //       text: text.slice(0,2),
+          //     },
+          //   ];
+          // }
       }
     }
     data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
