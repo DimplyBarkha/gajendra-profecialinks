@@ -2,4 +2,10 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields: null
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@class='price']/div/div/font/font/text()
+  - name: name
+    singleValue: true
+    xpath: //div[@class='title-top']/h2/text()

@@ -5,9 +5,9 @@ module.exports = {
     country: 'IL',
     store: 'lastprice',
     domain: 'lastprice.co.il',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.lastprice.co.il/category.asp?q={searchTerms}',
+    loadedSelector: 'div.price > div > div.sm > font > font',
+    noResultsXPath: '//h4//span[contains(text(),"לא נמצאו מוצרים")]',
     zipcode: '',
   },
 };
