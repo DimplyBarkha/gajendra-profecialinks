@@ -5,6 +5,24 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  const cleanUp = (data, context) => {
+    const clean = text => text.toString()
+      .replace(/\r\n|\r|\n/g, ' ')
+      .replace(/&amp;nbsp;/g, ' ')
+      .replace(/&amp;#160/g, ' ')
+      .replace(/\u00A0/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/"\s{1,}/g, '"')
+      .replace(/\s{1,}"/g, '"')
+      .replace(/^ +| +$|( )+/g, ' ')
+      // eslint-disable-next-line no-control-regex
+      .replace(/[\x00-\x1F]/g, '')
+      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+      el.text = clean(el.text);
+    }))));
+    return data;
+  };
   for (const { group } of data) {
     for (const row of group) {
       if (row.specifications) {
@@ -18,8 +36,8 @@ const transform = (data) => {
         row.additionalDescBulletInfo.forEach(item => {
           bullet_info.push(item.text);
         });
-        if(bullet_info.length){
-          row.additionalDescBulletInfo = [{"text": "| " + bullet_info.join(" | ")}];
+        if (bullet_info.length) {
+          row.additionalDescBulletInfo = [{ "text": "| " + bullet_info.join(" | ") }];
         }
       }
       if (row.category) {
@@ -53,7 +71,7 @@ const transform = (data) => {
             data['variations'].forEach(variation => {
               variations.push(variation['sku']);
               v_info.push(variation['color']);
-              if(variation['sku'] == row.sku[0]['text']){
+              if (variation['sku'] == row.sku[0]['text']) {
                 row.firstVariant = [{ "text": variation['sku'] }];
               }
             });
@@ -70,7 +88,7 @@ const transform = (data) => {
           delete row.variants;
           row.variantCount = [{ "text": 0 }];
         }
-        if(v_info.length){
+        if (v_info.length) {
           row.variantInformation = [{ "text": v_info.join(' | ') }];
         }
       }
@@ -84,12 +102,13 @@ const transform = (data) => {
         row.description.forEach(item => {
           description_ar.push(item.text);
         });
-        if(description_ar.length){
-          row.description = [{"text": description_ar.join(" | ")}];
+        if (description_ar.length) {
+          row.description = [{ "text": description_ar.join(" | ") }];
         }
-      }      
+      }
     }
   }
+  cleanUp(data);
   return data;
 };
 
