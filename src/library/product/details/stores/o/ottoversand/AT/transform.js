@@ -43,10 +43,16 @@ const transform = (data, context) => {
               row.aggregateRating = [{ text: tempaggregateRating[1].replace('"','').replace('.',',').trim() }];                          
              }
 
+             if (row.variantId) {              
+              let tempsku= row.sku[0].text.split(':')
+              row.variantId = [{ text: tempsku[1].replace('"','').replace('"','').replace(',','').trim() }];                                        
+             }
+
              if (row.sku) {
               let tempsku= row.sku[0].text.split(':')
               row.sku = [{ text: tempsku[1].replace('"','').replace('"','').replace(',','').trim() }];                          
-             }
+             }              
+            
 
              if (row.brandText) {               
               let tempbrandText= row.brandText[1].text.split(':')
