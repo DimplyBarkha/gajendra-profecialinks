@@ -1,0 +1,94 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"main")] //div[@class="container pl16"]
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//div[contains(@class,"slider-native slider-preview js-slider-with-preview-gallery")]//img[contains(@class, "slider-item-image")]/@data-src)[1]
+  - name: videos
+    singleValue: false
+    xpath: //div[@id="cont_description"]//iframe/@src
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"slider-native slider-preview js-slider-with-preview-gallery")]//img[contains(@class, "slider-item-image")]/@data-src
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class, "goodDescriptionText")]//img/@data-src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class, "goodDescriptionText")]//div[@id="info-cont"]//p
+  - name: category
+    singleValue: false
+    xpath: (//div[@class="breadcrumbs qr-breadcrumbs"]/span/a)
+  - name: brandText
+    singleValue: false
+    xpath: //meta[@itemprop="brand"]/@content
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="priceContainer"]/a/@id
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@class, "gs-variant-panel")]//a/@href)
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="catalogItemDetailHd"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="catalogItemDetailHd"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="priceContainer"]//div[@class="product-box-price__old"]//span[@class="product-box-price__old-el"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="priceContainer"]//div[@class="product-box-price__active"]
+  - name: availabilityText
+    singleValue: false
+    xpath: boolean(//div[@class="buyBox   buyBoxCorners"]//a[@class="addToCartBig cartButton"])
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class, "goodDescriptionText")]/text()
+  - name: Image360Present
+    singleValue: false
+    xpath: boolean(//div[contains(@class,"product-image-button image-3d-icon js-product3dButton")])
+    defaultValue: "No"
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: boolean(//div[contains(@class, "q-tabs-navigation")]//a[contains(@data-tab, "instruction")])
+    defaultValue: "No"
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="q-article no-mobile product-article-right"]//span[@itemprop="sku"]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class="specificationTextTable q-item-full-specs-table"]//tr[(not(contains(@class, 'q123')))]//td/text()
+  - name: weightNet
+    singleValue: false
+    xpath: (//tr[td[contains(text(), "Вес")]]/td/text())[2]
+  - name: packSize
+    singleValue: false
+    xpath: (//div[p[contains(text(), "Количество предметов")]]/p)[2]
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[@id="disclaimerPopup"]//div[@class="disclaimer"]
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="product-promo-shield__title"]//text()
+  - name: aggregateRating
+    singleValue: false
+    xpath: (//span[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content)[1]
+  - name: ratingCount
+    singleValue: false
+    xpath: (//span[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content)[1]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: (//tr[td[contains(text(), "Страна")]]/td)[2]
+  - name: color
+    singleValue: false
+    xpath: (//tr[td[contains(text(), "Цвет")]]/td/text())[2]
+  - name: warranty
+    singleValue: false
+    xpath: (//tr[td[contains(text(), "Гарантия производителя")]]/td)[2]
+  - name: manufacturer
+    singleValue: false
+    xpath: //meta[@itemprop="brand"]/@content
