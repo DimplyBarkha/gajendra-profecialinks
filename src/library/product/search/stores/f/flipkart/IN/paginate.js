@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'IN',
     store: 'flipkart',
-    nextLinkSelector: 'a._3fVaIS',
+    nextLinkSelector: 'a._3fVaIS:last-child',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'span._2yAnYN',
