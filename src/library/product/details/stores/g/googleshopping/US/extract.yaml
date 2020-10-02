@@ -11,7 +11,7 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='TiQ3Vc main-image']//img[not(@xpath=1)]/@src
+    xpath: //div[@class='TiQ3Vc main-image']//img[not(@xpath=1)][position()>'1']/@src
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: false
@@ -45,7 +45,7 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: false
-    xpath: //div[@id="added-brandText"]
+    xpath: //div[@id="added-brandText"]  | //td[contains(text(),'Brand')]/following-sibling::td
   - name: manufacturer
     singleValue: false
   - name: quantity
@@ -63,9 +63,9 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
-    xpath: //div[@id="added-gtin"]
-    regExp: ([^ ]+),.*
-    regExpReplace: $1
+    xpath: //div[@id="added-gtin"]  |  //td[contains(text(),'GTIN')]/following-sibling::td
+    # regExp: ([\d]+)([^ ]+),(.*)
+    # regExpReplace: $1
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
@@ -105,10 +105,10 @@ fields:
     xpath: //div[@class='uYNZm']/text()
     description: The stated aggregate rating normalized to be out of 5
     #type: NUMBER
-  - name: shippingInfo
-    singleValue: false
-    xpath: //a[@class='sh-osd__seller-link shntl']//span[1]//text()
-    description: Shipping information for the product
+  # - name: shippingInfo
+  #   singleValue: false
+  #   xpath: //a[@class='sh-osd__seller-link shntl']//span[1]//text()
+  #   description: Shipping information for the product
   - name: shippingDimensions
     singleValue: false
     xpath: //div[@id="added-shippingDimensions"] 
@@ -129,10 +129,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id ="added-manufacturer-description"]
+    regExp: Shopping Search Google Shopping Sign in(.+)
+    regExpReplace: $1
     #  //div[@class='RmXrwd']//span/text()
   - name: manufacturerImages
     xpath: //div[contains(@id, "added-manufacturerImages-")]
-    
     singleValue: false
   - name: videos
     singleValue: false
