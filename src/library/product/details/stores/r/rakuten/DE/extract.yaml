@@ -75,20 +75,20 @@ fields:
   - name: gtin #to
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@class="product-data"]//span[@class="key"][text()="EAN"]/following-sibling::span[@class="value"]
+    xpath: //div[contains(@class, "product")]//span[@class="key"][text()="EAN"]/following-sibling::span[@class="value"]
   - name: sku #to
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class="product-data"]//span[@class="key"][text()="Artikelnummer"]/following-sibling::span[@class="value"]
+    xpath: //div[contains(@class, "product")]//span[@class="key"][text()="Artikelnummer"]/following-sibling::span[@class="value"]
   - name: variantId #to
     singleValue: true
     description: Identifier for a variant from a store where variants share the same
       sku
-    xpath: //div[@class="product-data"]//span[@class="key"][text()="MPN"]/following-sibling::span[@class="value"]
+    xpath: //div[contains(@class, "product")]//span[@class="key"][text()="MPN"]/following-sibling::span[@class="value"]
   - name: mpc #to
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@class="product-data"]//span[@class="key"][text()="MPN"]/following-sibling::span[@class="value"]
+    xpath: //div[contains(@class, "product")]//span[@class="key"][text()="MPN"]/following-sibling::span[@class="value"]
   - name: packSize #to
     singleValue: true
     description: The number of packs in the product offer (if stated separately on the
