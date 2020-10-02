@@ -60,6 +60,36 @@ module.exports = {
       await context.waitForNavigation({ timeout });
       await context.waitForXPath('//div[@id="product-detail-page"]', { timeout });
       try {
+      await context.waitForXPath('//button[@id="footer_tc_privacy_button"]', { timeout });
+      await context.evaluateInFrame('iframe', () => {
+        let cookieButton = document.querySelector('button#footer_tc_privacy_button');
+        if (cookieButton) {
+          // @ts-ignore
+          cookieButton.click();
+        }
+      });
+      } catch (error) {
+        console.log('error: ', error);
+      }
+    }
+    try {
+      await context.waitForXPath('//button[@id="footer_tc_privacy_button"]', { timeout });
+      await context.evaluateInFrame('iframe', () => {
+        let cookieButton = document.querySelector('button#footer_tc_privacy_button');
+        if (cookieButton) {
+          // @ts-ignore
+          cookieButton.click();
+        }
+      });
+      
+    } catch (error) {
+      console.log('error: ', error);
+
+    }
+    await context.evaluate(async function () {
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+        // await context.waitForXPath('//button[@id="footer_tc_privacy_button"]', { timeout: 30000 });
         let cookieButton = document.querySelector('button#footer_tc_privacy_button');
         if (cookieButton) {
           // @ts-ignore
@@ -67,22 +97,21 @@ module.exports = {
         }
       } catch (error) {
         console.log('error: ', error);
-
+  
+      }
+    async function infiniteScroll () {
+      let prevScroll = document.documentElement.scrollTop;
+      while (true) {
+        window.scrollBy(0, document.documentElement.clientHeight);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const currentScroll = document.documentElement.scrollTop;
+        if (currentScroll === prevScroll) {
+          break;
+        }
+        prevScroll = currentScroll;
       }
     }
-    //   if (responseStatus.url) {
-    //     console.log('responseStatus.url: ', responseStatus.url);
-    //   return context.reportBlocked(responseStatus.url, 'Blocked: ' + responseStatus.url);
-    // }
-    try {
-      let cookieButton = document.querySelector('button#footer_tc_privacy_button');
-      if (cookieButton) {
-        // @ts-ignore
-        cookieButton.click();
-      }
-    } catch (error) {
-      console.log('error: ', error);
-
-    }
+    await infiniteScroll();
+  })
   },
 };

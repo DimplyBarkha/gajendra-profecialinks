@@ -18,8 +18,15 @@ module.exports = {
     await context.evaluate(async function () {
       try {
         await new Promise((resolve) => setTimeout(resolve, 5000));
-      }catch(error){
-        console.log(error)
+        await context.waitForXPath('//button[@id="footer_tc_privacy_button"]', { timeout: 30000 });
+        let cookieButton = document.querySelector('button#footer_tc_privacy_button');
+        if (cookieButton) {
+          // @ts-ignore
+          cookieButton.click();
+        }
+      } catch (error) {
+        console.log('error: ', error);
+  
       }
       async function infiniteScroll () {
         let prevScroll = document.documentElement.scrollTop;
