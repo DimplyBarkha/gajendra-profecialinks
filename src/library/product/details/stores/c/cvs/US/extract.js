@@ -20,8 +20,8 @@ module.exports = {
 
     // Checks to see if required information is present before continuing
     if (json && json.records && json.totalRecordCount > 0) {
-      console.log("Converted body text to json successfully");
-    // Saving the URL of the client side product page to use to check for variant names
+      console.log('Converted body text to json successfully');
+      // Saving the URL of the client side product page to use to check for variant names
       const productPageUrl = await context.evaluate(function (records) {
         const product = records[0].allMeta;
         return product.gbi_ParentProductPageUrl;
@@ -422,13 +422,13 @@ module.exports = {
 
                     if (variant.p_Sku_Color) {
                       addHiddenDiv('ii_color', variant.p_Sku_Color, newDiv);
-                      console.log("color div appended");
+                      console.log('color div appended');
                       if ('p_Sku_Color'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Color)) {
                         variantInfoArray.push(variant.p_Sku_Color);
                       }
                     }
                     else {
-                      console.log("no color present");
+                      console.log('no color present');
                     }
 
                     if (variant.p_Sku_Size) {
@@ -523,7 +523,7 @@ module.exports = {
         }
       }, json.records, json.totalRecordCount, htmlList, stockArr, variantOptions);
     } else {
-      console.log("cannot convert body text to json obj.")
+      console.log('cannot convert body text to json obj.');
       throw new Error('notFound');
     }
 
