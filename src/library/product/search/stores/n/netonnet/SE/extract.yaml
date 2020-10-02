@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div#productList > div.row > div.cProductItem
-# recordXPath: //*[contains(@class,"cProductItem")]
+recordSelector:
+recordXPath: //div[@id='productList']//div[contains(@class,"cProductItem")]
 fields: 
 - name: id
   singleValue: true

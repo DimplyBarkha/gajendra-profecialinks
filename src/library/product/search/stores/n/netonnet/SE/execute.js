@@ -6,7 +6,7 @@ module.exports = {
     store: 'netonnet',
     domain: 'netonnet.se',
     url: 'https://www.netonnet.se/Search?query={searchTerms}', 
-    loadedSelector: 'div.tab-content, div.row > div > div#productList > div.row',
+    loadedSelector: 'div#searchResultProducts > div#productList > div.row',
     noResultsXPath: '//div[contains(@class,"alert-warning search-warning")]',
     zipcode: '',
   },

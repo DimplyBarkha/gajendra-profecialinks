@@ -21,7 +21,6 @@ async function implementation(
       productTileObject = productTileObject.replace('width: ', '');
       productTileObject = productTileObject.replace('%', '');
       var reviewRatings = (Number(productTileObject) * 5) / 100;
-      console.log('JJJJ', reviewRatings.toString().replace('.', ','))
       addHiddenDiv(node, 'reviewRatings', reviewRatings.toString().replace('.', ','))
       i++;
     });
