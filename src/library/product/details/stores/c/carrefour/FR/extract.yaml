@@ -115,7 +115,7 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
-    xpath: //div[@class="marketplace-seller-label"]
+    xpath: //div[contains(@class,"marketplace-seller-label")]
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
