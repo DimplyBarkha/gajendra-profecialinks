@@ -462,3 +462,11 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+  - name: zipcode
+    singleValue: false
+    xpath: //span[contains(@id,'glow-ingress')]
+    regExp: >-
+      [\d]+
+  - name: frequently_bought_together
+    singleValue: true
+    xpath: //div[@id='sims-fbt-content']
