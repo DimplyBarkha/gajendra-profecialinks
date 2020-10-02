@@ -28,6 +28,8 @@ fields:
     singleValue: false
     #xpath: //div//span['NVfoXb']/b/text()
     xpath: //tr[position()=1]//div[@class='QXiyfd']/div/text()
+    regExp: (.+)
+    regExpReplace: $1
   - name: availabilityText
     singleValue: false
     xpath: //span[@class='Sj5GPe']/text()
@@ -84,7 +86,7 @@ fields:
     singleValue: false
     xpath: //div[@class='eyAVeb']/span/text()
     regExp: ^(.*?)\W
-    #regExpReplace: $1
+    regExpReplace: $1
   - name: warranty
     singleValue: false
     xpath: //div[@id="added-warranty"]

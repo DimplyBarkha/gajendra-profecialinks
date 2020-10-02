@@ -68,7 +68,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
       let Dimensions = '';
       try {
-        const DimensionsPath = "concat(//div[contains(text(),'Width (Shipping)')]//..//following-sibling::td/text(),'X',//div[contains(text(),'Depth (Shipping)')]//..//following-sibling::td/text(), 'X', //div[contains(text(),'Height (Shipping)')]//..//following-sibling::td/text())";
+        const DimensionsPath = "concat(//div[text()='Width']//../following-sibling::td/text(),'X',//div[text()='Depth']//..//following-sibling::td/text(), 'X', //div[text()='Height']//..//following-sibling::td/text())";
         let spText = document.evaluate(DimensionsPath, document, null, XPathResult.STRING_TYPE, null).stringValue;
         if (spText) {
           if (spText === 'XX') spText = '';
@@ -90,16 +90,25 @@ async function implementation (inputs, parameters, context, dependencies) {
         if (gtinText) gtin = gtinText;
       } catch (err) { }
 
-      const specifications = [];
+      let specifications = [];
       try {
-        const specifiTextPath = "//tr[@class='vm91i']";
-        const specIterator = document.evaluate(specifiTextPath, document, null, XPathResult.ANY_TYPE, null);
-        let thisNode = specIterator.iterateNext();
+        // const specifiTextPath = "//tr[@class='vm91i']";
+        // const specIterator = document.evaluate(specifiTextPath, document, null, XPathResult.ANY_TYPE, null);
+        // let thisNode = specIterator.iterateNext();
 
-        while (thisNode) {
-          specifications.push(thisNode.outerText);
-          thisNode = specIterator.iterateNext();
+        // while (thisNode) {
+        //   specifications.push(thisNode.outerText);
+        //   thisNode = specIterator.iterateNext();
+        // }
+        const specifiTextPath = '//table';
+        const specIterator = document.evaluate(specifiTextPath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+        const arr = specIterator.innerText.split('\n\n');
+        for (let cnt = 0; cnt < arr.length; cnt++) {
+          const txt = arr[cnt].replace('\n\t', ':');
+          specifications.push(txt);
         }
+
+        // specifications = specIterator.innerText;
       } catch (err) { }
       const colorPath = "//div[contains(text(),'Color')]//..//following-sibling::td/text()";
       const color = document.evaluate(colorPath, document, null, XPathResult.STRING_TYPE, null).stringValue;
