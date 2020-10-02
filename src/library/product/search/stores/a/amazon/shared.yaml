@@ -48,6 +48,9 @@ fields:
   - name: ratingCount
     singleValue: true
     xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
+  - name: reviewCount
+    singleValue: true
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
   - name: manufacturer
     singleValue: true
     xpath: 

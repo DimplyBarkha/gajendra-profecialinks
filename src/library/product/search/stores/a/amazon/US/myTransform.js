@@ -56,6 +56,7 @@ const transform = (data, context) => {
 
       if (row.sponsRatingCount && !row.ratingCount) {
         row.ratingCount = [{ text: row.sponsRatingCount[0].text }];
+        row.reviewCount = [{ text: row.sponsRatingCount[0].text }];
         delete row.sponsRatingCount;
       }
 
