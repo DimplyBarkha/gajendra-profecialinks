@@ -148,7 +148,7 @@ module.exports = {
       // Collecting the variant information section names in an array
       const variantOptions = await context.evaluate(function () {
         const optionList = [];
-        const optionPath = '//div[@class="css-1dbjc4n r-18u37iz r-f1odvy"]//div[@class="css-901oao r-vw2c0b"]';
+        const optionPath = '//div[@class="css-901oao r-vw2c0b"]';
         if (optionPath) {
           var element = document.evaluate(optionPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           if (element.snapshotLength > 0) {
