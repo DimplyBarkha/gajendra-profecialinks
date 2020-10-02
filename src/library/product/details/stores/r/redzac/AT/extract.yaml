@@ -34,7 +34,7 @@ fields:
       # singleValue: true
       description: The stated undiscounted price for the product
       xpath: (//*[@id="block$price$product"]//span)[1]
-      regExp: (\d+)
+      regExp: \d+\,?(\d+)?
     - name: price
       singleValue: true
       description:
@@ -99,8 +99,7 @@ fields:
     - name: mpc
       # singleValue: true
       description: The manufacturer model code (unique) of the product
-      xpath: //*[@id="objectView_page"]//h1[@class="product_name"]
-      regExp: \d*-\d*
+      xpath: //@data-flix-ean
     - name: packSize
       singleValue: true
       description:

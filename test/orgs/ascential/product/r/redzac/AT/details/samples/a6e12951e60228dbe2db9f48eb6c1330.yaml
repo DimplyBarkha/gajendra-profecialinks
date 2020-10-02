@@ -1,0 +1,126 @@
+input:
+  _url: http://redzac.at
+  URL: https://www.redzac.at/produkt/PH01-Pure-HumidifyCool-weiss-silber-275413-01-Dyson-Luftreiniger
+extractions:
+  - html: https://workbench.import.io/html/run=b9217ee8-b697-4763-8506-173374cca887/task=3637b12b-e3eb-464f-8444-5c44c3195a3c/8a0b072f-6a88-4e5c-94f2-48aeaa412312.html
+    extractionConfigId: product/details/stores/r/redzac/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.redzac.at/Produktabbildung/Dyson-PH01-Pure-HumidifyCool-weiss-silber-275413-01-Abbildung-1.webp?V1ID011421845Nfiles/110488/rzat_product_image_detail_uhd__webp
+                xpath: /html/body/div[9]
+            imageAlt:
+              - text: Produktabbildung Dyson PH01 Pure Humidify+Cool weiß/silber (275413-01)
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/picture[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.redzac.at/iconparc_static/content/uploads/Frontend/catalogItem/011/421/011421845/files/110489/rzat_product_image_detail.jpg?version=1586875277198
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/a[1]/@data-image_detail
+              - text: https://www.redzac.at/iconparc_static/content/uploads/Frontend/catalogItem/011/421/011421845/files/110491/rzat_product_image_detail.jpg?version=1586875294194
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/@data-image_detail
+              - text: https://www.redzac.at/iconparc_static/content/uploads/Frontend/catalogItem/011/421/011421845/files/110493/rzat_product_image_detail.jpg?version=1586875306643
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/a[1]/@data-image_detail
+              - text: https://www.redzac.at/iconparc_static/content/uploads/Frontend/catalogItem/011/421/011421845/files/110496/rzat_product_image_detail.jpg?version=1586875319706
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/@data-image_detail
+              - text: https://www.redzac.at/iconparc_static/content/uploads/Frontend/catalogItem/011/421/011421845/files/110499/rzat_product_image_detail.jpg?version=1586875335714
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[1]/a[1]/@data-image_detail
+              - text: https://www.redzac.at/iconparc_static/content/uploads/Frontend/catalogItem/011/421/011421845/files/110504/rzat_product_image_detail.jpg?version=1586875350016
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/@data-image_detail
+            metaKeywords:
+              - text: Dyson, PH01, Pure, Humidify+Cool, weiß/silber, (275413-01), Luftreiniger,
+                  Klima & Heizen, Red Zac, Shop, kaufen
+                xpath: /html/head[1]/meta[11]/@content
+            category:
+              - text: Home Produkte Haushalt & Küche Klima & Heizen Luftreiniger Dyson PH01 Pure
+                  Humidify+Cool weiß/silber (275413-01)
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]
+            nameExtended:
+              - text: PH01 Pure Humidify+​Cool weiß/​silber (275413-01)
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/h1[1]
+            listPrice:
+              - text: 699,
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/span[1]
+            price:
+              - text: 699,
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
+            availabilityText:
+              - text: Lagernd im Versandlager und bei 5 HändlernInnerhalb von 4-5 Werktagen bei
+                  Ihnen oder abholbereit bei Ihrem Händler
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[4]/p[1]
+            description:
+              - text: >-
+                  Der Luftreiniger von Dyson mit Befeuchtungs- und
+                  Ventilatorfunktion
+                   Trockene Luft kann zu Dehydrierung führen. Der Dyson Luftbefeuchter mit Luftreinigungsfunktion hält automatisch das richtige Feuchtigkeitsniveau in der Raumluft aufrecht. Für eine angenehmere Umgebung das ganze Jahr.
+                   Entfernt Gase und ultrafeine Partikel
+                   Der Dyson Pure Humidify+Cool™ verfügt über ein versiegeltes 360˚-Filtrationssystem. Es kombiniert einen Aktivkohlefilter zum Entfernen von Gasen und Gerüchen und einen versiegelten HEPA-Filter zum Entfernen von 99,95 % der ultrafeinen Partikel. 
+                   Tötet potenziell schädliche Bakterien ab
+                   Dyson Ultraviolet Cleanse Technologie setzt jeden Tropfen Wasser einem ultravioletten Licht aus. Dadurch werden 99,9 % der Bakterien im Wasser entfernt. 
+                   Mehr als 36 Stunden lang hygienische Befeuchtung 
+                   Ein effizientes Wassermanagementsystem und ein 5-Liter-Wassertank sorgen für kontinuierliche Befeuchtung ohne regelmäßiges Nachfüllen.
+                   Vermischt und verteilt die Luft in drei Modi
+                   Die Air Multiplier™ Technologie verteilt bis zu 350 Liter kühlende Luft 5 pro Sekunde. Die Luft wird dabei vermischt und im gesamten Raum 4 verteilt, sodass Sie keine trockene, verbrauchte Luft einatmen. Wählen Sie zwischen dem Ventilatormodus, dem Brise-Modus, um eine kühlende, erfrischende Brise zu imitieren und in den Wintermonaten können Sie die Verteilungsfunktion nutzen, um die Luft zu reinigen und zu befeuchten – ohne direkten frontalen Luftstrom.
+                   Kühlender Effekt durch Verdunstung
+                   Für angenehme Luft an heißen, trockenen Tagen. Der biostatische Verdampfer absorbiert Wärmeenergie und wandelt sie in einen kühlenden, erfrischenden Luftstrom um.
+                   Einfache Filterwartung
+                   Die integrierte Erinnerungsfunktion zeigt an, wann die Filter gewechselt werden müssen. Der Austausch der Filter ist schnell und einfach. Somit stellen Sie sicher, dass Ihr Gerät immer optimal arbeitet.
+                   Dauerhafte hygienische Luftbefeuchtung
+                   Der Tiefreinigungsmodus entfernt Kalkablagerungen im gesamten Wassersystem des Geräts. Auf Knopfdruck wird der Zyklus aktiviert und Sie werden durch einen einfachen Schritt-für-Schritt-Prozess geführt.
+                   Vollständige Kontrolle auf Knopfdruck
+                   Mit der Dyson Link App können Sie Ihren Luftbefeuchter mit Luftreinigungsfunktion überwachen und steuern.7 So können Sie die Raumluftbedingungen in Ihrer Wohnung von überall aus nachvollziehen und anpassen.
+                  Der erste Luftreiniger von Dyson mit Befeuchtungs- und Ventilatorfunktion. Entfernt Gase und ultrafeine Partikel. Tötet potenziell schädliche Bakterien ab. Mehr als 36 Stunden lang hygienische Befeuchtung. Kühlender Effekt durch Verdunstung. Vermischt und verteilt die Luft in drei Modi. Einfache Filterwartung. Dauerhafte hygienische Luftbefeuchtung. Vollständige Kontrolle auf Knopfdruck. Kabellänge 1,83 m. Fernbedienung. Sleep-Timer. Intervall Aus, 30 min, 1 h, 2 h, 4 h, 8 h. 
+
+                  Nachtmodus. Dyson Link-App Ja, iOS App Store oder Google Play Store.
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
+            weightNet:
+              - text: 8,29
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[6]/td[2]
+            mpc:
+              - text: "5025155046302"
+                xpath: /html/head[1]/script[13]/@data-flix-ean
+            legalDisclaimer:
+              - text: Alle Preise sind Online-Werbepreise in Euro inklusive gesetzlicher MwSt.
+                  und können von den Preisen Ihres Red Zac-Händlers vor Ort
+                  abweichen. Die Produktabbildungen können vom Original
+                  abweichen. Informationen zu allfällig bestehenden
+                  Herstellergarantien erhalten Sie auf den Internetseiten des
+                  jeweiligen Herstellers. Der gesetzliche
+                  Gewährleistungsanspruch des Verbrauchers wird durch allfällige
+                  Garantiezusagen des Herstellers nicht berührt, besteht also
+                  unabhängig davon. Wir liefern nur innerhalb von Österreich.
+                xpath: /html/body/div[6]/div[2]/div[1]/div[2]
+            color:
+              - text: weiß
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[6]/tr[2]/td[2]
+            specifications:
+              - text: Breite (cm) 22 Höhe (cm) 92,3 Tiefe (cm) 15,5
+                xpath: /html/body/div[10]
+            warranty:
+              - text: Alle Preise sind Online-Werbepreise in Euro inklusive gesetzlicher MwSt.
+                  und können von den Preisen Ihres Red Zac-Händlers vor Ort
+                  abweichen. Die Produktabbildungen können vom Original
+                  abweichen. Informationen zu allfällig bestehenden
+                  Herstellergarantien erhalten Sie auf den Internetseiten des
+                  jeweiligen Herstellers. Der gesetzliche
+                  Gewährleistungsanspruch des Verbrauchers wird durch allfällige
+                  Garantiezusagen des Herstellers nicht berührt, besteht also
+                  unabhängig davon. Wir liefern nur innerhalb von Österreich.
+                xpath: /html/body/div[6]/div[2]/div[1]/div[2]
+            quantity:
+              - text: "1"
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: de_DE
+                value: 0
+            descriptionBullets:
+              - text: "9"
+                type: NUMBER
+                raw: "9"
+                locale: de_DE
+                value: 9
+        xpath: /
+    timestamp: 1601653156063
