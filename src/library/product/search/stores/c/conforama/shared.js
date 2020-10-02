@@ -56,6 +56,7 @@ const transform = (data, context) => {
         }
         if (row.aggregateRating2) {
           row.aggregateRating2.forEach(item => {
+            item.text = Number(item.text).toFixed(2);
             item.text = item.text.replace('.', ',');
           });
         }
