@@ -67,7 +67,6 @@ const transform = (data) => {
       rank++;
     }
   }
-  cleanUp(data);
-  return data;
+  return cleanUp(data);
 };
 module.exports = { transform };
