@@ -20,12 +20,14 @@ fields:
     singleValue: false
   - name: nameExtended
     singleValue: false
+    xpath: //span[@class='BvQan sh-t__title-pdp sh-t__title translate-content']/text()
   - name: listPrice
     singleValue: false
     #xpath: normalize-space(//div//span['NVfoXb']/b/text())
   - name: price
     singleValue: false
-    xpath: string(//div//span['NVfoXb']/b/text())
+    #xpath: //div//span['NVfoXb']/b/text()
+    xpath: //tr[position()=1]//div[@class='QXiyfd']/div/text()
   - name: availabilityText
     singleValue: false
     xpath: //span[@class='Sj5GPe']/text()
@@ -68,7 +70,7 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //a[@data-sid='online']/@href
-    regExp: product\W([^?]+)
+    regExp: product\W([\d]+)
     regExpReplace: $1
   - name: mpc
     singleValue: false
@@ -78,9 +80,11 @@ fields:
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
-  - name: directions
+  - name: firstVariant
     singleValue: false
-    description: Content under "directions" header
+    xpath: //div[@class='eyAVeb']/span/text()
+    regExp: ^(.*?)\W
+    #regExpReplace: $1
   - name: warranty
     singleValue: false
     xpath: //div[@id="added-warranty"]
@@ -90,9 +94,10 @@ fields:
     xpath: //div[@class='shop__secondary qIEPib']/text()
     description: The number of ratings
     #type: NUMBER
-  - name: aggregateRatingText
+  - name: variantInformation
     singleValue: false
-    description: The stated aggregate rating
+    xpath: //div[@class='eyAVeb']/text() | //div[@id='TypeV67aGc']/text()
+    
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class='uYNZm']/text()
@@ -111,8 +116,9 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
+    xpath: count(//div[@class='sh-dvp__container']/div)
     description: Number of variants listed
-    type: NUMBER
+    #type: NUMBER
   - name: color
     singleValue: false
     xpath: //div[@id="added-color"]
@@ -136,7 +142,7 @@ fields:
     xpath: //span[@class='BvQan sh-t__title-pdp sh-t__title translate-content']/text()
   - name: Dimensions
     singleValue: false
-    xpath: //concat(//div[contains(text(),'Width')]//..//following-sibling::td/text(),' X  ',//div[contains(text(),'Depth')]//..//following-sibling::td/text(), ' X ', //div[contains(text(),'Height')]//..//following-sibling::td/text())
+    xpath: //div[@id='added-Dimensions']
   - name: privacyPolicy
     singleValue: true
     xpath:  //div[@id='vqqGxe']//a[contains(text(),'Privacy & Terms')]   
@@ -145,3 +151,6 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //div[contains(@id, "added-spec-")]
+
+ 
+  

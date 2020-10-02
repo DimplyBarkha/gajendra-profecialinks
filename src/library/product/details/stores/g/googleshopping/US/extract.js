@@ -38,7 +38,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   // Function to fetch manufacturer content and mnufacturer images after visiting iframe URL
   async function fetchSpecs (url) {
-    await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
     return await context.evaluate(async function () {
       const weightNetPath = "//div[contains(text(),'Weight')]//..//following-sibling::td/text()";
       const weightNet = document.evaluate(weightNetPath, document, null, XPathResult.STRING_TYPE, null).stringValue;
@@ -58,9 +58,22 @@ async function implementation (inputs, parameters, context, dependencies) {
 
       let shippingDimensions = '';
       try {
-        const shippingDimensionsPath = "concat(//div[contains(text(),'Width (Shipping)')]//..//following-sibling::td/text(),' X  ',//div[contains(text(),'Depth (Shipping)')]//..//following-sibling::td/text(), ' X ', //div[contains(text(),'Height (Shipping)')]//..//following-sibling::td/text())";
-        const spText = document.evaluate(shippingDimensionsPath, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        const shippingDimensionsPath = "concat(//div[contains(text(),'Width (Shipping)')]//..//following-sibling::td/text(),'X',//div[contains(text(),'Depth (Shipping)')]//..//following-sibling::td/text(), 'X', //div[contains(text(),'Height (Shipping)')]//..//following-sibling::td/text())";
+        let spText = document.evaluate(shippingDimensionsPath, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        if (spText) {
+          if (spText === 'XX') spText = '';
+        }
         if (spText) shippingDimensions = spText;
+      } catch (err) { }
+
+      let Dimensions = '';
+      try {
+        const DimensionsPath = "concat(//div[contains(text(),'Width (Shipping)')]//..//following-sibling::td/text(),'X',//div[contains(text(),'Depth (Shipping)')]//..//following-sibling::td/text(), 'X', //div[contains(text(),'Height (Shipping)')]//..//following-sibling::td/text())";
+        let spText = document.evaluate(DimensionsPath, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        if (spText) {
+          if (spText === 'XX') spText = '';
+        }
+        if (spText) Dimensions = spText;
       } catch (err) { }
 
       let shippingWeight = '';
@@ -91,20 +104,19 @@ async function implementation (inputs, parameters, context, dependencies) {
       const colorPath = "//div[contains(text(),'Color')]//..//following-sibling::td/text()";
       const color = document.evaluate(colorPath, document, null, XPathResult.STRING_TYPE, null).stringValue;
 
-      return { brandText, weightNet, color, warranty, shippingDimensions, shippingWeight, gtin, specifications };
+      return { brandText, weightNet, color, warranty, shippingDimensions, Dimensions, shippingWeight, gtin, specifications };
     });
   }
   async function fetchManImg (url) {
-    await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
     return await context.evaluate(async function () {
       const imageArray = [];
       const manufacturerDescription = document.body.innerText;
       try {
         const manufacturerImagesList = document.querySelectorAll('img');
         for (let i = 0; i < manufacturerImagesList.length; i++) {
-          const tempUrl = manufacturerImagesList[i].getAttribute('src');
-          if (tempUrl.indexOf('base64') > -1) continue;
           const imagUrl = manufacturerImagesList[i].getAttribute('src');
+          if (imagUrl.indexOf('base64') > -1) continue;
           imagUrl && imageArray.push(imagUrl);
         }
       } catch (err) { }
@@ -126,10 +138,12 @@ async function implementation (inputs, parameters, context, dependencies) {
         addHiddenDiv('added-brandText', manContentObj.brandText);
         addHiddenDiv('added-color', manContentObj.color);
         addHiddenDiv('added-warranty', manContentObj.warranty);
-        addHiddenDiv('added-shippingDimensions', manContentObj.shippingDimensions);
+        if (manContentObj.shippingDimensions) {
+          addHiddenDiv('added-shippingDimensions', manContentObj.shippingDimensions);
+        }
         addHiddenDiv('added-shippingWeight', manContentObj.shippingWeight);
         addHiddenDiv('added-gtin', manContentObj.gtin);
-
+        addHiddenDiv('added-Dimensions', manContentObj.Dimensions);
         for (let i = 0; i < manContentObj.specifications.length; i++) {
           addHiddenDiv('added-spec-' + i, manContentObj.specifications[i]);
         }
@@ -162,13 +176,13 @@ async function implementation (inputs, parameters, context, dependencies) {
   if (specsLink) {
     manContentObj = await fetchSpecs(specsLink);
     console.log('manContentObj', manContentObj);
-    await context.goto(inputs.url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(inputs.url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
   }
   let manImageObj;
   if (imageLink) {
     manImageObj = await fetchManImg(imageLink);
     console.log('manImageObj', manImageObj);
-    await context.goto(inputs.url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(inputs.url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
   }
 
   await addContentToDOM(manContentObj, specsLink);
