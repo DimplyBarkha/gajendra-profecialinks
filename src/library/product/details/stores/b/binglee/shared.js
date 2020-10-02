@@ -19,6 +19,7 @@ const transform = (data, context) => {
 
       if (row.aggregateRating) {
         let rating = JSON.parse(row.aggregateRating[0].raw).aggregateRating.ratingValue
+        rating = rating > 0 ? rating : ''
         row.aggregateRating = [{
           "text": rating,
           "raw": rating,

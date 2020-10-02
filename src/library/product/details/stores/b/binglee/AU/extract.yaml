@@ -21,10 +21,6 @@ fields:
   - name: nameExtended
     singleValue:
     xpath: //div[@class='product-view']//h1/text()
-  - name: listPrice
-    singleValue: false
-    xpath: //div[@class='product-shop-wrapper col-md-4 col-sm-6']//meta/@content | //div[@class='price-box']//meta/@content
-    description: The stated undiscounted price for the product
   - name: price
     singleValue: false
     xpath: //div[@class='product-shop-wrapper col-md-4 col-sm-6']//meta/@content | //div[@class='price-box']//meta/@content
@@ -32,7 +28,6 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    #xpath: //button[@class='button btn-xl btn-orange button-add-to-cart']
     xpath: //meta[@property='product:availability']//@content
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
@@ -40,24 +35,12 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-  #- name: description
-  #  singleValue: false
-  #  xpath: //div[@class='std']//h2[@class='blproduct_heading'] | //div[@class='std']//p[@class='blproduct_heading_text']
-  #- name: descriptionBullets
-  #  singleValue: true
-  #  xpath: count(//div[@id='specification']//tr//td)
-  #  description: Number of ul > li tags in the description
-  #  type: NUMBER
   - name: brandText
     singleValue: true
     xpath: //meta[@property='product:brand']//@content
     description:
       Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-  - name: manufacturer
-    singleValue: true
-    xpath: //meta[@property='product:brand']//@content
-    description: Product manufacturer
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -83,10 +66,6 @@ fields:
     singleValue: true
     xpath: //script[contains(text(),'currentProductData')]
     regExp: ("id":(\d+))
-  #- name: mpc
-  #  singleValue: true
-  #  xpath: //div[@id='specification']//tr[1]//td[@class='data']
-  #  description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
     description:
@@ -467,16 +446,10 @@ fields:
     description:
       In product page, information about a new version of the product -
       new asin info
-  #- name: newDescription
-  #  singleValue: true
-  #  xpath: //div[@id='overview']
   - name: variantInformation
     singleValue: true
     xpath: //div[@id='specification']//th[contains(text(), 'Colour/Finish')]/following::td[1]
     description: colour / scent / flavour / other
-  #- name: firstVariant
-  #  singleValue: true
-  # xpath: //div[@id='specification']//tr[1]//td[@class='data']
   - name: variants
     singleValue: false
     description: null
