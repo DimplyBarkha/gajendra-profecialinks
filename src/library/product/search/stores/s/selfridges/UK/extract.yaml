@@ -1,0 +1,66 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: url
+    singleValue: true
+    description: the url of the page
+    xpath: //meta[@property="og:url"]/@content
+  - name: price
+    singleValue: true
+    xpath: //span[@class="c-prod-card__cta-box-price"]
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+    xpath: //h5[@class="c-prod-card__cta-box-product-title"]
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class="megamenu component section default-style"]//ul//li
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+        e.g. "Visit the Gillette Store"
+    xpath: //div[@class="richText-content"]//h1
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+        and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //span[@class="c-prod-card__cta-box-description"]
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //span[@class="c-prod-card__cta-box-description"]
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: variantId
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page.
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@class="c-prod-card__cta-box-wishlist"]//button/@data-product-wcid
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+    selector: span.marketplace-sold-by-company-name
+    defaultValue: selfridges.com
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+ 
+    
