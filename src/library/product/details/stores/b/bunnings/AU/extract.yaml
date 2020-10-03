@@ -14,7 +14,8 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class, "product-image__main-image-item bui-page-container slick-slide")]//picture//img//@src
+    xpath: //div[contains(@class, "product-image__main-image-item bui-page-container slick-slide") and position()>1]//picture//img//@src
+    # xpath: //div[contains(@class, "product-image__main-image-item bui-page-container slick-slide")]//picture//img//@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -92,7 +93,7 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: //section[contains(@class, "package-dimension-table")]//table//tbody//tr[1]//th[2]
+    # xpath: //section[contains(@class, "package-dimension-table")]//table//tbody//tr[1]//th[2]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -120,7 +121,8 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //dl[contains(@class, "product-detail-sellershippingpolicy")]//dd[contains(@class, "bui-accordion__panel")]//div//div//p
+    xpath: //div[contains(@class,'seller-brand-logo')]//img//@alt
+    # xpath: //dl[contains(@class, "product-detail-sellershippingpolicy")]//dd[contains(@class, "bui-accordion__panel")]//div//div//p
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
@@ -132,7 +134,9 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    xpath: count(//div[contains(@class,'testvariantCount')])
     type: NUMBER
+    defaultValue: 0
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -146,7 +150,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class="product-image__nav-logo"]//a//img//@src
+    # xpath: //div[@class="product-image__nav-logo"]//a//img//@src
   - name: videos
     singleValue: true
     description: URLs of videos on page
@@ -502,8 +506,8 @@ fields:
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
-    xpath: //dl[contains(@id, "product-detail-sellerreturnpolicy")]//dd//div//div//p
+    # defaultValue: No
+    xpath: count(//dl[contains(@id, "product-detail-sellerreturnpolicy")]//dd//div//div//p)
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']

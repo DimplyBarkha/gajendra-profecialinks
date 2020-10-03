@@ -5,6 +5,20 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+
+	const clean = text => text.toString()
+		.replace(/\r\n|\r|\n/g, ' ')
+		.replace(/&amp;nbsp;/g, ' ')
+		.replace(/&amp;#160/g, ' ')
+		.replace(/\u00A0/g, ' ')
+		.replace(/\s{2,}/g, ' ')
+		.replace(/"\s{1,}/g, '"')
+		.replace(/\s{1,}"/g, '"')
+		.replace(/^ +| +$|( )+/g, ' ')
+		// eslint-disable-next-line no-control-regex
+		.replace(/[\x00-\x1F]/g, '')
+		.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+
 	for (const { group } of data) {
 		for (const row of group) {
 			if (row.Image360Present) {				
@@ -17,14 +31,35 @@ const transform = (data) => {
 				row.Image360Present = [{ text: newText }];
 			}
 			
-			if (row.description) {				
+			if (row.description) {
 				let newText = '';
-				row.description.forEach(item => {
-					newText +=  `${item.text.trim() + ' || '}`;
-				});
-				
-				row.description = [{ text: newText.slice(0, -4) }];
+				let itemp=2;				
+				row.description.forEach(item => {	
+				if(itemp===row.description.length)
+				{
+				  item.text = item.text + " ";
+				}								
+				else{
+				  item.text = item.text + ' || ';
+				}	
+				newText += `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
+				itemp = itemp+ 1;
+				});	
+			  newText = newText.trim()		
+			  newText = newText.substring(0, newText.length - 2)	        
+			  row.description = [{ text: newText.trim() }];
 			}
+
+
+			// if (row.description) {				
+			// 	let newText = '';
+			// 	console.log("length:-",row.description.length);
+			// 	row.description.forEach(item => {
+			// 		newText +=  `${item.text.trim() + ' || '}`;
+			// 	});
+				
+			// 	row.description = [{ text: newText.slice(0, -4) }];
+			// }
 			
 			if (row.brandLink) {				
 				let newText = "https://www.bunnings.com.au";
@@ -73,6 +108,17 @@ const transform = (data) => {
 				row.technicalInformationPdfPresent = [{ text: newText }];
 			}
 
+			if (row.termsAndConditions) {				
+				let newText = "No";
+				row.termsAndConditions.forEach(item => {
+					if (item.text.trim() > '0') {
+						newText = "Yes";
+					}
+				});
+
+				row.termsAndConditions = [{ text: newText }];
+			}
+
 			if (row.videos) {
 				row.videos = [{ text: row.videos[0].text.slice(5) }];
 			}
@@ -99,19 +145,6 @@ const transform = (data) => {
 			  }
 		}
 	}
-
-	const clean = text => text.toString()
-		.replace(/\r\n|\r|\n/g, ' ')
-		.replace(/&amp;nbsp;/g, ' ')
-		.replace(/&amp;#160/g, ' ')
-		.replace(/\u00A0/g, ' ')
-		.replace(/\s{2,}/g, ' ')
-		.replace(/"\s{1,}/g, '"')
-		.replace(/\s{1,}"/g, '"')
-		.replace(/^ +| +$|( )+/g, ' ')
-		// eslint-disable-next-line no-control-regex
-		.replace(/[\x00-\x1F]/g, '')
-		.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
 	data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
 		el.text = clean(el.text);
