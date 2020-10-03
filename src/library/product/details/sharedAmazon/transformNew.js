@@ -277,8 +277,11 @@ const transform = (data, context) => {
       if (row.ingredientsList) {
         row.ingredientsList = [{ text: row.ingredientsList.map(item => `${item.text}`).join(' ') }];
       }
-      if (row.frequently_bought_together){
-        row.frequently_bought_together = [{ text: row.frequently_bought_together[0].text.replace(/\S/g,'')}]
+      if (row.frequently_bought_together) {
+        row.frequently_bought_together = [{ text: row.frequently_bought_together[0].text.replace(/\{([^}]*)\}/g, '') }];
+      }
+      if (row.ratings_distribution) {
+        row.ratings_distribution = [{ text: row.ratings_distribution[0].text.replace(/star/g, 'star: ') }];
       }
 
       Object.keys(row).forEach(header => row[header].forEach(el => {

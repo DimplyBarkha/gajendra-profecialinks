@@ -66,6 +66,40 @@ async function implementation (
     helpers.addItemToDocument('my-variants', variants.join(' | '));
   }
 
+  await context.evaluate(() => {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    const enhContent = document.querySelector('div#aplus');
+    if (enhContent) {
+      addHiddenDiv('enh-html', enhContent.outerHTML);
+    }
+  });
+
+  const additionalRatings = await context.evaluate(async () => {
+    const reviewSect = document.querySelector('table#histogramTable');
+    if (reviewSect) {
+      reviewSect.scrollIntoView();
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  if (additionalRatings) {
+    await context.waitForXPath('//div[@data-hook="cr-summarization-attributes-list"]//span[contains(@class,"a-size-base")]', { timeout: 5000 })
+      .catch(() => console.log('no additional ratings'));
+  }
+  const topReviews = await context.evaluate(()=>{
+    const reviewsInfo = document.querySelector('span[data-hook=cr-widget-FocalReviews]');
+    return reviewsInfo ? reviewsInfo.innerText : '';
+  });
+  helpers.addItemToDocument('top-reviews',topReviews);
+
   await context.extract(productDetails, { transform });
 }
 

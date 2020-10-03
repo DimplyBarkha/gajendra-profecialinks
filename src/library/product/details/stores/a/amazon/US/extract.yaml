@@ -28,6 +28,9 @@ fields:
   - name: category
     singleValue: false
     xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
+  - name: breadcrumbs
+    singleValue: false
+    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
   - name: nameExtended
     singleValue: true
     xpath: //span[@id="productTitle"]
@@ -109,7 +112,7 @@ fields:
     regExpReplace: $1
   - name: shippingInfo
     singleValue: false
-    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")] | //span[contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")]
+    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")] | //span[contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")] | //div[contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"]/a
   - name: shippingDimensions
     singleValue: false
     xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
@@ -469,4 +472,44 @@ fields:
       [\d]+
   - name: frequently_bought_together
     singleValue: true
-    xpath: //div[@id='sims-fbt-content']
+    xpath: //div[@id='sims-fbt-content']//*[not(self::script)]
+  - name: ad_at_top_page
+    singleValue: true
+    # xpath: //iframe[contains(@name,"ilm_desk")]
+  - name: customer_question_count
+    singleValue: true
+    xpath: count(//span[@class="askTopQandA"]//span[contains(@data-ask-log-click-csm,"top-question")])
+  - name: enhanced_content_HTML
+    xpath: //div[@id='enh-html']
+  - name: arrives
+    singleValue: true
+    xpath: //div[@id='deliveryMessageMirId']/b
+  - name: fastest_delivery
+    singleValue: true
+    xpath: //div[@id='fast-track-message']//span[@id='upsell-message']/b
+  - name: ratings_distribution
+    singleValue: true
+    xpath: //table[@id="histogramTable"]/tbody
+  - name: featured_merchant_id_new
+    singleValue: true
+    xpath: //input[@id="merchantID"]/@value
+  - name: featured_merchant_id_used
+    singleValue: true
+    xpath: //input[@id="usedMerchantID"]/@value
+  - name: sold_by_used
+    singleValue: true
+    xpath: //div[contains(@id,"usedBuyBox")]//div/a[@id="sellerProfileTriggerId"]
+  - name: sold_by_new
+    singleValue: false
+    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")] | //span[contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")] | //div[contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"]/a
+  - name: stars_by_feature
+    singleValue: false
+    xpath: //div[@data-hook="cr-summarization-attributes-list"]//span[contains(@class,"a-size-base")]
+  - name: other_offers_page
+    singleValue: true
+    xpath: //span[@data-action="show-all-offers-display"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://amazon.com$1
+  - name: top_reviews_information
+    singleValue: true
+    xpath: //div[@id="top-reviews"]
