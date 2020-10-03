@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'manor.ch',
     prefix: null,
-    url: null,
+    url: 'https://www.manor.ch/de/p/{id}',
     country: 'CH',
     store: 'manor',
     zipcode: "''",
