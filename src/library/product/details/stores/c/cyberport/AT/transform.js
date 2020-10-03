@@ -14,12 +14,40 @@ const transform = (data) => {
           });
           row.description = [{ text }];
         }
+        if (row.alternateImages) {
+          let text = '';
+          row.alternateImages.forEach(item => {
+            if(text.indexOf(item.text)<0)
+            {
+            text = text+item.text+"||";
+            }
+          });
+          text = text.substring(0,text.length-2);
+          row.alternateImages = [{ text }];
+        }
         if (row.manufacturerDescription) {
             let text = '';
             row.manufacturerDescription.forEach(item => {
               text = row.manufacturerDescription.map(elm => elm.text).join(' ').replace(/●/g, '||');
             });
             row.manufacturerDescription = [{ text }];
+          }
+
+          if (row.mpc) {
+            let text = '';            
+              text = row.mpc[0].text.replace('Herstellernummer: ','').replace('Manufacturer number: ','').trim();
+              row.mpc = [{ text }];
+          }
+
+          if (row.ratingCount) {
+            let text = '';            
+              text = row.ratingCount[0].text.replace('Bewertungen ','').replace('ratings','').trim();
+              row.ratingCount = [{ text }];
+          }
+          if (row.aggregateRating) {
+            let text = '';            
+              text = row.aggregateRating[0].text.replace(' von 5 Sternen','').replace(' out of 5 stars','').trim();
+              row.aggregateRating = [{ text }];
           }
         
       }
