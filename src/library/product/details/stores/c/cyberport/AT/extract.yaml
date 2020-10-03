@@ -82,11 +82,11 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     #xpath: //div[contains(@class,'title')]//font[contains(@style,'vertical-align')][1]
-    xpath: //span[@class='articleNumber copySmall']
+    xpath: //div[@class="productID"]//@data-product-id
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[contains(@class,'productID')]/@data-product-id
+    xpath: //div[@class="productID"]//@data-product-id
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product

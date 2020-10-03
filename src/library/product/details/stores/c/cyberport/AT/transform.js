@@ -38,7 +38,6 @@ const transform = (data) => {
               text = row.mpc[0].text.replace('Herstellernummer: ','').replace('Manufacturer number: ','').trim();
               row.mpc = [{ text }];
           }
-
           if (row.ratingCount) {
             let text = '';            
               text = row.ratingCount[0].text.replace('Bewertungen ','').replace('ratings','').trim();
