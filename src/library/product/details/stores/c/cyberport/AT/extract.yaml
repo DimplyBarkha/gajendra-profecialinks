@@ -81,7 +81,6 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    #xpath: //div[contains(@class,'title')]//font[contains(@style,'vertical-align')][1]
     xpath: //div[@class="productID"]//@data-product-id
   - name: variantId
     singleValue: true
@@ -473,8 +472,7 @@ fields:
     singleValue: false
     description: null
   - name: additionalDescBulletInfo
-    singleValue: false
-    description: null
+    singleValue: false   
     xpath: //div[contains(@class,'productDetailDescriptionBox')]//div[contains(@class,'keyfacts')]/ul
   - name: prop65Warning
     singleValue: true
