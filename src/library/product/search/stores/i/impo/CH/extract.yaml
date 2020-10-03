@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[@class='list-page__item']
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //div[@class='product-item']//@id
+  - name: name
+    singleValue: false
+    #xpath: //div[@id='6431585']//img[contains(@class,'product-listing__thumbnail__image lazyloaded')]//@alt
+    xpath: //a[@class='product-item__link product-item__solitary-brand']/text()  | //div[@class='product-item__name']
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class='product-listing__thumbnail']//@href
+    regExp: (.+)
+    regExpReplace: https://www.impo.ch$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='product-item']//img/@src
+  - name: rankOrganic
+    singleValue: false
+  - name: gtin
+    singleValue: false
+  - name: aggregateRating
+    singleValue: false
+    #xpath: //span[contains(@class,'rating rating')]
+    xpath: //span[@itemprop='ratingValue']/text()
+  - name: reviewCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    #xpath: //dd[contains(@class,'product-item__price__value product-item__price__value--lead')]//font
+    xpath: //div[@class='product-item__price__value product-item__price__value--lead']/text()
+    regExp: (.+)
+    regExpReplace: CHF$1
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: rank
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
