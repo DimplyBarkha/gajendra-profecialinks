@@ -61,7 +61,7 @@ fields:
     xpath : ancestor::html //div[@id='price']
   - name: availabilityText
     singleValue: true
-    xpath : ancestor::html //div[@id='availability']
+    xpath : //*/@stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false

@@ -207,11 +207,11 @@ module.exports = {
         // Check for the data and append to DOM
         if (dataObj) {
           if (dataObj[0].product) {
-            if (dataObj[0].product.status.toLowerCase() === 'available' || dataObj[0].product.status.toLowerCase() === 'add' || dataObj[0].product.status.toLowerCase() === 'mixed') {
-              addElementToDocument('availability', 'In Stock');
-            } else {
-              addElementToDocument('availability', 'Out Of Stock');
-            }
+            // if (dataObj[0].product.status.toLowerCase() === 'available' || dataObj[0].product.status.toLowerCase() === 'add' || dataObj[0].product.status.toLowerCase() === 'mixed') {
+            //   addElementToDocument('availability', 'In Stock');
+            // } else {
+            //   addElementToDocument('availability', 'Out Of Stock');
+            // }
             // Check for the brand  and append to DOM
             if (dataObj[0].product.brand) {
               addElementToDocument('brand', dataObj[0].product.brand);
@@ -263,6 +263,22 @@ module.exports = {
           }
         }
 
+        function getStock(variants) {
+          if (variants) {
+            if (variants.status.toLocaleLowerCase() === "add") {
+              return 'In Stock';
+            } else if (variants.status.toLocaleLowerCase() === "available") {
+              return 'In Stock';
+            } else if (variants.status.toLocaleLowerCase() === "mixed") {
+              return 'In Stock';
+            } else {
+              return 'Out Of Stock';
+            }
+          } else {
+            return 'Out Of Stock';
+          }
+        }
+
         // Number of reviews and rating
         const passKey = 'caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ';
         const productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json';
@@ -307,6 +323,7 @@ module.exports = {
                 color: variants[i].variant ? variants[i].variant[0].value : "",
                 gtin: variants[i].gtin ? variants[i].gtin : "",
                 retailer_product_code: variants[i].id.trim(""),
+                stock: getStock(variants[i]),
                 title: variants[i].variant ? variantInformation(variants[i]) : "",
                 variantDetails: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).map((e) => { return e.id }).join(' | ') : "" : "",
                 variantcount: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value }).length : 0 : 0

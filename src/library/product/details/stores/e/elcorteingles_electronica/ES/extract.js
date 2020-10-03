@@ -12,6 +12,8 @@ module.exports = {
 
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
 
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
     const enhancedContent = '#tab-content-3 .js-media-holder';
