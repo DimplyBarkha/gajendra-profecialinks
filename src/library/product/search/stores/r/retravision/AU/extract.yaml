@@ -1,23 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id='instant-search-results-container']//div[@id='ais-hits']//div[contains(@class,'ais-hit')]
 fields:
   - name: id
     xpath: //div[contains(@class,'product-sku-code')]
     singleValue: true
-  - name: name
-    xpath: //h2[contains(@class,'product-name')]
-    singleValue: true
-  - name: productUrl
-    xpath: //div[contains(@class,'product-image-area')]//a//@href
-    singleValue: true    
   - name: manufacturer
     xpath: //div[contains(@class,'manufacturer-logo')]//img//@alt
-    singleValue: true    
-  - name: thumbnail
-    xpath: //div[contains(@class,'product-image-area')]//img//@src
-    singleValue: true    
+    singleValue: true      
   - name: price
     xpath: //span[contains(@class,'regular-price')]//span
     singleValue: true 
@@ -46,3 +37,12 @@ fields:
   - name: sponsored
     singleValue: true
     description: search/listing rank
+  - name: productUrl
+    singleValue: true
+    xpath: //div[@class='item-area']//div//h2[@class='product-name']/a/@href
+  - name: thumbnail
+    singleValue: true
+    xpath: //div[@class='product-visual']//div[@class='product-image-area']/a/img/@src
+  - name: name
+    singleValue: true
+    xpath: //div[@class='item-area']//div//h2[@class='product-name']/a

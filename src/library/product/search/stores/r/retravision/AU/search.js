@@ -5,6 +5,5 @@ module.exports = {
     country: 'AU',
     store: 'retravision',
     domain: 'retravision.com.au',
-    zipcode: '',
   },
 };
