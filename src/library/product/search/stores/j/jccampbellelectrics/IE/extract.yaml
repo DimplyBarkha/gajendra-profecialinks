@@ -6,7 +6,7 @@ recordXPath: null
 fields:
   - name: price
     singleValue: false
-    xpath: (//div[@class='price-box']//p[@class='special-price']//span[@class='price']//text() | //div[@class='price-box']//span[@class='regular-price']//span[@class='price']//text())
+    xpath: (//div[@class='price-box']//span[contains(@id,'product')]//text() | //div[@class='price-box']//span[@class='regular-price']//span[@class='price']//text())
   - name: name
     singleValue: true
     xpath: //div[@class='title-top']/h2/text()

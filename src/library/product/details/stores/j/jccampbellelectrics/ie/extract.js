@@ -55,6 +55,16 @@ module.exports = {
         addElementToDocument('added_rating', rating);
       }
       
+      let scrollTop = 500;
+      while (true) {
+        window.scroll(0, scrollTop);
+        await stall(1000);
+        scrollTop += 500;
+        if (scrollTop === 10000) {
+          break;
+        }
+      }
+
       let video = getXpath("//div[@class='fullJwPlayerWarp']//div//input/@value", 'nodeValue');
       if(video != null){
       video = JSON.parse(video);
@@ -63,13 +73,13 @@ module.exports = {
       addElementToDocument('added_video', video);
     }
 
-    let manufacturerImages = getAllXpath("//*[@id='inpage_container']//div[@class='flix-background-image inpage_wowimg']/img/@srcset", 'nodeValue').join(' | ');
+    let manufacturerImages = getAllXpath("//div[@class='flix-background-image inpage_wowimg' or @class='flix-background-image']/img/@srcset", 'nodeValue').join(' | ');
     
     console.log('manufacturerImages   ' + manufacturerImages);
     addElementToDocument('added_manufacturerImages', manufacturerImages);
 
 
-    let manufacturerDescription = getAllXpath("//div[@class='flix-std-content']//div[contains(@class,'flix-std-title flix-d-h3')]//text() | //div[@class='flix-std-content']//div[contains(@class,'flix-std-desc flix-d-p')]//text()", 'nodeValue');
+    let manufacturerDescription = getAllXpath("//div[@class='flix-std-title flix-Header flix-d-h3' or @class='flix-std-desc flix-Body flix-d-p']/text()  |  //div[@class='flix-std-content']//div[contains(@class,'flix-std-title flix-d-h3')]//text() | //div[@class='flix-std-content']//div[contains(@class,'flix-std-desc flix-d-p')]//text()", 'nodeValue').join(' ');
     
     console.log('manufacturerDescription   ' + manufacturerDescription);
     addElementToDocument('added_manufacturerDescription', manufacturerDescription);
@@ -78,7 +88,7 @@ module.exports = {
     console.log('productOtherInformation  ' + productOtherInformation);
     addElementToDocument('added_productOtherInformation', productOtherInformation);
    
-    let specifications = getAllXpath("//table[@class='flix-std-specs-table']//div[@class='flix-title flix-d-p']//span/text()",'nodeValue');
+    let specifications = getAllXpath("//div[@class='flix-value flix-d-h3' or @class='flix-title flix-d-p']//span/text() | //p[@class='eky-specs-label-top']/text() | //p[@class='eky-specs-label-bottom']/span/text()",'nodeValue');
     console.log('specifications   ' + specifications);
     addElementToDocument('added_specifications', specifications);
 
@@ -137,15 +147,7 @@ module.exports = {
       // const manufacturerDescription = getAllXpath(manufacturerDescription_xpath, 'innerText');
       // addElementToDocument('added_manufacturerDescription', manufacturerDescription);
 
-      let scrollTop = 500;
-      while (true) {
-        window.scroll(0, scrollTop);
-        await stall(1000);
-        scrollTop += 500;
-        if (scrollTop === 10000) {
-          break;
-        }
-      }
+     
 
     });
     await context.extract(productDetails);

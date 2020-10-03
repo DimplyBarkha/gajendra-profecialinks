@@ -37,7 +37,7 @@ fields:
     xpath: //p[@class='old-price']//span[@class='price']//text()
   - name: price
     singleValue: true
-    xpath: (//div//p[@class='special-price']//span[@class='price']  |  //div//span[@class='regular-price']//span[@class='price'])
+    xpath: (//div//p[@class='special-price']//span[@class='price']/text()  |  //div//span[@class='regular-price']//span[@class='price']/text())
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
