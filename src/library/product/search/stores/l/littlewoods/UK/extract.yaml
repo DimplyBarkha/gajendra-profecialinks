@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class='productList']/li
+fields:
+  - name: url
+    singleValue: true
+    description: A harvest url
+    xpath: //meta[@property="og:url"]/@content
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+    example: Panasonic
+    xpath: //h1[@class='galleryHeading']/span[@itemprop='name']
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+    xpath: //div[@id='topNav']/a
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //p[@class='margin16']  
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //@data-sdg-id
+    defaultValue: 'test'
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //h2[@class='header16 margin4']
+  
