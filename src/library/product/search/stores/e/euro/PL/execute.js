@@ -7,7 +7,7 @@ module.exports = {
     domain: 'euro.com.pl',
     url: 'https://www.euro.com.pl/search.bhtml?keyword={searchTerms}',
     loadedSelector: 'div#products',
-    noResultsXPath: '/div[@id="empty-search"]',
+    noResultsXPath: '//div[@id="empty-search"]',
     zipcode: '',
   },
 };

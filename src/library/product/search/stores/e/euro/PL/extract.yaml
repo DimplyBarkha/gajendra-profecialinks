@@ -15,7 +15,8 @@ fields:
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="product-row"]//div[@class="product-photo"]/a/img[position()=1]/@src
+    xpath: //div[@class="product-row"]//div[@class="product-photo"]/a/img/@data-original|//div[@class="product-row"]//div[@class="product-photo"]/a/img/@src
+    #//div[@class="product-row"]//div[@class="product-photo"]/a/img[position()=1]/@src
     regExp: (.+)
     regExpReplace: https://www.euro.com.pl$1
   - name: aggregateRating
@@ -31,7 +32,10 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class="product-main"]//div[@class="price-normal selenium-price-normal"]/text()
-  - name: variantId
+  # - name: variantId
+  #   singleValue: false
+  #   xpath: //div[@class='selenium-product-code']/text()
+  - name: id
     singleValue: false
     xpath: //div[@class='selenium-product-code']/text()
   - name: rank
