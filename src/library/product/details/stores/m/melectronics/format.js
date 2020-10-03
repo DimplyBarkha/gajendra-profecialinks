@@ -1,5 +1,22 @@
 const transform = (data) => {
-  let final_variations = [];  
+  const cleanUp = (data, context) => {
+    const clean = text => text.toString()
+      .replace(/\r\n|\r|\n/g, ' ')
+      .replace(/&amp;nbsp;/g, ' ')
+      .replace(/&amp;#160/g, ' ')
+      .replace(/\u00A0/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/"\s{1,}/g, '"')
+      .replace(/\s{1,}"/g, '"')
+      .replace(/^ +| +$|( )+/g, ' ')
+      // eslint-disable-next-line no-control-regex
+      .replace(/[\x00-\x1F]/g, '')
+      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+      el.text = clean(el.text);
+    }))));
+    return data;
+  };
   for (const { group } of data) {
     for (const row of group) {
       if (row.alternateImages) {
@@ -12,7 +29,6 @@ const transform = (data) => {
           item.text = item.text.replace(/(\/fm-sm\/)/g, '/fm-xl/').trim();
         });
       }
-
       if (row.description) {
         let desc = [];
         row.description.forEach(item => {
@@ -23,21 +39,19 @@ const transform = (data) => {
         if (row.descriptionBullets) {
           row.descriptionBullets.forEach(item => {
             bullet_info.push(item.text);
-          });          
-        }        
-        if(desc.length){
+          });
+        }
+        if (desc.length) {
           let str = '';
-          if(bullet_info.length){
+          if (bullet_info.length) {
             str = "|| " + bullet_info.join(" || ");
           }
-          row.description = [{"text": str + " " + desc.join(" | ")}]
+          row.description = [{ "text": str + " " + desc.join(" | ") }]
         }
       }
-
       if (row.descriptionBullets) {
-        row.descriptionBullets = [{"text":row.descriptionBullets.length}];
-      }      
-      
+        row.descriptionBullets = [{ "text": row.descriptionBullets.length }];
+      }
       if (row.specifications) {
         let info = [];
         if (row.specification1) {
@@ -62,7 +76,6 @@ const transform = (data) => {
           }
         });
       }
-
       if (row.listPrice) {
         row.listPrice.forEach(item => {
           item.text = item.text.replace(/(\s*statt\s*)/g, '').trim();
@@ -82,10 +95,10 @@ const transform = (data) => {
       }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
-          item.text = item.text.replace('Durchschnittsbewertung', ''); 
+          item.text = item.text.replace('Durchschnittsbewertung', '');
           item.text = item.text.replace('.', ',').trim();
         });
-      }      
+      }
       if (row.gtin) {
         row.gtin.forEach(item => {
           //"ean":"5025155023631"
@@ -117,49 +130,46 @@ const transform = (data) => {
           var matches = /window.__INITIAL_STATE__\s+=\s*(.*?\})\;/isg.exec(item.text);
           if (matches) {
             var match_data = matches[1].replace(/(undefined)+/g, 'null');
-            let j_data = JSON.parse(match_data);                  
+            let j_data = JSON.parse(match_data);
             j_data['product']['data']['variantMatrix'];
-            if(j_data['product']['data']['variantMatrix'] && j_data['product']['data']['variantMatrix'].length > 0){                    
-              j_data['product']['data']['variantMatrix'].forEach(variants_data => {                        
-                let tmp_variations = {};                
+            if (j_data['product']['data']['variantMatrix'] && j_data['product']['data']['variantMatrix'].length > 0) {
+              j_data['product']['data']['variantMatrix'].forEach(variants_data => {
+                let tmp_variations = {};
                 tmp_variations["variantUrl"] = [];
                 tmp_variations["variant"] = [];
-                if(variants_data['variantOption']['code']){
+                if (variants_data['variantOption']['code']) {
                   temp_variant_ids.push(variants_data['variantOption']['code']);
-                }                
-                if(variants_data['variantValueCategory']['name']){
+                }
+                if (variants_data['variantValueCategory']['name']) {
                   temp_variant_infos.push(variants_data['variantValueCategory']['name']);
                 }
-                //final_variations.push(tmp_variations);
               });
             }
-            else{
+            else {
               item.text = '';
-              //delete item.variantId;
             }
-          } else{
+          } else {
             item.text = '';
-            //delete item.variantId;
           }
-        });        
-        if(temp_variant_ids.length){          
-          row.firstVariant = [{'text':row.variantId[0].text}];
-          row.variantCount = [{'text':temp_variant_ids.length}];
-          row.variants = [{'text' : temp_variant_ids.join(' | ')}];        
-          row.variantInformation = [{'text' : temp_variant_infos.join(' | ')}];
+        });
+        if (temp_variant_ids.length) {
+          row.firstVariant = [{ 'text': row.variantId[0].text }];
+          row.variantCount = [{ 'text': temp_variant_ids.length }];
+          row.variants = [{ 'text': temp_variant_ids.join(' | ') }];
+          row.variantInformation = [{ 'text': temp_variant_infos.join(' | ') }];
         }
-        else{
+        else {
           delete row.variants;
         }
       }
-      if(row.weightGross){
-        if(!row.weightNet){
+      if (row.weightGross) {
+        if (!row.weightNet) {
           row.weightNet = row.weightGross;
           delete row.weightGross;
         }
-      }          
+      }
     }
   }
-  return data;
+  return cleanUp(data);
 };
 module.exports = { transform } 
