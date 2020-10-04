@@ -10,13 +10,13 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'css-2rkizr')]//div[contains(@class,'css-14ae9o2')]//ol//li//div//a//img/@src
+    xpath: //div[contains(@class,'css-2rkizr')]//div[contains(@class,'css-14ae9o2')]//ol//li[position()>1]//div//a//img/@src
   - name: metaKeywords
     singleValue: true    
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[contains(@class,'css-13o7eu2')]//nav[contains(@class,'css-12hed02')]//div[contains(@class,'container')]//ol//li
+    xpath: //div[contains(@class,'css-13o7eu2')]//nav[contains(@class,'css-12hed02')]//div[contains(@class,'container')]//ol//li[position()>2]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -35,27 +35,24 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: true
-    xpath: //meta[@name='description']//@content
+    xpath: //span[@data-automation='product-title']
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id='combined-product-description']//text()
+    xpath: //div[@id='combined-product-description']
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[@data-automation='product-description-description']//ul//li)
+    xpath: count(//div[@id='combined-product-description']//ul/li)
     type: NUMBER  
   - name: brandText
     singleValue: true
     xpath: //span[contains(@class,'underline')]//span[2]
   - name: manufacturer
     singleValue: true
-    xpath: //span[contains(@class,'underline')]//span[2]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
-    xpath: //div[@id='itemQuantity_205098891']/div[@class='form-group']/input/@value
-    defaultValue : "1"
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -77,7 +74,6 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@id='combined-product-description']//p[@data-automation='product-part-number']//span
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -104,7 +100,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath : //div[@id='combined-product-description']//div[contains(text(),'guarantee')]|//div[@id='combined-product-description']//p[contains(text(),'Warranty')]|//div[@id='combined-product-description']//p[contains(text(),'guarantee')]   
+    xpath : //div[@id='combined-product-description']//div[contains(text(),'guarantee')]|//div[@id='combined-product-description']//p[contains(text(),'Warranty')]|//div[@id='combined-product-description']//p[contains(text(),'guarantee')]|//div[@class='description']//ul//li[contains(text(),'Warranty Duration')]
   - name: shippingDimensions
     singleValue: true
     xpath : //div[@id='combined-product-description']//li[contains(text(),'Box dimensions')]  
@@ -143,6 +139,9 @@ fields:
   - name: promotion
     singleValue: true
     xpath: boolean(//div[@class='css-1efj9ct']/span)
+    regExp: (.+)
+    regExpReplace: "YES"
+    defaultValue: "NO"
   - name: countryOfOrigin
     singleValue: true
   - name: energyEfficiency
@@ -155,6 +154,9 @@ fields:
   - name: Image360Present
     xpath: boolean(//div[@class='css-h8xsao']/img[@class='css-d3fz50']/@src)
     singleValue: true
+    regExp: (.+)
+    regExpReplace: "YES"
+    defaultValue: "NO"
   - name: manufacturerImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -170,10 +172,8 @@ fields:
     xpath: //list-price[@id='list-price']
   - name: colorCode
     singleValue: true
-    xpath : //div[@class='css-1i2mwr2']/span
   - name: newDescription
     singleValue: true
-    xpath: //div[@class='description']/div[@class='css-i3pbo']/ul/li[@class='css-vktjwr']
   - name: lbbPrice
     singleValue: true
     xpath:
@@ -182,3 +182,6 @@ fields:
   - name: variants
     singleValue: false
     xpath:
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@id='combined-product-description']//ul/li
