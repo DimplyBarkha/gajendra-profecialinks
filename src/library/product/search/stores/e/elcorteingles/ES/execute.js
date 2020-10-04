@@ -9,4 +9,28 @@ module.exports = {
     loadedSelector: 'div.product_tile-prices',
     noResultsXPath: '//div[@class="composition _none_sc"] |  //div[contains(@class,"js-plp") and count(div[contains(@class,"js-grid-container")]) < 1]',
   },
+  implementation: async (
+    inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
+    console.log('params', parameters);
+    const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
+    console.log(`URL =============> ${url}`);
+    await dependencies.goto({ url, zipcode: inputs.zipcode });
+    if (parameters.loadedSelector) {
+      await context.waitForFunction(function (sel, xp) {
+        return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+      }, { timeout: 30000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }
+    console.log('Checking no results', parameters.noResultsXPath);
+    return await context.evaluate(function (xp) {
+      const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+      console.log(xp, r);
+      const e = r.iterateNext();
+      console.log(e);
+      return !e;
+    }, parameters.noResultsXPath);
+  },
 };
