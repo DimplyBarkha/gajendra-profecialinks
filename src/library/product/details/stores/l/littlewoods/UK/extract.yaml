@@ -126,7 +126,7 @@ fields:
   - name: url
     singleValue: true
     description: A harvest url
-    xpath: //meta[@property="og:url"]/@content
+    xpath: //link[@rel='canonical']/@href
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
