@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@class='productList']/li
+recordXPath: null
 fields:
   - name: url
     singleValue: true
@@ -29,8 +29,7 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: //@data-sdg-id
-    defaultValue: 'test'
+    xpath: //ul[@class='productList']//li/@data-sdg-id
   - name: name
     singleValue: true
     description: The product name
