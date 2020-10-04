@@ -142,6 +142,7 @@ const transform = (data) => {
       }
     }
   }
+  cleanUp(data);
   return data;
 };
 
