@@ -101,7 +101,8 @@ fields:
     xpath: //a[@class='image-gallery__thumbs__image image-gallery__thumbs__image--video']
   - name: color
     singleValue: false
-    xpath: (//div[contains(@class,'product-detail-information')])//font[3]//text()
+    xpath: (//div[contains(@class,'product-detail-information')]//div)//text()[3]
+    regExp: (?<=Produkt Farbe:\ ).*()
   - name: colorCode
     singleValue: false
     #xpath: //a[contains(@class,'product-variant-switch__switch-item active interaction--enabled')]//li[@class='product-variant-switch__colors__color']//@style
