@@ -71,11 +71,11 @@ fields:
     xpath: //div[@id="added-gtin"]
     regExp: \W(.*)
     regExpReplace: $1
-  # - name: variantId
-  #   singleValue: false
-  #   xpath: //a[@data-sid='online']/@href
-  #   regExp: product\W([\d]+)
-  #   regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    xpath: //a[@data-sid='online']/@href
+    regExp: product\W([\d]+)
+    regExpReplace: $1
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
