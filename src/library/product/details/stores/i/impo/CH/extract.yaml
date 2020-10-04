@@ -8,10 +8,10 @@ fields:
     xpath: //head//meta[@property='og:image']/@content
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class='owl-item active']//img[@class='responsive-image__img lazyloaded']//@alt
+    xpath: (//div[@class="responsive-image "]//img)[1]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='image-gallery__thumbs__wrapper image-gallery__thumbs__wrapper--visible']//a//img//@src
+    xpath: concat('impo.ch', //div[@class='image-gallery__thumbs__wrapper image-gallery__thumbs__wrapper--visible']//a//img//@src)
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -20,7 +20,7 @@ fields:
     xpath: //div[contains(@class,'crumb-trail desktop-only-md spacing-bottom-10 screen-hide-for-mobile')]//ul[contains(@class,'list--horizontal list--chevron')]//li
   - name: nameExtended
     singleValue: false
-    xpath: //head//meta[@property='og:title']/@content
+    xpath: (//span[@itemprop='name'])[2]
   - name: listPrice
     singleValue: false
     #xpath: //script[contains(@type,"text/javascript") and contains(text(), "product_attributes_quantity")]//text()
@@ -33,10 +33,11 @@ fields:
   - name: availabilityText
     singleValue: false
     defaultValue: In Stock
-    xpath: //button[@id='addToCartButtonDetail']//span//font//text()
+    xpath: //button[@class='basket-button__paddle-blackbox-big__button-add-to-basket basket-button__paddle-blackbox--outOfStock']//text()
   - name: description
     singleValue: false
-    xpath: //div[@class='show-more-trigger show-more-content']/text()
+    #xpath: //div[@class='show-more-trigger show-more-content']/text()
+    xpath: //h1[@class='product-detail-metadata__headings__heading']//span//font//font/text()
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@class='col-xs-12 col-md-8 spacing-top-30 spacing-bottom-0 spacing-bottom-desktop-up-70']//dt)
@@ -80,7 +81,8 @@ fields:
     xpath: //div[@id='pd_video']/a/@href
   - name: name
     singleValue: false
-    xpath: //head//meta[@property='og:title']/@contentt
+    xpath: //script[contains(@type,"text/javascript") and contains(text(), "product_attributes_quantity")]//text()
+    regExp: (?<=product_productInfo_productName":\[").*?(?="\],)
   # - name: url
   #   singleValue: false
   #   xpath: //head//meta[@property='og:url']/@content
@@ -99,7 +101,7 @@ fields:
     xpath: //a[@class='image-gallery__thumbs__image image-gallery__thumbs__image--video']
   - name: color
     singleValue: false
-    #xpath: //a[contains(@class,'product-variant-switch__switch-item active interaction--enabled')]//li[@class='product-variant-switch__colors__color']//@style
+    xpath: (//div[contains(@class,'product-detail-information')])//font[3]//text()
   - name: colorCode
     singleValue: false
     #xpath: //a[contains(@class,'product-variant-switch__switch-item active interaction--enabled')]//li[@class='product-variant-switch__colors__color']//@style
