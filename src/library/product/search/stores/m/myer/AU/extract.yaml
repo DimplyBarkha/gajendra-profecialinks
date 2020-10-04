@@ -7,15 +7,14 @@ fields:
     xpath: //@id
     singleValue: true
   - name: name
-    xpath: //h3//a//span[@class='screen-reader-text']
-    singleValue: false
+    xpath: //span[@data-automation='product-name']
+    singleValue: true
   - name: productUrl
     xpath: //h3//a//@href
     singleValue: false
     regExp: (.+)
     regExpReplace: https://www.myer.com.au$1
-  - name: manufacturer
-    xpath: //h3//a//div[2]//span[1]
+  - name: manufacturer    
     singleValue: true    
   - name: thumbnail
     xpath: //h3//a//div[1]//img//@src
@@ -38,3 +37,7 @@ fields:
   - name: sponsored
     singleValue: true
     description: search/listing rank
+  - name: soldBy
+    singleValue: true
+    description: search/listing rank
+    xpath: //span[@data-automation='product-seller-name']
