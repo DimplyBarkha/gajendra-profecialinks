@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(concat(' ', normalize-space(@class), ' '), 'SingleItem')] 
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="Title"]/@href
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //a[@class="Title"]/@title
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[contains(@class, 'ImageWrap')]/@style
+    regExp: (\()(.*)(\))
+    regExpReplace: $2
+  - name: id
+    singleValue: false
+    xpath: //@pid
+  - name: brand
+    singleValue: false
+    xpath: //a[@class="R Mutag "]
+  - name: aggregateRating
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@id="added_aggregate_rating"]
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //a[contains(@class, "SalePrice")]
