@@ -171,7 +171,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         document.body.appendChild(newDiv);
       }
       if (imageLink) {
-        for (let i = 0; i < manImageObj.imageArray.length; i++) {
+        for (let i = 1; i < manImageObj.imageArray.length; i++) {
           addHiddenDiv('added-manufacturerImages-' + i, manImageObj.imageArray[i]);
         }
         addHiddenDiv('added-manufacturer-description', manImageObj.manufacturerDescription);

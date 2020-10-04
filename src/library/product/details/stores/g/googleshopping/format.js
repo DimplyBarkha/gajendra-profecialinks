@@ -25,11 +25,16 @@ const transform = (data) => {
         });
         row.specifications = specs;
       }
-      // if (row.shippingDimensions) {
-      //   row.shippingDimensions.forEach(item => {
-      //     // item.text = item.text.replace('X X', '').trim();
-      //   });
-      // }
+      if (row.variants) {
+        row.shippingDimensions.forEach(item => {
+          item.text = item.text.split(',').join(' | ');
+        });
+      }
+      if (row.gtin) {
+        row.gtin.forEach(item => {
+          item.text = item.text.split(',')[0];
+        });
+      }
     }
   }
   return data;

@@ -11,7 +11,7 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='TiQ3Vc main-image']//img[not(@xpath=1)][position()>'1']/@src
+    xpath: //div[@class='TiQ3Vc main-image']//img[not(@xpath=1)][position()>1]/@src
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: false
@@ -41,8 +41,8 @@ fields:
     xpath: //ul[@class='xpDPYb']//li//span/text()
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//ul[@class='xpDPYb']//li//span/text())
-    type: NUMBER
+    xpath: count(//ul[@class='xpDPYb']//li//span)
+    #type: NUMBER
   - name: brandText
     singleValue: false
     xpath: //div[@id="added-brandText"]  | //td[contains(text(),'Brand')]/following-sibling::td
@@ -66,14 +66,16 @@ fields:
     xpath: //div[@id="added-gtin"]  |  //td[contains(text(),'GTIN')]/following-sibling::td
     # regExp: ([\d]+)([^ ]+),(.*)
     # regExpReplace: $1
-    description: GTIN code (includes UPC/EAN)
-  - name: sku
+  - name: variants
     singleValue: false
-  - name: variantId
-    singleValue: false
-    xpath: //a[@data-sid='online']/@href
-    regExp: product\W([\d]+)
+    xpath: //div[@id="added-gtin"]
+    regExp: \W(.*)
     regExpReplace: $1
+  # - name: variantId
+  #   singleValue: false
+  #   xpath: //a[@data-sid='online']/@href
+  #   regExp: product\W([\d]+)
+  #   regExpReplace: $1
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -85,8 +87,8 @@ fields:
   - name: firstVariant
     singleValue: false
     xpath: //div[@class='eyAVeb']/span/text()
-    regExp: ^(.*?)\W
-    regExpReplace: $1
+    #regExp: ^(.*?)\W
+    #regExpReplace: $1
   - name: warranty
     singleValue: false
     xpath: //div[@id="added-warranty"]
@@ -105,10 +107,10 @@ fields:
     xpath: //div[@class='uYNZm']/text()
     description: The stated aggregate rating normalized to be out of 5
     #type: NUMBER
-  # - name: shippingInfo
-  #   singleValue: false
-  #   xpath: //a[@class='sh-osd__seller-link shntl']//span[1]//text()
-  #   description: Shipping information for the product
+  - name: shippingInfo
+    singleValue: false
+    xpath: //tr//div/a/text()
+    description: Shipping information for the product
   - name: shippingDimensions
     singleValue: false
     xpath: //div[@id="added-shippingDimensions"] 
@@ -118,7 +120,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@class='sh-dvp__container']/div)
+    xpath: count(//div[@class='sh-dvc__scroll']/div)
     description: Number of variants listed
     #type: NUMBER
   - name: color
