@@ -10,8 +10,9 @@ fields:
     regExpReplace: https:$1
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='product-photos']//li[1]//following-sibling::li//a/@href
+    #xpath: //div[@class='product-photos']//li[1]//following-sibling::li//a/@href
     #//div[@class='product-photos']//li/a/@href
+    xpath: //div[@id='miniatures-list']//li[position()>1]/a/@href
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name,"keyword")]/@content
@@ -128,3 +129,8 @@ fields:
   - name: firstVariant
     singleValue: false
     xpath: //div[@class='current-variant']//div[@class='value']/text()
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class='abcd'])
+    
+    
