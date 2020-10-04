@@ -14,8 +14,6 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //a[@class="indexGoods__item__name"]/@href
-    #//div[@class="indexGoods__item__descriptionCover"]/a/@href
-    #//a[@class="indexGoods__item__name"]/@href
     regExp: (.+)
     regExpReplace: https://www.onlinetrade.ru$1
   - name: gtin
@@ -39,9 +37,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[@class="price regular"]
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[@class="indexGoods__item__storeCode__line"][2]/text()
+  # - name: manufacturer
+  #   singleValue: false
+  #   xpath: //div[@class="indexGoods__item__storeCode__line"][2]/text()
   - name: soldBy
     singleValue: false
   - name: rank
