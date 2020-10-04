@@ -10,6 +10,11 @@ module.exports = {
   },
 
   implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
+    await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setAntiFingerprint(false);
+
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -68,12 +73,13 @@ module.exports = {
     const run = async function () {
       // do we perhaps want to go to the homepage for amazon first?
       lastResponseData = await context.goto('https://www.walmart.com/grocery', {
-        timeout: 20000,
+        timeout: 60000,
         waitUntil: 'load',
         checkBlocked: true,
         js_enabled: true,
         css_enabled: false,
         random_move_mouse: true,
+        block_ads: false,
       });
 
       await context.waitForNavigation();
@@ -84,12 +90,13 @@ module.exports = {
 
       console.log('Going back to desired page');
       lastResponseData = await context.goto(url, {
-        timeout: 20000,
+        timeout: 60000,
         waitUntil: 'load',
         checkBlocked: true,
         js_enabled: true,
         css_enabled: false,
         random_move_mouse: true,
+        block_ads: false,
       });
       console.log('lastResponseData', lastResponseData);
 
