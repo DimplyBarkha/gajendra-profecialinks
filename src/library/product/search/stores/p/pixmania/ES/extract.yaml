@@ -16,9 +16,9 @@ fields:
     singleValue: true
     xpath: //div[@itemprop="name"]/a
   - name: productUrl
-    singleValue: false
-    xpath: //div[@itemprop="name"]/a/@href
-    regExp: (.+)
+    singleValue: true
+    xpath: //span[@itemprop="url"]/@content
+    regExp: (.*)
     regExpReplace: https://www.pixmania.es$1
   - name: gtin
     singleValue: true
@@ -35,7 +35,7 @@ fields:
     singleValue: true
     xpath: //span[@itemprop="price"]
     regExp: (\d+)\€?(\d+)?
-    regExpReplace: €$1.$2
+    regExpReplace: €$1,$2
   - name: manufacturer
     singleValue: true
   - name: soldBy

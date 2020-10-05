@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'pixmania',
-    nextLinkSelector: null,
+    nextLinkXPath: '//li[@ng-if="nextPageHref"]/a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedXPath: '//div[@product-card="product"]',
