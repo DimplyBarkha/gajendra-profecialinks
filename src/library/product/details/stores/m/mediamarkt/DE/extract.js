@@ -17,6 +17,30 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails, Helpers, SharedHelpers }) => {
     const sharedhelpers = new SharedHelpers(context);
 
+    const popUpsButton = await context.evaluate(async function () {
+      return !!document.querySelector('button#privacy-layer-accept-all-button');
+    });
+
+    const popUps = async function () {
+      await context.evaluate(async function () {
+        if (document.querySelector('button#privacy-layer-accept-all-button')) {
+          document.querySelector('button#privacy-layer-accept-all-button').click();
+        }
+      });
+    };
+
+    try {
+      await context.waitForSelector('button#privacy-layer-accept-all-button', { timout: 35000 });
+    } catch (error) {
+      console.log('No pop-ups!');
+    }
+
+    if (popUpsButton) {
+      await context.click('button#privacy-layer-accept-all-button');
+    }
+
+    popUps();
+
     const manufDescButton = await context.evaluate(async function () {
       return !!document.querySelector('div[class^="RichProductDescription"] button');
     });

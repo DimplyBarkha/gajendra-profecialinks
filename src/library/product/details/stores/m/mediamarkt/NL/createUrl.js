@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'mediamarkt.nl',
     prefix: null,
-    url: null,
+    url: 'https://www.mediamarkt.nl/catentry/{id}',
     country: 'NL',
     store: 'mediamarkt',
     zipcode: '',
