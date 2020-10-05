@@ -5,14 +5,14 @@ parameters:
   store: argos
   zipcode: SE19PD
 proxy:
-  zone: USA
-  type: RESIDENTIAL
+  zone: ZUK
+  type: DATA_CENTER
 policy:
-  numberRetries: 1
+  numberRetries: 3
   priority: MEDIUM
-  retryDelay: 60
+  retryDelay: 120
   backoffPolicy: EXPONENTIAL
-  retryWithResidentialProxyAfter: 99
+  retryWithResidentialProxyAfter: 2
 meta:
   branches:
     osm_argos_uk_core:
