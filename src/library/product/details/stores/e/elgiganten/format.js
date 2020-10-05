@@ -65,9 +65,9 @@ const transform = (data) => {
         ];
       }
 
-      if (row.price) {
-        row.price[0].text = row.price[0].text.replace(/(\s)+/g, '');
-      }
+      // if (row.price) {
+      //   row.price[0].text = row.price[0].text.replace(/(\s)+/g, '');
+      // }
 
       if (row.manufacturerDescription) {
         row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/(\n*\s\n)+/g, ' ');
