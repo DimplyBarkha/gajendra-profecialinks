@@ -11,8 +11,8 @@ fields:
     xpath: (//div[@class="responsive-image "]//img)[1]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='image-gallery__thumbs__wrapper image-gallery__thumbs__wrapper--visible']//a//img//@src
-    regExp: (.*)
+    xpath: //div[@class='owl-item']//a//img/@src
+    regExp: (.+)
     regExpReplace: https://www.impo.ch$1
   - name: metaKeywords
     singleValue: false
@@ -22,7 +22,8 @@ fields:
     xpath: //div[contains(@class,'crumb-trail desktop-only-md spacing-bottom-10 screen-hide-for-mobile')]//ul[contains(@class,'list--horizontal list--chevron')]//li
   - name: nameExtended
     singleValue: false
-    xpath: (//span[@itemprop='name'])[2]
+    xpath: //script[contains(@type,"text/javascript") and contains(text(), "product_attributes_quantity")]//text()
+    regExp: (?<=product_productInfo_productName":\[").*?(?="\],)
   - name: listPrice
     singleValue: false
     #xpath: //script[contains(@type,"text/javascript") and contains(text(), "product_attributes_quantity")]//text()
