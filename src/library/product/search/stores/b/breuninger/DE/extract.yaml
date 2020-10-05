@@ -15,9 +15,9 @@ fields:
     xpath: //span[contains(@class, "name__text")]
   - name: productUrl
     description: The URL for the product details page
-    regExp: (.*)
+    regExp: (.+)
     regExpReplace: https://www.breuninger.com$1
-    xpath: //a[@itemprop="url"]/@href
+    xpath: //suchen-produkt/a[@itemprop="url"]/@href
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
@@ -40,5 +40,6 @@ fields:
     description: The name of the seller of the item (if available)
   - name: rank
     description: search/listing rank
+    xpath: //*[@data-order]/@data-order
   - name: endorsementText
     description: The text that signifies that a product is endorsed
