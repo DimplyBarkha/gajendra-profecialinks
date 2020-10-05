@@ -14,7 +14,7 @@ fields:
     regExpReplace: https://www.docmorris.de$1
     description: The URL for the product thumbnail image
   - name: name
-    xpath: //h2[contains(@class,"productlist__name")]
+    xpath: //a[contains(@class,"productlist__tile")]/div/img/@alt
     description: The product name
   - name: id
     xpath: //a[contains(@class,"productlist__tile")]/@href
