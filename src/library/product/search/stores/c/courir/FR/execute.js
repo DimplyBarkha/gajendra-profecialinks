@@ -25,18 +25,49 @@ async function implementation (
 
   if (captchaLink) {
     console.log('Captcha exists, calling the geetest API');
-    await context.goto('https://www.geetest.com/demo/slide-en.html', {
+    await context.setJavaScriptEnabled(true);
+    await context.setCssEnabled(true);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setBlockAds(false);
+    const responseStatus = await context.goto('https://www.geetest.com/demo/slide-en.html', {
       antiCaptchaOptions: {
         type: 'GEETEST',
         libPath: captchaLink,
       },
+      firstRequestTimeout: 60000,
+      timeout: 60000,
+      waitUntil: 'load',
+      checkBlocked: false,
     });
+    console.log('Status :', responseStatus.status);
+    console.log('URL :', responseStatus.url);
     console.log('Captcha exists, solving captcha');
-
-    await context.solveCaptcha({
-      type: 'GEETEST',
-      inputElement: '#captcha',
-    });
+    await context.waitForNavigation({ timeout: 30000 });
+    // await context.solveCaptcha({
+    //   type: 'GEETEST',
+    //   inputElement: '#captcha',
+    // });
+    await context.evaluateInFrame('iframe',
+      function () {
+        const code = geetest
+          .toString()
+          .replace(
+            /appendTo\("#([^"]+)"\)/,
+            'appendTo(document.getElementById("$1"))',
+          );
+        return eval(`(${code})('/captcha/geetest');`);
+      },
+    );
+    await new Promise(resolve => setTimeout(resolve, 500));
+    await context.evaluateInFrame('iframe',
+      function () {
+        // @ts-ignore
+        document.querySelector('.captcha-handler').click();
+      },
+    );
+    await new Promise(resolve => setTimeout(resolve, 60000));
+    await dependencies.goto({ url, zipcode: inputs.zipcode });
   }
 
   if (parameters.loadedSelector) {
