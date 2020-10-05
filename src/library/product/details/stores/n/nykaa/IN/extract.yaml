@@ -16,7 +16,7 @@ fields:
   - name: metaKeywords
     xpath: //meta[@name="keywords"]//@content
   - name: category
-    xpath: //ol[contains(@class,"breadcrumb product_des-breadcrumb")]//li
+    xpath: //ol[contains(@class,"breadcrumb product_des-breadcrumb")]//li[position()>1]
   - name: nameExtended
     xpath: //h1[@itemprop="name"]
   - name: listPrice
@@ -28,8 +28,6 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
     xpath: //div[contains(@class,"m-content__product-des")]//button[contains(@class,"combo-add-to-btn")]
-  - name: description
-    xpath: //header[contains(text(),'Product Description')]/following-sibling::div//div[@class="description-table__tabs"]/ul//div[@class="pdp-description-tab-item description-expand"]//p[1][not (contains(.,'Additional Information'))] | //header[contains(text(),'Product Description')]/following-sibling::div//div[@class="description-table__tabs"]/ul//div[@class="pdp-description-tab-item description-expand"]//ul//li[not (contains(.,'Additional Information'))]
   - name: brandText
     xpath: //body/@brand
   - name: manufacturer
@@ -54,13 +52,11 @@ fields:
   - name: shippingInfo
     xpath: //span[@title="Nykaa"]
   - name: manufacturerImages
-    xpath: //*[contains(@class,"pdp-description-tab-item")]//img//@src
+    xpath: //*[contains(@class,"pdp-description-tab-item")]//img[not(contains(@src,'mob'))][1]//@src
   - name: videos
     xpath: //li[@class='VideoLinks']
   - name: name
     xpath: //div/h1/text()
-  - name: coupon
-    xpath: //div[@class="m-content__product-des__details"]//span[contains(@class,"post-card__offers-offer")]
   - name: countryOfOrigin
     xpath: //*[@class="pdp-description-tab-item description-expand"]//p[contains(text(),'Country of')]
     regExp: (.+):(.+)
@@ -93,3 +89,10 @@ fields:
     xpath: //div[@class="select-style shade-select"]//option[2]
   - name: variantCount
     xpath: count(//li[@class='sku'][position()>1])
+  - name : warranty
+    xpath: //p[contains(.,'Additional Information')] | //p[contains(.,'Additional Information')]//following-sibling::p[1]
+    regExp: (\d+)(-Years)
+    regExpReplace: $1-Years
+  - name: description
+    xpath: //*[contains(@class,"pdp-description-tab-item")]/div/p[1]|//*[contains(@class,"pdp-description-tab-item")]/div//following-sibling::*[(following-sibling::*[contains(.,"Specifications:")])]
+    singleValue: false
