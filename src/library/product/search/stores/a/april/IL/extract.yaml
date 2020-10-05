@@ -1,0 +1,30 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: 
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,'products')]//div[contains(@class,'item')]//a[1]/@href
+    regExp: (page_)([0-9]+)
+    regExpReplace: $2
+  - name: name
+    singleValue: false
+    xpath: //div[@class="description"]/h2
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,'products')]//div//a[1]/@href
+    regExp: (.+)
+    regExpReplace: https://www.april.co.il/$1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="special_price text-center"]//span[@class="saleprice"]
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='item text-center']//a[1]//div[@class='image']//img[@class='img-responsive center-block vertical-center']/@src
+    regExp: (.+)
+    regExpReplace: https://www.april.co.il/$1
+  - name: brandText    
+    singleValue: false    
+    xpath: //div[@class='item text-center']//div[@class='firm'] 
+  
