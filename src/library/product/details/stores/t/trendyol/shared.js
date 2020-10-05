@@ -10,9 +10,35 @@ const transform = (data) => {
       if (row.productOtherInformation) {
         let text = '';
         row.productOtherInformation.forEach(item => {
-          text = row.productOtherInformation.map(elm => elm.text).join(' | ');
+          text += ` || ${item.text}`;
         });
-        row.productOtherInformation = [{ text }];
+        row.productOtherInformation = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text += ` || ${item.text}`;
+        });
+        row.additionalDescBulletInfo = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += ` || ${item.text}`;
+        });
+        row.description = [
+          {
+            text: text,
+          },
+        ];
       }
     }
   }
