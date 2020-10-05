@@ -32,13 +32,8 @@ const transform = (data, context) => {
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = cleanUp(el.text);
         }));
-        
-        // Added code as brand is not available directly on the webpage
-        if(row.aggregateRating ) {
-          row.aggregateRating[0].text = Number(row.aggregateRating[0].text).toFixed(1);
-        }
 
-        if(!row.brand) {
+        if(!row.brand && row.name) {
           row.brand = [{ text: row.name[0].text.split(' ')[0] }];
         }
       }

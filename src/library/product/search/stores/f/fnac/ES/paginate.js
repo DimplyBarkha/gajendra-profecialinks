@@ -4,12 +4,14 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'fnac',
-    nextLinkSelector: 'li.nextLevel1',
+    // nextLinkSelector: 'li.nextLevel1',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.Article-item[id]',
     noResultsXPath: '//div[contains(@class, "noResults")]',
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.fnac.es/SearchResult/ResultList.aspx?ItemPerPage=20&PageIndex={page}&Search={searchTerms}',
+    },
     domain: 'fnac.es',
     zipcode: '',
   },
