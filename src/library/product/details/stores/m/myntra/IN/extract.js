@@ -9,7 +9,7 @@ module.exports = {
     domain: 'myntra.com',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
@@ -45,6 +45,21 @@ module.exports = {
         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       }
 
+      const bulletInfo1 = document.querySelectorAll('p.pdp-product-description-content li');
+      const bulletInfo2 = document.querySelectorAll('ul.pdp-offers-offerDesc li div.pdp-offers-labelMarkup');
+      const descBulletInfo = [''];
+      if (bulletInfo1) {
+        bulletInfo1.forEach(e => {
+          descBulletInfo.push(e.innerText);
+        });
+      }
+      if (bulletInfo2) {
+        bulletInfo2.forEach(e => {
+          descBulletInfo.push(e.innerText);
+        });
+      }
+      addElementToDocument('desc_bullets', descBulletInfo.join(' || '));
+
       const data = document.querySelectorAll('script[type="application/ld+json"]');
       const json = data && data[1] && data[1].innerText ? JSON.parse(data[1].innerText) : '';
       if (json) {
@@ -55,10 +70,20 @@ module.exports = {
         addElementToDocument('mpc', json.mpn);
       }
 
+      const specsXpath = document.evaluate("//h4[contains(text(), 'pecifications')]/following-sibling::div[@class='index-tableContainer']/div[@class='index-row']", document, null, XPathResult.ANY_TYPE, null);
+      // eslint-disable-next-line prefer-const
+      if (specsXpath) {
+        let specsArr = [];
+        for (let spec = specsXpath.iterateNext(); spec; spec = specsXpath.iterateNext()) {
+          specsArr.push(spec.innerText);
+        }
+        addElementToDocument('specifications', specsArr.join(' || ').replace(/\s{2,}|\n/g, ' '));
+      }
+
       const warranty = getElementByXpath('//p[@class="pdp-product-description-content"]/text()[position() = last()]')
         ? getElementByXpath('//p[@class="pdp-product-description-content"]/text()[position() = last()]').textContent : '';
       if (warranty.match('arranty')) addElementToDocument('warranty', warranty);
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform });
   },
 };

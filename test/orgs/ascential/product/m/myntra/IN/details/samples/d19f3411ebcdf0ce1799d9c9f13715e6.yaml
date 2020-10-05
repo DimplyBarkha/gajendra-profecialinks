@@ -1,0 +1,106 @@
+input:
+  _url: http://myntra.com
+  URL: https://www.myntra.com/shirts/vans/vans-men-charcoal-grey-tailored-fit-checked-casual-shirt/1773153/buy
+extractions:
+  - html: https://workbench.import.io/html/run=340127ab-b11b-4351-af64-39b97696ce86/task=d7c44c19-4d36-4696-8946-437067ad021f/2d07e6c5-f504-439a-a4b9-2dcfab536d8e.html
+    extractionConfigId: product/details/stores/m/myntra/IN/extract
+    data:
+      - group:
+          - image:
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1773153/2017/3/7/11488880885545-Vans-Men-Charcoal-Tailored-Fit-Checked-Casual-Shirt-7531488880885418-1.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/@style
+            alternateImages:
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1773153/2017/3/7/11488880885529-Vans-Men-Charcoal-Tailored-Fit-Checked-Casual-Shirt-7531488880885418-2.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/@style
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1773153/2017/3/7/11488880885514-Vans-Men-Charcoal-Tailored-Fit-Checked-Casual-Shirt-7531488880885418-3.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[3]/div[1]/div[1]/@style
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1773153/2017/3/7/11488880885498-Vans-Men-Charcoal-Tailored-Fit-Checked-Casual-Shirt-7531488880885418-4.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[4]/div[1]/div[1]/@style
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1773153/2017/3/7/11488880885483-Vans-Men-Charcoal-Tailored-Fit-Checked-Casual-Shirt-7531488880885418-5.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[5]/div[1]/div[1]/@style
+            metaKeywords:
+              - text: Vans Men Charcoal Grey Tailored Fit Checked Casual Shirt, Vans, Shirts,
+                  Topwear, Apparel, Apparel for Men, Buy Vans Men Charcoal Grey
+                  Tailored Fit Checked Casual Shirt Online in India, Buy Shirts
+                  at best price
+                xpath: /html/head[1]/meta[9]/@content
+            category:
+              - text: Clothing
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[2]
+              - text: Men Clothing
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[3]
+              - text: Shirts
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[4]
+              - text: Vans Shirts
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[5]
+              - text: More by Vans
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[6]
+            price:
+              - text: Rs. 2299
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[1]/p[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[7]
+            description:
+              - text: Charcoal grey checked casual shirt, has a button-down collar, full button
+                  placket, long sleeves, a flap pocket, curved hem
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[7]/div[1]/div[1]/p[1]/text()[1]
+              - text: "|| Applicable on: Orders above Rs. 1499 || Coupon code: VK18 || Expires
+                  in: 1 hours 28 minutes || Max Discount: 100% of MRP (Your
+                  total saving: Rs. 400)"
+                xpath: /html/body/div[6]
+            brandText:
+              - text: Vans
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[1]/h1[1]
+            sku:
+              - text: "1773153"
+                xpath: /html/body/div[8]
+            variantId:
+              - text: "1773153"
+                xpath: /html/body/div[8]
+            mpc:
+              - text: "1773153"
+                xpath: /html/body/div[9]
+            shippingInfo:
+              - text: RetailNet
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[9]/div[2]/span[1]/span[1]
+            name:
+              - text: Men Charcoal Grey Tailored Fit Checked Casual Shirt
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[1]/h1[2]
+            coupon:
+              - text: "Coupon code: VK18"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[6]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[2]
+            specifications:
+              - text: Sleeve Length Long Sleeves || Collar Button-Down Collar || Fit Tailored
+                  Fit || Print or Pattern Type Grid Tattersall Checks ||
+                  Occasion Casual || Length Regular || Hemline Curved || Placket
+                  Button Placket
+                xpath: /html/body/div[10]
+            promotion:
+              - text: "Max Discount: 100% of MRP (Your total saving: Rs. 400)"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[6]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[2]
+            additionalDescBulletInfo:
+              - text: "|| Applicable on: Orders above Rs. 1499 || Coupon code: VK18 || Expires
+                  in: 1 hours 28 minutes || Max Discount: 100% of MRP (Your
+                  total saving: Rs. 400)"
+                xpath: /html/body/div[6]
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            termsAndConditions:
+              - text: No
+            Image360Present:
+              - text: No
+            nameExtended:
+              - text: Vans - Men Charcoal Grey Tailored Fit Checked Casual Shirt
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+        xpath: /
+    timestamp: 1601903215648

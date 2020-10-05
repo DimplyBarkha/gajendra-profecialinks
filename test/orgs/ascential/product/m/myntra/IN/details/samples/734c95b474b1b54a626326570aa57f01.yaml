@@ -1,0 +1,141 @@
+input:
+  _url: http://myntra.com
+  URL: https://www.myntra.com/hair-appliance/dyson/dyson-airwrap-styler-volume-and-shape/11900020/buy
+extractions:
+  - html: https://workbench.import.io/html/run=340127ab-b11b-4351-af64-39b97696ce86/task=5dcc2478-8234-47d2-a3b7-68c0bc7ba2e1/e4a04f8f-1d2a-4bbe-a83f-f2d5c956ccd2.html
+    extractionConfigId: product/details/stores/m/myntra/IN/extract
+    data:
+      - group:
+          - image:
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11900020/2020/6/12/fe6d0924-e99d-4914-9a49-a496825791701591967610514-dyson-Pink-Solid-Airwrap-Volume-and-Shape-7481591967609068-1.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/@style
+            alternateImages:
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11900020/2020/6/12/670f3e56-1f28-4dbb-90f9-0e8b37575f461591967610398-dyson-Pink-Solid-Airwrap-Volume-and-Shape-7481591967609068-2.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/@style
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11900020/2020/6/12/ca6b51ad-5a53-409d-9c16-dbf545f494b11591967610306-dyson-Pink-Solid-Airwrap-Volume-and-Shape-7481591967609068-3.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[4]/div[1]/div[1]/@style
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11900020/2020/6/12/b9260f62-6a06-4ef0-b728-66b5a62e77081591967610182-dyson-Pink-Solid-Airwrap-Volume-and-Shape-7481591967609068-4.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[5]/div[1]/div[1]/@style
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11900020/2020/6/12/d0ae3e39-ca98-4fb9-b525-4ac8bf1342db1591967610056-dyson-Pink-Solid-Airwrap-Volume-and-Shape-7481591967609068-5.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[6]/div[1]/div[1]/@style
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11900020/2020/6/12/f62f7bf6-bc85-4bbd-9752-e56e50f4d49e1591967609910-dyson-Pink-Solid-Airwrap-Volume-and-Shape-7481591967609068-6.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[7]/div[1]/div[1]/@style
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11900020/2020/6/12/5d9d9d62-dbba-4296-84da-3dec1e2211551591967609768-dyson-Pink-Solid-Airwrap-Volume-and-Shape-7481591967609068-7.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[8]/div[1]/div[1]/@style
+            metaKeywords:
+              - text: Dyson Airwrap Styler Volume And Shape, Dyson, Hair Appliance, Styling Tool
+                  And Appliance, Personal Care, Personal Care for Women, Buy
+                  Dyson Airwrap Styler Volume And Shape Online in India, Buy
+                  Hair Appliance at best price
+                xpath: /html/head[1]/meta[9]/@content
+            category:
+              - text: Personal Care
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[2]
+              - text: Women Personal Care
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[3]
+              - text: Hair Appliance
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[4]
+              - text: dyson Hair Appliance
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[5]
+              - text: More by dyson
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[6]
+            listPrice:
+              - text: Rs. 42900
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[1]/p[1]/span[2]
+            price:
+              - text: Rs. 36900
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[1]/p[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[7]
+            description:
+              - text: In The Box
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[8]/div[1]/div[1]/p[1]/b[1]/text()[1]
+              - text: "Warranty: 2 years provided by Brand Owner / Manufacturer"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[8]/div[1]/div[1]/p[1]/text()[1]
+              - text: "|| The Dyson Airwrap styler has intelligent heat control that does not go
+                  beyond 150 Degree Celsius || It attracts and wraps hair using
+                  only air; Cord length: 2.62m; Power: 1200W ; Airflow (lps):
+                  13l/s ; Negative ions: Help reduce static || Dyson Airwrap
+                  Styler Volume and Shape- for fine, flat hair || 1.2 inch
+                  Airwrap barrels - engineered to create voluminous curls or
+                  waves || Soft smoothing brush: Creates a smooth, blow-dry
+                  finish. With soft, ball-tip bristles engineered to be gentle
+                  on the scalp || Round volumising brush- engineered to volumise
+                  and shape fine, flat hair || Pre-styling dryer - takes hair
+                  from wet to damp, to prep for styling || One-click attachments
+                  and cool-touch tips a quick-release switch and cool-touch tip
+                  allow you to quickly change attachments while styling ||
+                  Symmetry barrels - clockwise and anti-clockwise barrels for
+                  symmetrical curls || Cool shot - to set your style || 30mm
+                  Airwrap barrels || Round volumising brush || Soft smoothing
+                  brush || Pre-styling dryer || Non-slip heat-resistant mat ||
+                  Tan storage case || Filter cleaning brush"
+                xpath: /html/body/div[6]
+            brandText:
+              - text: dyson
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[1]/h1[1]
+            sku:
+              - text: "11900020"
+                xpath: /html/body/div[8]
+            variantId:
+              - text: "11900020"
+                xpath: /html/body/div[8]
+            mpc:
+              - text: "11900020"
+                xpath: /html/body/div[9]
+            shippingInfo:
+              - text: Supercom Net
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[10]/div[2]/span[1]/span[1]
+            name:
+              - text: Dyson Airwrap Styler Volume and Shape
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[1]/h1[2]
+            specifications:
+              - text: Type Straightener and Curling || Air Setting All
+                xpath: /html/body/div[10]
+            warranty:
+              - text: "Warranty: 2 years provided by Brand Owner / Manufacturer"
+                xpath: /html/body/div[11]
+            promotion:
+              - text: (Rs. 6000 OFF)
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[1]/p[1]/span[3]
+            additionalDescBulletInfo:
+              - text: "|| The Dyson Airwrap styler has intelligent heat control that does not go
+                  beyond 150 Degree Celsius || It attracts and wraps hair using
+                  only air; Cord length: 2.62m; Power: 1200W ; Airflow (lps):
+                  13l/s ; Negative ions: Help reduce static || Dyson Airwrap
+                  Styler Volume and Shape- for fine, flat hair || 1.2 inch
+                  Airwrap barrels - engineered to create voluminous curls or
+                  waves || Soft smoothing brush: Creates a smooth, blow-dry
+                  finish. With soft, ball-tip bristles engineered to be gentle
+                  on the scalp || Round volumising brush- engineered to volumise
+                  and shape fine, flat hair || Pre-styling dryer - takes hair
+                  from wet to damp, to prep for styling || One-click attachments
+                  and cool-touch tips a quick-release switch and cool-touch tip
+                  allow you to quickly change attachments while styling ||
+                  Symmetry barrels - clockwise and anti-clockwise barrels for
+                  symmetrical curls || Cool shot - to set your style || 30mm
+                  Airwrap barrels || Round volumising brush || Soft smoothing
+                  brush || Pre-styling dryer || Non-slip heat-resistant mat ||
+                  Tan storage case || Filter cleaning brush"
+                xpath: /html/body/div[6]
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            termsAndConditions:
+              - text: No
+            Image360Present:
+              - text: No
+            nameExtended:
+              - text: dyson - Dyson Airwrap Styler Volume and Shape
+            descriptionBullets:
+              - text: "17"
+                type: NUMBER
+                raw: "17"
+                locale: en
+                value: 17
+        xpath: /
+    timestamp: 1601903214068

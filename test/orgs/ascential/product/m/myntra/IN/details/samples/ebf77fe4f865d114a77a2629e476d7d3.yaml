@@ -1,0 +1,137 @@
+input:
+  _url: http://myntra.com
+  URL: https://www.myntra.com/hair-appliance/dyson/dyson-airwrap-styler-smooth-and-control/11900016/buy
+extractions:
+  - html: https://workbench.import.io/html/run=340127ab-b11b-4351-af64-39b97696ce86/task=34a57807-f752-4b71-af37-c72844b77efb/eec5708e-194b-42ae-98f2-c9d72e8716a4.html
+    extractionConfigId: product/details/stores/m/myntra/IN/extract
+    data:
+      - group:
+          - image:
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11900016/2020/6/12/30363c77-710b-4cbd-bf14-656f6adff2dc1591966495296-dyson-Pink--Grey-Airwrap-Smooth--Control-5401591966494122-1.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/@style
+            alternateImages:
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11900016/2020/6/12/8e0ee112-294a-4632-87c6-cebcf36af1601591966495258-dyson-Pink--Grey-Airwrap-Smooth--Control-5401591966494122-2.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/@style
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11900016/2020/6/12/0a14a063-775e-4160-81ea-ca222f9f569d1591966495216-dyson-Pink--Grey-Airwrap-Smooth--Control-5401591966494122-3.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[4]/div[1]/div[1]/@style
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11900016/2020/6/12/c253f2fa-1fb8-4cb9-acfb-ad56016d70031591966495175-dyson-Pink--Grey-Airwrap-Smooth--Control-5401591966494122-4.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[5]/div[1]/div[1]/@style
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11900016/2020/6/17/119c2842-1af2-4604-94f8-9a01619a23211592369237856-Dyson-Airwrap-Styler-Smooth-and-Control-3401592369237676-5.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[6]/div[1]/div[1]/@style
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11900016/2020/6/12/08c70d8f-c788-43cf-8eeb-080e952c45fa1591966495090-dyson-Pink--Grey-Airwrap-Smooth--Control-5401591966494122-6.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[7]/div[1]/div[1]/@style
+              - text: https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/11900016/2020/6/12/76fbda5c-16ed-4dca-8124-b7e8bc8d586b1591966495039-dyson-Pink--Grey-Airwrap-Smooth--Control-5401591966494122-7.jpg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[1]/div[8]/div[1]/div[1]/@style
+            metaKeywords:
+              - text: Dyson Airwrap Styler Smooth And Control, Dyson, Hair Appliance, Styling
+                  Tool And Appliance, Personal Care, Personal Care for Women,
+                  Buy Dyson Airwrap Styler Smooth And Control Online in India,
+                  Buy Hair Appliance at best price
+                xpath: /html/head[1]/meta[9]/@content
+            category:
+              - text: Personal Care
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[2]
+              - text: Women Personal Care
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[3]
+              - text: Hair Appliance
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[4]
+              - text: dyson Hair Appliance
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[5]
+              - text: More by dyson
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[1]/a[6]
+            listPrice:
+              - text: Rs. 42900
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[1]/p[1]/span[2]
+            price:
+              - text: Rs. 36900
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[1]/p[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[7]
+            description:
+              - text: "In The Box:"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[8]/div[1]/div[1]/p[1]/b[1]/text()[1]
+              - text: "Warranty: 2 years provided by Brand Owner / Manufacturer"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[8]/div[1]/div[1]/p[1]/text()[1]
+              - text: "|| The Dyson Airwrap styler has intelligent heat control that does not go
+                  beyond 150 Degree Celsius || It attracts and wraps hair using
+                  only air; Cord length: 2.62m; Airflow (lps): 13l/s; Power
+                  Requirement: AC 220 - 240 V, 50 Hz || Dyson Airwrap Styler
+                  Smooth and Control-for frizz-prone thick hair || 1.2 inch
+                  Airwrap barrels - engineered to create voluminous curls or
+                  waves || 1.6 inch Airwrap barrels - engineered to create loose
+                  curls or waves || Pre-styling dryer - takes hair from wet to
+                  damp, to prep for styling || One-click attachments and
+                  cool-touch tips - a quick-release switch and cool-touch tip
+                  allow you to quickly change attachments while styling ||
+                  Symmetry barrels - clockwise and anti-clockwise barrels for
+                  symmetrical curls || Cool shot - to set your style || 30mm
+                  Airwrap barrels || 40mm Airwrap barrels || Firm Smoothing
+                  brush || Pre-styling dryer || Non-slip heat-resistant mat ||
+                  Tan storage case || Filter cleaning brush"
+                xpath: /html/body/div[6]
+            brandText:
+              - text: dyson
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[1]/h1[1]
+            sku:
+              - text: "11900016"
+                xpath: /html/body/div[8]
+            variantId:
+              - text: "11900016"
+                xpath: /html/body/div[8]
+            mpc:
+              - text: "11900016"
+                xpath: /html/body/div[9]
+            shippingInfo:
+              - text: Supercom Net
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[10]/div[2]/span[1]/span[1]
+            name:
+              - text: Dyson Airwrap Styler Smooth and Control
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[1]/h1[2]
+            specifications:
+              - text: Type Straightener and Curling || Air Setting All
+                xpath: /html/body/div[10]
+            warranty:
+              - text: "Warranty: 2 years provided by Brand Owner / Manufacturer"
+                xpath: /html/body/div[11]
+            promotion:
+              - text: (Rs. 6000 OFF)
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/main[1]/div[2]/div[2]/div[1]/p[1]/span[3]
+            additionalDescBulletInfo:
+              - text: "|| The Dyson Airwrap styler has intelligent heat control that does not go
+                  beyond 150 Degree Celsius || It attracts and wraps hair using
+                  only air; Cord length: 2.62m; Airflow (lps): 13l/s; Power
+                  Requirement: AC 220 - 240 V, 50 Hz || Dyson Airwrap Styler
+                  Smooth and Control-for frizz-prone thick hair || 1.2 inch
+                  Airwrap barrels - engineered to create voluminous curls or
+                  waves || 1.6 inch Airwrap barrels - engineered to create loose
+                  curls or waves || Pre-styling dryer - takes hair from wet to
+                  damp, to prep for styling || One-click attachments and
+                  cool-touch tips - a quick-release switch and cool-touch tip
+                  allow you to quickly change attachments while styling ||
+                  Symmetry barrels - clockwise and anti-clockwise barrels for
+                  symmetrical curls || Cool shot - to set your style || 30mm
+                  Airwrap barrels || 40mm Airwrap barrels || Firm Smoothing
+                  brush || Pre-styling dryer || Non-slip heat-resistant mat ||
+                  Tan storage case || Filter cleaning brush"
+                xpath: /html/body/div[6]
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            termsAndConditions:
+              - text: No
+            Image360Present:
+              - text: No
+            nameExtended:
+              - text: dyson - Dyson Airwrap Styler Smooth and Control
+            descriptionBullets:
+              - text: "16"
+                type: NUMBER
+                raw: "16"
+                locale: en
+                value: 16
+        xpath: /
+    timestamp: 1601903214487

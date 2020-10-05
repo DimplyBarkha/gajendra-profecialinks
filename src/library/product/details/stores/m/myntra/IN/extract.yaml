@@ -49,11 +49,13 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //p[@class="pdp-product-description-content"]
+    xpath: //p[@class="pdp-product-description-content"]/*[not(name()='ul')]/text() |
+      //p[@class="pdp-product-description-content"][not(name()='ul')]/text() | //div[@id='desc_bullets']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//p[@class="pdp-product-description-content"]//li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -125,6 +127,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    defaultValue: '0'
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -148,6 +151,7 @@ fields:
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
+    xpath: //div[@class='pdp-offers-labelMarkup'][contains(text(), 'oupon')]
   - name: lbb
     singleValue: true
     description: Check Lost by Box Requirements (just for Amazon and a couple of other
@@ -158,6 +162,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id='specifications']
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -180,7 +185,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
-    xpath: //span[@class="pdp-discount"]
+    xpath: //span[@class="pdp-discount"] | //div[@class='pdp-offers-labelMarkup'][contains(text(), 'iscount')]
   - name: newDescription
     singleValue: true
     description: In product page, information about a new version of the product - new
@@ -200,10 +205,9 @@ fields:
       between variants, this will need analysis
   - name: variants
     singleValue: false
-    description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    description: null
+    xpath: //div[@id='desc_bullets']
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
