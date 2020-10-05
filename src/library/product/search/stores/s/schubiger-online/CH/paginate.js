@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class*="c-product-grid__item-wrapper"]',
-    noResultsXPath: '//*[contains(text(),"0 results")]',
+    noResultsXPath: '//h1[contains(@id,"ember") and contains(concat(.,text()," ")," 0 ")]',
     openSearchDefinition: null,
     domain: 'schubiger-online.ch',
     zipcode: '',
