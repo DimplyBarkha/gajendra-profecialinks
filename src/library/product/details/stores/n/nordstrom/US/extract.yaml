@@ -36,7 +36,7 @@ fields:
     xpath: //section//span[@itemprop="name"]/parent::a/@href
     regExp: (.+)
     regExpReplace: https://www.nordstrom.com$1
-  - name: sku
+  - name: variantId
     xpath: //span[contains(text(),'Item')]
     regExp: "Item #(.+)"
     regExpReplace: $1
@@ -58,8 +58,8 @@ fields:
     xpath: //ul[@id="product-page-swatches"]//li//img/@alt | //img[contains(@alt,'selected')]/@alt
     regExp: selected\s(.+)
     regExpReplace: $1
-  - name: variantId
-    xpath:  //body/@rpc
+  - name: sku
+    xpath: //body/@rpc
   - name: variants
     xpath: //a[@class='appendedvariantid']/@href
   - name: variantCount
@@ -96,4 +96,4 @@ fields:
   - name: legalDisclaimer
     xpath: //p[@class="disclaimer"]
   - name: directions
-    xpath: //strong[contains(text(),'How to use')]/parent::p | //p[contains(text(),'How to use')]
+    xpath: //strong[contains(text(),'How to use')]/parent::p | //p[contains(text(),'How to use')]/following-sibling::p | //p[contains(text(),'How to use')] | //strong[contains(text(),'How to use')]/parent::p/following-sibling::p
