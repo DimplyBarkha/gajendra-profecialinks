@@ -7,7 +7,7 @@ module.exports = {
     domain: 'ebaystores.fr',
     url: 'http://www.ebaystores.fr/dysonfrance/?submit=&_nkw={searchTerms}&_ipg=200',
     loadedSelector: 'div.p-box',
-    noResultsXPath: null,
+    noResultsXPath: "//span[contains(@class,'countClass') and contains(concat(' ',text(),' '),' 0 ')]",
     zipcode: '',
   },
 };
