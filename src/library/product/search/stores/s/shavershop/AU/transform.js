@@ -32,14 +32,14 @@ const transform = (data, context) => {
           el.text = clean(el.text);
         }));
 
-        if(row.aggregateRating2)
-        {     
-            row.aggregateRating2 = [
-                {
-                  text: row.aggregateRating2[0].text.toString().replace('.',','),
-                },
-              ];
-        }
+        // if(row.aggregateRating2)
+        // {     
+        //     row.aggregateRating2 = [
+        //         {
+        //           text: row.aggregateRating2[0].text.toString().replace('.',','),
+        //         },
+        //       ];
+        // }
       }
     }
     context.setState({ rankCounter });
