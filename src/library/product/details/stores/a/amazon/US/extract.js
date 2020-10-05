@@ -100,6 +100,18 @@ async function implementation (
   });
   helpers.addItemToDocument('top-reviews',topReviews);
 
+  const customerQAndA = await context.evaluate(()=>{
+    const qAndA = document.querySelector('span.askTopQandA');
+    return qAndA ? qAndA.innerText : '';
+  });
+  helpers.addItemToDocument('my-q-and-a',customerQAndA);
+
+  const qCount = await context.evaluate(()=>{
+    return document.evaluate('count(//span[@class="askTopQandA"]//span[contains(@data-ask-log-click-csm,"top-question")])',document,null,XPathResult.STRING_TYPE,null).stringValue;
+  })
+
+  helpers.addItemToDocument('my-q-count',qCount);
+
   await context.extract(productDetails, { transform });
 }
 
