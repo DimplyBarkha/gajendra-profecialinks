@@ -8,7 +8,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   await context.evaluate(() => {
     const productSelectors = document.querySelectorAll('div._3O0U0u>div');
     for (let i = 0; i < productSelectors.length; i++) {
