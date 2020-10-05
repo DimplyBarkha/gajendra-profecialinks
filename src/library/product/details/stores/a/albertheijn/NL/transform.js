@@ -32,10 +32,17 @@ const transform = (data, context) => {
       }
       if (row.pricePerUnit) {
         const values = row.pricePerUnit.map(elm => elm.text).filter(elm => elm.trim());
-        const pricePerUnit = values.slice(2).join(' ');
-        const pricePerUnitUom = values[1];
-        row.pricePerUnit = [{ text: pricePerUnit.trim() }];
-        row.pricePerUnitUom = [{ text: pricePerUnitUom.trim() }];
+        if(values.length > 1) {
+          const pricePerUnit = values.slice(2).join(' ');
+          const pricePerUnitUom = values[1];
+          row.pricePerUnit = [{ text: pricePerUnit.trim() }];
+          row.pricePerUnitUom = [{ text: pricePerUnitUom.trim() }];
+        } else {
+          const pricePerUnit = values.replace('Prijs per','').trim().match(/^[^\s]+/)[0];
+          const pricePerUnitUom = values.replace('Prijs per','').trim().match(/^[^\s]+(.+)/)[1];
+          row.pricePerUnit = [{ text: pricePerUnit.trim() }];
+          row.pricePerUnitUom = [{ text: pricePerUnitUom.trim() }];
+        }
       }
       if (row.promotion) {
         const text = row.promotion.map(elm => elm.text.trim()).join(' | ');
