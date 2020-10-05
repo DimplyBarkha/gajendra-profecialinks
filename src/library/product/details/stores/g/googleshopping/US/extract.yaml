@@ -23,11 +23,11 @@ fields:
     xpath: //span[@class='BvQan sh-t__title-pdp sh-t__title translate-content']/text()
   - name: listPrice
     singleValue: false
-    #xpath: normalize-space(//div//span['NVfoXb']/b/text())
+    #xpath: //div[@class="sh-bwgc__card-container"]//div[2]//span[2]
   - name: price
     singleValue: false
     #xpath: //div//span['NVfoXb']/b/text()
-    xpath: //tr[position()=1]//div[@class='QXiyfd']/div/text()
+    xpath: (//tr[position()=1]//div[@class='QXiyfd']//div)[1]
     regExp: (.+)
     regExpReplace: $1
   - name: availabilityText
