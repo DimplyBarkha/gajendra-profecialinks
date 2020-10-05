@@ -44,3 +44,7 @@ fields:
     xpath: //footer//ul//div[contains(@class, "rating")]//div/@class
     regExp: (?<=\-)\s*(.*)
     description: The stated aggregate rating normalized to be out of 5
+  - name: gtin
+    xpath: //ul[@class="products-list"]//script
+    regExp: .*ean\":\"(\d+).*
+    regExpReplace: $1
