@@ -184,10 +184,10 @@ fields:
     singleValue: false
     description: Amazon best selling rank from product details (linked back) - needs
       to be collapsed
-  - name: _url
+  - name: url
     singleValue: true
     description: the url of the page
-    xpath: //link[@rel='canonical']/@href
+    xpath: //meta[@property="og:url"]/@content
   - name: id
     singleValue: true
     description: the id of the product
