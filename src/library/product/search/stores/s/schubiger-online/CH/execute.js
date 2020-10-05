@@ -7,7 +7,7 @@ module.exports = {
     domain: 'schubiger-online.ch',
     url: 'https://www.schubiger-online.ch/search/?text={searchTerms}',
     loadedSelector: 'div[class*="c-product-grid__item-wrapper"]',
-    noResultsXPath: '//*[contains(text(),"0 results")]',
+    noResultsXPath: '//h1[contains(@id,"ember") and contains(concat(.,text()," ")," 0 ")]',
     zipcode: '',
   },
 };
