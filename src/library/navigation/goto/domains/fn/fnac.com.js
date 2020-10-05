@@ -35,39 +35,49 @@ module.exports = {
     console.log('URL :', responseStatus.url);
 
     await context.waitForNavigation({ timeout: 30000 });
+    const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title])";
 
-    try {
-      await context.evaluateInFrame('iframe',
-        function () {
-          const code = geetest
-            .toString()
-            .replace(
-              /appendTo\("#([^"]+)"\)/,
-              'appendTo(document.getElementById("$1"))',
-            );
-          return eval(`(${code})('/captcha/geetest');`);
-        },
-      );
+    const checkExistance = async (selector) => {
+      return await context.evaluate(async (captchaSelector) => {
+        return Boolean(document.querySelector(captchaSelector));
+      }, selector);
+    };
+    const isCaptchaFramePresent = await checkExistance(captchaFrame);
 
-      await new Promise(resolve => setTimeout(resolve, 500));
-      await context.evaluateInFrame('iframe',
-        function () {
-          document.querySelector('.captcha-handler').click();
-        },
-      );
-      await new Promise(resolve => setTimeout(resolve, 60000));
+    if (isCaptchaFramePresent) {
       try {
-        await context.waitForSelector('div[class~="f-productVisuals-mainIconZoom"]');
+        await context.evaluateInFrame('iframe',
+          function () {
+            const code = geetest
+              .toString()
+              .replace(
+                /appendTo\("#([^"]+)"\)/,
+                'appendTo(document.getElementById("$1"))',
+              );
+            return eval(`(${code})('/captcha/geetest');`);
+          },
+        );
+
+        await new Promise(resolve => setTimeout(resolve, 500));
+        await context.evaluateInFrame('iframe',
+          function () {
+            document.querySelector('.captcha-handler').click();
+          },
+        );
+        await new Promise(resolve => setTimeout(resolve, 60000));
+        try {
+          await context.waitForSelector('div[class~="f-productVisuals-mainIconZoom"]');
+        } catch (e) {
+          console.log('No details page');
+        }
+        try {
+          await context.waitForSelector('div[class~="Article-itemInfo"] p[class~="Article-desc"]');
+        } catch (e) {
+          console.log('No details page');
+        }
       } catch (e) {
-        console.log('No details page');
+        console.log('No captcha encountered');
       }
-      try {
-        await context.waitForSelector('div[class~="Article-itemInfo"] p[class~="Article-desc"]');
-      } catch (e) {
-        console.log('No details page');
-      }
-    } catch (e) {
-      console.log('No captcha encountered');
     }
   },
 };
