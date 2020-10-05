@@ -149,6 +149,9 @@ fields:
     # xpath: //script[contains(text(),'sku')]
     # xpath: //td//p[contains(text(), "Colour")]/following::td[1]
     # regExp: (\Colour\S{0,}.\S{0,}.\S{0,})
+  - name: color
+    singleValue: true
+    xpath: //dt[contains(text(), "Colour")]/following::dd[1]
   - name: brandText
     xpath: //script[contains(text(),'sku')]
     # xpath: //td//p[contains(text(), "Compatible Brand")]/following::td[1]
