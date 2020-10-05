@@ -4,11 +4,11 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: url
-    singleValue: true
+    singleValue: false
     description: A harvest url
     xpath: //meta[@property="og:url"]/@content
   - name: brandText
-    singleValue: true
+    singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
     example: Panasonic
     xpath: //h1[@class='galleryHeading']/span[@itemprop='name']
@@ -31,7 +31,7 @@ fields:
     description: The store-specific product identifier
     xpath: //ul[@class='productList']//li/@data-sdg-id
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
     xpath: //h2[@class='header16 margin4']
   
