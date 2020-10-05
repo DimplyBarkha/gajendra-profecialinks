@@ -27,7 +27,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //meta[@name='description']//@content
+    xpath: concat(//brand,' ',//h1[@class='product-name'])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -47,26 +47,19 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    singleValue: false
+    singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath : //meta[@name='description']//@content
+    xpath : //div[@class='product-description desktop-only']
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
-    xpath : count(//div[@class='product-long-description']/ul/li)    
+    xpath : count(//div[@class='product-long-description']//ul//li)    
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath : //brand  
-  - name: manufacturer
-    singleValue: false
-    description: Product manufacturer
     xpath : //brand
-  - name: manufacturerImages
-    singleValue: false
-    description: Manufacture Image    
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
@@ -123,7 +116,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class='pdp-top-left']/div[@class='brand-name']/img/@src    
+    xpath: //div[@class='pdp-top-left']/div[@class='brand-name']/img/@src      
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -135,7 +128,6 @@ fields:
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
-    xpath : //div[@id='product-content']/div[@class='group-price clearfix']/div[@class='pdp-sale dektop-only red']/div[@class='price-save']/span
   - name: lbbPrice
     singleValue: true
     description: null  
@@ -148,7 +140,7 @@ fields:
     xpath: //div[@class='feature-item']/div[@class='content-asset']/p
   - name: warranty
     singleValue: true
-    xpath: //div[@class='product-long-description']/ul/li[contains(text(),'guarantee')]
+    xpath: //div[@class='product-long-description']//ul//li[contains(text(),'guarantee')]|//strong[contains(text(),'warranty')]|//div[@class='product-long-description']//ul//li[contains(text(),'Guarantee')]|//strong[contains(text(),'Warranty')]|//div[@class='product-long-description']//ul//li//p[contains(text(),'Warranty')]|//div[@class='product-long-description']//ul//li//p[contains(text(),'warranty')]
     description: Guarantee associated with the product
   - name: storage
     singleValue: true
@@ -160,9 +152,9 @@ fields:
     singleValue: true
     description: Recycling information associated with the product
   - name: productOtherInformation
-    singleValue: true
+    singleValue: false
     description: Any other product information
-    xpath: //div[@class='feature-item']/div[@class='content-asset']/p
+    xpath: //div[@class='product-detail-feature']//div[@class='content-asset']
   - name: packaging
     singleValue: true
     description: Packaging information  
@@ -174,7 +166,6 @@ fields:
     singleValue: true
     description: In product page, information about a new version of the product -
       new desription info
-    xpath: //div[(@class='product-description desktop-only')]/p/text()
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
@@ -194,7 +185,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath : count(//div[@class='product-long-description']/ul/li)  
+    xpath : //div[@class='product-long-description']//ul//li
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product.
@@ -204,7 +195,6 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  
   - name: termsAndConditions
     singleValue: true
     xpath: //div[@class='footer-container clearfix']/div[@class='footer-left clearfix']/div[@class='footer-link clearfix']/div[@class='content-asset']/ul[1]/li[7]/a[contains(text(),'Terms and Conditions')]
@@ -212,8 +202,9 @@ fields:
     regExpReplace: 'Yes'
     defaultValue: 'No'  
   - name: Image360Present
-    singleValue: true
-    xpath: boolean(//div[@id='pdpMain']//a[contains(@class,'btn-zoom')])
+    singleValue: true    
+    regExpReplace: 'Yes'
+    defaultValue: 'No'  
   - name: imageZoomFeaturePresent
     singleValue: true
     description: If Zoom feature is available for Main image or images in the
@@ -223,4 +214,6 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@class='product-long-description-outline']
-    
+  - name: directions
+    singleValue: false
+    xpath: //p//strong[contains(text(),'Step by Step Instructions')]//following::ul[1]|//div[contains(@class,'how-to-use-inner')]//ul[@id='videosList']//li//a//@href
