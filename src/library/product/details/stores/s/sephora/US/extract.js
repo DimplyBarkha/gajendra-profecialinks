@@ -135,9 +135,9 @@ module.exports = {
         let videoObj = JSON.parse(videoEle.innerText);
         if(videoObj[4] || videoObj[1]){
           let videoIds;
-          if(videoObj[4]){
+          if(videoObj[4] && videoObj[4].props.currentProduct){
             videoIds = videoObj[4].props.currentProduct.productVideos
-          } else if(videoObj[1]){
+          } else if(videoObj[1] && videoObj[1].props.product){
             videoIds = videoObj[1].props.product.product.productVideos
           }
           if(videoIds){
