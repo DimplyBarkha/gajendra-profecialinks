@@ -19,8 +19,17 @@ fields:
     regExpReplace: https://www.sportsdirect.com$1
   - name: aggregateRating2
     xpath: //div[contains(@data-bv-show, 'inline_rating')]//a/@aria-label
-    # regExp: >-
-    #   (.+)out(.+)
-    # regExpReplace: $1
+    regExp: >-
+      (.+)out(.+)
+    regExpReplace: $1
   - name: price
     xpath: //span[contains(@class, 'curprice')]
+  - name: ratingCount
+    xpath: //div[contains(@class, 'bv_numReviews_component_container')]/div
+    regExp: >-
+      \d+
+  - name: reviewCount
+    xpath: //div[contains(@class, 'bv_numReviews_component_container')]/div
+    regExp: >-
+      \d+
+  
