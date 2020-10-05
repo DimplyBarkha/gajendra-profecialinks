@@ -16,12 +16,12 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[contains(@class,'css-13o7eu2')]//nav[contains(@class,'css-12hed02')]//div[contains(@class,'container')]//ol//li[position()>2]
+    xpath: //div[contains(@class,'css-13o7eu2')]//nav[contains(@class,'css-12hed02')]//div[contains(@class,'container')]//ol//li[position()>1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //meta[@name='description']//@content
+    xpath: concat(//span[contains(@class,'underline')]//span[2],'-',//span[@data-automation='product-title'])
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -34,14 +34,13 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    singleValue: true
-    xpath: //span[@data-automation='product-title']
-  - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id='combined-product-description']
+    xpath: //div[@class='description']//ul//li
+  - name: manufacturerDescription
+    singleValue: true   
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[@id='combined-product-description']//ul/li)
+    xpath: count(//div[@class='description']//ul//li)
     type: NUMBER  
   - name: brandText
     singleValue: true
@@ -137,11 +136,7 @@ fields:
   - name: packaging
     singleValue: true
   - name: promotion
-    singleValue: true
-    xpath: boolean(//div[@class='css-1efj9ct']/span)
-    regExp: (.+)
-    regExpReplace: "YES"
-    defaultValue: "NO"
+    singleValue: true    
   - name: countryOfOrigin
     singleValue: true
   - name: energyEfficiency
@@ -184,4 +179,4 @@ fields:
     xpath:
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@id='combined-product-description']//ul/li
+    xpath: //div[@class='description']//ul//li

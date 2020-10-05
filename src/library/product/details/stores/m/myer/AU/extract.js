@@ -1,4 +1,4 @@
-const{cleanUp} = require('./transform');
+const{transform} = require('./transform');
 
 async function implementation (
   inputs,
@@ -38,7 +38,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'myer',
-    transform: cleanUp,
+    transform,
     domain: 'myer.com.au',
     zipcode: '',
   },
