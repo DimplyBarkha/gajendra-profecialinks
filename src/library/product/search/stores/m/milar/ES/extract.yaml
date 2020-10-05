@@ -1,20 +1,20 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //*[@id="df-results__content__dfclassic"]/div/a
+recordXPath: //*[@id="df-results__content__dfclassic"]/div[@class="df-card"]
 fields:
   - name: name
     singleValue: false
-    xpath: //*[@id="df-results__content__dfclassic"]/div/a/div[2]/div[1]
+    xpath: //*[@id="df-results__content__dfclassic"]//div[@class="df-card__title"]
   - name: price
     singleValue: false
-    xpath: //*[@id="df-results__content__dfclassic"]/div/a/div[2]/div[3]/div
-  - name: image
+    xpath: //*[@id="df-results__content__dfclassic"]//div[@class="df-card__pricing"]
+  - name: thumbnail
     singleValue: false
-    xpath: //*[@id="df-results__content__dfclassic"]/div/a/figure/img/@src
+    xpath: //*[@id="df-results__content__dfclassic"]//figure[@class="df-card__image"]/img/@src
   - name: id
     singleValue: false
-    xpath:  //*[@id="df-results__content__dfclassic"]/div/a/figure/img/@src
+    xpath:  //*[@id="df-results__content__dfclassic"]//figure[@class="df-card__image"]/img/@src
   - name: productUrl
     singleValue: false
-    xpath: //*[@id="df-results__content__dfclassic"]/div/a/@href
+    xpath: //*[@id="df-results__content__dfclassic"]//a[@class="df-card__main"]/@href

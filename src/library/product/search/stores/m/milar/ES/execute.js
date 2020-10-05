@@ -46,7 +46,7 @@ module.exports = {
     domain: 'milar.es',
     url: 'https://www.milar.es',
     loadedSelector: 'div#df-results__dfclassic',
-    noResultsXPath: '//p[contains(text()\,"No Records")]',
+    noResultsXPath: null,
     zipcode: '',
   },
   implementation,
