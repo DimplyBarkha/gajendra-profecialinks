@@ -5,13 +5,13 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,"no_flag_picture")][1]//img/@src
+    xpath: //div[contains(@class,"_new_product_page_sizes")]/img[not(contains(@src,"/static/"))]/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,"no_flag_picture")][1]//img/@alt
+    xpath: //div[contains(@class,"_new_product_page_sizes")]/img[not(contains(@src,"/static/"))]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"no_flag_picture")][position() > 1]//img/@data-src
+    xpath: //div[contains(@class,"_new_product_page_sizes")]/img[contains(@src,"/static/")]/@data-src
   - name: category
     singleValue: false
     xpath: //div[@id="header-breadcrumb-zone"]/ul//a[text()]
