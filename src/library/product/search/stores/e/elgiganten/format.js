@@ -20,9 +20,9 @@ const transform = (data, context) => {
         row.productUrl[0].text = `https://www.elgiganten.se/${row.productUrl[0].text}`;
       }
 
-      if (row.price) {
-        row.price[0].text = row.price[0].text.replace(/(\s)+/g, '');
-      }
+      // if (row.price) {
+      //   row.price[0].text = row.price[0].text.replace(/(\s)+/g, '');
+      // }
 
       rankCounter += 1;
       orgRankCounter += 1;
