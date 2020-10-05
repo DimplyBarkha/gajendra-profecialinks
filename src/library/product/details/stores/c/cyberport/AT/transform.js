@@ -10,8 +10,9 @@ const transform = (data) => {
         if (row.description) {
           let text = '';
           row.description.forEach(item => {
-            text = row.description.map(elm => elm.text).join(' ').replace(/●/g, '||');
+            text = text+item.text+"||"
           });
+          text= text.toString().substring(0,text.length-2);
           row.description = [{ text }];
         }
         if (row.alternateImages) {
@@ -19,11 +20,34 @@ const transform = (data) => {
           row.alternateImages.forEach(item => {
             if(text.indexOf(item.text)<0)
             {
+            text = text+item.text+"|";
+            }
+          });
+          text = text.substring(0,text.length-1);
+          row.alternateImages = [{ text }];
+        }
+        if (row.additionalDescBulletInfo) {
+          let text = '';
+          row.additionalDescBulletInfo.forEach(item => {
+            if(text.indexOf(item.text)<0)
+            {
             text = text+item.text+"||";
             }
           });
-          text = text.substring(0,text.length-2);
-          row.alternateImages = [{ text }];
+          text = text.substring(0,text.length-1);
+          row.additionalDescBulletInfo = [{ text }];
+        }        
+
+        if (row.specifications) {
+          let text = '';
+          row.specifications.forEach(item => {
+            if(text.indexOf(item.text)<0)
+            {
+            text = text+item.text+"|";
+            }
+          });
+          text = text.substring(0,text.length-1);
+          row.specifications = [{ text }];
         }
         if (row.manufacturerDescription) {
             let text = '';
@@ -31,6 +55,12 @@ const transform = (data) => {
               text = row.manufacturerDescription.map(elm => elm.text).join(' ').replace(/●/g, '||');
             });
             row.manufacturerDescription = [{ text }];
+          }
+
+          if (row.price) {
+            let text = '';            
+              text = row.price[0].text.replace('.',',');
+              row.price = [{ text }];
           }
 
           if (row.mpc) {

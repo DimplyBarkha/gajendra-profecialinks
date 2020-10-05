@@ -27,7 +27,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //meta[@name='description']/@content  
+    xpath: //meta[@property='og:title']//@content  
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -50,7 +50,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class='col-lg-6 col-md-4 col-sm-12 productDetailDescriptionBox']//div//text()
+    xpath: //div[contains(@class,'keyfacts')]//ul//li
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -121,7 +121,6 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //td//font[contains(text(),'Dimensions (W x H x D)')]//following::td[1]|//td[contains(text(),'Abmessungen (B x H x T)')]//following::td[1]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -129,6 +128,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    defaultValue: '0'
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -143,7 +143,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class='descriptionImages col-lg-4 col-xs-12']//img//@src
+    xpath: //div[@class='descriptionImages col-lg-4 col-xs-12']//img//@data-src
   - name: videos
     singleValue: false
     description: URLs of videos on page    
@@ -402,9 +402,9 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
+    singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //section[@id='productDetailDatasheet']//*[div]
+    xpath: //table[@class='tblProductDataSheet']//tr
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -473,7 +473,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false   
-    xpath: //div[contains(@class,'productDetailDescriptionBox')]//div[contains(@class,'keyfacts')]/ul
+    xpath: //div[contains(@class,'productDetailDescriptionBox')]//div[contains(@class,'keyfacts')]//ul//li
   - name: prop65Warning
     singleValue: true
     description: null
