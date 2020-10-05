@@ -1,0 +1,589 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _input
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: image
+    singleValue: true
+    xpath: (//div[contains(@class,"slick-slide")][contains(@style,'575px')][not(contains(@class,'slick-cloned'))]/img/@src)[1]
+  - name: imageAlt
+    singleValue: true
+    xpath: (//div[contains(@class,"slick-slide")][contains(@style,'575px')][not(contains(@class,'slick-cloned'))]/img/@alt)[1]
+  - name: alternateImages
+    singleValue: true
+    xpath: (//div[contains(@class,"slick-slide")][contains(@style,'575px')][not(contains(@class,'slick-cloned'))]/img/@src)[position()>1]
+  - name: metaKeywords
+    singleValue: true
+  - name: _pageTimestamp
+    singleValue: true
+  - name: _url
+    singleValue: true
+  - name: category
+    singleValue: true
+    xpath: ((//ol[@class="breadcrumb"]//li)[position()>1])[position()<last()]
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@itemprop="name"]
+  - name: listPriceCurrency
+    singleValue: true
+    defaultValue: EUR
+  - name: listPrice 
+    singleValue: true
+    xpath: //p[contains(@class,"product-description-old-price")]
+    regExp: (\d+)(\€)?(\d+)?
+    regExpReplace: €$1,$3
+  - name: brandLink
+    singleValue: true
+    xpath: //a[@ng-if="vm.brandHref"]/@href
+    regExp: (.*)
+    regExpReplace: https://www.pixmania.es/b$1
+  - name: baseUrl
+    singleValue: true
+  - name: price
+    singleValue: true
+    xpath: //span[contains(@class,"product-description-new-price")]/@content
+    regExp: (\d+)(\.)?(\d+)
+    regExpReplace: €$1,$3
+  - name: availabilityText
+    singleValue: true
+    xpath: //button[@id="btn-add-to-cart"]//span[contains(text(),"Añadir a la cesta")]
+    regExp: (.*)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
+  - name: description
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: descriptionBullets
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: brandText
+    singleValue: true
+    xpath: //a[@ng-if="vm.brandHref"]/span
+    regExp:
+    regExpReplace:
+  - name: manufacturer
+    singleValue: true
+  - name: quantity
+    singleValue: true
+  - name: weightNet
+    singleValue: true
+    xpath: //div[contains(.,"Peso")]/following-sibling::div[contains(@class,"icecat-ds_data")]
+  - name: weightGross
+    singleValue: true
+  - name: gtin
+    singleValue: true
+    xpath: //span[contains(.,"Código EAN/UPC:")]/following-sibling::span
+  - name: eangtin
+    singleValue: true
+  - name: sku
+    singleValue: true
+    xpath: //*[@itemprop="sku"]/@content
+  - name: variantId
+    singleValue: true
+    xpath:  //span[contains(.,"Código del producto")]/following-sibling::span
+  - name: parentInput
+    singleValue: true
+  - name: pasin
+    singleValue: true
+  - name: mpc
+    singleValue: true
+    xpath: //span[contains(.,"Código del producto")]/following-sibling::span
+  - name: packSize
+    singleValue: true
+  - name: legalDisclaimer
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+    defaultValue: Yes
+  - name: directions
+    singleValue: true
+  - name: warnings
+    singleValue: true
+  - name: ratingCount
+    singleValue: true
+    xpath: 
+  - name: aggregateRatingText
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: aggregateRating
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: shippingInfo
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: shippingDimensions
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: shippingWeight
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: variantCount
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: color
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: colorCode
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: manufacturerImages
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: videos
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: internationalShipping
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: name 
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: priceCurrency
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: inStorePriceCurrency
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: inStorePrice 
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: ingredientsList
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: servingSize
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: servingSizeUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: numberOfServingsInPackage
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: caloriesPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: caloriesFromFatPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: totalFatPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: totalFatPerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: saturatedFatPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: saturatedFatPerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: transFatPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: transFatPerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: cholesterolPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: cholesterolPerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: sodiumPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: sodiumPerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: totalCarbPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: totalCarbPerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: dietaryFibrePerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: dietaryFibrePerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: totalSugarsPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: totalSugarsPerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: proteinPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: proteinPerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: vitaminAPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: vitaminAPerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: vitaminCPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: vitaminCPerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: calciumPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: largeImageCount
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: calciumPerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: ironPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: ironPerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: dietarySymbols
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: magnesiumPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: magnesiumPerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: saltPerServing
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: featureBullets
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: saltPerServingUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: dietaryInformation
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: specifications
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: warranty
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: storage 
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: allergyAdvice
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: salesRank
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: salesRankCategory
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: recyclingInformation 
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: productOtherInformation
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: packaging 
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: addonItem
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: additives 
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: pricePerUnitCurrency
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: pricePerUnit 
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: pricePerUnitUom
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: promotion
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: alcoholContent
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: newVersion
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: newAsin
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: newDescription
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: variantInformation
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: firstVariant
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: variants
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: p_region
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: prop65Warning 
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: ageSuitability
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: energyEfficiency
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: termsAndConditions
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: privacyPolicy
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: coupon
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: customerServiceAvailability 
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: materials
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: Image360Present
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: ingredientImagePresent
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: imageZoomFeaturePresent 
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
+  - name: productUrl
+    singleValue: true
+    xpath: 
+    regExp:
+    regExpReplace:
