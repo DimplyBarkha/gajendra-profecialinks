@@ -4,6 +4,15 @@ parameters:
   domain: argos.co.uk
   store: argos
   zipcode: SE19PD
+proxy:
+  zone: USA
+  type: RESIDENTIAL
+policy:
+  numberRetries: 1
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     osm_argos_uk_core:

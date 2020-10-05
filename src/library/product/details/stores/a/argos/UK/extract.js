@@ -159,7 +159,7 @@ module.exports = {
 
               if (retryCount === retryLimit) {
                 console.log(`Failed to get availability after ${retryLimit} retries.`);
-                // throw new Error(`Failed to get availability after ${retryLimit} retries.`);
+                throw new Error(`Failed to get availability after ${retryLimit} retries.`);
               }
             }
           }
