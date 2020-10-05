@@ -113,7 +113,7 @@ fields:
     singleValue: false
     description: The number of ratings
     xpath: //button[@id="num-reviews-button"]/text()
-    regExp: \d+
+    regExp: (\d+)
     regExpReplace: $1
   - name: aggregateRatingText
     singleValue: false
