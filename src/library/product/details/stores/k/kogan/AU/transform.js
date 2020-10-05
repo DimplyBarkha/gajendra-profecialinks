@@ -49,13 +49,13 @@ const transform = (data, context) => {
 
         if (row.sku) {          
           let tempSku=row.sku[0].text.split(':')
-          tempSku[1] = tempSku[1].substring(16);          
+          //tempSku[1] = tempSku[1].substring(16);          
           row.sku = [{ text: tempSku[1].replace(/\\u002D/g,'-').replace(/\\u0022/g,'').replace(',','').trim() }];
         }
 
          if (row.variantId) {          
           let tempSku=row.variantId[0].text.split(':')
-          tempSku[1] = tempSku[1].substring(16);
+          //tempSku[1] = tempSku[1].substring(16);
           row.variantId = [{ text: tempSku[1].replace(/\\u002D/g,'-').replace(/\\u0022/g,'').replace(',','').trim() }];
         }
 
@@ -66,20 +66,23 @@ const transform = (data, context) => {
 
         if (row.weightNet) {                         
           let tempweightNet =  row.weightNet[0].text.replace( /^\D+/g, ''); 
+          if (row.weightNet[0].text.indexOf('g') === -1) {
           tempweightNet = tempweightNet.replace('kg','');                   
           row.weightNet = [{ text: tempweightNet.trim() + ' kg' }];
+          }
         }
 
         if (row.warranty1) {                    
           row.warranty = [{ text: row.warranty1[0].text.trim() + ' Year' }];
         }
 
-        if (row.colour) {             
-          if (row.colour[0].text.indexOf(':') > -1) {                               
-            var tempColour = row.colour[0].text.split(':');
-            row.colour = [{ text: tempColour[1].replace('\\u003C/p\\u003E\\u003Cp\\u00','').trim() }];
-          }          
-        }
+        // if (row.colour) {         
+        //   if (row.colour[0].text.indexOf(':') > -1) {                               
+        //     var tempColour = row.colour[0].text.split(':');
+        //     // row.colour = [{ text: tempColour[1].replace('\\u003C/p\\u003E\\u003Cp\\u00','').trim() }];
+        //     row.colour = [{ text: tempColour[1].replace(/\\u002D/g,'').replace(/\\u0022/g,'').replace(',','').trim() }];
+        //   }          
+        // }
 
 
         if (row.brandText) {          
@@ -112,9 +115,26 @@ const transform = (data, context) => {
             row.description.forEach(item => {
               newText += row.description.map(elm => elm.text).join(' ').replace(/\n/g, '||');
             });
-            row.description = [{ text: newText.trim() + newText1.trim() }];
+            row.description = [{ text: newText.trim() + ' || ' +  newText1.trim() }];
           }
 
+          if (row.specifications) {
+            let newText = '';
+            let itemp=1;				
+            row.specifications.forEach(item => {	
+            if(itemp===row.specifications.length)
+            {
+              item.text = item.text;
+            }								
+            else{
+              item.text = item.text + ' || ';
+            }	
+            newText += `${item.text.replace(/\n|&dash;|\r/g, ' || ')}`;
+            itemp = itemp+ 1;
+            });				     
+          row.specifications = [{ text: newText.trim() }];
+        }
+          
         } catch (exception) { console.log('Error in transform', exception); }       
                  
       }
