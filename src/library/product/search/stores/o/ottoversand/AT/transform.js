@@ -26,7 +26,12 @@ const transform = (data, context) => {
           if(row.id){
           row.id = [{ text: row.id[0].text.split('/')[3].split('#')[0]}];
         } 
-         
+        
+        if(row.productUrl){
+          let tempUrl = row.productUrl[0].text.split('#');
+          row.productUrl = [{ text: tempUrl[0]}];
+        } 
+
                  
         } catch (exception) { console.log('Error in transform', exception); }
   
