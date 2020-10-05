@@ -126,6 +126,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    defaultValue: '0'
     type: NUMBER
   - name: color
     singleValue: true
@@ -164,8 +165,10 @@ fields:
     description: The physical dimensions of the product including packaging.
     defaultValue: ' '
   - name: warranty
-    singleValue: true
+    singleValue: false
     description: Guarantee associated with the product
+    xpath: //*[contains(text(), "Garantie")]
+    regExp: \d+.{0,20}Garantie
   - name: storage
     singleValue: true
     description: Suggested storage location for product
