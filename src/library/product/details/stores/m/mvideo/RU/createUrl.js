@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'mvideo.ru',
     prefix: null,
-    url: null,
+    url: 'https://www.mvideo.ru/products/{id}',
     country: 'RU',
     store: 'mvideo',
     zipcode: '',
