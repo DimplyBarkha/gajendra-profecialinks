@@ -11,7 +11,9 @@ fields:
     xpath: (//div[@class="responsive-image "]//img)[1]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: concat('impo.ch', //div[@class='image-gallery__thumbs__wrapper image-gallery__thumbs__wrapper--visible']//a//img//@src)
+    xpath: //div[@class='image-gallery__thumbs__wrapper image-gallery__thumbs__wrapper--visible']//a//img//@src
+    regExp: (.*)
+    regExpReplace: https://www.impo.ch$1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
