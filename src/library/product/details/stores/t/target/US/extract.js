@@ -158,14 +158,10 @@ async function implementation (
 
       const productTitle = document.querySelector('h1[data-test="product-title"]') && document.querySelector('h1[data-test="product-title"]').innerText;
       if (variant.variation_info && variant.variation_info.themes) {
-        addHiddenDiv(newDiv, 'imageAlt', productTitle + ' ' + variant.variation_info.themes.map(theme => theme.value).join(' '));
+        addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle) + ' ' + variant.variation_info.themes.map(theme => theme.value).join(' '));
+        addHiddenDiv(newDiv, 'imageAlt', decodeHtml(productTitle) + ' ' + variant.variation_info.themes.map(theme => theme.value).join(' '));
       } else {
-        addHiddenDiv(newDiv, 'imageAlt', productTitle);
-      }
-
-      if (productTitle && variant.variation_info && variant.variation_info.themes) {
-        addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
-      } else {
+        addHiddenDiv(newDiv, 'imageAlt', decodeHtml(productTitle));
         addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
       }
 
