@@ -19,7 +19,7 @@ fields:
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,"product-container")]//div[@class="product-image"]//img/@src
+    xpath: //div[contains(@class,"product-container")]//div[@class="product-image"]//img/@data-src
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
