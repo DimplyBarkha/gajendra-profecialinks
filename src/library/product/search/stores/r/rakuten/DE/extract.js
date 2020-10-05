@@ -29,13 +29,14 @@ async function implementation (
     const numberOfProductsOnPage = productsWindowsSelectors.length;
     for (let i = 0; i < numberOfProductsOnPage; i++) {
       addSelectorProp('li.vw-productCard', 'rankOrganic', i + 1, i);
-      const image = document.querySelectorAll('img.image.b-lazy')[i].getAttribute('data-src')
-        ? document.querySelectorAll('img.image.b-lazy')[i].getAttribute('data-src') : document.querySelectorAll('img.image.b-lazy')[i].getAttribute('src');
-      addSelectorProp('li.vw-productCard', 'imageLink', image, i);
-
+      const image = document.querySelectorAll('div.thumb>img')[i].getAttribute('data-src')
+        ? document.querySelectorAll('div.thumb>img')[i].getAttribute('data-src') : document.querySelectorAll('div.thumb>img')[i].getAttribute('src');
+      addSelectorProp('li.vw-productCard', 'imagelink', image, i);
       addSelectorProp('li.vw-productCard', 'seller', scriptData['products'][i]['shop_name'], i);
     }
   });
+
+  await new Promise((resolve, reject) => setTimeout(resolve, 2500));
 
   return await context.extract(productDetails, { transform });
 }

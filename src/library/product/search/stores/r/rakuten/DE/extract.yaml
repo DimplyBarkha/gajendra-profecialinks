@@ -17,13 +17,14 @@ fields:
   - name: productUrl
     description: The URL for the product details page
     xpath: //li[@class="vw-productCard"]/a[@class="link"]/@href
-    regExp: (.*)
+    regExp: (.+)
     regExpReplace: https://www.rakuten.de$1
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class="thumb"]/img/@src
+    singleValue: false
+    xpath: //li[@class="vw-productCard"]/@imagelink
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
