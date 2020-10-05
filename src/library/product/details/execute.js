@@ -12,6 +12,7 @@ async function implementation (
   dependencies,
 ) {
   let { url, id, zipcode, storeId } = inputs;
+  console.log(inputs)
   if (!url) {
     if (!id) {
       throw new Error('no id provided');
