@@ -16,12 +16,14 @@ fields:
     xpath: //div[@class="name"]
   - name: productUrl
     description: The URL for the product details page
-    xpath: concat("https://www.rakuten.de", //li[@class="vw-productCard"]/a[@class="link"]/@href)
+    xpath: //li[@class="vw-productCard"]/a[@class="link"]/@href
+    regExp: (.*)
+    regExpReplace: https://www.rakuten.de$1
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //li[@class="vw-productCard"]/@imageLink
+    xpath: //div[@class="thumb"]/img/@src
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
@@ -37,7 +39,7 @@ fields:
     description: Product manufacturer
   - name: soldBy
     description: The name of the seller of the item (if available)
-    xpath: //li[@class="vw-productCard"]/@data-merchant-id
+    xpath: //li[@class="vw-productCard"]/@seller
   - name: rank 
     description: search/listing rank
     xpath: //li[@class="vw-productCard"]/@rankorganic

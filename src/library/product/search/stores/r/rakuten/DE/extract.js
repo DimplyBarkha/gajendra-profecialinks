@@ -21,6 +21,10 @@ async function implementation (
       document.querySelector('div.button.left').click();
     }
 
+    const scriptData = JSON.parse(document.querySelectorAll('script#script-data')[1].innerText.replace('var filterData = ', '').trim().slice(0, -1));
+
+
+
     const productsWindowsSelectors = document.querySelectorAll('li.vw-productCard');
     const numberOfProductsOnPage = productsWindowsSelectors.length;
     for (let i = 0; i < numberOfProductsOnPage; i++) {
@@ -28,6 +32,8 @@ async function implementation (
       const image = document.querySelectorAll('img.image.b-lazy')[i].getAttribute('data-src')
         ? document.querySelectorAll('img.image.b-lazy')[i].getAttribute('data-src') : document.querySelectorAll('img.image.b-lazy')[i].getAttribute('src');
       addSelectorProp('li.vw-productCard', 'imageLink', image, i);
+
+      addSelectorProp('li.vw-productCard', 'seller', scriptData['products'][i]['shop_name'], i);
     }
   });
 
