@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'littlewoods.com',
     prefix: null,
-    suffix: '.prd',
+    suffix: null,
     url: 'https://www.littlewoods.com/{id}.prd',
     country: 'UK',
     store: 'littlewoods',
