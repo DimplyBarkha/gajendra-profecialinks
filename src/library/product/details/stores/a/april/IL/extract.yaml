@@ -5,56 +5,66 @@ recordXPath: null
 fields:
 - name: image
   singleValue: true
-  xpath: //div[@class='imgProduct']//img/@src
+  xpath: //div[@class='imgProduct']//img[@class='img-responsive center-block']/@src
 - name: metaKeywords
   singleValue: true
   xpath: //meta[@name="keywords"]/@content
-- name: category
+- name: category 
   singleValue: false
-  xpath: //div[@class='tab-content']//ul[@class='current-description list-unstyled']//li[1]/b
+  xpath: //div[@id='category']
 - name: price
   singleValue: true
   xpath: //div[@class='bg_gray']//span[@id='saleprice']
-- name: listPrice
-  singleValue: true
-  xpath: //div[@class='bg_gray']//span[@id='saleprice']
+# xpath: //div[@class='bg_gray']//span[@id='saleprice']
+# - name: listPrice
+#   singleValue: true
+#   xpath: //div[@class='bg_gray']//span[@id='saleprice']
 - name: availabilityText
   singleValue: true
-  xpath: //meta[@property='product:availability']/@content
-  defaultValue: In stock
-  regExp: OutOfStock
-  regExpReplace: Out of Stock
+  xpath: //meta[@property='product:availability']//@content
+  # xpath: //button[@id="addToCart"]//span
+  # defaultValue: In stock
+  # regExp: OutOfStock
+  # regExpReplace: Out of Stock
 - name: description
   singleValue: false
-  xpath: //meta[@property='og:description']/@content
+  xpath: //meta[@property='og:title']//@content
 # - name: descriptionBullets
 #   singleValue: true
 #   xpath: count(div[@class='tab-pane active']//ul[@class])
 - name: brandText
   singleValue: true
-  xpath: //div[@class='tab-content']//ul[@class='current-description list-unstyled']//li[6]
+  xpath: //meta[@name='description']//@content
 # - name: color
 #   singleValue: true
 #   xpath: //div[@class='tab-pane active']//ul[@class='current-description list-unstyled']//li[1]//b
 - name: nameExtended
   singleValue: true
   xpath: //div[@class='tab-content']/div[@id='mytab_0']
-- name: promotion 
-  singleValue: false
-  xpath: //div[@id='P2']//a[@data-attr='my654951']
+
 - name: shippingInfo
   singleValue: true 
-  xpath: //div[@class='col-xs-12 col-sm-12 col-md-4 col-lg-4 ']//div[@class='top-menu text-center']//ul[@class='list-inline']
+  xpath: //div[@class='tab-content']/div[@id='mytab_2']
 - name: imageAlt
   singleValue: true
   xpath: //div[@class='imgProduct']//img/@alt
-# - name: videos
-#   singleValue: true
-#   xpath: //div[@class='ytp-title-text']//a[@class='ytp-title-link yt-uix-sessionlink']
-#   regExp: ("versions":{"\w+":")(http[^"]+mp4)(\")
-#   regExpReplace: $2
+- name: videos
+  singleValue: false
+  xpath: //div[@role='tabpanel']//iframe/@src
+- name: sku
+  singleValue: false
+  xpath: //div[@id='sku']
+- name: variantCount
+  singleValue: true
+  xpath: //div[@id='variantcount']
 
-
+- name: variants
+  singleValue: true
+  xpath: //div[@id='variants']
+- name: variantId
+  singleValue: true
+  xpath: //div[@id='variantId']
+ 
          
 - name: servingSizeUom
   singleValue: false
