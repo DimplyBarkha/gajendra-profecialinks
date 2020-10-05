@@ -5,13 +5,13 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,"no_flag_picture") and not(contains(@style,"none"))]//img/@src
+    xpath: //div[contains(@class,"no_flag_picture")][1]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,"no_flag_picture") and not(contains(@style,"none"))]//img/@alt
+    xpath: //div[contains(@class,"no_flag_picture")][1]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"no_flag_picture") and contains(@style,"none")]//img/@data-src
+    xpath: //div[contains(@class,"no_flag_picture")][position() > 1]//img/@data-src
   - name: category
     singleValue: false
     xpath: //div[@id="header-breadcrumb-zone"]/ul//a[text()]
@@ -50,6 +50,12 @@ fields:
   - name: sku
     singleValue: false
     xpath: //meta[@itemprop="sku"]/@content
+  - name: mpc
+    singleValue: false
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@itemprop="sku"]/@content
   - name: ratingCount
     singleValue: false
     manualSelector: span.rating span.rating_avis > u
@@ -75,10 +81,10 @@ fields:
     xpath: //div[contains(@class,"no_flag_picture")]//iframe/@src | //input[@class="flix-jw"]/@value
   - name: name
     singleValue: false
-    manualSelector: span.product_name
+    xpath: //span[contains(@class, "product_name")]/..
   - name: warranty
     singleValue: false
-    xpath: //div[@class="product-sale-actions"]//a[contains(text(),"Garantie")]
+    xpath: //div[@class="product-sale-actions"]//li[contains(text(),"arantie") or a[contains(text(),"arantie")]]
   - name: countryOfOrigin
     singleValue: false
     xpath: //tr[th[contains(text(),"Origine de fabrication")]]//li
