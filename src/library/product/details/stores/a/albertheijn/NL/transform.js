@@ -31,7 +31,7 @@ const transform = (data, context) => {
         row.dietaryInformation = [{ text }];
       }
       if (row.pricePerUnit) {
-        const values = row.pricePerUnit[0].text.replace(/(<(\/)?span([^>]*)>)/ig, '').trim().split('<!-- -->').filter(elm => elm.trim());
+        const values = row.pricePerUnit.map(elm => elm.text).filter(elm => elm.trim());
         const pricePerUnit = values.slice(2).join(' ');
         const pricePerUnitUom = values[1];
         row.pricePerUnit = [{ text: pricePerUnit.trim() }];

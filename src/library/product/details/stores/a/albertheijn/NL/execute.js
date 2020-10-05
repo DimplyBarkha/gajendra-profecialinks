@@ -5,7 +5,7 @@ module.exports = {
     country: 'NL',
     store: 'albertheijn',
     domain: 'ah.nl',
-    loadedSelector: null,
+    loadedSelector: 'img[data-testhook="product-image"][src]',
     noResultsXPath: null,
     zipcode: '',
   },

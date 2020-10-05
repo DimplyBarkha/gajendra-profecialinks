@@ -209,12 +209,12 @@ fields:
   - name: fastTrack
     description: null
   - name: ingredientsList
-    xpath: //div[@class="product-info-content-block product-info-ingredients"]
+    xpath: //div[@class="product-info-content-block product-info-ingredients"]/p[1]
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
     xpath: //th[contains(.,"Soort")]/following-sibling::*[1]
-    regExp: '(.+)[^\s]+[.]*$'
+    regExp: '(.+)\s[^\s]+[.]*$'
     regExpReplace: $1
     description: The size of serving Nutritional information is based on.
   - name: servingSizeUom
@@ -293,13 +293,13 @@ fields:
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
-    xpath: //td[contains(.,"Waarvan suikers	")]/following-sibling::*[1]
+    xpath: //td[contains(.,"Waarvan suikers")]/following-sibling::*[1]
     regExp: (.+)\s+[^\s]+$
     regExpReplace: $1
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
   - name: totalSugarsPerServingUom
-    xpath: //td[contains(.,"Waarvan suikers	")]/following-sibling::*[1]
+    xpath: //td[contains(.,"Waarvan suikers")]/following-sibling::*[1]
     regExp: '[^\s]+$'
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
@@ -401,8 +401,7 @@ fields:
   - name: additives
     description: List of additives in the product
   - name: pricePerUnit
-    xpath: //*[contains(@class,"product-card-header_unitPrice")]
-    html: true
+    xpath: //*[contains(@class,"product-card-header_unitPrice")]/child::node()
     description: Price of the product split into certain units
   - name: pricePerUnitUom
     description: The unit of measurement used in price_per_unit
@@ -410,7 +409,7 @@ fields:
     xpath: //*[@data-testhook="promo-sticker"]
     description: promotion text on product page
   - name: alcoholContent
-    xpath: //*[contains(text(),"alcoholpercentage")][not(name()="script")]/following-sibling::*[1]
+    xpath: //h4[contains(text(),"alcoholpercentage")][not(name()="script")]/following-sibling::*[1]
     description: Alcohol content information
   - name: newVersion
     description: In product page, information about a new version of the product
