@@ -8,11 +8,11 @@ fields:
     xpath: //div/../@data-codic
   - name: name
     singleValue: false
-    manualSelector: span.prd-name
+    manualSelector: div.prd-family
   - name: productUrl
     singleValue: false
     xpath: //a[span[@class="prd-name"]]/@href
-    regExp: (.*)
+    regExp: (.+)
     regExpReplace: https://www.darty.com$1
   - name: thumbnail
     singleValue: false
