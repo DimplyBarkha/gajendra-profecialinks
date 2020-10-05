@@ -66,7 +66,7 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //div[@class="c-select__container"]//button[1]
+    xpath: //div[@class="c-select c-filter__select --quantity"]//div[@class="c-select__container"]//button
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
@@ -75,7 +75,6 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: ((//div[@class="c-tabs__copy"]//span//br)[24]/following-sibling::text())[1]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -119,7 +118,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //article[@id="content2"]//div[@class="c-tabs__copy"]//div[@class="c-delivery-left"]
+    xpath: //section[@class="c-product-info__tabs c-tabs"]//article[@id="content3"]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -134,21 +133,20 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //span[@class="c-select__dropdown-item --selected"]//span
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //article[@id="content2"]
+    xpath: //meta[@name="description"]/@content
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@class="c-image-gallery__img --video"]//video//source/@src
+    xpath: //video[@class="c-category-hero__media"]//source/@src
   - name: name
     singleValue: true
     description: The product name
@@ -190,6 +188,9 @@ fields:
     singleValue: true
     description: the url of the page
     xpath: //meta[@property="og:url"]/@content
+  - name: id
+    singleValue: true
+    description: the id of the product
   - name: subscriptionPrice
     singleValue: true
     description: Subscribe and save price
@@ -220,7 +221,7 @@ fields:
   - name: largeImageCount
     singleValue: true
     description: null
-    xpath: //meta[@content="summary_large_image"]
+    xpath: //meta[@name="twitter:card"]/@content
     type: NUMBER
   - name: variantAsins
     singleValue: true
@@ -472,7 +473,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: //span[@class="c-select__dropdown-item --selected"]//span
+    xpath: (//a[@itemprop="item"]//span[@itemprop="name"])[4]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of

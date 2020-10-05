@@ -50,10 +50,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class="c-prod-card__cta-box-wishlist"]//button/@data-product-wcid
-  - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
+    xpath: //div[@class="col-xs-6 col-sm-4 c-listing-items__item"]//button/@data-product-wcid
   - name: soldBy
     singleValue: true
     description: The name of the seller of the item (if available)

@@ -3,8 +3,8 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'selfridges.com',
-    timeout: 50000,
-    country: 'GB',
+    timeout: 100000,
+    country: 'UK',
     store: 'selfridges',
     zipcode: '',
   },
