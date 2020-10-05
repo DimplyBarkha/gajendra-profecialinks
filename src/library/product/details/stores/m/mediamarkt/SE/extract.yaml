@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //aside[@id="product-sidebar"]//div[contains(@class, "preview")]//img/@src
+    xpath: (//aside[@id="product-sidebar"]//div[contains(@class, "preview")]//img/@src)[1]
     regExp: (.+)
     regExpReplace: https:$1
     description: URL of the main product image
