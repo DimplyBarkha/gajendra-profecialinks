@@ -83,7 +83,7 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //meta[@itemprop= "gtin13"]/@content
+    xpath: //div[contains(text(), "EAN")]/following-sibling::*
   - name: sku
     singleValue: false
     description: The store-specific product identifier
