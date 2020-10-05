@@ -120,7 +120,12 @@ async function implementation (inputs, parameters, context, dependencies) {
     await context.goto(url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
     return await context.evaluate(async function () {
       const imageArray = [];
-      const manufacturerDescription = document.body.innerText;
+      let manufacturerDescription = document.body.innerText;
+      const idx = manufacturerDescription.indexOf('From');
+      if (idx > 0) {
+        manufacturerDescription = manufacturerDescription.substring(idx);
+      }
+      console.log('document.body: ', document.body);
       try {
         const manufacturerImagesList = document.querySelectorAll('img');
         for (let i = 0; i < manufacturerImagesList.length; i++) {

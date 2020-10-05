@@ -68,7 +68,7 @@ fields:
     # regExpReplace: $1
   - name: variants
     singleValue: false
-    xpath: //div[@id="added-gtin"]
+    xpath: //div[@id="added-gtin"]  |  //td[contains(text(),'GTIN')]/following-sibling::td
     regExp: \W(.*)
     regExpReplace: $1
   - name: variantId
@@ -109,8 +109,8 @@ fields:
     #type: NUMBER
   - name: shippingInfo
     singleValue: false
-    xpath: //tr//div/a/text()
-    description: Shipping information for the product
+    #xpath: //section[@id='online']//tr//td//div//a/span[not(@class)]
+    xpath: //section[@id='online']//div[@class='u5QDkd']//table//tbody//tr//td//div//a[@class='sh-osd__seller-link shntl']//span[position()=1]
   - name: shippingDimensions
     singleValue: false
     xpath: //div[@id="added-shippingDimensions"] 
@@ -131,7 +131,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id ="added-manufacturer-description"]
-    regExp: Shopping Search Google Shopping Sign in(.+)
+    regExp: (.+)Google Home‎Advertising Programs‎Business
     regExpReplace: $1
     #  //div[@class='RmXrwd']//span/text()
   - name: manufacturerImages
