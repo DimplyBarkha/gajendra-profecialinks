@@ -22,13 +22,15 @@ async function implementation (
         // Check if number of products exceeds the results value
         const productLengthSelector = document.querySelectorAll('article[class*="Article-itemGroup"]');
         const numberOfProducts = productLengthSelector.length;
+        //console.log('numberOfProduct before break ---> ',numberOfProducts);
         if (numberOfProducts >= results) {
+          //console.log('numberOfProduct while breking the look ---> ',numberOfProducts);
           break;
         }
       }
     }, results);
   }
-  await loadResults(results);
+  //await loadResults(results);
 
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
