@@ -4,6 +4,15 @@ parameters:
   domain: sephora.com.au
   store: sephora
   zipcode: ""
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 30
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     staging:

@@ -8,10 +8,12 @@ fields:
     xpath: //div[@id='ii_parentInput']
   - name: descriptionBullets
     xpath: //div[@id="ii_descriptionBullets"]
+  - name: additionalDescBulletInfo
+    xpath: //div[contains(@class, "product-description")]//li|//div[contains(@class, "product-description")]//div[contains(@id,"product-description")]//li
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: (//div[@class='product-images']//img/@src)[1]
+    xpath: (//div[@class='product-images']//img/@src)[1]|(//div[contains(@class,'image-container')]/img/@src[not(contains(., "sephora_logo"))])[1]
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -19,11 +21,11 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[@class='product-images']//img/@src)
+    xpath: (//div[@class='product-images']//img/@src)|(//div[contains(@class,'image-container')])/img/@src
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[contains(@class, "product-breadcrumbs")]//li
+    xpath: //div[contains(@class, "product-breadcrumbs")]//li[not(contains(., "Home"))]
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -43,8 +45,9 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
+    xpath: //div[@id="ii_availability"]
+    # regExp: (.+)
+    # regExpReplace: In Stock
     defaultValue: In Stock
   - name: description
     singleValue: false
@@ -73,12 +76,12 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: //div[contains(@class, "variant-selector")]//li[contains(@class, "active")]/@class
+    xpath: //div/@data-product-id
     regExp: (([0-9]+)$)
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[contains(@class, "variant-selector")]//li[contains(@class, "active")]/@class
+    xpath: //div/@data-product-id
     regExp: (([0-9]+)$)
   - name: legalDisclaimer
     singleValue: false
@@ -100,15 +103,15 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     xpath: //div[@class='rating-container']//div[contains(@id, 'rateit-range')]/@aria-valuenow
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div[@class='rating-container']//div[contains(@id, 'rateit-range')]/@aria-valuenow
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
     xpath: //div[contains(@id, "shipping-collapse")]/div|//div[contains(@class,"free-shipping-message")]
-  - name: variantCount
-    singleValue: false
-    description: Number of variants listed
-    type: NUMBER
-    xpath: count(//div[contains(@class, "variant-selector")]//li[contains(@class, "product-variant")]/@class)
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -158,13 +161,16 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: //div/@data-product-id
   - name: variants
     singleValue: false
     description: null
-    xpath: //div[contains(@class, "variant-selector")]//li[contains(@class, "product-variant")]/@class|//*[contains(@class, "product-variant-swatch")]//li/img/@title
-  - name: additionalDescBulletInfo
+    xpath: //*[contains(@class, "product-variant-swatch")]//li/img/@title
+  - name: variantCount
     singleValue: false
-    description: null
+    description: Number of variants listed
+    type: NUMBER
+    xpath: count(//*[contains(@class, "product-variant-swatch")]//li/img/@title)
   - name: technicalInformationPdfPresent
     singleValue: false
     description: If there is for example a manual in pdf format on the website. ['Yes','No']

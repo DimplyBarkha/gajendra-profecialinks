@@ -47,7 +47,6 @@ module.exports = {
       let srcSel = document.querySelector('iframe#video-article-details')
 
       let i = 0;
-      debugger
       while(i < videoSelectors.length) {
         videoSelectors[i].click();
         await new Promise(resolve => setTimeout(resolve, 5000));
@@ -85,16 +84,17 @@ module.exports = {
       let names = '//div[@class="basic-information-section"]//div[contains(@class, "product-")]';
       let names2 = '//h1[contains(@class, "product-name")]'
       let brand2 = '//h2[contains(@class, "product-brand")]'
-      let directions = '//div[@class="product-details"]/div[contains(.,"How To")]//text()'
+      let directions = '//div[@class="product-details"]/div[contains(.,"How To")]//div[contains(@class, "content")]//text()'
       let directions2 = '//div[contains(@class, "product-description")]//div[contains(@id,"product-how-to")]//text()'
       let directionBullets = '//div[contains(@class, "how-to")]//li'
       let directionBullets2 = '//div[contains(@class, "product-description")]//div[contains(@id,"product-how-to")]//li'
-      let description = '//div[@class="product-details"]/div[contains(.,"Description")]//text()'
+      let description = '//div[@class="product-details"]/div[contains(.,"Description")]//div[contains(@class, "content")]//text()'
       let description2 = '//div[contains(@class, "product-description")]//div[contains(@id,"product-description")]//text()'
       let descriptionBullets = '//div[contains(@class, "product-description")]//li'
       let descriptionBullets2 = '//div[contains(@class, "product-description")]//div[contains(@id,"product-description")]//li'
-      let videoSelectors = document.querySelectorAll('div.video-image-overlay')
-      let videoLinks = [];
+      let stock = '//*[contains(@class, "product-variant-swatch")]//li[contains(@class, " active")]/i[contains(@class, "out-of-stock icon")]'
+      // let imgSku = '(//li[contains(@class, "thumbnail-item")]/img/@src)';
+      var stockCheck = document.evaluate( stock, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       var directionsBCheck = document.evaluate( directionBullets, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       var descriptionBCheck = document.evaluate( descriptionBullets, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       var directionsCheck = document.evaluate( directions, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -114,6 +114,11 @@ module.exports = {
           addHiddenDiv('ii_video', src);
         })
       }
+
+      if(stockCheck.snapshotLength > 0 ){
+          addHiddenDiv('ii_availability', "Out of stock");
+      }
+      
 
 
       if(namesCheck.snapshotLength > 0 || namesCheck2.snapshotLength > 0){
@@ -139,11 +144,12 @@ module.exports = {
         let snapshotLength = directionsCheck.snapshotLength || directionsCheck2.snapshotLength
         for(let i = 0; i < snapshotLength; i++) {
           let line = directionsCheck.snapshotItem(i) || directionsCheck2.snapshotItem(i)
-          console.log("HERE123" + line)
           if(directionsBCheck.snapshotLength > 0 || directionsBCheck2.snapshotLength > 0){
             let snapLength = directionsBCheck.snapshotLength || directionsBCheck2.snapshotLength
             for(let i = 0; i < snapLength; i++) {
               let content = directionsBCheck.snapshotItem(i) || directionsBCheck2.snapshotItem(i)
+              let contentText = content.textContent
+              let lineText = line.textContent
               if(line.textContent.includes(content.textContent)){
                 line.textContent = ` || ${line.textContent}`;
               }
@@ -163,7 +169,10 @@ module.exports = {
           if(descriptionBCheck.snapshotLength > 0 || descriptionBCheck2.snapshotLength > 0){
             let snapLength = descriptionBCheck.snapshotLength || descriptionBCheck2.snapshotLength
             for(let i = 0; i < snapLength; i++) {
-              let content = descriptionBCheck.snapshotItem(i) || descriptionBCheck2.snapshotItem(i)
+              let content = descriptionBCheck.snapshotItem(i) || descriptionBCheck2.snapshotItem(i);
+              let contentText = content.textContent
+              let lineText = line.textContent
+
               if(line.textContent.includes(content.textContent)){
                 line.textContent = ` || ${line.textContent}`;
               }

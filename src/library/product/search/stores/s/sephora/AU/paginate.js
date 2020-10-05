@@ -10,7 +10,7 @@ module.exports = {
     loadedSelector: 'div.products-grid',
     // noResultsXPath: '//h4[contains(., "no products found")]',
     // openSearchDefinition: null,
-    domain: 'sephora.com',
+    domain: 'sephora.com.au',
     zipcode: '',
   },
 };

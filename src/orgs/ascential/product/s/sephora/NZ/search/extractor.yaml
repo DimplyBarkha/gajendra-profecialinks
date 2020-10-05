@@ -4,8 +4,14 @@ parameters:
   domain: sephora.nz
   store: sephora
 proxy:
-  zone: US
+  zone: ZUS
   type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 30
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     staging:

@@ -34,41 +34,17 @@ const transform = (data, context) => {
 
           if(row.brandLink){
             let text = row.brandLink[0].text;
-            row.brandLink[0].text = `https://www.sephora.nz${text}`
+            row.brandLink[0].text = `https://www.sephora.com.au${text}`
           }
 
-          // if(row.description){
-          //   let text = row.description[0].text;
-          //   let bulletReplace = text.replace(/ - /g, " || ")
-          //   row.description[0].text = bulletReplace
-          // }
-          // if(row.ingredientsList){
-          //   let text = row.ingredientsList[0].text;
-          //   let bulletReplace = text.replace(/ - /g, " || ")
-          //   row.ingredientsList[0].text = bulletReplace
-          // }
-          // if(row.directions){
-          //   let textLines = [];
-          //   row.directions.forEach(line => {
-          //     let bulletReplace = line.text.replace(/ - /g, " || ")
-          //     row.directions[0].text = bulletReplace
-          //   })
-          // }
 
-          // if(row.image){
-          //   let text = row.image[0].text;
-          //   if(!text.includes(".com")){
-          //     let splits = text.split("?");
-          //     row.image[0].text = `https://sephora.com.au${splits[0]}`
-          //   }
-          // }
           
           if(row.alternateImages){
               let imageArray = [];
               if(row.alternateImages.length > 1){
                 for(let i = 0; i < row.alternateImages.length; i++){
                   let text = row.alternateImages[i].text
-                  if(!imageArray.includes(text)){
+                  if(!imageArray.includes(text) && !text.includes("sephora_logo")){
                     imageArray.push(text);
                   }
                 }
@@ -87,6 +63,17 @@ const transform = (data, context) => {
         // }
 
 
+          if(row.firstVariant){
+            let text = row.firstVariant[0].text;
+            if(text.includes("variant-swatch")){
+              text = text.split("-swatch-")
+              if(text[1]){
+                row.firstVariant[0].text = text[1]
+              }
+            }
+
+          }
+
           if(row.nameExtended){
             let newName = [];
             let text = row.nameExtended.forEach(name => {
@@ -98,10 +85,10 @@ const transform = (data, context) => {
           }
 
           if(row.additionalDescBulletInfo){
-            row.additionalDescBulletInfo.forEach(bullet => {
-              let text = bullet.text.replace(/- /g, "")
-              bullet.text = text
-            })
+            for(let i = 0; i < row.additionalDescBulletInfo.length; i++){
+              let text = row.additionalDescBulletInfo[i].text.replace(/\||/g, "")
+              row.additionalDescBulletInfo[i].text = text
+            }
           }
 
           if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {

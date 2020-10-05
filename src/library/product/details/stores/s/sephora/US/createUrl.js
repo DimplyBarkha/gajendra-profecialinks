@@ -8,4 +8,4 @@ module.exports = {
     store: 'sephora',
     url: 'https://www.sephora.com/search?keyword={id}',
   },
-};
+}; 
