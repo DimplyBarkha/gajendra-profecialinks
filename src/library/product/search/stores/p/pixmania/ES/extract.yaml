@@ -33,9 +33,9 @@ fields:
     singleValue: true
   - name: price
     singleValue: true
-    xpath: //span[@itemprop="price"]
-    regExp: (\d+)\€?(\d+)?
-    regExpReplace: €$1,$2
+    xpath: //span[@itemprop="price"]/@content
+    regExp: (\d+)(\.)?(\d+)?
+    regExpReplace: €$1,$3
   - name: manufacturer
     singleValue: true
   - name: soldBy
