@@ -5,6 +5,6 @@ module.exports = {
     store: 'target',
     domain: 'target.com',
     loadedSelector: 'body',
-    noResultsXPath: '//h1[contains(.,"no results found")]',
+    noResultsXPath: '//h1[contains(.,"no results found")] | //div[@data-test="NLRTransparentMessage"]',
   },
 };

@@ -6,8 +6,15 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
   if (inputs.id) {
-    await context.waitForXPath("//li[@class='Col-favj32-0 diyyNr h-padding-a-none h-display-flex']");
+    await context.evaluate(async function () {
+      const noResult = document.querySelector('div[data-test="NLRTransparentMessage"]');
+      if (noResult) {
+        throw Error('We couldn’t find a match for your search');
+      }
+    });
+    await context.waitForXPath('//li[contains(@class,"Col-favj32")]//div[@data-test="product-details"]');
     const productUrl = await context.evaluate(async function () {
       function stall (ms) {
         return new Promise((resolve, reject) => {
@@ -96,6 +103,7 @@ async function implementation (
     }
 
     async function getProductInfo (variant, productName, variantCount = null) {
+
       await fetch('https://salsify-ecdn.com/target/en-US/BTF/TCIN/' + variant.tcin + '/index.html')
         .then(async function (response) {
           const sometext = await response.text();
@@ -129,6 +137,7 @@ async function implementation (
       }
 
       let videos = [];
+      let alternateImages = [];
       if (parentData.product &&
         parentData.product.item.enrichment &&
         parentData.product.item.enrichment.videos &&
@@ -136,6 +145,7 @@ async function implementation (
         videos = parentData.product.item.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
           'https:' + video.video_files[0].video_url,
         );
+
       }
 
       if (!videos.length &&
@@ -153,14 +163,15 @@ async function implementation (
         addHiddenDiv(newDiv, 'imageAlt', productTitle);
       }
 
-      if (productTitle && variant.variation_info && variant.variation_info.themes) {
-        addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
-      } else {
-        addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
-      }
+      // if (productTitle && variant.variation_info && variant.variation_info.themes) {
+      //   addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
+      // } else {
+      //   addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
+      // }
 
       if (variant.product_description && variant.product_description.title) {
         addHiddenDiv(newDiv, 'keywords', decodeHtml(variant.product_description.title));
+        addHiddenDiv(newDiv, 'nameExtended', decodeHtml(variant.product_description.title));
       }
 
       addHiddenDiv(newDiv, 'timeStamp', new Date());
@@ -171,7 +182,7 @@ async function implementation (
 
       let description = '';
       if (variant.product_description && variant.product_description.soft_bullets && variant.product_description.soft_bullets.bullets && variant.product_description.soft_bullets.bullets.length) {
-        description = decodeHtml(variant.product_description.soft_bullets.bullets.join(' | ')) + ' ';
+        description = decodeHtml(`|| ` + variant.product_description.soft_bullets.bullets.join(' || ')) + ' ';
         addHiddenDiv(newDiv, 'descriptionBullets', variant.product_description.soft_bullets.bullets.length);
         addHiddenDiv(newDiv, 'additionalDesc', ' || ' + decodeHtml(variant.product_description.soft_bullets.bullets.join(' || ')));
       }
@@ -384,7 +395,7 @@ async function implementation (
               addHiddenDiv(newDiv, 'totalCarbPerServing', val);
               addHiddenDiv(newDiv, 'totalCarbPerServingUom', e.unit_of_measurement || '%');
             }
-            if (e.name === 'Dietary Fiber') {
+            if (e.name === 'Dietary Fiber' || e.name === 'Dietary Fiber*') {
               addHiddenDiv(newDiv, 'dietaryFibrePerServing', val);
               addHiddenDiv(newDiv, 'dietaryFibrePerServingUom', e.unit_of_measurement || '%');
             }
@@ -478,7 +489,9 @@ async function implementation (
         addHiddenDiv(newDiv, 'rotate', 'No');
       }
 
+
       const moreImageBtn = document.querySelector('.styles__LegendGridButtonOverlay-beej2j-13');
+
       if (moreImageBtn) {
         moreImageBtn.click();
         await stall(100);
@@ -536,12 +549,27 @@ async function implementation (
         }
       }
 
+
+
+
+
       addHiddenDiv(newDiv, 'secondaryImages', secondaryImages.filter(img => img !== variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).join(' | '));
       if (secondaryImages.length) {
         addHiddenDiv(newDiv, 'secondaryImageTotal', secondaryImages.filter(img => img !== variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).length);
       } else {
         addHiddenDiv(newDiv, 'secondaryImageTotal', '0');
       }
+
+      fetch('https://redsky.target.com/v3/pdp/tcin/' + variant.tcin + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
+        .then(data => data.json())
+        .then(async function (parent) {
+          var base = parent.product.item.enrichment.images[0].base_url
+          var alternateImages = parent.product.item.enrichment.images[0].alternate_urls.map(image => base + image)
+          addHiddenDiv(newDiv, 'alternateImages', alternateImages.filter(img => img !==  parent.product.item.enrichment.images[0].base_url +  parent.product.item.enrichment.images[0].primary).filter(onlyUnique).join(' | '));
+          if (alternateImages.length) {
+            addHiddenDiv(newDiv, 'alternateImageTotal', alternateImages.filter(img => img !==  parent.product.item.enrichment.images[0].base_url +  parent.product.item.enrichment.images[0].primary).filter(onlyUnique).length);
+          }
+        });
 
       const shipbutton = document.querySelector('#tab-ShippingReturns');
       if (shipbutton != null) {
@@ -659,9 +687,9 @@ async function implementation (
           return addHiddenDiv(newDiv, 'specificationsdiv', val);
         }));
 
-        var query = document.evaluate('//div[@class="Col-favj32-0 hezhbt h-padding-h-default"]/div/b/parent::div', document,
+      var query = document.evaluate('//div[@class="Col-favj32-0 hezhbt h-padding-h-default"]/div/b/parent::div', document,
         null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      var results = Array(query.snapshotLength).fill(0).map((element, index) =>  query.snapshotItem(index).innerText)
+      var results = Array(query.snapshotLength).fill(0).map((element, index) => query.snapshotItem(index).innerText)
       results.map(val => {
         return addHiddenDiv(newDiv, 'specificationsdiv', val);
       });

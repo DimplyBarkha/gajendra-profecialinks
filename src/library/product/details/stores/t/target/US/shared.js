@@ -47,8 +47,6 @@ const transform = (data) => {
       }
       row.availabilityText = [{ text }];
 
-
-      row.variantCount = [{ text:'0' }];
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {

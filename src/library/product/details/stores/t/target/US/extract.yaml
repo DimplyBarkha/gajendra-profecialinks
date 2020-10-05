@@ -8,10 +8,10 @@ fields:
     xpath: //div[@class="primaryImage"]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="secondaryImages"]
+    xpath: //div[@class="alternateImages"]
   - name: secondaryImageTotal
     singleValue: false
-    xpath: //div[@class="secondaryImageTotal"]
+    xpath: //div[@class="alternateImageTotal"]
   - name: imageAlt
     singleValue: false
     xpath: //div[@class="imageAlt"]
@@ -74,7 +74,7 @@ fields:
     xpath: //div[@class="sku"]
   - name: variantId
     singleValue: false
-    xpath: //div[@class="sku"]
+    xpath: //div[@class="variantId"]
   - name: mpc
     singleValue: false
     xpath: //div[@class="mpc"]
@@ -132,7 +132,7 @@ fields:
     xpath: //div[@class="productName"]
   - name: servingSize
     singleValue: false
-    xpath: //div[@class="servingSize"]
+    xpath: concat(//div[@class="servingSize"],' ',//div[@class="servingSizeUom"])
   - name: servingSizeUom
     singleValue: false
     xpath: //div[@class="servingSizeUom"]
