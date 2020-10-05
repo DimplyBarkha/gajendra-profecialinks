@@ -16,6 +16,34 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
 
+      const name = document.querySelector(".productHeading span") ? document.querySelector(".productHeading span").innerText : "";
+      addElementToDom(name, "name");
+
+      const descriptionBulletsCount = document.querySelector(".longDescription span[itemprop='description'] ul li")
+        ? document.querySelectorAll(".longDescription span[itemprop='description'] ul li").length
+        : "";
+      addElementToDom(descriptionBulletsCount, "descriptionBulletsCount");
+
+      const productImage = document.querySelector(".amp-viewer-main-container .amp-anim-container li.amp-selected img")
+        ? document.querySelector(".amp-viewer-main-container .amp-anim-container li.amp-selected img").getAttribute("src")
+        : "";
+      addElementToDom(productImage, "productImage");
+
+      const alteranteImages = document.querySelectorAll(".amp-viewer-main-container .amp-anim-container li img.amp-just-image");
+      let secondaryImages = Array.from(alteranteImages).filter((value) => {
+        return value.getAttribute("src") != productImage;
+      });
+      let secondaryImagesText = secondaryImages.map((value) => {
+        return value.getAttribute("src");
+      });
+      addElementToDom(secondaryImagesText, "secondaryImagesText");
+
+      const onlinePrice = document.querySelector(".productNowPrice .priceNow") ? document.querySelector(".productNowPrice .priceNow").innerText : "";
+      addElementToDom(onlinePrice, "onlinePrice");
+
+      const description = document.querySelector("span[itemprop='description'") ? document.querySelector("span[itemprop='description'").innerText.replace(/•/, "||") : "";
+      addElementToDom(description, "descriptionText");
+
       const metaKeywords = document.querySelector("meta[name='keywords']").getAttribute("content") ? document.querySelector("meta[name='keywords']").getAttribute("content") : "";
       addElementToDom(metaKeywords, "metaKeywords");
 
@@ -40,33 +68,13 @@ module.exports = {
       const ratingsCount = document.querySelector(".bv-rating-ratio-count") ? document.querySelector(".bv-rating-ratio-count").innerText.match(/\d*/g)[0] : "";
       addElementToDom(ratingsCount, "ratingsCount");
 
-      const ratingsNumber = document.querySelector(".bv-rating-ratio-number") ? document.querySelector(".bv-rating-ratio-number").innerText.match(/\d*/g)[0] : "";
+      const ratingsNumber = document.querySelector(".bv-rating-ratio-number") ? document.querySelector(".bv-rating-ratio-number").innerText : "";
       addElementToDom(ratingsNumber, "ratingsNumber");
 
-      if (document.querySelectorAll("span[itemprop='description'] ul li")) {
-        let dimensions = "";
-        document.querySelectorAll("span[itemprop='description'] ul li").forEach((li) => {
-          if (li.innerText.toLowerCase().includes("depth") || li.innerText.toLowerCase().includes("height") || li.innerText.toLowerCase().includes("width")) {
-            dimensions += li.innerText;
-          }
-        });
-
-        let specifications = "";
-        let count = 0;
-
-        dimensions.match(/\d*/g).forEach((number, index) => {
-          if (number !== "") {
-            if (count == 2) {
-              specifications += number;
-            } else {
-              specifications += number + " x ";
-              count++;
-            }
-          }
-        });
-
-        addElementToDom(specifications, "specifications");
-      }
+      const specifications = document.querySelector(".sdAccordion .sdAccordion__item:nth-of-type(2) .sdAccordion__content #productSpecification table")
+        ? document.querySelector(".sdAccordion .sdAccordion__item:nth-of-type(2) .sdAccordion__content #productSpecification table").innerText
+        : "";
+      addElementToDom(specifications, "specifications");
     });
     await context.extract(productDetails);
   },
