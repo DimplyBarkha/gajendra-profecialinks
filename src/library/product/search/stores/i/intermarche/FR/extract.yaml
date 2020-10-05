@@ -20,3 +20,7 @@ fields:
     xpath: //div[contains(@class,"ProductGridCell")]/@data-id
   - name: manufacturer
     xpath: //div[@class="productTileV2Styled__OverlayWrapper-sc-19ad4vz-12 ieShhq"]//span/@data-tip
+  - name: productUrl
+    xpath: //div[@class="styled__ProductGridWrapper-sc-15s6tne-0 bLxuUB"]/div/@data-id
+    regExp: (.+)
+    regExpReplace: https://www.intermarche.com/rechercheproduits/02111/recherche/arial/product/$1
