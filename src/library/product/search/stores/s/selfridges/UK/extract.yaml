@@ -14,7 +14,7 @@ fields:
     xpath: //span[@class="c-prod-card__cta-box-description"]
   - name: productUrl
     singleValue: false
-    xpath: (//div[@class="c-prod-card__cta-box-quick-shop"]//a)/@href
+    xpath: //div[@class="c-prod-card__cta-box-quick-shop"]//a/@href
   - name: gtin
     singleValue: true
   - name: thumbnail
@@ -22,7 +22,6 @@ fields:
     xpath: //div[@class="c-prod-card --plp"]//img/@src
   - name: url
     singleValue: false
-    xpath: //meta[@property="og:url"]/@content
   - name: aggregateRating
     singleValue: false
   - name: reviewCount
