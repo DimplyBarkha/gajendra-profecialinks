@@ -42,13 +42,14 @@ module.exports = {
       }, selector);
     };
 
-    const captchaSelector = '.captcha';
+    const captchaSelector = 'iframe[src*="https://geo.captcha"]';
     const isCaptchaFramePresent = await checkExistance(captchaSelector);
 
     console.log('isCaptcha', isCaptchaFramePresent);
 
     if (isCaptchaFramePresent) {
       await context.solveCaptcha({
+        provider: '2-captcha',
         type: 'GEETEST',
         inputElement: captchaSelector,
         autoSubmit: true,
