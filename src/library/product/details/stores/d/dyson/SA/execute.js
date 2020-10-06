@@ -2,11 +2,11 @@
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
-    country: 'PL',
+    country: 'SA',
     store: 'dyson',
-    domain: 'dyson.pl',
+    domain: 'dyson.sa',
     loadedSelector: 'div.hero__body',
-    noResultsXPath: '//div[contains(@class,"layout")]/*[contains(text(), "Nie można")]',
+    noResultsXPath: '//div[contains(@class,"layout")]/*[contains(text(), "returned no results")]',
     zipcode: '',
   },
 };

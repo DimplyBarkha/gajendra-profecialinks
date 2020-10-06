@@ -38,11 +38,13 @@ module.exports.implementation = async function implementation (
         AT: { lang: 'de' },
         NO: { lang: 'nb' },
         SE: { lang: 'sv' },
+        PL: { lang: 'pl' },
       };
       return map[country] && map[country][type] ? map[country][type] : country.toLowerCase();
     };
 
     const fetchURL = `https://api.${domain}/apiman-gateway/dyson/search/1.0/${apiCoutryCodeMapping(country, 'cc')}/?query=${encodeURIComponent(keywords)}::documentType:range:documentType:ACCESSORIES:isLegacy:false:hideInOnsiteSearch:true&currentPage=0&pageSize=20&fields=DEFAULT&lang=${apiCoutryCodeMapping(country, 'lang')}`;
+    console.log(fetchURL)
     const referrer = `https://www.${domain}/search-results.html?searchText=${encodeURIComponent(keywords)}&from=product`;
 
     const searchResults = await fetch(fetchURL, {
