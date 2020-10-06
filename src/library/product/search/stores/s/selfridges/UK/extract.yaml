@@ -22,6 +22,8 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="c-prod-card --plp"]//img/@src
+    regExp: (//images.selfridges.com/is/.+)
+    regExpReplace: http:$1
   - name: url
     singleValue: false
   - name: aggregateRating
