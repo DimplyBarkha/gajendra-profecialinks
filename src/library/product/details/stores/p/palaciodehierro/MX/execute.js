@@ -6,7 +6,7 @@ module.exports = {
     store: 'palaciodehierro',
     domain: 'elpalaciodehierro.com',
     loadedSelector: "div[class*='product_images'] img",
-    noResultsXPath: null,
+    noResultsXPath: "//div[contains(@class,'l-error_page')]",
     zipcode: '',
   },
 };
