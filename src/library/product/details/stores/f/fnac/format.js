@@ -75,9 +75,9 @@ const transform = (data) => {
         });
       }
       if (row.specifications) {
-        row.specifications[0].text = row.specifications[0].text
+        row.specifications[0].text = cleanUp(row.specifications[0].text
           .replace(/(\n\s*){4,}/g, ' || ')
-          .replace(/(\n\s*){2,}/g, ' : ');
+          .replace(/(\n\s*){2,}/g, ' : '));
       }
     }
   }
