@@ -9,7 +9,7 @@ fields:
   - name: rankOrganic 
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER 
-    xpath: //div[@class="_3O0U0u"]/div/@rankOrganic
+    xpath: //div[@id='rankOrganic']
   - name: name
     description: The product name
     xpath: //a[@class="_2cLu-l"]|//div[@class="_3wU53n"]
@@ -21,9 +21,8 @@ fields:
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //a//div[@class='_3BTv9X']/img/@src
-  - name: aggregateRating
+  - name: aggregateRating2
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
     xpath: //span/div[@class="hGSR34"]
   - name: reviewCount
     description: The number of reviews
@@ -42,6 +41,6 @@ fields:
     description: The name of the seller of the item (if available)
   - name: rank  
     description: search/listing rank
-    xpath: //div[@class="_3O0U0u"]/div/@rankOrganic
+    xpath: //div[@id='rankOrganic']
   - name: endorsementText
     description: The text that signifies that a product is endorsed

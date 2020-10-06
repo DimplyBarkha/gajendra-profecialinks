@@ -9,13 +9,44 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-  await context.evaluate(() => {
+  const applyScroll = async function (context) {
+    await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop !== 15000) {
+        await stall(1000);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 15000) {
+          await stall(1000);
+          break;
+        }
+      }
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+    });
+  };
+  await applyScroll(context);
+  await context.evaluate(async function () {
+    function addElementToDocument (doc, key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      doc.appendChild(catElement);
+    }
+    const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
     const productSelectors = document.querySelectorAll('div._3O0U0u>div');
     for (let i = 0; i < productSelectors.length; i++) {
-      productSelectors[i].setAttribute('rankOrganic', `${i + 1}`);
-      urlData = document.querySelectorAll('a._31qSD5')[i] ? document.querySelectorAll('a._31qSD5')[i].href : document.querySelectorAll('a.Zhf2z-')[i].href
-      document.querySelectorAll('div._3O0U0u>div')[i].setAttribute('producturl', `${urlData}`)
+      addElementToDocument(productSelectors[i], 'rankOrganic', `${lastProductPosition + i}`);
+      const urlData = document.querySelectorAll('a._31qSD5')[i] ? document.querySelectorAll('a._31qSD5')[i].href : document.querySelectorAll('a.Zhf2z-')[i].href;
+      document.querySelectorAll('div._3O0U0u>div')[i].setAttribute('producturl', `${urlData}`);
     }
+    localStorage.setItem('prodCount', `${lastProductPosition + productSelectors.length}`);
   });
 
   return await context.extract(productDetails, { transform });
@@ -26,7 +57,7 @@ module.exports = {
   parameterValues: {
     country: 'IN',
     store: 'flipkart',
-    transform: null,
+    transform,
     domain: 'flipkart.com',
     zipcode: '',
   },
