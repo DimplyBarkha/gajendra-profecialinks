@@ -6,7 +6,7 @@ module.exports = {
     store: 'amazon',
     domain: 'amazon.in',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//b[contains(text(),"Looking for something?")]/ancestor::table',
     zipcode: '',
   },
 };
