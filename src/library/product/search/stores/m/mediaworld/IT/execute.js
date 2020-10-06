@@ -7,6 +7,5 @@ module.exports = {
     url: 'https://www.mediaworld.it/search/{searchTerms}',
     loadedSelector: 'div.main-content.is-search-page',
     noResultsXPath: '//div[@class="search-product-widget search-empty"]',
-    zipcode: '',
   },
 };
