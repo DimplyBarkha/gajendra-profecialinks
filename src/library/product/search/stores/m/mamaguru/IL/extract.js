@@ -17,23 +17,12 @@ module.exports = {
         catElement.style.display = 'none';
         doc.appendChild(catElement);
       }
-
-      const getAllXpath = (xpath, prop) => {
-        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        const result = [];
-        for (let index = 0; index < nodeSet.snapshotLength; index++) {
-          const element = nodeSet.snapshotItem(index);
-          if (element) result.push(prop ? element[prop] : element.nodeValue);
-        }
-        return result;
-      };
-
       const arr = document.querySelectorAll('div.TextDetails');
       for (let i = 0; i < arr.length; i++) {
-        if(arr[i].innerHTML.indexOf("https://www.mamaguru.co.il/css/images/RateHeartS.png") != -1){
+        if (arr[i].innerHTML.indexOf('https://www.mamaguru.co.il/css/images/RateHeartS.png') !== -1) {
           const count = (arr[i].innerHTML.match(/RateHeartS/g) || []).length;
           addElementToDocument(arr[i], 'added_aggregate_rating', count);
-        }   
+        }
       }
     });
     return await context.extract(dependencies.productDetails, { transform: transformParam });
