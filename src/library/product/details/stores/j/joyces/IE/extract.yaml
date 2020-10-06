@@ -48,10 +48,11 @@ fields:
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //meta[@property='og:description']/@content
-  - name: descriptionBullets
+  - name: descriptionBulletscount
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//div[@id="tab-description"]//ul//li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -75,7 +76,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin
+    #xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -87,7 +88,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@class="product_meta"]//span//span[@class="sku"]
+    #xpath: //div[@class="product_meta"]//span//span[@class="sku"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -141,10 +142,13 @@ fields:
     singleValue: false
     description: Images within the third party description
     xpath: //div[@class="flix-std-row"]//img/@srcset
+    regExp: [^(.*)$]
+    regExpReplace: 'http:$1'
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //iframe[@id="flix-iframe0"]/@src
+    #xpath: //iframe[@id="flix-iframe0"]/@src
+    xpath: //div[@id="added_video_url"]
   - name: name
     singleValue: true
     description: The product name
@@ -401,13 +405,15 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@class="inpage_selector_specification"]//div[contains(@class, 'flix-std-row')] 
+    xpath: //div[@id="added_specifications"]
+    #xpath: //div[@class="inpage_selector_specification"]//div[contains(@class, 'flix-std-row')] 
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: (//div[@id="tab-description"]/p)[5]
-    regExp: (.*)(–)(.*)
-    regExpReplace: $3
+    #xpath: (//div[@id="tab-description"]/p)[5]
+    xpath: //div[@id="tab-description"]//*[contains(text(),'ear') or contains(text(),'Warranty')]|//div[@id="tab-description"]//li[contains(text(),'guarantee') or contains(text(),'Warranty')]
+    #regExp: (.*)(–)(.*)
+    #regExpReplace: $3
     # xpath: //div[contains(@class,"wp-video")]/following-sibling::p[15]/text()
   - name: storage
     singleValue: true
@@ -424,7 +430,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //div[@class="flix-std-content"]//div[contains(@class,"flix-d-p")]
+    #xpath: //div[@class="flix-std-content"]//div[contains(@class,"flix-d-p")]
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -475,6 +481,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@id="added_description_bullet_info"]
   - name: prop65Warning
     singleValue: true
     description: null

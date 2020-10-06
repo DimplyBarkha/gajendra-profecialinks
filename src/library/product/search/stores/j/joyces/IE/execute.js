@@ -5,7 +5,7 @@ module.exports = {
     country: 'IE',
     store: 'joyces',
     domain: 'joyces.ie',
-    url: 'https://www.joyces.ie/?s="{searchTerms}"&post_type=product',
+    url: "https://www.joyces.ie/?s='{searchTerms}'&post_type=product",
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',

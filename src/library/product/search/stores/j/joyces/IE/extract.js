@@ -8,4 +8,4 @@ module.exports = {
     domain: 'joyces.ie',
     zipcode: '',
   },
-};
+ };

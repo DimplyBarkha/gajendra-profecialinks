@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'IE',
     store: 'joyces',
-    nextLinkSelector: null,
+    nextLinkSelector:'a[class="next page-numbers"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,

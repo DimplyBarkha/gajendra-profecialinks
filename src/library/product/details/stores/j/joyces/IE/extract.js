@@ -24,6 +24,16 @@ module.exports = {
         resolve();
         }, ms);
         });
+      }
+
+        let scrollTop = 500;
+        while (true) {
+        window.scroll(0, scrollTop);
+        await stall(1000);
+        scrollTop += 500;
+        if (scrollTop === 10000) {
+        break;
+        }
         }
 
       const getXpath = (xpath, prop) => {
@@ -42,70 +52,57 @@ module.exports = {
       return result; 
       };
     
-      const manufacturerDescription_xpath = "//div[@class='flix-Text-block']";
+     /* const manufacturerDescription_xpath = "//div[@class='flix-Text-block']";
       const manufacturerDescription = getAllXpath(manufacturerDescription_xpath, 'innerText');
-      addElementToDocument('added_manufacturerDescription', manufacturerDescription);
-     
-      // const weightNet_xpath = "//div[@class='eky-specs-container'][1]//p[@class='eky-specs-label-bottom']";
-      // const weightNet = getAllXpath(weightNet_xpath, 'innerText');
-      // console.log(weightNet);
-      // addElementToDocument('added_weightNet', weightNet);
-
+      addElementToDocument('added_manufacturerDescription', manufacturerDescription);*/
+        
       var weight_net_str = getXpath("//table[@class='flix-std-specs-table']", 'innerText');
-      
-      if(weight_net_str){
+      console.log(weight_net_str);
+      if(weight_net_str!=null){
         weight_net_str = weight_net_str.toLowerCase();
         if(weight_net_str.includes('weight') && weight_net_str.includes('kg')){
           const weight_net = weight_net_str.substring(weight_net_str.lastIndexOf("weight")+7, weight_net_str.lastIndexOf("kg")+2);
           addElementToDocument('added_weightNet', weight_net);
+          console.log(weight_net);
         }
       }
-
-      const shippingSpecification = document.querySelectorAll('.inpage_selector_specification .flix-std-table .flix-std-specs-table .flix-title');
-      let dimension="";
-      let weight="";
-      shippingSpecification.forEach((item)=>{
-        if(item.textContent.includes("kg")){
-          weight=item.textContent;
-          addElementToDocument('product_weight',weight);
-        }else if(item.textContent.includes("mm")){
-          dimension+=item.textContent +"X";
+      let additional_bullet_info;
+      const description_info_xpath="//div[@class='woocommerce-product-details__short-description']//p";
+      let description_info = getXpath(description_info_xpath, 'innerText');
+      const additional_description_info_xpath = "//div[@id='tab-description']";
+      let additional_description_info = getAllXpath(additional_description_info_xpath, 'innerText');
+      if(additional_description_info.length>0){
+        if(description_info!=null){
+          additional_bullet_info =description_info + "||" +additional_description_info.join('||');
         }
-      });
-      dimension=dimension.slice(0,-1);
-      addElementToDocument('product_dimension',dimension);
- 
-      if(weight==""){
-          const shippingWeight = document.querySelectorAll('.inpage_selector_specification .flix-std-specs-table .flix-title');
- 
-          shippingWeight.forEach((item)=>{
-          if(item.textContent.includes("KG") || item.textContent.includes("kg")){
-          weight=item.textContent;
-          }
-          });
-          addElementToDocument('product_weight',weight);
+        else {
+          additional_bullet_info =additional_description_info.join('||');
+        }
+        additional_bullet_info.split("||").forEach((item)=>{
+          addElementToDocument('added_description_bullet_info', item);
+        });
       }
-      let scrollTop = 500;
-      while (true) {
-      window.scroll(0, scrollTop);
-      await stall(1000);
-      scrollTop += 500;
-      if (scrollTop === 10000) {
-      break;
+      else {
+        additional_bullet_info=description_info;
+        addElementToDocument('added_description_bullet_info', additional_bullet_info);
       }
+    //Manufacture Description
+    let manufacturerDescription_xpath_option = getAllXpath("//div[contains(@id,'inpage_container')]//div[(contains(@class,'flix-d-p') or contains(@class,'flix-std-desc')) and not(contains(@class,'flix-title')or contains(@class,'flix-caveat-desc'))]", 'innerText');
+    if(manufacturerDescription_xpath_option.length>0){
+      addElementToDocument('added_manufacturerDescription', manufacturerDescription_xpath_option);
+    }
+      const videoUrlPath = getXpath("//div[@class='fullJwPlayerWarp']//input[@class='flix-jw']/@value", 'nodeValue');
+      if (videoUrlPath && typeof videoUrlPath === 'string') {
+        var videoUrlObj = JSON.parse(videoUrlPath);
+        addElementToDocument('added_video_url', "http:"+videoUrlObj.playlist[0].file);
       }
-    
-      // if (product_name && product_name.value.indexOf('|') > -1) {
-      //   const mpc = product_name.value.slice(product_name.value.indexOf('|') + 1);
-      //   console.log(mpc);
-      //   addElementToDocument('added_mpc', mpc[1]);
-      // }
-      
-
-      // if (colorlement && colorlement.value.indexOf('background-color') > -1) {
-      //   const colorCode = colorlement.value.slice(colorlement.value.indexOf('#') + 1);
-      //   addElementToDocument('fl_colorcode', colorCode);
-      // }
+      if(getXpath("//div[@id='tab-description']//iframe/@src",'nodeValue')!=null){
+        let videoPath=getXpath("//div[@id='tab-description']//iframe/@src",'nodeValue');
+        addElementToDocument('added_video_url', videoPath);
+      }
+      const specificationsXpath = "//table[@class='flix-std-specs-table']/tbody/tr/td";
+      var specificationsStr = getAllXpath(specificationsXpath, 'innerText').join(' || ');
+      addElementToDocument('added_specifications', specificationsStr);
 
     });
     await context.extract(productDetails);
