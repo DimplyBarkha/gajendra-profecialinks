@@ -26,7 +26,7 @@ fields:
   - name: thumbnail
     xpath: //img[@class="searchProductImgList"]/@src
     regExp: ^(.+)T.jpg$
-    regExpReplace: https://www.argos.ie$1M.jpg
+    regExpReplace: https://www.argos.ie$1X.jpg
     description: The URL for the product thumbnail image
   - name: name
     xpath: //a[starts-with(@id,"href_")]
@@ -76,6 +76,6 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
+  - name: searchUrl
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: ancestor::html/body/@current-page

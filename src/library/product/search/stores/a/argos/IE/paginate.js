@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'IE',
     store: 'argos',
-    nextLinkSelector: 'div.paginglinks > a:last-child',
+    nextLinkSelector: '.pagenum.active+a:not([class="allproducts"])',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'img.searchProductImgList',
