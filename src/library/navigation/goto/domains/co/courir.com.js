@@ -34,8 +34,7 @@ module.exports = {
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
 
-    // TODO is this needed? I don't think so.
-    // await context.waitForNavigation({ timeout: 30000 });
+    await context.waitForNavigation({ timeout: 30000 });
 
     const checkExistance = async (selector) => {
       return await context.evaluate(async (selector) => {
