@@ -141,7 +141,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class="flix-std-row"]//img/@srcset
+    xpath: //div[@class="flix-std-row"]//img/@srcset | //div[contains(@class,'inpage_block')]//img/@srcset
     regExp: [^(.*)$]
     regExpReplace: 'http:$1'
   - name: videos
@@ -411,7 +411,7 @@ fields:
     singleValue: true
     description: Guarantee associated with the product
     #xpath: (//div[@id="tab-description"]/p)[5]
-    xpath: //div[@id="tab-description"]//*[contains(text(),'ear') or contains(text(),'Warranty')]|//div[@id="tab-description"]//li[contains(text(),'guarantee') or contains(text(),'Warranty')]
+    xpath: //div[@id="tab-description"]//*[contains(text(),'ear')  or contains(text(),'guarantee') or contains(text(),'Warranty')]|//div[@id="tab-description"]//li[contains(text(),'guarantee') or contains(text(),'Warranty')]
     #regExp: (.*)(–)(.*)
     #regExpReplace: $3
     # xpath: //div[contains(@class,"wp-video")]/following-sibling::p[15]/text()

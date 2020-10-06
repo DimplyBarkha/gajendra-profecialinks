@@ -24,16 +24,6 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: (//div[contains(@class, 'a-section aok-relative s-image-square-aspect')]/img/@src)[1]
-  - name: aggregateRating
-    singleValue: false
-    xpath: (//i[contains(@class, 'a-icon a-icon-star-small')])[1]
-    regExp: 
-  - name: reviewCount
-    singleValue: false
-    xpath: 
-  - name: ratingCount
-    singleValue: false
-    xpath: (//span[contains(@class, 'a-size-base')])[1]
   - name: manufacturer
     singleValue: false
     xpath: (//span[contains(@class, 'a-size-base-plus a-color-base a-text-normal')])[1]
