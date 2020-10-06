@@ -8,7 +8,7 @@ fields:
     xpath: //suchen-produkt/a[@data-syan]/@data-syan
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
-    xpath: //*[@data-order]/@data-order
+    xpath: count(preceding-sibling::div)+1
     type: NUMBER 
   - name: name
     description: The product name
@@ -40,6 +40,6 @@ fields:
     description: The name of the seller of the item (if available)
   - name: rank
     description: search/listing rank
-    xpath: //*[@data-order]/@data-order
+    xpath: count(preceding-sibling::div)+1
   - name: endorsementText
     description: The text that signifies that a product is endorsed
