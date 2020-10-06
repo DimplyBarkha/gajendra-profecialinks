@@ -3,8 +3,8 @@ module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'selfridges.com',
-    prefix: '?freeText=',
-    url: 'https://www.selfridges.com/GB/en/cat/?freeText={id}',
+    prefix: null,
+    url: null,
     country: 'UK',
     store: 'selfridges',
     zipcode: '',
