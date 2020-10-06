@@ -21,11 +21,9 @@ fields:
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //li[@class='product']//a[@class='productMainImage']/img/@src
-  - name: aggregateRating
+  - name: aggregateRating2
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //li[@class='product']//div[@class='bvReviewStars']//a[@class='productRating']/@title
-    regExp: \d?.?\d
-    type: NUMBER
+    xpath: //li[@class='product']//div[@class='ratingNumber']
   - name: reviewCount
     description: The number of reviews
     xpath: //li[@class='product']//div[@class='bvReviewsNumber']
