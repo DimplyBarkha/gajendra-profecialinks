@@ -23,17 +23,20 @@ fields:
     - name: category
       singleValue: false
       description: The categories (e.g. from breadcrumbs)
-      xpath: //*[@id="page_transition_container"]//div[@class="mlayout_content_wrapper mlayout_breadcrumb_content"]
+      xpath: //*[@id="page_transition_container"]//a[@title="Produkte"]
+    - name: sub_category
+      xpath: //*[@id="sub_category"]
     - name: nameExtended
       singleValue: true
       description:
           The product name, prefixing "${brand} - " if not included in "name"
           and appending " - ${variantType}" if necessary (fixed per feed)
-      xpath: //*[@id="objectView_page"]//h1[@class="product_name"]
+      xpath: //*[@id="nameExtended"]
     - name: listPrice
       # singleValue: true
       description: The stated undiscounted price for the product
-      xpath: (//*[@id="block$price$product"]//span)[1]
+      # xpath: (//*[@id="block$price$product"]//span)[1]
+      xpath: //*[@id="listPrice"]
       regExp: (\d+)
     - name: price
       singleValue: true
@@ -57,7 +60,8 @@ fields:
       description:
           Product description supplied by website - may be concatenanted from
           multiple places; specifically not the manufacturer description
-      xpath: //*[@id="ci_description1_content"]
+      # xpath: //*[@id="ci_description1_content"]
+      xpath: //*[@id="description"]
     - name: descriptionBullets
       singleValue: true
       description: Number of ul > li tags in the description
@@ -68,6 +72,7 @@ fields:
       description:
           Product brand shown - this may actually NOT be just a brand name,
           e.g. "Visit the Gillette Store"
+      xpath: /html/head/script/@data-flix-brand
     - name: manufacturer
       singleValue: true
       description: Product manufacturer
@@ -87,20 +92,25 @@ fields:
     - name: weightGross
       singleValue: true
       description: Gross weight as described on the page
+    - name: eangtin
+      singleValue: true
+      description: GTIN code (includes UPC/EAN)
+      xpath: /html/head/script/@data-flix-ean
     - name: gtin
       singleValue: true
       description: GTIN code (includes UPC/EAN)
+      xpath: /html/head/script/@data-flix-ean
     - name: sku
       singleValue: true
       description: The store-specific product identifier
     - name: variantId
       singleValue: true
       description: Identifier for a variant from a store where variants share the same sku
-    - name: mpc
+    # - name: mpc
       # singleValue: true
-      description: The manufacturer model code (unique) of the product
-      xpath: //*[@id="objectView_page"]//h1[@class="product_name"]
-      regExp: \d*-\d*
+      # description: The manufacturer model code (unique) of the product
+      # xpath: //*[@id="objectView_page"]//h1[@class="product_name"]
+      # regExp: \d*-\d*
     - name: packSize
       singleValue: true
       description:
@@ -153,9 +163,9 @@ fields:
     #   singleValue: true
     #   description: A code description of the color (e.g. RGB hex)
     - name: manufacturerDescription
-      singleValue: true
+      singleValue: false
       description: The extended description of the product supplied by the lister
-      xpath: //*[@id="dyson_jump_features"]
+      xpath: //*[@id="manufacturerDescription"]
     - name: manufacturerImages
       singleValue: true
       description: Images within the third party description
@@ -166,7 +176,7 @@ fields:
     - name: name
       singleValue: true
       description: The product name
-      xpath: //*[@id="inpage_container"]//div[@class="dyson_header"]/*
+      xpath: //*[@id="objectView_page"]//div[@class="product_data_header_wrapper"]//h1
     # - name: inStorePrice
     #   singleValue: true
     #   description: Price in the selected store
@@ -440,14 +450,14 @@ fields:
       # singleValue: true
       description: The physical dimensions of the product including packaging.
       xpath: //*[@id="specifications"]
-    - name: warranty
-      singleValue: true
-      description: Guarantee associated with the product
-      xpath: //*[@id="rzBody"]//div[@class="mlayout_footer_nav_disclaimer"]
-    - name: storage
-      singleValue: true
-      description: Suggested storage location for product
-      xpath: //*[contains(text(),"Wandmontage")]/..
+    # - name: warranty
+    #   singleValue: true
+    #   description: Guarantee associated with the product
+    #   xpath: //*[@id="rzBody"]//div[@class="mlayout_footer_nav_disclaimer"]
+    # - name: storage
+    #   singleValue: true
+    #   description: Suggested storage location for product
+    #   xpath: //*[contains(text(),"Wandmontage")]/..
     # - name: countryOfOrigin
     #   singleValue: true
     #   description: The country from which the product originates
@@ -512,9 +522,10 @@ fields:
     # - name: variants
     #   singleValue: false
     #   description: null
-    # - name: additionalDescBulletInfo
-    #   singleValue: false
-    #   description: null
+    - name: additionalDescBulletInfo
+      singleValue: false
+      description: null
+      xpath: //*[@id="additionalDescBulletInfo"]
     # - name: prop65Warning
     #   singleValue: true
     #   description: null
