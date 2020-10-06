@@ -19,8 +19,7 @@ fields:
   - name: id
     xpath: //a[contains(@class,"productlist__tile")]/@href
     description: The store-specific product identifier
-    regExp: (.+)/(\d+)
-    regExpReplace: $2
+    regExp: \d+$
   - name: price
     xpath: //*[contains(@class,"_price")]
     description: The offered price for the product
@@ -28,9 +27,7 @@ fields:
   - name: rank
   - name: sponsored
   - name: aggregateRating2
-    xpath: //*[contains(@class,"rating__star")]/@data-rating-value
-    regExp: (\d+).(\d+)
-    regExpReplace: $1,$2
+    xpath: translate(.//*[contains(@Class,"rating__star")]/@data-rating-value, '.,', ',')
   - name: reviewCount
     xpath: //div[contains(@class,"values")]/span/span
   - name: searchUrl
