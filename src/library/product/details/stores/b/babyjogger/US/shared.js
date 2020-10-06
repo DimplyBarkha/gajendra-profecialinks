@@ -26,12 +26,23 @@ const transform = (data) => {
         ];
       }
 
+      // if (row.description) {
+      //   let text = '';
+      //   row.description.forEach(item => {
+      //     text = text + (text ? ' ' : '') + item.text;
+      //   });
+      //   row.description = [{ text }];
+      // }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text = text + (text ? ' ' : '') + item.text;
+            text += ` || ${item.text}`;
         });
-        row.description = [{ text }];
+        row.description = [
+          {
+            text: text,
+          },
+        ];
       }
 
       if (row.manufacturerDescription) {
@@ -58,10 +69,6 @@ const transform = (data) => {
             text,
           },
         ];
-      }
-
-      if ((!row.listPrice || !row.listPrice.length) && row.price) {
-        row.listPrice = row.price;
       }
 
       if (row.promotion) {

@@ -6,12 +6,16 @@ fields:
   - name: image
     description: URL of the main product image
     xpath: (//div[@class="carousel-item active"]//img/@src)[1]
+    regExp: (.+)(\?.+)
+    regExpReplace: $1
   - name: imageAlt
     description: Alt text of the main product image
     xpath: (//div[@class="carousel-item active"]//img/@alt)[1]
   - name: alternateImages
     description: Other product images (not in manufacturer description)
     xpath: //div[@class="secondaryimages"][position()>1]//input/@value
+    regExp: (.+)(\?.+)
+    regExpReplace: $1
   - name: metaKeywords
     description: The <meta> keywords content
     xpath: //meta[@name="keywords"]/@content
@@ -20,7 +24,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     xpath: //head//li//input/@value
   - name: nameExtended
-    xpath: (//*[contains(@class,"product-name")])[1]
+    xpath: concat("BABY JOGGER",' ',(//*[contains(@class,"product-name")])[1],' ',//div[@aria-checked="true"]/span//@id)
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: price
@@ -28,7 +32,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: listPrice
-    xpath: (//span[contains(@class,"strike-through list")]//span/@content)[1]
+    xpath: (//div[@class="row"]//span[contains(@class,"strike-through list")]//span/@content)[1]
   - name: availabilityText
     xpath: (//div[@class='row tile']//div[@class='attributes']//div[contains(.,'not available')])[1]
     description: Availability as described on page for the selected variant. If
@@ -41,10 +45,10 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath : //div[@class="pdp-details"]//div[contains(@class,"attribute")]//*[@class="value content"]
+    xpath : //div[@id="collapsible-pdp-details-1"]//text() | //div[@class="attributeList sub-section"]//ul//li | //ul[@id="collapsible-pdp-details-4"]//li
   - name: descriptionBullets
     description: Number of ul > li tags in the description
-    xpath: count(//ul[@class="value content"]//li)
+    xpath: count(//div[@class="attributeList sub-section"]//ul//li | //ul[@id="collapsible-pdp-details-4"]//li)
     type: NUMBER
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -216,7 +220,7 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
-    xpath: count(//div[@class="secondaryimages"]//input/@value)
+    xpath: count(//div[@class="secondaryimages"]//input/@value)-1
     type: NUMBER
   - name: news
     singleValue: true
@@ -429,7 +433,7 @@ fields:
       new desription info
   - name: variantInformation
     description: colour / scent / flavour / other
-    xpath: //span/@data-attrdisplayname
+    xpath: //div[@aria-checked="true"]/span//@id
   - name: firstVariant
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
@@ -464,6 +468,9 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    xpath: //div[contains(@id,"collapsible-pdp-details")]//a//@href
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: termsAndConditions
     singleValue: true
