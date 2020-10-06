@@ -1,4 +1,4 @@
-const {transform} = require('./transform.js')
+const {transform} = require('../format.js')
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {

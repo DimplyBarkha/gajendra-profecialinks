@@ -9,21 +9,33 @@ fields:
   - name: name
     singleValue: false
     xpath: //h1[@class='infoProduct-title']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='infoProduct-title']
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //ul[@class='description-tech']
+    xpath: //div[@class='info-description']//ul[@class='description-tech']//li
   - name: descriptionBullets
     singleValue: false
-    xpath: //ul[@class='description-tech']
+    xpath: //div[@class='info-description']//ul[@class='description-tech']//li
   - name: price
     singleValue: false
-    xpath: //p[@class='price']
+    xpath: //div[@class='info-guaranteePrice']//p[@class='price']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='info-guaranteePrice']//p[@class='first-price']//following-sibling::text()[1]
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='info-guaranteePrice']//p[@class='discount']
   - name: image
     singleValue: false
     xpath: //div[@class='active item']/img[@class='img-responsive']/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='active item']/img[@class='img-responsive']//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id='carousel-pager']//div[@class='item']//img[@class='img-responsive']/@src  
+    xpath: //div[@id='carousel-pager']//div[@class='item active']//img[@class='img-responsive' and @data-slide-to>0]/@src  
   - name: aggregateRating
     singleValue: false
     xpath: //*[@class='bv-secondary-rating-summary-stars bv-table-row']//span[@class='bv-secondary-rating-summary-rating bv-table-cell']
@@ -32,7 +44,7 @@ fields:
     xpath: //*[@class='text fichaTecnica-content js-fichaTecnica-content']//ul//li//span[contains(text(),'Capacidad de almacenamiento')]/parent::*/span/strong
   - name: category
     singleValue: false
-    xpath: //input[@id='productCategory']/@value
+    xpath: //div[@class='breadcrumb']//a[not(@class)]
   - name: ratingCount
     singleValue: false
     xpath: //div[@id='ratings-summary']//meta[@itemprop="reviewCount"]/@content
@@ -54,6 +66,21 @@ fields:
   - name: sku
     singleValue: false
     xpath: //input[@id='productId']/@value
+  - name: variantId
+    singleValue: false
+    xpath: //input[@id='productId']/@value
   - name: gtin
     singleValue: false
     xpath: //input[@name='productoCodigoEan']/@value
+  - name: availabilityText
+    singleValue: false    
+    defaultValue: 'In Stock'
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class='info-shippingType']//ul[@class='info-shippingType__listado']//li[contains(@class,'shippingType')]
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id='more_product_info']//div[contains(@class,'js-fichaTecnica-content')]//ul//li[contains(@class,'description-tech-text')]//span[text()='Peso']/parent::*//span//strong
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
