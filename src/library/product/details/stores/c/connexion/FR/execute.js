@@ -6,7 +6,7 @@ module.exports = {
     store: 'connexion',
     domain: 'connexion.fr',
     loadedSelector: null,
-    noResultsXPath: '//h3[contains(text(),"Oups !")]',
+    noResultsXPath: '//div[contains(@class,"wrapper_error")]',
     zipcode: '',
   },
 };
