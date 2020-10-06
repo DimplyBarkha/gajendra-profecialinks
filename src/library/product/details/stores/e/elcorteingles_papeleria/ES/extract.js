@@ -104,9 +104,9 @@ module.exports = {
           //   document.querySelector('.sku-model').textContent = `MODELO: ${JSON.parse(apiDataResponse)._product_model}`;
           // }
           addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
-          addElementToDocument('sku', JSON.parse(apiDataResponse).id);
+          addElementToDocument('sku', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
           addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
-          addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
+          addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse).id);
           addElementToDocument('variantInformation', JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant ? JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant[0].value : "");
         }
       }
@@ -151,13 +151,13 @@ module.exports = {
           }
 
           // Check for the brand  and append to DOM
-          if (dataObj[0].product.brand) {
-            addElementToDocument('retailer_product_code', dataObj[0].product.id);
-          }
+          // if (dataObj[0].product.brand) {
+          //   addElementToDocument('retailer_product_code', dataObj[0].product.code_a);
+          // }
 
           // Check for the sku  and append to DOM
           if (dataObj[0].product.code_a) {
-            addElementToDocument('sku', dataObj[0].product.code_a);
+            addElementToDocument('sku', dataObj[0].product.id);
           }
 
           // Check for List Price
