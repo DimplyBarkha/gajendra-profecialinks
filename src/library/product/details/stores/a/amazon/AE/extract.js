@@ -131,7 +131,7 @@ async function implementation (
 
     // Description has Li and <P>. Handled it wisely
     const description = document.querySelector('div#productDescription');
-    const additionalDescription = document.querySelector('div#feature-bullets > ul');
+    const additionalDescription = document.querySelector('div#feature-bullets > ul > li:not([id="replacementPartsFitmentBullet"])');
     const additionalDescriptionText = additionalDescription && additionalDescription.innerHTML
       ? additionalDescription.innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim() : '';
     const descriptionText = description && description.innerHTML

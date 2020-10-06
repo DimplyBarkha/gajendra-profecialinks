@@ -45,10 +45,12 @@ fields:
     defaultValue: 'In Stock'
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@id='feature-bullets']//ul//li | //div[@id='productDescription']//li
+    # xpath: //div[@id='feature-bullets']//ul//li | //div[@id='productDescription']//li
+    xpath: //div[@id='feature-bullets']//ul//li[not(contains(@id,'replacementPartsFitmentBullet'))] | //div[@id='productDescription']//li
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[@id='feature-bullets']//ul/li | //div[@id='productDescription']//li)
+    # xpath: count(//div[@id='feature-bullets']//ul/li | //div[@id='productDescription']//li)
+    xpath: count(//div[@id='feature-bullets']//ul//li[not(contains(@id,'replacementPartsFitmentBullet'))] | //div[@id='productDescription']//li)
   - name: description
     singleValue: false
     xpath: //div[@id='productDescriptionExtract']
