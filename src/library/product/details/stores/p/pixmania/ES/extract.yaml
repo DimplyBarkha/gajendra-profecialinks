@@ -21,7 +21,7 @@ fields:
   - name: _url
     singleValue: true
   - name: category
-    singleValue: true
+    singleValue: false
     xpath: ((//ol[@class="breadcrumb"]//li)[position()>1])[position()<last()]
   - name: nameExtended
     singleValue: false
