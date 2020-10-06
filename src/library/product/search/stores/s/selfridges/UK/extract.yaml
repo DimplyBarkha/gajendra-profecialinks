@@ -7,7 +7,7 @@ fields:
     singleValue: false
     xpath: //button[@class="o-icon --wishlist"]/@data-product-wcid
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="col-xs-6 col-sm-4 c-listing-items__item"]/@data-analytics-position
   - name: name
     singleValue: false
@@ -16,7 +16,7 @@ fields:
     singleValue: false
     xpath: //div[@class="c-prod-card__cta-box-quick-shop"]//a/@href
   - name: gtin
-    singleValue: true
+    singleValue: false
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="c-prod-card --plp"]//img/@src
@@ -32,11 +32,11 @@ fields:
     singleValue: false
     xpath: //span[@class="c-prod-card__cta-box-price "]
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     xpath: //h5[@class="c-prod-card__cta-box-product-title"]
   - name: soldBy
-    singleValue: true
+    singleValue: false
   - name: rank
-    singleValue: true
+    singleValue: false
   - name: endorsementText
-    singleValue: true
+    singleValue: false
