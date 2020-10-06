@@ -134,11 +134,17 @@ module.exports = {
       if(videoEle){
         let videoObj = JSON.parse(videoEle.innerText);
         if(videoObj[4] || videoObj[1]){
-          let videoIds;
+          let videoIds = [];
           if(videoObj[4] && videoObj[4].props.currentProduct){
-            videoIds = videoObj[4].props.currentProduct.productVideos
+            let partialVideo = videoObj[4].props.currentProduct;
+            if(partialVideo){
+              videoIds = videoObj[4].props.currentProduct.productVideos
+            }
           } else if(videoObj[1] && videoObj[1].props.product){
-            videoIds = videoObj[1].props.product.product.productVideos
+            let partialVideo = videoObj[1].props.product.product;
+            if(partialVideo){
+              videoIds = partialVideo.productVideos
+            }
           }
           if(videoIds){
             videoIds.forEach(obj => {
