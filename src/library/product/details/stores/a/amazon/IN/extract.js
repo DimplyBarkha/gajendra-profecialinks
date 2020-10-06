@@ -296,6 +296,13 @@ async function implementation (
     if (enhanceContent) {
       addHiddenDiv('manufacturer-desc', enhanceContent);
     }
+
+    // brandText
+    const brandTextSelector = document.querySelector('#bylineInfo');
+    if (brandTextSelector) {
+      const brandText = clean(brandTextSelector.innerText);
+      addHiddenDiv('fetchedBrandText', brandText);
+    }
     // variants
     var variantNode = document.querySelector('#twisterJsInitializer_feature_div script');
     var variantScript = document.getElementsByTagName('script');
