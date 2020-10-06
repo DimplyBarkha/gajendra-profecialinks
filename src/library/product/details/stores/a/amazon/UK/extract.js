@@ -1,3 +1,4 @@
+const { transform } = require('./../../../../shared');
 async function implementation (
   // @ts-ignore
   // @ts-ignore
@@ -698,7 +699,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'amazon',
-    transform: null,
+    transform,
     domain: 'amazon.co.uk',
     zipcode: 'SW1P 3EU',
   },
