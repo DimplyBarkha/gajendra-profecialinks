@@ -27,12 +27,12 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //div[@class="skywalker_scheda_prezzo_barrato"]
+    xpath: translate(//div[@class="skywalker_scheda_prezzo_barrato"],'.',',')
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div/span[@class="text-right prezzo_corrente_bold"]
+    xpath: translate(//div/span[@class="text-right prezzo_corrente_bold"],'.',',')
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If

@@ -47,8 +47,10 @@ module.exports = {
       const obj = await sharedhelpers.goToiFrameLink(apiManufCall, link, 'body img', 'src');
       content = obj.content;
       image = obj.image;
+      content = content.replace('Overview', '').replace('Features', '');
       sharedhelpers.addHiddenInfo('ii_manufContent', content);
       if (image.length) {
+        image.pop();
         sharedhelpers.addHiddenArrayList('ii_manufImg', image);
       }
     }
@@ -60,7 +62,7 @@ module.exports = {
     sharedhelpers.addHiddenInfo('ii_termCond', termAndCond ? 'Yes' : 'No');
 
     try {
-      await context.waitForSelector('div.fotorama-item', { timeout: 45000});
+      await context.waitForSelector('div.fotorama-item', { timeout: 85000 });
     } catch (error) {
       console.log('No secondary images loading.');
     }

@@ -31,11 +31,11 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
-    xpath: (//div[contains(@class, "price-old")])[1]
+    xpath: translate((//div[contains(@class, "price-old")])[1],'.',',')
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: (//div[contains(@class, "price-current")])[1]
+    xpath: translate((//div[contains(@class, "price-current")])[1],'.',',')
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: priceCurrency

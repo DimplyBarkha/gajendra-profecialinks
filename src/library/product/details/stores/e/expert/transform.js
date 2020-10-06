@@ -115,8 +115,6 @@ const transform = (data, context) => {
           }
         }
 
-        console.log(row.alternateImages)
-
         if (row.alternateImages && row.alternateImages[0]) {
           if (row.alternateImages[0].text.includes('product/cache/')) {
             let mainPictureSrc = row.alternateImages[0].text.split('product/cache/');
@@ -129,10 +127,17 @@ const transform = (data, context) => {
                 item.text = item.text.replace(/(?<=product\/cache\/)(.*)(?=\/)/gm, mainPictureSrc);
               });
             }
-          }
-          else if (row.alternateImages[0].text.includes('produkte/bilder/')) {
+          } else if (row.alternateImages[0].text.includes('produkte/bilder/')) {
             row.alternateImages.forEach(item => {
               item.text = 'https://www.expert.at/' + item.text;
+            });
+          } else if (row.alternateImages[0].text.startsWith('//media.flixcar.com')) {
+            const image = [];
+            row.alternateImages.forEach(item => {
+              image.push(item.text);
+              if (image.includes(item.text) === false) {
+                item.text = 'https:' + item.text;
+              }
             });
           }
         }
@@ -157,13 +162,13 @@ const transform = (data, context) => {
           });
         }
 
-        if (row.price && row.price[0]) {
-          row.price[0].text = row.price[0].text.replace('.', ',');
-        }
+        // if (row.price && row.price[0]) {
+        //   row.price[0].text = row.price[0].text.replace('.', ',');
+        // }
 
-        if (row.listPrice && row.listPrice[0]) {
-          row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
-        }
+        // if (row.listPrice && row.listPrice[0]) {
+        //   row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
+        // }
 
         if (row.aggregateRating && row.aggregateRating[0]) {
           row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
@@ -184,7 +189,7 @@ const transform = (data, context) => {
         }
 
         if (row.weightNet && row.weightNet[0]) {
-          row.weightNet[0].text = row.weightNet[0].text.replace('Nettogewicht: ', '');
+          row.weightNet[0].text = row.weightNet[0].text.replace('Nettogewicht: ', '').replace('Weight:', '');
         }
 
         if (row.weightGross && row.weightGross[0]) {
@@ -192,7 +197,7 @@ const transform = (data, context) => {
         }
 
         if (row.color && row.color[0]) {
-          row.color[0].text = row.color[0].text.replace('Farbe: ', '');
+          row.color[0].text = row.color[0].text.replace('Farbe: ', '').replace('Colour:', '');
         }
 
         if (row.productOtherInformation && row.productOtherInformation[0]) {

@@ -37,7 +37,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[contains(@class , "skywalker_riga_prezzo")]
+    xpath: translate(//div[contains(@class , "skywalker_riga_prezzo")], ".", ",")
   - name: rank
     singleValue: false
     description: search/listing rank

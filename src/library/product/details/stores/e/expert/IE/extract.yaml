@@ -76,9 +76,9 @@ fields:
   - name: weightNet
     singleValue: true
     # xpath: //div[contains(@class,"product_specification")]//span[contains(text(), "Weight")]//ancestor::td//following-sibling::td
-    xpath: //div[contains(@class,"product_specification")]//span[contains(text(), "Weight")]//ancestor::td//following-sibling::td|//div[contains(@class, "product_description")]//li[contains(text(), "Weight:")]
-    regExp: \:(.*)
-    regExpReplace: $1
+    xpath: //div[contains(@class,"product_specification")]//span[contains(text(), "Weight")]//ancestor::td//following-sibling::td|//div[contains(@class, "product_description")]//li[contains(text(), "Weight:")]|//div[contains(@id,"product_specification")]//td[contains(text(), "Weight")]//following-sibling::td
+    # regExp: \:(.*)
+    # regExpReplace: $1
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
@@ -145,6 +145,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    default: 0
     type: NUMBER
   - name: color
     singleValue: true

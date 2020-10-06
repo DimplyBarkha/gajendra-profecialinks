@@ -14,8 +14,27 @@ module.exports = {
     Helpers: 'module:helpers/helpers',
     SharedHelpers: 'module:product/details/stores/${store[0:1]}/${store}/helpersShared',
   },
-  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails, Helpers, SharedHelpers }) => {
+  implementation: async (input, { country, domain, transform: transformParam }, context, { productDetails, Helpers, SharedHelpers }) => {
     const sharedhelpers = new SharedHelpers(context);
+    console.log('inputString');
+    console.log(input);
+    if (input && input.id) {
+      try {
+        await context.waitForSelector('div.product-item.is-clickable', { timeout: 40000 });
+      } catch (error) {
+        console.log('Waiting for search product to load');
+      }
+      const firstItemLink = async function () {
+        return await context.evaluate(function () {
+          const firstItem = document.querySelector('div.product-item.is-clickable h2 > a') ? document.querySelector('div.product-item.is-clickable h2 > a').href : null;
+          return firstItem;
+        });
+      }
+      const url = await firstItemLink();
+      if (url !== null) {
+        await context.goto(`${url}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"load_timeout":60,"load_all_resources":true}[/!opt!]`, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+      }
+    }
 
     let content = null;
     let image = null;

@@ -44,12 +44,12 @@ const transform = (data, context) => {
           }
         }
       }
-      if (row.price) {
-        row.price = [{ text: row.price[0].text.replace('.', ',') }];
-      }
-      if (row.listPrice) {
-        row.listPrice = [{ text: row.listPrice[0].text.replace('.', ',') }];
-      }
+      // if (row.price) {
+      //   row.price = [{ text: row.price[0].text.replace('.', ',') }];
+      // }
+      // if (row.listPrice) {
+      //   row.listPrice = [{ text: row.listPrice[0].text.replace('.', ',') }];
+      // }
       if (row.sku) {
         if (row.sku[0].text.includes('|')) {
           row.sku = [{ text: row.sku[0].text.replace(/\|(.*)/gm, '') }];

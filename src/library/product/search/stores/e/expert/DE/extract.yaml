@@ -61,7 +61,7 @@ fields:
     description: The number of reviews
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticlePrice-priceWrapper")]//div[contains(@class, "widget-ArticlePrice-price")]
+    xpath: translate(//div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticlePrice-priceWrapper")]//div[contains(@class, "widget-ArticlePrice-price")], ".", ",")
     description: The offered price for the product
   - name: listPrice
     singleValue: true

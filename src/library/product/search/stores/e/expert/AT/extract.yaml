@@ -71,11 +71,11 @@ fields:
     description: The number of reviews
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, "price-current")]
+    xpath: translate(//div[contains(@class, "price-current")], ".", ",")
     description: The offered price for the product
   - name: listPrice
     singleValue: true
-    xpath: //div[contains(@class, "price-old")]
+    xpath: translate(//div[contains(@class, "price-old")], ".", ",")
     description: The stated undiscounted price for the product
   - name: manufacturer
     singleValue: true
