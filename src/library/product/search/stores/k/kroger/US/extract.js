@@ -35,6 +35,9 @@ const transform = (data, context) => {
           featuredVal = 'Featured BTF';
         }
         row.featured = [{ text: featuredVal }];
+        row.placement = [{ text: 'Featured' }];
+      } else {
+        row.placement = [{ text: 'Organic' }];
       }
 
       Object.keys(row).forEach(header => row[header].forEach(el => {

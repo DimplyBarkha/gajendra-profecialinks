@@ -8,8 +8,19 @@ fields:
     description: Whether this is a sponsored/paid result
     type: BOOLEAN
   - name: retailer
-    singleValue: true
+    singleValue: false
     defaultValue: Kroger
+  - name: couponCurrency
+    singleValue: false
+    xpath: //div[@class="ProductCard-sellBy ProductCard-sellBy-unit"]
+    regExp: >-
+      [$]+
+  - name: placement
+    singleValue: false
+    xpath:
+  - name: size
+    singleValue: false
+    xpath: //div[@class="ProductCard-sellBy ProductCard-sellBy-unit"]
   - name: zipcode
     singleValue: false
     xpath: ancestor::html//div[@id='my-zip']
