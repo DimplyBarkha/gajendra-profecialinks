@@ -20,11 +20,11 @@ module.exports = {
         waitUntil: 'load',
         checkBlocked: true,
     });
-    await context.evaluate(async function () {
+ /*   await context.evaluate(async function () {
         console.log(`selector before wait: ${document.querySelector('#gallery-content')}`)
         await new Promise(r => setTimeout(r, 5000));
         console.log(`Selector After wait: ${document.querySelector('#gallery-content')}`)
     });
-    await context.extract(productDetails);
+    await context.extract(dependencies.productDetails);*/
   }
 };
