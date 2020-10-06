@@ -24,7 +24,7 @@ fields:
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     xpath: //li[@class='product']//div[@class='bvReviewStars']//a[@class='productRating']/@title
-    regExp: ([\d\,]+)
+    regExp: \d?.?\d
     type: NUMBER
   - name: reviewCount
     description: The number of reviews
