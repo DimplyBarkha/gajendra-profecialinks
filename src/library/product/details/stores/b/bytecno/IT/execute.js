@@ -6,7 +6,7 @@ module.exports = {
     store: 'bytecno',
     domain: 'bytecno.it',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="container"]//div[@class="main"]',
     zipcode: '',
   },
 };
