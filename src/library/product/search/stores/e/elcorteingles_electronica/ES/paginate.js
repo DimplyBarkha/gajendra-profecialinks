@@ -3,8 +3,8 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'elcorteingles_electronica',
+    loadedSelector: 'img.js_preview_image.lazyloaded',
     nextLinkSelector: 'li#pagination-next>a',
-    loadedSelector: 'ul.c12.products_list._four',
     domain: 'elcorteingles.es',
   },
 };
