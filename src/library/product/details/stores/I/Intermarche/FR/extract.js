@@ -9,16 +9,37 @@ module.exports = {
     domain: 'intermarche.com',
   },
   implementation: async ({ input }, { transform }, context, { productDetails }) => {
-    await context.evaluate(() => {
-      const Ispresent = document.querySelector('a[class="AddToCartButtonV2styled__StyledButtonDefault-kmxtys-2 kUxuMD AddToCartButtonV2styled__commonButtonStyle-kmxtys-1 ljJjzu"]');
+    const closeSelector = '#didomi-notice-agree-button > span';
+    const checkPresence = async (closeSelector) => {
+      return await context.evaluate((selector) => {
+        return Boolean(document.querySelector(selector));
+      }, closeSelector);
+    }
+    const test = checkPresence(closeSelector);
+    try {
+      if (test) {
+        console.log('present on the website', true);
+        await context.click(closeSelector);
+        console.log('click happened')
+      }
+    } catch (e) {
+      console.log('not able to click', true);
+    }
+    await context.waitForSelector('div[class="product-price--unit ProductPrice__PriceUnit-w3194n-5 eJDoAw"]', { waitUntil: 'load' });
+    await context.evaluate(async () => {
+      // Implementation for getting the availability
+      const Ispresent = document.querySelector('#add-product-button > div > div > a');
       if (Ispresent) {
         const newDiv = document.createElement('div');
         newDiv.className = "avail";
         newDiv.setAttribute('availability', "In stock");
         const body = document.querySelector('body');
-        body.append(newDiv);
+        if (body) {
+          body.append(newDiv);
+        }
       }
-      const isValid = document.querySelectorAll('div[class="styled__ProductConditionnement-rc4bd7-2 kvnQKM"]').length;
+      // Implementation for getting the product description
+      const isValid = Boolean(document.querySelectorAll('div[class="styled__ProductConditionnement-rc4bd7-2 kvnQKM"]').length);
       if (isValid) {
         const appendContent = document.querySelectorAll('div[class="styled__ProductConditionnement-rc4bd7-2 kvnQKM"]');
         let data = '';
@@ -32,21 +53,21 @@ module.exports = {
         nameDiv.className = 'productName';
         nameDiv.setAttribute("name", finalName);
         const body = document.querySelector('body');
-        body.append(nameDiv);
+        if (body) {
+          body.append(nameDiv);
+        }
+      }
+      //Implementation for getting the Variant id
+      const productLink = window.location.href;
+      const targetValue = productLink.match(/(\d{13})/g)[0];
+      const rpcDiv = document.createElement('div');
+      rpcDiv.className = 'rpcValue';
+      rpcDiv.setAttribute('rpc', targetValue);
+      const appendElement = document.querySelector('body');
+      if (appendElement) {
+        appendElement.append(rpcDiv);
       }
     });
-    const check = await context.evaluate(() => {
-      if (document.querySelector('a[class="didomi-popup-close didomi-no-link-style"]')) {
-        return true;
-      }
-    });
-    const valid = check;
-    if (valid) {
-      await context.click('a[class="didomi-popup-close didomi-no-link-style"]');
-      if (document.querySelector('div[class="product-price--unit ProductPrice__PriceUnit-w3194n-5 eJDoAw"]')) {
-        await context.waitForSelector('div[class="product-price--unit ProductPrice__PriceUnit-w3194n-5 eJDoAw"]', { waituntil: 'load' })
-      }
-    }
     await context.extract(productDetails, { transform })
   },
 };
