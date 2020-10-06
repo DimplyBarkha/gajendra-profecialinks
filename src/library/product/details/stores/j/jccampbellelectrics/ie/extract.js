@@ -45,14 +45,22 @@ module.exports = {
       };
 
       let rating = getXpath("//div[@class='rating']/@style", 'nodeValue');
-      const regexp = /\:(\w+)\%/;
       console.log('rating fetched ' + rating);
-      if (rating != null) {
-        rating = rating.match(regexp);
+
+      // const regexp = /\:(\w+)\%/;
+      if (rating != null && rating.includes('width')) {
+        rating = rating.split(':');
         rating = rating[1];
-        rating = rating * 0.05;
-        console.log('rating fetched ** ' + rating);
-        addElementToDocument('added_rating', rating);
+        console.log('rating fetched ' + rating);
+        if (rating.includes('%')) {
+          // rating = rating.match(regexp);
+          rating = rating.split('%');
+          rating = rating[0];
+          console.log('rating fetched ' + rating);
+          rating = rating * 0.05;
+          console.log('rating fetched ** ' + rating);
+          addElementToDocument('added_rating', rating);
+        }
       }
       let scrollTop = 500;
       while (true) {
