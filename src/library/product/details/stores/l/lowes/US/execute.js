@@ -5,5 +5,6 @@ module.exports = {
     store: 'lowes',
     domain: 'lowes.com',
     loadedSelector: 'div[id="main-section"] div[class="tile"] img',
+    noResultsXPath: '//h1[contains(text(),"Page Is Missing")]',
   },
 };
