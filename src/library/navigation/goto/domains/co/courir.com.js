@@ -52,7 +52,7 @@ module.exports = {
     await context.evaluateInFrame('iframe[src*="https://geo.captcha"]',
       function () {
         document.querySelector('div.captcha__human__captcha-container').click();
-      },git 
+      },
     );
     await new Promise(resolve => setTimeout(resolve, 60000));
     await context.waitForSelector('#pdpMain');
