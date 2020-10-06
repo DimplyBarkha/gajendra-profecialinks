@@ -51,6 +51,11 @@ module.exports = {
         await new Promise(resolve => setTimeout(resolve, 3500));
       }
     });
+    try {
+      await context.waitForXPath('//div[@id="videoUrls"]');
+    } catch (error) {
+      console.log('no video found');
+    }
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });

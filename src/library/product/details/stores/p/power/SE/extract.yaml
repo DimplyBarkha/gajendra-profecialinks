@@ -54,7 +54,7 @@ fields:
     xpath: //div[@class="product-intro-details"]//h3
   - name: descriptionTwo
     singleValue: false
-    xpath: //div[@id="product-tab-description"]/div[1]/p
+    xpath: //div[@id="product-tab-description"]/div[1]/child::*
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -135,7 +135,7 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    type: NUMBER
+    defaultValue: 0
   - name: color
     singleValue: false
     description: A textual description of the colour
