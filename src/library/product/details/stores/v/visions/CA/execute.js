@@ -6,7 +6,7 @@ module.exports = {
     store: 'visions',
     domain: 'visions.ca',
     loadedSelector: "div[id='productimg-box'] img",
-    noResultsXPath: null,
+    noResultsXPath: "//h1[contains(.,'Server Error')] | //div[contains(@id,'iconcate-container')]",
     zipcode: '',
   },
 };
