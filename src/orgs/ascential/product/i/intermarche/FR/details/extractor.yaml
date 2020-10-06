@@ -5,7 +5,12 @@ parameters:
   store: intermarche
 proxy:
   zone: FRA
-  type: RESIDENTIAL
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: NORMAL
+  retryDelay: 60
+  retryWithResidentialProxyAfter: 1
 meta:
   branches:
     test:

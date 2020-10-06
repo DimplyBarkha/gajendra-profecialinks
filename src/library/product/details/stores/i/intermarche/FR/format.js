@@ -30,18 +30,19 @@ const transform = (data, context) => {
   
     for (const { group } of data) {
       for (let row of group) {
-        try {
-
+        
           if(row.nameExtended){
             let nameArr = [];
-            row.nameExtended.forEach(name => {
-              console.log("NAME123")
-              console.log(name)
-              nameArr.push(name);
-            })
+            row.nameExtended.forEach(name => {              
+              nameArr.push(name.text);
+            })            
             row.nameExtended = [{text: " "}]
+            if(nameArr.length > 1) { nameArr.splice(0,1)}
             let joins = nameArr.join(" ")
             row.nameExtended[0].text = joins;
+            if(row.brandText[0].text) {
+              row.nameExtended[0].text = row.brandText[0].text + row.nameExtended[0].text;
+            }
           }
 
           if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
@@ -75,10 +76,7 @@ const transform = (data, context) => {
           // row = cleanUp(row);
           Object.keys(row).forEach(header => row[header].forEach(el => {
             el.text = clean(el.text);
-          }));
-        } catch (exception) {
-          console.log(exception);
-        }
+          }));       
       }
     }
     // context.setState({ variantArray });
