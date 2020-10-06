@@ -20,7 +20,7 @@ fields:
     manualSelector: div.product__price .price__is span.price
   - name: availabilityText
     singleValue: false
-    manualSelector: button[title*="Add to basket"]
+    manualSelector: button[title*="Add to basket"], div.hero__body__inner button[alt*="Basket icon"]
     regExp: (.*)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -56,7 +56,7 @@ fields:
     defaultValue: No
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div.promos__list
+    manualSelector: div.promos__list, div.tiles div.hero__body__inner
   - name: manufacturerImages
     singleValue: false
     manualSelector: div#added_aplus

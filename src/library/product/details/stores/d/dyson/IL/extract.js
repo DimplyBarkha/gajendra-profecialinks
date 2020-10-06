@@ -36,7 +36,12 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
     addElementToDocument('added_specs', specs);
 
-    const aplusImages = document.querySelectorAll('div[class*="promos__list"] img');
+    let aplusImages;
+    if (document.querySelector('div[class*="promos__list"] img')) {
+      aplusImages = document.querySelectorAll('div[class*="promos__list"] img');
+    } else if (document.querySelector('div.tiles div.hero__media img')) {
+      aplusImages = document.querySelectorAll('div.tiles div.hero__media img');
+    }
     aplusImages.forEach(img => {
       addElementToDocument('added_aplus', img.getAttribute('src'));
     });
