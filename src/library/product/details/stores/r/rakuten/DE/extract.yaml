@@ -21,7 +21,7 @@ fields:
   - name: category #to
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //nav[@typeof='BreadcrumbList']//li
+    xpath: //nav[@typeof='BreadcrumbList']//li[position() > 2]
   - name: nameExtended #to -
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
