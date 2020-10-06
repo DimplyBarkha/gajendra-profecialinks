@@ -19,7 +19,6 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
-    await context.setFirstRequestTimeout(100000);
     await context.goto(url, {
       firstRequestTimeout: 100000,
       timeout: timeout,
