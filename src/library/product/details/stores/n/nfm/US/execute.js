@@ -6,7 +6,7 @@ module.exports = {
     store: 'nfm',
     domain: 'nfm.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: "//p[contains(text(), 'No Results Found')]",
     zipcode: '',
   },
 };
