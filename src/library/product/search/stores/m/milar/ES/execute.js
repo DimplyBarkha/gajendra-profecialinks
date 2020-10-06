@@ -29,9 +29,15 @@ async function implementation (
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   console.log('Checking no results', parameters.noResultsXPath);
-
+  try {
+    await context.click('div#df-results__content__dfclassic');
+  }catch (e) {
+    console.log(e);
+  }
+  new Promise((resolve, reject) => setTimeout(resolve, 1000));
   //scroll function
   const applyScroll = async function (context) {
+    context.click('div#df-results__content__dfclassic');
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
@@ -71,7 +77,7 @@ module.exports = {
     store: 'milar',
     domain: 'milar.es',
     url: 'https://www.milar.es',
-    loadedSelector: 'df-results__content__dfclassic',
+    loadedSelector: 'div#df-results__content__dfclassic',
     noResultsXPath: null,
     zipcode: '',
   },
