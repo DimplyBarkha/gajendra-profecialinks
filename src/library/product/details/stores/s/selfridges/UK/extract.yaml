@@ -66,7 +66,7 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //div[@class="c-select c-filter__select --quantity"]//div[@class="c-select__container"]//button
+    xpath: (//div[@class="c-select__container"]//button)[2]
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
@@ -75,6 +75,7 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
+    xpath: (//article[@id="content1"]//span//br[22]/following-sibling::br)[1]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -133,6 +134,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //div[@class="c-select__container"]//button//span
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -146,7 +148,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //video[@class="c-category-hero__media"]//source/@src
+    xpath: //div[@class="c-image-gallery__img --video"]//video//source/@src
   - name: name
     singleValue: true
     description: The product name
@@ -187,7 +189,7 @@ fields:
   - name: url
     singleValue: true
     description: the url of the page
-    xpath: //meta[@property="og:url"]/@content | //link[@rel="canonical"]/@href
+    xpath: //meta[@property="og:url"]/@content
   - name: id
     singleValue: true
     description: the id of the product
