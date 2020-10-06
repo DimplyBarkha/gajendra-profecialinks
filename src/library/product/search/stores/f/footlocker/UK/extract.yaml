@@ -15,8 +15,7 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //*[contains(@class,"productlist--item")]//img[contains(@class,"fl-picture--img")]/@srcset
-    regExp: >- 
-      ^(.*)$
+    regExp: (.+)
     regExpReplace: https:$1
   - name: aggregateRating
     singleValue: false
@@ -31,9 +30,7 @@ fields:
     regExp: \d+
   - name: price
     singleValue: false
-    xpath: //*[contains(@itemprop,"offers")]
-    regExp: (£ \d+)(\,)(\d+)
-    regExpReplace: $1.$3 
+    xpath: translate(.//span[contains(@class,"sale")]/span, ',', '.')
   - name: manufacturer
     singleValue: false
     xpath: //*[contains(@class,"productlist--item")]/div/script[2]
