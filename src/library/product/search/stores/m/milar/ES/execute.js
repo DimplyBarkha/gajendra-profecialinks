@@ -18,10 +18,31 @@ async function implementation (
   await dependencies.goto({ url, zipcode: inputs.zipcode });
 
   await context.waitForSelector('input[name=buscador]');
-    await context.setInputValue('input[name=buscador]',inputs.keywords);
-    await context.click('input[name=buscador]');
+  await context.setInputValue('input[name=buscador]',inputs.keywords);
+  await context.click('input[name=buscador]');
   context.waitForNavigation();
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+
+  let scrollTop = 0;
+  while (scrollTop !== 200000) {
+    await stall(500);
+    scrollTop += 1000;
+    let oldScroll = await context.evaluate(() => {return document.querySelector('.df-results').scrollHeight;});
+    await context.evaluate(() => {document.querySelector('.df-results').scrollBy(0, document.querySelector('.df-results').scrollHeight + 1000);});
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    let newScroll = await context.evaluate(() => {return document.querySelector('.df-results').scrollHeight;});
+    if (newScroll === oldScroll || scrollTop == 200000) {
+      await stall(5000);
+      break;
+    }
+  }
+  function stall (ms) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, ms);
+    });
+  }
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -29,36 +50,6 @@ async function implementation (
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   console.log('Checking no results', parameters.noResultsXPath);
-  try {
-    await context.click('div#df-results__content__dfclassic');
-  }catch (e) {
-    console.log(e);
-  }
-  new Promise((resolve, reject) => setTimeout(resolve, 1000));
-  //scroll function
-  const applyScroll = async function (context) {
-    context.click('div#df-results__content__dfclassic');
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(5000);
-          break;
-        }
-      }
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    });
-  };
-  await applyScroll(context);
 
   //end here
   return await context.evaluate(function (xp) {
@@ -77,7 +68,7 @@ module.exports = {
     store: 'milar',
     domain: 'milar.es',
     url: 'https://www.milar.es',
-    loadedSelector: 'div#df-results__content__dfclassic',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },

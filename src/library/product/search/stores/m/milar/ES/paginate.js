@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div#df-results__dfclassic',
+    loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'milar.es',
