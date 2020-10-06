@@ -6,7 +6,7 @@ module.exports = {
     store: 'newegg',
     domain: 'newegg.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"page-404-text")]',
     zipcode: '',
   },
 };
