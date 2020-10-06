@@ -29,6 +29,7 @@ async function implementation (
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   console.log('Checking no results', parameters.noResultsXPath);
+
   //scroll function
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
@@ -70,7 +71,7 @@ module.exports = {
     store: 'milar',
     domain: 'milar.es',
     url: 'https://www.milar.es',
-    loadedSelector: 'div#df-results__dfclassic',
+    loadedSelector: 'df-results__content__dfclassic',
     noResultsXPath: null,
     zipcode: '',
   },
