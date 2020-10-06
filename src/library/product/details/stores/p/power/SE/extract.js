@@ -14,7 +14,11 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    await context.click('#product-information-tabs > div:nth-child(1) > div');
+    try {
+      await context.click('#product-information-tabs > div:nth-child(1) > div');
+    } catch (error) {
+      console.log('no specification found');
+    }
     await new Promise(resolve => setTimeout(resolve, 10000));
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
