@@ -39,12 +39,15 @@ async function implementation (inputs, parameters, context, dependencies) {
     let aplusImages;
     if (document.querySelector('div[class*="promos__list"] img')) {
       aplusImages = document.querySelectorAll('div[class*="promos__list"] img');
+      aplusImages.forEach(img => {
+        addElementToDocument('added_aplus', img.getAttribute('src'));
+      });
     } else if (document.querySelector('div.tiles div.hero__media img')) {
       aplusImages = document.querySelectorAll('div.tiles div.hero__media img');
+      aplusImages.forEach(img => {
+        addElementToDocument('added_aplus', img.getAttribute('src'));
+      });
     }
-    aplusImages.forEach(img => {
-      addElementToDocument('added_aplus', img.getAttribute('src'));
-    });
 
     // @ts-ignore
     if (window.dataLayer) {
