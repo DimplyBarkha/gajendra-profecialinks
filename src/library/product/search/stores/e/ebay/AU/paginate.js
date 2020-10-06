@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'ebay',
-    nextLinkSelector: 'a.pagination__next:not([aria-disabled])',
+    nextLinkSelector: 'div.p-wrapper > div#p-items > div.dynpg > table.pgbc > tbody td.next > a.enabled',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'ul.srp-results > li[data-view]',
+    loadedSelector: 'div.p-box',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'ebay.com.au',
