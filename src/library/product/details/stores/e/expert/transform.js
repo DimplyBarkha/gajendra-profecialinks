@@ -121,7 +121,6 @@ const transform = (data, context) => {
             mainPictureSrc = mainPictureSrc.length === 2 ? mainPictureSrc[1] : '';
             mainPictureSrc = mainPictureSrc.length ? mainPictureSrc.split('/')[0] : '';
             row.alternateImages = row.alternateImages.slice(1);
-            console.log(row.alternateImages)
             if (row.alternateImages.length) {
               row.alternateImages.forEach(item => {
                 item.text = item.text.replace(/(?<=product\/cache\/)(.*)(?=\/)/gm, mainPictureSrc);
@@ -158,6 +157,17 @@ const transform = (data, context) => {
             }
             if (item.text.includes('ajax-loader.gif')) {
               item.text = item.text.replace('https://www.expert.de/static/images/loader/ajax-loader.gif', '');
+            }
+            if (item.text.includes('{"playlist":[{"file":')) {
+              let JSONArr = item.text.match(/(\[.*?\])/gm) ? item.text.match(/(\[.*?\])/gm)[0] : '';
+              JSONArr = JSONArr.length ? (JSONArr.startsWith('[') ? JSON.parse(JSONArr) : '') : '';
+              if (JSONArr.length) {
+                const videoItems = [];
+                JSONArr.forEach(element => {
+                  videoItems.push(element.file);
+                });
+                item.text = videoItems.join(' || ');
+              }
             }
           });
         }

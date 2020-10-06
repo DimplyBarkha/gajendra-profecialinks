@@ -29,7 +29,7 @@ module.exports = {
           const firstItem = document.querySelector('div.product-item.is-clickable h2 > a') ? document.querySelector('div.product-item.is-clickable h2 > a').href : null;
           return firstItem;
         });
-      }
+      };
       const url = await firstItemLink();
       if (url !== null) {
         await context.goto(`${url}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"load_timeout":60,"load_all_resources":true}[/!opt!]`, { timeout: 50000, waitUntil: 'load', checkBlocked: true });

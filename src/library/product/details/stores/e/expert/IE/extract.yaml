@@ -164,7 +164,10 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //iframe[contains(@title, "Flix-media-video")]//@src
+    # xpath: //iframe[contains(@title, "Flix-media-video")]//@src|//div[@id="flix-inpage"]//div[contains(@class, "fullJwPlayerWarp")]/input/@value
+    xpath: //div[@id="flix-inpage"]//div[contains(@class, "fullJwPlayerWarp")]/input/@value
+    # regExp: file\"\:\"(.*).mp4
+    # regExpReplace: $1
     description: URLs of videos on page
   - name: name
     xpath: //span[@itemprop="name"]
