@@ -34,27 +34,32 @@ module.exports = {
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
 
-    await context.waitForNavigation({ timeout: 30000 });
+    // TODO is this needed? I don't think so.
+    // await context.waitForNavigation({ timeout: 30000 });
 
-    await context.evaluateInFrame('iframe[src*="https://geo.captcha"]',
-      function () {
-        const code = geetest
-          .toString()
-          .replace(
-            /appendTo\("#([^"]+)"\)/,
-            'appendTo(document.getElementById("$1"))',
-          );
-        return eval(`(${code})('/captcha/geetest');`);
-      },
-    );
+    const checkExistance = async (selector) => {
+      return await context.evaluate(async (selector) => {
+        return Boolean(document.querySelector(selector));
+      }, selector);
+    };
 
-    await new Promise(resolve => setTimeout(resolve, 500));
-    await context.evaluateInFrame('iframe[src*="https://geo.captcha"]',
-      function () {
-        document.querySelector('div.captcha__human__captcha-container').click();
-      },
-    );
-    await new Promise(resolve => setTimeout(resolve, 60000));
-    await context.waitForSelector('#pdpMain');
+    const captchaSelector = '#captcha-container';
+    const isCaptchaFramePresent = await checkExistance(captchaSelector);
+
+    if (isCaptchaFramePresent) {
+      console.log('isCaptcha', true);
+
+      await context.solveCaptcha({
+        type: 'GEETEST',
+        inputElement: captchaSelector,
+        autoSubmit: true,
+      });
+
+      console.log('solved captcha, waiting for page change');
+
+      // TODO check that both of the below are also needed
+      await context.waitForNavigation({ timeout });
+      await context.waitForSelector('#pdpMain');
+    }
   },
 };
