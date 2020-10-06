@@ -37,12 +37,12 @@ module.exports = {
     await context.waitForNavigation({ timeout: 30000 });
 
     const checkExistance = async (selector) => {
-      return await context.evaluate(async (selector) => {
-        return Boolean(document.querySelector(selector));
+      return await context.evaluate(async (sel) => {
+        return Boolean(document.querySelector(sel));
       }, selector);
     };
 
-    const captchaSelector = '#captcha-container';
+    const captchaSelector = '.captcha';
     const isCaptchaFramePresent = await checkExistance(captchaSelector);
 
     console.log('isCaptcha', isCaptchaFramePresent);
