@@ -6,7 +6,7 @@ module.exports = {
     store: 'qvc',
     domain: 'qvc.de',
     loadedSelector: "div[aria-label='Video player'] , div[class*='easyzoom--with-thumbnails']",
-    noResultsXPath: null,
+    noResultsXPath: "//h3[contains(.,'Seite kann nicht geöffnet werden')]",
     zipcode: '',
   },
 };
