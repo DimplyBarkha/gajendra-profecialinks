@@ -134,7 +134,7 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //table[@id='product-attribute-specs-table']//tbody//tr/th[contains(text(), 'Dimenisions (H x W x D)')]/following-sibling::td
+    xpath: 
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -142,6 +142,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: //div[@id='added_variantCount']
   - name: color
     singleValue: true
     description: A textual description of the colour
