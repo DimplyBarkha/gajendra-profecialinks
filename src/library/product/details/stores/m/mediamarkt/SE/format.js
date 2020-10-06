@@ -54,7 +54,7 @@ const transform = (data) => {
       }
       if (row.specifications) {
         row.specifications.forEach(specificationsItem => {
-          specificationsItem.text = specificationsItem.text.replace(/(\n\s*){3,}/g, ' ').replace(/ ?:(\n\s*){2,}/g, ' : ').replace(/(\n\s*){2,}/g, ' || ');
+          specificationsItem.text = cleanUp(specificationsItem.text.replace(/(\n\s*){3,}/g, ' ').replace(/ ?:(\n\s*){2,}/g, ' : ').replace(/(\n\s*){2,}/g, ' || '));
         });
       }
       if (row.alternateImages) {
