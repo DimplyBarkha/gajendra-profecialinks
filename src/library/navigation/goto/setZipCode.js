@@ -52,6 +52,11 @@ module.exports = {
       description: '',
       optional: false,
     },
+    {
+      name: 'store',
+      description: '',
+      optional: true,
+    },
   ],
   path: './domains/${domain[0:2]}/setZipCode.${domain}',
   implementation,

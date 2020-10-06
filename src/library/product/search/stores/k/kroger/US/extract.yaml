@@ -7,9 +7,18 @@ fields:
     singleValue: true
     description: Whether this is a sponsored/paid result
     type: BOOLEAN
+  - name: retailer
+    singleValue: true
+    defaultValue: Kroger
+  - name: zipcode
+    singleValue: false
+    xpath: ancestor::html//div[@id='my-zip']
+  - name: store
+    singleValue: false
+    xpath: ancestor::html//div[@id='my-store']
   - name: searchUrl
     singleValue: false
-    xpath: ancestor::html//div[@class='my-search-url']
+    xpath: ancestor::html//div[@id='my-search-url']
   - name: brand
     singleValue: true
     description: The brand name

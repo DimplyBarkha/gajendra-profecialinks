@@ -28,6 +28,12 @@ module.exports = {
       type: 'string',
       optional: true,
     },
+    {
+      name: 'store',
+      description: 'name of desired store',
+      type: 'string',
+      optional: true,
+    },
   ],
   dependencies: {
     setZipCode: 'action:navigation/goto/setZipCode',

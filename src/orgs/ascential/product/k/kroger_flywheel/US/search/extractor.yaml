@@ -1,0 +1,17 @@
+robot: product/search
+parameters:
+  country: US
+  domain: kroger.com
+  store: kroger
+proxy:
+  zone: USA
+  type: RESIDENTIAL
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  # retryDelay: 60
+meta:
+  branches:
+    test:
+      extractor: 1665b63c-279f-4092-8398-c270108230de
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

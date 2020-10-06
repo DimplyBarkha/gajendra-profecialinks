@@ -6,7 +6,7 @@ async function implementation (
 ) {
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
-  await dependencies.goto({ url, zipcode: inputs.zipcode });
+  await dependencies.goto({ url, zipcode: inputs.zipcode, store: inputs.store });
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());

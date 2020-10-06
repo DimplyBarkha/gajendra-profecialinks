@@ -1,8 +1,7 @@
 async function implementation (
   inputs, parameters, context, dependencies,
 ) {
-  const { url, zipcode } = inputs;
-
+  const { url, zipcode, store } = inputs;
   const findClosestStore = async () => {
     const indexToClick = await context.evaluate(async function () {
       const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
@@ -46,7 +45,7 @@ async function implementation (
     await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton`);
   };
 
-  const changeZip = async (wantedZip) => {
+  const changeZip = async (wantedZip, store) => {
     await context.click('button.CurrentModality-button');
     await context.waitForSelector('input[data-testid="PostalCodeSearchBox-input"]', { timeout: 6000 });
 
@@ -90,9 +89,11 @@ async function implementation (
       41071: 'I-471 @ Memorial Pkwy/Carothers Rd',
     };
 
-    if (desiredLocations[wantedZip]) {
-      const store = desiredLocations[wantedZip];
+    if (store) {
       await findSpecificStore(store);
+    } else if (desiredLocations[wantedZip]) {
+      const desiredStore = desiredLocations[wantedZip];
+      await findSpecificStore(desiredStore);
     } else {
       await findClosestStore();
     }
@@ -104,11 +105,11 @@ async function implementation (
   };
 
   try {
-    console.log(`Trying to change zip to ${zipcode}`);
-    await changeZip(zipcode);
+    console.log(`Trying to change zip to ${zipcode} and store to ${store}`);
+    await changeZip(zipcode, store);
   } catch (exception) {
     console.log('Retrying zip change');
-    await changeZip(zipcode)
+    await changeZip(zipcode, store)
       .catch(() => {
         throw new Error('Failed to change zip with retry');
       });

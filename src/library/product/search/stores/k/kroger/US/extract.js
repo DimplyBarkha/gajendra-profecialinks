@@ -23,6 +23,20 @@ const transform = (data, context) => {
         row.rankOrganic = [{ text: orgRankCounter }];
       }
       row.rank = [{ text: rankCounter }];
+
+      if (row.sponsored) {
+        const currentRank = rankCounter;
+        let featuredVal;
+        if (currentRank <= 10) {
+          featuredVal = 'Featured ATF';
+        } else if (currentRank < 18) {
+          featuredVal = 'Featured MTF';
+        } else {
+          featuredVal = 'Featured BTF';
+        }
+        row.featured = [{ text: featuredVal }];
+      }
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
@@ -43,8 +57,9 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const { zipcode, store } = inputs;
 
-  await context.evaluate(() => {
+  await context.evaluate((zipcode, store) => {
     console.log('new page!');
     const confirmButton = document.querySelector('button[data-testid="DynamicTooltip-Button-confirm"]');
     if (confirmButton) {
@@ -61,13 +76,18 @@ async function implementation (
 
     const url = `https://www.kroger.com/search?query=${searchTerms}&searchType=natural&fulfillment=all`;
 
-    const searchUrlDiv = document.createElement('div');
-    searchUrlDiv.classList.add('my-search-url');
-    searchUrlDiv.style.display = 'none';
-    searchUrlDiv.textContent = url;
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
 
-    document.body.appendChild(searchUrlDiv);
-  });
+    addHiddenDiv('my-search-url', url);
+    addHiddenDiv('my-zip', zipcode);
+    addHiddenDiv('my-store', store);
+  }, zipcode, store);
 
   return await context.extract(productDetails, { transform });
 }
