@@ -1,0 +1,95 @@
+input:
+  _url: http://rakuten.de
+  URL: https://www.rakuten.de/produkt/dyson-969154-05-fernbedienung-silber-fuer-ventilator-dp04-pure-cool-96915405-2990879715
+extractions:
+  - html: https://workbench.import.io/html/run=0f20a7ae-dce4-4cc2-9146-f57400ff133b/task=90469ad1-3e21-426a-b537-0fb722dceb2e/78599266-1fa9-44c7-8c82-95ab83aae7a1.html
+    extractionConfigId: product/details/stores/r/rakuten/DE/extract
+    data:
+      - group:
+          - image:
+              - text: https://files.rakuten-static.de/596a74262447afb8c25fa4634227ae3a/images/2990879715_699238.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/@data-src
+            alternateImages:
+              - text: https://files.rakuten-static.de/596a74262447afb8c25fa4634227ae3a/images/2990879715_629994.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/@data-src
+              - text: https://files.rakuten-static.de/596a74262447afb8c25fa4634227ae3a/images/2990879715_247196.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/@data-src
+              - text: https://files.rakuten-static.de/596a74262447afb8c25fa4634227ae3a/images/2990879715_248708.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/@data-src
+              - text: https://files.rakuten-static.de/596a74262447afb8c25fa4634227ae3a/images/2990879715_788553.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/@data-src
+              - text: https://files.rakuten-static.de/596a74262447afb8c25fa4634227ae3a/images/2990879715_224158.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/@data-src
+            metaKeywords:
+              - text: Dyson 969154-05 Fernbedienung Silber für Ventilator DP04 Pure Cool
+                  96915405 | Rakuten
+                xpath: /html/head[1]/meta[7]/@content
+            category:
+              - text: Alle Kategorien
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]
+              - text: Küchen & Haushaltsgeräte
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]
+              - text: Haushaltsgeräte
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]
+              - text: Zimmer Ventilatoren & Raumlüfter
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[5]
+              - text: Ventilatoren Zubehör
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[6]
+            nameExtended:
+              - text: Dyson 969154-05 Fernbedienung Silber für Ventilator DP04 Pure Cool
+                  96915405
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            price:
+              - text: 34,99€
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]
+            description:
+              - text: >-
+                  Dyson Fernbedienung Silber 969154-05 für Ventilator DP04 Pure
+                  Cool 96915405
+                   
+                  passt auf folgende Modelle:
+                   
+                  DP04 Pure Cool, nur Silbernes Gehäuse.
+                   
+                  Bitte prüfen Sie ihr Gerätemodell auf dem Typenschild, bevor Sie den Artikel kaufen.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/span[2]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/span[2]
+            gtin:
+              - text: "4260478280588"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[3]/span[2]
+            sku:
+              - text: 969154-05
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/span[2]
+            variantId:
+              - text: 969154-05
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[4]/span[2]
+            mpc:
+              - text: 969154-05
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[4]/span[2]
+            name:
+              - text: Dyson 969154-05 Fernbedienung Silber für Ventilator DP04 Pure Cool
+                  96915405
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            availabilityText:
+              - text: In Stock
+            quantity:
+              - text: "1"
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: de_DE
+                value: 0
+            listPrice:
+              - text: ""
+            specifications:
+              - text: "   "
+            promotion:
+              - text: ""
+        xpath: /
+    timestamp: 1601984493696

@@ -1,0 +1,132 @@
+input:
+  _url: http://rakuten.de
+  URL: https://www.rakuten.de/produkt/dyson-hp-04-pure-hot-und-cool-weisssilber-3173130009
+extractions:
+  - html: https://workbench.import.io/html/run=0f20a7ae-dce4-4cc2-9146-f57400ff133b/task=25aabe1a-f0cf-4f63-a6a3-dc366e7c1364/511439a5-f20b-41d9-83b4-8373e6de0bee.html
+    extractionConfigId: product/details/stores/r/rakuten/DE/extract
+    data:
+      - group:
+          - image:
+              - text: https://files.rakuten-static.de/5122f839d5ea091ecbf3a2d7bf3cb0b5/images/6a7e276e26b7104d095a100e6a95cc64.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/@data-src
+            alternateImages:
+              - text: https://files.rakuten-static.de/5122f839d5ea091ecbf3a2d7bf3cb0b5/images/5ca489f2e391f55ae71c1eb505478def.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/@data-src
+              - text: https://files.rakuten-static.de/5122f839d5ea091ecbf3a2d7bf3cb0b5/images/2eca28f02d911ab887fc4e5995bc5469.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/@data-src
+              - text: https://files.rakuten-static.de/5122f839d5ea091ecbf3a2d7bf3cb0b5/images/59960df728d620adfd29e6579e3ec76a.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/@data-src
+              - text: https://files.rakuten-static.de/5122f839d5ea091ecbf3a2d7bf3cb0b5/images/5b1c06e8fb819063c2fbbbb19b6da3c8.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/@data-src
+              - text: https://files.rakuten-static.de/5122f839d5ea091ecbf3a2d7bf3cb0b5/images/3daab0cffd053e52bdd86a1564d34da4.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/@data-src
+            metaKeywords:
+              - text: Dyson HP 04 Pure Hot & Cool weiß/silber | Rakuten
+                xpath: /html/head[1]/meta[7]/@content
+            category:
+              - text: Alle Kategorien
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]
+              - text: Küchen & Haushaltsgeräte
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]
+              - text: Haushaltsgeräte
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]
+              - text: Zimmer Ventilatoren & Raumlüfter
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[5]
+              - text: Ventilatoren Zubehör
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[6]
+            nameExtended:
+              - text: Dyson HP 04 Pure Hot & Cool weiß/silber
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            price:
+              - text: 746,34€
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]
+            description:
+              - text: >-
+                  Dyson HP 04 Pure Hot & Cool weiß/silber
+
+                  Dieses 3-in-1 Gerät von Dyson dient als Ventilator, Heizlüfter und als Luftreiniger.
+
+                  Automatische Erkennung von Schadstoffen
+
+                  Das Gerät erkennt automatisch, die in der Luft befindlichen Gase und Partikel, nimmt diese auf und gibt die gereinigte Luft, bei Bedarf auch erwärmt, wieder ab.
+
+                  Air Multiplier Technologie
+
+                  Die spezielle Air Multiplier Technologie von Dyson erlaubt es dem Gerät die Luft im kompletten Raum zu reinigen und zu erwärmen und bis zu 310 Liter Luft in einer Sekunde abzugeben.
+
+                  360° Filtration
+
+                  Das komplett geschlossene Filtersystem besteht aus einem Aktivkohle- und einem HEPA-Filter, die Gase und mikroskopisch kleine Partikel aufnehmen können.
+
+                  Lufterwärmung und -kühlung
+
+                  Dank der enthaltenen Thermostatsteuerung kann die Luft erwärmt oder gekühlt werden.
+
+                  Eigenschaften:
+
+                  Leistung: 40 W
+
+                  10 Luftstromstufen
+
+                  Oszilationswinkel: 0-350°
+
+                  Mit Timer und Fernbedienung
+
+                  Abmessungen: 764 x 205 x 130 mm
+
+                  Gewicht: 5,71 kg
+
+                  Farbe: weiß / silber
+
+                  00:02
+
+                  01:42
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/span[2]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/span[2]
+            weightNet:
+              - text: 5,71 kg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[6]
+            gtin:
+              - text: "5025155038635"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[3]/span[2]
+            sku:
+              - text: "564531"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/span[2]
+            variantId:
+              - text: 244280-01
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[4]/span[2]
+            mpc:
+              - text: 244280-01
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[4]/span[2]
+            color:
+              - text: " weiß / silber"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[7]
+            videos:
+              - text: https://mycliplister.com/ve/88253/19f6efc08c6555e57279649671aa83d838098570735bc5c388690d9c174be959e84e90d150319850408c2087643902cbf1e81e75afba6a909811007e613df8fb6_x4c002731b13c1f45b3e232a7d57a46cbc0d449d23d4952f661c6c357a556210ade5080024865a583eedddf89528933a0a0c9cd5c91208952a180c559446b663da972a1c3119b53c97b66d3884a39db3ade22fe4560ac476452570d43164bec03d9afd99019a380e066e2b50cd29efa973cae188b31effe02fb252556b0bc3a7611c7fbfe926630af6276808e6a73be2b45c5b6e179b06ad26e7a5865aafa9f4d2d020172fabddd1878d49b601b045079
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/@src
+            name:
+              - text: Dyson HP 04 Pure Hot & Cool weiß/silber
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            availabilityText:
+              - text: In Stock
+            quantity:
+              - text: "1"
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: de_DE
+                value: 0
+            listPrice:
+              - text: ""
+            specifications:
+              - text: "   Abmessungen: 764 x 205 x 130 mm"
+            promotion:
+              - text: ""
+        xpath: /
+    timestamp: 1601984494228

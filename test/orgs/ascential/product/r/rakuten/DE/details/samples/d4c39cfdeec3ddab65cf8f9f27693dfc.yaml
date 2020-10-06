@@ -1,0 +1,85 @@
+input:
+  _url: http://rakuten.de
+  URL: https://www.rakuten.de/produkt/dyson-original-schalter-fuer-dyson-dc03050811-91097101-910971-01-360246826
+extractions:
+  - html: https://workbench.import.io/html/run=deb5eff4-3223-4e50-9050-be6a230da09f/task=262df58b-dcb6-4fee-bdbe-120320f6a043/7d6161e8-fa73-4326-8000-e957de4a29aa.html
+    extractionConfigId: product/details/stores/r/rakuten/DE/extract
+    data:
+      - group:
+          - image:
+              - text: https://files.rakuten-static.de/e3b8f754ccb28a08c796c90f4241cee8/images/360246826_825886.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/@data-src
+            metaKeywords:
+              - text: Original SCHALTER für DYSON DC03/05/08/11. 91097101 / 910971-01 | Rakuten
+                xpath: /html/head[1]/meta[7]/@content
+            category:
+              - text: Alle Kategorien
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]
+              - text: Küchen & Haushaltsgeräte
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]
+              - text: Haushaltsgeräte
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]
+              - text: Staubsauger
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[5]
+              - text: Staubsauger Ersatzteile
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[6]
+            nameExtended:
+              - text: Original SCHALTER für DYSON DC03/05/08/11. 91097101 / 910971-01
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            price:
+              - text: 8,50€
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]
+            description:
+              - text: |-
+                  Original Schalter für Ihren Dyson DC03, DC05, DC08 und DC11.
+                   
+                  Schaltertyp:
+                  Netzschalter 
+                  Schaltspannung Max.:
+                  250 V
+                  Schaltstrom Max.:
+                  16 A
+                  Länge:
+                  32 mm
+                  Breite:
+                  18 mm
+                  Höhe:
+                  14 mm
+                  Art Spannung:
+                  AC 
+                  Anschluss:
+                  Steckzunge
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]
+            brandText:
+              - text: DYSON
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/span[2]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/span[2]
+            variantId:
+              - text: "91097101"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/span[2]
+            mpc:
+              - text: "91097101"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/span[2]
+            name:
+              - text: Original SCHALTER für DYSON DC03/05/08/11. 91097101 / 910971-01
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            availabilityText:
+              - text: In Stock
+            quantity:
+              - text: "1"
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: de_DE
+                value: 0
+            listPrice:
+              - text: "9,50 € "
+            specifications:
+              - text: "Länge:32 mm Breite:18 mm Höhe:14 mm "
+            promotion:
+              - text: -11%
+        xpath: /
+    timestamp: 1601984119630

@@ -1,0 +1,71 @@
+input:
+  _url: http://rakuten.de
+  URL: https://www.rakuten.de/produkt/dyson-kabelrolle-fuer-alle-dyson-dc08-dc08t-dc11-staubsauger-904031-26-363517231
+extractions:
+  - html: https://workbench.import.io/html/run=0f20a7ae-dce4-4cc2-9146-f57400ff133b/task=7301e724-2ab0-41a2-802d-fe93ebefaabd/3139da1a-72b2-4ed6-91b6-a925bffc5b66.html
+    extractionConfigId: product/details/stores/r/rakuten/DE/extract
+    data:
+      - group:
+          - image:
+              - text: https://files.rakuten-static.de/e3b8f754ccb28a08c796c90f4241cee8/images/363517231_941674.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/@data-src
+            metaKeywords:
+              - text: Kabelrolle für alle Dyson DC08, DC08T, DC11 Staubsauger 904031-26 |
+                  Rakuten
+                xpath: /html/head[1]/meta[7]/@content
+            category:
+              - text: Alle Kategorien
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[2]
+              - text: Küchen & Haushaltsgeräte
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[3]
+              - text: Haushaltsgeräte
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[4]
+              - text: Staubsauger
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[5]
+              - text: Staubsauger Ersatzteile
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[6]
+            nameExtended:
+              - text: Kabelrolle für alle Dyson DC08, DC08T, DC11 Staubsauger 904031-26
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            price:
+              - text: 62,50€
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]
+            description:
+              - text: >-
+                  KABELROLLE FÜR ALLE DC08, DC08T und DC11 GERÄTE
+
+                  § 1 Alle Ersatz- und Zubehörteile die Sie brauchen und suchen, finden Sie nur bei uns. § 2 Alles was Sie bei uns nicht finden, brauchen Sie sowieso nicht !!! Sie suchen einen Ersatzteil und finden diesen nicht oder nur für sehr viel Geld ? Sie wissen nicht genau wo Sie noch suchen könnten, um das fehlende Glied für die Kette zu finden ? Wo Sie die Schraube finden können die Sie schon lange suchen ? Bei uns bekommen Sie fast alle Ersatz- und Zubehörteile für: - Haushaltsgeräte / Haushaltselektronik - Unterhaltungselektronik - PC-Technik - Sicherheits- & Haustechnik Schraube, Dichtung, Schalter, Platine, Gehäuse, Kanne, Waschmaschinentür, Zahnrad, Anschlussmaterial, Batterie, Akku, Netzteil ?... usw. ?. usw. ?? Schreiben Sie uns nur welches Ersatzteil für welches Gerät Sie suchen. In kürzester Zeit werden wir Sie Kontaktieren und Ihnen den Preis sowie die kürzeste Lieferzeiten nennen.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]
+            brandText:
+              - text: DYSON
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/span[2]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/span[2]
+            variantId:
+              - text: "90403126"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/span[2]
+            mpc:
+              - text: "90403126"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/span[2]
+            name:
+              - text: Kabelrolle für alle Dyson DC08, DC08T, DC11 Staubsauger 904031-26
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            availabilityText:
+              - text: In Stock
+            quantity:
+              - text: "1"
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: de_DE
+                value: 0
+            listPrice:
+              - text: ""
+            specifications:
+              - text: "   "
+            promotion:
+              - text: ""
+        xpath: /
+    timestamp: 1601984487272
