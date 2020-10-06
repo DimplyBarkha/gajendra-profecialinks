@@ -6,7 +6,7 @@ module.exports = {
     store: 'qvc',
     domain: 'qvc.com',
     loadedSelector: "div[aria-label='Video player'] , div[class*='easyzoom--with-thumbnails']",
-    noResultsXPath: null,
+    noResultsXPath: "//h2[contains(@class,'text-center') and contains(.,'Item Not Available')]",
     zipcode: '',
   },
 };
