@@ -22,9 +22,23 @@ module.exports = {
     }
     // automatic data extraction
     // ====================================================================================
+    await context.evaluate(async function () {
+      const videoSelector = document.querySelector('div.vw-productVideo');
+      if (videoSelector) {
+        await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+        const moreVideoSelector = videoSelector.querySelector('div > video');
+        if (moreVideoSelector) {
+          moreVideoSelector.click();
+          const srcVideo = moreVideoSelector.querySelector('source').getAttribute('src');
+          console.log(srcVideo);
+          videoSelector.setAttribute('src', srcVideo);
+        }
+      }
+    });
     await context.extract(productDetails);
     // manualy extracting category
     // ====================================================================================
+    /*
     const category = await context.evaluate(async function () {
       const rawCategory = document.querySelectorAll('span[property="name"]');
       let category = '';
@@ -35,7 +49,7 @@ module.exports = {
         };
       }
       return category
-    });
+    }); */
     // checking for iframe exists, and if so redirecting to it
     // ====================================================================================
     const iframeUrl = await context.evaluate(async function () {
@@ -82,11 +96,17 @@ module.exports = {
       }
       // manually extracting technical data
       // ====================================================================================
+      iframeData.productOtherInformation = '';
+      const rawOtherInformation = document.querySelector('div.attributes-table');
+      if (rawOtherInformation) {
+        iframeData.productOtherInformation = rawOtherInformation.innerText;
+      }
+      console.log(iframeData.productOtherInformation);
       iframeData.specifications = '';
       const rawTitles = document.querySelectorAll('div[class*="info"]>h5');
       const rawValues = document.querySelectorAll('div[class*="info"]>h5+p');
       if (rawTitles.length === rawValues.length) {
-        for (let i = 0; i < rawTitles.length; i++){
+        for (let i = 0; i < rawTitles.length; i++) {
           if (rawTitles[i].innerText === 'Gewicht') {
             iframeData.weightNet = rawValues[i].innerText;
           }
@@ -104,7 +124,7 @@ module.exports = {
     var dataRef = await context.data();
     // inserting manualy extrcted data
     // ====================================================================================
-    dataRef[0].data[0].group[0].category = [{ text: category }];
+    //dataRef[0].data[0].group[0].category = [{ text: category }];
     if ('weightNet' in iframeData) {
       dataRef[0].data[0].group[0].weightNet = [{ text: iframeData.weightNet }];
     }
@@ -128,6 +148,9 @@ module.exports = {
     }
     if (iframeData.specifications != '') {
       dataRef[0].data[0].group[0].specifications = [{ text: iframeData.specifications }];
+    }
+    if (iframeData.productOtherInformation != '') {
+      dataRef[0].data[0].group[0].productOtherInformation = [{ text: iframeData.productOtherInformation }];
     }
   },
 };

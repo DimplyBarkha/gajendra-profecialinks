@@ -21,7 +21,7 @@ fields:
   - name: category #to
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //h1[@class="title"]
+    xpath: //nav[@typeof='BreadcrumbList']//li
   - name: nameExtended #to -
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -52,7 +52,6 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[@class="vw-productInformation"][@style=""]//div[@class="product-description"]//ul/li)
   - name: brandText #to
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -65,10 +64,12 @@ fields:
   - name: quantity #to
     singleValue: true
     description: Quantity as described on the page
+    defaultValue: "1"
   - name: weightNet #to
     singleValue: true
     description: Net weight as described on the page
-    xpath: div(//[@class="info2"])[4]/p
+    xpath: //li[contains(text(), 'Gewicht')]
+    regExp: ([\d\,]+\skg)
   - name: weightGross #to
     singleValue: true
     description: Gross weight as described on the page
@@ -116,7 +117,6 @@ fields:
   - name: shippingInfo #to
     singleValue: true
     description: Shipping information for the product
-    xpath: normalize-space(concat((//li[@class="feature -shipping -green"]/div[@class="text"]/span)[1], (//li[@class="feature -delivery -green"]/div)[1] ))
   - name: shippingDimensions #to
     singleValue: true
     description: Stated shipping dimensions
@@ -126,12 +126,13 @@ fields:
   - name: variantCount #to
     singleValue: true
     description: Number of variants listed
+    defaultValue: "0"
     type: NUMBER
   - name: color #to
     singleValue: true
     description: A textual description of the colour
-    xpath: //h1[contains(@class, 'product_title')]
-    regExp: (\w+\/\w+)
+    xpath: //li[contains(text(), 'Farbe')]
+    regExp: (\s[A-z\W]+)
   - name: colorCode #to
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -144,11 +145,12 @@ fields:
   - name: videos #to
     singleValue: false
     description: URLs of videos on page
-    xpath: //@*[contains(., ".mp4")]
+    xpath: //div[@class='vw-productVideo']/@src
+    regExp: (.+)
   - name: name #to
     singleValue: true
     description: The product name
-    xpath: //h1[contains(@class, 'product_title')]
+    xpath: //h1[contains(@class, 'title')]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -402,7 +404,7 @@ fields:
   - name: specifications #to
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: concat(//tr[td[p[text()="Länge:"]]], " ", //tr[td[p[text()="Breite:"]]], " ", //tr[td[p[text()="Höhe:"]]])
+    xpath: concat(//tr[td[p[text()="Länge:"]]], " ", //tr[td[p[text()="Breite:"]]], " ", //tr[td[p[text()="Höhe:"]]], " ", //li[contains(text(), 'Abmessungen')])
   - name: warranty #to
     singleValue: true
     description: Guarantee associated with the product
