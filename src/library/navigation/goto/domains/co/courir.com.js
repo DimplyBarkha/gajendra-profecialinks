@@ -46,9 +46,9 @@ module.exports = {
     const captchaSelector = '#captcha-container';
     const isCaptchaFramePresent = await checkExistance(captchaSelector);
 
-    if (isCaptchaFramePresent) {
-      console.log('isCaptcha', true);
+    console.log('isCaptcha', isCaptchaFramePresent);
 
+    if (isCaptchaFramePresent) {
       await context.solveCaptcha({
         type: 'GEETEST',
         inputElement: captchaSelector,
