@@ -43,28 +43,33 @@ module.exports = {
       return null;
     });
 
-    if (apiManufCall) {
-      const obj = await sharedhelpers.goToiFrameLink(apiManufCall, link, 'body img', 'src');
-      content = obj.content;
-      image = obj.image;
-      content = content.replace('Overview', '').replace('Features', '');
-      sharedhelpers.addHiddenInfo('ii_manufContent', content);
-      if (image.length) {
-        image.pop();
-        sharedhelpers.addHiddenArrayList('ii_manufImg', image);
-      }
-    }
-
-    const termAndCond = await context.evaluate(async function () {
-      return document.querySelector('div.footer-online-shopping-part div.footer-slide li a[href*="term-conditions"]');
+    const loadVideo = await context.evaluate(async function () {
+      return !!document.querySelector('div.flix_mod_video');
     });
 
-    sharedhelpers.addHiddenInfo('ii_termCond', termAndCond ? 'Yes' : 'No');
-
+    // if (apiManufCall) {
+    //   const obj = await sharedhelpers.goToiFrameLink(apiManufCall, link, 'body img', 'src');
+    //   content = obj.content;
+    //   image = obj.image;
+    //   content = content.replace('Overview', '').replace('Features', '');
+    //   sharedhelpers.addHiddenInfo('ii_manufContent', content);
+    //   if (image.length) {
+    //     image.pop();
+    //     sharedhelpers.addHiddenArrayList('ii_manufImg', image);
+    //   }
+    // }
     try {
       await context.waitForSelector('div.fotorama-item', { timeout: 85000 });
     } catch (error) {
       console.log('No secondary images loading.');
+    }
+
+    if (loadVideo) {
+      try {
+        await context.waitForSelector('iframe[title*="Flix-media-video"]', { timeout: 75000 });        
+      } catch (error) {
+        console.log('No videos loading.');
+      }
     }
 
     return await context.extract(productDetails, { transform: transformParam });

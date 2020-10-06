@@ -170,6 +170,12 @@ const transform = (data, context) => {
         //   row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
         // }
 
+        if (row.termsAndConditions && row.termsAndConditions[0]) {
+          if (row.termsAndConditions[0].text.includes('Term')) {
+            row.termsAndConditions[0].text = 'Yes';
+          }
+        }
+
         if (row.aggregateRating && row.aggregateRating[0]) {
           row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
         }

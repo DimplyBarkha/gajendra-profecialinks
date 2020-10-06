@@ -371,11 +371,11 @@ fields:
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
   - name: termsAndConditions
     singleValue: true
-    xpath: //*[@id="ii_termCond"]//text()
-    # xpath: (//*[contains(text(), "Terms and Conditions")]//text())[1]
-    # regExp: Terms and Conditions
+    # xpath: //*[@id="ii_termCond"]//text()
+    xpath: (//*[contains(text(), "Terms and Conditions")]//text())[1]
+    # regExp: (.+)
     # regExpReplace: Yes
-    # defaultValue: No
+    defaultValue: No
     description: Terms and conditions information text ['Yes','No']
   # - name: privacyPolicy
   #   singleValue: true
