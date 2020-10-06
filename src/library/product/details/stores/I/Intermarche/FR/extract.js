@@ -25,7 +25,13 @@ module.exports = {
     } catch (e) {
       console.log('not able to click', true);
     }
-    await context.waitForSelector('div[class="product-price--unit ProductPrice__PriceUnit-w3194n-5 eJDoAw"]', { waitUntil: 'load' });
+    await context.waitForSelector('div[class="product-price--unit ProductPrice__PriceUnit-w3194n-5 eJDoAw"]', { timeout: 60000 });
+    // await context.evaluate(() => {
+    //   const popup = document.querySelector('#didomi-notice-agree-button > span');
+    //   if (popup) {
+    //     popup.click();
+    //   }
+    // });
     await context.evaluate(async () => {
       // Implementation for getting the availability
       const Ispresent = document.querySelector('#add-product-button > div > div > a');
