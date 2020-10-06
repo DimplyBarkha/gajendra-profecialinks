@@ -10,7 +10,7 @@ fields:
     xpath: //span[contains(@class,'product name product-item__name')]/a/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //span[contains(@class,'product-image-wrapper')]/img/@src
+    xpath: //span[contains(@class,'product-image-wrapper')]/img/@data-src
   - name: name
     description: The product name
     xpath: //span[contains(@class,'product name product-item__name')]

@@ -5,8 +5,7 @@ module.exports = {
     country: 'SE',
     store: 'elon',
     domain: 'elon.se',
-    loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"message notice")]',
     zipcode: '',
   },
 };

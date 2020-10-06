@@ -3,8 +3,7 @@ module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'elon.se',
-    prefix: null,
-    url: null,
+    url: 'https://www.elon.se/catalogsearch/result/?q={id}',
     country: 'SE',
     store: 'elon',
     zipcode: '',

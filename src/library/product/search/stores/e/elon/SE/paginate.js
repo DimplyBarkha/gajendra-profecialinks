@@ -38,8 +38,8 @@ async function implementation (
   if (!hasNextLink) {
     return false;
   }
-  await context.clickAndWaitForNavigation('div.toolbar--bottom > div > div.toolbar__pager.pages > div > ul > li.item.pages-item-next.pager__item.pager__item--next > a', {}, { timeout: 20000 });
-  await context.waitForSelector('div.product-list > div > ol > li', { timeout: 20000 });
+  await context.click('div.toolbar--bottom > div > div.toolbar__pager.pages > div > ul > li.item.pages-item-next.pager__item.pager__item--next > a', {}, { timeout: 20000 });
+  await context.waitForSelector('div[style="display: none;"][id="js-ajaxblocks-loader"]', { timeout: 20000 });
   return true;
 }
 
@@ -48,6 +48,7 @@ module.exports = {
   parameterValues: {
     country: 'SE',
     store: 'elon',
+    spinnerSelector: 'div[style="display: block;"][id="js-ajaxblocks-loader"]',
     domain: 'elon.se',
   },
   implementation,
