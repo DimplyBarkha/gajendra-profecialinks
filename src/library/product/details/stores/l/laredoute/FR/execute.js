@@ -6,7 +6,7 @@ module.exports = {
     store: 'laredoute',
     domain: 'laredoute.fr',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: "//div[contains(@class, 'error_pages')]",
     zipcode: '',
   },
 };

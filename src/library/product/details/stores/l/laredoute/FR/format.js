@@ -69,7 +69,7 @@ const transform = (data) => {
         row.descriptionBullets[0].text = row.additionalDescBulletInfo.length;
       }
       if (row.description) {
-        row.description[0].text = row.description[0].text.replace(/\n/g, '');
+        row.description[0].text = cleanUp(row.description[0].text.replace(/\n/g, ''));
       }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(aggregateRating => {
