@@ -1,10 +1,9 @@
-
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'UK',
     store: 'footlocker',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div[data-ajaxcontent="productpagebutton"]>div>div',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,

@@ -12,7 +12,12 @@ async function implementation (
     newElement.innerHTML = currentUrl;
     document.body.appendChild(newElement);
   });
-
+  await context.evaluate(() => {
+    const productTiles = document.querySelectorAll('div[data-product-list="productlist"]');
+    productTiles.forEach((tile) => {
+      tile.scrollIntoView();
+    });
+  });
   const { transform } = parameters;
   const { productDetails } = dependencies;
   return await context.extract(productDetails, { transform });
