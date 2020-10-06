@@ -6,7 +6,7 @@ module.exports = {
     store: 'eprice',
     domain: 'eprice.it',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: "//div[contains(@class, 'sezNegozi')]",
     zipcode: '',
   },
 };
