@@ -6,7 +6,7 @@ module.exports = {
     store: 'group-digital',
     domain: 'group-digital.fr',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(text(),"La page demandée est introuvable")]',
     zipcode: '',
   },
 };
