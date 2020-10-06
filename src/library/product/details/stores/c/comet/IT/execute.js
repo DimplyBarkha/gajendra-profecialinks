@@ -6,7 +6,7 @@ module.exports = {
     store: 'comet',
     domain: 'comet.it',
     loadedSelector: "div[class*='img__img-big'] img",
-    noResultsXPath: null,
+    noResultsXPath: "//div[contains(@class,'error-details')]",
     zipcode: '',
   },
 };
