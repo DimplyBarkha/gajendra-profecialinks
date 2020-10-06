@@ -61,11 +61,12 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: true
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //li[contains(text(), "Size")]
+    regExp: (?![Size\s]).+
   - name: weightNet
     singleValue: true
+    xpath: //li[contains(text(), "Weight")]
+    regExp: [0-9\.]+(kg|KG|Kg)
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
@@ -401,6 +402,8 @@ fields:
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
+    xpath: //li[contains(text(), "year") and contains(text(), "guarantee")]
+    regExp: \d+\s(y|Y)ear
     description: Guarantee associated with the product
   - name: storage
     singleValue: true

@@ -13,6 +13,8 @@ const transform = (data) => {
             text = 'In Stock';
           } else if (item.text === 'DELIVERY_1_MAN_FROM_TODAY') {
             text = 'In Stock';
+          } else if (item.text === 'COLLECTION_NOW') {
+            text = 'In Stock';
           } else {
             console.log(`Unhandled case => ${item.text}`);
           }
