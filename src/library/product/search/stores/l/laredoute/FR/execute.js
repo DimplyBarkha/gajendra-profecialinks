@@ -7,7 +7,7 @@ module.exports = {
     domain: 'laredoute.fr',
     url: 'https://www.laredoute.fr/psrch/psrch.aspx?kwrd={searchTerms}',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="errorSearchNoResult"]',
     zipcode: '',
   },
 };
