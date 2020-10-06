@@ -76,16 +76,18 @@ async function implementation (
       return newDiv;
     }
     const url = window.location.href;
-    const splits = url && url.split('dp/product/')[1] ? url.split('dp/product/')[1].split('/?') : [];
-    const mainId = (splits.length > 1) ? splits[splits.length - 2] : '';
-    addHiddenDiv('ii_variant', mainId);
+    const mainId = url && url.split('dp/')[1] ? url.split('dp/')[1].replace(/\?(.*)/, '') : [];
 
     let variantIds = '';
     const allVariants = [...new Set(getVariants())];
+    if (allVariants.length > 0) {
+      allVariants.push(mainId);
+    }
     for (let i = 0; i < allVariants.length; i++) {
       variantIds += `${allVariants[i]} | `;
     }
     variantIds = variantIds.slice(0, -3);
+
     addHiddenDiv('ii_variant', variantIds);
   });
 

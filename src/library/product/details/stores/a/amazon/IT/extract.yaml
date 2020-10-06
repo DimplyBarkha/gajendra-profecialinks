@@ -59,9 +59,6 @@ fields:
   - name: weightGross
     singleValue: false
     xpath: //td[contains(text(), 'Paketgewicht')]/following-sibling::*[1]
-  - name: sku
-    singleValue: false
-    xpath: (//*[@data-asin])[1]/@data-asin
   - name: asin
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
@@ -112,7 +109,7 @@ fields:
     defaultValue: '0'
   - name: color
     singleValue: false
-    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")] | //*[contains(text(), 'Colore')]/parent::*/following-sibling::*
+    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")] | //*[contains(text(), 'Colore')]/following-sibling::* | //*[contains(text(), 'Colore')]/parent::*/following-sibling::*
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//img/@src
