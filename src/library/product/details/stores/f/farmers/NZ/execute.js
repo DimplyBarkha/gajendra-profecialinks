@@ -6,7 +6,7 @@ module.exports = {
     store: 'farmers',
     domain: 'farmers.co.nz',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"ish-content")]',
     zipcode: '',
   },
 };
