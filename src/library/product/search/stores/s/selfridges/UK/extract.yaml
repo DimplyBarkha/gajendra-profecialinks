@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //button[@class="o-icon --wishlist"]/@data-product-id
+    xpath: //button[@class="o-icon --wishlist"]/@data-product-wcid
   - name: rankOrganic
     singleValue: true
     xpath: //div[@class="col-xs-6 col-sm-4 c-listing-items__item"]/@data-analytics-position
@@ -34,9 +34,6 @@ fields:
   - name: manufacturer
     singleValue: true
     xpath: //h5[@class="c-prod-card__cta-box-product-title"]
-  - name: sku
-    singleValue: false
-    xpath: //button[@class="o-icon --wishlist"]/@data-product-wcid
   - name: soldBy
     singleValue: true
   - name: rank
