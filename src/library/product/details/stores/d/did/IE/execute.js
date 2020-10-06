@@ -6,7 +6,7 @@ module.exports = {
     store: 'did',
     domain: 'did.ie',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"col2-set error-msg")]',
     zipcode: '',
   },
 };
