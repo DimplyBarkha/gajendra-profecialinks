@@ -1,0 +1,132 @@
+input:
+  _url: http://redzac.at
+  URL: https://www.redzac.at/produkt/V8-Animal-248367-0-Dyson-Akkusauger-Stick
+extractions:
+  - html: https://workbench.import.io/html/run=b9217ee8-b697-4763-8506-173374cca887/task=49d4d708-4739-4470-8eb3-5a835140e010/e6db946a-5735-44ad-9f55-dd80b3821d88.html
+    extractionConfigId: product/details/stores/r/redzac/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.redzac.at/Produktabbildung/Dyson-V8-Animal-248367-0-Abbildung-1.webp?V2ID011392723Nfiles/60733/rzat_product_image_detail_uhd__webp
+                xpath: /html/body/div[9]
+            imageAlt:
+              - text: Produktabbildung Dyson V8 Animal+ (248367-0)
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/picture[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.redzac.at/iconparc_static/content/uploads/Frontend/catalogItem/011/392/011392723/files/60734/rzat_product_image_detail.jpg?version=1579148116200
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/a[1]/@data-image_detail
+              - text: https://www.redzac.at/iconparc_static/content/uploads/Frontend/catalogItem/011/392/011392723/files/60735/rzat_product_image_detail.jpg?version=1579148125386
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/@data-image_detail
+              - text: https://www.redzac.at/iconparc_static/content/uploads/Frontend/catalogItem/011/392/011392723/files/60736/rzat_product_image_detail.jpg?version=1579148125480
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[1]/a[1]/@data-image_detail
+              - text: https://www.redzac.at/iconparc_static/content/uploads/Frontend/catalogItem/011/392/011392723/files/60737/rzat_product_image_detail.jpg?version=1579148125871
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[5]/div[1]/div[1]/a[1]/@data-image_detail
+              - text: https://www.redzac.at/iconparc_static/content/uploads/Frontend/catalogItem/011/392/011392723/files/60738/rzat_product_image_detail.jpg?version=1579148139448
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[1]/a[1]/@data-image_detail
+              - text: https://www.redzac.at/iconparc_static/content/uploads/Frontend/catalogItem/011/392/011392723/files/60739/rzat_product_image_detail.jpg?version=1579148142288
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[1]/a[1]/@data-image_detail
+              - text: https://www.redzac.at/iconparc_static/content/uploads/Frontend/catalogItem/011/392/011392723/files/60740/rzat_product_image_detail.jpg?version=1579148145985
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[8]/div[1]/div[1]/a[1]/@data-image_detail
+              - text: https://www.redzac.at/iconparc_static/content/uploads/Frontend/catalogItem/011/392/011392723/files/60741/rzat_product_image_detail.jpg?version=1579148149684
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/ul[1]/li[9]/div[1]/div[1]/a[1]/@data-image_detail
+            metaKeywords:
+              - text: Dyson, V8, Animal+, (248367-0), Akku- und Auto-Sauger, Mini-, Red Zac,
+                  Shop, kaufen
+                xpath: /html/head[1]/meta[11]/@content
+            category:
+              - text: Home Produkte Haushalt & Küche Bodenpflege & Reiniger Mini-, Akku- und
+                  Auto-Sauger Dyson V8 Animal+ (248367-0)
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]
+            nameExtended:
+              - text: V8 Animal+ (248367-0)
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/h1[1]
+            listPrice:
+              - text: 349,
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/span[1]
+            price:
+              - text: 349,
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
+            availabilityText:
+              - text: Lagernd im Versandlager und bei 22 HändlernInnerhalb von 4-5 Werktagen bei
+                  Ihnen oder abholbereit bei Ihrem Händler
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[4]/p[1]
+            description:
+              - text: >-
+                  Elektrobürste mit Direktantrieb 
+
+                  Angetrieben von einem leistungsstarken Motor im Inneren der Bürstwalze. Feste Nylonborsten entfernen tiefsitzenden Schmutz und Tierhaare von Teppichböden. Weiche Carbonfasern nehmen feinen Staub von Hartböden auf. 
+                   Nachmotorfilter 
+                  Filter für eine reinere Ausblasluft als die Raumluft, die Sie atmen. Ideal für Allergiker.
+                   Zwei Saugstufen 
+                  Standardmodus für leichten Schmutz und Maximalmodus für starken Schmutz. 
+                   Mini-Elektrobürste 
+                  Zum Entfernen von tiefsitzendem Schmutz und Tierhaaren von Polstern.
+                   Flexi-Fugendüse 
+                  Ausziehbar und biegsam zur Reinigung von Ecken. 
+                   Wandhalterung mit Ladestation 
+                  Zur Aufbewahrung und zum Laden des Gerätes.
+                   2-teiliges Zubehör
+                   Kombidüse und Fugendüse für die Reinigung von schwer erreichbaren Stellen.
+                  Motorleistung: 425 W. Akkuleistung: 21,6 V. Saugkraft bis zu (Norm.- / Max.-Modus): 28 / 115 AW. Betriebsdauer bis zu (Norm.- / Max.-Modus): 40 / 7 Min.
+
+                  Ladezeit: 5 Stunden. Behälterkapazität: 0,54 Liter. Nachmotorfilter. Zwei Saugstufen. Elektrobürste mit Direktantrieb, Mini-Elektrobürste, Flexi-Fugendüse, Wandhalterung mit Ladestation, 2-teiliges Zubehör: Kombidüse und Fugendüse.
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
+            weightNet:
+              - text: 2,63
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[7]/tr[6]/td[2]
+            mpc:
+              - text: "5025155033838"
+                xpath: /html/head[1]/script[13]/@data-flix-ean
+            legalDisclaimer:
+              - text: Alle Preise sind Online-Werbepreise in Euro inklusive gesetzlicher MwSt.
+                  und können von den Preisen Ihres Red Zac-Händlers vor Ort
+                  abweichen. Die Produktabbildungen können vom Original
+                  abweichen. Informationen zu allfällig bestehenden
+                  Herstellergarantien erhalten Sie auf den Internetseiten des
+                  jeweiligen Herstellers. Der gesetzliche
+                  Gewährleistungsanspruch des Verbrauchers wird durch allfällige
+                  Garantiezusagen des Herstellers nicht berührt, besteht also
+                  unabhängig davon. Wir liefern nur innerhalb von Österreich.
+                xpath: /html/body/div[6]/div[2]/div[1]/div[2]
+            color:
+              - text: grau
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[8]/tr[2]/td[2]
+            specifications:
+              - text: Breite (cm) 25 Höhe (cm) 124,4 Tiefe (cm) 22,4
+                xpath: /html/body/div[10]
+            warranty:
+              - text: Alle Preise sind Online-Werbepreise in Euro inklusive gesetzlicher MwSt.
+                  und können von den Preisen Ihres Red Zac-Händlers vor Ort
+                  abweichen. Die Produktabbildungen können vom Original
+                  abweichen. Informationen zu allfällig bestehenden
+                  Herstellergarantien erhalten Sie auf den Internetseiten des
+                  jeweiligen Herstellers. Der gesetzliche
+                  Gewährleistungsanspruch des Verbrauchers wird durch allfällige
+                  Garantiezusagen des Herstellers nicht berührt, besteht also
+                  unabhängig davon. Wir liefern nur innerhalb von Österreich.
+                xpath: /html/body/div[6]/div[2]/div[1]/div[2]
+            storage:
+              - text: |-
+                  Wandmontage für Ladestation möglich 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[7]/tr[2]
+            quantity:
+              - text: "1"
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: de_DE
+                value: 0
+            descriptionBullets:
+              - text: "5"
+                type: NUMBER
+                raw: "5"
+                locale: de_DE
+                value: 5
+        xpath: /
+    timestamp: 1601653154035

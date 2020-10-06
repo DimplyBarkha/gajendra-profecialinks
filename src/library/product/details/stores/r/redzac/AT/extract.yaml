@@ -35,9 +35,14 @@ fields:
     - name: listPrice
       # singleValue: true
       description: The stated undiscounted price for the product
+<<<<<<< HEAD
       # xpath: (//*[@id="block$price$product"]//span)[1]
       xpath: //*[@id="listPrice"]
       regExp: (\d+)
+=======
+      xpath: (//*[@id="block$price$product"]//span)[1]
+      regExp: \d+\,?(\d+)?
+>>>>>>> 6ceb2bf1f942890ff39e1485a9ade87019bf7058
     - name: price
       singleValue: true
       description:
@@ -111,6 +116,13 @@ fields:
       # description: The manufacturer model code (unique) of the product
       # xpath: //*[@id="objectView_page"]//h1[@class="product_name"]
       # regExp: \d*-\d*
+=======
+      xpath: //@data-flix-ean
+    - name: mpc
+      # singleValue: true
+      description: The manufacturer model code (unique) of the product
+      xpath: //@data-flix-ean
+>>>>>>> 6ceb2bf1f942890ff39e1485a9ade87019bf7058
     - name: packSize
       singleValue: true
       description:
