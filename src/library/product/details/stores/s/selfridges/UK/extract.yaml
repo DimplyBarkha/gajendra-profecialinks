@@ -187,7 +187,7 @@ fields:
   - name: url
     singleValue: true
     description: the url of the page
-    xpath: //meta[@property="og:url"]/@content
+    xpath: //link[@rel='canonical']/@href
   - name: id
     singleValue: true
     description: the id of the product
