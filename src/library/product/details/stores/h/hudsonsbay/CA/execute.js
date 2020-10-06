@@ -6,7 +6,7 @@ module.exports = {
     store: 'hudsonsbay',
     domain: 'thebay.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: "//span[contains(@class, 'search-keywords') and contains(text(), 'weren’t able to find any results')]",
     zipcode: '',
   },
 };
