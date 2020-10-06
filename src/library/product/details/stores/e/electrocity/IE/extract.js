@@ -55,57 +55,55 @@ module.exports = {
           break;
         }
       }
-      const product_name = getXpath("//h1[contains(@class, 'product_title')]/text()", 'nodeValue');
-      
-      if(product_name && typeof product_name == 'string'){
-        const mpc = product_name ? product_name.split('| ') : [];
+      const productName = getXpath("//h1[contains(@class, 'product_title')]/text()", 'nodeValue');
+      if (productName && typeof productName == 'string') {
+        const mpc = productName ? productName.split('| ') : [];
         addElementToDocument('added_mpc', mpc[1]);
       }
 
-      const image = getXpath("(//div[@class='slick-list draggable']//div[contains(@class,'slick-active')]//div[@class='jet-woo-product-gallery__image ']//a[@class='jet-woo-product-gallery__image-link']/@href)[1]",'nodeValue');
+      const image = getXpath("(//div[@class='slick-list draggable']//div[contains(@class,'slick-active')]//div[@class='jet-woo-product-gallery__image ']//a[@class='jet-woo-product-gallery__image-link']/@href)[1]", 'nodeValue');
 
-      const alternate_image_xpath = "//div[@class='slick-track']//div[contains(@class,'slick-slide')]//div[@class='jet-woo-product-gallery__image ']//a[@class='jet-woo-product-gallery__image-link']/@href";
-      const alternate_image_str =  getAllXpath(alternate_image_xpath, 'nodeValue').join(',');
-      if(alternate_image_str && typeof alternate_image_str == 'string'){
-        const alternate_image_list = alternate_image_str.split(',');
-        var unique_alternate_image_list = alternate_image_list.filter(function(item, pos){
-          return alternate_image_list.indexOf(item)== pos; 
+      const alternateImageXpath = "//div[@class='slick-track']//div[contains(@class,'slick-slide')]//div[@class='jet-woo-product-gallery__image ']//a[@class='jet-woo-product-gallery__image-link']/@href";
+      const alternateImageStr =  getAllXpath(alternateImageXpath, 'nodeValue').join(',');
+      if (alternateImageStr && typeof alternateImageStr == 'string') {
+        const alternateImageList = alternateImageStr.split(',');
+        var uniqueAlternateImageList = alternateImageList.filter(function(item, pos) {
+          return alternateImageList.indexOf(item)== pos; 
         });
-        unique_alternate_image_list.forEach(function(image_url_data) {
-          if(image != image_url_data){
-            addElementToDocument('added_alternate_image', (image_url_data)); 
+        uniqueAlternateImageList.forEach(function(imageUrlData) {
+          if (image != imageUrlData) {
+            addElementToDocument('added_alternate_image', (imageUrlData)); 
           }        
         });       
       }
 
-      const shipping_dimensions = getXpath("//tr[@class='attribute-key-Dimensions']/td/p", 'innerText');
-      if(shipping_dimensions && typeof shipping_dimensions == 'string') {
-        addElementToDocument('added_shipping_dimensions', (shipping_dimensions.split('Weight'))[0]);  
+      const shippingDimensions = getXpath("//tr[@class='attribute-key-Dimensions']/td/p", 'innerText');
+      if (shippingDimensions && typeof shippingDimensions == 'string') {
+        addElementToDocument('added_shipping_dimensions', (shippingDimensions.split('Weight'))[0]);  
       }
 
-      const other_description_xpath = "//div[@class='elementor-widget-wrap']//div[contains(@class, 'elementor-element')]//table[@class='shop_attributes']/tbody/tr[position()>1]";
-      const other_description_str = getAllXpath(other_description_xpath, 'innerText').join(' | ');
-      addElementToDocument('added_productOtherInformation', other_description_str); 
+      const otherDescriptionXpath = "//div[@class='elementor-widget-wrap']//div[contains(@class, 'elementor-element')]//table[@class='shop_attributes']/tbody/tr[position()>1]";
+      const otherDescriptionStr = getAllXpath(otherDescriptionXpath, 'innerText').join(' | ');
+      addElementToDocument('added_productOtherInformation', otherDescriptionStr); 
 
-      const specifications_xpath = "//table[@class='flix-std-specs-table']/tbody/tr/td";
-      var specifications_str = getAllXpath(specifications_xpath, 'innerText').join(' || ');
+      const specificationsXpath = "//table[@class='flix-std-specs-table']/tbody/tr/td";
+      var specificationsStr = getAllXpath(specificationsXpath, 'innerText').join(' || ');
 
-      const specifications_part = getXpath("//div[@id='flix-inpage']//div[@id='inpage_container']//iframe",'innerText');
-      if(specifications_part){
-        specifications_str = specifications_str.concat(" || ").concat(specifications_part);
+      const specificationsPart = getXpath("//div[@id='flix-inpage']//div[@id='inpage_container']//iframe",'innerText');
+      if (specificationsPart) {
+        specificationsStr = specificationsStr.concat(" || ").concat(specificationsPart);
       }
-      addElementToDocument('added_specifications', specifications_str);
+      addElementToDocument('added_specifications', specificationsStr);
 
       const ratingCount =  getXpath("//span[@class='yotpo-sum-reviews']//span[contains(concat(' ', normalize-space(@class), ' '), ' font-color-gray')]/text()", 'nodeValue');
-      product_name ? product_name.split('| ') : [];
-      const added_ratingCount = ratingCount?ratingCount.split(' Review') : [];
-      if(added_ratingCount[0] > 0) {
-        addElementToDocument('added_ratingCount', added_ratingCount[0]);
+      const addedRatingCount = ratingCount?ratingCount.split(' Review') : [];
+      if (addedRatingCount[0] > 0) {
+        addElementToDocument('added_ratingCount', addedRatingCount[0]);
       }
   
       const technicalInformationPdfUrl = getXpath("//div[contains(@class, 'elementor-element-dfd5028')]//span[contains(@class, 'elementor-heading-title')]//a/@href", 'nodeValue');
       var technicalInformationPresent = 'No';
-      if(technicalInformationPdfUrl && technicalInformationPdfUrl != ''){
+      if (technicalInformationPdfUrl && technicalInformationPdfUrl != '') {
         technicalInformationPresent = 'Yes';
       }
       addElementToDocument('added_technicalInformationPresent', technicalInformationPresent);
@@ -113,18 +111,18 @@ module.exports = {
       const manufacturerDescription_xpath = "//div[@class='flix-Text-block']";
       var manufacturerDescription = getAllXpath(manufacturerDescription_xpath, 'innerText');
       const manufacturerDescription_part =  getAllXpath("//div[contains(@class,'flix-std-featureslist')]//div[contains(@class,'flix-std-clmn-lg-4 flix-std-clmn-sm-6')]",'innerText').join(',');
-      if(manufacturerDescription_part){
+      if (manufacturerDescription_part) {
         manufacturerDescription = manufacturerDescription.concat(manufacturerDescription_part);
       }
-      const manufacturerDescription_part2 = getAllXpath("(//div[@id='tab-description']/h2) | (//div[@id='tab-description']/h4) |(//div[@id='tab-description']/p)", 'innerText').join(',');
-      if(manufacturerDescription_part2){
-        manufacturerDescription = manufacturerDescription.concat(manufacturerDescription_part2);
+      const manufacturerDescriptionPart2 = getAllXpath("(//div[@id='tab-description']/h2) | (//div[@id='tab-description']/h4) |(//div[@id='tab-description']/p)", 'innerText').join(',');
+      if (manufacturerDescriptionPart2) {
+        manufacturerDescription = manufacturerDescription.concat(manufacturerDescriptionPart2);
       }
       addElementToDocument('added_manufacturerDescription', manufacturerDescription);
 
       const aggregateRatingTxt = getXpath('//span[@class="sr-only"]/text()', 'nodeValue');
       
-      if(aggregateRatingTxt && typeof aggregateRatingTxt  == 'string' ){
+      if (aggregateRatingTxt && typeof aggregateRatingTxt  == 'string' ) {
         const aggregateRating = aggregateRatingTxt?aggregateRatingTxt.split(' ') : [];
         if(aggregateRating[0] != '0.0'){
           addElementToDocument('added_aggregateRating', aggregateRating[0]);
@@ -134,39 +132,37 @@ module.exports = {
 
       addElementToDocument('added_variantCount', 0);
 
-      const video_url_path = getXpath("//div[@class='fullJwPlayerWarp']//input[@class='flix-jw']/@value", 'nodeValue');
-      if(video_url_path && typeof video_url_path == 'string'){
-        var video_url_obj = JSON.parse(video_url_path);
-        addElementToDocument('added_video_url', video_url_obj.playlist[0].file);
-      }
-      
-      const promotion_str = getXpath("(//div[@class='elementor-widget-wrap']//div[contains(@class, 'elementor-clearfix')]/p)[1]", 'innerText');
-      if(promotion_str && typeof promotion_str == 'string' && promotion_str.includes('SAVE')){
-        addElementToDocument('added_promotion', promotion_str);
+      const videoUrlPath = getXpath("//div[@class='fullJwPlayerWarp']//input[@class='flix-jw']/@value", 'nodeValue');
+      if (videoUrlPath && typeof videoUrlPath == 'string') {
+        var videoUrlObj = JSON.parse(videoUrlPath);
+        addElementToDocument('added_video_url', videoUrlObj.playlist[0].file);
       }
 
-      var weight_net_str = getXpath("//table[@class='flix-std-specs-table']", 'innerText');
+      const promotionStr = getXpath("(//div[@class='elementor-widget-wrap']//div[contains(@class, 'elementor-clearfix')]/p)[1]", 'innerText');
+      if (promotionStr && typeof promotionStr == 'string' && promotionStr.includes('SAVE')) {
+        addElementToDocument('added_promotion', promotionStr);
+      }
+
+      var weightNetStr = getXpath("//table[@class='flix-std-specs-table']", 'innerText');
       
-      if(weight_net_str){
-        weight_net_str = weight_net_str.toLowerCase();
-        if(weight_net_str.includes('weight') && weight_net_str.includes('kg')){
-          const weight_net = weight_net_str.substring(weight_net_str.lastIndexOf("weight")+7, weight_net_str.lastIndexOf("kg")+2);
+      if (weightNetStr) {
+        weightNetStr = weightNetStr.toLowerCase();
+        if (weightNetStr.includes('weight') && weightNetStr.includes('kg')) {
+          const weight_net = weightNetStr.substring(weightNetStr.lastIndexOf("weight")+7, weightNetStr.lastIndexOf("kg")+2);
           addElementToDocument('added_weight', weight_net);
         }
         
-      }else{
-        weight_net_str = getXpath("//tr[@class='attribute-key-Dimensions']", 'innerText');
-        if(weight_net_str){
-          weight_net_str = weight_net_str.toLowerCase();
-          if(weight_net_str.includes('weight') && weight_net_str.includes('kg')){
-              const weight_net = weight_net_str.substring(weight_net_str.lastIndexOf("weight")+7, weight_net_str.lastIndexOf("kg")+2);
-              addElementToDocument('added_weight', weight_net);
+      } else {
+        weightNetStr = getXpath("//tr[@class='attribute-key-Dimensions']", 'innerText');
+        if (weightNetStr) {
+          weightNetStr = weightNetStr.toLowerCase();
+          if(weightNetStr.includes('weight') && weightNetStr.includes('kg')){
+              const weightNet = weightNetStr.substring(weightNetStr.lastIndexOf("weight")+7, weightNetStr.lastIndexOf("kg")+2);
+              addElementToDocument('added_weight', weightNet);
           }
 
-        }
-        
+        }      
       }
-
     });
     await context.extract(productDetails);
   },
