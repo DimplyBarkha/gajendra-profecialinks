@@ -11,9 +11,8 @@ fields:
     xpath: //h3[contains(@class, 'product-title')]
   - name: productUrl
     xpath: //ul[contains(@class, 'products-container')]/li/a/@href
-  - name: aggregateRating
+  - name: aggregateRating2
     xpath: //div[contains(@class, 'catalog-review-title')]//strong
-    type: NUMBER
   - name: reviewCount
     xpath: //div[contains(@class, 'catalog-review-title')]//strong/following-sibling::span
     regExp: \d+

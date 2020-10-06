@@ -32,8 +32,8 @@ const transform = (data, context) => {
         el.text = clean(el.text);
       }));
 
-      if (row.aggregateRating) {
-        row.aggregateRating = [{ text: row.aggregateRating[0].text.replace('.', ',') }]
+      if (row.aggregateRating2) {
+        row.aggregateRating2 = [{ text: row.aggregateRating2[0].text.replace('.', ',') }]
       }
 
       if (row.productUrl) {
