@@ -6,7 +6,7 @@ module.exports = {
     store: 'power',
     domain: 'power.se',
     loadedSelector: 'div#product-image-carousel',
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(text(),"Sidan hittades inte")]',
     zipcode: '',
   },
 };
