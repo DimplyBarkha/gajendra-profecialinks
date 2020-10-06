@@ -1,17 +1,40 @@
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'breuninger',
-    transform: null,
+    transform: cleanUp,
     domain: 'breuninger.de',
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     // checking if popup exists and if so, closing it
-    const acceptButtonPresent = await context.evaluate(async function () {
+    var acceptButtonPresent = await context.evaluate(async function () {
+      return document.querySelector('button[id="uc-btn-accept-banner"]');
+    });
+    if (acceptButtonPresent) {
+      await context.click('button[id="uc-btn-accept-banner"]');
+      await new Promise((resolve, reject) => setTimeout(resolve, 100));
+    }
+    // manually extracting shippingInfo
+    await context.click('div[class*="desktop"]>h2+h2');
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    const shippingInfo = await context.evaluate(async function () {
+      return document.querySelector('div[class*="tab-content"]>section').innerText;
+    });
+    //
+    const myUrl = await context.evaluate(async function () {
+      return document.querySelector('meta[property="og:url"]').content;
+    });
+    console.log('33333333333333333333333333333333333333333333', myUrl);
+    await context.goto(myUrl);
+    await context.waitForNavigation();
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+    // checking if popup exists and if so, closing it
+    acceptButtonPresent = await context.evaluate(async function () {
       return document.querySelector('button[id="uc-btn-accept-banner"]');
     });
     if (acceptButtonPresent) {
@@ -27,7 +50,7 @@ module.exports = {
       await new Promise((resolve, reject) => setTimeout(resolve, 100));
     }
     // extracting data automatically
-    await context.extract(productDetails);
+    await context.extract(productDetails, {transform});
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
     // manually extracting description
     const description = await context.evaluate(async function () {
@@ -55,17 +78,6 @@ module.exports = {
         directions += rawDirections[i].innerText;
       }
       return directions;
-    });
-    // manually extracting shippingInfo
-    const shippingInfo = await context.evaluate(async function () {
-      document.querySelector('div[class*="desktop"]>h2+h2').click();
-      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-      var shippingInfo = "";
-      while (!(shippingInfo.includes('Versandoptionen'))){
-        await new Promise((resolve, reject) => setTimeout(resolve, 100));
-        shippingInfo = document.querySelector('div[class*="tab-content"]>section').innerText;
-      }
-      return shippingInfo;
     });
     // manually extracting json stored data
     const jsonData = await context.evaluate(async function () {
