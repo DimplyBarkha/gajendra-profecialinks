@@ -6,7 +6,7 @@ module.exports = {
     store: 'jbhifi',
     domain: 'jbhifi.co.nz',
     loadedSelector: "div[class*='gallery'] div[class='image'] img",
-    noResultsXPath: null,
+    noResultsXPath: "//div[contains(@class,'block')]",
     zipcode: '',
   },
 };
