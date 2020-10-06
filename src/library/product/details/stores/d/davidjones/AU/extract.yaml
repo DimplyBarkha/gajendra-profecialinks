@@ -16,13 +16,13 @@ fields:
     regExpReplace: https://www.davidjones.com$1
   - name: metaKeywords
     singleValue: true
-    xpath: //meta[@name="keywords"]/@content
+    xpath: //meta[@name="Keywords"]/@content
   - name: category
     singleValue: false
     xpath: //ul[contains(@class, 'breadcrumb')]//li[position()>1 and position()<last()]
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class='product-content']/h1  
+    xpath: concat(//*[@class="brand"]//span,'-',//h1[@itemprop='name'])
   - name: price
     singleValue: false
     xpath: (//p[(@class='price now')]//span[(@class='price-display')]|//p[(@class='price')]//span[(@class='price-display')])
@@ -34,7 +34,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //meta[@name='Description']//@content
+    xpath: //div[@class='content long-description']//li
   - name: descriptionBullets
     singleValue: true
     type: NUMBER
@@ -50,7 +50,7 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true  
-    xpath: //span[contains(text(),'Specifications')]//following::text()[contains(.,'Weight')]  
+    xpath: //span[contains(text(),'Specifications')]//following::text()[contains(.,'Weight')]|//strong[contains(text(),'specifications')]//following::text()[contains(.,'Weight')]|//strong[contains(text(),'Specifications')]//following::text()[contains(.,'weight')]|//span[contains(text(),'specifications')]//following::text()[contains(.,'weight')]
   - name: weightGross
     singleValue: true
   - name: gtin
@@ -72,8 +72,6 @@ fields:
   - name: videos
     singleValue: false
     xpath: //li[(@class="video top-product default slick-slide")]/a/@href
-    regExp: ^(.+)$
-    regExpReplace: https://www.davidjones.com$1
   - name: name
     singleValue: true
     xpath: //meta[@itemprop='name']//@content
@@ -82,8 +80,8 @@ fields:
     type: NUMBER
     xpath: count(//div[@class='slick-track']/li/a/img/@src)
   - name: specifications
-    singleValue: true
-    xpath: //div[(@class='content long-description')]/p/span[contains(text(),'Specifications')]/following-sibling::text()
+    singleValue: false
+    xpath: //div[@class='content long-description']//p//strong[contains(text(),'specifications')]//following-sibling::text()|//div[(@class='content long-description')]//following-sibling::strong[contains(text(),'Specifications')]//following-sibling::text()
   - name: warranty
     singleValue: true
     xpath: //div[(@class='content long-description')]/p/strong[contains(text(),'Warranty')]/following-sibling::text()[1]|//div[(@class='content long-description')]//text()[contains(.,'guarantee')]
@@ -96,15 +94,14 @@ fields:
   - name: variantCount
     singleValue: true
     type: NUMBER
+    efaultValue: "0"
   - name: productOtherInformation
-    singleValue: false
-    xpath: //div[@class='content long-description']
+    singleValue: true    
   - name: color
     singleValue: true
     xpath: //span[contains(@class, 'colour-label')]
   - name: packaging
-    singleValue: false
-    xpath: //div[@class='content long-description']/p/strong[contains(text(),'What’s in the box:')]/following-sibling::text()
+    singleValue: true
   - name: promotion
     singleValue: true
   - name: ratingCount
@@ -133,20 +130,22 @@ fields:
     singleValue: true
     xpath: //p[(@class='price was')]//span[(@class='price-display')]
   - name: colorCode
-    singleValue: true
-    xpath: //span[contains(@class, 'colour-label')]
+    singleValue: true    
   - name: newDescription
     singleValue: true
   - name: lbbPrice
     singleValue: true
     xpath: 
   - name: firstVariant
-    singleValue: false
+    singleValue: true
   - name: variants
-    singleValue: false
+    singleValue: true
     xpath:
   - name: gtin
     singleValue: true
   - name: manufacturerDescription
-    singleValue: false
-    xpath: //div[@class='content long-description']
+    singleValue: true   
+  - name: termsAndConditions
+    singleValue: true
+    xpath: boolean(//h3[contains(text(),'Terms and Conditions')])
+    
