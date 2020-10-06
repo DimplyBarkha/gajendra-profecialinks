@@ -85,6 +85,7 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
+    xpath: //div[@id="addgross_weight"]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -423,6 +424,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //div[@id="warrantyTab"]//div//p[1]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
