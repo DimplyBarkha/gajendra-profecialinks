@@ -1,1 +1,7 @@
-extends: ../shared
+extends: ../shared1
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class='title']/a/@href
+    regExp: .*\/(.*)\?.*
+    regExpReplace: $1
