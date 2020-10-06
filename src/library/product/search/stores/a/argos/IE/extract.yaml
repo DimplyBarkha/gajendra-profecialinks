@@ -1,0 +1,81 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ol[contains(@class,"browselister")]/li[contains(@class,"product")]
+fields:
+  - name: paid
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    description: The brand name
+    example: Panasonic
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+  - name: productUrl
+    xpath: //span[@class="partnum"]
+    regExp: (\d+)(/)?(\d+)
+    regExpReplace: https://www.argos.ie/static/Product/partNumber/$1$3.htm
+    description: The URL for the product details page
+  - name: thumbnail
+    xpath: //img[@class="searchProductImgList"]/@src
+    regExp: ^(.+)T.jpg$
+    regExpReplace: https://www.argos.ie$1M.jpg
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //a[starts-with(@id,"href_")]
+    description: The product name
+  - name: sku
+    description: The store-specific product identifier
+  - name: mpc
+    description: The model code of the product
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    xpath: //li[@class="customerrating"]/a/img/@alt
+    regExp: Customer rating ([\d\.]+) out of 5
+    regExpReplace: $1 
+    description: The stated aggregate rating
+  - name: ratingCount
+    xpath: //li[@class="customerrating"]/a/text()
+    description: The number of ratings
+  - name: reviewCount
+    xpath: //li[@class="customerrating"]/a/text()
+    description: The number of reviews
+  - name: price
+    xpath: //li[@class="price"]
+    description: The offered price for the product
+  - name: listPrice
+    description: The stated undiscounted price for the product
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    description: Shipping information for the product
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: translate(.//span[@class="partnum"],'/','')
+  - name: nameExtended
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
