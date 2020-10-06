@@ -29,6 +29,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.promotion) {
+        let text = '';
+        row.promotion.forEach(item => {
+          text = row.promotion.map(elm => elm.text).join(' - ');
+        });
+        row.promotion = [
+          {
+            text: text,
+          },
+        ];
+      }
     }
   }
 
