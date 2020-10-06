@@ -29,7 +29,6 @@ module.exports = {
     const myUrl = await context.evaluate(async function () {
       return document.querySelector('meta[property="og:url"]').content;
     });
-    console.log('33333333333333333333333333333333333333333333', myUrl);
     await context.goto(myUrl);
     await context.waitForNavigation();
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
