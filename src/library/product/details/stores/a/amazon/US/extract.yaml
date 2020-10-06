@@ -496,8 +496,9 @@ fields:
     singleValue: true
     xpath: //div[@id='fast-track-message']//span[@id='upsell-message']/b
   - name: ratingsDistribution
-    singleValue: true
-    xpath: //table[@id="histogramTable"]/tbody
+    singleValue: false
+    # xpath: //table[@id="histogramTable"]/tbody
+    xpath: //table[@id="histogramTable"]/tbody/tr
   - name: featuredMerchantIDNew
     singleValue: true
     xpath: //input[@id="merchantID"]/@value

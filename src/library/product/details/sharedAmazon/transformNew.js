@@ -281,7 +281,8 @@ const transform = (data, context) => {
         row.frequentlyBoughtTogether = [{ text: row.frequentlyBoughtTogether[0].text.replace(/\{([^}]*)\}/g, '') }];
       }
       if (row.ratingsDistribution) {
-        row.ratingsDistribution = [{ text: row.ratingsDistribution[0].text.replace(/star/g, 'star: ') }];
+        const filteredRatings = row.ratingsDistribution.map(rating => rating.text.replace(/star/g, 'star: ') );
+        row.ratingsDistribution = [{ text: filteredRatings }];
       }
       if (row.badges) {
         const badgeArray = Array.from(row.badges.map(item => `${item.text}`));
