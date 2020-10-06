@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.p-box
+recordXPath: //div[contains(@class,"p-box")]
+fields:
+  - name: name
+    singleValue: false
+    manualSelector: span.p-title
+  - name: productUrl
+    singleValue: false
+    xpath: //a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //img/@src
+  - name: price
+    singleValue: false
+    manualSelector: span.p-price
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']
