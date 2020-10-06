@@ -47,14 +47,13 @@ module.exports = {
       let rating = getXpath("//div[@class='rating']/@style", 'nodeValue');
       const regexp = /\:(\w+)\%/;
       console.log('rating fetched ' + rating);
-      if(rating != null){
+      if (rating != null) {
         rating = rating.match(regexp);
         rating = rating[1];
-        rating= rating * 0.05;
+        rating = rating * 0.05;
         console.log('rating fetched ** ' + rating);
         addElementToDocument('added_rating', rating);
       }
-      
       let scrollTop = 500;
       while (true) {
         window.scroll(0, scrollTop);
@@ -66,42 +65,37 @@ module.exports = {
       }
 
       let video = getXpath("//div[@class='fullJwPlayerWarp']//div//input/@value", 'nodeValue');
-      if(video != null){
-      video = JSON.parse(video);
-      video = video.playlist[0].file;
-      console.log('video fetched ' + video);
-      addElementToDocument('added_video', video);
-    }
+      if (video != null) {
+        video = JSON.parse(video);
+        video = video.playlist[0].file;
+        console.log('video fetched ' + video);
+        addElementToDocument('added_video', video);
+      }
 
-    let manufacturerImages = getAllXpath("//div[@class='flix-background-image inpage_wowimg' or @class='flix-background-image']/img/@srcset", 'nodeValue').join(' | ');
-    
-    // console.log('manufacturerImages   ' + manufacturerImages);
-    addElementToDocument('added_manufacturerImages', manufacturerImages);
+      const manufacturerImages = getAllXpath("//div[@class='flix-background-image inpage_wowimg' or @class='flix-background-image']/img/@srcset", 'nodeValue').join(' | ');
+      // console.log('manufacturerImages   ' + manufacturerImages);
+      addElementToDocument('added_manufacturerImages', manufacturerImages);
+      const manufacturerDescription = getAllXpath("//div[@class='flix-std-title flix-Header flix-d-h3' or @class='flix-std-desc flix-Body flix-d-p']/text()  |  //div[@class='flix-std-content']//div[contains(@class,'flix-std-title flix-d-h3')]//text() | //div[@class='flix-std-content']//div[contains(@class,'flix-std-desc flix-d-p')]//text()", 'nodeValue').join(' ');
+      // console.log('manufacturerDescription   ' + manufacturerDescription);
+      addElementToDocument('added_manufacturerDescription', manufacturerDescription);
 
+      const productOtherInformation = getAllXpath("//tbody//tr//th[@class='label']/text() | //tbody//tr//td[@class='data last']/text()", 'nodeValue').join('|');
+      // console.log('productOtherInformation  ' + productOtherInformation);
+      addElementToDocument('added_productOtherInformation', productOtherInformation);
+      const specifications = getAllXpath("//div[@class='flix-value flix-d-h3' or @class='flix-title flix-d-p']//span/text() | //p[@class='eky-specs-label-top']/text() | //p[@class='eky-specs-label-bottom']/span/text()", 'nodeValue');
+      // console.log('specifications   ' + specifications);
+      addElementToDocument('added_specifications', specifications);
 
-    let manufacturerDescription = getAllXpath("//div[@class='flix-std-title flix-Header flix-d-h3' or @class='flix-std-desc flix-Body flix-d-p']/text()  |  //div[@class='flix-std-content']//div[contains(@class,'flix-std-title flix-d-h3')]//text() | //div[@class='flix-std-content']//div[contains(@class,'flix-std-desc flix-d-p')]//text()", 'nodeValue').join(' ');
-    
-    // console.log('manufacturerDescription   ' + manufacturerDescription);
-    addElementToDocument('added_manufacturerDescription', manufacturerDescription);
+      const additionalDescBulletInfo = getAllXpath("//p[contains(@class,'MsoListParagraph')]//font/text()", 'nodeValue').join(' | ');
+      // console.log('additionalDescBulletInfo   ' + additionalDescBulletInfo);
+      addElementToDocument('added_additionalDescBulletInfo', additionalDescBulletInfo);
 
-    let productOtherInformation = getAllXpath("//tbody//tr//th[@class='label']/text() | //tbody//tr//td[@class='data last']/text()", 'nodeValue').join('|');
-    // console.log('productOtherInformation  ' + productOtherInformation);
-    addElementToDocument('added_productOtherInformation', productOtherInformation);
-   
-    let specifications = getAllXpath("//div[@class='flix-value flix-d-h3' or @class='flix-title flix-d-p']//span/text() | //p[@class='eky-specs-label-top']/text() | //p[@class='eky-specs-label-bottom']/span/text()",'nodeValue');
-    // console.log('specifications   ' + specifications);
-    addElementToDocument('added_specifications', specifications);
+      const description = getAllXpath("(//p[contains(@class,'MsoNormal')]//font/text() | //p[contains(@class,'MsoListParagraph')]//font/text())", 'nodeValue').join(' | ');
+      // console.log('description   ' + description);
+      addElementToDocument('added_description', description);
 
-    let additionalDescBulletInfo = getAllXpath("//p[contains(@class,'MsoListParagraph')]//font/text()",'nodeValue').join(' | ');
-    // console.log('additionalDescBulletInfo   ' + additionalDescBulletInfo);
-    addElementToDocument('added_additionalDescBulletInfo', additionalDescBulletInfo);
-
-    let description = getAllXpath("(//p[contains(@class,'MsoNormal')]//font/text() | //p[contains(@class,'MsoListParagraph')]//font/text())",'nodeValue').join(' | ');
-    // console.log('description   ' + description);
-    addElementToDocument('added_description', description);
-    
-    addElementToDocument('added_variantCount', 0);
-  });
+      addElementToDocument('added_variantCount', 0);
+    });
     await context.extract(productDetails);
   },
 };
