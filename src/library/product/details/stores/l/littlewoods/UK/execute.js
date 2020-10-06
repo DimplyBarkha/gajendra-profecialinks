@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'littlewoods',
     domain: 'littlewoods.com',
-    loadedSelector: '.pageContainer--littlewoods',
+    loadedSelector: 'div[id="pageContainer"]',
     noResultsXPath: null,
     zipcode: '',
   },
