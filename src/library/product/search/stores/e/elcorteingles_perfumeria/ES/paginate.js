@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
@@ -8,7 +7,7 @@ module.exports = {
     nextLinkSelector: '#pagination-next > a',
     mutationSelector: null,
     spinnerSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//p[contains(text(),"No se han encontrado ") or contains(text(),"no se han encontrado ")]',
     openSearchDefinition: null,
     domain: 'elcorteingles.es',
     zipcode: '',
