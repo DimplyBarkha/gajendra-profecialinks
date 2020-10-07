@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'ebay',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div[class="tppng"]>div[class="wp"] > a:last-of-type[href*="pgn"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class=tpgv]',
