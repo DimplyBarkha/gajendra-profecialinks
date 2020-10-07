@@ -26,7 +26,7 @@ async function implementation (
   let keyword = null;
 
   if (json && json.searchRedirectTarget && json.searchRedirectTarget.apiUrl) {
-    const apiLink = json.searchRedirectTarget.apiUrl.replace(/^(.*?)v1\//gm, 'https://www.sephora.com/api/');
+    const apiLink = json.searchRedirectTarget.apiUrl.replace(/^(.*?)v1\//gm, 'https://www.sephora.com/ca/en/api/');
     keyword = json.keyword;
     await context.goto(apiLink, {
       timeout: 45000, waitUntil: 'load', checkBlocked: true, load_timeout: 0, cookies: [],
