@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'mercadolibre.com.mx',
     prefix: null,
-    url: null,
+    url: 'https://www.mercadolibre.com.mx/p/{id}',
     country: 'MX',
     store: 'mercadolibre',
     zipcode: '',
