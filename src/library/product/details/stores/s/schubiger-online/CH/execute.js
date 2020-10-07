@@ -6,7 +6,7 @@ module.exports = {
     store: 'schubiger-online',
     domain: 'schubiger-online.ch',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="error-page"]',
     zipcode: '',
   },
 };
