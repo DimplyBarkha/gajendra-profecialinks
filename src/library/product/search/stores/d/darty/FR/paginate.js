@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.product_detail',
-    noResultsXPath: null,
+    noResultsXPath: '//h2[@class="title_bloc"]',
     openSearchDefinition: null,
     domain: 'darty.com',
     zipcode: '',
