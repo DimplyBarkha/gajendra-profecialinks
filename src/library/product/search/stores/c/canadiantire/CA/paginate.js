@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//span[@class="g-s-no-results__top-message-heading-text"]',
     openSearchDefinition: null,
     domain: 'canadiantire.ca',
     zipcode: '',
