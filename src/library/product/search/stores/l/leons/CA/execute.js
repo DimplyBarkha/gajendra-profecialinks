@@ -7,7 +7,7 @@ module.exports = {
     domain: 'leons.ca',
     url: 'https://www.leons.ca/pages/search-results?q={searchTerms}',
     loadedSelector: 'div[class*="findify-layouts--search"]',
-    noResultsXPath: '//span[contains(@class,"zero-results")]|//span[contains(text(), "Showing 0 results for")]',
+    noResultsXPath: '//span[contains(@class,"zero-results")]|//span[contains(text(), "Showing 0 results for")] | //div[contains(@class, "breadcrumbs-container")]//span[contains(@class, "text") and contains(text(), "0 results for")]',
     zipcode: '',
   },
 };
