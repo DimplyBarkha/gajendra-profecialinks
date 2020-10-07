@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'carrefouruae.com',
     prefix: null,
-    url: null,
+    url: 'https://www.carrefouruae.com/mafuae/en/p/{id}',
     country: 'AE',
     store: 'carrefouruae',
     zipcode: '',
