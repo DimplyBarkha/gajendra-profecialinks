@@ -4,19 +4,19 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //img[@name="main-gallery-image"]/@src
+    xpath: (//img[contains(@name,"gallery-image")]/@src)[1]
     regExp: (.+)&w=(.+)&h=
-    regExpReplace: $1w=780&h=1196
+    regExpReplace: $1&w=780&h=1196
   - name: imageAlt
-    xpath: //img[@name="main-gallery-image"]/@alt
+    xpath: (//img[contains(@name,"gallery-image")]/@alt)[1]
   - name: alternateImages
-    xpath: //div[@id="product-page-thumbnail-gallery"]//ul//li[contains(@dataelement,"thumbnail-gallery")][position()>1]//img/@src
-    regExp: (.+)&w=(.+)&h=
-    regExpReplace: $1w=780&h=1196
+    xpath: //ul[@class="slider-list"]//li//button[position()>1]//img[contains(@name,"gallery-image")]/@src
+    regExp: (.*)&w=(.*)&h=
+    regExpReplace: $1&w=780&h=1196
   - name: nameExtended
     xpath: //section//span[@itemprop="name"] | //h1[@itemprop="name"]
   - name: listPrice
-    xpath: //section[@id="product-page-price-lockup"]//span[contains(text(),'After Sale:')]/following-sibling::span
+    xpath: //section[@id="product-page-price-lockup"]//span[contains(@id,"original-price")]/span[last()]
   - name: price
     xpath: //section[@id="product-page-price-lockup"]//span[@id="current-price"]/span[last()]
     regExp: ^[^–]+
@@ -70,8 +70,6 @@ fields:
     regExpReplace: $1
   - name: size
     xpath: //span[contains(text(),'Size Info')]/following-sibling::ul | //body/@size
-  - name: coupon
-    xpath: //a[contains(text(),'Apply now')]/parent::div
   - name: additionalDescBulletInfo
     xpath: //div[contains(text(),"Details & Care")]/following-sibling::ul/li
   - name: quantity
