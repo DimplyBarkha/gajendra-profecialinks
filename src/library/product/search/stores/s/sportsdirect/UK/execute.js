@@ -9,7 +9,7 @@ module.exports = {
     "noResultsXPath": null,
     "zipcode": "",
   },
-  implementation
+  // implementation
 };
 
 async function implementation(
@@ -22,10 +22,8 @@ async function implementation(
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({
     url,
-    zipcode: inputs.zipcode
+    zipcode: inputs.zipcode,
   });
-
-
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
@@ -49,34 +47,31 @@ async function implementation(
     });
   };
   await applyScroll(context);
-
-
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, {
-      timeout: 10000
+      timeout: 10000,
     }, parameters.loadedSelector, parameters.noResultsXPath);
   }
 
-  async function getRatingUrlPerPage(context) {
+  async function getRatingUrlPerPage (context) {
     const composedUrl = await context.evaluate(function () {
       let url = '';
-      let productsLi = document.querySelectorAll('ul.s-productscontainer2>li');
-      let prodIdString = ''
+      const productsLi = document.querySelectorAll('ul.s-productscontainer2>li');
+      let prodIdString = '';
       if (productsLi.length > 0) {
         for (var i = 0; i < productsLi.length; i++) {
           let lowerLimit = productsLi[i].getAttribute('li-productid');
-          let upperLimit = productsLi[i].getAttribute('li-seq');
-          lowerLimit = lowerLimit.substring(0, 6)
-          prodIdString += `${lowerLimit}-${upperLimit},`
+          const upperLimit = productsLi[i].getAttribute('li-seq');
+          lowerLimit = lowerLimit.substring(0, 6);
+          prodIdString += `${lowerLimit}-${upperLimit},`;
         }
-
       }
       prodIdString = prodIdString.substring(0, prodIdString.lastIndexOf(','));
       // console.log(prodIdString)
-      url = `https://api.bazaarvoice.com/data/statistics.json?apiversion=5.4&passkey=caiGlgNZJbkmq4vv9Aasd5JdLBg2YKJzgwEEhL0sLkQUw&stats=Reviews&filter=ContentLocale:en_GB,en*&filter=ProductId:${prodIdString}`
-      return url
+      url = `https://api.bazaarvoice.com/data/statistics.json?apiversion=5.4&passkey=caiGlgNZJbkmq4vv9Aasd5JdLBg2YKJzgwEEhL0sLkQUw&stats=Reviews&filter=ContentLocale:en_GB,en*&filter=ProductId:${prodIdString}`;
+      return url;
     });
     console.log('composedUrl' + composedUrl);
 
@@ -85,7 +80,7 @@ async function implementation(
 
   async function getRatingAPIResponse(ratingUrl) {
     const response = await context.evaluate(async function (ratingUrl) {
-      let ratingResponse = [];
+      const ratingResponse = [];
       const response = await fetch(ratingUrl, {
         headers: {
           accept: '*/*',
@@ -110,10 +105,11 @@ async function implementation(
       if (response && response.status === 200) {
         console.log('Ratings Found!!!!');
         const data = await response.json();
+        console.log(data)
         ratingResponse.push(data.Results);
       }
       return ratingResponse;
-    }, ratingUrl)
+    }, ratingUrl);
     return response;
   }
 
