@@ -6,7 +6,7 @@ module.exports = {
     store: 'cdiscount',
     domain: 'cdiscount.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//img[@alt="404"] | //meta[@property="og:url" and contains(@content,"errorPage")]',
     zipcode: '',
   },
 };
