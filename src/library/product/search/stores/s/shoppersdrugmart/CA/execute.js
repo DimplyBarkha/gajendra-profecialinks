@@ -6,8 +6,8 @@ module.exports = {
     store: 'shoppersdrugmart',
     domain: 'shoppersdrugmart.ca',
     url: 'https://beauty.shoppersdrugmart.ca/search?text={searchTerms}',
-    loadedSelector: 'ul[class="plp-product-tiles"] li:last-child > a img',
-    noResultsXPath: '//div[@class="empty-search"]',
+    loadedSelector: 'section[data-testid*="product-list"] a[class*="plp__productTileWrapper"]:last-child img',
+    noResultsXPath: '//p[contains(@class,"plp__contactInstructions")]',
     zipcode: '',
   },
 };

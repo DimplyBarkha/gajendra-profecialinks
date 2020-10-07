@@ -22,19 +22,19 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: false
-    xpath: //section[contains(@data-testid,"product-list")]//a[contains(@class,"plp__productTileWrapper")]/@href
+    xpath: //a[contains(@class,"plp__productTileWrapper")]/@href
     regExp: (.+)
     regExpReplace: https://beauty.shoppersdrugmart.ca$1
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
-    xpath: //section[contains(@data-testid,"product-list")]//a[contains(@class,"plp__productTileWrapper")]//img[contains(@class,"plp__productTileImage")]/@src
+    xpath: //img[contains(@class,"plp__productTileImage")]/@src
     regExp: (.+)130\/(.+).jpg
     regExpReplace: $1260/$2.jpg
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
-    xpath: //section[contains(@data-testid,"product-list")]//a[contains(@class,"plp__productTileWrapper")]//img[contains(@class,"plp__productTileImage")]/@alt
+    xpath: //img[contains(@class,"plp__productTileImage")]/@alt
     description: The product name
   - name: sku
     singleValue: false
@@ -56,7 +56,7 @@ fields:
     description: The number of reviews
   - name: price
     singleValue: false
-    xpath: //section[contains(@data-testid,"product-list")]//a[contains(@class,"plp__productTileWrapper")]//p[@data-testid="price-container"]
+    xpath: //p[@data-testid="price-container"]
     description: The offered price for the product
   - name: listPrice
     singleValue: false
@@ -87,7 +87,7 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: false
-    xpath: //section[contains(@data-testid,"product-list")]//a[contains(@class,"plp__productTileWrapper")]//div[contains(@class,"plp__imageWrapper")]//div[contains(@class,"product-code-value")]/@data-productcode
+    xpath: //div[contains(@class,"product-code-value")]/@data-productcode
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: false
@@ -95,7 +95,5 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per extractor)
   - name: aggregateRating2
     singleValue: false
-    xpath: //section[contains(@data-testid,"product-list")]//a[contains(@class,"plp__productTileWrapper")]//div[contains(@class,"plp__ratingContainerWrapper")]//div[contains(@class,"plp__ratingContainer")]/@aria-label
-    regExp: Rating is (.+)
-    regExpReplace: $1
+    xpath: //div[contains(@class,"plp__ratingContainerWrapper")]//div[contains(@class,"plp__ratingContainer")]/@aria-label
 
