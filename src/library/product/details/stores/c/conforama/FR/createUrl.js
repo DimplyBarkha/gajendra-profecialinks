@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'conforama.fr',
     prefix: null,
-    url: null,
+    url: 'https://www.conforama.fr/p/{id}',
     country: 'FR',
     store: 'conforama',
     zipcode: '',
