@@ -164,7 +164,7 @@ const transform = (data, context) => {
               if (JSONArr.length) {
                 const videoItems = [];
                 JSONArr.forEach(element => {
-                  videoItems.push(element.file);
+                  videoItems.push(element.file.slice(2));
                 });
                 item.text = videoItems.join(' || ');
               }
