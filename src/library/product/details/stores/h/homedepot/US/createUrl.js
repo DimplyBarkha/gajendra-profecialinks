@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'homedepot.com',
     prefix: null,
-    url: null,
+    url: 'https://www.homedepot.com/p/{id}',
     country: 'US',
     store: 'homedepot',
   },
