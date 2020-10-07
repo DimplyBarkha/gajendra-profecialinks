@@ -13,17 +13,21 @@ async function implementation (
       const newDiv = document.createElement(elementName);
       newDiv.id = id;
       newDiv.textContent = content;
-      newDiv.style.display = 'none';
+      newDiv.style.display = 'none'; 
       node.appendChild(newDiv);
     }
     document.querySelectorAll('div.recommendations').forEach(node => {      
     node.remove();
    });
+   if(document.getElementsByTagName('isapplepay').length == 0)
+   {
+    var node = document.querySelector('div.product-number > span');
+     addHiddenDiv(document.querySelector('div.product-number'),'sku',node.textContent,'sku');
+   }
     let i = 0;
     document.querySelectorAll('div.product-stick-button > button#add-to-cart> span').forEach(node => {
        var productTileObject = node.attributes[1].value.trim();
        var productData =JSON.parse(productTileObject);      
-      addHiddenDiv(node,productData.brand,productData.brand,'brand');
       i++;
     });
   });

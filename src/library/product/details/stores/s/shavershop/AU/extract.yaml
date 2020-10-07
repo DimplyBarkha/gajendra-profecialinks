@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //img[@class='productthumbnail']//@src
+    xpath: //div[@class='thumb']//img[@class='productthumbnail']//@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -47,10 +47,10 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    singleValue: true
+    singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath : //div[@class='product-description desktop-only']
+    xpath : //div[@class='product-long-description']//ul//li
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -83,13 +83,13 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath : //isapplepay/@sku
+    xpath : //isapplepay[@class='dw-apple-pay-logo-white dw-apple-pay-border']/@sku|//sku
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath : //isapplepay/@sku
+    xpath : //isapplepay[@class='dw-apple-pay-logo-white dw-apple-pay-border']/@sku|//sku
   - name: mpc
-    singleValue: false
+    singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //div[@class='product-number']//span
   - name: productUrl
@@ -115,12 +115,12 @@ fields:
     type: NUMBER
   - name: manufacturerImages
     singleValue: false
-    description: Images within the third party description
-    xpath: //div[@class='pdp-top-left']/div[@class='brand-name']/img/@src      
+    description: Images within the third party description   
+    xpath: //div[@class='feature-item']//h2//img//@src       
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //ul[@id='videosList']/li/a/@href
+    xpath: //div[@class='how-to-use-inner clearfix']//ul[@id='videosList']//li//a//@href
   - name: name
     singleValue: true
     description: The product name
@@ -137,10 +137,10 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@class='feature-item']/div[@class='content-asset']/p
+    xpath: //div[@class='product-long-description']//strong[contains(text(),'Specifications')]//following::p[1]
   - name: warranty
     singleValue: true
-    xpath: //div[@class='product-long-description']//ul//li[contains(text(),'guarantee')]|//strong[contains(text(),'warranty')]|//div[@class='product-long-description']//ul//li[contains(text(),'Guarantee')]|//strong[contains(text(),'Warranty')]|//div[@class='product-long-description']//ul//li//p[contains(text(),'Warranty')]|//div[@class='product-long-description']//ul//li//p[contains(text(),'warranty')]
+    xpath: //img[contains(@src,'warranty')]//@src
     description: Guarantee associated with the product
   - name: storage
     singleValue: true
@@ -154,7 +154,6 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //div[@class='product-detail-feature']//div[@class='content-asset']
   - name: packaging
     singleValue: true
     description: Packaging information  
@@ -213,7 +212,10 @@ fields:
     xpath: boolean(//div[@class='product-primary-image desktop-only']/a[@class='btn-zoom'])
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class='product-long-description-outline']
+    xpath: //div[@class='product-detail-feature']//div[@class='content-asset']
   - name: directions
     singleValue: false
-    xpath: //p//strong[contains(text(),'Step by Step Instructions')]//following::ul[1]|//div[contains(@class,'how-to-use-inner')]//ul[@id='videosList']//li//a//@href
+    xpath: //div[@class='how-to-use-inner clearfix']//ul[@id='videosList']//li//a//@href
+  - name: variantCount
+    singleValue: true
+    defaultValue: '0'
