@@ -9,28 +9,26 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-  const applyScroll = async function (context) {
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop !== 15000) {
-        await stall(1000);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 15000) {
-          await stall(1000);
-          break;
-        }
+  await context.evaluate(async function () {
+    let scrollTop = 0;
+    while (scrollTop <= 15000) {
+      await stall(500);
+      scrollTop += 1000;
+      window.scroll(0, scrollTop);
+      if (scrollTop === 15000) {
+        await stall(3000);
+        break;
       }
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    });
-  };
-  await applyScroll(context);
+    }
+    function stall (ms) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+  });
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   await context.evaluate(async function () {
     function addElementToDocument (doc, key, value) {
       const catElement = document.createElement('div');
@@ -43,6 +41,8 @@ async function implementation (
     const productSelectors = document.querySelectorAll('div._3O0U0u>div');
     for (let i = 0; i < productSelectors.length; i++) {
       addElementToDocument(productSelectors[i], 'rankOrganic', `${lastProductPosition + i}`);
+      const imgUrl = document.querySelectorAll('div._3BTv9X img')[i] ? document.querySelectorAll('div._3BTv9X img')[i].getAttribute('src') : '';
+      addElementToDocument(productSelectors[i], 'image', imgUrl);
       const urlData = document.querySelectorAll('a._31qSD5')[i] ? document.querySelectorAll('a._31qSD5')[i].href : document.querySelectorAll('a.Zhf2z-')[i].href;
       document.querySelectorAll('div._3O0U0u>div')[i].setAttribute('producturl', `${urlData}`);
     }
