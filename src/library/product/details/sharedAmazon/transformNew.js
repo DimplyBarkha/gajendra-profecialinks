@@ -104,21 +104,21 @@ const transform = (data, context) => {
           row.quantity[0].text += row.quantity[0].text.length ? ' ' + packText[0] : packText[0];
         }
       }
-      if (row.variantAsins) {
-        let asins = [];
-        if (row.variantAsins[0]) {
-          if ((row.variantAsins[0].text.includes('asinVariationValues') && (row.variantAsins[0].text.includes('dimensionValuesData')))) {
-            let jsonStr = row.variantAsins[0].text.split('"asinVariationValues" : ')[1].split('"dimensionValuesData" : ')[0];
-            jsonStr = jsonStr.slice(0, -2);
-            const jsonObj = JSON.parse(jsonStr);
-            asins = Object.keys(jsonObj);
-          } else {
-            asins = [];
-          }
-        }
-        const dedupeAsins = [...new Set(asins)];
-        row.variantAsins = [{ text: joinArray(dedupeAsins) }];
-      }
+      // if (row.variantAsins) {
+      //   let asins = [];
+      //   if (row.variantAsins[0]) {
+      //     if ((row.variantAsins[0].text.includes('asinVariationValues') && (row.variantAsins[0].text.includes('dimensionValuesData')))) {
+      //       let jsonStr = row.variantAsins[0].text.split('"asinVariationValues" : ')[1].split('"dimensionValuesData" : ')[0];
+      //       jsonStr = jsonStr.slice(0, -2);
+      //       const jsonObj = JSON.parse(jsonStr);
+      //       asins = Object.keys(jsonObj);
+      //     } else {
+      //       asins = [];
+      //     }
+      //   }
+      //   const dedupeAsins = [...new Set(asins)];
+      //   row.variantAsins = [{ text: joinArray(dedupeAsins) }];
+      // }
       if (row.variantCount && row.variantCount[0]) {
         if (typeof row.variantCount[0].text !== 'number') {
           if ((row.variants && row.variants[0])) {
@@ -153,12 +153,13 @@ const transform = (data, context) => {
       }
       if (row.salesRankCategory) {
         row.salesRankCategory = row.salesRankCategory.map(item => {
+          const unWantedTxt = 'See Top 100 in ';
           if (item.text.includes('#')) {
             const regex = /\#[0-9,]{1,} in (.+) \(/s;
             const rawCat = item.text.match(regex);
-            return { text: rawCat ? rawCat[1] : '' };
+            return { text: rawCat ? rawCat[1].replace(unWantedTxt, '') : '' };
           }
-          return { text: item.text };
+          return { text: item.text.replace(unWantedTxt, '') };
         });
       }
       if (row.salesRank) {
@@ -275,7 +276,7 @@ const transform = (data, context) => {
       }
       if (row.featureBullets) {
         const text = row.featureBullets.map(item => `${item.text}`);
-        row.featureBullets = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+        row.featureBullets = [{ text: text.join(' | ').trim().replace(/\|\| \|/g, '|') }];
       }
       if (row.primeFlag) {
         row.primeFlag = [{ text: 'Yes' }];

@@ -227,7 +227,8 @@ fields:
     defaultValue: 'NO'
   - name: variantAsins
     singleValue: false
-    xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
+    xpath: //div[@id="my-variants"]
+    #xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
   - name: firstVariant
     singleValue: false
     xpath: //script[contains(@type,"a-state") and contains(text(), "parentAsin")]
