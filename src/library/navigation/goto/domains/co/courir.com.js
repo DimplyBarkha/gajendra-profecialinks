@@ -48,18 +48,33 @@ module.exports = {
     console.log('isCaptcha', isCaptchaFramePresent);
 
     if (isCaptchaFramePresent) {
-      await context.solveCaptcha({
-        provider: '2-captcha',
-        type: 'GEETEST',
-        inputElement: captchaSelector,
-        autoSubmit: true,
-      });
+      try {
+        await context.evaluateInFrame('iframe',
+          function () {
+            // @ts-ignore
+            const code = geetest
+              .toString()
+              .replace(
+/appendTo\("#([^"]+)"\)/,
+'appendTo(document.getElementById("$1"))',
+              );
+            return eval(`(${code})('/captcha/geetest');`);
+          },
+        );
 
-      console.log('solved captcha, waiting for page change');
+        await new Promise(resolve => setTimeout(resolve, 500));
+        await context.evaluateInFrame('iframe',
+          function () {
+            // @ts-ignore
+            document.querySelector('.captcha-handler').click();
+          },
+        );
+        await new Promise(resolve => setTimeout(resolve, 60000));
+        await context.waitForSelector('#produit > div.product_head');
+      } catch (error) {
+        console.log('error: NO CPATCHA ENCOUNTER', error);
+      }
 
-      // TODO check that both of the below are also needed
-      await context.waitForNavigation({ timeout });
-      await context.waitForSelector('#pdpMain');
     }
   },
 };
