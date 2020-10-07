@@ -2,7 +2,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'intermarche.com',
-    timeout: 120000,
+    timeout: 50000,
     zipcode: '',
     store: 'Intermarche',
     country: 'FR',
@@ -11,7 +11,7 @@ module.exports = {
     { url, zipcode, storeId },
     parameters, context, dependencies
   ) => {
-    const timeout = parameters.timeout ? parameters.timeout : 120000;
+    const timeout = parameters.timeout ? parameters.timeout : 50000;
 
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
@@ -20,7 +20,7 @@ module.exports = {
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
     await context.goto(url, {
-      firstRequestTimeout: 100000,
+      firstRequestTimeout: 40000,
       timeout: timeout,
       waitUntil: 'load',
       checkBlocked: false,

@@ -25,8 +25,10 @@ module.exports = {
     } catch (e) {
       console.log('not able to click', true);
     }
+
+    await new Promise(resolve => setTimeout(resolve, 60000));
     try {
-      await context.waitForSelector('div[class="product-price--unit ProductPrice__PriceUnit-w3194n-5 eJDoAw"]', { timeout: 60000 });
+      await context.waitForSelector('div[class="product-price--unit ProductPrice__PriceUnit-w3194n-5 eJDoAw"]');
     } catch (err) {
       console.log('selector did not load.');
     }

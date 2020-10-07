@@ -5,7 +5,6 @@ module.exports = {
     country: 'FR',
     store: 'Intermarche',
     domain: 'intermarche.com',
-    zipcode: '',
-    timeout: 200000
+    zipcode: ''
   },
 };
