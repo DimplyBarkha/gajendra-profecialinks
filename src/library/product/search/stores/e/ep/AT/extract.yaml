@@ -1,26 +1,26 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: div[class="cmsproductlist-desktop-layout-item"]
 recordXPath: null
 fields: 
   - name: id
-    xpath: //div[contains(@class,'cmsproductlist-desktop-layout-item')]/@data-et-code
+    xpath: //@data-et-code
     singleValue: true
   - name: rankOrganic
     singleValue: true
   - name: name
     singleValue: true
-    xpath: //div[contains(@class,'cmsproductlist-desktop-layout-item')]/@data-et-name
+    xpath: //@data-et-name
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,'cmsproduct-list-image')]//a[contains(@class,'cmsproduct-list-image-link')]/@href
+    xpath:  //div[@class="cmsproduct-list-image"]//a//@href
     regExp: ^(.+)$
     regExpReplace: https://www.ep.at$1
   - name: gtin
     singleValue: true
   - name: thumbnail
-    singleValue: true
-    xpath: //div[contains(@class,'cmsproduct-list-image')]/a/img/@src
+    singleValue: false
+    xpath: //div[@class="cmsproduct-list-image"]//a//img//@src
   - name: aggregateRating2
     singleValue: true
     xpath: //div[@class='cmsproductlist-stars-container']/div[@class='product-stars-container']/@data-rating
@@ -32,10 +32,9 @@ fields:
     defaultValue: '0'
   - name: price
     singleValue: true
-    xpath: //div[@class='priceOfProduct cmsproductlist-price']
+    xpath: //@data-et-price
   - name: manufacturer
-    singleValue: true
-    xpath: //h4[@class='cmsproductlist-brand']/a[@class='cmsproductlist-brand-link']
+    singleValue: true    
   - name: soldBy
     singleValue: true
   - name: rank
