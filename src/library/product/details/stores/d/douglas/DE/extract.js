@@ -39,22 +39,51 @@ module.exports = {
           document.body.appendChild(newDiv);
           return newDiv;
         }
-        let url = window.location.href;
-        const variantContainer = document.querySelector('div.rd__product-details__picker__list');
-        if (variantContainer) {
-          const variants = variantContainer.querySelectorAll('div.rd__product-details__picker__list__item');
+
+        const variantContainerLeftPan = document.querySelector('div.rd__product-details__picker__list');
+        if (variantContainerLeftPan) {
+          let initialVairantTobeClicked = null;
+          let initialVariant = document.querySelector('div.rd__product-details__picker-dropdown__collapse-title  img');
+          if(initialVariant !== null){
+            let initialVariantIdentifier = initialVariant.getAttribute('alt');
+            initialVairantTobeClicked = getEleByXpath(`//div[@data-wt-content="changeVariantColor"]//img[contains(@alt, '${initialVariantIdentifier}')]`)
+          }
+  
+          const variants = variantContainerLeftPan.querySelectorAll('div.rd__product-details__picker__list__item');
           for (var i = 0; i < variants.length; i++) {
             variants[i].click();
             addHiddenDiv('variantId', window.location.href)
           }
+
+          if(initialVairantTobeClicked !== null){
+            initialVairantTobeClicked.click();
+          }
         }
+
+        const variantContainerRightPan = document.querySelector('div.rd__product-details__options__price.rd__product-details__options__price--size');
+          if (variantContainerRightPan) {
+            let initialVairantTobeClicked = null;
+            initialVairantTobeClicked = getEleByXpath(`//div[contains(@class, 'rd__product-details__options__price__item--selected')]`)
+            const variants = variantContainerRightPan.querySelectorAll('div.rd__product-details__options__price__item');
+              for (var i = 0; i < variants.length; i++) {
+                variants[i].click();
+                  addHiddenDiv('variantId', window.location.href)
+              }
+        
+              if(initialVairantTobeClicked !== null){
+                initialVairantTobeClicked.click();
+              }
+          }
+
+
 
       function getEleByXpath(xpath) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         console.log('Element' + element);
         const text = element ? element.textContent : null;
-        return text;
+        return element;
       }
+
       function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {

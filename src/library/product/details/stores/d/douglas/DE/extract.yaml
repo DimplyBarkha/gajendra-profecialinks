@@ -78,7 +78,7 @@ fields:
   - name: additionalDescBulletInfo
     xpath: //div[@class='rd__product-details__description__collapsible']//ul/li[not(@type="non-bullet")]
   - name: variantCount
-    xpath: count(//div[contains(@class, 'rd__product-details__picker__list')]//div[contains(@class, 'rd__product-details__picker__list__item')])
+    xpath: count(//div[@id='variantId'])
   - name: color
     xpath: //li//span[contains(., 'Farbe')]
   - name: variants
