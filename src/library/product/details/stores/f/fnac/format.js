@@ -33,12 +33,14 @@ const transform = (data) => {
       }
       if (row.listPrice) {
         row.listPrice.forEach(item => {
-          item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
+          // item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
+          item.text = item.text.replace('€', ',');
         });
       }
       if (row.price) {
         row.price.forEach(item => {
-          item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
+          // item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
+          item.text = item.text.replace('€', ',');
         });
       }
       if (row.description) {
