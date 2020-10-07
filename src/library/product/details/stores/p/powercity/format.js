@@ -5,6 +5,21 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
   for (const { group } of data) {
     for (const row of group) {
       if (row.description) {
@@ -65,14 +80,14 @@ const transform = (data) => {
       }
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(image => {
-          let allImages = image.text.split(', ').map(img=>img.trim())
+          let allImages = image.text.split(', ').map(img => img.trim())
           let mainImage;
-          if(allImages.length){
-            mainImage = allImages.find(x=>/desktop/i.test(x))
-            if(!mainImage) {
-              mainImage=allImages[0].replace(/(.*?)\s.*/,'$1').trim()
-            }else{
-              mainImage = mainImage.replace(/(.*?)\s.*/,'$1')
+          if (allImages.length) {
+            mainImage = allImages.find(x => /desktop/i.test(x))
+            if (!mainImage) {
+              mainImage = allImages[0].replace(/(.*?)\s.*/, '$1').trim()
+            } else {
+              mainImage = mainImage.replace(/(.*?)\s.*/, '$1')
             }
           }
           if (mainImage && !mainImage.startsWith('http')) {
@@ -81,13 +96,13 @@ const transform = (data) => {
           image.text = mainImage;
         });
       }
-      
+
       if (row.videos) {
         row.videos.forEach(video => {
-          if(video.text.includes('file":"')){
-            video.text = video.text.replace(/.*?file":"(.*?)".*/,'$1')
+          if (video.text.includes('file":"')) {
+            video.text = video.text.replace(/.*?file":"(.*?)".*/, '$1')
           }
-          if(!video.text.startsWith('http')){
+          if (!video.text.startsWith('http')) {
             video.text = `https:${video.text}`;
           }
         });
