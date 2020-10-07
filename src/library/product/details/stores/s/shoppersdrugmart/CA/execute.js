@@ -6,7 +6,7 @@ module.exports = {
     store: 'shoppersdrugmart',
     domain: 'shoppersdrugmart.ca',
     loadedSelector: 'div[id="pr-reviewsnippet"] div[class~="pr-rating-stars"]',
-    noResultsXPath: null,
+    noResultsXPath: '//h3[contains(text(),"Error 404")]',
     zipcode: '',
   },
 };
