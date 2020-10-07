@@ -24,7 +24,21 @@ async function implementation (
   var jsonText = await context.evaluate(function () {
     return document.body.innerText;
   });
-  const json = JSON.parse(jsonText);
+  let json = JSON.parse(jsonText);
+
+  let keyword = null;
+
+  if (json && json.searchRedirectTarget && json.searchRedirectTarget.apiUrl) {
+    const apiLink = json.searchRedirectTarget.apiUrl.toString().replace(/^(.*?)v1\//gm, 'https://www.sephora.com/api/');
+    keyword = json.keyword;
+    await context.goto(apiLink, {
+      timeout: 45000, waitUntil: 'load', checkBlocked: true, load_timeout: 0, cookies: [],
+    });
+    jsonText = await context.evaluate(function () {
+      return document.body.innerText;
+    });
+    json = JSON.parse(jsonText);
+  }
 
   if (json && json.products && json.totalProducts) {
     await context.evaluate(function (domain, products, cnt, searchTerms) {
@@ -65,7 +79,7 @@ async function implementation (
           }
         }
       }
-    },domain , json.products, json.totalProducts, json.keyword);
+    },domain , json.products, json.totalProducts, json.keyword || keyword);
   }
   return await context.extract(productDetails, { transform });
 }
