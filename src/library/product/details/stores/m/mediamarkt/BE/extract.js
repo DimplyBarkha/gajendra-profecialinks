@@ -70,7 +70,7 @@ module.exports = {
 
       await sharedhelpers.addHiddenInfo('ii_manufContent', content);
       if (image) {
-        await sharedhelpers.addHiddenArrayList('ii_manufImg', image.join(' || '));
+        await sharedhelpers.addHiddenArrayList('ii_manufImg', image);
       }
     }
 
