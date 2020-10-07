@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(text(),"Sorry no results found")]',
     openSearchDefinition: null,
     domain: 'smithandcaugheys.co.nz',
     zipcode: '',
