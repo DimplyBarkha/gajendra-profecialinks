@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.hproduct-col.product-col',
-    noResultsXPath: null,
+    noResultsXPath: '//p[starts-with(text(),"Search was unable to find any results for")]',
     openSearchDefinition: null,
     domain: 'harveynorman.ie',
     zipcode: '',
