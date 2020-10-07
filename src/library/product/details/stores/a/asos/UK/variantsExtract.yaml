@@ -1,13 +1,17 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
   - name: variantId
-    singleValue: false
+    # singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //div[@id="pd_variantid"]
+    xpath: //script[@type="text/javascript"]
+    regExp: (("variantId":)(\d+))
+    regExpReplace: $3
   - name: variantUrl
-    singleValue: false
+    # singleValue: false
     description: variant Url
-    xpath: //div[@id="pd_variantUrl"]
+    xpath: //script[@type="text/javascript"]
+    regExp: (("variantId":)(\d+))
+    regExpReplace: https://www.asos.com/prd/$3

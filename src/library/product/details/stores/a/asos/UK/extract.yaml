@@ -82,7 +82,8 @@ fields:
     singleValue: false
     description: The store-specific product identifier
     xpath: //script[@id='structured-data']
-    regExp: ("sku":")(\d+)
+    regExp: (("sku":")(\d+))
+    regExpReplace: $3
     type: text
   - name: variantId
     singleValue: true
@@ -95,6 +96,7 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //span[@class="product-size"]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
