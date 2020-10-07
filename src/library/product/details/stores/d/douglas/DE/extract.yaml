@@ -1,81 +1,105 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
-    xpath: //div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container is-active")]//img/@src
+    xpath: //div[@id='product_main_image']
   - name: category
     singleValue: false
     xpath: //div[contains(@class,"rd__breadcrumbs__item rd__breadcrumbs__item--back")]//following-sibling::a
   - name: nameExtended
-    singleValue: true
-    xpath: concat(//*[contains(@class,"rd__copytext rd__copytext--90")], ' ',//*[contains(@class,"rd__product-header__title__main")], //*[contains(@class,"rd__copytext rd__copytext--110")])
+    xpath: concat(//h1//span[@class='rd__copytext rd__copytext--90'], ' ', //span[@class='rd__product-header__title__name'], ' ', //span[@class='rd__product-header__title__classification'], ' ', //div[contains(@class,'rd__product-details__picker-dropdown__collapse-title' ) or contains(@class, 'rd__product-details__options__price__item__quantity')]/span)
   - name: price
-    singleValue: true
     xpath: //div[contains(@class,"rd__product-details__options__price__item__amount__new-price")]/span[1]
   - name: availabilityText
-    singleValue: true
-    xpath: //*[contains(@id,"availability")]
+    xpath: //div[contains(@class,"rd__product-details__options__availability")]/span[contains(@class,'rd__copytext')][1]
   - name: description
     singleValue: false
     xpath: //ul[contains(@class,'rd__list rd__list--disc')]/li
+  - name: descriptionChunck
+    xpath: //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/h2 | //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/text()
+  - name: descriptionliChunck
+    xpath: //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/ul/li   
   - name: descriptionBullets
-    singleValue: true
-    xpath: count(//ul[contains(@class,'rd__list rd__list--disc')]/li)
+    xpath: count(//div[@class='rd__product-details__description__collapsible']//ul/li[not(@type='non-bullet')])
   - name: ingredientsList
     xpath: //span[contains(.,"Inhaltsstoffe")]/parent::div//following-sibling::div[1]
     singleValue: true
     regExp: "(INGREDIENTS: )?(.+)"
     regExpReplace: $2
   - name: brandText
-    singleValue: true
-    xpath: //span[contains(@class,"rd__product-header__title__brandname")]
+    xpath: //span[contains(@class,"rd__product-header__title__brandname")]//a[1] | //span[@class='rd__product-header__title__brand']
   - name: ratingCount
-    singleValue: true
-    xpath: //*[contains(@id, "ratingCount")]
+    xpath: //meta[@itemprop='reviewCount']/@content
+  - name: reviewCount
+    xpath: //meta[@itemprop='reviewCount']/@content
+  - name: aggregateRating2
+    xpath: //*[contains(@id,"webtrekk")]/preceding-sibling::script[1]
   - name: aggregateRating
-    singleValue: true
-    xpath: //*[contains(@id, "ratingValue")]
+    xpath: //*[contains(@id,"webtrekk")]/preceding-sibling::script[1]
   - name: quantity
-    singleValue: true
-    xpath: //div[contains(@class,"rd__product-details__options__price__item rd__product-details__options__price__item--selected")]//div[contains(@class,"rd__product-details__options__price__item__quantity")]//span[1]
-  - name: upc
-    singleValue: true
-    xpath: //*[contains(@id,"gtin13")]
+    xpath: //div[@class='rd__product-details__options__price__item__quantity']/span[1]
+  - name: gtin
+    xpath: //span[contains(@id,"webtrekk")]/preceding-sibling::script[1]
   - name: sku
     singleValue: true
     xpath: //div[contains(@data-bv-show,"reviews")]/@data-bv-product-id
   - name: variantId
     singleValue: true
-    xpath: //*[contains(@id,"productId")]
+    xpath: //script[contains(.,"customExactagConfig")]
   - name: directions
     singleValue: true
     xpath: //div[contains(.,"Anwendung")]/following-sibling::div[1]/span
   - name: alternateImages
-    singleValue: false
-    xpath: //html//div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container is-active")]/parent::div/parent::div/following-sibling::div//img/@src
+    xpath: //html//div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container")]/parent::div/parent::div/following-sibling::div//img/@src
   - name: secondaryImageTotal
-    singleValue: true
-    xpath: count(//div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container is-active")]/parent::div/parent::div/following-sibling::div//img/@src)
+    xpath: count(//html//div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container")]/parent::div/parent::div/following-sibling::div//img/@src)
   - name: imageAlt
-    singleValue: true
-    xpath: //div[contains(@class,"rd__product-details-gallery__item rd__product-details-gallery__item--image--no_zoom rd__product-details-gallery__container is-active")]//img/@alt
+    xpath: //div[@id='img-alt']
   - name: promotion
     singleValue: true
     xpath: //span[contains(@class,"rd__eye-catcher rd__eye-catcher--sale")]
   - name: listPrice
-    singleValue: true
-    xpath: //div[contains(@class,"rd__product-details__options__price__item__amount__old-price")]
+    xpath: //div[contains(@class,'rd__product-details__options__price__item__amount__old-price')]
   - name: name
-    singleValue: true
     xpath: //div[contains(@class,"rd__product-header__title__main")]
   - name: variantInformation
-    singleValue: true
-    xpath: //div[contains(@class,"rd__product-details__options__price__item rd__product-details__options__price__item--selected")]//div[contains(@class,"rd__product-details__options__price__item__quantity")]//span[1]
+    xpath: //div[@class='rd__product-details__picker-dropdown__collapse-title']//span[contains(@class, 'rd__copytext rd__copytext')] | //div[contains(@class, 'rd__product') and contains(@class, 'rd__product-details__options__price__item--selected') and div[not(co)]]//div[contains(@class, 'rd__product-details__options__price__item__quantity')]//span[contains(@class, 'rd__headline')]
   - name: brandLink
     singleValue: true
-    xpath: //div[contains(@class,"rd__product-heade")]/a/@href
+    xpath: //span[contains(@class,"rd__product-header__title__brandname")]//a[1]/@href | //span[@class='rd__product-header__title__brand']
     regExp: (.*)
     regExpReplace: https://www.douglas.de$1
+  - name: Image360Present
+    defaultValue: 'No'
+  - name: legalDisclaimer
+    xpath: //section[contains(@class, 'rd__text-legal--common')]//span[1]
+  - name: additionalDescBulletInfo
+    xpath: //div[@class='rd__product-details__description__collapsible']//ul/li[not(@type="non-bullet")]
+  - name: variantCount
+    xpath: count(//div[contains(@class, 'rd__product-details__picker__list')]//div[contains(@class, 'rd__product-details__picker__list__item')])
+  - name: color
+    xpath: //li//span[contains(., 'Farbe')]
+  - name: variants
+    xpath: //div[@id='variantId']/@title
+  - name: firstVariant
+    xpath: //div[@id='variantId'][1]/@title
+  - name: promotion
+    xpath: //div[@class='rd__product-details-gallery__sale-badge']//span[@class='rd__eye-catcher__text']
+  - name: videos
+    xpath: //video/source[@type='video/mp4']/@src
+  - name: manufacturerDescription
+    xpath: //div[contains(@class, 'intro')] | //div[contains(@class, 'boxed')]//div[contains(@class, 'text-box')]//*[not(contains(@class,'number-circle'))]
+  - name: manufacturerImages
+    xpath: //div[contains(@class, 'boxed')]//div[contains(@class, 'image-container')]//div[@class='image']/@style
+    regExp: background-image:url\('(.+)'\)
+    regExpReplace: $1
+  - name: manufacturer
+    xpath: //span/text()[preceding-sibling::b[contains(.,'Informationen zum Hersteller:')]][1]
+  - name: weightNet
+    xpath: //*[contains(.,'Mehr zu diesem Produkt') or contains(., 'Artikeldetails')]/following-sibling::ul/li[contains(.,'Nettogewicht') or contains(., 'Gewicht mit Kabel') or contains(., 'Gewicht in')]
+    regExp: (.+):(.+)
+    regExpReplace: $2
+  - name: warranty
+    xpath: //div[contains(@class, 'rd__product-details__description__collapsible')]//li[contains(., 'garantie') and not(contains(@type,'non-bullet'))] | //div[contains(@class, 'rd__product-details__description__collapsible')]//div[contains(., 'garantie')]

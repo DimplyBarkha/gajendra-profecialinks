@@ -1,58 +1,79 @@
+const { transform } = require('./shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'douglas',
-    transform: null,
+    transform,
     domain: 'douglas.de',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      const productData = JSON.parse(findProductDetails('//span[contains(@id,"webtrekk")]/preceding-sibling::script[1]'));
-      addEleToDoc('gtin13', productData.gtin13);
-      addEleToDoc('ratingCount', productData.aggregateRating.ratingCount);
-      addEleToDoc('ratingValue', productData.aggregateRating.ratingValue);
 
-      // Output value is expected either InStock or Out of Stock but on webpage, its in german
-      const availability = getEleByXpath('//div[contains(@class,"rd__product-details__options__availability")]/span[contains(@class,\'rd__copytext\')][1]');
-      const outOfStock = 'Leider ausverkauft';
-      const inStock = 'Auf Lager';
-      if (availability === outOfStock) {
-        addEleToDoc('availability', 'Out of stock');
-      } else if (availability === inStock) {
-        addEleToDoc('availability', 'In stock');
-      }
-      const productInfo = preFetchProductDetails('window.customExactagConfig =');
-      addEleToDoc('productId', productInfo.product_id);
+        let activeImageXpath = "//div[contains(@class,'rd__product-details-gallery__container is-active')]";
+        let activeImage = document.evaluate(activeImageXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+        if (activeImage) {
+          const imgAlternate = document.querySelector("div.rd__product-details-gallery__container.is-active img").getAttribute('alt')
+          addHiddenDiv('img-alt', imgAlternate)
+        }
+        let mainImageXpath = "//div[contains(@class, 'rd__product-details-gallery--horizontal')]//img | //div[contains(@class,'rd__product-details-gallery__container') and contains(@class, 'is-active')]//img";
+        let mainImage = document.evaluate(mainImageXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+        if (mainImage) { 
+          const imgSrc = mainImage.getAttribute('src')
+          addHiddenDiv('product_main_image', imgSrc)
+        }
 
-      function preFetchProductDetails (referenceText) {
-        let productInfo = findProductDetails('//script[contains(.,"customExactagConfig")]');
-        productInfo = JSON.parse(productInfo.substring((productInfo.indexOf(referenceText) + referenceText.length), productInfo.indexOf('}') + 1));
-        return productInfo;
-      }
+        let videoXpath = "//span[contains(@data-wt-content, 'Video.www.douglas.de')]";
+        let videoEle = document.evaluate(videoXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+        if (videoEle) {
+          videoEle.click();
+        }
 
-      function findProductDetails (xpath) {
-        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        const productDetails = element.textContent;
-        return productDetails;
-      }
+        function addHiddenDiv(id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.title = content.substring(content.lastIndexOf('_') + 1, content.lastIndexOf('.'));
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+          return newDiv;
+        }
+        let url = window.location.href;
+        const variantContainer = document.querySelector('div.rd__product-details__picker__list');
+        if (variantContainer) {
+          const variants = variantContainer.querySelectorAll('div.rd__product-details__picker__list__item');
+          for (var i = 0; i < variants.length; i++) {
+            variants[i].click();
+            addHiddenDiv('variantId', window.location.href)
+          }
+        }
 
-      function addEleToDoc (key, value) {
-        const prodEle = document.createElement('div');
-        prodEle.id = key;
-        prodEle.textContent = value;
-        prodEle.style.display = 'none';
-        document.body.appendChild(prodEle);
-      }
-
-      function getEleByXpath (xpath) {
+      function getEleByXpath(xpath) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         console.log('Element' + element);
         const text = element ? element.textContent : null;
         return text;
       }
+      function stall(ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+
+      let scrollTop = 500;
+      while (true) {
+        window.scroll(0, scrollTop);
+        await stall(500);
+        scrollTop += 500;
+        if (scrollTop === 10000) {
+          break;
+        }
+      }
     });
-    return await context.extract(productDetails);
+
+    return await context.extract(productDetails, { transform: transformParam });
   },
 };
