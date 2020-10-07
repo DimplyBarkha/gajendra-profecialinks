@@ -20,6 +20,11 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      const readMoreBtn = document.querySelector('button[class*="uSQV49"]');
+      if (readMoreBtn) {
+        readMoreBtn.click();
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+      }
       const ratingCountExists = document.evaluate("//span[@class='_38sUEc']//*[contains(text(), 'Reviews') or contains(text(), 'reviews')]", document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
       if (ratingCountExists) {
         const ratingCountString = document.evaluate("//span[@class='_38sUEc']//*[contains(text(), 'Reviews') or contains(text(), 'reviews')]", document, null, XPathResult.STRING_TYPE, null).stringValue;

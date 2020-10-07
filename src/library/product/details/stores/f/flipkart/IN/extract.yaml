@@ -71,7 +71,7 @@ fields:
       description:
           Product brand shown - this may actually NOT be just a brand name,
           e.g. "Visit the Gillette Store"
-      xpath: //div[@id='brandText'] | //span[contains(@class, '_2J4LW6') and not (//div[@id='brandText'])]
+      xpath: //div[@id='brandText'] | //span[contains(@class, '_2J4LW6') and not (//div[@id='brandText'])] | //td[contains(text(), 'Brand') and not (//span[contains(@class, '_2J4LW6') and not (//div[@id='brandText'])])]/following-sibling::*
     - name: manufacturer
       singleValue: true
       description: Product manufacturer
@@ -130,7 +130,7 @@ fields:
       singleValue: false
       description: The stated aggregate rating normalized to be out of 5
       type: NUMBER
-      xpath: //div[contains(@class, '_1i0wk8')]
+      xpath: (//span[contains(@id, 'productRating')]/div[contains(@class, 'hGSR34')])[1]
     - name: shippingInfo
       singleValue: true
       description: Shipping information for the product
