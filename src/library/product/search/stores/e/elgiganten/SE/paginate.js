@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.mini-product',
-    noResultsXPath: null,
+    noResultsXPath: '//h2[contains(text(),"Tyvärr kunde vi inte hitta någonting som matchade din sökning")]',
     openSearchDefinition: null,
     domain: 'elgiganten.se',
     zipcode: '',
