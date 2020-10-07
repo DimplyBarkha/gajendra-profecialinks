@@ -1,5 +1,36 @@
-extends: ../shared
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //td[@itemscope="itemscope" and @itemtype="http://schema.org/Product"]
 fields:
-  - name: decimalSeperator
+  - name: id
     singleValue: false
-    defaultValue: EU
+    xpath: //a[@itemprop="name"]//@id
+    regExp: src(.*)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    manualSelector: //a[@itemprop="name"]//@title
+  # - name: productUrl
+  #   singleValue: false
+  #   xpath: //a[contains(@class,'s-item__link')]/@href
+  # - name: thumbnail
+  #   singleValue: false
+  #   xpath: //img[contains(@class,'s-item__image-img')]/@src
+  #   regExp: (.+\/s-)l.*?(\..*)
+  #   regExpReplace: $1l500$2
+  # - name: price
+  #   singleValue: false
+  #   manualSelector: span.s-item__price
+  # - name: aggregateRating2
+  #   singleValue: false
+  #   manualSelector: div.b-starrating > span.clipped
+  # - name: reviewCount
+  #   singleValue: false
+  #   manualSelector: span.s-item__reviews-count
+  # - name: searchUrl
+  #   singleValue: false
+  #   xpath: ancestor::html//div[@id='search-url']
+  # - name: sponsored
+  #   singleValue: false
+  #   manualSelector: span.s-item__title--tagblock__SPONSORED
