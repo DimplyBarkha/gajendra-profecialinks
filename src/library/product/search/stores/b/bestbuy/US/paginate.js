@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'li.sku-item[data-sku-id]',
-    noResultsXPath: null,
+    noResultsXPath: '//h3[@class="no-results-message"]',
     openSearchDefinition: null,
     domain: 'bestbuy.com',
     zipcode: '',
