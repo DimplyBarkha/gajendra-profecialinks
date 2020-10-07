@@ -5,9 +5,9 @@ module.exports = {
     country: 'MX',
     store: 'walmart',
     domain: 'walmart.com.mx',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.walmart.com.mx/productos?Ntt={searchTerms}',
+    loadedSelector: 'div[data-testid="products-grid"]',
+    noResultsXPath: '//*[@data-automation-id="no-result-text"]',
     zipcode: '',
   },
 };
