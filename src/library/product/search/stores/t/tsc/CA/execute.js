@@ -43,7 +43,7 @@ module.exports = {
     domain: 'tsc.ca',
     url: 'https://www.tsc.ca/pages/productresults?searchterm={searchTerms}',
     loadedSelector: 'div[class*="productItems"]',
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(text(), "couldn’t find a match")]',
     zipcode: '',
   },
   implementation,
