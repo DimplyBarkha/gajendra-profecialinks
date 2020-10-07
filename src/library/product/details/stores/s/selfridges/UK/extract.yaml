@@ -151,6 +151,8 @@ fields:
     singleValue: false
     description: URLs of videos on page
     xpath: //div[@class="c-image-gallery__img --video"]//video//source/@src
+    regExp: (images.selfridges.com/is/.+)
+    regExpReplace: https://$1
   - name: name
     singleValue: true
     description: The product name
