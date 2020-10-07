@@ -60,14 +60,12 @@ fields:
     singleValue: true
     description: Product manufacturer
   - name: quantity
-    singleValue: true
     xpath: //li[contains(text(), "Size")]
     regExp: (?![Size\s]).+
   - name: weightNet
-    singleValue: true
     xpath: //li[contains(text(), "Weight")]
-    regExp: [0-9\.]+(kg|KG|Kg)
-    description: Net weight as described on the page
+    regExp: >-
+      [0-9\.]+(kg|KG|Kg)
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -401,7 +399,6 @@ fields:
     singleValue: true
     description: The physical dimensions of the product including packaging.
   - name: warranty
-    singleValue: true
     xpath: //li[contains(text(), "year") and contains(text(), "guarantee")]
     regExp: \d+\s(y|Y)ear
     description: Guarantee associated with the product
