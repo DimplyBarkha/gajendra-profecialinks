@@ -1,9 +1,65 @@
 /**
- *
- * @param {ImportIO.Group[]} data
- * @returns {ImportIO.Group[]}
- */
-const cleanUp = (data, context) => {
+*
+* @param {ImportIO.Group[]} data
+* @returns {ImportIO.Group[]}
+*/
+const transform = (data) => {
+  for (const { group } of data) {
+    for (const row of group) {
+      if (row.priceSufix) {
+        const sufixVal = row.priceSufix[0].text;
+        if (sufixVal === '-') {
+          row.price[0].text = row.price[0].text.replace('.', '.');
+        }
+        delete row.priceSufix
+      }
+      if (row.aggregateRating) {
+        row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',')
+      }
+
+      if (row.shippingInfo) {
+        row.shippingInfo[0].text = row.shippingInfo[0].text.replace('Verkoop door:', '')
+      }
+
+      if (!row.shippingDimensions && row.shippingDimensionsSplit && row.shippingDimensionsSplit[0].text !== 'xx') {
+        row.shippingDimensions = [{ text: row.shippingDimensionsSplit[0].text }];
+        delete row.shippingDimensionsSplit;
+      }
+
+      let specifications = '';
+      if (row.specifications && row.specTitle && row.specValue) {
+        for (let i = 0; i < row.specTitle.length; i++) {
+          specifications += `${row.specTitle[i].text} : ${row.specValue[i].text} || `;
+        }
+        specifications = specifications.substring(0, specifications.lastIndexOf('||') - 1).trim();
+        row.specifications = [{ text: specifications }];
+      }
+
+      if (row.technicalInformationPdfPresent && row.technicalInformationPdfPresent[0].text === 'Bekijk de handleiding') {
+        row.technicalInformationPdfPresent = [{ text: 'Yes' }]
+      }
+
+      if (row.description && row.additionalDescBulletInfo) {
+        row.description = row.description.concat(row.additionalDescBulletInfo);
+      }
+
+      if (row.additionalDescBulletInfo) {
+        row.additionalDescBulletInfo[0].text = ` || ${row.additionalDescBulletInfo[0].text}`;
+      }
+
+      if (row.productOtherInformationDD && row.productOtherInformationDT) {
+        row.productOtherInformation = [{ text: '' }];
+        let prodOtherInfo = '';
+        for (let i = 0; i < row.productOtherInformationDD.length; i++) {
+          prodOtherInfo += `${row.productOtherInformationDT[i].text} : ${row.productOtherInformationDD[i].text} | `
+        }
+        prodOtherInfo = prodOtherInfo.substring(0, prodOtherInfo.lastIndexOf('|') - 1).trim();
+        row.productOtherInformation = [{ text: prodOtherInfo }]
+      }
+    }
+  }
+ 
+  // Clean up data
   const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
@@ -12,24 +68,17 @@ const cleanUp = (data, context) => {
     .replace(/\s{2,}/g, ' ')
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
-    .replace(/^ +| +$ )+/g, ' ')
+    .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  for (const { group } of data) {
-    for (const row of group) {
-      if (row.sku) {
-        row.sku.forEach((skuData) => {
-          let text1 = skuData.text.match(/\d+/g)[0];
-          skuData.text = text1;
-        })
-      }
-    }
-  }
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+    .trim();
+
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
   }))));
+
   return data;
 };
 
-module.exports = { cleanUp };
+module.exports = { transform };
