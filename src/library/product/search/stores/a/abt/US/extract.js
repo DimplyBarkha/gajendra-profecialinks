@@ -6,6 +6,7 @@ async function implementation (
   context,
   dependencies,
 ) {
+  const { transform } = parameters;
   const { productDetails } = dependencies;
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
@@ -44,7 +45,7 @@ async function implementation (
     }
     localStorage.setItem('prodCount', `${lastProductPosition + arr.length}`);
   });
-  return await context.extract(productDetails);
+  return await context.extract(productDetails, { transform });
 }
 
 module.exports = {
