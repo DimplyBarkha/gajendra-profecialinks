@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[data-et-name]',
-    noResultsXPath: null,
+    noResultsXPath: '//h1[@class="search-no-hits-headline"]',
     openSearchDefinition: null,
     domain: 'medimax.de',
     zipcode: '',
