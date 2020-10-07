@@ -48,11 +48,39 @@ const transform = (data, context) => {
       }
       if (row.gtin) {
         if (row.gtin[0].text.includes('@context')) {
-          const jsonStr = row.gtin[0].text;
+          let jsonStr = row.gtin[0].text;
+          if (jsonStr.includes(' = ')) {
+            jsonStr = jsonStr[1].split(' = ');
+            jsonStr = jsonStr[1].slice(0, -1);
+          }
           // jsonStr = jsonStr.length === 2 ? jsonStr[1].split(' = ') : [];
           // jsonStr = jsonStr.length === 2 ? jsonStr[1].slice(0, -1) : '';
           const jsonObj = jsonStr.length ? JSON.parse(jsonStr) : '';
           const ean = Object.keys(jsonObj).length ? (jsonObj.gtin13 ? jsonObj.gtin13 : '') : '';
+          row.gtin = [
+            {
+              text: ean,
+            },
+          ];
+
+          if (row.eangtin) {
+            row.eangtin = [
+              {
+                text: ean,
+              },
+            ];
+          }
+        }
+        if (row.gtin[0].text.includes('var product')) {
+          let jsonStr = row.gtin[0].text;
+          jsonStr = jsonStr.split('var product');
+          console.log('jsonStr 123')
+          console.log(jsonStr)
+          jsonStr = jsonStr[1] ? jsonStr[1].split(' = ') : [];
+          console.log(jsonStr)
+          jsonStr = jsonStr[1].slice(0, -1);
+          const jsonObj = jsonStr.length ? JSON.parse(jsonStr) : '';
+          const ean = Object.keys(jsonObj).length ? (jsonObj.ean ? jsonObj.ean : '') : '';
           row.gtin = [
             {
               text: ean,
