@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.productQvContainer',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="no-result-lt"]/h2',
     openSearchDefinition: null,
     domain: 'ulta.com',
     zipcode: '',
