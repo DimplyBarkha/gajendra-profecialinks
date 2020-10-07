@@ -94,23 +94,12 @@ async function implementation (
     await context.waitForXPath('//div[@data-hook="cr-summarization-attributes-list"]//span[contains(@class,"a-size-base")]', { timeout: 5000 })
       .catch(() => console.log('no additional ratings'));
   }
-  const topReviews = await context.evaluate(()=>{
-    const reviewsInfo = document.querySelector('span[data-hook=cr-widget-FocalReviews]');
-    return reviewsInfo ? reviewsInfo.innerText : '';
-  });
-  helpers.addItemToDocument('top-reviews',topReviews);
 
-  const customerQAndA = await context.evaluate(()=>{
+  const customerQAndA = await context.evaluate(() => {
     const qAndA = document.querySelector('span.askTopQandA');
     return qAndA ? qAndA.innerText : '';
   });
-  helpers.addItemToDocument('my-q-and-a',customerQAndA);
-
-  const qCount = await context.evaluate(()=>{
-    return document.evaluate('count(//span[@class="askTopQandA"]//span[contains(@data-ask-log-click-csm,"top-question")])',document,null,XPathResult.STRING_TYPE,null).stringValue;
-  })
-
-  helpers.addItemToDocument('my-q-count',qCount);
+  helpers.addItemToDocument('my-q-and-a', customerQAndA);
 
   await context.extract(productDetails, { transform });
 }

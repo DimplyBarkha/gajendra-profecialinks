@@ -57,7 +57,7 @@ const transform = (data, context) => {
         grossWeight: item => sg(item).replace(/\s\(/g, '').trim(),
         largeImageCount: item => {
           const array = sg(item).toString().split('SL1500');
-          return array.length === 0 ? 0 : array.length - 1;
+          return array.length === 0 ? 0 : array.length;
         },
         alternateImages: array => joinArray(array.map(item => item.text)),
         videos: item => doubleRegexSearch(/\"url\":\"([^"]+)/g, /(https.+mp4)/s, item),
@@ -189,9 +189,15 @@ const transform = (data, context) => {
           row.heroQuickPromoUrl = [{ text: `https://${hostName}/${row.heroQuickPromoUrl[0].text}` }];
         }
       }
-      if (row.description) {
-        const text = row.description.map(item => item.text);
-        row.description = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+      if (row.description || row.extraDescription) {
+        const bonusDesc = row.extraDescription ? row.extraDescription.map(item => item.text).join(' ').split('From the Manufacturer')[0] : '';
+        if (row.description) {
+          const text = row.description.map(item => item.text);
+          const formattedText = '|| ' + text.join(' || ').trim().replace(/\|\| \|/g, '|');
+          row.description = [{ text: formattedText + bonusDesc }];
+        } else {
+          row.description = [{ text: bonusDesc }];
+        }
       }
       if (row.amazonChoice && row.amazonChoice[0]) {
         if (row.amazonChoice[0].text.includes('Amazon')) {
@@ -281,17 +287,20 @@ const transform = (data, context) => {
         row.frequentlyBoughtTogether = [{ text: row.frequentlyBoughtTogether[0].text.replace(/\{([^}]*)\}/g, '') }];
       }
       if (row.ratingsDistribution) {
-        const filteredRatings = row.ratingsDistribution.map(rating => rating.text.replace(/star/g, 'star: ') );
+        const filteredRatings = row.ratingsDistribution.map(rating => rating.text.replace(/star/g, 'star: '));
         row.ratingsDistribution = [{ text: filteredRatings }];
       }
       if (row.badges) {
         const badgeArray = Array.from(row.badges.map(item => `${item.text}`));
         row.badges = [{ text: badgeArray }];
       }
-      if (row.lowestPriceIn30Days){
+      if (row.lowestPriceIn30Days) {
         row.lowestPriceIn30Days = [{ text: 'True' }];
       } else {
         row.lowestPriceIn30Days = [{ text: 'False' }];
+      }
+      if (!row.brandText && row.backupBrand) {
+        row.brandText = [{ text: row.backupBrand[0].text }];
       }
 
       Object.keys(row).forEach(header => row[header].forEach(el => {

@@ -50,6 +50,8 @@ fields:
   - name: description
     singleValue: false
     xpath: //*[@id='feature-bullets']//ul/li[not(@id)]
+  - name: extraDescription
+    xpath: //div[@id="productDescription"]//*[not(@class="disclaim") and not(self::strong)]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
@@ -58,6 +60,9 @@ fields:
     xpath: //a[@id="bylineInfo"]
     regExp: (?:by)? ?(.+)
     regExpReplace: $1
+  - name: backupBrand
+    singleValue: false
+    xpath: //span[contains(text(),"Brand")]//parent::td//following-sibling::td/span
   - name: manufacturer
     singleValue: false
     xpath: //th[contains(text(), 'Manufacturer') and not(contains(text(), "Discontinue")) and not(contains(text(),  "Part"))]/following-sibling::*[1]
@@ -481,12 +486,12 @@ fields:
     regExpReplace: https://amazon.com$1
     defaultValue: none
   - name: customerQuestionsAndAnswers
-    singleValue: true
-    xpath: //div[@id='my-q-and-a']
+    singleValue: false
+    xpath: //span[@class="askTopQandA"]
+    # xpath: //div[@id='my-q-and-a']
   - name: customerQuestionCount
-    singleValue: true
-    xpath: //div[@id='my-q-count']
-    # xpath: count(//span[@class="askTopQandA"]//span[contains(@data-ask-log-click-csm,"top-question")])
+    singleValue: false
+    xpath: count(//span[@class="askTopQandA"]//span[contains(@data-ask-log-click-csm,"top-question")])
   - name: enhancedContent_HTML
     xpath: //div[@id='enh-html']
   - name: arrives
@@ -520,8 +525,8 @@ fields:
     regExp: (.+)
     regExpReplace: https://amazon.com$1
   - name: topReviewsInformation
-    singleValue: true
-    xpath: //div[@id="top-reviews"]
+    singleValue: false
+    xpath: //span[@data-hook="cr-widget-FocalReviews"]
   - name: andonCords
     singleValue: false
     xpath: //div[@id="andonCord_feature_div"]//child::text()
