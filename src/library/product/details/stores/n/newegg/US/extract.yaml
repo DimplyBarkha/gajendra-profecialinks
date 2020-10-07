@@ -40,7 +40,7 @@ fields:
     manualSelector: span#landingpage-stock > span
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@class="product-seller"]
+    xpath: (//div[contains(@class,'product-seller')]/text())[1] | (//div[@class="product-seller"]//a)[1]
   - name: sku
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
@@ -53,9 +53,7 @@ fields:
     regExpReplace: $1
   - name: brandText
     singleValue: false
-    xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
-    regExp: brand":"([^"]+)
-    regExpReplace: $1
+    xpath: //div[contains(@class,'product-view-brand')]//a/@title
   - name: gtin
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]

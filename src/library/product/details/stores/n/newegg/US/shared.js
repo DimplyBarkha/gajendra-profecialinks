@@ -53,12 +53,11 @@ const transform = (data) => {
           text: (text.slice(0, -3)).trim(),
         }];
       }
-      if (row.shippingInfo && row.brandText) {
-        var shipText = row.shippingInfo[0].text.split(':');
-        if (shipText[0]) {
+      if (row.shippingInfo) {
+        if (row.shippingInfo[0].text && row.shippingInfo[1].text) {
           row.shippingInfo = [
             {
-              text: shipText[0] + ':' + row.brandText[0].text,
+              text: row.shippingInfo[0].text + row.shippingInfo[1].text,
             },
           ];
         }
