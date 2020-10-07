@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     description: URL of the main product image
-    xpath: (//div[@class="carousel-item active"]//img/@src)[1]
+    xpath: //div[contains(@class,'slick-vertical')]//div[@class="slick-slide slick-current slick-active"]/div//img//@src
     regExp: (.+)(\?.+)
     regExpReplace: $1
   - name: imageAlt
@@ -121,7 +121,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@class="wc-aplus-body"]//div[@class="wc-rich-content-description"]
+    xpath: //div[@class="wc-text-wrap"]/h3[1] | //div[@class="wc-aplus-body"]//div[@class="wc-rich-content-description"]
   - name: manufacturerImages
     xpath: //div[@class="wc-aplus-body"]//img/@src
     description: Images within the third party description
@@ -206,10 +206,10 @@ fields:
   - name: lbbPrice
     singleValue: true
     description: null
-  - name: featureBullets
-    singleValue: false
-    description: null
-    xpath: //ul[@class="value content"]//li
+  # - name: featureBullets
+  #   singleValue: false
+  #   description: null
+  #   xpath: //ul[@class="value content"]//li
   - name: otherSellersName
     singleValue: false
     description: null
