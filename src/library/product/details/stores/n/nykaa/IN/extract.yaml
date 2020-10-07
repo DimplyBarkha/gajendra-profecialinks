@@ -94,5 +94,5 @@ fields:
     regExp: (\d+)(-Years)
     regExpReplace: $1-Years
   - name: description
-    xpath: //*[contains(@class,"pdp-description-tab-item")]/div/p[1]|//*[contains(@class,"pdp-description-tab-item")]/div//following-sibling::*[(following-sibling::*[contains(.,"Specifications:")])]
+    xpath: //*[contains(@class,"pdp-description-tab-item")]/div/p[1][not(contains(text(),'Additional Information:'))] | //*[contains(@class,"pdp-description-tab-item")]/div//following-sibling::*[(following-sibling::*[contains(.,"Specifications:")])]
     singleValue: false
