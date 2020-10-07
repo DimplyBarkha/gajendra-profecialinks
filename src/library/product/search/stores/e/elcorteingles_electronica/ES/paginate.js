@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'elcorteingles_electronica',
-    loadedSelector: 'img.js_preview_image.lazyloaded',
+    loadedSelector: '.products_list-item:nth-last-child(1)',
     nextLinkSelector: 'li#pagination-next>a',
     domain: 'elcorteingles.es',
   },

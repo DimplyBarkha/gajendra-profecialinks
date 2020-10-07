@@ -5,7 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'elcorteingles_deportes',
     nextLinkSelector: '#pagination-next > a',
-    loadedSelector: 'img.js_preview_image.lazyloaded',
+    loadedSelector: '.products_list-item:nth-last-child(1)',
     zipcode: '',
     domain: 'elcorteingles.es',
   },

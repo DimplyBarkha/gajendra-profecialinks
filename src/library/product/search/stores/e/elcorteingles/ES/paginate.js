@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'elcorteingles',
-    loadedSelector: 'img.js_preview_image.lazyloaded',
+    loadedSelector: '.grid-item:nth-last-child(1)',
     nextLinkSelector: 'li#pagination-next>a',
     domain: 'elcorteingles.es',
   },
