@@ -6,10 +6,19 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
+
+      // let nonAvailableArray
+      // if (row.availabilityText) {
+      //   const availabilityText = row.availabilityText[0].text.trim() === 'Leider ausverkauft' || row.availabilityText[0].text.trim() === 'Demnächst neu im Shop' ? 'Out of stock' : row.availabilityText[0].text.trim() === 'Auf Lager' ? 'In Stock' : '';
+      //   row.availabilityText[0].text = availabilityText;
+      // }
+
       if (row.availabilityText) {
-        const availabilityText = row.availabilityText[0].text.trim() === 'Leider ausverkauft' ? 'Out of stock' : row.availabilityText[0].text.trim() === 'Auf Lager' ? 'In Stock' : '';
+        const availabilityText = row.availabilityText[0].text.trim() === 'Auf Lager' ? 'In stock' : 'Out of stock';
         row.availabilityText[0].text = availabilityText;
       }
+
+
       if (row.gtin) {
         const upcObj = JSON.parse(row.gtin[0].text);
         row.gtin[0].text = upcObj.gtin13;
@@ -81,6 +90,15 @@ const transform = (data) => {
 
       if (row.additionalDescBulletInfo) {
         row.additionalDescBulletInfo[0].text = `|| ${row.additionalDescBulletInfo[0].text}`;
+      }
+
+      if(row.sku) {
+        let skuStr = row.sku[0].text;
+        skuStr = skuStr.replace('var dglDataLayer =', '').trim();
+        skuStr = skuStr.replace(';', '');
+        skuStr = JSON.parse(skuStr);
+        row.sku = [{text: skuStr.master_id}]
+       
       }
     }
   }

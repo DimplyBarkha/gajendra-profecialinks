@@ -31,9 +31,9 @@ fields:
   - name: brandText
     xpath: //span[contains(@class,"rd__product-header__title__brandname")]//a[1] | //span[@class='rd__product-header__title__brand']
   - name: ratingCount
-    xpath: //meta[@itemprop='reviewCount']/@content
+    xpath: //span[contains(@class, 'rd__product-header__rating__count')]/a
   - name: reviewCount
-    xpath: //meta[@itemprop='reviewCount']/@content
+    xpath: //span[contains(@class, 'rd__product-header__rating__count')]/a
   - name: aggregateRating2
     xpath: //*[contains(@id,"webtrekk")]/preceding-sibling::script[1]
   - name: aggregateRating
@@ -44,7 +44,7 @@ fields:
     xpath: //span[contains(@id,"webtrekk")]/preceding-sibling::script[1]
   - name: sku
     singleValue: true
-    xpath: //div[contains(@data-bv-show,"reviews")]/@data-bv-product-id
+    xpath: //head//script[contains(., 'dglDataLayer')]
   - name: variantId
     singleValue: true
     xpath: //script[contains(.,"customExactagConfig")]
