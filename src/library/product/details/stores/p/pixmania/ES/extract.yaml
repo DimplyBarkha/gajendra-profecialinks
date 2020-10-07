@@ -122,7 +122,7 @@ fields:
     singleValue: true
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="-icecat-mini_img"]//img/@src
+    xpath: //div[@class="-icecat-all_imgs"]//div[@class="-icecat-mini_img"]/@data-pic
   - name: videos
     singleValue: true
   - name: internationalShipping
@@ -139,7 +139,7 @@ fields:
     singleValue: true
   - name: specifications
     singleValue: false
-    xpath: (//div[@tab="featureGroups_tpl"])
+    xpath: normalize-space(//div[@tab="featureGroups_tpl"])
   - name: warranty
     singleValue: true
   - name: storage 

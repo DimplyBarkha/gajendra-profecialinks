@@ -40,6 +40,7 @@ module.exports = {
         const script = document.createElement('script');
         script.setAttribute('src', 'https://icecat.biz/stats/scripts/trackLive.js');
         div.append(script);
+        await new Promise(resolve => setTimeout(resolve, 2000));
         const gtin = document.querySelector('[data-flix-ean]').getAttribute('data-flix-ean');
         const response = await fetch(`https://live.icecat.biz/api/html?lang=es&content=title,gallery,featurelogos,essentialinfo,bulletpoints,marketingtext,manuals,reasonstobuy,tours3d,videos,featuregroups,reviews,productstory&version=2.0.0&UserName=v.poezevara&GTIN=${gtin}`);
         const html = await response.text();
