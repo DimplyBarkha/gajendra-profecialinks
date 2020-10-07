@@ -13,7 +13,7 @@ fields:
   - name: _pageTimestamp
   - name: _url
   - name: category
-    xpath: //span[@class="breadcrumb__list"]//span[position()>1] 
+    xpath: //span[@class="breadcrumb__list"]//span[position()>1][position()<last()]
   - name: nameExtended
     xpath: //body/@nameextended
   - name: brandLink
@@ -21,8 +21,9 @@ fields:
   - name: baseUrl
     xpath: //link[@rel="canonical"]/@href
   - name: price
-    singleValue: true
     xpath: //input/@checked/../..//div[@class="product-price__discount"] | //input/@checked/../..//div[@class="product-price__base"] | //div[@class="product-price__discount"] | //div[@class="product-price__base"]
+    regExp: (.*)(.*?),(.*)
+    regExpReplace: $1.$3
   - name: availabilityText
     singleValue: true
     xpath: //button[contains(text(),'Zum Warenkorb hinzufügen')]
