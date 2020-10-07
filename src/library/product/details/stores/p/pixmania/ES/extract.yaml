@@ -93,7 +93,7 @@ fields:
   - name: legalDisclaimer
     singleValue: false
     xpath: //a[@ng-if][contains(text(),"Menciones legales")]
-    regExp: (.*)
+    regExp: (.+)
     regExpReplace: Yes
     defaultValue: Yes
   - name: directions
