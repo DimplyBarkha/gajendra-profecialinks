@@ -49,7 +49,18 @@ module.exports = {
 
     if (isCaptchaFramePresent) {
       try {
-        await context.evaluateInFrame('iframe',
+        const isHardBlocked = await context.evaluateInFrame(
+          captchaSelector,
+          function() {
+            return document.body.innerText.search('You have been blocked') > -1;
+          }
+        );
+        if (isHardBlocked) {
+          console.log('IP is hard blocked');
+          throw new Error('Blocked');
+        }
+        await context.evaluateInFrame(
+          captchaSelector,
           function () {
             // @ts-ignore
             const code = geetest
@@ -72,9 +83,10 @@ module.exports = {
         await new Promise(resolve => setTimeout(resolve, 60000));
         await context.waitForSelector('#produit > div.product_head');
       } catch (error) {
-        console.log('error: NO CPATCHA ENCOUNTER', error);
+        console.log('error: NO CAPTCHA ENCOUNTER', error);
+        if (error.message === 'Blocked')
+          throw error; // TODO what is the correct way to indicate retry from different virtual browser?
       }
-
     }
   },
 };
