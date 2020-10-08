@@ -7,13 +7,13 @@ fields:
     singleValue: true
   - name: image
     singleValue: false
-    xpath: (//div[contains(@class,"slick-slide")][contains(@style,'615px')][not(contains(@class,'slick-cloned'))]/img/@src)[1]
+    xpath: (//div[@class="slick-slide slick-current slick-active"]//img/@src)[1]
   - name: imageAlt
     singleValue: false
-    xpath: (//div[contains(@class,"slick-slide")][contains(@style,'615px')][not(contains(@class,'slick-cloned'))]/img/@alt)[1]
+    xpath: (//div[@class="slick-slide slick-current slick-active"]//img/@alt)[1]
   - name: alternateImages
     singleValue: false
-    xpath: (//div[contains(@class,"slick-slide")][contains(@style,'615px')][not(contains(@class,'slick-cloned'))]/img/@src)[position()>1]
+    xpath: //div[@class="slick-slide slick-active"]/img/@src
   - name: metaKeywords
     singleValue: true
   - name: _pageTimestamp
@@ -45,7 +45,7 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[contains(@class,"product-description-new-price")]/@content
-    regExp: (\d+)(\.)?(\d+)
+    regExp: (\d+)(\.)?(\d+)?
     regExpReplace: €$1,$3
   - name: availabilityText
     singleValue: false
@@ -66,7 +66,7 @@ fields:
   - name: quantity
     singleValue: true
   - name: weightNet
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(.,"Peso")]/following-sibling::div[contains(@class,"icecat-ds_data")]
   - name: weightGross
     singleValue: true
@@ -204,19 +204,19 @@ fields:
   - name: customerServiceAvailability 
     singleValue: false
     xpath: //*[contains(text(),"SERVICIOS")]
-    regExp: (.*)
+    regExp: (.+)
     regExpReplace: Yes
     defaultValue: Yes
   - name: materials
     singleValue: true
   - name: Image360Present
     singleValue: true
-    defaultValue: Yes
+    defaultValue: No
   - name: imageZoomFeaturePresent 
     singleValue: true
     defaultValue: Yes
   - name: productUrl
     singleValue: false
     xpath: ((//ol[@class="breadcrumb"]//li)[position()=last()])/a/@ng-href
-    regExp: (.*)
+    regExp: (.+)
     regExpReplace: https://www.pixmania.es/$1
