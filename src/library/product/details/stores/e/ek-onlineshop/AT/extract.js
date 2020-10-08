@@ -12,13 +12,20 @@ async function implementation (
     return window.location.href;
   });   
 
-  await context.goto('https://media.flixcar.com/delivery/static/inpage/57/js/lazysizes.js');
-    await context.evaluate(async function () {
-      console.log(document.querySelector('h1.next-chapter'));
-    });
-    const text = await context.evaluate(async function () {
-      return document.querySelector('body').innerText;
-    });
+  await context.setBlockAds(false); 
+  await context.setLoadAllResources(true); 
+  await context.setLoadImages(true);
+  await context.setJavaScriptEnabled(true); 
+  await context.setAntiFingerprint(false);
+  await context.setUseRelayProxy(false);
+
+  // await context.goto('https://media.flixcar.com/delivery/static/inpage/57/js/lazysizes.js');
+  //   await context.evaluate(async function () {
+  //     console.log(document.querySelector('h1.next-chapter'));
+  //   });
+  //   const text = await context.evaluate(async function () {
+  //     return document.querySelector('body').innerText;
+  //   });
     // elementID = 'manuf';
     // content = text;
     
