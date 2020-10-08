@@ -14,6 +14,7 @@ async function implementation (
   } catch (error) {
     console.log('cookie pop up not loded', error);
   }
+  await context.evaluate(() =>{ 
   async function infiniteScroll () {
     let prevScroll = document.documentElement.scrollTop;
     while (true) {
@@ -26,7 +27,10 @@ async function implementation (
       prevScroll = currentScroll;
     }
   }
-  await infiniteScroll();
+  infiniteScroll();
+})
+  
+  
   async function paginate () {
     try {
       await context.evaluate(() =>{ 
