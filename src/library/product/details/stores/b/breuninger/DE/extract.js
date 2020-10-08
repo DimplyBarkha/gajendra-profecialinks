@@ -53,10 +53,19 @@ module.exports = {
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
     // manually extracting description
     const description = await context.evaluate(async function () {
-      const descParts = document.querySelectorAll('div>div[class="bewerten-textformat"]>*');
+      const descParts = document.querySelectorAll('header+div[class*="bewerten-produkt-detail"]>div[class="bewerten-textformat"]>*');
       var description = '';
       for (let i = 0; i < descParts.length; i++) {
-        description += descParts[i].innerText;
+        var bulletPoints = descParts[i].querySelectorAll('li');
+        if (bulletPoints.length) {
+          for (let j = 0; j < bulletPoints.length; j++) {
+            description += ' || '
+            description += bulletPoints[j].innerText;
+          }
+        }
+        else {
+          description += descParts[i].innerText;
+        }
       }
       return description;
     });
@@ -68,15 +77,6 @@ module.exports = {
         additionalDescBulletInfo += `|| ${bulletInfoParts[i].innerText} `;
       }
       return additionalDescBulletInfo;
-    });
-    // manually extracting directions
-    const directions = await context.evaluate(async function () {
-      const rawDirections = document.querySelectorAll('section[class*="akkordeon"] p');
-      var directions = '';
-      for (let i = 0; i < rawDirections.length; i++) {
-        directions += rawDirections[i].innerText;
-      }
-      return directions;
     });
     // manually extracting json stored data
     const jsonData = await context.evaluate(async function () {
@@ -128,21 +128,12 @@ module.exports = {
         if (rawSpecifications[i].querySelector('h5').innerText == 'Gewicht') {
           weightNet = rawSpecifications[i].querySelector('p').innerText;
         }
-        specifications += rawSpecifications[i].innerText;
+        specifications += ` || ${rawSpecifications[i].innerText}`;
       }
       return {specifications: specifications, weightNet: weightNet};
     });
     // inserting manually extracted data to output data ref
     var dataRef = await context.data();
-    if (dataRef[0].data[0].group[0]) {
-      console.log('aa');
-    }
-    if (!('directions' in dataRef[0].data[0].group[0])) {
-      dataRef[0].data[0].group[0].directions = [];
-      dataRef[0].data[0].group[0].directions.push({ text: '' });
-    }
-    dataRef[0].data[0].group[0].directions[0].text += '\n';
-    dataRef[0].data[0].group[0].directions[0].text += directions;
     dataRef[0].data[0].group[0].specifications[0].text = iframeData.specifications;
     dataRef[0].data[0].group[0].weightNet = [{ text: iframeData.weightNet }];
     dataRef[0].data[0].group[0].manufacturerDescription[0].text = manufacturerDescImg[0];
