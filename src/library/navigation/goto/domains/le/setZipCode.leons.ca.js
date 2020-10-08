@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -6,14 +6,15 @@ async function implementation(
 ) {
   const { zipcode } = inputs;
   try {
-    await context.waitForSelector('button[id="availability-postal-code"]');
-    await context.click('button[id="availability-postal-code"]');
-    await new Promise(resolve => setTimeout(resolve, 5000))
-    await context.waitForSelector('input[id="postal-code-popup"]');
-    await context.setInputValue('input[id="postal-code-popup"]', zipcode);
-    await context.waitForSelector('button[id="postal-code-confirm"]');
-    await context.click('button[id="postal-code-confirm"]');
-    await new Promise(resolve => setTimeout(resolve, 5000))
+    await context.waitForSelector('a#tablet-store-drop-down');
+    await context.click('a#tablet-store-drop-down');
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    await context.waitForSelector('div[id="tablet-store-pop-over"][style="display: block;"]');
+    await context.setInputValue('input[id="postal-code"]', zipcode);
+    await context.waitForSelector('button[class=btn][data-postal-code-submit]');
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    await context.click('button[class=btn][data-postal-code-submit]');
+    await new Promise(resolve => setTimeout(resolve, 10000));
   } catch (e) {
     console.log('Error: ', e)
   }
