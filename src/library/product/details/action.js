@@ -15,7 +15,7 @@ async function implementation (
   const { URL, RPC, SKU, parentInput } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;
-  const id = (RPC) || ((SKU) || inputs.id);
+  const id = RPC || SKU || inputs.id;
   const resultsReturned = await execute({ url, id, zipcode: parameters.zipcode });
   if (!resultsReturned) {
     console.log('No results returned');

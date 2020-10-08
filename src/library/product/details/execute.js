@@ -11,22 +11,25 @@ async function implementation (
   context,
   dependencies,
 ) {
-  let { url, id, zipcode, storeId } = inputs;
-  if (!url) {
-    if (!id) {
-      throw new Error('no id provided');
-    }
-    url = await dependencies.createUrl({ id });
-  }
-  await dependencies.goto({ url, zipcode, storeId });
+  const { url, id, zipcode, storeId } = inputs;
+  const { loadedSelector, noResultsXPath } = parameters;
 
-  if (parameters.loadedSelector) {
+  if (!url && !id) throw new Error('No id or url provided');
+  const destinationURL = url || await dependencies.createUrl({ id });
+
+  await dependencies.goto({ url: destinationURL, zipcode, storeId });
+
+  if (loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, { timeout: 10000 }, loadedSelector, noResultsXPath);
   }
-
-  // TODO: Check for not found?
+  if (noResultsXPath) {
+    return await context.evaluate((xp) => {
+      const result = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+      return !result;
+    }, noResultsXPath);
+  }
 }
 
 module.exports = {
