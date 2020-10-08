@@ -21,14 +21,14 @@ module.exports = {
       document.body.setAttribute('nameExtended', nameExtended);
       await new Promise(resolve => setTimeout(resolve, 4000));
       let specification = document.querySelector('div.product-detail-content__classifications') ? document.querySelector('div.product-detail-content__classifications').innerText : '';
-      specification = specification.replace('\n', ' ')
-      document.head.setAttribute('specification', specification)
-      let description = document.querySelector('div.product-detail-content__description') ? document.querySelector('div.product-detail-content__description').innerText : '';
+      specification = specification.replace('\n', ' ');
+      document.head.setAttribute('specification', specification);
+      const description = document.querySelector('div.product-detail-content__description') ? document.querySelector('div.product-detail-content__description').innerText : '';
       document.head.setAttribute('description', description);
-      let data = document.querySelector('script[type="application/ld+json"]');
-      let getSku = data.innerText.trim();
-      let sku = (getSku.match(/(.*)sku": "(.*?)"(.*)/g)[0]).match(/(\d+)/g)[0];
-      document.head.setAttribute('sku', sku)
+      const data = document.querySelector('script[type="application/ld+json"]');
+      const getSku = data.innerText.trim();
+      const sku = (getSku.match(/(.*)sku": "(.*?)"(.*)/g)[0]).match(/(\d+)/g)[0];
+      document.head.setAttribute('sku', sku);
       const getOtherInfo = document.querySelector('#react-tabs-2');
       if (getOtherInfo) {
         getOtherInfo.click();
