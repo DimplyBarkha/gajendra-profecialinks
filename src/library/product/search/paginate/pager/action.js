@@ -1,4 +1,3 @@
-
 /**
  *
  * @param {{
@@ -45,21 +44,20 @@ async function implementation (
     return true;
   }
 
-  // if (nextLinkSelector) {
-  //   console.log('Clicking', nextLinkSelector);
-  //   await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 20000 });
-  //   if (loadedSelector) {
-  //     await context.waitForSelector(loadedSelector, { timeout: 20000 });
-  //   }
-  //   return true;
-  // }
+  if (nextLinkSelector) {
+    console.log('Clicking', nextLinkSelector);
+    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 20000 });
+    if (loadedSelector) {
+      await context.waitForSelector(loadedSelector, { timeout: 20000 });
+    }
+    return true;
+  }
   return false;
 }
 
 module.exports = {
   parameters: [],
   inputs: [],
-  dependencies: {
-  },
+  dependencies: {},
   implementation,
 };
