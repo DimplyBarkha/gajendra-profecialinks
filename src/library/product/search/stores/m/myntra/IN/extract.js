@@ -9,7 +9,7 @@ module.exports = {
     domain: 'myntra.com',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
@@ -47,6 +47,6 @@ module.exports = {
       }
       localStorage.setItem('prodCount', `${lastProductPosition + arr.length}`);
     });
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
