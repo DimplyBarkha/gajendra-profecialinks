@@ -40,7 +40,7 @@ module.exports = {
       const allProductsReviews = document.querySelectorAll('div.bv-off-screen');
       let y;
       for (y = 0; allProductsReviews.length > y; y++) {
-        const newAggregateRating = allProductsReviews[y].textContent.replace(/\./, ',');
+        const newAggregateRating = allProductsReviews[y].textContent.replace(/\./, ',').replace(/0,0/, '').replace(/0\.0/, '');
         allProductsReviews[y].textContent = newAggregateRating;
       }
       const allProductsPrice = document.querySelectorAll('div.single_price');
