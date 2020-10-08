@@ -5,8 +5,8 @@ module.exports = {
     country: 'FR',
     store: 'Intermarche',
     domain: 'intermarche.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '[class^="product-price--unit ProductPrice__PriceUnit"]',
+    noResultsXPath: '//*[@id="go_home"]',
     zipcode: '',
   },
 };
