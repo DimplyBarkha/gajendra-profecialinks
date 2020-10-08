@@ -6,7 +6,16 @@ async function implementation (
 ) {
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
-  await dependencies.goto({ url, zipcode: inputs.zipcode });
+  const responseStatus = await context.goto(url, {
+    firstRequestTimeout: 60000,
+    timeout: 60000,
+    waitUntil: 'load',
+    checkBlocked: false,
+  });
+
+  console.log('Status :', responseStatus.status);
+  console.log('URL :', responseStatus.url);
+
   // Check if accept cookies dialog pops up
   const doesAcceptCookiesBtnExists = await context.evaluate(function () {
     return Boolean(document.querySelector('#accept-cookies'));
@@ -81,7 +90,7 @@ module.exports = {
     domain: 'ah.nl',
     url: 'https://www.ah.nl/zoeken?query={searchTerms}',
     loadedSelector: '#search-lane > div[data-testhook="search-lane"]',
-    noResultsXPath: '//div[contains(@data-testhook,"search-no-results")]',
+    noResultsXPath: '//div[contains(@data-testhook,"search-no-results")] | //p[contains(.,"niet ge­von­den")]',
   },
   implementation,
 };
