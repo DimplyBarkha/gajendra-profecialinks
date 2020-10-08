@@ -75,7 +75,8 @@ const transform = (data, context) => {
         pricePerUnit: item => regexTestNReplaceArray(/[{()}]/g, item, { extraRegex: /[\/].*$/g }),
         pricePerUnitUom: item => regexTestNReplaceArray(/[{()}]/g, item, { matchRegex: /([^\/]+$)/g }),
         secondaryImageTotal: item => castToInt(sg(item)),
-        ratingCount: item => castToInt(sg(item)),
+        ratingCount: item => sg(item),
+        color: item => sg(item),
         descriptionBullets: item => castToInt(sg(item)),
       };
 
@@ -119,37 +120,40 @@ const transform = (data, context) => {
       //   const dedupeAsins = [...new Set(asins)];
       //   row.variantAsins = [{ text: joinArray(dedupeAsins) }];
       // }
-      if (row.variantCount && row.variantCount[0]) {
-        if (typeof row.variantCount[0].text !== 'number') {
-          if ((row.variants && row.variants[0])) {
-            if ((row.variantCount[0].text.includes('asinVariationValues') && (row.variantCount[0].text.includes('dimensionValuesData')))) {
-              let jsonStr = row.variantCount[0].text.split('"asinVariationValues" : ')[1].split('"dimensionValuesData" : ')[0];
-              jsonStr = jsonStr.slice(0, -2);
-              const jsonObj = JSON.parse(jsonStr);
-              row.variantCount = [{ text: Object.keys(jsonObj).length }];
-            } else {
-              row.variantCount = [{ text: castToInt(sg(row.variantCount), 1) }];
-            }
-          } else {
-            if (row.variantCount.length > 1) {
-              row.variantCount = [{ text: [...new Set(row.variantCount)].length - 1 }];
-            } else {
-              row.variantCount = [{ text: castToInt(sg(row.variantCount), 1) }];
-            }
-          }
-        } else {
-          row.variantCount = [{ text: castToInt(sg(row.variantCount), 1) }];
-        }
-      }
+      // if (row.variantCount && row.variantCount[0]) {
+      //   if (typeof row.variantCount[0].text !== 'number') {
+      //     if ((row.variants && row.variants[0])) {
+      //       if ((row.variantCount[0].text.includes('asinVariationValues') && (row.variantCount[0].text.includes('dimensionValuesData')))) {
+      //         let jsonStr = row.variantCount[0].text.split('"asinVariationValues" : ')[1].split('"dimensionValuesData" : ')[0];
+      //         jsonStr = jsonStr.slice(0, -2);
+      //         const jsonObj = JSON.parse(jsonStr);
+      //         row.variantCount = [{ text: Object.keys(jsonObj).length }];
+      //       } else {
+      //         row.variantCount = [{ text: castToInt(sg(row.variantCount), 1) }];
+      //       }
+      //     } else {
+      //       if (row.variantCount.length > 1) {
+      //         row.variantCount = [{ text: [...new Set(row.variantCount)].length - 1 }];
+      //       } else {
+      //         row.variantCount = [{ text: castToInt(sg(row.variantCount), 1) }];
+      //       }
+      //     }
+      //   } else {
+      //     row.variantCount = [{ text: castToInt(sg(row.variantCount), 1) }];
+      //   }
+      // }
+      // if (row.variants) {
+      //   const asins = row.variants.reduce((acc, item) => {
+      //     if (item.text) {
+      //       acc.push(item.text);
+      //       return acc;
+      //     }
+      //     return acc;
+      //   }, []);
+      //   row.variants = [{ text: [...new Set(asins)] }];
+      // }
       if (row.variants) {
-        const asins = row.variants.reduce((acc, item) => {
-          if (item.text) {
-            acc.push(item.text);
-            return acc;
-          }
-          return acc;
-        }, []);
-        row.variants = [{ text: [...new Set(asins)] }];
+        row.variantCount = [{ text: row.variants[0].text.split('|').length + 1 }];
       }
       if (row.salesRankCategory) {
         row.salesRankCategory = row.salesRankCategory.map(item => {
@@ -303,6 +307,14 @@ const transform = (data, context) => {
       if (!row.brandText && row.backupBrand) {
         row.brandText = [{ text: row.backupBrand[0].text }];
       }
+      if (!row.shippingWeight && row.dimensions) {
+        const dimText = row.dimensions[0].text;
+        if (dimText.includes(';')) {
+          row.shippingWeight = [{ text: dimText.split(';')[1].trim() }];
+        }
+      }
+      const zoomText = row.imageZoomFeaturePresent ? 'Yes' : 'No';
+      row.imageZoomFeaturePresent = [{ text: zoomText }];
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
