@@ -14,7 +14,7 @@ fields:
     xpath: //img[@alt='Item image']/@src
   - name: price
     singleValue: false
-    manualSelector: span.vl
+    xpath: //div[@class="bin"]/span[@class="vl"] | //div[@class="bin"]/span[@class="fp"]
   - name: searchUrl
     singleValue: false
     xpath: ancestor::html//div[@id='search-url']

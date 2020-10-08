@@ -3,3 +3,8 @@ fields:
   - name: decimalSeperator
     singleValue: false
     defaultValue: AU
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class, 'p-box')]/a/@href
+    regExp: (.*\/)(\d+)(\?.*)
+    regExpReplace: $2

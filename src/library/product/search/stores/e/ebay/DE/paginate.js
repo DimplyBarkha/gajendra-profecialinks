@@ -9,7 +9,6 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'div.tpgv',
     noResultsXPath: '//div[@class="trc"]/span[contains(text(), "0")]',
-    openSearchDefinition: null,
     domain: 'ebay.de',
     zipcode: '',
   },
