@@ -49,7 +49,7 @@ const transform = (data) => {
       }
       if (row.aggregateRating) {
         row.aggregateRating = [{
-          text: row.aggregateRating[0].text.replace('.',',')
+          text: row.aggregateRating[0].text.replace(',','.')
         }]
       }
       if (!row.brandText && row.name) {
