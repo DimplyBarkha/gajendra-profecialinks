@@ -91,6 +91,16 @@ const transform = (data) => {
         skuStr = JSON.parse(skuStr);
         row.sku = [{ text: skuStr.master_id }];
       }
+
+      if (row.nameExtended) {
+        let nameExtended = row.nameExtended[0].text;
+        if (row.variantInformation) {
+          nameExtended += ` ${row.variantInformation[0].text}`;
+        } else if (row.quantity) {
+          nameExtended += ` ${row.quantity[0].text}`;
+        };
+        row.nameExtended = [{ text: nameExtended }];
+      }
     }
   }
 

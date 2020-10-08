@@ -12,7 +12,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"rd__breadcrumbs__item rd__breadcrumbs__item--back")]//following-sibling::a
   - name: nameExtended
-    xpath: concat(//h1//span[@class='rd__copytext rd__copytext--90'], ' ', //span[@class='rd__product-header__title__name'], ' ', //span[@class='rd__product-header__title__classification'], ' ', //div[contains(@class,'rd__product-details__picker-dropdown__collapse-title' ) or contains(@class, 'rd__product-details__options__price__item__quantity')]/span)
+    xpath: concat(//h1//span[@class='rd__copytext rd__copytext--90' or contains(@class, 'rd__product-header__title__brand')], ' ', //span[@class='rd__product-header__title__name'], ' ', //span[@class='rd__product-header__title__classification'])
   - name: price
     xpath: //div[contains(@class,"rd__product-details__options__price__item__amount__new-price")]/span[1]
   - name: availabilityText
@@ -42,7 +42,7 @@ fields:
   - name: aggregateRating
     xpath: //*[contains(@id,"webtrekk")]/preceding-sibling::script[1]
   - name: quantity
-    xpath: //div[@class='rd__product-details__options__price__item__quantity']/span[1]
+    xpath: //div[contains(@class, 'rd__product-details__options__price__item rd__product-details__options__price__item--selected')]//div[@class='rd__product-details__options__price__item__quantity']/span[1]
   - name: gtin
     xpath: //span[contains(@id,"webtrekk")]/preceding-sibling::script[1]
   - name: sku
@@ -68,7 +68,7 @@ fields:
   - name: name
     xpath: //div[contains(@class,"rd__product-header__title__main")]
   - name: variantInformation
-    xpath: //div[@class='rd__product-details__picker-dropdown__collapse-title']//span[contains(@class, 'rd__copytext rd__copytext')] | //div[contains(@class, 'rd__product') and contains(@class, 'rd__product-details__options__price__item--selected') and div[not(co)]]//div[contains(@class, 'rd__product-details__options__price__item__quantity')]//span[contains(@class, 'rd__headline')]
+    xpath: //div[@class='rd__product-details__picker-dropdown__collapse-title']//span[contains(@class, 'rd__copytext rd__copytext')] | //strong[contains(., 'Farbe')]/following-sibling::span
   - name: brandLink
     singleValue: true
     xpath: //span[contains(@class,"rd__product-header__title__brandname")]//a[1]/@href | //span[@class='rd__product-header__title__brand']
