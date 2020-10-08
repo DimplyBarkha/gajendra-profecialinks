@@ -2,7 +2,7 @@ input:
   _url: http://abt.com
   URL: https://www.abt.com/product/136991/Dyson-Pure-Cool-White-Air-Purifier-Tower-30824701.html
 extractions:
-  - html: https://workbench.import.io/html/run=e05d7a47-ec51-43e8-9767-c7b012da2589/task=fcd2d8c2-0b82-47db-a164-fa576f2b0bb3/95d1078d-91db-4bb8-9a5a-d797bfd532bf.html
+  - html: https://workbench.import.io/html/run=b8181341-25b0-4437-98e8-4ef49f008b58/task=ba5c9f77-1887-45de-b963-3b614c793b6c/2234c5d0-764a-4936-80d0-efa9127a9e07.html
     extractionConfigId: product/details/stores/a/abt/US/extract
     data:
       - group:
@@ -35,9 +35,6 @@ extractions:
             nameExtended:
               - text: Dyson Pure+Cool TP01 White Air Purifier Tower - 308247-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[1]/div[1]/h1[1]
-            listPrice:
-              - text: $399.00
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div[2]/div[2]
             availabilityText:
               - text: Out of Stock
                 xpath: /html/body/div[18]
@@ -85,7 +82,7 @@ extractions:
                 xpath: /html/body/div[17]
             brandText:
               - text: Dyson
-                xpath: /html/head[1]/script[20]/@data-flix-brand
+                xpath: /html/head[1]/script[22]/@data-flix-brand
             manufacturer:
               - text: Dyson
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/div[1]/meta[1]/@content
@@ -111,47 +108,28 @@ extractions:
               - text: 308247-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/meta[8]/@content
             ratingCount:
-              - text: "33"
+              - text: "36"
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]
                 type: NUMBER
-                raw: "33"
+                raw: "36"
                 locale: en
-                value: 33
+                value: 36
             aggregateRatingText:
-              - text: 4.0 out of 5 stars
+              - text: 4.1 out of 5 stars
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]
             aggregateRating:
-              - text: "4"
+              - text: "4.1"
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
                 type: NUMBER
-                raw: "4.0"
+                raw: "4.1"
                 locale: en
-                value: 4
+                value: 4.1
             shippingWeight:
               - text: 14 lbs
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[3]/table[1]/tbody[1]/tr[1]/td[1]/ul[4]/li[2]/text()[1]
             color:
               - text: White
                 xpath: /html/body/div[19]
-            manufacturerDescription:
-              - text: From the Manufacturer Powered byIs the information in this section
-                  helpful? Yes / NoDyson Pure Cool purifying fan Additional
-                  Information Filtration 360° filtration system uses activated
-                  carbon to remove gases and odors and a HEPA filter to capture
-                  99.97% pollutants as small as 0.3 microns. Air Multiplier
-                  Technology Amplifies surrounding air, giving an uninterrupted
-                  stream of purified airflow. Dual functionality The Dyson Pure
-                  Cool tower purifying fan purifies year-round. Cooling you when
-                  you need it. Smooth oscillation Projects and circulates
-                  purified air across the room with with your choice between 0
-                  and 70(degree symbol) oscillation Maintenance Safe and easy to
-                  clean with low maintenance, easy-to-replace filters. Remote
-                  Curved and magnetized remote stores neatly on the machine.
-                  Parent Tested Parent ApprovedAwarded the PTPA seal of
-                  approval. The seal of approval families trust.Certified Asthma
-                  and Allergy friendly Certified Asthma and Allergy friendly™ by
-                  the Asthma and Allergy Foundation of America.
-                xpath: /html/body/div[20]
             name:
               - text: Dyson Pure+Cool TP01 White Air Purifier Tower - 308247-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[1]/div[1]/h1[1]
@@ -162,9 +140,6 @@ extractions:
               - text: "Manufacturer Warranty (authorized online retailer): 2 Years Parts and
                   Labor"
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[3]/table[1]/tbody[1]/tr[1]/td[1]/ul[5]
-            promotion:
-              - text: Save $100.00 through 09/26/2020
-                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[2]/div[1]/div[5]
             additionalDescBulletInfo:
               - text: 'Air Multiplier Purifier Fan Technology||Dyson Technology Helps Create A
                   Cleaner, Healthier Home||Second Generation Filter||Certified
@@ -204,7 +179,7 @@ extractions:
             Image360Present:
               - text: No
             price:
-              - text: $299.00
+              - text: $399.00
             descriptionBullets:
               - text: "35"
                 type: NUMBER
@@ -218,4 +193,4 @@ extractions:
                 locale: en
                 value: 0
         xpath: /
-    timestamp: 1600430440250
+    timestamp: 1602149387077
