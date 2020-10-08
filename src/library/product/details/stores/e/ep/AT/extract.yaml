@@ -22,16 +22,16 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class='main-before-columns']/nav[@class='breadcrumb']/ul[@class='breadcrumb-list']/li[@class='breadcrumb-link'][1]/a[@class='breadcrumb-link-a']
+    xpath: //ul[@class='breadcrumb-list']//li[@class='breadcrumb-link']
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class='product-details-panel']/div[@class='product-details-left']/h1[@class='product-details-name']
+    xpath: concat(//@data-brandname,' - ',//h1[@class='product-details-name'])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class='main-right-column']/div[@class='product-details-panel']/div[@class='product-details-right']/div[@class='product-details-prices']/div[@class='product-details-price']/div[@class='rrp product-price-panel-offer']
+    xpath: //div[@class='main-right-column']//div[@class='product-details-panel']//div[@class='product-details-right']//div[@class='product-details-prices']//div[@class='product-details-price']//div[@class='rrp product-price-panel-offer']//div[2]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -42,7 +42,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[@class='product-details-bottom shipment-type-pickup']/div[@class='product-cart-panel default']/form/div[@class='product-cart-deliverymode product-cart-pickup']/div[@class='product-cart-pickup-header']/div[@class='product-cart-pickup-availability']/div[@class='stocklevel green-stock-level']/div
+    xpath: //button[@class='product-cart-add-to-cart-button']
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
