@@ -1,5 +1,25 @@
-extends: ../shared
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //td[@itemscope="itemscope" and @itemtype="http://schema.org/Product"]
 fields:
-  - name: decimalSeperator
+  - name: id
     singleValue: false
-    defaultValue: EU
+    xpath: //a[@itemprop="name"]//@id
+    regExp: src(.*)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: //a[@itemprop="name"]//@title
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@itemprop="name"]//@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@itemprop='image']/@src
+  - name: price
+    singleValue: false
+    xpath: //span[@itemprop='price' and not(contains(@class,'stp'))]
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']

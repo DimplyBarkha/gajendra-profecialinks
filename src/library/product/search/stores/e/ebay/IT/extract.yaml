@@ -1,5 +1,7 @@
-extends: ../shared
+extends: ../shared1
 fields:
-  - name: decimalSeperator
+  - name: id
     singleValue: false
-    defaultValue: EU
+    xpath: //div[@class='title']/a/@href
+    regExp: .*\/(.*)\?.*
+    regExpReplace: $1
