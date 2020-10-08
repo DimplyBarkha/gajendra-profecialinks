@@ -2,7 +2,7 @@ input:
   _url: http://abt.com
   URL: https://www.abt.com/product/121684/Dyson-Pure-Cool-White-Air-Purifier-Tower-31012401.html
 extractions:
-  - html: https://workbench.import.io/html/run=e05d7a47-ec51-43e8-9767-c7b012da2589/task=cfdccc9c-2d4e-4dca-9711-852b256cb718/b781089a-450b-4924-be60-c3fcc9245c4b.html
+  - html: https://workbench.import.io/html/run=b8181341-25b0-4437-98e8-4ef49f008b58/task=4cbfdc70-0d24-499a-9ca6-f22f98a2025f/84d98faf-bdb9-415f-a450-16519ef05926.html
     extractionConfigId: product/details/stores/a/abt/US/extract
     data:
       - group:
@@ -39,6 +39,9 @@ extractions:
             nameExtended:
               - text: Dyson Pure+Cool TP04 White Air Purifier Tower - 310124-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: $549.00
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[2]/div[1]/div[4]/div[2]/div[2]/div[2]
             availabilityText:
               - text: Out of Stock
                 xpath: /html/body/div[21]
@@ -105,7 +108,7 @@ extractions:
                 xpath: /html/body/div[20]
             brandText:
               - text: Dyson
-                xpath: /html/head[1]/script[19]/@data-flix-brand
+                xpath: /html/head[1]/script[21]/@data-flix-brand
             manufacturer:
               - text: Dyson
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/div[1]/meta[1]/@content
@@ -131,12 +134,12 @@ extractions:
               - text: 310124-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/meta[8]/@content
             ratingCount:
-              - text: "44"
+              - text: "46"
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]
                 type: NUMBER
-                raw: "44"
+                raw: "46"
                 locale: en
-                value: 44
+                value: 46
             aggregateRatingText:
               - text: 4.5 out of 5 stars
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]
@@ -153,11 +156,6 @@ extractions:
             color:
               - text: White
                 xpath: /html/body/div[22]
-            manufacturerDescription:
-              - text: From the Manufacturer Powered byIs the information in this section
-                  helpful? Yes / NoDyson Pure Cool Tower TP04 Product Demo
-                  Smokebox Demo Dyson Pure Cool Tower TP04 Overview
-                xpath: /html/body/div[23]
             name:
               - text: Dyson Pure+Cool TP04 White Air Purifier Tower - 310124-01
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[1]/div[1]/h1[1]
@@ -168,6 +166,9 @@ extractions:
               - text: "Manufacturer Warranty (authorized online retailer): Two Years Parts and
                   Labor"
                 xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[4]/ul[1]/li[1]/div[1]/div[3]/table[1]/tbody[1]/tr[1]/td[1]/ul[7]
+            promotion:
+              - text: Save $50.00 through 10/17/2020
+                xpath: /html/body/div[3]/main[1]/div[4]/div[2]/form[1]/div[2]/div[2]/div[1]/div[5]
             additionalDescBulletInfo:
               - text: 'Senses Pollutants In Real Time||Dyson Technology Helps Create A Cleaner,
                   Healthier Home||Captures Pollutants With 360 Degrees Sealed
@@ -222,7 +223,7 @@ extractions:
             Image360Present:
               - text: No
             price:
-              - text: $549.00
+              - text: $499.00
             descriptionBullets:
               - text: "47"
                 type: NUMBER
@@ -236,4 +237,4 @@ extractions:
                 locale: en
                 value: 0
         xpath: /
-    timestamp: 1600430446697
+    timestamp: 1602149382188

@@ -173,9 +173,9 @@ fields:
   - name: lbbPrice
     singleValue: true
   - name: specifications
-    singleValue: true
+    singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id="dimensions"]
+    xpath: //div[@id="specification"]|//div[@id="dimensions"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
