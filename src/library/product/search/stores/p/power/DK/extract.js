@@ -9,7 +9,7 @@ module.exports = {
     domain: 'power.dk',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         const scrollBox = document.querySelector('body');
@@ -64,6 +64,6 @@ module.exports = {
       }
       localStorage.setItem('prodCount', `${lastProductPosition + numberOfProductsOnPage}`);
     });
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
