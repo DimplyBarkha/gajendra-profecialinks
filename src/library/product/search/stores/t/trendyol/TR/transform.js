@@ -38,6 +38,13 @@ const transform = (data, context) => {
           item.text = text;
         });
       }
+      if (row.reviewCount) {
+        let text = '';
+        row.reviewCount.forEach(item => {
+          text = item.text.match(/\d+/g);
+          item.text = text;
+        });
+      }
       if (row.productUrl) {
         let text = '';
         row.productUrl.forEach(item => {
