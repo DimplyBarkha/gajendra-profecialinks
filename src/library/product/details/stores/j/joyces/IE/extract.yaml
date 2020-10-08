@@ -47,12 +47,13 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //meta[@property='og:description']/@content
-  - name: descriptionBulletscount
+    #xpath: //meta[@property='og:description']/@content
+    xpath: //div[@id="added_description"]
+  - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[@id="tab-description"]//ul//li)
+    xpath: count(//div[@id='tab-description']//ul//li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
