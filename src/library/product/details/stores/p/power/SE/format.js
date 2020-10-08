@@ -40,6 +40,28 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.color) {
+        let text = '';
+        row.color.forEach(item => {
+          text += item.text.replace('-', '');
+        });
+        row.color = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text += item.text;
+        });
+        row.manufacturerDescription = [
+          {
+            text: text,
+          },
+        ];
+      }
       if (row.manufacturerImages) {
         const manufacturerImages = [];
         row.manufacturerImages.forEach(item => {

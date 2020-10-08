@@ -146,11 +146,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[contains(@class,"flix-std-desc")]
+    xpath:  //div[contains(@id,"inpage_container")]//text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[contains(@class,"flix-background-image")]/img[contains(@class,"flix-img-responsive")]/@srcset
+    xpath: //div[contains(@id,"inpage_container")]//img/@srcset
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -250,6 +250,7 @@ fields:
     xpath: //pwr-product-specifications//div[@class="row ng-star-inserted"]/div[not(./strong)]
   - name: warranty
     singleValue: false
+    xpath: //div[@class="product-intro-details"]//ul[contains(@class,"product-description-bullets")]/li[contains(text(),'garanti')]
     description: Guarantee associated with the product
   - name: countryOfOrigin
     singleValue: false
