@@ -14,10 +14,11 @@ module.exports = {
     await context.setBypassCSP(true);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
+    await context.setBlockAds(false);
     await context.setFirstRequestTimeout(60000);
     const response = await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
     const errorPage = await context.evaluate(() => {
-      if (document.querySelector('#ctl00_InvalidRequest')) {
+      if ((document.body && document.body.innerText.length === 0) || document.querySelector('#ctl00_InvalidRequest')) {
         return true;
       }
       return false;
