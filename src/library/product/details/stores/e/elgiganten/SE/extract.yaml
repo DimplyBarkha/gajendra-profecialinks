@@ -5,6 +5,7 @@ recordXPath: null
 fields:
   - name: shippingInfo 
     singleValue: false
+    xpath: //div[@class="seller-name-wrapper"]
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="product-price-button-wrap"]
@@ -18,7 +19,7 @@ fields:
     regExpReplace: https://www.elgiganten.se$1?$fullsize$
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,"slick-current")]/img/@alt
+    xpath: //div[contains(@class,"slick-current")]/img/@alt | //img[@class="first-product-image"]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="slick-slide"]/img/@data-lazy
@@ -64,7 +65,7 @@ fields:
     xpath: //span[@itemprop="brand"]/meta/@content | //div[@class="brand-logo"]//img/@alt
   - name: variantCount 
     singleValue: false
-    defaultValue: '1'
+    defaultValue: '0'
   - name: description
     singleValue: false
     manualSelector: div.product-more-info p
@@ -79,10 +80,12 @@ fields:
     xpath: //td[contains(text(),"Färg")]/following-sibling::td
   - name: aggregateRating 
     singleValue: false
-    manualSelector: div.bv_avgRating_component_container
+    xpath: //div[@class="product-ratings__avarage"]
+    # manualSelector: div.bv_avgRating_component_container
   - name: ratingCount
     singleValue: false
-    manualSelector: div.bv_numReviews_component_container
+    xpath: //div[@class="product-ratings__count"]
+    # manualSelector: div.bv_numReviews_component_container
     regExp: (\d+)
     regExpReplace: $1
   - name: name
