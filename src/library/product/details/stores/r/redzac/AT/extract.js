@@ -19,8 +19,11 @@ module.exports = {
     // await context.waitForSelector(
     //   '#product_detail_image_wrapper__details_image_container > picture > source:nth-child(1)',
     // );
+    // await context.waitForSelector(
+    //   '#dyson_jump_features div.inpage_ftgridtext, .inpage_selector_header',
+    // );
     await context.waitForSelector(
-      '#dyson_jump_features div.inpage_ftgridtext',
+      '.mlayout_page_wrapper',
     );
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
@@ -75,7 +78,7 @@ module.exports = {
       // manufacturerImgs.forEach(img => { manufacturerImages.push('https:' + img.srcset); });
       // if (manufacturerImages) addElementToDocument('manufacturerImages', manufacturerImages.toString());
 
-      let manufacturerImages = document.querySelector('#inpage_container div.dyson_visual img') ? `https:${document.querySelector('#inpage_container div.dyson_visual img').srcset}` : '';
+      const manufacturerImages = document.querySelector('#inpage_container div.dyson_visual img') ? `https:${document.querySelector('#inpage_container div.dyson_visual img').srcset}` : '';
       if (manufacturerImages !== 'https:') addElementToDocument('manufacturerImages', manufacturerImages);
       // adding sub_category
       let subCategoryAll = document.querySelectorAll('#page_transition_container  .mlayout_breadcrumb a') ? [...document.querySelectorAll('#page_transition_container  .mlayout_breadcrumb a')] : '';
@@ -85,9 +88,10 @@ module.exports = {
       const sub_category = a.join('>');
       if (sub_category) addElementToDocument('sub_category', sub_category);
 
-      // adding nameExtended
-      const nameExtended = document.querySelector('#objectView_page .product_name') ? `${document.querySelector('[data-flix-brand]').dataset.flixBrand} - ${document.querySelector('#objectView_page .product_name').innerText}` : '';
-      if (nameExtended) addElementToDocument('nameExtended', nameExtended);
+      let nameExtended = '';
+      if (document.querySelector('#objectView_page .product_name') && document.querySelector('[data-flix-brand]')) {
+        nameExtended = `${document.querySelector('[data-flix-brand]').dataset.flixBrand} - ${document.querySelector('#objectView_page .product_name').innerText}`;
+      };
 
       // adding listPrice
       const listPrice = document.querySelector('.product_price_saving') ? document.getElementById('block$price$product').querySelector('span').innerText : '';
@@ -95,16 +99,16 @@ module.exports = {
 
       // adding additionalDescBulletInfo
       const bullets = document.querySelectorAll('#objectView_page .product_main_facts li') ? document.querySelectorAll('#objectView_page .product_main_facts li') : '';
-      let bulletsArr = [];
-      if (bullets) {bullets.forEach(bullet => bulletsArr.push(bullet.innerText))}
+      const bulletsArr = [];
+      if (bullets) { bullets.forEach(bullet => bulletsArr.push(bullet.innerText)); }
       additionalDescBulletInfo = '';
-      bulletsArr.forEach(elem => {additionalDescBulletInfo += (`|| ${elem}`);})
+      bulletsArr.forEach(elem => { additionalDescBulletInfo += (`|| ${elem}`); });
       if (additionalDescBulletInfo) addElementToDocument('additionalDescBulletInfo', additionalDescBulletInfo);
 
       // adding description
       let description = document.querySelector('#ci_description1_content') ? document.querySelector('#ci_description1_content').innerText : '';
       if (description) {
-        if (additionalDescBulletInfo) {description = `${additionalDescBulletInfo} || ${description}`}
+        if (additionalDescBulletInfo) { description = `${additionalDescBulletInfo} || ${description}`; }
       } else {
         description = additionalDescBulletInfo;
       }
@@ -112,15 +116,13 @@ module.exports = {
 
       // adding manufacturerDescription
       const manufacturerDescriptionArr = document.querySelectorAll('#dyson_jump_features div.inpage_ftgridtext') ? [...document.querySelectorAll('#dyson_jump_features div.inpage_ftgridtext')] : '';
-      if (manufacturerDescriptionArr){
-        manufacturerDescriptionArr.forEach((elem, index, arr)=> {
-          arr[index] = elem.innerText
-        })
+      if (manufacturerDescriptionArr) {
+        manufacturerDescriptionArr.forEach((elem, index, arr) => {
+          arr[index] = elem.innerText;
+        });
       }
-      let manufacturerDescription = manufacturerDescriptionArr.join(' ');
+      const manufacturerDescription = manufacturerDescriptionArr.join(' ');
       if (manufacturerDescription) addElementToDocument('manufacturerDescription', manufacturerDescription);
-
-
     });
     await context.extract(productDetails);
   },
