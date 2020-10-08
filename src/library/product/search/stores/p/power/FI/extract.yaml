@@ -6,7 +6,7 @@ fields:
   - name: id
     description: Unique id (within this extractor)
     xpath: //a[@class="product__link"]/@href
-    regExp: (\/.*)\/(.+)\/$
+    regExp: (\/.*)\/p-(.+)\/$
     regExpReplace: $2
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
