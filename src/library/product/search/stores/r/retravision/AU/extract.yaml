@@ -1,48 +1,48 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id='instant-search-results-container']//div[@id='ais-hits']//div[contains(@class,'ais-hit')]
+recordXPath: //div[@id='instant-search-results-container']//div[contains(@class,'ais-hit')]//div[contains(@class,'ais-hit item product')]
 fields:
   - name: id
     xpath: //div[contains(@class,'product-sku-code')]
-    singleValue: true
+    singleValue: false
   - name: manufacturer
     xpath: //div[contains(@class,'manufacturer-logo')]//img//@alt
-    singleValue: true      
+    singleValue: false      
   - name: price
     xpath: //span[contains(@class,'regular-price')]//span
-    singleValue: true 
+    singleValue: false 
   - name: rankOrganic
-    singleValue: true 
+    singleValue: false 
   - name: aggregateRating  
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'product-item-info')]//a[@itemprop="aggregateRating"]
     regExp: ([^()^\s]+)
     defaultValue: '0'
   - name: reviewCount  
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'product-item-info')]//a[@itemprop="aggregateRating"]
     regExp: \(([0-9]+?)\)
     defaultValue: '0'
     type: NUMBER
   - name: ratingCount  
     xpath: //div[contains(@class,'product-item-info')]//a[@itemprop="aggregateRating"]
-    singleValue: true
+    singleValue: false
     regExp: ([^()^\s]+)
     defaultValue: '0'
   - name: rank
-    singleValue: true
+    singleValue: false
     description: search/listing rank
     type: NUMBER
   - name: sponsored
-    singleValue: true
+    singleValue: false
     description: search/listing rank
   - name: productUrl
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='item-area']//div//h2[@class='product-name']/a/@href
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='product-visual']//div[@class='product-image-area']/a/img/@src
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='item-area']//div//h2[@class='product-name']/a
