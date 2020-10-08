@@ -34,7 +34,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
-    xpath: //div[@id="deliveryInformation"]/ul/li[contains(@class,"home")]//img/@title
+    xpath: /html[//input[@class="btnbuyreserve"]]//div[@id="deliveryInformation"]/ul/li[contains(@class,"home")]//img/@title
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
