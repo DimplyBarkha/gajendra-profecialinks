@@ -66,10 +66,7 @@ module.exports = {
           }
         }
         const url = window.location.href;
-        // const splits = url ? url.split('?')[0].split('/') : [];
-        // const id = (splits.length > 1) ? splits[splits.length - 2] : '';
-        // addHiddenDiv('added-sku', id);
-        const id = url.replace(/[^\d]/g, ''); 
+        const id = url.replace(/[^\d]/g, '');
         addHiddenDiv('added-sku', id);
         const sellerUrl = `https://www.walmart.com/product/${id}/sellers`;
         const result = await getSellerInformation(sellerUrl);
@@ -84,14 +81,8 @@ module.exports = {
     await context.waitForXPath("//p[@class='Directions']", { timeout: 6000 })
       .catch(() => console.log('no directions present'));
 
-    await context.waitForXPath("//div[contains(@class,'about-desc')]/ul | //div[contains(@class,'about-item')]/div", { timeout: 30000 })
-      .catch(() => console.log('no desc for item'));
-
     await context.waitForXPath('(//div[contains(@class,"prod-alt-image")]/img/@src)[position()!=1]', { timeout: 6000 })
       .catch(() => console.log('no alt Images'));
-
-    await context.waitForXPath("//li//img[contains(@alt,'Shop at')]", { timeout: 30000 })
-      .catch(() => console.log('Wait complete'));
 
     await context.click('body');
 
@@ -123,30 +114,6 @@ module.exports = {
       await context.click('ul.persistent-subnav-list li[data-automation-id=tab-item-0]', { timeout: 3000 })
         .catch(() => console.log('no specTab'));
     }
-
-    // let scrollTop = 0;
-    // while (scrollTop !== 20000) {
-    //   try {
-    //     scrollTop += 1000;
-    //     await context.waitForFunction(async function (scrollTop) {
-    //       console.log("SCROLLING");
-    //       window.scroll(0, scrollTop);
-    //     }, { timeout: 1000 }, scrollTop)
-    //   } catch (err) {
-    //     console.log("Failed")
-    //   }
-    //   if (scrollTop === 20000) {
-    //     break;
-    //   }
-    // }
-    // try {
-    //   await context.waitForFunction(async function(){
-    //     console.log('Scrolling to the bottom')
-    //     window.scrollTo(0, document.body.scrollHeight);
-    //   }, { timeout:6000 });
-    // } catch(err){
-    //   console.log('Scrolling finished')
-    // }
 
     // Iframe logic for aplus_images & enhanced_content if not picked up in API:
     await context.evaluate(async () => {

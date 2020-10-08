@@ -46,6 +46,22 @@ const transform = (data, context) => {
         if (row.lbb) {
           if (row.lbb[0] && row.lbb[0].text.includes('Walmart')) {
             row.lbb = [{ text: 'No' }];
+          } else if (row.otherSellersName && row.otherSellersPrice) {
+            if (!row.otherSellersName.map(item => item.text).join(' ').includes('Walmart')) {
+              row.lbb = [{ text: 'No' }];
+            } else {
+            // check if Walmart has lowest price || fastest shipping, 'No' if so, otherwise 'Yes'
+              const walmartIdx = row.otherSellersName.map(item => item.text).indexOf('Walmart');
+              const allPrices = row.otherSellersPrice.map(item => parseFloat(item.text.replace('$', '')));
+
+              const walmartPrice = allPrices[walmartIdx];
+              const walmartisNotLowest = (Math.min(...allPrices) !== walmartPrice) ? 'Yes' : 'No';
+
+              row.lbb = [{ text: walmartisNotLowest }];
+              if (walmartisNotLowest === 'Yes') {
+                row.lbbPrice = [{ text: Math.min(...allPrices) }];
+              }
+            }
           } else {
             row.lbb = [{ text: 'Yes' }];
           }
