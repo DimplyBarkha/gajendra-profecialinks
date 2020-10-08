@@ -9,14 +9,8 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, { timeout }, context, dependencies) => {
-    url = `${url}#[!opt!]{"block_ads":false,"load_timeout":60,"load_all_resources":true,"cookie_jar":[{"name":"BedBathUS1ntsh1","value":"US:USD"}]}[/!opt!]`;
-    timeout = timeout || 10000;
-    await context.setBypassCSP(true);
-    await context.setLoadAllResources(true);
-    await context.setLoadImages(true);
-    await context.setBlockAds(false);
-    await context.setFirstRequestTimeout(60000);
-    const response = await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
+    url = `${url}#[!opt!]{"force200": true}[/!opt!]`;
+    const response = await context.goto(url);
     const errorPage = await context.evaluate(() => {
       if ((document.body && document.body.innerText.length === 0) || document.querySelector('#ctl00_InvalidRequest')) {
         return true;
