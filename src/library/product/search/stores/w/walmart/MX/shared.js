@@ -42,13 +42,32 @@ const transform = (data, context) => {
             }
           });
         }
-        // if (row.id) {
-        //   row.id.forEach(item => {
-        //     item.text= item.text.split('/');
-        //     let length = item.text.length;
-        //     item.text = item.text[length -1];
-        //   });
-        // } 
+        if (row.id) {
+          row.id.forEach(item => {
+            let arr= item.text.split('_');
+            let length = arr.length;
+            item.text = arr[length -1];
+          });
+        }
+        if(row.name){
+          let brandN = '';
+          row.name.forEach(item => {
+            brandN = item.text.split(' ')[0];
+          });
+          if (row.brand) {
+            row.brand.forEach(item => {
+              if(item.text === 'BRAND'){
+              item.text =  brandN;
+              }
+            });
+          }     
+        } 
+        
+        if (row.nameExtended) {
+          row.nameExtended.forEach(item => {
+            item.text = item.text.trim();
+          });
+        }
       }
     }
     return data;
