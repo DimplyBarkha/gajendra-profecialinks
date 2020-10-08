@@ -10,7 +10,7 @@ module.exports = {
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await context.waitForSelector('#product-information-tabs > div:nth-child(1) > div > i');
     await context.waitForSelector('#product-intro pwr-product-stock-label');
     await context.click('#product-information-tabs > div:nth-child(1) > div > i');
@@ -175,6 +175,6 @@ module.exports = {
         ? document.querySelector('div.product-intro-details button[itemprop="ratingValue"]').innerText : '';
       if (aggRating) addElementToDocument('aggRating', aggRating.replace(/\./g, ','));
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform });
   },
 };

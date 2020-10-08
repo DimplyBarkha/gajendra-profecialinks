@@ -2,19 +2,16 @@ input:
   _url: http://power.no
   URL: https://www.power.no/hjem-og-fritid/stoevsuger-og-rengjoering/tilbehoer-til-stoevsuger-og-rengjoering/annet-tilbehoer/dyson-v781011-tilbehoerspakke/p-616295/
 extractions:
-  - html: https://workbench.import.io/html/run=84064547-a726-42f1-9587-3c6596956f59/task=606ac0d4-cf64-4579-a5f3-1e9f01a6939e/02e91d9d-e000-499a-b4b1-b84bdd5bee03.html
+  - html: https://workbench.import.io/html/run=3e88922a-0466-4a10-8c22-cb142c0606fb/task=42f44764-93a6-447b-85b6-e5f4d3cec82c/811ed294-e6b2-4566-8257-9822cecbe1b0.html
     extractionConfigId: product/details/stores/p/power/NO/extract
     data:
       - group:
           - image:
-              - text: https://media.power-cdn.net/images/h-b15fdfa0fabfd9c6c3b1d1f9bb926845/products/616295/616295_1_600x600_w_g.jpg
-                xpath: /html/body/div[6]
+              - text: https://media.power-cdn.net/images/h-5591e3d0de526d71dc16e1a19ed7277c/products/616295/616295_2_600x600_w_g.jpg
+                xpath: /html/body/div[9]
             imageAlt:
               - text: DYSON V7/8/10/11 TILBEHØRSPAKKE
-                xpath: /html/body/div[9]
-            alternateImages:
-              - text: https://media.power-cdn.net/images/h-d2b0046e9bb135bf5017e63e20008a66/products/616295/616295_2_600x600_w_g.jpg
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[11]
             category:
               - text: Hjem og fritid
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
@@ -22,39 +19,24 @@ extractions:
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
               - text: Tilbehør til støvsuger og rengjøring
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[4]
-              - text: Annet tilbehør
+              - text: Munnstykker
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[5]
             price:
               - text: 799.00 NOK
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[10]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[12]
             description:
               - text: "|| Passer til: Dyson V7 + V8 + V10 || Tilbehørsdeler: 4 stk. || Perfekt
                   til bilen"
-                xpath: /html/body/div[21]
-            brandText:
-              - text: Dyson
-                xpath: /html/body/div[10]
-            weightNet:
-              - text: 0,480 kg
-                xpath: /html/body/div[14]
-            gtin:
-              - text: "5025155028438"
-                xpath: /html/body/div[11]
-            eangtin:
-              - text: "5025155028438"
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[17]
             sku:
               - text: "616295"
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
             variantId:
               - text: "616295"
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
-            mpc:
-              - text: 967768-02
-                xpath: /html/body/div[16]
             ratingCount:
               - text: "7"
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/meta[1]/@content
@@ -64,15 +46,9 @@ extractions:
                 value: 7
             aggregateRating:
               - text: 4,6
-                xpath: /html/body/div[25]
+                xpath: /html/body/div[19]
             shippingInfo:
               - text: Fraktpriser fra 79,-Alltid fri frakt til POWER-butikk
-                xpath: /html/body/div[17]
-            shippingDimensions:
-              - text: 375,0 x 287,0 x 80,0 mm
-                xpath: /html/body/div[15]
-            color:
-              - text: Grå
                 xpath: /html/body/div[13]
             manufacturerDescription:
               - text: Ekstra tilbehør til din trådløse rengjøring - perfekt for bilen og
@@ -82,22 +58,14 @@ extractions:
                   møbler.Munnstykke til grovt smuss - Munnstykke med solide
                   børster som forgrenet smuss som gjørmeEkstra bred dyse -
                   Perfekt for møbler.
-                xpath: /html/body/div[19]
+                xpath: /html/body/div[15]
             name:
               - text: DYSON V7/8/10/11 TILBEHØRSPAKKE
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h1[1]
-            specifications:
-              - text: Produsent Dyson Leverandørens ID 967768-02 || Design og utforming
-                  Materiale Plast Primærfarge Grå Sekundærfarger Rød || Øvrige
-                  spesifikasjoner Varenummer DYTOOLKITV1 EAN 5025155028438
-                  Nettomål uten emballasje (D x B x H) 300,0 x 153,0 x 76,0 mm
-                  Bruttomål med emballasje (D x B x H) 375,0 x 287,0 x 80,0 mm
-                  Nettovekt 0,480 kg Artikkel ID 616295
-                xpath: /html/body/div[20]
             additionalDescBulletInfo:
               - text: "|| Passer til: Dyson V7 + V8 + V10 || Tilbehørsdeler: 4 stk. || Perfekt
                   til bilen"
-                xpath: /html/body/div[21]
+                xpath: /html/body/div[17]
             nameExtended:
               - text: DYSON V7/8/10/11 TILBEHØRSPAKKE - 616295
             descriptionBullets:
@@ -113,4 +81,4 @@ extractions:
             Image360Present:
               - text: No
         xpath: /html
-    timestamp: 1600791043533
+    timestamp: 1602169644571
