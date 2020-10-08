@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'retravision',
-    nextLinkSelector: 'li.ais-pagination--item__next > a',
+    // nextLinkSelector: 'li.ais-pagination--item__next > a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div#instant-search-results-container > div.ais-hits',
