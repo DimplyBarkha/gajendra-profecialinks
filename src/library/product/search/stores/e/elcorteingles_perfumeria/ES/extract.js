@@ -1,17 +1,5 @@
 const { transform } = require('../../../../shared');
-async function implementation (
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  const { transform } = parameters;
-  const { productDetails } = dependencies;
-  console.log('waiting for 10000');
-  await new Promise((resolve, reject) => setTimeout(resolve, 90000));
-  return await context.extract(productDetails, { transform });
-}
-
+// const createSearchUrl = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -32,10 +20,13 @@ module.exports = {
       newElement.setAttribute('class', 'page-link');
       newElement.innerHTML = window.location.href;
       document.body.appendChild(newElement);
+      const productTiles = document.querySelectorAll('.products_list-item');
+      productTiles.forEach((tile) => {
+        tile.scrollIntoView();
+      });
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
     return await context.extract(productDetails, { transform });
   },
-
 };

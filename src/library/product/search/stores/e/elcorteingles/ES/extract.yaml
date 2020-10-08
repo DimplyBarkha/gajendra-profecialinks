@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ul[contains(@class,"products_list")]/li
 fields:
   - name: id
     xpath: //div[contains(@class,"js-product")]/@data-product-id
@@ -30,3 +30,5 @@ fields:
   - name: rankOrganic
   - name: sponsored
     defaultValue: false
+  - name: searchUrl
+    xpath: ancestor::html//*[contains(@class,"page-link")]
