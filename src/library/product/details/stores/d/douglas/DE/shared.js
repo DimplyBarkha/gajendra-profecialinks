@@ -6,23 +6,16 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-
-      // let nonAvailableArray
-      // if (row.availabilityText) {
-      //   const availabilityText = row.availabilityText[0].text.trim() === 'Leider ausverkauft' || row.availabilityText[0].text.trim() === 'Demnächst neu im Shop' ? 'Out of stock' : row.availabilityText[0].text.trim() === 'Auf Lager' ? 'In Stock' : '';
-      //   row.availabilityText[0].text = availabilityText;
-      // }
-
       if (row.availabilityText) {
         const availabilityText = row.availabilityText[0].text.trim() === 'Auf Lager' ? 'In stock' : 'Out of stock';
         row.availabilityText[0].text = availabilityText;
       }
 
-
       if (row.gtin) {
         const upcObj = JSON.parse(row.gtin[0].text);
         row.gtin[0].text = upcObj.gtin13;
       }
+
       if (row.variantId) {
         const productInfo = row.variantId[0].text;
         const referenceText = 'window.customExactagConfig =';
@@ -34,7 +27,7 @@ const transform = (data) => {
         const aggregateRating2 = row.aggregateRating[0].text;
         const ratingValue = JSON.parse(aggregateRating2);
         if (ratingValue && ratingValue.aggregateRating && ratingValue.aggregateRating.ratingValue !== null) {
-          row.aggregateRating[0].text = JSON.parse(aggregateRating2).aggregateRating.ratingValue.toFixed(1).toString().replace('.', ',')
+          row.aggregateRating[0].text = JSON.parse(aggregateRating2).aggregateRating.ratingValue.toFixed(1).toString().replace('.', ',');
         } else {
           delete row.aggregateRating;
         }
@@ -44,14 +37,14 @@ const transform = (data) => {
         const aggregateRating2 = row.aggregateRating2[0].text;
         const ratingValue = JSON.parse(aggregateRating2);
         if (ratingValue && ratingValue.aggregateRating && ratingValue.aggregateRating.ratingValue !== null) {
-          row.aggregateRating2[0].text = JSON.parse(aggregateRating2).aggregateRating.ratingValue.toFixed(1).toString().replace('.', ',')
+          row.aggregateRating2[0].text = JSON.parse(aggregateRating2).aggregateRating.ratingValue.toFixed(1).toString().replace('.', ',');
         } else {
           delete row.aggregateRating2;
         }
       }
 
       if (row.manufacturerDescription) {
-        var finalDescription = ''
+        var finalDescription = '';
         for (const description of row.manufacturerDescription) {
           finalDescription += ' ' + description.text;
         }
@@ -70,17 +63,16 @@ const transform = (data) => {
         });
         row.descriptionChunck = [
           {
-            text: text.trim()
+            text: text.trim(),
           },
         ];
       }
 
       if (row.description) {
-        let text = '';
         row.description[0].text = `|| ${row.description[0].text}`;
 
         if (row.descriptionChunck) {
-          row.description[row.description.length - 1].text = `${row.description[row.description.length - 1].text} ${row.descriptionChunck[0].text}`
+          row.description[row.description.length - 1].text = `${row.description[row.description.length - 1].text} ${row.descriptionChunck[0].text}`;
         }
 
         if (row.descriptionliChunck) {
@@ -92,13 +84,12 @@ const transform = (data) => {
         row.additionalDescBulletInfo[0].text = `|| ${row.additionalDescBulletInfo[0].text}`;
       }
 
-      if(row.sku) {
+      if (row.sku) {
         let skuStr = row.sku[0].text;
         skuStr = skuStr.replace('var dglDataLayer =', '').trim();
         skuStr = skuStr.replace(';', '');
         skuStr = JSON.parse(skuStr);
-        row.sku = [{text: skuStr.master_id}]
-       
+        row.sku = [{ text: skuStr.master_id }];
       }
     }
   }

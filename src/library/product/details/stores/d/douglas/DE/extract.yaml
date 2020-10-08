@@ -5,6 +5,9 @@ recordXPath: null
 fields:
   - name: image
     xpath: //div[@id='product_main_image']
+    regExp: >-
+      (.+)imwidth=720
+    regExpReplace: $1imwidth=900
   - name: category
     singleValue: false
     xpath: //div[contains(@class,"rd__breadcrumbs__item rd__breadcrumbs__item--back")]//following-sibling::a

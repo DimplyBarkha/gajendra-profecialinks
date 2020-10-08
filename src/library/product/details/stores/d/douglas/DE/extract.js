@@ -20,24 +20,24 @@ module.exports = {
     productDetails,
   }) => {
     await context.evaluate(async function () {
-      const activeImageXpath = "//div[contains(@class,'rd__product-details-gallery__container is-active')]";
-      const activeImage = document.evaluate(activeImageXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      if (activeImage) {
-        const imgAlternate = document.querySelector('div.rd__product-details-gallery__container.is-active img').getAttribute('alt');
-        addHiddenDiv('img-alt', imgAlternate);
-      }
-      const mainImageXpath = "//div[contains(@class, 'rd__product-details-gallery--horizontal')]//img | //div[contains(@class,'rd__product-details-gallery__container') and contains(@class, 'is-active')]//img";
-      const mainImage = document.evaluate(mainImageXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      if (mainImage) {
-        const imgSrc = mainImage.getAttribute('src');
-        addHiddenDiv('product_main_image', imgSrc);
-      }
+      // const activeImageXpath = "//div[contains(@class,'rd__product-details-gallery__container is-active')]";
+      // const activeImage = document.evaluate(activeImageXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      // if (activeImage) {
+      //   const imgAlternate = document.querySelector('div.rd__product-details-gallery__container.is-active img').getAttribute('alt');
+      //   addHiddenDiv('img-alt', imgAlternate);
+      // }
+      // const mainImageXpath = "//div[contains(@class, 'rd__product-details-gallery--horizontal')]//img | //div[contains(@class,'rd__product-details-gallery__container') and contains(@class, 'is-active')]//img";
+      // const mainImage = document.evaluate(mainImageXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      // if (mainImage) {
+      //   const imgSrc = mainImage.getAttribute('src');
+      //   addHiddenDiv('product_main_image', imgSrc);
+      // }
 
-      const videoXpath = "//span[contains(@data-wt-content, 'Video.www.douglas.de')]";
-      const videoEle = document.evaluate(videoXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      if (videoEle) {
-        videoEle.click();
-      }
+      // const videoXpath = "//span[contains(@data-wt-content, 'Video.www.douglas.de')]";
+      // const videoEle = document.evaluate(videoXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      // if (videoEle) {
+      //   videoEle.click();
+      // }
 
       function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
@@ -55,13 +55,13 @@ module.exports = {
         const initialVariant = document.querySelector('div.rd__product-details__picker-dropdown__collapse-title  img');
         if (initialVariant !== null) {
           const initialVariantIdentifier = initialVariant.getAttribute('alt');
-          initialVairantTobeClicked = getEleByXpath(`//div[@data-wt-content="changeVariantColor"]//img[contains(@alt, '${initialVariantIdentifier}')]`)
+          initialVairantTobeClicked = getEleByXpath(`//div[@data-wt-content="changeVariantColor"]//img[contains(@alt, '${initialVariantIdentifier}')]`);
         }
 
         const variants = variantContainerLeftPan.querySelectorAll('div.rd__product-details__picker__list__item');
         for (var i = 0; i < variants.length; i++) {
           variants[i].click();
-          addHiddenDiv('variantId', window.location.href)
+          addHiddenDiv('variantId', window.location.href);
         }
 
         if (initialVairantTobeClicked !== null) {
@@ -76,7 +76,7 @@ module.exports = {
         const variants = variantContainerRightPan.querySelectorAll('div.rd__product-details__options__price__item');
         for (var i = 0; i < variants.length; i++) {
           variants[i].click();
-          addHiddenDiv('variantId', window.location.href)
+          addHiddenDiv('variantId', window.location.href);
         }
 
         if (initialVairantTobeClicked !== null) {
@@ -87,6 +87,25 @@ module.exports = {
       function getEleByXpath(xpath) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         return element;
+      }
+
+      const activeImageXpath = "//div[contains(@class,'rd__product-details-gallery__container is-active')]";
+      const activeImage = document.evaluate(activeImageXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (activeImage) {
+        const imgAlternate = document.querySelector('div.rd__product-details-gallery__container.is-active img').getAttribute('alt');
+        addHiddenDiv('img-alt', imgAlternate);
+      }
+      const mainImageXpath = "//div[contains(@class, 'rd__product-details-gallery--horizontal')]//img | //div[contains(@class,'rd__product-details-gallery__container') and contains(@class, 'is-active')]//img";
+      const mainImage = document.evaluate(mainImageXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (mainImage) {
+        const imgSrc = mainImage.getAttribute('src');
+        addHiddenDiv('product_main_image', imgSrc);
+      }
+
+      const videoXpath = "//span[contains(@data-wt-content, 'Video.www.douglas.de')]";
+      const videoEle = document.evaluate(videoXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (videoEle) {
+        videoEle.click();
       }
 
       function stall(ms) {
