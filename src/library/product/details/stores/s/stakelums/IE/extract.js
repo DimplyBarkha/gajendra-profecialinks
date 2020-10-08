@@ -8,7 +8,7 @@ module.exports = {
     domain: 'stakelums.ie',
     zipcode: '',
   },
-  implementation: async function implementation(
+  implementation: async function implementation (
     inputs,
     parameters,
     context,
@@ -81,11 +81,10 @@ module.exports = {
       }
       const productReviewXpath = "//div[@class='product_review']//span/@class";
       const productReview = getAllXpath(productReviewXpath, 'nodeValue');
-      const ratingCount = parseInt(productReview.toString().substring(productReview.toString().lastIndexOf("_") + 1));
+      const ratingCount = parseInt(productReview.toString().substring(productReview.toString().lastIndexOf('_') + 1));
       if (ratingCount !== 0 && ratingCount > 9) {
         addHiddenDiv('aggregate_rating', ratingCount / 10);
-      }
-      else {
+      } else {
         addHiddenDiv('aggregate_rating', ratingCount);
       }
       addHiddenDiv('added_variantCount', 0);
@@ -120,12 +119,10 @@ module.exports = {
         const weightXpathOption3 = getXpath("//div[@class='tabs-content']//p[contains(text(),'Weight')]", 'innerText');
         if (weightXpathOption1 !== null) {
           addHiddenDiv('product_weight', weightXpathOption1 + ' Kg');
-        }
-        else if (weightXpathOption2 !== null) {
-          const weightData = weightXpathOption2.toString().trim().split(":");
+        } else if (weightXpathOption2 !== null) {
+          const weightData = weightXpathOption2.toString().trim().split(':');
           addHiddenDiv('product_weight', weightData[1]);
-        }
-        else if (weightXpathOption3 !== null) {
+        } else if (weightXpathOption3 !== null) {
           const weightData = weightXpathOption3.toString().trim().split(':');
           addHiddenDiv('product_weight', weightData[1]);
         }

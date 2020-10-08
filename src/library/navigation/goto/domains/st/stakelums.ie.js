@@ -14,9 +14,5 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.setBlockAds(false);
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
-    /*console.log(zipcode);
-    if (zipcode) {
-      await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
-    }*/
   },
 };
