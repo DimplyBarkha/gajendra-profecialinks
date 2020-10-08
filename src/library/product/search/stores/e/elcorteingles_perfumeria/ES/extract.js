@@ -7,7 +7,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  console.log("waiting for 10000")
+  console.log('waiting for 10000');
   await new Promise((resolve, reject) => setTimeout(resolve, 90000));
   return await context.extract(productDetails, { transform });
 }
@@ -28,10 +28,9 @@ module.exports = {
     dependencies,
   ) {
     await context.evaluate(() => {
-      var currentUrl = window.location.href;
       var newElement = document.createElement('DIV');
       newElement.setAttribute('class', 'page-link');
-      newElement.innerHTML = currentUrl;
+      newElement.innerHTML = window.location.href;
       document.body.appendChild(newElement);
     });
     const { transform } = parameters;

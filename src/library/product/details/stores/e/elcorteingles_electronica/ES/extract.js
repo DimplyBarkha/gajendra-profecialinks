@@ -9,13 +9,12 @@ module.exports = {
     zipcode: '',
   },
 
-
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
     await context.evaluate(async function () {
       // function to append the elements to DOM
-      function addElementToDocument(key, value) {
+      function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -24,7 +23,7 @@ module.exports = {
       }
 
       // function to get the json data from the string
-      function findJsonData(scriptSelector, startString, endString) {
+      function findJsonData (scriptSelector, startString, endString) {
         try {
           const xpath = `//script[contains(.,'${scriptSelector}')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -40,7 +39,7 @@ module.exports = {
       }
 
       // function to get the json data from the textContent
-      function findJsonObj(scriptSelector, video) {
+      function findJsonObj (scriptSelector, video) {
         if (video) {
           var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           return result;
@@ -63,7 +62,7 @@ module.exports = {
           if (!options) {
             options = {
               mode: 'no-cors',
-              headers: { 'Content-Type': 'application/json' }
+              headers: { 'Content-Type': 'application/json' },
             };
 
             return await (await fetch(url, options)).json();
@@ -75,17 +74,16 @@ module.exports = {
         }
       };
 
-
-      let productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json'
-      let passKey = "caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ";
-      let productID = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).code_a.trim("") : "";
-      let sku = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).variant.trim("") : "";
-      let store_id = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).store_id.trim("") : "";
-      //API
+      const productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json';
+      const passKey = 'caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ';
+      const productID = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).code_a.trim('') : '';
+      const sku = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).variant.trim('') : '';
+      const store_id = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).store_id.trim('') : '';
+      // API
       const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${store_id}&original_store=0`;
-      let apiDataResponse = await makeApiCall(productsData, {});
-      console.log("Great")
-      console.log(JSON.parse(apiDataResponse), "chec")
+      const apiDataResponse = await makeApiCall(productsData, {});
+      console.log('Great');
+      console.log(JSON.parse(apiDataResponse), 'chec');
       if (apiDataResponse) {
         if (JSON.parse(apiDataResponse)._product_model) {
           document.querySelector('.sku-model').textContent = `MODELO: ${JSON.parse(apiDataResponse)._product_model}`;
@@ -94,19 +92,16 @@ module.exports = {
         addElementToDocument('sku', JSON.parse(apiDataResponse).id);
         addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
         addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
-
       }
-
 
       // Number of reviews and rating
       const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
-      let apiReviewResponse = await makeApiCall(reviewData, {});
-      let responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
-      let responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace(".", ",")
-        : "";
+      const apiReviewResponse = await makeApiCall(reviewData, {});
+      const responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
+      const responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace('.', ',')
+        : '';
       addElementToDocument('ratingCount', responseRatingCount);
       addElementToDocument('aggregateRating', responseReviewRating);
-
 
       const imageData = findJsonObj('image');
       // Check for the data and append to DOM
@@ -115,41 +110,38 @@ module.exports = {
         addElementToDocument('product_description', imageData.description);
       }
 
-      // Get the video 
+      // Get the video
       try {
-        let inputVideo = findJsonObj("", '//input[@class="flix-jw"]/@value');
-        let imagelayoutVideo = findJsonObj("", '//div[@class="image-layout-slides-group-item"]/img/@data-url');
-        console.log("Weighting for Video");
+        const inputVideo = findJsonObj('', '//input[@class="flix-jw"]/@value');
+        const imagelayoutVideo = findJsonObj('', '//div[@class="image-layout-slides-group-item"]/img/@data-url');
+        console.log('Weighting for Video');
         if (inputVideo.snapshotLength > 0) {
-          console.log("addig in Video");
+          console.log('addig in Video');
           for (let i = 0; i < inputVideo.snapshotLength; i++) {
-            addElementToDocument('video', JSON.parse(findJsonObj("", inputVideo).snapshotItem(0).value).playlist[0].file);
+            addElementToDocument('video', JSON.parse(findJsonObj('', inputVideo).snapshotItem(0).value).playlist[0].file);
           }
         } else {
           if (imagelayoutVideo.snapshotLength = 1) {
-            console.log("addig Imag Video");
+            console.log('addig Imag Video');
             addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
           } else {
             for (let i = 0; i < imagelayoutVideo.snapshotLength; i++) {
               addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
-
             }
           }
         }
       } catch (error) {
-        console.log("eror in video");
+        console.log('eror in video');
       }
 
       // elements from data Layer object
       const dataObj = findJsonData('dataLayer', '=', ';');
 
-
       try {
 
       } catch (e) {
-        console.log("eror in video");
+        console.log('eror in video');
       }
-
 
       // Check for the data and append to DOM
       if (dataObj) {
@@ -179,28 +171,25 @@ module.exports = {
             addElementToDocument('sku', dataObj[0].product.code_a);
           }
 
-          // Check for List Price 
+          // Check for List Price
           if (dataObj[0].product.price.o_price) {
-            addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ","));
+            addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ','));
           } else {
-
             if (dataObj[0].product.price.original) {
-              addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ","));
+              addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ','));
             } else {
-              addElementToDocument('listPrice', "");
+              addElementToDocument('listPrice', '');
             }
           }
-          // Check for  Price 
+          // Check for  Price
           if (dataObj[0].product.price.o_price) {
-            addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ","));
+            addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ','));
           } else {
-
             if (dataObj[0].product.price.final) {
-              addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ","));
+              addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ','));
             } else {
-              addElementToDocument('price', "");
+              addElementToDocument('price', '');
             }
-
           }
           // Check for the product id  and append to DOM
           if (dataObj[0].product.id) {
@@ -209,38 +198,35 @@ module.exports = {
               addElementToDocument('retailer_product_code', retailerProductCode);
             }
           }
-
         }
       }
 
-      // Secondry Image 
-      let alternateImages = []
+      // Secondry Image
+      const alternateImages = [];
       document.querySelectorAll('link[as=image]').forEach(e => {
         alternateImages.push(e.href);
       });
-      addElementToDocument('alternateImages', alternateImages.join(' | ').replace(/210x210/gm, "1200x1200"));
+      addElementToDocument('alternateImages', alternateImages.join(' | ').replace(/210x210/gm, '1200x1200'));
 
       // Specifications
-      let specifcations = [];
+      const specifcations = [];
       document.querySelectorAll('#tab-content-0 > div > dl > div').forEach(e => {
-        specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')} || `)
+        specifcations.push(`${Array.from(e.children, ({ textContent }) => textContent.trim()).filter(Boolean).join(':')} || `);
       });
       addElementToDocument('specifications', specifcations);
 
+      // zoom Image
 
-
-      //zoom Image 
-
-      let ZoomImage = "//img/@data-zoom"
-      findJsonObj("", ZoomImage)
-      if (findJsonObj("", ZoomImage).snapshotLength > 0) {
-        addElementToDocument('imageZoomFeaturePresent', "Yes");
+      const ZoomImage = '//img/@data-zoom';
+      findJsonObj('', ZoomImage);
+      if (findJsonObj('', ZoomImage).snapshotLength > 0) {
+        addElementToDocument('imageZoomFeaturePresent', 'Yes');
       } else {
-        addElementToDocument('imageZoomFeaturePresent', "No");
+        addElementToDocument('imageZoomFeaturePresent', 'No');
       }
 
       // Get the ratingCount
-      function ratingFromDOM() {
+      function ratingFromDOM () {
         const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
         let ratingCount;
         if (reviewsCount) {
@@ -265,7 +251,7 @@ module.exports = {
         }
       }
 
-      function allergyAdvice() {
+      function allergyAdvice () {
         const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         if (element) {
@@ -276,7 +262,7 @@ module.exports = {
       } allergyAdvice();
 
       // Function to remove the `\n` from the textContent
-      function textContent(element, attributeName) {
+      function textContent (element, attributeName) {
         const text = (element && element.textContent.trim()
           .split(/[\n]/)
           .filter((ele) => ele)
@@ -285,7 +271,7 @@ module.exports = {
         addElementToDocument(attributeName, text);
       }
 
-      let description = document.querySelectorAll('.product_detail-description-in-image, .product_information');
+      const description = document.querySelectorAll('.product_detail-description-in-image, .product_information');
       if (description.length > 1) {
         description.forEach(element => {
           textContent(element, 'bulletDescription');

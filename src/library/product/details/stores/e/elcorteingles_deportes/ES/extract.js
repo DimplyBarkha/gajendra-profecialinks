@@ -14,7 +14,7 @@ module.exports = {
     try {
       await context.evaluate(async function () {
         // function to append the elements to DOM
-        function addElementToDocument(key, value) {
+        function addElementToDocument (key, value) {
           const catElement = document.createElement('div');
           catElement.id = key;
           catElement.textContent = value;
@@ -23,7 +23,7 @@ module.exports = {
         }
 
         // function to get the json data from the string
-        function findJsonData(scriptSelector, startString, endString) {
+        function findJsonData (scriptSelector, startString, endString) {
           try {
             const xpath = `//script[contains(.,'${scriptSelector}')]`;
             const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -34,12 +34,12 @@ module.exports = {
             jsonStr = jsonStr.trim();
             return JSON.parse(jsonStr);
           } catch (error) {
-            console.log("Failed to find JSON Data ", error.message);
+            console.log('Failed to find JSON Data ', error.message);
           }
         }
 
         // function to get the json data from the textContent
-        function findJsonObj(scriptSelector, video) {
+        function findJsonObj (scriptSelector, video) {
           if (video) {
             var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
             return result;
@@ -62,7 +62,7 @@ module.exports = {
             if (!options) {
               options = {
                 mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' }
+                headers: { 'Content-Type': 'application/json' },
               };
 
               return await (await fetch(url, options)).json();
@@ -74,7 +74,7 @@ module.exports = {
           }
         };
 
-        function setAttributes(el, attrs) {
+        function setAttributes (el, attrs) {
           for (var key in attrs) {
             el.setAttribute(key, attrs[key]);
           }
@@ -102,18 +102,18 @@ module.exports = {
               addElementToDocument('brand', dataObj[0].product.brand);
             }
 
-            // Check for List Price 
+            // Check for List Price
             if (dataObj[0].product.price.o_price) {
-              addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ","));
+              addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ','));
             } else {
-              addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ","));
+              addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ','));
             }
 
-            // Check for  Price 
+            // Check for  Price
             if (dataObj[0].product.price.o_price) {
-              addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ","));
+              addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ','));
             } else {
-              addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ","));
+              addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ','));
             }
 
             // Check for the product id  and append to DOM
@@ -130,22 +130,20 @@ module.exports = {
           }
         }
 
-
         // Number of reviews and rating
-        let passKey = "caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ";
-        let productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json'
-        let productID = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).code_a.trim("") : "";
+        const passKey = 'caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ';
+        const productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json';
+        const productID = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).code_a.trim('') : '';
 
         const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
-        let apiReviewResponse = await makeApiCall(reviewData, {});
-        let responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
-        let responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace(".", ",")
-          : "";
+        const apiReviewResponse = await makeApiCall(reviewData, {});
+        const responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
+        const responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace('.', ',')
+          : '';
         addElementToDocument('ratingCount', responseRatingCount);
         addElementToDocument('aggregateRating', responseReviewRating);
 
-
-        function ratingFromDOM() {
+        function ratingFromDOM () {
           const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
           let ratingCount;
           if (reviewsCount) {
@@ -170,7 +168,7 @@ module.exports = {
           }
         }
 
-        function allergyAdvice() {
+        function allergyAdvice () {
           const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           if (element) {
@@ -181,7 +179,7 @@ module.exports = {
         } allergyAdvice();
 
         // Function to remove the `\n` from the textContent
-        function textContent(element, attributeName) {
+        function textContent (element, attributeName) {
           const text = (element && element.textContent.trim()
             .split(/[\n]/)
             .filter((ele) => ele)
@@ -190,7 +188,7 @@ module.exports = {
           addElementToDocument(attributeName, text);
         }
 
-        let description = document.querySelectorAll('.product_detail-description-in-image, .product_information');
+        const description = document.querySelectorAll('.product_detail-description-in-image, .product_information');
         if (description.length > 1) {
           description.forEach(element => {
             textContent(element, 'bulletDescription');
@@ -199,9 +197,8 @@ module.exports = {
         textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
       });
     } catch (error) {
-      console.log("Evaluation Failed", error);
+      console.log('Evaluation Failed', error);
     }
-
 
     await context.extract(productDetails);
   },
