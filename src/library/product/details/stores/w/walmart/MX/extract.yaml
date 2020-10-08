@@ -55,7 +55,6 @@ fields:
     singleValue: true
     xpath: count(//div[contains(@class,'product-features_seoDescription')]//p)
     description: Number of ul > li tags in the description
-    type: NUMBER
   - name: brandText
     singleValue: true
     xpath: //h2[contains(@class,'brand-name_brandName')]/a
@@ -72,23 +71,20 @@ fields:
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
-    type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
   - name: shippingInfo
     singleValue: true
     xpath: //p[contains(@class,'text_text') and contains(.,'Vendido por')]
     description: Shipping information for the product
   - name: variantCount
     singleValue: true
-    defaultValue: 0
+    defaultValue: '0'
     description: Number of variants listed
-    type: NUMBER
   - name: color
     singleValue: true
     xpath: //div[contains(@class,'product-description_characteristics') and contains(.,'Color')]//p[2]

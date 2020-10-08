@@ -1,5 +1,5 @@
 
-const { transform } = require('./shared')
+const { transform } = require('./shared');
 /**
  *
  * @param { { url?: string,  id?: string} } inputs
