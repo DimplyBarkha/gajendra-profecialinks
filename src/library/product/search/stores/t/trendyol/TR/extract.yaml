@@ -42,6 +42,8 @@ fields:
   - name: reviewCount
     singleValue: true
     description: The number of reviews
+    xpath: //*[contains(@class,"p-card-wrppr")]//div[@class="ratings"]
+    regExp: \d+
   - name: price
     singleValue: true
     description: The offered price for the product
