@@ -68,7 +68,7 @@ fields:
     xpath: //img[contains(@alt,'selected')]/@alt
     regExp: selected\s(.+)
     regExpReplace: $1
-  - name: size
+  - name: quantity
     xpath: //span[contains(text(),'Size Info')]/following-sibling::ul | //body/@size
   - name: additionalDescBulletInfo
     xpath: //div[contains(text(),"Details & Care")]/following-sibling::ul/li
