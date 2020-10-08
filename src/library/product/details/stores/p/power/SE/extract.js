@@ -15,6 +15,11 @@ module.exports = {
     dependencies,
   ) => {
     try {
+      await context.click('button.coi-banner__accept');
+    } catch (error) {
+      console.log('no cookie button found');
+    }
+    try {
       await context.click('#product-information-tabs > div:nth-child(1) > div');
     } catch (error) {
       console.log('no specification found');
