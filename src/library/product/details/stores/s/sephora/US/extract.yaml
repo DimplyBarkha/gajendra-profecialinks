@@ -18,7 +18,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: (//div[contains(@data-comp,"ReviewsStats")]//div//div[contains(.,"/")])[1]
+    xpath: (//div[contains(@data-comp,"ReviewsStats")]//div//div[contains(.,"/")])[1]|//div[contains(@data-comp,"ReviewsStats")]//span[@class="css-1ac1x0l eanm77i0"]
     # xpath: //a[contains(@data-comp,"RatingsSummary")]//@aria-label
   - name: manufacturer
     singleValue: true
@@ -28,7 +28,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //div[contains(@data-comp,"ReviewsStats")]//div[contains(.,"review")]
+    xpath: //div[contains(@data-comp,"ReviewsStats")]//div[contains(.,"review")]|//span[contains(@data-at, "number_of_reviews")]
   - name: videos
     singleValue: false
     description: URLs of videos on page
