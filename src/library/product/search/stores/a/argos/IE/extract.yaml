@@ -25,8 +25,8 @@ fields:
     description: The URL for the product details page
   - name: thumbnail
     xpath: //img[@class="searchProductImgList"]/@src
-    regExp: ^(.+)T.jpg$
-    regExpReplace: https://www.argos.ie$1X.jpg
+    regExp: ^(.+)[A-Z].([a-z]+)$
+    regExpReplace: https://www.argos.ie$1X.$2
     description: The URL for the product thumbnail image
   - name: name
     xpath: //a[starts-with(@id,"href_")]
@@ -37,7 +37,11 @@ fields:
     description: The model code of the product
   - name: gtin
     description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
+  - name: aggregateRating
+    xpath: //li[@class="customerrating"]/a/img/@alt
+    regExp: Customer rating ([\d\.]+) out of 5
+    regExpReplace: $1 
+  - name: aggregateRating2
     xpath: //li[@class="customerrating"]/a/img/@alt
     regExp: Customer rating ([\d\.]+) out of 5
     regExpReplace: $1 
@@ -49,7 +53,7 @@ fields:
     xpath: //li[@class="customerrating"]/a/text()
     description: The number of reviews
   - name: price
-    xpath: //li[@class="price"]
+    xpath: //li[normalize-space(@class)="price"]
     description: The offered price for the product
   - name: listPrice
     description: The stated undiscounted price for the product

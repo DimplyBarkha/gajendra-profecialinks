@@ -52,7 +52,6 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
-    xpath: //body/@brand
     description: Product manufacturer
   - name: quantity
     xpath: //div[@id="contentholder"]//*[contains(text(),"Size")] | //div[@id="contentholder"]//*[contains(text(),"size")]
