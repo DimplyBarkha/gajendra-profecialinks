@@ -6,9 +6,6 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[contains(@class,"product-tile__name")]
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[contains(@class,'product-tile__top-brand')]
   - name: id
     singleValue: false
     xpath: //div[contains(@class,"product-tile")]//@href
@@ -28,7 +25,7 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //div[contains(@class,"product-tile")]//@numberofreviews
-  - name: ratingCount
+  - name: ratingCount+
     singleValue: false
     xpath: //div[contains(@class,"product-tile")]//@ratingstars
   - name: productUrl

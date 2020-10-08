@@ -30,19 +30,26 @@ fields:
     regExp: (.*)
     regExpReplace: In Stock
     defaultValue: Out of Stock
+  - name: variantInformation 
+    xpath: //span[contains(.,"Farbe")]
+    regExp: (.+)
+    regExpReplace: color
+  - name: color
+    xpath: //span[contains(.,"Farbe")]/following-sibling::span |  //div[@class="variant-selector-dropdown-item"]/@title
   - name: description
-    xpath: //div[contains(@class,"product-detail-content__description")]
+    xpath: //head/@description
   - name: brandText
-    xpath: //a[contains(@class,'product-detail-header__brand-line')]
+    xpath: //span[contains(@class,"brand-logo-text")]
   - name: sku
-    xpath: //span[contains(.,"Art-Nr.")]/following-sibling::span | //div[@data-bv-show="reviews"]/@id
+    xpath: //head/@sku | //span[contains(.,"Art-Nr.")]/following-sibling::span | //li[contains(@class,"variant-selector-item--selected")]/@value
   - name: listPrice
     singleValue: true
     xpath: //input/@checked/../..//div[@class="product-price__strikethrough"] | //div[@class="product-price__strikethrough"]
   - name: ingredientsList
     xpath: //body/@ingredients
   - name: variantId
-    xpath: //body/@variantid
+    singleValue: true
+    xpath: //body/@variantid | //li[@class="variant-selector-item variant-selector-item--selected"]/@value
   - name: ratingCount
     xpath: //dd[@class="bv-rating-ratio-count"]/a
     regExp: \d+
@@ -54,7 +61,7 @@ fields:
   - name: name
     xpath: //span[@class="product-detail-header__name"]
   - name: specifications
-    xpath: //div[@class="product-detail-content__classifications"]
+    xpath: //div[@class="product-detail-content__classifications"] | //head/@specification
   - name: salesRank
   - name: salesRankCategory
   - name: productOtherInformation
@@ -64,7 +71,7 @@ fields:
   - name: firstVariant
     xpath: //div[@data-bv-show="reviews"]/@id
   - name: variants
-    xpath: //div[contains(@class,"product-detail")]//input[@type='radio']/@id
+    xpath: //div[contains(@class,"product-detail")]//input[@type='radio']/@id | //li[contains(@class,"variant-selector-item")]/@value
   - name: termsAndConditions
     default: false
   - name: privacyPolicy
