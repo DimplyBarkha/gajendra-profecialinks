@@ -21,6 +21,11 @@ const transform = (data) => {
           item.text = item.text.replace(/,/g, '').replace(/\./, ',');
         });
       }
+      if (row.lbbPrice) {
+        row.lbbPrice.forEach((item) => {
+          item.text = item.text.replace(/,/g, '').replace(/\./, ',');
+        });
+      }
       if (row.listPrice) {
         row.listPrice.forEach((item) => {
           item.text = item.text.replace(/,/g, '').replace(/\./, ',');
