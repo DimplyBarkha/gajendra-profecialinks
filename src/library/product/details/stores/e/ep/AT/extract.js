@@ -16,7 +16,7 @@ async function implementation (
       newDiv.style.display = 'none'; 
       node.appendChild(newDiv);
     }
-    document.querySelectorAll('iframe#loadbeeTabContent').forEach(node => {      
+    document.querySelectorAll('div.loadbeeTabContent > iframe').forEach(node => {      
     alert(node.innerHTML);
    });
    
