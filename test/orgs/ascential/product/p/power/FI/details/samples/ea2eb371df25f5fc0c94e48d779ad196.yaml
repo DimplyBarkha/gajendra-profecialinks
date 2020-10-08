@@ -2,21 +2,21 @@ input:
   _url: http://power.fi
   URL: https://www.power.fi/koti-ja-vapaa-aika/ilmanlaatu-ja-viilennys/ilmanpuhdistimet/dyson-pure-cool-tp02-ilmanpuhdistin/p-603033/?q=dyson
 extractions:
-  - html: https://workbench.import.io/html/run=1d71792a-8618-47ba-a67b-9739b5ab72f1/task=03d2acaa-fbf7-4ad2-9ace-81a548b5e335/b37e4276-e7b9-47e8-92fb-553d9999ff8c.html
+  - html: https://workbench.import.io/html/run=2e8615ea-ead4-4ed5-84e2-136bbde1f389/task=39fcd105-9b22-498f-91e0-0940d99441b9/e6e426cc-d4cf-498e-a273-201bbc3656f9.html
     extractionConfigId: product/details/stores/p/power/FI/extract
     data:
       - group:
           - image:
               - text: https://media.power-cdn.net/images/h-af76a339c87e3d19ac9de700d2e10d48/products/603033/603033_4_600x600_w_g.jpg
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[9]
             imageAlt:
               - text: DYSON PURE COOL TP02 ILMANPUHDISTIN
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[13]
             alternateImages:
               - text: https://media.power-cdn.net/images/h-cbe0d3b0dcc3566ef907472fef7e1772/products/603033/603033_1_600x600_w_g.jpg
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[10]
               - text: https://media.power-cdn.net/images/h-1dad525fc117274eee0e2716bb2469b3/products/603033/603033_2_600x600_w_g.jpg
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[11]
             category:
               - text: Koti ja vapaa-aika
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
@@ -26,10 +26,10 @@ extractions:
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[4]
             price:
               - text: "399"
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[12]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[14]
             description:
               - text: >-
                   DYSON PURE COOL TP02 ILMANPUHDISTIN
@@ -53,36 +53,12 @@ extractions:
                   Mukana kaukosäädin
                    Lue lisää
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
-            brandText:
-              - text: Dyson
-                xpath: /html/body/div[11]
-            manufacturer:
-              - text: Dyson
-                xpath: /html/body/div[11]
-            weightNet:
-              - text: 3,000 kg
-                xpath: /html/body/div[15]
-            gtin:
-              - text: "5025155024492"
-                xpath: /html/body/div[12]
-            eangtin:
-              - text: "5025155024492"
-                xpath: /html/body/div[12]
             sku:
               - text: "603033"
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
             variantId:
               - text: "603033"
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
-            mpc:
-              - text: 305162-01
-                xpath: /html/body/div[17]
-            shippingDimensions:
-              - text: 219,0 x 219,0 x 1131,0 mm
-                xpath: /html/body/div[16]
-            color:
-              - text: Harmaa
-                xpath: /html/body/div[14]
             manufacturerDescription:
               - text: Dyson Pure Cool Link on tehokas lattialle sijoitettava ilmanpuhdistin,
                   joka toimii myös tuulettimena. Se kykenee poistamaan jopa
@@ -104,26 +80,19 @@ extractions:
                   erittäin turvallinen käyttää esimerkiksi lapsiperheissä.Dyson
                   Link -sovellusSovelluksen avulla voit seurata ja säätää kotisi
                   ilmanlaatua ja lämpötilaa.
-                xpath: /html/body/div[21]
+                xpath: /html/body/div[18]
+            videos:
+              - text: https://www.youtube.com/watch?v=ptcOFl5g0PU
+                xpath: /html/body/div[19]
             name:
               - text: DYSON PURE COOL TP02 ILMANPUHDISTIN
                 xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h1[1]
-            specifications:
-              - text: Valmistaja Dyson Valmistajan tuotekoodi 305162-01 || Design ja muotoilu
-                  Pääväri Harmaa || Toiminnot Ajastin Kyllä Ohjelmoitava Kyllä
-                  || Ohjelmat ja asetukset Automaattiohjelma Kyllä Säädettävä
-                  lämpötila Ei || Näyttöominaisuudet Näyttö Ei || Sisältyy
-                  Kaukosäädin mukana Kyllä || Muut Tuotenumero DYSONTP02 EAN
-                  5025155024492 Tuotteen koko (S x L x K) 110,0 x 119,0 x 1020,0
-                  mm Pakkauksen koko (S x L x K) 219,0 x 219,0 x 1131,0 mm
-                  Nettopaino 3,000 kg Tuote ID 603033
-                xpath: /html/body/div[19]
             additionalDescBulletInfo:
               - text: "|| Kaksi toimintoa - tuuletin ja ilmanpuhdistin || Dyson link
                   -sovelluksen yhteensopivuus || Air Multiplier™ -teknlogoia ||
                   Dyson HEPA-suodatin aktiivihiili-kerroksella || Auto- ja
                   yötoiminnot || Ajastustoiminto || Mukana kaukosäädin"
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[17]
             nameExtended:
               - text: DYSON PURE COOL TP02 ILMANPUHDISTIN - 603033
             descriptionBullets:
@@ -139,4 +108,4 @@ extractions:
             Image360Present:
               - text: No
         xpath: /html
-    timestamp: 1601282770626
+    timestamp: 1602165307730

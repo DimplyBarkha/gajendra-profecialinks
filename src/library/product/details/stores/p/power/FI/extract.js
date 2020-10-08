@@ -10,7 +10,7 @@ module.exports = {
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await context.waitForSelector('#product-information-tabs > div:nth-child(1) > div > i');
     await context.waitForSelector('#product-intro pwr-product-stock-label');
     await context.click('#product-information-tabs > div:nth-child(1) > div > i');
@@ -54,6 +54,8 @@ module.exports = {
 
       const imageAlt = document.querySelector('div.product-image-container img') ? document.querySelector('div.product-image-container img').getAttribute('alt') : '';
       if (imageAlt) addElementToDocument('imageAlt', imageAlt);
+
+      await timeout(2000);
 
       const brand = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Valmistaja")]/following-sibling::div')
         ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Valmistaja")]/following-sibling::div').textContent
@@ -170,6 +172,6 @@ module.exports = {
       if (aggRating) addElementToDocument('aggRating', aggRating.replace(/\./g, ','));
     });
 
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform });
   },
 };
