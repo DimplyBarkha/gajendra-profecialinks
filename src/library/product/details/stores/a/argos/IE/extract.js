@@ -19,7 +19,7 @@ async function implementation (
         .innerText.match(/"brand":"([^"]+)/)[1];
       document.body.setAttribute('brand', brand);
     } catch (err) {
-      throw new Error('Error retrieving brand value.');
+      console.log('Error retrieving brand value.');
     }
   }
   await context.evaluate(addBrand);
