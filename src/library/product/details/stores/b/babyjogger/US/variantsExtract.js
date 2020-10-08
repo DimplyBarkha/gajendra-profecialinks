@@ -5,16 +5,16 @@ async function implementation(
   dependencies,
 ) {
   const { createUrl, variants } = dependencies;
-  await context.evaluate(function () {
+  await context.evaluate(async function () {
     var variantArr = [];
     function timeout(ms) {
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
-    var getVariant = async function () {
+    const getVariant = async function () {
       var image_rows = [...document.querySelectorAll('div.color-attribute')];
       for (let index = 0; index < image_rows.length; index++) {
         image_rows[index].click()
-        await timeout(1000)
+        await timeout(2000)
         var variantUrl = window.location.href;
         variantArr.push(variantUrl);
         let div = document.createElement('div');
@@ -26,7 +26,7 @@ async function implementation(
         await timeout(5000)
       }
     }
-    getVariant()
+    await getVariant()
     
   }, createUrl);
   return await context.extract(variants);
