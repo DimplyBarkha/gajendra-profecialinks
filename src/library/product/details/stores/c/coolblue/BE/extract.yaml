@@ -49,10 +49,8 @@ fields:
     singleValue: false
     xpath: //span[contains(@class,'js-product-name')]
   - name: listPrice
-    singleValue: false
-    xpath: //div[@class='js-desktop-order-block']//div//span[@class='sales-price__former-price']
-    regExp: (\d+)(\,?\.?)?(\d+)?(\,-?)?
-    regExpReplace: EUR $1,$3
+    singleValue: true
+    xpath: //body/@newprice
   - name: priceCurrency
     singleValue: false
     xpath: //script[contains(text(),"priceCurrency")]/text()
