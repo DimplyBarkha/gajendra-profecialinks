@@ -17,7 +17,7 @@ module.exports = {
     await context.setFirstRequestTimeout(60000);
     const response = await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
     const errorPage = await context.evaluate(() => {
-      if (document.body.innerText.trim().length === 0 || document.querySelector('#ctl00_InvalidRequest') || document.title === 'Bed Bath & Beyond Canada GEO Error Page') {
+      if (document.querySelector('#ctl00_InvalidRequest') || document.title === 'Bed Bath & Beyond Canada GEO Error Page') {
         return true;
       }
       return false;

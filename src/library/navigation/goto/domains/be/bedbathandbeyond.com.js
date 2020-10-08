@@ -17,7 +17,7 @@ module.exports = {
     await context.setFirstRequestTimeout(60000);
     const response = await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
     const errorPage = await context.evaluate(() => {
-      if (document.body.innerText.trim().length === 0 || document.querySelector('#ctl00_InvalidRequest')) {
+      if (document.querySelector('#ctl00_InvalidRequest')) {
         return true;
       }
       return false;
