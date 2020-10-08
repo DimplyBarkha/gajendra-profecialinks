@@ -50,9 +50,6 @@ fields:
   - name: sku
     singleValue: false
     xpath: //meta[@itemprop="sku"]/@content
-  - name: mpc
-    singleValue: false
-    xpath: //meta[@itemprop="sku"]/@content
   - name: variantId
     singleValue: false
     xpath: //meta[@itemprop="sku"]/@content
@@ -84,7 +81,7 @@ fields:
     xpath: //span[contains(@class, "product_name")]/..
   - name: warranty
     singleValue: false
-    xpath: //div[@class="product-sale-actions"]//li[contains(text(),"arantie") or a[contains(text(),"arantie")]]
+    xpath: //p[contains(text(), 'Garantie')] | //div[@class="product-sale-actions"]//li[contains(text(),"arantie") or a[contains(text(),"arantie")]]
   - name: countryOfOrigin
     singleValue: false
     xpath: //tr[th[contains(text(),"Origine de fabrication")]]//li
