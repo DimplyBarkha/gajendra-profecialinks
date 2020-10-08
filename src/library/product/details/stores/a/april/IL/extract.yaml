@@ -5,46 +5,43 @@ recordXPath: null
 fields:
 - name: image
   singleValue: true
-  xpath: //div[@class='imgProduct']//img[@class='img-responsive center-block']/@src
+  xpath: //meta[@property='og:image']//@content
 - name: metaKeywords
   singleValue: true
   xpath: //meta[@name="keywords"]/@content
 - name: category 
   singleValue: false
-  xpath: //div[@id='category']
+  xpath: //div[@id='mytab_1']//ul//li[position()>0 and position()<3] 
+  # //div[@id='category'] 
+- name: subCategory 
+  singleValue: false
+  xpath: //div[@id='subCategory']
+
 - name: price
   singleValue: true
-  xpath: //div[@class='bg_gray']//span[@id='saleprice']
-# xpath: //div[@class='bg_gray']//span[@id='saleprice']
-# - name: listPrice
-#   singleValue: true
-#   xpath: //div[@class='bg_gray']//span[@id='saleprice']
+  xpath: concat(//meta[@property='product:sale_price:amount']//@content," " ,//meta[@property='og:price:currency']//@content)
+
 - name: availabilityText
   singleValue: true
   xpath: //meta[@property='product:availability']//@content
-  # xpath: //button[@id="addToCart"]//span
-  # defaultValue: In stock
-  # regExp: OutOfStock
-  # regExpReplace: Out of Stock
-- name: description
-  singleValue: false
-  xpath: //meta[@property='og:title']//@content
-# - name: descriptionBullets
-#   singleValue: true
-#   xpath: count(div[@class='tab-pane active']//ul[@class])
+
+# - name: online_price_currency
+#   singleValue: false
+#   xpath: //meta[@property='og:price:currency']//@content
+
 - name: brandText
   singleValue: true
-  xpath: //meta[@name='description']//@content
-# - name: color
-#   singleValue: true
-#   xpath: //div[@class='tab-pane active']//ul[@class='current-description list-unstyled']//li[1]//b
+  xpath: //div[@id='brandText'] 
+  
+- name: specifications
+  singleValue: true
+  xpath: //div[@id='specifications'] 
+
 - name: nameExtended
   singleValue: true
-  xpath: //div[@class='tab-content']/div[@id='mytab_0']
+  xpath: //meta[@property='og:title']//@content
 
-- name: shippingInfo
-  singleValue: true 
-  xpath: //div[@class='tab-content']/div[@id='mytab_2']
+
 - name: imageAlt
   singleValue: true
   xpath: //div[@class='imgProduct']//img/@alt
@@ -54,6 +51,23 @@ fields:
 - name: sku
   singleValue: false
   xpath: //div[@id='sku']
+
+- name: name
+  singleValue: false
+  xpath: concat(//div[@class='subtitle'], ' '  , //div[@class='title'])  
+
+- name: warranty
+  singleValue: false
+  xpath: //div[@id='warranty']
+
+- name: weightNet
+  singleValue: false
+  xpath: //div[@id='weightNet']
+
+- name: color
+  singleValue: false
+  xpath: //div[@class='col-xs-12']//span[@id='curColor']
+
 - name: variantCount
   singleValue: true
   xpath: //div[@id='variantcount']

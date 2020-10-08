@@ -10,100 +10,105 @@ module.exports = {
     zipcode: '',
   },
 
-
-implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-  await context.evaluate(async function () {
-    function addElementToDocument (key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
-    }
-
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-
-    const getXpath = (xpath, prop) => {
-      
-      const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-      
-      let result;
-      if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-      else result = elem ? elem.singleNodeValue : '';
-      
-      return result && result.trim ? result.trim() : result;
-    };
-
-    const getAllXpath = (xpath, prop) => {
-      const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      const result = [];
-      console.log("I am node set" , nodeSet.snapshotLength);
-      for (let index = 0; index < nodeSet.snapshotLength; index++) {
-        const element = nodeSet.snapshotItem(index);
-        if (element) result.push(prop ? element[prop] : element.nodeValue);
-      }
-      return result;
-    };
-
-
-    // const category = getXpath("//div[@id='mytab_1']//ul//li[1]", 'innerText');
-    // console.log("My category in before if @@@@@@@@@@@@@@@@  ", category);
-    //    if(category && typeof category == 'string') {
-    //     console.log("My category", category);
-    //     // console.log("My category", category.substring(29,34));
-    //     // addElementToDocument('category', (category.substring(29,34)) );
-    //   }
-
-  const expectedSKU = getXpath("//meta[@property='og:url']/@content", 'nodeValue')
-       if(expectedSKU && typeof expectedSKU == 'string') {
-        console.log("My expectedSKU", expectedSKU);
-        console.log("My expectedSKU", expectedSKU.substring(29,34));
-        addElementToDocument('sku', (expectedSKU.substring(29,34)) );
+  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    await context.evaluate(async function () {
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
       }
 
-   const variants = getAllXpath("//div[@class='colors']//button[@class='color_img']/@id", 'nodeValue').join("|");
-   if(variants && typeof variants == 'string') {
-    console.log("my variant info" , variants);
-    
-    addElementToDocument('variants', variants);
-   }
-   var strVariant = variants.split('|');
-    if(strVariant.length>1) {
-      const category = getXpath("//div[@id='mytab_1']//ul//li[3]", 'innerText');
-      addElementToDocument('category', category);
-      console.log("My category in before if @@@@@@@@@@@@@@@@  ", category);
-      addElementToDocument('variantcount', strVariant.length);
-    } else {
-      const category = getXpath("//div[@id='mytab_1']//ul//li[1]", 'innerText');
-      addElementToDocument('category', category);
-      addElementToDocument('variantcount', '1');
-    }
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
 
+      const getXpath = (xpath, prop) => {
+        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
 
-    // addElementToDocument('variantscount', variants.length);
-   
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+      };
 
-   const variantId = getAllXpath("//div[@class='colors']//button[@class='color_img']/@id", 'nodeValue').join("|");
-   if(variantId.length > 1) {
-    console.log("my variant info variantId " , variantId.split('|'));
-    var str = variantId.split('|');
-    addElementToDocument('variantId', str[0]);
-   } else {
-    const variantIdForSingle = getAllXpath("//div[@class='imgProduct']//img/@id", 'nodeValue');
-    console.log("my variant info variantId single " , variantIdForSingle);
-    addElementToDocument('variantId', variantIdForSingle);
-   }
-   
+      const expectedSKU = getXpath("//meta[@property='og:url']/@content", 'nodeValue');
+      if (expectedSKU && typeof expectedSKU === 'string') {
+        addElementToDocument('sku', (expectedSKU.substring(29, 34)));
+      }
 
+      const variants = getAllXpath("//div[@class='colors']//button[@class='color_img']/@id", 'nodeValue').join('|');
+      if (variants.length > 1) {
+        addElementToDocument('variants', variants);
+      } else {
+        const variants = getAllXpath("//div[@class='imgProduct']//img/@id", 'nodeValue');
+        addElementToDocument('variants', variants);
+      }
+      var strVariant = variants.split('|');
+      if (strVariant.length > 1) {
+        const category = getXpath("//div[@id='mytab_1']//ul//li[3]", 'innerText');
+        const subCategory = getXpath("//div[@id='mytab_1']//ul//li[4]", 'innerText');
+        const brand = getXpath("//div[@id='mytab_1']//ul//li[7]", 'innerText');
+        const specifications = getAllXpath("//div[@id='mytab_0']", 'innerText').join('|');
+        var specificationsText = specifications.split('.');
+        // var categoryArray = [category, subCategory];
+        // console.log('s my catttttttt ', categoryArray[1]);
+        addElementToDocument('category', category);
+        addElementToDocument('subCategory', subCategory);
+        addElementToDocument('brandText', brand);
+        addElementToDocument('variantcount', strVariant.length - 1);
+        addElementToDocument('specifications', specificationsText[5]);
+      } else {
+        const category = getAllXpath("//div[@id='mytab_1']//ul//li[1]", 'innerText');
+        const subCategory = getAllXpath("//div[@id='mytab_1']//ul//li[2]", 'innerText');
+        const brand = getXpath("//div[@id='mytab_1']//ul//li[6]", 'innerText');
+        const specifications = getXpath("//div[@id='mytab_0']//p[13]", 'innerText');
+        // var categoryArrayForElse = [category, subCategory];
+        addElementToDocument('category', category);
+        addElementToDocument('subCategory', subCategory);
+        addElementToDocument('brandText', brand);
+        addElementToDocument('variantcount', '0');
+        addElementToDocument('specifications', specifications);
+      }
+      const variantId = getAllXpath("//div[@class='colors']//button[@class='color_img']/@id", 'nodeValue').join('|');
+      if (variantId.length > 1) {
+        var str = variantId.split('|');
+        addElementToDocument('variantId', str[0]);
+      } else {
+        const variantIdForSingle = getAllXpath("//div[@class='imgProduct']//img/@id", 'nodeValue');
+        addElementToDocument('variantId', variantIdForSingle);
+      }
 
-
-   
+      const warranty = getAllXpath("//div[@id='mytab_0']", 'innerText').join('|');
+      var strWarranty = warranty.split('|');
+      if (strWarranty.length > 6) {
+        addElementToDocument('warranty', strWarranty[12]);
+        addElementToDocument('weightNet', strWarranty[1]);
+      } else if (strWarranty.length > 1) {
+        addElementToDocument('warranty', strWarranty[5].substring(30, 63));
+      } else {
+        const warrantyForOther = getAllXpath("//div[@id='mytab_0']//p[13]", 'innerText').join('|');
+        if (warrantyForOther != null) {
+          addElementToDocument('weightNet', warrantyForOther.substring(10, 23));
+        } else {
+          const warrantyForWithOut = getAllXpath("//div[@id='mytab_0']//p[4]", 'innerText').join('|');
+          console.log('my warrantyForOther info ', warrantyForWithOut);
+        }
+      }
 
       let scrollTop = 500;
       while (true) {
@@ -114,9 +119,7 @@ implementation: async ({ inputString }, { country, domain }, context, { productD
           break;
         }
       }
-
     });
     await context.extract(productDetails);
   },
 };
-
