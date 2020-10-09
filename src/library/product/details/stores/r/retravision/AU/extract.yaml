@@ -39,6 +39,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //meta[@property="product:price:amount"]//@content
+    type: CURRENCY
   - name: onlinePriceCurrency 
     singleValue: true    
     xpath: //meta[@property="product:price:currency"]//@content
