@@ -8,20 +8,8 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.evaluate(async function () {
-    function addHiddenDiv (node, id, content,elementName) {
-      const newDiv = document.createElement(elementName);
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none'; 
-      node.appendChild(newDiv);
-    }
-    document.querySelectorAll('div.loadbeeTabContent > iframe').forEach(node => {      
-    alert(node.innerHTML);
-   });
-   
-  
-  });
+  // await context.evaluate(async function () {
+  // });
   return await context.extract(productDetails, { transform });
 }
 

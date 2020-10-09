@@ -50,15 +50,13 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id='main-body-wrapper']/div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='details-tab']/div[@class='product-details-tab']/div[@class='product-description product-description-summary']
+    xpath: //div[@class='product-details-tab']//div[@class='product-description product-description-summary']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    xpath: count(//div[@id='details-tab']/div[@class='product-details-tab']/div[@id='flix-inpage']/div[@id='flixinpage_1599195067024']/div[@class='flix-lang-at']/div[@class='inpage_1200']/div[@class='new_layout']/div[@class='inpage_selector_info inpage_header flix_wrapper inpage_selector_info']/div[@class='inpage_product_desc flix-d-p']/div)
   - name: additionalDescBulletInfo
     singleValue: true
-    description: Number of ul > li tags in the description
-    xpath: count(//div[@class='product-classifications-left']/div[@class='product-classifications']/table[@class='product-classifications-table']/tbody/tr)
+    description: Number of ul > li tags in the description    
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -66,19 +64,18 @@ fields:
     xpath: //div[@class='product-details-panel']/@data-brandname
   - name: manufacturer
     singleValue: true
-    description: Product manufacturer
-    xpath: //div[@class='product-details-panel']/@data-brandname
+    description: Product manufacturer    
   - name: quantity
     singleValue: true
     description: Quantity as described on the page    
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //div[@id='main-body-wrapper']/div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='classifications-tab']/div[@class='product-details-classifications']/div[@class='product-classifications-right']/div[@class='product-classifications'][6]/table[@class='product-classifications-table']/tbody/tr[4]/td[2]
+    xpath: //div[@class='product-classifications']//font[contains(text(),'Net dimensions')]//following::table[1]//font[contains(text(),'Weight:')]//following::td[1]|//div[contains(text(),'Netto-Maße')]//following::table[@class="product-classifications-table"][1]//td[contains(text(),'Gewicht:')]//following-sibling::td
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //div[@id='main-body-wrapper']/div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='classifications-tab']/div[@class='product-details-classifications']/div[@class='product-classifications-right']/div[@class='product-classifications'][7]/table[@class='product-classifications-table']/tbody/tr[3]/td[2]
+    xpath: //div[@class='product-classifications']//font[contains(text(),'Logistics dimensions with packaging')]//following::table[1]//font[contains(text(),'Weight:')]//following::td[1]|//div[contains(text(),'Logistikmaße mit Verpackung')]//following::table[@class="product-classifications-table"][1]//td[contains(text(),'Gewicht:')]//following-sibling::td
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -113,17 +110,19 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //div[@class='product-details-bottom shipment-type-pickup']/div[@class='product-cart-panel default']/form/div[@class='product-cart-deliverymode product-cart-pickup']/div[@class='product-cart-pickup-header']/div[@class='product-cart-pickup-availability']/div[@class='stocklevel green-stock-level']/div
+    xpath: //div[@class='product-cart-delivery-availability']//div[@class="stock-message"]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
+    xpath: //div[contains(text(),'Logistikmaße mit Verpackung')]//following::table[@class="product-classifications-table"][1]|//div//font[contains(text(),'Logistics dimensions with packaging')]//following::table[@class="product-classifications-table"][1]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
-    xpath: //div[@id='main-body-wrapper']/div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='classifications-tab']/div[@class='product-details-classifications']/div[@class='product-classifications-right']/div[@class='product-classifications'][8]/table[@class='product-classifications-table']/tbody/tr[4]/td[2]
+    xpath: //div[@class='product-classifications']//font[contains(text(),'Logistics dimensions with packaging')]//following::table[1]//font[contains(text(),'Weight:')]//following::td[1]|//div[contains(text(),'Logistikmaße mit Verpackung')]//following::table[@class="product-classifications-table"][1]//td[contains(text(),'Gewicht:')]//following-sibling::td
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    defaultValue: '0'
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -140,7 +139,6 @@ fields:
   - name: videos
     singleValue: true
     description: URLs of videos on page
-    xpath: //div[@class="flix-videodiv"]/iframe[@id="flix-iframe0"]/@src
   - name: name
     singleValue: true
     description: The product name
@@ -162,13 +160,15 @@ fields:
     singleValue: true
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-    example: A+, A+++, B
-    xpath: //div[@id='main-section']/div[@class='main-bottom-column']/div[@class='product-page-tabs ui-tabs ui-corner-all ui-widget ui-widget-content']/div[@id='classifications-tab']/div[@class='product-details-classifications']/div[@class='product-classifications-right']/div[@class='product-classifications'][4]/table[@class='product-classifications-table']/tbody/tr[1]/td[2]
+    example: A+, A+++, B    
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    xpath: boolean(//div[@class='product-details-left']/ul[@class='product-detail-links']/li[@class='product-detail-link-item product-detail-print-item']/a[@class='product-detail-print-link'])
+    xpath: boolean(//a[@class='product-detail-print-link'])
+    regExp: (.+)
+    regExpReplace: No
+    defaultValue:  Yes
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
@@ -191,8 +191,5 @@ fields:
     singleValue: true
     description:
   - name: newDescription
-    singleValue: true
-    description:
-  - name: shippingDimensions
     singleValue: true
     description:
