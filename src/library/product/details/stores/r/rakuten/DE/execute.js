@@ -6,7 +6,7 @@ module.exports = {
     store: 'rakuten',
     domain: 'rakuten.de',
     loadedSelector: 'body[data-base-url]',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="debugger-iframe"]',
     zipcode: '',
   },
 };

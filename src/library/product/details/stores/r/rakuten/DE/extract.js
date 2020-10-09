@@ -5,7 +5,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'rakuten',
-    transform: null,
+    transform: cleanUp,
     domain: 'rakuten.de',
     zipcode: '',
   },
