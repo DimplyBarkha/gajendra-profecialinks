@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -18,12 +18,13 @@ fields:
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
-    xpath: //meta[@property="og:title"]//@content
+    # xpath: //meta[@property="og:title"]//@content
   - name: category
     singleValue: false
+    # xpath: //div[contains(@class,'col-sm-12 a-left')]//ul/li[position()>1]
+    xpath: //meta[@property="og:category"]//@content
     description: The categories (e.g. from breadcrumbs)
-    # xpath: //div[contains(@class,'breadcrumbs')]//ul//li[position()>1 and position()<last()]
-    xpath: //div[contains(@class,'col-sm-12 a-left')]/ul/li
+    # xpath: //div[contains(@class,'breadcrumbs')]//ul//li[position()>1 and position()<last()]    
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -47,9 +48,9 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //meta[@property="og:availability"]/@content
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -68,7 +69,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //table[@id='product-attribute-specs-table']//tbody//tr[4]//td
+    xpath: //*[contains(text(), "Manufacturer")]/following::td[1]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -161,13 +162,13 @@ fields:
     singleValue: true
     description: Text of any coupon offer                         
   - name: specifications
-    singleValue: true
+    singleValue: false
     description: The physical dimensions of the product including packaging.
     xpath: //table[@id="product-attribute-specs-table"]//tbody//tr[position()>4]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: //th[contains(text(), "Guarantee")]/following::td[1]  
+    xpath: //*[contains(text(), "Guarantee")]/following::td[1]
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates  
