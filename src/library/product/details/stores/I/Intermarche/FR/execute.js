@@ -7,6 +7,6 @@ module.exports = {
     domain: 'intermarche.com',
     loadedSelector: null,
     noResultsXPath: null,
-    zipcode: '',
+    zipcode: ''
   },
 };
