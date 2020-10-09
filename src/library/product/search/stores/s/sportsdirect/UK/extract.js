@@ -18,11 +18,36 @@ module.exports = {
     store,
     transform,
   }, context, dependencies) => {
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          await stall(500);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(5000);
+            break;
+          }
+        }
+
+        function stall(ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
+
     await context.evaluate(async function () {
+      let ratingResponse = [];
+      let productsLi = [];
       async function getApiData(url) {
-        const ratingResponse = [];
-        console.log('Url is');
-        console.log(url);
+        // console.log('Url is');
+        // console.log(url);
         const response = await fetch(url, {
           headers: {
             accept: '*/*',
@@ -41,23 +66,23 @@ module.exports = {
         }
 
         if (response && response.status === 404) {
-          console.log('Product Not Found!!!!');
+          // console.log('Product Not Found!!!!');
         }
 
         if (response && response.status === 200) {
-          console.log('Ratings Found!!!!');
+          // console.log('Ratings Found!!!!');
           const data = await response.json();
-          console.log('da is')
-          console.log(data)
-          ratingResponse.push(data.Results);
-          console.log(ratingResponse)
+          ratingResponse = data.Results;
+          // ratingResponse.push(data.Results);
+          // console.log(ratingResponse[0]);
         }
       }
+
       async function composeRatingUrlPerPage() {
         let url = '';
 
-        const productsLi = document.querySelectorAll('ul.s-productscontainer2>li');
-        let prodIdString = ''
+        productsLi = document.querySelectorAll('ul.s-productscontainer2>li');
+        let prodIdString = '';
         if (productsLi.length > 0) {
           for (var i = 0; i < productsLi.length; i++) {
             let lowerLimit = productsLi[i].getAttribute('li-productid');
@@ -65,6 +90,7 @@ module.exports = {
             lowerLimit = lowerLimit.substring(0, 6);
             prodIdString += `${lowerLimit}-${upperLimit},`;
           }
+          // console.log("exiting loop");
         }
         prodIdString = prodIdString.substring(0, prodIdString.lastIndexOf(','));
         // console.log(prodIdString)
@@ -73,8 +99,53 @@ module.exports = {
       }
 
       const url = await composeRatingUrlPerPage();
-      console.log(url);
       await getApiData(url);
+
+      async function addRatingToEle() {
+        if (ratingResponse.length > 0) {
+          if (productsLi.length > 0) {
+            for (var i = 0; i < productsLi.length; i++) {
+              let lowerLimit = productsLi[i].getAttribute('li-productid');
+              const upperLimit = productsLi[i].getAttribute('li-seq');
+              lowerLimit = lowerLimit.substring(0, 6);
+              const prodIdString = `${lowerLimit}-${upperLimit}`;
+
+              // console.log("prodIdString");
+              // console.log(prodIdString);
+              // console.log("rating responsee");
+              // console.log(ratingResponse);
+              let rating = null;
+              rating = ratingResponse.find(function (item) {
+                return item.ProductStatistics.ProductId === prodIdString;
+              });
+              // const value = rating.ProductStatistics.ReviewStatistics;
+              if (rating !== null) {
+                addEleToDoc(productsLi[i], 'ratingDiv', rating);
+              }
+            };
+          }
+        }
+      }
+
+      function addEleToDoc(liEle, key, ratingValue) {
+        console.log(ratingValue);
+
+        const prodEle = document.createElement('div');
+        prodEle.id = key;
+        prodEle.textContent = ratingValue;
+        prodEle.style.display = 'none';
+        liEle.appendChild(prodEle);
+
+        let att = document.createAttribute("ratingValue");
+        att.value = ratingValue.ProductStatistics.ReviewStatistics.AverageOverallRating === null ? '' : parseFloat(ratingValue.ProductStatistics.ReviewStatistics.AverageOverallRating).toFixed(1);
+        prodEle.setAttributeNode(att);
+
+        att = document.createAttribute("reviewCount");
+        att.value = ratingValue.ProductStatistics.ReviewStatistics.TotalReviewCount;
+        prodEle.setAttributeNode(att);
+      }
+
+      await addRatingToEle();
     });
 
     return await context.extract(dependencies.productDetails, {
