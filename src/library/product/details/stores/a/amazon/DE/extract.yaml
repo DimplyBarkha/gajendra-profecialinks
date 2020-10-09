@@ -100,7 +100,8 @@ fields:
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: '#importantInformation_feature_div,#productDescription_feature_div.feature,#aplus'
+    xpath: //*[@id="added-enhanced-content"]
+    # manualSelector: '#productDescription_feature_div.feature,#aplus'
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//img/@src
