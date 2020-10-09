@@ -24,13 +24,13 @@ async function implementation (
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
-        await stall(5000);
+        await stall(1000);
         const products = document.evaluate('//div[contains(@class,\'main-column\')]/ul/li//div//img', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const productsCount = products.snapshotLength;
         scrollTop += 500;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000 || productsCount > 160) {
-          await stall(10000);
+          await stall(5000);
           break;
         }
       }
