@@ -68,7 +68,7 @@ fields:
   - name: name
     xpath: //div[contains(@class,"rd__product-header__title__main")]
   - name: variantInformation
-    xpath: //div[@class='rd__product-details__picker-dropdown__collapse-title']//span[contains(@class, 'rd__copytext rd__copytext')] | //strong[contains(., 'Farbe')]/following-sibling::span
+    xpath: //div[@class='rd__product-details__picker-dropdown__collapse-title']//span[contains(@class, 'rd__copytext rd__copytext')] | //strong[contains(., 'Farbe')]/following-sibling::span | //div[contains(@class, 'rd__product-details__options__price__item--selected')]/div[contains(@class,'rd__product-details__options__price__item__quantity')]/span[1]
   - name: brandLink
     singleValue: true
     xpath: //span[contains(@class,"rd__product-header__title__brandname")]//a[1]/@href | //span[@class='rd__product-header__title__brand']

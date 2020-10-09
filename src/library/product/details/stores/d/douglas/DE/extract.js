@@ -53,9 +53,14 @@ module.exports = {
       if (variantContainerLeftPan) {
         let initialVairantTobeClicked = null;
         const initialVariant = document.querySelector('div.rd__product-details__picker-dropdown__collapse-title  img');
+
         if (initialVariant !== null) {
           const initialVariantIdentifier = initialVariant.getAttribute('alt');
           initialVairantTobeClicked = getEleByXpath(`//div[@data-wt-content="changeVariantColor"]//img[contains(@alt, '${initialVariantIdentifier}')]`);
+        }
+
+        if (initialVairantTobeClicked === null) {
+          initialVairantTobeClicked = document.querySelector('div.rd__blob--checked');
         }
 
         const variants = variantContainerLeftPan.querySelectorAll('div.rd__product-details__picker__list__item');
@@ -72,7 +77,10 @@ module.exports = {
       const variantContainerRightPan = document.querySelector('div.rd__product-details__options__price.rd__product-details__options__price--size');
       if (variantContainerRightPan) {
         let initialVairantTobeClicked = null;
-        initialVairantTobeClicked = getEleByXpath(`//div[contains(@class, 'rd__product-details__options__price__item--selected')]`)
+        initialVairantTobeClicked = getEleByXpath(`//div[contains(@class, 'rd__product-details__options__price__item--selected')]`);
+        if (initialVairantTobeClicked === null) {
+          initialVairantTobeClicked = document.querySelector('div.rd__blob--checked');
+        }
         const variants = variantContainerRightPan.querySelectorAll('div.rd__product-details__options__price__item');
         for (var i = 0; i < variants.length; i++) {
           variants[i].click();

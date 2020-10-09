@@ -69,7 +69,10 @@ const transform = (data) => {
       }
 
       if (row.description) {
-        row.description[0].text = `|| ${row.description[0].text}`;
+        // row.description[0].text = `|| ${row.description[0].text}`;
+        for (let i = 0; i < row.description.length; i++) {
+          row.description[i].text = `|| ${row.description[i].text}`;
+        }
 
         if (row.descriptionChunck) {
           row.description[row.description.length - 1].text = `${row.description[row.description.length - 1].text} ${row.descriptionChunck[0].text}`;
