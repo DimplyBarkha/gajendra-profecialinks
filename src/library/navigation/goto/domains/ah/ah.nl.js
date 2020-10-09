@@ -13,6 +13,11 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
+    await context.evaluate(() => {
+      if (document.querySelector('button#accept-cookies')) {
+        document.querySelector('button#accept-cookies').click();
+      }
+    });
     await context.goto(url, {
       block_ads: false,
       load_all_resources: true,

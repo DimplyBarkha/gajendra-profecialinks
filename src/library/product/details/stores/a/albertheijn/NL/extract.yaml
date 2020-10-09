@@ -61,7 +61,8 @@ fields:
     xpath: //div[starts-with(@class,"product-card-header_unitInfo")]/text()
     description: Quantity as described on the page
   - name: weightNet
-    xpath: //div[starts-with(@class,"product-card-header_unitInfo")]/text()[contains(.,'g') or contains(.,'G')]
+    xpath: //h4[contains(.,"Inhoud en gewicht")]/following-sibling::p[1][contains(text(),"Gram") or contains(text(),"gram")]
+    regExp: '[^\s]+\s+[^\s]*(?=[Gg]ram)[Gg]ram'
     description: Net weight as described on the page
   - name: weightGross
     description: Gross weight as described on the page
@@ -209,7 +210,7 @@ fields:
   - name: fastTrack
     description: null
   - name: ingredientsList
-    xpath: //div[@class="product-info-content-block product-info-ingredients"]/p[1]
+    xpath: //div[@class="product-info-content-block product-info-ingredients"]/p[1][not(starts-with(normalize-space(.),"Waarvan"))]
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
