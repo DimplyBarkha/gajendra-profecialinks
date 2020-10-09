@@ -7,22 +7,23 @@ fields:
     xpath: (//div[contains(@class,'slick-current')]//img/@data-zoom-image)[1] | //div[contains(@class,'js-gallery-type-none')]/img/@data-zoom-image | (//div[contains(@class,'slick-current')]/div/div[contains(@class,"video")]/parent::div/parent::div/following-sibling::div//img/@data-zoom-image)[1]
   - name: imageAlt
   - name: alternateImages
-    xpath: (//div[contains(@class,'slick-current')])[1]/following-sibling::div[position()>1]//img/@data-zoom-image
+    xpath: (//div[contains(@class,'slick-current')])[1]/following-sibling::div//img/@data-zoom-image | (//div[contains(@class,'slick-current')]/div/div[contains(@class,"video")]/parent::div/parent::div/following-sibling::div[position()>1]//img/@data-zoom-image)[1]
   - name: metaKeywords
     xpath: //meta[contains(@name,'keywords')]/@content
   - name: category
   - name: nameExtended
     xpath: concat(normalize-space(//div[contains(@class,'product-item-label')]/text()), ' ', normalize-space(//h1[contains(@class,'page-title')]/span/text()))
   - name: listPrice
+    xpath: //div[@class="product-info-price"]//span[contains(@id,'old-price')]/@data-price-amount
   - name: price
-    xpath: //span[contains(@id,'price')]/@data-price-amount
+    xpath: //div[@class="product-info-price"]//span[contains(@id,'product-price')]/@data-price-amount
   - name: availabilityText
     xpath: //li[contains(@class,'stock unavailable')]/@class
     regExp: (.+)
     regExpReplace: Out of Stock
     defaultValue: In Stock
   - name: description
-    xpath: //div[contains(@class,'product attribute description')]/div//text()
+    xpath: //ul[@class="product-view-info__usp"]//li | //div[contains(@class,'product attribute description')]
   - name: descriptionBullets
     xpath: count(//ul[@class="product-view-info__usp"]//li)
   - name: brandText
