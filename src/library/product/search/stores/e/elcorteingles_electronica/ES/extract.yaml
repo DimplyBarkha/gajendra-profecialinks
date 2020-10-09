@@ -29,6 +29,7 @@ fields:
     xpath: //meta[@itemprop="reviewCount"]/@content
   - name: price
     xpath: //div[contains(@class,"pricing js-preview-pricing")]/span[contains(@class,'price _big')]
+    regExp: ([0-9\,]+\s?\D)
   - name: rank
   - name: rankOrganic
   - name: sponsored

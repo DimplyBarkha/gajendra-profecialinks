@@ -35,8 +35,8 @@ fields:
     xpath: //a[@itemprop="aggregateRating"]/@aria-label
     regExp: \d+(?=\sreseñas)
   - name: price
-    description: The offered price for the product
-    xpath: //span[@class="price _big"] | //span[@class="price _big _sale"]
+    xpath: //div[contains(@class,"pricing js-preview-pricing")]/span[contains(@class,'price _big')]
+    regExp: ([0-9\,]+\s?\D)
   - name: id
     description: Unique id (within this extractor)
     xpath: //span[@data-json]/@data-json
