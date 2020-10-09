@@ -6,7 +6,7 @@ module.exports = {
     store: 'littlewoods',
     domain: 'littlewoods.com',
     url: 'https://www.littlewoods.com/dyson/e/b/4294958017.end',
-    loadedSelector: 'div[id="pageContainer"]',
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },

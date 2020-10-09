@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'littlewoods',
-    nextLinkSelector: '#pagnNextString, #pagnNextLink, ul li a.paginationNext:not(.a-disabled)',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.productImages a.productMainImage',
+    loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'littlewoods.com',
