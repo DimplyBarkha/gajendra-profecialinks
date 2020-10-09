@@ -21,10 +21,10 @@ fields:
     xpath: //div[@class='productImages productWarranty']//a//img/@src
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class='reviewsScore']//a[@class='productRating']//span/text()
+    xpath: count(//div[@class='reviewsScore']//a[@class='productRating']//span/text())
   - name: reviewCount
     singleValue: false
-    xpath: //div[@class='bvReviewsNumber']//a[@class='productRating']/text()
+    xpath: count(//div[@class='bvReviewsNumber']//a[@class='productRating']/text())
   - name: price
     singleValue: false
     xpath: //dd[@class='productPrice']
