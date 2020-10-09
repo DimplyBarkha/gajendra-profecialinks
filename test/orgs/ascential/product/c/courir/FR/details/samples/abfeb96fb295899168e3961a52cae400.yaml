@@ -1,0 +1,163 @@
+input:
+  _url: http://courir.com
+  URL: https://www.courir.com/fr/p/timberland-crib-bootie-2-1224217.html
+extractions:
+  - html: https://workbench.import.io/html/run=355a1df5-daf9-45a9-b606-9ae5aa7a6125/task=053888f9-0de3-46f3-9a53-efdd5e530104/4c195175-ac14-452a-a592-0b023a8f03a8.html
+    extractionConfigId: product/details/stores/c/courir/FR/extract
+    data:
+      - group:
+          - category:
+              - text: ENFANT
+                xpath: /html/body/div[3]/div[2]/div[2]/ul[1]/li[2]/a[1]/span[1]
+              - text: BÉBÉ
+                xpath: /html/body/div[3]/div[2]/div[2]/ul[1]/li[3]/a[1]/span[1]
+            price:
+              - text: 85,00 €
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[3]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            nameExtended:
+              - text: |
+                  
+                  TIMBERLAND
+                  CRIB BOOTIE 2
+                  MIEL
+            variantCount:
+              - text: "7"
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+        xpath: /html
+      - group:
+          - image:
+              - text: https://www.courir.com/dw/image/v2/BCCL_PRD/on/demandware.static/-/Sites-master-catalog-courir/default/dw58817fa4/images/hi-res/001224217_101.png?sw=600&sh=600&sm=fit
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
+            imageAlt:
+              - text: CRIB BOOTIE 2
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.courir.com/dw/image/v2/BCCL_PRD/on/demandware.static/-/Sites-master-catalog-courir/default/dw5fb82a17/images/hi-res/001224217_102.png?sw=500&sh=500
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/img[1]/@src
+              - text: https://www.courir.com/dw/image/v2/BCCL_PRD/on/demandware.static/-/Sites-master-catalog-courir/default/dw07e47658/images/hi-res/001224217_103.png?sw=500&sh=500
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]/img[1]/@src
+              - text: https://www.courir.com/dw/image/v2/BCCL_PRD/on/demandware.static/-/Sites-master-catalog-courir/default/dwe8cc08ff/images/hi-res/001224217_104.png?sw=500&sh=500
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[4]/img[1]/@src
+            price:
+              - text: 50,00 €
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]
+            brandText:
+              - text: TIMBERLAND
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            quantity:
+              - text: Choisir la taille
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/button[1]/@value
+            variantId:
+              - text: "12242170101"
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/link[1]/@content
+            ratingCount:
+              - text: "105"
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/button[1]/div[3]/meta[1]/@content
+                type: NUMBER
+                raw: "105"
+                locale: en
+                value: 105
+            aggregateRatingText:
+              - text: "4.9"
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/button[1]/div[2]
+            aggregateRating:
+              - text: "4.9"
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/button[1]/div[2]
+                type: NUMBER
+                raw: "4.9"
+                locale: en
+                value: 4.9
+            color:
+              - text: MIEL
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            name:
+              - text: CRIB BOOTIE 2
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]/span[2]
+            variantInformation:
+              - text: MIEL
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            description:
+              - text: Rien de tel qu’un basique incontournable pour chausser bébé au quotidien
+                  comme pour une occasion spéciale ! Avec la Crib Bootie 2
+                  couleur miel de Timberland, bébé se sent à l’aise dans une
+                  chaussure à la tige en nubuck et à la semelle intérieure comme
+                  extérieure en textile.
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/p[1]/span[1]
+            sku:
+              - text: "1224217"
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[2]/div[2]/div[4]/div[2]/span[2]
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            nameExtended:
+              - text: |
+                  
+                  TIMBERLAND
+                  CRIB BOOTIE 2
+                  MIEL
+            variantCount:
+              - text: "7"
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+          - price:
+              - text: 85,00 €
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[3]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            nameExtended:
+              - text: |
+                  
+                  TIMBERLAND
+                  CRIB BOOTIE 2
+                  MIEL
+            variantCount:
+              - text: "7"
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+        xpath: /html/body/div[3]/div[2]/div[3]/div[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=355a1df5-daf9-45a9-b606-9ae5aa7a6125/task=053888f9-0de3-46f3-9a53-efdd5e530104/4c195175-ac14-452a-a592-0b023a8f03a8.html
+    timestamp: 1602235486152
