@@ -336,12 +336,12 @@ fields:
     description:
       Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
-    xpath: //div[contains(text(),"Fibres Alimentaires")]/following-sibling::div
+    # xpath: //div[contains(text(),"Fibres Alimentaires")]/following-sibling::div
     regExp: (\d+|)([.,]|)(\d+|)
   - name: dietaryFibrePerServingUom
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
-    xpath: //div[contains(text(),"Fibres Alimentaires")]/following-sibling::div
+    # xpath: //div[contains(text(),"Fibres Alimentaires")]/following-sibling::div
     regExp: ([a-z|A-Z]+)
   - name: totalSugarsPerServing
     singleValue: true
@@ -418,12 +418,12 @@ fields:
     singleValue: true
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
-    xpath: //div[contains(text(),"Sel")]/following-sibling::div
+    # xpath: //div[contains(text(),"Sel")]/following-sibling::div
     regExp: (\d+|)([.,]|)(\d+|)
   - name: saltPerServingUom
     singleValue: true
     description: Unit of Measure Data for Salt
-    xpath: //div[contains(text(),"Sel")]/following-sibling::div
+    # xpath: //div[contains(text(),"Sel")]/following-sibling::div
     regExp: ([a-z|A-Z]+)
   - name: dietaryInformation
     singleValue: true
