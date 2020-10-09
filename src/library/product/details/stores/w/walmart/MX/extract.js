@@ -63,6 +63,13 @@ async function implementation (
     }
     addHiddenDiv('ii_name', title);
     addHiddenDiv('ii_nameExtended', nameExtended);
+    // Video
+    var VideoNode = document.querySelectorAll('div[class*="image-picker_thumb"] div[data-automation-id*="video"]');
+    VideoNode.forEach(item => {
+      item.click();
+      const link = document.querySelector("div[class*='image-picker_webVideoWrapper'] iframe") ? document.querySelector("div[class*='image-picker_webVideoWrapper'] iframe").src : '';
+      link && addHiddenDiv('ii_video', link);
+    });
   });
   return await context.extract(productDetails, { transform });
 }

@@ -13,7 +13,7 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'image-picker_thumb')][position()>1]//img/@src
+    xpath: //div[contains(@class,'image-picker_thumb')][position()>1]//img[contains(@itemprop,'image')]/@src
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: true
@@ -126,4 +126,8 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[contains(@class,'product-features_seoDescription')]//p
+    description: null
+  - name: videos
+    singleValue: false
+    xpath: //div[@id='ii_video']
     description: null
