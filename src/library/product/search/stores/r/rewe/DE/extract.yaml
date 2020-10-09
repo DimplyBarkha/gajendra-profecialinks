@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='search-service-product']
+fields:
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //input[@name="listingId"]/@value
+    regExp: ([\d]-[A-Z|0-9]{8})
+    regExpReplace: $1
+  - name: rankOrganic 
+    description: The position (rank) within the list excluding sponsored/paid results
+    xpath: //input[@name="listingId"]/@rankorganic
+    type: NUMBER 
+  - name: name 
+    description: The product name
+    xpath: //div[@class='search-service-productTitle']/div/text()
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //input[@name="listingId"]/@url
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class="search-service-ProductActions"]/meso-data/@data-productid
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="search-service-rsProductsMedia"]//img/@src
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: reviewCount
+    description: The number of reviews
+    type: NUMBER
+  - name: ratingCount
+    description: The number of ratings
+  - name: price
+    description: The offered price for the product
+    singleValue: false
+    xpath: //div[@class="search-service-productOfferPrice"]/text() | //div[@class="search-service-productPrice"]/text()
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+    xpath: //div[@class='search-service-partnerName']/text()
+  - name: rank 
+    description: search/listing rank
+    xpath: //input[@name="listingId"]/@rankorganic
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
