@@ -15,7 +15,7 @@ fields:
   - name: category
     xpath: //span[@class="breadcrumb__list"]//span[position()>1][position()<last()]
   - name: nameExtended
-    xpath: //body/@nameextended
+    xpath: //span[@class="breadcrumb__entry"][position()=last()]
   - name: brandLink
     xpath: //a[contains(@class,'product-detail-header__brand-line')]
   - name: baseUrl
@@ -41,6 +41,7 @@ fields:
   - name: brandText
     xpath: //span[contains(@class,"brand-logo-text")]
   - name: sku
+    singleValue: true
     xpath: //head/@sku | //span[contains(.,"Art-Nr.")]/following-sibling::span | //li[contains(@class,"variant-selector-item--selected")]/@value
   - name: listPrice
     singleValue: true
@@ -49,7 +50,7 @@ fields:
     xpath: //body/@ingredients
   - name: variantId
     singleValue: true
-    xpath: //body/@variantid | //li[@class="variant-selector-item variant-selector-item--selected"]/@value
+    xpath: //body/@variantid | //li[@class="variant-selector-item variant-selector-item--selected"]/@value | //head/@sku | //span[contains(.,"Art-Nr.")]/following-sibling::span | //li[contains(@class,"variant-selector-item--selected")]/@value
   - name: ratingCount
     xpath: //dd[@class="bv-rating-ratio-count"]/a
     regExp: \d+
@@ -59,7 +60,8 @@ fields:
     xpath: //span[contains(@class,'bv-secondary-rating-summary-rating')]
   - name: variantCount
   - name: name
-    xpath: //span[@class="product-detail-header__name"]
+    singleValue: true
+    xpath: //body/@fullname | //span[@class="product-detail-header__name"]
   - name: specifications
     xpath: //div[@class="product-detail-content__classifications"] | //head/@specification
   - name: salesRank

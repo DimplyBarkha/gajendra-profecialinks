@@ -15,10 +15,13 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
+      const brandName = document.querySelector('a.product-detail-header__brand-line').innerText;
       const brand = document.querySelector("span[class*='brand-logo-text']") ? document.querySelector("span[class*='brand-logo-text']").innerText : '';
       const name = document.querySelector('span.product-detail-header__name') ? document.querySelector('span.product-detail-header__name').innerText : '';
       const nameExtended = brand + ' ' + name;
       document.body.setAttribute('nameExtended', nameExtended);
+      const fullname = brandName + ' ' + name;
+      document.body.setAttribute('fullname', fullname);
       await new Promise(resolve => setTimeout(resolve, 4000));
       let specification = document.querySelector('div.product-detail-content__classifications') ? document.querySelector('div.product-detail-content__classifications').innerText : '';
       specification = specification.replace('\n', ' ');
@@ -26,13 +29,15 @@ module.exports = {
       const description = document.querySelector('div.product-detail-content__description') ? document.querySelector('div.product-detail-content__description').innerText : '';
       document.head.setAttribute('description', description);
       const data = document.querySelector('script[type="application/ld+json"]');
-      const getSku = data.innerText.trim();
-      const sku = (getSku.match(/(.*)sku": "(.*?)"(.*)/g)[0]).match(/(\d+)/g)[0];
+      const getSku = data.innerText.trim();      
+      const sku = (getSku.match(/(.*)sku": "(.*?)"(.*)/g)[0]).match(/(\w+)(\d+)/g)[0];
+
       document.head.setAttribute('sku', sku);
       const getOtherInfo = document.querySelector('#react-tabs-2');
       if (getOtherInfo) {
         getOtherInfo.click();
-        await new Promise(resolve => setTimeout(resolve, 4000));
+        console.log("clicked");
+        await new Promise(resolve => setTimeout(resolve, 9000));
         const otherinfo = document.querySelector('div.product-detail-content__html').innerText;
         document.body.setAttribute('otherinfo', otherinfo);
       }
