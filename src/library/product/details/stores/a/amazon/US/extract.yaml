@@ -90,7 +90,6 @@ fields:
     singleValue: false
     xpath: //script[contains(@type,"a-state") and contains(text(), "parentAsin")]
     regExp: parentAsin\"\:\"([A-Za-z0-9]{10,})
-    # xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(., 'Item model number')]/following-sibling::td[1]/text()
   - name: mpc
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(),'odel')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(text(),"odel")]/following-sibling::td[1]/text() | //div[contains(@id,"prodDetails")]//*[contains(text(),"odel")]/following-sibling::td[1]/text() | //table[@id="product-specification-table"]//th[contains(text(),  "Manufacturer") and contains(text(), "Number")]/following-sibling::td/text()
@@ -156,7 +155,6 @@ fields:
   - name: name
     singleValue: true
     xpath: //*[@id="productTitle"]
-    # xpath: //title
   - name: inStorePrice
     singleValue: true
     xpath: 
@@ -196,12 +194,6 @@ fields:
     xpath: //*[@id="sns-base-price"]
     regExp: ([^ ]+)
     regExpReplace: $1
-  - name: subscribeAndSave
-    singleValue: true
-    xpath: //*[@id="sns-base-price"]
-    regExp: ([^ ]+)
-    regExpReplace: 'YES'
-    defaultValue: 'NO'
   - name: pasin
     singleValue: false
     xpath: //script[contains(@type,"a-state") and contains(text(), "parentAsin")]
