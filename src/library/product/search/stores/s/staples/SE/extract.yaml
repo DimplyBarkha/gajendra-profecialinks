@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: null
+  - name: id
+    singleValue: true
+    xpath: //div[@class="searchImgContainer"]/a/@sku
+  - name: name
+    singleValue: true
+    xpath: //h3[@id="skuName"]/a
+  - name: productUrl
+    singleValue: true
+    xpath: //h3[@id="skuName"]/a/@href
+  - name: gtin
+    singleValue: true
+    xpath: //div[@itemprop="ean"]/text()
+  - name: thumbnail
+    singleValue: true
+    xpath: //div[@class="searchImgContainer"]//img/@src
+  - name: price
+    singleValue: true
+    xpath: //span[@itemprop="price"]
