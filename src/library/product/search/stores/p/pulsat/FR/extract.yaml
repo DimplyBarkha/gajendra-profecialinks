@@ -5,7 +5,7 @@ recordXPath: //div[contains(@class,'product-list-col')]//article
 fields:
   - name: price
     singleValue: false
-    xpath: //div[@id='ii_price']
+    xpath: //meta[@itemprop="price"]/@content
     # xath: //div[@class='product-price']/meta[@itemprop='price']/@content
     #  manualSeclector: meta[itemprop='price']
   - name: thumbnail
@@ -14,7 +14,7 @@ fields:
     
   - name: id
     singleValue: false
-    xpath: //button/@data-product-id | //div[contains(@class,'comparateur product-list-compare')]/input[@class="product_comparator"]/@value
+    xpath: //input/@value
  
   - name: rankOrganic
     singleValue: false

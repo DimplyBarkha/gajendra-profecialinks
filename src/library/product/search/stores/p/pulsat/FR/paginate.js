@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'pulsat',
-    nextLinkSelector: '.pagination li a',
+    nextLinkSelector: '.pagination li:last-child>a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class*="product-list-col"] article',

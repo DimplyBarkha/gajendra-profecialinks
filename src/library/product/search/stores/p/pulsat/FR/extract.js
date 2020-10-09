@@ -31,10 +31,8 @@ async function implementation (
     for (let i = 0; i < priceEle.length; i++) {
       const priceItem = priceEle[i].getAttribute('content');
       addHiddenDivInProduct('ii_price', priceItem, i);
-      console.log(priceItem);
       priceArray.push(priceItem, priceItem, i);
     }
-    console.log(priceArray);
   });
   return await context.extract(productDetails, { transform });
 }
