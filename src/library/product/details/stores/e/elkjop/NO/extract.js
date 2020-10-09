@@ -9,7 +9,7 @@ module.exports = {
     domain: 'elkjop.no',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
       const accCookie = document.querySelector('button.coi-banner__accept');
       if (accCookie) {
@@ -130,6 +130,6 @@ module.exports = {
         }
       }
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform });
   },
 };
