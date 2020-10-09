@@ -69,8 +69,6 @@ fields:
     xpath: translate(//th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1]  | //th[contains(text(), ' Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text() | //td[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1], "(", "")
   - name: gtin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
-  - name: asin
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   - name: variantId
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(., 'Item model number')]/following-sibling::td[1]/text()
@@ -119,7 +117,7 @@ fields:
     xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
   - name: color
     singleValue: true
-    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
+    xpath: //div[@id="added-color"]
   - name: colorCode
     singleValue: true
     xpath: 
@@ -438,21 +436,26 @@ fields:
   - name: technicalInformationPdfPresent
     singleValue: true
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
+    defaultValue: No
   - name: termsAndConditions
     singleValue: true
-    xpath: 
+    defaultValue: No
   - name: privacyPolicy
     singleValue: true
-    xpath: 
+    defaultValue: No
   - name: customerServiceAvailability
     singleValue: true
-    xpath: 
+    defaultValue: No
   - name: materials
     singleValue: true
     xpath: //div[contains(@id, "prodDetails")]//tr[contains(., "Material") or (contains(., "material"))]/td[contains(@class,'value')]
   - name: Image360Present
     singleValue: true
-    xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
+    #xpath: //li[contains(@class, "pos-360") and not(contains(@class,'aok-hidden'))]//img/@src
+    xpath: //div[@id='added-image360Present']
+    defaultValue: No
   - name: imageZoomFeaturePresent
     singleValue: true
-    xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+    #xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]/text()
+    defaultValue: No
+    xpath: //div[@id='added-imageZoomFeaturePresent']

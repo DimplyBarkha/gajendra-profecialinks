@@ -64,6 +64,15 @@ async function implementation (
   await helpers.addURLtoDocument('added-url');
   await helpers.addURLtoDocument('added-asin', true);
 
+  const zoomXpath = '//span[@id="canvasCaption" and contains(text(),  "Roll over")]';
+  await helpers.getAndAddElem(zoomXpath, 'added-imageZoomFeaturePresent', { callback: val => val ? 'Yes' : 'No' });
+
+  const xpath360 = '//li[contains(@class, "pos-360") and not(contains(@class, "aok-hidden"))]//img';
+  await helpers.getAndAddElem(xpath360, 'added-image360Present', { property: 'src', callback: val => val ? 'Yes' : 'No' });
+
+  const colorXpath = '//div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]';
+  await helpers.getAndAddElem(colorXpath, 'added-color');
+
   await context.extract(productDetails, { transform });
 }
 
