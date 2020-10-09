@@ -109,8 +109,8 @@ const transform = (data, context) => {
       if (row.variants) {
         row.variantCount = [{ text: row.variants[0].text.split('|').length + 1 }];
       }
-      if (row.variantId){
-        row.variantId = [{ text: row.variantId[0].text.replace('parentAsin":"','') }];
+      if (row.variantId) {
+        row.variantId = [{ text: row.variantId[0].text.replace('parentAsin":"', '') }];
       }
       if (row.salesRankCategory) {
         row.salesRankCategory = row.salesRankCategory.map(item => {
@@ -270,9 +270,9 @@ const transform = (data, context) => {
           row.shippingWeight = [{ text: dimText.split(';')[1].trim() }];
         }
       }
-    if (row.customerQuestionsAndAnswers){
-      row.customerQuestionsAndAnswers = [{ text: row.customerQuestionsAndAnswers[0].text.replace(/\<([^>]*)\>/g, '').replace(/\{([^}]*)\}/g, '') }];
-    }
+      if (row.customerQuestionsAndAnswers) {
+        row.customerQuestionsAndAnswers = [{ text: row.customerQuestionsAndAnswers[0].text.replace(/\<([^>]*)\>/g, '').replace(/\{([^}]*)\}/g, '') }];
+      }
 
       const zoomText = row.imageZoomFeaturePresent ? 'Yes' : 'No';
       row.imageZoomFeaturePresent = [{ text: zoomText }];
