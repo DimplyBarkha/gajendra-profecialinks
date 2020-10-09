@@ -10,7 +10,7 @@ fields:
     regExpReplace: $1
   - name: imageAlt
     description: Alt text of the main product image
-    xpath: (//div[@class="carousel-item active"]//img/@alt)[1]
+    xpath: //div[contains(@class,'slick-vertical')]//div[@data-slick-index="0"]//img/@alt
   - name: alternateImages
     description: Other product images (not in manufacturer description)
     xpath: //div[@class="secondaryimages"][position()>1]//input/@value
@@ -71,6 +71,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[1]/@data-gtin
   - name: sku
     description: The store-specific product identifier
     xpath: (//span/@data-manufacturersku)[1]
@@ -79,7 +80,7 @@ fields:
     xpath: (//span/@data-productid)[1]
   - name: mpc
     description: The manufacturer model code (unique) of the product
-    xpath: (//div/@data-mpn)[1]
+    xpath: (//span/@data-manufacturersku)[1]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -112,9 +113,9 @@ fields:
     xpath: count(//div[@role="radio"])
     type: NUMBER
   - name: color
-    singleValue: true
+    singleValue: false
     description: A textual description of the colour
-    xpath: //span[@class="color-display-value"]
+    xpath: //span[contains(@class,"color-display-value")]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -381,6 +382,7 @@ fields:
     singleValue: true
     description: null
   - name: specifications
+    singleValue: false
     description: The physical dimensions of the product including packaging.
     xpath: //h5[contains(.,'Specifications')]/following-sibling::ul//li
   - name: warranty
@@ -416,6 +418,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //section[@aria-label="Promotions and announcements"]//p[contains(.,'ship')]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -444,10 +447,10 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: //div/@data-product-id
+    xpath: (//div[@data-bv-show="rating_summary"]//@data-bv-productid)[1]
   - name: variants
-    singleValue: false
-    description: null
+    xpath: //div[@class="variant"]//input//@value
+    regExp: ([A-Z])\w+
   - name: additionalDescBulletInfo
     singleValue: false
     description: null

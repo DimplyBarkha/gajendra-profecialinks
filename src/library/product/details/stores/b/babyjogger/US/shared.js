@@ -44,7 +44,13 @@ const transform = (data) => {
           },
         ];
       }
-
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          text = row.specifications.map(elm => elm.text).join(' || ');
+        });
+        row.specifications = [{ text }];
+      }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
@@ -70,14 +76,38 @@ const transform = (data) => {
           },
         ];
       }
-
-      if (row.promotion) {
+      // if (row.specifications) {
+      //   let text = '';
+      //   let count = 0;
+      //   row.specifications.forEach(item => {
+      //     count++;
+      //     const val = (count % 2);
+      //     if (val === 0) {
+      //       text += `: ${item.text}`;
+      //     } else {
+      //       text += ` | ${item.text}`;
+      //     }
+      //   });
+      //   row.specifications = [
+      //     {
+      //       text: text.replace(new RegExp('(\\s\\|\\s)(.+)', 'g'), '$2'),
+      //     },
+      //   ];
+      // }
+      if (row.variants) {
         let text = '';
-        row.promotion.forEach(item => {
-          text = item.text.replace('View all', '');
+        row.variants.forEach(item => {
+          text = row.variants.map(elm => elm.text).join(' | ');
         });
-        row.promotion = [{ text }];
+        row.variants = [{ text }];
       }
+      // if (row.promotion) {
+      //   let text = '';
+      //   row.promotion.forEach(item => {
+      //     text = item.text.replace('View all', '');
+      //   });
+      //   row.promotion = [{ text }];
+      // }
     }
   }
 
