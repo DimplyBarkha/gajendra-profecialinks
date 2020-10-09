@@ -62,7 +62,7 @@ async function implementation (
         if (product && product.currentSku) {
           addHiddenDiv('ii_brand', product.brandName, newDiv);
           addHiddenDiv('ii_id', product.currentSku.skuId, newDiv);
-          addHiddenDiv('ii_title', `${product.brandName} - ${product.productName}`, newDiv);
+          addHiddenDiv('ii_title', `${product.brandName} - ${product.productName ? product.productName : product.displayName}`, newDiv);
           addHiddenDiv('ii_productUrl', `https://${domain}/ca/en${product.targetUrl}?preferedSku=${product.currentSku.skuId}`, newDiv);
           var price = product.currentSku.salePrice ? product.currentSku.salePrice : (product.currentSku.listPrice ? product.currentSku.listPrice.split('-')[0].trim() : '');
 
