@@ -121,6 +121,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
+    xpath: count(//ul[@data-test="component-color-swatch-list"]/li)
     description: Number of variants listed
     type: NUMBER
   - name: color
@@ -466,8 +467,7 @@ fields:
     singleValue: false
     description: null
   - name: additionalDescBulletInfo
-    singleValue: false
-    description: null
+    xpath: //div[@id="addition-description"]
   - name: prop65Warning
     singleValue: true
     description: null

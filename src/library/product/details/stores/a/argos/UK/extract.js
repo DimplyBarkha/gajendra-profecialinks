@@ -47,20 +47,26 @@ module.exports = {
           document.body.appendChild(elem);
         };
 
-        const buildDescription = () => {
+        const buildDescription = (addDesc = false) => {
           const description = document.querySelector('div[itemprop="description"]');
           const subNodes = description.querySelectorAll('*');
           let text = '';
+          let addDescTxt = '';
           subNodes.forEach(subNode => {
             const listItems = subNode.querySelectorAll('li');
             if (listItems && listItems.length) {
               listItems.forEach(list => {
                 text += `||${list.textContent}`;
+                addDescTxt += `||${list.textContent}`;
               });
             } else if (subNode.nodeName.toLowerCase() !== 'li' && subNode.nodeName.toLowerCase() !== 'ul') {
               text += `${subNode.textContent}`;
             }
           });
+
+          if (addDesc) {
+            return addDescTxt.trim();
+          }
 
           return text.trim();
         };
@@ -85,6 +91,7 @@ module.exports = {
         };
 
         injectElementToBody('description', buildDescription());
+        injectElementToBody('addition-description', buildDescription(true));
 
         // Gather product attributes
         const productInfo = (window.__data && window.__data.productStore && window.__data.productStore.data && window.__data.productStore.data) || {};
@@ -111,7 +118,7 @@ module.exports = {
 
         const videos = (productInfo && productInfo.media && productInfo.media.videos) || [];
         videos.forEach((vid, index) => {
-          injectElementToBody(`video-${++index}`, vid.includes('mp4') ? `https:${vid}` : `https:${vid}/mp4_480p`);
+          injectElementToBody(`video-${++index}`, (vid.includes('mp4') || vid.includes('m4v')) ? `https:${vid}` : `https:${vid}/mp4_480p`);
         });
 
         const sku = document.querySelector('span[itemprop="sku"]').getAttribute('content');
