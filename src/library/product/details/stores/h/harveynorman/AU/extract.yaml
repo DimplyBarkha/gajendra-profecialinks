@@ -126,7 +126,7 @@ fields:
     xpath: //small[contains(@class, "product-id")][1]
   - name: variantId
     singleValue: false
-    xpath: //div[@id="product-specs"]/table/tbody/tr/th[contains(text(), "Model")]/following-sibling::td
+    xpath: //small[contains(@class, "product-id")][1]
   - name: packSize
     singleValue: false
     xpath: //div[contains(@id, "added_packSize")]
