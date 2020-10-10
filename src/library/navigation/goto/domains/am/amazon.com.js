@@ -6,6 +6,7 @@ module.exports = {
     store: 'amazon',
   },
   implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
+    await context.setBlockAds(false);
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -125,6 +126,9 @@ module.exports = {
       // do we perhaps want to go to the homepage for amazon first?
       lastResponseData = await context.goto(url, {
         timeout: 20000,
+        block_ads: false,
+        anti_fingerprint: false,
+        load_all_resources: true,
         waitUntil: 'load',
         checkBlocked: false,
         js_enabled: true,
@@ -133,6 +137,7 @@ module.exports = {
       });
       // Treating as 200 if no response.
       if (!lastResponseData.status) {
+        console.log('lastResponseData.status is null');
         return;
       }
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -150,7 +155,7 @@ module.exports = {
         return;
       }
       let pageStatus = await context.evaluate(analyzePage);
-      pageStatus = await handlePage(pageStatus);
+      // pageStatus = await handlePage(pageStatus);
       if (pageStatus && pageStatus.status && pageStatus.status !== 200) {
         pageStatus = await handlePage(pageStatus);
       }
