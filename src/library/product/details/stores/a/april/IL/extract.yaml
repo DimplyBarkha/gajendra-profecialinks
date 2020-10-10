@@ -11,8 +11,8 @@ fields:
   xpath: //meta[@name="keywords"]/@content
 - name: category 
   singleValue: false
-  xpath: //div[@id='mytab_1']//ul//li[position()>0 and position()<3] 
-  # //div[@id='category'] 
+  xpath: //div[@id='category'] 
+ 
 - name: subCategory 
   singleValue: false
   xpath: //div[@id='subCategory']
@@ -23,9 +23,29 @@ fields:
 
 - name: availabilityText
   singleValue: true
-  xpath: //meta[@property='product:availability']//@content
+  xpath: //div[@id='availableText']
 
-# - name: online_price_currency
+- name: additionalDescBulletInfo
+  singleValue: true
+  xpath: //div[@id='bulletInfo']
+
+- name: descriptionBullets
+  singleValue: true
+  xpath: count(//div[@id='mytab_0']//ul//li)  
+
+- name: description
+  singleValue: true
+  xpath: //div[@id='mytab_0']  
+
+- name: variantInformation
+  singleValue: true
+  xpath: //div[@id='variantInformation']   
+
+- name: firstVariant
+  singleValue: true
+  xpath: //div[@id='firstVariant']
+
+# - name: online_price_currency availableText
 #   singleValue: false
 #   xpath: //meta[@property='og:price:currency']//@content
 
