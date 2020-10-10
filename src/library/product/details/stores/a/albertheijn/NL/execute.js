@@ -6,7 +6,7 @@ module.exports = {
     store: 'albertheijn',
     domain: 'ah.nl',
     loadedSelector: 'img[data-testhook="product-image"][src]',
-    noResultsXPath: null,
+    noResultsXPath: '//div[starts-with(@class,"not-found_root")]',
     zipcode: '',
   },
 };
