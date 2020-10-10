@@ -39,14 +39,14 @@ const transform = (data) => {
             row.shippingInfo.forEach(item => {
               info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
             });
-            row.shippingInfo = [{'text':info.join(' | '),'xpath':row.shippingInfo[0].xpath}];          
+            row.shippingInfo = [{'text':info.join(' || '),'xpath':row.shippingInfo[0].xpath}];          
           }
           if (row.additionalDescBulletInfo) {
             let info = [];          
             row.additionalDescBulletInfo.forEach(item => {
               info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
             });
-            row.additionalDescBulletInfo = [{'text':info.join(' | '),'xpath':row.additionalDescBulletInfo[0].xpath}];          
+            row.additionalDescBulletInfo = [{'text':info.join(' || '),'xpath':row.additionalDescBulletInfo[0].xpath}];          
           }
           if (row.descriptionBullets) {
             let info = [];          

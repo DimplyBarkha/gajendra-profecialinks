@@ -78,9 +78,6 @@ fields:
   - name: shippingInfo
     singleValue: false
     xpath: //div[@class='info-shippingType']//ul[@class='info-shippingType__listado']//li[contains(@class,'shippingType')]
-  - name: weightNet
-    singleValue: false
-    xpath: //div[@id='more_product_info']//div[contains(@class,'js-fichaTecnica-content')]//ul//li[contains(@class,'description-tech-text')]//span[text()='Peso']/parent::*//span//strong
   - name: variantCount
     singleValue: false
     defaultValue: '0'
