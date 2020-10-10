@@ -1,0 +1,69 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"product-gallery")]//img[role="presentation"]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,"product-gallery")]//img[role="presentation"]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"product-gallery")]//div[@class="slick-slide"]//img/@src
+  - name: category
+    singleValue: false
+    xpath: //ol[@class="breadcrumbs__list"]//li[@class="breadcrumbs__item"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="product product__page"]//h1[@class="product-title"]
+  - name: listPrice
+    singleValue: false
+    xpath: (//span[@class="product-form__price-wrapper"]/div[@class="money-details"]//strike)[1]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product product__page"]//span[@class="product-form__price-wrapper"]//span[contains(@class,"pre-money")]
+  - name: availabilityText
+    singleValue: false
+    xpath: //form[@class="product-form"]//button[contains(@class,"product-form__button") and text()="Add To Cart" and not(@disabled="disabled")]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@id="product_description"]//div[@class="product-details__content"]/p[@itemprop="description"]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@id="product_description"]//ul/li
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class="product-form__container"]//input[@id="product-quantity"]/@min
+  - name: gtin
+    singleValue: false
+    xpath: //div[contains(@class,"product-property")]//span[contains(@class,"product-property__item") and contains(text(),"Item")]
+  - name: sku
+    singleValue: false
+    xpath: //link[@rel="canonical"]/href
+  - name: variantId
+    singleValue: false
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,"product-property")]//span[contains(@class,"product-property__item") and contains(text(),"Model")]
+  - name: reviewCount
+    singleValue: false
+    xpath: (//div[contains(@class,"product-information__links")]//div[@class="bv_numReviews_text"])[1]
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: false
+    xpath: (//div[contains(@class,"product-information__links")]//div[@itemprop="ratingValue"][1])[1]
+    type: NUMBER
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product product__page"]//h1[@class="product-title"]
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,"product-specifications")]/div[@class="row"]//tr
+  - name: packSize
+    singleValue: false
+    xpath: //span[@class="product-form__price-wrapper"]/span[@class="pack-info"]
