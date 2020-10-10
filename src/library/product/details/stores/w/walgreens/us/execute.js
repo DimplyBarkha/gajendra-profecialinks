@@ -35,7 +35,7 @@ async function implementation (
 
   if (hasProduct) {
     const path = await context.evaluate(() => {
-      const xpathFirstResult = '//div[@id="product-row-0"]//a[@name="product-title"]/@href';
+      const xpathFirstResult = '//div[contains(@class,"card__product")]//div[contains(@class,"product__text")]//a//@href';
       const node = document.evaluate(xpathFirstResult, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
       if (node && node.singleNodeValue) {
         return node.singleNodeValue.nodeValue;
@@ -75,7 +75,7 @@ module.exports = {
     country: 'us',
     store: 'walgreens',
     domain: 'walgreens.com',
-    loadedSelector: 'div.wag-product-card-details',
+    loadedSelector: 'div.card__product',
     noResultsXPath: '//h1[contains(@id, "zero-result-alert")]|//span[contains(text(), "This product is no longer available on our site.")]',
   },
   dependencies: {
