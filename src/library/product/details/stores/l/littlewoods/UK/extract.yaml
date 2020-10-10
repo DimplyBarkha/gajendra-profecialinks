@@ -7,10 +7,10 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: (//div[@class="amp-zoom-overflow"]//img/@data-pin-media)[1]
-  - name: imageAlt
+  - name: name
     singleValue: true
-    description: Alt text of the main product image
-    xpath: (//div[@class="amp-zoom-overflow"]//img/@data-pin-media)[2]
+    description:  The product name
+    xpath: //h1[@class='productHeading']/span/text()
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -23,6 +23,14 @@ fields:
     singleValue: false
     description: The categories (e.g. from  )
     xpath: //dt[contains(text(),'category')]/following-sibling::dd
+  - name: brandText
+    singleValue: true
+    description: product brand shown
+    xpath: //h1[@class='productHeading']/text()
+  - name: nameExtended
+    singleValue: true
+    description: product brand shown
+    xpath: //h1[@class='productHeading']/span/text()
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -40,7 +48,7 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-    xpath: //*[@class='stockMessaging inStock']
+    xpath: //meta[@property="product:availability"]/@content
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -49,18 +57,21 @@ fields:
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    xpath: count(//*[@itemprop='description']//ul//li)
-    type: NUMBER
+    xpath: //span[@itemprop='description']//ul/count(li)
+  - name: additionalDescBulletInfo
+    singleValue: true
+    description: ul > li tags in the description
+    xpath: //*[@id="productDescription"]//span/ul
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //td[contains(text(), 'Weight')]/following-sibling::*[1]/text()[1]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //td[contains(text(), 'Weight')]/following-sibling::*[1]/text()[1]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -68,7 +79,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@id='sdgProductId']
+    xpath: //meta[@itemprop='sku']/@content
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -110,14 +121,13 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //td[contains(text(),'Dimensions (WxDxH)')]/following-sibling::td
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
-    xpath: //td[contains(text(),'Weight')]/following-sibling::td
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    defaultValue: 0
     type: NUMBER
   - name: color
     singleValue: true
@@ -126,7 +136,7 @@ fields:
   - name: url
     singleValue: true
     description: A harvest url
-    xpath: //link[@rel='canonical']/@href
+    xpath: //meta[@property='og:url']/@content
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -139,9 +149,9 @@ fields:
     description: Images within the third party description
     xpath: //div[@class='flix-background-image inpage_wowimg']//img//@src
   - name: videos
-    singleValue: false
+    singleValue: true
     description: URLs of videos on page
-    xpath: //div[@class='amp-anim-container']//video/@poster
+    xpath: //div[@class='amp-anim-container']//video/source//@src[1]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -394,7 +404,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id='productSpecification']//table
+    xpath: //*[@id="productDescription"]//span/ul
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -417,7 +427,6 @@ fields:
   - name: packaging
     singleValue: true
     description: Packaging information
-    xpath: //div[@id='productSpecification']//table
   - name: additives
     singleValue: true
     description: List of additives in the product
@@ -445,10 +454,6 @@ fields:
     singleValue: true
     description: In product page, information about a new version of the product -
       new desription info
-  - name: variantInformation
-    singleValue: true
-    description: colour / scent / flavour / other
-    xpath: //meta[@property="og:product:color:map"]/@content
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -461,9 +466,6 @@ fields:
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
   - name: variants
-    singleValue: false
-    description: null
-  - name: additionalDescBulletInfo
     singleValue: false
     description: null
   - name: prop65Warning
