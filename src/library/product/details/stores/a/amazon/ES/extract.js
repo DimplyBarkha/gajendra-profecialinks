@@ -9,16 +9,6 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async () => {
-    var element = document.querySelectorAll("div[cel_widget_id*='aplus'] img");
-    if (element) {
-      element.forEach(async (node) => {
-        node.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-        await new Promise((resolve) => {
-          setTimeout(resolve, 1000);
-        });
-      });
-    }
-  });
   const otherSellerInfo = async () => {
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
@@ -110,43 +100,6 @@ async function implementation (
       } else {
         return 'false';
       }
-    }
-    // addHiddenDiv('added-parentInput', parentInput);
-    var element = (document.querySelectorAll("div[cel_widget_id*='aplus'] img")) ? document.querySelectorAll("div[cel_widget_id*='aplus'] img") : [];
-    if (element) {
-      element.forEach(async (node) => {
-        node.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-        await new Promise((resolve) => {
-          setTimeout(resolve, 1000);
-        });
-      });
-    }
-    // @ts-ignore
-    var CurrentSeller = document.querySelector('div[id="merchant-info"]') ? document.querySelector('div[id="merchant-info"]').innerText : '';
-    // @ts-ignore
-    var CurrentSellerPrice = document.querySelector("#price_inside_buybox, div[class='olp-text-box'] span[class='a-size-base a-color-price']") ? document.querySelector("#price_inside_buybox, div[class='olp-text-box'] span[class='a-size-base a-color-price']").innerText : '';
-    // @ts-ignore
-    var CurrentSellerShipping = document.querySelector("div[class='olp-text-box'] span[class='a-color-base']") ? document.querySelector("div[class='olp-text-box'] span[class='a-color-base']").innerText : '';
-
-    // @ts-ignore
-    var CurrentSellerPrime = document.querySelector("div[class='olp-text-box'] span[class='a-color-base']") ? document.querySelector("div[class='olp-text-box'] span[class='a-color-base']").innerText : '';
-
-    if (CurrentSeller && CurrentSeller.search('vendido por Amazon') < 0 && CurrentSeller.match(/vendido por (?:(.*) y |(.*).)/i)) {
-      CurrentSeller = (CurrentSeller.match(/vendido por (?:(.*) y |(.*).)/i)[1]) ? CurrentSeller.match(/vendido por (?:(.*) y |(.*).)/i)[1] : CurrentSeller.match(/vendido por (?:(.*) y |(.*).)/i)[2];
-      if (!CurrentSellerShipping) CurrentSellerShipping = '!0.00';
-      if (CurrentSellerPrime.includes('Details')) {
-        CurrentSellerPrime = 'YES';
-      } else {
-        CurrentSellerPrime = 'NO';
-      }
-      addHiddenDiv('ii_otherSellersName', CurrentSeller);
-      addHiddenDiv('ii_otherSellersPrice', CurrentSellerPrice);
-      addHiddenDiv('ii_otherSellersShipping', CurrentSellerShipping);
-      addHiddenDiv('ii_otherSellersPrime', CurrentSellerPrime);
-      console.log('CurrentSeller', CurrentSeller);
-      console.log('CurrentSellerPrice', CurrentSellerPrice);
-      console.log('CurrentSellerShipping', CurrentSellerShipping);
-      console.log('CurrentSellerPrime', CurrentSellerPrime);
     }
 
     const otherSellerNew = (document.querySelector("span[data-action='show-all-offers-display'] > a")) ? document.querySelector("span[data-action='show-all-offers-display'] > a").getAttribute('href') : '';
@@ -274,7 +227,12 @@ module.exports = {
     store: 'amazon',
     transform,
     domain: 'amazon.es',
-    zipcode: '28010',
+    // zipcode: '28010',
+  },
+  dependencies: {
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    Helpers: 'module:helpers/helpers',
+    AmazonHelp: 'module:helpers/amazonHelp',
   },
   implementation,
 };
