@@ -51,36 +51,32 @@ module.exports = {
         addElementToDocument('sku', (expectedSKU.substring(29, 34)));
       }
 
+      const avaiableText = getXpath("//div[@class='addToCart pull-right']//@disabled", 'nodeValue');
+      if (avaiableText === 'disabled') {
+        addElementToDocument('availableText', 'outofstock');
+      } else addElementToDocument('availableText', 'instock');
+
+      const alternateBulletInfoXpath = "//div[@id='mytab_0']//ul//li";
+      const alternateBulletInfoStr = getAllXpath(alternateBulletInfoXpath, 'innerText').join('||');
+      if (alternateBulletInfoStr && typeof alternateBulletInfoStr === 'string') {
+        addElementToDocument('bulletInfo', (alternateBulletInfoStr));
+      }
       const variants = getAllXpath("//div[@class='colors']//button[@class='color_img']/@id", 'nodeValue').join('|');
       if (variants.length > 1) {
         addElementToDocument('variants', variants);
+        addElementToDocument('firstVariant', expectedSKU.substring(29, 34));
       } else {
         const variants = getAllXpath("//div[@class='imgProduct']//img/@id", 'nodeValue');
         addElementToDocument('variants', variants);
       }
       var strVariant = variants.split('|');
       if (strVariant.length > 1) {
-        const category = getXpath("//div[@id='mytab_1']//ul//li[3]", 'innerText');
-        const subCategory = getXpath("//div[@id='mytab_1']//ul//li[4]", 'innerText');
-        const brand = getXpath("//div[@id='mytab_1']//ul//li[7]", 'innerText');
         const specifications = getAllXpath("//div[@id='mytab_0']", 'innerText').join('|');
         var specificationsText = specifications.split('.');
-        // var categoryArray = [category, subCategory];
-        // console.log('s my catttttttt ', categoryArray[1]);
-        addElementToDocument('category', category);
-        addElementToDocument('subCategory', subCategory);
-        addElementToDocument('brandText', brand);
-        addElementToDocument('variantcount', strVariant.length - 1);
+        addElementToDocument('variantcount', strVariant.length);
         addElementToDocument('specifications', specificationsText[5]);
       } else {
-        const category = getAllXpath("//div[@id='mytab_1']//ul//li[1]", 'innerText');
-        const subCategory = getAllXpath("//div[@id='mytab_1']//ul//li[2]", 'innerText');
-        const brand = getXpath("//div[@id='mytab_1']//ul//li[6]", 'innerText');
         const specifications = getXpath("//div[@id='mytab_0']//p[13]", 'innerText');
-        // var categoryArrayForElse = [category, subCategory];
-        addElementToDocument('category', category);
-        addElementToDocument('subCategory', subCategory);
-        addElementToDocument('brandText', brand);
         addElementToDocument('variantcount', '0');
         addElementToDocument('specifications', specifications);
       }
@@ -108,6 +104,29 @@ module.exports = {
           const warrantyForWithOut = getAllXpath("//div[@id='mytab_0']//p[4]", 'innerText').join('|');
           console.log('my warrantyForOther info ', warrantyForWithOut);
         }
+      }
+
+      const alternateCategoryXpath = "//div[@id='mytab_1']//ul//li";
+      const alternateCategoryStr = getAllXpath(alternateCategoryXpath, 'innerText').join(',');
+      if (alternateCategoryStr && typeof alternateCategoryStr === 'string') {
+        const alternateCategoryList = alternateCategoryStr.split(',');
+        var uniqueAlternateCategoryList = alternateCategoryList.filter(function (item, pos) {
+          return alternateCategoryList.indexOf(item) === pos;
+        });
+        uniqueAlternateCategoryList.forEach(function (categoryData) {
+          if (categoryData.match('קטגוריה') || categoryData.match('תת קטגוריה')) {
+            console.log('categoryData', categoryData);
+            addElementToDocument('category', (categoryData));
+          }
+          if (categoryData.match('מותג') && !categoryData.match('מותג בלועזית')) {
+            console.log('brandData', categoryData);
+            addElementToDocument('brandText', categoryData);
+          }
+          if (categoryData.match('גוון')) {
+            console.log('variantData', categoryData);
+            addElementToDocument('variantInformation', categoryData);
+          }
+        });
       }
 
       let scrollTop = 500;
