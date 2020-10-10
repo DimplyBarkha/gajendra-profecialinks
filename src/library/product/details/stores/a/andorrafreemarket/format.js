@@ -53,9 +53,16 @@ const transform = (data) => {
                   eachDesc.toLowerCase().indexOf("weight") > 0 ||
                   eachDesc.toLowerCase().indexOf("peso") > 0
                 ) {
-                  let formatText = `${eachDesc.replace(/[^0-9\.]+/g, "")} ${
-                    eachDesc.match(/\(([^)]+)\)/)[1]
-                  }`;
+                  let formatText =
+                    eachDesc.replace(/[^0-9\.]+/g, "") != ""
+                      ? eachDesc.replace(/[^0-9\.]+/g, "")
+                      : "";
+                  formatText +=
+                    eachDesc.match(/\(([^)]+)\)/) != null &&
+                    eachDesc.match(/\(([^)]+)\)/).length > 0
+                      ? ` ${eachDesc.match(/\(([^)]+)\)/)[1]}`
+                      : "";
+
                   text += `${formatText} | `;
                 }
               });
@@ -112,7 +119,6 @@ const transform = (data) => {
             },
           ];
         }
-
         if (row.url) {
           let text = "";
           row.url.forEach((item) => {
