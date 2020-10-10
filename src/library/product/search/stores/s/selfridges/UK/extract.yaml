@@ -21,9 +21,9 @@ fields:
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="c-prod-card --plp"]//img/@src
+    xpath: //div[@class="col-xs-6 col-sm-4 c-listing-items__item"]//div[@class="c-prod-card --plp"]/@data-js-plp-scroll
     regExp: (//images.selfridges.com/is/.+)
-    regExpReplace: http:$1
+    regExpReplace: https:$1
   - name: url
     singleValue: false
   - name: aggregateRating
@@ -37,7 +37,6 @@ fields:
     xpath: //span[@class="c-prod-card__cta-box-price "]
   - name: manufacturer
     singleValue: false
-    xpath: //h5[@class="c-prod-card__cta-box-product-title"]
   - name: soldBy
     singleValue: false
   - name: rank
