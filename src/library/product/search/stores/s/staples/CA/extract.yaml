@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="ais-results-as-block"]//div[@class="ais-hits--item"]
+fields:
+  - name: id
+    SingleValue: true
+    xpath: //a[@class="product-link"]/@href
+  - name: productUrl
+    SingleValue: true
+    xpath: //a[@class="product-link"]/@href
+  - name: price
+    SingleValue: true
+    xpath: //div[@class="product-thumbnail__price"]//span[@class="money pre-money"]
+  - name: listPrice
+    SingleValue: true
+    xpath: //div[@class="product-thumbnail__price"]//div[@class="top-product"]
+  - name: thumbnail
+    SingleValue: true
+    xpath: //img[@class="product-thumbnail__image"]/@src
+  - name: name
+    SingleValue: true
+    xpath: //a[@class="product-thumbnail__title product-link"]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
+  - name: reviewCount
+    singleValue: true
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: ratingCount
+    singleValue: true
+    xpath: //meta[@itemprop="reviewCount"]/@content    
