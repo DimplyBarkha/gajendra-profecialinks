@@ -26,11 +26,17 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: (//div[contains(@class, 'ProductConditionnement')])
+    xpath: (//div[contains(@class, 'ProductConditionnement')])[1]
+  - name: nameExtended1
+    singleValue: false    
+    xpath: (//div[contains(@class, 'ProductConditionnement')])[2]
+  - name: nameExtended2
+    singleValue: false    
+    xpath: (//div[contains(@class, 'ProductConditionnement')])[3]
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //div[contains(@class, 'PriceProductWrapper-')]
+    xpath: //div[contains(@class, 'product-price--strike-through ProductPrice__PriceStrikeThrough')]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
@@ -48,7 +54,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class, 'Informations__Item')]//div[contains(., "Avantages")]/div[contains(@class, "ItemContent")]
+    xpath: //div[contains(@class, 'Informations__Item')]/div[contains(@class, 'Informations__ItemTitle')][contains(., "Avantages")]//following-sibling::*[1]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -93,11 +99,11 @@ fields:
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
-    xpath: //div[contains(@class, 'Informations__Item')]/div[contains(., "Légales")]/div/div
+    xpath: //div[contains(@class, 'Informations__Item')]/div[contains(@class, 'Informations__ItemTitle')][contains(., "Légales")]//following-sibling::*[1]
   - name: directions
     singleValue: false
     description: Content under "directions" header
-    xpath: //div[contains(@class, 'Informations__Item')]/div[contains(., "Renseignements")]/div/div
+    xpath: //div[contains(@class, 'Informations__Item')]/div[contains(@class, 'Informations__ItemTitle')][contains(., "Renseignements")]//following-sibling::*[1]
   - name: warnings
     singleValue: false
     description: Content under "warnings" header
@@ -449,7 +455,7 @@ fields:
   - name: storage
     singleValue: false
     description: Suggested storage location for product
-    xpath: //div[contains(@class, 'Informations__Item')]/div[contains(., "Conservation")]/div/div
+    xpath: //div[contains(@class, 'Informations__Item')]/div[contains(@class, 'Informations__ItemTitle')][contains(., "Conservation")]//following-sibling::*[1]
   - name: countryOfOrigin
     singleValue: false
     description: The country from which the product originates
