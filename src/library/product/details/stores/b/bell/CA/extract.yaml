@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[@class='slick-track']//div[@class='dd-main-carousel-slide slick-slide slick-active']//img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class='slick-track']//div[@class='dd-main-carousel-slide slick-slide slick-active']//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='slick-track']//div[@class='dd-main-carousel-slide slick-slide']//img/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name='keywords']/@content
+  - name: category
+    singleValue: false
+    xpath: //meta[@name='ProductLogicalCategory']/@content
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@class='dd-device-title']  
+  - name: price
+    singleValue: true
+    xpath: //div[@class='dd-full-price']//span[@class='apr-price qc']  
