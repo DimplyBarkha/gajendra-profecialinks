@@ -210,7 +210,7 @@ fields:
   - name: fastTrack
     description: null
   - name: ingredientsList
-    xpath: //div[@class="product-info-content-block product-info-ingredients"]/p[1][not(starts-with(normalize-space(.),"Waarvan"))]
+    xpath: //div[@class="product-info-content-block product-info-ingredients"]/h2[contains(.,"Ingrediënten")]/following-sibling::p[not(preceding-sibling::h4)]
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize

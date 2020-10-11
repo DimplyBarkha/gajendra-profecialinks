@@ -30,6 +30,10 @@ const transform = (data, context) => {
         row.dietarySymbols = [{ text }];
         row.dietaryInformation = [{ text }];
       }
+      if (row.ingredientsList) {
+        const text = row.ingredientsList.map(elm => elm.text.trim()).join(' | ');
+        row.ingredientsList = [{ text }];
+      }
       if (row.pricePerUnit) {
         const values = row.pricePerUnit.map(elm => elm.text).filter(elm => elm.trim());
         if (values.length > 1) {
