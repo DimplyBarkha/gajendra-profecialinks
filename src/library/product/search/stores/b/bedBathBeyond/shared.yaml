@@ -12,10 +12,10 @@ fields:
     xpath: //div[@data-locator="product_tile_title"]/@title
     description: The product name
   - name: ratingCount
-    xpath: //span[starts-with(@class,"Rating_")][contains(@title,"Reviews")]
+    xpath: //span[starts-with(@class,"Rating_")]
     description: The number of ratings
   - name: reviewCount
-    xpath: //span[starts-with(@class,"Rating_")][contains(@title,"Reviews")]
+    xpath: //span[starts-with(@class,"Rating_")]
     description: The number of reviews
   - name: price
     description: The offered price for the product
