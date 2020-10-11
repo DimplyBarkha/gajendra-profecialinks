@@ -7,7 +7,7 @@ module.exports = {
     domain: 'nettoshop.ch',
     url: 'https://www.nettoshop.ch/search?text={searchTerms}',
     loadedSelector: 'div .c-product-grid__item-wrapper',
-    noResultsXPath: '//div[@class="c-search-result ember-view"]/h1[contains(text(),"0 Ergebnisse")]',
+    noResultsXPath: '//div[contains(@class,"c-search-result")]//h1[contains(.,"0 Ergebnisse")]',
     zipcode: '',
   },
 };
