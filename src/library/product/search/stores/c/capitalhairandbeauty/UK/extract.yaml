@@ -1,0 +1,30 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="product-list"]/div[contains(@class,"product-listing-column")]
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="product-prices"]//div[@class="feefo-product-stars-widget"]/@data-product-sku
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="product-image"]//a/@href
+  - name: price
+    SingleValue: false
+    xpath: //div[@class="product-prices"]//div[@class="vat"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="product-image"]//img/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="product-name"]//a
+  - name: rankOrganic
+    SingleValue: false
+  - name: rank
+    SingleValue: false
+  - name: aggregateRating
+    SingleValue: false
+    xpath: //div[@class="product-prices"]//div[@class="filled-stars"]/@style
+  - name: ratingCount
+    SingleValue: false
+    xpath: //div[@class="product-prices"]//span[@class="feefowidget-product-stars__reviews-count"]
