@@ -95,6 +95,12 @@ const transform = (data) => {
         row.sku = [{ text: skuStr.master_id }];
       }
 
+      if (row.variantInformation) {
+        if (row.color) {
+          row.variantInformation = [{ text: row.color[0].text }]
+        }
+      }
+
       if (row.nameExtended) {
         let nameExtended = row.nameExtended[0].text;
         if (row.variantInformation) {
