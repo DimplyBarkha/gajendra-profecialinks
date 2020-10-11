@@ -54,6 +54,7 @@ module.exports = {
     console.log('zip:' + zipcode);
     // do the search
     const resultsReturned = await execute({ keywords, zipcode });
+    console.log(`resultsReturned ${resultsReturned}`);
 
     if (!resultsReturned) {
       console.log('No results were returned');

@@ -60,6 +60,7 @@ async function implementation (
     }
 
     const url = `https://www.kroger.com/search?query=${searchTerms}&searchType=natural&fulfillment=all`;
+    console.log(`url before appending to the div in extract - ${url}`);
 
     const searchUrlDiv = document.createElement('div');
     searchUrlDiv.classList.add('my-search-url');
