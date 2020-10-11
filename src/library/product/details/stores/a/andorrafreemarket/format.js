@@ -111,11 +111,15 @@ const transform = (data) => {
         if (row.description) {
           let text = "";
           row.description.forEach((item) => {
-            text += `${item.text.replace(/\n/g, " ")}  `;
+            var splittedText = item.text.split(/\n\s*\n/);
+            splittedText.forEach(
+              (capture, i) =>
+                (text += `${capture.trim().replace(/\n/g, " ")} || `)
+            );
           });
           row.description = [
             {
-              text: text.trim(),
+              text: text.trim().slice(0, -3),
             },
           ];
         }

@@ -48,7 +48,7 @@ fields:
     regExpReplace: $2
   - name: description
     singleValue: false
-    xpath: //meta[contains(@itemprop, "description")]/@content
+    xpath: //div[contains(@class,"tabs-panels")]//div[contains(@class,"panel")][position()=1]/p[position()=1]
   - name: brandText
     singleValue: false
     xpath: //meta[contains(@itemprop,"brand")]/@content
