@@ -31,7 +31,7 @@ const transform = (data) => {
           }
           if (row.description) {
             row.description.forEach(item => {
-                item.text  = item.text.replace(/(\s*\n\s\n\s*)/g, ' || ').trim();
+                item.text  = item.text.replace(/(\s*\n\s\n\s*)/g, '  ').trim();
             });
           }
           
@@ -48,6 +48,23 @@ const transform = (data) => {
               info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
             });
             row.descriptionBullets = [{'text':info.length,'xpath':row.descriptionBullets[0].xpath}];          
+          }
+          if (row.productHeight){
+            console.log("hi....");
+            let dim = "H x W x D : ";
+            row.productHeight.forEach(item => {
+              dim += item.text;
+            });
+            row.productWidth.forEach(item => {
+              dim += ' x ' + item.text;
+            });
+            row.productDepth.forEach(item => {
+              dim += ' x ' + item.text;
+            });
+            row.shippingDimensions = [{'text':dim,'xpath':row.productHeight[0].xpath}];
+            delete row.productHeight
+            delete row.productWidth
+            delete row.productDepth
           }
       }
     }
