@@ -5,22 +5,22 @@ recordXPath: null
 fields:
   - name: price
     singleValue: false
-    xpath: //div[@class='price']/div/div[not(contains(@class,'sm'))]/text()
+    xpath: //div[@class='tile']/a[contains(@href,'http') and not(contains(@title,'CASDON'))]//div[@class='price']/div/div[not(contains(@class,'sm'))]/text()
     regExp: \d+\,\d+|\d+
   - name: id
     singleValue: false
-    xpath: //div[@class='tile']/a[contains(@href,'http')]/@href
+    xpath: //div[@class='tile']/a[contains(@href,'http') and not(contains(@title,'CASDON'))]/@href
     regExp: \/(\d+)\/
     regExpReplace: $1
   - name: name
     singleValue: false
-    xpath: //div[@class='tile']/a[contains(@href,'http')]/@title
+    xpath: //div[@class='tile']/a[contains(@href,'http') and not(contains(@title,'CASDON'))]/@title
   - name: productUrl
     singleValue: false
-    xpath: //div[@class='tile']/a[contains(@href,'http')]/@href
+    xpath: //div[@class='tile']/a[contains(@href,'http') and not(contains(@title,'CASDON'))]/@href
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class='prodimg todrag']/@src
+    xpath: //img[contains(@class,'prodimg todrag') and not(contains(@alt,'CASDON'))]/@src
     regExp: (.+?)\?
     regExpReplace: $1
   - name: aggregateRating

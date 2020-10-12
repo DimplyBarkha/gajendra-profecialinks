@@ -6,6 +6,6 @@ module.exports = {
     store: 'jccampbellelectrics',
     domain: 'jccampbellelectrics.com',
     zipcode: '',
-    
+
   },
 };

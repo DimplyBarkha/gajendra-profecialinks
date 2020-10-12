@@ -8,4 +8,5 @@ module.exports = {
     store: 'lastprice',
     zipcode: '',
   },
+
 };
