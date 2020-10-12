@@ -18,7 +18,7 @@ fields:
   - name: listPrice
     xpath: //section[@id="product-page-price-lockup"]//span[contains(@id,"original-price")]/span[last()]
   - name: price
-    xpath: //section[@id="product-page-price-lockup"]//span[@id="current-price"]/span[last()]
+    xpath: //span[@itemprop="price"]/@content | //span[@itemprop="lowPrice"]/@content
     regExp: ^[^–]+
   - name: availabilityText
     xpath: //span[contains(text(),'Add to Bag')]
@@ -26,7 +26,7 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    xpath:  //div[contains(text(),"Details & Care")]/following-sibling::div[1]/p
+    xpath:  //div[contains(text(),"Details & Care")]/following-sibling::div[1] | //div[contains(text(),"Details & Care")]/following-sibling::ul/li
     singleValue: false
   - name: descriptionBullets
     xpath: count(//div[contains(text(),"Details & Care")]/following-sibling::ul/li)
