@@ -54,6 +54,11 @@ const transform = (data) => {
         });
       }
 
+      if(row.additionalDescBulletInfo){
+        row.additionalDescBulletInfo.forEach(additionalDescBulletInfoItem => {
+          additionalDescBulletInfoItem.text = cleanUp(additionalDescBulletInfoItem.text);
+        });
+      }
       const specificationsArray = [];
       if (row.specifications) {
         row.specifications.forEach(specificationsItem => {
