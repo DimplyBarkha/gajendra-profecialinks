@@ -3,8 +3,7 @@ module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'pixmania.es',
-    prefix: null,
-    url: null,
+    url: 'https://www.pixmania.es/s?q={id}',
     country: 'ES',
     store: 'pixmania',
   },

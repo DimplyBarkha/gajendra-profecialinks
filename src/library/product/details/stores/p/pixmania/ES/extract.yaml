@@ -25,12 +25,12 @@ fields:
     xpath: ((//ol[@class="breadcrumb"]//li)[position()>1])[position()<last()]
   - name: nameExtended
     singleValue: false
-    xpath: normalize-space(//div[@class="IcecatLive for-title"])
+    xpath: (//h1[@itemprop="name"])[1]
   - name: listPriceCurrency
     singleValue: true
     xpath: //*[@itemprop="priceCurrency"]/@content
     defaultValue: EUR
-  - name: listPrice 
+  - name: listPrice
     singleValue: false
     xpath: //p[contains(@class,"product-description-old-price")]
     regExp: (\d+)(\€)?(\d+)?
@@ -55,7 +55,7 @@ fields:
     defaultValue: Out Of Stock
   - name: description
     singleValue: false
-    xpath: normalize-space(//div[@class="IcecatLive for-essentialinfo"])
+    xpath: //div[@data-content-piece="live-essentialInfo"]//div[contains(@class,"product")] | //div[@ng-bind-html="vm.product.description"]
   - name: descriptionBullets
     singleValue: true
   - name: brandText
@@ -80,7 +80,7 @@ fields:
     xpath: //*[@itemprop="sku"]/@content
   - name: variantId
     singleValue: true
-    xpath:  //span[contains(.,"Código del producto")]/following-sibling::span
+    xpath: //span[contains(.,"Código del producto")]/following-sibling::span
   - name: parentInput
     singleValue: true
   - name: pasin
@@ -107,27 +107,27 @@ fields:
   - name: aggregateRating
     singleValue: true
   - name: shippingInfo
-    singleValue: true
+    xpath: //a[contains(@ui-sref,"merchant")]/parent::p
   - name: shippingDimensions
     singleValue: true
   - name: shippingWeight
     singleValue: true
   - name: variantCount
     singleValue: true
+    xpath: count(//ol[contains(@class,"variant")]//li)
   - name: color
-    singleValue: true
+    xpath: //span[contains(.,"Color del producto")]/parent::div/parent::div/following-sibling::div[contains(@class,"-icecat-ds_data")]
   - name: colorCode
     singleValue: true
   - name: manufacturerDescription
     singleValue: true
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="-icecat-all_imgs"]//div[@class="-icecat-mini_img"]/@data-pic
   - name: videos
     singleValue: true
   - name: internationalShipping
     singleValue: true
-  - name: name 
+  - name: name
     singleValue: true
     xpath: //h1[@itemprop="name"]
   - name: priceCurrency
@@ -135,14 +135,14 @@ fields:
     defaultValue: EUR
   - name: inStorePriceCurrency
     singleValue: true
-  - name: inStorePrice 
+  - name: inStorePrice
     singleValue: true
   - name: specifications
     singleValue: false
-    xpath: normalize-space(//div[@tab="featureGroups_tpl"])
+    xpath: //div[@class="-icecat-tableRow"]
   - name: warranty
     singleValue: true
-  - name: storage 
+  - name: storage
     singleValue: true
   - name: countryOfOrigin
     singleValue: true
@@ -150,7 +150,7 @@ fields:
     singleValue: true
   - name: salesRankCategory
     singleValue: true
-  - name: recyclingInformation 
+  - name: recyclingInformation
     singleValue: true
   - name: productOtherInformation
     singleValue: false
@@ -158,13 +158,13 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     xpath: count((//div[contains(@class,"slick-slide")][contains(@style,'615px')][not(contains(@class,'slick-cloned'))]/img/@src)[position()>1])
-  - name: packaging 
+  - name: packaging
     singleValue: true
   - name: addonItem
     singleValue: true
   - name: pricePerUnitCurrency
     singleValue: true
-  - name: pricePerUnit 
+  - name: pricePerUnit
     singleValue: true
   - name: pricePerUnitUom
     singleValue: true
@@ -201,7 +201,7 @@ fields:
     defaultValue: No
   - name: coupon
     singleValue: false
-  - name: customerServiceAvailability 
+  - name: customerServiceAvailability
     singleValue: false
     xpath: //*[contains(text(),"SERVICIOS")]
     regExp: (.+)
@@ -212,7 +212,7 @@ fields:
   - name: Image360Present
     singleValue: true
     defaultValue: No
-  - name: imageZoomFeaturePresent 
+  - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: Yes
   - name: productUrl

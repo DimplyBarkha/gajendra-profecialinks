@@ -1,6 +1,5 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('./shared');
 async function implementation (
-  // @ts-ignore
   inputs,
   parameters,
   context,
@@ -8,6 +7,37 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const cssProduct = "div.product span[itemprop='url']";
+  const cssProductDetails = 'h1[itemprop="name"]';
+
+  const isSelectorAvailable = async (selector) => {
+    console.log(`Is selector available: ${selector}`);
+    return await context.evaluate(function (selector) {
+      return !!document.querySelector(selector);
+    }, selector);
+  };
+
+  try{
+  await context.waitForSelector(cssProduct, { timeout: 20000 });
+  }catch(err){
+    console.log('Selector not loaded');
+  }
+  const productAvailable = await isSelectorAvailable(cssProduct);
+
+  if (productAvailable) {
+    console.log(`productAvailable: ${productAvailable}`);
+    console.log('clicking product link');
+    await context.click(cssProduct);
+    await context.waitForNavigation({ timeout: 20000, waitUntil: 'load' });
+    await context.waitForSelector(cssProductDetails);
+    const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
+    console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
+    if (!productDetailsAvailable) {
+      throw new Error('ERROR: Failed to load product details page');
+    }
+    console.log('navigation complete!!');
+  }
+
   await context.waitForSelector('[data-flix-ean]');
   await context.evaluate(async function () {
     async function addEnhancedContent () {
@@ -24,6 +54,7 @@ async function implementation (
     }
     await addEnhancedContent();
   });
+
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

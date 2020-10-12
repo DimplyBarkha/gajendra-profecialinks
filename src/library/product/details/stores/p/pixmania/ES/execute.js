@@ -5,7 +5,5 @@ module.exports = {
     country: 'ES',
     store: 'pixmania',
     domain: 'pixmania.es',
-    loadedSelector: 'h1[itemprop=name]',
-    noResultsXPath: null,
   },
 };
