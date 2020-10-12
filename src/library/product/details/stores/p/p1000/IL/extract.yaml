@@ -56,7 +56,6 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//li[contains(@id,'MainContent_Properties_productDetails')]//br)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -72,7 +71,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //div[contains(@id,'MainContent_Properties_FreeText_panel')]//ul//br[1]
+    xpath: //div[@id="added_weightNet"]/text()
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page

@@ -58,6 +58,23 @@ module.exports = {
            }
            addElementToDocument('added_availabilityText', availabilityStatusValue);
 
+
+          //xpath for weightNet
+          const weightNet = getXpath("//li[contains(@id,'MainContent_Properties_pFreeText')]/text()", 'nodeValue');
+          console.log("My weightNet", weightNet);
+          console.log("My weightNet", weightNet.substring(5,14));
+          addElementToDocument('added_weightNet', weightNet.substring(5,14));
+
+
+          var map = [];
+          map.push({
+
+            key1:'sheetal'
+          })
+
+          console.log("My map", map);
+          
+
       let scrollTop = 500;
       while (true) {
         window.scroll(0, scrollTop);
