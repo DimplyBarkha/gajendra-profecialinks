@@ -13,6 +13,21 @@ const transform = (data) => {
             text = text + (text ? ' ' : '') + item.text;
           });
           row.description = [{ text }];   }
+
+          if (row.price) {
+            let text = '';
+            row.price.forEach(item => {
+              text = item.text.toString().replace('.',',')
+            });
+            row.price = [{ text }];   }
+
+            
+          if (row.listPrice) {
+            let text = '';
+            row.listPrice.forEach(item => {
+              text = item.text.toString().replace('.',',')
+            });
+            row.listPrice = [{ text }];   }
       }
     }
   

@@ -160,7 +160,8 @@ fields:
     singleValue: true
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-    example: A+, A+++, B    
+    example: A+, A+++, B
+    xpath: //td//font[contains(text(),'Energy efficiency')]//following::font[contains(text(),'Energy')] | //td[contains(text(),'Energieeffizienzklasse')]//following::td[contains(text(),'Energieeffizienzklasse')]    
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
