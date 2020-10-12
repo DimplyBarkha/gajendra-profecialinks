@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="ProductDetail"]//select[@id="variation_selection"]/option[not(@value="")]
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //select[@id="variation_selection"]/option/@value
+  - name: variantUrl
+    singleValue: false
+    xpath: //select[@id="variation_selection"]/option/@data-url
+  - name: variant
+    singleValue: false
+    xpath: //select[@id="variation_selection"]/option
