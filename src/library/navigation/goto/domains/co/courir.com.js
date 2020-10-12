@@ -15,24 +15,31 @@ module.exports = {
     dependencies,
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 60000;
-    await context.setJavaScriptEnabled(true);
-    await context.setCssEnabled(true);
-    await context.setLoadAllResources(true);
-    await context.setLoadImages(true);
-    await context.setBlockAds(false);
+    // await context.setJavaScriptEnabled(true);
+    // await context.setCssEnabled(true);
+    // await context.setLoadAllResources(true);
+    // await context.setLoadImages(true);
+    // await context.setBlockAds(false);
 
-    const responseStatus = await context.goto(url, {
-      antiCaptchaOptions: {
-        provider: '2-captcha',
-        type: 'GEETEST',
-      },
-      firstRequestTimeout: 60000,
-      timeout: timeout,
-      waitUntil: 'load',
-      checkBlocked: false,
-    });
-    console.log('Status :', responseStatus.status);
-    console.log('URL :', responseStatus.url);
+    try {
+      const responseStatus = await context.goto(url, {
+        antiCaptchaOptions: {
+          provider: '2-captcha',
+          type: 'GEETEST',
+        },
+        firstRequestTimeout: 60000,
+        timeout: timeout,
+        waitUntil: 'load',
+        checkBlocked: true,
+      });
+
+      console.log('NAVIGATED SOMEWHERE.');
+      console.log('Status :', responseStatus.status);
+      console.log('URL :', responseStatus.url);
+    } catch (err) {
+      console.log('Error navigating to page.');
+      throw err;
+    }
 
     await context.waitForNavigation({ timeout: 30000 });
 
@@ -49,44 +56,43 @@ module.exports = {
 
     if (isCaptchaFramePresent) {
       try {
-        const isHardBlocked = await context.evaluateInFrame(
-          captchaSelector,
-          function() {
-            return document.body.innerText.search('You have been blocked') > -1;
-          }
-        );
+        const isHardBlocked = await context.evaluateInFrame(captchaSelector, function () {
+          return document.body.innerText.search('You have been blocked') > -1;
+        });
+
         if (isHardBlocked) {
           console.log('IP is hard blocked');
           throw new Error('Blocked');
         }
+
         await context.evaluateInFrame(
           captchaSelector,
           function () {
             // @ts-ignore
             const code = geetest
               .toString()
-              .replace(
-/appendTo\("#([^"]+)"\)/,
-'appendTo(document.getElementById("$1"))',
-              );
+              .replace(/appendTo\("#([^"]+)"\)/, 'appendTo(document.getElementById("$1"))');
             return eval(`(${code})('/captcha/geetest');`);
           },
         );
 
         await new Promise(resolve => setTimeout(resolve, 500));
-        await context.evaluateInFrame('iframe',
-          function () {
-            // @ts-ignore
-            document.querySelector('.captcha-handler').click();
-          },
-        );
-        await new Promise(resolve => setTimeout(resolve, 60000));
+        await context.evaluateInFrame('iframe', function () {
+          // @ts-ignore
+          document.querySelector('.captcha-handler').click();
+        });
+
+        console.log('Captcha Resolved.');
+
+        await new Promise(resolve => setTimeout(resolve, 10000));
         await context.waitForSelector('#produit > div.product_head');
       } catch (error) {
         console.log('error: NO CAPTCHA ENCOUNTER', error);
         if (error.message === 'Blocked')
           throw error; // TODO what is the correct way to indicate retry from different virtual browser?
       }
+    } else {
+      console.log('NO CAPTCHA ENCOUNTER');
     }
   },
 };
