@@ -1,0 +1,100 @@
+input:
+  _url: http://courir.com
+  URL: https://www.courir.com/fr/p/adidas-originals-stan-smith-1226035.html
+extractions:
+  - html: https://workbench.import.io/html/run=62aaf06f-ff05-46b4-93e9-ec7b0bf46a53/task=263c388d-d4f8-4fab-a2a9-48ed2bf141df/fdf83edd-b955-4f52-8f95-114999ce5a3c.html
+    extractionConfigId: product/details/stores/c/courir/FR/extract
+    data:
+      - group:
+          - category:
+              - text: HOMME
+                xpath: /html/body/div[3]/div[2]/div[2]/ul[1]/li[2]/a[1]/span[1]
+            image:
+              - text: https://www.courir.com/dw/image/v2/BCCL_PRD/on/demandware.static/-/Sites-master-catalog-courir/default/dw107d547d/images/hi-res/001226035_101.png?sw=600&sh=600&sm=fit
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
+            imageAlt:
+              - text: STAN SMITH
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.courir.com/dw/image/v2/BCCL_PRD/on/demandware.static/-/Sites-master-catalog-courir/default/dw016416fe/images/hi-res/001226035_102.png?sw=500&sh=500
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/img[1]/@src
+              - text: https://www.courir.com/dw/image/v2/BCCL_PRD/on/demandware.static/-/Sites-master-catalog-courir/default/dw9fa4278b/images/hi-res/001226035_103.png?sw=500&sh=500
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]/img[1]/@src
+              - text: https://www.courir.com/dw/image/v2/BCCL_PRD/on/demandware.static/-/Sites-master-catalog-courir/default/dw77b07caa/images/hi-res/001226035_104.png?sw=500&sh=500
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[4]/img[1]/@src
+            price:
+              - text: 95,00 €
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]
+            brandText:
+              - text: ADIDAS ORIGINALS
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            quantity:
+              - text: Choisir la taille
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/button[1]/@value
+            variantId:
+              - text: "12260350101"
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/link[1]/@content
+            ratingCount:
+              - text: "6186"
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/button[1]/div[3]/meta[1]/@content
+                type: NUMBER
+                raw: "6186"
+                locale: en
+                value: 6186
+            aggregateRatingText:
+              - text: "4.7"
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/button[1]/div[2]
+            aggregateRating:
+              - text: "4.7"
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/button[1]/div[2]
+                type: NUMBER
+                raw: "4.7"
+                locale: en
+                value: 4.7
+            color:
+              - text: BLANC/VERT
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            name:
+              - text: STAN SMITH
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]/span[2]
+            variantInformation:
+              - text: BLANC/VERT
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            description:
+              - text: Sa célèbre signature et son logo sur la languette accompagneront vos pas.
+                  Vous êtes dans le pur style streetwear vintage de la marque
+                  adidas Originals. Depuis 60 ans, la marque produit des
+                  chaussures de qualité et d’un confort qui ne sont plus à
+                  démontrer.
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/p[1]/span[1]
+            sku:
+              - text: "1226035"
+                xpath: /html/body/div[3]/div[2]/div[3]/div[1]/div[2]/div[2]/div[4]/div[2]/span[2]
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            nameExtended:
+              - text: |
+                  
+                  ADIDAS ORIGINALS
+                  STAN SMITH
+                  BLANC/VERT
+            variantCount:
+              - text: "7"
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+        xpath: /html
+    timestamp: 1602228921594
