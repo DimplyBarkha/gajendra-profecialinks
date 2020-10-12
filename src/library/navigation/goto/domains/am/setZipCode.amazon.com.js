@@ -47,7 +47,6 @@ const implementation = async (inputs, parameters, context, dependencies) => {
         css_enabled: false,
         random_move_mouse: true,
       });
-      await amazonHelp.handleErrorsAndCaptchas(url);
     }
   }
 };
