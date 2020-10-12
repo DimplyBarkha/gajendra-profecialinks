@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //*[@data-selenium="miniProductPageProduct"]
+recordXPath: //*[@data-selenium="miniProductPage"]
 fields:
   - name: id
     description: Unique id (within this extractor)
@@ -11,7 +11,7 @@ fields:
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER 
-    xpath: count(//a[@data-selenium="miniProductPageProductNameLink"]//ancestor::div[@data-selenium="miniProductPage"]/preceding-sibling::div[@data-selenium="miniProductPage"])
+    xpath: number(//a[@data-selenium="listingPagingLink"][contains(@class, "Active")]/text()-1)*30+count(preceding-sibling::div)+1
   - name: name
     description: The product name
     xpath: //span[@data-selenium="miniProductPageProductName"]
@@ -29,19 +29,23 @@ fields:
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: count(//div/*[contains(@class, "star")][contains(@class, "full")])+0.5*count(//*/*[@href="#StarHalfIconColored"])
+    xpath: count(*//div/*[contains(@class, "star")][contains(@class, "full")])+0.5*count(*//*[@href="#StarHalfIconColored"])
   - name: reviewCount
     description: The number of reviews
     type: NUMBER
+    xpath: /*//span[@data-selenium="miniProductPageProductReviews"]
+    regExp: \d+
   - name: ratingCount
     description: The number of ratings
   - name: price
     description: The offered price for the product
+    xpath: concat(//*[@data-selenium="uppedDecimalPriceFirst"], ".", //*[@data-selenium="uppedDecimalPriceSecond"])
   - name: manufacturer
     description: Product manufacturer
   - name: soldBy
     description: The name of the seller of the item (if available)
   - name: rank
     description: search/listing rank
+    xpath: number(//a[@data-selenium="listingPagingLink"][contains(@class, "Active")]/text()-1)*30+count(preceding-sibling::div)+1
   - name: endorsementText
     description: The text that signifies that a product is endorsed
