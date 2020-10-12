@@ -60,6 +60,9 @@ fields:
   - name: color
     singleValue: false
     xpath: //*[@class='text fichaTecnica-content js-fichaTecnica-content']//ul//li//span[contains(text(),'Color')]/parent::*/span/strong
+  - name: weightNet
+    singleValue: false
+    xpath: //*[@class='text fichaTecnica-content js-fichaTecnica-content']//ul//li//span[contains(text(),'Peso')]/parent::*/span/strong
   - name: sku
     singleValue: false
     xpath: //input[@id='productId']/@value
