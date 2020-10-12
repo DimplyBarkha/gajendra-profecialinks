@@ -20,7 +20,48 @@ fields:
     xpath: //meta[@name='ProductLogicalCategory']/@content
   - name: nameExtended
     singleValue: true
-    xpath: //h1[@class='dd-device-title']  
+    xpath: //h1[@class='dd-device-title']
   - name: price
     singleValue: true
-    xpath: //div[@class='dd-full-price']//span[@class='apr-price qc']  
+    xpath: //div[@class='dd-full-price']//span[@class='apr-price qc']
+  - name: sku
+    singleValue: false
+    xpath: //meta[@name='LegacyID']/@content
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@name='LegacyID']/@content
+  - name: description
+    singleValue: false
+    xpath: //div[@class='rsx-offer-details']//div[@class='rsx-expandable-section-content']
+  - name: brandText
+    singleValue: false
+    xpath: //meta[@name='Brand']/@content
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='dd-device-title']
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='prodDetailBuyButton' and contains(@style,'block')]//input[@value='Pre-order now']/@value
+    defaultValue: 'In Stock'
+  - name: color
+    singleValue: false
+    xpath: //ul[@data-widget='colorSelector']//li[@aria-checked='true']/@title
+  
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,'rsx-expandable-section_specs')]//div[@id='dynamic_content']//dl/dt
+  - name: specificationsValue
+    singleValue: false
+    xpath: //div[contains(@class,'rsx-expandable-section_specs')]//div[@id='dynamic_content']//dl/dd
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id='dynamic_content']//dt[text()='Weight']//following-sibling::dd[1]
+  - name: ratingCount
+    singleValue: false
+    xpath: //meta[@itemprop='reviewCount']/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop='ratingValue']

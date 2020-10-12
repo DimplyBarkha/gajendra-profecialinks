@@ -5,8 +5,8 @@ module.exports = {
     country: 'CA',
     store: 'bell',
     domain: 'bell.ca',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class="dd-info-reviews-stars"] button[id="ratings-summary"]',
+    noResultsXPath: '//main[@class="rsx-page-content error-page"]',
     zipcode: '',
   },
 };
