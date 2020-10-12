@@ -20,11 +20,12 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //span[@class='breadcrumb-item']
+    xpath: //span[@class='breadcrumb-item']//a[contains(@href, 'category')]//text()
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
-    xpath: //meta[@name='description']/@content
+    xpath: //h1[@class="product-title show-desktop"]//text()
+    #//div[@id="productDescription"]//div[@class="text-content"]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -32,6 +33,9 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
+    xpath: //div[@id='added_priceValue']//text()
+    # //div[@class="price-num"]//text()[not(parent::span[@class="price-title js-price-prefix"])]
+    #//div[@class='price-num']/span[@class='big js-price']
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -39,21 +43,40 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
+    xpath:  //button[@class="js-purchase"]//text()
+    regExp: (!)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
+    xpath: //div[@class="extra-description-block"][1]//div[@class="description-section"]//div[@class='content']//text()
+     # //div[@class='content']//ul/li
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
+    xpath: count(//div[@class="extra-description-block"][1]//div[@class="description-section"][1]//div[@class='content']//ul//li)
+    #count(//div[@class='content']//ul/li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
     singleValue: true
+    xpath: //h1[contains(@class, 'product-title')]
+    #//div[contains(@class,'deal-box-text-right-title')]
+    regExp: (Dyson)
+    regExpReplace: Dyson
+    defaultValue: ' '
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+  - name: aggregateRating
+    singleValue: true
+    manualSelector: script[id='opportunity-schema']
+    regExp: (\"ratingValue\"\:\")([^"]+)(",")
+    regExpReplace: $2
+    #xpath: count(//div[@class='start_box ']//span//img)
+    defaultvalue: 0
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -64,6 +87,8 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
+    xpath: //div[@id='added_netWeight']//text()
+    #//ul//li//div//span[contains(text(), 'משקל כולל')]//text()
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
@@ -73,9 +98,17 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
+    manualSelector: script[id='opportunity-schema']
+    # regExp: (\"sku\"\:\")([^"]+)(",")
+    # regExpReplace: $2
+    xpath: //div[@id='added_skuNumber']//text()
+    #//div[@class='normalPara']/span//span[contains(text(), 'מספר')]//text()
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
+    manualSelector: script[id='opportunity-schema']
+    regExp: (\"sku\"\:\")([^"]+)(",")
+    regExpReplace: $2
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
@@ -92,16 +125,24 @@ fields:
     description: Content under "directions" header
   - name: warnings
     singleValue: true
+    #xpath: //ul//li//div//span[contains(text(), 'התרעה')]//text()
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
+    xpath: //div[@class="start_box "]//span[@class='csat-counter-text']//text()
     description: The number of ratings
     type: NUMBER
+    defaultvalue: ''
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
+    manualSelector: script[id='opportunity-schema']
+    regExp: (\"ratingValue\"\:\")([^"]+)(",")
+    regExpReplace: $2
+    #xpath: count(//div[@class='start_box ']//span//img)
+    defaultvalue: 0
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
@@ -109,9 +150,11 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
+    # xpath: //ul//li//div//span[contains(text(), 'מידות')]//text()
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: true
+    #xpath: //div[@class='normalPara']/span//span[contains(text(),'משקל כולל')]//text()
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
@@ -134,6 +177,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: true
+    xpath: //h1[contains(@class, 'product-title')]
     description: The product name
   - name: inStorePrice
     singleValue: true
@@ -386,9 +430,12 @@ fields:
     description: null
   - name: specifications
     singleValue: true
+    xpath: //ul//li//div//span[contains(text(), 'מידות')]//text()
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
+    xpath: //div[@class="content"]//span[contains(text(), 'אחריות')]//text()
+    #//ul//li//div//span[contains(text(), 'אחריות')]//text()
     description: Guarantee associated with the product
   - name: storage
     singleValue: true
@@ -404,6 +451,9 @@ fields:
     description: Recycling information associated with the product
   - name: productOtherInformation
     singleValue: false
+    xpath: //div[@id='added_productOtherInformation']//text()
+    # //div[@id='productExtraDescription']//div[@class='extra-description-block']//ul//li//div//text()
+    # //div[@id='productExtraDescription']
     description: Any other product information
   - name: packaging
     singleValue: true
@@ -454,6 +504,8 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: //div[@class="extra-description-block"][1]//div[@class="description-section"][1]//div[@class='content']//ul//li
+    # //div[@class='content']//ul/li
     description: null
   - name: prop65Warning
     singleValue: true
