@@ -107,7 +107,7 @@ module.exports.Helpers = class {
   async getAndAddElem (selector, idToAddToDom, { property = 'innerText', callback = e => e } = {}) {
     const css = await this.checkAndReturnProp(selector, 'css', property, { catchError: true });
     const value = await this.checkAndReturnProp(selector, 'xpath', property, { catchError: true });
-    console.log(`cssExtraction: ${css}, xpathExtraction: ${value}`)
+    console.log(`cssExtraction: ${css}, xpathExtraction: ${value}`);
     // parse the value according to the callback and add it to the dom
     return this.addItemToDocument(idToAddToDom, await callback(value));
   }
