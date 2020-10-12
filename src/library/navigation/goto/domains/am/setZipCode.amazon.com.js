@@ -56,8 +56,6 @@ module.exports = {
   parameterValues: {
     country: 'US',
     domain: 'amazon.com',
-    store: 'amazon',
-    zipcode: '10001',
   },
   dependencies: {
     Helpers: 'module:helpers/helpers',
