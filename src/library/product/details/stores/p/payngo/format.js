@@ -46,6 +46,10 @@ const transform = (data) => {
         if(!row.brandText) {
           row.brandText = [{ text: row.name[0].text.split(' ')[0] }];
         }
+
+        if(row.warranty) {
+          row.warranty = [ { text: cleanUp(row.warranty[0].text) } ];
+        }
       }
     }
     return data;
