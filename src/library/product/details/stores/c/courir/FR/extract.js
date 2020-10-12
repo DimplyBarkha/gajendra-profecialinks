@@ -18,7 +18,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'courir',
-    transform: transform,
+    transform: null,
     domain: 'courir.com',
     zipcode: '',
   },

@@ -33,7 +33,9 @@ module.exports = {
     });
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
-
+    await context.evaluate(async function () {      
+      window.location.reload();
+    });
     await context.waitForNavigation({ timeout: 30000 });
 
     const checkExistance = async (selector) => {
@@ -51,7 +53,7 @@ module.exports = {
       try {
         const isHardBlocked = await context.evaluateInFrame(
           captchaSelector,
-          function() {
+          function () {
             return document.body.innerText.search('You have been blocked') > -1;
           }
         );
@@ -66,8 +68,8 @@ module.exports = {
             const code = geetest
               .toString()
               .replace(
-/appendTo\("#([^"]+)"\)/,
-'appendTo(document.getElementById("$1"))',
+                /appendTo\("#([^"]+)"\)/,
+                'appendTo(document.getElementById("$1"))',
               );
             return eval(`(${code})('/captcha/geetest');`);
           },
