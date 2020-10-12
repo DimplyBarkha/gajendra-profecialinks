@@ -14,9 +14,40 @@ module.exports = {
     context,
     { productDetails },
   ) => {
+    const { transform } = parameters;
+    // const { productDetails } = dependencies;
+    try {
+      await context.waitForSelector('iframe#desc_ifr');
+    } catch (err) {
+      console.log('manufacturer contents not loaded or unavailable');
+    }
+    const src = await context.evaluate(async function () {
+      const iframe = document.querySelector('iframe#desc_ifr');
+      // @ts-ignore
+      const src = iframe ? iframe.src : '';
+      return src;
+    });
+    await context.extract(productDetails, { transform });
+    if (src) {
+      try {
+        await context.setBypassCSP(true);
+        await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+        await context.waitForSelector('div#ds_div');
+        return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
+      } catch (error) {
+        try {
+          await context.setBypassCSP(true);
+          await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+          await context.waitForSelector('div#ds_div');
+          return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
+        } catch (error) {
+          console.log('could not load page', error);
+        }
+      }
+    }
+
     await context.evaluate(function () {
       console.log(window.location.href + ' is the url');
-
       function createNewDiv (headingText, imageSrc, imageAlt, altImages, priceSpan, brandText, netWeight, color, variantId, gtin) {
         const newHeading = document.createElement('h1');
         const newImage = document.createElement('img');
@@ -85,7 +116,7 @@ module.exports = {
         const secImages = document.querySelectorAll('div[class="thumbPicturePanel "] img');
         const price = document.querySelector('div[class="display-price"]').textContent;
         let brandText = ''; let netWeight = ''; let color = ''; let variantId = ''; let gtin = '';
-       
+
         const sname = document.querySelectorAll('div[class="s-name"]');
         if (document.querySelector('input[id="iid"]')) { variantId = document.querySelector('input[id="iid"]').getAttribute('value'); } else if (document.querySelector('div[id="app-product-sticky-header"]')) { variantId = document.querySelector('div[class="vi-component-transaction-layer"]').getAttribute('data-itemid'); }
         for (let i = 0; i < sname.length; i++) {
@@ -97,6 +128,7 @@ module.exports = {
         createNewDiv(headingText, imageSrc, imageAlt, secImages, price, brandText, netWeight, color, variantId, gtin);
       }
     });
-    await context.extract(productDetails);
+
+    await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
   },
 };
