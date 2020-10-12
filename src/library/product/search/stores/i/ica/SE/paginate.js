@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'ul.hZbUVv>li',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'ica.se',
