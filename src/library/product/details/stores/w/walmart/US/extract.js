@@ -76,6 +76,9 @@ module.exports = {
       });
     };
 
+    await context.click('//span[@class="button-wrapper" and contains(text(),"Show delivery")]')
+      .catch(() => console.log('No other pickup/delivery options'));
+
     await context.waitForXPath("//meta[@property='og:image']/@content", { timeout: 5000 })
       .catch(() => console.log('no product image available'));
 
