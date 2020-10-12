@@ -50,10 +50,7 @@ fields:
     xpath: //div[@id='ratings-summary']//meta[@itemprop="reviewCount"]/@content
   - name: description
     singleValue: false
-    xpath: //div[@class="text description-content js-description-content"]
-  - name: manufacturer
-    singleValue: false
-    xpath: //input[@id='productBrand']/@value
+    xpath: //div[@class="text description-content js-description-content"]  
   - name: brandText
     singleValue: false
     xpath: //input[@id='productBrand']/@value
@@ -74,10 +71,7 @@ fields:
     xpath: //input[@name='productoCodigoEan']/@value
   - name: availabilityText
     singleValue: false    
-    defaultValue: 'In Stock'
-  - name: shippingInfo
-    singleValue: false
-    xpath: //div[@class='info-shippingType']//ul[@class='info-shippingType__listado']//li[contains(@class,'shippingType')]
+    defaultValue: 'In Stock'  
   - name: variantCount
     singleValue: false
     defaultValue: '0'

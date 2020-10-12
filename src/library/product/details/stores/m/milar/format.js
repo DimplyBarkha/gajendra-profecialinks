@@ -34,13 +34,7 @@ const transform = (data) => {
                 item.text  = item.text.replace(/(\s*\n\s\n\s*)/g, ' || ').trim();
             });
           }
-          if (row.shippingInfo) {
-            let info = [];          
-            row.shippingInfo.forEach(item => {
-              info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
-            });
-            row.shippingInfo = [{'text':info.join(' || '),'xpath':row.shippingInfo[0].xpath}];          
-          }
+          
           if (row.additionalDescBulletInfo) {
             let info = [];          
             row.additionalDescBulletInfo.forEach(item => {
