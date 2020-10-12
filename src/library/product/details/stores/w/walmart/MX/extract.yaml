@@ -5,11 +5,11 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[contains(@data-automation-id,'hero-image')]//img/@src
+    xpath: //div[@id='ii_image']
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
-    xpath: //div[contains(@data-automation-id,'hero-image')]//img/@alt
+    xpath: //div[@id='ii_imageAlt']
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false

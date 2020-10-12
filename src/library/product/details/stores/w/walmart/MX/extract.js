@@ -63,6 +63,10 @@ async function implementation (
     }
     addHiddenDiv('ii_name', title);
     addHiddenDiv('ii_nameExtended', nameExtended);
+    const image = document.querySelector("div[data-automation-id*='hero-image'] img") ? document.querySelector("div[data-automation-id*='hero-image'] img").getAttribute('src') : '';
+    image && addHiddenDiv('ii_image', image);
+    const imageAlt = document.querySelector("div[data-automation-id*='hero-image'] img") ? document.querySelector("div[data-automation-id*='hero-image'] img").getAttribute('alt') : '';
+    image && addHiddenDiv('ii_imageAlt', imageAlt);
     // Video
     var VideoNode = document.querySelectorAll('div[class*="image-picker_thumb"] div[data-automation-id*="video"]');
     VideoNode.forEach(item => {
