@@ -44,6 +44,7 @@ async function implementation (
       console.log(`indexToClosestStore - ${indexToClosestStore}`);
       return indexToClosestStore;
     }, storeName);
+    !indexToClick ? console.log('ALERT!!, The store name is probably changed') : console.log('Store found, clicking it');
     await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton`);
   };
 
