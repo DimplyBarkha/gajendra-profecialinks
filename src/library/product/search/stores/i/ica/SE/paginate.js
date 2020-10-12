@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'SE',
     store: 'ica',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div.show-more-button-wrapper',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'ul.hZbUVv>li',
+    loadedSelector: 'div.recipe-item',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'ica.se',

@@ -1,8 +1,23 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: 'ul.hZbUVv>li'
+recordSelector: 'div.recipe-item'
 recordXPath: null
 fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,'article-item')]/@href
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,'cSPfCG')]//h3
+    xpath: //h2[@class="trunk8"]
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,'img-wrapper')]/picture/img/@src
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,'img-wrapper')]/picture/img/@src
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class,'rating-stars')]
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[contains(@class,'comments_count')]

@@ -13,14 +13,9 @@ async function implementation (
 ) {
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
-
   await dependencies.goto({ url, zipcode: inputs.zipcode });
-  try {
-    await context.click('button.gILNjb');
-  }catch (e) {
-    console.log(e);
-  }
-  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+  
+  await new Promise((resolve, reject) => setTimeout(resolve, 15000));
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -43,7 +38,7 @@ module.exports = {
     country: 'SE',
     store: 'ica',
     domain: 'ica.se',
-    url: 'https://www.ica.se/handla/kategori/',
+    url: 'https://www.ica.se/sok/#:search={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '10316',
