@@ -169,11 +169,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false    
     description: The extended description of the product supplied by the lister
-    xpath: //ul[contains(@class,'inpage_features_grid')]//div
+    xpath: //div[@id='flix-inpage']
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //ul[contains(@class,'inpage_features_grid')]//img//@srcset
+    xpath: //div[@id='flix-inpage']//img/@srcset
     # xpath: //div[@id='flix-std-inpage']//img//@srcset
     # regExp: (.+)
     # regExpReplace: https://ek-onlineshop.at$1
