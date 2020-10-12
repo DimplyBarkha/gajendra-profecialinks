@@ -133,6 +133,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[contains(@class, "product-details-tab")]//text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description

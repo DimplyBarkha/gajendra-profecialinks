@@ -8,8 +8,18 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  // await context.evaluate(async function () {
-  // });
+
+  try {
+    await context.waitForSelector('.cookies-overlay-dialog__accept-all-btn', { timeout: 8000 });
+    await context.evaluate(async function () {
+      if (document.querySelector('.cookies-overlay-dialog__accept-all-btn')) {
+        document.querySelector('.cookies-overlay-dialog__accept-all-btn').click();
+      }
+    });
+  } catch (error) {
+    console.log('No cookies pop-up.');
+  }
+
   return await context.extract(productDetails, { transform });
 }
 
