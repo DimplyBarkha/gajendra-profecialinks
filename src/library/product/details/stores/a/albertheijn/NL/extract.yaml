@@ -5,7 +5,7 @@ recordXPath: /html[not(//div[starts-with(@class,"not-found_root")])]
 fields:
   - name: image
     singleValue: true
-    xpath: //img[@data-testhook="product-image"]/@src
+    xpath: //div[starts-with(@class,"product-hero_root")]//img[@data-testhook="product-image"][not(normalize-space(@alt)="Een afbeelding van")]/@src
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
@@ -54,8 +54,7 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
-    xpath: (//address[@class="product-info-contact__address"]/text()[1])[last()]
-    regExp: (^[^,]+)(?=\s{2,})|(^[^,]+)
+    xpath: //body/@manufacturer
     description: Product manufacturer
   - name: quantity
     xpath: //div[starts-with(@class,"product-card-header_unitInfo")]/text()
