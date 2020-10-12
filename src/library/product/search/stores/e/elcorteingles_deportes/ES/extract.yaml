@@ -5,7 +5,7 @@ recordXPath: //ul[contains(@class,"products_list")]/li
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //div[@class="product_preview-image "]/a/@href
+    xpath: //h2/a/@href
     regExp: ^(.+)$
     regExpReplace: https://www.elcorteingles.es$1
   - name: thumbnail
@@ -40,8 +40,8 @@ fields:
   - name: id
     description: Unique id (within this extractor)
     xpath: //span[@data-json]/@data-json
-    regExp: \"variant":"([^"]+)
-    regExpReplace: $1
+    regExp: \"variant":"(\w+\-)?([^"]+)
+    regExpReplace: $2
   - name: rank
   - name: rankOrganic
   - name: sponsored
