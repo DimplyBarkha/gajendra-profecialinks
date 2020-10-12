@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //*[@data-selenium="miniProductPageProduct"]
+fields:
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //a[@data-selenium="miniProductPageProductNameLink"]/@href
+    regExp: .*product\/([^\/]*)\/.*
+    regExpReplace: $1
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+    xpath: count(//a[@data-selenium="miniProductPageProductNameLink"]//ancestor::div[@data-selenium="miniProductPage"]/preceding-sibling::div[@data-selenium="miniProductPage"])
+  - name: name
+    description: The product name
+    xpath: //span[@data-selenium="miniProductPageProductName"]
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //a[@data-selenium="miniProductPageProductNameLink"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.bhphotovideo.com$1
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //img[@data-selenium="miniProductPageImg"]/@src
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: count(//div/*[contains(@class, "star")][contains(@class, "full")])+0.5*count(//*/*[@href="#StarHalfIconColored"])
+  - name: reviewCount
+    description: The number of reviews
+    type: NUMBER
+  - name: ratingCount
+    description: The number of ratings
+  - name: price
+    description: The offered price for the product
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: rank
+    description: search/listing rank
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
