@@ -91,19 +91,10 @@ module.exports = {
       const additionalDescriptionInfoXpath = "//div[@id='tab-description']//ul/li";
       const additionalDescriptionInfo = getAllXpath(additionalDescriptionInfoXpath, 'innerText');
       if (additionalDescriptionInfo !== null && additionalDescriptionInfo.length > 0) {
-        /* if (descriptionInfo != null) {
-          additionalBulletInfo = descriptionInfo + '||' + additionalDescriptionInfo.join('||');
-        }
-        else {
-          additionalBulletInfo = additionalDescriptionInfo.join('||');
-        } */
         additionalBulletInfo = additionalDescriptionInfo.join('||');
         additionalBulletInfo.split('||').forEach((item) => {
           addElementToDocument('added_description_bullet_info', item);
         });
-      } else {
-        // additionalBulletInfo = descriptionInfo;
-        // addElementToDocument('added_description_bullet_info', additionalBulletInfo);
       }
       // Manufacture Description
       const manufacturerDescriptionXpathOption = getAllXpath("//div[contains(@id,'inpage_container')]//div[(contains(@class,'flix-d-p') or contains(@class,'flix-std-desc')) and not(contains(@class,'flix-title')or contains(@class,'flix-caveat-desc'))]", 'innerText');
