@@ -47,6 +47,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    xpath: //div[@class='add-to-cart-v2__button'][contains(.,'Ajouter le lot')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -253,7 +254,7 @@ fields:
     singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //div[contains(@class, 'Informations__Item')]/div[contains(., "Ingredients")]/div/div
+    xpath: //div[contains(@class, 'Informations__Item')]/div[contains(@class, 'Informations__ItemTitle')][contains(., "Ingredients")]//following-sibling::*[1]
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.
@@ -275,13 +276,13 @@ fields:
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
   - name: totalFatPerServing
     singleValue: false
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Matière grasse")]/div)[2]
   - name: totalFatPerServingUom
     regExp: ([a-zA-Z]+)
@@ -293,7 +294,7 @@ fields:
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "gras saturé")]/div)[2]
   - name: saturatedFatPerServingUom
     regExp: ([a-zA-Z]+)
@@ -305,7 +306,7 @@ fields:
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
   - name: transFatPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -315,7 +316,7 @@ fields:
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
   - name: cholesterolPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -325,7 +326,7 @@ fields:
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
   - name: sodiumPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -335,7 +336,7 @@ fields:
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Glucides")]/div)[2]
   - name: totalCarbPerServingUom
     regExp: ([a-zA-Z]+)
@@ -347,7 +348,7 @@ fields:
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Fibres Alimentaires")]/div)[2]
   - name: dietaryFibrePerServingUom
     regExp: ([a-zA-Z]+)
@@ -359,7 +360,7 @@ fields:
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "sucre")]/div)[2]
   - name: totalSugarsPerServingUom
     regExp: ([a-zA-Z]+)
@@ -371,7 +372,7 @@ fields:
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Protéines")]/div)[2]
   - name: proteinPerServingUom
     regExp: ([a-zA-Z]+)
@@ -383,7 +384,7 @@ fields:
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
   - name: vitaminAPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -393,7 +394,7 @@ fields:
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
   - name: vitaminCPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -403,7 +404,7 @@ fields:
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
   - name: calciumPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -413,7 +414,7 @@ fields:
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
   - name: ironPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -426,7 +427,7 @@ fields:
     description: Nutritional Information for Magnesium content - Usually based on
       per 100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
   - name: magnesiumPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -436,7 +437,7 @@ fields:
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
     # type: NUMBER
-    regExp: ([0-9,]+)
+    regExp: ([0-9,.]+)
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Sel")]/div)[2]
   - name: saltPerServingUom
     regExp: ([a-zA-Z]+)
@@ -462,7 +463,7 @@ fields:
   - name: allergyAdvice
     singleValue: false
     description: Allergy information associated with the product
-    xpath: //div[contains(@class, 'Informations__Item')]/div[contains(., "Allergènes")]/div/div
+    xpath: //div[contains(@class, 'Informations__Item')]/div[contains(@class, 'Informations__ItemTitle')][contains(., "Allergènes")]//following-sibling::*[1]
   - name: recyclingInformation
     singleValue: false
     description: Recycling information associated with the product
