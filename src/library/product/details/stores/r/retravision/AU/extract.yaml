@@ -56,7 +56,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id='tab_description_tabbed_contents']//div
+    xpath: //div[@id='tab_description_tabbed_contents']//div//li
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -95,9 +95,9 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //script[@src="//media.flixfacts.com/js/loader.js"]//@data-flix-sku
   - name: mpc
-    singleValue: true
+    singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //script[@src="//media.flixfacts.com/js/loader.js"]//@data-flix-mpn
+    xpath: //table[@id='product-attribute-specs-table']//tr//th[contains(text(),'Model')][1]//following-sibling::td[1]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -144,8 +144,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    description: The extended description of the product supplied by the lister
-    xpath: //meta[@name="description"]//@content
+    description: The extended description of the product supplied by the lister    
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -155,7 +154,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[contains(@class,'product-name')]    
+    xpath: //meta[@property='og:title']//@content  
   - name: url
     singleValue: true    
     xpath: //meta[@property="og:url"]//@content
@@ -167,9 +166,9 @@ fields:
     description: The physical dimensions of the product including packaging.
     xpath: //table[@id="product-attribute-specs-table"]//tbody//tr[position()>4]
   - name: warranty
-    singleValue: true
+    singleValue: false
     description: Guarantee associated with the product
-    xpath: //*[contains(text(), "Guarantee")]/following::td[1]
+    xpath: //table[@id='product-attribute-specs-table']//tr//th[contains(text(),'Guarantee')][1]//following-sibling::td[1]
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates  
@@ -179,7 +178,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //table[@id="product-attribute-specs-table"]//tbody//tr[position()<4]
+    xpath: //table[@id="product-attribute-specs-table"]//tbody//tr
   - name: packaging
     singleValue: true
     description: Packaging information

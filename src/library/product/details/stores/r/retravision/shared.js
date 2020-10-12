@@ -44,6 +44,36 @@ const transform = (data) => {
 			row.availabilityText = [{ text: newText }];
       }
 
+	  if (row.description) {
+		let newText = '';
+		row.description.forEach(item => {		
+			newText = newText+item.text+"||";
+		
+		});
+		newText = newText.substring(0,newText.length -2);
+		row.description = [{ text: newText }];
+		}
+		
+		if (row.specifications) {
+			let newText = '';
+			row.specifications.forEach(item => {		
+				newText = newText+item.text+"|";
+			
+			});
+			newText = newText.substring(0,newText.length -1);
+			row.specifications = [{ text: newText }];
+			}
+
+			if (row.productOtherInformation) {
+				let newText = '';
+				row.productOtherInformation.forEach(item => {		
+					newText = newText+item.text+"|";
+				
+				});
+				newText = newText.substring(0,newText.length -1);
+				row.productOtherInformation = [{ text: newText }];
+				}
+
 		}
 	}
 
