@@ -1,3 +1,5 @@
+const { cleanUp } = require('../../../../shared');
+
 async function implementation (
   // @ts-ignore
   inputs,
@@ -7,10 +9,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.evaluate(async function () {
-    window.location.reload();
-    
-  });
+
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
@@ -18,7 +17,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'courir',
-    transform: transform,
+    transform: cleanUp,
     domain: 'courir.com',
     zipcode: '',
   },
