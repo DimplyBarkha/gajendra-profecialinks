@@ -97,7 +97,6 @@ async function implementation (
   await context.setLoadAllResources(true)
     .then(async()=>{
       await context.goto(itemUrl);
-      await amazonHelp.handleErrorsAndCaptchas(itemUrl);
     })
 
   await context.waitForXPath('//span[@id="productTitle"]', { timeout: 20000 });
