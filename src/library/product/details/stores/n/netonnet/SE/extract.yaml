@@ -38,7 +38,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //*[@id="collapseFive"]//iframe/@src
+    xpath: //iframe[contains(@src,"youtube")]/@src
   - name: sku
     singleValue: false
     xpath: //div[@class="subTitle big"]//span
