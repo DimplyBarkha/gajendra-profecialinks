@@ -40,6 +40,18 @@ const transform = (data) => {
           },
         ];
       }
+
+      if (row.price) {
+        let text = '';
+        row.price.forEach(item => {
+          text = row.price.map(elm => elm.text).join('.');
+        });
+        row.price = [
+          {
+            text: text,
+          },
+        ];
+      }
     }
   }
 

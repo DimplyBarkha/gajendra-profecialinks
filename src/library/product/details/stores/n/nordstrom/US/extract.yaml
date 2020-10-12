@@ -18,7 +18,7 @@ fields:
   - name: listPrice
     xpath: //section[@id="product-page-price-lockup"]//span[contains(@id,"original-price")]/span[last()]
   - name: price
-    xpath: //span[@itemprop="price"]/@content | //span[@itemprop="lowPrice"]/@content
+    xpath: //span[@id="current-price-string"] | //span[@id="current-price-string"]/following-sibling::sup
     regExp: ^[^–]+
   - name: availabilityText
     xpath: //span[contains(text(),'Add to Bag')]

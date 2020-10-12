@@ -14,12 +14,9 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
-      var checkPriceRange = document.querySelector('section#product-page-price-lockup span#current-price-string') && document.querySelector('section#product-page-price-lockup span#current-price-string').textContent && document.querySelector('section#product-page-price-lockup span#current-price-string').textContent.includes('–');
-      if (checkPriceRange) {
-        document.querySelector('div#size-filter-product-page-anchor') && document.querySelector('div#size-filter-product-page-anchor').click();
-        document.querySelector('ul#size-filter-product-page-option-list li') && document.querySelector('ul#size-filter-product-page-option-list li').click();
-        document.querySelector('ul#product-page-swatches li button') && document.querySelector('ul#product-page-swatches li button').click();
-      }
+      document.querySelector('div#size-filter-product-page-anchor') && document.querySelector('div#size-filter-product-page-anchor').click();
+      document.querySelector('ul#size-filter-product-page-option-list li') && document.querySelector('ul#size-filter-product-page-option-list li').click();
+      document.querySelector('ul#product-page-swatches li button') && document.querySelector('ul#product-page-swatches li button').click();
 
       const videoUrls = [];
       const dataArr = window.__INITIAL_CONFIG__.viewData;
