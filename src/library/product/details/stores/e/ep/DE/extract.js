@@ -90,8 +90,10 @@ async function implementation (
       document.getElementById('flix-inpage').querySelectorAll('img').forEach(img => {
         manufacturerImages.push('https:' + img.getAttribute('src'));
       });
-      if (document.getElementById('flix-inpage, div.inpage_product_assets div[class^="inpage_block_title flix"]').innerText.includes('Weitere Informationen')) {
-        addHiddenDiv('technicalInformationPdfPresent', 'Yes');
+      if (document.querySelector('flix-inpage, div.inpage_product_assets div[class^="inpage_block_title flix"]')) {
+        if (document.querySelector('flix-inpage, div.inpage_product_assets div[class^="inpage_block_title flix"]').innerText.includes('Weitere Informationen')) {
+          addHiddenDiv('technicalInformationPdfPresent', 'Yes');
+        }
       }
     }
 
