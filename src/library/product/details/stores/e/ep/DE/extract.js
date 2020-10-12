@@ -90,7 +90,7 @@ async function implementation (
       document.getElementById('flix-inpage').querySelectorAll('img').forEach(img => {
         manufacturerImages.push('https:' + img.getAttribute('src'));
       });
-      if (document.getElementById('flix-inpage').innerText.includes('Weitere Informationen')) {
+      if (document.getElementById('flix-inpage, div.inpage_product_assets div[class^="inpage_block_title flix"]').innerText.includes('Weitere Informationen')) {
         addHiddenDiv('technicalInformationPdfPresent', 'Yes');
       }
     }
@@ -151,7 +151,7 @@ async function implementation (
           if (tr.innerText.includes('Gewicht:')) {
             addHiddenDiv('weightNet', tr.innerText.replace('Gewicht:', ''));
           }
-          if (tr.innerText.includes('Breite:') || tr.innerText.includes('Höhe:') || tr.innerText.includes('Tiefe:')) {
+          if (tr.innerText.includes('Gewicht:') || tr.innerText.includes('Breite:') || tr.innerText.includes('Höhe:') || tr.innerText.includes('Tiefe:')) {
             specifications.push(tr.innerText);
           }
         });
@@ -187,8 +187,9 @@ async function implementation (
           addHiddenDiv('ratingCount', reviewCountMatch[0].split(' ')[0]);
         }
         if (ratingMatch && ratingMatch.length) {
-          addHiddenDiv('rating', ratingMatch[0].split('/')[0]);
-          addHiddenDiv('ratingText', ratingMatch[0].split('/')[0] + ' out of 5');
+          const rating = ratingMatch[0].split('/')[0];
+          addHiddenDiv('rating', rating.replace('.', ','));
+          addHiddenDiv('ratingText', rating.replace('.', ',') + ' out of 5');
         }
       }
     }

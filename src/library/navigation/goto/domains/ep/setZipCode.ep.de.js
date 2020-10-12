@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     domain: 'ep.de',
-    store: 'dyson',
+    store: 'ep',
     zipcode: '',
   },
 };

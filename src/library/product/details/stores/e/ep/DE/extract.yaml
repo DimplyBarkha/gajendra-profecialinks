@@ -33,7 +33,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1
+    xpath: concat(//img[@class='product-details-brand']/@alt, ' ', //h1[contains(@class, "product-details-name")])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -91,6 +91,10 @@ fields:
   - name: gtin #missing
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //script[contains(@src, "flixfacts")]/@data-flix-ean
+  - name: eangtin
+    singleValue: true
+    xpath: //script[contains(@src, "flixfacts")]/@data-flix-ean
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -141,16 +145,15 @@ fields:
     singleValue: true
     description: Stated shipping weight
     xpath: //div[@id='weightGross']
-  #- name: variantCount
-  #  singleValue: true
-  #  description: Number of variants listed
-  #  type: NUMBER
-  #  defaultValue: 0
-  #  xpath: count(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+    type: NUMBER
+    defaultValue: 0
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //div[@id='added_color']
+    xpath: //td[contains(text(), 'Farbe')]//following-sibling::td
   - name: colorCode #missing
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -517,7 +520,10 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    xpath: //div[@id="technicalInformationPdfPresent"]
+    xpath: (//div[@id="technicalInformationPdfPresent"])
+    # |translate(//a[contains(@href, ".pdf")]/@target, '_blank', 'Yes'))[1]
+    # regExp: (.*)
+    # regExpReplace: Yes
     defaultValue: No
   - name: termsAndConditions #localedependent
     singleValue: false
