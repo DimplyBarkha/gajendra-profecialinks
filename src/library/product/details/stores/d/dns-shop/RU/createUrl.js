@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'dns-shop.ru',
     prefix: null,
-    url: null,
+    url: 'https://www.dns-shop.ru/',
     country: 'RU',
     store: 'dns-shop',
     zipcode: '',
