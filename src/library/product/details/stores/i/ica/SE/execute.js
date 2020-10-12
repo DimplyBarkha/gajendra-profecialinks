@@ -19,12 +19,13 @@ async function implementation (
     url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
+
   try {
-    await context.click('a.siKto');
+    await context.click('button.gILNjb');
   }catch (e) {
     console.log(e);
   }
-  await new Promise((resolve, reject) => setTimeout(resolve, 9000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 
 
   if (parameters.loadedSelector) {
@@ -46,4 +47,5 @@ module.exports = {
     noResultsXPath: null,
     zipcode: '10316',
   },
+  implementation,
 };

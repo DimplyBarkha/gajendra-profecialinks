@@ -6,3 +6,27 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[contains(@class,'sc-prOVx')]//picture/img/@srcset
+  - name: name
+    singleValue: false
+    xpath: //h2
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'sc-prOVx')]//picture/img/@alt
+  - name: price
+    singleValue: false
+    xpath: //p[contains(@class,'ciXVYf')]
+  - name: pricePerUnitUom
+    singleValue: false
+    xpath: //p[contains(@class,'ciXVYf')]/parent::*/small
+  - name: nameExtended
+    singleValue: false
+    xpath: //h2
+  - name: description
+    singleValue: false
+    xpath: //p[contains(@class,'ekttti')]
+  - name: quantity
+    singleValue: false
+    defaultValue: 0
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[contains(@class,'gcVnmg')][2]//p[contains(@class,'dRPKpv')]
