@@ -104,7 +104,7 @@ const transform = (data) => {
         });
         row.shippingInfo = vars;
       }
-      
+
       if (row.gtin) {
         row.gtin.forEach(item => {
           item.text = item.text.split(',')[0];

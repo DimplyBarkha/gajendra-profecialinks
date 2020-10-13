@@ -7,12 +7,12 @@ const { transform } = require('../format');
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
   // Function to check whether manufacturer content exists
 
-  async function moreFromManufacturer () {
+  async function moreFromManufacturer() {
     return await context.evaluate(async function () {
       const imgSelector = document.evaluate('//a[@class="Lx5QBd internal-link"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const manImg = imgSelector ? imgSelector.href : '';
@@ -24,7 +24,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   }
 
-  async function checkmanufacturerContent () {
+  async function checkmanufacturerContent() {
     return await context.evaluate(async function () {
       const dtlSelector = document.evaluate('//a[@class="internal-link VXlrBe"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const dtlSrc = dtlSelector ? dtlSelector.href : '';
@@ -37,7 +37,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   }
 
   // Function to fetch manufacturer content and mnufacturer images after visiting iframe URL
-  async function fetchSpecs (url) {
+  async function fetchSpecs(url) {
     await context.goto(url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
     return await context.evaluate(async function () {
       const weightNetPath = "//div[contains(text(),'Weight')]//..//following-sibling::td/text()";
@@ -116,7 +116,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       return { brandText, weightNet, color, warranty, shippingDimensions, Dimensions, shippingWeight, gtin, specifications };
     });
   }
-  async function fetchManImg (url) {
+  async function fetchManImg(url) {
     await context.goto(url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
     return await context.evaluate(async function () {
       const imageArray = [];
@@ -138,9 +138,9 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   }
   // Function to add manufacturer content and description to DOM
-  async function addContentToDOM (manContentObj, manufacturerContentLink) {
+  async function addContentToDOM(manContentObj, manufacturerContentLink) {
     await context.evaluate(async function ([manContentObj, manufacturerContentLink]) {
-      function addHiddenDiv (id, content) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -166,9 +166,9 @@ async function implementation (inputs, parameters, context, dependencies) {
   }
   let manContentObj;
 
-  async function addContentToDOM1 (manImageObj, imageLink) {
+  async function addContentToDOM1(manImageObj, imageLink) {
     await context.evaluate(async function ([manImageObj, imageLink]) {
-      function addHiddenDiv (id, content) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -212,52 +212,52 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   }
 
-    // Function to fetch desc
-    async function fetchDesc (url) {
-      await context.goto(url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
-      return await context.evaluate(async function () {
-        let descs = [];
-        let desc;
-        let descCnt = 0;
-        try {
-          // const descTextPath = '//ul//li/span';
-          const descIterator = document.evaluate("//ul//li/span", document, null, XPathResult.ANY_TYPE, null);
-          // document.evaluate(descTextPath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-          // const arr = descIterator.innerText.split('\n\n');
-          // for (let cnt = 0; cnt < arr.length; cnt++) {
-          //   const txt = arr[cnt].replace('\n\t', ':');
-          //   descs.push(txt);
-          // }
-          let thisNode = descIterator.iterateNext();
-          
-          while (thisNode) {
-            descs.push(thisNode.textContent);
-            thisNode = descIterator.iterateNext();
-          }
-          //descCnt = descs.length;
-          //desc = descs.join(' || ');
-        } catch (err) { }
-          return { descs };
-      });
-    }
-    async function addDescToDOM (descObj, addDescLink) {
-      await context.evaluate(async function ([descObj, addDescLink]) {
-        function addHiddenDiv (id, content) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
+  // Function to fetch desc
+  async function fetchDesc(url) {
+    await context.goto(url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
+    return await context.evaluate(async function () {
+      let descs = [];
+      let desc;
+      let descCnt = 0;
+      try {
+        // const descTextPath = '//ul//li/span';
+        const descIterator = document.evaluate("//ul//li/span", document, null, XPathResult.ANY_TYPE, null);
+        // document.evaluate(descTextPath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+        // const arr = descIterator.innerText.split('\n\n');
+        // for (let cnt = 0; cnt < arr.length; cnt++) {
+        //   const txt = arr[cnt].replace('\n\t', ':');
+        //   descs.push(txt);
+        // }
+        let thisNode = descIterator.iterateNext();
+
+        while (thisNode) {
+          descs.push(thisNode.textContent);
+          thisNode = descIterator.iterateNext();
         }
-        if (addDescLink) {
-          for (let i = 0; i < descObj.descs.length; i++) {
-            addHiddenDiv('added-desc-' + i, descObj.descs[i]);
-          }
-            //  addHiddenDiv('added-desc', descObj.desc);
-            // addHiddenDiv('added-desc-cnt', descObj.descCnt);
+        //descCnt = descs.length;
+        //desc = descs.join(' || ');
+      } catch (err) { }
+      return { descs };
+    });
+  }
+  async function addDescToDOM(descObj, addDescLink) {
+    await context.evaluate(async function ([descObj, addDescLink]) {
+      function addHiddenDiv(id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      if (addDescLink) {
+        for (let i = 0; i < descObj.descs.length; i++) {
+          addHiddenDiv('added-desc-' + i, descObj.descs[i]);
         }
-      }, [descObj, addDescLink]);
-    }  
+        //  addHiddenDiv('added-desc', descObj.desc);
+        // addHiddenDiv('added-desc-cnt', descObj.descCnt);
+      }
+    }, [descObj, addDescLink]);
+  }
   const addDescLink = await getDescLink();
   console.log('addDescLink', addDescLink);
   let descObj;
