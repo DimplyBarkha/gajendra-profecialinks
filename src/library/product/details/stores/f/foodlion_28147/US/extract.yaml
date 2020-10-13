@@ -21,6 +21,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
+    xpath: //ul[contains(@class,"breadcrumbs")]/li/a[not(contains(@class,'active')) and not(contains(@class,'all'))]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
@@ -31,20 +32,18 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
+    xpath: //div[contains(@class,"product-info")]//span[contains(@data-test,"amount")]/span[1]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
+    xpath: //div[contains(@class,"product-info")]//button[contains(@id,"add-to-cart-button-cart")]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: //div[contains(@class,"description")]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -75,6 +74,7 @@ fields:
     description: The store-specific product identifier
   - name: variantId
     singleValue: false
+    xpath: //input[contains(@id,"productId")]/@value
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: false
@@ -88,9 +88,11 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
+    xpath: //div[@id='pd_directions']
     description: Content under "directions" header
   - name: warnings
     singleValue: false
+    xpath: //div[@id="pd_warnings"]
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
@@ -223,6 +225,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
+    xpath: count(//div[contains(@class,"product-image-thumbnails")]/button[position( ) > 1]/span[contains(@class,"product-image-thumbnail")]/@style)
     description: null
     type: NUMBER
   - name: news
@@ -236,6 +239,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
+    xpath: //*[@id="pd_ingredients"]
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
