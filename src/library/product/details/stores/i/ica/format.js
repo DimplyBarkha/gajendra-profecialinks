@@ -50,6 +50,9 @@ const transform = (data) => {
             row.termsAndConditions[0]['text']='No';
           }
         }
+        if(row.brandText){
+          row.nameExtended[0]['text']=row.brandText[0]['text']+' '+row.nameExtended[0]['text'];
+        }
       }
     }
     return cleanUp(data);
