@@ -12,7 +12,7 @@ async function implementation (
 ) {
   const { _date, page, keywords } = inputs;
   const loadedSelector = 'div[data-hook=review]';
-  const noResultsXPath = '//div[contains(@class, "no-reviews-section")]';
+  const noResultsXPath = '/html[not(//script[contains(text(),\'pageType: "CustomerReviews"\')])] | //a//img[contains(@src,"503.png")] | //a[contains(@href,"ref=cs_503_link")] | //script[contains(text(),"PageNotFound")] | //div[contains(@class, "page-content") and not(//div[contains(@class, "reviews-content")])] | //div[contains(@class, "no-reviews-section")] | //*[contains(text(),"Suchen Sie bestimmte Informationen")]';
   const openSearchDefinition = {
     template: 'https://www.amazon.de/product-reviews/{searchTerms}?sortBy=recent&pageNumber={page}',
   };
@@ -76,17 +76,6 @@ async function implementation (
   }
 
   if (!url) {
-    return false;
-  }
-  async function checkNoPagination () {
-    const nextPageBtn = document.querySelector('ul.a-pagination>li.a-last>a');
-    if(!nextPageBtn){
-      return true
-    }else{
-      return false
-    }
-  }
-  if (await context.evaluate(checkNoPagination)) {
     return false;
   }
 
