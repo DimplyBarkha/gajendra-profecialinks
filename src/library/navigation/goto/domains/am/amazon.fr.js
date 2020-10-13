@@ -1,8 +1,10 @@
 module.exports = {
   extends: 'navigation/goto/domains/am/amazon',
   parameterValues: {
-    countryCode: 'FR',
-    // addressRegExp: /address/i,
-    // zipRegExp: /\b\d{5}\b/,
+    country: 'FR',
+    domain: 'amazon.fr',
+    store: 'amazon',
+    // This is example extractor(from amazon.fr) add correct extractor. will be used in customGoto.
+    extractor: 'c417ac18-2c1e-44b7-b306-6d786008076b',
   },
 };

@@ -1,9 +1,9 @@
 /**
  *
- * @param { { keywords: string, zipcode: string, _date: string } } inputs
+ * @param { { url?: string,  id?: string, zipcode?: any, storeId?:any} } inputs
  * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
  * @param { ImportIO.IContext } context
- * @param { { goto: ImportIO.Action} } dependencies
+ * @param { { goto: ImportIO.Action, createUrl: ImportIO.Action} } dependencies
  */
 async function implementation (
   inputs,
@@ -11,22 +11,22 @@ async function implementation (
   context,
   dependencies,
 ) {
-  console.log('params', parameters);
-  const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
-  await dependencies.goto({ url, zipcode: inputs.zipcode, inputs });
+  let { url, id, zipcode, storeId } = inputs;
+  if (!url) {
+    if (!id) {
+      throw new Error('no id provided');
+    }
+    url = await dependencies.createUrl({ id });
+  }
+  await dependencies.goto({ url, zipcode, storeId, inputs });
+
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
-  console.log('Checking no results', parameters.noResultsXPath);
-  return await context.evaluate(function (xp) {
-    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
-    console.log(xp, r);
-    const e = r.iterateNext();
-    console.log(e);
-    return !e;
-  }, parameters.noResultsXPath);
+
+  // TODO: Check for not found?
 }
 
 module.exports = {
@@ -44,10 +44,6 @@ module.exports = {
       description: 'top private domain (e.g. amazon.com)',
     },
     {
-      name: 'url',
-      description: 'Open Search search url pattern, e.g. http://example.com/?q={searchTerms}',
-    },
-    {
       name: 'loadedSelector',
       description: 'XPath to tell us the page has loaded',
       optional: true,
@@ -59,28 +55,33 @@ module.exports = {
   ],
   inputs: [
     {
-      name: 'keywords',
-      description: 'keywords to search for',
+      name: 'url',
+      description: 'url of product',
       type: 'string',
+      optional: true,
     },
     {
       name: 'id',
-      description: 'keywords to search for',
+      description: 'unique identifier for product',
       type: 'string',
+      optional: true,
     },
     {
       name: 'zipcode',
-      description: 'locale to search within',
+      description: 'set location',
       type: 'string',
+      optional: true,
     },
     {
-      name: '_date',
-      description: 'earliest date to extract a review',
+      name: 'storeId',
+      description: 'storeId for product',
       type: 'string',
+      optional: true,
     },
   ],
   dependencies: {
     goto: 'action:navigation/goto',
+    createUrl: 'action:product/details/createUrl',
   },
   path: './stores/${store[0:1]}/${store}/${country}/execute',
   implementation,
