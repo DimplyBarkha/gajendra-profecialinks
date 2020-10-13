@@ -5,6 +5,5 @@ module.exports = {
     country: 'FR',
     store: 'courir',
     domain: 'courir.com',
-    zipcode: '',
   },
 };

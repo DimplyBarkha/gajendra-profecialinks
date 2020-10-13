@@ -7,74 +7,50 @@ async function implementation (
 ) {
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
-
   await dependencies.goto({ url, zipcode: inputs.zipcode });
-
-  try {
-    await new Promise((resolve, reject) => setTimeout(resolve, 20000));
-  } catch (err) {
-    console.log('Error while solving the captcha' + JSON.stringify(err));
-  }
-  const captchaLink = await context.evaluate(function () {
-    const captchaEle = document.evaluate('//iframe[contains(@src,\'geo.captcha\')]/@src', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-    if (captchaEle) {
-      return captchaEle.nodeValue;
-    }
-    return false;
-  });
-
-  if (captchaLink) {
-    console.log('Captcha exists, calling the geetest API');
-    await context.setJavaScriptEnabled(true);
-    await context.setCssEnabled(true);
-    await context.setLoadAllResources(true);
-    await context.setLoadImages(true);
-    await context.setBlockAds(false);
-    const responseStatus = await context.goto('https://www.geetest.com/demo/slide-en.html', {
-      antiCaptchaOptions: {
-        type: 'GEETEST',
-        libPath: captchaLink,
-      },
-      firstRequestTimeout: 60000,
-      timeout: 60000,
-      waitUntil: 'load',
-      checkBlocked: false,
-    });
-    console.log('Status :', responseStatus.status);
-    console.log('URL :', responseStatus.url);
-    console.log('Captcha exists, solving captcha');
-    await context.waitForNavigation({ timeout: 30000 });
-    // await context.solveCaptcha({
-    //   type: 'GEETEST',
-    //   inputElement: '#captcha',
-    // });
-    await context.evaluateInFrame('iframe',
-      function () {
-        const code = geetest
-          .toString()
-          .replace(
-            /appendTo\("#([^"]+)"\)/,
-            'appendTo(document.getElementById("$1"))',
-          );
-        return eval(`(${code})('/captcha/geetest');`);
-      },
-    );
-    await new Promise(resolve => setTimeout(resolve, 500));
-    await context.evaluateInFrame('iframe',
-      function () {
-        // @ts-ignore
-        document.querySelector('.captcha-handler').click();
-      },
-    );
-    await new Promise(resolve => setTimeout(resolve, 60000));
-    await dependencies.goto({ url, zipcode: inputs.zipcode });
-  }
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
+
+  // Click on load more
+  const clickLoadMore = async function (context) {
+    let productsCount = 0;
+    while (productsCount < 150) {
+      productsCount = await context.evaluate(function () {
+        const products = document.evaluate('//div[contains(@id,\'search-lane\')]//article//div//img[contains(@data-testhook,\'product-image\')]', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        return products.snapshotLength;
+      });
+
+      // Check if load more exists
+      const doesLoadMoreExists = await context.evaluate(function () {
+        return Boolean(document.querySelector('button.display-more-products'));
+      });
+
+      if (doesLoadMoreExists) {
+        console.log('Clicking on load more btn');
+        // @ts-ignore
+        await context.click('button.display-more-products');
+        await stall(10000);
+      } else {
+        console.log('load more btn is not present - ' + doesLoadMoreExists);
+        break;
+      }
+    }
+  };
+
+  function stall (ms) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, ms);
+    });
+  }
+
+  await clickLoadMore(context);
+
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);

@@ -27,12 +27,12 @@ fields:
     regExpReplace: https://www.courir.com$1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[contains(@class,'product-tile')]//img/@src
+    xpath: //div[contains(@class,'product-tile')]//div[@class='product-image']/img/@src
     regExp: (.+)sw=300&sh=300&sm=fit
     regExpReplace: $1sw=600&sh=600&sm=fit
   - name: name
     description: The product name
-    xpath: normalize-space(//div[contains(@class,'product-tile')]//h2)
+    xpath: //div[contains(@class,'product-tile')]//h2
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -53,7 +53,7 @@ fields:
     description: The number of reviews
   - name: price
     description: The offered price for the product
-    xpath: //div[contains(@class,'product-tile')]//div[contains(@class,'product-pricing')]/span
+    xpath: //div[contains(@class,'product-tile')]//div[contains(@class,'product-pricing')]/span[contains(@title,'Prix de vente')]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -82,7 +82,7 @@ fields:
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
-    description: //div[contains(@class,'product-tile')]/@data-itemid
+    xpath: //div[contains(@class,'product-tile')]/@data-itemid
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
