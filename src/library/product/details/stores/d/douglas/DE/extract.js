@@ -56,7 +56,7 @@ module.exports = {
 
         if (initialVariant !== null) {
           const initialVariantIdentifier = initialVariant.getAttribute('alt');
-          initialVairantTobeClicked = getEleByXpath(`//div[@data-wt-content="changeVariantColor"]//img[contains(@alt, '${initialVariantIdentifier}')]`);
+          initialVairantTobeClicked = getEleByXpath(`//div[@data-wt-content="changeVariantColor"]//img[contains(@alt, "${initialVariantIdentifier}")]`);
         }
 
         if (initialVairantTobeClicked === null) {

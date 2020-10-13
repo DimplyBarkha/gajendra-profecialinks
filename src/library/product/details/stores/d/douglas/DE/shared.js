@@ -97,7 +97,10 @@ const transform = (data) => {
 
       if (row.variantInformation) {
         if (row.color) {
-          row.variantInformation = [{ text: row.color[0].text }]
+          row.variantInformation = [{ text: row.color[0].text }];
+          if (row.color[0].text === 'ProductName' && row.quantity) {
+            row.variantInformation = [{ text: row.quantity[0].text }];
+          }
         }
       }
 
