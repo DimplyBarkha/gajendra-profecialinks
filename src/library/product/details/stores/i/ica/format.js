@@ -43,6 +43,13 @@ const transform = (data) => {
             item.text=var2[0];
           });
         }
+        if(row.termsAndConditions){
+          if(row.termsAndConditions[0]['text']!=''){
+            row.termsAndConditions[0]['text']='Yes';
+          }else{
+            row.termsAndConditions[0]['text']='No';
+          }
+        }
       }
     }
     return cleanUp(data);
