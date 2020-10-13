@@ -42,14 +42,17 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //article[@id='omschrijving']/p
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//article[@id='omschrijving']/p[1]/strong)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //meta[@itemprop='brand']/@content
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -92,6 +95,7 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    xpath: //span[@itemprop='reviewCount']
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
@@ -100,6 +104,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //span[@itemprop='ratingValue']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -384,6 +389,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //dl[@class='specification']
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
