@@ -138,7 +138,8 @@ fields:
     singleValue: false
     description: Images within the third party description
   - name: videos
-    singleValue: true
+    singleValue: false
+    xpath: //iframe[contains(@id, "flix-")]/@src
     description: URLs of videos on page
   - name: name
     singleValue: true
