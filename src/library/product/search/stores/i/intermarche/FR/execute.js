@@ -6,8 +6,8 @@ module.exports = {
     store: 'intermarche',
     domain: 'intermarche.com',
     url: 'https://www.intermarche.com/rechercheproduits/11833/recherche/{searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class*="styled__ProductGridWrapper"]',
+    noResultsXPath: '//div[contains(@class,"NoResultSearch")]',
     zipcode: '',
   },
 };
