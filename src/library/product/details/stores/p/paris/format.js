@@ -41,7 +41,12 @@ const transform = (data) => {
           skuItem.text = skuItem.text.replace(/[^\d]/gm, '');
         });
       }
-
+      if (row.image) {
+        row.image = [{ text: row.image[0].text }];
+      }
+      if (row.imageAlt) {
+        row.imageAlt = [{ text: row.imageAlt[0].text }];
+      }
       if (row.alternateImages) {
         row.alternateImages.shift();
       }
