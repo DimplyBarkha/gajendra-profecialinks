@@ -15,7 +15,22 @@ async function implementation (
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   
-  await new Promise((resolve, reject) => setTimeout(resolve, 15000));
+  //await new Promise((resolve, reject) => setTimeout(resolve, 15000));
+  try{
+    await context.waitForSelector('input#zipcode');
+    await context.setInputValue('input#zipcode',inputs.zipcode);
+    await context.click('input#zipcode');
+    context.waitForNavigation();
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    await context.click('button[data-automation-id="store-selector-view-pickup"]');
+    context.waitForNavigation();
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    await context.click('button[data-automation-id="store-selector-select-store_13026"]');
+    context.waitForNavigation();
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+  }catch(e){
+    console.log(e);
+  }
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -38,9 +53,9 @@ module.exports = {
     country: 'SE',
     store: 'ica',
     domain: 'ica.se',
-    url: 'https://www.ica.se/sok/#:search={searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.ica.se/handla/sok/{searchTerms}',
+    loadedSelector: 'ul.hZbUVv>li',
+    noResultsXPath: '//ul[contains(@class,"hZbUVv")]/li',
     zipcode: '10316',
   },
   implementation,
