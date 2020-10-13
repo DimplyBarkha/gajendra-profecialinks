@@ -48,14 +48,16 @@ fields:
     defaultValue: 'In Stock'
   - name: color
     singleValue: false
-    xpath: //ul[@data-widget='colorSelector']//li[@aria-checked='true']/@title
-  
+    xpath: //ul[@data-widget='colorSelector']//li[@aria-checked='true']/@title  
   - name: specifications
     singleValue: false
     xpath: //div[contains(@class,'rsx-expandable-section_specs')]//div[@id='dynamic_content']//dl/dt
   - name: specificationsValue
     singleValue: false
     xpath: //div[contains(@class,'rsx-expandable-section_specs')]//div[@id='dynamic_content']//dl/dd
+  - name: specificationsCheckValue
+    singleValue: false
+    xpath: //div[contains(@class,'rsx-expandable-section_specs')]//div[@id='dynamic_content']//dl/dd/i/parent::*/preceding-sibling::dt[1]     
   - name: weightNet
     singleValue: false
     xpath: //div[@id='dynamic_content']//dt[text()='Weight']//following-sibling::dd[1]
