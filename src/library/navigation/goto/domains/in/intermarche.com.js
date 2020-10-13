@@ -20,16 +20,24 @@ module.exports = {
     // await context.setAntiFingerprint(false);
     // await context.setUseRelayProxy(false);
     // await context.goto(url, {
-    //   firstRequestTimeout: 40000,
+    // firstRequestTimeout: 40000,
     //   timeout: timeout,
-    //   waitUntil: 'load',
-    //   checkBlocked: false,
-    //   antiCaptchaOptions: {
-    //     type: 'RECAPTCHA',
+    //     waitUntil: 'load',
+    //       checkBlocked: false,
+    //         antiCaptchaOptions: {
+    //   type: 'RECAPTCHA',
     //   },
     // });
     url = `${url}#[!opt!]{"force200": true}[/!opt!]`;
-    await context.goto(url);
+    await context.goto(url, {
+      firstRequestTimeout: 40000,
+      timeout: timeout,
+      waitUntil: 'load',
+      checkBlocked: false,
+      antiCaptchaOptions: {
+        type: 'RECAPTCHA',
+      },
+    });
     const captchaFrame = 'iframe[src*="https://geo.captcha"]';
     const checkExistance = async (selector) => {
       return await context.evaluate((captchaSelector) => {
