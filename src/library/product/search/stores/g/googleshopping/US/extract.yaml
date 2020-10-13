@@ -22,10 +22,15 @@ fields:
     description: Unique id (within this extractor)
   - name: rank
   - name: rankOrganic
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class= 'gxLayout-row gxFlex-100 gxLayoutWrap']//gx-star-rating//div//span[@class='screenReaderOnly']
+    regExp: Rated ([^()]+) out of 5 stars
+    regExpReplace: $1
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class= 'gxLayout-row gxFlex-100 gxLayoutWrap']//gx-star-rating//div//span[@class='screenReaderOnly']/text()
-    regExp: Rated ([^()]+)out of 5 stars
+    xpath: //div[@class= 'gxLayout-row gxFlex-100 gxLayoutWrap']//gx-star-rating//div/@aria-label
+    regExp: Rated ([^()]+) out of 5 stars
     regExpReplace: $1
   - name: reviewCount
     singleValue: false
