@@ -26,10 +26,17 @@ const transform = (data) => {
           { text: row.brandText[0].text + ' - ' + row.name[0].text },
         ];
       }
+      const specificationArray = [];
       if (row.specifications) {
-        row.specifications[0].text = clean(row.specifications[0].text
-          .replace(/(\n\s*){4,}/g, ' || ')
-          .replace(/(\n\s*){2,}/g, ' : '));
+        row.specifications.forEach(specificationItem => {
+          specificationArray.push(specificationItem.text);
+        });
+      }
+      row.specifications = [{ text: specificationArray.join(' || ') }];
+      if (row.shippingDimensions) {
+        row.shippingDimensions.forEach((shippingDimensionsItem) => {
+          shippingDimensionsItem.text = shippingDimensionsItem.text.replace(/.*: ?(.*?) ?\(.*/gm, '$1');
+        });
       }
       if (row.aggregateRatingText) {
         row.aggregateRatingText.forEach((aggregateRatingTextItem) => {
@@ -44,11 +51,6 @@ const transform = (data) => {
       if (row.variantId) {
         row.variantId.forEach((variantIdItem) => {
           variantIdItem.text = variantIdItem.text.replace(/[^\d]/gm, '');
-        });
-      }
-      if (row.description) {
-        row.description.forEach((descriptionItem) => {
-          descriptionItem.text = clean(descriptionItem.text);
         });
       }
     }

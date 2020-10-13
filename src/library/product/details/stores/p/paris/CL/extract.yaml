@@ -41,9 +41,7 @@ fields:
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //div[@class="description-table"]
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: //meta[@name="description"]//@content
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -133,7 +131,7 @@ fields:
     description: The product name
   - name: specifications
     singleValue: false
-    xpath: //table[@class="table-data-product-details"]
+    xpath: //table[@class="table-data-product-details"]//tr
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: false
