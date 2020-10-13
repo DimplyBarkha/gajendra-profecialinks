@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'SE',
     store: 'ica',
-    nextLinkSelector: 'div.show-more-button-wrapper',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'ul.hZbUVv>li',

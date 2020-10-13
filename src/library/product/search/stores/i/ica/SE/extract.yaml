@@ -5,19 +5,19 @@ recordXPath: null
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //a[contains(@class,'article-item')]/@href
+    xpath: //div[contains(@class,'cSPfCG')]/a/@href
   - name: name
     singleValue: false
-    xpath: //h2[@class="trunk8"]
+    xpath: //div[contains(@class,'cSPfCG')]//h3
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,'img-wrapper')]/picture/img/@src
+    xpath: //div[contains(@class,'cSPfCG')]//picture/img/@src
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,'img-wrapper')]/picture/img/@src
-  - name: aggregateRating2
+    xpath: //div[contains(@class,'cSPfCG')]//picture/img/@src
+  - name: price
     singleValue: false
-    xpath: //div[contains(@class,'rating-stars')]
-  - name: reviewCount
+    xpath: //div[contains(@class,'cSPfCG')]//p
+  - name: soldBy
     singleValue: false
-    xpath: //span[contains(@class,'comments_count')]
+    xpath: //li[contains(@class,'denFMB')]/img/@alt
