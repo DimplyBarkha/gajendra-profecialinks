@@ -28,7 +28,7 @@ fields:
     type: NUMBER
   - name: price
     singleValue: false
-    xpath: //a[contains(@class, "userPrice")]|//strong[@class='userPrice userPriceNumerical']
+    xpath: //a[contains(@class, "userPrice")]|//div/a/strong[contains(@class,'userPrice')]
   - name: listPrice
     singlevalue: false
     xpath: //div[contains(@class, "bigPricerFA")]/div[@class="floatl"]/span[@class="oldPrice"]
