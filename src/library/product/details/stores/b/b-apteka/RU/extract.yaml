@@ -1,0 +1,37 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //img[@class="product-card-x__image"]/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //img[@class="product-card-x__image"]/@alt
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@class,"price_new")]
+  - name: availabilityText
+    singleValue: true
+    xpath: //button[@class="button button_block button_xl button_default j-product-counter-button"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,"instruction__wrapper")]//div[@class="instruction__bordered"]
+  - name: sku
+    singleValue: true
+    xpath: //meta[@property="og:url"]/@content
+  - name: variantId
+    singleValue: true
+  - name: name
+    singleValue: true
+    xpath: //h1[@class="product-card-x__title"]
+  - name: otherSellersName
+    singleValue: false
+    xpath: //div[@class="product-card-x__provider"]
+  - name: specifications
+    singleValue: true
+    xpath: //span[@class="product-card-x__dosage"]
