@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath : //a [@class="deal-box deal-col"]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="category-deal-boxes"]//a[position()>0]/@href
+    regExp: [^(.*)$] 
+    regExpReplace: 'https://www.baligam.co.il$1'
+  - name: name
+    singleValue: false
+    xpath: //div[@class="deal-box-photo"]/img/@alt
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="category-deal-boxes"]//a[position()>0]//img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[@class = "deal-box-text-left-price "]
+  - name: id
+    singleValue: false
+    xpath: //div[@class="category-deal-boxes"]//a[@class="deal-box deal-col"]//@href
+    regExp: ([0-9][0-9][0-9][0-9][0-9][0-9][0-9])
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="category-deal-boxes"]//a[@class="deal-box deal-col"]//@href
+    regExp: ([0-9][0-9][0-9][0-9][0-9][0-9][0-9])
+  - name: input
+    singleValue: false
+    xpath: //div[@class="category-page-header"]//span//text()
+
+
+    
