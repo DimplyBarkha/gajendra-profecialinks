@@ -29,6 +29,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //meta[@itemprop='price']/@content
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -130,7 +131,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@id='product-wrapper']//h1
+    xpath: //aside[@id='product-sidebar']/h1
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
