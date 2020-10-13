@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[contains(@class,"product-item")]
+fields:
+  - name: productUrl
+    xpath: //a//header/parent::a/@href
+    regExp: (.+)
+    regExpReplace: https://apopro.dk$1
+  - name: thumbnail
+    xpath: //a//img/@data-src
+    regExp: (.+)
+    regExpReplace: https://apopro.dk$1
+  - name: name
+    xpath: //a//header//h3
+  - name: gtin
+  - name: aggregateRatingText
+  - name: ratingCount
+  - name: reviewCount
+  - name: price
+    xpath: //p[@class="thumbnail-price"]
+  - name: manufacturer
+  - name: soldBy
+  - name: endorsementText
+  - name: shippingInfo
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+  - name: id
+    xpath: //@data-packageid
+  - name: aggregateRating

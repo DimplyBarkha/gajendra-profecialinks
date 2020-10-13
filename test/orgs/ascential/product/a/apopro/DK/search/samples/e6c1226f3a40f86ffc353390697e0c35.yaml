@@ -1,0 +1,25 @@
+input:
+  Keywords: 218428
+  _url: http://apopro.dk
+extractions:
+  - html: https://workbench.import.io/html/run=f8c1ebf8-f976-44e3-9b7a-5eb939c323ed/task=dd9d13f8-42c8-4183-a5f9-4e5f173abb14/eab46ee4-3609-4f0e-9d9c-a019ec81b11b.html
+    extractionConfigId: product/search/stores/a/apopro/DK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://apopro.dk/a-derma-exomega-control-cream-400-ml-218428
+                xpath: /html/body/div[1]/main[1]/main[1]/article[1]/div[1]/div[1]/section[1]/div[1]/section[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://apopro.dk/Images/a-derma-exomega-control-cream-400-ml-218428
+                xpath: /html/body/div[1]/main[1]/main[1]/article[1]/div[1]/div[1]/section[1]/div[1]/section[1]/div[1]/a[1]/div[1]/img[1]/@data-src
+            name:
+              - text: A-Derma Exomega Control Cream
+                xpath: /html/body/div[1]/main[1]/main[1]/article[1]/div[1]/div[1]/section[1]/div[1]/section[1]/div[1]/div[1]/a[1]/header[1]/h3[1]
+            price:
+              - text: 198,35 kr
+                xpath: /html/body/div[1]/main[1]/main[1]/article[1]/div[1]/div[1]/section[1]/div[1]/section[1]/div[1]/div[2]/div[1]/a[1]/div[1]/p[1]
+            id:
+              - text: "218428"
+                xpath: /html/body/div[1]/main[1]/main[1]/article[1]/div[1]/div[1]/section[1]/div[1]/section[1]/@data-packageid
+        xpath: /html
+    timestamp: 1602507394622
