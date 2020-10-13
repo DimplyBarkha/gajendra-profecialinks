@@ -11,11 +11,8 @@ fields:
   xpath: //meta[@name="keywords"]/@content
 - name: category 
   singleValue: false
-  xpath: //div[@id='category'] 
- 
-- name: subCategory 
-  singleValue: false
-  xpath: //div[@id='subCategory']
+  #xpath: //div[@id='category'] 
+  xpath: //ol[contains(@class,"breadcrumb")]/li[position()>1 and position()<last()]
 
 - name: price
   singleValue: true

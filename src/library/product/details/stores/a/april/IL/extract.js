@@ -1,11 +1,10 @@
-const { transform } = require('../../../../shared');
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'IL',
     store: 'april',
-    transform: transform,
+    transform: cleanUp,
     domain: 'april.co.il',
     zipcode: '',
   },
@@ -53,8 +52,8 @@ module.exports = {
 
       const avaiableText = getXpath("//div[@class='addToCart pull-right']//@disabled", 'nodeValue');
       if (avaiableText === 'disabled') {
-        addElementToDocument('availableText', 'outofstock');
-      } else addElementToDocument('availableText', 'instock');
+        addElementToDocument('availableText', 'Out of Stock');
+      } else addElementToDocument('availableText', 'In Stock');
 
       const alternateBulletInfoXpath = "//div[@id='mytab_0']//ul//li";
       const alternateBulletInfoStr = getAllXpath(alternateBulletInfoXpath, 'innerText').join('||');
@@ -65,9 +64,6 @@ module.exports = {
       if (variants.length > 1) {
         addElementToDocument('variants', variants);
         addElementToDocument('firstVariant', expectedSKU.substring(29, 34));
-      } else {
-        const variants = getAllXpath("//div[@class='imgProduct']//img/@id", 'nodeValue');
-        addElementToDocument('variants', variants);
       }
       var strVariant = variants.split('|');
       if (strVariant.length > 1) {

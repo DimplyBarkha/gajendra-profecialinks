@@ -9,5 +9,4 @@ module.exports = {
     domain: 'april.co.il',
     zipcode: '',
   },
- 
-  };
+};
