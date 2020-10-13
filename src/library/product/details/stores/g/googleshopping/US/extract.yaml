@@ -8,14 +8,14 @@ fields:
     xpath: //div[@class='TiQ3Vc main-image']//img[@class='sh-div__image sh-div__current']/@src
   - name: imageAlt
     singleValue: false
-    description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='TiQ3Vc main-image']//img[not(@xpath=1)][position()>1]/@src
-    description: Other product images (not in manufacturer description)
+    xpath: (//div[contains(@class, "sh-div__viewport")])[1]//div[contains(@class, "sh-div__zoomed")]/@style
+    # xpath: //div[@class='TiQ3Vc main-image']//img[not(@xpath=1)][position()>1]/@src
+    regExp: background-image\Wurl\W(.+)\W
+    regExpReplace: $1
   - name: metaKeywords
     singleValue: false
-    description: The <meta> keywords content
   - name: category
     singleValue: false
   - name: nameExtended
@@ -38,7 +38,7 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //ul[@class='xpDPYb']//li//span/text()
+    xpath: //ul[@class='xpDPYb']//li//span/text()]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//ul[@class='xpDPYb']//li//span)
@@ -68,9 +68,10 @@ fields:
     # regExpReplace: $1
   - name: variants
     singleValue: false
-    xpath: //div[@id="added-gtin"]  |  //td[contains(text(),'GTIN')]/following-sibling::td
-    regExp: \W(.*)
-    regExpReplace: $1
+    xpath: //div[@class="a8P5sc"]/a[@class="sh-dvc__item"]/@href|//div[@class="RuQLyd"]/a/@href
+    #//div[@id="added-gtin"]  |  //td[contains(text(),'GTIN')]/following-sibling::td
+    #regExp: \W(.*)
+    #regExpReplace: $1
   - name: variantId
     singleValue: false
     xpath: //a[@data-sid='online']/@href
@@ -101,7 +102,6 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //div[@class='eyAVeb']/text() | //div[@id='TypeV67aGc']/text()
-    
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class='uYNZm']/text()
@@ -120,7 +120,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@class='sh-dvc__scroll']/div)
+    xpath: count(//div[@class='sh-dvc__scroll']/div|//div[@class="RuQLyd"]/*)
     description: Number of variants listed
     #type: NUMBER
   - name: color
@@ -156,6 +156,9 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //div[contains(@id, "added-spec-")]
-
- 
-  
+  - name: addedDesc
+    singleValue: false
+    xpath: //div[contains(@id, "added-desc-")]    
+  - name: addedDescCnt
+    singleValue: false
+    xpath: count(//div[contains(@id, "added-desc-")])   

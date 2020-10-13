@@ -28,10 +28,31 @@ const transform = (data) => {
           }
           txt = txt + item.text;
           specs[0].text = txt;
-          // item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
         });
         row.description = specs;
       }
+      if (row.addedDesc) {
+        const specs = [];
+        let txt = '';
+        row.addedDesc.forEach(item => {
+          specs[0] = item;
+          if (txt.length > 0) {
+            txt = txt + ' || ';
+          }
+          txt = txt + item.text;
+          specs[0].text = txt;
+        });
+        row.description = specs;
+
+        let cntObj;
+        row.addedDescCnt.forEach(item => {
+          cntObj = item;
+        });
+        row.descriptionBullets.forEach(item => {
+          item.text = cntObj.text;
+        });
+      }
+
       if (row.specifications) {
         const specs = [];
         let txt = '';
@@ -47,10 +68,43 @@ const transform = (data) => {
         row.specifications = specs;
       }
       if (row.variants) {
+        const vars = [];
+        let cnt = 0;
+        const params = [];
         row.variants.forEach(item => {
-          item.text = item.text.split(',').join(' | ');
+          vars[0] = item;
+          let txt = item.text;
+          if (txt.indexOf('/shopping/product/') > -1) {
+            txt = txt.replace('/shopping/product/', '');
+          }
+          const idx = txt.indexOf('?prds');
+          if (idx > -1) {
+            txt = txt.substring(0, idx);
+          }
+          item.text = txt;
+          params[cnt] = txt;
+          cnt++;
         });
+        vars.forEach(item => {
+          item.text = params.join('|');
+        });
+        row.variants = vars;
       }
+      if (row.shippingInfo) {
+        const vars = [];
+        let cnt = 0;
+        const params = [];
+        row.shippingInfo.forEach(item => {
+          vars[0] = item;
+          params[cnt] = item.text;
+          cnt++;
+        });
+        vars.forEach(item => {
+          item.text = params.join('|');
+        });
+        row.shippingInfo = vars;
+      }
+      
       if (row.gtin) {
         row.gtin.forEach(item => {
           item.text = item.text.split(',')[0];

@@ -199,8 +199,77 @@ async function implementation (inputs, parameters, context, dependencies) {
     await context.goto(inputs.url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
   }
 
+  // add desc
+  async function getDescLink() {
+    return await context.evaluate(async function () {
+      const dtlSelector = document.evaluate('//a[contains(text(), "View all highlights")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const dtlSrc = dtlSelector ? dtlSelector.href : '';
+      if (dtlSrc) {
+        return dtlSrc;
+      } else {
+        return false;
+      }
+    });
+  }
+
+    // Function to fetch desc
+    async function fetchDesc (url) {
+      await context.goto(url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
+      return await context.evaluate(async function () {
+        let descs = [];
+        let desc;
+        let descCnt = 0;
+        try {
+          // const descTextPath = '//ul//li/span';
+          const descIterator = document.evaluate("//ul//li/span", document, null, XPathResult.ANY_TYPE, null);
+          // document.evaluate(descTextPath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+          // const arr = descIterator.innerText.split('\n\n');
+          // for (let cnt = 0; cnt < arr.length; cnt++) {
+          //   const txt = arr[cnt].replace('\n\t', ':');
+          //   descs.push(txt);
+          // }
+          let thisNode = descIterator.iterateNext();
+          
+          while (thisNode) {
+            descs.push(thisNode.textContent);
+            thisNode = descIterator.iterateNext();
+          }
+          //descCnt = descs.length;
+          //desc = descs.join(' || ');
+        } catch (err) { }
+          return { descs };
+      });
+    }
+    async function addDescToDOM (descObj, addDescLink) {
+      await context.evaluate(async function ([descObj, addDescLink]) {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+        if (addDescLink) {
+          for (let i = 0; i < descObj.descs.length; i++) {
+            addHiddenDiv('added-desc-' + i, descObj.descs[i]);
+          }
+            //  addHiddenDiv('added-desc', descObj.desc);
+            // addHiddenDiv('added-desc-cnt', descObj.descCnt);
+        }
+      }, [descObj, addDescLink]);
+    }  
+  const addDescLink = await getDescLink();
+  console.log('addDescLink', addDescLink);
+  let descObj;
+  if (addDescLink) {
+    descObj = await fetchDesc(addDescLink);
+    console.log('descObj', descObj);
+    await context.goto(inputs.url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
+  }
+  // end desc
   await addContentToDOM(manContentObj, specsLink);
   await addContentToDOM1(manImageObj, imageLink);
+  await addDescToDOM(descObj, addDescLink);
 
   await new Promise((resolve) => setTimeout(resolve, 10000));
 
