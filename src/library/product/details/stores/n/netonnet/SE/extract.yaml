@@ -38,7 +38,8 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //iframe[contains(@src,"youtube")]/@src
+    xpath: //div[@id="ii_videos"]
+    # xpath: //iframe[contains(@id, "quchbox-videolist")]/@title
   - name: sku
     singleValue: false
     xpath: //div[@class="subTitle big"]//span
