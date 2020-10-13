@@ -5,7 +5,7 @@ recordXPath: //ul[contains(@class,"products_list")]/li
 fields:
   - name: id
     xpath: //li[@class="products_list-item"]/span/@data-json
-    regExp: ("id":")(\d+|\w+)
+    regExp: \"variant":"(\w+\-)?([^"]+)
     regExpReplace: $2
   - name: gtin
     xpath: //li[@class="products_list-item"]/span/@data-json
