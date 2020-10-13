@@ -22,7 +22,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@id='added_category']
+    xpath: //ol[@class='breadcrumb container']/li[position()>1]/a/text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -65,13 +65,11 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //script[@type='application/ld+json']/text()
-    regExp: \"brand\":\"(Dyson)\"
-    regExpReplace: $1
+    xpath: 
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //input[@id='quantity']/@value
+    # xpath: //input[@id='quantity']/@value
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -132,6 +130,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    xpath: //div[@id='added_variantCount']
     type: NUMBER
   - name: color
     singleValue: true
@@ -155,7 +154,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@id='added_name']
+    xpath: //h1/text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -444,6 +443,9 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //div[@class='was-container']//span[contains(text(),'%')]/text()
+    regExp: \((.*)\)
+    regExpReplace: $1
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
