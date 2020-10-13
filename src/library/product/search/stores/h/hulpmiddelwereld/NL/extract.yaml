@@ -1,0 +1,30 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'category-products')]/div[contains(@class,'products-grid')]
+fields:
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[contains(@class,'products-grid')]/a/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[contains(@class,'products-grid')]/a/@href
+  - name: name
+    SingleValue: false
+    xpath: //div[contains(@class,'products-grid')]/a/div[contains(@class,'item-area')]/div[contains(@class,'details-area')]/h3
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,'products-grid')]/a/div[contains(@class,'item-area')]/div[contains(@class,'product-image-area')]/div[contains(@class,'product-image')]//img/@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,'products-grid')]/a/div[contains(@class,'item-area')]/div[contains(@class,'details-area')]/div[contains(@class,'ratings')]//div[contains(@class,'rating-box')]//div[contains(@class,'rating')]/@style
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,'products-grid')]/a/div[contains(@class,'item-area')]/div[contains(@class,'details-area')]/div[contains(@class,'ratings')]//span[contains(@class,'amount')]//span//span[contains(@class,'number')]
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@id,'product-price')]
+  - name: rankOrganic
+    SingleValue: false
+  - name: rank
+    SingleValue: false
