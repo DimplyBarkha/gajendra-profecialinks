@@ -21,10 +21,13 @@ module.exports = {
       // Getting specifications
       document.querySelector('.js-toggle-collapsed').click();
       let specifications = '';
-      document.querySelectorAll('dl.specification').forEach((specificationGroup) => {
-        console.log(specifications += `${specificationGroup.innerText}\n`);
+      document.querySelectorAll('dl.specification').forEach(specificationGroup => {
+        specifications += `${specificationGroup.innerText}\n`;
       });
       addElementToDocument('mm_specifications', specifications);
+
+      const imageUrl = `https:${document.querySelector('img.img-preview').attributes.src.value}`;
+      addElementToDocument('mm_imageUrl', imageUrl);
     });
     await context.extract(productDetails);
   },
