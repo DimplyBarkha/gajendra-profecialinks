@@ -54,7 +54,7 @@ fields:
     singleValue: true
     # regExp: >-
     #  [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
-    xpath: //div[contains(@data-comp,"Price Box")]/span[last()]|//p[contains(@data-comp,"Price")]//span[@class="css-gzac43"][last()]
+    xpath: //div[contains(@data-comp,"Price Box")]/span[last()]|(//p[contains(@data-comp,"Price")]//span[contains(@data-comp,"Rflex")]//span)[1]
   - name: description
     singleValue: true
     xpath: //div[@id="ii_Details"]
@@ -80,9 +80,9 @@ fields:
     xpath: //span[@data-at="sale_price"]
   - name: listPrice
     singleValue: true
-    regExp: >-
-     [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
-    xpath: //span[@data-at="price"]|//p[contains(@data-comp,"Price")]//span[@class="css-gzac43"]
+    # regExp: >-
+    #  [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
+    xpath: //span[@data-at="price"]|//p[contains(@data-comp,"Price Styled")]//span[not(@data-comp)]//span
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
