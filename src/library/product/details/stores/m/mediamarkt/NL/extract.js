@@ -26,8 +26,17 @@ module.exports = {
       });
       addElementToDocument('mm_specifications', specifications);
 
-      const imageUrl = `https:${document.querySelector('img.img-preview').attributes.src.value}`;
-      addElementToDocument('mm_imageUrl', imageUrl);
+      // Getting images
+      const images = document.querySelectorAll('ul.thumbs li a:not(.thumb--play-video-btn)');
+      const image = `https:${images[0].dataset.magnifier}`;
+      let alternativeImages = '';
+      images.forEach((link, i) => {
+        if (i > 0) {
+          alternativeImages += `${i !== 1 ? ' | ' : ''}https:${link.dataset.magnifier}`;
+        }
+      });
+      addElementToDocument('mm_image', image);
+      addElementToDocument('mm_alternateImages', alternativeImages);
     });
     await context.extract(productDetails);
   },
