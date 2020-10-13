@@ -30,3 +30,15 @@ fields:
   - name: countryOfOrigin
     singleValue: false
     xpath: //div[contains(@class,'gcVnmg')][2]//p[contains(@class,'dRPKpv')]
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'sc-prOVx')]//picture/img/@srcset
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'sc-prOVx')]//picture/img/@srcset
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@class,'gcVnmg')]/strong[contains(text(),'Näringsvärde per 100 g') or contains(text(),'Näringsinnehåll')]/parent::div/p

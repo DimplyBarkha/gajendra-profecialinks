@@ -26,10 +26,15 @@ const transform = (data) => {
       var rank = 1;
       for (let row of group) {
         if(row.image){
+          var imgSrc='';
           row.image.forEach(item => {
             var tmp=item.text.split(' ');
-            item.text=tmp[1];
+            item.text=imgSrc=tmp[1];
           });
+          var imgSrcVar=imgSrc.split('/');
+          var imgSrcVar1=imgSrcVar[imgSrcVar.length-1].split('.');
+          row.variantId[0]['text']=imgSrcVar1[0];
+          row.sku[0]['text']=imgSrcVar1[0];
         }
         if(row.pricePerUnitUom){
           row.pricePerUnitUom.forEach(item => {
