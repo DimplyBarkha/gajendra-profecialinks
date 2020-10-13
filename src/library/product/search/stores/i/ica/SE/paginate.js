@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'ul.hZbUVv>li',
-    noResultsXPath: '//ul[contains(@class,"hZbUVv")]/li',
+    noResultsXPath: '//ul[contains(@class,"hZbUVv") and not(li)]',
     openSearchDefinition: null,
     domain: 'ica.se',
     zipcode: '10316',

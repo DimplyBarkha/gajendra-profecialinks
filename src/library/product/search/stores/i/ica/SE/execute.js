@@ -79,7 +79,7 @@ module.exports = {
     domain: 'ica.se',
     url: 'https://www.ica.se/handla/sok/{searchTerms}',
     loadedSelector: 'ul.hZbUVv>li',
-    noResultsXPath: '//ul[contains(@class,"hZbUVv")]/li',
+    noResultsXPath: '//ul[contains(@class,"hZbUVv") and not(li)]',
     zipcode: '10316',
   },
   implementation,
