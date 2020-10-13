@@ -67,7 +67,9 @@ async function implementation (
           });
           // @ts-ignore
           skuNumber = (skuNumber.offers && skuNumber.offers[index]) ? skuNumber.offers[index].sku : '';
+          const lastIndex = skuNumber.lastIndexOf('-');
           skuNumber && addHiddenDiv('ii_sku', skuNumber);
+          skuNumber && addHiddenDiv('ii_variantId', skuNumber.slice(0, lastIndex));
           console.log('SKU :: ', skuNumber);
         }
       }
