@@ -10,6 +10,7 @@ fields:
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
+    xpath: //div[contains(@class,"product-page-image__wrap")]//img[contains(@class,"product__image")]/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -19,15 +20,16 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[contains(@class, "breadcrumb")]/ul/li[position() > 2]
+    xpath: //div[contains(@class, "breadcrumb")]/ul/li[position() > 1]
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//@data-brand," - ",//div[contains(@class, "product-name")]/h1)
+    xpath: //div[contains(@class, "product-name")]/h1
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
+    xpath: //p[@class="in-store-price"] | //p[@class="regular-price"]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
@@ -55,7 +57,7 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //@data-brand
+    xpath: //@data-brand | //div[@id="videoly-product-brand"]
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -63,8 +65,9 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //div[contains(@class , "product-name")]/p | //div[@id="bb_description"]
+    regExp: \s(\d+)\sml
+    regExpReplace: $1
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -74,12 +77,15 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[@id="bb_gtin"]
   - name: sku
     singleValue: false
     description: The store-specific product identifier
+    xpath: //div[@id="videoly-product-sku"] | //div[@id="bb_sku"]
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@id="videoly-product-id"] | //div[@id="bb_productId"]
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -423,6 +429,7 @@ fields:
   - name: promotion
     singleValue: false
     description: promotion text on product page
+    xpath: //div[@id="productpageimage-root"]//div[contains(@class , "product-label--coral")]
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information

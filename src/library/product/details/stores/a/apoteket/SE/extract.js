@@ -50,15 +50,33 @@ async function implementation (
   //-------------------------
   await context.evaluate(async (parentInput) => {
   
-    // function addElementToDocument (key, value) {
-    //   const catElement = document.createElement('div');
-    //   catElement.id = key;
-    //   catElement.textContent = value;
-    //   catElement.style.display = 'none';
-    //   document.body.appendChild(catElement);
-    // }
-  
-    //  addElementToDocument('bb_description',finalDescription1);
+    function addElementToDocument (key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+    function findJsonObj (scriptSelector) {
+      try {
+        const xpath = `//script[contains(.,'sku')]`;
+        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let jsonStr = element.textContent;
+        jsonStr = jsonStr.trim();
+        return JSON.parse(jsonStr);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+   let JSONObj = await findJsonObj();
+   let gtin = JSONObj ? JSONObj.gtin13 : '';
+   addElementToDocument('bb_gtin',gtin);
+   let productId = JSONObj ? JSONObj.productId : '';
+   addElementToDocument('bb_productId',productId);
+   let sku = JSONObj ? JSONObj.sku : '';
+   addElementToDocument('bb_sku',sku);
+   let description = JSONObj ? JSONObj.description : '';
+   addElementToDocument('bb_description',description);
     });
     return await context.extract(productDetails, { transform });
     }
