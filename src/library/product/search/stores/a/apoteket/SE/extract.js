@@ -36,7 +36,14 @@ async function implementation (
         prevScroll = currentScroll;
       }
     }
-    await infiniteScroll();
+    
+    while(document.querySelector("div.search__footer button")){
+      const loadMore = document.querySelector("div.search__footer button");
+      // @ts-ignore
+      await loadMore.click();
+      await new Promise((resolve, reject) => setTimeout(resolve, 9000));
+      await infiniteScroll();
+      }
   })
 
   try {

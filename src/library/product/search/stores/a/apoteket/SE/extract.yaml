@@ -53,6 +53,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
+    xpath: //div[@class="product__price product__price--discounted" or @class="product__price"]
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
