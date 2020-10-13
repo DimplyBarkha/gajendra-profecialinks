@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'courir.com',
-    timeout: 200000,
+    timeout: 30000,
     country: 'FR',
     store: 'courir',
     zipcode: '',
@@ -28,7 +28,7 @@ module.exports = {
           type: 'GEETEST',
         },
         firstRequestTimeout: 60000,
-        timeout: timeout,
+        timeout,
         waitUntil: 'load',
         checkBlocked: true,
       });
@@ -41,12 +41,23 @@ module.exports = {
       throw err;
     }
 
-    await context.waitForNavigation({ timeout: 30000 });
+    await context.waitForNavigation({ timeout, waitUntil: 'load' });
 
     const checkExistance = async (selector) => {
       return await context.evaluate(async (sel) => {
         return Boolean(document.querySelector(sel));
       }, selector);
+    };
+
+    const optionalWait = async (selector) => {
+      try {
+        await context.waitForSelector(selector, { timeout });
+        console.log(`Found selector => ${selector}`);
+        return true;
+      } catch (err) {
+        console.log('Couldn\'t load the selector ' + selector);
+        return false;
+      }
     };
 
     const captchaSelector = 'iframe[src*="https://geo.captcha"]';
@@ -83,16 +94,23 @@ module.exports = {
         });
 
         console.log('Captcha Resolved.');
-
-        await new Promise(resolve => setTimeout(resolve, 10000));
-        await context.waitForSelector('#produit > div.product_head');
+        await context.waitForNavigation({ waitUntil: 'load', timeout });
       } catch (error) {
         console.log('error: NO CAPTCHA ENCOUNTER', error);
-        if (error.message === 'Blocked')
-          throw error; // TODO what is the correct way to indicate retry from different virtual browser?
+        if (error.message === 'Blocked') {
+          await context.reportBlocked(403)
+          throw error;
+        }
       }
     } else {
       console.log('NO CAPTCHA ENCOUNTER');
+    }
+
+    const cookieButton = await optionalWait('button.accept-cookies-button');
+
+    if (cookieButton) {
+      console.log('Clicking on cookie accept button.');
+      await context.click('button.accept-cookies-button');
     }
   },
 };

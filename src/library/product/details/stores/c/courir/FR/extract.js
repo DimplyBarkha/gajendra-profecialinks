@@ -1,4 +1,4 @@
-async function implementation (
+async function implementation(
   // @ts-ignore
   inputs,
   parameters,
@@ -7,10 +7,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.evaluate(async function () {
-    window.location.reload();
-    
-  });
+  console.log('Extracting data.');
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
