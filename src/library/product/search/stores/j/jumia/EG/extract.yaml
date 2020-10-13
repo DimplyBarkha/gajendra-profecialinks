@@ -1,0 +1,42 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //article[contains(@class,"prd _fb")]
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //a[@class="core"]//@href
+    regExp: (.+)
+    regExpReplace: https://www.jumia.com.eg$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="img-c"]/img/@src
+  - name: name
+    description: The product name
+    xpath: //h3[@class="name"]
+  - name: reviewCount
+    description: The number of reviews
+    xpath: //div[@class="rev"]
+    regExp: (.+)(\()(\d+)(\))
+    regExpReplace: $3
+  - name: price
+    description: The offered price for the product
+    xpath: //div[@class="prc"]
+  - name: rank
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+
+#  Should these be source specific formulas or in the extractor? 
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //a[@class="core"]//@data-id
+  - name: nameExtended
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER 
+    xpath: //div[@class="rev"]/div
+    regExp: (\d+)(.)(\d+)
