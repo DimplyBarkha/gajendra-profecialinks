@@ -15,12 +15,6 @@ async function implementation (inputs, parameters, context, dependencies) {
       return document.querySelector('.ld-sg-button.ld-sg-button--secondary.ld-sg-button--secondary-flex.js-load-more__btn.load-more__btn.hide');
     }, { timeout });
   }
-  await context.waitForFunction(
-    () => {
-      return document.querySelector('.bv-off-screen');
-    },
-    { timeout },
-  );
   return await context.extract(productDetails, { transform });
 }
 
@@ -30,7 +24,7 @@ module.exports = {
     country: 'CA',
     store: 'londondrugs',
     transform,
-    timeout: 50000,
+    timeout: 70000,
     domain: 'londondrugs.com',
     zipcode: '',
   },
