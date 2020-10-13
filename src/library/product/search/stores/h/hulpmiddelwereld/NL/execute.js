@@ -5,7 +5,7 @@ module.exports = {
     country: 'NL',
     store: 'hulpmiddelwereld',
     domain: 'hulpmiddelwereld.nl',
-    url: null,
+    url: 'https://www.hulpmiddelwereld.nl/#sqr:(q[{searchTerms}])',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
