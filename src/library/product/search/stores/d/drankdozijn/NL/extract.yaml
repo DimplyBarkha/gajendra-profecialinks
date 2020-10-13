@@ -1,0 +1,56 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="row"]//div[contains(@class," go")] 
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //div[@class="product_image"]/img[1]/@src
+    regExp: \d+(?=.jpg)
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product_title"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[1]/div/a[1]/@href
+    regExp: (.+)
+    regExpReplace: https://drankdozijn.nl$1
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//*[contains(@class,"search-url")]
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product_image"]/img[1]/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //a/div[3]/@class
+    regExp: (\d)(\d)
+    regExpReplace: $1,$2
+  - name: reviewCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product_price"]/span[3]
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+
