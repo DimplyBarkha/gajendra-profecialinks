@@ -46,6 +46,8 @@ const transform = (data, context) => {
         const url = row.productUrl[0].text;
         if (url.split('amazon.com').length > 2) {
           row.productUrl = [{ text: filterStringToAfterSecondIndex(url, 'https://www.amazon.com') }];
+        } else if (url.split('amazon.de').length > 2) {
+          row.productUrl = [{ text: filterStringToAfterSecondIndex(url, 'https://www.amazon.de') }];
         }
       }
 

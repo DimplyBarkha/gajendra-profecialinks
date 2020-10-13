@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordXPath: //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"] | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div | //div[contains(@class,"_multi-card-creative-desktop_DesktopGridColumn_gridColumn")] | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div | //div[contains(@data-component-type,"s-search-result") and @data-asin]
+recordXPath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"] | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div | //div[contains(@class,"_multi-card-creative-desktop_DesktopGridColumn_gridColumn")] | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div | //div[contains(@data-component-type,"s-search-result") and @data-asin]
 # recordXPath: //div[contains(@class,"_multi-card-creative-desktop_DesktopGrid") and contains(@class,"__")] | //div[contains(@data-component-type,"s-search-result") and @data-asin]
 recordSelector: null
 fields:
@@ -21,7 +21,7 @@ fields:
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    xpath: //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]/span | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]//parent::div/div/span | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a/@aria-label | //div[contains(@data-component-type,"s-search-result") and @data-asin and contains(@class, "AdHolder")] | //div[contains(@class,"_multi-card-creative-desktop_DesktopGridColumn_gridColumn")]
+    xpath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]/span | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]//parent::div/div/span | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a/@aria-label | //div[contains(@data-component-type,"s-search-result") and @data-asin and contains(@class, "AdHolder")] | //div[contains(@class,"_multi-card-creative-desktop_DesktopGridColumn_gridColumn")]
   - name: productUrl
     singleValue: false
     xpath: //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]/@href | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]/@href | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a/@href | //div[@class="a-section a-spacing-none"]/a[contains(@class,"_multi-card-creative-desktop_Link")]/@href | //h2/a/@href
@@ -32,7 +32,7 @@ fields:
     xpath:
   - name: sponsThumbnail
     singleValue: false
-    xpath: //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]//img/@src | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a//img/@src | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div//img/@src
+    xpath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div//a/div/img/@src | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]//img/@src | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a//img/@src | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div//img/@src
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@src | //img[@class="s-image"]/@src
