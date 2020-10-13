@@ -30,12 +30,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class="SalePrice"]
+    xpath: //div[@id="added_list_price"]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='PriceWrap R']//div[contains(@class, 'Price ')]
+    xpath: //div[@id="added_price"]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -49,7 +49,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //meta[@name='description']/@content
+    xpath: (//div[@class="TabContent"])[1]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -121,7 +121,6 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //div[@id="added_shipping_dimensions"]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -140,7 +139,6 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: (//div[@class="TabContent"])[1]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -475,6 +473,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: (//div[@class="TabContent"]//ul)[1]//li
   - name: prop65Warning
     singleValue: true
     description: null
@@ -492,7 +491,6 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    xpath: //div[@id="added_technical_information_pdf_present"]
     defaultValue: No
   - name: termsAndConditions
     singleValue: true

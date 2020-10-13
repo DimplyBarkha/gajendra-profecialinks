@@ -1,10 +1,11 @@
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'IL',
     store: 'mamaguru',
-    transform: null,
+    transform: cleanUp,
     domain: 'mamaguru.co.il',
     zipcode: '',
   },
@@ -73,6 +74,18 @@ module.exports = {
       const technicalInformationPdfPresent = getXpath("(//a[contains(concat(' ',normalize-space(@href),' '),'.pdf')])[1]", 'innerText');
       if (technicalInformationPdfPresent) {
         addElementToDocument('added_technical_information_pdf_present', 'Yes');
+      }
+
+      const priceValue = getXpath("//div[@class='PriceWrap R']//div[contains(@class, 'Price ')]//span[@id='mpr']/text()", 'nodeValue');
+      const priceCurrency = getXpath("//div[@class='PriceWrap R']//div[contains(@class, 'Price ')]//small/text()", 'nodeValue');
+      if (priceValue && priceCurrency) {
+        addElementToDocument('added_price', priceCurrency + ' ' + priceValue);
+      }
+
+      const listPriceValue = getXpath("//div[@class='SalePrice']//span[@id='rpr']/text()", 'nodeValue');
+      const listPriceCurrency = getXpath("//div[@class='SalePrice']//small/text()", 'nodeValue');
+      if (listPriceValue && listPriceCurrency) {
+        addElementToDocument('added_list_price', listPriceCurrency + ' ' + listPriceValue);
       }
     });
     await context.extract(productDetails);
