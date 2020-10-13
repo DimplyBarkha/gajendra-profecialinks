@@ -15,7 +15,6 @@ module.exports = {
     { productDetails },
   ) => {
     const { transform } = parameters;
-    // const { productDetails } = dependencies;
     try {
       await context.waitForSelector('iframe#desc_ifr');
     } catch (err) {
@@ -61,19 +60,31 @@ module.exports = {
         const tblData6 = document.createElement('td');
         const tblData7 = document.createElement('td');
         const tblData8 = document.createElement('td');
+        const newTable = document.createElement('table');
+        if(brandText!=''){
         tblData1.textContent = 'marke';
         tblData2.textContent = brandText;
-        tblData3.textContent = 'weight';
-        tblData4.textContent = netWeight;
-        tblData5.textContent = 'color';
-        tblData6.textContent = color;
-        tblData7.textContent = 'GTIN';
-        tblData8.textContent = gtin;
-        const newTable = document.createElement('table');
         newTable.appendChild(tblData1);
         newTable.appendChild(tblData2);
-        newTable.appendChild(tblData3);
-        newTable.appendChild(tblData4);
+        }
+        if(netWeight!=''){
+          tblData3.textContent = 'weight';
+          tblData4.textContent = netWeight;
+          newTable.appendChild(tblData3);
+          newTable.appendChild(tblData4);
+          }
+        if(color!=''){
+          tblData5.textContent = 'color';
+          tblData6.textContent = color;
+          newTable.appendChild(tblData5);
+          newTable.appendChild(tblData6);
+        }
+        if(gtin!=''){
+          tblData7.textContent = 'GTIN';
+          tblData8.textContent = gtin;
+          newTable.appendChild(tblData7);
+          newTable.appendChild(tblData8);
+        }
         newDiv.id = 'vi_main_img_fs';
         const listArr = document.createElement('ul');
         for (let i = 0; i <= altImages.length; i++) {
@@ -114,13 +125,15 @@ module.exports = {
           imageAlt = document.querySelector('div[class*="vi-image-gallery__wrapper"] li:first-child img').getAttribute('alt');
         }
         const secImages = document.querySelectorAll('div[class="thumbPicturePanel "] img');
-        const price = document.querySelector('div[class="display-price"]').textContent;
+        let price='';
+        if(document.querySelector('div[class="display-price"]')){
+          price = document.querySelector('div[class="display-price"]').textContent;}
         let brandText = ''; let netWeight = ''; let color = ''; let variantId = ''; let gtin = '';
 
         const sname = document.querySelectorAll('div[class="s-name"]');
         if (document.querySelector('input[id="iid"]')) { variantId = document.querySelector('input[id="iid"]').getAttribute('value'); } else if (document.querySelector('div[id="app-product-sticky-header"]')) { variantId = document.querySelector('div[class="vi-component-transaction-layer"]').getAttribute('data-itemid'); }
         for (let i = 0; i < sname.length; i++) {
-          if (sname[i].textContent === 'Gewicht') netWeight = sname[i].nextSibling.innerText;
+          if (sname[i].textContent === 'Gewicht'){ netWeight = sname[i].nextSibling.innerText;}
           if (sname[i].textContent === 'Marke') brandText = sname[i].nextSibling.innerText;
           if (sname[i].textContent === 'Farbe') color = sname[i].nextSibling.innerText;
           if (sname[i].textContent === 'EAN') gtin = sname[i].nextSibling.innerText;
