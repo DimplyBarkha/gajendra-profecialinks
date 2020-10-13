@@ -10,6 +10,7 @@ module.exports = {
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
     const RegularSite = await context.evaluate(async function () {
+      window.scrollTo(0, 1000);
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -137,6 +138,7 @@ module.exports = {
             const videoId = img.getAttribute('src').replace(/.*videoId=(.*$)/, '$1');
             await addVideoUrl(videoId);
           };
+          //@ts-ignore
           for (const [index, img] of document.querySelectorAll('div[class="overlay__side-content__product-images"] img').entries()) {
             addHiddenDiv(`altImage${index}`, img.src);
           };
@@ -145,6 +147,9 @@ module.exports = {
         console.log('Error');
       }
     }
+    const delay = t => new Promise(resolve => setTimeout(resolve, t));
+    console.log('waiting....');
+    await delay(10000);
     return await context.extract(productDetails, { transform });
   },
 };

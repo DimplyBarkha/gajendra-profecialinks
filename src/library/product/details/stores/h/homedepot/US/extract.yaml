@@ -15,7 +15,7 @@ fields:
     singleValue: false
   - name: category
     singleValue: false
-    xpath: //li[@class="breadcrumb__item"][1]/following-sibling::li/a
+    xpath: //li[@class="breadcrumb__item"][1]/following-sibling::li/a | //div[contains(@class,"breadcrumb")][position()>1]/a
   - name: nameExtended
     singleValue: false
     xpath: //meta[@itemprop="name"]/@content
@@ -27,7 +27,7 @@ fields:
     xpath: //div[@id="custom_availability_text"]
   - name: brandText
     singleValue: false
-    xpath: //h2[@itemprop="brand"]//span|//span[@class="product-details__brand-name"]
+    xpath: //h2[@itemprop="brand"]//span|//span[@class="product-details__brand-name"] | //h2[contains(@class,"brand")]
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id='product_description']//div[@class="rich-content-container"]
@@ -37,7 +37,7 @@ fields:
     singleValue: false
   - name: sku
     singleValue: false
-    manualSelector: span#product_store_sku
+    xpath: //span[@itemprop="productID"]|//h2[@class="product-infobar__detail" and contains(text(),"Internet")]/text()[2]
   - name: quantity
     singleValue: false
     xpath: //div[@id="specsContainer"]//div[contains(text(),'Package Quantity')]/following-sibling::div
@@ -61,13 +61,13 @@ fields:
     xpath: //div[@id="specsContainer"]//div[h4[contains(text(),"Dimensions")]]/following-sibling::div[@class="specs__table"][1]|//h4[contains(text(),"Dimensions")]/following-sibling::div
   - name: specifications
     singleValue: false
-    xpath: //div[@id="specsContainer"] | //div[@class="kpf__container"]
+    xpath: //div[@id="specsContainer"] | //div[contains(@class,'specification')]
   - name: specificationsflag
     singleValue: false
     xpath: //div[@class="kpf__container"]
   - name: shippingWeight
     singleValue: false
-    xpath: //div[@itemprop="weight"]
+    xpath: //div[@itemprop="weight"] | //div[contains(@class,'specs__cell')][contains(.,'Weight')]/following-sibling::*
   - name: warranty
     singleValue: false
     xpath: //div[text()="Manufacturer Warranty"]/following-sibling::div
@@ -108,13 +108,13 @@ fields:
     singleValue: false
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'main_description')]|//div[contains(@class,'product-description__main-description')]
+    xpath: //div[contains(@class,'main_description')]|//div[@data-section="product-overview"]//div[contains(@class,'main-description')]
   - name: variantId
     singleValue: false
     xpath: //span[@itemprop="productID"]|//h2[@class="product-infobar__detail" and contains(text(),"Internet")]/text()[2]
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,'main_description')]//li[not(center//img)]|//div[contains(@class,'product-description__main-description')]//li[not(span//img)]
+    xpath: //div[contains(@class,'main_description')]//li[not(center//img)]|//div[@data-section="product-overview"]//div[contains(@class,'main-description')]//li
   - name: bulletsTop
     singleValue: false
     xpath: //div[contains(@class,'buybox__salient-points')]//ul/li
