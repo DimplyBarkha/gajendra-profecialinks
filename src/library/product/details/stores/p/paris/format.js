@@ -41,9 +41,10 @@ const transform = (data) => {
           skuItem.text = skuItem.text.replace(/[^\d]/gm, '');
         });
       }
-
-      if (row.alternateImages) {
-        row.alternateImages.shift();
+      if (row.variantId) {
+        row.variantId.forEach((variantIdItem) => {
+          variantIdItem.text = variantIdItem.text.replace(/[^\d]/gm, '');
+        });
       }
       if (row.description) {
         row.description.forEach((descriptionItem) => {

@@ -5,12 +5,13 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //li/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")]/@src
+    xpath: (//li/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")])[1]/@src
   - name: imageAlt
     singleValue: false
+    xpath: (//li/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")])[1]/@title
   - name: alternateImages
     singleValue: false
-    xpath: //li/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")]/@src 
+    xpath: //li[position()>1]/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")]/@src 
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: false
