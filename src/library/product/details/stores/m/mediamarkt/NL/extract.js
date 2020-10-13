@@ -44,6 +44,11 @@ module.exports = {
         category += `${i !== 0 ? ' > ' : ''}${item.innerText}`;
       });
       addElementToDocument('mm_category', category);
+
+      // Getting list undiscounted price
+      const listPrice = document.querySelector('.old-price-block div').innerText.split('\n');
+      listPrice.pop();
+      addElementToDocument('mm_listPrice', listPrice.join(''));
     });
     await context.extract(productDetails);
   },
