@@ -1,6 +1,29 @@
 
 const {transform} = require('./transform')
 
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+
+  try {
+    await context.waitForSelector('.cookies-overlay-dialog__accept-all-btn', { timeout: 8000 });
+    await context.evaluate(async function () {
+      if (document.querySelector('.cookies-overlay-dialog__accept-all-btn')) {
+        document.querySelector('.cookies-overlay-dialog__accept-all-btn').click();
+      }
+    });
+  } catch (error) {
+    console.log('No cookies pop-up.');
+  }
+
+  return await context.extract(productDetails, { transform });
+}
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -10,4 +33,5 @@ module.exports = {
     domain: 'ep.at',
     zipcode: '',
   },
+  implementation,
 };

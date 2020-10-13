@@ -8,4 +8,9 @@ module.exports = {
     store: 'ep',
     zipcode: '',
   },
+  implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
+    const timeout = parameters.timeout ? parameters.timeout : 50000;
+    url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
+    await context.goto(url);   
+  },
 };
