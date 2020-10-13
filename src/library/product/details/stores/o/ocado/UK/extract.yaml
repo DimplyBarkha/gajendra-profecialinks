@@ -1,0 +1,314 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    description: URL of the main product image
+    xpath: //div[contains(@class,'bop-gallery__item--chosen')]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.ocado.com$1
+  - name: alternateImages
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class="bop-gallery__miniatures"]/img[position()>1]/@src
+    regExp: (.+_)(\d+x\d+)(.+)
+    regExpReplace: https://www.ocado.com$1640x640$3
+  - name: metaKeywords
+    description: The <meta> keywords content
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //header[@class='bop-title']/h2
+  - name: listPrice
+    description: The stated undiscounted price for the product
+    xpath: //span[@class="bop-price__old"]
+  - name: price
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //h2[contains(@class, "bop-price__current")]  
+  - name: availabilityText
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //button[contains(@class,"basketControls__add")]
+    regExp: (.+)
+    regExpReplace: In Stock 
+    defaultValue: Out of Stock
+  - name: description
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[contains(@class,"gn-expandableBar")][contains(.,'Description')]/following-sibling::div//div[@class="bop-info__content"][not(preceding-sibling::h6)]
+  - name: brandText
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //div[contains(@class,"bop-info__field")]/h6[contains(text(),'Brand') or contains(text(),'brand')]/following-sibling::*
+  - name: manufacturer
+    description: Product manufacturer
+    xpath: //div[@class="gn-content bop-info__field"]/h6[contains(text(),'Manufacturer') or contains(text(),'manufacturer')]/following-sibling::* | //div[@class="gn-content bop-info__field"]/h6[contains(text(),'Manufacturer') or contains(text(),'manufacturer')]/../following-sibling::div[not(h6)]
+  - name: quantity
+    description: Quantity as described on the page
+    xpath: //span[@class='bop-catchWeight']
+  - name: sku
+    description: The store-specific product identifier
+    xpath: //meta[@property="og:url"]/@content
+    regExp: (.+/)(\d+)(.+)
+    regExpReplace: $2
+  - name: variantId
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //meta[@property="og:url"]/@content
+    regExp: (.+/)(\d+)(.+)
+    regExpReplace: $2
+  - name: packSize
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+    xpath: //span[@class="bop-catchWeight"][contains(text(),'pack')]
+    regExp: \d+
+  - name: legalDisclaimer
+    description: Content under "legal disclaimer" header
+  - name: directions
+    description: Content under "directions" header
+    xpath: //div[contains(@class,"bop-info__field")]/h6[contains(text(),'Suggest')]/following-sibling::* | //div[contains(@class,"bop-info__field")]/h6[contains(text(),'Usage')]/following-sibling::* | //div[contains(@class,"bop-info__field")]/h6[contains(text(),'Recipes')]/..
+  - name: warnings
+    description: Content under "warnings" header
+    xpath: //div[contains(@class,"bop-info__field")]//div[@class="bop-info__content"]/br[preceding-sibling::text()[contains(.,'Warning') or contains(.,'warning')]][following-sibling::node()[self::*|self::text()[normalize-space()]][1][self::br]][1]/preceding-sibling::text()/preceding-sibling::br[preceding-sibling::text()[contains(.,'Warning') or contains(.,'warning')]]/following-sibling::text()[1]
+  - name: pricePerUnit
+    description: Price of the product split into certain units
+    xpath: //*[@class="bop-price__per"]
+    regExp: (.+)?(?<=\d+\%?\s?)(mg\/kg|mg\/l|gm|ml|µg|mg|l|g)?(.+)?
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    description: The unit of measurement used in price_per_unit
+    xpath: //*[@class="bop-price__per"]
+    regExp: (.+)?(?<=\d+\%?\s?)(mg\/kg|mg\/l|gm|ml|µg|mg|l|g)?(.+)?
+    regExpReplace: $2
+  - name: secondaryImageTotal
+    xpath: count(//div[@class="bop-gallery__miniatures"]/img[position()>1]/@src)
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //span[@itemprop="ratingCount"]
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //span[@itemprop="ratingValue"]
+  - name: videos
+    description: URLs of videos on page
+    xpath: //iframe[@class="bop-gallery__video"]/@src
+  - name: name
+    description: The product name
+    xpath: //header[@class='bop-title']/h2
+  - name: ingredientsList
+    description: List of Ingredients from site - can be string of data if no
+      discernible start/end point
+    xpath: //div[contains(@class,"bop-nutritionDetails")]//div[contains(@class,"gn-content")]/*[contains(text(),"Ingredients") or contains(text(),"ingredients")]/following-sibling::*
+  - name: servingSize
+    description: The size of serving Nutritional information is based on.
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//th[contains(text(),'Values') or contains(text(),'values')]/following-sibling::th[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $1$4
+  - name: servingSizeUom
+    description: Unit of measure of serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//th[contains(text(),'Values') or contains(text(),'values')]/following-sibling::th[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $3
+  - name: caloriesPerServing
+    description: Nutritional Information for Calories Per Serving content - Usually
+      based on per 100g serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Energy')]/following-sibling::td[1] | //div[contains(@class,"bop-nutritionData__origin")]//tr/td[contains(.,'Energy') or contains(text(),'energy')]/../following-sibling::tr[1]/td[contains(.,'kcal') or contains(text(),'Kcal')][1]
+  - name: totalFatPerServing
+    description: Nutritional Information for Total Fat content - Usually based on
+      per 100g serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Fat') or contains(text(),'fat') and not[contains(.,'fatty')]]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $1$4
+  - name: totalFatPerServingUom
+    description: Unit of Measure Data for Total Fat content
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Fat') or contains(text(),'fat') and not(contains(.,'fatty'))]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $3
+  - name: saturatedFatPerServing
+    description: Nutritional Information for Saturated Fat content - Usually based
+      on per 100g serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(.,'saturate') or contains(.,'Saturate')]/text()[not(contains(.,'mono') or contains(.,'Mono'))][not(contains(.,'poly') or contains(.,'Poly'))]/../following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $1$4
+  - name: saturatedFatPerServingUom
+    description: Unit of Measure Data for Saturated Fat content
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(.,'saturate') or contains(.,'Saturate')]/text()[not(contains(.,'mono') or contains(.,'Mono'))][not(contains(.,'poly') or contains(.,'Poly'))]/../following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $3
+  - name: sodiumPerServing
+    description: Nutritional Information for Sodium content - Usually based on per
+      100g serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Sodium') or contains(text(),'sodium')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $1$4
+  - name: sodiumPerServingUom
+    description: Unit of Measure Data for Sodium content
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Sodium') or contains(text(),'sodium')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $3
+  - name: totalCarbPerServing
+    description: Nutritional Information for Total Carbohydrate content - Usually
+      based on per 100g serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Carb') or contains(text(),'carb')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $1$4
+  - name: totalCarbPerServingUom
+    description: Unit of Measure Data for Total Carbohydrate content
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Carb') or contains(text(),'carb')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $3
+  - name: dietaryFibrePerServing
+    description: Nutritional Information for Dietary Fibre content - Usually based
+      on per 100g serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Fibre') or contains(text(),'fibre')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $1$4
+  - name: dietaryFibrePerServingUom
+    description: Unit of Measure Data for Dietary Fibre content
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Fibre') or contains(text(),'fibre')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $3
+  - name: totalSugarsPerServing
+    description: Nutritional Information for Total Sugar content - Usually based on
+      per 100g serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Sugar') or contains(text(),'sugar')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $1$4
+  - name: totalSugarsPerServingUom
+    description: Unit of Measure Data for Total Sugar content
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Sugar') or contains(text(),'sugar')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $3
+  - name: proteinPerServing
+    description: Nutritional Information for Protein content - Usually based on per
+      100g serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Protein') or contains(text(),'protein')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $1$4
+  - name: proteinPerServingUom
+    description: Unit of Measure Data for Protein
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Protein') or contains(text(),'protein')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $3
+  - name: vitaminAPerServing
+    description: Nutritional Information for Vitamin A content - Usually based on
+      per 100g serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Vitamin A') or contains(text(),'vitamin A') or contains(text(),'vitamin a')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $1$4
+  - name: vitaminAPerServingUom
+    description: Unit of Measure Data for Vitamin A
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Vitamin A') or contains(text(),'vitamin A') or contains(text(),'vitamin a')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $3
+  - name: vitaminCPerServing
+    description: Nutritional Information for Vitamin C content - Usually based on
+      per 100g serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Vitamin C')or contains(text(),'vitamin C') or contains(text(),'vitamin c')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $1$4
+  - name: vitaminCPerServingUom
+    description: Unit of Measure Data for Vitamin C
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Vitamin C')or contains(text(),'vitamin C') or contains(text(),'vitamin c')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $3
+  - name: calciumPerServing
+    description: Nutritional Information for Calcium content - Usually based on per
+      100g serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Calcium') or contains(text(),'calcium')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $1$4
+  - name: calciumPerServingUom
+    description: Unit of Measure Data for Calcium
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Calcium') or contains(text(),'calcium')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $3
+  - name: ironPerServing
+    description: Nutritional Information for Iron content - Usually based on per
+      100g serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Iron') or contains(text(),'iron')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $1$4
+  - name: ironPerServingUom
+    description: Unit of Measure Data for Iron
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Iron') or contains(text(),'iron')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $3
+  - name: magnesiumPerServing
+    description: Nutritional Information for Magnesium content - Usually based on
+      per 100g serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Magnesium') or contains(text(),'magnesium')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $1$4
+  - name: magnesiumPerServingUom
+    description: Unit of Measure Data for Magnesium
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(text(),'Magnesium') or contains(text(),'magnesium')]/following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $3
+  - name: saltPerServing
+    description: Nutritional Information for Salt content - Usually based on per
+      100g serving
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(.,'salt') or contains(.,'Salt')]/text()[not(contains(.,'sachet') or contains(.,'Sachet'))]/../following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $1$4
+  - name: saltPerServingUom
+    description: Unit of Measure Data for Salt
+    xpath: //div[contains(@class,"bop-nutritionData__origin")]//td[contains(.,'salt') or contains(.,'Salt')]/text()[not(contains(.,'sachet') or contains(.,'Sachet'))]/../following-sibling::td[1]
+    regExp: ([0-9\.\,\%\<\>]+)(\s)?([a-zA-Z\/µ]{1,5})|([0-9\.\,\%]+)
+    regExpReplace: $3
+  - name: dietaryInformation
+    description: null
+    xpath: //div[@class="gn-content bop-info__field"]/h6[contains(text(),'Dietary')]/following-sibling::*
+  - name: storage
+    description: Suggested storage location for product
+    xpath: //div[contains(@class,"bop-info__field")]/h6[contains(text(),'Other Info')]/following-sibling::div/br[preceding-sibling::text()[contains(.,'Storage') or contains(.,'storage')]][1]/following-sibling::text()
+  - name: countryOfOrigin
+    description: The country from which the product originates
+    xpath: //div[contains(@class,"bop-info__field")]/h6[contains(text(),'Country') or contains(text(),'country')]/following-sibling::*
+  - name: allergyAdvice
+    description: Allergy information associated with the product
+    xpath: //div[contains(@class,"bop-nutritionDetails")]//div[contains(@class,"gn-content")]/*[contains(text(),"Ingredients") or contains(text(),"ingredients")]/following-sibling::div/b | //div[contains(@class,"bop-info__field")]/h6[contains(text(),'Allergen') or contains(text(),'allergen')]/following-sibling::*
+  - name: recyclingInformation
+    description: Recycling information associated with the product
+    xpath: //div[contains(@class,"bop-info__field")]/h6[contains(text(),'Recycl') or contains(text(),'recycl')]/following-sibling::*
+  - name: productOtherInformation
+    description: Any other product information
+    xpath: //div[contains(@class,"bop-info__field")]/h6[contains(text(),'Other') or contains(text(),'other')]/following-sibling::*
+  - name: packaging
+    description: Packaging information
+    xpath: //div[contains(@class,"bop-info__field")]/h6[contains(text(),'Package') or contains(text(),'package')]/following-sibling::div
+  - name: promotion
+    description: promotion text on product page
+    xpath: //div[@class="bop-promotion"]
+  - name: alcoholContent
+    description: Alcohol content information
+    xpath: //div[contains(@class,"bop-info__field")]/h6[contains(text(),'ABV') or contains(text(),'abv') or contains(text(),'alcohal') or contains(text(),'Alcohal')]/following-sibling::*
+  - name: technicalInformationPdfPresent
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: materials
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No
