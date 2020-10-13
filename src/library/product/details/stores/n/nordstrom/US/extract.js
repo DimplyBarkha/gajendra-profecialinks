@@ -58,8 +58,6 @@ module.exports = {
         }
       }
     });
-
-   
     const { transform } = parameters;
     const { productDetails } = dependencies;
     return await context.extract(productDetails, { transform });
