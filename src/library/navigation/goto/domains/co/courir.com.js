@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'courir.com',
-    timeout: 30000,
+    timeout: 60000,
     country: 'FR',
     store: 'courir',
     zipcode: '',
@@ -15,14 +15,13 @@ module.exports = {
     dependencies,
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 60000;
-    // await context.setJavaScriptEnabled(true);
-    // await context.setCssEnabled(true);
-    // await context.setLoadAllResources(true);
-    // await context.setLoadImages(true);
-    // await context.setBlockAds(false);
 
     const gotoPage = async () => {
       try {
+        await context.setJavaScriptEnabled(true);
+        await context.setLoadAllResources(true);
+        await context.setBlockAds(false);
+
         const responseStatus = await context.goto(url, {
           antiCaptchaOptions: {
             provider: '2-captcha',
@@ -123,8 +122,12 @@ module.exports = {
     const cookieButton = await optionalWait(cookieButtonSelector);
 
     if (cookieButton) {
-      console.log('Clicking on cookie accept button.');
-      await context.click(cookieButtonSelector);
+      try {
+        console.log('Clicking on cookie accept button.');
+        await context.click(cookieButtonSelector);
+      } catch (err) {
+        console.log('Error while accepting cookies.');
+      }
     }
   },
 };
