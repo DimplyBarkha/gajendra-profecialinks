@@ -2,4 +2,28 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //div[@class="result-item-wrapper result-item-list"]
-fields: null
+fields:
+- name: productUrl
+  SingleValue: false
+  xpath: //div[@class="prod-section-container"]//a[@class="select-prod"]/@href
+- name: id
+  SingleValue: false
+  xpath: //div[@itemprop="sku"]
+- name: gtin
+  SingleValue: false
+  xpath: //div[@class="pe2-codes"]
+- name: thumbnail
+  SingleValue: false
+  xpath: //div[@class="columns medium-2 prod-image"]/a/img/@data-original
+- name: name
+  SingleValue: false
+  xpath: //div[@itemprop='name']
+- name: price
+  SingleValue: false
+  xpath: //p[@class='prod-price']
+- name: reviewCount
+  SingleValue: false
+- name: ratingCount
+  SingleValue: false
+- name: aggregateRating2
+  SingleValue: false
