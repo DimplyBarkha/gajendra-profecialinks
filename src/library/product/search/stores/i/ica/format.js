@@ -26,17 +26,14 @@ const transform = (data) => {
       var rank = 1;
       for (let row of group) {
         if(row.thumbnail){
-            row.thumbnail[0]['text']='https:'+row.thumbnail[0]['text'];
-            var tmpIdData=row.thumbnail[0]['text'].replace('assets.icanet.se/q_auto,f_auto/imagevaultfiles/','');
-            var tmpIdDataArr=tmpIdData.split('/');
-            row.id[0]['text']=tmpIdDataArr[0];
+            var tmpIdDataArr=row.thumbnail[0]['text'].split('/');
+            var tmpIdArr=tmpIdDataArr[tmpIdDataArr.length-1].split('.');
+            row.id[0]['text']=tmpIdArr[0];
         }
-        if(row.aggregateRating2){
-          
-        }
-        if(row.reviewCount){
-          row.reviewCount.forEach(item => {
-            let reviewCountData=item.text.split(' ');
+        if(row.price){
+          row.price.forEach(item => {
+            let reviewCountData=item.text.replace('Ord. Pris','');
+            let reviewCountData1=reviewCountData.split('/');
             item.text=reviewCountData[0];
           });
         }
