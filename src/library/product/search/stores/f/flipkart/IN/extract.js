@@ -8,6 +8,15 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const trial1 = await context.evaluate(() => {
+    return document.querySelector('#is_script') ? document.querySelector('#is_script').innerHtml : '';
+  });
+  const trial2 = await context.evaluate(() => {
+    return { ...window._INITIAL_STATE_ };
+  });
+  console.log(trial1);
+  console.log(trial2);
+
   await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   await context.evaluate(async function () {
     let scrollTop = 0;
