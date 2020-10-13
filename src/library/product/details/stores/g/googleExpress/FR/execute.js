@@ -5,8 +5,8 @@ module.exports = {
     country: 'FR',
     store: 'googleExpress',
     domain: 'google.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: "div[class*='sh-div__link-to-overlay'] div[class*='div__viewport'] div[class*='main-image'] img",
+    noResultsXPath: "//div[contains(@class,'product-not-found')]",
     zipcode: '',
   },
 };
