@@ -29,7 +29,7 @@ async function goto (input) {
 
   // checking for elements on page after goto/captcha/reload/etc.
   const pageContext = async () => {
-    return await extractorContext.execute(() => {
+    return await extractorContext.evaluate(() => {
       const selectors = {
         hasVariants: 'div[id*="variation_"] ul, div[id*="variation_"] option',
         hasProdDetails: '#prodDetails, #detailBullets_feature_div',
@@ -75,7 +75,7 @@ async function goto (input) {
 
   // calls refresh API and appends data to the page that doesnt already exist
   const appendData = async (domain) => {
-    return await extractorContext.execute(async (domain) => {
+    return await extractorContext.evaluate(async (domain) => {
       const getParams = async () => {
         const params = {};
         const raw = document.evaluate("//script[contains(@language,'JavaScript') and contains(text(), 'pgid')]", document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
@@ -373,7 +373,7 @@ async function goto (input) {
       }
 
       console.log('Go to some random page');
-      const clickedOK = await extractorContext.execute(function () {
+      const clickedOK = await extractorContext.evaluate(function () {
         const links = [...document.querySelectorAll('a[href*="/dp/"]')];
         if (links.length === 0) {
           return false;
@@ -411,7 +411,7 @@ async function goto (input) {
 
     await acceptCookiesIfNecessary(page);
 
-    const wrongLocale = await extractorContext.execute(() => {
+    const wrongLocale = await extractorContext.evaluate(() => {
       const match = /\/dp\/+([^/?#]+)/.exec(window.location.href);
       if (match) {
         const locationAsin = document.createElement('meta');
@@ -498,7 +498,7 @@ async function goto (input) {
         }
 
         console.log('Go to some random page');
-        const clickedOK = await extractorContext.execute(function () {
+        const clickedOK = await extractorContext.evaluate(function () {
           const links = [...document.querySelectorAll('a[href*="/dp/"]')];
           if (links.length === 0) {
             return false;
@@ -3679,7 +3679,7 @@ async function goto (input) {
     console.error(err);
     if (err.message.includes('MISSING_DATA') && fillRateStrategies.cleanCookieRetry) {
       extractorContext.counter.set('missing-data-retry', 1);
-      await extractorContext.execute(() => {
+      await extractorContext.evaluate(() => {
         localStorage.clear();
         sessionStorage.clear();
       });

@@ -1,5 +1,5 @@
 async function implementation ({ url, zipcode, inputs }, { addressRegExp, zipRegExp, countryCode, domain, extractor }, context, { customGoto }) {
-  const input = { _url: url, domain, context, asin: (inputs.keywords || inputs.id), extractor };
+  const input = { _url: url, domain, context, asin: (inputs.id || inputs.keywords), extractor };
   // Do we have a way to get extractor id during the running?
   if (input.asin) {
     console.log('calling custom goto function');
