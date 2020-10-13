@@ -73,43 +73,43 @@ fields:
     regExpReplace: $1
   - name: caloriesPerServing
     singleValue: false
-    xpath: //td[contains(text(),'Енергийност (ккал/ kJ)')]/following::td[1]
+    manualSelector: div#caloriesPerServ
   - name: caloriesFromFatPerServing
     singleValue: false
     xpath: 
   - name: totalFatPerServing
     singleValue: false
-    xpath: //td[contains(text(),'Мазнини (г)')]/following::td[1]
+    manualSelector: div#totalFatPerServ
   - name: totalFatPerServingUom
     singleValue: false
     xpath: 
   - name: saturatedFatPerServing
     singleValue: false
-    xpath: //td[contains(text(),'които наситени (г)')]/following::td[1]
+    manualSelector: div#saturatedFatPerServ
   - name: saturatedFatPerServingUom
     singleValue: false
     xpath: 
   - name: totalCarbPerServing
     singleValue: false
-    xpath: //td[contains(text(),'Въглехидрати')]/following::td[1]
+    manualSelector: div#totalCarbPerServ
   - name: totalCarbPerServingUom
     singleValue: false
     xpath: 
   - name: totalSugarsPerServing
     singleValue: false
-    xpath: //td[contains(text(),'които захари (г)')]/following::td[1]
+    manualSelector: div#totalSugarsPerServ
   - name: totalSugarsPerServingUom
     singleValue: false
     xpath: 
   - name: proteinPerServing
     singleValue: false
-    xpath: //td[contains(text(),'Протеини (г)')]/following::td[1]
+    manualSelector: div#proteinPerServ
   - name: proteinPerServingUom
     singleValue: false
     xpath: 
   - name: saltPerServing
     singleValue: false
-    xpath: //td[contains(text(),'Сол (г)')]/following::td[1]
+    manualSelector: div#saltPerServ
   - name: saltPerServingUom
     singleValue: false
     xpath: 
