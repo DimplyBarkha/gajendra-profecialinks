@@ -1,0 +1,11 @@
+extends: ../GLOBAL/extract
+fields:
+  - name: tld
+    defaultValue: de
+  - name: review_id
+    singleValue: false
+    description: A direct link to the review
+    type: TEXT
+    xpath: ./@id
+    regExp: (.+)
+    regExpReplace: https://www.amazon.de/gp/customer-reviews/$1

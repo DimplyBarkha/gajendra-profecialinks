@@ -4,6 +4,7 @@
  *  keywords: string,
  *  page: number,
  *  offset: number,
+ *  id: string,
  * }} inputs
  * @param {{
  *  nextLinkSelector: string,

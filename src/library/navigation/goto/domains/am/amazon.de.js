@@ -1,6 +1,5 @@
-
 module.exports = {
-  implements: 'navigation/goto',
+  extends: 'navigation/goto/domains/am/amazon',
   parameterValues: {
     domain: 'amazon.de',
     country: 'DE',
