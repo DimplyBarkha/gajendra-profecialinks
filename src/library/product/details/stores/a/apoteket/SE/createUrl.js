@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'apoteket.se',
     prefix: null,
-    url: null,
+    url: 'https://www.apoteket.se/sok/?q={id}',
     country: 'SE',
     store: 'apoteket',
     zipcode: '',
