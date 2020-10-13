@@ -37,6 +37,13 @@ module.exports = {
       });
       addElementToDocument('mm_image', image);
       addElementToDocument('mm_alternateImages', alternativeImages);
+
+      // Getting category
+      let category = '';
+      document.querySelectorAll('ul.breadcrumbs li a').forEach((item, i) => {
+        category += `${i !== 0 ? ' > ' : ''}${item.innerText}`;
+      });
+      addElementToDocument('mm_category', category);
     });
     await context.extract(productDetails);
   },
