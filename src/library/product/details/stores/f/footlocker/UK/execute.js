@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'footlocker',
     domain: 'footlocker.co.uk',
-    loadedSelector: '#slick-slide00 img',
+    loadedSelector: null,
     noResultsXPath: '//*[@class="fl-downtime-page--headline"]',
     zipcode: '',
   },
