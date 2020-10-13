@@ -7,7 +7,7 @@ module.exports = {
     domain: 'jumia.com.eg',
     url: "https://www.jumia.com.eg/catalog/?q={searchTerms}",
     loadedSelector: null,
-    noResultsXPath: '//div[contains(@class,"row -j-spar")]//h2',
+    noResultsXPath: '//h2[contains(text(), "There are no results for")]',
     zipcode: '',
   },
 };

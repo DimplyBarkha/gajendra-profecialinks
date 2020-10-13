@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'jumia.com.eg',
-    timeout: 50000,
+    timeout: 30000,
     country: 'EG',
     store: 'jumia',
     zipcode: '',
@@ -32,8 +32,8 @@ module.exports = {
 
     url = `${url}#[!opt!]{"force200": true}[/!opt!]`;
     await context.goto(url, {
-      firstRequestTimeout: 40000,
-      timeout: timeout,
+      firstRequestTimeout: timeout,
+      timeout,
       waitUntil: 'load',
       checkBlocked: false,
       antiCaptchaOptions: {
@@ -47,6 +47,8 @@ module.exports = {
       }, selector);
     };
     const isCaptchaFramePresent = await checkExistance(captchaFrame);
+
+
     if (isCaptchaFramePresent) {
       try {
         console.log('isCaptcha', true);
@@ -56,17 +58,20 @@ module.exports = {
         await context.evaluateInFrame('iframe', () => grecaptcha.execute());
         console.log('solved captcha, waiting for page change');
         await context.waitForNavigation({ timeout });
-      } catch (e) { console.log('could not solve captcha'); }
+      } catch (e) {
+        console.log('could not solve captcha');
+      }
     }
+
     try {
-      await context.waitForSelector('button[data-track-onclick="popupClose"]', { timeout })
-      console.log("found pop up")
+      await context.waitForSelector('button[data-track-onclick="popupClose"]', { timeout });
+      console.log("found pop up");
       await context.evaluate(function () {
-        document.querySelector('button[data-track-onclick="popupClose"]').click()
-      })
+        document.querySelector('button[data-track-onclick="popupClose"]').click();
+      });
     }
     catch (err) {
-      console.log("no pop up found")
+      console.log("no pop up found");
     }
   },
 };
