@@ -38,6 +38,13 @@ fields:
   - name: sponsAgRating
     singleValue: false
     xpath: //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div//@data-rating | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div//@data-rating
+  # Will remove ratingCount and reviewCount later since the Xpath only works for US/CA(english).
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
+  - name: reviewCount
+    singleValue: true
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
   - name: manufacturer
     singleValue: true
     xpath: 
