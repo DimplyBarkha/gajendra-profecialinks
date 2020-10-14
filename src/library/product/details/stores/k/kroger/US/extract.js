@@ -118,7 +118,7 @@ const implementation = async (
     price.classList.add('my-price');
     price.style.display = 'none';
 
-    const pickupPrice = document.getElementsByClassName('mt-4 flex flex-col items-end')[0];
+    const pickupPrice = document.getElementsByClassName('flex flex-col items-end')[0];
 
     if (pickupPrice !== undefined) {
       const pickupPriceText = pickupPrice.textContent;
