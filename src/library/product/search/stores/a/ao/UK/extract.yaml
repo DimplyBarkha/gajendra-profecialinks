@@ -15,19 +15,27 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //a[@class='inline-block']/@href
+  - name: rankOrganic
+    singleValue: false
+    xpath: //meta[@itemprop="position"]/@content
+  - name: rank
+    singleValue: false
+    xpath: //meta[@itemprop="position"]/@content
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class='product-card__primary-image']/@src
+    xpath: //img[@class='product-card__primary-image']/@data-src
+    regExp: (//media.ao.com/.+)
+    regExpReplace: https:$1
   - name: aggregateRating
     singleValue: false
-    xpath: count(//span//span[@class='product-card__rating-value u-mr--micro'])
+    xpath: //span[@class="product-card__rating-value u-mr--micro"]//text()
     type: NUMBER
   - name: id
     singleValue: false
     xpath: //div//img[@class='product-card__primary-image']/@data-sku
   - name: reviewCount
     singleValue: false
-    xpath: count(//span[@itemprop='ratingCount'])
+    xpath: //span[@itemprop="ratingCount"]//text()
     type: NUMBER
   - name: ratingCount
     singleValue: false
