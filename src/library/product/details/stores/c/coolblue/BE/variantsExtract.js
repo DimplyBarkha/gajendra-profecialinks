@@ -9,6 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { variants }) => {
+    await context.waitForSelector('main#main-content');
     await context.evaluate(async function () {
       //  if no variants available , pull sku and product page url
 
