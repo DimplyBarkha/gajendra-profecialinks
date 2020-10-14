@@ -48,11 +48,10 @@ const transform = (data, context) => {
       }; */
 
       if (row.productUrl && row.productUrl[0].text) {
+        const domain = row.domain[0].text;
         const url = row.productUrl[0].text;
-        if (url.split('amazon.com').length > 2) {
-          row.productUrl = [{ text: 'https://www.amazon.de' + url.split('amazon.com')[2] }];
-        } else if (url.split('amazon.de').length > 2) {
-          row.productUrl = [{ text: 'https://www.amazon.de' + url.split('amazon.de')[2] }];
+        if (url.split(domain).length > 2) {
+          row.productUrl = [{ text: 'https://www.' + domain + url.split(domain)[2] }];
         }
       }
 

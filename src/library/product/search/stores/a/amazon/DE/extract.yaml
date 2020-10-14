@@ -12,5 +12,8 @@ fields:
     xpath: //span[contains(@aria-label,"Sternen")]/following-sibling::span[1]
   - name: subscribe
     xpath: //*[contains(@dir,"auto") and contains(text(), "par-Abo")]/text()
+    # used in transform.
   - name: sponsorReplace
     defaultValue: '.|,'
+  - name: domain
+    defaultValue: 'amazon.de'
