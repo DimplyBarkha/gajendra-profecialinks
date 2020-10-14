@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -6,8 +6,8 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[contains(@class,"product-image")]/@style
-    regExp: url\('(.+)'\)
-    regExpReplace: $1
+    regExp: url\('(.+)800x(.+)'\)
+    regExpReplace: $11200x$2
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -25,6 +25,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
+    xpath: //h1[contains(@class,"product-title")]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -43,7 +44,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"description")]
+    xpath: (//div[contains(@class,"description")])[1]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -136,6 +137,7 @@ fields:
   - name: name
     singleValue: false
     description: The product name
+    xpath: //h1[contains(@class,"product-title")]
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
@@ -225,7 +227,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[contains(@class,"product-image-thumbnails")]/button[position( ) > 1]/span[contains(@class,"product-image-thumbnail")]/@style)
+    xpath: //div[@id="image_count"]
     description: null
     type: NUMBER
   - name: news

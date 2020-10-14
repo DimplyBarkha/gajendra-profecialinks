@@ -18,8 +18,15 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      const imageCount = document.evaluate('//div[contains(@class,"product-image-thumbnails")]/button[position( ) > 1]/span[contains(@class,"product-image-thumbnail")]/@style', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      !document.getElementById('image_count') && imageCount.snapshotLength && addHiddenDiv('image_count', imageCount.snapshotLength);
       const elementFound = document.evaluate(xp, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       elementFound && addHiddenDiv(id, elementFound.innerText);
+    }
+    try {
+      await context.click('div[class*="show-more-description"]');
+    } catch (error) {
+      console.log('Click show more button not present');
     }
     try {
       await context.click('#tab-ingredients');
@@ -39,7 +46,6 @@ module.exports = {
     } catch (error) {
       console.log('warnining not present');
     }
-    await context.extract(productDetails);
     return await context.extract(productDetails, { transform: transformParam });
   },
 };
