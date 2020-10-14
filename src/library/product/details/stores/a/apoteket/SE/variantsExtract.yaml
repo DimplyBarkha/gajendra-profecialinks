@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //select[@id="variants"]
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //option[position() > 1]/@value
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //option[position() > 1]/@value

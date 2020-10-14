@@ -62,6 +62,22 @@ const transform = (data, context) => {
               }
             });
           }
+          if (row.variantUrl) {
+            row.variantUrl.forEach(item => {
+              if((item.text.includes('http')) ||(item.text.includes('https'))){
+                  item.text = item.text;
+              }else{
+                item.text = 'https://www.apoteket.se'+item.text;
+              }
+            });
+          }
+          if (row.variantId) {
+            row.variantId.forEach(item => {
+                let arr = item.text.split('-');
+                let length = arr ? arr.length : 0;
+                item.text = arr[length-1].replace(/\//,'');
+            });
+          }
       }
     }
     return data;

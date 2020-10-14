@@ -128,7 +128,9 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
+    xpath: count(//select[@id="variants"]/option)
     type: NUMBER
+    defaultValue: '0'
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -465,6 +467,10 @@ fields:
   - name: variants
     singleValue: false
     description: null
+    xpath: //select[@id="variants"]/option
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: NO
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
