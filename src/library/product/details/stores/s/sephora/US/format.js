@@ -115,6 +115,11 @@ const transform = (data, context) => {
             let videoStr = videoArray.join(" | ");
             row.videos[0].text = videoStr;
           }
+    
+          if (row.ratingCount2) {
+            const text = row.ratingCount2[0].text;
+            row.ratingCount[0].text = text;
+          }
   
           if (row.manufacturerImages) {
             let manufImageArray = [];
