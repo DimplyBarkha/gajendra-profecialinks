@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'product-results-grid')]//div[contains(@class,'grid-result')] | //div[contains(@class,'product-results')]//div[contains(@class,'sh-dlr__list-result')]
+fields:
+  - name: productUrl
+    regExp: (.*)
+    regExpReplace: https://www.google.fr$1
+    xpath: //a[contains(@class,'VZTCjd')]/@href | //a[contains(@class,'VQN8fd')]/@href
+    description: The URL for the product details page
+  - name: thumbnail
+    xpath: //div[contains(@class,'thumbnail')]//img/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //h3[contains(@class,'xsRiS')] | //h4[contains(@class,'A2sOrd')]
+    description: The product name
+  - name: aggregateRating2
+    xpath: //div[contains(@class,'product-results-grid')]//div[contains(@class,'grid-result')]//div[contains(@role,'img')]/@aria-label[contains(.,'out of') or contains(.,'étoiles')]
+    description: The stated aggregate rating
+  - name: ratingCount
+    xpath: //span/@aria-label[contains(.,'reviews') or contains(.,'avis')]
+    description: The number of ratings
+  - name: reviewCount
+    xpath: //span[contains(@aria-label,'reviews') or contains(@aria-label,'avis')]
+    description: The number of reviews
+  - name: price
+    xpath: //span[contains(@class,'O8U6h')]/span[contains(@aria-hidden,'true')]
+    description: The offered price for the product
+  - name: soldBy
+    xpath: //div[contains(@class,'g27Cj')]/div/text() | //div[contains(@class,'kD8n3')]/div/text()
+    # regExp: (-) (.*)
+    # regExpReplace: $2
+    description: The name of the seller of the item (if available)
+  - name: rank
+    description: search/listing rank
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+  - name: id
+    # xpath: ./@data-gpcid
+    xpath: //a[contains(@class,'VZTCjd')]/@href | //a[contains(@class,'VQN8fd')]/@href
+    regExp: (?:.*shopping/product/(.*)\?q=.*)
+    regExpReplace: $1
+    description: Unique id (within this extractor)
