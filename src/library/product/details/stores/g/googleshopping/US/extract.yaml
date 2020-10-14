@@ -38,7 +38,7 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //ul[@class='xpDPYb']//li//span/text()]
+    xpath: //ul[@class='xpDPYb']//li//span/text()
   - name: descriptionBullets
     singleValue: false
     xpath: count(//ul[@class='xpDPYb']//li//span)
@@ -50,17 +50,14 @@ fields:
     singleValue: false
   - name: quantity
     singleValue: false
-    description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
     xpath: //div[@id="added-weightNet"]
-    description: Net weight as described on the page
   - name: weightGross
     singleValue: false
     xpath: //div[@id="added-shippingWeight"]
-    description: Gross weight as described on the page
   - name: gtin
     singleValue: false
     xpath: //div[@id="added-gtin"]  |  //td[contains(text(),'GTIN')]/following-sibling::td
@@ -79,12 +76,10 @@ fields:
     regExpReplace: $1
   - name: mpc
     singleValue: false
-    description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
   - name: legalDisclaimer
     singleValue: false
-    description: Content under "legal disclaimer" header
   - name: firstVariant
     singleValue: false
     xpath: //div[@class='eyAVeb']/span/text()
@@ -93,11 +88,9 @@ fields:
   - name: warranty
     singleValue: false
     xpath: //div[@id="added-warranty"]
-    description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
     xpath: //div[@class='shop__secondary qIEPib']/text()
-    description: The number of ratings
     #type: NUMBER
   - name: variantInformation
     singleValue: false
@@ -105,7 +98,6 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class='uYNZm']/text()
-    description: The stated aggregate rating normalized to be out of 5
     #type: NUMBER
   - name: shippingInfo
     singleValue: false
@@ -117,11 +109,9 @@ fields:
   - name: shippingWeight
     singleValue: false
     xpath: //div[@id="added-shippingWeight"]
-    description: Stated shipping weight
   - name: variantCount
     singleValue: false
     xpath: count(//div[@class='sh-dvc__scroll']/div|//div[@class="RuQLyd"]/*)
-    description: Number of variants listed
     #type: NUMBER
   - name: color
     singleValue: false

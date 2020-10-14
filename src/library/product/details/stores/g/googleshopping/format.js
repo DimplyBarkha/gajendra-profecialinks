@@ -32,17 +32,17 @@ const transform = (data) => {
         row.description = specs;
       }
       if (row.addedDesc) {
-        const specs = [];
+        const descs = [];
         let txt = '';
         row.addedDesc.forEach(item => {
-          specs[0] = item;
+          descs[0] = item;
           if (txt.length > 0) {
             txt = txt + ' || ';
           }
           txt = txt + item.text;
-          specs[0].text = txt;
+          descs[0].text = txt;
         });
-        row.description = specs;
+        row.description = descs;
 
         let cntObj;
         row.addedDescCnt.forEach(item => {
