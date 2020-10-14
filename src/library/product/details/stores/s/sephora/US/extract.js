@@ -9,7 +9,25 @@ module.exports = {
     domain: 'sephora.com',
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-
+    await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop <= 20000) {
+        await stall(500);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 20000) {
+          await stall(8000);
+          break;
+        }
+      }
+      function stall (ms) {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+    });
     const itemUrl = await context.evaluate(function() {
       let resultsCheck = '(//h1//text()[not(parent::b)])[1]'
       var checkResults = document.evaluate( resultsCheck, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -85,7 +103,7 @@ module.exports = {
             console.log('finished click');
             // Clicking a link caused a page reload, this function waits for the page to finish loading.
             // await context.waitForPage();
-          await new Promise(resolve => setTimeout(resolve, 5000));
+          await new Promise(resolve => setTimeout(resolve, 10000));
             console.log('finished waiting for page');
             const req = await context.searchAllRequests('edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/');
             
@@ -320,6 +338,25 @@ module.exports = {
       }
 
     }, parentInput, html);
+
+    // await context.evaluate(async function () {
+    //   function addHiddenDiv (id, content) {
+    //     const newDiv = document.createElement('div');
+    //     newDiv.id = id;
+    //     newDiv.textContent = content;
+    //     newDiv.style.display = 'none';
+    //     document.body.appendChild(newDiv);
+    //   }
+
+    //   if (document.querySelector('span[data-at="number_of_reviews"]')) {
+    //     const ratingCount = document.querySelector('span[data-at="number_of_reviews"]').innerText;
+
+    //     if (ratingCount.includes('K')) {
+    //       addHiddenDiv('ii_ratingCount', ratingCount);
+    //     }
+    //   }
+    // });
+
 
       await new Promise(resolve => setTimeout(resolve, 5000));
 

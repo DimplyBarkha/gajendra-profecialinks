@@ -54,6 +54,12 @@ const transform = (data, context) => {
 
             row.image[0].text = `https://sephora.com${splits[0]}`
           }
+
+          if(row.quantity){
+            let text = row.quantity[0].text;
+
+            row.quantity[0].text = text.replace(/(\(|\))/gm, '');
+          }
           
           if(row.alternateImages){
               let imageArray = [];
