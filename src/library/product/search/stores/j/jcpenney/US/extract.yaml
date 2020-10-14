@@ -7,10 +7,6 @@ fields:
   singleValue: true
   description: search/listing rank
   type: NUMBER
-- name: rankOrganic
-  singleValue: true
-  description: The position (rank) within the list excluding sponsored/paid results
-  type: NUMBER
 - name: id
   description: Unique id (within this extractor)
   xpath: //td[contains(@class,"skuId depth_2")]
@@ -34,7 +30,7 @@ fields:
   xpath: //td[contains(@class,"reviewCount depth_2")]
 - name: price
   description: The offered price for the product
-  xpath: //td[contains(@class,"fpacPriceMax depth_2")]
+  xpath: //td[contains(@class,"fpacPriceMax depth_2")] | //td[contains(@class,"currentMin depth_2")]
 - name: aggregateRating
   description: The stated aggregate rating normalized to be out of 5
   type: NUMBER

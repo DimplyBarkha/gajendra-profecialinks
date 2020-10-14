@@ -4,6 +4,15 @@ parameters:
   domain: jcpenney.com
   store: jcpenney
   zipcode: ""
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
 meta:
   branches:
     DS_jcpenney_search:
