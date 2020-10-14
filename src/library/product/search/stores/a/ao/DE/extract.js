@@ -16,13 +16,13 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async function () {
-      await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
       const accCookie = document.querySelector('button.ao-cb__button.ao-cb__button--accept');
       if (accCookie) {
         // @ts-ignore
         accCookie.click();
       }
-      await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
       const promoClose = document.querySelector('button.promotionModalClose.icon-close.c-modal-close.u-pos--absolute.ico.ico-close.ico-lg');
       if (promoClose) {
         // @ts-ignore
