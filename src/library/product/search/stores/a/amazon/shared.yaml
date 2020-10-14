@@ -24,9 +24,8 @@ fields:
     xpath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]/span | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]//parent::div/div/span | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a/@aria-label | //div[contains(@data-component-type,"s-search-result") and @data-asin and contains(@class, "AdHolder")] | //div[contains(@class,"_multi-card-creative-desktop_DesktopGridColumn_gridColumn")]
   - name: productUrl
     singleValue: false
-    xpath: //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]/@href | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]/@href | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a/@href | //div[@class="a-section a-spacing-none"]/a[contains(@class,"_multi-card-creative-desktop_Link")]/@href | //h2/a/@href
-    regExp: (.+)
-    regExpReplace: https://www.amazon.com$1
+    xpath: //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"] | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"] | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a | //div[@class="a-section a-spacing-none"]/a[contains(@class,"_multi-card-creative-desktop_Link")] | //h2/a
+    type: LINK
   - name: gtin
     singleValue: true
     xpath:
@@ -36,12 +35,6 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@src | //img[@class="s-image"]/@src
-    regExpReplace: $1
-  - name: aggregateRating2
-    singleValue: false
-    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/i | //span[contains(@aria-label,"stars")]/@aria-label
-    regExp: (.+) out of
-    regExpReplace: $1
   - name: sponsAgRating
     singleValue: false
     xpath: //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div//@data-rating | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div//@data-rating
@@ -66,3 +59,7 @@ fields:
   - name: id
     singleValue: true
     xpath: //@data-asin
+  - name: badgeType
+    xpath: //span[@data-component-type="s-status-badge-component"]/@data-component-props | //i[@aria-label="Amazon Pantry"]/@aria-label | //i[@aria-label="Amazon Prime"]/@aria-label
+  - name: listPrice
+    xpath: //span[contains(@class, "a-price") and @data-a-strike="true"]/span[@class="a-offscreen"]
