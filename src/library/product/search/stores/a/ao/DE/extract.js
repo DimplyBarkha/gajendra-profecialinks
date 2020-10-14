@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'DE',
     store: 'ao',
-    transform: cleanUp,
+    transform: transform,
     domain: 'ao.de',
     zipcode: '',
   },
@@ -13,6 +13,7 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async function () {
       await new Promise((resolve, reject) => setTimeout(resolve, 2000));
@@ -64,6 +65,6 @@ module.exports = {
       localStorage.setItem('prodCount', `${lastProductPosition + arr.length}`);
       localStorage.setItem('promotedProductsNumber', `${promotedProductsNumber + arr2.length}`);
     });
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
