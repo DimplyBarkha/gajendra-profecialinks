@@ -39,12 +39,6 @@ const transform = (data) => {
           item.text = item.text.replace(/Начин на приготвяне:/, '').trim();
         });
       }
-      if (row.countryOfOrigin) {
-        row.countryOfOrigin[0].text = row.countryOfOrigin[0].text.includes('Страна на произход') ? row.countryOfOrigin[0].text.replace(/Страна на произход: /, '') : row.countryOfOrigin[0].text.replace(/Произход: /, '');
-      }
-      if (row.description) {
-        row.description[0].text = row.description[0].text.replace(/\n \n/g, ' || ');
-      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

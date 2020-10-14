@@ -60,8 +60,8 @@ fields:
     xpath: //strong[contains(text(),'приготвяне')]/parent::p
   - name: warnings
     singleValue: false
-    xpath: //strong[contains(text(),'Важно')]/parent::p
-    regExp: 'Важно: (.*)'
+    xpath: //strong[contains(text(),'Внимание')]/parent::p
+    regExp: 'Внимание: (.*)'
     regExpReplace: $1
   - name: variantCount
     singleValue: false
@@ -72,45 +72,42 @@ fields:
   - name: caloriesPerServing
     singleValue: false
     manualSelector: div#caloriesPerServ
-  - name: caloriesFromFatPerServing
-    singleValue: false
-    xpath: 
   - name: totalFatPerServing
     singleValue: false
     manualSelector: div#totalFatPerServ
   - name: totalFatPerServingUom
     singleValue: false
-    xpath: 
+    manualSelector: div#fat_uom
   - name: saturatedFatPerServing
     singleValue: false
     manualSelector: div#saturatedFatPerServ
   - name: saturatedFatPerServingUom
     singleValue: false
-    xpath: 
+    manualSelector: div#sfat_uom
   - name: totalCarbPerServing
     singleValue: false
     manualSelector: div#totalCarbPerServ
   - name: totalCarbPerServingUom
     singleValue: false
-    xpath: 
+    manualSelector: div#carb_uom
   - name: totalSugarsPerServing
     singleValue: false
     manualSelector: div#totalSugarsPerServ
   - name: totalSugarsPerServingUom
     singleValue: false
-    xpath: 
+    manualSelector: div#sugar_uom
   - name: proteinPerServing
     singleValue: false
     manualSelector: div#proteinPerServ
   - name: proteinPerServingUom
     singleValue: false
-    xpath: 
+    manualSelector: div#protein_uom
   - name: saltPerServing
     singleValue: false
     manualSelector: div#saltPerServ
   - name: saltPerServingUom
     singleValue: false
-    xpath: 
+    manualSelector: div#salt_uom
   - name: storage
     singleValue: false
     xpath: //strong[contains(text(),'Условия за съхранение')]/parent::p
@@ -310,9 +307,6 @@ fields:
   # - name: otherSellersShipping2
   #   singleValue: false
   #   xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]//div[contains(@class, "aod-ship-charge")]
-  # - name: secondaryImageTotal
-  #   singleValue: false
-  #   xpath: count(//div[@id="altImages"]//ul/li[contains(@class,  "image")][position()>1])
   # - name: news
   #   singleValue: false
   #   xpath: //table[contains(@id,"productDetails_detailBullets")]//tr/th[contains(text(),"Best Sellers Rank")]/../td//span[contains(text(), "#1 ")]

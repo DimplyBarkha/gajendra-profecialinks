@@ -38,32 +38,47 @@ module.exports = {
 
           // Fetch nutrition values
           const caloriesPerServ = document.querySelector('div[class*=energy-values]  tr:nth-child(1) > td:nth-child(2)');
-          const cal = caloriesPerServ && caloriesPerServ.innerHTML ? caloriesPerServ.innerHTML : '';
+          const caloriesPerServUom = document.querySelector('div[class*=energy-values]  tr:nth-child(1) > td:nth-child(1)');
+          let cal = caloriesPerServ && caloriesPerServ.innerHTML ? caloriesPerServ.innerHTML : '';
+          const calUom = caloriesPerServUom && caloriesPerServUom.innerHTML ? caloriesPerServUom.innerHTML.replace(/Енергийност \(([^)]+)\)/g, '$1') : '';
+          cal = cal + ' ' + calUom;
           addHiddenDiv('caloriesPerServ', cal);
 
           const totalFatPerServ = document.querySelector('div[class*=energy-values]  tr:nth-child(4) > td:nth-child(2)');
           const fat = totalFatPerServ && totalFatPerServ.innerHTML ? totalFatPerServ.innerHTML : '';
           addHiddenDiv('totalFatPerServ', fat);
+          const fatUom = 'r';
+          addHiddenDiv('fat_uom', fatUom);
 
           const saturatedFatPerServ = document.querySelector('div[class*=energy-values]  tr:nth-child(5) > td:nth-child(2)');
           const sfat = saturatedFatPerServ && saturatedFatPerServ.innerHTML ? saturatedFatPerServ.innerHTML : '';
           addHiddenDiv('saturatedFatPerServ', sfat);
+          const sfatUom = 'r';
+          addHiddenDiv('sfat_uom', sfatUom);
 
           const totalCarbPerServ = document.querySelector('div[class*=energy-values]  tr:nth-child(2) > td:nth-child(2)');
           const carb = totalCarbPerServ && totalCarbPerServ.innerHTML ? totalCarbPerServ.innerHTML : '';
           addHiddenDiv('totalCarbPerServ', carb);
+          const carbUom = 'r';
+          addHiddenDiv('carb_uom', carbUom);
 
           const totalSugarsPerServ = document.querySelector('div[class*=energy-values]  tr:nth-child(3) > td:nth-child(2)');
           const sugar = totalSugarsPerServ && totalSugarsPerServ.innerHTML ? totalSugarsPerServ.innerHTML : '';
           addHiddenDiv('totalSugarsPerServ', sugar);
+          const sugarUom = 'r';
+          addHiddenDiv('sugar_uom', sugarUom);
 
           const proteinPerServ = document.querySelector('div[class*=energy-values]  tr:nth-child(6) > td:nth-child(2)');
           const protein = proteinPerServ && proteinPerServ.innerHTML ? proteinPerServ.innerHTML : '';
           addHiddenDiv('proteinPerServ', protein);
+          const proteinUom = 'r';
+          addHiddenDiv('protein_uom', proteinUom);
 
           const saltPerServ = document.querySelector('div[class*=energy-values]  tr:nth-child(7) > td:nth-child(2)');
           const salt = saltPerServ && saltPerServ.innerHTML ? saltPerServ.innerHTML : '';
           addHiddenDiv('saltPerServ', salt);
+          const saltUom = 'r';
+          addHiddenDiv('salt_uom', saltUom);
         });
         // Navigate to description tab
         await context.click('li#react-tabs-0');
