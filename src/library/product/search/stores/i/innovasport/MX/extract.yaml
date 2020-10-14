@@ -1,0 +1,22 @@
+Search:
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='is-pw__product']
+fields: 
+- name: id
+  xpath: //a[@class="js-gtm-product-click"]//@data-productcode
+- name: rankOrganic
+- name: name
+  xpath: //span[@class="is-gridwallCard__item__name"]
+- name: productUrl
+  xpath: //a[@class="js-gtm-product-click"]//@href
+  regExp: (.+)
+  regExpReplace: https://www.innovasport.com$1
+- name: thumbnail
+  xpath: //figure[@class="is-gridwallCard__item__imageContainer"]//img//@src
+  regExp: (.+)
+  regExpReplace: https://www.innovasport.com$1
+- name: price
+  xpath: //div[@class="is-gridwallCard__item"]//span[contains(@class,"is-gridwallCard__item__price")]
+  regExp: (\d+.\s\d+)
