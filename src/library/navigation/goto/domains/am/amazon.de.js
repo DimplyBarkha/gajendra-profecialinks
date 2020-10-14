@@ -5,7 +5,7 @@ module.exports = {
     timeout: 30000,
     country: 'DE',
     store: 'amazonApparel',
-    zipcode: '10117',
+    zipcode: '',
   },
   implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
     const memory = {};

@@ -57,7 +57,7 @@ module.exports = {
     country: 'DE',
     domain: 'amazon.de',
     store: 'amazon',
-    zipcode: '10117',
+    zipcode: '',
   },
   dependencies: {
     Helpers: 'module:helpers/helpers',
