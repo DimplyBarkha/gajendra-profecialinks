@@ -8,37 +8,11 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  const trial1 = await context.evaluate(() => {
-    return document.querySelector('#is_script') ? document.querySelector('#is_script').innerHtml : '';
-  });
-  const trial2 = await context.evaluate(() => {
-    return { ...window._INITIAL_STATE_ };
-  });
-  console.log(trial1);
-  console.log(trial2);
-
   await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   await context.evaluate(async function () {
-    let scrollTop = 0;
-    while (scrollTop <= 15000) {
-      await stall(500);
-      scrollTop += 1000;
-      window.scroll(0, scrollTop);
-      if (scrollTop === 15000) {
-        await stall(3000);
-        break;
-      }
-    }
-    function stall (ms) {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-  });
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-  await context.evaluate(async function () {
+    const GetTagByIdUsingRegex = (tag, id, html) => {
+      return new RegExp('<' + tag + "[^>]*id[\\s]?=[\\s]?['\"]" + id + "['\"][\\s\\S]*?</" + tag + '>').exec(html);
+    };
     function addElementToDocument (doc, key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
@@ -46,18 +20,33 @@ async function implementation (
       catElement.style.display = 'none';
       doc.appendChild(catElement);
     }
-    const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
-    const productSelectors = document.querySelectorAll('div._3O0U0u>div');
-    for (let i = 0; i < productSelectors.length; i++) {
-      addElementToDocument(productSelectors[i], 'rankOrganic', `${lastProductPosition + i}`);
-      const imgUrl = document.querySelectorAll('div._3BTv9X img')[i] ? document.querySelectorAll('div._3BTv9X img')[i].getAttribute('src') : '';
-      addElementToDocument(productSelectors[i], 'image', imgUrl);
-      const urlData = document.querySelectorAll('a._31qSD5')[i] ? document.querySelectorAll('a._31qSD5')[i].href : document.querySelectorAll('a.Zhf2z-')[i].href;
-      document.querySelectorAll('div._3O0U0u>div')[i].setAttribute('producturl', `${urlData}`);
-    }
-    localStorage.setItem('prodCount', `${lastProductPosition + productSelectors.length}`);
-  });
+    await fetch(window.location.href, { method: 'GET' }).then(r => r.text()).then(htm => {
+      const result = GetTagByIdUsingRegex('script', 'is_script', htm);
+      const outerHTML = result && result[0] ? result[0] : '';
+      const JSstring = JSON.parse(outerHTML.split('window.__INITIAL_STATE__ = ')[1].split(';\n</script>')[0]);
+      const widgets = JSstring.pageDataV4.page.data[10003];
 
+      const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
+      const productSelectors = document.querySelectorAll('div._3O0U0u>div');
+      for (let i = 0; i < productSelectors.length; i++) {
+        addElementToDocument(productSelectors[i], 'rankOrganic', `${lastProductPosition + i}`);
+        const id = document.querySelectorAll('div._3O0U0u div')[i] ? document.querySelectorAll('div._3O0U0u>div')[i].getAttribute('data-id') : '';
+        const urlData = document.querySelectorAll('a._31qSD5')[i] ? document.querySelectorAll('a._31qSD5')[i].href : document.querySelectorAll('a.Zhf2z-')[i].href;
+        document.querySelectorAll('div._3O0U0u>div')[i].setAttribute('producturl', `${urlData}`);
+        for (let j = 1; j < widgets.length; j++) {
+          if (widgets[j].widget.data.products) {
+            const productId = widgets[j].widget.data.products[0].productInfo.value.id;
+            const imageUrl = widgets[j].widget.data.products[0].productInfo.value.media.images[0].url;
+            const image = imageUrl.replace(/\{@width\}|\{@height\}/g, '312').replace(/\{@quality\}/g, '70');
+            if (id === productId) {
+              addElementToDocument(productSelectors[i], 'image', image);
+            }
+          }
+        }
+      }
+      localStorage.setItem('prodCount', `${lastProductPosition + productSelectors.length}`);
+    });
+  });
   return await context.extract(productDetails, { transform });
 }
 
