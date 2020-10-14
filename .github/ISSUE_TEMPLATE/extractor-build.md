@@ -63,6 +63,8 @@ In case of any Access trouble please contact immediatly someone at import.io
 #### Set-up
 - [ ] Ensure the CLI and repository are download correctly
 [Mac](https://workbench.import.io/download/cli/latest/mac), [Windows x64](https://workbench.import.io/download/cli/latest/windows/x64), [Windows x86](https://workbench.import.io/download/cli/latest/windows/x64), [Linux Debian amd64](https://workbench.import.io/download/cli/latest/deb/amd64), [Linux Debian armel](https://workbench.import.io/download/cli/latest/deb/armel)
+- [ ] Run the config command of the cli:
+`import-io config` with the API key that you have been provided
 - [ ] Assign yourself to this issue 
 - [ ] Add your team's label to this issue
 - [ ] Link issue to the correct project, based on the feed type
