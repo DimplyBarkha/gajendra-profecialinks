@@ -54,6 +54,11 @@ module.exports = {
       if (document.querySelector('.label-instock')) {
         addElementToDocument('mm_availabilityText', 'In Stock');
       }
+
+      // Checking if image zoom feature present
+      if (document.querySelector('.zoom')) {
+        addElementToDocument('mm_imageZoomFeaturePresent', 'Yes');
+      }
     });
     await context.extract(productDetails);
   },

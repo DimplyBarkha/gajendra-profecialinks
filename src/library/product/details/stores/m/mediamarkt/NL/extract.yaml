@@ -62,6 +62,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //meta[@itemprop='brand']/@content
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -106,6 +107,7 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
+    xpath: //div[@class='bv-details-bar']/div[@class='bv-percent-recommend-container']
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
@@ -114,6 +116,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //ul[@class='usp_price_sidebar']/li
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -161,6 +164,7 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+    xpath: //aside[@id='product-sidebar']//div[@class='logo']/a/@href
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -509,3 +513,4 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+    xpath: //div[@id='mm_imageZoomFeaturePresent']
