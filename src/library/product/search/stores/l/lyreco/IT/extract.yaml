@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="listProductSearch"]//div[contains(@class,"block-product")]
+fields:
+  - name: productUrl
+    xpath: //a[@class="prod_visu"]/@href
+  - name: thumbnail
+    xpath: //a[@class="prod_visu"]//img/@src
+  - name: name
+    xpath: //a[@id="productDetails"]
+  - name: gtin
+  - name: aggregateRatingText
+  - name: ratingCount
+  - name: reviewCount
+  - name: price
+  - name: manufacturer
+  - name: soldBy
+  - name: endorsementText
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+  - name: id
+    xpath: //@data-lineid
+  - name: aggregateRating
