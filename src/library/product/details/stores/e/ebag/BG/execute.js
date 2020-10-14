@@ -5,8 +5,8 @@ module.exports = {
     country: 'BG',
     store: 'ebag',
     domain: 'ebag.bg',
-    loadedSelector: 'div[id=detailed-view]',
-    noResultsXPath: '//h3[contains(text(),"Страницата не е намерена")]',
+    loadedSelector: 'div#detailed-view',
+    noResultsXPath: '//div[@class="error-page-content"] | //span[@id="category-results-count"]',
     zipcode: '',
   },
 };

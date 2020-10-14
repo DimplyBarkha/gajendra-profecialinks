@@ -22,7 +22,7 @@ module.exports = {
       });
 
       if (liCount) {
-      // Navigate to nutrition value tab
+        // Navigate to nutrition value tab
         await new Promise(resolve => setTimeout(resolve, 5000));
         await context.click('li#react-tabs-2');
         await context.waitForSelector('div[class*=energy-values]');
@@ -65,15 +65,15 @@ module.exports = {
           const salt = saltPerServ && saltPerServ.innerHTML ? saltPerServ.innerHTML : '';
           addHiddenDiv('saltPerServ', salt);
         });
+        // Navigate to description tab
+        await context.click('li#react-tabs-0');
+        await context.waitForSelector('div[class*=description]');
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
-      // Navigate to description tab
-      await new Promise(resolve => setTimeout(resolve, 10000));
-      await context.click('li#react-tabs-0');
-      await context.waitForSelector('div[class*=description]');
     } catch (e) {
       console.log(e);
     }
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    await new Promise(resolve => setTimeout(resolve, 5000));
     return await context.extract(productDetails, { transform });
   },
 };
