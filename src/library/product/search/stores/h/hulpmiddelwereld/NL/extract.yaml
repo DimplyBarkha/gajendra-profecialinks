@@ -1,29 +1,23 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,'category-products')]/div[contains(@class,'products-grid')]
+recordXPath: //div[contains(@class,'sqr-results')]/div[contains(@class,'sqr-resultItem')]
 fields:
   - name: productUrl
     SingleValue: false
-    xpath: //div[contains(@class,'products-grid')]/a/@href
+    xpath: //div[contains(@class,'sqr-right')]//div[contains(@class,'sqr-text')]//h3//a/@href
   - name: id
     SingleValue: false
-    xpath: //div[contains(@class,'products-grid')]/a/@href
+    xpath: //div[contains(@class,'sqr-right')]//div[contains(@class,'sqr-text')]//h3//a/@href
   - name: name
     SingleValue: false
-    xpath: //div[contains(@class,'products-grid')]/a/div[contains(@class,'item-area')]/div[contains(@class,'details-area')]/h3
+    xpath: //div[contains(@class,'sqr-right')]//div[contains(@class,'sqr-text')]//h3
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,'products-grid')]/a/div[contains(@class,'item-area')]/div[contains(@class,'product-image-area')]/div[contains(@class,'product-image')]//img/@src
-  - name: aggregateRating
-    singleValue: false
-    xpath: //div[contains(@class,'products-grid')]/a/div[contains(@class,'item-area')]/div[contains(@class,'details-area')]/div[contains(@class,'ratings')]//div[contains(@class,'rating-box')]//div[contains(@class,'rating')]/@style
-  - name: reviewCount
-    singleValue: false
-    xpath: //div[contains(@class,'products-grid')]/a/div[contains(@class,'item-area')]/div[contains(@class,'details-area')]/div[contains(@class,'ratings')]//span[contains(@class,'amount')]//span//span[contains(@class,'number')]
+    xpath: //div[contains(@class,'sqr-left')]//div[contains(@class,'sqr-image')]//img/@src
   - name: price
     singleValue: false
-    xpath: //span[contains(@id,'product-price')]
+    xpath: //div[contains(@class,'sqr-right')]//div[contains(@class,'sqr-order')]//div[contains(@class,'sqr-price')]
   - name: rankOrganic
     SingleValue: false
   - name: rank

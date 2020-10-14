@@ -15,9 +15,16 @@ const transform = (data) => {
         //   });
         // }
         if (row.id) {
-          row.id.forEach(item => {
-            var idArr = item.text.split('/');            
-            item.text = idArr[idArr.length - 1];
+          row.id.forEach(item => {            
+            var arr_temp = item.text.split('/');
+            var temp_id = arr_temp[arr_temp.length - 1]
+            arr_temp = temp_id.split('?');
+            item.text = arr_temp[0];
+            // var myRegexp = /.+\/(.+?)\?/g;
+            // var match = myRegexp.exec(item.text);
+            // if (match.length) {
+            //     item.text = match[1].trim();
+            // }
           });
         }
       }
