@@ -1,11 +1,12 @@
 ---
 name: Check list for an extractor build
 about: Create an issue with this template before starting a source build for a any feed type (search, core, media_tracker...)
-title: {feed_underscored}-{retailer_name}_{country code} ( ex. media_tracker-amazon_us )
+title: `{feed_underscored}-{retailer_name}_{country code}` ( ex. media_tracker-amazon_us )
 labels: Source
 assignees: ''
 
 ---
+
 ## Pre-requisites
 - Work on the corresponding retailer branch. If such branch does not exists then create it: `git checkout -b {retailer_name}` for the retailer syntax use only lower case and underscore instead of spaces.
 - Only use one branch per retailer. Even if multiple feed type are on it.
