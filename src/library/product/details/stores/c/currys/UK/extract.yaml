@@ -143,17 +143,17 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"] | //*[@id="eky-dyson-iframe"]/@src
+    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"] | //body/@desc
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"]//div[contains(@class,"flix-media-flex") or contains(@class,"flix-background-image")]//img/@srcset | //img[@data-flixsrcset]/@data-flixsrcset
-    regExp: ^(.+)\s200w
-    regExpReplace: https:$1
+    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"]//div[contains(@class,"flix-media-flex") or contains(@class,"flix-background-image")]//img/@srcset | //img[@data-flixsrcset]/@data-flixsrcset | /html/body/@img-src
+    # regExp: ^(.+)\s200w
+    # regExpReplace: https:$1
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[@id="video"]//iframe/@src | //*[@id="flix-iframe0"]/@src
+    xpath: //div[@id="video"]//iframe/@src | //*[@id="flix-iframe0"]/@src | //body/@video-src
     description: URLs of videos on page
   - name: name
     singleValue: true
