@@ -9,9 +9,19 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  // await context.evaluate(() => {
+  await new Promise((resolve, reject) => setTimeout(resolve, 1500));
 
-  // });
+  await context.evaluate(() => {
+    function addProp(selector, iterator, propName, value) {
+      document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
+    };
+    const allProducts = document.querySelectorAll('div.product-grid-item.ColUI-gjy0oc-0.ifczFg.ViewUI-sc-1ijittn-6.iXIDWU');
+    for (let i=0; i < allProducts.length; i++){
+      addProp('div.RippleContainer-sc-1rpenp9-0.dMCfqq', i,'rankorganic', `${i + 1}`)
+    }
+  });
+
+  await new Promise((resolve, reject) => setTimeout(resolve, 1500));
 
   return await context.extract(productDetails, { transform });
 }
