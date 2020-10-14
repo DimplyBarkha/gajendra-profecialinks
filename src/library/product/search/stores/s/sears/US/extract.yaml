@@ -1,5 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[contains(@class,"card-container card-border")]
+fields: 
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="card-bottom ng-scope"]//a[@class="card-review-container"]/@href

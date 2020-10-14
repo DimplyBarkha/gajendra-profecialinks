@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'sears',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a[title~=Go to next page]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div#gallery-table ng-scope',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'sears.com',
