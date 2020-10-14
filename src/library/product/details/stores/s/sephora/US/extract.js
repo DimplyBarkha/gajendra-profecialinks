@@ -28,6 +28,40 @@ module.exports = {
         });
       }
     });
+
+    try {
+      await context.waitForSelector('div[data-comp~="RatingsAndReviews"] img[role="presentation"]', { timeout: 45000 });
+    } catch (error) {
+      console.log('Has not scroll down to ratings and reviews section');
+
+      await context.evaluate(async function () {
+        if (document.querySelector('button[data-at="close_button"]')) {
+          document.querySelector('button[data-at="close_button"]').click();
+        }
+        let scrollTop = 0;
+        while (scrollTop <= 20000) {
+          await stall(500);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(8000);
+            break;
+          }
+        }
+        function stall (ms) {
+          return new Promise(resolve => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+        try {
+          await context.waitForSelector('div[data-comp~="RatingsAndReviews"] img[role="presentation"]', { timeout: 45000 });
+        } catch (error) {
+          console.log('Has not scroll down to ratings and reviews section');
+        }
+      });
+    }
     const itemUrl = await context.evaluate(function() {
       let resultsCheck = '(//h1//text()[not(parent::b)])[1]'
       var checkResults = document.evaluate( resultsCheck, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);

@@ -32,7 +32,7 @@ fields:
   - name: ratingCount2
     singleValue: false
     type: NUMBER
-    xpath: //div[contains(@data-comp,"ReviewsStats")]//img//parent::div//following-sibling::span
+    xpath: (//div[contains(@data-comp,"ReviewsStats")]//img//parent::div//following-sibling::span|//div[contains(@data-comp, "ReviewsStats")]//span[contains(@data-comp, "Text Box StyledComponent BaseComponent")])[1]
   - name: videos
     singleValue: false
     description: URLs of videos on page
