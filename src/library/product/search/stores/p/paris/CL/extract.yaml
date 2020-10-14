@@ -25,9 +25,11 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: false
+    xpath: //div[contains(@class,"box-absolute box-desc-product")]//a//@href
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
+    xpath: //div[contains(@class,"box-image-product")]//img[contains(@class," image-primary loaded")]//@src
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
@@ -85,12 +87,13 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: false
+    xpath: //div[@class="product-tile "]//@data-itemid
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     xpath: //div[@class="item-rating-info"]//font
     description: The stated aggregate rating normalized to be out of 5
