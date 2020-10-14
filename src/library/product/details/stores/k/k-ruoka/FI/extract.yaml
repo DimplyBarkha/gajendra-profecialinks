@@ -19,10 +19,10 @@ fields:
   - name: price
     xpath: //div[@class="shopping-list-side-panel"]//div[@class="price-info"]//span[@class="price"]
   - name: availabilityText
-    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Lisää ostoskoriin")]
+    xpath: //div[@class="shopping-list-side-panel"]//div[@class="product-details-not-available"]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: brandText
     xpath: //script[@id="product-json-ld"]
     regExp: ("@type":"Thing","name":")(\w+)
@@ -82,7 +82,7 @@ fields:
   - name: storage
     xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Säilytys- ja käyttöohjeet")]/parent::h4/following-sibling::p[1]
   - name: countryOfOrigin
-    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Alkuperämaa/valmistusmaa")]/parent::h4/following-sibling::p
+    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Markkinoija")]/parent::h4/following-sibling::p/span[1]
   - name: allergyAdvice
     xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Allergeenit")]/parent::h4/following-sibling::div
   - name: recyclingInformation
