@@ -49,6 +49,9 @@ fields:
   - name: firstVariant
     singleValue: false
     xpath: //button[contains(@class, 'pdp-filter-item color-item')]/@data-genericcolor
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='mainProductDescription']//b[contains(text(),'Spécifications')]/following-sibling::text() |//h2[contains(text(),'Caractéristiques détaillées')]/following-sibling::node()|text()
   - name: color
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"color")]
