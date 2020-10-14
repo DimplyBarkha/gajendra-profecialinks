@@ -106,7 +106,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //div[contains(@class,'product-info__wrapper')]//div[contains(@itemprop,'aggregateRating')]/meta[contains(@itemprop,'ratingValue')]/@content
+    xpath: //div[@id="product-detail-header"]/following-sibling::div//div[@itemprop="aggregateRating"]//meta[@itemprop='ratingValue']/@content
     # xpath: //div[contains(@class,'_3ndHf')]//div[contains(@itemprop,'aggregateRating')]/meta[contains(@itemprop,'ratingValue')]/@content
   - name: currency
     singleValue: true
