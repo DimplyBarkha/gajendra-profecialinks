@@ -49,6 +49,9 @@ fields:
   - name: color
     singleValue: false
     xpath: //ul[@data-widget='colorSelector']//li[@aria-checked='true']/@title  
+  - name: colorCode
+    singleValue: false
+    xpath: //ul[@data-widget='colorSelector']//li[@aria-checked='true']/@title  
   - name: specifications
     singleValue: false
     xpath: //div[contains(@class,'rsx-expandable-section_specs')]//div[@id='dynamic_content']//dl  
