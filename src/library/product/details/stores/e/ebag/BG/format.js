@@ -19,10 +19,20 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
+      if (row.availabilityText) {
+        row.availabilityText.forEach(item => {
+          item.text = item.text.includes('Не е наличен') ? 'Out Of Stock' : 'In Stock'
+        })
+      }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
           item.text = item.text.replace(/.{3}$/, '800');
         });
+      }
+      if (row.ingredientsList) {
+        row.ingredientsList.forEach(item => {
+          item.text = item.text.replace(/^Съставки: (.+)/g, '$1').replace(/\n/g, '')
+        })
       }
       if (row.directions) {
         row.directions.forEach(item => {

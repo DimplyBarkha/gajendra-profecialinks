@@ -16,7 +16,7 @@ fields:
     xpath: //ul[contains(@class,'all-images')]/li[not(contains(@class,'active'))]/img/@src
     regExp: (.+)
     regExpReplace: https://www.ebag.bg$1
-  - name: largeImageCount
+  - name: secondaryImageTotal
     singleValue: false
     xpath: count(//ul[contains(@class,'all-images')]/li[not(contains(@class,'active'))])
   - name: _pageTimestamp
@@ -69,8 +69,6 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //strong[contains(text(),'Съставки')]/parent::p
-    regExp: 'Съставки: (.*)'
-    regExpReplace: $1
   - name: caloriesPerServing
     singleValue: false
     manualSelector: div#caloriesPerServ
@@ -126,6 +124,10 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //p[contains(@class,'ribbon ribbon-promo')]
+  - name: availabilityText
+    singleValue: false
+    xpath: //p[contains(@class, "overlay-inactive-product-text")]
+    defaultValue: 'InStock'
   # - name: weightNet
   #   singleValue: false
   #   xpath: //p[contains(@class,'product-weight')]
@@ -142,10 +144,6 @@ fields:
   #   xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
   #   regExp: sku":"([^"]+)
   #   regExpReplace: $1
-  # - name: availabilityText
-  #   singleValue: false
-  #   xpath: (//*[contains(@id,'availability')] |  //*[contains(@id,'vailability')]//*[contains(text(),'tock')])[1]
-  #   defaultValue: 'InStock'
   #   regExp: ([^()]+)
   #   regExpReplace: $1
   # - name: weightGross
