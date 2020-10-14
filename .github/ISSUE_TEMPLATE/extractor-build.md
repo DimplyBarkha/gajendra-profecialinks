@@ -161,13 +161,13 @@ This branch is now used to commit new changes. Similarly as before, always refer
 - [ ] In workbench, change the source parameter called `state` from `staging` to `preLive`
 - [ ] Use `npm run lint` or `npm run lint:fix` before creating pull request
 - [ ] Create a pull request (PR) for `master` branch. Make sure that the automated merging check is green
-- [ ] Add label `Ready for review`
+- [ ] Add label `Final Review Requested`
 - [ ] Check that the feed is properly imported in the UAT tool
 - [ ] If required, Score card is built and approved
 - [ ] Implement PR feedback and possible required code updates to satisfy the UAT QA and the score card
 - [ ] Commit latest code changes to the branch with a commit message that includes the issue# (`#{:number}`)
 - [ ] PR approved and merged
-- [ ] Remove label `Ready for review`
+- [ ] Remove label `Final Review Requested`
 - [ ] Remove `Pre-Live` Label
 
 ------
