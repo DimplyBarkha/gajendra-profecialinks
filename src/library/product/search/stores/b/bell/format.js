@@ -21,25 +21,19 @@ const transform = (data) => {
     for (const { group } of data) {
         for (const row of group) {
             if (row.id) {
-                row.id.forEach(item => {
-                    var myRegexp = /de\/p\/(\d+\/)/g;
-                    var match = myRegexp.exec(item.text);
-                    if (match) {
-                        if (match.length) {
-                            match[1] = match[1].replace(/\//g, '');
-                            item.text = match[1].trim();
-                        } else {
-                            delete row.id;
-                        }
-                        row.rankOrganic = [{ 'text': rank_count }];
-                        row.rank = [{ 'text': rank_count }];
-                    }
-                    else {
-                        delete row.id;
-                    }
+                row.id.forEach(item => {                    
+                    row.rankOrganic = [{ 'text': rank_count }];
+                    row.rank = [{ 'text': rank_count }];
                 });
                 rank_count = rank_count + 1;
-            }            
+            }
+            /*if (row.price) {
+                let info = [];
+                row.price.forEach(item => {
+                    info.push(item.text.trim());
+                });
+                row.price = [{'text':info.join(''),'xpath':row.price[0].xpath}];
+            }*/
         }
     }
     return cleanUp(data);

@@ -5,9 +5,9 @@ module.exports = {
     country: 'CA',
     store: 'bell',
     domain: 'bell.ca',
-    url: null,
+    url: 'https://www.bell.ca/search#q={searchTerms}',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="coveo-show-if-no-results" and contains(@style,"block")]',
     zipcode: '',
   },
 };

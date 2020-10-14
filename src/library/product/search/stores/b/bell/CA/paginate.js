@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'bell',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div[class="CoveoLoadMore"] button',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div[class="serp-result-rating"]',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'bell.ca',

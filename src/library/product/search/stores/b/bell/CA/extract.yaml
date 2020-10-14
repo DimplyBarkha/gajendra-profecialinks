@@ -1,32 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,'DlNoVpsv8MABrtE8wLdel')]
+recordXPath: //div[@class='CoveoResultList bell-serp-results']//div[@class='coveo-result-list-container coveo-list-layout-container']//div[@class='coveo-list-layout CoveoResult']//div[@class='serp-result serp-result_product serp-result_mobility-device']
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,'DlNoVpsv8MABrtE8wLdel')]/a/@href
+    xpath: //div[@class='serp-result-image-wrap']//a/@href
   - name: name
     singleValue: false
-    xpath: //div[@class='_1ylr7ZqaNStFKeyroKYurg']
-  - name: price
-    singleValue: false
-    xpath: //div[@class='_26Qr4U1N4ID_qGORELpAK0']/span/span[1]/span[2]/span
+    xpath: //div[@class='serp-result-text-wrap']//a[@class='serp-result-title CoveoResultLink']  
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class='_1_c2muMMnJOB3XmA6QskI8']/img/@src
-  - name: brandText
-    singleValue: false
-    xpath: //div[@class='_1BACmaaaExCgnZr-6b9fO']
+    xpath: //div[@class='serp-result-image-wrap']//a//img/@src  
   - name: reviewCount
     singleValue: false
-    xpath: //div[@id="msrc-widget"]//span[contains(@class,'sc-fzqNqU')]    
+    xpath: //div[@itemprop='aggregateRating']//meta[@itemprop='reviewCount']/@content
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@id="msrc-widget"]//div[contains(@class,'sc-fznxsB')]//span[contains(@class,'sc-AxjAm')]    
+    xpath: //div[@itemprop='aggregateRating']//div[@itemprop='ratingValue']
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,'DlNoVpsv8MABrtE8wLdel')]/a/@href
+    xpath: //div[@class='serp-result-rating']//div/@data-bv-product-id
   - name: rankOrganic
     SingleValue: false
   - name: rank
