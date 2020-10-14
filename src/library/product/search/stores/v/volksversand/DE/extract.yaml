@@ -1,0 +1,39 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="listing"]//div[@class="product--box box--basic"]
+fields:
+  - name: id
+    SingleValue: true
+    xpath: //a[@class="product--title"]/@href
+  - name: productUrl
+    SingleValue: true
+    xpath: //a[@class="product--title"]/@href
+  - name: price
+    SingleValue: true
+    xpath: //span[contains(@class,"price--default")]
+  - name: listPrice
+    SingleValue: true
+    xpath: //span[@class="price--pseudo"]
+  - name: thumbnail
+    SingleValue: true
+    xpath: //a[@class="product--title"]//img/@srcset
+  - name: name
+    SingleValue: true
+    xpath: //a[@class="product--title"]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
+  - name: reviewCount
+    singleValue: true
+    xpath: //span[@class="rating--count"]
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[@class="rating--count"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class="product--rating"]/i[@class="icon--star"]/@class
+  - name: aggregateRatingTmp
+    singleValue: false
+    xpath: //span[@class="product--rating"]/i[@class="icon--star-half"]/@class
