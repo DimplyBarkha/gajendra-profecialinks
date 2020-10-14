@@ -43,7 +43,7 @@ fields:
     xpath: //p[@class="stock-status available"] | //div[@class="limited-accessability"]
     # regExp: (.+)
     # regExpReplace: In Stock
-    # defaultValue: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -62,12 +62,15 @@ fields:
     singleValue: false
     description: Product manufacturer
     xpath: //div[contains(@class , "productpage-shop")]//ul/li[contains(text(), "Tillverkare:")]
+    regExp: Tillverkare\:\s(.*)
+    regExpReplace: $1
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
     xpath: //div[contains(@class , "product-name")]/p | //div[@id="bb_description"]
-    regExp: \s(\d+)\sml
-    regExpReplace: $1
+    type: NUMBER
+    # regExp: \s(\d+)\sml
+    # regExpReplace: $1
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page

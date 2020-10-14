@@ -32,12 +32,33 @@ const transform = (data, context) => {
               item.text = item.text.replace(/\//g,'');
             })
           }
+          if (row.description) {
+            row.description.forEach(item => {
+              item.text = item.text.trim();
+            })
+          }
           if (row.listPrice) {
             row.listPrice.forEach(item => {
               if(item.text.includes('Butikspris')){
                   item.text = item.text.replace(/Butikspris\:\s/,'');
               }else if(item.text.includes('Ord. pris')){
                 item.text =  item.text.replace('Ord. pris','').replace('(','').replace(')','').trim();
+              }
+            });
+          }
+          if (row.quantity) {
+            row.quantity.forEach(item => {
+              if(item.text.includes(' ml')){
+                  item.text = item.text.match(/\s(\d+)\sml/g,'$1').replace(' ml','').trim();
+              }else if(item.text.includes(' g')){
+                item.text =  item.text.match(/\s(\d+)\sg/g,'$1').replace(' g','').trim();
+              }
+            });
+          }
+          if (row.promotion) {
+            row.promotion.forEach(item => {
+              if(item.text.includes('Webbpris')){
+                  item.text = '';
               }
             });
           }
