@@ -51,13 +51,7 @@ fields:
     xpath: //ul[@data-widget='colorSelector']//li[@aria-checked='true']/@title  
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,'rsx-expandable-section_specs')]//div[@id='dynamic_content']//dl/dt
-  - name: specificationsValue
-    singleValue: false
-    xpath: //div[contains(@class,'rsx-expandable-section_specs')]//div[@id='dynamic_content']//dl/dd
-  - name: specificationsCheckValue
-    singleValue: false
-    xpath: //div[contains(@class,'rsx-expandable-section_specs')]//div[@id='dynamic_content']//dl/dd/i/parent::*/preceding-sibling::dt[1]     
+    xpath: //div[contains(@class,'rsx-expandable-section_specs')]//div[@id='dynamic_content']//dl  
   - name: weightNet
     singleValue: false
     xpath: //div[@id='dynamic_content']//dt[text()='Weight']//following-sibling::dd[1]
@@ -67,3 +61,9 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@itemprop='ratingValue']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class='rsx-expandable-section rsx-expandable-section_spec-highlights rsx-active']//div[@class='bcx-image-text']
+  - name: enhanced_content
+    singleValue: false
+    xpath: //div[@class='rsx-expandable-section rsx-active']//div[contains(text(),'More about this device')]/parent::*/div[@class='rsx-expandable-section-content']

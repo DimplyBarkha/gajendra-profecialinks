@@ -22,7 +22,22 @@ async function implementation (
   }
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   try {
+    await context.click('div#expandable-section-1');
+  }catch (e) {
+    console.log(e);
+  }
+  try {
+    await context.click('div#expandable-section-2');
+  }catch (e) {
+    console.log(e);
+  }
+  try {
     await context.click('div#expandable-section-3');
+  }catch (e) {
+    console.log(e);
+  }
+  try {
+    await context.click('div#expandable-section-4');
   }catch (e) {
     console.log(e);
   }
