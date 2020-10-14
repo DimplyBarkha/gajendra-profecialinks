@@ -42,15 +42,32 @@ const transform = (data) => {
               item.text = item.text.replace('All', '').trim();
             });
         }
+        if (row.ratingCount) {
+          row.ratingCount.forEach(item => {
+            item.text =  Number(item.text);
+          });
+        }
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
               description_ar.push(item.text);
             });
             if (description_ar.length) {
-              row.description = [{ "text": description_ar.join(" || ") }];
+              row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
             }
         }
+        if (row.specifications) {
+          let specifications_ar = [];
+          row.description.forEach(item => {
+            specifications_ar.push(item.text);
+          });
+          if (specifications_ar.length) {
+            row.specifications = [{ "text": specifications_ar.join(" || "), 'xpath': row.specifications[0].xpath }];
+          }
+        }
+        if (row.descriptionBullets) {
+          row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
+        } 
         if (row.category) {
             let info = [];
             row.category.forEach(item => {

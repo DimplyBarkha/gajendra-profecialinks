@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -6,12 +6,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: //section[@class='product-description']//small[1]
-  - name: variantId
-    singleValue: false
-    xpath: //section[@class='product-description']//small[1]
   - name: price
     singleValue: false
-    xpath: //span[@class="price-wrapper"]
+    xpath: //h4//span[@class="price-wrapper"]
   - name: category
     singleValue: false
     xpath: //div[@id="gnf_breadcrumb"]//ul//li//a
@@ -23,16 +20,30 @@ fields:
     xpath: //div[@class="product-content"]//h1
   - name: image
     singleValue: false 
-    xpath: //ul[@class="product-images"]//img/@src
+    xpath: //ul[@class="product-images"]//li[@class="media-image firstImage"]//img/@src
   - name: imageAlt
     singleValue: false 
-    xpath: //ul[@class="product-images"]//img/@alt
+    xpath: //ul[@class="product-images"]//li[@class="media-image firstImage"]//img/@alt
   - name: shippingInfo
     singleValue: false
     xpath: //div[@class='freeShippingTest innerPanel']
   - name: brandText
     singleValue: false  
     xpath: //div[@class="productBrand-page"]//div[@class="span18"]//div[last()]
+    defaultValue: 'sears'
   - name: description
     singleValue: false
-    xpath: //section[@id='description']//div[@id='p-producer-desc']
+    xpath: //div[@id='productLongDescription']//ul/li
+  - name: specifications
+    singleValue: false
+    xpath: //section[@id='specifications']//table//tr
+  - name: descriptionBullets
+    singleValue: false    
+    xpath: //div[@id='productLongDescription']//ul/li
+  - name: availabilityText
+    singleValue: false
+    defaultValue: 'In Stock'
+    xpath: //div[contains(@data-method,'pickup')]//span[contains(@class,'outlined')]//strong
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='product-nav']//a//span
