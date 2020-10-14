@@ -3,7 +3,7 @@ name: Check list for an extractor build
 about: Create an issue with this template before starting a source build for a any feed type (search, core, media_tracker...)
 title: "{feed_underscored}-{retailer_name}_{country code}"
 labels: Source
-assignees: ''
+assignees: @
 
 ---
 
@@ -69,7 +69,6 @@ In case of any Access trouble please contact immediatly someone at import.io
 - [ ] Assign yourself to this issue 
 - [ ] Add your team's label to this issue
 - [ ] Link issue to the correct project, based on the feed type
-- [ ] Link issue to the correct milestone
 - [ ] From Master, check-out the proper branch as described in the pre-requisites and the build notes above
 - [ ] Change the file `config.yaml` located in `orgs>{org name}` and update the `legacyAccountId` to your import.io-GUID
 
