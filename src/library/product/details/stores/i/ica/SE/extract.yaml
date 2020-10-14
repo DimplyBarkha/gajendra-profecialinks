@@ -29,7 +29,7 @@ fields:
     defaultValue: 0
   - name: countryOfOrigin
     singleValue: false
-    xpath: //div[contains(@class,'gcVnmg')][2]//p[contains(@class,'dRPKpv')]
+    xpath: //div[contains(@class,'gcVnmg')]/strong[contains(text(),'Ursprungsland')]/parent::div/p
   - name: variantId
     singleValue: false
     xpath: //div[contains(@class,'sc-prOVx')]//picture/img/@srcset

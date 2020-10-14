@@ -43,6 +43,9 @@ const transform = (data) => {
             item.text=var2[0];
           });
         }
+        if(row.price){
+          row.price[0]['text']=row.price[0]['text'].replace(',','.');
+        }
         if(row.termsAndConditions){
           if(row.termsAndConditions[0]['text']!=''){
             row.termsAndConditions[0]['text']='Yes';
