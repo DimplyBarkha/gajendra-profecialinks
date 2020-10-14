@@ -34,7 +34,7 @@ const transform = (data) => {
           row.price.forEach(item => {
             let reviewCountData=item.text.replace('Ord. Pris','');
             let reviewCountData1=reviewCountData.split('/');
-            item.text=reviewCountData[0];
+            item.text=reviewCountData1[0];
           });
         }
         row.rank = [{ "text": rank }];
