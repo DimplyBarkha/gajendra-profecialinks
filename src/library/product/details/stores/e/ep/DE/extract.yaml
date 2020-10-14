@@ -20,7 +20,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id="secondaryImages"]
+    xpath: (//img[@class="product-image-thumb"]/@src)[position()>1]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -148,7 +148,8 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    type: NUMBER
+    # type: NUMBER
+    xpath: count(//div[@id="swatches"])
     defaultValue: 0
   - name: color
     singleValue: true

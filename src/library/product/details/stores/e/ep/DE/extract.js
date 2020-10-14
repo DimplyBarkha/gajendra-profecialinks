@@ -148,12 +148,12 @@ async function implementation (
       if (!el.querySelector('.product-classifications-headline')) {
         return;
       }
-      if (el.querySelector('.product-classifications-headline').innerText === 'Netto-Maße') {
+      if ((el.querySelector('.product-classifications-headline').innerText === 'Netto-Maße') || el.querySelector('.product-classifications-headline').innerText.includes('Netto-Artikelmaße')) {
         el.querySelectorAll('tr').forEach(tr => {
-          if (tr.innerText.includes('Gewicht:')) {
-            addHiddenDiv('weightNet', tr.innerText.replace('Gewicht:', ''));
+          if (tr.innerText.includes('Gewicht:') || tr.innerText.includes('Gewicht mit Fuß:')) {
+            addHiddenDiv('weightNet', tr.innerText.replace('Gewicht:', '').replace('Gewicht mit Fuß:', ''));
           }
-          if (tr.innerText.includes('Gewicht:') || tr.innerText.includes('Breite:') || tr.innerText.includes('Höhe:') || tr.innerText.includes('Tiefe:')) {
+          if (tr.innerText.includes('Durchmesser') || tr.innerText.includes('Gewicht') || tr.innerText.includes('Breite') || tr.innerText.includes('Höhe') || tr.innerText.includes('Tiefe')) {
             specifications.push(tr.innerText);
           }
         });
