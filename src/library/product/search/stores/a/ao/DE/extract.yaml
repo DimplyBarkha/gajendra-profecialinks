@@ -52,3 +52,8 @@ fields:
     xpath: //div[contains(@class,'lister__main-content-container')]//ul[contains(@class,'o-flex-container')]/li//meta[@itemprop='position']/@rank
   - name: endorsementText
     description: The text that signifies that a product is endorsed
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    xpath: //li[@data-testid='product-card--featured']

@@ -2,7 +2,7 @@ input:
   keywords: dyson marken
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=275a0f11-843b-4f61-a38f-bc634761a619/task=0dfd8916-5020-46da-a590-28496b855c52/d85bed54-daf3-4beb-a061-322859f1efec.html
+  - html: https://workbench.import.io/html/run=9c56ab76-a055-47d7-98cd-c6d91d1018d0/task=721d560e-5b1e-4fde-9a1d-2b8f186cea0f/a8716b9b-f21d-4626-a259-d4dd6396836c.html
     extractionConfigId: product/search/stores/a/ao/DE/extract
     data:
       - group:
@@ -27,6 +27,44 @@ extractions:
             rank:
               - text: "1"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/meta[1]/@rank
+            sponsored:
+              - text: "true"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]
+                type: BOOLEAN
+                raw: >-
+                  Wir empfehlen
+
+                  4A61DECC-C3DB-4DA4-A757-1B0F1B802D40@1.00x
+
+                  Dyson Pure Humidify+Cool Luftreiniger, Luftbefeuchter und Ventilator mit 360°-Filtrationssystem, 5 l Wassertank und Fernbedienung, geeignet für Reinigungsabdeckung 81 m³/ Befeuchtungsabdeckung 41 m³ - Weiß / Silber
+
+                  2 Jahre Herstellergarantie (Garantiebedingungen)
+
+                  360° HEPA-Filter mit Glasfasern und Aktivkohleschicht - filtert Pollen, Allergene, Bakterien, Schimmel
+
+                  Dyson Link App - die Raumluftqualität kann von unterwegs kontrolliert werden
+
+                  3-in-1 Funktion - Luftreiniger, Luftbefeuchter und Ventilator in einem Gerät
+
+                  Fernbedienung - stellen Sie bequem bis zu 10 Luftstrom-Einstellungen ein
+
+                  €718
+
+                  inkl. MwSt. zzgl. Versand
+
+                  Lieferung möglich ab 16. Oktober **
+
+                  Paketversand
+
+                  Wählen Sie Ihren Wunschtermin
+
+                  Flexible Lieferung von Mo-Sa
+
+                  In den Warenkorb
+
+                  Mehr Info
+                locale: de_DE
+                value: true
           - id:
               - text: "58967"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
@@ -380,8 +418,8 @@ extractions:
               - text: "12"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/meta[1]/@rank
         xpath: /html
-    timestamp: 1602697168415
-  - html: https://workbench.import.io/html/run=275a0f11-843b-4f61-a38f-bc634761a619/task=0dfd8916-5020-46da-a590-28496b855c52/74f1058c-3d22-40e8-86a9-982f9d386168.html
+    timestamp: 1602701755173
+  - html: https://workbench.import.io/html/run=9c56ab76-a055-47d7-98cd-c6d91d1018d0/task=721d560e-5b1e-4fde-9a1d-2b8f186cea0f/de4af140-c06a-4ef8-a9ac-c43a241dff79.html
     extractionConfigId: product/search/stores/a/ao/DE/extract
     data:
       - group:
@@ -607,4 +645,4 @@ extractions:
               - text: "19"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/meta[1]/@rank
         xpath: /html
-    timestamp: 1602697168415
+    timestamp: 1602701755173
