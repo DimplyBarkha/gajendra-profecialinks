@@ -45,10 +45,15 @@ module.exports = {
       });
       addElementToDocument('mm_category', category);
 
-      // Getting list undiscounted price
-      const listPrice = document.querySelector('.old-price-block div').innerText.split('\n');
-      listPrice.pop();
-      addElementToDocument('mm_listPrice', listPrice.join(''));
+      // Getting list price (undiscounted)
+      const listPrice = document.querySelector('.old-price-block div')?.innerText.split('\n');
+      listPrice?.pop();
+      addElementToDocument('mm_listPrice', listPrice?.join(''));
+
+      // Checking if in stock
+      if (document.querySelector('.label-instock')) {
+        addElementToDocument('mm_availabilityText', 'In Stock');
+      }
     });
     await context.extract(productDetails);
   },
