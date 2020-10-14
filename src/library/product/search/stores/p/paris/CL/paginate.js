@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'CL',
     store: 'paris',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div[class*="pagination-top"] div[class*="float-right"] a[class*="active"] + a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'ul#search-result-items',
