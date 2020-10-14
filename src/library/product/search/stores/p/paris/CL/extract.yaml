@@ -53,9 +53,11 @@ fields:
     description: The number of reviews
   - name: price
     singleValue: false
+    xpath: //div[contains(@class,"item-price offer-price price-tc")]
     description: The offered price for the product
   - name: listPrice
     singleValue: false
+    xpath: //div[contains(@class,"item-price price-normal")]//span
     description: The stated undiscounted price for the product
   - name: manufacturer
     singleValue: false
@@ -90,5 +92,6 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per extractor)
   - name: aggregateRating
     singleValue: false
+    xpath: //div[@class="item-rating-info"]//font
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
