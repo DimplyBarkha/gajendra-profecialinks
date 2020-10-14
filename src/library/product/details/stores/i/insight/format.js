@@ -30,7 +30,7 @@ const transform = (data) => {
             alternateImages_info.push(item.text);
           });
           if (alternateImages_info.length) {
-            row.alternateImages = [{ "text": "| " + alternateImages_info.join(" | ") }];
+            row.alternateImages = [{"text":alternateImages_info.join(" | "),'xpath':row.alternateImages[0].xpath }];
           }
         }
         if (row.description) {
@@ -46,7 +46,7 @@ const transform = (data) => {
                 specifications_info.push(item.text);
             });
             if (specifications_info.length) {
-              row.specifications = [{ "text": "|| " + specifications_info.join(" || ") }];
+              row.specifications = [{ "text": specifications_info.join(" || "),'xpath':row.specifications[0].xpath}];
             }
           }
       }
