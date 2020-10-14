@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@id='imgs']/a[1]/img/@src
+  - name: category
+    xpath: //a[@class='cbs' and  position()>1 and @href]
+  - name: nameExtended
+    xpath: //h1
+  - name: price
+    xpath: //div[contains(@class, 'card')]//span[@dir='ltr' and @class='-b -ltr -tal -fs24']
+  - name: availabilityText
+    xpath: //button[@id='add-to-cart']
+    regExp: (.+)
+    regExpReplace: Out of stock
+    defaultValue: In stock
+  - name: description
+    xpath: //div[contains(@class,'markup -pam')]//ul/li
+  - name: brandText
+    xpath: //div[contains(@class,'-pvxs')]/a[@class='_more'][1]
+  - name: sku
+    xpath: //li[contains(., 'SKU')]
+    regExp: SKU:(.+)
+    regExpReplace: $1
+  - name: variantId
+    xpath: //meta[@property='og:url']/@content
+  - name: mpc
+    xpath: //li[contains(., 'Model')]
+    regExp: Model:(.+)
+    regExpReplace: $1
