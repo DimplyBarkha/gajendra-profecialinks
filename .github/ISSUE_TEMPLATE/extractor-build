@@ -8,66 +8,92 @@ assignees: ''
 ---
 ## Pre-requisites
 - Work on the corresponding retailer branch. If such branch does not exists then create it: `git checkout -b {retailer_name}` for the retailer syntax use only lower case and underscore instead of spaces.
-- It is recommended to use VS code with the following optional extension: ESLint
+- Only use one branch per retailer. Even if multiple feed type are on it.
+- For development it is recommended to use VS code with the following optional extension: ESLint. Otherwise any IDE will work.
 - Chrome must be installed
-- The chrome extension [https://chrome.google.com/webstore/detail/xpath-helper/hgimnogjllphhhkhlmebbmlgjoejdpjl](xpath helper) 
+- The chrome extension [xpath helper](https://chrome.google.com/webstore/detail/xpath-helper/hgimnogjllphhhkhlmebbmlgjoejdpjl) is a great help to identify xpaths
 
+In here an issue corresponds to the development of a unique extractor: {feed_underscored}-{retailer_name}_{country code}
 
 ## Build Notes
-- For each issue, make sure to use the retailer branch that references the core feed  and work on that issue's build tasks while on that branch.
- branch template: `{DS-feed-retailer_title}`
- example git branch creation command: `git checkout -b DS-core-amazon`
-- Commit code for tasks as they are completed(if code was needed) to that issue's branch. When starting or continuing work on different issue, make sure to `git checkout master` and create a new branch from master, or `git checkout {branch_name}` if a. branch was already created. 
-- Work on 2 or more issues at once, but make sure to commit changes and `git checkout {branch_name}` your other issue's branch prior to starting the other issue's tasks. This will help avoid merge conflicts.
-- Include issue hash `#` in every commit message. Reference the build task in the commit message.
-commit message template: `{build_task}`
+- For each issue, make sure to use the retailer branch `{retailer_name}`
+- Commit code for tasks as they are completed (if code was needed) to that issue's branch.
+- It is mandatory that you include issue hash number `#{issue_number}` in every commit message
 example commit message command:
 `git commit -m '#58. Created extractor robot.'`
+- If you work on 2 or more issues related to the same retailer, you do not need to change branch and can commit for both issues simultaneously.
+example commit message command:
+`git commit -m '#58#653 Changed goto code'`
+- If you work on 2 or more issues that are from different retailers, you must change branch for each issue task with `git checkout {branch_name}` where `{branch_name}` is your other issue's branch. The change of branch must be done prior to starting the other issue's tasks
 - If your circle ci build fails, we will not merge your PR- you will see this in the 'Review Required ' section of your PR.
 - Make sure that your branch is up to date. That you have pulled and merged master. You will see this in the same section.
-- Use const/let instead of var
+- Follow the linter and regulrlay run `npm run lint` to fix issues
 - Make sure to capitalize the country codes
-- Use url parameterValue in the createUrl file instead of creating your own implementation
 - When making a PR, the PR should be named after your branch ( i.e. `{issue_title}`)
 
+## VERY IMPORTANT NOTES
+- Try as much as possible to re-use code throughout the branch
+- This means using a helper file which is re-used in multiple sources
+- This means using the `extends` command in yaml file to re-use another file
+- This means sharing the same transform.js wherever possible
+- This means writing a single `goto.js` or `setZipcode.js` whenever such files are needed 
 
 ## Communication Notes
-- Before sending the dev team a question, ask someone on your team whether they have dealt with the issue, and google the error
-- If there’s still an issue, instead of DMing the dev team, put it on the Slack `#digitalshelf_dsd` channel or on stack overflow
-- If adding a bug or asking for help on Slack, please add the steps needed to reproduce and a link to this issue and a reference to the code commit where you are seeing the problem. Also please make sure to push up your latest changes.
+- Before sending the dev team a question, ask someone on your team whether they have dealt with the issue, look if a similar issue has been answered in [SO](https://stackoverflow.com/c/import-io) and google the error
+- Ask your questions on [Stack Overflow](https://stackoverflow.com/c/import-io) so everyone can benefit from the answer
+- If there’s still an issue, prefer using slack to emails
+- If adding a bug, posting a question on SO or asking for help on Slack, please add the steps needed to reproduce. This means a link to the workbench source, a command to run locally, the name of the branch with your latest changes pushed to.
 
 ------
 
 ## Build Checklist
+#### Access with your import.io email
+- [ ] Ensure you have access to import.io slack
+- [ ] Ensure you have access to [Stack Overflow](https://stackoverflow.com/c/import-io)
+- [ ] Ensure you have access to [Google classroom](https://classroom.google.com/c/MTY4NTIyNjQwOTMw/m/MTg5MjY2NjQ2MjI4/details)
+- [ ] Ensure you have your import.io-GUID (different from workbench-GUID) example of a import.io-GUID : `214917d7-XXXX-XXXX-XXXX-a463bed96379` (Xs are added for privacy)
+- [ ] Ensure you have your API key example of a an import.io API key : `XXXXXXXXXXce40a49217bfab0c601e565ea02fb27ae489b7617c4fca61d46fe211c247aac7ae04b194355673ae7f642bdd3dd94b056e036ed05367f4780626cc82bfa1f7ae307f946a45342XXXXXXXXX` (Xs are added for privacy)
+- [ ] Ensure you have access to [workbench](https://workbench.import.io/orgs), you should be able to see at least one organization
+- [ ] Ensure you have access to the import.io AWS S3 bucket
+
+
+In case of any Access trouble please contact immediatly someone at import.io
+
 #### GitHub
 - [ ] Ensure the CLI and repository are download correctly
-- [ ] Assign yourself to this issue
+[Mac](https://workbench.import.io/download/cli/latest/mac), [Windows x64](https://workbench.import.io/download/cli/latest/windows/x64), [Windows x86](https://workbench.import.io/download/cli/latest/windows/x64), [Linux Debian amd64](https://workbench.import.io/download/cli/latest/deb/amd64), [Linux Debian armel](https://workbench.import.io/download/cli/latest/deb/armel)
+- [ ] Assign yourself to this issue 
 - [ ] Add your team's label to this issue
 - [ ] Confirm `Source` Label is added
-- [ ] Link issue to the correct project
+- [ ] Link issue to the correct project, based on the feed type
 - [ ] Link issue to the correct milestone
-- [ ] From Master, create a branch that references this issue.
-`git checkout -b {issue_title}`
+- [ ] From Master, check-out the proper branch as described in the pre-requisites and the build notes above
 
 #### Building
 - [ ] Promote Source to `Building` in Project Dash
 - [ ] Add `Building` Label
 - [ ] Create extractor robot
-https://import-io.github.io/import-io-cli-public/#import-io-extractornew
+`import-io extractor:new --org <workbench org slug> --parameters country=<2 letters country code> domain=<sub.domain.top> store=<retailerNameCamelCase> --robot <path/to/template>`
+example:
+`import-io extractor:new --org ascential --parameters country=NZ  domain=dyson.co.nz store=dyson zipcode='' --robot product/search`
 - [ ] Add additional extractor logic as needed
-- [ ] Edit extract.yaml to match expected output schema
-[Data Dictionary/Schema](https://docs.google.com/spreadsheets/d/1mSz64xLBNeojENyaoPJNnYZenDxToZ45jKvqUZayHRc/edit#gid=0)
-- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
+- [ ] Edit extract.yaml to match expected output schema as [presented here](https://classroom.google.com/u/0/w/MTY4NTIyNjQwOTMw/tc/MTUwOTU1ODQ1MzQ3)
+- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`)
 - [ ] Remove `Building` Label
 
 #### Testing
 - [ ] Promote Source to `Testing` in Project Dash
 - [ ] Add `Testing` Label
-- [ ] Run extractor Locally
-https://import-io.github.io/import-io-cli-public/#import-io-actionrunlocal
-- [ ] Run extractor Remotely
-https://import-io.github.io/import-io-cli-public/#import-io-actionrunremote
-- [ ] Manual QA (run locally and remotely as needed to edit)
+- [ ] Create a limited set of 5 testing inputs
+- [ ] Run extractor Locally for each of the 5 input values, output of therun is in `data.json`
+`import-io action:run:local --parameters country=<2 letters country code> domain=<sub.domain.top> store=<retailerNameCamelCase> --action <path/to/template> --inputs <inputName>=<input value>`
+Example:
+`import-io action:run:local --parameters store=courir country=FR domain=courir.com --action product/details --inputs URL="https://www.courir.com/on/demandware.store/Sites-Courir-FR-Site/fr_FR/Product-Variation?pid=1453580&dwvar_1453580_size=29"`
+- [ ] Run extractor Remotely, for each of the 5 input values, output of therun is in `data.json`
+`import-io action:run:remote --parameters country=<2 letters country code> domain=<sub.domain.top> store=<retailerNameCamelCase> --action <path/to/template> --inputs <inputName>=<input value>`
+Example:
+`import-io action:run:remote --parameters store=courir country=FR domain=courir.com --action product/details --inputs URL="https://www.courir.com/on/demandware.store/Sites-Courir-FR-Site/fr_FR/Product-Variation?pid=1453580&dwvar_1453580_size=29"`
+- [ ] Personal QA: run locally and remotely as needed and edit until the data collected is satifactory.
 - [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
 - [ ] Remove `Testing` Label
 
