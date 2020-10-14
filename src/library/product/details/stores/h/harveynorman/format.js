@@ -6,6 +6,7 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
+      for (const i in row) { console.log(i); }
       if (row.image && !row.image[0].text.startsWith('http')) {
         row.image[0].text = `https:${row.image[0].text}`;
       }
@@ -28,17 +29,17 @@ const transform = (data) => {
       }
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(image => {
-          let allImages = image.text.split(', ').map(img => img.trim())
+          const allImages = image.text.split(', ').map(img => img.trim());
           let mainImage;
           if (allImages.length) {
-            mainImage = allImages.find(x => /Desktop/i.test(x))
+            mainImage = allImages.find(x => /Desktop/i.test(x));
             if (!mainImage) {
-              mainImage = allImages.find(x => !(/Mobile/i.test(x)))
+              mainImage = allImages.find(x => !(/Mobile/i.test(x)));
             }
             if (!mainImage) {
-              mainImage = allImages[0].replace(/(.*?)\s.*/, '$1').trim()
+              mainImage = allImages[0].replace(/(.*?)\s.*/, '$1').trim();
             } else {
-              mainImage = mainImage.replace(/(.*?)\s.*/, '$1')
+              mainImage = mainImage.replace(/(.*?)\s.*/, '$1');
             }
           }
           if (mainImage && !mainImage.startsWith('http')) {
@@ -67,6 +68,15 @@ const transform = (data) => {
           text: row.additionalDescBulletInfo.length,
         },
         ];
+      }
+      if (row.videos) {
+        for (const i in row.videos) {
+          const videoUrl = row.videos[i].text;
+          if (videoUrl.includes('player.vimeo')) {
+            console.log(row.videos[i].text + ' is video url');
+            row.videos[i].text = row.videos[i].text.replace(/(.+)(play).+(vimeo.com)(.+)(video)(.+)/g, '$1$3$6');
+          }
+        }
       }
     }
   }
