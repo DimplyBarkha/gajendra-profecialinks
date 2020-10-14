@@ -22,7 +22,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from  )
-    xpath: //dt[contains(text(),'category')]/following-sibling::dd
+    xpath: //html//div[@id='detail-category']
   - name: brandText
     singleValue: true
     description: product brand shown
