@@ -53,6 +53,19 @@ const transform = (data) => {
           },
         ];
       }
+
+
+      if (row.quantity) {
+        let text = '';
+        row.quantity.forEach(item => {
+          text = row.quantity.map(elm => elm.text).join(' | ');
+        });
+        row.quantity = [
+          {
+            text: text,
+          },
+        ];
+      }
       let text = '';
       text = [String(row.nameExtended && row.nameExtended[0].text), String(row.firstVariant && row.firstVariant[0].text), String(row.quantity && row.quantity[0].text)].filter(e => e !== 'undefined').join(' - ');
       row.productDescriptionIm = [

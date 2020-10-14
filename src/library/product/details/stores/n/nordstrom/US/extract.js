@@ -35,18 +35,44 @@ module.exports = {
         });
       }
 
-      const variants = dataArr.filters && dataArr.filters.color && dataArr.filters.color.byId;
-      const checkvariants = variants && variants[Object.keys(variants)[0]] && variants[Object.keys(variants)[0]].value;
-      if (checkvariants) {
-        const variantID = dataArr.filters && dataArr.filters.color && dataArr.filters.color.allIds;
-        variantID.map(ele => {
-          const element = document.createElement('a');
-          element.setAttribute('class', 'appendedvariantid');
-          element.href = ele;
-          document.body.appendChild(element);
-        });
-      }
 
+
+      var variantArr = [];
+      var variantCount = 0;
+      var variants = window.__INITIAL_CONFIG__.stylesById.data;
+      if (Object.keys(variants).length) {
+        var checksize = variants && variants[Object.keys(variants)[0]] && variants[Object.keys(variants)[0]].filters && variants[Object.keys(variants)[0]].filters.size && variants[Object.keys(variants)[0]].filters.size.byId;
+        var checkcolour = variants && variants[Object.keys(variants)[0]].filters && variants[Object.keys(variants)[0]].filters.color && variants[Object.keys(variants)[0]].filters.color.allIds;
+        if (Object.keys(checksize).length && checkcolour.length > 1) {
+          for (const property in checksize) {
+            const variantId = `${property} - ${checksize[property].isAvailableWith.substring(0, checksize[property].isAvailableWith.length - 1).replace(/_c:/g, '')}`
+            var variantCount = variantCount +  Number(`${checksize[property].relatedSkuIds.length}`);
+            variantArr.push(variantId);
+            console.log(variantId);
+          }
+        }
+        if (checkcolour.length && !Object.keys(checksize).length) {
+          variantArr = checkcolour;
+          variantCount = variantArr.length
+        }
+        if (checkcolour.length === 1) {
+          for (const property in checksize) {
+            const variantId = `${property}`
+            variantArr.push(variantId);
+            variantCount = variantArr.length
+            console.log(`${property}`);
+          }
+        }
+      }
+      variantArr.map(ele => {
+        const element = document.createElement('a');
+        element.setAttribute('class', 'appendedvariantid');
+        element.href = ele;
+        document.body.appendChild(element);
+      });
+      if(variantCount > 1) {
+        document.body.setAttribute('variant_count',variantCount.toString())
+      }
       const finalArray = [];
       const rpc = dataArr && dataArr.skus && dataArr.skus.allIds && dataArr.skus.allIds[0] ? dataArr.skus.allIds[0] : '';
       const size = dataArr && dataArr.filters && dataArr.filters.size && dataArr.filters.size.allIds[0] ? dataArr.filters.size.allIds[0] : '';

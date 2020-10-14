@@ -63,17 +63,15 @@ fields:
   - name: variants
     xpath: //a[@class='appendedvariantid']/@href
   - name: variantCount
-    xpath: count(//a[@class='appendedvariantid']/@href)
+    xpath: //body/@variant_count
   - name: color
     xpath: //img[contains(@alt,'selected')]/@alt
     regExp: selected\s(.+)\scolor
     regExpReplace: $1
   - name: quantity
-    xpath: //span[contains(text(),'Size Info')]/following-sibling::ul | //body/@size
+    xpath: //span[contains(text(),'Size Info')]/following-sibling::ul | //body/@size | //button[@class="_1oaUx"]
   - name: additionalDescBulletInfo
     xpath: //div[contains(text(),"Details & Care")]/following-sibling::ul/li
-  - name: quantity
-    xpath: //span[contains(text(),'Size Info')]/following-sibling::ul
   - name: shippingDimensions
     xpath: //div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x')]
   - name: warranty
