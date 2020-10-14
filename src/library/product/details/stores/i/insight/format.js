@@ -24,15 +24,6 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (const row of group) {
-        if (row.alternateImages) {
-          let alternateImages_info = [];
-          row.alternateImages.forEach(item => {
-            alternateImages_info.push(item.text);
-          });
-          if (alternateImages_info.length) {
-            row.alternateImages = [{"text":alternateImages_info.join(" | "),'xpath':row.alternateImages[0].xpath }];
-          }
-        }
         if (row.description) {
             let description_info = [];
             row.description.forEach(item => {
