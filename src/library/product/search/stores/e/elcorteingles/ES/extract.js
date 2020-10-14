@@ -18,11 +18,11 @@ module.exports = {
       var newElement = document.createElement('DIV');
       newElement.setAttribute('class', 'page-link');
       newElement.innerHTML = window.location.href;
-      if (newElement) {
+      if (newElement.innerHTML) {
         document.body.appendChild(newElement);
       }
-      const productTiles = document.querySelectorAll('.products_list-item');
-      if (productTiles) {
+      const productTiles = document.querySelectorAll('.js-product');
+      if (productTiles.length > 1) {
         productTiles.forEach((tile) => {
           tile.scrollIntoView();
         });

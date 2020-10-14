@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[contains(@class,"products_list")]/li
+recordXPath: //ul[contains(@class,"products_list")]/li[@class="products_list-item"]
 fields:
   - name: id
     xpath: //li[@class="products_list-item"]/span/@data-json

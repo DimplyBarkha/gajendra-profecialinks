@@ -7,7 +7,7 @@ module.exports = {
     domain: 'elcorteingles.es',
     url: 'https://www.elcorteingles.es/supermercado/buscar/?term={searchTerms}&search=text',
     loadedSelector: 'div.product_tile-prices',
-    noResultsXPath: '//p[contains(text(),"No se han encontrado ") or contains(text(),"no se han encontrado ")] | //span[contains(text(),"No hemos encontrado nada buscando") ]',
+    noResultsXPath: '//p[contains(text(),"No se han encontrado ") or contains(text(),"no se han encontrado ")] | //span[contains(text(),"No hemos encontrado nada buscando") ] | //div[contains(@class,"_padded _extra_mb")]',
   },
   implementation: async (
     inputs,
