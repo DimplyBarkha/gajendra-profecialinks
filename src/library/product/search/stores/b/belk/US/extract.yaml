@@ -9,30 +9,40 @@ fields:
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER 
-    xpath: count(*/preceding-sibling::*[@data-itemid])
+    xpath: count(preceding-sibling::*[@data-tile-pid])
   - name: name
     description: The product name
+    xpath: //*[@class="product-link"]/h4
   - name: productUrl
     description: The URL for the product details page
+    xpath: //*[@class="product-link"][h4]/@href
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
     description: The URL for the product thumbnail image
+    xpath: //a[@class="thumb-link"]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //meta[@itemprop="ratingValue"]/@content
   - name: reviewCount
     description: The number of reviews
     type: NUMBER
+    xpath: //meta[@itemprop="reviewCount"]/@content
   - name: ratingCount
     description: The number of ratings
+    xpath: //meta[@itemprop="reviewCount"]/@content
   - name: price
     description: The offered price for the product
+    xpath: //div[@class="product-price-with-coupon" or @class="product-standard-price"]
   - name: manufacturer
     description: Product manufacturer
   - name: soldBy
     description: The name of the seller of the item (if available)
   - name: rank
     description: search/listing rank
+    xpath: count(preceding-sibling::*[@data-tile-pid])
   - name: endorsementText
     description: The text that signifies that a product is endorsed
