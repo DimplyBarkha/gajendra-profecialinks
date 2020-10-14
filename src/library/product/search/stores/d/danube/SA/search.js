@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'danube.sa',
-    timeout: 120000,
     country: 'SA',
     store: 'danube',
+    domain: 'danube.sa',
     zipcode: '',
   },
 };
