@@ -139,7 +139,8 @@ const transform = (data, context) => {
           }];
         }
       }
-
+      delete row.sponsorReplace;
+      delete row.domain;
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
