@@ -271,6 +271,8 @@ fields:
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Energie")]/div)[2]
+    regExp: \(([0-9,.]+) kcal\)
+    regExpReplace: $1
   - name: caloriesFromFatPerServing
     singleValue: false
     description: Nutritional Information for Calories From Fat content - Usually

@@ -19,20 +19,23 @@ const transform = (data, context) => {
 
   for (const { group } of data) {
     for (let row of group) {
-
-      if (row.nameExtended1 && row.nameExtended1[0].text) {
-        row.nameExtended = [{text: row.nameExtended1[0].text}];
+     
+      if (row.nameExtended && row.nameExtended1 && row.nameExtended1[0].text) {
+        row.nameExtended = [{text: `${row.nameExtended[0].text} ${row.nameExtended1[0].text}`}];
+      }
+      else if(row.nameExtended1 && row.nameExtended1[0].text){
+        row.nameExtended = [{text: `${row.nameExtended1[0].text}`}];
       }
       if (row.nameExtended && row.nameExtended2 && row.nameExtended2[0].text) {
-        row.nameExtended[0].text = `${row.nameExtended[0].text} ${row.nameExtended1[0].text}`;
+        row.nameExtended[0].text = `${row.nameExtended[0].text} ${row.nameExtended2[0].text}`;
       }
-      if (row.brandText && row.brandText[0].text) {
+      if (row.nameExtended && row.brandText && row.brandText[0].text) {
         row.nameExtended[0].text = `${row.brandText[0].text} ${row.nameExtended[0].text}`;
       }
 
       if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0].text.length > 1) {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
-      }
+      }      
 
       if (row.videos) {
         let videoArray = [];
