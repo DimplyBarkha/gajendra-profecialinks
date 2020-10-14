@@ -9,6 +9,47 @@ module.exports = {
     domain: 'sephora.com',
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+
+    const itemUrl = await context.evaluate(function() {
+      let resultsCheck = '(//h1//text()[not(parent::b)])[1]'
+      var checkResults = document.evaluate( resultsCheck, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      if(checkResults.snapshotLength > 0){
+        let checkNone = checkResults.snapshotItem(0).textContent;
+        if(checkNone === "0 Product results:"){
+          // throw new Error("notFound");
+          console.log("NO PRODUCTS FOUND")
+        }
+      }
+
+      let itemCheck = '//div[@data-comp="ProductGrid "]//a'
+      var checkElement = document.evaluate( itemCheck, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      if( checkElement.snapshotLength > 0 ) {
+        let url = checkElement.snapshotItem(0).href
+        let splits = url.split("&")
+        return splits[0]
+      } else {
+        return null
+      }
+    })
+    if(itemUrl){
+      await context.goto(itemUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+    }
+
+    const pageCheck = await context.evaluate(function() {
+      let pageLoaded = '//main[contains(@data-comp, "ProductPage")]'
+      var checkElement = document.evaluate( pageLoaded, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      if( checkElement.snapshotLength > 0 ) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    if(!pageCheck){
+      // throw new Error("productPageNotLoaded");
+      
+    }
+
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop <= 20000) {
@@ -62,47 +103,6 @@ module.exports = {
         }
       });
     }
-    const itemUrl = await context.evaluate(function() {
-      let resultsCheck = '(//h1//text()[not(parent::b)])[1]'
-      var checkResults = document.evaluate( resultsCheck, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      if(checkResults.snapshotLength > 0){
-        let checkNone = checkResults.snapshotItem(0).textContent;
-        if(checkNone === "0 Product results:"){
-          // throw new Error("notFound");
-          console.log("NO PRODUCTS FOUND")
-        }
-      }
-
-      let itemCheck = '//div[@data-comp="ProductGrid "]//a'
-      var checkElement = document.evaluate( itemCheck, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      if( checkElement.snapshotLength > 0 ) {
-        let url = checkElement.snapshotItem(0).href
-        let splits = url.split("&")
-        return splits[0]
-      } else {
-        return null
-      }
-    })
-    if(itemUrl){
-      await context.goto(itemUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
-    }
-
-    const pageCheck = await context.evaluate(function() {
-      let pageLoaded = '//main[contains(@data-comp, "ProductPage")]'
-      var checkElement = document.evaluate( pageLoaded, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      if( checkElement.snapshotLength > 0 ) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-
-    if(!pageCheck){
-      // throw new Error("productPageNotLoaded");
-      
-    }
-
-
     // await context.captureRequests();
 
     const videos = await context.evaluate(function () {
