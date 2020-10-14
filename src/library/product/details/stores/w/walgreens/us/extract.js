@@ -73,11 +73,26 @@ module.exports = {
     if (manufacturerInfo.length !== 0) {
       await context.waitForSelector('li#prodbv', { timeout: 55000 });
       await context.waitForSelector('li#prodCollage', { timeout: 55000 });
+      await context.evaluate(async () => {
+      if(document.querySelector("li#prodCollage")) {
+        console.log("found: li#prodCollage");
+      }
+      });
       await new Promise(resolve => setTimeout(resolve, 8000));
       autoScroll();
       await context.waitForSelector('li#prodCollage > div.inner', { timeout: 55000 });
+      await context.evaluate(async() => {
+        if(document.querySelector("li#prodCollage > div.inner")) {
+          console.log("found: li#prodCollage > div.inner");
+       }
+     });
       try {
         await context.waitForSelector('li#prodCollage a.view-more-trigger', { timeout: 55000 });
+        await context.evaluate(async () => {
+          if(document.querySelector("li#prodCollage a.view-more-trigger")) {
+          console.log("found: li#prodCollage a.view-more-trigger");
+        }
+        });
       } catch (error) {
         if (noManufacturerContent) {
           console.log('No manufacturer content loading');
@@ -88,16 +103,17 @@ module.exports = {
 
       if (!noManufacturerContent && loadMoreManufacturer) {
         await context.waitForSelector('div#wc-aplus', { timeout: 55000 });
-        await context.waitForSelector('div.wc-fragment');
+        await context.waitForSelector('div.wc-fragment', { timeout: 35000 });
       }
     }
 
     if (loadCustomerRatingsReviews) {
-      await context.waitForSelector('div.bv-cleanslate');
+      await context.waitForSelector('div.bv-cleanslate', { timeout: 30000 });
     }
 
     const extractAll = async (id, url, variants) => {
       const extract = async (variantXpath) => {
+        await context.waitForSelector('.product__price', { timeout: 15000}); // wait till the page loads
         await context.evaluate(async ([{ id: _input }, _url, variantXpath]) => {
           async function ignorePopups () {
             const closeModal = () => {
@@ -149,7 +165,7 @@ module.exports = {
           };
 
           // wait for full loading
-          await new Promise(resolve => setTimeout(resolve, 5e3));
+          //await new Promise(resolve => setTimeout(resolve, 5e3));
 
           await ignorePopups();
 
@@ -588,8 +604,9 @@ module.exports = {
       };
     };
 
+    
     const variantArray = await context.evaluate(async () => {
-      await new Promise(resolve => setTimeout(resolve, 5000));
+      //await new Promise(resolve => setTimeout(resolve, 5000));
       const jsonObj = (window.__ATC_APP_INITIAL_STATE__ && window.__ATC_APP_INITIAL_STATE__.product && window.__ATC_APP_INITIAL_STATE__.product.results) ? window.__ATC_APP_INITIAL_STATE__.product.results : {};
       const getXpathByText = (xpath, attribute, text) => {
         const classCheat = `[contains(concat(' ',normalize-space(@${attribute}),' '),'${text}')]`;
