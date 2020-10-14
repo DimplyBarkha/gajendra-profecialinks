@@ -6,6 +6,6 @@ module.exports = {
     store: 'drankdozijn',
     domain: 'drankdozijn.nl',
     loadedSelector: 'article.product-details',
-    noResultsXPath: '//h1[@class="header-404"]',
+    noResultsXPath: '//h1[@class="header-404"] | //div[@class="home"]',
   },
 };

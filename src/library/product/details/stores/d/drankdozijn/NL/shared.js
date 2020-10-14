@@ -7,9 +7,10 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.aggregateRating) {
+        const normalizedRating = Math.round((parseFloat(row.aggregateRating[0].text) / 2) * 10) / 10;
         row.aggregateRating = [
           {
-            text: Math.round((parseFloat(row.aggregateRating[0].text) / 2) * 10) / 10,
+            text: normalizedRating ? normalizedRating.toString().replace('.', ',') : '',
           },
         ];
       }
