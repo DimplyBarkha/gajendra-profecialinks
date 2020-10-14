@@ -36,7 +36,8 @@ example commit message command:
 - This means using a helper file which is re-used in multiple sources
 - This means using the `extends` command in yaml file to re-use another file
 - This means sharing the same transform.js wherever possible
-- This means writing a single `goto.js` or `setZipcode.js` whenever such files are needed 
+- This means writing a single `goto.js` or `setZipcode.js` whenever such files are needed
+- [Follow the best practises](https://docs.google.com/document/d/1rofgekA37Wmj-RZH7wkp6KGjZ09qslUCUjaCJ-OCncU/edit#)
 
 ## Communication Notes
 - Before sending the dev team a question, ask someone on your team whether they have dealt with the issue, look if a similar issue has been answered in [SO](https://stackoverflow.com/c/import-io) and google the error
@@ -59,15 +60,15 @@ example commit message command:
 
 In case of any Access trouble please contact immediatly someone at import.io
 
-#### GitHub
+#### Set-up
 - [ ] Ensure the CLI and repository are download correctly
 [Mac](https://workbench.import.io/download/cli/latest/mac), [Windows x64](https://workbench.import.io/download/cli/latest/windows/x64), [Windows x86](https://workbench.import.io/download/cli/latest/windows/x64), [Linux Debian amd64](https://workbench.import.io/download/cli/latest/deb/amd64), [Linux Debian armel](https://workbench.import.io/download/cli/latest/deb/armel)
 - [ ] Assign yourself to this issue 
 - [ ] Add your team's label to this issue
-- [ ] Confirm `Source` Label is added
 - [ ] Link issue to the correct project, based on the feed type
 - [ ] Link issue to the correct milestone
 - [ ] From Master, check-out the proper branch as described in the pre-requisites and the build notes above
+- [ ] Change the file `config.yaml` located in `orgs>{org name}` and update the `legacyAccountId` to your import.io-GUID
 
 #### Building
 - [ ] Promote Source to `Building` in Project Dash
@@ -78,7 +79,7 @@ example:
 `import-io extractor:new --org ascential --parameters country=NZ  domain=dyson.co.nz store=dyson zipcode='' --robot product/search`
 - [ ] Add additional extractor logic as needed
 - [ ] Edit extract.yaml to match expected output schema as [presented here](https://classroom.google.com/u/0/w/MTY4NTIyNjQwOTMw/tc/MTUwOTU1ODQ1MzQ3)
-- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`)
+- [ ] Commit latest code changes to branch with a commit message that includes the issue# (`#{:number}`)
 - [ ] Remove `Building` Label
 
 #### Testing
@@ -93,58 +94,82 @@ Example:
 `import-io action:run:remote --parameters country=<2 letters country code> domain=<sub.domain.top> store=<retailerNameCamelCase> --action <path/to/template> --inputs <inputName>=<input value>`
 Example:
 `import-io action:run:remote --parameters store=courir country=FR domain=courir.com --action product/details --inputs URL="https://www.courir.com/on/demandware.store/Sites-Courir-FR-Site/fr_FR/Product-Variation?pid=1453580&dwvar_1453580_size=29"`
-- [ ] Personal QA: run locally and remotely as needed and edit until the data collected is satifactory.
-- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
+- [ ] Personal QA1: run locally and remotely as needed and edit until the data collected is satifactory.
+- [ ] Commit latest code changes to branch with a commit message that includes the issue# (`#{:number}`)
 - [ ] Remove `Testing` Label
 
 
-#### Internal Deployment
+#### Development
 - [ ] Promote Source to `Internal Deployment` in Project Dash
 - [ ] Add `Development` Label
-- [ ] Create a Workbench source in the Development(internal) collection
-- [ ] Deploy to `development` branch
-https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
-- [ ] Link `development` extractor GUID to Development(internal) collection > source in workbench
-- [ ] Confirm source params are set up properly in workbench. Source `state` should be `development`
-- [ ] Scale/High Volume run
-- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
+- [ ] Use `npm run lint` or `npm run lint:fix` before creating pull request
+- [ ] Create a pull request (PR) but not for `master` branch. Instead the base branch must be `internal`. Make sure that the automated merging check is green
+- [ ] Add label `Ready for internal review`
+- [ ] Deploy extractor, this will generate an extractor ID located in a file called `exractor.yaml` within the orgs folder
+`import-io extractor:deploy -o <workbench org slug> -p product/<first letter of retailer>/<retailerName>/<country code>/<extractor type> -b <team name>`
+example:
+`import-io extractor:deploy -o ascential -p product/d/dyson/NL/details -b importio`
+- [ ] Create a Workbench source in the appropriate project(s) and appropriate collection(s), contact SA if doubts
+- [ ] Confirm source params are set up properly in workbench.
+- [ ] In workbench, the source parameter called `state` be set to `development`
+- [ ] Copy the extractor ID to the appropriate field in the newly created source(s)
+- [ ] Create a `.csv` file with a sample set of inputs. The sample set must have a minimum of 50 unique inputs and a maximum of 100 inputs.
+- [ ] Upload sample input file to the appropriate path in the import.io AWS S3 bucket
+- [ ] Implement PR feedback
+- [ ] Commit latest code changes to branch with a commit message that includes the issue# (`#{:number}`)
+- [ ] Merge with `internal` branch, create a new branch from `internal`:
+`git checkout internal`
+`git checkout -b {retailer_name-internal}`
+Or pull from ealready existing branch  `git checkout {retailer_name-internal}` and fetch latest commit to be up to date with `internal` branch.
+This branch is now used to commit new changes. Similarly as before, always reference the issue number in the commit message.
+- [ ] Remove label `Ready for internal review`
+- [ ] Promote Source to `Internal testing` in Project Dash
+- [ ] Personal QA2 : run the appropriate flow (ask SA in case of doubts) to test the source with the sample inputs and modify code if necessary
+- [ ] When personal QA is satisfactory remove `Development` Label
 
 #### Staging Deployment
-- [ ] Promote Source to `Staging Deployment` in Project Dash
-- [ ] Remove `Development` Label
+- [ ] Promote Source to `Staging` in Project Dash
 - [ ] Add `Staging` Label
-- [ ] Create a Workbench source in the Production(external) collection
-- [ ] Deploy to `staging` branch
-https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
-- [ ] Link `staging` extractor GUID to Production(external) collection > source in workbench
-- [ ] Confirm source params are set up properly in workbench. Source `state` should be `staging`
-- [ ] Scale/High Volume test
-- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
-
-#### Final Review
-- [ ] Promote Source to `Final Review` in Project Dash
-- [ ] Add `Final Review Requested` Label
-- [ ] SA QA approval Complete
-- [ ] Remove `Final Review Requested` Label
-
-#### Pull Request
-- [ ] Promote Source to `Pull Request` in Project Dash
-- [ ] Add `Pull Request` Label
-- [ ] `npm run lint` or `npm run lint:fix` before creating pull request
-- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to linting
-- [ ] Create pull request named after your branch ( i.e. `{issue_title}`)
-- [ ] Ensure pull request is linked to this issue
-- [ ] Ensure pull request passes build
-- [ ] Add `Review Ready` Label to Pull request
-- [ ] Confirm PR is approved/closed and changes were merged with master
+- [ ] In workbench, change the source parameter called `state` from `development` to `staging`
+- [ ] Create a `.csv` file with the full set of inputs
+- [ ] Upload full input file to the appropriate path in the import.io AWS S3 bucket
+- [ ] In workbench, change the source parameter called `state` from `staging` to `scaleTest`
+- [ ] System runs automated flow at scheduled time on the full input file, when this is done collect the resulting output `.csv` file
+- [ ] In workbench, revert the source parameter called `state` from `scaleTest` back to `staging`
+- [ ] Manual QA1 : Submit the scale test output csv for manual QA file according to SA instructions
+- [ ] Add `Q1` Label
+- [ ] Update sample input file to include the input rows tested by manual QA1
+- [ ] Additional testing is done with a manual flow on the sample input file. Update extractor code to match expected accuracy level
+- [ ] Commit latest code changes to the branch with a commit message that includes the issue# (`#{:number}`)
+- [ ] (only necessary if QA1 did not match accuracy acceptance level) In workbench, change the source parameter called `state` from `staging` to `scaleTest`
+- [ ] (only necessary if QA1 did not match accuracy acceptance level) System runs automated flow at scheduled time on the full input file, when this is done collect the resulting output `.csv` file
+- [ ] (only necessary if QA1 did not match accuracy acceptance level) In workbench, revert the source parameter called `state` from `scaleTest` back to `staging`
+- [ ] (only necessary if QA1 did not match accuracy acceptance level) Manual QA2 : Submit the scale test output csv for manual QA file according to SA instructions
+- [ ] (only necessary if QA1 did not match accuracy acceptance level) Add `Q2` Label
+- [ ] (only necessary if QA1 did not match accuracy acceptance level) Update sample input file to include the input rows tested by manual QA2
+- [ ] (only necessary if QA1 did not match accuracy acceptance level) Additional testing is done with a manual flow on the sample input file. Update extractor code to match expected accuracy level
+- [ ] (only necessary if QA1 did not match accuracy acceptance level) Commit latest code changes to the branch with a commit message that includes the issue# (`#{:number}`)
+- [ ] Accuracy level on sample input file and on QA1 or QA2 is above acceptance threshold
 - [ ] Remove `Staging` Label
-- [ ] Remove `Pull Request` Label
+
+#### Pre-Live
+- [ ] Promote Source to `Pre-Live` in Project Dash
+- [ ] Add `Pre-Live` Label
+- [ ] In workbench, change the source parameter called `state` from `staging` to `preLive`
+- [ ] Use `npm run lint` or `npm run lint:fix` before creating pull request
+- [ ] Create a pull request (PR) for `master` branch. Make sure that the automated merging check is green
+- [ ] Add label `Ready for review`
+- [ ] Check that the feed is properly imported in the UAT tool
+- [ ] If required, Score card is built and approved
+- [ ] Implement PR feedback and possible required code updates to satisfy the UAT QA and the score card
+- [ ] Commit latest code changes to the branch with a commit message that includes the issue# (`#{:number}`)
+- [ ] PR approved and merged
+- [ ] Remove label `Ready for review`
+- [ ] Remove `Pre-Live` Label
 
 ------
 
 #### Production
 - [ ] Promote Source to `Production` in Project Dash
+- [ ] In workbench, change the source parameter called `state` from `preLive` to `productionReady`
 - [ ] Add `Production` Label
-- [ ] Ensure extractor gets deployed to the `production` branch in the daily production deployment
-- [ ] Link production extractor GUID to production source in workbench
-- [ ] Confirm source params are set up properly in workbench. Source `state` should be `production`
