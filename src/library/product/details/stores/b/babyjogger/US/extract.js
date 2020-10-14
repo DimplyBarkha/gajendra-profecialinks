@@ -25,14 +25,16 @@ module.exports = {
       for (let index = 0; index < image_rows.length; index++) {
         image_rows[index].click()
         await timeout(2000)
-        var variantUrl = window.location.href;
+        var variantUrl = window.location.href.replace(new RegExp('(.+SAP_)(.+)(\.ht.+)', 'g'), '$2');
+        var colour = document.querySelector(".color-display-value.order-3.ml-1") ? document.querySelector(".color-display-value.order-3.ml-1").textContent: '';
+        var data =  colour.concat("-",variantUrl)
         variantArr.push(variantUrl);
         let div = document.createElement('div');
         div.className = 'variant';
         let getInput = document.createElement('input');
         div.appendChild(getInput);
         document.body.appendChild(div);
-        getInput.setAttribute("value", variantUrl);
+        getInput.setAttribute("value", data);
         await timeout(5000)
       }
       selectedProduct.click();
