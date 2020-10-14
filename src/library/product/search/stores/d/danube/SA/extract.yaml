@@ -21,7 +21,7 @@ fields:
     manualSelector: div.product-price__current-price
   - name: listPrice
     singleValue: false
-    description: The stated undiscounted price for the product
+    manualSelector: div.product-price__original-price > span.product-price__original-price__span
   - name: id
     singleValue: false
     xpath: //input[@name="variant_id"]/@value
