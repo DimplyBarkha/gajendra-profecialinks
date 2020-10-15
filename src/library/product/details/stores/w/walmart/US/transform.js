@@ -44,7 +44,7 @@ const transform = (data, context) => {
           row.productUrl = [{ text: `https://www.walmart.com/ip/${row.variantId[0].text}` }];
         }
         if (row.lbb) {
-          if (row.lbb[0] && row.lbb[0].text.includes('Walmart')) {
+          if (!row.otherSellersName || (row.otherSellersName && row.otherSellersName.length < 2)) {
             row.lbb = [{ text: 'No' }];
           } else if (row.otherSellersName && row.otherSellersPrice) {
             if (!row.otherSellersName.map(item => item.text).join(' ').includes('Walmart')) {
@@ -62,13 +62,17 @@ const transform = (data, context) => {
                 row.lbbPrice = [{ text: Math.min(...allPrices) }];
               }
             }
-          } else {
+          } else if (row.price) {
             row.lbb = [{ text: 'Yes' }];
+            row.lbbPrice = [{ text: row.price[0].text.trim() }];
           }
+        } else if (!row.otherSellersName || (row.otherSellersName && row.otherSellersName.length < 2)) {
+          row.lbb = [{ text: 'No' }]; 
         }
-        if (row.lbb && row.lbb[0].text.includes('Yes') && row.price) {
-          row.lbbPrice = [{ text: row.price[0].text.trim() }];
-        }
+
+        // if (row.lbb && row.lbb[0].text.includes('Yes') && row.price) {
+        //   row.lbbPrice = [{ text: row.price[0].text.trim() }];
+        // }
         if (row.shippingInfo && row.shippingInfo[0].text !== '') {
           row.shippingInfo = [{ text: row.shippingInfo[0].text.trim().replace('Walmart.com', 'Walmart') }];
         } else
