@@ -22,7 +22,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//table//tbody//tr[@class="border-gray-30"]//th[span[contains(text(),'Category')]])[2]/following-sibling::td//span
+    xpath: (//ul[@id="breadcrumb"]//li)//following-sibling::li
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -49,6 +49,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //h1[@id="pageTitle"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -62,6 +63,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //html//div[@id='detail-manufacturer']
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -91,8 +93,7 @@ fields:
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
-    xpath: count((//table)[12]//tbody//tr)
+      the site to quantity
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
