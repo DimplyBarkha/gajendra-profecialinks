@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'cdw',
     domain: 'cdw.com',
-    url: 'https://www.cdw.com/search/?key=cable',
+    url: 'https://www.cdw.com/search/?key={searchTerms}',
     loadedSelector: 'div.search-results',
     noResultsXPath: '//div[@class="no-results-error-message"]',
     zipcode: '',
