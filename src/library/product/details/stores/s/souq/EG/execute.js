@@ -5,8 +5,8 @@ module.exports = {
     country: 'EG',
     store: 'souq',
     domain: 'egypt.souq.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class="tpl-results"]',
+    noResultsXPath: '//div[contains(@class , "zero-results")] | //div[contains(@class,"warning callout zero-results")]',
     zipcode: '',
   },
 };
