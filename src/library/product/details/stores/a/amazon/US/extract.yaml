@@ -227,7 +227,7 @@ fields:
     defaultValue: 'NO'
   - name: variantAsins
     singleValue: false
-    xpath: //div[@id="my-variants"]
+    xpath: //div[@id="my-variants"]/ul/li
     #xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
   - name: firstVariant
     singleValue: false
@@ -436,8 +436,8 @@ fields:
     singleValue: true
     xpath: //div[@id='newerVersion_feature_div']//a[not(child::img)]
   - name: variants
-    singleValue: true
-    xpath: //div[@id="my-variants"]
+    singleValue: false
+    xpath: //div[@id="my-variants"]/ul/li
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@id="feature-bullets"]//ul/li

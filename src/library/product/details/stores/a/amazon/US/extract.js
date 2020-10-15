@@ -63,7 +63,8 @@ async function implementation (
   const variants = await amazonHelp.getVariants();
 
   if (variants && variants.length) {
-    helpers.addItemToDocument('my-variants', variants.join(' | '));
+    // helpers.addItemToDocument('my-variants', variants.join(' | '));
+    helpers.addItemToDocument('my-variants', variants);
   }
 
   await context.evaluate(() => {

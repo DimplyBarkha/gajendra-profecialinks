@@ -59,7 +59,7 @@ const transform = (data, context) => {
           const array = sg(item).toString().split('SL1500');
           return array.length === 0 ? 0 : array.length;
         },
-        alternateImages: array => joinArray(array.map(item => item.text)),
+        // alternateImages: array => joinArray(array.map(item => item.text)),
         videos: item => doubleRegexSearch(/"url":"([^"]+)/g, /(https.+mp4)/s, item),
         videoLength: item => doubleRegexSearch(/"durationTimestamp":"([^"]+)/g, /([0-9:]{3,})/s, item),
         brandLink: item => {
@@ -109,7 +109,8 @@ const transform = (data, context) => {
       }
 
       if (row.variants) {
-        row.variantCount = [{ text: row.variants[0].text.split('|').length + 1 }];
+        // row.variantCount = [{ text: row.variants[0].text.split('|').length + 1 }];
+        row.variantCount = [{ text: row.variants.length + 1 }];
       }
       if (row.variantId) {
         row.variantId = [{ text: row.variantId[0].text.replace('parentAsin":"', '') }];
@@ -157,17 +158,18 @@ const transform = (data, context) => {
         const bonusDesc = row.extraDescription ? row.extraDescription.map(item => item.text).join(' ').split('From the Manufacturer')[0] : '';
         if (row.description) {
           const text = row.description.map(item => item.text);
-          const formattedText = '|| ' + text.join(' || ').trim().replace(/\|\| \|/g, '|');
-          row.description = [{ text: formattedText + bonusDesc }];
+          // const formattedText = '|| ' + text.join(' || ').trim().replace(/\|\| \|/g, '|');
+          // row.description = [{ text: formattedText + bonusDesc }];
+          row.description = [{ text: [...text, bonusDesc] }];
         } else {
-          row.description = [{ text: bonusDesc }];
+          row.description = [{ text: [bonusDesc] }];
         }
       }
       if (row.amazonChoice && row.amazonChoice[0]) {
         if (row.amazonChoice[0].text.includes('Amazon')) {
           row.amazonChoice = [{ text: 'Yes' }];
         } else {
-          row.amazonChoice = [{ text: 'No' }];
+          delete row.amazonChoice;
         }
       }
       if (row.specifications) {
@@ -175,30 +177,31 @@ const transform = (data, context) => {
         row.specifications.forEach(item => {
           text.push(`${item.text.replace(/\n \n/g, ':')}`);
         });
-        row.specifications = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+        // row.specifications = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+        row.specifications = [{ text: text }];
       }
-      if (row.productOtherInformation) {
-        const text = [];
-        row.productOtherInformation.forEach(item => { text.push(item.text); });
-        if (text.length > 0) {
-          row.productOtherInformation = [{ text: text.join(' | ').trim().replace(/\| \|/g, '|') }];
-        }
-      }
-      if (row.additionalDescBulletInfo) {
-        const text = [''];
-        row.additionalDescBulletInfo.forEach(item => {
-          if (item.text.length > 0) { text.push(item.text); }
-        });
-        if (text.length > 0) {
-          row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
-        }
-      }
+      // if (row.productOtherInformation) {
+      //   const text = [];
+      //   row.productOtherInformation.forEach(item => { text.push(item.text); });
+      //   if (text.length > 0) {
+      //     row.productOtherInformation = [{ text: text.join(' | ').trim().replace(/\| \|/g, '|') }];
+      //   }
+      // }
+      // if (row.additionalDescBulletInfo) {
+      //   const text = [''];
+      //   row.additionalDescBulletInfo.forEach(item => {
+      //     if (item.text.length > 0) { text.push(item.text); }
+      //   });
+      //   if (text.length > 0) {
+      //     row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+      //   }
+      // }
       if (row.otherSellersPrime) {
         row.otherSellersPrime.forEach(item => {
           if (item.text.includes('mazon') || item.text.includes('rime')) {
             item.text = 'YES';
           } else {
-            item.text = 'NO';
+            item.text = 'FALSE';
           }
         });
       }
@@ -223,12 +226,12 @@ const transform = (data, context) => {
           return { text: '0.00' };
         });
       }
-      if (row.featureBullets) {
-        const text = row.featureBullets.map(item => `${item.text}`);
-        row.featureBullets = [{ text: text.join(' | ').trim().replace(/\|\| \|/g, '|') }];
-      }
+      // if (row.featureBullets) {
+      //   const text = row.featureBullets.map(item => `${item.text}`);
+      //   row.featureBullets = [{ text: text.join(' | ').trim().replace(/\|\| \|/g, '|') }];
+      // }
       if (row.primeFlag) {
-        row.primeFlag = [{ text: 'Yes' }];
+        row.primeFlag = [{ text: 'Yes - Shipped and Sold' }];
       }
       if (row.ingredientsList) {
         row.ingredientsList = [{ text: row.ingredientsList.map(item => `${item.text}`).join(' ') }];
@@ -265,7 +268,7 @@ const transform = (data, context) => {
       const zoomText = row.imageZoomFeaturePresent ? 'Yes' : 'No';
       row.imageZoomFeaturePresent = [{ text: zoomText }];
 
-      const subscriptionPresent = !!row.subscriptionPrice;
+      const subscriptionPresent = row.subscriptionPrice ? 'YES' : 'NO';
       row.subscribeAndSave = [{ text: subscriptionPresent }];
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
