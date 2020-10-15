@@ -66,6 +66,31 @@ const transform = (data) => {
           },
         ];
       }
+
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          text = row.variantInformation.map(elm => elm.text).join(' | ').replace(/,/g,' | ');
+        });
+        row.variantInformation = [
+          {
+            text: text,
+          },
+        ];
+      } 
+
+      if (row.firstVariant) {
+        let text = '';
+        row.firstVariant.forEach(item => {
+          text = row.firstVariant.map(elm => elm.text).join(' | ').replace(/,/g,' | ');
+        });
+        row.firstVariant = [
+          {
+            text: text,
+          },
+        ];
+      } 
+      
       let text = '';
       text = [String(row.nameExtended && row.nameExtended[0].text), String(row.firstVariant && row.firstVariant[0].text), String(row.quantity && row.quantity[0].text)].filter(e => e !== 'undefined').join(' - ');
       row.productDescriptionIm = [

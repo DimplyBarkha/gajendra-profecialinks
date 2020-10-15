@@ -14,9 +14,10 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
-      document.querySelector('div#size-filter-product-page-anchor') && document.querySelector('div#size-filter-product-page-anchor').click();
+     
       document.querySelector('ul#size-filter-product-page-option-list li') && document.querySelector('ul#size-filter-product-page-option-list li').click();
       document.querySelector('ul#product-page-swatches li button') && document.querySelector('ul#product-page-swatches li button').click();
+      document.querySelector('div#size-filter-product-page-anchor') && document.querySelector('div#size-filter-product-page-anchor').click();
 
       const videoUrls = [];
       const dataArr = window.__INITIAL_CONFIG__.viewData;
@@ -38,18 +39,25 @@ module.exports = {
 
 
       var variantArr = [];
+      var colorArr = [];
+      var sizeArr = [];
       var variantCount = 0;
       var variants = window.__INITIAL_CONFIG__.stylesById.data;
       if (Object.keys(variants).length) {
         var checksize = variants && variants[Object.keys(variants)[0]] && variants[Object.keys(variants)[0]].filters && variants[Object.keys(variants)[0]].filters.size && variants[Object.keys(variants)[0]].filters.size.byId;
         var checkcolour = variants && variants[Object.keys(variants)[0]].filters && variants[Object.keys(variants)[0]].filters.color && variants[Object.keys(variants)[0]].filters.color.allIds;
+        var getColour = variants && variants[Object.keys(variants)[0]].filters && variants[Object.keys(variants)[0]].filters.color && variants[Object.keys(variants)[0]].filters.color.byId;
         if (Object.keys(checksize).length && checkcolour.length > 1) {
           for (const property in checksize) {
             const variantId = `${property} - ${checksize[property].isAvailableWith.substring(0, checksize[property].isAvailableWith.length - 1).replace(/_c:/g, '')}`
             var variantCount = variantCount +  Number(`${checksize[property].relatedSkuIds.length}`);
+            sizeArr.push(property);
             variantArr.push(variantId);
             console.log(variantId);
           }
+         
+       
+
         }
         if (checkcolour.length && !Object.keys(checksize).length) {
           variantArr = checkcolour;
@@ -70,6 +78,17 @@ module.exports = {
         element.href = ele;
         document.body.appendChild(element);
       });
+      document.querySelector('div#size-filter-product-page-anchor') && document.querySelector('div#size-filter-product-page-anchor').click();
+      for (const property in getColour) {
+        colorArr.push(`${getColour[property].value}`);
+      }
+      colorArr.map(ele => {
+        const element = document.createElement('a');
+        element.setAttribute('class', 'appendedcolor');
+        element.href = ele;
+        document.body.appendChild(element);
+      });
+
       if(variantCount > 1) {
         document.body.setAttribute('variant_count',variantCount.toString())
       }

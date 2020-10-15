@@ -51,13 +51,9 @@ fields:
   - name: name
     xpath: //h1[@itemprop="name"]
   - name: variantInformation
-    xpath: //ul[@id="product-page-swatches"]//li//img/@alt | //img[contains(@alt,'selected')]/@alt
-    regExp: selected\s(.+)\scolor
-    regExpReplace: $1
+    xpath: //a[@class='appendedcolor']/@href | //ul//li//div//span[@class="UI69S"][1]
   - name: firstVariant
-    xpath: //ul[@id="product-page-swatches"]//li//img/@alt | //img[contains(@alt,'selected')]/@alt
-    regExp: selected\s(.+)\scolor
-    regExpReplace: $1
+    xpath: (//ul//li//span[@class="UI69S"])[1]
   - name: sku
     xpath: //body/@rpc
   - name: variants
