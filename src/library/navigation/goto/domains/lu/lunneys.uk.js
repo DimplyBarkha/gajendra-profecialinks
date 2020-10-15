@@ -18,5 +18,5 @@ module.exports = {
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
-  }
+  },
 };
