@@ -59,7 +59,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[@class="price-container  "]/div[not(./span)] | //span[@class="new-price"] | //p[@class="ad-price-msg "]/following-sibling::div | //div[contains(@class,"product-price-container")]//span[@class="product-price"] | //div[contains(@class,"new-price")]
+    xpath: //div[@class="price-container  "]/div[not(./span)] | //span[@class="new-price"] | //p[@class="ad-price-msg "]/following-sibling::div | //div[contains(@class,"product-price-container")]//span[@class="product-price"] | //div[contains(@class,"new-price")] | //div[contains(@class,"price-container no-stock  ") or contains(@class,"price-container with-ad no-stock  ") ]/div
     regExp: (\$)(.*)
     regExpReplace: $1$2
   - name: listPrice
