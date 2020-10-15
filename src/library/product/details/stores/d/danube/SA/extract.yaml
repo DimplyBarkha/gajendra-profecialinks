@@ -10,7 +10,7 @@ fields:
     singleValue: false
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="thumbnails"]/div[1]/div/div/@data-image
+    xpath: //div[@id="thumbnails"]/div[1]/div[position() > 1]/div/@data-image
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
