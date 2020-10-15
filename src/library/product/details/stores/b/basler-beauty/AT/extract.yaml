@@ -100,8 +100,9 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    xpath: //*[@id="rating"]//span[@class="count-number"]
+    xpath: //*[@id="rating"]//span[@class="count-number"] | //div[@id="detailsMain"]//span[@class="count-number"]
     type: NUMBER
+    regExp: \d+
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
