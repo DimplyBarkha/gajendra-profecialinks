@@ -205,24 +205,35 @@ async function implementation (
   const otherSellersInfo = await context.evaluate(async function () {
     const otherSellerNew = (document.querySelector("span[data-action='show-all-offers-display'] > a")) ? document.querySelector("span[data-action='show-all-offers-display'] > a").getAttribute('href') : null;
     if (otherSellerNew) {
-      const otherSellersHtml = await fetch(otherSellerNew, {
-        headers: {
-          cookie: document.cookie,
-        },
-        method: 'GET',
-        mode: 'cors',
-        credentials: 'include',
-      }).then(res => res.text());
-    //   console.log('otherSellersHtml', otherSellersHtml);
-    //   return otherSellersHtml;
-      var domParser = new DOMParser();
-      console.log('og123')
-      var otherSellersDocument = domParser.parseFromString(otherSellersHtml, 'text/xml');
-      console.log(otherSellersDocument);
-      console.log('no123')
-      const pageNotFound = document.evaluate('//title[contains(text(),"Page Not Found")]', otherSellersDocument, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      return pageNotFound ? null : otherSellersDocument;
-    }
+      async function getData() {
+        const otherSellersHtml = await fetch(otherSellerNew, {
+          headers: {
+            cookie: document.cookie,
+          },
+          method: 'GET',
+          mode: 'cors',
+          credentials: 'include',
+        }).then(res => res.text());
+        return otherSellersHtml;
+      }
+
+      const otherSellersHtml = await getData();
+      return await doSomething();
+      //   console.log('otherSellersHtml', otherSellersHtml);
+      //   return otherSellersHtml;
+      async function doSomething() {
+        var domParser = new DOMParser();
+        console.log('og123')
+        var otherSellersDocument = domParser.parseFromString(otherSellersHtml, 'text/html');
+        console.log(otherSellersDocument);
+        // return otherSellersDocument
+        console.log('no123')
+        const pageNotFound = document.evaluate('//title[contains(text(),"Page Not Found")]', otherSellersDocument, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        console.log(pageNotFound);
+        return pageNotFound !== null ? null : otherSellersDocument;
+      }
+      }
+    
     return null;
   });
 
