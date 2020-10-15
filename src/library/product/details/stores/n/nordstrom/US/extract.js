@@ -75,7 +75,7 @@ module.exports = {
       }
       const finalArray = [];
       const rpc = dataArr && dataArr.skus && dataArr.skus.allIds && dataArr.skus.allIds[0] ? dataArr.skus.allIds[0] : '';
-      const size = dataArr && dataArr.filters && dataArr.filters.size && dataArr.filters.size.allIds[0] ? dataArr.filters.size.allIds[0] : '';
+      const size = dataArr && dataArr.filters && dataArr.filters.size && dataArr.filters.size.allIds;
       const object = { rpc, size };
       finalArray.push(object);
       if (finalArray) {

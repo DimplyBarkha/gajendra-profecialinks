@@ -69,7 +69,7 @@ fields:
     regExp: selected\s(.+)\scolor
     regExpReplace: $1
   - name: quantity
-    xpath: //span[contains(text(),'Size Info')]/following-sibling::ul | //body/@size | //button[@class="_1oaUx"]
+    xpath: //body/@size | //button[@class="_1oaUx"]
   - name: additionalDescBulletInfo
     xpath: //div[contains(text(),"Details & Care")]/following-sibling::ul/li
   - name: shippingDimensions

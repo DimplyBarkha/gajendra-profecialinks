@@ -58,7 +58,7 @@ const transform = (data) => {
       if (row.quantity) {
         let text = '';
         row.quantity.forEach(item => {
-          text = row.quantity.map(elm => elm.text).join(' | ');
+          text = row.quantity.map(elm => elm.text).join(' | ').replace(/,/g,' | ');
         });
         row.quantity = [
           {
