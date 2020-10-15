@@ -4,33 +4,45 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: id
-    description: Unique id (within this extractor)
-  - name: rankOrganic
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER 
+    singleValue: false
+  - name: searchUrl
+    singleValue: true
   - name: name
-    description: The product name
+    singleValue: false
   - name: productUrl
-    description: The URL for the product details page
+    singleValue: false
   - name: gtin
-    description: GTIN code (includes UPC/EAN)
+    singleValue: false
   - name: thumbnail
-    description: The URL for the product thumbnail image
+    singleValue: false
   - name: aggregateRating
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
   - name: reviewCount
-    description: The number of reviews
-    type: NUMBER
+    singleValue: false
   - name: ratingCount
-    description: The number of ratings
+    singleValue: false
   - name: price
-    description: The offered price for the product
+    singleValue: false
   - name: manufacturer
-    description: Product manufacturer
+    singleValue: true
   - name: soldBy
-    description: The name of the seller of the item (if available)
-  - name: rank
-    description: search/listing rank
+    singleValue: true
   - name: endorsementText
-    description: The text that signifies that a product is endorsed
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
