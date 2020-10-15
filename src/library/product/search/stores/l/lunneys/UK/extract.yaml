@@ -1,0 +1,30 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ol[contains(@class,'products')]//li[contains(@class,'product')]
+fields:
+  - name: price
+    singleValue: false
+    xpath: //ol[contains(@class,'products')]//li[contains(@class,'product')]//div[contains(@class,'product-item-details')]//div[contains(@class,'price-box')]//span[@data-price-type="finalPrice"]//span[@class='price']/text()
+  - name: name
+    singleValue: false
+    xpath: //ol[contains(@class,'products')]//li[contains(@class,'product')]//div[contains(@class,'product-item-details')]//a[@class="product-item-link"]//text()
+  - name: productUrl
+    singleValue: false
+    xpath: //ol[contains(@class,'products')]//li[contains(@class,'product')]//a[@class="product photo product-item-photo"]//@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //ol[contains(@class,'products')]//li[contains(@class,'product')]//a[@class="product photo product-item-photo"]//img[@class="product-image-photo"]//@src
+  - name: id
+    singleValue: false
+    xpath: //ol[contains(@class,'products')]//li[contains(@class,'product')]//div[contains(@class,'product-item-details')]//div[contains(@class,'price-box')]/@data-product-id
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,'product-reviews-summary')]//div[@class='rating-result']//span[1]/@style
+    regExp: (\d*)
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,'product-reviews-summary')]//div[@class='reviews-actions']//a[contains(@class,'view')]/text()
+    regExp: (\d*)
+    regExpReplace: $1
