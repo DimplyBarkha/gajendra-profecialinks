@@ -54,7 +54,8 @@ fields:
     xpath : //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd |//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
   - name: videos
     singleValue: false
-    xpath : //div[@id="videos"]
+    # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
+    xpath: //div[contains(@class,'video-slides')]/@data-url
   - name: name
     xpath : //meta[@name="twitter:title"]/@content
   - name: ratingCount
