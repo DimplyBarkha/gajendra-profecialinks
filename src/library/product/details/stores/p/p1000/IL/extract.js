@@ -51,28 +51,75 @@ module.exports = {
            //xpath for availabilityText
            const availabilityStatusUrl = getXpath("//meta[@itemprop='availability']/@content", 'nodeValue');
            var availabilityStatusValue = 'Outof Stock';
-           console.log("My availabilityStatusUrl", availabilityStatusUrl);
-           if(availabilityStatusUrl.indexOf('InStock')){
-            console.log("Inside availabilityStatusUrl");
-             availabilityStatusValue = 'In stock';
-           }
+            console.log("My availabilityStatusUrl", availabilityStatusUrl);
+            if(availabilityStatusUrl.indexOf('InStock')){
+              console.log("Inside availabilityStatusUrl");
+              availabilityStatusValue = 'In stock';
+            }
            addElementToDocument('added_availabilityText', availabilityStatusValue);
 
+             //xpath for Description
+             const descriptionInfoXpath = "//meta[@id='head_description']/@content";
+             const descriptionInfo = getXpath(descriptionInfoXpath, 'nodeValue');
+             const tabDescriptionInfoXpath = "//li[contains(@id,'MainContent_Properties_productDetails')]";
+             const tabDescriptionInfo = getAllXpath(tabDescriptionInfoXpath, 'innerText');
+             console.log("fetching descriptionInfo 1*********",descriptionInfo);
+             console.log("fetching tabDescriptionInfo 1*********",tabDescriptionInfo);
+             let finalDescriptionInfo;
+             if (tabDescriptionInfo !== null && tabDescriptionInfo.length > 0) {
+               if (descriptionInfo != null) {
+                 finalDescriptionInfo = descriptionInfo + '||' + tabDescriptionInfo.join('||');
+               } else {
+                 finalDescriptionInfo = tabDescriptionInfo.join('||');
+               }
+               finalDescriptionInfo.split('||').forEach((item) => {
+                 addElementToDocument('added_descriptionText', item);
+               });
+             } else {
+               finalDescriptionInfo = descriptionInfo;
+               addElementToDocument('added_descriptionText', finalDescriptionInfo);
+             }
 
-          //xpath for weightNet
-          const weightNet = getXpath("//li[contains(@id,'MainContent_Properties_pFreeText')]/text()", 'nodeValue');
-          console.log("My weightNet", weightNet);
-          console.log("My weightNet", weightNet.substring(5,14));
-          addElementToDocument('added_weightNet', weightNet.substring(5,14));
+
+          //xpath weightNet for weightNet
+          const weightNet = getAllXpath("//li[contains(@id,'MainContent_Properties_pFreeText')]", 'innerText');
+          let weightNetData ;
+          weightNet.forEach(function (data) {
+          if (data.includes('משקל כולל')|| data.includes('משקל')) {
+            const indx = data.indexOf('משקל כולל')>0 ? data.indexOf('משקל כולל') : data.indexOf('משקל')
+            let weightStr = data.substring(indx, data.indexOf('\n', data.indexOf('משקל כולל:')));
+            weightStr = weightStr.replace('משקל כולל', "");
+            weightStr = weightStr.replace('משקל', "");
+            weightStr = weightStr.replace(':', "");
+            addElementToDocument('added_weightNet', weightStr); 
+          }
+
+          if (data.includes('צבע')) {
+              let colorStr = data.substring(data.indexOf('צבע'), data.indexOf('\n', data.indexOf('צבע')));
+              addElementToDocument('added_color', colorStr); 
+          }
+          
+
+          const specification1 = data.split('\n').join(' || ');
+          const spec1 = getXpath("//div[contains(@class,'product_techInfo product_generalInfo_column')]",'innerText')
+          const specification2 = spec1.split('\n').join(' || ');
+          console.log("Inside spec1 3 ",spec1);
+          let finalSpecification 
+          if (specification2 !== null && specification2.length > 0) {
+             finalSpecification = specification1 + '||' + specification2;
+          }
+          else {
+            finalSpecification = specification1;
+          }
+          addElementToDocument('added_specificationText', finalSpecification); 
+          
+
+          
+          
+          });
 
 
-          var map = [];
-          map.push({
-
-            key1:'sheetal'
-          })
-
-          console.log("My map", map);
+         
           
 
       let scrollTop = 500;
