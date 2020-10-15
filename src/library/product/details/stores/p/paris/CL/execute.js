@@ -5,7 +5,7 @@ module.exports = {
     country: 'CL',
     store: 'paris',
     domain: 'paris.cl',
-    loadedSelector: null,
+    loadedSelector: 'img.pdpMod_Mobile_GalleryImage',
     noResultsXPath: '//p[@class="not-found-search"]',
     zipcode: '',
   },
