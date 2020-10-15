@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'carrefour',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a[rel="next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="dib relative vtex-product-summary-2-x-imageContainer vtex-product-summary-2-x-imageStackContainer vtex-product-summary-2-x-hoverEffect"] > img',

@@ -36,10 +36,10 @@ module.exports = {
               }
             })
           }
-          var clickButton = document.querySelector('a[rel="next"]');
-          if (clickButton) {
-            clickButton.click();
-          }
+          // var clickButton = document.querySelector('a[rel="next"]');
+          // if (clickButton) {
+          //   clickButton.click();
+          // }
           if (scrollTop === 20000) {
             await stall(1000);
             break;
