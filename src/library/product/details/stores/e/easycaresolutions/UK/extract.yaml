@@ -3,19 +3,18 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  # - name: image
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'fotorama__stage__frame') and (contains(@class,'fotorama__active'))]/img/@src
-  #   # manualSelector: div[class*=fotorama__stage__frame][class*=fotorama__active] > img[src]
-  # - name: imageAlt
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'fotorama__stage__frame') and (contains(@class,'fotorama__active'))]/img/@alt
-  # - name: alternateImages
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'fotorama__stage__frame') and  not(contains(@class,'fotorama__active'))]/img/@src
-  # - name: largeImageCount
-  #   singleValue: false
-  #   xpath: count(//div[contains(@class,'fotorama__stage__frame') and  not(contains(@class,'fotorama__active'))]/img/@src)
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__stage__frame') and (contains(@class,'fotorama__active'))]/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__stage__frame') and (contains(@class,'fotorama__active'))]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__stage__frame') and  not(contains(@class,'fotorama__active'))]/img/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,'fotorama__stage__frame') and  not(contains(@class,'fotorama__active'))]/img/@src)
   - name: availabilityText
     singleValue: false
     xpath: //div[contains(@class,'stock available')]
@@ -29,10 +28,10 @@ fields:
     xpath: //li[(contains(@class,'item category'))]
   - name: nameExtended
     singleValue: false
-    xpath: //div[@itemprop='description']/h1
+    xpath: //span[contains(@itemprop,'name')]
   - name: name
     singleValue: false
-    xpath: //div[@itemprop='description']/h1
+    xpath: //span[contains(@itemprop,'name')]
   - name: price
     singleValue: false
     xpath: (//span[contains(@class,'price')])[1]
@@ -310,9 +309,6 @@ fields:
   # - name: otherSellersShipping2
   #   singleValue: false
   #   xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]//div[contains(@class, "aod-ship-charge")]
-  # - name: secondaryImageTotal
-  #   singleValue: false
-  #   xpath: count(//div[@id="altImages"]//ul/li[contains(@class,  "image")][position()>1])
   # - name: news
   #   singleValue: false
   #   xpath: //table[contains(@id,"productDetails_detailBullets")]//tr/th[contains(text(),"Best Sellers Rank")]/../td//span[contains(text(), "#1 ")]

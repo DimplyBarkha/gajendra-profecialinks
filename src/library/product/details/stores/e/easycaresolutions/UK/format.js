@@ -19,6 +19,9 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
+      if (row.manufacturerDescription) {
+        row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.includes('Ingredients') ? row.manufacturerDescription[0].text.replace(/\n/g, '').replace(/Ingredients.*$/g, '').trim() : row.manufacturerDescription[0].text;
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
