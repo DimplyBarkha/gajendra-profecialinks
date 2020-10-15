@@ -11,18 +11,21 @@ fields:
     singleValue: false
     description: The brand name
     example: Panasonic
-    xpath: .//div[contains(@class, 'DescriptionWrapper')]
+    xpath: (.//div[contains(@class, 'DescriptionWrapper')])[1]
     regExp: ([^-]*) -
+    regExpReplace: $1
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: .//@data-id
+    xpath: (.//@data-id)[1]
     regExp: (.+)
     regExpReplace: https://www.intermarche.com/rechercheproduits/11833/product/$1
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
     xpath: .//img/@src
+    regExp: (http.*)
+    regExpReplace: $1
   - name: name
     singleValue: false
     description: The product name
@@ -30,7 +33,7 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: .//@data-id
+    xpath: (.//@data-id)[1]
   - name: mpc
     singleValue: false
     description: The model code of the product
@@ -80,7 +83,7 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: .//@data-id
+    xpath: (.//@data-id)[1]
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
