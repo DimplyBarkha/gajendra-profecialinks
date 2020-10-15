@@ -20,8 +20,8 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class='product_image_wrapper']//img/@src
-    regExp: (.+)
+    xpath: //div[@class='product_image_wrapper']//img/@srcset
+    regExp: ,\s([\/A-z\-\d\.\?]+)
     regExpReplace: https://www.redzac.at$1
   - name: aggregateRating2
     description: The stated aggregate rating normalized to be out of 5
