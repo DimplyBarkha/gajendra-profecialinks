@@ -74,6 +74,10 @@ fields:
     xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs'][1]/dl
   - name: specTitle
     xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs']/dl/dt/text()
+  - name: manufacturerImages
+    xpath: //div[contains(@class,'product-image-gallery')]//noscript
+    regExp: src="(.+)"\s
+    regExpReplace: $1
   - name: specValue
     xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs']/dl/dd
   - name: warranty
