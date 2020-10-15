@@ -6,7 +6,7 @@ module.exports = {
         nextLinkSelector: '.is-gridwall-pagination__next>a',
         mutationSelector: null,
         spinnerSelector: null,
-        loadedSelector: '.is-pw__products-list',
+        loadedSelector: '.price-int',
         noResultsXPath: '//div[@class="note-msg"]//span',
         openSearchDefinition: null,
         domain: 'innovasport.com',

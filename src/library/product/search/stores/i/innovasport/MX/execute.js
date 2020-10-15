@@ -5,7 +5,7 @@ module.exports = {
         store: 'innovasport',
         domain: 'innovasport.com',
         url: 'https://www.innovasport.com/search/?text={searchTerms}',
-        loadedSelector: '.is-pw__products-list',
+        loadedSelector: '.price-int',
         noResultsXPath: '//div[@class="note-msg"]//span',
         zipcode: '',
     },
