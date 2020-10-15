@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'jumia.com.eg',
-    timeout: 30000,
+    timeout: 50000,
     country: 'EG',
     store: 'jumia',
     zipcode: '',
@@ -29,7 +29,8 @@ module.exports = {
     //   type: 'RECAPTCHA',
     //   },
     // });
-
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
     url = `${url}#[!opt!]{"force200": true}[/!opt!]`;
     await context.goto(url, {
       firstRequestTimeout: timeout,

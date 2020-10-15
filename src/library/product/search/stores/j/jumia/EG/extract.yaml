@@ -3,6 +3,8 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //article[contains(@class,"prd _fb")]
 fields:
+  - name: searchUrl
+    xpath: //article[contains(@class,"prd _fb")]/@searchurl 
   - name: productUrl
     description: The URL for the product details page
     xpath: //a[@class="core"]//@href
@@ -10,15 +12,14 @@ fields:
     regExpReplace: https://www.jumia.com.eg$1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class="img-c"]/img/@src
+    xpath: //div[@class="img-c"]/img[@class="img"]/@data-src
   - name: name
     description: The product name
     xpath: //h3[@class="name"]
   - name: reviewCount
     description: The number of reviews
     xpath: //div[@class="rev"]
-    regExp: (.+)(\()(\d+)(\))
-    regExpReplace: $3
+    regExp: (\()(\d+)(\))
   - name: price
     description: The offered price for the product
     xpath: //div[@class="prc"]
