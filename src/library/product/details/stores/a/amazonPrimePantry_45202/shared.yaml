@@ -82,8 +82,7 @@ fields:
     singleValue: false
     xpath: //*[@id="twister"]//span[@class="selection"]
   - name: category
-    singleValue: false
-    xpath: //*[@id="SalesRank"]/ul/li//a[1]
+    xpath: //div[@id="wayfinding-breadcrumbs_container"]//ul[contains(@class,'a-unordered-list')]//span[@class="a-list-item"]//a[contains(@class,"a-link-normal")]
   - name: variantCount
     singleValue: false
     xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
