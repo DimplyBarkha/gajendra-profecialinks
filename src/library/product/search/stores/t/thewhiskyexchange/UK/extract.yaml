@@ -1,21 +1,30 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class='item']
 fields:
   - name: id
     description: Unique id (within this extractor)
+    xpath: //div[@class='item']//a[@class='product']/@href
+    regExp: \/p\/(\d+)\/
+    regExpReplace: $1
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER 
+    xpath: //div[@class='item']//@rankorganic
   - name: name
     description: The product name
+    xpath: //div[@class='item']//@title
   - name: productUrl
     description: The URL for the product details page
+    xpath: //div[@class='item']//a[@class='product']/@href
+    regExp: (\/p\/.+)
+    regExpReplace: https://www.thewhiskyexchange.com$1
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
     description: The URL for the product thumbnail image
+    xpath: //div[@class="image-container"]//@src
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
@@ -26,6 +35,7 @@ fields:
     description: The number of ratings
   - name: price
     description: The offered price for the product
+    xpath: //span[@class="price"]
   - name: manufacturer
     description: Product manufacturer
   - name: soldBy

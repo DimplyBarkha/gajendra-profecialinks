@@ -5,9 +5,9 @@ module.exports = {
     country: 'UK',
     store: 'thewhiskyexchange',
     domain: 'thewhiskyexchange.com',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.thewhiskyexchange.com/search?q={searchTerms}',
+    loadedSelector: 'div.products-grid',
+    noResultsXPath: '//p[@class=""]',
     zipcode: '',
   },
 };
