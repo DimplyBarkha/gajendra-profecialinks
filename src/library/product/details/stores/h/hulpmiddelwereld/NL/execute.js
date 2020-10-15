@@ -5,8 +5,8 @@ module.exports = {
     country: 'NL',
     store: 'hulpmiddelwereld',
     domain: 'hulpmiddelwereld.nl',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.product-essential',
+    noResultsXPath: "//h2[contains(text(),'Sorry, we kunnen deze pagina niet meer vinden')]",
     zipcode: '',
   },
 };
