@@ -1,4 +1,4 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@class,"card-container card-border")]
@@ -6,6 +6,23 @@ fields:
   - name: productUrl
     SingleValue: false
     xpath: //div[@class="card-bottom ng-scope"]//a[@class="card-review-container"]/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="card-bottom ng-scope"]//a[@class="card-review-container"]/@href
   - name: name
     SingleValue: false
     xpath: //h3[@itemprop='name']
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="card-image-height-box"]/a/img/@src
+  - name: price 
+    SingleValue: false 
+    xpath: //div[@class='nonbundle price-container  no-mp card-has-price price-container-old']//span
+  - name: ratingCount
+    SingleValue: false
+    xpath: //a[@class="card-soldby ng-scope"]//span
+    defaultValue: 0
+  - name: reviewCount
+    SingleValue: false
+    xpath: //a[@class="card-review-container"]//span[@bo-if="!!product.reviewCount"]
+    defaultValue: 0

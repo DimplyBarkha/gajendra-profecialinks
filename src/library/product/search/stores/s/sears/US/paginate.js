@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'sears',
-    nextLinkSelector: 'div.page, ng-scope',
+    nextLinkSelector: 'div.page ng-scope',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.gallery-table, ng-scope',
