@@ -25,6 +25,9 @@ const transform = (data) => {
     for (const { group } of data) {
       var rank = 1;
       for (let row of group) {
+        if(row.productUrl){
+          row.productUrl[0]['text']="https://www.ica.se"+row.productUrl[0]['text'];
+        }
         if(row.thumbnail){
             var tmpIdDataArr=row.thumbnail[0]['text'].split('/');
             var tmpIdArr=tmpIdDataArr[tmpIdDataArr.length-1].split('.');
