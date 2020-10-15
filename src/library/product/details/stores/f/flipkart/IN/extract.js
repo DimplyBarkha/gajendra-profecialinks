@@ -8,7 +8,6 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  // await context.hover('div.sWIg8E');
   await context.evaluate(async function () {
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
@@ -18,11 +17,36 @@ async function implementation (
       document.body.appendChild(catElement);
     }
 
+    const GetTagByIdUsingRegex = (tag, id, html) => {
+      // eslint-disable-next-line no-useless-escape
+      return new RegExp('<' + tag + "[^>]*id[\\s]?=[\\s]?['\"]" + id + "['\"][\\s\\S]*?<\/" + tag + '>').exec(html);
+    };
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+    await fetch(window.location.href, {
+      method: 'GET',
+    }).then(r => r.text()).then(htm => {
+      const result = GetTagByIdUsingRegex('script', 'is_script', htm);
+      const outerHTML = result && result[0] ? result[0] : '';
+
+      document.body.insertAdjacentHTML('beforeend', outerHTML);
+    });
+
     const readMoreBtn = document.querySelector('button[class*="uSQV49"]');
     if (readMoreBtn) {
       readMoreBtn.click();
       await new Promise((resolve, reject) => setTimeout(resolve, 1000));
     }
+
+    const JSstring = document.body.querySelector('#is_script') ? document.body.querySelector('#is_script').innerHTML : '';
+    const obj = JSON.parse(JSstring.split('window.__INITIAL_STATE__ = ').slice(-1)[0].trim().slice(0, -1));
+    const videoObject = obj.pageDataV4.page.data[10001]['0'].widget.data.multimediaComponents;
+    // eslint-disable-next-line no-prototype-builtins
+    if (videoObject.hasOwnProperty(1)) {
+      if (videoObject[1].value.contentType === 'VIDEO') {
+        addElementToDocument('videoUrl', videoObject[1].value.url);
+      }
+    }
+
     const ratingCountExists = document.evaluate("//span[@class='_38sUEc']//*[contains(text(), 'Reviews') or contains(text(), 'reviews')]", document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
     if (ratingCountExists) {
       const ratingCountString = document.evaluate("//span[@class='_38sUEc']//*[contains(text(), 'Reviews') or contains(text(), 'reviews')]", document, null, XPathResult.STRING_TYPE, null).stringValue;
