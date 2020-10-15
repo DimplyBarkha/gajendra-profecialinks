@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class , 'tpl-append-results')]/div
+recordXPath: //div[contains(@class , 'tpl-append-results')]/div[contains(@class, "single-item")]
 fields:
   - name: id
     singleValue: false
-    xpath: //@data-id
+    xpath: //a[contains(@class, "img-link")]/@data-id
   - name: name
     singleValue: false
     xpath: //h6[contains(@class , "itemTitle")]
