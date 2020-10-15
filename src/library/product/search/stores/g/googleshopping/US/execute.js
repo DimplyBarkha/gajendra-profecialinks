@@ -6,8 +6,8 @@ module.exports = {
     store: 'googleshopping',
     domain: 'shopping.google.com',
     url: 'https://shopping.google.com/u/0/s?m=7867565&sa=X&ved=0ahUKEwjvzIm746rrAhUNK80KHbtCCoAQ2NsDCGA',
-    loadedSelector: 'ul[class*="carouselItemsContainer"]',
-    noResultsXPath: null,
+    loadedSelector: 'div.productCardContainer',
+    noResultsXPath: '//div[@class="browseModuleContent bcNotificationModule ng-star-inserted"]',
     zipcode: '',
   },
 };
