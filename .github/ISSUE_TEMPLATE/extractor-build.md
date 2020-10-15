@@ -115,7 +115,7 @@ example:
 - [ ] Confirm source params are set up properly in workbench.
 - [ ] In workbench, the source parameter called `state` be set to `development`
 - [ ] Copy the extractor ID to the appropriate field in the newly created source(s)
-- [ ] Create a `.csv` file with a sample set of inputs. The sample set must have a minimum of 50 unique inputs and a maximum of 100 inputs.
+- [ ] Create a `.csv` file with a sample set of inputs. The sample set must have exactly 1000 inputs, or as many as available in the full input file (but never more than 1000)
 - [ ] Upload sample input file to the appropriate path in the import.io AWS S3 bucket
 - [ ] Implement PR feedback
 - [ ] Commit latest code changes to branch with a commit message that includes the issue# (`#{:number}`)
