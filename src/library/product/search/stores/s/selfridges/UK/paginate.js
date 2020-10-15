@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'selfridges',
-    nextLinkSelector: null,
+    nextLinkSelector: '.c-show-more.o-button.--secondary-cta.initialized',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'selfridges.com',
