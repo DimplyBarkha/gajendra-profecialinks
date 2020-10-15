@@ -19,7 +19,7 @@ async function implementation (
 
     const GetTagByIdUsingRegex = (tag, id, html) => {
       // eslint-disable-next-line no-useless-escape
-      return new RegExp('<' + tag + "[^>]*id[\\s]?=[\\s]?['\"]" + id + "['\"][\\s\\S]*?<\/" + tag + '>').exec(html);
+      return new RegExp('<' + tag + '[^>]*id[\\s]?=[\\s]?[\'"]' + id + '[\'"][\\s\\S]*?<\/' + tag + '>').exec(html);
     };
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
     await fetch(window.location.href, {
@@ -47,9 +47,14 @@ async function implementation (
       }
     }
 
-    const ratingCountExists = document.evaluate("//span[@class='_38sUEc']//*[contains(text(), 'Reviews') or contains(text(), 'reviews')]", document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
+    const imageFromThumbnails = document.querySelectorAll('li[class*=\'_4f8Q22 _2y_FdK\'] div div').length ? document.querySelectorAll('li[class*=\'_4f8Q22 _2y_FdK\'] div div')[0].getAttribute('style') : '';
+    if (imageFromThumbnails) {
+      const imageFromThumbnailsTransformed = imageFromThumbnails.substr(21, imageFromThumbnails.length - 22).replace('/128/128/', '/416/416/');;
+      addElementToDocument('thumbnailsMainImage', imageFromThumbnailsTransformed);
+    }
+    const ratingCountExists = document.evaluate('//span[@class=\'_38sUEc\']//*[contains(text(), \'Reviews\') or contains(text(), \'reviews\')]', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
     if (ratingCountExists) {
-      const ratingCountString = document.evaluate("//span[@class='_38sUEc']//*[contains(text(), 'Reviews') or contains(text(), 'reviews')]", document, null, XPathResult.STRING_TYPE, null).stringValue;
+      const ratingCountString = document.evaluate('//span[@class=\'_38sUEc\']//*[contains(text(), \'Reviews\') or contains(text(), \'reviews\')]', document, null, XPathResult.STRING_TYPE, null).stringValue;
       const ratingCountRegexp = /(\d+)\s+(Reviews|reviews)/g;
       const ratingCountMatch = ratingCountRegexp.exec(ratingCountString)[1];
       addElementToDocument('ratingCount', ratingCountMatch);
