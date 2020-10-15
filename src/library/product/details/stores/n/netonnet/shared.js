@@ -57,9 +57,9 @@ const transform = (data) => {
 				});
 				row.firstVariant = [{ text: newText }];
 			} */
-			if (row.aggregateRating) {
+			if (row.aggregateRating2) {
 				let newText = '0';
-				var received_per = row.aggregateRating[0].text.replace("width: ", "")
+				var received_per = row.aggregateRating2[0].text.replace("width: ", "")
 				var received_per = received_per.replace("%", "");
 
 				if (received_per >= 1) {
@@ -79,7 +79,7 @@ const transform = (data) => {
 						newText = newaggregate_rating;
 					}
 				}); */
-				row.aggregateRating = [{ text: newText }];
+				row.aggregateRating2 = [{ text: newText }];
 			}
 			if (row.additionalDescBulletInfo) {
 				let text = '';
