@@ -6,7 +6,6 @@ module.exports.implementation = async function implementation(
 ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.waitForSelector('div[data-feature-name="wayfinding-breadcrumbs"]');
     await context.evaluate(async function() {
         await new Promise(resolve => setTimeout(resolve, 2814));
         const element = document.getElementById('aplus');
