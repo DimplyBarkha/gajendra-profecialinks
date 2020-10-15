@@ -45,7 +45,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="accordionItem"]//*[@id="description"]//text()
+    xpath: //div[@class="accordionItem"]//*[@id="description"]//text() | //div[@id="description--long"]
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@class="accordionItem"]//*[@id="description"]//ul/li)
