@@ -48,7 +48,7 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    xpath: //section[contains(@id,'specs')]//td[contains(.,'GTIN')]//following-sibling::td | //section[contains(@id,'specs')]//td[contains(.,'Référence')]//following-sibling::td
+    xpath: //section[contains(@id,'specs')]//td[contains(.,'Part Number')]//following-sibling::td | //section[contains(@id,'specs')]//td[contains(.,'Référence')]//following-sibling::td
     description: The manufacturer model code (unique) of the product
   - name: ratingCount
     xpath: //div[contains(@class,'shop__secondary') and contains(.,'reviews')]
@@ -80,8 +80,6 @@ fields:
     xpath: //ul//li[contains(@class,'KgL16d')]
     singleValue: false
     description: null
-  - name: mpc
-    xpath: //section[contains(@id,'specs')]//td[contains(.,'Part Number')]//following-sibling::td
   - name: color
     description: A textual description of the colour
     xpath: //div[contains(@class,'sh-dvp__variant-picker')]//div[contains(@class,'eyAVeb') and contains(.,'Colour')]//span | //section[contains(@id,'specs')]//td[contains(.,'Couleur')]//following-sibling::td

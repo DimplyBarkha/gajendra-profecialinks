@@ -42,9 +42,10 @@ async function implementation (
       for (let i = 0; i < descUpperNode.length; i++) {
         descContent += ' ' + descUpperNode[i].innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/·/gm, ' ||').replace(/\s{2,}/gm, ' ').trim();
       }
+      let desclower = document.evaluate("//div[@class='BfIk5d']", document).iterateNext() ? document.evaluate("//div[@class='BfIk5d']", document).iterateNext().textContent.trim() : '';
       // @ts-ignore
-      // const desclower = document.querySelector("div[class*='BfIk5d']") ? document.querySelector("div[class*='BfIk5d']").innerText.replace(/·/gm, ' ||').replace(/\s{2,}/gm, ' ').trim() : '';
-      const desclower = document.querySelector("span[class*='sh-ds__full-txt']") ? document.querySelector("span[class*='sh-ds__full-txt']").innerText.replace(/·/gm, ' ||').replace(/\s{2,}/gm, ' ').trim() : '';
+      const truncatedDesc = document.querySelector("span[class*='sh-ds__trunc']") ? document.querySelector("span[class*='sh-ds__trunc']").innerText : '';
+      desclower = desclower.replace(truncatedDesc, ' ').replace(/·/gm, ' ||').replace(/\s{2,}/gm, ' ').trim();
       if (descContent && desclower) {
         addHiddenDiv('ii_desc', descContent + ' | ' + desclower);
       } else if (descContent) {
