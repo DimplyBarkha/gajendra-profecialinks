@@ -140,6 +140,17 @@ async function implementation (
       const specs = specsArr.join(' || ');
       addHiddenDiv('specsArr', specs);
     }
+
+    // Product other information
+    const prodOtherInfo = document.querySelectorAll('#productDescription p');
+    if (prodOtherInfo) {
+      const prodOtherInfoArr = [];
+      for (let i = 0; i < prodOtherInfo.length; i++) {
+        prodOtherInfoArr.push(prodOtherInfo[i].innerText);
+      }
+      const prodOtherInformation = prodOtherInfoArr.join(' || ');
+      addHiddenDiv('prodOtherInformationFetched', prodOtherInformation);
+    }
   });
 
   const otherSellerInfo = async () => {

@@ -39,22 +39,23 @@ fields:
     xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1]
   - name: availabilityText
     singleValue: false
-    xpath: (//*[contains(@id,'availability')] | //*[contains(@id,'vailability')]//*[contains(text(),'tock')])[1]
-    regExp: (.+)
+    xpath: (//*[contains(@id,'availability')] | //*[contains(@id,'vailability')]//*[contains(text(),'In Stock')])[1]
+    regExp: ((.*?)\)
     regExpReplace: 'In stock'
     defaultValue: 'Out of Stock'
     # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //*[@id='feature-bullets']//ul/li[not(@id)] | //div[@id="productDescription"]/p/text()
+    xpath: //*[@id='feature-bullets']//ul/li[not(@id)]|//div[@id="productDescription_feature_div"]//h2|//div[@id="productDescription"]/p/text()
+    # xpath: //*[@id='feature-bullets']//ul/li[not(@id)] | //div[@id="productDescription"]/p/text()
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
   - name: brandText
     singleValue: false
     xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())]
-    regExp: (?:by )?(.+)
-    regExpReplace: $1
+    # regExp: (?:by )?(.+)
+    # regExpReplace: $1
   - name: manufacturer
     singleValue: false
     xpath: //th[contains(text(), 'Manufacturer') and not(contains(text(), "Discontinue")) and not(contains(text(),  "Part"))]/following-sibling::*[1]
@@ -64,18 +65,19 @@ fields:
     regExp: (.+)
   - name: weightNet
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Item Weight")]/following-sibling::td[1]/text()
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Item Weight")]/following-sibling::td[1]/text()| //div[contains(@id,"productOverview")]//tr//td//span[contains(., "Item Weight")]/parent::td/following-sibling::td
     regExp: ([^()]+)
     regExpReplace: $1
   - name: weightGross
     singleValue: false
-    xpath: translate(//th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1]  | //th[contains(text(), ' Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text() | //td[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1], "(", "")
+    xpath: translate(//th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1]  | //th[contains(text(), ' Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text() | //td[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1] | //li//span[contains(text(), "Product Dimensions")]/following-sibling::span[contains(text(), ';')] , "(", "")
   - name: gtin
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'UPC')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(., "UPC")]/following-sibling::td[1]/text() | //table[contains(@id,"product-specification-table")]//tr/th[contains(., "UPC")]/following-sibling::td[1]/text()
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'UPC')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(., "UPC")]/following-sibling::td[1]/text() | //table[contains(@id,"product-specification-table")]//tr/th[contains(., "UPC")]/following-sibling::td[1]/text()|//li//span[contains(text(), "UPC")]/following-sibling::span
+    regExp: (^[^\s]+)
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(., 'Item model number')]/following-sibling::td[1]/text()
+    xpath: (//div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(., 'Item model number')]/following-sibling::td[1]/text()|//li//span[contains(text(), "Item model number")]/following-sibling::span)[1]
   - name: mpc
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(),'odel')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(text(),"odel")]/following-sibling::td[1]/text() | //div[contains(@id,"prodDetails")]//*[contains(text(),"odel")]/following-sibling::td[1]/text() | //table[@id="product-specification-table"]//th[contains(text(),  "Manufacturer") and contains(text(), "Number")]/following-sibling::td/text()
@@ -109,10 +111,12 @@ fields:
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")]
   - name: shippingDimensions
     singleValue: false
-    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
+    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1]|//div[contains(@id, "productOverview")]//td//span[contains(text(), "Item Dimensions")]//parent::td/following-sibling::td|//li//span[contains(text(), "Product Dimensions")]/following-sibling::span)[1]
+    # regExp: (.*);
   - name: shippingWeight
     singleValue: false
-    xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //*[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text()
+    xpath: (//th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //*[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text()|//li//span[contains(text(), "Product Dimensions")]/following-sibling::span[contains(text(), ';')])[1]
+    # regExp: (,.*$)
   - name: variantCount
     singleValue: false
     xpath: //script[contains(text(), "asinVariationValues")]/text()
@@ -130,19 +134,20 @@ fields:
     xpath: 
   - name: manufacturerDescription
     singleValue: false
-    # xpath: //div[@id='added-enhanced-content']
-    xpath: //div[@id="aplus"]//h1[text()] | //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//h5[text()] | //div[@id="aplus"]//h6[text()] | //div[@id="aplus"]//p[not(img) and not(span[contains(text(), "Description:")]) and text()] | //div[@id="productDescription"]//*[contains(text(), "From the Manufacturer")]/following-sibling::p/text() | (//div[contains(@class,"apm-tablemodule")]//tr[position()<3]//th//text()) | //div[contains(@class,"aplus-module")]//span[@class and text()]/text()
+    # xpath: //div[@id="aplus"]//*[not(self::script or self::style or img)]/text()
+    xpath: //div[@id='added-enhanced-content']
+    # xpath: //div[@id="aplus"]//h1[text()] | //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//h5[text()] | //div[@id="aplus"]//h6[text()] | //div[@id="aplus"]//p[not(img) and not(span[contains(text(), "Description:")]) and text()] | //div[@id="productDescription"]//*[contains(text(), "From the Manufacturer")]/following-sibling::p/text() | (//div[contains(@class,"apm-tablemodule")]//tr[position()<3]//th//text()) | //div[contains(@class,"aplus-module")]//div[contains(@class, "a-box")]//span[@class and text()]/text() | //div[contains(@class,"aplus-module")]//div[contains(@class, "apm-right")]//text() | //div[contains(@class,"aplus-module")]//tr//span[@class and text()]/text()
+    # xpath: //div[@id="aplus"]//h1[text()] | //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//h5[text()] | //div[@id="aplus"]//h6[text()] | //div[@id="aplus"]//p[not(img) and not(span[contains(text(), "Description:")]) and text()] | //div[@id="productDescription"]//*[contains(text(), "From the Manufacturer")]/following-sibling::p/text() | (//div[contains(@class,"apm-tablemodule")]//tr[position()<3]//th//text()) | //div[contains(@class,"aplus-module")]//span[@class and text()]/text()
   # xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//h5[text()] | //div[@id="aplus"]//h6[text()] | //div[@id="aplus"]//p[not(img) and text()] | //div[@id="productDescription"]//*[contains(text(), "From the Manufacturer")]/following-sibling::p/text() | //div[contains(@class,"aplus-module")]//span[@class and text()]/text()
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="aplus"]//img[not(contains(@data-src, "common"))]/@data-src | //div[contains(@class, "apm-tablemodule")]//img[not(contains(@src, "common"))]/@src
-    # xpath: //div[@id="aplus"]//img[not(contains(@src, "common"))]/@src | //div[@id="aplus"]//img[not(contains(@src, "common"))]/@data-src
+    xpath: //div[@id="aplus"]//img[not(contains(@data-src, "common"))]/@data-src | //div[contains(@class, "apm-tablemodule")]//img[not(contains(@src, "common"))]/@src | //div[@class="aplus"]//img/@src
   - name: videos
     singleValue: false
     xpath: //script[contains(text(), "ImageBlockBTF")]/text()
   - name: name
     singleValue: true
-    xpath: //title
+    xpath: //span[@id="productTitle"]
   - name: inStorePrice
     singleValue: true
     xpath: 
@@ -393,7 +398,8 @@ fields:
     xpath: //tr[contains(@id, 'almDetailPagePrice_buying_price')]//span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@id, "promotions_feature_div")]//li|//div[contains(@id, "promo")]//div[contains(@class, "content")]//ul/div/li/span/span/text() | //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
+    xpath: (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li|//tr[@id="almDetailPagePrice_savings_price"]
+    # xpath: //div[contains(@id, "promotions_feature_div")]//li|//div[contains(@id, "promo")]//div[contains(@class, "content")]//ul/div/li/span/span/text() | //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
     # xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
     # xpath: //div[contains(@id, "promotions_feature_div")]//div[contains(@class, "content")]//li|//div[contains(@id, "promo")]//div[contains(@class, "content")]//ul/div/li/span/span/text() | //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li
     # xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li|//tr[contains(@id, "almDetailPagePrice_savings_price")]
@@ -416,7 +422,7 @@ fields:
     xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@id="productDescription"]/p/text() 
+    xpath: //div[@id="feature-bullets"]//li|//div[@id="productDescription_feature_div"]//li
   - name: prop65Warning
     singleValue: true
     xpath: 

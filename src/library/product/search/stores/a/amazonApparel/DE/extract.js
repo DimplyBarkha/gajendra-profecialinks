@@ -1,4 +1,6 @@
-const { transform } = require('../../../../transform');
+// const { transform } = require('../../../../transform');
+const { transform } = require('../../amazon/sharedTransform');
+const { implementation } = require('../../amazon/shared.js');
 
 module.exports = {
   implements: 'product/search/extract',
@@ -8,4 +10,5 @@ module.exports = {
     domain: 'amazon.de',
     transform: transform,
   },
+  implementation,
 };

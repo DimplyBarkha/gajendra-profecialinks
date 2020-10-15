@@ -43,7 +43,7 @@ fields:
     xpath: //div[@id='ii_desc']
   - name: productOtherInformation
     singleValue: false
-    xpath: //*[@id="productDescription"]/p
+    xpath: //div[@id="prodOtherInformationFetched"]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
