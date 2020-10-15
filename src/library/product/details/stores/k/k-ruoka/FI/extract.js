@@ -17,12 +17,16 @@ module.exports = {
   ) => {
     await context.evaluate(async function () {
       var NutritionInfo = document.querySelector('div.shopping-list-product-details-container section.collapsible-container.product-nutritional-detail a');
-      var checkIfNutritionInfoAlreadyOpen = document.querySelector('div.shopping-list-product-details-container section.collapsible-container.product-nutritional-detail.open');
-      if (NutritionInfo && !checkIfNutritionInfoAlreadyOpen) {
-        NutritionInfo.click();
-      } else {
-        console.log('already open');
+      var table = document.querySelector('div.nutritional-contents'); 
+      if (table) {
+          document.body.append(table);
+      }else if(!table && NutritionInfo) {
+          console.log('clicking...');
+          NutritionInfo.click();
+          var table = document.querySelector('div.nutritional-contents'); 
+          document.body.append(table);
       }
+      
     });
 
     const { transform } = parameters;
