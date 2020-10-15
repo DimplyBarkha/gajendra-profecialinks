@@ -1,5 +1,54 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: null
-fields: null
+recordSelector: '.class='search-service-product'
+recordXPath: //div[@class='search-service-product']
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@id='product-item']/@data-product-id
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-name']//font/font/text()
+  - name: productUrl
+    singleValue: false
+    xpath: concat("teknosa.com",'',//div[@class='product-name']//a/@href)
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='product-image']//a/img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product-price visible-grid-view clearfix']/span/font/font/text()
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@class='detail-content']//form/button/@data-product-brand
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+    xpath: //div[@class='product-list-badge-item']/span/text()
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: //div[@id='product-item']/@rank
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div[@id='product-item']/@rank
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
