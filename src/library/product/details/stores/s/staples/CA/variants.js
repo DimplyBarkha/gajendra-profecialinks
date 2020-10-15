@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/variants',
   parameterValues: {
-    domain: 'staples.ca',
-    timeout: null,
     country: 'CA',
     store: 'staples',
+    domain: 'staples.ca',
     zipcode: "''",
   },
 };

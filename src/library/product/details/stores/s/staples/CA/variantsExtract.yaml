@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="product-options"]//a[contains(@class,"product-options__choice")]
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //a[contains(@class,"product-options__choice")]/@href
+  - name: variantUrl
+    singleValue: false
+    xpath: //a[contains(@class,"product-options__choice")]/@href
+  - name: variant
+    singleValue: false

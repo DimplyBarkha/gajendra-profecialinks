@@ -23,7 +23,7 @@ fields:
     xpath: (//span[@class="product-form__price-wrapper"]/div[@class="money-details"]//strike)[1]
   - name: price
     singleValue: false
-    xpath: //div[@class="product product__page"]//span[@class="product-form__price-wrapper"]//span[contains(@class,"pre-money")]
+    xpath: (//div[@class="product product__page"]//span[@class="product-form__price-wrapper"])[1]//span[contains(@class,"pre-money")]
   - name: availabilityText
     singleValue: false
     xpath: //form[@class="product-form"]//button[contains(@class,"product-form__button") and text()="Add To Cart" and not(@disabled="disabled")]
@@ -44,7 +44,7 @@ fields:
     xpath: //div[contains(@class,"product-property")]//span[contains(@class,"product-property__item") and contains(text(),"Item")]
   - name: sku
     singleValue: false
-    xpath: //link[@rel="canonical"]/href
+    xpath: //link[@rel="canonical"]/@href
   - name: variantId
     singleValue: false
   - name: mpc
@@ -66,4 +66,15 @@ fields:
     xpath: //div[contains(@class,"product-specifications")]/div[@class="row"]//tr
   - name: packSize
     singleValue: false
-    xpath: //span[@class="product-form__price-wrapper"]/span[@class="pack-info"]
+    xpath: (//span[@class="product-form__price-wrapper"])[1]/span[@class="pack-info"]
+  - name: color
+    singleValue: false
+    xpath: //dl[contains(@aria-labelledby,"type--ink_colour")]//a[@aria-checked="true"]//span[@class="product-options__label"]
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="product-options"]//a/@href
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0 
+  - name: variantInformation
+    singleValue: false
