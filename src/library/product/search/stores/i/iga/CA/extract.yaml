@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@id,'body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl')]//div[contains(@class,'item-product js-product')]
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@id,'body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl')]//div[contains(@class,'item-product js-product')]/@data-product
+  - name: name
+    singleValue: false
+    xpath: //a[contains(@class,'js-ga-productname')] | //div[@class='item-product__info']
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,'item-product__brand')]
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,'item-product js-product')]//img/@src 
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'item-product js-product')]//span[@class = 'price text--strong']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'item-product js-product')]//span[@class = 'price-amount']
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='added-searchurl']
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,'item-product js-product')]//a[@class='js-ga-productname']/@href
+    regExp: (.+)
+    regExpReplace: https://www.iga.net$1
+  - name: sponsored
+    singleValue: false
