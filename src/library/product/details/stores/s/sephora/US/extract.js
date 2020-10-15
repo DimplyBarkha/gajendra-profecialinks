@@ -9,7 +9,33 @@ module.exports = {
     domain: 'sephora.com',
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+    const isUS = await context.evaluate(async function () {
+      if (document.querySelector('span[data-at="country_us"]') && document.querySelector('span[data-at="country_us"]').nextElementSibling && document.querySelector('span[data-at="country_us"]').nextElementSibling.nodeName) {
+        return document.querySelector('span[data-at="country_us"]').nextElementSibling.nodeName === 'svg';
+        // if (document.querySelector('span[data-at="country_us"]').nextElementSibling.nodeName !== 'svg') {
+        //   document.querySelector('span[data-at="country_us"]').click();
 
+
+        // }
+      }
+    });
+
+    if (isUS === false) {
+      await context.click('span[data-at="country_us"]');
+
+      try {
+        await context.waitForSelector('button[data-at="modal_dialog_continue_btn"]' , {timeout: 15000});
+      } catch (error) {
+        await context.evaluate(async function () {
+          if (document.querySelector('span[data-at="country_us"]').nextElementSibling.nodeName !== 'svg') {
+            document.querySelector('span[data-at="country_us"]').click();
+          }
+        });
+        await context.waitForSelector('button[data-at="modal_dialog_continue_btn"]', { timeout: 35000 });
+        await context.click('button[data-at="modal_dialog_continue_btn"]');
+        await context.waitForSelector('span[data-at="country_us"]+svg', { timeout: 55000 });
+      }
+    }
     const itemUrl = await context.evaluate(function() {
       let resultsCheck = '(//h1//text()[not(parent::b)])[1]'
       var checkResults = document.evaluate( resultsCheck, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -50,59 +76,7 @@ module.exports = {
       
     }
 
-    await context.evaluate(async function () {
-      let scrollTop = 0;
-      while (scrollTop <= 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(8000);
-          break;
-        }
-      }
-      function stall (ms) {
-        return new Promise(resolve => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    });
 
-    try {
-      await context.waitForSelector('div[data-comp~="RatingsAndReviews"] img[role="presentation"]', { timeout: 45000 });
-    } catch (error) {
-      console.log('Has not scroll down to ratings and reviews section');
-
-      await context.evaluate(async function () {
-        if (document.querySelector('button[data-at="close_button"]')) {
-          document.querySelector('button[data-at="close_button"]').click();
-        }
-        let scrollTop = 0;
-        while (scrollTop <= 20000) {
-          await stall(500);
-          scrollTop += 1000;
-          window.scroll(0, scrollTop);
-          if (scrollTop === 20000) {
-            await stall(8000);
-            break;
-          }
-        }
-        function stall (ms) {
-          return new Promise(resolve => {
-            setTimeout(() => {
-              resolve();
-            }, ms);
-          });
-        }
-        try {
-          await context.waitForSelector('div[data-comp~="RatingsAndReviews"] img[role="presentation"]', { timeout: 45000 });
-        } catch (error) {
-          console.log('Has not scroll down to ratings and reviews section');
-        }
-      });
-    }
     // await context.captureRequests();
 
     const videos = await context.evaluate(function () {
@@ -137,7 +111,7 @@ module.exports = {
             console.log('finished click');
             // Clicking a link caused a page reload, this function waits for the page to finish loading.
             // await context.waitForPage();
-          await new Promise(resolve => setTimeout(resolve, 10000));
+          await new Promise(resolve => setTimeout(resolve, 15000));
             console.log('finished waiting for page');
             const req = await context.searchAllRequests('edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/');
             
@@ -373,27 +347,94 @@ module.exports = {
 
     }, parentInput, html);
 
-    // await context.evaluate(async function () {
-    //   function addHiddenDiv (id, content) {
-    //     const newDiv = document.createElement('div');
-    //     newDiv.id = id;
-    //     newDiv.textContent = content;
-    //     newDiv.style.display = 'none';
-    //     document.body.appendChild(newDiv);
-    //   }
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop <= 20000) {
+        await stall(500);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 20000) {
+          await stall(8000);
+          break;
+        }
+      }
+      function stall (ms) {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+    });
 
-    //   if (document.querySelector('span[data-at="number_of_reviews"]')) {
-    //     const ratingCount = document.querySelector('span[data-at="number_of_reviews"]').innerText;
+    try {
+      await context.waitForSelector('div[data-comp~="RatingsAndReviews"] img[role="presentation"]', { timeout: 45000 });
+    } catch (error) {
+      console.log('Has not scroll down to ratings and reviews section');
 
-    //     if (ratingCount.includes('K')) {
-    //       addHiddenDiv('ii_ratingCount', ratingCount);
-    //     }
-    //   }
-    // });
+      await context.evaluate(async function () {
+        if (document.querySelector('button[data-at="close_button"]')) {
+          document.querySelector('button[data-at="close_button"]').click();
+        }
+        let scrollTop = 0;
+        while (scrollTop <= 20000) {
+          await stall(500);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(8000);
+            break;
+          }
+        }
+        function stall (ms) {
+          return new Promise(resolve => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+        try {
+          await context.waitForSelector('div[data-comp~="RatingsAndReviews"] img[role="presentation"]', { timeout: 45000 });
+        } catch (error) {
+          console.log('Has not scroll down to ratings and reviews section');
+        }
+      });
+    }
 
+    try {
+      await context.waitForSelector('div[data-comp~="StyledComponent"] h2, div#tabpanel0', { timeout: 45000 });
+    } catch (error) {
+      console.log('Loading details');
+    }
 
-      await new Promise(resolve => setTimeout(resolve, 5000));
+    await context.evaluate(async function () {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
 
+      if (document.querySelector('p[data-at="item_sku"]') && document.querySelector('p[data-at="item_sku"]').parentNode && document.querySelector('p[data-at="item_sku"]').parentNode.parentElement && document.querySelector('p[data-at="item_sku"]').parentNode.parentElement.lastElementChild) {
+        const descriptionText = document.querySelector('p[data-at="item_sku"]').parentNode.parentElement.lastElementChild.innerText;
+
+        // if (document.querySelector('div[data-comp~="StyledComponent"] h2') && document.querySelector('div[data-comp~="StyledComponent"] h2').nextSibling && document.querySelector('div[data-comp~="StyledComponent"] h2').nextSibling.lastElementChild) {
+        //   const descriptionText = document.querySelector('div[data-comp~="StyledComponent"] h2').nextSibling.lastElementChild.innerText;
+
+        addHiddenDiv('ii_Details', descriptionText);
+      }
+
+      if (document.querySelector('div[data-comp^="Rcarousel"] li:first-child img') && document.querySelector('div[data-comp^="Rcarousel"] li:first-child img').getAttribute('alt')) {
+        const imageAlt = document.querySelector('div[data-comp^="Rcarousel"] li:first-child img').getAttribute('alt');
+
+        // if (document.querySelector('div[data-comp~="StyledComponent"] h2') && document.querySelector('div[data-comp~="StyledComponent"] h2').nextSibling && document.querySelector('div[data-comp~="StyledComponent"] h2').nextSibling.lastElementChild) {
+        //   const descriptionText = document.querySelector('div[data-comp~="StyledComponent"] h2').nextSibling.lastElementChild.innerText;
+
+        addHiddenDiv('ii_imgAlt', imageAlt);
+      }
+    });
 
       return await context.extract(productDetails, { transform: transformParam });
     },
