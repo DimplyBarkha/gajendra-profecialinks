@@ -1,0 +1,87 @@
+fields:
+  - name: image
+    xpath: //img[@id='imgProduct']/@src
+  - name: imageAlt
+    xpath: //img[@id='imgProduct']/@alt
+  - name: alternateImages
+    xpath: //ul[@id='piThumbList']/li[position()>1]//@src
+    regExp: (.*)(piat)(.*)
+    regExpReplace: $1l$3
+  - name: metaKeywords
+    xpath: //meta[@id='MetaKeywords']/@content
+  - name: category
+    xpath: //div[contains(@class,'breadcrumb')]//ol/li[position()>1 and position()<last()]
+  - name: nameExtended
+    xpath: //span[@id='lblProductName']/text()
+  - name: listPrice
+    xpath: //span[@id='lblTicketPrice']/text()
+  - name: price
+    xpath: //span[@id='lblSellingPrice']/text()
+  - name: availabilityText
+    xpath: normalize-space(//script[@type='application/ld+json'])
+  - name: description
+    xpath: //span[@itemprop='description']/text()
+  - name: descriptionBullets
+    singleValue: true
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: brandText
+    xpath: //span[@id='lblProductBrand']
+  - name: size
+    xpath: //ul[@id='ulSizes']/li//span
+  - name: gtin
+    xpath: normalize-space(//script[@type='application/ld+json'])
+  - name: sku
+    xpath: normalize-space(//script[@type='application/ld+json'])
+  - name: variantId
+    xpath: normalize-space(//span[contains(@class,'ProductDetailsVariants')]/@data-variants)
+    regExp: (SizeVarId":")(.){11}
+  - name: ratingCount
+    xpath: //div[@class='bv_numReviews_text']
+  - name: aggregateRating
+    xpath: //div[@itemprop='ratingValue']
+  - name: shippingInfo
+    xpath: //div[@id='parDeliveryMethods']/ul/li
+  - name: variantCount
+    xpath: count(//ul[@id='ulColourImages']/li)
+  - name: color
+    xpath: //span[@id='colourName']
+  - name: variantInformation
+    xpath: //ul[@id='ulColourImages']/li/@data-text
+  - name: firstVariant
+    xpath: //p[@id='lblProductCode']
+  - name: variants
+    xpath: //ul[@id='ulColourImages']/li/@id
+    regex: (cvli)(.+)
+    regExpReplace: $2
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: materials
+    singleValue: true
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present
+    xpath: //span[@class='popup360Button']
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    xpath: //span[@class='zoomButton']
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
