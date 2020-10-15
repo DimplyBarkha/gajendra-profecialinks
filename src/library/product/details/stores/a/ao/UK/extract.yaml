@@ -27,7 +27,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //meta[@name="SKYPE_TOOLBAR"][1]
+    xpath:  //h1[@class="text-display-sm md:text-display m-0 mb-3 text-left"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
