@@ -10,7 +10,7 @@ const transform = (data) => {
 			if (row.availabilityText) {
 				let newText = 'Out Of Stock';
 				row.availabilityText.forEach(item => {
-					if (item.text.trim() === 'false') {
+					if (item.text) {
 						newText = 'In Stock';
 					}
 				});
