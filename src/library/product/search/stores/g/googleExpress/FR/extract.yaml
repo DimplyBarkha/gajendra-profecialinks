@@ -15,7 +15,7 @@ fields:
     xpath: //h3[contains(@class,'xsRiS')] | //h4[contains(@class,'A2sOrd')]
     description: The product name
   - name: aggregateRating2
-    xpath: //div[contains(@class,'product-results-grid')]//div[contains(@class,'grid-result')]//div[contains(@role,'img')]/@aria-label[contains(.,'out of') or contains(.,'étoiles')]
+    xpath: //div[contains(@role,'img')]/@aria-label[contains(.,'out of') or contains(.,'étoiles')]
     description: The stated aggregate rating
   - name: ratingCount
     xpath: //span/@aria-label[contains(.,'reviews') or contains(.,'avis')]
@@ -41,3 +41,6 @@ fields:
     regExp: (?:.*shopping/product/(.*)\?q=.*)
     regExpReplace: $1
     description: Unique id (within this extractor)
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl'][last()]
