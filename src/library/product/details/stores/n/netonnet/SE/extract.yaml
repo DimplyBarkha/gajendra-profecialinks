@@ -6,97 +6,64 @@ fields:
   - name: image
     singleValue: true
     xpath: //meta[@property="og:image"]//@content
-    # regExp: (.+)
-    # regExpReplace: https://www.netonnet.se$1
   - name: imageAlt
     singleValue: true
     xpath: //div[@data-index="0"]//img//@alt
-    description: Alt text of the main product image
   - name: name
     singleValue: false
-    #xpath: //ol[contains(@class, 'breadcrumb')]/following::h2[1]
     xpath: //div[contains(@class,'product-leftInfo')]//h2
-    description: The product name
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='owl-item']//img[contains(@class,'productImage')]//@data-src
     regExp: (.+)
     regExpReplace: https://www.netonnet.se$1
-    description: Other product images (not in manufacturer description)
   - name: availabilityText
     singleValue: false
     xpath: boolean(//div[@class='heading']//span[contains(@class,'stockStatusInStock')])
-    #xpath: //span[@itemprop="availability"]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="collapseFive"]//img//@data-src
-    description: Images within the third party description
   - name: videos
     singleValue: false
-    description: URLs of videos on page
     xpath: //div[@id="ii_videos"]
-    # xpath: //iframe[contains(@id, "quchbox-videolist")]/@title
   - name: sku
     singleValue: false
     xpath: //div[@class="subTitle big"]//span
-    description: The store-specific product identifier
   - name: listPrice
     singleValue: false
-    # xpath: //div[@class="price-big"]
-    description: The stated undiscounted price for the product
   - name: price
     singleValue: false
     xpath: //div[@class="price-big"] | //input[contains(@id,"CurrentCurrency")]/@value
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
   - name: category
     singleValue: false
     xpath: //*[contains(@class, 'breadcrumb')]//li
-    description: The categories (e.g. from breadcrumbs)
   - name: subCategory
     singleValue: false
-    # xpath: //*[contains(@class, 'breadcrumb')]//li[position()>1]
-    description: The sub Category (e.g. from breadcrumbs)
   - name: variants
     singleValue: false
     xpath: //div[contains(@class,"swatchContainer")]//@data-itemid
-    description: null
   - name: firstVariant
     singleValue: false
-    # xpath: //div[contains(@class,"swatchContainer")]/div[1]//@data-url
     xpath: //div[contains(@class,"swatchContainer")]/div[1]//@data-itemid
-    description:
-      Unique identifier for a collection of variants. For a subset of core feeds (43) we have a column "first_variant" that is populated with a
-      common code to link all variants for a product. method 1 (Preferred) = use common tag (Could be parent sku) that is same value for all variants of a
-      product. method 2 = first_variant method technique, Identify the first varient in the sequence and use this rpc to populate "first_variant" for
-      all variants of a product, this rpc becomes the common link between other variants. method 3 = apply some logic to determine link between variants,
-      this will need analysis
   - name: variantCount
     singleValue: false
     xpath: count(//div[contains(@class,"swatchContainer")]//@data-itemid)
-    description: Number of variants listed
   - name: variantInformation
     singleValue: false
     xpath: //div[contains(@class,"swatchContainer")]//@title
-    description: colour / scent / flavour / other
   - name: ratingCount
     singleValue: true
     xpath: //a[contains(@data-action,"writeReview")]//span[1]
-    description: The number of ratings
     type: NUMBER
   - name: variantId
     singleValue: false
     xpath: //div[@class="subTitle big"]//span
-    description: Identifier for a variant from a store where variants share the same sku. Here We have tasken last id of URL
   - name: description
     singleValue: false
-    #xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li
     xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li | //div[@id="collapseFive"]//text()
-    description: Product description supplied by website - may be concatenanted from multiple places; specifically not the manufacturer description
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath: //*[contains(text(), 'Manualer och dokumentation')]/following::tr/td/a[contains(@href, '.pdf')]/@href
-    description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     regExp: (.+)
     regExpReplace: "YES"
@@ -104,99 +71,63 @@ fields:
   - name: aggregateRating2
     singleValue: false
     xpath: //a[contains(@data-action,"writeReview")]//div[contains(@class,"ratingOverlay")]//@style
-    description: The stated aggregate rating normalized to be out of 5
-    # type: NUMBER
   - name: eangtin
     singleValue: false
     xpath: //*[contains(text(), 'EAN')]/following::td[1]
   - name: color
     singleValue: false
     xpath: //*[contains(text(), 'Färg')]/following::td[1]
-    description: A textual description of the colour
   - name: warranty
     singleValue: false
     xpath: //*[contains(text(), 'Tillverkarens garanti')]/following::td[2]
-    description: Guarantee associated with the product
   - name: storage
     singleValue: false
-    # xpath: //td[contains(text(), 'Lager')]/following::td[1]
-    description: Suggested storage location for product
   - name: specifications
     singleValue: false
-    #xpath: //td[contains(text(), 'Höjd')]/following::td[1] | //td[contains(text(), 'Bredd')]/following::td[1] | //td[contains(text(), 'Djup')]/following::td[1]
     xpath: //table[@class='table table-striped']//td//text()
-    description: The physical dimensions of the product including packaging. here its taken as Height , width and Depth
   - name: weightNet
     singleValue: false
-    # xpath: //td[contains(text(), 'Vikt')]/following::td[1]/text()
     xpath: //td[contains(text(), "Vikt") and not(contains(text(), "Vikt (frakt)"))]/following::td[1]
-    description: Net weight as described on the page
   - name: weightGross
     singleValue: false
     xpath: (//td//font[contains(text(), "Weight (shipping)") ]/following::td[1])|(//td[contains(text(), "Vikt (frakt)")]/following::td[1])
-    description: Gross weight as described on the page
   - name: additionalDescBulletInfo
     singleValue: false
-    # xpath: //div[contains(@class,'product-sellingPoints hidden-xs')]//div[contains(@class,"product-usps")]
     xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li
-    description: null
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class, 'tracking')]/input[contains(@name,"ProductBrand")]/@value
-    description:
-      Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
-  # - name: quantity
-  # singleValue: false
-  # description: Quantity as described on the page
-  # xpath: //div[contains(@class, 'tracking')]/input[contains(@name,"ProductQuantity")]/@value
-  # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-  # regExpReplace: $1$2$3$4
   - name: shippingWeight
     singleValue: false
     xpath: (//td//font[contains(text(), "Weight (shipping)") ]/following::td[1])|(//td[contains(text(), "Vikt (frakt)")]/following::td[1])
-    description: Stated shipping weight
   - name: nameExtended
     singleValue: false
     xpath: //ol[contains(@class, 'breadcrumb')]/following::h2[1]
-    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)
   - name: descriptionBullets
     singleValue: false
-    # xpath: count(//div[contains(@class,'product-sellingPoints hidden-xs')]//div[contains(@class,"product-usps")]//ul//li)
     xpath: count(//div[contains(@class,'product-sellingPoints hidden-xs')]//div[contains(@class,"product-usps")]//ul//li | //div[contains(@class,'productSpec')]//ul[@class="bulletList"]//li)
-    description: Number of ul > li tags in the description
     type: NUMBER
   - name: energyEfficiency
     singleValue: false
     xpath: //*[contains(text(), 'Energiklass')]/following::td[1]
-    description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
   - name: packSize
     singleValue: false
-    description:
-      The number of packs in the product offer (if stated separately on
-      the site to quantity)
     xpath: //td[contains(text(), 'Kvantitet')]/following::td[1]/text()
-    # current status -----
   - name: gtin
     singleValue: false
     xpath: //*[contains(text(), 'EAN')]/following::td[1]
-    description: GTIN code (includes UPC/EAN)
   - name: mpc
     singleValue: false
     xpath: //span[@itemprop='mpn']
-    description: The manufacturer model code (unique) of the product
   - name: shippingDimensions
     singleValue: false
     xpath: (//td//font[contains(text(), 'Width (shipping)')]/following::td[1]|//td//font[contains(text(), 'Depth (shipping)')]/following::td[1]|//td//font[contains(text(), 'Height (shipping)')]/following::td[1]|//td//font[contains(text(), "Weight (shipping)") ]/following::td[1]|//td//font[contains(text(), 'Shipping width')]/following::td[1]|//td//font[contains(text(), 'Shipping depth')]/following::td[1]|//td//font[contains(text(), 'Shipping height')]/following::td[1]|//td//font[contains(text(), "Shipping weight") ]/following::td[1]|//td[contains(text(), 'Bredde (forsendelse)')]/following::td[1]|//td[contains(text(), 'Dybde (forsendelse)')]/following::td[1]|//td[contains(text(), 'Høyde (forsendelse)')]/following::td[1]|//td[contains(text(), "Vekt (forsendelse)")]/following::td[1]|//td[contains(text(), 'Fraktbredde')]/following::td[1]|//td[contains(text(), 'Fraktdybde')]/following::td[1]|//td[contains(text(), 'Frakthøyde')]/following::td[1]|//td[contains(text(), "Fraktvekt")]/following::td[1]| //td[contains(text(), 'Höjd')]/following::td[1] | //td[contains(text(), 'Bredd')]/following::td[1] | //td[contains(text(), 'Djup')]/following::td[1])
-    description: Stated shipping dimensions
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id='collapseFive']//div[@class='panel-body']//div[@class='row']//div[@class='col-xs-12']//p//text()
-    description: The extended description of the product supplied by the lister
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@class='owl-item']//img[contains(@class,'productImage')]//@data-src)
-    description: null
     type: NUMBER

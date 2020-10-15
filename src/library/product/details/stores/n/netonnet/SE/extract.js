@@ -14,12 +14,12 @@ module.exports = {
     dependencies,
   ) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 4000));
-    await context.evaluate(async function () {
+    /* await context.evaluate(async function () {
       const overlay = document.getElementById('headingOne');
       if (overlay !== undefined) {
         overlay.click();
       }
-    });
+    }); */
 
     try {
       await context.waitForSelector('iframe[id^="quchbox-videolist"]', { timeout: 45000 });
