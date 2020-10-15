@@ -24,7 +24,6 @@ async function implementation (
   const { transform } = parameters;
   // @ts-ignore
   const { productDetails } = dependencies;
-  await context.waitForSelector('div.product-grid__items div.grid-item');
   async function firstItemLink () {
     return await context.evaluate(function () {
       let firstItem = document.querySelector('div.grid-product__content.grid-item__content a')

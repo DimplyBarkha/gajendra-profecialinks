@@ -49,10 +49,12 @@ const transform = (data, context) => {
           if (row.quantity) {
             row.quantity.forEach(item => {
               if(item.text.includes(' ml')){
-                  item.text = item.text.match(/\s(\d+)\sml/g,'$1').replace(' ml','').trim();
-              }else if(item.text.includes(' g')){
-                item.text =  item.text.match(/\s(\d+)\sg/g,'$1').replace(' g','').trim();
+                  // item.text = item.text.match(/\s(\d+)\sml/g,'$1').replace(' ml','').trim();
+                  item.text = item.text.replace ( /[^\d.]/g, '' );
               }
+              // else if(item.text.includes(' g')){
+              //   item.text = item.text.replace(/\s(\d+)\sg/,'$1').trim();
+              // }
             });
           }
           if (row.promotion) {
