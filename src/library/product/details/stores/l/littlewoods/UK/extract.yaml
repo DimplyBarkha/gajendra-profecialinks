@@ -30,7 +30,7 @@ fields:
   - name: nameExtended
     singleValue: true
     description: product brand shown
-    xpath: //h1[@class='productHeading']/span/text()
+    xpath: //h1[@class='productHeading']
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -50,14 +50,15 @@ fields:
     defaultValue: Out of Stock
     xpath: //meta[@property="product:availability"]/@content
   - name: description
-    singleValue: false
+    singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //span[contains(@itemprop,'description')]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    xpath: //span[@itemprop='description']//ul/count(li)
+    xpath: count(//div[@id='productDescription']//span//ul//li)
+    type: NUMBER
   - name: additionalDescBulletInfo
     singleValue: true
     description: ul > li tags in the description
@@ -404,7 +405,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //*[@id="productDescription"]//span/ul
+    xpath: //*[@id="productSpecification"]/table/tbody
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -439,6 +440,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //div[contains(@class,'productPriceHeadline')]//div[contains(@class,'productNowPrice')]//div[contains(@class,'priceNow')]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information

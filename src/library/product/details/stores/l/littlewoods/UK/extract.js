@@ -15,16 +15,19 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    Object.keys(window.universal_variable.product).forEach((key) => {
-      console.log("ddfdf" + window.universal_variable.product[key]);
-    });
+    // @ts-ignore
     const category=window.universal_variable.product.category
-    addHiddenDiv('detail-category', category);
+    // @ts-ignore
+    const subcategory=window.universal_variable.product.subcategory
+    const totalCategory=[]
+    const totalSubCategory=[]
+    totalCategory.push(category)
+    totalSubCategory.push(subcategory)
+    addHiddenDiv('detail-category', totalCategory);
+    addHiddenDiv('detail-category', totalSubCategory);
     });
-
   return await context.extract(productDetails, { transform });
 }
-
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -32,6 +35,6 @@ module.exports = {
     store: 'littlewoods',
     transform: transform,
     domain: 'littlewoods.com',
-    zipcode: '',
   },
+  implementation,
 };
