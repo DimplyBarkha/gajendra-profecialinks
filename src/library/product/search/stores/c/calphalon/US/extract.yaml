@@ -17,10 +17,13 @@ fields:
     xpath: //li//div[contains(@class,'item-cont')]//a//@href
   - name: thumbnail
     SingleValue: false
-    xpath: //li//div//div//div[@class='prod-img']//div[@class='image']//a//img//@src
+    xpath: //li//div[@class='image']//a//img//@src
   - name: name
     SingleValue: false
     xpath: //li//div[contains(@class,'item-cont')]//a//h3
   - name: price
     SingleValue: false
-    xpath: //li//div[contains(@class,'item-cont')]//div[@class='prod-data']//div[@class='product_price']//p[@class='prod-price']
+    xpath: //li//p[@class='prod-price']
+  - name: aggregateRating
+    SingleValue: false
+    xpath: //li//span[contains(@class,'bv-rating-stars-on')]//@class

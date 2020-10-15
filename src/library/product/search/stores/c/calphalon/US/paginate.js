@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'calphalon',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a.right_arrow',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
