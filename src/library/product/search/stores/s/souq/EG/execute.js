@@ -5,9 +5,9 @@ module.exports = {
     country: 'EG',
     store: 'souq',
     domain: 'egypt.souq.com',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://egypt.souq.com/eg-en/{searchTerms}/s/',
+    loadedSelector: 'div[class="tpl-results"]',
+    noResultsXPath: '//div[contains(@class , "zero-results")]',
     zipcode: '',
   },
 };
