@@ -7,7 +7,7 @@ fields:
     description: URL of the main product image
     xpath: //img[@itemprop="image"]//@src
     regExp: (.+)
-    regExpReplace: https://apopro.dk/$1
+    regExpReplace: https://apopro.dk$1
   - name: imageAlt
     description: Alt text of the main product image
     xpath: //img[@itemprop="image"]//@alt
@@ -22,7 +22,7 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1
+    xpath: //h1[@itemprop="name"]
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: //div[@class="before-price ng-binding"]
@@ -31,7 +31,7 @@ fields:
       clicks add to basket this is the price they would be charged
     xpath: //div[@class="price h2 mtn text-primary text-bold ng-binding"]
   - name: availabilityText
-    # defaultValue: Out of Stock
+    defaultValue: Out of Stock
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -52,11 +52,10 @@ fields:
 #   - name: manufacturer
 #     singleValue: true
 #     description: Product manufacturer
-#   - name: quantity
-#     singleValue: true
-#     description: Quantity as described on the page
-#     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-#     regExpReplace: $1$2$3$4
+  # - name: quantity
+  #   description: Quantity as described on the page
+  #   xpath: //div[contains(@class,'info-of-product mb20 ffopen')]/div[contains(.,'stk')]
+  #   regExp: \d+
 #   - name: weightNet
 #     singleValue: true
 #     description: Net weight as described on the page
@@ -101,9 +100,9 @@ fields:
 #     singleValue: true
 #     description: The stated aggregate rating normalized to be out of 5
 #     type: NUMBER
-#   - name: shippingInfo
-#     singleValue: true
-#     description: Shipping information for the product
+  # - name: shippingInfo
+  #   description: Shipping information for the product
+  #   xpath: //div[@class="modal-body"]
 #   - name: shippingDimensions
 #     singleValue: true
 #     description: Stated shipping dimensions
@@ -129,9 +128,9 @@ fields:
 #   - name: videos
 #     singleValue: false
 #     description: URLs of videos on page
-#   - name: name
-#     singleValue: true
-#     description: The product name
+  - name: name
+    description: The product name
+    xpath: //h1[@itemprop="name"]
 #   - name: inStorePrice
 #     singleValue: true
 #     description: Price in the selected store
@@ -236,7 +235,7 @@ fields:
   - name: ingredientsList
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //strong[contains(.,'Indeholder')]/../following-sibling::p[1] | //strong[contains(.,'Indeholder')]/../following-sibling::p[contains(.,'Ingredienser') or contains(.,'Ingredients')]
+    xpath: //strong[contains(.,'Indeholder')]/../following-sibling::p[contains(.,'Ingredienser') or contains(.,'Ingredients')]
 #   - name: servingSize
 #     singleValue: true
 #     description: The size of serving Nutritional information is based on.
@@ -390,7 +389,7 @@ fields:
 #     description: Guarantee associated with the product
   - name: storage
     description: Suggested storage location for product
-    xpath: //strong[contains(.,'Opbevaring')]/../following-sibling::p[1]
+    xpath: //li[contains(.,'Opbevares')]
 #   - name: countryOfOrigin
 #     singleValue: true
 #     description: The country from which the product originates
@@ -415,9 +414,9 @@ fields:
 #   - name: pricePerUnitUom
 #     singleValue: true
 #     description: The unit of measurement used in price_per_unit
-#   - name: promotion
-#     singleValue: true
-#     description: promotion text on product page
+  - name: promotion
+    description: promotion text on product page
+    xpath: //a//div[@class="labels discount-label"]
 #   - name: alcoholContent
 #     singleValue: true
 #     description: Alcohol content information
