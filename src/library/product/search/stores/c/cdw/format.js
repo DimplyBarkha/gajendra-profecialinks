@@ -26,7 +26,7 @@ const transform = (data) => {
       for (let row of group) {
         if(row.productUrl){
           row.productUrl.forEach(item => {
-            item.text='https://www.cdw.com/'+item.text;
+            item.text='https://www.cdw.com'+item.text;
           });
         }
         if(row.gtin){
