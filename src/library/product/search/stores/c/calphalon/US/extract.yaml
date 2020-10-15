@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[contains(@class,'products-grid')]/li
+recordXPath: //section[contains(@class,'product-grid')]//div[contains(@class,'item-prod')]
 fields:  
   - name: id
     SingleValue: false
-    xpath: //div[@class='prodGrid text-center']//div[@class='itemsmain']//button[@class='button btn-cart icon-bag']/@data-sku
+    xpath: //li//div[contains(@class,'item-cont')]/@id
   - name: rankOrganic
     SingleValue: false
     defaultValue: 1
@@ -14,13 +14,13 @@ fields:
     defaultValue: 1
   - name: productUrl
     SingleValue: false
-    xpath: //div[@class='prodGrid text-center']//h2//a/@href
+    xpath: //li//div[contains(@class,'item-cont')]//a//@href
   - name: thumbnail
     SingleValue: false
-    xpath: //div[@class='prodGrid text-center']//a//img[@class='lazy-catalog']//@src
+    xpath: //li//div//div//div[@class='prod-img']//div[@class='image']//a//img//@src
   - name: name
     SingleValue: false
-    xpath: //div[@class='prodGrid text-center']//h2//a
+    xpath: //li//div[contains(@class,'item-cont')]//a//h3
   - name: price
     SingleValue: false
-    xpath: //div[@class='prodGrid text-center']//div[@class='itemsmain']//div[@class='special-price' or @class='regular-price']  
+    xpath: //li//div[contains(@class,'item-cont')]//div[@class='prod-data']//div[@class='product_price']//p[@class='prod-price']
