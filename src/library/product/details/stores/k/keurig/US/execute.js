@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'keurig',
     domain: 'keurig.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'img#base_image',
+    noResultsXPath: '//h1[contains(.,"Sorry...")]',
     zipcode: '',
   },
 };

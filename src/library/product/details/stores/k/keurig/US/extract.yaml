@@ -27,7 +27,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: (//meta[@itemprop="name"])[1]
+    xpath: //img[@id="base_image"]/@alt
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -55,7 +55,7 @@ fields:
     singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[@class="product-details__desc-content"]//p/text()[preceding-sibling::br and contains(.,"•")])
+    xpath: count(//div[@class="product-details__desc-content"]//p/text()[preceding-sibling::br or following-sibling::br and contains(.,"•")])
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -103,7 +103,9 @@ fields:
   - name: warnings
     singleValue: false
     description: Content under "warnings" header
-    xpath: //section[@class="product-details"]//p[contains(.,"Notes:")]
+    xpath: //section[@class="product-details"]//p[contains(.,"Notes:") or contains(.,"Notes-")]
+    regExp: (.*)Notes(.*)
+    regExpReplace: Notes$2
   - name: ratingCount
     singleValue: false
     description: The number of ratings
@@ -131,7 +133,6 @@ fields:
     singleValue: false
     description: Number of variants listed
     type: NUMBER
-    xpath: count(//input[@class="productID"]/@value | //li[contains(@class,"selectVariant")]/@data-code)
     defaultValue: 0
   - name: color
     singleValue: false
@@ -153,10 +154,13 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //div[@class="video-container"]/div/@data-url
+    regExp: (.+)
+    regExpReplace: https://images.keurig.com/is/content/$1
   - name: name
     singleValue: false
     description: The product name
-    xpath: (//meta[@itemprop="name"])[1]
+    xpath: //img[@id="base_image"]/@alt
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
@@ -212,6 +216,9 @@ fields:
   - name: videoLength
     singleValue: false
     description: null
+    xpath: //div[@id="s7_videoviewpremiumTemplate_videoTime" and @data-component="VideoTime"]
+    regExp: (.*)(\/)(.*)
+    regExpReplace: $2
   - name: ingredientImagePresent
     singleValue: false
     description: null
@@ -253,6 +260,7 @@ fields:
     singleValue: false
     description: null
     type: NUMBER
+    xpath: count((//div[@class="s7thumb"]/@style)[position()>1])
   - name: news
     singleValue: false
     description: null
@@ -477,15 +485,16 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: (//input[@class="productID"]/@value)[1] | (//li[contains(@class,"selectVariant")]/@data-code)[1]
   - name: variants
     singleValue: false
     description: null
-    xpath: //input[@class="productID"]/@value | //li[contains(@class,"selectVariant")]/@data-code
+  - name: variants1
+    singleValue: false
+    xpath: //div[@class="productVariantColor"]//a/@data-swatch-color | //li[contains(@class,"selectVariant")]/@data-code
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[@class="product-details__desc-content"]//p/text()[preceding-sibling::br and contains(.,"•")]
+    xpath: //div[@class="product-details__desc-content"]//p/text()[preceding-sibling::br or following-sibling::br and contains(.,"•")]
   - name: prop65Warning
     singleValue: false
     description: null
@@ -530,4 +539,7 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    xpath: //div[@id="s7viewer_fullScreenButton"]/@aria-label
+    regExp: Full Screen
+    regExpReplace: Yes
     defaultValue: No
