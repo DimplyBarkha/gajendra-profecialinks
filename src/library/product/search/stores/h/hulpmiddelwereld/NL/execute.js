@@ -30,8 +30,8 @@ async function implementation (
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 1000;
+        await stall(1000);
+        scrollTop += 500;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000) {
           await stall(5000);
@@ -48,6 +48,7 @@ async function implementation (
     });
   };
   await applyScroll(context);
+
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
     console.log(xp, r);

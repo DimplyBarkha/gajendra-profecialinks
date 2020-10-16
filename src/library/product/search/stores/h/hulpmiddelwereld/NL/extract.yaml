@@ -8,7 +8,7 @@ fields:
     xpath: //div[contains(@class,'sqr-right')]//div[contains(@class,'sqr-text')]//h3//a/@href
   - name: id
     SingleValue: false
-    xpath: //div[contains(@class,'sqr-right')]//div[contains(@class,'sqr-text')]//h3//a/@href
+    xpath: //div[@class="sqr-resultItem"]/@data-id
   - name: name
     SingleValue: false
     xpath: //div[contains(@class,'sqr-right')]//div[contains(@class,'sqr-text')]//h3
