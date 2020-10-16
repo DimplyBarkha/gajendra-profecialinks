@@ -41,13 +41,16 @@ async function implementation (
         }
         console.log(section.textContent);
       });
+      console.log(`indexToClosestStore - ${indexToClosestStore}`);
       return indexToClosestStore;
     }, storeName);
+    !indexToClick ? console.log('ALERT!!, The store name is probably changed') : console.log('Store found, clicking it');
     await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton`);
   };
 
   const changeZip = async (wantedZip) => {
     await context.click('button.CurrentModality-button');
+    console.log('clicked on the pickup at button');
     await context.waitForSelector('input[data-testid="PostalCodeSearchBox-input"]', { timeout: 6000 });
 
     const refreshRequested = await context.evaluate(() => {
@@ -58,11 +61,22 @@ async function implementation (
       return Boolean(document.querySelector('input[data-testid="PostalCodeSearchBox-input"]'));
     });
 
-    console.log(hasZipBtn);
+    console.log(`hasZipBtn - ${hasZipBtn}`);
     console.log(`Refresh needed? ${refreshRequested}`);
     if (!hasZipBtn || refreshRequested) {
       await context.goto('about:blank');
-      await context.goto(url, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
+      await context.goto(url, {
+        timeout: 20000,
+        block_ads: false,
+        anti_fingerprint: false,
+        load_all_resources: true,
+        waitUntil: 'load',
+        checkBlocked: true,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
+      // await context.goto(url, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
       await context.click('button.CurrentModality-button');
       await context.waitForSelector('input[data-testid="PostalCodeSearchBox-input"]', { timeout: 6000 });
     }
@@ -71,15 +85,19 @@ async function implementation (
     await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip)
       .catch(async function () {
         await context.click('button.CurrentModality-button');
+        await context.waitForSelector('input[data-testid="PostalCodeSearchBox-input"]', { timeout: 6000 });
         await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip);
       });
     await context.waitForSelector('button.kds-SolitarySearch-button', { timeout: 30000 });
+    console.log('set the zipcode, and waiting for the search button');
 
     await context.click('button.kds-SolitarySearch-button');
     await context.waitForSelector('button[aria-label*="In-Store"]', { timeout: 30000 });
+    console.log('clicked the search button and waiting for the button for "instore"');
 
     await context.click('button[aria-label*="In-Store"]');
     await context.waitForSelector('div.ModalitySelector--StoreSearchResult', { timeout: 30000 });
+    console.log('clicked for the instore button and waiting for the search results to load');
 
     const desiredLocations = {
       45209: 'Hyde Park',
@@ -87,10 +105,11 @@ async function implementation (
       48315: 'Shelby Marketplace',
       45044: 'Middletown428 Oxford State Rd',
       45232: 'St. Bernard',
-      41071: 'I-471 @ Memorial Pkwy/Carothers Rd',
+      41071: 'I-471 Memorial Pkwy', // I-471 @ Memorial Pkwy/Carothers Rd
     };
 
     if (desiredLocations[wantedZip]) {
+      console.log('this zipcode is in the desiredLocations');
       const store = desiredLocations[wantedZip];
       await findSpecificStore(store);
     } else {
@@ -99,7 +118,7 @@ async function implementation (
 
     await context.waitForSelector('div.ProductCard a', { timeout: 6000 })
       .catch(() => {
-        console.log('');
+        console.log('could not wait for the product card selector');
       });
   };
 
@@ -116,7 +135,10 @@ async function implementation (
   await context.evaluate(() => {
     const overlay = document.querySelector('.ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers');
     if (overlay) {
+      console.log('we got and clicked overlay - ' + overlay);
       overlay.click();
+    } else {
+      console.log('we do not have overlay');
     }
   });
 }
