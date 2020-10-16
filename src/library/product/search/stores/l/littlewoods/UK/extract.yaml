@@ -29,11 +29,14 @@ fields:
     type: NUMBER
   - name: price
     singleValue: false
-    xpath: //dd[@class='productPrice']
+    xpath: //dd[@class='productPrice'] | //dd[@class='productNowPrice']
   - name: soldBy
     singleValue: true
   - name: rank
     singleValue: true
+    xpath: //div[@class='productsPerPage'][1]/span
+    regExp: \(.*?\)
+    type: NUMBER
   - name: endorsementText
     singleValue: true
     xpath: //span[@class='bestseller-span']
