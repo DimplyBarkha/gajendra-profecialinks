@@ -23,6 +23,8 @@ async function implementation (
   const { transform } = parameters;
   // @ts-ignore
   const { productDetails } = dependencies;
+  let list = await context.evaluate(() => !document.querySelector('div[class="tpl-results"]'))
+  if (!list) {
   async function firstItemLink () {
     return await context.evaluate(function () {
       let firstItem = document.querySelector('a.itemLink.block.sPrimaryLink')
@@ -38,6 +40,7 @@ async function implementation (
     await context.goto(url, { timeout: 100000, waitUntil: 'load', checkBlocked: true });
   }
   await context.waitForNavigation();
+}
   await new Promise((resolve, reject) => setTimeout(resolve, 8000));
   //-------------------------
   await context.evaluate(async (parentInput) => {
