@@ -49,6 +49,57 @@ module.exports = {
 
     }
 
+
+    await context.evaluate(async function () {
+      if (document.querySelector('span[data-at^="number_of_reviews"]')) {
+        document.querySelector('span[data-at^="number_of_reviews"]').click();
+      }
+    });
+
+    try {
+      await context.waitForSelector('div#ratings-reviews-container div#ratings-reviews', { timeout: 45000 });
+    } catch (error) {
+      await context.click('span[data-at^="number_of_reviews"]');
+      console.log('Loading ratings and reviews');
+    }
+
+    try {
+      await context.waitForSelector('div[data-comp~="ReviewsStats"]  span[data-comp^="Text Box StyledComponent BaseComponent"]', { timeout: 45000 });
+    } catch (error) {
+      await context.evaluate(async function () {
+        if (document.querySelector('span[data-at^="number_of_reviews"]')) {
+          document.querySelector('span[data-at^="number_of_reviews"]').click();
+        }
+      });
+      console.log('Loading ratings and reviews');
+    }
+
+    try {
+      await context.waitForSelector('div[data-comp~="StyledComponent"] h2, div#tabpanel0', { timeout: 45000 });
+    } catch (error) {
+      console.log('Loading details');
+    }
+
+    await context.evaluate(async function () {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+
+      if (document.querySelector('p[data-at="item_sku"]') && document.querySelector('p[data-at="item_sku"]').parentNode && document.querySelector('p[data-at="item_sku"]').parentNode.parentElement && document.querySelector('p[data-at="item_sku"]').parentNode.parentElement.lastElementChild) {
+        const descriptionText = document.querySelector('p[data-at="item_sku"]').parentNode.parentElement.lastElementChild.innerText;
+        addHiddenDiv('ii_Details', descriptionText);
+      }
+
+      if (document.querySelector('div[data-comp^="Rcarousel"] li:first-child img') && document.querySelector('div[data-comp^="Rcarousel"] li:first-child img').getAttribute('alt')) {
+        const imageAlt = document.querySelector('div[data-comp^="Rcarousel"] li:first-child img').getAttribute('alt');
+        addHiddenDiv('ii_imgAlt', imageAlt);
+      }
+    });
+
     const videos = await context.evaluate(function () {
       const videoClicks = document.querySelectorAll('div[data-comp*="Carousel"] img[src*="VideoImagesNEW"]');
       const videos = [];
@@ -278,43 +329,6 @@ module.exports = {
     }, parentInput, html);
 
     await new Promise(resolve => setTimeout(resolve, 5000));
-    await context.evaluate(async function () {
-      if (document.querySelector('span[data-at^="number_of_reviews"]')) {
-        document.querySelector('span[data-at^="number_of_reviews"]').click();
-      }
-    });
-
-    try {
-      await context.waitForSelector('div#ratings-reviews-container div#ratings-reviews', { timeout: 45000 });
-    } catch (error) {
-      console.log('Loading ratings and reviews');
-    }
-
-    try {
-      await context.waitForSelector('div[data-comp~="StyledComponent"] h2, div#tabpanel0', { timeout: 45000 });
-    } catch (error) {
-      console.log('Loading details');
-    }
-
-    await context.evaluate(async function () {
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-
-      if (document.querySelector('p[data-at="item_sku"]') && document.querySelector('p[data-at="item_sku"]').parentNode && document.querySelector('p[data-at="item_sku"]').parentNode.parentElement && document.querySelector('p[data-at="item_sku"]').parentNode.parentElement.lastElementChild) {
-        const descriptionText = document.querySelector('p[data-at="item_sku"]').parentNode.parentElement.lastElementChild.innerText;
-        addHiddenDiv('ii_Details', descriptionText);
-      }
-
-      if (document.querySelector('div[data-comp^="Rcarousel"] li:first-child img') && document.querySelector('div[data-comp^="Rcarousel"] li:first-child img').getAttribute('alt')) {
-        const imageAlt = document.querySelector('div[data-comp^="Rcarousel"] li:first-child img').getAttribute('alt');
-        addHiddenDiv('ii_imgAlt', imageAlt);
-      }
-    });
 
     return await context.extract(productDetails, { transform: transformParam });
   },
