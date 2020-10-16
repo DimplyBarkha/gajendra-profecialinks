@@ -124,7 +124,6 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: ((//div[@class="c-tabs__copy"]//span//br)[22]/following-sibling::text())[1]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -142,7 +141,6 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //meta[@name="description"]/@content
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -420,7 +418,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: (//article[@id="content1"]//span//br)[22]
+    xpath: //*[@id="content1"]/div/span/text()[12]/following-sibling::br 
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -444,7 +442,6 @@ fields:
   - name: packaging
     singleValue: true
     description: Packaging information
-    xpath: //article[@id="content1"]//div[@class="c-tabs__copy"]//span[1]
   - name: additives
     singleValue: true
     description: List of additives in the product
@@ -457,7 +454,6 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
-    xpath: //div[@class="c-product-hero__description --left"]//div[@class="c-product-hero__tag"]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
