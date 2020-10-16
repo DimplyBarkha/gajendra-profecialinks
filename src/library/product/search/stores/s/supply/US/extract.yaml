@@ -1,30 +1,38 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: '//div[@class="flex flex-row flex-column-l items-center w-100"]'
 fields:
   - name: id
     singleValue: false
+    xpath: '//div[@class="no-underline f4 b pv1 underline-hover"]/span[2]' 
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: '//div[@class="no-underline f4 b pv1 underline-hover"]/span[1]'
   - name: productUrl
     singleValue: false
+    xpath: '//div[@class="w-100-ns w-60 ph2 ph3-ns flex flex-column mt3 mt0-ns"]/a/@href'
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: '//img[@class="_2mcP-"]/@src'
+    description: The URL for the product thumbnail image
   - name: aggregateRating
     singleValue: false
+    xpath: '//div[@class="ml1 i kudzu f6 lh-copy"]/span[1]'
   - name: aggregateRating2
     singleValue: false
   - name: reviewCount
     singleValue: false
   - name: ratingCount
     singleValue: false
+    xpath: '//div[@class="ml1 i kudzu f6 lh-copy"]/span[2]'
   - name: price
     singleValue: false
+    xpath: '//div[@class="f5 b pv1 kudzu"]'
   - name: manufacturer
     singleValue: true
   - name: soldBy
