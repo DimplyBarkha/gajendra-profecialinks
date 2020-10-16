@@ -30,7 +30,7 @@ fields:
   - name: nameExtended
     singleValue: true
     description: product brand shown
-    xpath: //h1[@class='productHeading']
+    xpath: //meta[@name="keywords"]/@content
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
