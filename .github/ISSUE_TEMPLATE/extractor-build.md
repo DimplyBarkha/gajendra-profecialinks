@@ -72,6 +72,22 @@ In case of any Access trouble please contact immediatly someone at import.io
 - [ ] From Master, check-out the proper branch as described in the pre-requisites and the build notes above
 - [ ] Change the file `config.yaml` located in `orgs>{org name}` and update the `legacyAccountId` to your import.io-GUID
 
+#### Site scoping
+- [ ] Verify if the data on the website is coming from an API network call
+    - [ ] Mark this box if the data is only coming embedded in an HTML file and xpath/selectors need to be used to extract it
+    - [ ] Mark this box if the data is coming from an ajax call or an api call
+- [ ] Verify if the website can be accessed from anywhere or if geolocalized proxies are necessary (you can test it by using a vpn to the country where the website is based)
+    - [ ] Mark this box if geoproxies are needed
+    - [ ] Mark this box if geoproxies are not needed
+ - [ ] Verify if the website is detecting data center IPs and blocking them. Run a a remote command for that (this test can be done later during building)
+    - [ ] Mark this box if remote runs get blocked
+    - [ ] Mark this box if remote runs do not get blocked
+ - [ ] Verify if the website is requiring a custom preamble
+    - [ ] Mark this box is requiring a custom preamble
+    - [ ] Mark this box is not requiring a custom preamble
+
+
+
 #### Building
 - [ ] Promote Source to `Building` in Project Dash
 - [ ] Add `Building` Label
