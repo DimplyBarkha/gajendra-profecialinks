@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'cdw.com',
     prefix: null,
-    url: 'https://www.cdw.com/product/product/{id}',
+    url: 'https://www.cdw.com/product/details/{id}',
     country: 'US',
     store: 'cdw',
     zipcode: '',
