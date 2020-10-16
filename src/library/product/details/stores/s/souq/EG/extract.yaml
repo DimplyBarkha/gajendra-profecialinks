@@ -46,10 +46,11 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //div[@id="bb_description"]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
-    type: NUMBER
+    xpath: count(//div[@id="description-full"]/ul/li)
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -82,6 +83,7 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
+    xpath: //*[text()="Manufacturer Number"]/following-sibling::*[1]
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
@@ -98,17 +100,20 @@ fields:
   - name: ratingCount
     singleValue: false
     description: The number of ratings
-    type: NUMBER
+    xpath: //span[contains(@class, "star-rating product-stars")]//a[@data-defaultreviewstab="SOUQ_REVIEWS"]
+    regExp: (\d+)
+    regExpReplace: $1
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //div[@class="avg"]
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
+    xpath: //dt[contains(text() , 'Sold by')]/following-sibling::dd
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
@@ -155,6 +160,7 @@ fields:
   - name: brandLink
     singleValue: false
     description: null
+    xpath: //div[@id="productTrackingParams"]//@data-brand-name | //dt[contains(text() , 'Brand')]/following-sibling::dd[1]
   - name: internationalShipping
     singleValue: false
     description: Text next to bullet point
@@ -227,7 +233,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     description: null
-    type: NUMBER
+    xpath: count(//ul[@class="slick-dots"]/li[not(@class="slick-active")]/img/@src)
   - name: news
     singleValue: false
     description: null
@@ -241,6 +247,9 @@ fields:
     singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //div[@id="description-full"]/p | //div[@id="description-full"]//li
+    regExp: Ingredients\:(.*)
+    regExpReplace: $1
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.
@@ -389,6 +398,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
+    xpath: //li[@id="specs"]/div[@id="specs-full"]
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
@@ -407,9 +417,6 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-  - name: packaging
-    singleValue: false
-    description: Packaging information
   - name: additives
     singleValue: false
     description: List of additives in the product
@@ -422,6 +429,7 @@ fields:
   - name: promotion
     singleValue: false
     description: promotion text on product page
+    xpath: //span[contains(@class,"saved")]
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information

@@ -49,19 +49,10 @@ async function implementation (
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     }
-    function findJsonObj (scriptSelector) {
-      try {
-        const xpath = `//script[contains(.,'"@context":"http')]`;
-        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        let jsonStr = element.textContent;
-        jsonStr = jsonStr.trim();
-        return JSON.parse(jsonStr);
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-   let JSONObj = await findJsonObj();
-
+    let description = document.querySelector('div#description-full');
+    let descText = description ? description.innerHTML : '';
+    descText = descText ? descText.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+    addElementToDocument('bb_description', descText);
     });
     return await context.extract(productDetails, { transform });
     }

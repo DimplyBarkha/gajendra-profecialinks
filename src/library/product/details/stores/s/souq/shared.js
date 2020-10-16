@@ -19,18 +19,18 @@ const transform = (data) => {
         if (row.alternateImages) {
           row.alternateImages.shift();
         }
-        if (row.variantId) {
-          row.variantId.forEach(item => {
-              item.text = item.text.split('/').reverse()[2].split('-').reverse()[0]
-          });
-        }
-        if (row.description) {
-          let text = '';
-          row.description.forEach(item => {
-            text = '||' + row.description.map(elm => elm.text).join(' ||');
-          });
-          row.description = [{ text }];
-        }
+        // if (row.variantId) {
+        //   row.variantId.forEach(item => {
+        //       item.text = item.text.split('/').reverse()[2].split('-').reverse()[0]
+        //   });
+        // }
+        // if (row.description) {
+        //   let text = '';
+        //   row.description.forEach(item => {
+        //     text = '||' + row.description.map(elm => elm.text).join(' ||');
+        //   });
+        //   row.description = [{ text }];
+        // }
       }
     }
   
