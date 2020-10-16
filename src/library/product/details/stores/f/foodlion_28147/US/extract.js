@@ -18,6 +18,11 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      if (!document.getElementById('pd_sku')) {
+        const jsonData = JSON.parse((document.querySelector('script[type*="application/ld+json"]').innerText).trim());
+        jsonData && jsonData.sku && addHiddenDiv('pd_sku', jsonData.sku);
+        !document.getElementById('pd_brand') && jsonData && jsonData.brand && addHiddenDiv('pd_brand', jsonData.brand.name);
+      }
       const imageCount = document.evaluate('//div[contains(@class,"product-image-thumbnails")]/button[position( ) > 1]/span[contains(@class,"product-image-thumbnail")]/@style', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       !document.getElementById('image_count') && imageCount.snapshotLength && addHiddenDiv('image_count', imageCount.snapshotLength);
       const elementFound = document.evaluate(xp, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -45,6 +50,11 @@ module.exports = {
       await context.evaluate(addElement, { id: 'pd_warnings', xp: '//div[contains(@id,"panel-warnings")]' });
     } catch (error) {
       console.log('warnining not present');
+    }
+    try {
+      await context.click('#tab-nutrition');
+    } catch (error) {
+      console.log('Nutrition button click failed');
     }
     return await context.extract(productDetails, { transform: transformParam });
   },

@@ -51,6 +51,7 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: false
+    xpath: //div[@id="pd_brand"]
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
@@ -59,8 +60,7 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //span[contains(@class,"product-size")]
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -72,6 +72,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
+    xpath: //div[@id="pd_sku"]
     description: The store-specific product identifier
   - name: variantId
     singleValue: false
@@ -246,16 +247,25 @@ fields:
       discernible start/end point
   - name: servingSize
     singleValue: false
+    xpath: //div[contains(@id,"panel-nutrition")]//div[contains(@class,"css-183xsq0")]/span[2]
+    regExp: ([-.0-9]+)
+    regExpReplace: $1
     description: The size of serving Nutritional information is based on.
   - name: servingSizeUom
     singleValue: false
+    xpath: //div[contains(@id,"panel-nutrition")]//div[contains(@class,"css-183xsq0")]/span[2]
+    regExp: ([-.0-9]+)\s*(.+)
+    regExpReplace: $2
     description: Unit of measure of serving
   - name: numberOfServingsInPackage
     singleValue: false
+    xpath: //div[contains(@id,"panel-nutrition")]//div[contains(@class,"css-deqr9f")]
+    regExp: ([-.0-9]+)
+    regExpReplace: $1
     description: Suggested number of servings of the product.
-    type: NUMBER
   - name: caloriesPerServing
     singleValue: false
+    xpath: //div[contains(@id,"panel-nutrition")]//div[contains(@class,"css-ir56ip")]
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
   - name: caloriesFromFatPerServing
@@ -265,60 +275,78 @@ fields:
     type: NUMBER
   - name: totalFatPerServing
     singleValue: false
-    description: Nutritional Information for Total Fat content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"nutrition-Total Fat")]/following-sibling::span
+    regExp: ([-.0-9]+)
+    regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: false
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"nutrition-Total Fat")]/following-sibling::span
+    regExp: ([-.0-9]+)\s(.+)
+    regExpReplace: $2
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
     singleValue: false
-    description: Nutritional Information for Saturated Fat content - Usually based
-      on per 100g serving
-    type: NUMBER
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"nutrition-Saturated Fat")]/following-sibling::span
+    regExp: ([-.0-9]+)
+    regExpReplace: $1
   - name: saturatedFatPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Saturated Fat content
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"nutrition-Saturated Fat")]/following-sibling::span
+    regExp: ([-.0-9]+)\s(.+)
+    regExpReplace: $2
   - name: transFatPerServing
     singleValue: false
-    description: Nutritional Information for Trans Fat content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"nutrition-Trans Fat")]/following-sibling::span
+    regExp: ([-.0-9]+)
+    regExpReplace: $1
   - name: transFatPerServingUom
     singleValue: false
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"nutrition-Trans Fat")]/following-sibling::span
+    regExp: ([-.0-9]+)\s(.+)
+    regExpReplace: $2
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
     singleValue: false
-    description: Nutritional Information for Cholesterol content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"nutrition-Cholesterol")]/following-sibling::span[1]
+    regExp: ([-.0-9]+)
+    regExpReplace: $1
   - name: cholesterolPerServingUom
     singleValue: false
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"nutrition-Cholesterol")]/following-sibling::span[1]
+    regExp: ([-.0-9]+)\s(.+)
+    regExpReplace: $2
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
     singleValue: false
-    description: Nutritional Information for Sodium content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"nutrition-Sodium")]/following-sibling::span[1]
+    regExp: ([-.0-9]+)
+    regExpReplace: $1
   - name: sodiumPerServingUom
     singleValue: false
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"nutrition-Sodium")]/following-sibling::span[1]
+    regExp: ([-.0-9]+)\s(.+)
+    regExpReplace: $2
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: false
-    description: Nutritional Information for Total Carbohydrate content - Usually
-      based on per 100g serving
-    type: NUMBER
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"Carbohydrate")]/following-sibling::span[1]
+    regExp: ([-.0-9]+)
+    regExpReplace: $1
   - name: totalCarbPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Carbohydrate content
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"Carbohydrate")]/following-sibling::span[1]
+    regExp: ([-.0-9]+)\s(.+)
+    regExpReplace: $2
   - name: dietaryFibrePerServing
     singleValue: false
-    description: Nutritional Information for Dietary Fibre content - Usually based
-      on per 100g serving
-    type: NUMBER
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"Fiber")]/following-sibling::span[1]
+    regExp: ([-.0-9]+)
+    regExpReplace: $1
   - name: dietaryFibrePerServingUom
     singleValue: false
-    description: Unit of Measure Data for Dietary Fibre content
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"Fiber")]/following-sibling::span[1]
+    regExp: ([-.0-9]+)\s(.+)
+    regExpReplace: $2
   - name: totalSugarsPerServing
     singleValue: false
     description: Nutritional Information for Total Sugar content - Usually based on
@@ -329,12 +357,14 @@ fields:
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
     singleValue: false
-    description: Nutritional Information for Protein content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"nutrition-Protein")]/following-sibling::span[1]
+    regExp: ([-.0-9]+)
+    regExpReplace: $1
   - name: proteinPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Protein
+    xpath: //div[contains(@id,"panel-nutrition")]//span[contains(@data-test,"nutrition-Protein")]/following-sibling::span[1]
+    regExp: ([-.0-9]+)\s(.+)
+    regExpReplace: $2
   - name: vitaminAPerServing
     singleValue: false
     description: Nutritional Information for Vitamin A content - Usually based on
