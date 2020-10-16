@@ -491,6 +491,23 @@ fields:
   - name: customerQuestionsAndAnswers
     singleValue: false
     xpath: //span[@class="askTopQandA"]
+  - name: votes
+    singleValue: false
+    xpath: //div[contains(@class,"TopQuestionsContainer")]//ul[contains(@class,"voteAjax")]
+    regExp: >-
+      [0-9]+
+  - name: questions
+    singleValue: false
+    xpath: //div[contains(@class,"TopQuestionsContainer")]//span[contains(@data-ask-log-click-csm,"top-question")]
+  - name: answers
+    singleValue: false
+    xpath: //div[contains(@class,"TopQuestionsContainer")]
+  - name: answerer
+    singleValue: false
+    xpath: //div[contains(@class,"TopQuestionsContainer")]
+  - name: moreAnswers
+    singleValue: false
+    xpath: //div[contains(@class,"TopQuestionsContainer")]
   - name: customerQuestionCount
     singleValue: false
     xpath: count(//span[@class="askTopQandA"]//span[contains(@data-ask-log-click-csm,"top-question")])
@@ -504,7 +521,6 @@ fields:
     xpath: //div[@id='fast-track-message']//span[@id='upsell-message']/b
   - name: ratingsDistribution
     singleValue: false
-    # xpath: //table[@id="histogramTable"]/tbody
     xpath: //table[@id="histogramTable"]/tbody/tr
   - name: featuredMerchantIDNew
     singleValue: true
@@ -518,9 +534,15 @@ fields:
   - name: soldByNew
     singleValue: false
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")] | //span[contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")] | //div[contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"]/a
-  - name: starsByFeature
+  # - name: starsByFeature
+  #   singleValue: false
+  #   xpath: //div[@data-hook="cr-summarization-attributes-list"]//span[contains(@class,"a-size-base")]
+  - name: featureNames
     singleValue: false
-    xpath: //div[@data-hook="cr-summarization-attributes-list"]//span[contains(@class,"a-size-base")]
+    xpath: //div[@data-hook="cr-summarization-attributes-list"]//span[contains(@class,"a-size-base") and contains(@class,"a-color-base")]
+  - name: featureStars
+    singleValue: false
+    xpath: //div[@data-hook="cr-summarization-attributes-list"]//span[contains(@class,"a-size-base") and contains(@class,"a-color-tertiary")]
   - name: otherOffersPage
     singleValue: true
     xpath: //span[@data-action="show-all-offers-display"]/a/@href
@@ -532,7 +554,6 @@ fields:
   - name: andonCords
     singleValue: false
     xpath: //div[@id="andonCord_feature_div"]//child::text()
-    # xpath: //*[contains(text(),'Item Under Review')]//child::text()
   - name: badges
     singleValue: false
     xpath: //*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge-rectangle")] | //a[@class="badge-link"]

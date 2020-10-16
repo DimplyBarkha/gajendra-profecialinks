@@ -177,7 +177,6 @@ const transform = (data, context) => {
         row.specifications.forEach(item => {
           text.push(`${item.text.replace(/\n \n/g, ':')}`);
         });
-        // row.specifications = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
         row.specifications = [{ text: text }];
       }
       // if (row.productOtherInformation) {
@@ -226,10 +225,6 @@ const transform = (data, context) => {
           return { text: '0.00' };
         });
       }
-      // if (row.featureBullets) {
-      //   const text = row.featureBullets.map(item => `${item.text}`);
-      //   row.featureBullets = [{ text: text.join(' | ').trim().replace(/\|\| \|/g, '|') }];
-      // }
       if (row.primeFlag) {
         row.primeFlag = [{ text: 'Yes - Shipped and Sold' }];
       }
@@ -240,12 +235,11 @@ const transform = (data, context) => {
         row.frequentlyBoughtTogether = [{ text: row.frequentlyBoughtTogether[0].text.replace(/\{([^}]*)\}/g, '') }];
       }
       if (row.ratingsDistribution) {
-        const filteredRatings = row.ratingsDistribution.map(rating => rating.text.replace(/star/g, 'star: '));
+        const filteredRatings = row.ratingsDistribution.map(rating => {
+          let split = rating.text.split('star');
+          return split[0].trim() + ':' + (split[1].replace('%','').trim()/100).toString();
+        });
         row.ratingsDistribution = [{ text: filteredRatings }];
-      }
-      if (row.badges) {
-        const badgeArray = Array.from(row.badges.map(item => `${item.text}`));
-        row.badges = [{ text: badgeArray }];
       }
       if (row.lowestPriceIn30Days) {
         row.lowestPriceIn30Days = [{ text: 'True' }];
@@ -263,6 +257,13 @@ const transform = (data, context) => {
       }
       if (row.customerQuestionsAndAnswers) {
         row.customerQuestionsAndAnswers = [{ text: row.customerQuestionsAndAnswers[0].text.replace(/\<([^>]*)\>/g, '').replace(/\{([^}]*)\}/g, '') }];
+      }
+      if (row.featureNames && row.featureStars){
+        featArr = [];
+        for (let i=0;i<row.featureNames.length; i++){
+          featArr.push(`${row.featureNames[i].text}:${row.featureStars[i].text}`);
+        }
+        row.starsByFeature = [{ text: featArr }];
       }
 
       const zoomText = row.imageZoomFeaturePresent ? 'Yes' : 'No';
