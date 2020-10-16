@@ -25,13 +25,11 @@ const transform = (data) => {
     for (const { group } of data) {
         for (let row of group) {
             if (row.image) {
-                row.image.forEach(item => {
-                    item.text = 'https://www.cdw.com' + item.text;
-                });
+                row.image[0]['text']= 'https:' + row.image[0]['text']
             }
             if (row.alternateImages) {
                 row.alternateImages.forEach(item => {
-                    item.text = 'https://www.cdw.com' + item.text;
+                    item.text = 'https:' + item.text;
                 });
             }
             if (row.reviewCount) {
@@ -40,82 +38,45 @@ const transform = (data) => {
                     item.text = reviewCountData[0];
                 });
             }
-            if (row.manufacture) {
-                row.manufacture.forEach(item => {
-                    var myRegexp = /producenta\/importera\s+\n(.+?)\s*\n/g;
-                    var match = myRegexp.exec(item.text);
-                    if (match.length) {
-                        item.text = match[1].trim();
-                    } else {
-                        item.text = "";
-                    }
+            if(row.description){
+                var tmpArr=[];
+                row.description.forEach(item=>{
+                    tmpArr.push(item.text);
+                });
+                row.description=[{"text":"|| "+tmpArr.join(" || "),"xpth":row.description[0]['xpath']}];
+            }
+            if(row.descriptionBullets){
+                var tmpArr=[];
+                row.descriptionBullets.forEach(item=>{
+                    tmpArr.push(item.text);
+                });
+                row.descriptionBullets=[{"text":tmpArr.length,"xpth":row.descriptionBullets[0]['xpath']}];
+            }
+            if(row.ratingCount){
+                var tmpArr=[];
+                row.ratingCount.forEach(item=>{
+                    var tmp=item.text.replace('(','');
+                    item.text=tmp.replace(')','');
                 });
             }
-            if (row.brandText) {
-                row.brandText.forEach(item => {
-                    var myRegexp = /producenta\/importera\s+\n(.+?)\s*\n/g;
-                    var match = myRegexp.exec(item.text);
-                    if (match.length) {
-                        item.text = match[1].trim();
-                    } else {
-                        item.text = "";
-                    }
+            if(row.additionalDescBulletInfo){
+                var tmpArr=[];
+                row.additionalDescBulletInfo.forEach(item=>{
+                    tmpArr.push(item.text);
                 });
+                row.additionalDescBulletInfo=[{"text":"|| "+tmpArr.join(" || "),"xpth":row.descriptionBullets[0]['xpath']}];
             }
-            if (row.warranty) {
-                row.warranty.forEach(item => {
-                    var myRegexp = /Gwarancja\s+\n\s*(.+)/g;
-                    var match = myRegexp.exec(item.text);
-                    if (match.length) {
-                        item.text = match[1].trim();
-                    } else {
-                        item.text = "";
-                    }
+            if(row.specifications){
+                var tmpArr=[];
+                row.specifications.forEach(item=>{
+                    tmpArr.push(item.text);
                 });
+                row.specifications=[{"text":tmpArr.join(" || "),"xpth":row.specifications[0]['xpath']}];
             }
-
-            if (row.weightNet) {
-                row.weightNet.forEach(item => {
-                    var myRegexp = /Waga\s+\[g\](\d+)\s*/g;
-                    var match = myRegexp.exec(item.text);
-                    if (match.length) {
-                        item.text = match[1].trim();
-                    } else {
-                        delete item.text;
-                    }
-                });
-            }
-
-            if (row.color) {
-                row.color.forEach(item => {
-                    var data1Arr = item.text.split('Kolor ');
-                    if (data1Arr.length > 1) {
-                        var data2Arr = data1Arr[1].trim().split(' ');
-                        if (data2Arr.length > 1) {
-                            item.text = data2Arr[0];
-                        } else {
-                            item.text = "";
-                        }
-                    } else {
-                        item.text = "";
-                    }
-                });
-            }
-
-            if (row.productOtherInformation) {
-                row.productOtherInformation.forEach(item => {
-                    var data1Arr = item.text.split('Informacje dodatkowe ');
-                    if (data1Arr.length > 1) {
-                        var data2Arr = data1Arr[1].split('Moc [W]');
-                        if (data2Arr.length > 1) {
-                            item.text = data2Arr[0];
-                        } else {
-                            item.text = "";
-                        }
-                    } else {
-                        item.text = "";
-                    }
-                });
+            if(row.imageZoomFeaturePresent){
+                row.imageZoomFeaturePresent[0]['text']="Yes";
+            }else{
+                row.imageZoomFeaturePresent=[{"text":"No"}];
             }
         }
     }
