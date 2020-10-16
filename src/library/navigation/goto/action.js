@@ -39,7 +39,7 @@ module.exports = {
     context,
     dependencies
   ) => {
-    const timeout = parameters.timeout ? parameters.timeout : 20000;
+    const timeout = parameters.timeout ? parameters.timeout : 10000;
     await context.goto(url, {
       timeout: timeout,
       waitUntil: "load",
