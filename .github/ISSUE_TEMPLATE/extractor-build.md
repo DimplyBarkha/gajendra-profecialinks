@@ -1,7 +1,7 @@
 ---
 name: Check list for an extractor build
 about: Create an issue with this template before starting a source build for a any feed type (search, core, media_tracker...)
-title: "{feed_underscored}-{retailer_name}_{country code}"
+title: "{feed_underscored_lowercase}-{retailer_name_camelcase}_{country_code_lowercase}, example: search-amazonPantry_us, core-mediaMarkt_de"
 labels: Source
 assignees: "@me"
 
