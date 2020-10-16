@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'zattini',
-    nextLinkSelector: 'a[class="ns-icon ns-icon-arrow-right last next"]',
+    nextLinkSelector: "#pagnNextString, #pagnNextLink, div.pagination a.ns-icon.ns-icon-arrow-right.last.next",
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector: '#item-list',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'zattini.com.br',

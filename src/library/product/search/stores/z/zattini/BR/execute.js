@@ -6,7 +6,7 @@ module.exports = {
     store: 'zattini',
     domain: 'zattini.com.br',
     url: 'https://www.zattini.com.br/busca?nsCat=Natural&q=body+spray&searchTermCapitalized=Body+Spray',
-    loadedSelector: 'body',
+    loadedSelector: '#item-list',
     noResultsXPath: null,
     zipcode: '',
   },
