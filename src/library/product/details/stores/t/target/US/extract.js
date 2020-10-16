@@ -51,12 +51,15 @@ async function implementation (
     }
 
     window.scroll(0, 1000);
-    return Boolean(document.querySelector('[class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]'));
+    return Boolean(document.querySelector('[aria-label="show from the manufacturer content"]'));
+    // [class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]
   });
 
   if (manufacturerCTA) {
     console.log('hastheCTA');
-    await context.click('[class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]');
+    await context.click('[aria-label="show from the manufacturer content"]');
+
+  // [class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]  
   }
 
   await context.waitForXPath("//h1[@data-test='product-title']");
@@ -552,10 +555,14 @@ async function implementation (
       let hasTechnicalInfoPDF = 'No';
       let manufacturerDesc = '';
       const manufacturerImgs = [];
-      const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
-      const frameContents = document.getElementById('frameContents' + variant.tcin);
-      if (frameContents && frameContents.querySelector('#salsify-content')) {
+      const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.igoiFK.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
+      // document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
+      // const frameContents = document.getElementById('frameContents' + variant.tcin);
+      let frameContents = document.evaluate('//div[contains(@data-test,"manufacturer-notes-wrapper")][@data-tcin="' + variant.tcin + '"]', document, null, 7, null);
+      // if (frameContents && frameContents.querySelector('#salsify-content')) {
+      if (frameContents && (frameContents.snapshotLength > 0)) {
         await stall(2000);
+        frameContents = frameContents.snapshotItem(0);
         manufacturerDesc = frameContents.innerText;
         frameContents.querySelectorAll('img').forEach(e => {
           manufacturerImgs.push(e.getAttribute('src'));
