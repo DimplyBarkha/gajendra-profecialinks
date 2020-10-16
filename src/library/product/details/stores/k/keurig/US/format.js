@@ -23,6 +23,9 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (!row.price && row.price1) {
+        row.price = [{ text: `$${row.price1[0].text}` }];
+      }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
@@ -41,7 +44,11 @@ const transform = (data) => {
       if (row.variants1 && row.variants1.length > 1) {
         row.variants = row.variants1;
         row.variantCount = [{ text: row.variants1.length }];
-        row.firstVariant = [{ text: row.variants1[0].text }];
+        if (row.firstVariant1) {
+          row.firstVariant = [{ text: row.firstVariant1[0].text }];
+        } else {
+          row.firstVariant = [{ text: row.variants1[0].text }];
+        }
       }
       if (row.additionalDescBulletInfo) {
         const additionalDescBulletInfo = [];

@@ -31,12 +31,17 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //div[contains(@class,"original-price")]
+    xpath: //div[contains(@class,"original-price") or contains(@class,"big-price")]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[contains(@class,"product-price-container")]//span[@class="product-price"] | //div[contains(@class,"new-price")]
+    xpath: //div[contains(@class,"one-time-purchase ")]//div[contains(@class,"product-price-container")]//span[contains(@class,"product-price")] | //div[contains(@class,"new-price")]
+  - name: price1
+    singleValue: false
+    xpath: //meta[@itemprop="price"]/@content
+    regExp: (.+)
+    regExpReplace: $1
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
@@ -50,12 +55,12 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="product-details__desc-content"]
+    xpath: //div[contains(@class,"product-details__desc-content")]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[@class="product-details__desc-content"]//p/text()[preceding-sibling::br or following-sibling::br and contains(.,"•")])
+    xpath: count(//div[contains(@class,"product-details__desc-content")]//p/text()[preceding-sibling::br or following-sibling::br and contains(.,"•")])
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -154,9 +159,9 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@class="video-container"]/div/@data-url
-    regExp: (.+)
-    regExpReplace: https://images.keurig.com/is/content/$1
+    xpath: //div[@class="video-container"]/div/@data-url | //div[@class="content"]//video/source[@type="video/mp4"]/@src
+    regExp: (.*)content(\/+)(.*)
+    regExpReplace: https://images.keurig.com/is/content/$3
   - name: name
     singleValue: false
     description: The product name
@@ -247,6 +252,7 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
+    xpath: //li[@class="no-description"]//a
   - name: otherSellersName
     singleValue: false
     description: null
@@ -485,6 +491,9 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+  - name: firstVariant1
+    singleValue: false
+    xpath: //li[contains(@class,"selectVariant") and @data-default="true"]/@data-code
   - name: variants
     singleValue: false
     description: null
@@ -494,7 +503,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[@class="product-details__desc-content"]//p/text()[preceding-sibling::br or following-sibling::br and contains(.,"•")]
+    xpath: //div[contains(@class,"product-details__desc-content")]//p/text()[preceding-sibling::br or following-sibling::br and contains(.,"•")]
   - name: prop65Warning
     singleValue: false
     description: null
