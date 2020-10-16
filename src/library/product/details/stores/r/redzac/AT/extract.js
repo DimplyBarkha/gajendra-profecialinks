@@ -92,6 +92,7 @@ module.exports = {
       if (document.querySelector('#objectView_page .product_name') && document.querySelector('[data-flix-brand]')) {
         nameExtended = `${document.querySelector('[data-flix-brand]').dataset.flixBrand} - ${document.querySelector('#objectView_page .product_name').innerText}`;
       };
+      if (nameExtended) addElementToDocument('nameExtended', nameExtended);
 
       // adding listPrice
       const listPrice = document.querySelector('.product_price_saving') ? document.getElementById('block$price$product').querySelector('span').innerText : '';
