@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: '.c-show-more.o-button.--secondary-cta.initialized',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector: '.listing-items.c-listing-items.initialized',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'selfridges.com',

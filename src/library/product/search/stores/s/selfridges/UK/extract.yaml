@@ -21,7 +21,7 @@ fields:
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="col-xs-6 col-sm-4 c-listing-items__item"]//div[@class="c-prod-card --plp"]/@data-js-plp-scroll
+    xpath: //div[@class="col-xs-6 col-sm-4 c-listing-items__item"]//div[@class="c-prod-card --plp"]//a[@class="c-prod-card__images"]//img/@src
     regExp: (//images.selfridges.com/is/.+)
     regExpReplace: https:$1
   - name: url
