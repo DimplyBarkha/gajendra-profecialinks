@@ -5,9 +5,13 @@ recordXPath: null
 fields:
   - name: image
     xpath: //div[@id='imgs']/a[1]/img/@src
+  - name: imageAlt
+    xpath: //div[@id='imgs']/a[1]/img/@alt
   - name: category
     xpath: //a[@class='cbs' and  position()>1 and @href]
   - name: nameExtended
+    xpath: //h1
+  - name: name
     xpath: //h1
   - name: price
     xpath: //div[contains(@class, 'card')]//span[@dir='ltr' and @class='-b -ltr -tal -fs24']
@@ -18,11 +22,31 @@ fields:
     defaultValue: In stock
   - name: description
     xpath: //div[contains(@class,'markup -pam')]//ul/li
+  - name: additionalDescBulletInfo
+    xpath: //div[contains(@class,'markup -pam')]//ul/li
+  - name: descriptionBullets
+    xpath: count(//div[contains(@class,'markup -pam')]//ul/li)
+  - name: specifications
+    xpath: //h2[contains(., 'Specifications')]/following-sibling::ul/li
+  - name: productOtherInformation
+    xpath: //div[@id='description']/following-sibling::div[contains(@class, 'markup')]
   - name: brandText
     xpath: //div[contains(@class,'-pvxs')]/a[@class='_more'][1]
+  - name: brandLink
+    xpath: //div[contains(@class,'-pvxs')]/a[@class='_more'][1]/@href
+    regExp: (.+)
+    regExpReplace: https://www.jumia.com.eg/$1
   - name: sku
     xpath: //li[contains(., 'SKU')]
     regExp: SKU:(.+)
+    regExpReplace: $1
+  - name: variantInformation
+    xpath: //li[contains(., 'Color')]
+    regExp: Color:(.+)
+    regExpReplace: $1
+  - name: color
+    xpath: //li[contains(., 'Color')]
+    regExp: Color:(.+)
     regExpReplace: $1
   - name: variantId
     xpath: //meta[@property='og:url']/@content
@@ -30,3 +54,32 @@ fields:
     xpath: //li[contains(., 'Model')]
     regExp: Model:(.+)
     regExpReplace: $1
+  - name: aggregateRating
+    xpath: //div[contains(@class,'stars _s _al')]
+    regExp: (.+)out(.+)
+    regExpReplace: $1
+  - name: aggregateRatingText
+    xpath: //div[contains(@class,'stars _s _al')]
+    regExp: (.+)out(.+)
+    regExpReplace: $1
+  - name: ratingCount
+    xpath: //div[contains(@class,'stars _s _al')]/following-sibling::a
+    regExp: \d+
+  - name: shippingInfo
+    xpath: //p[contains(@class, '-m -pbs')]
+  - name: promotion
+    xpath: //div[contains(@class, '-pvxs -hr _bet')]
+  - name: listPrice
+    xpath: //div[contains(@class, 'card')]//span[@dir='ltr' and @data-price-old]
+  - name: alternateImages
+    xpath: //div[contains(@class, 'crs')]/div[@class='itm' and position()>1]//img/@data-src
+    regExp: (.+)(150x150)(.+)
+    regExpReplace: $1500x500$3
+  - name: countryOfOrigin
+    xpath: //li[contains(., 'Production Country')]
+    regExp: Production Country:(.+)
+    regExpReplace: $1
+  - name: Image360Present
+    defaultValue: "No"
+  - name: imageZoomFeaturePresent
+    defaultValue: "No"

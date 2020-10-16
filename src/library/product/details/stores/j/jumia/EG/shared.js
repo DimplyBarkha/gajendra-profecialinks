@@ -8,9 +8,23 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
 			if (row.description) {
-				for (let i = 0; i < row.description.length; i++) {
-					row.description[i].text = `|| ${row.description[i].text}`;
-				}
+				// for (let i = 0; i < row.description.length; i++) {
+					row.description[0].text = `|| ${row.description[0].text}`;
+				// }
+      }
+      
+      if (row.additionalDescBulletInfo) {
+				// for (let i = 0; i < row.description.length; i++) {
+					row.additionalDescBulletInfo[0].text = `|| ${row.additionalDescBulletInfo[0].text}`;
+				// }
+			}
+
+      if (row.specifications) {
+        let specText = '';
+				for (let i = 0; i < row.specifications.length; i++) {
+					specText += `|| ${row.specifications[i].text} `;
+        }
+        row.specifications = [{ text: specText }];
 			}
 
 			if(row.variantId) {

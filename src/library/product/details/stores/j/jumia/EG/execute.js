@@ -6,7 +6,7 @@ module.exports = {
     store: 'jumia',
     domain: 'jumia.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//article[contains(@class, "prd")]',
     zipcode: '',
   },
 };
