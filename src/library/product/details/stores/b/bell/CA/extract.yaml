@@ -41,7 +41,10 @@ fields:
     xpath: //h1[@class='dd-device-title']
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
+    xpath: //ul[@data-widget='colorSelector']//li/@title
+  - name: variants
+    singleValue: false
+    xpath: //ul[@data-widget='colorSelector']//li/@title
   - name: availabilityText
     singleValue: false
     xpath: //div[@class='prodDetailBuyButton' and contains(@style,'block')]//input[@value='Pre-order now']/@value
