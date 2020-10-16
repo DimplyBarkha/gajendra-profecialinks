@@ -39,11 +39,11 @@ async function implementation (
 
     const JSstring = document.body.querySelector('#is_script') ? document.body.querySelector('#is_script').innerHTML : '';
     const obj = JSON.parse(JSstring.split('window.__INITIAL_STATE__ = ').slice(-1)[0].trim().slice(0, -1));
-    const videoObject = obj.pageDataV4.page.data[10001]['0'].widget.data.multimediaComponents;
+    const mediaObject = obj.pageDataV4.page.data[10001]['0'].widget.data.multimediaComponents;
     // eslint-disable-next-line no-prototype-builtins
-    if (videoObject.hasOwnProperty(1)) {
-      if (videoObject[1].value.contentType === 'VIDEO') {
-        addElementToDocument('videoUrl', videoObject[1].value.url);
+    if (mediaObject.hasOwnProperty(1)) {
+      if (mediaObject[1].value.contentType === 'VIDEO') {
+        addElementToDocument('videoUrl', mediaObject[1].value.url);
       }
     }
 
@@ -51,6 +51,15 @@ async function implementation (
     if (imageFromThumbnails) {
       const imageFromThumbnailsTransformed = imageFromThumbnails.substr(21, imageFromThumbnails.length - 22).replace('/128/128/', '/416/416/');;
       addElementToDocument('thumbnailsMainImage', imageFromThumbnailsTransformed);
+    } else {
+      // eslint-disable-next-line no-prototype-builtins
+      if (mediaObject.hasOwnProperty(0)) {
+        if (mediaObject[0].value.contentType === 'IMAGE') {
+          // addElementToDocument('videoUrl', mediaObject[1].value.url);
+          const imageUrl = mediaObject[0].value.url.replace('{@width}/{@height}', '416/416').replace('{@quality}', '70');
+          addElementToDocument('imageUrl', imageUrl);
+        }
+      }
     }
     const ratingCountExists = document.evaluate('//span[@class=\'_38sUEc\']//*[contains(text(), \'Reviews\') or contains(text(), \'reviews\')]', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
     if (ratingCountExists) {

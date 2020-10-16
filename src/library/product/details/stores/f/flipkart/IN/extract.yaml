@@ -6,7 +6,7 @@ fields:
     - name: image
       singleValue: false
       description: URL of the main product image
-      xpath: //div[@id='thumbnailsMainImage'] | //div[contains(@class, '_3BTv9X') and not (//div[@id='thumbnailsMainImage'])]/img/@src
+      xpath: //div[@id='thumbnailsMainImage'] | //div[@id='imageUrl']
     - name: imageAlt
       singleValue: false
       description: Alt text of the main product image
