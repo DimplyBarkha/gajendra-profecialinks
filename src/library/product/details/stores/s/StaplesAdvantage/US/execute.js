@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
     country: 'US',
-    store: 'StaplesAdvantage',
+    store: 'staplesadvantage',
     domain: 'staplesadvantage.com',
     loadedSelector: null,
     noResultsXPath: null,

@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
-    store: 'StaplesAdvantage',
+    store: 'staplesadvantage',
     transform: null,
     domain: 'staplesadvantage.com',
     zipcode: '',
