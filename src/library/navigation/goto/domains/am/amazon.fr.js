@@ -5,6 +5,6 @@ module.exports = {
     domain: 'amazon.fr',
     store: 'amazon',
     // This is example extractor(from amazon.fr) add correct extractor. will be used in customGoto.
-    extractor: 'c417ac18-2c1e-44b7-b306-6d786008076b',
+    extractor: '7f354a26-b1ed-42f7-af9e-e7d7c29ef32b',
   },
 };

@@ -290,7 +290,7 @@ async function goto (input) {
 
   const retryContext = async () => {
     const retry = extractorContext.retryContext;
-    context = {
+    let context = {
       isLastRetry: parseInt(retry.maxRetries) <= parseInt(retry.retryNumber),
       isRetry: parseInt(retry.retryNumber) > 0,
     };
@@ -335,8 +335,7 @@ async function goto (input) {
       max_new_request_gap: 0,
     };
 
-    lastResponseData = await extractorContext.goto({
-      url: input._url,
+    lastResponseData = await extractorContext.goto(input._url, {
       options: gotoBaseOptions,
     });
 
@@ -347,7 +346,7 @@ async function goto (input) {
       extractorContext.counter.set('primevideo', 1);
     }
 
-    page = await pageContext();
+    let page = await pageContext();
     console.log('page: ', page);
 
     if (!await solveCaptchaIfNecessary(page)) {
@@ -390,8 +389,7 @@ async function goto (input) {
       await new Promise(r => setTimeout(r, 2000));
 
       console.log('Going back to desired page');
-      lastResponseData = await extractorContext.goto({
-        url: input._url,
+      lastResponseData = await extractorContext.goto(input._url, {
         options: gotoBaseOptions,
       });
 
@@ -441,7 +439,7 @@ async function goto (input) {
       return extractorContext.raiseError('WRONG_GEO', 'Incorrect locale detected');
     }
 
-    shouldHaveData = await getShouldHaveData(input._url);
+    let shouldHaveData = await getShouldHaveData(input._url);
 
     // API append if variants exist and prodDetails expected, otherwise reload
     if (!retry.isLastRetry && page.isProductPage && !!parseInt(shouldHaveData.details) && !page.hasProdDetails) {
@@ -499,7 +497,7 @@ async function goto (input) {
 
         console.log('Go to some random page');
         const clickedOK = await extractorContext.evaluate(function () {
-          const links = [...document.querySelectorAll('a[href*="/dp/"]')];
+          const links = Array.from(document.querySelectorAll('a[href*="/dp/"]'));
           if (links.length === 0) {
             return false;
           }
@@ -515,8 +513,7 @@ async function goto (input) {
         await new Promise(r => setTimeout(r, 2000));
 
         console.log('Going back to desired page');
-        lastResponseData = await extractorContext.goto({
-          url: input._url,
+        lastResponseData = await extractorContext.goto(input._url, {
           options: gotoBaseOptions,
         });
 
@@ -3669,7 +3666,7 @@ async function goto (input) {
       config: '{"userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36/xGHzvfMy-13"}',
     },
   ];
-  const userAgentString = JSON.parse(allUserAgentString[Math.floor(allUserAgentString.length * Math.random())].config).userAgent + ' ' + Math.random().toString(36).substring(2, 15);
+  let userAgentString = JSON.parse(allUserAgentString[Math.floor(allUserAgentString.length * Math.random())].config).userAgent + ' ' + Math.random().toString(36).substring(2, 15);
 
   // clean cookie retry in session
 
