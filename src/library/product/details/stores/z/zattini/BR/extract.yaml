@@ -7,18 +7,29 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //img[@class='zoom']/@src
+  - name: _url
+    singleValue: true
+    description: URL of the product
+    xpath: (//div[@class="price price-box "]//link//@href)[1]
+  - name: productURL
+    singleValue: true
+    description: URL of the product
+    xpath: (//div[@class="price price-box "]//link//@href)[1]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //div//img[@class='zoom']/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //ul[@class="swiper-wrapper"]//img//@data-src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //ul[@class="badges list"]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -28,20 +39,26 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: (//div//del[@class='default-price reduce '])[1]
+    regExp: ( .*)
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: (//div[@class='default-price'])[1]
+    regExp: ( .*)
+  - name: _url
+    singleValue: true
+    description: URL of the page
+    xpath: (//div[@class="price price-box "]//link//@href)[1]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //span[@class='stockinfo']
-    # regExp: (.+)
-    # regExpReplace: In Stock
-    # defaultValue: Out of Stock
+    # xpath: //span[@class='stockinfo']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -51,25 +68,26 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//ul[@class="attributes"]//li)
   - name: brandText
     singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    description: Product brand shown - this may actually NOT be just a brand name,e.g. "Visit the Gillette Store"
+    xpath: //ul[@class="attributes"]//li//strong[contains(text(),'Marca:')]/following::text()[1]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //ul[@class="attributes"]//li//strong[contains(text(),'Marca:')]/following::text()[1]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //a[@class='product-item']
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //ul[@class="attributes"]//li//strong[text()='Volumetria:']/following::text()[1]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
+    xpath: //ul[@class="attributes"]//li//strong[text()='Volumetria:']/following::text()[1]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -79,9 +97,11 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //p[@class="reference"]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //p[@class="reference"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -92,6 +112,7 @@ fields:
   - name: directions
     singleValue: true
     description: Content under "directions" header
+    xpath: //ul[@class="attributes"]//li//strong[text()='Recomendações de Uso:']/following::text()[1]
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -99,6 +120,8 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: //span[@class="rating-box__numberOfReviews"]
+    regExp: ^\d*\d
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -110,12 +133,14 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //span[@class='product-seller-info']
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
+    xpath: //ul[@class="attributes"]//li//strong[text()='Volumetria:']/following::text()[1]
   - name: variantCount
     singleValue: true
     description: Number of variants listed
@@ -158,6 +183,7 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+    xpath: (//ul[@class="attributes"]//li//strong[contains(text(),'Marca:')]//following::a/@href)[1]
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -416,6 +442,7 @@ fields:
   - name: additives
     singleValue: true
     description: List of additives in the product
+    xpath: //ul[@class="attributes"]//li//strong[text()='Família Olfativa:']/following::text()[1]
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
@@ -443,6 +470,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //span[@class='sku-select-title']
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -505,3 +533,5 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  
+  
