@@ -24,7 +24,13 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
-      for (let row of group) {       
+      for (let row of group) {
+        let p_color = ''
+        if (row.color) {
+          row.color.forEach(item => {
+            p_color = item.text;                
+          });
+        }
         if (row.image) {
             row.image.forEach(item => {
                 item.text = "https://www.bell.ca" + item.text;                
@@ -58,6 +64,11 @@ const transform = (data) => {
             info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
           });
           row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
+        }
+        if (row.nameExtended && p_color != '') {          
+          row.nameExtended.forEach(item => {            
+            item.text = item.text + " " + p_color
+          });          
         }
       }
     }
