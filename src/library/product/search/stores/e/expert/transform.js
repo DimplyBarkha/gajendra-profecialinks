@@ -44,6 +44,10 @@ const transform = (data, context) => {
           }
         }
       }
+      if(row.ratingCount[0].text.charAt('('))
+      {
+        row.ratingCount[0].text=row.ratingCount[0].text.replace(/(\()(.+)(\))/g,'$2');
+      }
       // if (row.price) {
       //   row.price = [{ text: row.price[0].text.replace('.', ',') }];
       // }
