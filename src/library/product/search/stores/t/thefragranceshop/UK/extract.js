@@ -1,4 +1,4 @@
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const {
     transform,
   } = parameters;
@@ -9,7 +9,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   await new Promise((resolve, reject) => setTimeout(resolve, 1500));
 
   await context.evaluate(() => {
-    function addProp(selector, iterator, propName, value) {
+    function addProp (selector, iterator, propName, value) {
       document
         .querySelectorAll(selector)[iterator].setAttribute(propName, value);
     }
