@@ -22,10 +22,13 @@ fields:
   - name: category
     xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
   - name: listPrice
+    singleValue: true
     xpath: //span[contains(@class, 'priceBlockStrikePriceString')]
-    singleValue: false
+    regExp: ([^-]+)
   - name: price
     xpath: //*[@id="priceblock_ourprice"]|//*[@id="priceblock_saleprice"]|//span[contains(@id,"priceblock_dealprice")] | //span[contains(@id,'priceblock_') and contains(@id,'price')]
+    singleValue: true
+    regExp: ([^-]+)
   - name: pricePerUnit
     xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
     regExp: (\((.+)?Count(.+))
