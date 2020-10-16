@@ -5,9 +5,9 @@ module.exports = {
     country: 'RU',
     store: 'dns-shop',
     domain: 'dns-shop.ru',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.dns-shop.ru/search/?q={searchTerms}',
+    loadedSelector: 'div.product-info img',
+    noResultsXPath: "//h4[contains(@class, 'empty-search-results__container-header')]",
     zipcode: '',
   },
 };
