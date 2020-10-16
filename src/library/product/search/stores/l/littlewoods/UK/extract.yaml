@@ -8,6 +8,9 @@ fields:
     xpath: //ul[@class='productList']//li/@data-sdg-id
   - name: rankOrganic
     singleValue: true
+    xpath: //div[@class='productsPerPage'][1]/span
+    regExp: \(.*?\)
+    type: NUMBER
   - name: name
     singleValue: false
     xpath: //span[@class='productBrandDesc']
