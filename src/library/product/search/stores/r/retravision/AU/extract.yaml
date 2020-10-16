@@ -10,7 +10,8 @@ fields:
     xpath: //div[contains(@class,'manufacturer-logo')]//img//@alt
     singleValue: false      
   - name: price
-    xpath: //span[contains(@class,'regular-price')]//span
+    # xpath: //span[contains(@class,'regular-price')]//span
+    xpath: //span[contains(@class,'price')]//span
     singleValue: false 
   - name: rankOrganic
     singleValue: false 
