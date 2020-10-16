@@ -4,10 +4,11 @@ module.exports = {
     domain: 'amazon.de',
     timeout: 45000,
     country: 'DE',
-    store: 'amazonApparel',
+    store: 'amazon',
     zipcode: '10117',
   },
   implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
+    console.log('!zipcode!', zipcode);
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -182,7 +183,6 @@ module.exports = {
       }
     };
     await run();
-
     if (zipcode) {
       await dependencies.setZipCode({ url, zipcode });
     }
