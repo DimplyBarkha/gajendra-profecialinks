@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    description: price of the product
+    xpath: //span[@class="normal-price"]//span[@class="price"]
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page 
+    xpath: //div[@class="product-item-info product-list"]/a/@href  
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //img[@class='product-image-photo img-fluid']/@src
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class='product-link-container']/h2[@class='product name product-item-name']/a/text()
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //*[@id="maincontent"]/div[3]/div/div[2]/div[4]/ol/li/form/@data-product-sku
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+    xpath: //p[@class="hidden-xs"]/span[1]/span
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //div[@data-role="priceBox"]//span/span[@data-price-type="oldPrice"]
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+    xpath: //p[@class="manufacturer hidden-xs"]/text()
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //p[@class="hidden-xs"]/span[2]/span
+ 
+  
+    
