@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'foodlion.com',
     prefix: null,
-    url: null,
+    url: 'https://shop.foodlion.com/product/{id}',
     country: 'US',
     store: 'foodlion_28147',
     zipcode: '28147',
