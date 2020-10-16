@@ -109,3 +109,7 @@ fields:
     defaultValue: No
   - name: description
     xpath: //div[@class="shopping-list-side-panel"]//div[@class="product-details-description"]
+  - name: shippingInfo
+    xpath: //script[@id="product-json-ld"]
+    regExp: ("@type":"Organization","name":")(.+)","chain":"
+    regExpReplace: $2
