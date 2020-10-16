@@ -49,6 +49,8 @@ async function implementation(
     }
     addHiddenDiv('ii_description', finalDescription);
   });
+  const delay = t => new Promise(resolve => setTimeout(resolve, t));
+  await delay(10000);
 
   return await context.extract(productDetails, { transform });
 }

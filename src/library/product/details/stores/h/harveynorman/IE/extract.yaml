@@ -68,7 +68,6 @@ fields:
     singleValue: false
     xpath: //tr[th//*[contains(text(),'Colour')]]/td
   - name: videos
-    singleValue: false
     xpath: //div[@class="flex-video"]/iframe/@src | //div[contains(@class,'flix-videodiv')]/iframe/@src
     # regExp: .*\/(.*)
     # regExpReplace: https://vimeo.com/$1
