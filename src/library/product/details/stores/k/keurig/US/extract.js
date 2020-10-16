@@ -12,6 +12,12 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    try {
+      await context.click('div#_tealiumModalClose');
+    } catch (error) {
+      console.log('no sign up modal found');
+    }
+    await new Promise(resolve => setTimeout(resolve, 3500));
     await context.evaluate(async function () {
       let scrollSelector = document.querySelector('div.footer-wrapper');
       // @ts-ignore

@@ -6,7 +6,7 @@ module.exports = {
     store: 'keurig',
     domain: 'keurig.com',
     loadedSelector: 'img#base_image',
-    noResultsXPath: '//h1[contains(.,"Sorry...")]',
+    noResultsXPath: '//h1[contains(.,"Sorry...")] | //div[contains(@class,"page-404")]',
     zipcode: '',
   },
 };
