@@ -1,28 +1,18 @@
+const { transform } = require('../../../../shared');
+
 async function implementation (inputs, parameters, context, dependencies) {
-  const {
-    transform,
-  } = parameters;
-  const {
-    productDetails,
-  } = dependencies;
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
 
   await new Promise((resolve, reject) => setTimeout(resolve, 1500));
 
   await context.evaluate(() => {
     function addProp (selector, iterator, propName, value) {
-      document
-        .querySelectorAll(selector)[iterator].setAttribute(propName, value);
+      document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     }
-    const allProducts = document.querySelectorAll(
-      'div.item-sku',
-    );
+    const allProducts = document.querySelectorAll('div.item-sku');
     for (let i = 0; i < allProducts.length; i++) {
-      addProp(
-        'div.item-sku',
-        i,
-        'rankorganic',
-        `${i + 1}`,
-      );
+      addProp('div.item-sku', i, 'rankorganic', `${i + 1}`);
     }
   });
 
@@ -38,7 +28,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'thefragranceshop',
-    transform: null,
+    transform: transform,
     domain: 'thefragranceshop.co.uk',
     zipcode: '',
   },
