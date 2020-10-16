@@ -10,7 +10,7 @@ fields:
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //div[@class='product-name']//font/font/text()
+    xpath: //div[@class='product-name']//span/text()
   - name: productUrl
     singleValue: false
     xpath: concat("teknosa.com",'',//div[@class='product-name']//a/@href)
@@ -29,7 +29,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@class='product-price visible-grid-view clearfix']/span/font/font/text()
+    xpath: //div[@class='product-price visible-grid-view clearfix']/span/text()
   - name: manufacturer
     singleValue: true
     xpath: //div[@class='detail-content']//form/button/@data-product-brand
