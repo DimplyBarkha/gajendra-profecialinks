@@ -102,6 +102,7 @@ fields:
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
+    xpath: //div[contains(@class, 'disclaimer')]//span/font/font/text()
   - name: directions
     singleValue: true
     description: Content under "directions" header
@@ -115,10 +116,12 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
+    xpath: //span[@class='rating']/font/font/text()
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //span[@class='rating']/font/font/text()
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -135,21 +138,25 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: (//td[text()='Ürün rengi'])[1]/following-sibling::td/span
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[contains(@class,'tab-details')]//p/font/font/text() | //div[contains(@class,'tab-details')]//p/text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[@class='tab-container']//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
   - name: name
     singleValue: true
     description: The product name
+    xpath: //div[@class='product-title']/h1/font/font/text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
