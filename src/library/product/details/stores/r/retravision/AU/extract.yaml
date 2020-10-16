@@ -134,7 +134,9 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    xpath: count(//div[contains(@class,'testvariantCount')])
     type: NUMBER
+    defaultValue: 0
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -229,6 +231,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@id='tab_description_tabbed_contents']//div//li
   - name: prop65Warning
     singleValue: true
     description: null
