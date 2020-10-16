@@ -33,6 +33,15 @@ module.exports = {
     if (itemUrl) {
       await context.goto(itemUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
     }
+    else {
+      let prodUrl = await context.evaluate(function () {
+        return window.location.href;
+      });      
+      if (prodUrl.includes('/ca/en')) {
+        prodUrl = prodUrl.replace('/ca/en','');
+        await context.goto(prodUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+      }
+    }
 
     const pageCheck = await context.evaluate(function () {
       const pageLoaded = '//main[contains(@data-comp, "ProductPage")]';
@@ -81,7 +90,7 @@ module.exports = {
     }
 
     await context.evaluate(async function () {
-      function addHiddenDiv (id, content) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -130,7 +139,7 @@ module.exports = {
           console.log('finished click');
           // Clicking a link caused a page reload, this function waits for the page to finish loading.
           // await context.waitForPage();
-          await new Promise(resolve => setTimeout(resolve, 15000));
+          await new Promise(resolve => setTimeout(resolve, 5000));
           console.log('finished waiting for page');
           const req = await context.searchAllRequests('edge.api.brightcove.com/playback/v1/accounts/6072792324001/videos/');
 
@@ -171,10 +180,10 @@ module.exports = {
       return videoIdForUrl;
     });
 
-    const html = await context.evaluate(async function getEnhancedContent (videoIdForUrl, acceptHeader) {
+    const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl, acceptHeader) {
       const srcArray = [];
-      async function fetchRetry (url, n) {
-        function handleErrors (response) {
+      async function fetchRetry(url, n) {
+        function handleErrors(response) {
           if (response.status === 200) {
             return response;
           } else {
@@ -204,7 +213,7 @@ module.exports = {
     }, videoIdArray, reqAccept);
 
     await context.evaluate(function (parentInput, html) {
-      function addHiddenDiv (id, content) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
