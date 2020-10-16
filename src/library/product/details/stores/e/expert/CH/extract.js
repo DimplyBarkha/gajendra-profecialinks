@@ -29,7 +29,6 @@ async function implementation (
         value.push(node.textContent);
         node = element.iterateNext();
       }
-      console.log('Value::', value);
       return value;
     }
     function clickXpath (xpath) {
@@ -60,12 +59,12 @@ async function implementation (
     addHiddenDiv('ii_sku', id);
 
     const variantCount = findXpathArr('//div[contains(@id,\'Farbvariante\')]//a[contains(@class,\'styled\')]/@href');
-    console.log('var::', variantCount.length);
-    if (variantCount) {
+    console.log('variant count::', variantCount.length);
+    if (variantCount.length > 0) {
       addHiddenDiv('ii_varInfo', findXpath('//table[(./thead[contains(.,\'Farbe\')])]//tbody//td[contains(.,\'Farbgruppe\')]/following-sibling::td'));
       addHiddenDiv('ii_firstVariant', id);
     }
-    findXpathArr('//div[contains(@id,\'slide\')][position()>1]//picture[contains(@class,\'mediaPicture\')]//source[1]/@srcset | //div[contains(@id,\'slide\')][last()]//img/@src').forEach(item => {
+    findXpathArr('//div[contains(@id,\'slide\')][position()>1]//picture[contains(@class,\'mediaPicture\')]//source[1]/@srcset | //div[contains(@id,\'slide\') and (./div[contains(@class,\'mediaVideo\')])]//img/@src').forEach(item => {
       addHiddenDiv('ii_images', item.split(' ')[0]);
     });
     findXpathArr('//div[contains(@id,\'Farbvariante\')]//a[contains(@class,\'styled\')]/@href').forEach(item => {
@@ -74,6 +73,14 @@ async function implementation (
     findAndFormatArr('//div[contains(@id,\'specifications\')]//td', 'ii_specs');
     findAndFormatArr('//table[(./thead[contains(.,\'Verpackungsdimensionen\')])]//tbody//td', 'ii_shippingDimensions');
     findAndFormatArr('//table[(./thead[contains(.,\'Farbe\')])]//tbody//td', 'ii_color');
+    // video link
+    const videoArr = [];
+    findXpathArr('//div[contains(@id,\'youtube\')]//img/@srcset | //div[contains(@id,\'slide\') and (./div[contains(@class,\'mediaVideo\')])]//img/@src').forEach(item => {
+      const links = item.split(' ')[0];
+      const video = links.match('vi/(.*?)/') && links.match('vi/(.*?)/')[1] ? 'https://www.youtube.com/embed/' + links.match('vi/(.*?)/')[1] + '?enablejsapi=1&origin=https%3A%2F%2Fwww.digitec.ch&widgetid=3' : '';
+      videoArr.push(video);
+    });
+    addHiddenDiv('ii_video', videoArr.join(' | '));
   });
   return await context.extract(productDetails, { transform });
 }

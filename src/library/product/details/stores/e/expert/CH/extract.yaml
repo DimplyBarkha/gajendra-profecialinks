@@ -15,7 +15,7 @@ fields:
     description: Other product images (not in manufacturer description)
   - name: category
     singleValue: false
-    xpath: //div[contains(@class,'Z1yg')]//div[contains(@class,'Z1yj')] | //div[contains(@class,'Z1cc')]//div[contains(@class,'Z1ce')]
+    xpath: //div[contains(@class,'Z1yg')]//div[contains(@class,'Z1yj')] | //div[contains(@class,'Z1cc')]//div[contains(@class,'Z1ce')] | //div[contains(@class,'Z1bf')]//div[contains(@class,'Z1bh')]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     xpath: //h1[contains(@class,'productHeaderTitle__Title')]
@@ -29,7 +29,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
-    xpath: //button[contains(@id,'addToCartButton')] | //meta[contains(@property,'og:availability')]/@content
+    xpath: //button[contains(@id,'addToCartButton') and not(@disabled)] | //meta[contains(@property,'og:availability')]/@content[not(contains(.,'out of stock'))]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -70,7 +70,7 @@ fields:
     xpath: //meta[contains(@property,'og:rating_count')]/@content
     description: The number of ratings
   - name: aggregateRating
-    xpath: //meta[contains(@property,'og:rating')]/@content
+    xpath: //meta[@property='og:rating']/@content
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingDimensions
     xpath: //div[@id='ii_shippingDimensions']
@@ -128,4 +128,7 @@ fields:
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
-  
+  - name: videos
+    xpath: //div[contains(@id,'ii_video')]
+    singleValue: false
+    description: null
