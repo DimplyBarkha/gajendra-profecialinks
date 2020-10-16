@@ -17,6 +17,8 @@ fields:
     xpath: //span[@class="vtex-product-price-1-x-currencyContainer"]
     regExp: (\d+)(,)(\d+)
   - name: id
-    xpath: //div[@class="vurdere-display-rating-sku already-loaded"]/@data-display-sku
+    xpath: //a[@class="vtex-product-summary-2-x-clearLink h-100 flex flex-column"]/@href
+    regExp: (.+)(mp|mv)(\d+)(/)(.+)
+    regExpReplace: $3
   - name: searchUrl
     xpath: //div[@class="vtex-search-result-3-x-galleryItem vtex-search-result-3-x-galleryItem--normal pa4"]/@searchurl

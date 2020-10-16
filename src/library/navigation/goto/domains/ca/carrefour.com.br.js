@@ -21,10 +21,20 @@ module.exports = {
     } catch (e) {
       console.log('not able to load the click button')
     }
+
     await context.evaluate(() => {
-      var clickButton = document.querySelectorAll('a[class="c-link f5 mb2 mt0 db-m dn"]');
-      if (clickButton.length) {
-        clickButton[1].click();
+      try {
+        var clickButton = document.querySelectorAll('a[class="c-link f5 mb2 mt0 db-m dn"]');
+        if (clickButton.length) {
+          if (clickButton.length == 2) {
+            clickButton[1].click();
+          } else {
+            clickButton[0].click();
+          }
+        }
+        console.log('clicked successfully');
+      } catch (e) {
+        console.log('not able to click');
       }
     })
     await context.waitForNavigation({ timeout });
