@@ -3114,7 +3114,15 @@ module.exports = {
     await context.setBlockAds(false);
     await context.setAntiFingerprint(false);
     await context.setLoadAllResources(true);
-    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, load_timeout: 0, cookies:[] });
+    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, load_timeout: 0, cookies:[{
+      "name": "site_locale",
+      "value": "us",
+      "domain": "www.sephora.com",      
+      "path": "/",
+      "secure": false,
+      "httpOnly": false
+    }]});
+    // await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, load_timeout: 0, cookies:[] });
 
     // await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, cookies:[]});
     // console.log(zipcode);
