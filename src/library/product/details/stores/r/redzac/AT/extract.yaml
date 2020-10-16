@@ -119,7 +119,6 @@ fields:
     - name: legalDisclaimer
       singleValue: true
       description: Content under "legal disclaimer" header
-      xpath: //*[@id="rzBody"]//div[@class="mlayout_footer_nav_disclaimer"]
     - name: directions
       singleValue: true
       description: Content under "directions" header
@@ -165,11 +164,11 @@ fields:
     - name: manufacturerDescription
       singleValue: false
       description: The extended description of the product supplied by the lister
-      xpath: //*[@id="manufacturerDescription"]
+      xpath: //*[@id="manufacturerDescription"] | //div[@id='inpage_container']
     - name: manufacturerImages
       singleValue: true
       description: Images within the third party description
-      xpath: //*[@id="manufacturerImages"]
+      xpath: //*[@id="manufacturerImages"] | //div[@id='inpage_container']//img/@src
     # - name: videos
     #   singleValue: false
     #   description: URLs of videos on page
@@ -449,7 +448,7 @@ fields:
     - name: specifications
       # singleValue: true
       description: The physical dimensions of the product including packaging.
-      xpath: //*[@id="specifications"]
+      xpath: //*[@id="specifications"] |  //tr//div[contains(text(), 'Leistungseigenschaften')]/ancestor::tr/following::tr
     # - name: warranty
     #   singleValue: true
     #   description: Guarantee associated with the product
@@ -539,14 +538,17 @@ fields:
       description: Energy rating of a product.
           https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
       # xpath: //font[contains(text(), "Energy efficiency class ")]
-      xpath: (//td[contains(text(), "Energieeffizienzklasse")])[2]
+      xpath: (//td[contains(text(), "Energieeffizienzklasse")])[2] | //div[@id='energyefficiency']
 
       example: A+, A+++, B
-    # - name: technicalInformationPdfPresent
-    #   singleValue: true
-    #   description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    #   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    #   defaultValue: No
+    - name: technicalInformationPdfPresent
+      singleValue: true
+      description: If there is for example a manual in pdf format on the website. ['Yes','No']
+      example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+      xpath: //a[@data-usage_log_type_sub_key="data_sheet"]/@href
+      regExp: (.+)
+      regExpReplace: Yes
+      defaultValue: No
     # - name: termsAndConditions
     #   singleValue: true
     #   description: Terms and conditions information text ['Yes','No']

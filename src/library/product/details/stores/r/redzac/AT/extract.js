@@ -124,6 +124,16 @@ module.exports = {
       }
       const manufacturerDescription = manufacturerDescriptionArr.join(' ');
       if (manufacturerDescription) addElementToDocument('manufacturerDescription', manufacturerDescription);
+
+      // adding energyEfficiency
+      const energySelector = document.querySelectorAll('div.description_text_enumeration > ul > li');
+      const energyRegex = /Energieeffizienzklasse:\s([A-z+]+)/;
+      for (let x = 0; energySelector.length > x; x++) {
+        const found = energySelector[x].innerText.match(energyRegex);
+        if (found) {
+          addElementToDocument('energyefficiency', found[1]);
+        }
+      }
     });
     await context.extract(productDetails);
   },
