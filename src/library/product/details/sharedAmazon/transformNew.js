@@ -22,6 +22,7 @@ const transform = (data, context) => {
   const joinArray = (array, delim = ' | ') => array.join(delim).trim().replace(/\| \|/g, '|');
 
   const doubleRegexSearch = (regex1, regex2, item) => {
+    console.log('doubleRegexSearch')
     const matchArray = sg(item).toString().match(regex1);
     if (!matchArray) return '';
     return joinArray(matchArray.map(mtch => mtch.match(regex2) ? mtch.match(regex2)[0] : ''));
@@ -34,6 +35,7 @@ const transform = (data, context) => {
 
   const regexTestNReplace = (regex, item, { extraRegex, matchRegex } = {}) => {
     if (regex.test(item)) {
+      console.log('regexTestNReplace')
       if (extraRegex) return item.toString().replace(regex, '').replace(extraRegex, '');
       if (matchRegex) return matchRegex(matchRegex, item.toString().replace(regex, ''));
       return item.toString().replace(regex, '');
@@ -56,6 +58,7 @@ const transform = (data, context) => {
         shippingWeight: item => sg(item).replace(/\s\(/g, '').trim(),
         grossWeight: item => sg(item).replace(/\s\(/g, '').trim(),
         largeImageCount: item => {
+          console.log('largeImageCount')
           const array = sg(item).toString().split('SL1500');
           return array.length === 0 ? 0 : array.length;
         },
@@ -139,6 +142,7 @@ const transform = (data, context) => {
         const description = [];
         row.manufacturerDescription.forEach(item => {
           const regexIgnoreText = /^(Read more)/;
+          console.log('manufacturerDescription')
           item.text = (item.text).toString().replace(regexIgnoreText, '');
           if (!regexIgnoreText.test(item.text)) {
             description.push(item.text);
@@ -269,7 +273,9 @@ const transform = (data, context) => {
       row.subscribeAndSave = [{ text: subscriptionPresent }];
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
+        if (el.text) {
+          el.text = clean(el.text);
+        }
       }));
     }
   }
