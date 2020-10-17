@@ -8,7 +8,8 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-    const timeout = parameters.timeout ? parameters.timeout : 10000;
+    url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
+    const timeout = parameters.timeout ? parameters.timeout : 90000;
     await context.setLoadAllResources(true);
     await context.setAntiFingerprint(false);
     await context.setBlockAds(false);

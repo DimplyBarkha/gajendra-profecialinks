@@ -43,7 +43,7 @@ fields:
     xpath: //*[contains(@id, 'DT_Description')] | //ul[contains(@id, 'DT_Features')] | //p[contains(@id, 'DT_Include')]
   - name: availabilityText
     singleValue: false
-    xpath: //*[@id="DT_InStock"]
+    xpath: //*[@id="DT_InStock"] | //a[@id='DT_AddToCart']
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
