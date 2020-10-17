@@ -59,11 +59,16 @@ fields:
     singleValue: false
     xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//meta[@itemprop="reviewCount"]/@content
     description: The number of reviews
+  # - name: price
+  #   singleValue: false
+  #   # xpath: translate(//div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticlePrice-priceWrapper")]//div[contains(@class, "widget-ArticlePrice-price")], ".", ",")
+  #   xpath: //div[contains(@class,'referenced list grid')]//div[contains(@class,'widget-ArticlePrice-priceWrapper')]/div[contains(@class,'widget-ArticlePrice-price')]
+  #   description: The offered price for the product
   - name: price
-    singleValue: false
     # xpath: translate(//div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column-content")]//div[contains(@class, "widget-ArticlePrice-priceWrapper")]//div[contains(@class, "widget-ArticlePrice-price")], ".", ",")
-    xpath: //div[contains(@class,'referenced list grid')]//div[contains(@class,'widget-ArticlePrice-priceWrapper')]/div[contains(@class,'widget-ArticlePrice-price')]
-    description: The offered price for the product
+    xpath: //div[@class='widget-CaseWidget-TRUE']//div[@class="widget-ArticlePrice-price"]
+    # regExp: (\d+)(\’?\,?\.?)?(\d+)?(\,-?)?
+    # regExpReplace: $1,$3
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product

@@ -100,11 +100,11 @@ fields:
     xpath: (//div[@id="loadbeeTab"]/@data-loadbee-product)[1]|//script[contains(@onload, "initFlixMedia")]/@src
   - name: sku
     singleValue: true
-    xpath: //span[contains(@class, "widget-ArticleNumber-articleNumber")][2]
+    xpath: //span[contains(@class, "widget-ArticleNumber-articleNumber")][2]|//div[contains(@class, "widget-ArticleNumber")]/span[2]
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
-    xpath: //span[contains(@class, "widget-ArticleNumber-articleNumber")][2]
+    xpath: //span[contains(@class, "widget-ArticleNumber-articleNumber")][2]|//div[contains(@class, "widget-ArticleNumber")]/span[2]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
