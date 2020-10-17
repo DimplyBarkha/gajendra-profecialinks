@@ -35,7 +35,7 @@ module.exports = {
     country: 'US',
     store: 'kroger',
     domain: 'kroger.com',
-    loadedSelector: 'div.ProductCard-promoContainer',
+    loadedSelector: 'div[data-qa="featured-product-tag"]', // 'div.ProductCard-promoContainer', the is the xpath of the featured tag in "you might also like section"
     noResultsXPath: "//p[@class='no-query-results heading-l font-medium mt-0'] | //span[contains(text(),'Please come back later')] | //*[not(ancestor::div[@id='product_similar'])]/h2[contains(text(),'currently no items to display')]",
   },
   implementation,
