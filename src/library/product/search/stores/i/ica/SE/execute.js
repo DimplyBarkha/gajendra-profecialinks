@@ -17,17 +17,22 @@ async function implementation (
   
   //await new Promise((resolve, reject) => setTimeout(resolve, 15000));
   try{
-    await context.waitForSelector('input#zipcode');
+    //await context.waitForSelector('input#zipcode');
     await context.setInputValue('input#zipcode',inputs.zipcode);
     await context.click('input#zipcode');
     context.waitForNavigation();
-    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+  }catch(e){
+    console.log(e);
+  }
+  try{
     await context.click('button[data-automation-id="store-selector-view-pickup"]');
     context.waitForNavigation();
-    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-    await context.click('button[data-automation-id="store-selector-select-store_13026"]');
+  }catch(e){
+    console.log(e);
+  }
+  try{
+     await context.click('button[data-automation-id="store-selector-select-store_13026"]');
     context.waitForNavigation();
-    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
   }catch(e){
     console.log(e);
   }
@@ -44,7 +49,7 @@ async function implementation (
       let scrollTop = 0;
       while (scrollTop !== 20000) {
         await stall(500);
-        scrollTop += 1000;
+        scrollTop += 500;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000) {
           await stall(5000);
@@ -78,8 +83,8 @@ module.exports = {
     store: 'ica',
     domain: 'ica.se',
     url: 'https://www.ica.se/handla/sok/{searchTerms}',
-    loadedSelector: 'ul.hZbUVv>li',
-    noResultsXPath: '//ul[contains(@class,"hZbUVv") and not(li)]',
+    loadedSelector: 'div#component-wrapper ul li',
+    noResultsXPath: '//div[@id="component-wrapper"]//ul[contains(@class,"hZbUVv") and not(li)]',
     zipcode: '10316',
   },
   implementation,
