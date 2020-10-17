@@ -25,16 +25,20 @@ const transform = (data) => {
     for (const { group } of data) {
       var rank = 1;
       for (let row of group) {
-        if(row.aggregateRating2){
+        if(row.aggregateRating){
             var tot=0;
-            row.aggregateRating2.forEach(item => {
+            row.aggregateRating.forEach(item => {
                 if(item.text=='icon--star'){
                     tot=tot+1;
                 }else if(item.text=='icon--star-half'){
                     tot=tot+0.5;
                 }
             });
-            row.aggregateRating2=[{"text":tot,"xpath":row.aggregateRating2[0]['xpath']}];
+            row.aggregateRating=[{"text":tot,"xpath":row.aggregateRating[0]['xpath']}];
+        }
+        if(row.price){
+            var test=row.price[0]['text'].replace(' *','');
+            row.price[0]['text']=test.replace('*','');
         }
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
