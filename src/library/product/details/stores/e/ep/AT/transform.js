@@ -29,6 +29,14 @@ const transform = (data) => {
               text = text.substring(0,text.length-2)
               row.manufacturerDescription = [{ text }];   }
 
+              if (row.specifications) {
+                let text = '';
+                row.specifications.forEach(item => {
+                  text = text +item.text+"|";
+                });
+                text = text.substring(0,text.length-1)
+                row.specifications = [{ text }];   }
+
                
 
           if (row.price) {
