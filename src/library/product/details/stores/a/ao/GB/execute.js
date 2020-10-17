@@ -4,8 +4,8 @@ module.exports = {
     country: 'UK',
     store: 'ao',
     domain: 'ao.com',
-    loadedSelector: '#container',
-    noResultsXPath: null,
+    loadedSelector: 'section#productInformation',
+    noResultsXPath: '//h1[contains(text(), "Sorry - this page no longer exists")]',
     zipcode: '',
   },
 };
