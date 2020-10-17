@@ -9,8 +9,8 @@ fields:
   - name: rankOrganic
     singleValue: true
   - name: name
-    singleValue: true
-    xpath: //@data-et-name
+    singleValue: false
+    xpath: //a[@class='cmsproductlist-name-link']
   - name: productUrl
     singleValue: false
     xpath:  //div[@class="cmsproduct-list-image"]//a//@href
@@ -22,8 +22,8 @@ fields:
     singleValue: false
     xpath: //div[@class="cmsproduct-list-image"]//a//img//@src
   - name: aggregateRating2
-    singleValue: true
-    xpath: //div[@class='cmsproductlist-stars-container']/div[@class='product-stars-container']/@data-rating
+    singleValue: false
+    xpath: //div[@class='product-stars-container']//@data-rating
   - name: reviewCount
     singleValue: true
     defaultValue: '0'

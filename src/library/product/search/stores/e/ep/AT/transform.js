@@ -36,6 +36,11 @@ const transform = (data, context) => {
         {
             row.price = [{text:row.price[0].text.replace(".",",")}];
         }
+
+        if(row.aggregateRating2)
+        {
+            row.aggregateRating2 = [{text:row.aggregateRating2[0].text.replace(".",",")}];
+        }
       }
     }
     context.setState({ rankCounter });
