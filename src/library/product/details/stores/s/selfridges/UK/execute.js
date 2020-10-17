@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'selfridges',
     domain: 'selfridges.com',
-    loadedSelector: 'body',
-    noResultsXPath: null,
+    loadedSelector: 'section.c-product-hero',
+    noResultsXPath: '//h2[contains(text(), "Oops, sorry we")]',
     zipcode: '',
   },
 };
