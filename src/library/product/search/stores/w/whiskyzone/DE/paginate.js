@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.listing--container',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="alert--content" and normalize-space()="Leider wurden zu Ihrer Suchanfrage keine Artikel gefunden"]/text()',
     openSearchDefinition: null,
     domain: 'whiskyzone.de',
     zipcode: '',

@@ -7,7 +7,7 @@ module.exports = {
     domain: 'whiskyzone.de',
     url: 'https://www.whiskyzone.de/search?sSearch={searchTerms}',
     loadedSelector: 'div.listing--container',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="alert--content" and normalize-space()="Leider wurden zu Ihrer Suchanfrage keine Artikel gefunden"]/text()',
     zipcode: '',
   },
 };
