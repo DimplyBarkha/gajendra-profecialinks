@@ -26,13 +26,10 @@ async function implementation (
     await context.setInputValue('input#zipcode',inputs.zipcode);
     await context.click('input#zipcode');
     context.waitForNavigation();
-    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
     await context.click('button[data-automation-id="store-selector-view-pickup"]');
     context.waitForNavigation();
-    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
     await context.click('button[data-automation-id="store-selector-select-store_13026"]');
     context.waitForNavigation();
-    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
   }catch (e) {
     console.log(e);
   }

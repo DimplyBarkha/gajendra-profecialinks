@@ -5,13 +5,19 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,'sc-prOVx')]//picture/img/@srcset
-  - name: name
+    xpath: //header[contains(@class,"sc-paXsP")]//img[contains(@class,"sc-fzozJi")]/@srcset
+  - name: variantId
     singleValue: false
-    xpath: //h2
+    xpath: //header[contains(@class,"sc-paXsP")]//img[contains(@class,"sc-fzozJi")]/@srcset
+  - name: sku
+    singleValue: false
+    xpath: //header[contains(@class,"sc-paXsP")]//img[contains(@class,"sc-fzozJi")]/@srcset
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,'sc-prOVx')]//picture/img/@alt
+    xpath: //header[contains(@class,"sc-paXsP")]//img[contains(@class,"sc-fzozJi")]/@alt
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"dAvxTh")]/h2
   - name: price
     singleValue: false
     xpath: //p[contains(@class,'ciXVYf')]
@@ -20,7 +26,7 @@ fields:
     xpath: //p[contains(@class,'ciXVYf')]/parent::*/small
   - name: nameExtended
     singleValue: false
-    xpath: //h2
+    xpath: //div[contains(@class,"dAvxTh")]/h2
   - name: description
     singleValue: false
     xpath: //p[contains(@class,'ekttti')]
@@ -30,12 +36,6 @@ fields:
   - name: countryOfOrigin
     singleValue: false
     xpath: //div[contains(@class,'gcVnmg')]/strong[contains(text(),'Ursprungsland')]/parent::div/p
-  - name: variantId
-    singleValue: false
-    xpath: //div[contains(@class,'sc-prOVx')]//picture/img/@srcset
-  - name: sku
-    singleValue: false
-    xpath: //div[contains(@class,'sc-prOVx')]//picture/img/@srcset
   - name: variantCount
     singleValue: false
     defaultValue: '0'
