@@ -9,4 +9,29 @@ module.exports = {
     domain: 'mediamarkt.nl',
     zipcode: '',
   },
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    await context.evaluate(() => {
+      function addHiddenDiv (className, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.classList.add(className);
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll('div.product-wrapper')[index];
+        // originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+        originalDiv.appendChild(newDiv);
+      }
+      const product = document.querySelectorAll('div.product-wrapper');
+      const URL = window.location.href;
+      for (let i = 0; i < product.length; i++) {
+        // Gets aggregate rating
+        const aggregateRating = product[i].querySelector('a.rating').classList[1].match(/\d/g);
+        let rating = +aggregateRating[0];
+        rating += aggregateRating[1] ? 0.5 : 0;
+        addHiddenDiv('mm_aggregateRating', rating, i);
+      }
+    });
+    return await context.extract(productDetails, { transform });
+  },
 };

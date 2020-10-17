@@ -11,6 +11,7 @@ fields:
     singleValue: true
     description: The brand name
     example: Panasonic
+    xpath: //div[@class='product-wrapper']//a[contains(@class, 'manufacturer')]/img/@alt
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -23,6 +24,7 @@ fields:
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
+    xpath: //div[@class='product-wrapper']//h2/a/@href
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
@@ -45,18 +47,22 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    xpath: //div[@class='product-wrapper']//a[contains(@class, 'review')]
   - name: reviewCount
     singleValue: true
     description: The number of reviews
   - name: price
     singleValue: true
     description: The offered price for the product
+    xpath: //div[@class='product-wrapper']//div[contains(@class, 'price-box')]//div[contains(@class, 'price') and not(contains(@class, 'price-old'))]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //div[@class='product-wrapper']//div[contains(@class, 'price-box')]//div[contains(@class, 'price-old')]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //div[@class='product-wrapper']//a[contains(@class, 'manufacturer')]/img/@alt
   - name: soldBy
     singleValue: true
     description: The name of the seller of the item (if available)
@@ -89,3 +95,4 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //div[@class='product-wrapper']//div[@class="pd_aggregateRating"]
