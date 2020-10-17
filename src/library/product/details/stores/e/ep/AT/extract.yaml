@@ -91,7 +91,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@class="product-flixdata"]//@data-distributor
+    xpath: //div[@class="product-details-panel"]//@data-product-code
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -106,11 +106,10 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //div[@class='product-stars-container']//@data-rating
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //div[@class='product-cart-delivery-availability']//div[@class="stock-message"]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -126,20 +125,21 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: substring-after(//div[@class='main-right-column']/div[@class='product-details-panel']/div[@class='product-details-left']/h1[@class='product-details-name'], '-')
+    xpath: substring-after(//div[@class='main-right-column']/div[@class='product-details-panel']/div[@class='product-details-left']/h1[@class='product-details-name'], ' - ')
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[contains(@class, "product-details-tab")]//text()
+    xpath: //ul[@class='inpage_features_grid']//li//div[@class='inpage_ftgridtext']
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //ul[@class='inpage_features_grid']//li//img//@srcset
   - name: videos
     singleValue: false
-    xpath: //iframe[contains(@id, "flix-")]/@src
+    xpath: //div[@class='component cms-customcode-component']//iframe//@src
     description: URLs of videos on page
   - name: name
     singleValue: true
@@ -186,7 +186,8 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     xpath: boolean(//div[@class='product-images-pagel']/div[@class='product-images-main']/button[@class='product-images-zoom-btn'])
   - name: specifications
-    singleValue: true     
+    singleValue: false    
+    xpath: //div[contains(text(),'Netto-Maße')]//following::table[1]|//div[contains(text(),'Logistikmaße mit Verpackung')]//following::table[1]|//font[contains(text(),'Net dimensions')]//following::table[1]|//font[contains(text(),'Logistics dimensions with packaging')]//following::table[1] 
   - name: warranty 
     singleValue: true
     description:

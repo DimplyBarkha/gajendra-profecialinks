@@ -14,6 +14,23 @@ const transform = (data) => {
           });
           row.description = [{ text }];   }
 
+          if (row.aggregateRating) {
+            let text = '';
+            row.aggregateRating.forEach(item => {
+              text = item.text.replace('.',',');
+            });
+            row.aggregateRating = [{ text }];   }
+
+            if (row.manufacturerDescription) {
+              let text = '';
+              row.manufacturerDescription.forEach(item => {
+                text = text +item.text+"||";
+              });
+              text = text.substring(0,text.length-2)
+              row.manufacturerDescription = [{ text }];   }
+
+               
+
           if (row.price) {
             let text = '';
             row.price.forEach(item => {
