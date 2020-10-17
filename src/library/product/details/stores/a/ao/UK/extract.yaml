@@ -144,9 +144,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //section[contains(@id, "richContent")]//text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //section[contains(@id, "richContent")]//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
