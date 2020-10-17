@@ -30,11 +30,10 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class="c-product-hero__description --left"]//span[@class="a-txt-product-description"] 
+    xpath: //div[@class="c-product-hero__description --left"]//h1
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: (//div[@class="c-product-hero__description --left"]//p[@class="o-price"])[1]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -76,10 +75,10 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: ((//div[@class="c-tabs__copy"]//span//br)[23]/following-sibling::text())[1]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: (//article[@id="content1"]//span//br[22]/following-sibling::br)[1]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -125,7 +124,6 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: ((//div[@class="c-tabs__copy"]//span//br)[23]/following-sibling::text())[1]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -143,7 +141,6 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //meta[@name="description"]/@content
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -421,7 +418,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: (//article[@id="content1"]//span//br)[22]
+    xpath: //*[@id="content1"]/div/span/text()[12]/following-sibling::br 
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -445,7 +442,6 @@ fields:
   - name: packaging
     singleValue: true
     description: Packaging information
-    xpath: //article[@id="content1"]//div[@class="c-tabs__copy"]//span[1]
   - name: additives
     singleValue: true
     description: List of additives in the product
@@ -458,7 +454,6 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
-    xpath: //div[@class="c-product-hero__description --left"]//div[@class="c-product-hero__tag"]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -492,7 +487,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
-    xpath: //div[@class="variants"]//span[@class="name"]
+    xpath: //div[@class="c-select__dropdown-item-container"]//span/span
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
