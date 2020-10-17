@@ -1,0 +1,138 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //td[@class="previewImgHolder"]/a[@class='previewImg js-modal-dialog']/img/@src
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="altViews"]/ul/li[@class='notselected']/a[@class='js-modal-dialog']/img/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: url
+    singleValue: true
+    xpath: //meta[@property="og:url"]/@content
+    regExp: ([a-z].+\d{3})
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='breadcrumb']//li[2]/a
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@class="prodName"]//h1/text()
+  - name: listPrice
+    singleValue: true
+    xpath: //dl[@class="priceBox"]/dd[@class='priceList']
+  - name: price
+    singleValue: true
+    xpath: //dl[@class="priceBox"]/dd[@class='priceFinal']/span[@class='salePrice']
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@class="prodMesg"]//dd/strong/text()
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: (//div[@class="wc-text-wrap"][1]//div[@class="wc-rich-content-description"])[1]/text()
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[@class="ccs-cc-inline-header-description"]/ul/li)
+    type: NUMBER
+  - name: brandText
+    singleValue: true
+    xpath: //div[@itemprop="brand"]//meta[@itemprop="name"]/@content
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@class="productFootnote itemModuleBox"]/ul[@class="pInfo"]/li[1]/strong
+  - name: quantity
+    singleValue: true
+    xpath: //li[@class="psAddCart"]/input/@id
+  - name: weightNet
+    singleValue: true
+    xpath: //table[@class="prodSpec"]/tbody/tr[26]/td[2]
+  - name: weightGross
+    singleValue: true
+  - name: gtin
+    singleValue: true
+    xpath: //meta[@itemprop="gtin14"]/@content
+  - name: sku
+    singleValue: true
+    xpath: //span[@class="sku"]
+    regExp: \d[0-9].+\|
+    type: NUMBER
+  - name: variantId
+    singleValue: false
+  - name: mpc
+    singleValue: true
+    xpath: //span[@class="sku"]
+    regExp:  ([A-Z]{2}.+)
+  - name: packSize
+    singleValue: true
+    xpath: (//div[@class="ccs-cc-inline-feature-content ccs-cc-inline-feature-description"]/span)[2]
+  - name: legalDisclaimer
+    singleValue: true
+    description: Content under "legal disclaimer" header
+  - name: directions
+    singleValue: true
+    description: Content under "directions" header
+  - name: warnings
+    singleValue: true
+    description: Content under "warnings" header
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[@class="piRatingCol"]/a/text()
+    type: NUMBER
+  - name: aggregateRatingText
+    singleValue: true
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@class="piRatingCol"]/span[@class="piRatingVal"]
+  - name: shippingInfo
+    singleValue: true
+  - name: shippingDimensions
+    singleValue: true
+    xpath: //div[@class="productFootnote itemModuleBox"]/ul[@class="pInfo"]/li[2]/text()
+    regExp: Length.+\d
+  - name: shippingWeight
+    singleValue: true
+    xpath: //div[@class="productFootnote itemModuleBox"]/ul[@class="pInfo"]/li[2]/strong
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+    type: NUMBER
+  - name: color
+    singleValue: true
+    xpath: //table[@class="prodSpec"]/tbody/tr[40]/td[2]
+  - name: colorCode
+    singleValue: true
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class="leftCol shortDesc"]/p[1]/text() | //div[@class="leftCol shortDesc"]/ul/li
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+  - name: videos
+    singleValue: true
+  - name: name
+    singleValue: true
+    description: //div[@class="prodName"]//h1/text()
+  - name: inStorePrice
+    singleValue: true
+    xpath: //div[@itemprop="offers"]/meta[@itemprop="price"]/@content
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: Yes
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes
