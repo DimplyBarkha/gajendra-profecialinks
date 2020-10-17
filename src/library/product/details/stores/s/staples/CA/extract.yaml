@@ -5,13 +5,13 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,"product-gallery")]//img[@role="presentation"]/@src
+    xpath: //div[contains(@class,"product-gallery__thumbnails")]//div[contains(@class,"slick-slide")][1]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,"product-gallery")]//img[@role="presentation"]/@alt
+    xpath: //div[contains(@class,"product-gallery__thumbnails")]//div[contains(@class,"slick-slide")]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"product-gallery")]//div[@class="slick-slide"]//img/@src
+    xpath: //div[contains(@class,"product-gallery__thumbnails")]//div[contains(@class,"slick-slide")]//img/@src
   - name: category
     singleValue: false
     xpath: //ol[@class="breadcrumbs__list"]//li[@class="breadcrumbs__item"]

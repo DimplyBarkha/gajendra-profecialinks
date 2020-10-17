@@ -67,6 +67,15 @@ const transform = (data) => {
           item.text = item.text.replace(/Item\s*:/i, '');
         });
       }
+      if (row.alternateImages) {
+        row.alternateImages.splice(0,1);
+        row.alternateImages.forEach(item => {
+          item.text = item.text.replace(/140x140/i, '1000x1000');
+        });
+        if(row.alternateImages.length == 0){
+          delete row.alternateImages;
+        }
+      }      
       if (row.descriptionBullets) {
         var bulletArr = [];
         row.descriptionBullets.forEach(item => {
