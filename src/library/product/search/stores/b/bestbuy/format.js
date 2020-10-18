@@ -35,6 +35,11 @@ const transform = (data) => {
                     item.text = item.text.replace(/(\s*\(|reseñas|\)\s*)+/isg, '').trim();                    
                 });
             }
+            if (row.name) {
+                row.name.forEach(item => {                    
+                    item.text = item.text.replace(/(\s*\¡Nuevo\!\s*)+/isg, '').trim();                    
+                });
+            }
             if (row.ratingCount) {
                 row.ratingCount.forEach(item => {
                     item.text = item.text.replace(/(\s*\(|reseñas|\)\s*)+/isg, '').trim();

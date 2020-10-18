@@ -5,7 +5,7 @@ module.exports = {
     country: 'MX',
     store: 'bestbuy',
     nextLinkSelector: "ul[class='pagination-controls'] li[class='pager'] a[aria-label='Página Siguiente']",
-    mutationSelector: "div[class='pagination-count']",
+    mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: null,

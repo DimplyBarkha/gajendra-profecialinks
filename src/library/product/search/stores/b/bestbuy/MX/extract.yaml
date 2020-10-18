@@ -14,7 +14,7 @@ fields:
     xpath: //div[contains(@class,'image-container')]//img[@class='product-image']/@src
   - name: name
     SingleValue: false
-    xpath: //div[@class='product-title']//a//h4/following-sibling::text() | //div[@class='product-title']//a//h4
+    xpath: //div[@class='product-title']//a//h4
   - name: price
     SingleValue: false
     xpath: //div[@class='price-block ']//div[@class='product-price']
