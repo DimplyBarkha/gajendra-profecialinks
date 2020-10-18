@@ -34,14 +34,14 @@ fields:
     defaultValue: Out of Stock
   - name: brandText
     singleValue: true 
-    xpath: //strong[contains(@class,'brand')]
+    xpath: //span[@class="marcaProduto"]//strong[contains(@class,'brand')]
   - name: ratingCount
     singleValue: true
-    xpath: //p[contains(@class,'avaliacoes')]
+    xpath: //span[@class="nota yv-itens"]//p[contains(@class,'avaliacoes')]
     type: NUMBER
   - name: aggregateRating
     singleValue: true
-    xpath: //span[contains(@class,'nota yv-itens')]/label
+    xpath: //span[@class="nota yv-itens"]//label
     type: NUMBER
   - name: promotion
     singleValue: true
@@ -51,7 +51,7 @@ fields:
     xpath: //strong[contains(@id,'_precoDeValue')]
   - name: description
     singleValue: false
-    xpath: div[@id="descricao"]
+    xpath: //div[@id="descricao"]
   - name: descriptionBullets
     singleValue: false
     xpath: //div[@class="detalhesProduto infoImportante"]//div[@class="descricao"]/ul/li
@@ -71,5 +71,5 @@ fields:
   - name: gtin
     singleValue: true
     xpath: //span[@itemprop="productEan"]
-    regExp: Ean\s*(.+)\)
+    regExp: EAN\s*(.+)\)
     regExpReplace: $1
