@@ -27,15 +27,25 @@ const transform = (data) => {
       for (let row of group) {                  
         if (row.additionalDescBulletInfo) {
           let info = [];          
+          row.descriptionBullets = [{'text': row.additionalDescBulletInfo.length}];
           row.additionalDescBulletInfo.forEach(item => {
             info.push(item.text.trim());            
-          });
-          row.descriptionBullets = [{'text': info.length}];
+          });          
           row.additionalDescBulletInfo = [{'text':'|| ' + info.join(' || '),'xpath':row.additionalDescBulletInfo[0].xpath}];          
         }            
         if (row.alternateImages) {
-            row.alternateImages.splice(0,1);            
-            row.secondaryImageTotal = [{'text':row.alternateImages.length}]
+            //row.alternateImages.splice(0,1);            
+            //row.secondaryImageTotal = [{'text':row.alternateImages.length}]
+            let info = [];            
+            row.alternateImages.forEach(item => {
+                item.text.replace('background-image: url(\"','');
+                item.text.replace('/\?&.+/','');                
+                info.push({'text':item.text});
+            });
+            row.alternateImages = info;
+        }        
+        if (row.category) {
+            row.category.splice(0,1);            
         }
         if (row.descriptionBullets) {            
             row.descriptionBullets = [{'text':row.descriptionBullets.length}]

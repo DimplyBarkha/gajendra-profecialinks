@@ -18,6 +18,7 @@ async function implementation (
     }
     url = await dependencies.createUrl({ id });
   }
+  //await dependencies.goto({ url:'https://www.google.com/', zipcode, storeId });
   await dependencies.goto({ url, zipcode, storeId });
 
   if (parameters.loadedSelector) {

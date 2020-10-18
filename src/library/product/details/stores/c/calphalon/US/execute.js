@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'calphalon',
     domain: 'calphalon.com',
-    loadedSelector: 'div.namePartPriceContainer',
+    loadedSelector: null,//'div.namePartPriceContainer',
     noResultsXPath: "//h2[contains(text(),'SORRY! THE PAGE YOU WERE LOOKING FOR')]",
     zipcode: '',
   },

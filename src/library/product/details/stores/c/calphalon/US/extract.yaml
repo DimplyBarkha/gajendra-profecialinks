@@ -11,7 +11,7 @@ fields:
     xpath: //div[contains(@class,'image_container')]//img[contains(@class,'nmmv_zoom_img')]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'nmmv_thumbs')]//div[contains(@class,'nmmv_thumb')]/@style
+    xpath: //div[contains(@class,'nmmv_thumbs')]//div[contains(@class,'nmmv_thumbs')]//div[contains(@class,'nmmv_thumb')]/@style
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
@@ -35,7 +35,10 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@id,'product_longdescription')]//p
+    xpath: //div[contains(@id,'product_longdescription')]//p    
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath: //div[contains(@id,'product_longdescription')]//ul[contains(@class,'plp-list')]//li
   - name: descriptionBullets
     singleValue: true
     xpath: //div[contains(@id,'product_longdescription')]//ul[contains(@class,'plp-list')]//li
@@ -67,11 +70,11 @@ fields:
     xpath: //div[contains(@class,'cm_section-container')]//div[contains(@class,'cm_pdp-block')]//img/@src
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,'nmmv_thumbs')]//div[contains(@class,'nmmv_thumb')]/@style
+    xpath: //div[contains(@class,'nmmv_viewport')]//video/@src
   - name: name
     singleValue: true
     xpath: //h1[contains(@class,'main_header')]  
   - name: secondaryImageTotal
     singleValue: true
-    xpath: //div[contains(@class,'nmmv_thumbs')]//div[contains(@class,'nmmv_thumb')]/@style
+    xpath: //div[contains(@class,'nmmv_thumbs')]//div[contains(@class,'nmmv_thumbs')]//div[contains(@class,'nmmv_thumb')]/@style
     type: NUMBER
