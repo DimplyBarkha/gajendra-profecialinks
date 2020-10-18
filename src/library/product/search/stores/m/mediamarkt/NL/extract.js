@@ -36,6 +36,10 @@ module.exports = {
         // Gets rating count
         const ratingCount = product[i].querySelector('a.rating + a');
         addHiddenDiv('mm_ratingCount', ratingCount.textContent.trim().match(/\d*/g)[1], i);
+
+        // Gets thumbnail
+        const thumbnail = `https:${product[i].querySelector('a.photo img').attributes.src.value}`;
+        addHiddenDiv('mm_thumbnail', thumbnail, i);
       }
     });
     return await context.extract(productDetails, { transform });
