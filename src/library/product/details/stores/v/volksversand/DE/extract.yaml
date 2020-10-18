@@ -1,0 +1,80 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//div[@class="content--wrapper"]//div[contains(@class,"product--image-container")]//div[@class="image--box image-slider--item"])[1]//img/@srcset
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[@class="content--wrapper"]//div[contains(@class,"product--image-container")]//div[@class="image--box image-slider--item"])[1]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="content--wrapper"]//div[contains(@class,"product--image-container")]//div[@class="image--box image-slider--item"]//img/@srcset
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="breadcrumb--list"]/li
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@class="content--wrapper"]//h1[@class="product--title"]
+  - name: listPrice
+    singleValue: true
+    xpath: (//div[@class="content--wrapper"]//span[@class="content--discount price--line-through"])[1]
+  - name: price
+    singleValue: true
+    xpath: (//div[@class="content--wrapper"]//span[@class="price--content content--default"])[1]
+  - name: availabilityText
+    singleValue: true
+    xpath: //button[@class="buybox--button block btn is--primary is--icon-right is--center is--large"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class="content--wrapper"]//div[@class="product--description"]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@class="content--wrapper"]//div[@class="product--info"]/ul/li
+  - name: brandText
+    singleValue: true
+    xpath: //meta[@property="product:brand"]/@content
+  - name: quantity
+    singleValue: true
+    xpath: (//div[@class="content--wrapper"]//div[@class="variant--info"])[1]
+  - name: sku
+    singleValue: true
+    xpath: (//div[@class="content--wrapper"]//div[@class="variant--articleId"]//span[@class="entry--content is--selectable"])[2]
+  - name: variantId
+    singleValue: true
+    xpath: (//div[@class="content--wrapper"]//div[@class="variant--articleId"]//span[@class="entry--content is--selectable"])[2]
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[@class="content--wrapper"]//span[@class="rating--count"]
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@class="content--wrapper"]//span[@class="product--rating"]/i[@class="icon--star"]/@class
+    type: NUMBER
+  - name: aggregateRatingTmp
+    singleValue: false
+    xpath: //div[@class="content--wrapper"]//span[@class="product--rating"]/i[@class="icon--star-half"]/@class    
+  - name: variantCount
+    singleValue: true
+    defaultValue: 0
+    type: NUMBER
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="content--wrapper"]//div[@class="description--video"]/iframe/@src
+  - name: name
+    singleValue: true
+    xpath: //div[@class="content--wrapper"]//h1[@class="product--title"]
+  - name: promotion
+    singleValue: true
+    xpath: //div[@class="content--wrapper"]//div[@class="variant--discount"]
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@class="content--wrapper"]//div[@class="variant--info"]
