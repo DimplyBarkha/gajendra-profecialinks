@@ -12,6 +12,8 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,'nmmv_thumbs')]//div[contains(@class,'nmmv_thumbs')]//div[contains(@class,'nmmv_thumb')]/@style
+    regExp: background-image:\s*url(\"(.+?)\"
+    regExpReplace: $1
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
@@ -37,10 +39,10 @@ fields:
     singleValue: false
     xpath: //div[contains(@id,'product_longdescription')]//p    
   - name: additionalDescBulletInfo
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@id,'product_longdescription')]//ul[contains(@class,'plp-list')]//li
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@id,'product_longdescription')]//ul[contains(@class,'plp-list')]//li
     type: NUMBER        
   - name: sku

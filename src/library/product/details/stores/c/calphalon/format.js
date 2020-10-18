@@ -31,7 +31,7 @@ const transform = (data) => {
           row.additionalDescBulletInfo.forEach(item => {
             info.push(item.text.trim());            
           });          
-          row.additionalDescBulletInfo = [{'text':'|| ' + info.join(' || '),'xpath':row.additionalDescBulletInfo[0].xpath}];          
+          row.additionalDescBulletInfo = [{'text':'|| ' + info.join(' || '),'xpath':row.additionalDescBulletInfo[0].xpath}];
         }            
         if (row.alternateImages) {
             //row.alternateImages.splice(0,1);            
