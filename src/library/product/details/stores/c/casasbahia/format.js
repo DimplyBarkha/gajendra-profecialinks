@@ -33,7 +33,7 @@ const transform = (data) => {
       if (row.descriptionBullets) {
         var bulletArr = [];
         row.descriptionBullets.forEach(item => {
-          bulletArr.push(item.text);
+          bulletArr.push(item.text.replace(/^\s*-\s*/,''));
         });
         if (row.description && bulletArr.length) {
           row.description = [{ "text": "|| " + bulletArr.join(" || ") + " | " + row.description[0]["text"] }];
@@ -42,7 +42,7 @@ const transform = (data) => {
       }
       if (row.category) {
         if (row.category.length) {
-          row.category.splice(0, 1);
+          row.category.splice(0, 2);
         }
       }
     }

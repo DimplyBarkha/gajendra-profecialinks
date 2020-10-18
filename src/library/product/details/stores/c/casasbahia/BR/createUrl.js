@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'casasbahia.com.br',
     prefix: null,
-    url: 'https://www.casasbahia.com.br/{id}.html?IdSku={id}',
+    url: 'https://www.casasbahia.com.br/_.html?IdSku={id}',
     country: 'BR',
     store: 'casasbahia',
     zipcode: "''",
