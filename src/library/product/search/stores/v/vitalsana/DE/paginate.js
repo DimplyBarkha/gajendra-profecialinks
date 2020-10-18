@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'vitalsana',
-    nextLinkSelector: null,
+    nextLinkSelector: '#pagnNextString, #pagnNextLink, div.pages ul li.item.pages-item-next a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'body[data-container="body"]',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'vitalsana.com',
