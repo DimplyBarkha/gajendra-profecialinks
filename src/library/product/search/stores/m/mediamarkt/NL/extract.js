@@ -20,7 +20,9 @@ module.exports = {
         newDiv.style.display = 'none';
         const originalDiv = document.querySelectorAll('div.product-wrapper')[index];
         // originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-        originalDiv.appendChild(newDiv);
+        if (!originalDiv.querySelector(`.${className}`)) {
+          originalDiv.appendChild(newDiv);
+        }
       }
       const product = document.querySelectorAll('div.product-wrapper');
       const URL = window.location.href;
@@ -30,6 +32,10 @@ module.exports = {
         let rating = +aggregateRating[0];
         rating += aggregateRating[1] ? 0.5 : 0;
         addHiddenDiv('mm_aggregateRating', rating, i);
+
+        // Gets rating count
+        const ratingCount = product[i].querySelector('a.rating + a');
+        addHiddenDiv('mm_ratingCount', ratingCount.textContent.trim().match(/\d*/g)[1], i);
       }
     });
     return await context.extract(productDetails, { transform });

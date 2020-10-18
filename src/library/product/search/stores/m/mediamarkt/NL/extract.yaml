@@ -47,7 +47,7 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    xpath: //div[@class='product-wrapper']//a[contains(@class, 'review')]
+    xpath: //div[@class='product-wrapper']//div[@class='mm_ratingCount']
   - name: reviewCount
     singleValue: true
     description: The number of reviews
@@ -95,4 +95,4 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //div[@class='product-wrapper']//div[@class="pd_aggregateRating"]
+    xpath: //div[@class='product-wrapper']//div[@class="mm_aggregateRating"]
