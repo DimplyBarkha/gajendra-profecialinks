@@ -1,0 +1,75 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //img[contains(@itemprop,'image')]/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //img[contains(@itemprop,'image')]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'contCarousel')]//a/@rel
+    regExp: largeimage:\s*\'(.+?)\'
+    regExpReplace: $1    
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name='keywords']/@content
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1//b[@itemprop="name"]
+  - name: price
+    singleValue: true
+    xpath: //strong[contains(@id,'_precoPorValue')]
+  - name: category
+    singleValue: false
+    xpath: //div[@class="breadcrumb"]//span
+  - name: availabilityText
+    singleValue: true
+    xpath: //a[@id="btnAdicionarCarrinho" and @class="bt buy"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: brandText
+    singleValue: true 
+    xpath: //strong[contains(@class,'brand')]
+  - name: ratingCount
+    singleValue: true
+    xpath: //p[contains(@class,'avaliacoes')]
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: true
+    xpath: //span[contains(@class,'nota yv-itens')]/label
+    type: NUMBER
+  - name: promotion
+    singleValue: true
+    xpath: //div[contains(@id,'_percentual')]/span
+  - name: listPrice
+    singleValue: true
+    xpath: //strong[contains(@id,'_precoDeValue')]
+  - name: description
+    singleValue: false
+    xpath: div[@id="descricao"]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@class="detalhesProduto infoImportante"]//div[@class="descricao"]/ul/li
+  - name: name
+    singleValue: true
+    xpath: //h1//b[@itemprop="name"]
+  - name: sku
+    singleValue: true
+    xpath: //span[@itemprop="productID"]
+    regExp: Item\s*(.+)\)
+    regExpReplace: $1
+  - name: variantId
+    singleValue: true
+    xpath: //span[@itemprop="productID"]
+    regExp: Item\s*(.+)\)
+    regExpReplace: $1
+  - name: gtin
+    singleValue: true
+    xpath: //span[@itemprop="productEan"]
+    regExp: Ean\s*(.+)\)
+    regExpReplace: $1
