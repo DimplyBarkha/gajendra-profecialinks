@@ -78,6 +78,13 @@ const transform = (data) => {
             }else{
                 row.imageZoomFeaturePresent=[{"text":"No"}];
             }
+            if(row.availabilityText){
+                if(row.availabilityText[0]['text']!='In Stock'){
+                    row.availabilityText=[{"text":"Out of Stock"}];    
+                }
+            }else{
+                row.availabilityText=[{"text":"Out of Stock"}];
+            }
         }
     }
     return cleanUp(data);
