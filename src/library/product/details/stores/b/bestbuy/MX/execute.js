@@ -5,8 +5,8 @@ module.exports = {
     country: 'MX',
     store: 'bestbuy',
     domain: 'bestbuy.com.mx',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: "div[class='third-party-product-info']",
+    noResultsXPath: "//div[@class='container error-message']",
     zipcode: '',
   },
 };
