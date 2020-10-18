@@ -1,0 +1,115 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: nameExtended
+    singleValue: false
+    description:
+    xpath: //h1[contains(@class, 'product-rename')]/@title
+  - name: name
+    singleValue: false
+    description:
+    xpath: //h1[contains(@class, 'product-rename')]/@title
+  - name: brandText
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'brand-name')]
+  - name: image
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'image-wrapper')]//img[@class="device-image-details"]/@src
+  - name: imageAlt
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'image-wrapper')]//img[@class="device-image-details"]/@alt
+  - name: listPrice
+    singleValue: false
+    description:
+    xpath: (//span[contains(@class, 'rep-total-device-cost')]/text())[1]
+  - name: price
+    singleValue: false
+    description:
+    xpath: (//span[contains(@class, 'rep-total-device-cost')]/text())[1]
+  - name: availabilityText
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'stock-info-section')]/p[@class='stock-status']
+  - name: description
+    singleValue: false
+    description:
+    xpath: (//div[contains(@class, 'product-details-position')]//p/node())[1]
+  - name: quantity
+    singleValue: false
+    description:
+    xpath: //span[@data='data-qa-capacity']/following-sibling::span
+  - name: weightNet
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'spec-list')]//table//tr//th[text()='Weight']//following-sibling::td
+  - name: weightGross
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'spec-list')]//table//tr//th[text()='Weight']//following-sibling::td
+  - name: variantId
+    singleValue: false
+    description:
+    xpath: //div[contains(@class,'bv-shared')]/@data-product-id
+  - name: sku
+    singleValue: false
+    description:
+    xpath: //div[contains(@class,'bv-shared')]/@data-product-id
+  - name: legalDisclaimer
+    singleValue: false
+    description:
+    xpath: //section[@id='block-rpiqualifyingstatement']//small
+  - name: ratingCount
+    singleValue: false
+    description:
+    xpath: (//span[@itemprop="reviewCount"]/text())[1]\
+  - name: aggregateRating
+    singleValue: false
+    description:
+    xpath: (//span[@itemprop="ratingValue"]/text())[1]
+  - name: color
+    singleValue: false
+    description:
+    xpath: (//div[@class='text-n-color']//span[@class='dp-selected-text'])[1]
+  - name: manufacturerDescription
+    singleValue: false
+    description:
+    xpath: //div[contains(@class,'overview-details')]//p/text()
+  - name: manufacturerImages
+    singleValue: false
+    description:
+    xpath: //div[contains(@class,'productFeatures-list')]//img/@src
+  - name: metaKeywords
+    singleValue: false
+    description:
+    xpath: //meta[@name='keyword']/@content
+  - name: category
+    singleValue: false
+    description:
+    xpath: //ul[contains(@class, 'menuCrumbNew')]//li[not(@aria-current="page")]
+  - name: alternateImages
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'image-gallery')]//img/@data-src
+  - name: videos
+    singleValue: false
+    description:
+    xpath: //div[@id='custom-product-video-url']/text()
+  - name: colorCode
+    singleValue: false
+    description:
+    xpath: //div[@id='custom-product-color-code']/text()
+  - name: productUrl
+    singleValue: false
+    description:
+    xpath: //div[@id='custom-product-url']/text()
+  - name: specifications
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'Specification')]//table//tr//node()//text()
+
+
