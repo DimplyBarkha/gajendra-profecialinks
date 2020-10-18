@@ -1,0 +1,77 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[contains(@class,'image_container')]//img[contains(@class,'nmmv_zoom_img')]/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class,'image_container')]//img[contains(@class,'nmmv_zoom_img')]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'nmmv_thumbs')]//div[contains(@class,'nmmv_thumb')]/@style
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@id,'widget_breadcrumb')]//li/a
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[contains(@class,'main_header')]
+  - name: listPrice
+    singleValue: true
+    xpath: //div[contains(@class,'prod-listing-prices')]//span[@class='price']
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@class,'prod-listing-prices')]//span[@class='old_price']      
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@class,'quantity_section')]//a[@id='add2CartBtn']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@id,'product_longdescription')]//p
+  - name: descriptionBullets
+    singleValue: true
+    xpath: //div[contains(@id,'product_longdescription')]//ul[contains(@class,'plp-list')]//li
+    type: NUMBER        
+  - name: sku
+    singleValue: true
+    xpath: //input[@id='hiddenPartNumber']/@value
+  - name: variantId
+    singleValue: true
+    xpath: //input[@id='hiddenPartNumber']/@value    
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[@class='bv-primarySummary-rating-container']//span[@itemprop='reviewCount']
+    type: NUMBER  
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@class='bv-primarySummary-rating-container']//span[@itemprop='ratingValue']
+    type: NUMBER
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+    defaultValue: 0
+    type: NUMBER  
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id='tab1Widget']
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'cm_section-container')]//div[contains(@class,'cm_pdp-block')]//img/@src
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,'nmmv_thumbs')]//div[contains(@class,'nmmv_thumb')]/@style
+  - name: name
+    singleValue: true
+    xpath: //h1[contains(@class,'main_header')]  
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: //div[contains(@class,'nmmv_thumbs')]//div[contains(@class,'nmmv_thumb')]/@style
+    type: NUMBER
