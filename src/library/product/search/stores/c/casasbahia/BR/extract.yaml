@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,"ProductsGrid__Products")]/li
+fields:
+  - name: id
+    SingleValue: true
+    xpath: //li//a/@href
+    regExp: IdSku=(.+)
+    regExpReplace: $1 
+  - name: productUrl
+    SingleValue: true
+    xpath: //li//a/@href
+  - name: price
+    SingleValue: true
+    xpath: //li//span[contains(@class,"ProductPrice__PriceValu")]
+  - name: thumbnail
+    SingleValue: true
+    xpath: //li//img/@src
+  - name: name
+    SingleValue: true
+    xpath: //li//p[contains(@class,"ProductCard__Title")]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
+  - name: reviewCount
+    singleValue: true
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: ratingCount
+    singleValue: true
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //meta[@itemprop="ratingValue"]/@content
