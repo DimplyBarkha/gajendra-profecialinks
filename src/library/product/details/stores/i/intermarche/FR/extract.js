@@ -12,8 +12,8 @@ module.exports = {
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await new Promise(resolve => setTimeout(resolve, 10000));
 
-    const variantArray = await context.evaluate(function (parentInput, html) {
-      function addHiddenDiv (id, content) {
+    await context.evaluate(function (parentInput) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -21,7 +21,7 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
       let prodUrl = window.location.href.split("product/")
-      if(prodUrl[1]){
+      if (prodUrl[1]) {
         addHiddenDiv(`ii_url`, prodUrl[1]);
       }
       addHiddenDiv(`ii_parentInput`, parentInput);
@@ -54,7 +54,7 @@ module.exports = {
     //   });
     // });
 
-    
+
     // await new Promise(resolve => setTimeout(resolve, 10000));
     return await context.extract(productDetails, { transform: transformParam });
   },
