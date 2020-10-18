@@ -98,17 +98,13 @@ const transform = (data) => {
           row.variantInformation = [{'text':info.join(' | '),'xpath':row.variantInformation[0].xpath}];          
         }
         if (row.variants) {
-            let info = [];          
-            row.variants.forEach(item => {
-              info.push(item.text.trim());            
-            });            
-            row.variants = [{'text':info.join(' | '),'xpath':row.variants[0].xpath}];          
-          }
-        if (row.variantCount) {
-            if (row.variantCount[0]['text'] != '0'){
-                row.variantCount = [{'text':row.variantCount.length,'xpath':row.variantCount[0].xpath}];          
-            }
-          }                
+          let info = [];          
+          row.variants.forEach(item => {
+            info.push(item.text.trim());            
+          });            
+          row.variants = [{'text':info.join(' | '),'xpath':row.variants[0].xpath}];          
+          row.variantCount = [{'text':info.length,'xpath':row.variants[0].xpath}];
+        }        
       }
     }
     return cleanUp(data);

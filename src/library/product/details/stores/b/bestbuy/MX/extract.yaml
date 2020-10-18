@@ -56,7 +56,7 @@ fields:
     xpath: //span[@id='sku-value']
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='image-carousel-wrapper']//ol[@class='carousel-indicate']//li[@class='thumbnail-image-wrapper carousel-item visible']
+    xpath: //div[@class='image-carousel-wrapper']//ol[@class='carousel-indicate']//li[@class='thumbnail-image-wrapper carousel-item visible']//img/@src
   - name: ratingCount
     singleValue: false
     xpath: //li[@class='customer-rating']//span[@class='c-reviews']//span[@class='c-total-reviews']
