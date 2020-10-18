@@ -25,7 +25,6 @@ module.exports = {
         }
       }
       const product = document.querySelectorAll('div.product-wrapper');
-      const URL = window.location.href;
       for (let i = 0; i < product.length; i++) {
         // Gets aggregate rating
         const aggregateRating = product[i].querySelector('a.rating').classList[1].match(/\d/g);
