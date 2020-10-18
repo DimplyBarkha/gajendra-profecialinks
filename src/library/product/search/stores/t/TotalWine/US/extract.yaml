@@ -18,8 +18,8 @@ fields:
     description: The product name
   - name: id
     xpath: //article[@class="productCard__2nWxIKmi"]/@id
-    regExp: (product-)(.+)
-    regExpReplace: $2
+    regExp: (product-)(\d+-)(\d+)(-\d+)
+    regExpReplace: $2$3
     description: The store-specific product identifier
   - name: gtin
   - name: price

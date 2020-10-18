@@ -23,8 +23,8 @@ const transform = (data, context) => {
         row.name.forEach((item) => {
           text += " " + item.text.trim()
         })
-        text.trim();
-        row.name = [{ text }];
+        let text1 = text.trim();
+        row.name = [{ text: text1 }];
       }
       if (row.aggregateRating2) {
         row.aggregateRating2 = [{ text: ((row.aggregateRating2[0].text) / 20).toFixed(1) }]
