@@ -25,11 +25,13 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[contains(@class, "product-name")]/h1
+    xpath: concat(//div[contains(@class, "product-name")]/h1," ",//div[contains(@class, "product-name")]/p)
+    # xpath: //div[contains(@class, "product-name")]/h1
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //p[@class="in-store-price"] | //p[@class="regular-price"]
+    xpath: //p[@class="regular-price"]
+    # xpath: //p[@class="in-store-price"] | //p[@class="regular-price"]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
@@ -149,6 +151,7 @@ fields:
   - name: name
     singleValue: false
     description: The product name
+    xpath: //div[contains(@class, "product-name")]/h1
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
@@ -453,6 +456,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
+    xpath: //select[@id="variants"]/option[@selected="selected"]
   - name: firstVariant
     singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
@@ -464,13 +468,14 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: //select[@id="variants"]/option[position() = 1]/@value
   - name: variants
     singleValue: false
     description: null
-    xpath: //select[@id="variants"]/option
-    regExp: (.+)
-    regExpReplace: Yes
-    defaultValue: NO
+    xpath: //select[@id="variants"]/option/@value
+    # regExp: (.+)
+    # regExpReplace: Yes
+    # defaultValue: NO
   - name: additionalDescBulletInfo
     singleValue: false
     description: null

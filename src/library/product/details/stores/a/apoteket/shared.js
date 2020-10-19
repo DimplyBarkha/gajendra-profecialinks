@@ -39,9 +39,10 @@ const transform = (data, context) => {
           }
           if (row.listPrice) {
             row.listPrice.forEach(item => {
-              if(item.text.includes('Butikspris')){
-                  item.text = item.text.replace(/Butikspris\:\s/,'');
-              }else if(item.text.includes('Ord. pris')){
+              // if(item.text.includes('Butikspris')){
+              //     item.text = item.text.replace(/Butikspris\:\s/,'');
+              // }else 
+              if(item.text.includes('Ord. pris')){
                 item.text =  item.text.replace('Ord. pris','').replace('(','').replace(')','').trim();
               }
             });
@@ -60,6 +61,13 @@ const transform = (data, context) => {
                 item.text = item.text.match(/\s(\d+)\sg/,'$1')[0];
                 if(item.text.includes(" g")){
                   item.text = item.text.replace(' g','').trim();
+                }else{
+                  item.text = '';
+                }
+              }else if(item.text.includes(' portioner')){
+                item.text = item.text.match(/(\d+)\sportioner/,'$1')[0]
+                if(item.text.includes(" portioner")){
+                  item.text = item.text.replace(' portioner','').trim();
                 }else{
                   item.text = '';
                 }
@@ -86,6 +94,20 @@ const transform = (data, context) => {
           }
           if (row.variantId) {
             row.variantId.forEach(item => {
+                let arr = item.text.split('-');
+                let length = arr ? arr.length : 0;
+                item.text = arr[length-1].replace(/\//,'');
+            });
+          }
+          if (row.firstVariant) {
+            row.firstVariant.forEach(item => {
+                let arr = item.text.split('-');
+                let length = arr ? arr.length : 0;
+                item.text = arr[length-1].replace(/\//,'');
+            });
+          }
+          if (row.variants) {
+            row.variants.forEach(item => {
                 let arr = item.text.split('-');
                 let length = arr ? arr.length : 0;
                 item.text = arr[length-1].replace(/\//,'');
