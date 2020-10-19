@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='showcase-gondola']/div[contains(@class,'showcase-item')]
+fields: 
+  - name: id
+    SingleValue: false
+    xpath: //div[contains(@class,'showcase-item')]/@data-event
+  - name: productUrl
+    SingleValue: false
+    xpath: //a[contains(@class,'showcase-item-image')]/@href
+  - name: thumbnail
+    SingleValue: false
+    xpath: //a[contains(@class,'showcase-item-image')]//img/@src
+  - name: name
+    SingleValue: false
+    xpath: //p[@class='showcase-item-name']/a[@class='showcase-item-title']
+  - name: price
+    SingleValue: false
+    xpath: //div[@class='item-price']//span[@class='price-value']
+  - name: rankOrganic
+    SingleValue: false
+    xpath: //div[contains(@class,'showcase-item')]/@data-event
+  - name: rank
+    SingleValue: false
+    xpath: //div[contains(@class,'showcase-item')]/@data-event  
+  - name: aggregateRating2
+    SingleValue: false
+    xpath: //div[contains(@class,'product-rating-star')]/@class
+  - name: reviewCount
+    SingleValue: false
+    xpath: //div[contains(@class,'product-rating-star')]/@title
+  - name: ratingCount
+    SingleValue: false
+    xpath: //div[contains(@class,'product-rating-star')]/@title
