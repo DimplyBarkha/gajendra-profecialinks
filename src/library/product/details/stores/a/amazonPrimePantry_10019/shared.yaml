@@ -100,12 +100,18 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //*[contains(@id,"price_savings") and not(contains(@class,"a-hidden"))]
+  - name: manufacturer
+    singleValue: false
+    xpath: (//*[@id="detailBulletsWrapper_feature_div"]//span[contains(.,'Manufacturer')]/span[2])[1]
+  - name: manufacturerDescription
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//*[not(self::noscript)]/img/@src
   - name: manufacturerDescription
     singleValue: false
     manualSelector: '#aplus'
+    regExp: (From the manufacturer)(.*)
+    regExpReplace: $1
   - name: _url
     singleValue: false
     xpath: //link[@rel='canonical']/@href
@@ -261,6 +267,8 @@ fields:
   - name: variantAsins
     singleValue: false
     xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li/@data-defaultasin
+  - name: secondaryImageTotal
+    xpath: count(//li[@class="a-spacing-small item imageThumbnail a-declarative"][position()>1])
   - name: specifications
     singleValue: false
     xpath: //*[@class='secHeader']//*[contains(text(),'Additional')]/../following-sibling::*[1]//tbody/tr
@@ -279,3 +287,11 @@ fields:
     xpath: //*[@id="priceblock_ourprice_row"]//span[@class="a-size-small a-color-price"]
     regExp: \(?.*\/\s*(.*)\)
     regExpReplace: $1
+  - name: legalDisclaimer
+    xpath: //div[@id='legal-disclaimer']//p[@class="tiny"]
+  - name: imageZoomFeaturePresent
+    defaultValue: Yes
+  - name: salesRank
+    xpath: //head/@rank
+  - name: salesRankCategory
+    xpath: //head/@category
