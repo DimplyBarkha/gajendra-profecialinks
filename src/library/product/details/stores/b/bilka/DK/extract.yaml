@@ -23,7 +23,7 @@ fields:
       /img[contains(@class,'fade-in')]/@alt)
   - name: alternateImages
     singleValue: false
-    xpath: //nav//div[@class='gallery']//div[contains(@class,'swiper-wrapper')]//div[contains(@class,'swiper-slide') and not(contains(@class,'swiper-slide swiper-slide-active'))]//img//@src
+    xpath: //body/@sec-img
   - name: category
     singleValue: false
     xpath: //ul[contains(@class,'v-breadcrumbs')]//li[position()>2]/a
@@ -41,6 +41,12 @@ fields:
   - name: manufacturer
     singleValue: false
     # xpath: //div[contains(@class,'brand')]
+  - name: manufacturerImages
+    xpath: //div[contains(@id,"inpage_container")]//img/@data-flixsrcset
+    regExp: (.+)\s200w
+    regExpReplace: https:$1
+  - name: manufacturerDescription
+    xpath: //div[contains(@class,'flix-Text-block')] | //div[@class="flix-std-content"] | //table[@class="flix-std-specs-table"]//td
   - name: description
     singleValue: false
     xpath: //*[contains(@id,"tempdescriptionId")]
@@ -144,4 +150,4 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //nav//div[contains(@class,'video-wrapper')]//iframe//@src
+    xpath: //nav//div[contains(@class,'video-wrapper')]//iframe//@src | //iframe[@id="flix-iframe0"]/@src

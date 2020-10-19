@@ -12,6 +12,23 @@ module.exports = {
     
     await context.waitForSelector('div.v-application--wrap', { timeout: 50000 });
 
+    await context.evaluate(async () => {
+
+      const url = window.location.pathname;
+      console.log(url);
+      const id = url.match(/\/(\d+)\//g)[0].match(/\d+/g)[0];
+
+      try {
+        const API = `https://api.sallinggroup.com/v1/ecommerce/bilka/search/pdp?id=${id}&apiKey=4456bde0-edf0-48a9-9db5-10b535e63d9c`;
+        const response = await fetch(API);
+        const data = await response.json();
+        const secImageArr = data.doc.gallery_images;
+        document.querySelector('body').setAttribute('sec-img', secImageArr.join(' | '));
+      } catch (err) {
+        console.log(err);
+      }
+    } );
+
     await context.evaluate(async function () {  
       
       try {
@@ -92,7 +109,8 @@ module.exports = {
       }
 
     });      
-    
+    const delay = t => new Promise(resolve => setTimeout(resolve, t));
+    await delay(10000);
     return await context.extract(productDetails, { transform: transformParam });
   },
 };
