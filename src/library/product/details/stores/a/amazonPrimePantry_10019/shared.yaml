@@ -37,7 +37,7 @@ fields:
     xpath: //*[@id="productDescription"]/p
   - name: ingredientsList
     singleValue: false
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
+    xpath: ((//tr[contains(.,'Ingredients')]//td[2])[1] | //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]//div//p[2] | (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p))[1]
   - name: brandText
     singleValue: false
     xpath: //*[@id='bylineInfo']
@@ -111,7 +111,7 @@ fields:
     singleValue: false
     manualSelector: '#aplus'
     regExp: (From the manufacturer)(.*)
-    regExpReplace: $1
+    regExpReplace: $2
   - name: _url
     singleValue: false
     xpath: //link[@rel='canonical']/@href
