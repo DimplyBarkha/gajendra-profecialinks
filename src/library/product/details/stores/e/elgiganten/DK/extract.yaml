@@ -22,7 +22,7 @@ fields:
   - name: price
     singleValue: false
     #xpath: //div[contains(@class,"product-price-container")]//span
-    xpath: concat(//meta[contains(@itemprop,'priceCurrency')]/@content, ':', //div[contains(@class,"product-price-container")]//span)
+    xpath: concat(//meta[contains(@itemprop,'priceCurrency')]/@content,' ', //meta[@itemprop='price']/@content)
   - name: description
     singleValue: false
     xpath: //p[contains(@class,'short-description')] | //div[contains(@class, 'misc-info')]//ul[contains(@class,'specs')]/li | //div[contains(@class,"product-more-info")]//p
