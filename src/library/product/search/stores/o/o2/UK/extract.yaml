@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"shop-results")]
+fields:
+  - name: rankOrganic
+    singleValue: false
+    description:
+    xpath: //div[contains(@class,"shop-results")]//a//@href
+  - name: rank
+    singleValue: false
+    description:
+    xpath: //div[contains(@class,"shop-results")]//a//@href
+  - name: name
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'shop-results')]//h4/text()
+  - name: productUrl
+    singleValue: false
+    description:
+    xpath: //div[contains(@class,"shop-results")]//a//@href
+  - name: _url
+    singleValue: false
+    description:
+    xpath: //div[contains(@class,"shop-results")]//a//@href
+  - name: thumbnail
+    singleValue: false
+    description:
+    xpath: //div[contains(@class, 'shop-results')]//img//@src
+  - name: id
+    singleValue: false
+    description:
+    xpath: //div[contains(@class,"shop-results")]//a//@productCode
