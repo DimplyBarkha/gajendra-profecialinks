@@ -2,6 +2,37 @@ module.exports.implementation = async function implementation(
     inputs, { country, store, transform, domain },
     context, { productDetails },
 ) {
+    await context.evaluate(async() => {
+        function removeDuplicates(array) {
+            array.splice(0, array.length, ...(new Set(array)))
+        };
+        let getRank = document.querySelectorAll('#SalesRank');
+        let rankDetails;
+        let product_rank = [];
+        let product_rank_category = [];
+        getRank.forEach((element) => {
+            console.log(element)
+            if (element.innerText && element.innerText.includes('Amazon Bestseller-Rang') && element.innerText.includes('Nr.')) {
+
+                rankDetails = element.innerText.split('Amazon Bestseller-Rang: ')[1].split('\n');
+                console.log(rankDetails)
+                if (rankDetails.length) {
+                    for (let i = 0; i < rankDetails.length; i++) {
+                        product_rank.push(rankDetails[i].split(' ')[1].trim().replace(/Nr./, '').replace(/,/g, "").trim());
+                        product_rank_category.push(rankDetails[i].replace(/^[Nr.,0-9 in]+/, '').trim());
+                    }
+                }
+                console.log(rankDetails)
+            }
+        });
+        removeDuplicates(product_rank);
+        removeDuplicates(product_rank_category);
+        let rank = product_rank.join(' | ');
+        let category = product_rank_category.join(' | ');
+        document.head.setAttribute('rank', rank);
+        document.head.setAttribute('category', category);
+
+    });
     const isVideoPresent = await context.evaluate(async function() {
         return document.querySelector('li.videoThumbnail');
     });

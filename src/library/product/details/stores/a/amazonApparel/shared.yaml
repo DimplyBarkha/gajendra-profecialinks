@@ -47,7 +47,7 @@ fields:
   - name: brandText
     xpath: //*[@id='bylineInfo']
   - name: manufacturer
-    xpath: //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]|//span[contains(text(), 'Manufacturer')][not(contains(text(), "Is Discontinued By Manufacturer:"))]/following-sibling::*[1]
+    xpath: (//th[contains(text(), 'Hersteller')]/following-sibling::*[1]|//span[contains(text(), 'Manufacturer')][not(contains(text(), "Is Discontinued By Manufacturer:"))]/following-sibling::*[1])[1]
   - name: quantity
     xpath: //div/label[contains(.,"Size") and not(contains(.,"Special"))]/following-sibling::span[1] | (//span[@class="a-dropdown-prompt"][ancestor::span/preceding-sibling::div/label[contains(.,"Size")]])[1]
   - name: weightGross
@@ -80,7 +80,7 @@ fields:
     xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text())[1]
   - name: ratingCount
     singleValue: true
-    xpath: //*[@id="acrCustomerReviewText"]
+    xpath: (//div[@data-hook="total-review-count"] | //*[@id="acrCustomerReviewText"])[1]
     regExp: (^[.0-9]+)
   - name: aggregateRating
     singleValue: true
@@ -131,13 +131,9 @@ fields:
   - name: internationalShipping
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1]
   - name: salesRank
-    xpath: //*[@id="SalesRank"]/text()[contains(., "#")] | //*[@id="SalesRank"]//span[contains(., "#")]
-    regExp: \#([^\s]+)
-    regExpReplace: $1
+    xpath: //head/@rank
   - name: salesRankCategory
-    xpath: //*[@id="SalesRank"]/text()[contains(., "in")] | //*[@id="SalesRank"]//span[contains(., "in")]/a
-    regExp: ((?:\S*[A-Z]){1}[A-Za-z\s&!@#^*,'$+-]{1,})
-    regExpReplace: $1
+    xpath: //head/@category
   - name: subscriptionPrice
     xpath: //*[@id="sns-base-price"]
     regExp: ([^ ]+)
@@ -149,14 +145,6 @@ fields:
     defaultValue: "NO"
   - name: videoLength
     xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-duration
-  - name: heroQuickPromoHeadline
-    xpath: //div[@id="hero-quick-promo"]//span
-  - name: heroQuickPromoImageUrl
-    xpath: //div[@id="hero-quick-promo"]//img[@class="a-dynamic-image"]/@src
-  - name: heroQuickPromoUrl
-    xpath: (//div[@id="hero-quick-promo"]//a[@class="a-link-normal"]/@href)[1]
-    regExp: (.+)
-    regExpReplace: https://www.amazon.com$1
   - name: ingredientImagePresent
     xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
     regExp: (.+)
@@ -207,16 +195,6 @@ fields:
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
   - name: materials
     xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
-  - name: Image360Present
-    xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
-    regExp: (.+)
-    regExpReplace: "YES"
-    defaultValue: "NO"
-  - name: imageZoomFeaturePresent
-    xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
-    regExp: (.+)
-    regExpReplace: "YES"
-    defaultValue: "NO"
   - name: firstVariant
     xpath: //link[@rel='canonical']/@href
     regExp: (.+)dp\/(.+)
@@ -239,7 +217,7 @@ fields:
     xpath: //h1//span[@id="productTitle"]
   - name: nameExtended
     singleValue: true
-    xpath: //h1
+    xpath: normalize-space(//span[@id="productTitle"])
   - name: lbb
     xpath: //div[@id='merchant-info']/a
     regExp: (.+)
@@ -250,5 +228,16 @@ fields:
     xpath: //span[@id="price_inside_buybox"]
     singleValue: true
   - name: weightNet
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
-    regExp: '[^()]+'
+    xpath: (//tr[contains(.,'Produktabmessungen')]//td | //div[contains(@id, 'detailBullets')]//ul//li//span[contains(., 'Verpackungsabmessungen')]//span[2])[1]
+    regExp: '(.*)\;(.*)'
+    regExpReplace: $2
+  - name: imageZoomFeaturePresent
+    defaultValue: Yes
+  - name: materials
+    xpath: //div[@id='feature-bullets']//li[contains(.,'Innenmaterial')]
+    regExp: (.*)\:(.*)
+    regExpReplace: $1
+  - name: image360Present
+    defaultValue: No
+  - name: variants
+    xpath: //div[@id="variation_size_name"]//li/@data-defaultasin | //div[@id="variation_color_name"]//li/@data-defaultasin
