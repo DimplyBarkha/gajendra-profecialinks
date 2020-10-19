@@ -13,8 +13,6 @@ module.exports.implementation = async function implementation(
             element.scrollIntoView({ behavior: 'smooth' });
             await new Promise(resolve => setTimeout(resolve, 2197));
         }
-        await context.waitForSelector('#aplus > div img');
-        await context.waitForSelector('#detailBullets_feature_div')
 
         function removeDuplicates(array) {
             array.splice(0, array.length, ...(new Set(array)))

@@ -103,13 +103,11 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: (//*[@id="detailBulletsWrapper_feature_div"]//span[contains(.,'Manufacturer')]/span[2])[1]
-  - name: manufacturerDescription
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//*[not(self::noscript)]/img/@src
   - name: manufacturerDescription
-    singleValue: false
-    manualSelector: '#aplus'
+    xpath: //div[@id="aplus_feature_div"]
     regExp: (From the manufacturer)(.*)
     regExpReplace: $2
   - name: _url
