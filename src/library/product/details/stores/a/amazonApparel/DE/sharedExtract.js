@@ -3,6 +3,21 @@ module.exports.implementation = async function implementation(
     context, { productDetails },
 ) {
     await context.evaluate(async() => {
+        let rating = document.querySelector('span[data-hook="rating-out-of-text"]') ? document.querySelector('span[data-hook="rating-out-of-text"]').innerText : null;
+        if (rating)
+            rating = rating.split('von')[0];
+        document.head.setAttribute('rating', rating);
+        let material = document.querySelectorAll('div#feature-bullets ul li');
+        let getMaterial = []
+        material.forEach((element) => {
+            if (element.innerText && element.innerText.includes('material')) {
+                let materials = element.innerText;
+                getMaterial.push(materials);
+            }
+        });
+        let materials = getMaterial.join('|')
+        document.head.setAttribute('materials', materials);
+
         function removeDuplicates(array) {
             array.splice(0, array.length, ...(new Set(array)))
         };

@@ -47,7 +47,7 @@ fields:
   - name: brandText
     xpath: //*[@id='bylineInfo']
   - name: manufacturer
-    xpath: (//th[contains(text(), 'Hersteller')]/following-sibling::*[1]|//span[contains(text(), 'Manufacturer')][not(contains(text(), "Is Discontinued By Manufacturer:"))]/following-sibling::*[1])[1]
+    xpath: (//li[contains(.,'Hersteller')][2]//span[1]//span[2] | //th[contains(text(), 'Hersteller')]/following-sibling::*[1]|//span[contains(text(), 'Manufacturer')][not(contains(text(), "Is Discontinued By Manufacturer:"))]/following-sibling::*[1])[1]
   - name: quantity
     xpath: //div/label[contains(.,"Size") and not(contains(.,"Special"))]/following-sibling::span[1] | (//span[@class="a-dropdown-prompt"][ancestor::span/preceding-sibling::div/label[contains(.,"Size")]])[1]
   - name: weightGross
@@ -83,10 +83,7 @@ fields:
     xpath: (//div[@data-hook="total-review-count"] | //*[@id="acrCustomerReviewText"])[1]
     regExp: (^[.0-9]+)
   - name: aggregateRating
-    singleValue: true
-    xpath: //span[@data-hook]
-    regExp: (.+)von(.+)
-    regExpReplace: $1
+    xpath: //head/@rating
   - name: shippingInfo
     xpath: //div[@id='merchant-info']/a
     singleValue: true
@@ -176,7 +173,7 @@ fields:
   - name: otherSellersPrime
     xpath: //span[contains(@id, "mbc-shipping")]
   - name: secondaryImageTotal
-    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')][position()>1])
+    xpath: count(//li[@class="a-spacing-small item imageThumbnail a-declarative"][position()>1])
   - name: addonItem
     xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
   - name: fastTrack
@@ -193,8 +190,6 @@ fields:
     xpath: count(//div[@data-feature-name="featurebullets"]//ul/li)
   - name: technicalInformationPdfPresent
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
-  - name: materials
-    xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
   - name: firstVariant
     xpath: //link[@rel='canonical']/@href
     regExp: (.+)dp\/(.+)
@@ -228,8 +223,8 @@ fields:
     xpath: //span[@id="price_inside_buybox"]
     singleValue: true
   - name: weightNet
-    xpath: (//tr[contains(.,'Produktabmessungen')]//td | //div[contains(@id, 'detailBullets')]//ul//li//span[contains(., 'Verpackungsabmessungen')]//span[2])[1]
-    regExp: '(.*)\;(.*)'
+    xpath: (//li[contains(.,'Produktabmessungen')]//span[1]//span[2] | //tr[contains(.,'Produktabmessungen')]//td | //div[contains(@id, 'detailBullets')]//ul//li//span[contains(., 'Verpackungsabmessungen')]//span[2])[1]
+    regExp: (.*)\;(.*)
     regExpReplace: $2
   - name: imageZoomFeaturePresent
     defaultValue: Yes
@@ -241,3 +236,6 @@ fields:
     defaultValue: No
   - name: variants
     xpath: //div[@id="variation_size_name"]//li/@data-defaultasin | //div[@id="variation_color_name"]//li/@data-defaultasin
+  - name: materials
+    singleValue: true
+    xpath: //head/@materials
