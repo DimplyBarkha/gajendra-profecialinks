@@ -13,9 +13,10 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await context.waitForSelector('#product-information-tabs > div:nth-child(1) > div > i');
     await context.waitForSelector('#product-intro pwr-product-stock-label');
-    await context.click('#product-information-tabs > div:nth-child(1) > div > i');
+    // await context.click('#product-information-tabs > div:nth-child(1) > div > i');
     await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     await context.evaluate(async function () {
+      document.querySelector('#product-information-tabs > div:nth-child(1) > div > i').click();
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
