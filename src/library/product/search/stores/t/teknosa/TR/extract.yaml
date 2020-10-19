@@ -29,7 +29,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@class='product-price visible-grid-view clearfix']/span/text()
+    xpath: //div[@class='product-price visible-grid-view clearfix']/span[last()]/text()
   - name: manufacturer
     singleValue: true
     xpath: //div[@class='detail-content']//form/button/@data-product-brand
