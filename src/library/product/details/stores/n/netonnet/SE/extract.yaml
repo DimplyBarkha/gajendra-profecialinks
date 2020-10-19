@@ -131,3 +131,6 @@ fields:
     singleValue: false
     xpath: count(//div[@class='owl-item']//img[contains(@class,'productImage')]//@data-src)
     type: NUMBER
+  - name: weightNet
+    singleValue: false
+    xpath: //td[contains(text(), "Vikt")]/following::td[1]
