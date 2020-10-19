@@ -16,19 +16,15 @@ module.exports = {
   ) {
     const { productDetails } = dependencies;
     const { transform } = parameters;
-    await context.evaluate(() => {
-      var searchUrl = window.location.href;
-      var appendElements = document.querySelectorAll('div[id="SKUDetailsDiv"]');
-      if (appendElements.length) {
-        appendElements.forEach((element) => {
-          element.setAttribute('searchurl', searchUrl);
-        })
-      }
-      var cookiesElement = document.querySelector('button[id="onetrust-accept-btn-handler"]');
-      if (cookiesElement) {
-        cookiesElement.click();
-      }
-    });
+    // await context.evaluate(() => {
+    //   var searchUrl = window.location.href;
+    //   var appendElements = document.querySelectorAll('article[class*="product-card product-card--close"]');
+    //   if (appendElements.length) {
+    //     appendElements.forEach((element) => {
+    //       element.setAttribute('searchurl', searchUrl);
+    //     })
+    //   }
+    // });
     return await context.extract(productDetails, { transform });
   }
 };

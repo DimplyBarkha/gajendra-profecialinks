@@ -25,6 +25,6 @@ module.exports = {
         })
       }
     });
-    return await context.extract(productDetails, { transform });
+    // return await context.extract(productDetails, { transform });
   }
 };

@@ -1,24 +1,20 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //article[contains(@class,"product-card product-card--close")]
+recordXPath: //section[@class="page-category__products-cards"]//article[contains(@class,"product-card product-card--close")]
 fields:
   - name: id
-    singleValue: false
-    xpath: //span[@class="typo-blueCap-12 product-card__ref"]
-    regExp: (\d+)(-?)(\d+?)
+    xpath: //article[contains(@class,"product-card product-card--close")]/@data-sku
   - name: name
-    singleValue: false
     xpath: //span[@class="product-card__size js-count-limit-characters"]
   - name: thumbnail
-    singleValue: false
     xpath: //img[@class="product-card__pic"]/@src
     regExp: (.+)(hei=)(\d+)(&wid=)(\d+)
     regExpReplace: $1$2800$4800
   - name: price
     xpath: //span[@class="price-value"]
     regExp: (\d+)(,)(\d+)
-  - name: searchUrl
-    xpath: //div[@id="SKUDetailsDiv"]/@searchurl
+  # - name: searchUrl
+  #   xpath: //article[contains(@class,"product-card product-card--close")]/@searchurl
   - name: productUrl
     xpath: //span[@class="product-card__size js-count-limit-characters"]/@href
