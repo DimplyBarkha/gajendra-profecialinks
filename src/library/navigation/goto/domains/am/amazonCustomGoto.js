@@ -1,39 +1,44 @@
-async function goto (input) {
-  const extractorContext = input.context;
+async function goto (gotoInput) {
+  const extractorContext = gotoInput.context;
+  // @FIX: doesnt get input to extractor;
+  const input = extractorContext.input;
   // strategies can  be  turned on and off
   const fillRateStrategies = {
     variantAPIAppendData: false,
-    nonVariantReload: false,
+    nonVariantReload: true,
     variantReload: true,
-    acceptCookies: false,
+    acceptCookies: true,
     // missingDataRetry has dependants
     missingDataRetry: true,
     // dependant on missingDataRetry
-    cleanCookieRetry: false,
+    cleanCookieRetry: true,
     // dependant on missingDataRetry
     salesRankBadgeRetry: true,
   };
   console.log('fillRateStrategies: ', fillRateStrategies);
 
   // fill rate functions dependant on DOMAIN
-  const DOMAIN = input.domain;
   const extractor = input.extractor;
   const MAX_CAPTCHAS = parseInt(input.maxCaptchas) || 3;
+  const MAX_SESSION_RETRIES = parseInt(input.maxSessionRetries) || 2;
   // HOURLY_RETRY_LIMIT is a variable  depending on throughput and proxy pool volumee
   // We may need to expand the "key" to be project&extractor specific beecause projects have custom domain limits
-  const HOURLY_RETRY_LIMIT = parseInt(input.hourlyRetryLimit) || 12000;
+  const HOURLY_RETRY_LIMIT = parseInt(input.hourlyRetryLimit) || 90000;
 
+  let page;
   let pageId;
   let captchas = 0;
+  let inSessionRetries = 0;
   let lastResponseData;
 
   // checking for elements on page after goto/captcha/reload/etc.
   const pageContext = async () => {
     return await extractorContext.evaluate(() => {
+      console.log('extractorContext.evaluate');
       const selectors = {
         hasVariants: 'div[id*="variation_"] ul, div[id*="variation_"] option',
         hasProdDetails: '#prodDetails, #detailBullets_feature_div',
-        hasSalesRank: '#detailBullets_feature_div a[href*="bestsellers"], #detailBullets a[href*="bestsellers"], #prodDetails a[href*="bestsellers"]',
+        hasSalesRank: '#detailBullets_feature_div a[href*="bestsellers"], #detailBullets a[href*="bestsellers"], #prodDetails a[href*="bestsellers"], #SalesRank',
         isProductPage: 'link[rel*="canonical"][href*="dp"]',
         hasSalesRankBadge: '#ppd i[class*="best-seller-badge"]',
         isCaptchaPage: 'img[src*="/captcha/"]',
@@ -41,6 +46,10 @@ async function goto (input) {
         hasProductDescription: '#productDescription',
         hasShippingDetails: '#contextualIngressPtLabel_deliveryShortLine',
         hasCookieAcceptRequest: '#sp-cc-accept',
+        hasDogsofAmazon: 'img[alt*="Dogs of Amazon"]',
+        is400Page: 'a[href*="404_logo"]',
+        is500Page: 'img[src*="500-title"], a[href*="503_logo"], a img[src*="503.png"], a[href*="ref=cs_503_link"]',
+        hasTitle: 'title, #gouda-common-atf h1',
       };
 
       const elementChecks = {};
@@ -50,9 +59,20 @@ async function goto (input) {
           elementChecks[prop] = true;
         } else { elementChecks[prop] = false; }
       }
-
       return elementChecks;
     });
+  };
+
+  // checking for blank pages
+  const pageContextCheck = async (page) => {
+    if (Object.values(page).filter(item => item).length === 0) {
+      extractorContext.counter.set('dropped_data', 1);
+      await extractorContext.reload();
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      console.log('Waiting for page to reload');
+      return await solveCaptchaIfNecessary(await pageContext());
+    }
+    return page;
   };
 
   // redshift element counter
@@ -77,114 +97,89 @@ async function goto (input) {
   const appendData = async (domain) => {
     return await extractorContext.evaluate(async (domain) => {
       const getParams = async () => {
+        const paramLocators = [
+          'pgid',
+          'sid',
+          'rid',
+          'ptd',
+          'storeID',
+          'parent_asin',
+          'current_asin',
+        ];
         const params = {};
-        const raw = document.evaluate("//script[contains(@language,'JavaScript') and contains(text(), 'pgid')]", document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-        if (raw.innerText.includes('pgid')) {
-          const pgidRegex = /pgid":"([^"]+)/s;
-          const pgidClean = raw.innerText.match(pgidRegex)[1] ? raw.innerText.match(pgidRegex)[1] : false;
-          if (pgidClean) {
-            console.log('pgid', pgidClean);
-            params.pgid = pgidClean;
-          }
-        }
-        if (raw.innerText.includes('ptd')) {
-          const ptdRegex = /ptd":"([^"]+)/s;
-          const ptdClean = raw.innerText.match(ptdRegex)[1] ? raw.innerText.match(ptdRegex)[1] : false;
-          if (ptdClean) {
-            console.log('ptd', ptdClean);
-            params.ptd = ptdClean;
-          }
-        }
-        if (raw.innerText.includes('parent_asin')) {
-          const parentAsinRegex = /parent_asin":"([^"]+)/s;
-          const parentAsinClean = raw.innerText.match(parentAsinRegex)[1] ? raw.innerText.match(parentAsinRegex)[1] : false;
-          if (parentAsinClean) {
-            console.log('parent_asin', parentAsinClean);
-            params.parentAsin = parentAsinClean;
-          }
+        const raw = document.evaluate("//script[contains(@language,'JavaScript') and contains(text(), 'pgid')  and  contains(text(), 'current_asin')]", document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+        if (raw) {
+          paramLocators.forEach(param => {
+            if (raw.innerText.includes(param)) {
+              const regex = new RegExp(`${param}":"([^"]+)`, 's');
+              const paramMatch = raw.innerText.match(regex);
+              const paramClean = paramMatch && paramMatch.length > 1 ? paramMatch[1] : false;
+              if (paramClean) {
+                params[`${param}`] = paramClean;
+              }
+            }
+          });
         }
         console.log('params', params);
         return params;
       };
       const params = await getParams();
-      if (params) {
-        let url;
-        if (domain.includes('.com')) {
-          url = `https://www.${domain}/gp/page/refreshptd=${params.ptd}&pgid=${params.pgid}&parentAsin=${params.parentAsin ? params.parentAsin : input.asin}&enPre=1&asinList=${input.asin}&id=${input.asin}`;
-        } else {
-          url = `https://www.${domain}/gp/twister/ajaxv2?ptd=${params.ptd}&pgid=${params.pgid}&parentAsin=${params.parentAsin ? params.parentAsin : input.asin}&enPre=1&asinList=${input.asin}&id=${input.asin}`;
-        }
-        console.log('append url', url);
-        const dataRaw = await fetch(url)
-          .then(response => response.text())
-          .then(data => data);
+      try {
+        if (Object.keys(params).length === 7) {
+          let url;
+          if (domain.hostname.includes('com')) {
+            url = `https://${domain.hostname}/gp/page/refresh?acAsin=${params.current_asin}&asinList=${params.current_asin}&auiAjax=1&dpEnvironment=softlines&dpxAjaxFlag=1&ee=2&enPre=1&id=${params.current_asin}&isFlushing=2&isP=1&isUDPFlag=1&json=1&mType=full&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&pgid=${params.pgid}&psc=1&ptd=${params.ptd}&rid=${params.rid}=1&sCac=1&sid=${params.sid}&storeID=${params.storeID}&triggerEvent=Twister&twisterView=glance`;
+          } else {
+            url = `https://${domain.hostname}/gp/twister/ajaxv2?acAsin=${params.current_asin}&sid=${params.sid}&ptd=${params.ptd}&sCac=1&twisterView=glance&pgid=${params.pgid}&rid=${params.rid}&dStr=size_name&auiAjax=1&json=1&dpxAjaxFlag=1&isUDPFlag=1&ee=2&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&enPre=1&dcm=1&udpWeblabState=T1&storeID=${params.storeID}&ppw=&ppl=&isFlushing=2&dpEnvironment=hardlines&asinList=${params.current_asin}&id=${params.current_asin}&mType=full&psc=1`;
+          }
 
-        const regex = /":"(<.+>)"}/g;
-        const regex1 = /":"(<.+>)"}/s;
-        const regex2 = /div":" ?.+?(?=}}})/g;
-        const regex3 = /":" ?(<.+>)/s;
-        dataArray1 = dataRaw.match(regex);
-        dataArray2 = dataRaw.replace(/\n/g, '').replace(/\\n\\/g, '').replace(/" : '/g, '":"').replace(/'}}}/g, '"}}}').replace(/&#39;/g, "'").match(regex2);
-        if (dataArray1) {
-          dataArray1.forEach(element => {
-            textNode = element.match(regex1) ? element.match(regex1)[1].replace(/\&amp\;/g, '&').replace(/\&quot\;/g, '"').replace(/\&apos\;/g, "'").replace(/\&gt\;/g, '>').replace(/\&lt\;/g, '<').replace(/u003c/g, '<').replace(/u003e/g, '>').replace(/>n</g, '><').replace(/\=\"/g, '="').replace(/\\n/g, '').replace(/\>\\\</g, '><').replace(/\=\\\\"/g, '="').replace(/\\\\"/g, '"').replace(/\<\\\\\//g, '</').replace(/\=\\"/g, '="').replace(/\\"/g, '"').replace(/\\\\/g, '').replace(/nnn/g, '').replace(/\<\\\//g, '</').replace(/\\u201c/g, '"').replace(/\\u201d/g, '"').replace(/\>\\\</g, '><') : '';
-            const div = document.createElement('div');
-            div.setAttribute('class', 'import');
-            div.innerHTML = textNode;
-            if (div.children) {
-              if (div.querySelector('[id]')) {
-                const activeNode = document.querySelector('#' + div.querySelector('[id]').id);
-                if (!activeNode) {
-                  document.body.appendChild(div);
-                }
-              } else if (div.hasChildNodes()) {
-                document.body.appendChild(div);
-              }
+          const parseResponse = (blob) => {
+            const dataBlobs = blob.split('&&&').map(part => part.trim()).filter(part => part.length > 0).map(part => JSON.parse(part));
+            return dataBlobs;
+          };
+
+          const dataRaw = await fetch(url)
+            .then(response => response.text())
+            .then(blob => parseResponse(blob));
+
+          console.log('# elements attempting to append: ', dataRaw.length);
+
+          dataRaw.forEach(part => {
+            const element = document.getElementById(Object.keys(part.Value.content)[0]);
+            if (element) {
+              element.innerHTML = Object.values(part.Value.content)[0];
+            } else {
+              const div = document.createElement('div');
+              div.innerHTML = Object.values(part.Value.content)[0];
+              document.body.appendChild(div);
             }
           });
           return true;
-        } else if (dataArray2) {
-          dataArray2.forEach(element => {
-            textNode = element.match(regex3) ? element.match(regex3)[1].replace(/\&amp\;/g, '&').replace(/\&quot\;/g, '"').replace(/\&apos\;/g, "'").replace(/\&gt\;/g, '>').replace(/\&lt\;/g, '<').replace(/u003c/g, '<').replace(/u003e/g, '>').replace(/>n</g, '><').replace(/\=\"/g, '="').replace(/\\n/g, '').replace(/\>\\\</g, '><').replace(/\=\\\\"/g, '="').replace(/\\\\"/g, '"').replace(/\<\\\\\//g, '</').replace(/\=\\"/g, '="').replace(/\\"/g, '"').replace(/\\\\/g, '').replace(/nnn/g, '').replace(/\<\\\//g, '</').replace(/\\u201c/g, '"').replace(/\\u201d/g, '"').replace(/\>\\\</g, '><').replace(/\\'/g, "'") : '';
-            const div = document.createElement('div');
-            div.setAttribute('class', 'import');
-            div.innerHTML = textNode;
-            if (div.children) {
-              if (div.querySelector('[id]')) {
-                const activeNode = document.querySelector('#' + div.querySelector('[id]').id);
-                if (!activeNode) {
-                  document.body.appendChild(div);
-                }
-              } else if (div.hasChildNodes()) {
-                document.body.appendChild(div);
-              }
-            }
-          });
-          return true;
-        }
-      } else { return false; }
+        } else { return false; }
+      } catch (err) {
+        console.log('append data try  catch fail', err);
+        return false;
+      }
     }, domain);
   };
 
   // checks internal expected API
   const getShouldHaveData = async (url) => {
     try {
-      const api_url = 'https://moorhe2t18.execute-api.us-east-1.amazonaws.com/prod/?url=' + encodeURIComponent(url || input._url);
+      const apiUrl = 'https://moorhe2t18.execute-api.us-east-1.amazonaws.com/prod/?url=' + encodeURIComponent(url || gotoInput.url);
       const res = await Promise.race([
-        extractorContext.fetch(api_url, { timeout: 1e3 }),
+        extractorContext.fetch(apiUrl, { timeout: 1e3 }),
         new Promise((r, j) => setTimeout(j, 1e3)),
       ]);
       const data = await res.json();
-      if (!data || data.count <= 0) {
-        return {};
-      } else if (data.count > 0) {
+      if (data) {
         console.log('expectedAPI: ', data);
         return data;
       }
-      return {};
+      return { details: 0 };
     } catch (err) {
       console.error('shouldHave:error', err);
-      return {};
+      return { details: 0 };
     }
   };
 
@@ -199,35 +194,28 @@ async function goto (input) {
       imageElement: 'form img',
       autoSubmit: true,
     });
-    console.log('solved captcha, waiting for page change');
 
+    console.log('solved captcha, waiting for page change');
     await extractorContext.waitForNextPage(pageId, 30);
 
     console.log('Captcha vanished');
+
+    const page = await pageContext();
+    return page;
   };
 
   const solveCaptchaIfNecessary = async (page) => {
-    console.log('Checking for CAPTCHA');
     if (page.isCaptchaPage && captchas < MAX_CAPTCHAS) {
       captchas++;
-      await solveCaptcha();
+      return await solveCaptcha();
     }
-    page = await pageContext();
-    if (page.isCaptchaPage) {
-      await hourlyRetryIncrement(DOMAIN);
-      // we failed to solve the CAPTCHA
-      extractorContext.reportBlocked(lastResponseData.code, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
-      return false;
-    }
-    return true;
+    return page;
   };
 
   const acceptCookies = async () => {
     console.log('page.hasCookieAcceptRequest: ', 'true');
     await extractorContext.click('#sp-cc-accept');
     console.log('Waiting for cookie modal to close');
-    page = await pageContext();
-    console.log('page: ', page);
   };
 
   const acceptCookiesIfNecessary = async (page) => {
@@ -235,8 +223,10 @@ async function goto (input) {
       console.log('Checking for cookie accept request');
       await acceptCookies();
       console.log('Done checking for cookie accept request');
-      return true;
-    } else { return true; }
+      page = await pageContext();
+      console.log('page:', page);
+    }
+    return page;
   };
 
   // used for key in hourly retry API
@@ -249,12 +239,12 @@ async function goto (input) {
     return `${year}_${month}_${day}_${hour}`;
   };
 
-  const hourlyRetryIncrement = async (domain) => {
+  const hourlyRetryIncrement = async () => {
     try {
-      const key = `${extractor}_${domain}_${await currDateHour()}`;
-      const api_url = `https://89lnzah832.execute-api.us-east-1.amazonaws.com/prod/${key}/plus`;
+      const key = `${extractor}_${await currDateHour()}`;
+      const apiUrl = `https://89lnzah832.execute-api.us-east-1.amazonaws.com/prod/${key}/plus`;
       const res = await Promise.race([
-        extractorContext.fetch(api_url, { timeout: 1e3 }),
+        extractorContext.fetch(apiUrl, { timeout: 1e3 }),
         new Promise((r, j) => setTimeout(j, 1e3)),
       ]);
       const data = await res.json();
@@ -264,53 +254,126 @@ async function goto (input) {
     }
   };
 
-  const getHourlyRetryCount = async (domain) => {
-    const key = encodeURIComponent(`${extractor}_${domain}_${await currDateHour()}`);
+  const getHourlyRetryCount = async () => {
     try {
-      // const key = encodeURIComponent(`${domain}_${await currDateHour()}`);
-      const api_url = `https://89lnzah832.execute-api.us-east-1.amazonaws.com/prod/${key}`;
+      const key = encodeURIComponent(`${extractor}_${await currDateHour()}`);
+      const apiUrl = `https://89lnzah832.execute-api.us-east-1.amazonaws.com/prod/${key}`;
       const res = await Promise.race([
-        extractorContext.fetch(api_url, { timeout: 1e3 }),
+        extractorContext.fetch(apiUrl, { timeout: 1e3 }),
         new Promise((r, j) => setTimeout(j, 1e3)),
       ]);
       const data = await res.json();
       if (data) {
-        extractorContext.counter.set('hourly-retry-limit', 0);
-        console.log('hourlyRetryLimitAPI: ', '{ "key": ' + key + ', "count": ' + data.counter + ', "limit": ' + HOURLY_RETRY_LIMIT + ' }');
-        return data.counter;
+        const retriesThisHour = data.counter;
+        console.log(`retriesThisHour: ${extractor}_${await currDateHour()}`, retriesThisHour);
+        return retriesThisHour;
       }
-      extractorContext.counter.set('hourly-retry-limit', 1);
       return HOURLY_RETRY_LIMIT;
     } catch (err) {
-      console.error(`hourlyRetry:error, key = ${key}`, err);
-      extractorContext.counter.set('hourly-retry-limit', -1);
+      console.error('hourlyRetry:error', err);
       return HOURLY_RETRY_LIMIT;
     }
   };
 
   const retryContext = async () => {
     const retry = extractorContext.retryContext;
-    let context = {
+    const context = {
       isLastRetry: parseInt(retry.maxRetries) <= parseInt(retry.retryNumber),
       isRetry: parseInt(retry.retryNumber) > 0,
     };
     return context;
   };
 
-  const salesRankBadgeCheck = async (page) => {
-    if (fillRateStrategies.salesRankBadgeRetry) {
-      if (page.hasSalesRankBadge) {
-        if (!page.hasSalesRank) {
-          return true;
-        } else {
+  const hasSalesRankBadgeAndNoData = (page) => {
+    if (fillRateStrategies.salesRankBadgeRetry && page.hasSalesRankBadge && !page.hasSalesRank) {
+      return true;
+    }
+    return false;
+  };
+
+  const handlePage = async (page, lastResponseData, gotoBaseOptions) => {
+    console.log('HANDLING PAGE');
+    // checking for blank  page and  reloading
+    page = await pageContextCheck(page);
+
+    page = await solveCaptchaIfNecessary(page);
+    // solve 2 captchas if needed
+    if (page.isCaptchaPage) {
+      page = await solveCaptchaIfNecessary(page);
+    }
+    if (page.isCaptchaPage) {
+      console.log('checking captcha', page);
+      // we failed to solve the CAPTCHA or a second captcha was thrown
+      extractorContext.reportBlocked(lastResponseData.status, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
+    }
+
+    if (lastResponseData.status === 503 || page.is500Page) {
+      console.log('getting  503 pageId');
+      pageId = await extractorContext.getPageId();
+
+      console.log('Clicking 503 image');
+      await extractorContext.click('a img[src*="503.png"], a[href*="ref=cs_503_link"], a img[src*="error/500-title"]');
+
+      console.log('Waiting for page to reload on homepage using 503  pageId');
+      await extractorContext.waitForNextPage(pageId, 30);
+
+      page = await pageContext();
+      if (page.is500Page) {
+        // we failed to solve the CAPTCHA or a second captcha was thrown
+        extractorContext.reportBlocked(lastResponseData.status, 'Blocked: Could not work around 503');
+      }
+
+      page = await solveCaptchaIfNecessary(page);
+      if (page.isCaptchaPage) {
+        // we failed to solve the CAPTCHA or a second captcha was thrown
+        extractorContext.reportBlocked(lastResponseData.status, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
+      }
+
+      console.log('Go to some random page');
+      const clickedOK = await extractorContext.evaluate(function () {
+        const links = Array.from(document.querySelectorAll('a[href*="/dp/"]'));
+        if (links.length === 0) {
           return false;
         }
-      } else {
-        return false;
+        links[Math.floor(links.length * Math.random())].click();
+        return true;
+      });
+
+      if (!clickedOK) {
+        console.log('Could not click a product, aborting... :/');
+        return await pageContext();
       }
-    } else {
+
+      await new Promise(r => setTimeout(r, 2000));
+
+      console.log('Going back to desired page');
+      lastResponseData = await extractorContext.goto({
+        url: gotoInput.url,
+        options: gotoBaseOptions,
+      });
+
+      console.log('lastResponseData: ', lastResponseData);
+      page = await pageContext();
+      console.log('page: ', page);
+    }
+
+    if (lastResponseData.status === 404 || lastResponseData.status === 410 || page.is400Page || (page.hasDogsofAmazon && !page.is500Page)) {
       return false;
     }
+
+    if (lastResponseData.status !== 200) {
+      return extractorContext.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
+    }
+
+    await extractorContext.checkBlocked();
+
+    page = await acceptCookiesIfNecessary(page);
+
+    if (lastResponseData.url.includes('elasticbeanstalk') || lastResponseData.url.includes('www.primevideo.com')) {
+      extractorContext.counter.set('primevideo', 1);
+    }
+
+    return page;
   };
 
   const run = async (user_agent) => {
@@ -322,9 +385,6 @@ async function goto (input) {
     extractorContext.counter.set('refresh', 0);
     extractorContext.counter.set('append', 0);
 
-    const retry = await retryContext();
-    console.log('retryContextAPI: ', retry);
-
     // options used for all goto's
     const gotoBaseOptions = {
       user_agent,
@@ -335,114 +395,35 @@ async function goto (input) {
       max_new_request_gap: 0,
     };
 
-    lastResponseData = await extractorContext.goto(input._url, {
+    lastResponseData = await extractorContext.goto({
+      url: gotoInput.url,
       options: gotoBaseOptions,
     });
-
     console.log('lastResponseData: ', lastResponseData);
 
-    // check for prime video inputs
-    if (lastResponseData.url.includes('elasticbeanstalk') || lastResponseData.url.includes('www.primevideo.com')) {
-      extractorContext.counter.set('primevideo', 1);
-    }
+    //  extractorContext.windowLocation() not available at the time of committing.
+    const DOMAIN = await extractorContext.windowLocation();
+    // get all needed selectors  on  page as booleans as pageContext
+    // solve  captcha, handle 503, accept ccookies, etc
 
-    let page = await pageContext();
-    console.log('page: ', page);
-
-    if (!await solveCaptchaIfNecessary(page)) {
-      hasCaptcha = true;
+    page = await handlePage(await pageContext(), lastResponseData, gotoBaseOptions);
+    console.log('page handled: ', page);
+    if (!page) {
+      console.log('attempting to return 404', lastResponseData);
       return;
     }
 
-    if (lastResponseData.code === 503) {
-      pageId = await extractorContext.getPageId();
+    const retry = await retryContext();
+    console.log('retryContextAPI: ', retry);
+    const shouldRetry = (!retry.isLastRetry && await getHourlyRetryCount() < HOURLY_RETRY_LIMIT);
 
-      console.log('Clicking 503 image');
-      await extractorContext.click('a img[src*="503.png"], a[href*="ref=cs_503_link"], a img[src*="error/500-title"]');
-
-      console.log('Waiting for page to reload on homepage');
-      await extractorContext.waitForNextPage(pageId, 30);
-
-      page = await pageContext();
-      console.log('page: ', page);
-
-      if (!await solveCaptchaIfNecessary(page)) {
-        hasCaptcha = true;
-        return;
-      }
-
-      console.log('Go to some random page');
-      const clickedOK = await extractorContext.evaluate(function () {
-        const links = [...document.querySelectorAll('a[href*="/dp/"]')];
-        if (links.length === 0) {
-          return false;
-        }
-        links[Math.floor(links.length * Math.random())].click();
-        return true;
-      });
-
-      if (!clickedOK) {
-        console.log('Could not click a product, aborting... :/');
-        return;
-      }
-
-      await new Promise(r => setTimeout(r, 2000));
-
-      console.log('Going back to desired page');
-      lastResponseData = await extractorContext.goto(input._url, {
-        options: gotoBaseOptions,
-      });
-
-      console.log('lastResponseData: ', lastResponseData);
-      page = await pageContext();
-      console.log('page: ', page);
-    }
-
-    if (lastResponseData.code === 404 || lastResponseData.code === 410) {
-      return;
-    }
-
-    if (lastResponseData.code !== 200) {
-      await hourlyRetryIncrement(DOMAIN);
-      return extractorContext.reportBlocked(lastResponseData.code, 'Blocked: ' + lastResponseData.code);
-    }
-
-    await acceptCookiesIfNecessary(page);
-
-    const wrongLocale = await extractorContext.evaluate(() => {
-      const match = /\/dp\/+([^/?#]+)/.exec(window.location.href);
-      if (match) {
-        const locationAsin = document.createElement('meta');
-        locationAsin.name = 'asin';
-        locationAsin.content = match[1];
-        document.head.appendChild(locationAsin);
-      }
-
-      const inputAsin = document.createElement('meta');
-      inputAsin.name = 'inputAsin';
-      inputAsin.content = input.asin;
-      document.head.appendChild(inputAsin);
-
-      const localtionWarningPopupEl = document.evaluate("//div[contains(@id, 'glow-toaster-body') and not(//*[contains(text(), 'Amazon Fresh')])]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      const deliveryLocationEl = document.querySelector('#contextualIngressPtLabel_deliveryShortLine > span');
-
-      let localeCheck = '';
-      if (!deliveryLocationEl && localtionWarningPopupEl.snapshotLength > 1) {
-        localeCheck = 'Fail';
-      }
-
-      return localeCheck;
-    });
-
-    if (wrongLocale === 'Fail') {
-      console.log('Incorrect locale detected');
-      return extractorContext.raiseError('WRONG_GEO', 'Incorrect locale detected');
-    }
-
-    let shouldHaveData = await getShouldHaveData(input._url);
+    const shouldHaveData = await getShouldHaveData(gotoInput.url);
+    console.log('blank page check');
+    page = await pageContextCheck(await pageContext());
+    console.log('blank page check done :', page);
 
     // API append if variants exist and prodDetails expected, otherwise reload
-    if (!retry.isLastRetry && page.isProductPage && !!parseInt(shouldHaveData.details) && !page.hasProdDetails) {
+    if (page.isProductPage && !!parseInt(shouldHaveData.details) && !page.hasProdDetails) {
       if (page.hasVariants && fillRateStrategies.variantAPIAppendData) {
         console.log('append ------>', 'Missing prodDetails when API history says it is expected, and variants exist.');
         if (await appendData(DOMAIN)) {
@@ -451,87 +432,32 @@ async function goto (input) {
         } else {
           console.log('failed to append data');
         }
-      } else if (page.hasVariants && fillRateStrategies.variantReload) {
+        page = await pageContext();
+        console.log('page update after append: ', page);
+      }
+      if (page.hasVariants && fillRateStrategies.variantReload && !page.hasProdDetails && inSessionRetries < MAX_SESSION_RETRIES) {
         console.log('reload ------>', 'Missing prodDetails when API history says it is expected, and variants exist.');
-        pageId = await extractorContext.getPageId();
+        inSessionRetries += 1;
         extractorContext.counter.set('refresh', 1);
         await extractorContext.reload();
         await new Promise(r => setTimeout(r, 2000));
         console.log('Waiting for page to reload');
-        await extractorContext.waitForNextPage(pageId, 30);
+        await extractorContext.waitForNextPage(30);
         console.log('Page reloaded');
-      } else if (fillRateStrategies.nonVariantReload) {
+        page = await handlePage(await pageContext(), lastResponseData, gotoBaseOptions);
+        console.log('page handled: ', page);
+      }
+      if (!page.hasVariants && fillRateStrategies.nonVariantReload && !page.hasProdDetails) {
         console.log('reload ------>', 'Missing prodDetails when API history says it is expected, and variants  do not exist.');
-        pageId = await extractorContext.getPageId();
         extractorContext.counter.set('refresh', 1);
         await extractorContext.reload();
         await new Promise(r => setTimeout(r, 2000));
         console.log('Waiting for page to reload');
-        await extractorContext.waitForNextPage(pageId, 30);
+        await extractorContext.waitForNextPage(30);
         console.log('Page reloaded');
+        page = await handlePage(await pageContext(), lastResponseData, gotoBaseOptions);
+        console.log('page handled: ', page);
       }
-      page = await pageContext();
-      console.log('page', page);
-
-      if (!await solveCaptchaIfNecessary(page)) {
-        hasCaptcha = true;
-        return;
-      }
-
-      if (lastResponseData.code === 503) {
-        pageId = await extractorContext.getPageId();
-
-        console.log('Clicking 503 image');
-        await extractorContext.click('a img[src*="503.png"], a[href*="ref=cs_503_link"], a img[src*="error/500-title"]');
-
-        console.log('Waiting for page to reload on homepage');
-        await extractorContext.waitForNextPage(pageId, 30);
-
-        page = await pageContext();
-        console.log('page', page);
-
-        if (!await solveCaptchaIfNecessary(page)) {
-          hasCaptcha = true;
-          return;
-        }
-
-        console.log('Go to some random page');
-        const clickedOK = await extractorContext.evaluate(function () {
-          const links = Array.from(document.querySelectorAll('a[href*="/dp/"]'));
-          if (links.length === 0) {
-            return false;
-          }
-          links[Math.floor(links.length * Math.random())].click();
-          return true;
-        });
-
-        if (!clickedOK) {
-          console.log('Could not click a product, aborting... :/');
-          return;
-        }
-
-        await new Promise(r => setTimeout(r, 2000));
-
-        console.log('Going back to desired page');
-        lastResponseData = await extractorContext.goto(input._url, {
-          options: gotoBaseOptions,
-        });
-
-        console.log('lastResponseData: ', lastResponseData);
-        page = await pageContext();
-        console.log('page: ', page);
-      }
-
-      if (lastResponseData.code === 404 || lastResponseData.code === 410) {
-        return;
-      }
-
-      if (lastResponseData.code !== 200) {
-        await hourlyRetryIncrement(DOMAIN);
-        return extractorContext.reportBlocked(lastResponseData.code, 'Blocked: ' + lastResponseData.code);
-      }
-
-      await acceptCookiesIfNecessary(page);
     }
 
     await counter(page);
@@ -539,33 +465,25 @@ async function goto (input) {
     if (!!parseInt(shouldHaveData.details) || page.hasProdDetails) {
       extractorContext.counter.set('expected', 1);
     }
+    // check for blank  page
+    console.log('final blank page check');
+    page = await pageContextCheck(await pageContext());
+    console.log('final blank page check done :', page);
 
-    // ----- block on missing salesRank if it fails salesRankBadge logic ------//
-    // ----- pass all missing data checks on lastRetry ------//
-    // ----- limit retries to hourly limit per domain ------//
-    if (fillRateStrategies.missingDataRetry && page.isProductPage && !retry.isLastRetry && await getHourlyRetryCount(DOMAIN) < HOURLY_RETRY_LIMIT) {
-      if (await salesRankBadgeCheck(page)) {
-        await hourlyRetryIncrement(DOMAIN);
-        console.log('blocked ------>', 'Missing salesRank when salesRankBadge exists.');
-        return extractorContext.reportBlocked(-200, 'MISSING_DATA: sales rank badge');
-      } else if (!!parseInt(shouldHaveData.details) && !page.hasProdDetails) {
-        await hourlyRetryIncrement(DOMAIN);
+    // missing  data retry strategies
+    if (fillRateStrategies.missingDataRetry && page.isProductPage && shouldRetry && !page.hasProdDetails) {
+      if (parseInt(shouldHaveData.details)) {
         console.log('error ------>', 'Missing prodDetails when API history says it is expected.');
-        return extractorContext.raiseError('MISSING_DATA: prodDetails expected');
-      } else if (lastResponseData.code !== 200) {
-        await hourlyRetryIncrement(DOMAIN);
-        return extractorContext.reportBlocked(lastResponseData.code, 'Blocked: ' + lastResponseData.code);
-      } else {
-        console.log('task ok');
-        extractorContext.counter.set('task', 1);
+        throw Error('MISSING_DATA: prodDetails expected');
       }
-    } else if (lastResponseData.code !== 200) {
-      await hourlyRetryIncrement(DOMAIN);
-      return extractorContext.reportBlocked(lastResponseData.code, 'Blocked: ' + lastResponseData.code);
-    } else {
-      console.log('task ok');
-      extractorContext.counter.set('task', 1);
+      if (fillRateStrategies.salesRankBadgeRetry && hasSalesRankBadgeAndNoData(page)) {
+        console.log('blocked ------>', 'Missing salesRank when salesRankBadge exists.');
+        throw Error('MISSING_DATA: salesRank expected ');
+      }
     }
+    // checking for blank  page and  reloading
+    console.log('task ok');
+    extractorContext.counter.set('task', 1);
   };
 
   const allUserAgentString = [
@@ -3669,12 +3587,13 @@ async function goto (input) {
   let userAgentString = JSON.parse(allUserAgentString[Math.floor(allUserAgentString.length * Math.random())].config).userAgent + ' ' + Math.random().toString(36).substring(2, 15);
 
   // clean cookie retry in session
-
   try {
     await run(userAgentString);
   } catch (err) {
     console.error(err);
-    if (err.message.includes('MISSING_DATA') && fillRateStrategies.cleanCookieRetry) {
+    const message = err.message ? err.message.includes('MISSING_DATA') : false;
+    if (message && fillRateStrategies.cleanCookieRetry && inSessionRetries < MAX_SESSION_RETRIES) {
+      inSessionRetries += 1;
       extractorContext.counter.set('missing-data-retry', 1);
       await extractorContext.evaluate(() => {
         localStorage.clear();
@@ -3688,8 +3607,10 @@ async function goto (input) {
       });
       userAgentString = JSON.parse(allUserAgentString[Math.floor(allUserAgentString.length * Math.random())].config).userAgent + ' ' + Math.random().toString(36).substring(2, 15);
       await extractorContext.goto('about:blank');
+      console.log('starting in session retry');
       await run(userAgentString);
     } else {
+      await hourlyRetryIncrement();
       throw err;
     }
   }
