@@ -17,7 +17,9 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: url
     singleValue: true
-    xpath: //meta[@property='og:url']/@content
+    xpath: //link[@rel='canonical']/@href
+    regExp: (/.+)
+    regExpReplace: https://www.gracobaby.com$1
   - name: category
     singleValue: false
     xpath: //ol[@class="breadcrumb"]/li[2]/a/text()
@@ -72,3 +74,6 @@ fields:
   - name: name
     singleValue: true
     xpath: //div[@class="d-md-none col-sm-12"]/h5/text()
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath: //html//div[@class="addDescBulletInfo"]

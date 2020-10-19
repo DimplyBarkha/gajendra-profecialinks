@@ -18,6 +18,24 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      // Method to Retrieve Xpath content of a Multiple Nodes
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+      };
+      // Double Pipe Concatenation
+      const pipeSeparatorDouble = (id, data) => {
+        var doubleSeparatorText = data.join(' || ');
+        addHiddenDiv(id, doubleSeparatorText);
+      };
+      const addDescBulletInfo = getAllXpath("//ul[@id='collapsible-pdp-details-2']/li/text()", 'nodeValue');
+      pipeSeparatorDouble('addDescBulletInfo', addDescBulletInfo);
+
       // Java Script Code to retrieve Xpath for Aggregate Rating
       var xpathAggregateRating = function (xpathToExecute) {
         var data = '';
