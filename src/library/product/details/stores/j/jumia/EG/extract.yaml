@@ -75,6 +75,8 @@ fields:
     xpath: //div[contains(@class, 'crs')]/div[@class='itm' and position()>1]//img/@data-src
     regExp: (.+)(150x150)(.+)
     regExpReplace: $1500x500$3
+  - name: secondaryImageTotal
+    xpath: count(//div[contains(@class, 'crs')]/div[@class='itm' and position()>1]//img)
   - name: countryOfOrigin
     xpath: //li[contains(., 'Production Country')]
     regExp: Production Country:(.+)
@@ -83,3 +85,17 @@ fields:
     defaultValue: "No"
   - name: imageZoomFeaturePresent
     defaultValue: "No"
+  - name: weightNet
+    xpath: //li[contains(.,"Weight Per Pack")]
+    regExp: (.+):(.+)
+    regExpReplace: $2
+  - name: variantCount
+    xpath: count(//div[@aria-label='Select Variation']/input)
+  - name: variants
+    xpath: //div[@aria-label='Select Variation']/input/@value
+    regExp: (.+)-(.+)
+    regExpReplace: $1
+  - name: materials
+    xpath: //li[contains(., 'Main Material')]
+    regExp: Main Material:(.+)
+    regExpReplace: $1 

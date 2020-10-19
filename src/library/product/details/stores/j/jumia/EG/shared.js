@@ -1,4 +1,3 @@
-
 /**
  *
  * @param {ImportIO.Group[]} data
@@ -7,31 +6,44 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-			if (row.description) {
-				// for (let i = 0; i < row.description.length; i++) {
-					row.description[0].text = `|| ${row.description[0].text}`;
-				// }
+      if (row.description) {
+        for (let i = 0; i < row.description.length; i++) {
+          row.description[i].text = `|| ${row.description[i].text}`;
+        }
       }
-      
+
+      if (row.variants) {
+        for (let i = 0; i < row.variants.length; i++) {
+          row.variants[i].text = `| ${row.variants[i].text}`;
+        }
+      }
+
       if (row.additionalDescBulletInfo) {
-				// for (let i = 0; i < row.description.length; i++) {
-					row.additionalDescBulletInfo[0].text = `|| ${row.additionalDescBulletInfo[0].text}`;
-				// }
-			}
+        // for (let i = 0; i < row.description.length; i++) {
+        row.additionalDescBulletInfo[0].text = `|| ${row.additionalDescBulletInfo[0].text}`;
+        // }
+      }
 
       if (row.specifications) {
         let specText = '';
-				for (let i = 0; i < row.specifications.length; i++) {
-					specText += `|| ${row.specifications[i].text} `;
+        for (let i = 0; i < row.specifications.length; i++) {
+          specText += `|| ${row.specifications[i].text} `;
         }
         row.specifications = [{ text: specText }];
-			}
+      }
 
-			if(row.variantId) {
-				let variantId = row.variantId[0].text;
-				variantId = variantId.substring(variantId.lastIndexOf('-') + 1, variantId.lastIndexOf('.'));
-				row.variantId = [{ text: variantId }];
-			}
+      if (row.variantId) {
+        let variantId = row.variantId[0].text;
+        variantId = variantId.substring(variantId.lastIndexOf('-') + 1, variantId.lastIndexOf('.'));
+        row.variantId = [{ text: variantId }];
+      }
+
+      if (row.materials) {
+        const material = row.materials[0].text;
+        if (material.trim() === 'N/A') {
+          delete row.materials;
+        }
+      }
     }
   }
 
@@ -46,8 +58,8 @@ const transform = (data) => {
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-		.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
-		.trim();
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+    .trim();
 
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
