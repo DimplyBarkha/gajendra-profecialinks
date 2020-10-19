@@ -1,3 +1,4 @@
+// @ts-nocheck
 
 const transform = (data) => {
     for (const { group } of data) {
@@ -31,6 +32,33 @@ const transform = (data) => {
         //   });
         //   row.description = [{ text }];
         // }
+        if (row.variantId) {
+          row.variantId.forEach(item => {
+              let arr = item.text.split('-');
+              let length = arr ? arr.length : 0;
+              item.text = arr[length-1].replace(/\/i\//,'');
+          });
+        }
+        if (row.variants) {
+          row.variants.forEach(item => {
+              let arr = item.text.split('-');
+              let length = arr ? arr.length : 0;
+              item.text = arr[length-1].replace(/\/i\//,'');
+          });
+          const unique = [...new Set(row.variants.map(item => item.text))]
+          row.variants = [
+            {
+              text: unique.join(' | '),
+            },
+          ];
+        }
+        if (row.firstVariant) {
+          row.firstVariant.forEach(item => {
+              let arr = item.text.split('-');
+              let length = arr ? arr.length : 0;
+              item.text = arr[length-1].replace(/\/i\//,'');
+          });
+        }
       }
     }
   

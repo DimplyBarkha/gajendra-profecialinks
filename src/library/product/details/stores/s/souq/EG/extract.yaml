@@ -23,8 +23,6 @@ fields:
     xpath: //div[contains(@class , 'product-title')]/span[1]/a[position() > 1]
   - name: nameExtended
     singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //div[contains(@class , 'product-title')]/h1
   - name: listPrice
     singleValue: false
@@ -32,14 +30,9 @@ fields:
     xpath: //span[@class="was"] 
   - name: price
     singleValue: false
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
     xpath: //h3[contains(@class, "price")]
   - name: availabilityText
     singleValue: false
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
     xpath: //div[@class="vip-instock"]/@class
     defaultValue: In Stock
   - name: description
@@ -78,7 +71,6 @@ fields:
     description: The store-specific product identifier
   - name: variantId
     singleValue: false
-    description: Identifier for a variant from a store where variants share the same sku
     xpath: //*[@id="id_item"]/@value
   - name: mpc
     singleValue: false
@@ -122,8 +114,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    description: Number of variants listed
-    type: NUMBER
+    xpath: count(//div[@id="defaultSize"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@id="size_en"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@class="colors-block"]//a[contains(@class,"color-swatch-preview")]/@data-url | //div[@id="colors_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="display_diagonal_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")]/a/@data-url)
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -451,23 +442,18 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
+    xpath: //div[@id="defaultSize"]//div[contains(@class, "active")] | //div[@id="size_en"]//div[contains(@class, "active")] | //div[@class="colors-block"]//span[contains(@class,"active")]/@data-value | //div[@id="colors_en"]//div[contains(@class,"active")] | //div[@id="display_diagonal_en"]//div[contains(@class,"active")] | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")]//a[contains(@class, "active")]//span[@class="bundle-title"]
   - name: firstVariant
     singleValue: false
-    description: Unique identifier for a collection of variants. For a subset of
-      core feeds (43) we have a column "first_variant" that is populated with a
-      common code to link all variants for a product. method 1 (Preferred) = use
-      common tag (Could be parent sku) that is same value for all variants of a
-      product. method 2 = first_variant method technique, Identify the first
-      varient in the sequence and use this rpc to populate "first_variant" for
-      all variants of a product, this rpc becomes the common link between other
-      variants. method 3 = apply some logic to determine link between variants,
-      this will need analysis
+    xpath: //div[@id="defaultSize"]//div[contains(@class, "item-connection")][position() = 1]/a/@data-url | //div[@id="size_en"]//div[contains(@class, "item-connection")][position() = 1]/a/@data-url | //div[@class="colors-block"]/span[position() = 1]//a[contains(@class,"color-swatch-preview")]/@data-url | //div[@id="colors_en"]//div[contains(@class,"item-connection")][position() = 1]/a/@data-url | //div[@id="display_diagonal_en"]//div[contains(@class,"item-connection")][position() = 1]/a/@data-url | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")][position() = 1]/a/@data-url
   - name: variants
     singleValue: false
     description: null
+    xpath: //div[@id="defaultSize"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@id="size_en"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@class="colors-block"]//a[contains(@class,"color-swatch-preview")]/@data-url | //div[@id="colors_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="display_diagonal_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")]/a/@data-url
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@id="description-full"]/ul/li
   - name: prop65Warning
     singleValue: false
     description: null
