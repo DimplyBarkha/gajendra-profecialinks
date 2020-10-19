@@ -144,7 +144,7 @@ const implementation = async (
     available.classList.add('availability');
     available.style.display = 'none';
 
-    const purchaseOptions = document.getElementsByClassName('mt-4 flex flex-col items-end');
+    const purchaseOptions = document.getElementsByClassName('flex flex-col items-end');
     const numOptions = purchaseOptions.length;
 
     const shippingAvailable = document.evaluate('count(//span[contains(@class,"PurchaseOptions") and contains(text(),"Ship")]/parent::span/parent::div/following-sibling::div/data)>0', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
