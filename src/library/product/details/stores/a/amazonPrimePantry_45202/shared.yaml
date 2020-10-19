@@ -109,6 +109,8 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     manualSelector: '#aplus'
+    regExp: (From the manufacturer)(.*)
+    regExpReplace: $2
   - name: _url
     singleValue: false
     xpath: //link[@rel='canonical']/@href
@@ -261,6 +263,10 @@ fields:
     xpath: (//li[contains(@data-dp-url,"dp/")])[1]/@data-dp-url
     regExp: twister_([A-Z0-9]{9,})
     regExpReplace: $1
+  - name: videoLength
+    xpath: //div[@id="main-video-container"]//div[@class="airy-duration-label"]
+  - name: variants
+    xpath: //li[contains(@id,'flavor_name')]//@data-defaultasin
   - name: variantAsins
     singleValue: false
     xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li/@data-defaultasin
