@@ -13,6 +13,12 @@ module.exports.implementation = async function implementation(
             element.scrollIntoView({ behavior: 'smooth' });
             await new Promise(resolve => setTimeout(resolve, 2197));
         }
+        let getSecondaryImageCount = document.querySelectorAll('li.a-spacing-small.item.imageThumbnail.a-declarative')
+        let count = 0;
+        for (i = 1; i < getSecondaryImageCount.length; i++) {
+            count++;
+        }
+        document.head.setAttribute('count', count)
 
         function removeDuplicates(array) {
             array.splice(0, array.length, ...(new Set(array)))

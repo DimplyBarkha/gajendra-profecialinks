@@ -37,7 +37,7 @@ fields:
     xpath: //*[@id="productDescription"]/p
   - name: ingredientsList
     singleValue: false
-    xpath: ((//tr[contains(.,'Ingredients')]//td[2])[1] | //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]//div//p[2] | (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p))[1]
+    xpath: (//div[@id="important-information"]//div[contains(.,'Ingredients')]//p | (//tr[contains(.,'Ingredients')]//td[2])[1] | //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]//div//p[2] | (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p))[1]   
   - name: brandText
     singleValue: false
     xpath: //*[@id='bylineInfo']
@@ -265,8 +265,6 @@ fields:
   - name: variantAsins
     singleValue: false
     xpath: //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li/@data-defaultasin
-  - name: secondaryImageTotal
-    xpath: count(//li[@class="a-spacing-small item imageThumbnail a-declarative"][position()>1])
   - name: specifications
     singleValue: false
     xpath: //*[@class='secHeader']//*[contains(text(),'Additional')]/../following-sibling::*[1]//tbody/tr
@@ -293,3 +291,5 @@ fields:
     xpath: //head/@rank
   - name: salesRankCategory
     xpath: //head/@category
+  - name: secondaryImageTotal
+    xpath: //head/@count
