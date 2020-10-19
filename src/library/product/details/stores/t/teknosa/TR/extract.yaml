@@ -108,18 +108,17 @@ fields:
     singleValue: true
     description: Content under "warnings" header
   - name: ratingCount
-    singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: //div[@class='product-stats-item']/a/text()
+    regExp: (?!\().\d(?=\))
   - name: aggregateRatingText
-    singleValue: true
     description: The stated aggregate rating
-    xpath: //span[@class='rating']/font/font/text()
+    xpath: //span[@class='rating']/font/font/text() | //span[@class='rating']/text()
   - name: aggregateRating
-    singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //span[@class='rating']/font/font/text()
+    xpath: //span[@class='rating']/font/font/text() | //span[@class='rating']/text()
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
