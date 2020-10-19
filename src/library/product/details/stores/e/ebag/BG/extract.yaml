@@ -68,7 +68,7 @@ fields:
     defaultValue: '0'
   - name: ingredientsList
     singleValue: false
-    xpath: //strong[contains(text(),'Съставки')]/parent::p
+    xpath: //strong[contains(text(),'Съставки')]/parent::p | //strong[contains(text(),'Съставки')]/parent::div
   - name: caloriesPerServing
     singleValue: false
     manualSelector: div#caloriesPerServ
@@ -110,7 +110,7 @@ fields:
     manualSelector: div#salt_uom
   - name: storage
     singleValue: false
-    xpath: //strong[contains(text(),'Условия за съхранение')]/parent::p
+    xpath: //strong[contains(text(),'Условия за съхранение')]/parent::p | //strong[contains(text(),'Условия за съхранение')]/parent::div
     regExp: 'Условия за съхранение: (.*)'
     regExpReplace: $1
   - name: allergyAdvice
@@ -118,6 +118,9 @@ fields:
     xpath: //strong[contains(text(),'Алергени')]/parent::p
     regExp: 'Алергени: (.*)'
     regExpReplace: $1
+  - name: allergyAdvice1
+    singleValue: false
+    xpath: //strong[contains(text(),'алергени')]/parent::p
   - name: promotion
     singleValue: false
     xpath: //p[contains(@class,'ribbon ribbon-promo')]
@@ -125,23 +128,37 @@ fields:
     singleValue: false
     xpath: //p[contains(@class, "overlay-inactive-product-text")]
     defaultValue: 'InStock'
+  - name: manufacturer
+    singleValue: false
+    xpath: //strong[contains(text(),'Производител')]/parent::p | //strong[contains(text(),'Производител')]/parent::div
+    regExp: 'Производител: (.*)'
+    regExpReplace: $1
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'brand-and-product-code')]/p[contains(text(), 'Продуктов код:')]
+    regExp: 'Продуктов код: (.*)'
+    regExpReplace: $1
+  - name: additives
+    singleValue: false
+    xpath: //strong[contains(text(),'Добавки')]/parent::p | //strong[contains(text(),'Добавки')]/parent::div
+  - name: nutritionValues1
+    singleValue: false
+    xpath: //strong[contains(text(),'Хранителна Информация на 100г. готов продукт:')]/parent::p
+  - name: shippingInfo
+    singleValue: false
+    defaultValue: '{"@type":"Organization","name":"eBag"}'
+  - name: nutritionValues2
+    singleValue: false
+    xpath: //strong[contains(text(),'Хранителни стойности')]/parent::p
+  # xpath: (//script[contains(@type,'application/ld+json')])[1]
   # - name: weightNet
   #   singleValue: false
   #   xpath: //p[contains(@class,'product-weight')]
-  # - name: manufacturer
-  #   singleValue: false
-  #   xpath: //strong[contains(text(),'Производител')]/parent::p
   #   regExp: 'Производител: (.*)'
   #   regExpReplace: $1
   # - name: countryOfOrigin
   #   singleValue: false
   #   xpath: //div[contains(@class,'brand-and-product-code')]/p[contains(text(), 'Произход:')] | //div[contains(@class,'description-text')]//strong[contains(text(),'Страна на произход')]/parent::p
-  # - name: sku
-  #   singleValue: false
-  #   xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
-  #   regExp: sku":"([^"]+)
-  #   regExpReplace: $1
-  #   regExp: ([^()]+)
   #   regExpReplace: $1
   # - name: weightGross
   #   singleValue: false
@@ -172,9 +189,6 @@ fields:
   #   xpath: //*[@id="acrPopover"]/@title
   #   regExp: ([0-9\.]{1,}) out of
   #   regExpReplace: $1
-  # - name: shippingInfo
-  #   singleValue: false
-  #   xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")]
   # - name: shippingDimensions
   #   singleValue: false
   #   xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
@@ -395,9 +409,6 @@ fields:
   #   singleValue: false
   #   xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img) and not(contains(@class, "a-color-secondary"))]
   # - name: packaging
-  #   singleValue: true
-  #   xpath: 
-  # - name: additives
   #   singleValue: true
   #   xpath: 
   # - name: pricePerUnit
