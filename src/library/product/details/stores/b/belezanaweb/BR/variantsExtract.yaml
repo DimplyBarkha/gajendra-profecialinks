@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='product-group-inner']//div[@class='product-group-items row ']//a
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //a[contains(@class,'product-group-item')]/@data-interaction
+  - name: variantUrl
+    singleValue: false
+    xpath: //a[contains(@class,'product-group-item')]/@href
+  - name: variant
+    singleValue: false
+    xpath: //a[contains(@class,'product-group-item')]//p[@class='product-attributes']

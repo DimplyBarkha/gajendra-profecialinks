@@ -1,0 +1,81 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class='nproduct-gallery']//div[@class='owl-stage-outer']//div[@class='owl-stage']//div[@class='owl-item active']//img/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@property='og:title']/@content
+  - name: category
+    singleValue: false
+    xpath: //ol[@class='breadcrumb']//li[position()>1]//a
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='nproduct-title']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='nproduct-title']
+  - name: price
+    singleValue: false
+    xpath: //div[@class='nprodct-price']//div[@class='nproduct-price-value']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='nprodct-price']//strong[@class='nproduct-price-max']//s
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='nproduct-info']//p[@class='product-buy-subtitle']
+    defaultValue: 'In Stock'  
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'product-description')]//div[@class='accordion-gradient-content']
+  - name: description2
+    singleValue: false
+    xpath: //div[contains(@class,'product-characteristics')]//div[@class='accordion-gradient-content']
+  - name: directions
+    singleValue: false
+    xpath: //div[contains(@class,'product-characteristics')]//div[@class='accordion-gradient-content']//h3[@class='product-description-title' and text()='Conselho de Aplicação']//following-sibling::div[1]
+  - name: sku
+    singleValue: false
+    xpath: //meta[@property='product:retailer_item_id']/@content
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@property='product:retailer_item_id']/@content
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='nproduct-gallery']//div[@class='owl-stage-outer']//div[@class='owl-stage']//div[@class='owl-item']//div[@class='product-image-wrapper']//img/@data-zoom-image
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='nproduct-info']//div[@class='product-brand']//h2//span[@class='is-hidden']
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='nprodct-price']//strong[@class='nproduct-price-max']//span[contains(text(),'desconto')]
+  - name: quantity
+    singleValue: false
+    defaultValue: 1
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='nproduct-gallery']//div[@class='badges-wrapper']//div[@class='rating-container']//span[@class='rating-count']/text()[1]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='nproduct-gallery']//div[@class='badges-wrapper']//div[@class='rating-container']//div[@class='rating-value-container']
+  - name: videos
+    singleValue: false
+    xpath: //div[@class='nproduct-gallery']//div[@class='owl-stage-outer']//div[@class='owl-stage']//div[@class='owl-item']//div[contains(@class,'youtube-embed')]/@data-youtube-id
+  - name: variantCount
+    singleValue: false    
+    defaultValue: '0'
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='product-group-inner']//div[@class='product-group-items row ']//a[contains(@class,'product-group-item')]//p[@class='product-attributes']
+  - name: variants
+    singleValue: false
+    xpath: //div[@class='product-group-inner']//div[@class='product-group-items row ']//a[contains(@class,'product-group-item')]/@data-interaction
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class='product-group-inner']//div[@class='product-group-items row ']//a[contains(@class,'product-group-item')][1]/@data-interaction
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class='product-brand-description']
