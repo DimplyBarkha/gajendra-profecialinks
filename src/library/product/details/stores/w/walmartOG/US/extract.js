@@ -59,7 +59,9 @@ module.exports = {
 
         console.log('waiting for api request....');
         const url = `https://www.walmart.com/grocery/v3/api/products/${id}?itemFields=all&storeId=${storeID}`;
+        console.log(`api url is - ${url}`);
         var refURL = window.location.href;
+        console.log('refurl is - ' + refURL);
 
         async function fetchItems (numberOfRetries = 0) {
           const response = await fetch(url, {
@@ -97,6 +99,8 @@ module.exports = {
         }
 
         data = await fetchItems();
+        console.log('data from api is - ');
+        console.log(data);
 
         const availableSelector = () => {
           const outOfStock = document.querySelector('div[class^="ProductPage__outOfStock"]');
@@ -110,6 +114,7 @@ module.exports = {
           }
           return true;
         };
+        console.log(`availableSelector - ${availableSelector}`);
 
         const cssListPrice = 'div[class*="ProductPage__priceContainer"] div[data-automation-id*="old-price"]';
         const listPriceDom = (document.querySelector(cssListPrice) && document.querySelector(cssListPrice).textContent) ? document.querySelector(cssListPrice).textContent : '';

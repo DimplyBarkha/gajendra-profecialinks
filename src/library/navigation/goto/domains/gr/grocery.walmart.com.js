@@ -51,7 +51,9 @@ module.exports = {
       console.log('Checking for CAPTCHA');
       await new Promise((resolve) => setTimeout(resolve, 10000));
       while (await isCaptcha() === 'true' && captchas < MAX_CAPTCHAS) {
+        console.log('isCaptcha() has returned true.');
         captchas++;
+        console.log(`captchas count - ${captchas}`);
         await context.waitForSelector('iframe[role="presentation"]', { timeout: 120000 });
         if (backconnect) {
           throw Error('CAPTCHA received');
@@ -60,6 +62,7 @@ module.exports = {
         await solveCaptcha();
       }
       if (await isCaptcha() === 'true') {
+        console.log(`isCaptcha() has returned true. Now will check for benchmark - ${benchmark}`);
         if (!benchmark) {
           // we failed to solve the CAPTCHA
           console.log('We failed to solve the CAPTCHA');
@@ -100,8 +103,9 @@ module.exports = {
       });
       console.log('lastResponseData', lastResponseData);
 
-      if (!await solveCaptchaIfNecessary) {
+      if (!await solveCaptchaIfNecessary()) {
         hasCaptcha = true;
+        console.log(`hasCaptcha is - ${hasCaptcha}`)
       }
     };
 

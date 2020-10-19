@@ -16,6 +16,7 @@ async function implementation (
     if (!id) {
       throw new Error('no id provided');
     }
+    console.log("need to create url first");
     url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
