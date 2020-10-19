@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'productList')]//article[contains(@class,'panelProduct')]
+fields:
+  - name: productUrl
+    xpath: //a[contains(@class,'styled__StyledLink')]/@href[not(contains(.,'/de/s1/product/ratings/')) and contains(.,'/de/s1/product/') ]
+    description: The URL for the product details page
+    regExp: (.+)
+    regExpReplace: https://www.digitec.ch$1
+  - name: thumbnail
+    xpath: //img/@src
+    description: The URL for the product thumbnail image
+  - name: aggregateRating2
+    xpath: //*[name()='svg']//*[name()='rect' and contains(@fill,'black')]/@width
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //div[contains(@class,'productName')]
+    description: The product name
+  - name: ratingCount
+    xpath: //a[contains(@aria-label,'Bewertung')]
+    description: The number of ratings
+  - name: reviewCount
+    xpath: //a[contains(@aria-label,'Bewertung')]
+    description: The number of reviews
+  - name: price
+    xpath: //strong[contains(@class,'ZZdb')] | //span[contains(@class,'ZZdb')]//font
+    description: The offered price for the product
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: id
+    xpath: //a[contains(@class,'styled__StyledLink')]/@href[not(contains(.,'/de/s1/product/ratings/')) and contains(.,'/de/s1/product/') ]
+    description: Unique id (within this extractor)
+    regExp: (.*\/de\/s1\/product\/.*-(\d+).*)
+    regExpReplace: $2
+  - name: searchUrl
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: ancestor::html//div[@id='added-searchurl'][last()]
+    
