@@ -20,6 +20,12 @@ async function implementation (inputs, parameters, context, dependencies) {
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+    function loadResults () {
+      const loadMoreButtonSelector = document.querySelector('a[class*="read-me"]');
+      if (loadMoreButtonSelector) {
+        loadMoreButtonSelector.click();
+      }
+    }
     function fetchDetailsFromScript () {
       const scriptTagSelector = document.querySelector('script[type="application/ld+json"]');
       const scriptTagData = scriptTagSelector ? scriptTagSelector.innerText : '';
@@ -37,6 +43,16 @@ async function implementation (inputs, parameters, context, dependencies) {
       addHiddenDiv('added_availabilityText', availabilityText);
     }
     fetchDetailsFromScript();
+    loadResults();
+    // If images are present in description then add to manufacturerDescription else add to description
+    const descriptionSelector = document.evaluate('//div[contains(@class, "description-table")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    const description = descriptionSelector ? descriptionSelector.innerText : '';
+    const manufacturerImageFlag = document.querySelector('div[class="description-table"] img');
+    if (manufacturerImageFlag) {
+      addHiddenDiv('added-manufacturerDesc', description);
+    } else {
+      addHiddenDiv('added-description', description);
+    }
   });
   await new Promise((resolve) => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });

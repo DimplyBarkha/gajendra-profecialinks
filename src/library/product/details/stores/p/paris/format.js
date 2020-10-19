@@ -21,21 +21,24 @@ const transform = (data) => {
   }))));
   for (const { group } of data) {
     for (const row of group) {
-      if (row.name && row.brandText) {
-        row.nameExtended = [
-          { text: row.brandText[0].text + ' - ' + row.name[0].text },
-        ];
-      }
       const specificationArray = [];
       if (row.specifications) {
         row.specifications.forEach(specificationItem => {
           specificationArray.push(specificationItem.text);
         });
       }
-      row.specifications = [{ text: specificationArray.join(' || ') }];
+      row.specifications = [{ text: specificationArray.join(' | ') }];
       if (row.shippingDimensions) {
         row.shippingDimensions.forEach((shippingDimensionsItem) => {
           shippingDimensionsItem.text = shippingDimensionsItem.text.replace(/.*: ?(.*?) ?\(.*/gm, '$1');
+        });
+      }
+      if (row.category) {
+        row.category.shift();
+      }
+      if (row.imageAlt) {
+        row.imageAlt.forEach((imageAltItem) => {
+          imageAltItem.text = imageAltItem.text.replace(/[,]/gm, '');
         });
       }
       if (row.aggregateRatingText) {

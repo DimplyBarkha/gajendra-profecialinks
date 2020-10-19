@@ -22,6 +22,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
+    xpath: //h1[contains(@class,"product-name")]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -30,7 +31,7 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
-    xpath: (//div[contains(@class,"item-price offer-price price-tc cencosud-price-2")]/node()[not(self::input)])[1]
+    xpath: (//div[contains(@class,"item-price offer-price price-tc cencosud-price-2")]/node()[not(self::input)])[1] | (//div[contains(@class,"default-price")])[1] 
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -41,7 +42,7 @@ fields:
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //meta[@name="description"]//@content
+    xpath: //div[@id="added-description"]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -115,9 +116,11 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
+    xpath: //div[@id="added-manufacturerDesc"]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
+    xpath: //div[@class="description-table"]//img/@src
     description: Images within the third party description
   - name: videos
     singleValue: false
