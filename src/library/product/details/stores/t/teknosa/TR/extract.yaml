@@ -32,18 +32,18 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class='prices']/div[contains(@class, 'default')]/text()
+    xpath: //div[@class='prices']/div[contains(@class, 'old') or contains(@class, 'default')]/text()
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: concat(//div[@class='prices']/div[contains(@class,'new-discount-price')]/text(),//div[@class='prices']/div[contains(@class,'default') and not(following-sibling::div[contains(@class, 'discount')])])
+    xpath: //div[@class='prices']/div[contains(@class, 'default-price')]/text() | //div[@class='prices']/div[contains(@class, 'new-price')]/text()
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[contains(@class,'stock-status')]/font/font/text()
+    xpath: //div[contains(@class,'stock-status')]/text()
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -69,10 +69,8 @@ fields:
     description: Product manufacturer
     xpath: //script/@data-flix-brand
   - name: quantity
-    singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: (//td[text()='Paket başına miktar'])[1]/following-sibling::td/span
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -149,10 +147,11 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class='tab-container']//img/@src
+    xpath: //div[@class='tab-container']//img[not(contains(@src, 'data:image'))]/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //img[@class='video-img-pdp-play']/@src
   - name: name
     singleValue: true
     description: The product name
@@ -423,17 +422,19 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //div[text() = 'Ağırlık & Boyutlar']/following-sibling::table[1]//tr/td
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //p[@class='option-note']/font/font
   - name: storage
     singleValue: true
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
+    xpath: (//td[text()='Menşe ülkesi'])[1]/following-sibling::td/span
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -495,6 +496,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@class='clearfix']/div[@class='-title']
   - name: prop65Warning
     singleValue: true
     description: null
@@ -513,6 +515,9 @@ fields:
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
+    xpath: //a[contains(@href, 'pdf')]/@href
+    regExp: (.+)
+    regExpReplace: Yes
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
