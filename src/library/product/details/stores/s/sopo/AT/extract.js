@@ -10,7 +10,7 @@ module.exports = {
     domain: 'sopo.at',
     zipcode: '',
   },
-  implementation: async ({ x }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ x }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
       const numberOfDimensions = document.evaluate("//li[contains(text(), 'Verpackungs')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       const text = [];
@@ -26,11 +26,10 @@ module.exports = {
 
       const descBullets = document.querySelectorAll('div[class="box"]>ul>li');
       for (let y = 0; y < descBullets.length; y++) {
-        let content = descBullets[y].textContent.replace(/(.+)/, '$1||');
+        const content = descBullets[y].textContent.replace(/(.+)/, '$1||');
         descBullets[y].innerHTML = content;
-
       }
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform: transformParam });
   },
 };
