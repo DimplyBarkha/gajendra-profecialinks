@@ -73,13 +73,13 @@ fields:
     defaultValue: '0'
   - name: videos
     singleValue: false
-    xpath: //div[contains(@id,'video-url')] | //iframe[contains(@id,'flix-iframe0')]/@src
+    xpath: //div[contains(@id,'video-url')] | //iframe[contains(@id,'flix-iframe0')]/@src 
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id='inpage_container']
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@id,'manufacture-images')]
+    xpath: //div[contains(@id,'manufacture-images')]|//div[@class='extra-manufacturer-images']/text()
   - name: specifications
     singleValue: false
     xpath: //div[contains(@class,'inpage_selector_specification')]//td
