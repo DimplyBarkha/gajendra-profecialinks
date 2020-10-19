@@ -167,6 +167,7 @@ module.exports.implementation = async function implementation(
     } catch (err) {
         console.log('Manufacturer details did not load.');
     }
+    await context.waitForSelector('div#altImages ul', { timeout: 50000 });
 
     await context.evaluate(productPrimeCheck);
     return await context.extract(productDetails, { transform });
