@@ -7,18 +7,6 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (row.size) {
-        let text = '';
-        row.size.forEach(item => {
-          text += item.text.replace(/\n/g, ' ');
-        });
-        row.size = [
-          {
-            text: text,
-          },
-        ];
-      }
-
       if (row.nameExtended) {
         let text = '';
         row.nameExtended.forEach(item => {
@@ -54,13 +42,36 @@ const transform = (data) => {
         ];
       }
 
-
       if (row.quantity) {
         let text = '';
         row.quantity.forEach(item => {
-          text = row.quantity.map(elm => elm.text).join(' | ').replace(/,/g,' | ');
+          text = row.quantity.map(elm => elm.text).join(' | ').replace(/,/g, ' | ');
         });
         row.quantity = [
+          {
+            text: text,
+          },
+        ];
+      }
+
+      if (row.color) {
+        let text = '';
+        row.color.forEach(item => {
+          text = row.variantInformation.map(elm => elm.text.replace('selected ', '')).join(' | ');
+        });
+        row.color = [
+          {
+            text: text,
+          },
+        ];
+      }
+
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text = row.description.map(elm => elm.text).join(' || ');
+        });
+        row.description = [
           {
             text: text,
           },
@@ -70,27 +81,15 @@ const transform = (data) => {
       if (row.variantInformation) {
         let text = '';
         row.variantInformation.forEach(item => {
-          text = row.variantInformation.map(elm => elm.text).join(' | ').replace(/,/g,' | ');
+          text = row.variantInformation.map(elm => elm.text.replace('selected ', '')).join(' | ');
         });
         row.variantInformation = [
           {
             text: text,
           },
         ];
-      } 
+      }
 
-      if (row.firstVariant) {
-        let text = '';
-        row.firstVariant.forEach(item => {
-          text = row.firstVariant.map(elm => elm.text).join(' | ').replace(/,/g,' | ');
-        });
-        row.firstVariant = [
-          {
-            text: text,
-          },
-        ];
-      } 
-      
       let text = '';
       text = [String(row.nameExtended && row.nameExtended[0].text), String(row.firstVariant && row.firstVariant[0].text), String(row.quantity && row.quantity[0].text)].filter(e => e !== 'undefined').join(' - ');
       row.productDescriptionIm = [

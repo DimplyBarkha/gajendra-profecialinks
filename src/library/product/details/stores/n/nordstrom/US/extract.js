@@ -14,14 +14,10 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
-     
-     //selecting first variant to get price in case of range price
       document.querySelector('ul#size-filter-product-page-option-list li') && document.querySelector('ul#size-filter-product-page-option-list li').click();
       document.querySelector('ul#product-page-swatches li button') && document.querySelector('ul#product-page-swatches li button').click();
       document.querySelector('div#size-filter-product-page-anchor') && document.querySelector('div#size-filter-product-page-anchor').click();
 
-
-      //video Url
       const videoUrls = [];
       const dataArr = window.__INITIAL_CONFIG__.viewData;
       const videoID = dataArr.salesVideoShot ? dataArr.salesVideoShot.id : dataArr.vendorVideoShot ? dataArr.vendorVideoShot.id : '';
@@ -39,25 +35,86 @@ module.exports = {
         });
       }
 
-      //variants
-      var filterOption = window.__INITIAL_CONFIG__.stylesById.data[Object.keys(window.__INITIAL_CONFIG__.stylesById.data)[0]].filterOptions;
-      var filters = window.__INITIAL_CONFIG__.stylesById.data[Object.keys(window.__INITIAL_CONFIG__.stylesById.data)[0]].filters;
-      var styleMediaa = window.__INITIAL_CONFIG__.stylesById.data[Object.keys(window.__INITIAL_CONFIG__.stylesById.data)[0]].styleMedia.byId;
-      styleMediaa[Object.keys(styleMediaa)[1]]
-      var allIds= [] ;
-      for (const property in filters) {
-          for (let index = 0; index < filterOption.length; index++) {
-              if (filterOption[index] === property) {
-                  allIds.push(filters[property].allIds)
-              }
+      const varinatInformation = [];
+      const id = document.querySelector('meta[property="og:url"]').getAttribute('content');
+      const pId = id.match(/\d+$/g) && id.match(/\d+$/g)[0];
+      const styleDetails = window.__INITIAL_CONFIG__.stylesById.data[pId];
+      const types = styleDetails.filterOptions;
+      const filters = styleDetails.filters;
+
+      for (const type of types) {
+        const ids = filters[type].allIds;
+
+        for (const varId of ids) {
+          const varinatInfo = {};
+          const variant = filters[type].byId[varId];
+          Object.assign(varinatInfo, {
+            media: [],
+            variantId: variant.id,
+            sku: variant.relatedSkuIds[0],
+            value: variant.value,
+          });
+          const mediaIds = filters[type].byId[varId].styleMediaIds;
+          if (!mediaIds) {
+            varinatInformation.push(varinatInfo);
+            continue;
           }
-      }
-      // console.log(allColorIds);
-      
-      for (let index = 0; index < allIds[0].length; index++) {
-          console.log(styleMediaa[Object.keys(styleMediaa)[index]]);
+
+          for (const mediaId of mediaIds) {
+            const media = styleDetails.styleMedia.byId[mediaId];
+            varinatInfo.media.push({
+              mediaType: media.mediaType,
+              imageMediaUri: media.imageMediaUri.maxLargeDesktop,
+            });
+          }
+
+          varinatInformation.push(varinatInfo);
+        }
       }
 
+      console.log(varinatInformation);
+      if (varinatInformation.length) {
+        const table = document.createElement('table');
+        document.body.appendChild(table);
+        const tBody = document.createElement('tbody');
+        table.appendChild(tBody);
+
+        for (let index = 0; index < varinatInformation.length; index++) {
+          const newlink = document.createElement('tr');
+          newlink.setAttribute('class', 'append_variant');
+          newlink.setAttribute('variant_id', varinatInformation[index].variantId);
+          tBody.appendChild(newlink);
+
+          const sku = document.createElement('td');
+          sku.setAttribute('class', 'sku');
+          sku.setAttribute('sku', varinatInformation[index].sku);
+          newlink.appendChild(sku);
+
+          const variant = document.createElement('td');
+          variant.setAttribute('class', 'variant');
+          variant.textContent = varinatInformation[index].value;
+          newlink.appendChild(variant);
+
+          const image = document.createElement('td');
+          image.setAttribute('class', 'images');
+          newlink.appendChild(image);
+
+          for (let j = 0; j < varinatInformation[index].media.length; j++) {
+            const img = document.createElement('img');
+            img.setAttribute('class', 'img');
+            img.setAttribute('src', varinatInformation[index].media[j].imageMediaUri);
+            image.appendChild(img);
+          }
+        }
+      } else {
+        const table = document.createElement('table');
+        document.body.appendChild(table);
+        const tBody = document.createElement('tbody');
+        table.appendChild(tBody);
+        const tr = document.createElement('tr');
+        tr.setAttribute('class', 'append_variant');
+        tBody.appendChild(tr);
+      }
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;

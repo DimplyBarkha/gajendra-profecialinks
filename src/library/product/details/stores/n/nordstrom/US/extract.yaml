@@ -1,94 +1,97 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //table/tbody/tr[@class="append_variant"]
 fields:
   - name: image
-    xpath: (//img[contains(@name,"gallery-image")]/@src)[1]
+    xpath: ancestor::html//picture//img[contains(@name,"gallery-image")]/@src
     regExp: (.+)&w=(.+)&h=
     regExpReplace: $1&w=780&h=1196
-  - name: imageAlt
-    xpath: (//img[contains(@name,"gallery-image")]/@alt)[1]
+    singleValue: true
   - name: alternateImages
-    xpath: //ul[@class="slider-list"]//li//button[position()>1]//img[contains(@name,"gallery-image")]/@src
+    xpath: ancestor::html//ul[@class="slider-list"]//li//button[@class="BIgNz"]//img[contains(@name,"gallery-image")]/@src
     regExp: (.*)&w=(.*)&h=
     regExpReplace: $1&w=780&h=1196
   - name: nameExtended
-    xpath: //section//span[@itemprop="name"] | //h1[@itemprop="name"]
+    xpath: ancestor::html//section//span[@itemprop="name"] | //h1[@itemprop="name"]
   - name: listPrice
-    xpath: //section[@id="product-page-price-lockup"]//span[contains(@id,"original-price")]/span[last()]
+    xpath: ancestor::html//section[@id="product-page-price-lockup"]//span[contains(@id,"original-price")]/span[last()]
   - name: price
-    xpath: //span[@id="current-price-string"] | //span[@id="current-price-string"]/following-sibling::sup
+    xpath: ancestor::html//span[@id="current-price-string"] | //span[@id="current-price-string"]/following-sibling::sup
     regExp: ^[^–]+
   - name: availabilityText
-    xpath: //span[contains(text(),'Add to Bag')]
+    xpath: ancestor::html//span[contains(text(),'Add to Bag')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    xpath:  //div[contains(text(),"Details & Care")]/following-sibling::div[1] | //div[contains(text(),"Details & Care")]/following-sibling::ul/li
+    xpath:  ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::div[1] |  ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::ul/li
     singleValue: false
   - name: descriptionBullets
     xpath: count(//div[contains(text(),"Details & Care")]/following-sibling::ul/li)
   - name: brandText
-    xpath: //section//span[@itemprop="name"]
+    xpath: ancestor::html//section//span[@itemprop="name"]
   - name: brandLink
-    xpath: //section//span[@itemprop="name"]/parent::a/@href
+    xpath: ancestor::html//section//span[@itemprop="name"]/parent::a/@href
     regExp: (.+)
     regExpReplace: https://www.nordstrom.com$1
-  - name: variantId
-    xpath: //span[contains(text(),'Item')]
-    regExp: "Item #(.+)"
-    regExpReplace: $1
+  - name: variantId 
+    xpath: //table/tbody/tr[@class="append_variant"]//@variant_id
   - name: ratingCount
-    xpath: //span[@itemprop="reviewCount"]/@content
+    xpath: ancestor::html//span[@itemprop="reviewCount"]/@content
     description: The number of ratings
   - name: aggregateRating
-    xpath: //span[@itemprop="ratingValue"]/@content
+    xpath: ancestor::html//span[@itemprop="ratingValue"]/@content
   - name: videos
-    xpath: //a[@class='appendedvideo']/@href
+    xpath: ancestor::html//a[@class='appendedvideo']/@href
     description: URLs of videos on page
   - name: name
-    xpath: //h1[@itemprop="name"]
-  - name: variantInformation
-    xpath: //a[@class='appendedcolor']/@href | //ul//li//div//span[@class="UI69S"][1]
-  - name: firstVariant
-    xpath: (//ul//li//span[@class="UI69S"])[1]
+    xpath: ancestor::html//h1[@itemprop="name"]
   - name: sku
-    xpath: //body/@rpc
+    xpath: //table/tbody/tr[@class="append_variant"]//td[@class='sku']/@sku
   - name: variants
-    xpath: //a[@class='appendedvariantid']/@href
-  - name: variantCount
-    xpath: //body/@variant_count
-  - name: color
-    xpath: //img[contains(@alt,'selected')]/@alt
-    regExp: selected\s(.+)\scolor
-    regExpReplace: $1
-  - name: quantity
-    xpath: //body/@size | //button[@class="_1oaUx"]
+    xpath: //table/tbody/tr[@class="append_variant"]//@variant_id
   - name: additionalDescBulletInfo
-    xpath: //div[contains(text(),"Details & Care")]/following-sibling::ul/li
+    xpath: ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::ul/li
   - name: shippingDimensions
-    xpath: //div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x')]
+    xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x')]
   - name: warranty
-    xpath: //div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),'warranty')]
+    xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),'warranty')]
   - name: specifications
-    xpath: //div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x') or contains(text(),'cord')]
+    xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x') or contains(text(),'cord')]
     singleValue: true
   - name: weightNet
-    xpath: //div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' lb.')]
+    xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' lb.')]
   - name: mpc
-    xpath: //div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),'Model')]
+    xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),'Model')]
     regExp: (.+):\s(.+)
     regExpReplace: $2
   - name: metaKeywords
-    xpath: //meta[@name="keywords"]/@content
+    xpath: ancestor::html//meta[@name="keywords"]/@content
   - name: ingredientsList
-    xpath: //span[contains(text(),'Ingredients')]/following-sibling::p[1]
+    xpath: ancestor::html//span[contains(text(),'Ingredients')]/following-sibling::p[1]
   - name: legalDisclaimer
-    xpath: //p[@class="disclaimer"]
+    xpath: ancestor::html//p[@class="disclaimer"]
   - name: directions
-    xpath: //strong[contains(text(),'How to use')]/parent::p | //p[contains(text(),'How to use')]/following-sibling::p[1] | //p[contains(text(),'How to use')] | //strong[contains(text(),'How to use')]/parent::p/following-sibling::p
+    xpath: ancestor::html//strong[contains(text(),'How to use')]/parent::p | ancestor::html//p[contains(text(),'How to use')]/following-sibling::p[1] | ancestor::html//p[contains(text(),'How to use')] | ancestor::html//strong[contains(text(),'How to use')]/parent::p/following-sibling::p
   - name: promotion
-    xpath: //section[@id="product-page-price-lockup"]//span[contains(text(),'% off')] |//div[@id="product-page-banner-giftwithpurchase"]//span
+    xpath: ancestor::html//section[@id="product-page-price-lockup"]//span[contains(text(),'% off')] | ancestor::html//div[@id="product-page-banner-giftwithpurchase"]//span
   - name: productDescriptionIm
+  - name: imageAlt
+    xpath: ancestor::html//picture//img/@alt
+    singleValue: true
+  - name: firstVariant
+    xpath: ancestor::html//ul//li//span[@class="UI69S"] | ancestor::html//ul[@id="product-page-swatches"]/li/button/img/@alt
+    regExp: selected\s(.+)\scolor
+    regExpReplace: $1
+    singleValue: true
+  - name: variantCount
+    xpath: count(//table/tbody/tr[@class="append_variant"]/@variant_id)
+  - name: quantity
+    xpath: ancestor::html//ul[@id="size-filter-product-page-option-list"]//div[@class="_11U2i"]//span[2]/parent::div/span[1] | ancestor::html//button[@class="_1oaUx"]
+    singleValue: false
+  - name: color
+    xpath: ancestor::html//ul[@id="product-page-swatches"]//li/button/img/@alt
+    singleValue: false
+  - name: variantInformation
+    xpath: //table/tbody/tr[@class="append_variant"]//td[@class="variant"]
