@@ -29,13 +29,16 @@ const transform = (data) => {
           let info = [];          
           row.variantInformation.forEach(item => {
             info.push(item.text.trim());            
-          });
-          //row.variantCount = [{'text': info.length}];
+          });          
           row.variantInformation = [{'text':info.join(' | '),'xpath':row.variantInformation[0].xpath}];          
         }           
         if (row.category) {                    
           row.category.splice(0,1);
         }
+        if (row.sku) {
+            row.variantId = [{'text':row.sku[0].text}]
+        }
+        
         if (row.alternateImages) {                    
             row.alternateImages.splice(0,2);
             if(row.alternateImages.length){

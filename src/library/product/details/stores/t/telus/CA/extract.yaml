@@ -67,11 +67,18 @@ fields:
   - name: listPrice
     singleValue: true
     xpath: //div[@class='product-sale__title']//h1
-  # - name: sku
-  #   singleValue: true
-  #   xpath: //html
-  #   # regExp: \"productCode\"\s*:\s*\"(.+?)\"
-  #   # regExpReplace: $1
+  - name: sku
+    singleValue: true
+    xpath: //div[@id='navFlexgrid']//a[contains(@class,'Button__StyledButton-sa7xo3-0 sc-jTzLTM fQBCuB')]/@href
+    #sku=NLGGPIXEL5BK&
+    regExp: sku=(.+?)\&
+    regExpReplace: $1
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id='navFlexgrid']//a[contains(@class,'Button__StyledButton-sa7xo3-0 sc-jTzLTM fQBCuB')]/@href
+    #sku=NLGGPIXEL5BK&
+    regExp: sku=(.+?)\&
+    regExpReplace: $1
   # - name: gtin
   #   singleValue: true
   #   xpath: //html
