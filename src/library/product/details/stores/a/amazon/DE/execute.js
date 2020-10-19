@@ -6,7 +6,7 @@ module.exports = {
     store: 'amazon',
     domain: 'amazon.de',
     loadedSelector: '#landingImage',
-    noResultsXPath: null,
+    noResultsXPath: '//*[contains(text(), "ENTSCHULDIGUNG")]',
     zipcode: '10117',
   },
 };

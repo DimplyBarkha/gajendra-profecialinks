@@ -4,6 +4,9 @@ parameters:
   domain: amazon.de
   store: amazon
   zipcode: "10117"
+# proxy:
+#   zone: US
+#   type: DATA_CENTER
 meta:
   branches:
     dev:
@@ -11,4 +14,7 @@ meta:
       legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
     staging:
       extractor: 3c200cad-d87d-49da-946b-6169f83cdf1f
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    testing:
+      extractor: 62175240-207b-48bd-ac86-bb973b79d836
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
