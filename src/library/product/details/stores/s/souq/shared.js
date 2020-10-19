@@ -11,11 +11,11 @@ const transform = (data) => {
           });
           row.availabilityText = [{ text: newText }];
         }
-        // if (row.listPrice) {
-        //   row.listPrice.forEach(item => {
-        //           item.text = item.text.replace('.00' , '').replace('EGP' , '')
-        //   });
-        // }
+        if (row.countryOfOrigin) {
+          row.countryOfOrigin.forEach(item => {
+                  item.text = item.text.trim();
+          });
+        }
         if (row.alternateImages) {
           row.alternateImages.shift();
         }

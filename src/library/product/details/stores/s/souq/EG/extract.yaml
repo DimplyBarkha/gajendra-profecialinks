@@ -408,6 +408,9 @@ fields:
   - name: countryOfOrigin
     singleValue: false
     description: The country from which the product originates
+    xpath: //*[contains(text(), "Country of Origin:")]
+    regExp: Country\sof\sOrigin\:(.*)
+    regExpReplace: $1
   - name: allergyAdvice
     singleValue: false
     description: Allergy information associated with the product
@@ -473,6 +476,7 @@ fields:
     description: Recommended age displayed on the product page.
       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
+    xpath: //dt[contains(text(), "Recommended Age")]/following-sibling::*[position()=1]
   - name: energyEfficiency
     singleValue: false
     description: Energy rating of a product.
