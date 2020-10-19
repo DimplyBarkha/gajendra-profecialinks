@@ -4,9 +4,10 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
     description: URL of the main product image
     xpath: //li[contains(@class,'glide__slide--active')]/div[contains(@class,'productimage')]/img/@src
+    regExp: (.+)q_auto:best(.+)\/HD(.+)
+    regExpReplace: $1q_auto/v1/HD$3
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -14,8 +15,8 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //div[contains(@class,'glide__slide__cntrl') and not(contains(@class,'active'))]/img/@src
-    regExp: (.+)w_28/h_91/c_limit,w_28,h_91(.+)
-    regExpReplace: $1w_140/h_455/c_limit,w_140,h_455$2
+    regExp: (.+)w_28\/h_91\/c_limit,w_28,h_91(.+)q_auto(.+)\/HD(.+)
+    regExpReplace: $1w_140/h_455/c_limit,w_140,h_455$2q_auto/v1/HD$4
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -38,10 +39,10 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //link[@itemprop='availability'][contains(@href,'InStock')]/@href
+    xpath: //link[@itemprop='availability'][contains(@href,'OutOfStock')]/@href
     regExp: (.+)
-    regExpReplace: In stock
-    defaultValue: Out of stock
+    regExpReplace: Out of stock
+    defaultValue: In stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -80,8 +81,10 @@ fields:
     regExp: HD\/(.+).jpg
     regExpReplace: $1
   - name: variantId
-    singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //li[contains(@class,'glide__slide--active')]/div[contains(@class,'productimage')]/img/@src
+    regExp: HD\/(.+).jpg
+    regExpReplace: $1
   - name: mpc
     description: The manufacturer model code (unique) of the product
     xpath: //meta[@itemprop='productID']/@content
@@ -230,6 +233,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//div[contains(@class,'glide__slide__cntrl') and not(contains(@class,'active'))]/img/@src)
     type: NUMBER
   - name: news
     singleValue: true
