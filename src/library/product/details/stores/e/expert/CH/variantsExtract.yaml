@@ -4,10 +4,10 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: variantId
-    singleValue: false
     description: variant id, to uniquely identify variant
     xpath: //*[@id='ii_variantId']    
   - name: variantUrl
-    singleValue: false
     description: variant Url
-    xpath: //*[@id='ii_variant']
+    xpath: //*[@id='ii_variantId']
+    regExp: (\d+)
+    regExpReplace: https://www.digitec.ch/de/s1/product/$1
