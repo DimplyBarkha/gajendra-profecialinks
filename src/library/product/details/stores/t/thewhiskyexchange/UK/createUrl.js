@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'thewhiskyexchange.com',
     prefix: null,
-    url: null,
+    url: 'https://www.thewhiskyexchange.com/p/{id}',
     country: 'UK',
     store: 'thewhiskyexchange',
     zipcode: '',

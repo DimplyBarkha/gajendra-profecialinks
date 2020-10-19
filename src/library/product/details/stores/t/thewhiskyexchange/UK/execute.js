@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'thewhiskyexchange',
     domain: 'thewhiskyexchange.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'article[class="product-page"]',
+    noResultsXPath: '//img[contains(@alt, "not found")]',
     zipcode: '',
   },
 };
