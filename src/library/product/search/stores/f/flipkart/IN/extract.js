@@ -27,7 +27,7 @@ async function implementation (
       catElement.style.display = 'none';
       doc.appendChild(catElement);
     }
-    await stall(10000);
+    
     await fetch(window.location.href, { method: 'GET' }).then(r => r.text()).then(htm => {
       const result = GetTagByIdUsingRegex('script', 'is_script', htm);
       const outerHTML = result && result[0] ? result[0] : '';
@@ -57,6 +57,7 @@ async function implementation (
       }
       localStorage.setItem('prodCount', `${lastProductPosition + productSelectors.length}`);
     });
+    stall(1500);
   });
   return await context.extract(productDetails, { transform });
 }
