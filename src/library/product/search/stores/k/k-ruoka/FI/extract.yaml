@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@id,'product-search-results')]/li[@class='bundle-list-item']
+fields:  
+  - name: id
+    SingleValue: false
+    xpath: //a[@class='click-area']/@href
+  - name: rankOrganic
+    SingleValue: false
+    defaultValue: 1
+  - name: rank
+    SingleValue: false
+    defaultValue: 1
+  - name: productUrl
+    SingleValue: false
+    xpath: //a[@class='click-area']/@href
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[contains(@class,'product-result-image')]//img/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class='prodGrid text-center']//h2//a
+  - name: price
+    SingleValue: false
+    xpath: //div[@class='product-result-price']//span[@class='price']
