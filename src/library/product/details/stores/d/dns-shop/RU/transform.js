@@ -88,7 +88,7 @@ const transform = (data) => {
         });
         row.shippingDimensions = [
           {
-            text: cleanUp(text.slice(0, -3)),
+            text: cleanUp(text),
           },
         ];
       }
@@ -111,6 +111,17 @@ const transform = (data) => {
         row.specifications = [
           {
             text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
+      if (row.shippingWeight) {
+        let text = '';
+        row.shippingWeight.forEach(item => {
+          text = item.text;
+        });
+        row.shippingWeight = [
+          {
+            text: cleanUp(text),
           },
         ];
       }

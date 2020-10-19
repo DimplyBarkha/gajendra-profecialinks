@@ -80,7 +80,10 @@ fields:
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
-    xpath: //*[contains(text(), 'Габариты и вес')]/parent::*/following-sibling::*[1] | //*[contains(text(), 'Габариты и вес')]/parent::*/following-sibling::*[2] | //*[contains(text(), 'Габариты и вес')]/parent::*/following-sibling::*[3]
+    xpath: //*[contains(text(), 'Ширина упаковки')]/parent::*/parent::*/parent::* | //*[contains(text(), 'Высота упаковки')]/parent::*/parent::*/parent::* | //*[contains(text(), 'Глубина упаковки')]/parent::*/parent::*/parent::* | //*[contains(text(), 'Габариты и вес в упаковке')]/parent::*/following-sibling::*[1] | //*[contains(text(), 'Габариты и вес в упаковке')]/parent::*/following-sibling::*[2] | //*[contains(text(), 'Габариты и вес в упаковке')]/parent::*/following-sibling::*[3]
+  - name: shippingWeight
+    singleValue: false
+    xpath: //*[contains(text(), 'Вес вместе с упаковкой')]/parent::*/parent::*/parent::*
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
@@ -114,7 +117,7 @@ fields:
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
-    xpath: //span[contains(text(), 'Гарантия АСЦ:')]/following-sibling::*
+    xpath: //span[contains(text(), 'Гарантия')]/following-sibling::*
   - name: countryOfOrigin
     singleValue: false
     description: The country from which the product originates
