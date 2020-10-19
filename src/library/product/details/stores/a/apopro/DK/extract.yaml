@@ -26,6 +26,7 @@ fields:
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: //div[@class="before-price ng-binding"]
+    regExp: \d.+
   - name: price
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
@@ -41,7 +42,7 @@ fields:
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //section[@id="scroll-description"]//text()
+    xpath: //body//@desc
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     xpath: count(//section[@id="scroll-description"]//ul//li)
@@ -76,10 +77,12 @@ fields:
 #   - name: mpc
 #     singleValue: true
 #     description: The manufacturer model code (unique) of the product
-#   - name: packSize
-#     singleValue: true
-#     description: The number of packs in the product offer (if stated separately on
-#       the site to quantity)
+  # - name: packSize
+  #   singleValue: true
+  #   description: The number of packs in the product offer (if stated separately on
+  #     the site to quantity)
+  #   xpath: //div[contains(@class,'info-of-product mb20 ffopen')]/div[contains(.,'stk')]
+  #   regExp: (\d+)
 #   - name: legalDisclaimer
 #     singleValue: true
 #     description: Content under "legal disclaimer" header
