@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'div.page ng-scope',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.gallery-table, ng-scope',
+    loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'sears.com',
