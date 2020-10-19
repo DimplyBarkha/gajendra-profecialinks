@@ -1,6 +1,6 @@
 const { transform } = require('./shared');
 
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -10,12 +10,17 @@ async function implementation (
   const { productDetails } = dependencies;
 
   await context.evaluate(async function () {
-    function stall (ms) {
+    function stall(ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
         }, ms);
       });
+    }
+
+    function appendImages(selector, images) {
+      [...document.querySelectorAll(selector)].map((e, index) => { e.setAttribute("mainImage", `${images[index][0]}`) })
+
     }
 
     // function addHiddenDiv (id, content) {
@@ -33,21 +38,28 @@ async function implementation (
     //     console.log(`Couldn't load selector => ${sel}`);
     //   }
     // };
-
+    let finalImages = [];
     const isVariants = document.querySelector('ul[data-automation-id="product-dimensions-color"]');
+    const variants = "#product-options-false > div._2E0-s > div > div > ul li"
+
     if (isVariants) {
       document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li div button').forEach(ele => {
-      ele.click();
-      console.log('Clicked');
-      // optionalWait('h1[data-automation-id="product-title"]');
-      const mainImage = document.querySelector('div._3IMdO div.image-desktop img').getAttribute('src');
-      const newDiv = document.createElement('div');
-      newDiv.id = 'mainImage';
-      newDiv.textContent = mainImage;
-      // newDiv.style.display = 'none';
-      document.querySelector('main#mainContainerBlock').appendChild(newDiv);
+        ele.click();
+        console.log('Clicked');
+        finalImages.push([...document.querySelectorAll('#contentContainer > section > section:nth-child(3) > div.sm12.md6.lg6.xl7._3AtEJ > div > div.carousel-wrapper > div > div._3h_IA.lg2.xl2.md2.sm2._1sbcC.noPad > div > div.slick-list a')].map(e => { return e.querySelector('img').getAttribute('src') }))
+        // optionalWait('h1[data-automation-id="product-title"]');
+        // const mainImage = document.querySelector('div._3IMdO div.image-desktop img').getAttribute('src');
+        // const newDiv = document.createElement('div');
+        // newDiv.id = 'mainImage';
+        // newDiv.textContent = mainImage;
+        // // newDiv.style.display = 'none';
+        // document.querySelector('main#mainContainerBlock').appendChild(newDiv);
       });
     }
+    appendImages(variants, finalImages)
+
+
+
 
     let scrollTop = 500;
     while (true) {
