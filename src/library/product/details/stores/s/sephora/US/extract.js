@@ -46,6 +46,7 @@ module.exports = {
 
     if (!pageCheck) {
       // throw new Error("productPageNotLoaded");
+      return false;
 
     }
 
@@ -59,7 +60,12 @@ module.exports = {
     try {
       await context.waitForSelector('div#ratings-reviews-container div#ratings-reviews', { timeout: 45000 });
     } catch (error) {
-      await context.click('span[data-at^="number_of_reviews"]');
+      const reviewButtonExists = await context.evaluate(async function () {
+        return !!document.querySelector('span[data-at^="number_of_reviews"]');
+      });
+      if (reviewButtonExists) {
+        await context.click('span[data-at^="number_of_reviews"]');
+      }
       console.log('Loading ratings and reviews');
     }
 
