@@ -30,10 +30,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //table[@itemprop="offers"]//tr//td//del[contains(text(),"$")]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //div[@itemprop="price"]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -56,16 +58,18 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: (//div[@class="px1 py05 border-bottom divided border-bottom-dashed"])[1]/text()
+    xpath: //*[@id="quick_specs"]/div[1]/div/div/div[2]/div[1]/text()
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+  - name: url
+    singleValue: true
+    description: the url of the page
+    xpath: //link[@rel='canonical']/@href
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
-    xpath: //input[@id="qty-5f86bdf1040c6"]/@value
+    xpath: //input[@class="input center mb0 inline-block p05 js-sync-by-name main-quantity"]/@value
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -75,7 +79,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //meta[@itemprop="gtin12"]
+    xpath: //meta[@itemprop="gtin12"]/@content
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -93,7 +97,6 @@ fields:
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
-    xpath: //div[@class="bg-gray-10 p2 full-height border"]
   - name: directions
     singleValue: true
     description: Content under "directions" header
@@ -103,10 +106,8 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    xpath: //div[@class="inline-block align-middle font-size-sm line-height-1 ml1"]/span
     type: NUMBER
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
@@ -118,18 +119,22 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: (//div[@class="bg-gray-10"])[4]
+    xpath: //div[@id="quick_specs"]//div[@class="bold black-0"][.//text()[contains(.,'Dimensions')]]//following::div[1]
+    regExp: ^\n
+    regExpReplace: $1
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
+    xpath: //div[@class="col col-6 right-align bold"][.//text()[contains(.,'Shipping Weight')]]/following::div[1]
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    xpath: count(//div[@class="flex flex-wrap mxn1"]//meta[@itemprop="sku"])
     type: NUMBER
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: (//div[@class="px1 py05 border-bottom divided border-bottom-dashed"])[15]//text()
+    xpath: //meta[@itemprop="color"]/@content
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -145,6 +150,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: (//meta[@itemprop="name"]/@content)[2]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -163,6 +169,9 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+    xpath: //span[@itemprop="brand"]//meta[@itemprop="url"]/@content
+    regExp: (/brands/.+)
+    regExpReplace: https://www.ajmadison.com$1
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -401,7 +410,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: (//div[@class="col col-6"])[27]
+    xpath: //div[@class="tab-content border px3 mb3"]//div[contains(@id,'specs-tab-pane')]//div[contains(text(),"Warranty")]/following::div[1]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -450,6 +459,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //html//div[@id='variant']
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -464,6 +474,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
+    xpath: //div[@class="flex flex-wrap mxn1"]//meta[@itemprop="sku"]/@content
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
@@ -484,7 +495,7 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
+    defaultValue: Yes
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
