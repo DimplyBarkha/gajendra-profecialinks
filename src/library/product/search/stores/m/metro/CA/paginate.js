@@ -3,7 +3,7 @@ module.exports = {
     parameterValues: {
         country: 'CA',
         store: 'metro',
-        nextLinkSelector: '.ppn--pagination>a[class="cta-primary"]',
+        nextLinkSelector: 'a[aria-label="Next"]',
         mutationSelector: null,
         spinnerSelector: null,
         loadedSelector: '.tile-product__top-section__visuals__stickers',
