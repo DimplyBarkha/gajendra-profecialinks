@@ -13,7 +13,8 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
      await context.evaluate(async function () {
       const overlay = document.getElementById('headingOne');
       if (overlay !== undefined) {

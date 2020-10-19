@@ -64,7 +64,7 @@ const transform = (data) => {
 
 				if (received_per >= 1) {
 					var aggregate_rating = (received_per * 5) / 100;
-					var newaggregate_rating = aggregate_rating.toString().replace(".", ",");
+					var newaggregate_rating = aggregate_rating.toString().replace(",", ".");
 					newText = newaggregate_rating;
 				}
 
@@ -159,7 +159,7 @@ const transform = (data) => {
 							newText += specifications + ":";
 						}
 						else {
-							newText += specifications + "|";
+							newText += specifications + " || ";
 						}
 					}
 					index++;
