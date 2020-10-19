@@ -1,0 +1,74 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //button[contains(@aria-label,'1 of ')]/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //button[contains(@aria-label,'1 of ')]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //button[contains(@class,'carousel-img-wrap')]/img/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: url
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
+  - name: category
+    singleValue: false
+    xpath: //ol[@class="breadcrumb"]/li[2]/a/text()
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@class="d-md-none col-sm-12"]/h5/text()
+  - name: price
+    singleValue: true
+    xpath: (//span[@class='price-tag']//span[@class="outline "])[1]/text()
+  - name: availabilityText
+    singleValue: true
+    xpath: //html//div[@class="graco_availability"]
+  - name: description
+    singleValue: true
+    xpath: //div[@id='collapsible-pdp-details-1']/text()
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//ul[@id='collapsible-pdp-details-2']/li)
+  - name: brandText
+    singleValue: true
+    xpath: (//button[@class='title btn text-left btn-block d-sm-none'])[1]/text()
+  - name: gtin
+    singleValue: true
+    xpath: (//div[contains(@class,'pdp-whereToBuyButton')])[1]/div/@ps-sku
+  - name: sku
+    singleValue: true
+    xpath: //div[@class='container product-detail product-wrapper']/@data-pid
+  - name: legalDisclaimer
+    singleValue: true
+    xpath: //div[@class='container text14']/text()
+  - name: directions
+    singleValue: false
+    xpath: //div[@id='collapsible-pdp-details-6']/span/text()
+  - name: warnings
+    singleValue: false
+    xpath: //ul[@id='collapsible-pdp-details-4']/li/text()
+  - name: ratingCount
+    singleValue: true
+    xpath: (//div[@class='bv_numReviews_text'])[1]/text()
+  - name: aggregateRating
+    singleValue: true
+    xpath: (//div[@itemprop='ratingValue'])[1]/text()
+  - name: shippingDimensions
+    singleValue: true
+    xpath: //html//div[@class="graco_dimensions"]
+  - name: color
+    singleValue: true
+    xpath: //span[@class='color-display-value order-3 ml-1']/text()
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //ul[@id='collapsible-pdp-details-2']/li/text()
+  - name: name
+    singleValue: true
+    xpath: //div[@class="d-md-none col-sm-12"]/h5/text()
