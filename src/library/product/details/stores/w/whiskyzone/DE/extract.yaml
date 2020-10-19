@@ -1,0 +1,65 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class="image-slider--container"]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="image-slider--container"]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    description: //div[@class="image-slider--thumbnails-slide"]/a[position()>0]/@href
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="breadcrumb--list"]/li[@role="menuitem"]/a/@title
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@class="product--title"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,"product--price")]//span[@class="price--line-through"]
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@class,"product--price")]//span[contains(@class,"price--content")]/text()
+  - name: availabilityText
+    singleValue: true
+    defaultValue: In Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class="product--description"]/p
+  - name: brandText
+    singleValue: false
+    xapth: //div[@class="product--supplier"]/a/@title
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@class="product--description"]/p[last()]
+  - name: quantity
+    singleValue: false
+    defaultValue: '1'
+  - name: gtin
+    singleValue: false
+    xpath: //meta[@itemprop="gtin13"]/@content
+  - name: sku
+    singleValue: false
+    xpath: //span[@itemprop="sku"]
+  - name: variantId
+    singleValue: false
+    xpath: //span[@itemprop="sku"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class="product--rating"]/meta[@itemprop="ratingCount"]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="product--rating-container"]//meta[@itemprop="ratingValue"]/@content
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: name
+    singleValue: true
+    xpath: //h1[@class="product--title"]
