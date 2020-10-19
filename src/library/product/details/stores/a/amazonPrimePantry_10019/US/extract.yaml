@@ -1,1 +1,7 @@
 extends: ../shared
+fields:
+  - name: secondaryImageTotal
+    xpath: //head/@count
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: '#aplus'
