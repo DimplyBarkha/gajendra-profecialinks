@@ -6,6 +6,8 @@ fields:
   - name: id
     SingleValue: false
     xpath: //a[@class='click-area']/@href
+    regExp: .+-(\d+)
+    regExpReplace: $1 
   - name: rankOrganic
     SingleValue: false
     defaultValue: 1
