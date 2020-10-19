@@ -14,9 +14,11 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: //div[@class="product-main__image-container"]//@src
 - name: imageAlt
   singleValue: true
-  description: Alt text of the main product image
+  description: imageAlt
+  xpath: //div[@class="product-main__image-container"]//@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
@@ -26,26 +28,33 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: //div[@class="breadcrumb"]//li[@class="breadcrumb__item"]//a/@title
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //h1[@class='product-main__name']
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
+  xpath: //span[@class="product-offer__price"]
+  regExp: \[£\]\d+.\d+
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //div[@class="product-action"]//p[@class="product-action__price"]
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  xpath: //div[@class="product-action"]//p[@class='product-action__stock-flag']
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: concat(//span[@class="product-main__sub-name"], //ul[@class="product-main__meta"], //p[@class="product-main__data"], //div[@class="product-main__description"]/p)
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
