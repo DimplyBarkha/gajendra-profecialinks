@@ -3,6 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: _input
   - name: image
     singleValue: false
     description: URL of the main product image
@@ -26,6 +27,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //*[@id="priceblock_ourprice"]
+  - name: manufacturer
+    singleValue: false
+    xpath: (//*[@id="detailBulletsWrapper_feature_div"]//span[contains(.,'Manufacturer')]/span[2])[1]
   - name: availabilityText
     singleValue: false
     xpath: //*[@id='availability']
@@ -94,7 +98,7 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //*[@id="productTitle"]
-    regExp: (\d+.?\d*[-\s]*([Ff]luid)?\s*([Cc]ount|[fF][lL].?\s[Oo][Zz]|[Oo]unce|[Oo]z))
+    regExp: (\d+.?\d*[-\s]*([Ff]luid)?\s*([Cc]ount|[fF][lL].?\s[Oo][Zz]|[Oo]unce|[Oo]z|.?\sRegular.?\sRolls))
     regExpReplace: $1
   - name: promotion
     singleValue: false
@@ -278,3 +282,11 @@ fields:
     xpath: //*[@id="priceblock_ourprice_row"]//span[@class="a-size-small a-color-price"]
     regExp: \(?.*\/\s*(.*)\)
     regExpReplace: $1
+  - name: imageZoomFeaturePresent
+    defaultValue: Yes
+  - name: legalDisclaimer
+    xpath: //div[@id='legal-disclaimer']//p[@class="tiny"]
+  - name: salesRank
+    xpath: //head/@rank
+  - name: salesRankCategory
+    xpath: //head/@category
