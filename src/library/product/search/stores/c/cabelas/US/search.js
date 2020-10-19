@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'cabelas.com',
-    timeout: 100000,
     country: 'US',
     store: 'cabelas',
+    domain: 'cabelas.com',
     zipcode: '',
   },
 };

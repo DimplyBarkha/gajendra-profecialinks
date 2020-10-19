@@ -1,0 +1,20 @@
+Search:
+singleRecord: false
+recordSelector: null
+fields:
+  - name: image
+    singleValue: single
+    xpath: (//div[@class="image"]/a/img)/@src
+  - name: price
+    singleValue: single
+    xpath: (//span[@class="price "]/span)
+    regExp: 
+  - name: name
+    singleValue: false
+    xpath: (//div[@class="product_name"]/a)
+  - name: productUrl
+    singleValue: false
+    xpath: (//div[@class="product_name"]/a)/@href
+  - name: reviewCount
+    singleValue: false
+    xpath: (//div/span[@class="bvReviews"])
