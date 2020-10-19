@@ -52,7 +52,7 @@ module.exports = {
       await new Promise((resolve) => setTimeout(resolve, 10000));
       while (await isCaptcha() === 'true' && captchas < MAX_CAPTCHAS) {
         captchas++;
-        await context.waitForSelector('iframe[role="presentation"]', { timeout: 90000 });
+        await context.waitForSelector('iframe[role="presentation"]', { timeout: 120000 });
         if (backconnect) {
           throw Error('CAPTCHA received');
         }
@@ -73,7 +73,7 @@ module.exports = {
     const run = async function () {
       // do we perhaps want to go to the homepage for amazon first?
       lastResponseData = await context.goto('https://www.walmart.com/grocery', {
-        timeout: 150000,
+        timeout: 180000,
         waitUntil: 'load',
         checkBlocked: true,
         js_enabled: true,
@@ -90,7 +90,7 @@ module.exports = {
 
       console.log('Going back to desired page');
       lastResponseData = await context.goto(url, {
-        timeout: 150000,
+        timeout: 180000,
         waitUntil: 'load',
         checkBlocked: true,
         js_enabled: true,
@@ -132,6 +132,6 @@ module.exports = {
     if (zipcode) {
       await dependencies.setZipCode({ zipcode: zipcode });
     }
-    await context.goto(url, { timeout: 150000, waitUntil: 'load', checkBlocked: false, block_ads: false, js_enabled: true, css_enabled: false, random_move_mouse: true });
+    await context.goto(url, { timeout: 180000, waitUntil: 'load', checkBlocked: false, block_ads: false, js_enabled: true, css_enabled: false, random_move_mouse: true });
   },
 };
