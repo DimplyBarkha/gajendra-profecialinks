@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,'js-search-list')]
+fields:  
+  - name: id
+    SingleValue: false
+    xpath: //ul[contains(@class,'js-search-list')]//li/@data-id
+  - name: rankOrganic
+    SingleValue: false
+    defaultValue: 1
+  - name: rank
+    SingleValue: false
+    defaultValue: 1
+  - name: productUrl
+    SingleValue: true
+    xpath: //ul[contains(@class,'js-search-list')]//a[contains(@class,'b-product-item-new__title')]/@href
+  - name: thumbnail
+    SingleValue: true
+    xpath: //ul[contains(@class,'js-search-list')]//div[contains(@class,'b-product-item-new__wrapper')]//img//@src
+  - name: name
+    SingleValue: true
+    xpath: //ul[contains(@class,'js-search-list')]//a[contains(@class,'b-product-item-new__title')]
+  - name: price
+    SingleValue: true
+    xpath: //ul[contains(@class,'js-search-list')]//span[contains(@class,'b-product-item-new__price--new-no-wrap')]
+  - name: manufacturer
+    SingleValue: true
+    xpath: //ul[contains(@class,'js-search-list')]//div[contains(@class,'js-issue-permutation-product-info')]//p[contains(text(),'Производитель: ')]//span
