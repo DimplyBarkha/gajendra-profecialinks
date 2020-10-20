@@ -1,0 +1,65 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //*[@data-hook="review"]
+fields:
+  - name: comments
+    singleValue: false
+    description: Number of comments on the review
+    type: NUMBER
+    xpath: .//span[contains(@class, "review-comment-total")]
+    regExp: ([0-9]{1,})
+    defaultValue: 0
+  - name: product_id
+    singleValue: false
+    xpath: ancestor::html//span[contains(@class, 'item')]/a[1]/@href
+    regExp: dp\/([^\/]+)
+    regExpReplace: $1
+  - name: date
+    singleValue: false
+    description: Date the review  was made
+    type: DATETIME
+    xpath: .//*[contains(@data-hook,"review-date")]
+  - name: domain
+    singleValue: false
+    description: The URL of the page
+    type: TEXT
+    xpath: ancestor::html//div[@id="added-url"]
+  - name: review_content
+    singleValue: false
+    description: The text of  the review
+    type: TEXT
+    xpath: .//*[@data-hook="review-body"]
+  - name: review_id
+    singleValue: false
+    description: A direct link to the review
+    type: TEXT
+    xpath: ./@id
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com/gp/customer-reviews/$1
+  - name: review_title
+    singleValue: false
+    description: The title of  the review
+    type: TEXT
+    xpath: .//*[@data-hook="review-title"]
+  - name: rating
+    singleValue: false
+    description: The review  rating
+    type: NUMBER
+    xpath: .//*[contains(@data-hook,"review-star-rating")]
+    regExp: '^[^\s]+'
+  - name: source
+    singleValue: true
+    description: Hardcoded amazon
+    defaultValue: amazon
+  - name: tld
+    singleValue: false
+    xpath: ancestor::html//a[@class="nav-logo-link"]/@aria-label
+    regExp: '\.(.+)$'
+    regExpReplace: $1
+    defaultValue: com
+  - name: user
+    singleValue: false
+    description: The user name of the reviewer
+    type: TEXT
+    xpath: .//span[contains(@class, "a-profile-name")]

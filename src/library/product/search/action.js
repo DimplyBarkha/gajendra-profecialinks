@@ -39,6 +39,16 @@ module.exports = {
       description: 'the minimum number of results required',
       type: 'number',
     },
+    {
+      name: 'id',
+      description: 'keywords to search for',
+      type: 'string',
+    },
+    {
+      name: '_date',
+      description: 'earliest date to extract a review',
+      type: 'string',
+    },
   ],
   dependencies: {
     execute: 'action:product/search/execute',
@@ -46,14 +56,14 @@ module.exports = {
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
-  implementation: async ({ keywords, Keywords, Brands, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
+  implementation: async ({ keywords, Keywords, results = 50, id, _date = null }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-    keywords = (Keywords) || (Brands) || (keywords);
-    console.log('zip:' + zipcode);
+    keywords = (Keywords) || (keywords) || (id);
+
     // do the search
-    const resultsReturned = await execute({ keywords, zipcode });
+    const resultsReturned = await execute({ keywords, zipcode, _date, context });
 
     if (!resultsReturned) {
       console.log('No results were returned');
@@ -61,7 +71,7 @@ module.exports = {
     }
 
     // try gettings some search results
-    const pageOne = await extract({});
+    const pageOne = await extract({ _date });
 
     let collected = length(pageOne);
 
@@ -73,8 +83,8 @@ module.exports = {
     }
 
     let page = 2;
-    while (collected < results && await paginate({ keywords, page, offset: collected })) {
-      const data = await extract({});
+    while (collected < results && await paginate({ keywords, page, offset: collected, _date, context })) {
+      const data = await extract({ _date });
       const count = length(data);
       if (count === 0) {
         // no results
