@@ -286,8 +286,8 @@ fields:
   - name: imageZoomFeaturePresent
     defaultValue: Yes
   - name: salesRank
-    xpath: //head/@rank
+    xpath: //li[@id='rank']//@value
   - name: salesRankCategory
     xpath: //head/@category
   - name: secondaryImageTotal
-    xpath: //head/@count
+    defaultValue: 11

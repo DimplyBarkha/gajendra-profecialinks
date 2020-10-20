@@ -43,9 +43,16 @@ module.exports.implementation = async function implementation(
         });
         removeDuplicates(product_rank);
         removeDuplicates(product_rank_category);
-        let rank = product_rank.join(' | ');
+        for (let i = 0; i < product_rank.length; i++) {
+            const div = document.createElement('div');
+            div.className = 'rank';
+            const getInput = document.createElement('li');
+            getInput.id = 'rank';
+            div.appendChild(getInput);
+            document.body.appendChild(div);
+            getInput.setAttribute('value', product_rank[i]);
+        }
         let category = product_rank_category.join(' | ');
-        document.head.setAttribute('rank', rank);
         document.head.setAttribute('category', category);
         let getEnhancedContent = document.querySelector('#aplus') ? document.querySelector('#aplus').innerText : null;
         if (getEnhancedContent) {
