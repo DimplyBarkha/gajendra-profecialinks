@@ -24,9 +24,9 @@ fields:
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: //div[@class="top_content"]//a/@href | //link[@id="canonicalurl"]/@href
-    regExp: (.*)com(.*)
-    regExpReplace: https://www.keurig.com$2
+    xpath: //div[@class="top_content"]//a/@href | //input[@id="productPageURL"]/@value
+    regExp: (.+)
+    regExpReplace: https://www.keurig.com$1
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
