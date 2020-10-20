@@ -5,9 +5,9 @@ module.exports = {
     country: 'UK',
     store: 'littlewoods',
     domain: 'littlewoods.com',
-    url: 'https://www.littlewoods.com/e/q/{searchTerms}.end',
+    url: 'https://www.littlewoods.com/e/q/{dyson-pure-cool-me}.end',
     loadedSelector: '#products>ul',
-    noResultsXPath: null,
+    noResultsXPath: '//*[@id="main"]/div/p[1]/strong/text()',
     zipcode: '',
   },
 };
