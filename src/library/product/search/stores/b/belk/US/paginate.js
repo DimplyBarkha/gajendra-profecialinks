@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'li[data-tile-pid]',
-    noResultsXPath: null,
+    noResultsXPath: '//h1[@class="search-result-data"]',
     openSearchDefinition: null,
     domain: 'belk.com',
     zipcode: '',
