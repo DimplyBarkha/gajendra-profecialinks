@@ -65,6 +65,9 @@ fields:
   - name: shippingDimensions
     singleValue: true
     xpath: //html//div[@class="graco_dimensions"]
+  - name: specifications
+    singleValue: true
+    xpath: //html//div[@class="graco_dimensions"]
   - name: color
     singleValue: true
     xpath: //span[@class='color-display-value order-3 ml-1']/text()
@@ -77,3 +80,30 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: true
     xpath: //html//div[@class="addDescBulletInfo"]
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    defaultValue: Yes
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: Yes
+  - name: materials
+    singleValue: true
+    description: Materials used to make the product
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
+    defaultValue: Yes
