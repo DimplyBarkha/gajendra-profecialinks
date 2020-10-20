@@ -49,7 +49,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="mb2 gray-5"]
+    xpath: //html//div[@id='addProductDescription']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -119,9 +119,7 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //div[@id="quick_specs"]//div[@class="bold black-0"][.//text()[contains(.,'Dimensions')]]//following::div[1]
-    regExp: ^\n
-    regExpReplace: $1
+    xpath: //html//div[@id='shipping']
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
