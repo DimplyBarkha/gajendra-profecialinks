@@ -38,7 +38,6 @@ const transform = (data) => {
         ];
       }
       if (row.description) {
-        console.log('desc', row.description);
         row.description = [{ text: row.description[0].text.replace(/•/gm, '||') }];
       }
       if (row.variants1 && row.variants1.length > 1) {
@@ -49,14 +48,34 @@ const transform = (data) => {
         } else {
           row.firstVariant = [{ text: row.variants1[0].text }];
         }
+        if (row.variantInformation1) {
+          row.variantInformation = [{ text: row.variantInformation1[0].text }];
+        }
       }
       if (row.additionalDescBulletInfo) {
         const additionalDescBulletInfo = [];
         row.additionalDescBulletInfo.forEach(item => {
           item.text.match(/•/gm) && additionalDescBulletInfo.push({ text: item.text });
         });
-        row.additionalDescBulletInfo = additionalDescBulletInfo;
+        if (additionalDescBulletInfo.length >= 1) {
+          row.additionalDescBulletInfo = additionalDescBulletInfo;
+        }
         row.descriptionBullets = [{ text: additionalDescBulletInfo.length }];
+      }
+      if (row.videos && row.videoLength && row.videoLength.length > 1) {
+        const videoLength = row.videoLength.pop();
+        row.videoLength = [{ text: videoLength.text.replace(/(.*) (\/) (.*)/, '$3') }];
+      } else {
+        row.videoLength = [];
+      }
+      if (row.manufacturerImages) {
+        const manufacturerImages = [];
+        row.manufacturerImages.forEach(item => {
+          !item.text.startsWith('https://images.keurig.com') ? manufacturerImages.push({ text: `https://www.keurig.com${item.text}` }) : manufacturerImages.push({ text: item.text });
+        });
+        if (manufacturerImages) {
+          row.manufacturerImages = manufacturerImages;
+        }
       }
     }
   }

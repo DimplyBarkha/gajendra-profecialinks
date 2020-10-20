@@ -60,7 +60,7 @@ fields:
     singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[contains(@class,"product-details__desc-content")]//p/text()[preceding-sibling::br or following-sibling::br and contains(.,"•")])
+    xpath:
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -72,7 +72,7 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    xpath: //label[@for="bmsm-select" and contains(.,"Select quantity")]/following-sibling::input[@name="bmsm-select-ad"]/@value
+    xpath: 
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -149,18 +149,16 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //section[contains(@class,"main-brewer")]//div[contains(@class,"brewer-chart-pdp__feature-list")]
+    xpath: //section[contains(@class,"main-brewer") or contains(@class,"brewer-chart-pdp")]//div[contains(@class,"brewer-chart-pdp__feature-list")]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class="pod-img-wrapper"]/img[@class="product-image"]/@src | //section[contains(@class,"single-image-comp ")]//div[@class="image-container-desktop"]//img/@src |  //div[@class="cmsimage"]/img/@src
-    regExp: (.*).com(.*)
-    regExpReplace: https://www.keurig.com$2
+    xpath: //div[@class="pod-img-wrapper"]/img[@class="product-image"]/@src | //section[contains(@class,"single-image-comp ")]//div[@class="image-container-desktop"]//img/@src |  //div[@class="cmsimage"]/img/@src | //figure/img[contains(@class,"image-desktop")]/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@class="video-container"]/div/@data-url | //div[@class="content"]//video/source[@type="video/mp4"]/@src
-    regExp: (.*)content(\/+)(.*)
+    xpath: //video/@poster
+    regExp: (.*)image(\/)(.*)(\?)(.*)
     regExpReplace: https://images.keurig.com/is/content/$3
   - name: name
     singleValue: false
@@ -221,9 +219,7 @@ fields:
   - name: videoLength
     singleValue: false
     description: null
-    xpath: //div[@id="s7_videoviewpremiumTemplate_videoTime" and @data-component="VideoTime"]
-    regExp: (.*)(\/)(.*)
-    regExpReplace: $2
+    xpath: //div[@data-component="VideoTime"]
   - name: ingredientImagePresent
     singleValue: false
     description: null
@@ -479,6 +475,8 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
+  - name: variantInformation1
+    singleValue: false
     xpath: //div[@class="productVariantColor"]//span[@class="variantColorName"] | //li[contains(@class,"selectVariant active")]/@data-info
   - name: firstVariant
     singleValue: false
@@ -503,7 +501,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[contains(@class,"product-details__desc-content")]//p/text()[preceding-sibling::br or following-sibling::br and contains(.,"•")]
+    xpath: //div[contains(@class,"product-details__desc-content")]//p/text()[preceding-sibling::br or following-sibling::br and contains(.,"•")] | //div[contains(@class,"product-details__desc-content")]//ul/li
   - name: prop65Warning
     singleValue: false
     description: null
