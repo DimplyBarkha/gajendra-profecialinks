@@ -14,11 +14,11 @@ async function goto (gotoInput) {
     cleanCookieRetry: true,
     // dependant on missingDataRetry
     salesRankBadgeRetry: true,
+    hourlyRetryLimit: false
   };
   console.log('fillRateStrategies: ', fillRateStrategies);
 
-  // fill rate functions dependant on DOMAIN
-  const extractor = input.extractor;
+  const extractor = input.extractor || '';
   const MAX_CAPTCHAS = parseInt(input.maxCaptchas) || 3;
   const MAX_SESSION_RETRIES = parseInt(input.maxSessionRetries) || 2;
   // HOURLY_RETRY_LIMIT is a variable  depending on throughput and proxy pool volumee
@@ -59,11 +59,12 @@ async function goto (gotoInput) {
           elementChecks[prop] = true;
         } else { elementChecks[prop] = false; }
       }
+      elementChecks["windowLocation"] = window.location
       return elementChecks;
     });
   };
 
-  // checking for blank pages
+  // checking for blank pages and reloads if blank (data dropped)
   const pageContextCheck = async (page) => {
     if (Object.values(page).filter(item => item).length === 0) {
       extractorContext.counter.set('dropped_data', 1);
@@ -94,8 +95,8 @@ async function goto (gotoInput) {
   };
 
   // calls refresh API and appends data to the page that doesnt already exist
-  const appendData = async (domain) => {
-    return await extractorContext.evaluate(async (domain) => {
+  const appendData = async (page) => {
+    return await extractorContext.evaluate(async (page) => {
       const getParams = async () => {
         const paramLocators = [
           'pgid',
@@ -127,10 +128,10 @@ async function goto (gotoInput) {
       try {
         if (Object.keys(params).length === 7) {
           let url;
-          if (domain.hostname.includes('com')) {
-            url = `https://${domain.hostname}/gp/page/refresh?acAsin=${params.current_asin}&asinList=${params.current_asin}&auiAjax=1&dpEnvironment=softlines&dpxAjaxFlag=1&ee=2&enPre=1&id=${params.current_asin}&isFlushing=2&isP=1&isUDPFlag=1&json=1&mType=full&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&pgid=${params.pgid}&psc=1&ptd=${params.ptd}&rid=${params.rid}=1&sCac=1&sid=${params.sid}&storeID=${params.storeID}&triggerEvent=Twister&twisterView=glance`;
+          if (page.windowLocation.hostname.includes('com')) {
+            url = `https://${page.windowLocation.hostname}/gp/page/refresh?acAsin=${params.current_asin}&asinList=${params.current_asin}&auiAjax=1&dpEnvironment=softlines&dpxAjaxFlag=1&ee=2&enPre=1&id=${params.current_asin}&isFlushing=2&isP=1&isUDPFlag=1&json=1&mType=full&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&pgid=${params.pgid}&psc=1&ptd=${params.ptd}&rid=${params.rid}=1&sCac=1&sid=${params.sid}&storeID=${params.storeID}&triggerEvent=Twister&twisterView=glance`;
           } else {
-            url = `https://${domain.hostname}/gp/twister/ajaxv2?acAsin=${params.current_asin}&sid=${params.sid}&ptd=${params.ptd}&sCac=1&twisterView=glance&pgid=${params.pgid}&rid=${params.rid}&dStr=size_name&auiAjax=1&json=1&dpxAjaxFlag=1&isUDPFlag=1&ee=2&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&enPre=1&dcm=1&udpWeblabState=T1&storeID=${params.storeID}&ppw=&ppl=&isFlushing=2&dpEnvironment=hardlines&asinList=${params.current_asin}&id=${params.current_asin}&mType=full&psc=1`;
+            url = `https://${page.windowLocation.hostname}/gp/twister/ajaxv2?acAsin=${params.current_asin}&sid=${params.sid}&ptd=${params.ptd}&sCac=1&twisterView=glance&pgid=${params.pgid}&rid=${params.rid}&dStr=size_name&auiAjax=1&json=1&dpxAjaxFlag=1&isUDPFlag=1&ee=2&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&enPre=1&dcm=1&udpWeblabState=T1&storeID=${params.storeID}&ppw=&ppl=&isFlushing=2&dpEnvironment=hardlines&asinList=${params.current_asin}&id=${params.current_asin}&mType=full&psc=1`;
           }
 
           const parseResponse = (blob) => {
@@ -160,7 +161,7 @@ async function goto (gotoInput) {
         console.log('append data try  catch fail', err);
         return false;
       }
-    }, domain);
+    }, page);
   };
 
   // checks internal expected API
@@ -240,39 +241,44 @@ async function goto (gotoInput) {
   };
 
   const hourlyRetryIncrement = async () => {
-    try {
-      const key = `${extractor}_${await currDateHour()}`;
-      const apiUrl = `https://89lnzah832.execute-api.us-east-1.amazonaws.com/prod/${key}/plus`;
-      const res = await Promise.race([
-        extractorContext.fetch(apiUrl, { timeout: 1e3 }),
-        new Promise((r, j) => setTimeout(j, 1e3)),
-      ]);
-      const data = await res.json();
-      console.log('hourlyRetryIncrement', data);
-    } catch (err) {
-      console.error('hourlyRetryIncrement:error', err);
+    if(extractor && fillRateStrategies.hourlyRetryLimit){
+      try {
+        const key = `${extractor}_${await currDateHour()}`;
+        const apiUrl = `https://89lnzah832.execute-api.us-east-1.amazonaws.com/prod/${key}/plus`;
+        const res = await Promise.race([
+          extractorContext.fetch(apiUrl, { timeout: 1e3 }),
+          new Promise((r, j) => setTimeout(j, 1e3)),
+        ]);
+        const data = await res.json();
+        console.log('hourlyRetryIncrement', data);
+      } catch (err) {
+        console.error('hourlyRetryIncrement:error', err);
+      }
     }
   };
 
   const getHourlyRetryCount = async () => {
-    try {
-      const key = encodeURIComponent(`${extractor}_${await currDateHour()}`);
-      const apiUrl = `https://89lnzah832.execute-api.us-east-1.amazonaws.com/prod/${key}`;
-      const res = await Promise.race([
-        extractorContext.fetch(apiUrl, { timeout: 1e3 }),
-        new Promise((r, j) => setTimeout(j, 1e3)),
-      ]);
-      const data = await res.json();
-      if (data) {
-        const retriesThisHour = data.counter;
-        console.log(`retriesThisHour: ${extractor}_${await currDateHour()}`, retriesThisHour);
-        return retriesThisHour;
+    if(extractor && fillRateStrategies.hourlyRetryLimit){
+      try {
+        const key = encodeURIComponent(`${extractor}_${await currDateHour()}`);
+        const apiUrl = `https://89lnzah832.execute-api.us-east-1.amazonaws.com/prod/${key}`;
+        const res = await Promise.race([
+          extractorContext.fetch(apiUrl, { timeout: 1e3 }),
+          new Promise((r, j) => setTimeout(j, 1e3)),
+        ]);
+        const data = await res.json();
+        if (data) {
+          const retriesThisHour = data.counter;
+          console.log(`retriesThisHour: ${extractor}_${await currDateHour()}`, retriesThisHour);
+          return retriesThisHour;
+        }
+        return HOURLY_RETRY_LIMIT;
+      } catch (err) {
+        console.error('hourlyRetry:error', err);
+        return HOURLY_RETRY_LIMIT;
       }
-      return HOURLY_RETRY_LIMIT;
-    } catch (err) {
-      console.error('hourlyRetry:error', err);
-      return HOURLY_RETRY_LIMIT;
     }
+    return 0
   };
 
   const retryContext = async () => {
@@ -401,8 +407,6 @@ async function goto (gotoInput) {
     });
     console.log('lastResponseData: ', lastResponseData);
 
-    //  extractorContext.windowLocation() not available at the time of committing.
-    const DOMAIN = await extractorContext.windowLocation();
     // get all needed selectors  on  page as booleans as pageContext
     // solve  captcha, handle 503, accept ccookies, etc
 
@@ -426,7 +430,7 @@ async function goto (gotoInput) {
     if (page.isProductPage && !!parseInt(shouldHaveData.details) && !page.hasProdDetails) {
       if (page.hasVariants && fillRateStrategies.variantAPIAppendData) {
         console.log('append ------>', 'Missing prodDetails when API history says it is expected, and variants exist.');
-        if (await appendData(DOMAIN)) {
+        if (await appendData(page)) {
           extractorContext.counter.set('append', 1);
           console.log('appended data to bottom of page');
         } else {
