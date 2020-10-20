@@ -1,9 +1,6 @@
 async function goto(gotoInput, parameterValues, context, dependencies) {
   // const extractorContext = gotoInput.context
   const extractorContext = context;
-  console.log(`context: ${context}`);
-  console.log(`context: ${context.counter}`);
-  console.log(`gotoInput url: ${gotoInput.url}`);
 
   // @FIX: doesnt get input to extractor;
   // const input = extractorContext.input;
@@ -3607,9 +3604,42 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
   ];
   let userAgentString = JSON.parse(allUserAgentString[Math.floor(allUserAgentString.length * Math.random())].config).userAgent + ' ' + Math.random().toString(36).substring(2, 15);
 
+
   // clean cookie retry in session
   try {
     await run(userAgentString);
+    //
+    const zipcode = gotoInput.zipcode;
+    const apiZipChange = await context.evaluate(async (zipcode) => {
+      const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
+      const response = await fetch('/gp/delivery/ajax/address-change.html', {
+        headers: {
+          accept: 'text/html,*/*',
+          'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+          'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+          'x-requested-with': 'XMLHttpRequest',
+        },
+        body,
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
+      });
+      return response.status === 200;
+    }, zipcode);
+    const onCorrectZip = await context.evaluate((zipcode) => {
+      const zipText = document.querySelector('div#glow-ingress-block');
+      return zipText.textContent.includes(zipcode);
+    }, zipcode);
+    if(!onCorrectZip){
+      if(!apiZipChange){
+        throw new Error('API zip change failed');
+      } else {
+        await context.reload();
+        page = await pageContextCheck(await pageContext());
+        await solveCaptchaIfNecessary(page);
+      }
+    }
+    //
   } catch (err) {
     console.error(err);
     const message = err.message ? err.message.includes('MISSING_DATA') : false;
@@ -3630,6 +3660,38 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
       await extractorContext.goto('about:blank');
       console.log('starting in session retry');
       await run(userAgentString);
+      //
+      const zipcode = gotoInput.zipcode;
+      const apiZipChange = await context.evaluate(async (zipcode) => {
+        const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
+        const response = await fetch('/gp/delivery/ajax/address-change.html', {
+          headers: {
+            accept: 'text/html,*/*',
+            'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+            'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+            'x-requested-with': 'XMLHttpRequest',
+          },
+          body,
+          method: 'POST',
+          mode: 'cors',
+          credentials: 'include',
+        });
+        return response.status === 200;
+      }, zipcode);
+      const onCorrectZip = await context.evaluate((zipcode) => {
+        const zipText = document.querySelector('div#glow-ingress-block');
+        return zipText.textContent.includes(zipcode);
+      }, zipcode);
+      if (!onCorrectZip) {
+        if (!apiZipChange) {
+          throw new Error('API zip change failed');
+        } else {
+          await context.reload();
+          page = await pageContextCheck(await pageContext());
+          await solveCaptchaIfNecessary(page);
+        }
+      }
+      //
     } else {
       await hourlyRetryIncrement();
       throw err;

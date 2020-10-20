@@ -7,7 +7,7 @@ module.exports = {
     domain: 'amazon.com',
     store: 'amazon',
   },
-  implementation
+  implementation,
 }
 //   implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
 //     const memory = {};
