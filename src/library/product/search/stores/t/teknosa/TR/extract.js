@@ -1,12 +1,12 @@
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   const addRanking = async function (context) {
     await context.evaluate(async function () {
-      const productList = document.querySelectorAll(".product-item");
+      const productList = document.querySelectorAll('.product-item');
       productList.forEach((product, i) => {
-        product.setAttribute("rank", i + 1);
+        product.setAttribute('rank', i + 1);
       });
     });
   };
@@ -15,13 +15,13 @@ async function implementation(inputs, parameters, context, dependencies) {
 }
 
 module.exports = {
-  implements: "product/search/extract",
+  implements: 'product/search/extract',
   parameterValues: {
-    country: "TR",
-    store: "teknosa",
+    country: 'TR',
+    store: 'teknosa',
     transform: null,
-    domain: "teknosa.com",
-    zipcode: "",
+    domain: 'teknosa.com',
+    zipcode: '',
   },
   implementation,
 };
