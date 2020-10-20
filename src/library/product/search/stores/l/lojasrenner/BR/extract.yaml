@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class , 'results-list')]/div
+fields:
+  - name: id
+    singleValue: false
+    xpath: //@data-product-id
+  - name: name
+    singleValue: false
+    xpath: //h4[@class="name_product"][2]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="item-content-wrapper"]/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //figure[@class="js-images"]/img[1]/@src
+  - name: price
+    singleValue: false
+    xpath: //span[@class="best_price"]
+  - name: sku
+    singleValue: false
+    xpath: //@data-product-skus
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
