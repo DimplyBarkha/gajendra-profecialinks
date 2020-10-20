@@ -438,8 +438,7 @@ async function goto (gotoInput) {
         }
         page = await pageContext();
         console.log('page update after append: ', page);
-      }
-      if (page.hasVariants && fillRateStrategies.variantReload && !page.hasProdDetails && inSessionRetries < MAX_SESSION_RETRIES) {
+      } else if (page.hasVariants && fillRateStrategies.variantReload && !page.hasProdDetails && inSessionRetries < MAX_SESSION_RETRIES) {
         console.log('reload ------>', 'Missing prodDetails when API history says it is expected, and variants exist.');
         inSessionRetries += 1;
         extractorContext.counter.set('refresh', 1);
@@ -451,7 +450,7 @@ async function goto (gotoInput) {
         page = await handlePage(await pageContext(), lastResponseData, gotoBaseOptions);
         console.log('page handled: ', page);
       }
-      if (!page.hasVariants && fillRateStrategies.nonVariantReload && !page.hasProdDetails) {
+      if (!page.hasVariants && fillRateStrategies.nonVariantReload) {
         console.log('reload ------>', 'Missing prodDetails when API history says it is expected, and variants  do not exist.');
         extractorContext.counter.set('refresh', 1);
         await extractorContext.reload();
