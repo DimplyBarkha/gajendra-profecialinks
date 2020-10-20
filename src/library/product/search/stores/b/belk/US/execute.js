@@ -6,7 +6,7 @@ module.exports = {
     store: 'belk',
     domain: 'belk.com',
     url: 'https://www.belk.com/search/?q={searchTerms}&lang=default',
-    loadedSelector: 'li[data-tile-pid], h1[class="search-result-data"]',
+    loadedSelector: 'li[class="current-page"]',
     noResultsXPath: '//h1[@class="search-result-data"]',
     zipcode: '',
   },
