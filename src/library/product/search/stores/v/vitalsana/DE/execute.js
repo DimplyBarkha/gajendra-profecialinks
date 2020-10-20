@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'vitalsana',
     domain: 'vitalsana.com',
-    url: 'https://www.vitalsana.com/catalogsearch/result/?q=Blasenschw%C3%83%C2%A4che',
+    url: 'https://www.vitalsana.com/catalogsearch/result/?q={searchTerms}',
     loadedSelector: '#maincontent',
     noResultsXPath: null,
     zipcode: '',
