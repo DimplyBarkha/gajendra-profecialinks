@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: "#product-options-false > div._2E0-s > div > div > ul > li"
 recordXpath: //ul[@data-automation-id="product-dimensions-color"]//li
 fields:
   - name: image
@@ -15,7 +15,7 @@ fields:
   #   xpath: ancestor::html//div[@class="slick-list"]//div[@class="slick-track"]//a[position()>1]//div[@class="image-desktop"]//img/@src
   # - name: category
   - name: nameExtended
-    xpath: ancestor::html //h1[@id="productTitle-false"]
+    xpath: ancestor::html //*//h1[@id="productTitle-false"]
   # - name: listPrice
   #   xpath: ancestor::html//div[@data-automation-id="product-content-block"]//span[@data-automation-id="price-original-price"]
   # - name: price
