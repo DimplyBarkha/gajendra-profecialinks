@@ -5,7 +5,7 @@ module.exports = {
     country: 'DK',
     store: 'whiteaway',
     domain: 'whiteaway.com',
-    url: 'https://www.whiteaway.com/search_result/?keywords=bosch%20idos#/',
+    url: 'https://www.whiteaway.com/search_result/?keywords={searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
