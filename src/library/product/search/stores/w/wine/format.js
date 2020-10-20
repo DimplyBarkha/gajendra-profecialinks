@@ -22,9 +22,9 @@ const transform = (data) => {
       for (const row of group) {
         if (row.id) {
           row.id.forEach(item => {
-            var temp_arr = item.text('/');
+            var temp_arr = item.text.split('/');
             if (temp_arr.length){
-                item.text = temp_arr[0];
+                item.text = temp_arr[temp_arr.length-1];
             }            
           });
         }
