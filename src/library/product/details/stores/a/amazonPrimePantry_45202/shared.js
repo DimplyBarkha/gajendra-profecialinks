@@ -7,11 +7,11 @@ module.exports.implementation = async function implementation(
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async function() {
-        await new Promise(resolve => setTimeout(resolve, 2814));
+        await new Promise(resolve => setTimeout(resolve, 5000));
         const element = document.getElementById('aplus');
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
-            await new Promise(resolve => setTimeout(resolve, 2197));
+            await new Promise(resolve => setTimeout(resolve, 5000));
         }
 
         function removeDuplicates(array) {
@@ -36,10 +36,26 @@ module.exports.implementation = async function implementation(
         });
         removeDuplicates(product_rank);
         removeDuplicates(product_rank_category);
-        let rank = product_rank.join(' | ');
         let category = product_rank_category.join(' | ');
-        document.head.setAttribute('rank', rank);
         document.head.setAttribute('category', category);
+        for (let i = 0; i < product_rank.length; i++) {
+            const div = document.createElement('div');
+            div.className = 'rank';
+            const getInput = document.createElement('li');
+            getInput.id = 'rank';
+            div.appendChild(getInput);
+            document.body.appendChild(div);
+            getInput.setAttribute('value', product_rank[i]);
+        }
+        let getEnhancedContent = document.querySelector('#aplus');
+        let enhancedcontent = ''
+        if (getEnhancedContent) {
+            let getAllText = getEnhancedContent.querySelectorAll('p');
+            for (let i = 0; i < getAllText.length; i++)
+                enhancedcontent = enhancedcontent + getAllText[i].innerText
+        }
+        document.head.setAttribute('enhancedcontent', enhancedcontent);
+
     });
     return await context.extract(productDetails, { transform });
 }

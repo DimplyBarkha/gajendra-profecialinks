@@ -107,10 +107,7 @@ fields:
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//*[not(self::noscript)]/img/@src
   - name: manufacturerDescription
-    singleValue: false
-    manualSelector: '#aplus'
-    regExp: (From the manufacturer)(.*)
-    regExpReplace: $2
+    xpath: //head/@enhancedcontent
   - name: _url
     singleValue: false
     xpath: //link[@rel='canonical']/@href
@@ -264,7 +261,7 @@ fields:
     regExp: twister_([A-Z0-9]{9,})
     regExpReplace: $1
   - name: videoLength
-    xpath: //div[@id="main-video-container"]//div[@class="airy-duration-label"]
+    xpath: (//li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-duration | //div[@id="main-video-container"]//div[@class="airy-duration-label"])[1]
   - name: variants
     xpath: //li[contains(@id,'flavor_name')]//@data-defaultasin
   - name: variantAsins
@@ -293,6 +290,6 @@ fields:
   - name: legalDisclaimer
     xpath: //div[@id='legal-disclaimer']//p[@class="tiny"]
   - name: salesRank
-    xpath: //head/@rank
+    xpath: //li[@id='rank']//@value
   - name: salesRankCategory
     xpath: //head/@category
