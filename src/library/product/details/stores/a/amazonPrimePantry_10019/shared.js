@@ -7,17 +7,18 @@ module.exports.implementation = async function implementation(
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async function() {
-        await new Promise(resolve => setTimeout(resolve, 2814));
+        await new Promise(resolve => setTimeout(resolve, 5000));
         const element = document.getElementById('aplus');
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
-            await new Promise(resolve => setTimeout(resolve, 2197));
+            await new Promise(resolve => setTimeout(resolve, 5000));
         }
         let getSecondaryImageCount = document.querySelectorAll('li.a-spacing-small.item.imageThumbnail.a-declarative')
         let count = 0;
         for (i = 1; i < getSecondaryImageCount.length; i++) {
             count++;
         }
+        console.log("Seconday Images Count : " + count);
         document.head.setAttribute('count', count)
 
         function removeDuplicates(array) {
@@ -46,6 +47,12 @@ module.exports.implementation = async function implementation(
         let category = product_rank_category.join(' | ');
         document.head.setAttribute('rank', rank);
         document.head.setAttribute('category', category);
+        let getEnhancedContent = document.querySelector('#aplus') ? document.querySelector('#aplus').innerText : null;
+        if (getEnhancedContent) {
+            getEnhancedContent = getEnhancedContent.split('From the manufacturer')[1].trim();
+        }
+        document.head.setAttribute('enhancedcontent', getEnhancedContent);
+
     });
     return await context.extract(productDetails, { transform });
 }

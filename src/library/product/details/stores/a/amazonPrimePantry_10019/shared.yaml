@@ -107,9 +107,7 @@ fields:
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//*[not(self::noscript)]/img/@src
   - name: manufacturerDescription
-    xpath: //div[@id="aplus_feature_div"]
-    regExp: (From the manufacturer)(.*)
-    regExpReplace: $2
+    xpath: //div[@data-a-expander-name="aplus-module-expander"]//div[contains(@class,"apm-spacing")]//td/div | //div[@class="aplus-module-wrapper"]//div[contains(@class,"apm-tablemodule")]//tr[1]/following-sibling::tr
   - name: _url
     singleValue: false
     xpath: //link[@rel='canonical']/@href
