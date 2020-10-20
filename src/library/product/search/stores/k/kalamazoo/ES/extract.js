@@ -16,16 +16,17 @@ module.exports = {
   ) {
     const { productDetails } = dependencies;
     const { transform } = parameters;
+    await context.waitForNavigation({ timeout: 10000, waitUntil: 'networkidle0' });
     await context.evaluate(() => {
       var searchUrl = window.location.href;
       var appendElements = document.querySelectorAll('article[class*="product-card product-card--close"]');
       if (appendElements.length) {
         appendElements.forEach((element) => {
           element.setAttribute('searchurl', searchUrl);
-        })
+        });
       }
     });
-    await new Promise(resolve => setTimeout(resolve, 10000));
+
     return await context.extract(productDetails, { transform });
-  }
+  },
 };
