@@ -1,0 +1,13 @@
+extends: ../shared
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.in$1
+  - name: price
+    singleValue: false
+    xpath: //span[@class="a-price"]//span[@class="a-offscreen"]//text()
+  - name: reviewCount
+    singleValue: true
+    xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span

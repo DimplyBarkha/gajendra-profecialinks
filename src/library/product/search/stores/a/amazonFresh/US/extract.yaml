@@ -1,0 +1,73 @@
+singleRecord: false
+regionsSelector: null
+# recordXPath: //div[contains(@data-component-type,"s-search-result")]
+recordXPath: //div[contains(@class,"s-main-slot")]//span[contains(text(), "No results for")]/ancestor::html//div[@data-component-type="s-search-result"] |  //div[contains(@class,"s-main-slot")]/div[@data-component-type="s-search-result"]
+recordSelector: null
+fields:
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@cel_widget_id,"MAIN-SEARCH_RESULTS")]//div[contains(@class, "sg-col-inner")]/div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[contains(@cel_widget_id,"MAIN-SEARCH_RESULTS") and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
+    regExp: (.+)
+    regExpReplace: $1
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='my-search-url']
+  - name: name
+    singleValue: true
+    xpath: //h2
+  - name: store
+    singleValue: true
+    defaultValue: 'AmazonFresh'
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    xpath: //div[contains(@data-component-type,"s-search-result") and @data-asin and contains(@class, "AdHolder")]
+  - name: productUrl
+    singleValue: false
+    xpath: //h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com$1
+  - name: gtin
+    singleValue: true
+    xpath:
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class, 'image')]/img/@srcset
+    regExp: >-
+      (?<=1.5x, )(.*)(?= 2x)
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[contains(@aria-label,"stars")]/@aria-label
+    regExp: (.+) out of
+    regExpReplace: $1
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[contains(@aria-label,"stars")]/@aria-label
+    regExp: (.+) out of
+    regExpReplace: $1
+  - name: id
+    singleValue: false
+    xpath: //div/../@data-asin
+  - name: reviewCount
+    singleValue: true
+    xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: true
+    xpath: //span[contains(@class, "a-badge-label") and @id]
+  - name: id
+    singleValue: true
+    xpath: //@data-asin
+    

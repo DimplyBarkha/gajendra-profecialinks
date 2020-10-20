@@ -32,25 +32,35 @@ module.exports.Helpers = class {
   // Function which easily adds the url to the document
   async addURLtoDocument (key, lastPartOnly) {
     const url = await this.context.evaluate(() => window.location.href);
-    const urlParts = url ? url.split('/') : [];
-    if (lastPartOnly) return await this.addItemToDocument(key, urlParts[urlParts.length - 1]);
-    await this.addItemToDocument(key, url);
+    const urlParts = url ? url.split('/').filter(str => str) : [];
+    const partToAdd = lastPartOnly ? urlParts.slice(-1) : url;
+    return this.addItemToDocument(key, partToAdd);
   }
 
   // Function which easily checks if a selector exists, and returns it, or returns false
-  async checkCSSSelector (selector) {
-    return await this.context.evaluate((selector) => {
-      const elem = document.querySelector(selector);
-      return !!elem;
-    }, selector);
+  async checkCSSSelector (selector, { catchError = false } = {}) {
+    return await this.context.evaluate(({ selector, catchError }) => {
+      try {
+        const elem = document.querySelector(selector);
+        return !!elem;
+      } catch (error) {
+        if (catchError) return false;
+        throw error;
+      }
+    }, { selector, catchError });
   }
 
   // Function which easily checks if a selector exists, and returns it, or returns false
-  async checkXpathSelector (selector) {
-    return await this.context.evaluate((selector) => {
-      const elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-      return elem ? !!elem.singleNodeValue : false;
-    }, selector);
+  async checkXpathSelector (selector, { catchError = false } = {}) {
+    return await this.context.evaluate(({ selector, catchError }) => {
+      try {
+        const elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        return elem ? !!elem.singleNodeValue : false;
+      } catch (error) {
+        if (catchError) return false;
+        throw error;
+      }
+    }, { selector, catchError });
   }
 
   // Function which checks if a substring is in the url
@@ -69,22 +79,36 @@ module.exports.Helpers = class {
   }
 
   // Function which checks a selecor
-  async checkSelector (selector, type) {
+  async checkSelector (selector, type, { catchError = false } = {}) {
     let elemIsThere;
-    if (type === 'xpath') elemIsThere = await this.checkXpathSelector(selector);
-    else if (type === 'css') elemIsThere = await this.checkCSSSelector(selector);
+    if (type === 'xpath') elemIsThere = await this.checkXpathSelector(selector, { catchError });
+    else if (type === 'css') elemIsThere = await this.checkCSSSelector(selector, { catchError });
     else return false;
     return elemIsThere;
   }
 
   // Function which checks if the provided object of selectors is there then navigate and click
-  async checkAndReturnProp (selector, type, property) {
-    if (!this.checkSelector(selector, type)) return;
-    return await this.context.evaluate(({ selector, property, type }) => {
-      let elem;
-      if (type === 'xpath') elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-      else if (type === 'css') elem = document.querySelector(selector);
-      return elem[property];
-    }, { selector, property, type });
+  async checkAndReturnProp (selector, type, property, { catchError = false } = {}) {
+    if (!this.checkSelector(selector, type, { catchError })) return null;
+    return await this.context.evaluate(({ selector, property, type, catchError }) => {
+      try {
+        let elem;
+        if (type === 'xpath') elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+        if (type === 'css') elem = document.querySelector(selector);
+        return elem[property];
+      } catch (error) {
+        if (catchError) return null;
+        throw error;
+      }
+    }, { selector, property, type, catchError });
+  }
+
+  // Function which get an item, works on it if a callback is provided, then add it to the dom
+  async getAndAddElem (selector, idToAddToDom, { property = 'innerText', callback = e => e } = {}) {
+    const css = await this.checkAndReturnProp(selector, 'css', property, { catchError: true });
+    const value = await this.checkAndReturnProp(selector, 'xpath', property, { catchError: true });
+    console.log(`cssExtraction: ${css}, xpathExtraction: ${value}`);
+    // parse the value according to the callback and add it to the dom
+    return this.addItemToDocument(idToAddToDom, await callback(value));
   }
 };

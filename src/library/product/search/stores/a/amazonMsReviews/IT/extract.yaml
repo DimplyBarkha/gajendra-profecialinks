@@ -1,11 +1,29 @@
-extends: ../GLOBAL/extract
+extends: ../shared
 fields:
-  - name: tld
-    defaultValue: it
-  - name: review_id
+  - name: productUrl
     singleValue: false
-    description: A direct link to the review
-    type: TEXT
-    xpath: ./@id
+    xpath: //h2/a/@href
     regExp: (.+)
-    regExpReplace: https://www.amazon.it/gp/customer-reviews/$1
+    regExpReplace: https://www.amazon.it$1
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[contains(@aria-label,"stelle")]/@aria-label
+    regExp: (.+) su
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[contains(@aria-label,"stelle")]/following-sibling::span[1]
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[contains(@aria-label,"stelle")]/following-sibling::span[1]
+  - name: price
+    singleValue: false
+    xpath: //span[@class="a-price"]//span[@class="a-offscreen"]//text()
+  - name: endorsementText
+    singleValue: false
+    xpath: //span[contains(@class, "a-badge-label") and @id]
+  - name: sponsored
+    singleValue: false
+    xpath: //div[contains(@class, '_multi-card-creative-desktop_DesktopContainer_adLabel__30wsh') and contains(., 'Sponsorizzato')]
+    description: Is sponsored/paid
+    type: BOOLEAN

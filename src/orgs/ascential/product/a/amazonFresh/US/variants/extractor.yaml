@@ -1,0 +1,17 @@
+robot: product/details/variants
+parameters:
+  country: US
+  domain: amazon.com
+  store: amazonFresh
+  zipcode: "90210"
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+meta:
+  branches:
+    staging:
+      extractor: 93761c9c-fcd9-4e1d-8d7b-6b6be599ee60
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    test:
+      extractor: fb56c936-628c-461f-b2f6-770e86abc159
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
