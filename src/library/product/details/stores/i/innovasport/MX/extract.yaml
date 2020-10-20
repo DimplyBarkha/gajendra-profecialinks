@@ -1,30 +1,60 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: null
+recordSelector: ul.product-size__list>li
+recordXpath: //ul[contains(@class,'product-size__list')]/li
 fields:
   - name: image
-    xpath: //div[contains(@class, 'gallery col-md-8')]//div[contains(@class, 'product-slider')][1]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]/div[1]/img/@src
+    xpath: ancestor::html//div[contains(@class, 'gallery col-md-8')]//div[contains(@class, 'product-slider')][1]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]/div[1]/img/@src
     regExp: (.+)
     regExpReplace: https://www.innovasport.com/$1
+  - name: imageAlt
+    xpath: ancestor::html//div[contains(@class, 'gallery col-md-8')]//div[contains(@class, 'product-slider')][1]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]/div[1]/img/@alt
   - name: category
-    xpath: //ol[contains(@class, 'breadcrumb')]/li[position()>1 and not(contains(@class, 'active'))]
+    xpath: ancestor::html//ol[contains(@class, 'breadcrumb')]/li[position()>1 and not(contains(@class, 'active'))]
   - name: name
-    xpath: //h1[@id='productName']
+    xpath: ancestor::*//*[@id='productName']
   - name: productSize
-    xpath: //a[contains(@class, 'product-size__option--selected')]
+    xpath: //a[contains(@class, 'product-size__option')]
+  - name: quantity
+    xpath: //a[contains(@class, 'product-size__option')]
   - name: color
-    xpath: //div[contains(@class, 'is-accordion__item-wrapper')]//li[contains(.,'Color')]
+    xpath: ancestor::html//div[contains(@class, 'is-accordion__item-wrapper')]//li[contains(.,'Color')]
     regExp: Color(.+)
     regExpReplace: $1
-  - name: brand
-    xpath: //li[@class='active']/preceding-sibling::li[1]
+  - name: brandText
+    xpath: ancestor::html//li[@class='active']/preceding-sibling::li[1]
   - name: price
-    xpath: concat(//span[@id='currentPrice']//span[@id='pdpCurrent_wholePart'],'',//span[@id='pdpCurrent_decimalPart'])
-  - name: availabilityText
-    xpath: //div[@id='js-stock-notification-container']//p[@class='notify-box__title']
+    xpath: concat(ancestor::html//span[@id='currentPrice']//span[@id='pdpCurrent_wholePart'],'',ancestor::html//span[@id='pdpCurrent_decimalPart'])
+  # - name: availabilityText
+  #   xpath: ancestor::html//div[@id='js-stock-notification-container']//p[@class='notify-box__title']
+  #   regExp: (.+)
+  #   regExpReplace: Out of stock
+  #   defaultValue: In stock
+  - name: availablityText
+    xpath: //a[contains(@class, 'product-size__option--no-stock')]
     regExp: (.+)
     regExpReplace: Out of stock
     defaultValue: In stock
   - name: additionalDescription
-    xpath: //ul[@class='is-accordion']//li[@class='is-accordion__item']/div
+    xpath: ancestor::html//meta[@property='og:description']/@content
+  - name: additionalDescBulletInfo
+    xpath: ancestor::html//ul[@class='is-accordion' or @class='is-accordion ']//li[@class='is-accordion__item']/div/ul/li
+  - name: descriptionBullets
+    xpath: count(ancestor::html//ul[@class='is-accordion' or @class='is-accordion ']//li[@class='is-accordion__item']/div/ul/li)
+  - name: sku
+    xpath: ancestor::html//meta[@property='og:url']/@content
+    regExp: (.+)\/(\d+)
+    regExpReplace: $2
+  - name: variantId
+    xpath: //a/@data-option-code
+  - name: alternateImage
+    xpath: ancestor::html//div[contains(@class, 'gallery col-md-8')]//div[contains(@class, 'product-slider')][1]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]/div[position()>1]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.innovasport.com/$1
+  - name: listPrice
+    xpath: concat(ancestor::html//span[@id='highestPrice']/span[2],'',ancestor::html//span[@id='highestPrice']/span[3])
+  - name: mpc
+    xpath: ancestor::html//p[@id='productModel']
+  - name: promotion
+    xpath: //p[@id='promotionDescription']
+    regExp: (\d+)
