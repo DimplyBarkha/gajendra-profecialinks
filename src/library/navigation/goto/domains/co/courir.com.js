@@ -1,9 +1,8 @@
-
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'courir.com',
-    timeout: 60000,
+    timeout: 20000,
     country: 'FR',
     store: 'courir',
     zipcode: '',
@@ -15,13 +14,10 @@ module.exports = {
     dependencies,
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 60000;
+    await context.setUseRelayProxy(false);
 
     const gotoPage = async () => {
       try {
-        await context.setJavaScriptEnabled(true);
-        await context.setLoadAllResources(true);
-        await context.setBlockAds(false);
-
         const responseStatus = await context.goto(url, {
           antiCaptchaOptions: {
             provider: '2-captcha',
@@ -40,9 +36,8 @@ module.exports = {
         console.log('Error navigating to page.');
         throw err;
       }
-
-      await context.waitForNavigation({ timeout, waitUntil: 'load' });
-    }
+      await context.waitForNavigation({ timeout: 30000 });
+    };
 
     const checkExistance = async (selector) => {
       return await context.evaluate(async (sel) => {
@@ -86,23 +81,42 @@ module.exports = {
             const code = geetest
               .toString()
               .replace(/appendTo\("#([^"]+)"\)/, 'appendTo(document.getElementById("$1"))');
-            return eval(`(${code})('/captcha/geetest');`);
+            return eval(`(${code})()`);
           },
         );
 
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 500));
         await context.evaluateInFrame('iframe', function () {
           // @ts-ignore
           document.querySelector('.captcha-handler').click();
         });
 
         console.log('Captcha Resolved.');
-        await context.waitForNavigation({ waitUntil: 'load', timeout });
+        await new Promise(resolve => setTimeout(resolve, 500));
+        await context.waitForNavigation({ timeout: 30000 });
         // we may be navigated to an index page after captcha solve
-        const isProductPage = checkExistance('#product-content');
-        if (!isProductPage) {
+        const productPageSelector = '#product-content';
+        // await context.waitForSelector(productPageSelector);
+        const isWaitProduct = await optionalWait(productPageSelector);
+
+        console.log('isProduct', isWaitProduct);
+        const cookieButtonSelector = 'body > div.optanon-alert-box-wrapper > div.optanon-alert-box-bg > div.optanon-alert-box-button-container > div.optanon-alert-box-button.optanon-button-allow > div > button';
+        const cookieButton = await optionalWait(cookieButtonSelector);
+        console.log('isCookie', cookieButton);
+
+        if (cookieButton) {
+          try {
+            console.log('Clicking on cookie accept button.');
+            await context.click(cookieButtonSelector);
+          } catch (err) {
+            console.log('Error while accepting cookies.');
+          }
+        }
+
+        if (!isWaitProduct) {
           await gotoPage();
           const isCaptchaFramePresent = await checkExistance(captchaSelector);
+          console.log('SecondCaptchaFrame', isCaptchaFramePresent);
           if (isCaptchaFramePresent) {
             throw new Error('got captcha a second time');
           }
@@ -110,24 +124,12 @@ module.exports = {
       } catch (error) {
         console.log('CAPTCHA error: ', error);
         if (error.message === 'Blocked') {
-          await context.reportBlocked(403)
+          await context.reportBlocked(403);
           throw error;
         }
       }
     } else {
       console.log('NO CAPTCHA ENCOUNTER');
-    }
-
-    const cookieButtonSelector = 'button.accept-cookies-button';
-    const cookieButton = await optionalWait(cookieButtonSelector);
-
-    if (cookieButton) {
-      try {
-        console.log('Clicking on cookie accept button.');
-        await context.click(cookieButtonSelector);
-      } catch (err) {
-        console.log('Error while accepting cookies.');
-      }
     }
   },
 };

@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@itemprop="model"]//a | //link[@rel="canonical"]
+fields:
+  - name: variantId
+    xpath: //@href
+    regExp: (.+-)(.+)(.html)
+    regExpReplace: $2
+  - name: variantUrl
+    xpath: //@href

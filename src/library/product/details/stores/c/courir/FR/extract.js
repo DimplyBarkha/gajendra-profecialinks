@@ -1,5 +1,6 @@
+const { transform } = require('./shared');
+
 async function implementation(
-  // @ts-ignore
   inputs,
   parameters,
   context,
@@ -15,7 +16,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'courir',
-    transform: null,
+    transform,
     domain: 'courir.com',
     zipcode: '',
   },
