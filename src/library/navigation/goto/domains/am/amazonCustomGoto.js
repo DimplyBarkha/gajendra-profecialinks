@@ -1,5 +1,9 @@
-async function goto (gotoInput) {
-  const extractorContext = gotoInput.context
+async function goto(gotoInput, parameterValues, context, dependencies) {
+  // const extractorContext = gotoInput.context
+  const extractorContext = context;
+  console.log(`context: ${context}`);
+  console.log(`context: ${context.counter}`);
+  console.log(`gotoInput url: ${gotoInput.url}`);
 
   // @FIX: doesnt get input to extractor;
   // const input = extractorContext.input;
