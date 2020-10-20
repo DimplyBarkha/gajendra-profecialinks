@@ -1,7 +1,9 @@
 async function goto (gotoInput) {
-  const extractorContext = gotoInput.context;
+  const extractorContext = gotoInput.context
+
   // @FIX: doesnt get input to extractor;
-  const input = extractorContext.input;
+  // const input = extractorContext.input;
+
   // strategies can  be  turned on and off
   const fillRateStrategies = {
     variantAPIAppendData: false,
@@ -16,14 +18,18 @@ async function goto (gotoInput) {
     salesRankBadgeRetry: true,
     hourlyRetryLimit: false
   };
-  console.log('fillRateStrategies: ', fillRateStrategies);
+  console.log('fillRateStrategies: ', fillRateStrategies)
 
-  const extractor = input.extractor || '';
-  const MAX_CAPTCHAS = parseInt(input.maxCaptchas) || 3;
-  const MAX_SESSION_RETRIES = parseInt(input.maxSessionRetries) || 2;
+  //input.extractor || 
+  const extractor = ''
+  //parseInt(input.maxCaptchas) ||
+  const MAX_CAPTCHAS =  3
+  //parseInt(input.maxSessionRetries) ||
+  const MAX_SESSION_RETRIES =  2
   // HOURLY_RETRY_LIMIT is a variable  depending on throughput and proxy pool volumee
   // We may need to expand the "key" to be project&extractor specific beecause projects have custom domain limits
-  const HOURLY_RETRY_LIMIT = parseInt(input.hourlyRetryLimit) || 90000;
+  //parseInt(input.hourlyRetryLimit) ||
+  const HOURLY_RETRY_LIMIT =  90000
 
   let page;
   let pageId;
@@ -39,7 +45,10 @@ async function goto (gotoInput) {
         hasVariants: 'div[id*="variation_"] ul, div[id*="variation_"] option',
         hasProdDetails: '#prodDetails, #detailBullets_feature_div',
         hasSalesRank: '#detailBullets_feature_div a[href*="bestsellers"], #detailBullets a[href*="bestsellers"], #prodDetails a[href*="bestsellers"], #SalesRank',
-        isProductPage: 'link[rel*="canonical"][href*="dp"]',
+        isProductPage: 'link[rel*=canonical][href*="/dp/"]',
+        isReviewsPage: 'link[rel*=canonical][href*=product-reviews]',
+        isBestSellerPage: 'link[rel*=canonical][href*="/zgbs/"]',
+        isSearchPage: '#search',
         hasSalesRankBadge: '#ppd i[class*="best-seller-badge"]',
         isCaptchaPage: 'img[src*="/captcha/"]',
         hasAplus: '#aplus',
@@ -66,6 +75,7 @@ async function goto (gotoInput) {
 
   // checking for blank pages and reloads if blank (data dropped)
   const pageContextCheck = async (page) => {
+    console.log('pageContextCheck', page)
     if (Object.values(page).filter(item => item).length === 0) {
       extractorContext.counter.set('dropped_data', 1);
       await extractorContext.reload();
@@ -78,20 +88,22 @@ async function goto (gotoInput) {
 
   // redshift element counter
   const counter = async (page) => {
-    const counts = [];
-    const fields = [
-      { key: 'aplus', boolean: page.hasAplus },
-      { key: 'prodDesc', boolean: page.hasProductDescription },
-      { key: 'prodDetails', boolean: page.hasProdDetails },
-      { key: 'shipDetails', boolean: page.hasShippingDetails },
-      { key: 'salesRank', boolean: page.hasSalesRank },
-    ];
-    for (const { key, boolean } of fields) {
-      counts.push({ key, inc: boolean ? 1 : 0 });
+    if(page.isProductPage){
+      const counts = [];
+      const fields = [
+        { key: 'aplus', boolean: page.hasAplus },
+        { key: 'prodDesc', boolean: page.hasProductDescription },
+        { key: 'prodDetails', boolean: page.hasProdDetails },
+        { key: 'shipDetails', boolean: page.hasShippingDetails },
+        { key: 'salesRank', boolean: page.hasSalesRank },
+      ];
+      for (const { key, boolean } of fields) {
+        counts.push({ key, inc: boolean ? 1 : 0 });
+      }
+      counts.forEach(({ key, inc }) => {
+        extractorContext.counter.set(key, inc);
+      });
     }
-    counts.forEach(({ key, inc }) => {
-      extractorContext.counter.set(key, inc);
-    });
   };
 
   // calls refresh API and appends data to the page that doesnt already exist
@@ -187,7 +199,7 @@ async function goto (gotoInput) {
   const solveCaptcha = async () => {
     console.log('isCaptcha');
 
-    pageId = await extractorContext.getPageId();
+    // pageId = await extractorContext.getPageId();
 
     await extractorContext.solveCaptcha({
       type: 'IMAGECAPTCHA',
@@ -197,7 +209,9 @@ async function goto (gotoInput) {
     });
 
     console.log('solved captcha, waiting for page change');
-    await extractorContext.waitForNextPage(pageId, 30);
+    // await extractorContext.waitForNextPage(30);
+    //port
+    await extractorContext.waitForNavigation()
 
     console.log('Captcha vanished');
 
@@ -297,7 +311,7 @@ async function goto (gotoInput) {
     return false;
   };
 
-  const handlePage = async (page, lastResponseData, gotoBaseOptions) => {
+  const handlePage = async (page, lastResponseData) => {
     console.log('HANDLING PAGE');
     // checking for blank  page and  reloading
     page = await pageContextCheck(page);
@@ -315,13 +329,15 @@ async function goto (gotoInput) {
 
     if (lastResponseData.status === 503 || page.is500Page) {
       console.log('getting  503 pageId');
-      pageId = await extractorContext.getPageId();
+      // pageId = await extractorContext.getPageId();
 
       console.log('Clicking 503 image');
       await extractorContext.click('a img[src*="503.png"], a[href*="ref=cs_503_link"], a img[src*="error/500-title"]');
 
       console.log('Waiting for page to reload on homepage using 503  pageId');
-      await extractorContext.waitForNextPage(pageId, 30);
+      // await extractorContext.waitForNextPage(30);
+      //port
+      await extractorContext.waitForNavigation()
 
       page = await pageContext();
       if (page.is500Page) {
@@ -353,9 +369,8 @@ async function goto (gotoInput) {
       await new Promise(r => setTimeout(r, 2000));
 
       console.log('Going back to desired page');
-      lastResponseData = await extractorContext.goto({
-        url: gotoInput.url,
-        options: gotoBaseOptions,
+      lastResponseData = await extractorContext.goto(gotoInput.url, {
+        checkBlocked: false
       });
 
       console.log('lastResponseData: ', lastResponseData);
@@ -383,34 +398,29 @@ async function goto (gotoInput) {
   };
 
   const run = async (user_agent) => {
-    extractorContext.enableNetworkDebugger();
+    // extractorContext.enableNetworkDebugger();
     // redshift health counters set to 0
-    extractorContext.counter.set('task', 0);
-    extractorContext.counter.set('expected', 0);
-    extractorContext.counter.set('primevideo', 0);
-    extractorContext.counter.set('refresh', 0);
-    extractorContext.counter.set('append', 0);
+    extractorContext.counter.set('task', 0)
+    extractorContext.counter.set('expected', 0)
+    extractorContext.counter.set('primevideo', 0)
+    extractorContext.counter.set('refresh', 0)
+    extractorContext.counter.set('append', 0)
 
     // options used for all goto's
-    const gotoBaseOptions = {
-      user_agent,
-      js_enabled: true,
-      css_enabled: false,
-      random_move_mouse: true,
-      load_timeout: 0,
-      max_new_request_gap: 0,
-    };
+    await extractorContext.setUserAgent(user_agent)
+    await extractorContext.setJavaScriptEnabled(true)
+    await extractorContext.setCssEnabled(false)
 
-    lastResponseData = await extractorContext.goto({
-      url: gotoInput.url,
-      options: gotoBaseOptions,
+    lastResponseData = await extractorContext.goto(gotoInput.url, {
+      checkBlocked: false
     });
     console.log('lastResponseData: ', lastResponseData);
 
     // get all needed selectors  on  page as booleans as pageContext
-    // solve  captcha, handle 503, accept ccookies, etc
+    // solve  captcha, handle 503, accept cookies, etc
 
-    page = await handlePage(await pageContext(), lastResponseData, gotoBaseOptions);
+    console.log('about to  handle page')
+    page = await handlePage(await pageContext(), lastResponseData);
     console.log('page handled: ', page);
     if (!page) {
       console.log('attempting to return 404', lastResponseData);
@@ -419,22 +429,22 @@ async function goto (gotoInput) {
 
     const retry = await retryContext();
     console.log('retryContextAPI: ', retry);
-    const shouldRetry = (!retry.isLastRetry && await getHourlyRetryCount() < HOURLY_RETRY_LIMIT);
+    const shouldRetry = (!retry.isLastRetry && await getHourlyRetryCount() < HOURLY_RETRY_LIMIT)
 
-    const shouldHaveData = await getShouldHaveData(gotoInput.url);
-    console.log('blank page check');
-    page = await pageContextCheck(await pageContext());
-    console.log('blank page check done :', page);
+    const shouldHaveData = await getShouldHaveData(gotoInput.url)
+    console.log('blank page check')
+    page = await pageContextCheck(await pageContext())
+    console.log('blank page check done :', page)
 
     // API append if variants exist and prodDetails expected, otherwise reload
     if (page.isProductPage && !!parseInt(shouldHaveData.details) && !page.hasProdDetails) {
       if (page.hasVariants && fillRateStrategies.variantAPIAppendData) {
-        console.log('append ------>', 'Missing prodDetails when API history says it is expected, and variants exist.');
+        console.log('append ------>', 'Missing prodDetails when API history says it is expected, and variants exist.')
         if (await appendData(page)) {
-          extractorContext.counter.set('append', 1);
-          console.log('appended data to bottom of page');
+          extractorContext.counter.set('append', 1)
+          console.log('appended data to bottom of page')
         } else {
-          console.log('failed to append data');
+          console.log('failed to append data')
         }
         page = await pageContext();
         console.log('page update after append: ', page);
@@ -445,9 +455,11 @@ async function goto (gotoInput) {
         await extractorContext.reload();
         await new Promise(r => setTimeout(r, 2000));
         console.log('Waiting for page to reload');
-        await extractorContext.waitForNextPage(30);
+        // await extractorContext.waitForNextPage(30);
+        //port
+        await extractorContext.waitForNavigation()
         console.log('Page reloaded');
-        page = await handlePage(await pageContext(), lastResponseData, gotoBaseOptions);
+        page = await handlePage(await pageContext(), lastResponseData);
         console.log('page handled: ', page);
       }
       if (!page.hasVariants && fillRateStrategies.nonVariantReload) {
@@ -456,9 +468,11 @@ async function goto (gotoInput) {
         await extractorContext.reload();
         await new Promise(r => setTimeout(r, 2000));
         console.log('Waiting for page to reload');
-        await extractorContext.waitForNextPage(30);
+        // await extractorContext.waitForNextPage(30);
+        // port
+        await extractorContext.waitForNavigation()
         console.log('Page reloaded');
-        page = await handlePage(await pageContext(), lastResponseData, gotoBaseOptions);
+        page = await handlePage(await pageContext(), lastResponseData);
         console.log('page handled: ', page);
       }
     }
