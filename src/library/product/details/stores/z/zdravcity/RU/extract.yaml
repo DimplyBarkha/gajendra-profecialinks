@@ -1,0 +1,50 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[contains(@class,'owl-carousel')]//div[contains(@class,'owl-loaded')]//div[contains(@class,'current')]//img/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[contains(@name,'keywords')]/@content
+  - name: category
+    singleValue: false
+    xpath: //ul[contains(@class,'b-breadcrumb-new')]//li
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[contains(@class,'b-product-new__title')]
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@class,'b-product-new__info-bottom')]//a[contains(@class,'js-add-to-basket')]
+  - name: quantity
+    singleValue: true
+    xpath: //h1[contains(@class,'b-product-new__title')]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'owl-carousel')]//div[contains(@class,'owl-loaded')]//div[contains(@class,'active') and not(contains(@class,'current'))]//img/@src
+  - name: manufacturer
+    singleValue: true
+    xpath: //ul[contains(@class,'b-product-new__list')]//li[contains(text(),'Производитель:')]
+  - name: directions
+    singleValue: false
+    xpath: //div[@id='product-dosage' or @id='product-indication']//p
+  - name: warnings
+    singleValue: false
+    xpath: //div[@id='product-contr' or @id='product-special' ]//p
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class,'owl-carousel')]//div[contains(@class,'owl-loaded')]//div[contains(@class,'current')]//img/@alt
+  - name:  description
+    singleValue: false
+    xpath: //div[@id='product-short-desc' or @id='product-pharm-action']//p
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'b-product-new__price-new')]
+  - name: storage
+    singleValue: true
+    xpath: //div[@id='product-store']//p
+  - name: listPrice
+    singleValue: true
+    xpath: //div[contains(@class,'b-product-new__price-old')]//span
