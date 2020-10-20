@@ -53,16 +53,16 @@ fields:
     singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //span[contains(@itemprop,'description')]
+    xpath: //div[@id='addProductDescription']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     xpath: count(//div[@id='productDescription']//span//ul//li)
     type: NUMBER
   - name: additionalDescBulletInfo
-    singleValue: true
+    singleValue: false
     description: ul > li tags in the description
-    xpath: //*[@id="productDescription"]//span/ul
+    xpath: //div[@id='addDescBulletInfo']
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -128,7 +128,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    defaultValue: 0
+    xpath: //div[@id='addedVariantCount']
     type: NUMBER
   - name: color
     singleValue: true
@@ -405,7 +405,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //*[@id="productSpecification"]/table/tbody
+    xpath: //div[@id='addedProductSpecification']
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
