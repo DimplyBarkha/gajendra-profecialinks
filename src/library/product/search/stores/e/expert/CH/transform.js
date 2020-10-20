@@ -41,6 +41,13 @@ const transform = (data, context) => {
           }
         });
       }
+      if (row.thumbnail) {
+        row.thumbnail.forEach(item => {
+          if (item.text.split(' ')[0]) {
+            item.text = item.text.split(' ')[0];
+          }
+        });
+      }
     }
   }
   context.setState({ rankCounter });

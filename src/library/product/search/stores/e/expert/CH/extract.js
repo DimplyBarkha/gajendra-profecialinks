@@ -19,6 +19,16 @@ async function implementation (
     const url = window.location.href;
     addHiddenDiv('added-searchurl', url);
   }
+  // await context.evaluate(async (context) => {
+  //   let count = 0;
+  //   while (count < 150 && document.evaluate("//*[contains(@id,'pageContent')]//button[contains(@class,'styled__StyledButton') and contains(.,'Mehr anzeigen') and not(./@disabled)]", document).iterateNext()) {
+  //     const loadMore = document.evaluate("//*[contains(@id,'pageContent')]//button[contains(@class,'styled__StyledButton') and contains(.,'Mehr anzeigen') and not(./@disabled)]", document).iterateNext();
+  //     await loadMore.click();
+  //     await new Promise((resolve, reject) => setTimeout(resolve, 20000));
+  //     await context.extract(productDetails, { transform });
+  //     count = document.querySelectorAll("div[class*='productList'] article[class*='panelProduct'] article, main[id*='pageContent'] div[class*='productList'] article").length;
+  //   }
+  // }, context);
   // async function aggregateRating () {
   //   function addHiddenField (id, content, index) {
   //     const newDiv = document.createElement('div');
