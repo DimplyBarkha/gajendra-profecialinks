@@ -6,7 +6,7 @@ module.exports = {
     store: 'zdravcity',
     nextLinkSelector: null,
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: 'li.b-issue-content__item--loader',
     loadedSelector: "ul.js-search-list",
     noResultsXPath: "//div[@class='b-issue__title-count']//span[text()=0]",
     openSearchDefinition: null,
