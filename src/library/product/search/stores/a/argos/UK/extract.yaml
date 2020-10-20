@@ -1,0 +1,49 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@data-test,'product-list')]/div
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //@data-product-id
+    regExp: (.+)
+    regExpReplace: https://www.argos.co.uk/product/$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //@data-product-id
+    regExp: (.+)
+    regExpReplace: https://media.4rgos.it/i/Argos/$1_R_Z001A?w=750&h=440&qlt=70
+  - name: name
+    description: The product name
+    xpath: //a[contains(@data-test, 'component-product-card-title')]
+  - name: sku
+    description: The store-specific product identifier
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //span[contains(@itemprop,'ratingCount')]
+    regExp: (\d+)
+  - name: reviewCount
+    description: The number of reviews
+    xpath: //span[contains(@itemprop,'ratingCount')]
+    regExp: (\d+)
+  - name: price
+    description: The offered price for the product
+    xpath: //div[contains(@class,'PriceText')]/strong
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    defaultValue: false
+    xpath: //div[contains(@data-test, 'component-badge')]
+    type: BOOLEAN
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //@data-product-id
+  - name: aggregateRating2
+    type: NUMBER
+    xpath: //@data-star-rating
+  - name: hasVariants
