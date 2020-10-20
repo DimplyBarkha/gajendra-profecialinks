@@ -1,11 +1,11 @@
 module.exports = {
-  implements: "product/details/createUrl",
+  implements: 'product/details/createUrl',
   parameterValues: {
-    domain: "teknosa.com",
+    domain: 'teknosa.com',
     prefix: null,
-    url: "https://www.teknosa.com/-p-{id}",
-    country: "TR",
-    store: "teknosa",
-    zipcode: "",
+    url: 'https://www.teknosa.com/-p-{id}',
+    country: 'TR',
+    store: 'teknosa',
+    zipcode: '',
   },
 };
