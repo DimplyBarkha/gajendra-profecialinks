@@ -14,7 +14,7 @@ fields:
   - name: price
     xpath: //span[@class="price-value"]
     regExp: (\d+)(,)(\d+)
-  # - name: searchUrl
-  #   xpath: //article[contains(@class,"product-card product-card--close")]/@searchurl
+  - name: searchUrl
+    xpath: //article[contains(@class,"product-card product-card--close")]/@searchurl
   - name: productUrl
     xpath: //span[@class="product-card__size js-count-limit-characters"]/@href
