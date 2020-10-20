@@ -1,0 +1,54 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: 
+  - name: rankOrganic
+    singleValue: true
+    xpath: 
+  - name: productUrl
+    singleValue: false
+    xpath: //h3[@class="itemName"]/a[@class="itemImage"]/@href
+    regExp: (applications/.+)
+    regExpReplace: https://www.tigerdirect.com/$1
+  - name: name
+    singleValue: false
+    xpath: //h3[@class="itemName"]//a/@title
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='productImage']/a[@class='itemImage']/img/@src
+  - name: reviewCount
+    singleValue: false
+    xpath: //a[@class='itemRating']/@title
+    regExp: ( \d)
+    type: NUMBER
+  - name: gtin
+    singleValue: false
+    xpath: //p[@class="itemModel"]
+    regExp:  ([A-Z]{2}.+)
+  - name: id
+    singleValue: false
+    xpath: //p[@class="itemModel"]
+    regExp: \d[0-9].+\|
+    type: NUMBER
+  - name: ratingCount
+    singleValue: false
+    xpath: //a[@class='itemRating']/@title
+    regExp: ^\d
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: true
+  - name: aggregateRating
+    singleValue: false
+  - name: endorsementText
+    singleValue: true
+  - name: price
+    singleValue: false
+    #xpath: concat(//div[@class="salePrice"]/sup,//div[@class="salePrice"]/text(),//span[@class="priceDecimalMark"])
+    xpath: //div[@class='salePrice']
+    regExp: (.*)(\$[0-9.]+)
+    regExpReplace: $2
