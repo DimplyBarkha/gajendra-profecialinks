@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordXPath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"] | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div | //div[contains(@class,"_multi-card-creative-desktop_DesktopGridColumn_gridColumn")] | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div | //div[contains(@data-component-type,"s-search-result") and @data-asin]
+recordXPath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"] | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div[div[@data-asin]] | //div[contains(@class,"_multi-card-creative-desktop_DesktopGridColumn_gridColumn")] | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div | //div[contains(@data-component-type,"s-search-result") and @data-asin]
 # recordXPath: //div[contains(@class,"_multi-card-creative-desktop_DesktopGrid") and contains(@class,"__")] | //div[contains(@data-component-type,"s-search-result") and @data-asin]
 recordSelector: null
 fields:
@@ -8,7 +8,7 @@ fields:
     singleValue: false
     xpath: ancestor::html//div[@id='searchUrl']
   - name: sponsName
-    xpath: //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]/span | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]//parent::div/div/span | //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@alt | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a/@aria-label
+    xpath: //a[@data-click-type]/@aria-label | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]/span | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]//parent::div/div/span | //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@alt | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a/@aria-label
   - name: sponsRatingCount
     xpath: //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]//parent::div/div//div[@data-click-el="rating"] | //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div//div[@data-click-el="rating"]
   - name: price
@@ -31,10 +31,14 @@ fields:
     xpath:
   - name: sponsThumbnail
     singleValue: false
-    xpath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div//a/div/img/@src | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]//img/@src | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a//img/@src | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div//img/@src
+    xpath: //div[@data-click-el="img"]//img/@src | //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div//a/div/img/@src | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]//img/@src | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a//img/@src | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div//img/@src
+    regExp: (.+)\.[^\.]+(\.[^\.]+$)
+    regExpReplace: $1$2
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@src | //img[@class="s-image"]/@src
+    regExp: (.+)\.[^\.]+(\.[^\.]+$)
+    regExpReplace: $1$2
   - name: sponsAgRating
     singleValue: false
     xpath: //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div//@data-rating | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div//@data-rating

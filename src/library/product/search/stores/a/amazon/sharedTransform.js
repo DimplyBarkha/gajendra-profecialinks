@@ -50,8 +50,9 @@ const transform = (data, context) => {
       if (row.productUrl && row.productUrl[0].text) {
         const domain = row.domain[0].text;
         const url = row.productUrl[0].text;
-        if (url.split(domain).length > 2) {
-          row.productUrl = [{ text: 'https://www.' + domain + url.split(domain)[2] }];
+        const splitData = url.split(domain).map(elm => elm.split('amazon-adsystem.com')).flat();
+        if (splitData.length > 2) {
+          row.productUrl = [{ text: 'https://www.' + domain + splitData[2] }];
         }
       }
 
@@ -71,7 +72,10 @@ const transform = (data, context) => {
       }
 
       if (row.sponsAgRating && !row.aggregateRating2) {
-        const replace = row.sponsorReplace[0].text.split('|');
+        let replace = ['.', '.'];
+        if (row.sponsorReplace) {
+          replace = row.sponsorReplace[0].text.split('|');
+        }
         row.aggregateRating2 = [{ text: row.sponsAgRating[0].text.replace(replace[0], replace[1]) }];
         delete row.sponsAgRating;
       }
