@@ -1,0 +1,76 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[contains(@class,'mainproduct-slider')]//div[contains(@class,'slick-active')]//img/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[contains(@name,'keywords')]/@content
+  - name: category
+    singleValue: false
+    xpath: //ul[contains(@itemprop,'breadcrumb')]//li
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[contains(@class,'product-title')]//h1
+  - name: availabilityText
+    singleValue: true
+    xpath: //button[@id='snrsWarrantyBtn']/text()
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,' slick-vertical')]//div[contains(@class,'slick-track')]//div[contains(@class,'slick-slide') and not(contains(@class,'slick-cloned')) and not(contains(@class,'slick-active'))]//img/@src
+  - name: listPrice
+    singleValue: true
+    xpath: //div[contains(@class,'quick-right')]//div[contains(@class,'cross-price')]//span[contains(@class,'strike')]
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[@itemprop='reviewCount']/text()
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[contains(@class,'product-title')]//span[@itemprop='ratingValue']/text()
+    regExp: ([\d\.]+)
+    regExpReplace: $1
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class,'mainproduct-slider')]//div[contains(@class,'slick-active')]//img/@alt
+  - name: promotion
+    singleValue: true
+    xpath: //div[contains(@class,'quick-right')]//div[contains(@class,'discount-holder')]//div[contains(@class,'product-disc')]
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'detailspecbox')]//table[contains(@itemprop,'description')]//tr[not(./th)]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@itemprop,'offers')]//div[@class='price']//span
+  - name: brandText
+    singleValue: true
+    xpath: //td[contains(@itemprop,'brand')]
+  - name: weightNet
+    singleValue: true
+    xpath: //td[contains(text(),' Weight ')]//following-sibling::td//text()
+  - name: sku
+    singleValue: true
+    xpath: //div[@class='sku-wrap']//strong[contains(text(),'SKU:')]//following-sibling::span/text()
+  - name: shippingDimensions
+    singleValue: true
+    xpath: //td[contains(text(),' Dimensions ')]//following-sibling::td/text()
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //td[contains(text(),' Country ')]//following-sibling::td/text()
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='inpage_selector_specification']//div[contains(@class,'flix-tech-spacs-contents')]//div[contains(@class,'flix-dl')]
+  - name: mpc
+    singleValue: true
+    xpath: //div[@class='sku-wrap']//strong[contains(text(),'Model:')]//following-sibling::span/text()
+  - name: videos
+    singleValue: false
+    xpath: //video[contains(@class,'jw-video')]/@src
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[contains(@class,'quick-right')]//span[contains(@class,'sold-by')]//a//b
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'product-tab')]//img/@src
