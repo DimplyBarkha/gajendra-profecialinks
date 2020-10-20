@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'a[class="page-next"]>i',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'li[data-tile-pid]',
+    loadedSelector: 'ul[id="search-result-items"], h1[class="search-result-data"]',
     noResultsXPath: '//h1[@class="search-result-data"]',
     openSearchDefinition: null,
     domain: 'belk.com',
