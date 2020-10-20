@@ -3,10 +3,10 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'thefragranceshop',
-    nextLinkSelector: 'li:last-child a.btn.btn-default.btn-smangle-left',
+    nextLinkSelector: 'li:last-child a.btn-smangle-left',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.col-sm-12.col-xs-12.no-padding.gridView',
+    loadedSelector: 'div[class*="product-list"]',
     noResultsXPath: '//div[@class="fnl-landing-noresults"]',
     openSearchDefinition: null,
     domain: 'thefragranceshop.co.uk',

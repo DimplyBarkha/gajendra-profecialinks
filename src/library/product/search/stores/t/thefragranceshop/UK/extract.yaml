@@ -7,14 +7,15 @@ fields:
     singleValue: false
     xpath: //div[contains(@class, 'item-sku')]/@item-sku
   - name: searchUrl
-    singleValue: true
+    singleValue: false
+    xpath: ancestor::html//a[@class="page-link"]/@href
   - name: name
     singleValue: false
-    xpath: //div[@class="ribbon-info"]/a
+    xpath: //div[contains(@class, "ribbon-info")]/a
   - name: productUrl
     singleValue: false
     xpath: //div[@class="imagePanel"]/a/@href
-    regExp: (\/.+)
+    regExp: (.*)
     regExpReplace: https://www.thefragranceshop.co.uk$1
   - name: gtin
     singleValue: false

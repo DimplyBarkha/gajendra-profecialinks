@@ -7,6 +7,12 @@ async function implementation (inputs, parameters, context, dependencies) {
   await new Promise((resolve, reject) => setTimeout(resolve, 1500));
 
   await context.evaluate(() => {
+    const newElement = document.createElement('a');
+    newElement.setAttribute('class', 'page-link');
+    newElement.href = window.location.href;
+    if (newElement.href) {
+      document.body.appendChild(newElement);
+    }
     function addProp (selector, iterator, propName, value) {
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     }
