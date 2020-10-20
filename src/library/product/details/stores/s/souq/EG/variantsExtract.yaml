@@ -1,16 +1,16 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id="defaultSize"] | //div[@id="size_en"] | //div[@class="colors-block"] | //div[@id="colors_en"] | //div[@id="display_diagonal_en"] | //div[@id="promotionSlider"]//div[@class="slick-track"]
+recordXPath: //div[@id="defaultSize"] | //div[@id="size_en"] | //div[@class="colors-block"] | //div[@id="colors_en"] | //div[@id="display_diagonal_en"] | //div[@id="promotionSlider"]//div[@class="slick-track"] | //div[@id="bb_url"]
 fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //div[contains(@class, "item-connection")]/a/@data-url | //a[contains(@class,"color-swatch-preview")]/@data-url | //div[contains(@class,"active")]/a/@data-url | //div[contains(@class,"item-connection")]/a/@data-url | //div[contains(@class,"preSlickSlider")]/a/@data-url
+    xpath: //div[contains(@class, "item-connection")]/a/@data-url | //a[contains(@class,"color-swatch-preview")]/@data-url | //div[contains(@class,"active")]/a/@data-url | //div[contains(@class,"item-connection")]/a/@data-url | //div[contains(@class,"preSlickSlider")]/a/@data-url | //div[@id="bb_url"]
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //div[contains(@class, "item-connection")]/a/@data-url | //a[contains(@class,"color-swatch-preview")]/@data-url | //div[contains(@class,"item-connection")]/a/@data-url |//div[contains(@class,"item-connection")]/a/@data-url | //div[contains(@class,"preSlickSlider")]/a/@data-url
+    xpath: //div[contains(@class, "item-connection")]/a/@data-url | //a[contains(@class,"color-swatch-preview")]/@data-url | //div[contains(@class,"item-connection")]/a/@data-url |//div[contains(@class,"item-connection")]/a/@data-url | //div[contains(@class,"preSlickSlider")]/a/@data-url | //div[@id="bb_url"]
     # //div[@id="defaultSize"]//div[contains(@class, "item-connection")]/a/@data-url id=76682953
     # //div[@id="size_en"]//div[contains(@class, "item-connection")]/a/@data-url  54874072
     # //div[@class="colors-block"]//a[contains(@class,"color-swatch-preview")]/@data-url id=76682953

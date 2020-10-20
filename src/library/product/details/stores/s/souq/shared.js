@@ -51,6 +51,11 @@ const transform = (data) => {
               text: unique.join(' | '),
             },
           ];
+          row.variantCount = [
+            {
+              text: unique.length,
+            },
+          ];
         }
         if (row.firstVariant) {
           row.firstVariant.forEach(item => {
