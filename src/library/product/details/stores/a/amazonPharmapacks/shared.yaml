@@ -109,7 +109,7 @@ fields:
   - name: internationalShipping
     xpath: (//li[contains(.,'International Shipping:')]//span[2])[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1]
   - name: salesRank
-    xpath: //head/@rank
+    xpath: //li[@id='rank']//@value
   - name: salesRankCategory
     xpath: //head/@category
   - name: subscriptionPrice
@@ -122,7 +122,7 @@ fields:
     regExpReplace: "YES"
     defaultValue: "NO"
   - name: videoLength
-    xpath: (//div[@class="airy-duration-label"] | //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-duration)[1]
+    xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-duration
   - name: heroQuickPromoHeadline
     xpath: //div[@id="hero-quick-promo"]//span
   - name: heroQuickPromoImageUrl
