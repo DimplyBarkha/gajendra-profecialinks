@@ -1,10 +1,10 @@
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
     store: 'tigerdirect',
-    transform: null,
+    transform: cleanUp,
     domain: 'tigerdirect.com',
     zipcode: '',
   },
