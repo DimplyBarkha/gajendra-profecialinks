@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'product-items')]//div[contains(@class,'reset-padding')]
+fields:  
+  - name: rankOrganic
+    SingleValue: false    
+  - name: rank
+    SingleValue: false    
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[contains(@class,'sdg-ratio')]//a/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[contains(@class,'sdg-ratio')]//a/@href
+    regExp: product\/(.+?)\/
+    regExpReplace: $1
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[contains(@class,'sdg-ratio')]//img[contains(@class,'loaded')]/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[contains(@class,'sdg-ratio')]//a/@title
+  - name: price
+    SingleValue: false
+    xpath: //div[contains(@class,'slider-extra--wrp')]//div[@class='price']
