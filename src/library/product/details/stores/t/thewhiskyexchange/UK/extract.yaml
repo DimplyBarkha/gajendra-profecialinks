@@ -62,6 +62,7 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: (//div[contains(@class, "product-page__section")]/h2[@class="product-title product-title--bravo"])[1]
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
@@ -103,15 +104,19 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: //span[@class="review-overview__count"]
+  regExp: \d+
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //span[@class="review-overview__rating star-rating star-rating--50"]/span
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: //h5[@class="product-shipping__type"]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -121,6 +126,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  xpath: count(//li[@class="product-options__item"])
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -139,9 +145,12 @@ fields:
 - name: name
   singleValue: true
   description: The product name
+  xpath: //h1[@class="product-main__name"]
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
+  xpath: //p[@class="product-action__vat-price"]
+  regExp: \[£\]\d+.\d+
 - name: asin
   singleValue: true
   description: 
@@ -382,6 +391,7 @@ fields:
 - name: countryOfOrigin
   singleValue: true
   description: The country from which the product originates
+  xpath: //h4[text()="Country"]/following-sibling::p[@class="product-facts__data"]
 - name: allergyAdvice
   singleValue: true
   description: Allergy information associated with the product
@@ -391,6 +401,7 @@ fields:
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
+  xpath: //h4[not(text()="Country")]/following-sibling::p[@class="product-facts__data"]
 - name: packaging
   singleValue: true
   description: Packaging information
@@ -400,15 +411,23 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
+  xpath: //p[@class='product-action__unit-price']
+  regExp: \[£\]\d+.\d+
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
+  xpath: //p[@class='product-action__unit-price']
+  regExp: per ([a-z]+)
+  regExpReplace: $1
 - name: promotion
   singleValue: true
   description: promotion text on product page
+  xpath: //span[@class='product-offer__text']
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
+  xpath: //p[@class='product-main__data']
+  regExp: \d+%
 - name: newVersion
   singleValue: true
   description: In product page, information about a new version of the product (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
@@ -454,19 +473,19 @@ fields:
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: false
+  defaultValue: "No"
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  defaultValue: "No"
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  defaultValue: "No"
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  defaultValue: "No"
 - name: materials
   singleValue: true
   description: Materials used to make the product
