@@ -55,6 +55,7 @@ module.exports = {
 
     if (!pageCheck) {
       // throw new Error("productPageNotLoaded");
+      return false;
 
     }
 
@@ -66,14 +67,19 @@ module.exports = {
     });
 
     try {
-      await context.waitForSelector('div#ratings-reviews-container div#ratings-reviews', { timeout: 45000 });
+      await context.waitForSelector('div#ratings-reviews-container div#ratings-reviews', { timeout: 20000 });
     } catch (error) {
-      await context.click('span[data-at^="number_of_reviews"]');
+      const reviewButtonExists = await context.evaluate(async function () {
+        return !!document.querySelector('span[data-at^="number_of_reviews"]');
+      });
+      if (reviewButtonExists) {
+        await context.click('span[data-at^="number_of_reviews"]');
+      }
       console.log('Loading ratings and reviews');
     }
 
     try {
-      await context.waitForSelector('div[data-comp~="ReviewsStats"]  span[data-comp^="Text Box StyledComponent BaseComponent"]', { timeout: 45000 });
+      await context.waitForSelector('div[data-comp~="ReviewsStats"]  span[data-comp^="Text Box StyledComponent BaseComponent"]', { timeout: 20000 });
     } catch (error) {
       await context.evaluate(async function () {
         if (document.querySelector('span[data-at^="number_of_reviews"]')) {
@@ -84,7 +90,7 @@ module.exports = {
     }
 
     try {
-      await context.waitForSelector('div[data-comp~="StyledComponent"] h2, div#tabpanel0', { timeout: 45000 });
+      await context.waitForSelector('div[data-comp~="StyledComponent"] h2, div#tabpanel0', { timeout: 20000 });
     } catch (error) {
       console.log('Loading details');
     }
