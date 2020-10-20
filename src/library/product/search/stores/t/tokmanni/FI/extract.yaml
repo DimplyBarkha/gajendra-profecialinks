@@ -1,0 +1,34 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    xpath: //div[@class='klevuImgWrap']/a/@href
+    description: The URL for the product details page
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //ul[@id="kuLandingProductsListUl"]//img[@src]
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //*[@id="kuLandingProductsListUl"]/li[1]/div[2]/div[1]/div
+  - name: id
+    singleValue: true
+    description: The store-specific product identifier
+  - name: gtin
+    regExp: https://img.tesco.com/Groceries/pi/[^\/]+/([^\/]+)
+    regExpReplace: $1
+    description: GTIN code (includes UPC/EAN)
+  - name: price
+    singleValue: true
+    description: The offered price for the product
+  - name: rankOrganic
+    singleValue: true
+  - name: rank
+    singleValue: true
+  - name: sponsored
+    singleValue: true
+    defaultValue: false
+  - name: gtin
+    singleValue: true
