@@ -48,3 +48,8 @@ fields:
   - name: listPrice
     singleValue: true
     xpath: //div[contains(@class,'b-product-new__price-old')]//span
+  - name: variantId
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
+    regExp: .+\/(.*)\.htm
+    regExpReplace: $1  
