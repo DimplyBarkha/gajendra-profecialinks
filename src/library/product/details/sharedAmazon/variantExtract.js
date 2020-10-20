@@ -4,7 +4,7 @@ module.exports.implementation = async function implementation (
   context,
   dependencies,
 ) {
-  const { Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
+  const { Helpers: { Helpers }, AmazonHelp: { AmazonHelp }, variants } = dependencies;
 
   const helpers = new Helpers(context);
   const amazonHelp = new AmazonHelp(context, helpers);
@@ -37,5 +37,5 @@ module.exports.implementation = async function implementation (
     });
   }, allVariants);
 
-  return await context.extract('./product/details/stores/a/amazon/US/variantsExtract');
+  return await context.extract(variants);
 };

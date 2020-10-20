@@ -4,10 +4,8 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
     xpath: (//img[@id="landingImage"])[1]/@src
   - name: imageAlt
-    singleValue: true
     xpath: (//img[@id="landingImage"])[1]/@alt
   - name: alternateImages
     singleValue: false
@@ -15,38 +13,27 @@ fields:
     regExp: (.*)(_SX.*_|_AC.*_|_SS.*_)(.*)
     regExpReplace: $1_SR500,500_$3
   - name: metaKeywords
-    singleValue: true
     xpath: //meta[contains(@name, "keywords")]/@content
-  - name: _pageTimestamp
-    singleValue: true
-  - name: _url
-    singleValue: true
     xpath: //link[@rel='canonical']/@href
   - name: category
     singleValue: false
     xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
   - name: nameExtended
-    singleValue: true
     xpath: normalize-space(//span[@id="productTitle"])
   - name: listPrice
     singleValue: false
     xpath: //div[@id="primeNowDetailPagePrice_price"]//span[contains(@class,"a-text-strike")]
   - name: price
-    singleValue: true
     xpath: //*[@id="priceblock_ourprice"]
   - name: price_currency
-    singleValue: true
   - name: availability
-    singleValue: true
     xpath: //*[@id='availability']
   - name: availabilityText
-    singleValue: true
     xpath: //*[@id='availability']
   - name: description
     singleValue: false
     xpath: //*[@id='feature-bullets']/ul/li/following-sibling::li|//div[@id="productDescription"]
   - name: descriptionBullets
-    singleValue: true
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
   - name: brandText
     singleValue: false
@@ -57,10 +44,8 @@ fields:
     singleValue: false
     xpath: //th[contains(text(), 'Manufacturer')][not(contains(text(),"Is Discontinued By Manufacturer"))]/following-sibling::*[1]
   - name: quantity
-    singleValue: true
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
   - name: weightNet
-    singleValue: true
   - name: weightGross
     singleValue: false
     xpath: //th[contains(text(), 'Item Weight')]/following-sibling::*[1]
@@ -75,7 +60,6 @@ fields:
     regExp: '(.*/dp/)(.+)'
     regExpReplace: $2
   - name: variantId
-    singleValue: true
     xpath: //th[contains(text(), 'Item model number')]/following-sibling::*[1]
   - name: mpc
     singleValue:  false
@@ -100,7 +84,6 @@ fields:
     regExp: (.*[0-9]{1,}) ratings
     regExpReplace: $1
   - name: aggregateRatingText
-    singleValue: true
   - name: aggregateRating
     singleValue: false
     xpath: (//*[@id="acrPopover"]/@title)[1]
@@ -118,40 +101,29 @@ fields:
     regExp: ([^()]+)
     regExpReplace: $1
   - name: variantCount
-    singleValue: true
     xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
   - name: color
-    singleValue: true
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
   - name: colorCode
-    singleValue: true
   - name: manufacturerDescription
-    singleValue: true
     xpath: //h3[contains(.,"From the Manufacturer")]/following-sibling::p[1]|//h3[contains(.,"From the Manufacturer")]/parent::div//div[@class="aplus"]/p[1]
   - name: manufacturerImages
-    singleValue: true
     xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
-    singleValue: true
     xpath: //div[@data-vendor-name="Manufacturer Video"]/@data-video-url
   - name: name
-    singleValue: true
     xpath: //h1[@id="title"]
   - name: inStorePrice
     sinlgeValue: true
   - name: sku
-    singleValue: true
   - name: coupon
-    singleValue: true
     xpath: (//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])[1]
   - name: amazonChoice
-    singleValue: true
     xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue:  'No'
   - name: amazonChoiceCategory
-    singleValue: true
     xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-for-text")]//text()
   - name: brandLink
     singleValue: false
@@ -159,7 +131,6 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.amazon.com$1
   - name: internationalShipping
-    singleValue: true
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1]
   - name: salesRank
     singleValue: false
@@ -172,28 +143,22 @@ fields:
     regExp: ((?:\S*[A-Z]){1}[A-Za-z\s&!@#^*$+-]{1,})
     regExpReplace: $1
   - name: subscriptionPrice
-    singleValue: true
     xpath: //*[@id="sns-base-price"]
     regExp: ([^ ]+)
     regExpReplace: $1
   - name: subscribeAndSave
-    singleValue: true
     xpath: //*[@id="sns-base-price"]
     regExp: ([^ ]+)
     regExpReplace: 'YES'
     defaultValue: 'NO'
   - name: pasin
-    singleValue: true
     xpath: (//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)[1]/@data-defaultasin
   - name: videoLength
     singleValue: false
     xpath: (//div[@aria-label="Video Player"]//span[@class="vjs-duration-display"])[1]
   - name: heroQuickPromoHeadline
-    singleValue: true
   - name: heroQuickPromoImageUrl
-    singleValue: true
   - name: heroQuickPromoUrl
-    singleValue: true
   - name: ingredientImagePresent
     singleValue: false
     xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
@@ -207,14 +172,12 @@ fields:
     regExpReplace: 'YES'
     defaultValue: 'NO'
   - name: largeImageCount
-    singleValue: true
   - name: variantAsins
     singleValue: false
     xpath:  //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
     regExp: p\/([A-Z0-9]{9,})\/
     regExpReplace: $1
   - name: specifications
-    singleValue: true
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
     singleValue: false
@@ -222,175 +185,97 @@ fields:
     regExp: (.+)
     regExpReplace: 'Yes'
   - name: lbb
-    singleValue: true
   - name: lbbPrice
-    singleValue: true
   - name: featureBullets
-    singleValue: true
   - name: otherSellersName
-    singleValue: true
   - name: otherSellersPrime
-    singleValue: true
   - name: otherSellersShipping
-    singleValue: true
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')][position()>1])
   - name: news
-    singleValue: true
   - name: addonItem
-    singleValue: true
     xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
   - name: fastTrack
-    singleValue: true
   - name: product/food
-    singleValue: true
   - name: ingredientsList
     singleValue: false
     xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)|//b[contains(.,'Ingredients')]/following-sibling::br/../text()[2]
   - name: servingSize
-    singleValue: true
   - name: servingSizeUomSS
-    singleValue: true
   - name: numberOfServingsInPackage
-    singleValue: true
   - name: caloriesPerServing
-    singleValue: true
   - name: caloriesFromFatPerServing
-    singleValue: true
   - name: totalFatPerServing
-    singleValue: true
   - name: totalFatPerServingUom
-    singleValue: true
   - name: saturatedFatPerServing
-    singleValue: true
   - name: saturatedFatPerServingUom
-    singleValue: true
   - name: transFatPerServing
-    singleValue: true
   - name: transFatPerServingUom
-    singleValue: true
   - name: cholesterolPerServing
-    singleValue: true
   - name: cholesterolPerServingUom
-    singleValue: true
   - name: sodiumPerServing
-    singleValue: true
   - name: sodiumPerServingUom
-    singleValue: true
   - name: totalCarbPerServing
-    singleValue: true
   - name: totalCarbPerServingUom
-    singleValue: true
   - name: dietaryFibrePerServing
-    singleValue: true
   - name: dietaryFibrePerServingUom
-    singleValue: true
   - name: totalSugarsPerServing
-    singleValue: true
   - name: totalSugarsPerServingUom
-    singleValue: true
   - name: proteinPerServing
-    singleValue: true
   - name: proteinPerServingUom
-    singleValue: true
   - name: vitaminAPerServing
-    singleValue: true
   - name: vitaminAPerServingUom
-    singleValue: true
   - name: vitaminCPerServing
-    singleValue: true
   - name: vitaminCPerServingUom
-    singleValue: true
   - name: calciumPerServing
-    singleValue: true
   - name: calciumPerServingUom
-    singleValue: true
   - name: ironPerServing
-    singleValue: true
   - name: ironPerServingUom
-    singleValue: true
   - name: dietarySymbols
-    singleValue: true
   - name: magnesiumPerServing
-    singleValue: true
   - name: magnesiumPerServingUom
-    singleValue: true
   - name: saltPerServing
-    singleValue: true
   - name: saltPerServingUom
-    singleValue: true
   - name: dietaryInformation
-    singleValue: true
   - name: warranty
-    singleValue: true
     xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
   - name: storage
-    singleValue: true
   - name: countryOfOrigin
-    singleValue: true
   - name: allergyAdvice
-    singleValue: true
     xpath: //div[@id='important-information']//div[contains(.,'Allergy Advice')]/p
   - name: recyclingInformation
-    singleValue: true
   - name: productOtherInformation
-    singleValue: true
     xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
   - name: packaging
-    singleValue: true
     xpath: //div[@id="twisterContainer"]//div[contains(.,"Product Packaging:")]/span[1]
   - name: additives
-    singleValue: true
   - name: pricePerUnit2
-    singleValue: true
   - name: pricePerUnitUom
-    singleValue: true
   - name: promotion
-    singleValue: true
     xpath: normalize-space(//tr[contains(@id, 'primeNowDetailPagePrice_savings_price')])
   - name: alcoholContent
-    singleValue: true
   - name: newVersion
-    singleValue: true
   - name: newAsin
-    singleValue: true
   - name: newDescription
-    singleValue: true
   - name: variants
-    singleValue: true
   - name: firstVariant
-    singleValue: true
   - name: variantInformation
-    singleValue: true
   - name: additionalDescBulletInfo
-    singleValue: true
   - name: prop65Warning
-    singleValue: true
   - name: ageSuitability
-    singleValue: true
   - name: energyEfficiency
-    singleValue: true
   - name: technicalInformationPdfPresent
-    singleValue: true
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
   - name: t_&_cs
-    singleValue: true
   - name: termsAndConditions
-    singleValue: true
   - name: privacyPolicy
-    singleValue: true
   - name: customerServiceAvailability
-    singleValue: true
   - name: productUrl
-    singleValue: true
     xpath: //link[@rel='canonical']/@href
   - name: materials
-    singleValue: true
     xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
   - name: Image360Present
-    singleValue: true
     xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
   - name: imageZoomFeaturePresent
-    singleValue: true
     xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
