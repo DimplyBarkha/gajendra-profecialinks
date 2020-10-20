@@ -1,4 +1,4 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -8,7 +8,7 @@ fields:
     xpath: //div[contains(@class,"product-gallery__thumbnails")]//div[contains(@class,"slick-slide")][1]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,"product-gallery__thumbnails")]//div[contains(@class,"slick-slide")]//img/@alt
+    xpath: //div[contains(@class,"product-gallery__thumbnails")]//div[contains(@class,"slick-slide")][1]//img/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,"product-gallery__thumbnails")]//div[contains(@class,"slick-slide")]//img/@src
@@ -38,7 +38,7 @@ fields:
     xpath: //div[@id="product_description"]//ul/li
   - name: quantity
     singleValue: false
-    xpath: //div[@class="product-form__container"]//input[@id="product-quantity"]/@min
+    xpath: (//span[@class="product-form__price-wrapper"])[1]/span[@class="pack-info"]
   - name: gtin
     singleValue: false
     xpath: //div[contains(@class,"product-property")]//span[contains(@class,"product-property__item") and contains(text(),"Item")]
@@ -67,6 +67,7 @@ fields:
   - name: packSize
     singleValue: false
     xpath: (//span[@class="product-form__price-wrapper"])[1]/span[@class="pack-info"]
+    type: NUMBER
   - name: color
     singleValue: false
     xpath: //dl[contains(@aria-labelledby,"type--ink_colour")]//a[@aria-checked="true"]//span[@class="product-options__label"]
@@ -78,3 +79,4 @@ fields:
     defaultValue: 0 
   - name: variantInformation
     singleValue: false
+    xpath: (//span[@class="product-form__price-wrapper"])[1]/span[@class="pack-info"]

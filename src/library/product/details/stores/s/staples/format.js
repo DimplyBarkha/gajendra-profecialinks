@@ -50,13 +50,6 @@ const transform = (data) => {
           }
         });
       }
-      if (row.color && row.packSize) {
-        row.variantInformation = [{"text": row.color[0]["text"] + " - " + row.packSize[0]["text"]}];
-      }else if(row.color){
-        row.variantInformation = [{"text": row.color[0]["text"]}];
-      }else if(row.packSize){
-        row.variantInformation = [{"text": row.packSize[0]["text"]}];
-      }
       if (row.mpc) {
         row.mpc.forEach(item => {
           item.text = item.text.replace(/Model\s*:/i, '');
