@@ -17,7 +17,7 @@ fields:
     xpath: //link[@rel='canonical']/@href
   - name: category
     singleValue: false
-    xpath: //div[@id='product-breadcrumb']//span  # ul.breadcrumb li # //ul[contains(@class,'nav breadcrumb')]//li
+    xpath: //ul[contains(@class,'nav breadcrumb')]//li[position()>1]/a
   - name: nameExtended
     singleValue: false
     xpath: //h1[contains(@class,'js-product-detail__name')] | //div[contains(@class,'item-product__info--product-detail')]
@@ -39,8 +39,5 @@ fields:
     xpath: //h1[contains(@class,'product-detail__name')]
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,'grid__item portable-up--four-twelfths')]//span[contains(@class,'js-product-id')]//input/@value
-  - name: sku
-    singleValue: false
-    xpath: //div[contains(@class,'grid__item portable-up--four-twelfths')]//span[contains(@class,'js-product-id')]//input/@value
+    xpath: //div[contains(@class,'grid__item portable-up--four-twelfths')]//span[contains(@class,'js-product-id')]//input/@value | //div[@id='product-id']
 

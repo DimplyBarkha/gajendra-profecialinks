@@ -23,9 +23,6 @@ const transform = (data) => {
           text: row.nameExtended[0].text,
         }];
       }
-      if (row.sku && row.variantId) {
-        row.sku[0].text = row.variantId[0].text.replace('_', '');
-      }
     }
   }
   const clean = text => text.toString()
