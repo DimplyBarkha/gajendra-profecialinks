@@ -116,6 +116,7 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: count(//div[@id="defaultSize"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@id="size_en"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@class="colors-block"]//a[contains(@class,"color-swatch-preview")]/@data-url | //div[@id="colors_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="display_diagonal_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")]/a/@data-url)
+    defaultValue: '0'
   - name: color
     singleValue: false
     description: A textual description of the colour
