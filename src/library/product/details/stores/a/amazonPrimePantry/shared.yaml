@@ -12,9 +12,15 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //*[@id="imageBlock_feature_div"]/script
-    regExp: large\":\"(.{40,200})\"\,\"main
-    regExpReplace: $1
+    xpath: //li[contains(@class,'imageThumbnail')][position()>1]//img/@src
+    regExp: (.*)_(.*)_(.*)
+    regExpReplace: $1_SX522_$3
+  - name: brandLink
+    xpath: //a[@id="bylineInfo"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com/$1
+  - name: name
+    xpath: normalize-space(//span[@id="productTitle"])
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -49,7 +55,7 @@ fields:
     xpath: //input[contains(@id,"Asin") or contains(@id,"ASIN")][1]/@value|(//*[@data-asin])[1]/@data-asin
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]| //td[contains(text(), 'Item model number')]/following-sibling::*
+    xpath: ((//*[@data-asin])[1]/@data-asin | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1]| //td[contains(text(), 'Item model number')]/following-sibling::*)[1]
   - name: directions
     singleValue: false
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
@@ -63,12 +69,14 @@ fields:
     xpath: //*[@id="acrPopover"]/@title
     regExp: ([0-9\.]{1,}) out of
     regExpReplace: $1
+  - name: specifications
+    xpath: (//div[@id="detailBullets_feature_div"])[1]//ul//li[not(contains(.,'Customer Reviews'))]
   - name: shippingInfo
     singleValue: false
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
   - name: shippingDimensions
     singleValue: false
-    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
+    xpath: (//li[contains(.,'Package Dimensions')]//span[2] | //th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
@@ -81,17 +89,29 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //*[@id="twister"]//span[@class="selection"]
+  - name: secondaryImageTotal
+    xpath: count(//li[contains(@class,'imageThumbnail')][position()>1]//img/@src)
+  - name: featureBullets
+    xpath: //div[@id="feature-bullets"]//ul//li
+  - name: subscribeAndSave
+    defaultValue: No
+  - name: legalDisclaimer
+    xpath: //div[@id="legal-disclaimer"]//p[@class='tiny']
   - name: category
     singleValue: false
     xpath: (//*[@id="SalesRank"]/ul/li//a[1] | (//*[@id="detailBulletsWrapper_feature_div"]//span[contains(.,'Rank')][1]//ul//li//a)[1])[1]
+  - name: salesRank
+    xpath: //li[@id='rank']/@value
+  - name: salesRankCategory
+    xpath: //head/@category
   - name: variantCount
     singleValue: false
     xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
   - name: videos
     singleValue: false
-    xpath: //*[@id="imageBlockVariations_feature_div"]/script/text()
-    regExp: url":"(.{30,300})"\,"videoHeight
-    regExpReplace: $1
+    xpath: (//video/@src)[1]
+  - name: videoLength
+    xpath: (//li[contains(@class,'vse-video-card')]//p[@data-element-id="video-duration"])[1]
   - name: quantity
     singleValue: false
     xpath: //*[@id="productTitle"]
@@ -100,6 +120,8 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //*[contains(@id,"price_savings") and not(contains(@class,"a-hidden"))]
+  - name: manufacturer
+    xpath: (//div[@id="detailBullets_feature_div"]//li[contains(.,'Manufacturer')]//span[2])[1]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//*[not(self::noscript)]/img/@src
@@ -124,5 +146,3 @@ fields:
     xpath: //*[@id="priceblock_ourprice_row"]//span[@class="a-size-small a-color-price"]
     regExp: \(?.*\/\s*(.*)\)
     regExpReplace: $1
-  - name: variantAsins
-    xpath: //script[contains(., "ImageBlockBTF")]/text() | //*[@id='twisterJsInitializer_feature_div']//script
