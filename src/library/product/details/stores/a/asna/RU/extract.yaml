@@ -1,0 +1,56 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class='pic pic-slider']//div[contains(@class,'pic-img')]//img[contains(@class,'js-main-item-photo ')]/@data-zoom-image
+  - name: sku
+    singleValue: false
+    xpath: //meta[@name="og:url"]//@content
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content 
+  - name: category
+    singleValue: false
+    xpath: //li[@itemprop="itemListElement"][position() >=2]/a/span
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="product-title"]/h1 
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-detail-controls"]/div[@class="item-component-price-wapper"]/div/span/span   
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="product__additional-block js-product__additional-block  js-product__additional-block-5666 "]/button
+  - name: description
+    singleValue: false
+    xpath: //div[@class="adtcp js-parchase-info-content nomobile"]/ul/li[position()>=1]
+  - name: description2
+    singleValue: false
+    xpath: //div[@class="product-information__info"]//div[@class="product-information__info__content"][1]//div[position() >2 and position() < 6]
+  - name: directions
+    singleValue: false
+    xpath: //div[@class="product-information__info"]//div[@class="product-information__info__content"][1]//div[position() >5 and position() < 9]
+  - name: warnings
+    singleValue: false
+    xpath: //div[@class="product-information__info"]//div[@class="product-information__info__content"][1]//div[9]
+  - name: ratingCount
+    sinngleValue: false
+    xpath: //div[@class="prod-star-wrap"]//a[@class="js-scroll-to-reviews prod-star-text"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='prod-star-wrap']//span[@class='star-rating-control']//div[contains(@class,'star-rating')]//a[text()='on']    
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="video-wrap"]//video[@id="item-video"]//source//@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='pic pic-slider']//div[contains(@class,'pic-img')]//img[contains(@class,'js-main-item-photo ')]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='slick-list draggable']/div[@class="slick-track"]/a/img[contains(@class,'js-photos-item-zoom')]/@data-main1
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class="product-information__info__content"]/div[@class="product-information__info__content__block"][11]/p/img/@src
