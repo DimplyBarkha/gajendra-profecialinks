@@ -37,5 +37,5 @@ module.exports.implementation = async function implementation (
     });
   }, allVariants);
 
-  return await context.extract('./product/details/stores/a/amazon/US/variantsExtract');
+  return await context.extract(`./product/details/stores/a/amazon/${parameters.country}/variantsExtract`);
 };

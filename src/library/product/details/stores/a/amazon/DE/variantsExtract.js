@@ -137,6 +137,7 @@ module.exports = {
     zipcode: '10117',
   },
   dependencies: {
+    variants: 'extraction:product/details/stores/a/amazon/DE/variantsExtract',
     Helpers: 'module:helpers/helpers',
     AmazonHelp: 'module:helpers/amazonHelp',
   },
