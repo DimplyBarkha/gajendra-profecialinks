@@ -39,7 +39,7 @@ fields:
     xpath: //div[contains(@class,'prodItemStock')]//button/text()
   - name: description
     singleValue: false    
-    xpath: //div[contains(@itemprop,'description')]/p/text()  
+    xpath: //div[contains(@class,'pipWineNotes')]//div[contains(@itemprop,'description')]
   - name: sku
     singleValue: true    
     xpath: //meta[@name='pProductID']/@content
