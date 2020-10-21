@@ -23,99 +23,22 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
+      var brandTextStr='';
       for (let row of group) {
-        if(row.image){
-          row.image.forEach(item => {
-            item.text='https://www.mediaexpert.pl'+item.text;
-          });
+        if(row.brandText){
+          brandTextStr=row.brandText[0]['text'];
         }
-        if(row.alternateImages){
-          row.alternateImages.forEach(item => {
-            item.text='https://www.mediaexpert.pl'+item.text;
-          });
+        if(row.nameExtended){
+          row.nameExtended[0]['text']=brandTextStr+" "+row.nameExtended[0]['text'];
         }
-        if(row.reviewCount){
-          row.reviewCount.forEach(item => {
-            let reviewCountData=item.text.split(' ');
-            item.text=reviewCountData[0];
-          });
+        if(row.availabilityText){
+          row.availabilityText[0]['text']='In Stock';
         }
-        if (row.manufacture) {
-          row.manufacture.forEach(item => {
-            var myRegexp = /producenta\/importera\s+\n(.+?)\s*\n/g;
-            var match = myRegexp.exec(item.text);
-            if(match.length){
-                item.text = match[1].trim();
-            }else{
-                item.text = "";
-            }
-          });
+        if(row.pricePerUnitUom){
+          row.pricePerUnitUom[0]['text']=row.pricePerUnitUom[0]['text'].replace(' -','');
         }
-        if (row.brandText) {
-          row.brandText.forEach(item => {
-            var myRegexp = /producenta\/importera\s+\n(.+?)\s*\n/g;
-            var match = myRegexp.exec(item.text);
-            if(match.length){
-                item.text = match[1].trim();
-            }else{
-                item.text = "";
-            }
-          });
-        }
-        if (row.warranty) {
-          row.warranty.forEach(item => {
-            var myRegexp = /Gwarancja\s+\n\s*(.+)/g;
-            var match = myRegexp.exec(item.text);
-            if(match.length){
-                item.text = match[1].trim();
-            }else{
-                item.text = "";
-            }
-          });
-        }
-  
-        if(row.weightNet){
-          row.weightNet.forEach(item => {
-            var myRegexp = /Waga\s+\[g\](\d+)\s*/g;
-            var match = myRegexp.exec(item.text);
-            if(match.length){
-                item.text = match[1].trim();
-            }else{
-                delete item.text;
-            }
-          });
-        }
-  
-        if(row.color){
-          row.color.forEach(item => {
-            var data1Arr=item.text.split('Kolor ');
-            if(data1Arr.length>1){
-              var data2Arr=data1Arr[1].trim().split(' ');
-              if(data2Arr.length>1){
-                item.text=data2Arr[0];
-              }else{
-                item.text="";
-              }
-            }else{
-              item.text="";
-            }
-          });
-        }
-  
-        if (row.productOtherInformation) {
-          row.productOtherInformation.forEach(item => {
-            var data1Arr=item.text.split('Informacje dodatkowe ');
-            if(data1Arr.length>1){
-              var data2Arr=data1Arr[1].split('Moc [W]');
-              if(data2Arr.length>1){
-                item.text=data2Arr[0];
-              }else{
-                item.text="";
-              }
-            }else{
-              item.text="";
-            }
-          });
+        if(row.pricePerUnit){
+          row.pricePerUnit[0]['text']=row.pricePerUnit[1]['text']+'/'+row.pricePerUnit[0]['text'].replace(' -','');
         }
       }
     }
