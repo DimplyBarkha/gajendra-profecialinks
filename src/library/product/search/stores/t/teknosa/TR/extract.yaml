@@ -7,7 +7,7 @@ fields:
     singleValue: false
     xpath: //div[@id='product-item']/@data-product-id
   - name: searchUrl
-    singleValue: true
+    xpath: //div[@class='product-item']/@searchurl
   - name: name
     singleValue: false
     xpath: //div[@class='product-name']//span/text()

@@ -1,6 +1,15 @@
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  const addUrl = async function(context) {
+    await context.evaluate(async function() {
+       const url = document.location.href
+       const productList = document.querySelectorAll('.product-item')
+       productList.forEach(product => product.setAttribute('searchurl', url))
+    })
+    return;
+  }
   const addRanking = async function (context) {
     await context.evaluate(async function () {
       function addElementToDocument (doc, key, value) {
@@ -18,6 +27,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       localStorage.setItem('prodCount', `${lastProductPosition + arr.length}`);
     }); 
   };
+  await addUrl(context)
   await addRanking(context);
   return await context.extract(productDetails, { transform });
 }
