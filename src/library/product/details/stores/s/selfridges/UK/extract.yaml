@@ -6,13 +6,13 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//div[@class="c-image-gallery__images"]//picture/img/@src)[1]
+    xpath: (//div //picture/img/@src)[1]
     regExp: (images.selfridges.com/is/.+)
     regExpReplace: https://$1
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
-    xpath: (//div[@class="c-image-gallery__images"]//picture/img/@alt)[1]
+    xpath: (//div[contains(@class,"c-image-gallery__images")]//picture/img/@alt)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
