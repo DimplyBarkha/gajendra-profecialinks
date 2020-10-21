@@ -4,7 +4,7 @@ module.exports = {
   country: 'US',
   store: 'ajmadison',
   domain: 'ajmadison.com',
-  url: 'https://www.ajmadison.com/b.php?Ntt=digital%20shelf',
+  url: 'https://www.ajmadison.com/b.php?Ntt={searchTerms}',
   loadedSelector: '.container.container--fluid',
   noResultsXPath: null,
   zipcode: '',
