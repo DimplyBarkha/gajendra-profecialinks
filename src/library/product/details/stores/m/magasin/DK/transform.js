@@ -54,10 +54,10 @@ const transform = (data, context) => {
           let newText = JSON.parse(row.gtin[0].text.trim());
           row.gtin = [{ text: newText.gtin13 }];
         }
-        // if (row.price) {
-        //   let newText = JSON.parse(row.price[0].text.trim());
-        //   row.price = [{ text: newText.offers.price }];
-        // }
+        if (row.price) {
+          const newText = row.price[0].text.replace('.', ',');
+          row.price = [{ text: newText }];
+        }
         if (row.nameExtended) {
           let newText = "";
           row.nameExtended.forEach(item => {
