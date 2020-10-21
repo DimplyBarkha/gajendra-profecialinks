@@ -25,20 +25,41 @@ const transform = (data) => {
     
     for (const { group } of data) {
       for (let row of group) {
-        let tmp_desc = ''
+        let tmp_desc = '';
+        let tmp_direction = '';
         if (row.availabilityText) {                    
           row.availabilityText.forEach(item => {
             item.text = "In Stock";
           });          
         }
-        if (row.description2) {
+
+        if (row.description1) {
             let info = [];          
-            row.description2.forEach(item => {
-              info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());            
+            row.description1.forEach(item => {
+              info.push(item.text);            
             });            
             tmp_desc = info.join(' || ');
-            delete row.description2;
+            delete row.description1;
         }
+
+        if (row.description2) {
+          let info = [];          
+          row.description2.forEach(item => {
+            info.push(item.text);            
+          });            
+          tmp_desc = info.join(' || ');
+          delete row.description2;
+        }
+
+        if (row.description3) {
+          let info = [];          
+          row.description3.forEach(item => {
+            info.push(item.text);            
+          });            
+          tmp_desc = info.join(' || ');
+          delete row.description3;
+        }
+
         if (row.description) {
             let info = [];
             row.description.forEach(item => {
@@ -48,6 +69,35 @@ const transform = (data) => {
                 info.push(tmp_desc);
             }
             row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];
+        }
+
+        if (row.directions1) {
+          let directionInfo = [];          
+          row.directions1.forEach(item => {
+            directionInfo.push(item.text);            
+          });            
+          tmp_direction = directionInfo.join(' || ');
+          delete row.directions1;
+        }
+
+        if (row.directions2) {
+          let directionInfo = [];          
+          row.directions2.forEach(item => {
+            directionInfo.push(item.text);            
+          });            
+          tmp_direction = directionInfo.join(' || ');
+          delete row.directions2;
+        }
+
+        if (row.directions) {
+          let directionInfo = [];
+          row.directions.forEach(item => {
+            directionInfo.push(item.text);
+          });
+          if(tmp_direction != ''){
+            directionInfo.push(tmp_direction);
+          }
+          row.directions = [{'text':directionInfo.join(' | '),'xpath':row.directions[0].xpath}];
         }
 
         if(row.aggregateRating){

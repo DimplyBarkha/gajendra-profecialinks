@@ -34,12 +34,24 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[@class="adtcp js-parchase-info-content nomobile"]/ul/li[position()>=1]
+  - name: description1
+    singleValue: false
+    xpath: //h3[@class='product-information__info__content__block__title' and text()='Фармакологическое действие']/parent::div[@class='product-information__info__content__block']
   - name: description2
     singleValue: false
-    xpath: //div[@class="product-information__info"]//div[@class="product-information__info__content"][1]//div[position() >2 and position() < 6]
+    xpath: //h3[@class='product-information__info__content__block__title' and text()='Фармакокинетика']/parent::div[@class='product-information__info__content__block']
+  - name: description3
+    singleValue: false
+    xpath: //h3[@class='product-information__info__content__block__title' and text()='Фармакодинамика']/parent::div[@class='product-information__info__content__block']
   - name: directions
     singleValue: false
-    xpath: //div[@class="product-information__info"]//div[@class="product-information__info__content"][1]//div[position() >5 and position() < 9]
+    xpath: //h3[@class='product-information__info__content__block__title' and text()='Показания к применению']/parent::div[@class='product-information__info__content__block']
+  - name: directions1
+    singleValue: false
+    xpath: //h3[@class='product-information__info__content__block__title' and text()='Противопоказания к применению']/parent::div[@class='product-information__info__content__block']
+  - name: directions2
+    singleValue: false
+    xpath: //h3[@class='product-information__info__content__block__title' and text()='Применение при беременности и детям']/parent::div[@class='product-information__info__content__block']
   - name: warnings
     singleValue: false
     xpath: //div[@class="product-information__info"]//div[@class="product-information__info__content"][1]//div[9]
