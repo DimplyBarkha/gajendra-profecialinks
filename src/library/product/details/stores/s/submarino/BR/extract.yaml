@@ -14,9 +14,11 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: //div[@class='image-gallery-slide center gallery-video-item']/div[1]/picture[1]/img[1]/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
+  xpath: //div[@class='image-gallery-slide center gallery-video-item']/div[1]/picture[1]/img[1]/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
@@ -26,17 +28,21 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: //div[contains(@class, 'product-breadcrumb')]/div/a
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //h1[@id='product-name-default']
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
+  xpath: //span[@class='price__SalesPrice-sc-1i11rkh-2 jjADsQ TextUI-sc-12tokcy-0 CIZtP']  #@todo
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //span[@class='price__SalesPrice-sc-1i11rkh-2 jjADsQ TextUI-sc-12tokcy-0 CIZtP']
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
@@ -46,9 +52,11 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: //div[@class='ViewUI-sc-1ijittn-6 iXIDWU']/span[1]/font[1]/font[1] # ?
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  #@todo
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -56,15 +64,19 @@ fields:
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
+  xpath: //tr[25]/td[2]/span[1]/font[1]/font[1]
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  # @todo check
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
+  xpath: //tr[22]/td[2]/span[1]/font[1]/font[1]
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
+  xpath: //tr[22]/td[2]/span[1]/font[1]/font[1]
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
@@ -135,7 +147,7 @@ fields:
   description: Price in the selected store
 - name: asin
   singleValue: true
-  description: 
+  description:
 - name: coupon
   singleValue: true
   description: Text of any coupon offer
@@ -147,7 +159,7 @@ fields:
   description: Text of link next to Amazon choice graphic
 - name: brandLink
   singleValue: true
-  description: 
+  description:
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
@@ -170,31 +182,31 @@ fields:
   description: See image - top section hero area
 - name: heroQuickPromoImageUrl
   singleValue: true
-  description: 
+  description:
 - name: heroQuickPromoUrl
   singleValue: true
-  description: 
+  description:
 - name: pasin
   singleValue: true
   description: Parent asin
 - name: videoLength
   singleValue: false
-  description: 
+  description:
 - name: ingredientImagePresent
   singleValue: true
-  description: 
+  description:
 - name: factImagePresent
   singleValue: true
-  description: 
+  description:
 - name: largeImageCount
   singleValue: true
-  description: 
+  description:
 - name: variantAsins
   singleValue: true
-  description: 
+  description:
 - name: primeFlag
   singleValue: true
-  description: 
+  description:
 - name: lbb
   singleValue: true
   description: Check Lost by Box Requirements (just for Amazon and a couple of other
@@ -202,33 +214,33 @@ fields:
     Amazon Website) - even though Amazon has the product "in Stock"
 - name: lbbPrice
   singleValue: true
-  description: 
+  description:
 - name: featureBullets
   singleValue: false
-  description: 
+  description:
 - name: otherSellersName
   singleValue: false
-  description: 
+  description:
 - name: otherSellersPrime
   singleValue: false
 - name: otherSellersPrice
   singleValue: false
-  description: 
+  description:
 - name: otherSellersShipping
   singleValue: false
-  description: 
+  description:
 - name: secondaryImageTotal
   singleValue: true
-  description: 
+  description:
 - name: news
   singleValue: true
-  description: 
+  description:
 - name: addonItem
   singleValue: true
-  description: 
+  description:
 - name: fastTrack
   singleValue: true
-  description: 
+  description:
 - name: ingredientsList
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
@@ -360,7 +372,7 @@ fields:
   description: Unit of Measure Data for Salt
 - name: dietaryInformation
   singleValue: true
-  description: 
+  description:
 - name: specifications
   singleValue: true
   description: The physical dimensions of the product including packaging.
@@ -426,13 +438,13 @@ fields:
     between variants, this will need analysis
 - name: variants
   singleValue: false
-  description: 
+  description:
 - name: additionalDescBulletInfo
   singleValue: false
-  description: 
+  description:
 - name: prop65Warning
   singleValue: true
-  description: 
+  description:
 - name: ageSuitability
   singleValue: true
   description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I

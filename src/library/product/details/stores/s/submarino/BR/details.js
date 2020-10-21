@@ -5,6 +5,5 @@ module.exports = {
     country: 'BR',
     store: 'submarino',
     domain: 'submarino.com.br',
-    zipcode: '',
   },
 };

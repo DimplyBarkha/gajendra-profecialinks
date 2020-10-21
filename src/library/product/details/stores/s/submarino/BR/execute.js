@@ -5,8 +5,7 @@ module.exports = {
     country: 'BR',
     store: 'submarino',
     domain: 'submarino.com.br',
-    loadedSelector: null,
+    loadedSelector: 'div[class*=\'product-main-area\']',
     noResultsXPath: null,
-    zipcode: '',
   },
 };
