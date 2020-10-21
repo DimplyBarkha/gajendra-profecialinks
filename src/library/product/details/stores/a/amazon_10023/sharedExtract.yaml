@@ -167,9 +167,7 @@ fields:
     singleValue: true
     xpath: //div[@id='added-asin']
   - name: sku
-    xpath: //li[contains(.,'Modellnummer:')]
-    regExp: (.+)\:(.+)
-    regExpReplace: $2
+    xpath: normalize-space(//tr[contains(.,'Model Number')]//td)
   - name: coupon
     singleValue: false
     xpath: //div[@id="price"]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text()

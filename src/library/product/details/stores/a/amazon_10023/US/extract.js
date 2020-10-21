@@ -1,4 +1,4 @@
-const { transform } = require('../../../../sharedAmazon/transformNew');
+const { transform } = require('../transform');
 const { implementation } = require('../sharedExtract')
     /**
      *
