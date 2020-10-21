@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'product-list')]//div[contains(@class,'col-xs-6')]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,'thumbnail')]/@itemid
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[contains(@class,'img-responsive')]/@src
