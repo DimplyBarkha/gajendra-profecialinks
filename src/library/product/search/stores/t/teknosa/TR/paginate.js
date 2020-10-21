@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     country: 'TR',
     store: 'teknosa',
-    nextLinkSelector: 'div.pagination-bar.bottom ul.pagination li.active + li',
+    nextLinkSelector: 'div.pagination-bar.bottom ul.pagination li.active + li > a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
