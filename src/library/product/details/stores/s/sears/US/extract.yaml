@@ -23,7 +23,7 @@ fields:
     xpath: //div[@class="product-content"]//h1
   - name: image
     singleValue: false 
-    xpath: //ul[@class="product-images"]//li[@class="media-image firstImage"]//img/@src
+    xpath: //div[@data-id="product-image-main"]//img/@src
   - name: imageAlt
     singleValue: false 
     xpath: //ul[@class="product-images"]//li[@class="media-image firstImage"]//img/@alt
@@ -36,7 +36,7 @@ fields:
     defaultValue: 'sears'
   - name: description
     singleValue: false
-    xpath: //div[@id='productLongDescription']//ul/li
+    xpath: //section[@id='description']
   - name: specifications
     singleValue: false
     xpath: //section[@id='specifications']//table//tr

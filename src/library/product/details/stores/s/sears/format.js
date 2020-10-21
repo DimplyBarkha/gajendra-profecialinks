@@ -50,6 +50,9 @@ const transform = (data) => {
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
+              item.text = item.text.replace("#", '||').trim();
+              item.text = item.text.replace(", ", '||').trim();
+              item.text = item.text.replace(". ", '||').trim();
               description_ar.push(item.text);
             });
             if (description_ar.length) {
