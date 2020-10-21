@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'product/details/variants',
   parameterValues: {
     country: 'ES',
     store: 'amazon',
     domain: 'amazon.es',
-    // zipcode: 28010,
+    zipcode: '28010',
   },
 };

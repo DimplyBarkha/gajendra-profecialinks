@@ -1,6 +1,6 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'product/details/variants',
   parameterValues: {
     country: 'DE',
     store: 'amazon',

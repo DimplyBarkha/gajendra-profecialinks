@@ -157,4 +157,53 @@ module.exports.AmazonHelp = class {
     });
   }
 
+  async addEnhancedContent () {
+    const enhancedContent = await this.context.evaluate(async function () {
+      let allText = '';
+      [...document.querySelectorAll('div.apm-hovermodule-slides')].filter(element => element.style.display !== 'block').forEach((element) => {
+        if (element.querySelector('.apm-hovermodule-slides-inner')) {
+          allText += element.querySelector('.apm-hovermodule-slides-inner').innerText;
+        }
+      });
+      return document.querySelector('div#aplus') ? document.querySelector('div#aplus').innerText + allText : '';
+    });
+    await this.helpers.addItemToDocument('added-enhanced-content', enhancedContent);
+  }
+
+  async addCurrentSellerInfo (soldByAmazon, soldByAmazonRegex) {
+    let CurrentSeller = await this.context.evaluate(async function () {
+      return document.querySelector('div[id="merchant-info"]') ? document.querySelector('div[id="merchant-info"]').innerText : '';
+    });
+
+    const CurrentSellerPrice = await this.context.evaluate(async function () {
+      return document.querySelector("#price_inside_buybox, div[class='olp-text-box'] span[class='a-size-base a-color-price']") ? document.querySelector("#price_inside_buybox, div[class='olp-text-box'] span[class='a-size-base a-color-price']").innerText : '';
+    });
+
+    let CurrentSellerShipping = await this.context.evaluate(async function () {
+      return document.querySelector("div[class='olp-text-box'] span[class='a-color-base']") ? document.querySelector("div[class='olp-text-box'] span[class='a-color-base']").innerText : '';
+    });
+
+    let CurrentSellerPrime = await this.context.evaluate(async function () {
+      return document.querySelector("div[class='olp-text-box'] span[class='a-color-base']") ? document.querySelector("div[class='olp-text-box'] span[class='a-color-base']").innerText : '';
+    });
+
+    if (CurrentSeller && CurrentSeller.search(soldByAmazon) < 0 && CurrentSeller.match(soldByAmazonRegex)) {
+      CurrentSeller = (CurrentSeller.match(soldByAmazonRegex)[1]) ? CurrentSeller.match(soldByAmazonRegex)[1] : CurrentSeller.match(soldByAmazonRegex)[2];
+      if (!CurrentSellerShipping) CurrentSellerShipping = '!0.00';
+      if (CurrentSellerPrime.includes('Details')) {
+        CurrentSellerPrime = 'YES';
+      } else {
+        CurrentSellerPrime = 'NO';
+      }
+
+      await this.helpers.addItemToDocument('ii_otherSellersName', CurrentSeller);
+      await this.helpers.addItemToDocument('ii_otherSellersPrice', CurrentSellerPrice);
+      await this.helpers.addItemToDocument('ii_otherSellersShipping', CurrentSellerShipping);
+      await this.helpers.addItemToDocument('ii_otherSellersPrime', CurrentSellerPrime);
+      console.log('CurrentSeller', CurrentSeller);
+      console.log('CurrentSellerPrice', CurrentSellerPrice);
+      console.log('CurrentSellerShipping', CurrentSellerShipping);
+      console.log('CurrentSellerPrime', CurrentSellerPrime);
+    }
+  }
 };

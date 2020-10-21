@@ -1,10 +1,11 @@
-module.exports.implementation = async function implementation (
+// const { implementation } = require('../../../../sharedAmazon/variantExtract');
+async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  const { Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
+  const { variants, Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
 
   const helpers = new Helpers(context);
   const amazonHelp = new AmazonHelp(context, helpers);
@@ -36,6 +37,24 @@ module.exports.implementation = async function implementation (
       addHiddenDiv('ii_variant', variant);
     });
   }, allVariants);
-
-  return await context.extract(`./product/details/stores/a/amazon/${parameters.country}/variantsExtract`);
+  return await context.extract(variants);
+}
+module.exports = {
+  implements: 'product/details/variants/variantsExtract',
+  parameterValues: {
+    country: 'DE',
+    store: 'amazon',
+    transform: null,
+    domain: 'amazon.de',
+    zipcode: '10117',
+  },
+  dependencies: {
+    variants: 'extraction:product/details/stores/a/amazon/DE/variantsExtract',
+    Helpers: 'module:helpers/helpers',
+    AmazonHelp: 'module:helpers/amazonHelp',
+  },
+  implementation,
 };
+
+
+
