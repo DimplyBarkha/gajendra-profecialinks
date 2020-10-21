@@ -24,13 +24,13 @@ fields:
     xpath: //meta[@name='keywords']/@content  
   - name: nameExtended
     singleValue: true    
-    xpath: //h1[contains(@class,'pipName')]/text()
+    xpath: //h1[contains(@class,'pipName')]
   - name: listPrice
     singleValue: true    
     xpath: //div[contains(@itemprop,'offers')]//div//span[contains(@class,'productPrice_price-regWhole')]/text()
   - name: price
     singleValue: true    
-    xpath: //div[contains(@itemprop,'offers')]//div//span[contains(@class,'productPrice_price-saleWhole')]/text()
+    xpath: //div[contains(@itemprop,'offers')]//div//span[contains(@class,'productPrice_price-saleWhole')]
   - name: availabilityText
     singleValue: true    
     regExp: (.+)
@@ -48,18 +48,18 @@ fields:
     xpath: //meta[@name='pProductID']/@content    
   - name: ratingCount
     singleValue: true    
-    xpath : (//span[contains(@class,'averageRating_number')])[1]/text()
+    xpath : (//span[contains(@class,'averageRating_number')])[1]
     type: NUMBER  
   - name: aggregateRating
     singleValue: true    
-    xpath: //span[contains(@itemprop,'ratingValue')]/text()
+    xpath: //span[contains(@itemprop,'ratingValue')]
     type: NUMBER
   - name: shippingInfo
     singleValue: true    
-    xpath: //div[contains(@class,'prodItemShipping')]/text()  
+    xpath: //div[contains(@class,'prodItemShipping')]
   - name: name
     singleValue: true
-    xpath: //h1[contains(@class,'pipName')]/text()
+    xpath: //h1[contains(@class,'pipName')]
   - name: countryOfOrigin
     singleValue: true    
-    xpath : //span[contains(@class,'prodItemInfo_originText')]//a[contains(@class,'pipOrigin_link')]/text()
+    xpath : //span[contains(@class,'prodItemInfo_originText')]//a[contains(@class,'pipOrigin_link')]
