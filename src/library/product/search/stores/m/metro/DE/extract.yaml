@@ -1,0 +1,20 @@
+Search:
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="well-sm well"]//div[@class="mfcss_card-article-2--container-flex"]
+fields: 
+- name: productUrl
+  xpath: //a[@class="title"]//@href
+  regExp: (.+)
+  regExpReplace: https://produkte.metro.de$1
+- name: thumbnail
+  xpath: //img[@class="img-responsive"]//@src
+- name: name
+  xpath: //div[@class="mfcss_card-article-2--title"]
+- name: price
+  xpath: //p[contains(@class,"price primary")]
+- name: id
+  xpath: //div[@class="mfcss_card-article-2--articlenumber"]//p/text()
+- name: searchUrl
+  xpath: //@searchurl 
