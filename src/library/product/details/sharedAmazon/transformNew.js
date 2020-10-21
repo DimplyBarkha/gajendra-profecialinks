@@ -56,15 +56,11 @@ const transform = (data, context) => {
                 weightGross: item => sg(item).trim(),
                 shippingWeight: item => sg(item).replace(/\s\(/g, '').trim(),
                 grossWeight: item => sg(item).replace(/\s\(/g, '').trim(),
-                largeImageCount: item => {
-                    const array = sg(item).toString().split('SL1500');
-                    return array.length === 0 ? 0 : array.length;
-                },
+                // largeImageCount: item => {
+                //     const array = sg(item).toString().split('SL1500');
+                //     return array.length === 0 ? 0 : array.length;
+                // },
                 alternateImages: array => joinArray(array.map(item => item.text)),
-                brandLink: item => {
-                    if (!sg(item).includes(hostName)) return `https://${hostName}${sg(item)}`;
-                    return sg(item);
-                },
                 brandText: item => {
                     let txt = regexTestNReplace(/([B|b]rand:)|([B|b]y)|([B|b]rand)|([V|v]isit the)/gm, sg(item));
                     if (txt.includes('Dyson Store')) txt = 'Dyson';
@@ -124,17 +120,17 @@ const transform = (data, context) => {
                     return { text: item.text.replace(unWantedTxt, '') };
                 });
             }
-            if (row.manufacturerDescription && row.manufacturerDescription[0]) {
-                const description = [];
-                row.manufacturerDescription.forEach(item => {
-                    const regexIgnoreText = /^(Read more)/;
-                    item.text = (item.text).toString().replace(regexIgnoreText, '');
-                    if (!regexIgnoreText.test(item.text)) {
-                        description.push(item.text);
-                    }
-                });
-                row.manufacturerDescription = [{ text: description.join(' ').trim() }];
-            }
+            // if (row.manufacturerDescription && row.manufacturerDescription[0]) {
+            //     const description = [];
+            //     row.manufacturerDescription.forEach(item => {
+            //         const regexIgnoreText = /^(Read more)/;
+            //         item.text = (item.text).toString().replace(regexIgnoreText, '');
+            //         if (!regexIgnoreText.test(item.text)) {
+            //             description.push(item.text);
+            //         }
+            //     });
+            //     row.manufacturerDescription = [{ text: description.join(' ').trim() }];
+            // }
             if (row.heroQuickPromoUrl && row.heroQuickPromoUrl[0]) {
                 if (row.heroQuickPromoUrl[0].text.includes('http')) {
                     row.heroQuickPromoUrl = [{ text: row.heroQuickPromoUrl[0].text }];
@@ -253,8 +249,6 @@ const transform = (data, context) => {
             row.imageZoomFeaturePresent = [{ text: zoomText }];
 
             const subscriptionPresent = !!row.subscriptionPrice;
-            row.subscribeAndSave = [{ text: subscriptionPresent }];
-
             Object.keys(row).forEach(header => row[header].forEach(el => {
                 el.text = clean(el.text);
             }));
