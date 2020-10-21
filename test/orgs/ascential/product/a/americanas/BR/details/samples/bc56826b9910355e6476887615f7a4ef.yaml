@@ -1,0 +1,19 @@
+input:
+  _url: http://americanas.com.br
+  URL: https://www.americanas.com.br/produto/100044574/tv-led-28-usb-hdmi-rj45-philco-bivolt-ph28n91dsgwa
+extractions:
+  - html: https://workbench.import.io/html/run=675f39af-80bd-47ca-a217-953b51c830a4/task=f6938af4-ac50-48bb-bf05-ed01a2b4e73d/9258f999-3ae6-4da4-9889-5005acb2d205.html
+    extractionConfigId: product/details/stores/a/americanas/BR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.americanas.com.br/produto/100044574/tv-led-28-usb-hdmi-rj45-philco-bivolt-ph28n91dsgwa?cor=PRETO&voltagem=BIVOLT
+                xpath: /html/body/div[6]
+            image:
+              - text: https://images-americanas.b2w.io/produtos/01/00/images/100044/5/100044577G1.jpg
+                xpath: /html/head[1]/meta[17]/@content
+            imageAlt:
+              - text: Tv Led 28´´ Usb/hdmi/rj45 Philco Bivolt Ph28n91dsgwa nas americanas
+                xpath: /html/head[1]/meta[18]/@content
+        xpath: /
+    timestamp: 1603118002923
