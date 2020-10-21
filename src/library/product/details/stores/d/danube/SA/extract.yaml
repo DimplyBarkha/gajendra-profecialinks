@@ -1,0 +1,53 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class="product-show__main-img-container"]/a/@data-image
+  - name: imageAlt
+    singleValue: false
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id="thumbnails"]/div[1]/div[position() > 1]/div/@data-image
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+  - name: nameExtended
+    singleValue: false
+    xpath: (//div[@itemprop="name"])[1]
+  - name: listPrice
+    singleValue: false
+    manualSelector: div.product-show__price > div.product-price.product-price--on-sale > div.product-price__original-price > span.product-price__original-price__span
+  - name: price
+    singleValue: false
+    manualSelector: div.product-show__price > div.product-price > div.product-price__current-price
+  - name: availabilityText
+    singleValue: false
+    manualSelector: button.product-show__add-to-cart    
+  - name: description
+    singleValue: false
+    xpath: (//div[@class="product-show__properties__text"])[1]
+  - name: descriptionBullets
+    singleValue: false
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: variantId
+    singleValue: false
+    xpath: (//input[@name="variant_id"]/@value)[1]
+  - name: ratingCount
+    singleValue: false
+    type: NUMBER
+  - name: aggregateRatingText
+    singleValue: false
+    manualSelector: div#reviews > p
+  - name: aggregateRating
+    singleValue: false
+    xpath: count(//div[@class="star-rating"]/i)
+  - name: name
+    singleValue: false
+    xpath: //div[@itemprop="name"]
+  

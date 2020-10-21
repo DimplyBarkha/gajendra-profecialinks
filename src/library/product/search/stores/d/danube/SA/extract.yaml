@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.ais-hits--item
+recordXPath: //div[@class="ais-hits--item"]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class, 'product-box product-box--add-to-cart')]/a/@href
+    regExp: (.+)
+    regExpReplace: https://danube.sa$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product-box__image__element"]/@style
+    regExp: '.*: url\((.*)\);'
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    manualSelector: div.product-box__name
+  - name: price
+    singleValue: false
+    manualSelector: div.product-price__current-price
+  - name: listPrice
+    singleValue: false
+    manualSelector: div.product-price__original-price > span.product-price__original-price__span
+  - name: id
+    singleValue: false
+    xpath: //input[@name="variant_id"]/@value
