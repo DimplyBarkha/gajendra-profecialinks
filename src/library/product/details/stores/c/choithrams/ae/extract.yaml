@@ -1,0 +1,88 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  # - name: saltPerServingUom222
+  #   singleValue: true
+  #   xpath: concat(//div[@class='nutrition']//div//div[6]//div[@class='facts macro_amount'],//div[@class='nutrition']//div//div[6]//div[@class='facts macro_percent']) 
+  #   regExp: ([.\0-9]+)(\w+)(.*)
+  #   regExpReplace: $1$3
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@class='image']//@src
+    regExp: (.+)
+    regExpReplace: https://www.choithrams.com$1
+  - name: category 
+    singleValue: false
+    xpath: //div[@class='trail']//a[position()>1]
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@class='details']//h1
+  - name: price
+    singleValue: true
+    xpath: //div[@class='details']//div[@class='price']//span[1]
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@class='details']//div[@class='price']//span[2]
+  - name: description
+    singleValue: true
+    xpath: //section[@class='product-information']//p[2]
+  - name: ingredientsList
+    singleValue: true
+    xpath: //div[@class='ingredients']//p
+  - name: caloriesPerServing
+    singleValue: true
+    xpath: //div[@id='caloriesPerServing']
+  - name: caloriesFromFatPerServing
+    singleValue: true
+    xpath: //div[@id='caloriesFromFatPerServing']  
+  - name: totalFatPerServingUom
+    singleValue: true
+    xpath: //div[@id='totalFatPerServingUom'] 
+  - name: saturatedFatPerServing
+    singleValue: true
+    xpath: //div[@id='saturatedFatPerServing']  
+
+  - name: saturatedFatPerServingUom
+    singleValue: true
+    xpath: //div[@id='saturatedFatPerServingUom']  
+  - name: totalCarbPerServing
+    singleValue: true
+    xpath: //div[@id='totalCarbPerServing'] 
+  - name: totalCarbPerServingUom
+    singleValue: true
+    xpath: //div[@id='totalCarbPerServingUom'] 
+  - name: dietaryFibrePerServing
+    singleValue: true
+    xpath: //div[@id='dietaryFibrePerServing'] 
+  - name: dietaryFibrePerServingUom
+    singleValue: true
+    xpath: //div[@id='dietaryFibrePerServingUom'] 
+  - name: totalSugarsPerServing
+    singleValue: true
+    xpath: //div[@id='totalSugarsPerServing'] 
+  - name: totalSugarsPerServingUom
+    singleValue: true
+    xpath: //div[@id='totalSugarsPerServingUom']
+  - name: proteinPerServing
+    singleValue: true
+    xpath: //div[@id='proteinPerServing']
+  - name: proteinPerServingUom
+    singleValue: true
+    xpath: //div[@id='proteinPerServingUom']
+  - name: saltPerServing
+    singleValue: true
+    xpath: //div[@id='saltPerServing']
+  - name: saltPerServingUom
+    singleValue: true
+    xpath: //div[@id='saltPerServingUom']
+
+
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@id='availableText']
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id='variantId']

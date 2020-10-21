@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: 
+  # //div[@id='added_row']
+fields:
+- name: price
+  singleValue: true
+  xpath: //div[@id='price']
+    # //div[@class='price']//span[1]
+- name: name
+  singleValue: true
+  xpath: //div[@id='name']
+- name: productUrl
+  singleValue: false
+  xpath: //div[@id='productUrl']
+#   regExp: (.+)
+#   regExpReplace: https://www.choithrams.com$1
+- name: thumbnail
+  singleValue: false
+  xpath: //div[@id='thumbnail']
+#   regExp: (.+)
+#   regExpReplace: https://www.choithrams.com$1
+- name: id
+  singleValue: true
+  xpath: //div[@id='id']
+    # //div[@id='added_row']/@idMatch
