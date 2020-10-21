@@ -5,39 +5,36 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     async function callApiToChangeZip (zipcode) {
       const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=amazonfresh&deviceType=web&pageType=Search&actionSource=glow&almBrandId=undefined`;
       const currentUrl = window.location.href;
-      const response = await fetch(
-        'https://www.amazon.com/gp/delivery/ajax/address-change.html',
-        {
-          headers: {
-            accept: 'text/html,*/*',
-            'accept-language': 'en-US,en;q=0.9',
-            'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
-            downlink: '0.65',
-            ect: '3g',
-            rtt: '400',
-            'sec-fetch-dest': 'empty',
-            'sec-fetch-mode': 'cors',
-            'sec-fetch-site': 'same-origin',
-            'x-requested-with': 'XMLHttpRequest',
-          },
-          referrer: currentUrl,
-          referrerPolicy: 'strict-origin-when-cross-origin',
-          body: body,
-          method: 'POST',
-          mode: 'cors',
-          credentials: 'include',
+      const response = await fetch("https://www.amazon.com/gp/delivery/ajax/address-change.html", {
+        "headers": {
+          "accept": "text/html,*/*",
+          "accept-language": "en-US,en;q=0.9",
+          "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
+          "downlink": "0.45",
+          "ect": "3g",
+          "rtt": "400",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-origin",
+          "x-requested-with": "XMLHttpRequest"
         },
-      );
+        "referrer": currentUrl,
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": body,
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+      });
       console.log('ZIPCODE CHANGED:' + response.status);
       return response.status === 200;
     }
 
     let retries = 0;
     while (retries < 3) {
-      if (callApiToChangeZip(zipcode)) {
+      if (await callApiToChangeZip(zipcode)) {
         break;
       }
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 5000));
       retries = retries + 1;
       console.log(`API Failed retrying, retry: ${retries}`);
     }
