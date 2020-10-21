@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'js-test-productWrap')]
+fields: 
+  - name: id
+    SingleValue: false
+    xpath: //span[contains(@class,'js-test-productTitle')]/parent::a/@href
+  - name: productUrl
+    SingleValue: false
+    xpath: //span[contains(@class,'js-test-productTitle')]/parent::a/@href
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[1]//a[1]//img/@src
+  - name: name
+    SingleValue: false
+    xpath: //span[contains(@class,'js-test-productTitle')]
+  - name: price
+    SingleValue: false
+    xpath: //div[contains(@class,'js-test-priceSliderWrap')]/div[1]
+  - name: rankOrganic
+    SingleValue: false
+    defaultValue: 1
+  - name: rank
+    SingleValue: false
+    defaultValue: 1
+  - name: brandText
+    SingleValue: false
+    xpath: //span[contains(@class,'js-test-brand')] 
+  - name: manufacturer
+    SingleValue: false
+    xpath: //span[contains(@class,'js-test-brand')]
