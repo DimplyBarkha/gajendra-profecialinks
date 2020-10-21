@@ -7,42 +7,6 @@ module.exports.implementation = async function implementation(
     const { transform } = parameters;
     const { productDetails } = dependencies;
 
-    await context.evaluate(async() => {
-        function removeDuplicates(array) {
-            array.splice(0, array.length, ...(new Set(array)))
-        };
-        let getRank = document.querySelectorAll('#detailBulletsWrapper_feature_div ul span');
-        let rankDetails;
-        let product_rank = [];
-        let product_rank_category = [];
-        getRank.forEach((element) => {
-            if (element.innerText && element.innerText.includes('Best Sellers Rank') && element.innerText.includes('#')) {
-
-                rankDetails = element.innerText.split('Best Sellers Rank: ')[1].split('\n');
-                if (rankDetails.length) {
-                    for (let i = 0; i < rankDetails.length; i++) {
-                        product_rank.push(rankDetails[i].split(' ')[0].trim().replace(/#/, '').replace(/,/g, "").trim());
-                        product_rank_category.push(rankDetails[i].replace(/^[#,0-9 in]+/, '').trim());
-                    }
-                }
-                console.log(rankDetails)
-            }
-        });
-        removeDuplicates(product_rank);
-        removeDuplicates(product_rank_category);
-        for (let i = 0; i < product_rank.length; i++) {
-            const div = document.createElement('div');
-            div.className = 'rank';
-            const getInput = document.createElement('li');
-            getInput.id = 'rank';
-            div.appendChild(getInput);
-            document.body.appendChild(div);
-            getInput.setAttribute('value', product_rank[i]);
-        }
-        let category = product_rank_category.join(' | ');
-        document.head.setAttribute('category', category);
-    });
-
     const productPrimeCheck = async() => {
         console.log('EXECUTING PRIME RELATED CODE.');
         let primeValue = 'No';
@@ -220,6 +184,41 @@ module.exports.implementation = async function implementation(
     }
 
     await scrollToContent('div[data-cel-widget="aplus_feature_div"]');
+    await context.evaluate(async() => {
+        function removeDuplicates(array) {
+            array.splice(0, array.length, ...(new Set(array)))
+        };
+        let getRank = document.querySelectorAll('#detailBulletsWrapper_feature_div ul span');
+        let rankDetails;
+        let product_rank = [];
+        let product_rank_category = [];
+        getRank.forEach((element) => {
+            if (element.innerText && element.innerText.includes('Best Sellers Rank') && element.innerText.includes('#')) {
+
+                rankDetails = element.innerText.split('Best Sellers Rank: ')[1].split('\n');
+                if (rankDetails.length) {
+                    for (let i = 0; i < rankDetails.length; i++) {
+                        product_rank.push(rankDetails[i].split(' ')[0].trim().replace(/#/, '').replace(/,/g, "").trim());
+                        product_rank_category.push(rankDetails[i].replace(/^[#,0-9 in]+/, '').trim());
+                    }
+                }
+                console.log(rankDetails)
+            }
+        });
+        removeDuplicates(product_rank);
+        removeDuplicates(product_rank_category);
+        const div = document.createElement('div');
+        div.className = 'rank';
+        for (let i = 0; i < product_rank.length; i++) {
+            const getInput = document.createElement('li');
+            getInput.id = 'rank';
+            div.appendChild(getInput);
+            document.body.appendChild(div);
+            getInput.setAttribute('data', product_rank[i]);
+        }
+        let category = product_rank_category.join(' | ');
+        document.head.setAttribute('category', category);
+    });
 
     await context.evaluate(productPrimeCheck);
 

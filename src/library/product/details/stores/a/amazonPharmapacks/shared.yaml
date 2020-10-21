@@ -109,7 +109,7 @@ fields:
   - name: internationalShipping
     xpath: (//li[contains(.,'International Shipping:')]//span[2])[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1]
   - name: salesRank
-    xpath: //li[@id='rank']//@value
+    xpath: //li[@id='rank']//@data
   - name: salesRankCategory
     xpath: //head/@category
   - name: subscriptionPrice
