@@ -6,7 +6,7 @@ module.exports = {
     domain: 'ao.com',
     url: 'https://ao.com/l/dyson/6/99/',
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: '//h1[@class="break-words mb-4 mt-6 text-center text-display font-regular"]/text()',
     zipcode: '',
   },
 };
