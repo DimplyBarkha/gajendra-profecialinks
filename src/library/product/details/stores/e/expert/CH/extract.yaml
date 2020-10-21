@@ -15,7 +15,8 @@ fields:
     description: Other product images (not in manufacturer description)
   - name: category
     singleValue: false
-    xpath: //div[contains(@class,'Z1yg')]//div[contains(@class,'Z1yj')] | //div[contains(@class,'Z1cc')]//div[contains(@class,'Z1ce')] | //div[contains(@class,'Z1bf')]//div[contains(@class,'Z1bh')]
+    xpath: //div[@id='ii_category']
+    # xpath: //div[contains(@class,'Z1yg')]//div[contains(@class,'Z1yj')] | //div[contains(@class,'Z1cc')]//div[contains(@class,'Z1ce')] | //div[contains(@class,'Z1bf')]//div[contains(@class,'Z1bh')] | //div[contains(@class,'Z1')]//div[contains(@class,'Z199')] 
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     xpath: //h1[contains(@class,'productHeaderTitle__Title')]
@@ -38,7 +39,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@id,'description')]
+    xpath: //div[contains(@id,'description')] | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'description')])]//div[contains(@class,'expandablePanel')]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: brandText
@@ -46,7 +47,7 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
-    xpath: //div[contains(@id,'specifications')]//table[contains(.,'Allgemeine Informationen')]//td[contains(.,'Hersteller') and not(contains(.,'Herstellernr'))]/following-sibling::td
+    xpath: //table[contains(.,'Allgemeine Informationen')]//td[contains(.,'Hersteller') and not(contains(.,'Herstellernr'))]/following-sibling::td
     description: Product manufacturer
   - name: weightNet
     description: Net weight as described on the page
@@ -64,7 +65,7 @@ fields:
     xpath: //div[contains(@id,'ii_sku')]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    xpath: //div[contains(@id,'specifications')]//table[contains(.,'Allgemeine Informationen')]//td[contains(.,'Herstellernr.')]/following-sibling::td
+    xpath: //table[contains(.,'Allgemeine Informationen')]//td[contains(.,'Herstellernr.')]/following-sibling::td
     description: The manufacturer model code (unique) of the product
   - name: ratingCount
     xpath: //meta[contains(@property,'og:rating_count')]/@content
@@ -95,7 +96,7 @@ fields:
     xpath: //div[@id='ii_specs']
     description: The physical dimensions of the product including packaging.
   - name: warranty
-    xpath: //div[contains(@id,'returnsAndWarranty')]//td[contains(.,'Garantie')]/following-sibling::td
+    xpath: //td[contains(.,'Garantie')]/following-sibling::td
     description: Guarantee associated with the product
   - name: productOtherInformation
     singleValue: false
@@ -123,7 +124,7 @@ fields:
     description: null
   - name: technicalInformationPdfPresent
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    xpath: //div[contains(@id,'downloads')]//a[contains(@href,'pdf')]/@href
+    xpath: //div[contains(@id,'downloads')]//a[contains(@href,'pdf')]/@href | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'downloads')])]//div[contains(@class,'expandablePanel')]//a[contains(@href,'pdf')]/@href
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     regExp: (.+)
     regExpReplace: Yes

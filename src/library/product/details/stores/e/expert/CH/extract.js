@@ -50,14 +50,29 @@ async function implementation (
         addHiddenDiv(id, text.slice(0, -4));
       };
     }
-    clickXpath("//div[contains(@id,'description')]//button[contains(.,'Mehr anzeigen')]");
-    clickXpath("//div[contains(@id,'specifications')]//button[contains(.,'Mehr anzeigen')]");
-    clickXpath("//div[contains(@id,'returnsAndWarranty')]//button[contains(.,'Mehr anzeigen')]");
-    let id = findXpath('//script[contains(@type,\'application/ld+json\') and contains(.,\'"@type":"Product"\')]');
-
+    clickXpath("//div[contains(@id,'description')]//button[contains(.,'Mehr anzeigen')] | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'description')])]//button[contains(.,'Mehr anzeigen')]");
+    await new Promise(resolve => setTimeout(resolve, 100));
+    clickXpath("//div[contains(@id,'specifications')]//button[contains(.,'Mehr anzeigen')] | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'specifications')])]//button[contains(.,'Mehr anzeigen')]");
+    await new Promise(resolve => setTimeout(resolve, 100));
+    clickXpath("//div[contains(@id,'returnsAndWarranty')]//button[contains(.,'Mehr anzeigen')] | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'returnsAndWarranty')])]//button[contains(.,'Mehr anzeigen')]");
+    await new Promise(resolve => setTimeout(resolve, 100));
+    // eslint-disable-next-line quotes
+    let id = findXpath(`//script[contains(@type,'application/ld+json') and contains(.,'"@type":"Product"')]`);
     id = id.replace(/.*(?:"sku":(.*?),.*)/, '$1');
     addHiddenDiv('ii_sku', id);
-
+    // eslint-disable-next-line quotes
+    let categoryNode = findXpath(`//script[contains(@type,'application/ld+json') and contains(.,'"@type":"BreadcrumbList"')]`);
+    categoryNode = JSON.parse(categoryNode) ? JSON.parse(categoryNode) : {};
+    const category = [];
+    categoryNode && categoryNode.itemListElement && categoryNode.itemListElement.forEach(item => {
+      item.name && category.push(item.name);
+    });
+    const brand = findXpath("//meta[contains(@property,'og:brand')]/@content");
+    brand && category.push(brand);
+    console.log('Category::', category);
+    category.forEach(item => {
+      addHiddenDiv('ii_category', item);
+    });
     const variantCount = findXpathArr('//div[contains(@id,\'Farbvariante\')]//a[contains(@class,\'styled\')]/@href');
     console.log('variant count::', variantCount.length);
     if (variantCount.length > 0) {
@@ -67,15 +82,15 @@ async function implementation (
     findXpathArr('//div[contains(@id,\'slide\')][position()>1]//picture[contains(@class,\'mediaPicture\')]//source[1]/@srcset | //div[contains(@id,\'slide\') and (./div[contains(@class,\'mediaVideo\')])]//img/@src').forEach(item => {
       addHiddenDiv('ii_images', item.split(' ')[0]);
     });
-    findXpathArr('//div[contains(@id,\'Farbvariante\')]//a[contains(@class,\'styled\')]/@href').forEach(item => {
+    findXpathArr("//div[contains(@id,'Farbvariante')]//a[contains(@class,'styled')]/@href").forEach(item => {
       addHiddenDiv('ii_variants', item.replace(/.*-(\d+).*/, '$1'));
     });
-    findAndFormatArr('//div[contains(@id,\'specifications\')]//td', 'ii_specs');
+    findAndFormatArr("//div[contains(@id,'specifications')]//td | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'specifications')])]//div[contains(@class,'expandablePanel')]//td ", 'ii_specs');
     findAndFormatArr('//table[(./thead[contains(.,\'Verpackungsdimensionen\')])]//tbody//td', 'ii_shippingDimensions');
-    findAndFormatArr('//table[(./thead[contains(.,\'Farbe\')])]//tbody//td', 'ii_color');
+    findAndFormatArr("//table[(./thead[contains(.,'Farbe')])]//tbody//td", 'ii_color');
     // video link
     const videoArr = [];
-    findXpathArr('//div[contains(@id,\'youtube\')]//img/@srcset | //div[contains(@id,\'slide\') and (./div[contains(@class,\'mediaVideo\')])]//img/@src').forEach(item => {
+    findXpathArr("//div[contains(@id,'youtube')]//img/@srcset | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'youtube')])]//div[contains(@class,'expandablePanel')]//img/@srcset | //div[contains(@id,'slide') and (./div[contains(@class,'mediaVideo')])]//img/@src").forEach(item => {
       const links = item.split(' ')[0];
       const video = links.match('vi/(.*?)/') && links.match('vi/(.*?)/')[1] ? 'https://www.youtube.com/embed/' + links.match('vi/(.*?)/')[1] + '?enablejsapi=1&origin=https%3A%2F%2Fwww.digitec.ch&widgetid=3' : '';
       videoArr.push(video);
