@@ -25,7 +25,7 @@ fields:
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //img[@data-selenium="miniProductPageImg"]/@src
+    xpath: //a[@data-selenium="miniProductPageProductImgLink"]/img/@src
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
