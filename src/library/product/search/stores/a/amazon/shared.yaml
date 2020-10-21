@@ -66,3 +66,6 @@ fields:
   - name: id
     singleValue: true
     xpath: //@data-asin
+  - name: productType
+    singleValue: false
+    xpath: ancestor::html//div[@id="departments"]/ul/li[position()=1]
