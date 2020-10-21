@@ -100,6 +100,12 @@ fields:
   - name: color
     singleValue: false
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
+  - name: manufacturer
+    singleValue: false
+    xpath: //td[contains(text(), 'Hersteller')]/following-sibling::*[1] | //td/a[contains(text(), 'Hersteller')]/parent::*[1]/following-sibling::*[1] | //th[contains(text(), 'Hersteller')]/following-sibling::*[1]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //*[@id="added-enhanced-content"]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@cel_widget_id="aplus"]//img/@src
@@ -188,7 +194,7 @@ fields:
     xpath: //div[@id='ii_lbb']
   - name: lbbPrice
     singleValue: false
-    xpath: //div[@id='ii_lbbPrice')]
+    xpath: //div[@id='ii_lbbPrice']
   - name: featureBullets
     singleValue: false
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]

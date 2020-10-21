@@ -7,7 +7,12 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails } = dependencies;
+  const { productDetails, Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
+
+  const helpers = new Helpers(context);
+  const amazonHelp = new AmazonHelp(context, helpers);
+
+
   await context.evaluate(async () => {
     var element = document.querySelectorAll("div[cel_widget_id*='aplus'] img");
     if (element) {
@@ -34,19 +39,22 @@ async function implementation (
       otherSellersName && otherSellersName.forEach(name => {
         if (name.tagName === 'IMG') {
           sellerNames.push(name.alt);
+          addElementToDocument('pd_otherSellerName', name.alt);
         } else {
           sellerNames.push(name.innerText.trim());
+          addElementToDocument('pd_otherSellerName', name.innerText.trim());
         }
       });
-      sellerNames && addElementToDocument('pd_otherSellerName', sellerNames.join('|'));
+      // sellerNames && addElementToDocument('pd_otherSellerName', sellerNames.join(' | '));
       const sellerPrices = [];
       const otherSellersPrice = otherSellersDocument.querySelectorAll(sellerPricesSelector);
       otherSellersPrice && otherSellersPrice.forEach(price => {
         if (price.innerText) {
           sellerPrices.push(price.innerText.trim().replace('$', ''));
+          addElementToDocument('pd_otherSellersPrice', price.innerText.trim().replace('$', ''));
         }
       });
-      sellerPrices && addElementToDocument('pd_otherSellersPrice', sellerPrices.join('|'));
+      sellerPrices && addElementToDocument('pd_otherSellersPrice', sellerPrices.join(' | '));
 
       const sellerPrime = [];
       const otherSellersPrime = otherSellersDocument.querySelectorAll(sellerPrimeSelector);
@@ -57,7 +65,7 @@ async function implementation (
           sellerPrime.push('No');
         }
       });
-      sellerPrime && addElementToDocument('pd_otherSellersPrime', sellerPrime.join('|'));
+      sellerPrime && addElementToDocument('pd_otherSellersPrime', sellerPrime.join(' | '));
 
       const sellerShipping = [];
       const otherSellersShipping2 = otherSellersDocument.querySelectorAll(sellerShippingSelector);
@@ -71,11 +79,12 @@ async function implementation (
           }
         }
       });
-      sellerShipping && addElementToDocument('pd_otherSellersShipping2', sellerShipping.join('|'));
+      sellerShipping && addElementToDocument('pd_otherSellersShipping2', sellerShipping.join(' | '));
     }
     let otherSellers = document.querySelector('div.olp-link-widget a') ? document.querySelector('div.olp-link-widget a') : document.querySelector('div#mbc span#mbc-olp-link a');
     otherSellers = otherSellers ? otherSellers.href : '';
     if (otherSellers) {
+      // @ts-ignore
       const otherSellersHtml = await fetch(otherSellers, {
         headers: {
           cookie: document.cookie,
@@ -121,33 +130,6 @@ async function implementation (
         });
       });
     }
-    // @ts-ignore
-    var CurrentSeller = document.querySelector('div[id="merchant-info"]') ? document.querySelector('div[id="merchant-info"]').innerText : '';
-    // @ts-ignore
-    var CurrentSellerPrice = document.querySelector("#price_inside_buybox, div[class='olp-text-box'] span[class='a-size-base a-color-price']") ? document.querySelector("#price_inside_buybox, div[class='olp-text-box'] span[class='a-size-base a-color-price']").innerText : '';
-    // @ts-ignore
-    var CurrentSellerShipping = document.querySelector("div[class='olp-text-box'] span[class='a-color-base']") ? document.querySelector("div[class='olp-text-box'] span[class='a-color-base']").innerText : '';
-
-    // @ts-ignore
-    var CurrentSellerPrime = document.querySelector("div[class='olp-text-box'] span[class='a-color-base']") ? document.querySelector("div[class='olp-text-box'] span[class='a-color-base']").innerText : '';
-
-    if (CurrentSeller && CurrentSeller.search('vendido por Amazon') < 0 && CurrentSeller.match(/vendido por (?:(.*) y |(.*).)/i)) {
-      CurrentSeller = (CurrentSeller.match(/vendido por (?:(.*) y |(.*).)/i)[1]) ? CurrentSeller.match(/vendido por (?:(.*) y |(.*).)/i)[1] : CurrentSeller.match(/vendido por (?:(.*) y |(.*).)/i)[2];
-      if (!CurrentSellerShipping) CurrentSellerShipping = '!0.00';
-      if (CurrentSellerPrime.includes('Details')) {
-        CurrentSellerPrime = 'YES';
-      } else {
-        CurrentSellerPrime = 'NO';
-      }
-      addHiddenDiv('ii_otherSellersName', CurrentSeller);
-      addHiddenDiv('ii_otherSellersPrice', CurrentSellerPrice);
-      addHiddenDiv('ii_otherSellersShipping', CurrentSellerShipping);
-      addHiddenDiv('ii_otherSellersPrime', CurrentSellerPrime);
-      console.log('CurrentSeller', CurrentSeller);
-      console.log('CurrentSellerPrice', CurrentSellerPrice);
-      console.log('CurrentSellerShipping', CurrentSellerShipping);
-      console.log('CurrentSellerPrime', CurrentSellerPrime);
-    }
 
     const otherSellerNew = (document.querySelector("span[data-action='show-all-offers-display'] > a")) ? document.querySelector("span[data-action='show-all-offers-display'] > a").getAttribute('href') : '';
     if (otherSellerNew) {
@@ -165,7 +147,7 @@ async function implementation (
       const pageNotFound = document.evaluate('//title[contains(text(),"Page Not Found")]', otherSellersDocument, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (!pageNotFound) {
         getLbb(otherSellersDocument);
-        getOtherSellersInfo(otherSellersDocument, 'h3.olpSellerName span , h3.olpSellerName img', 'div.olpOffer span.olpOfferPrice', 'div.olpOffer', 'div.olpOffer .olpShippingInfo');
+        // getOtherSellersInfo(otherSellersDocument, 'h3.olpSellerName span , h3.olpSellerName img', 'div.olpOffer span.olpOfferPrice', 'div.olpOffer', 'div.olpOffer .olpShippingInfo');
       } else {
         getOtherSellersInfo('', '#mbc span.mbcMerchantName, #ii_otherSellersName', 'div[id*="mbc"] span[id*="mbc-price"], #ii_otherSellersPrice', "span[id*='mbc-shipping'], #ii_otherSellersPrime", 'div[id*="mbc"] span[id*="mbc-shipping"], #ii_otherSellersShipping');
       }
@@ -207,7 +189,7 @@ async function implementation (
           sellerPrime.push('No');
         }
       });
-      sellerPrime && addHiddenDiv('pd_otherSellersPrime', sellerPrime.join('|'));
+      sellerPrime && addHiddenDiv('pd_otherSellersPrime', sellerPrime.join(' | '));
       console.log('sellerPrime', sellerPrime);
       const sellerShipping = [];
       const otherSellersShipping2 = otherSellersDocument.querySelectorAll(sellerShippingSelector);
@@ -222,16 +204,20 @@ async function implementation (
       while (sellerShipping.length !== sellerNames.length) {
         sellerShipping.push('0.00');
       }
-      sellerShipping && addHiddenDiv('pd_otherSellersShipping2', sellerShipping.join('|'));
+      sellerShipping && addHiddenDiv('pd_otherSellersShipping2', sellerShipping.join(' | '));
       console.log('sellerShipping', sellerShipping);
     }
     // @ts-ignore
     async function getLbb (otherSellersDocument) {
-      const button = await buttonCheck();
+      const elem = await helpers.checkXpathSelector('//div[contains(@id,"olpLinkWidget_feature_div")]');
+    console.log('elem!@');
+    console.log(elem);
+      console.log('TESTING!!!');
+      // await helpers.checkAndClick('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a', 'css', 20000);
       const otherSellersDiv = "div#olpOfferList div[class*='olpOffer']";
-      console.log('##############################', button);
-      if (button !== 'false' && otherSellersDocument.querySelector(otherSellersDiv)) {
-        console.log('trying button', button);
+      console.log('##############################', elem);
+      if (elem && otherSellersDocument.querySelector(otherSellersDiv)) {
+        console.log('trying button', elem);
         const firstCheck = (document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div')) ? document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div') : '';
         const otherSellers = (otherSellersDocument.querySelectorAll(otherSellersDiv)) ? otherSellersDocument.querySelectorAll(otherSellersDiv) : '';
         const price = (document.querySelector("#priceblock_ourprice, [class*='offer-price'], span[id='priceblock_saleprice']")) ? document.querySelector("#priceblock_ourprice, [class*='offer-price'], span[id='priceblock_saleprice']") : '';
@@ -264,6 +250,70 @@ async function implementation (
       }
     }
   });
+
+
+  // async function getLbb () {
+  //   const elem = await helpers.checkXpathSelector('//div[contains(@id,"olpLinkWidget_feature_div")]');
+  //   console.log('elem!@');
+  //   console.log(elem);
+  //   if (elem) {
+  //     console.log('TESTING!!!');
+  //     await helpers.checkAndClick('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a', 'css', 20000);
+
+  //     const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
+  //     await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
+
+  //     return await context.evaluate(function () {
+  //       function addHiddenDiv (id, content) {
+  //         const newDiv = document.createElement('div');
+  //         newDiv.id = id;
+  //         newDiv.textContent = content;
+  //         newDiv.style.display = 'none';
+  //         document.body.appendChild(newDiv);
+  //       }
+
+  //       const firstCheck = document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div');
+  //       const otherSellers = document.querySelectorAll('div#aod-offer');
+  //       const price = document.querySelector('span#price_inside_buybox');
+  //       if (firstCheck && price) {
+  //         const priceText = parseFloat((price.innerText).slice(1));
+  //         if (firstCheck.innerText !== 'Ships from and sold by Amazon.com.' && otherSellers) {
+  //           const sellerNames = [];
+  //           const sellerPrices = [];
+  //           const sellerShipping = [];
+
+  //           otherSellers.forEach((seller) => {
+  //             const sellerPrice = seller.querySelector('span.a-offscreen') ? seller.querySelector('span.a-offscreen').innerText : '';
+  //             // const priceNum = parseFloat(sellerPrice.slice(1));
+  //             const shipsFrom = seller.querySelector('div#aod-offer-shipsFrom div:nth-child(2) span');
+  //             const soldBy = seller.querySelector('div#aod-offer-soldBy a:first-child') || seller.querySelector('div#aod-offer-soldBy div:nth-child(2) span');
+  //             if (soldBy && soldBy.toLowerCase().includes('amazon.es') && priceNum > priceText) {
+  //               addHiddenDiv('ii_lbb', 'YES');
+  //               addHiddenDiv('ii_lbbPrice', `${sellerPrice}`);
+  //             } else if (shipsFrom && soldBy) {
+  //               sellerNames.push(soldBy.innerText);
+  //               sellerPrices.push(sellerPrice);
+  //               sellerShipping.push(shipsFrom.innerText);
+  //               addHiddenDiv('pd_otherSellerName', soldBy.innerText);
+  //               addHiddenDiv('pd_otherSellersShipping2', shipsFrom.innerText);
+  //               addHiddenDiv('pd_otherSellersPrice', sellerPrice);
+  //             }
+  //           });
+  //           // addHiddenDiv('pd_otherSellerName', sellerNames.join(' | '));
+  //           // addHiddenDiv('pd_otherSellersShipping2', sellerShipping.join(' | '));
+  //           // addHiddenDiv('pd_otherSellersPrice', sellerPrices.join(' | '));
+  //         }
+  //       }
+  //     });
+  //   }
+  // }
+
+  // await getLbb();
+  await amazonHelp.addEnhancedContent();
+  await amazonHelp.addCurrentSellerInfo('vendido por Amazon', /vendido por (?:(.*) y |(.*).)/i);
+
+  await helpers.addURLtoDocument('added-url');
+  await helpers.addURLtoDocument('added-asin', true);
   return await context.extract(productDetails, { transform });
 }
 
@@ -274,7 +324,12 @@ module.exports = {
     store: 'amazon',
     transform,
     domain: 'amazon.es',
-    zipcode: '28010',
+    // zipcode: '28010',
+  },
+  dependencies: {
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    Helpers: 'module:helpers/helpers',
+    AmazonHelp: 'module:helpers/amazonHelp',
   },
   implementation,
 };
