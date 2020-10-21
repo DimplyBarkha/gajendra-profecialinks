@@ -20,6 +20,7 @@ fields:
     description: The <meta> keywords content
     xpath: //meta[@name='keywords']/@content
   - name: category
+    singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //li[@class='breadcrumb-item']/a/text()
   - name: nameExtended
@@ -116,7 +117,6 @@ fields:
     xpath: //span[@class='rating']/font/font/text() | //span[@class='rating']/text()
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
     xpath: //span[@class='rating']/font/font/text() | //span[@class='rating']/text()
   - name: shippingInfo
     singleValue: true
