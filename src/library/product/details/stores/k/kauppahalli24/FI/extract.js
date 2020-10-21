@@ -16,6 +16,19 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const { id } = inputs;
+  const pageLoaded = await context.evaluate(async () => Boolean(document.querySelector('div[class*="frosmo-card-content"]')));
+  if (!pageLoaded) {
+    const response = await context.evaluate(async (id) => {
+      return await fetch(`https://kauppahalli24_fi_api.frosmo.com/?queries=%5B%22${id}%22%5D&method=getProductsBySku`).then(response => response.json())
+        .then(data => data)
+        .catch(error => console.error('Error:', error));
+    }, id);
+    if (response && response.data[0] && response.data[0].products[0] && response.data[0].products[0].id) {
+      const productId = response.data[0].products[0].id;
+      await context.goto(`https://www.kauppahalli24.fi/tuotteet/?id=${productId}#/pid/${productId}`, { timeout: '40000', waitUntil: 'load', checkBlocked: true });
+    }
+  }
   await context.evaluate(async () => {
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');

@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -254,7 +254,7 @@ fields:
     type: NUMBER
   - name: caloriesPerServing
     singleValue: false
-    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Energia')]
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Energia') or contains(.,'energia')]
     regExp: Energia\s*(.+)
     regExpReplace: $1
   - name: caloriesFromFatPerServing
@@ -264,12 +264,12 @@ fields:
     type: NUMBER
   - name: totalFatPerServing
     singleValue: false
-    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Rasva')]
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Rasva') or contains(.,'rasva')]
     regExp: Rasvaa\s*(.+)
     regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: false
-    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Rasva')]
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Rasva') or contains(.,'rasva')]
     regExp: Rasvaa\s*([-,0-9]+)\s*(.+)
     regExpReplace: $2
   - name: saturatedFatPerServing
@@ -308,12 +308,16 @@ fields:
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: false
-    description: Nutritional Information for Total Carbohydrate content - Usually
-      based on per 100g serving
-    type: NUMBER
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Hiilihydraattia') or contains(.,'hiilihydraattia')]
+    regExp: >-
+        [Hh]iilihydraattia\s*(.+)
+    regExpReplace: $1
   - name: totalCarbPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Carbohydrate content
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Hiilihydraattia') or contains(.,'hiilihydraattia')]
+    regExp: >-
+        [Hh]iilihydraattia\s*([-,0-9]+)(.+)
+    regExpReplace: $2
   - name: dietaryFibrePerServing
     singleValue: false
     description: Nutritional Information for Dietary Fibre content - Usually based
@@ -325,20 +329,27 @@ fields:
   - name: totalSugarsPerServing
     singleValue: false
     xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Sokeria') or contains(.,'sokereita')]
-    description: Nutritional Information for Total Sugar content - Usually based on
-      per 100g serving
-    type: NUMBER
+    regExp: >-
+        [Ss]okeria\s*(.+)
+    regExpReplace: $1
   - name: totalSugarsPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Sugar content
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Sokeria') or contains(.,'sokereita')]
+    regExp: >-
+        [Ss]okeria\s*([-,0-9]+)\s*(.+)
+    regExpReplace: $2
   - name: proteinPerServing
     singleValue: false
-    description: Nutritional Information for Protein content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Proteiinia') or contains(.,'proteiinia')]
+    regExp: >-
+        [Pp]roteiinia\s*(.+)
+    regExpReplace: $1
   - name: proteinPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Protein
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Proteiinia') or contains(.,'proteiinia')]
+    regExp: >-
+        [Pp]roteiinia\s*([-,0-9]+)\s*(.+)
+    regExpReplace: $2
   - name: vitaminAPerServing
     singleValue: false
     description: Nutritional Information for Vitamin A content - Usually based on
@@ -384,12 +395,16 @@ fields:
     description: Unit of Measure Data for Magnesium
   - name: saltPerServing
     singleValue: false
-    description: Nutritional Information for Salt content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Suola') or contains(.,'suola')]
+    regExp: >-
+        [Ss]uola\s*(.+)
+    regExpReplace: $1
   - name: saltPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Salt
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Suola') or contains(.,'suola')]
+    regExp: >-
+        [Ss]uola\s*([-,0-9]+)\s*(.+)
+    regExpReplace: $2
   - name: dietaryInformation
     singleValue: false
     description: null
