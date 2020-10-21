@@ -66,9 +66,9 @@ fields:
     description: The stated undiscounted price for the product
     defaultValue: 0
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
-    selector: a.product-title-link .product-brand
+    xpath: //a[contains(@class,'product-title-link')]/@added-brand    
   - name: soldBy
     singleValue: true
     description: The name of the seller of the item (if available)
