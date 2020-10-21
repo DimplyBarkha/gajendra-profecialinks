@@ -69,3 +69,6 @@ fields:
   - name: variants
     singleValue: false
     xpath: //div[@id="ProductDetail"]//select[@id="variation_selection"]/option/@value
+  - name: specifications
+    singleValue: false
+    xpath: //p//strong[contains(text(),'Specifications')]//parent::p//following-sibling::p[1]    

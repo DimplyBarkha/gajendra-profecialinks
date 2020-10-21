@@ -43,6 +43,12 @@ const transform = (data) => {
         }
         row.descriptionBullets = [{ "text": row.descriptionBullets.length }];
       }
+      if (row.specifications) {        
+        row.specifications.forEach(item => {
+          item.text = item.text.replace(/\r\n|\r|\n/g, '||')
+          item.text = '||'+item.text;
+        });               
+      }
       if (row.category) {
         if (row.category.length) {
           row.category.splice(0, 1);
