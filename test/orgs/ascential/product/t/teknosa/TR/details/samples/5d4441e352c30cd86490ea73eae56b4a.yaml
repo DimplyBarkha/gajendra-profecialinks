@@ -2,7 +2,7 @@ input:
   id: 120093399
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=5bb1a08b-e27c-4fad-bd59-8400d792b1bb/task=c17d29bb-308f-467f-ab3c-474383d7f9eb/52a5983d-8d51-4d68-9b80-10e6a65dd82a.html
+  - html: https://workbench.import.io/html/run=85ac937f-0875-43d3-874e-e255c50d4432/task=54264193-6d92-4b74-a0f2-a4a89974551f/0b7761af-4657-46a0-ad96-674932cc0510.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -24,8 +24,6 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/text()[1]
               - text: Dambıl
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/text()[1]
-              - text: ALTİS Dambıl
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/text()[1]
             nameExtended:
               - text: Altis Plastik Dambıl Set 10,5 Kg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
@@ -74,6 +72,13 @@ extractions:
             sku:
               - text: "120093399"
                 xpath: /html/head[1]/script[7]/@data-flix-sku
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/a[1]/text()[1]
+                type: NUMBER
+                raw: Yorumlar (0)
+                locale: tr
+                value: 0
             aggregateRatingText:
               - text: "0"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/text()[1]
@@ -146,4 +151,4 @@ extractions:
                 locale: tr
                 value: 0
         xpath: /
-    timestamp: 1603120212505
+    timestamp: 1603271238523
