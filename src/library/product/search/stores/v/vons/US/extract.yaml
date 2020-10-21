@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    xpath: (//div//a[@class='product-title']/@href)
+    regExp: (.+)
+    regExpReplace: https://www.vons.com$1
+    description: The URL for the product details page
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //img[@class='ab-lazy loaded'][@src]
+  - name: name
+    singleValue: true
+    xpath: //div//a[@class='product-title']//text()
+    description: The product name
+  - name: id
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@class='container']//a//@id
+  - name: price
+    singleValue: true
+    xpath: //div//span[@class='product-price product-strike-price']
+    description: The offered price for the product
