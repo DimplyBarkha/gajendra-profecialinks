@@ -6,7 +6,7 @@ module.exports = {
     store: 'selfridges',
     domain: 'selfridges.com',
     loadedSelector: 'body',
-    noResultsXPath: 'page-error-handler.page-404.layout-error-page-layout.template-error-page-template.grid-bootstrap.device-tablet-landscape',
+    noResultsXPath: '//div[@class="box component section error-page-wrapper col-xs-12"]',
     zipcode: '',
   },
 };
