@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'kalunga',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a.page-link.ultima',
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: 'div.loading div.sk-fading-circle div.sk-circle::before',
     loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
