@@ -3105,16 +3105,25 @@ module.exports = {
       {
         "config": "{\"userAgent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36/xGHzvfMy-13\"}"
       }
-  ];
-  
-    const userAgentString = JSON.parse(allUserAgentString[Math.floor(allUserAgentString.length*Math.random())].config).userAgent + ' ' + Math.random().toString(36).substring(2, 15);
+    ];
+
+    const userAgentString = JSON.parse(allUserAgentString[Math.floor(allUserAgentString.length * Math.random())].config).userAgent + ' ' + Math.random().toString(36).substring(2, 15);
     await context.setUserAgent(userAgentString);
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     await context.captureRequests();
     await context.setBlockAds(false);
     await context.setAntiFingerprint(false);
     await context.setLoadAllResources(true);
-    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, load_timeout: 0, deleteCookies:true});
+    await context.goto(url, {
+      timeout: timeout, waitUntil: 'load', checkBlocked: true, load_timeout: 0, "proxy":{"use_relay_proxy": false}, cookies: [{
+        "name": "site_locale",
+        "value": "us",
+        "domain": "www.sephora.com",
+        "path": "/",
+        "secure": false,
+        "httpOnly": false
+      }]
+    });
     // await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, load_timeout: 0, cookies:[] });
 
     // await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, cookies:[]});
