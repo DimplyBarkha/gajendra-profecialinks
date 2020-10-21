@@ -6,12 +6,11 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[@class='pic pic-slider']//div[contains(@class,'pic-img')]//img[contains(@class,'js-main-item-photo ')]/@data-zoom-image
-  - name: sku
-    singleValue: false
-    xpath: //meta[@name="og:url"]/@content
   - name: variantId
     singleValue: false
-    xpath: //meta[@name="og:url"]/@content
+  - name: sku
+    singleValue: false
+    xpath: //meta[@name="og:url"]/@content      
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -73,3 +72,9 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@class="product-information__info__content"]/div[@class="product-information__info__content__block"][11]/p/img/@src
+  - name: brandText
+    singleValue: false
+    xpath: //meta[@itemprop='brand']/@content
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class='product-information__info__content']//ul[@class='infos']//li//span[@class='param' and contains(text(),'Производитель')]/parent::li/span[@class='param-text']

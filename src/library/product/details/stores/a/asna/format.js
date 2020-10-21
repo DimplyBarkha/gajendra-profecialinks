@@ -113,7 +113,7 @@ const transform = (data) => {
            var matches = /\/cards\/(.*?)\.html/isg.exec(item.text);
            if (matches) {
              item.text = matches[1];
-             row.sku = [{'text': matches[1],'xpath':row.sku[0].xpath}];
+             row.variantId = [{'text': matches[1],'xpath':row.sku[0].xpath}];
            }
           });
           
