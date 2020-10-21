@@ -2,7 +2,7 @@ input:
   id: 125037700
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=85ac937f-0875-43d3-874e-e255c50d4432/task=41443140-cedb-44b3-a4d4-5dbfda92d9d6/271c3315-3085-4c0f-a231-4f49c14ace16.html
+  - html: https://workbench.import.io/html/run=31265a7a-ce02-47f8-bdd6-023e71e3e507/task=1d600907-7bbc-48bf-a1e8-52efb1ad0a85/58c6a193-6102-46be-9e74-0efeabac37fb.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -98,22 +98,18 @@ extractions:
               - text: "125037700"
                 xpath: /html/head[1]/script[7]/@data-flix-sku
             ratingCount:
-              - text: "27"
+              - text: "28"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/a[1]/text()[1]
                 type: NUMBER
-                raw: Yorumlar (27)
+                raw: Yorumlar (28)
                 locale: tr
-                value: 27
+                value: 28
             aggregateRatingText:
               - text: 4,6
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/text()[1]
             aggregateRating:
-              - text: "4.6"
+              - text: 4,6
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/text()[1]
-                type: NUMBER
-                raw: 4,6
-                locale: tr
-                value: 4.6
             color:
               - text: Gri
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[4]/td[2]/span[1]
@@ -186,4 +182,4 @@ extractions:
                 locale: tr
                 value: 2
         xpath: /
-    timestamp: 1603271237986
+    timestamp: 1603282463898
