@@ -21,7 +21,7 @@ fields:
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //a[@class="thumb-link"]//img/@src
+    xpath: //a[@class="thumb-link"]//img[1]/@src 
     regExp: (.+)
     regExpReplace: https:$1
   - name: aggregateRating
@@ -44,7 +44,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[@class="product-price-with-coupon" or @class="product-standard-price"]
+    xpath: //div[@class="product-standard-price" or @class="product-original-price"] 
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -55,13 +55,13 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
-    xpath: count(preceding-sibling::*[@data-tile-pid])
+    xpath: count(preceding-sibling::*[@data-tile-pid])+1
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: count(preceding-sibling::*[@data-tile-pid])
+    xpath: count(preceding-sibling::*[@data-tile-pid])+1
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
