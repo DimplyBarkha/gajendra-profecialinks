@@ -26,7 +26,7 @@ async function implementation (
     let productsCount = 0;
     while (productsCount < 150) {
       productsCount = await context.evaluate(function () {
-        const products = document.evaluate('//div[contains(@id,\'search-lane\')]//article//div//img[contains(@data-testhook,\'product-image\')]', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const products = document.evaluate(`//div[contains(@class,'product-tile')]//div[@class='product-image']/img/@src`, document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         return products.snapshotLength;
       });
 
