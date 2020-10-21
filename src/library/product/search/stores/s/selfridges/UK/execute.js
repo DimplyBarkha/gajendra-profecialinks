@@ -7,7 +7,7 @@ module.exports = {
     domain: 'selfridges.com',
     url: 'https://www.selfridges.com/GB/en/cat/?freeText={searchTerms}&srch=Y',
     loadedSelector: '.listing-items.c-listing-items.initialized',
-    noResultsXPath: '.page-no-results.layout-default.template-error-template.grid-bootstrap.spinner-off.initial-spinner-off',
+    noResultsXPath: '//div[@class="component-content"]//div[@class="richText-content"]//span[@class="bigger"]//strong//text()',
     zipcode: '',
   },
 };
