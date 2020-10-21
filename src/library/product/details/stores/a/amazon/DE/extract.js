@@ -39,63 +39,68 @@ async function implementation (
     console.log(elem);
     if (elem) {
       console.log('TESTING!!!');
-      await helpers.checkAndClick('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a', 'css', 20000);
+      const allOfferClick = await context.evaluate(function () {
+        return !!document.querySelector('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a');
+      });
+      if (allOfferClick) {
+        await helpers.checkAndClick('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a', 'css', 20000);
 
-      const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
+        const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
 
-      try {
-        await context.waitForSelector(otherSellersDiv, { timeout: 30000 });
-      } catch (error) {
-        await context.evaluate(function () {
-          if (document.querySelector('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a')) {
-            document.querySelector('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a').click();
+        try {
+          await context.waitForSelector(otherSellersDiv, { timeout: 30000 });
+        } catch (error) {
+          await context.evaluate(function () {
+            if (document.querySelector('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a')) {
+              document.querySelector('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a').click();
+            }
+          });
+          await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
+        }
+
+        return await context.evaluate(function () {
+          function addHiddenDiv (id, content) {
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
+
+          const firstCheck = document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div');
+          const otherSellers = document.querySelectorAll('div#aod-offer');
+          const price = document.querySelector('span#price_inside_buybox');
+          if (firstCheck && price) {
+            const priceText = parseFloat((price.innerText).slice(1));
+            if (firstCheck.innerText !== 'Ships from and sold by Amazon.com.' && otherSellers) {
+              const sellerNames = [];
+              const sellerPrices = [];
+              const sellerShipping = [];
+
+              otherSellers.forEach((seller) => {
+                const sellerPrice = seller.querySelector('span.a-offscreen') ? seller.querySelector('span.a-offscreen').innerText : '';
+                const priceNum = parseFloat(sellerPrice);
+                const shipsFrom = seller.querySelector('div#aod-offer-shipsFrom div:nth-child(2) span');
+                const soldBy = seller.querySelector('div#aod-offer-soldBy a:first-child') || seller.querySelector('div#aod-offer-soldBy div:nth-child(2) span');
+                if (soldBy && soldBy.innerText.toLowerCase().includes('amazon.de') && priceNum > priceText) {
+                  addHiddenDiv('ii_lbb', 'YES');
+                  addHiddenDiv('ii_lbbPrice', `${sellerPrice}`);
+                } else if (shipsFrom && soldBy) {
+                  sellerNames.push(soldBy.innerText);
+                  sellerPrices.push(priceNum);
+                  sellerShipping.push(shipsFrom.innerText);
+                  addHiddenDiv('pd_otherSellerName', soldBy.innerText);
+                  addHiddenDiv('pd_otherSellersShipping2', shipsFrom.innerText);
+                  addHiddenDiv('pd_otherSellersPrice', priceNum);
+                }
+              });
+              // addHiddenDiv('pd_otherSellerName', sellerNames.join(' | '));
+              // addHiddenDiv('pd_otherSellersShipping2', sellerShipping.join(' | '));
+              // addHiddenDiv('pd_otherSellersPrice', sellerPrices.join(' | '));
+            }
           }
         });
-        await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
       }
-
-      return await context.evaluate(function () {
-        function addHiddenDiv (id, content) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
-        }
-
-        const firstCheck = document.querySelector('div#shipsFromSoldByInsideBuyBox_feature_div');
-        const otherSellers = document.querySelectorAll('div#aod-offer');
-        const price = document.querySelector('span#price_inside_buybox');
-        if (firstCheck && price) {
-          const priceText = parseFloat((price.innerText).slice(1));
-          if (firstCheck.innerText !== 'Ships from and sold by Amazon.com.' && otherSellers) {
-            const sellerNames = [];
-            const sellerPrices = [];
-            const sellerShipping = [];
-
-            otherSellers.forEach((seller) => {
-              const sellerPrice = seller.querySelector('span.a-offscreen') ? seller.querySelector('span.a-offscreen').innerText : '';
-              const priceNum = parseFloat(sellerPrice);
-              const shipsFrom = seller.querySelector('div#aod-offer-shipsFrom div:nth-child(2) span');
-              const soldBy = seller.querySelector('div#aod-offer-soldBy a:first-child') || seller.querySelector('div#aod-offer-soldBy div:nth-child(2) span');
-              if (soldBy && soldBy.innerText.toLowerCase().includes('amazon.de') && priceNum > priceText) {
-                addHiddenDiv('ii_lbb', 'YES');
-                addHiddenDiv('ii_lbbPrice', `${sellerPrice}`);
-              } else if (shipsFrom && soldBy) {
-                sellerNames.push(soldBy.innerText);
-                sellerPrices.push(priceNum);
-                sellerShipping.push(shipsFrom.innerText);
-                addHiddenDiv('pd_otherSellerName', soldBy.innerText);
-                addHiddenDiv('pd_otherSellersShipping2', shipsFrom.innerText);
-                addHiddenDiv('pd_otherSellersPrice', priceNum);
-              }
-            });
-            // addHiddenDiv('pd_otherSellerName', sellerNames.join(' | '));
-            // addHiddenDiv('pd_otherSellersShipping2', sellerShipping.join(' | '));
-            // addHiddenDiv('pd_otherSellersPrice', sellerPrices.join(' | '));
-          }
-        }
-      });
     }
   }
 
@@ -107,12 +112,15 @@ async function implementation (
   await helpers.addURLtoDocument('added-url');
   await helpers.addURLtoDocument('added-asin', true);
 
+  const xpathPricePerUnit = '//*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span';
+  await helpers.getAndAddElem(xpathPricePerUnit, 'added-pricePerUnit', { property: 'innerText', callback: val => val });
+
   const variants = await amazonHelp.getVariants();
 
   if (variants && variants.length) {
     helpers.addItemToDocument('my-variants', variants.join(' | '));
   }
-  return await context.extract(productDetails, { transform });
+  await context.extract(productDetails, { transform });
 }
 module.exports = {
   implements: 'product/details/extract',
@@ -120,6 +128,7 @@ module.exports = {
     country: 'DE',
     store: 'amazon',
     transform,
+    // transform: null,
     domain: 'amazon.de',
   },
   dependencies: {

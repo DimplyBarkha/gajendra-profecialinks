@@ -75,7 +75,7 @@ const transform = (data, context) => {
           return txt.trim();
         },
         name: item => regexTestNReplace(new RegExp(String.raw`(${websiteName.replace(/\./g, '\\.')}\s*:)`), sg(item)),
-        pricePerUnit: item => regexTestNReplaceArray(/[{()}]/g, item, { extraRegex: /[/].*$/g }),
+        pricePerUnit: item => (sg(item).includes('(')) ? regexTestNReplaceArray(/[{()}]/g, item, { extraRegex: /[/].*$/g }) : sg(item).trim(),
         pricePerUnitUom: item => regexTestNReplaceArray(/[{()}]/g, item, { matchRegex: /([^/]+$)/g }),
         secondaryImageTotal: item => castToInt(sg(item)),
         ratingCount: item => sg(item),
@@ -269,7 +269,7 @@ const transform = (data, context) => {
       const zoomText = row.imageZoomFeaturePresent ? 'Yes' : 'No';
       row.imageZoomFeaturePresent = [{ text: zoomText }];
 
-      const subscriptionPresent = !!row.subscriptionPrice;
+      const subscriptionPresent = row.subscriptionPrice ? 'Yes' : 'No';
       row.subscribeAndSave = [{ text: subscriptionPresent }];
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
