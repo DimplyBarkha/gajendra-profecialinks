@@ -1,0 +1,65 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true    
+    xpath: //img[contains(@class,'pipHero_image-default')]/@src
+  - name: imageAlt
+    singleValue: true    
+    xpath: //img[contains(@class,'pipHero_image-default')]/@alt
+  - name: alternateImages
+    singleValue: false    
+    xpath: //div[contains(@class,'pipThumbs')]/span/img/@src
+    regExp: (.+)w_75,h_75,(.+)
+    regExpReplace: $1$2
+  - name: secondaryImageTotal
+    singleValue: false    
+    xpath: //div[contains(@class,'pipThumbs')]/span/img/@src
+    regExp: (.+)w_75,h_75,(.+)
+    regExpReplace: $1$2   
+  - name: metaKeywords
+    singleValue: true    
+    xpath: //meta[@name='keywords']/@content  
+  - name: nameExtended
+    singleValue: true    
+    xpath: //h1[contains(@class,'pipName')]/text()
+  - name: listPrice
+    singleValue: true    
+    xpath: //div[contains(@itemprop,'offers')]//div//span[contains(@class,'productPrice_price-regWhole')]/text()
+  - name: price
+    singleValue: true    
+    xpath: //div[contains(@itemprop,'offers')]//div//span[contains(@class,'productPrice_price-saleWhole')]/text()
+  - name: availabilityText
+    singleValue: true    
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+    xpath: //div[contains(@class,'prodItemStock')]//button/text()
+  - name: description
+    singleValue: false    
+    xpath: //div[contains(@itemprop,'description')]/p/text()  
+  - name: sku
+    singleValue: true    
+    xpath: //meta[@name='pProductID']/@content
+  - name: variantId
+    singleValue: true    
+    xpath: //meta[@name='pProductID']/@content    
+  - name: ratingCount
+    singleValue: true    
+    xpath : (//span[contains(@class,'averageRating_number')])[1]/text()
+    type: NUMBER  
+  - name: aggregateRating
+    singleValue: true    
+    xpath: //span[contains(@itemprop,'ratingValue')]/text()
+    type: NUMBER
+  - name: shippingInfo
+    singleValue: true    
+    xpath: //div[contains(@class,'prodItemShipping')]/text()  
+  - name: name
+    singleValue: true
+    xpath: //h1[contains(@class,'pipName')]/text()
+  - name: countryOfOrigin
+    singleValue: true    
+    xpath : //span[contains(@class,'prodItemInfo_originText')]//a[contains(@class,'pipOrigin_link')]/text()
