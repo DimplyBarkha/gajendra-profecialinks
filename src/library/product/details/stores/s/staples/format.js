@@ -60,6 +60,11 @@ const transform = (data) => {
           item.text = item.text.replace(/Item\s*:/i, '');
         });
       }
+      if (row.packSize) {
+        row.packSize.forEach(item => {
+          item.text = item.text.replace(/\D+/g, '');
+        });
+      }      
       if (row.alternateImages) {
         row.alternateImages.splice(0,1);
         row.alternateImages.forEach(item => {
