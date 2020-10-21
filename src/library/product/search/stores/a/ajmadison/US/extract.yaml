@@ -14,7 +14,9 @@ fields:
   xpath: //div[@class="product-list--image-container relative mb2"]/a/div[@class='cp__image cp__image--is_selected']/img/@src | //div[@class="product-list--image-container relative mb2"]/a/img/@src
 - name: productUrl
   singleValue: false
-  xpath: //html//div[@class="ajmadison_url"]
+  xpath: //div[@class="clearfix"]//a[@class="hover-text-decoration-none "]/@href
+  regExp: (/.+)
+  regExpReplace: https://www.ajmadison.com$1
 - name: reviewCount
   singleValue: false
   xpath: //div[contains(@class,'clearfix mxn2 px2')]/div[contains(@class,'col')]/a[contains(text(),'Reviews')]
