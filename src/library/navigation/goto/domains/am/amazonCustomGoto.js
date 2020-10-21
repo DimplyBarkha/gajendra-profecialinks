@@ -139,7 +139,6 @@ async function goto (gotoInput) {
           await solveCaptchaIfNecessary(page);
         }
       }
-
     }
   }
 
@@ -197,12 +196,15 @@ async function goto (gotoInput) {
           dataRaw.forEach(part => {
             const element = document.getElementById(Object.keys(part.Value.content)[0]);
             if (element) {
-              element.innerHTML = Object.values(part.Value.content)[0];
+              //element.innerHTML = Object.values(part.Value.content)[0];
             } else {
               const div = document.createElement('div');
-              div.setAttribute('id', Object.keys(part.Value.content)[0])
+              div.setAttribute('id', Object.keys(part.Value.content)[0]);
               div.innerHTML = Object.values(part.Value.content)[0];
-              document.body.appendChild(div);
+              const  appendAtBottom = document.getElementById('a-page');
+              if(appendAtBottom){
+                appendAtBottom.insertBefore(div, document.getElementById('navFooter'))
+              }else{console.log('couldnt find a good place to append data')}
             }
           });
           return true;
@@ -3643,8 +3645,8 @@ async function goto (gotoInput) {
 
   // clean cookie retry in session
   try {
-    await run(userAgentString);
-    await setZip(zipcode);
+    page =await run(userAgentString);
+    await setZip(zipcode, page);
   } catch (err) {
     console.error(err);
     const message = err.message ? err.message.includes('MISSING_DATA') : false;
