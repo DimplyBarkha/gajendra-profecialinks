@@ -4,12 +4,14 @@ module.exports = {
   parameterValues: {
     country: 'IT',
     store: 'unieuro',
-    nextLinkSelector: 'li.disabled[xpath="1"]>a',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.items-container',
+    loadedSelector: 'div#instant-results div.items-container img',
     noResultsXPath: '//div[@id="no-results-message"]',
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.unieuro.it/online/?q={searchTerms}&p={page}',
+    },
     domain: 'unieuro.it',
     zipcode: '',
   },
