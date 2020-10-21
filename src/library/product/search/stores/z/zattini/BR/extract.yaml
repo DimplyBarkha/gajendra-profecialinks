@@ -13,6 +13,8 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //a[@class='item-card__description__stars']/@href
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: gtin
     singleValue: false
   - name: thumbnail
