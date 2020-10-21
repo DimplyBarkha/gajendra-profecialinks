@@ -7,13 +7,15 @@ fields:
     singleValue: false
     xpath: //div[@id='product-item']/@data-product-id
   - name: searchUrl
-    singleValue: true
+    xpath: //div[@class='product-item']/@searchurl
   - name: name
     singleValue: false
     xpath: //div[@class='product-name']//span/text()
   - name: productUrl
     singleValue: false
     xpath: //div[@class='product-name']//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.teknosa.com$1
   - name: gtin
     singleValue: false
   - name: thumbnail
@@ -42,12 +44,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
-    xpath: //div[@id='product-item']/@rank
+    xpath: //div[@id='pd_rank']
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //div[@id='product-item']/@rank
+    xpath: //div[@id='pd_rank']
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
