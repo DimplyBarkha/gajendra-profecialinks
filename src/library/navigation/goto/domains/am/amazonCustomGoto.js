@@ -1,5 +1,6 @@
 async function goto (gotoInput) {
   const extractorContext = gotoInput.context
+  const zipcode = gotoInput.zipcode;
 
   // @FIX: doesnt get input to extractor;
   // const input = extractorContext.input;
@@ -32,7 +33,6 @@ async function goto (gotoInput) {
   const HOURLY_RETRY_LIMIT =  90000
 
   let page;
-  let pageId;
   let captchas = 0;
   let inSessionRetries = 0;
   let lastResponseData;
@@ -106,6 +106,43 @@ async function goto (gotoInput) {
     }
   };
 
+  const setZip = async (zip) => {
+    if(zip){
+      const apiZipChange = await extractorContext.evaluate(async (zipcode) => {
+        const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
+        const response = await fetch('/gp/delivery/ajax/address-change.html', {
+          headers: {
+            accept: 'text/html,*/*',
+            'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+            'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+            'x-requested-with': 'XMLHttpRequest',
+          },
+          body,
+          method: 'POST',
+          mode: 'cors',
+          credentials: 'include',
+        });
+        return response.status === 200;
+      }, zipcode);
+
+      const onCorrectZip = await extractorContext.evaluate((zipcode) => {
+        const zipText = document.querySelector('div#glow-ingress-block')
+        return zipText ? zipText.textContent.includes(zipcode) : false
+      }, zipcode);
+
+      if(!onCorrectZip){
+        if(!apiZipChange){
+          throw new Error('API zip change failed');
+        } else {
+          await extractorContext.reload();
+          page = await pageContextCheck(await pageContext());
+          await solveCaptchaIfNecessary(page);
+        }
+      }
+
+    }
+  }
+
   // calls refresh API and appends data to the page that doesnt already exist
   const appendData = async (page) => {
     return await extractorContext.evaluate(async (page) => {
@@ -163,6 +200,7 @@ async function goto (gotoInput) {
               element.innerHTML = Object.values(part.Value.content)[0];
             } else {
               const div = document.createElement('div');
+              div.setAttribute('id', Object.keys(part.Value.content)[0])
               div.innerHTML = Object.values(part.Value.content)[0];
               document.body.appendChild(div);
             }
@@ -3606,6 +3644,7 @@ async function goto (gotoInput) {
   // clean cookie retry in session
   try {
     await run(userAgentString);
+    await setZip(zipcode);
   } catch (err) {
     console.error(err);
     const message = err.message ? err.message.includes('MISSING_DATA') : false;
@@ -3626,6 +3665,7 @@ async function goto (gotoInput) {
       await extractorContext.goto('about:blank');
       console.log('starting in session retry');
       await run(userAgentString);
+      await setZip(zipcode);
     } else {
       await hourlyRetryIncrement();
       throw err;
