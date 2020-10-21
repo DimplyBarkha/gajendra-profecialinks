@@ -63,9 +63,9 @@ fields:
     xpath: //meta[@itemprop="gtin14"]/@content
   - name: sku
     singleValue: true
-    xpath: //span[@class="sku"]
-    regExp: \d[0-9].+\|
-    type: NUMBER
+    #xpath: //span[@class="sku"]
+    #regExp: \d[0-9].+\|
+    #type: NUMBER
   - name: variantId
     singleValue: false
   - name: mpc
