@@ -20,9 +20,8 @@ fields:
     description: The <meta> keywords content
     xpath: //meta[@name='keywords']/@content
   - name: category
-    singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@class='breadcrumb']//a/text()
+    xpath: //li[@class='breadcrumb-item']/a/text()
   - name: nameExtended
     singleValue: true
     description:
@@ -111,7 +110,7 @@ fields:
     description: The number of ratings
     type: NUMBER
     xpath: //div[@class='product-stats-item']/a/text()
-    regExp: (?!\().\d(?=\))
+    regExp: ^.*?\([^\d]*(\d+)[^\d]*\).*$  
   - name: aggregateRatingText
     description: The stated aggregate rating
     xpath: //span[@class='rating']/font/font/text() | //span[@class='rating']/text()
