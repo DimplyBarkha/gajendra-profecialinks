@@ -26,7 +26,11 @@ const transform = (data) => {
     for (const { group } of data) {
       for (let row of group) {
         let tmp_desc = ''
-
+        if (row.availabilityText) {                    
+          row.availabilityText.forEach(item => {
+            item.text = "In Stock";
+          });          
+        }
         if (row.description2) {
             let info = [];          
             row.description2.forEach(item => {

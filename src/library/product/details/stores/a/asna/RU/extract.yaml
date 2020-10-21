@@ -8,22 +8,29 @@ fields:
     xpath: //div[@class='pic pic-slider']//div[contains(@class,'pic-img')]//img[contains(@class,'js-main-item-photo ')]/@data-zoom-image
   - name: sku
     singleValue: false
-    xpath: //meta[@name="og:url"]//@content
+    xpath: //meta[@name="og:url"]/@content
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@name="og:url"]/@content
   - name: metaKeywords
     singleValue: false
-    xpath: //meta[@name="keywords"]/@content 
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    xpath: //li[@itemprop="itemListElement"][position() >=2]/a/span
+    xpath: //li[@itemprop="itemListElement"][position() >2]/a/span
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class="product-title"]/h1 
+    xpath: //div[@class="product-title"]/h1
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product-title"]/h1
   - name: price
     singleValue: false
     xpath: //div[@class="product-detail-controls"]/div[@class="item-component-price-wapper"]/div/span/span   
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="product__additional-block js-product__additional-block  js-product__additional-block-5666 "]/button
+    defaultValue: "Out of stock"
   - name: description
     singleValue: false
     xpath: //div[@class="adtcp js-parchase-info-content nomobile"]/ul/li[position()>=1]
