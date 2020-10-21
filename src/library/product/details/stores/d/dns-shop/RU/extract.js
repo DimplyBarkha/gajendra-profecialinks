@@ -15,16 +15,6 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    const { id } = inputs;
-
-    // try {
-    //   await context.setInputValue('div.container form.presearch input.ui-input-search__input', id);
-    //   await context.click('div.container form.presearch div.ui-input-search__buttons span.ui-input-search__icon.ui-input-search__icon_search');
-    //   await context.waitForNavigation();
-    //   await context.waitForSelector('h1.page-title.price-item-title');
-    // } catch (e) {
-    //   console.log('Details page not found');
-    // }
 
     await context.evaluate(async () => {
       const sideTabs = document.querySelectorAll('a.product-card-tabs__title');
@@ -36,6 +26,30 @@ module.exports = {
         }
       }
     });
+    try {
+      await context.waitForSelector('div.product-characteristics');
+      await context.evaluate(async () => {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+        const specsArrSelector = document.querySelectorAll('div.product-characteristics table tr');
+        if (specsArrSelector) {
+          const specsArr = [];
+          for (let i = 0; i < specsArrSelector.length; i++) {
+            if (specsArrSelector[i].querySelector('td:nth-child(2)')) {
+              specsArr[i] = (specsArrSelector[i].querySelector('td:nth-child(1)').innerText + ': ' + specsArrSelector[i].querySelector('td:nth-child(2)').innerText);
+            }
+            addHiddenDiv('specsArr', specsArr[i]);
+          }
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
 
     return await context.extract(productDetails, { transform });
   },

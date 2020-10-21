@@ -19,57 +19,15 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-    //   if (row.description) {
-    //     let text = '';
-    //     row.description.forEach(item => {
-    //       text = item.text.replace(/\n/, '').replace(/\n \n/, '').replace(/\n/g, ' || ').trim();
-    //     });
-    //     row.description = [
-    //       {
-    //         text: cleanUp(text),
-    //       },
-    //     ];
-    //   }
-    //   if (row.alternateImages) {
-    //     row.alternateImages.shift();
-    //   }
-    //   if (row.variantId) {
-    //     if (row.variantId.length > 1) {
-    //       row.variantId.shift();
-    //     }
-    //   }
-    //   if (row.variantUrl) {
-    //     if (row.variantUrl.length > 1) {
-    //       row.variantUrl.shift();
-    //     }
-    //   }
-    //   if (row.category) {
-    //     if (row.category[0].text.includes('Home')) {
-    //       row.category.shift();
-    //     }
-    //   }
-    //   if (row.quantity) {
-    //     row.quantity.forEach(quantity => {
-    //       quantity.text = quantity.text.replace('Product dimensions:', '').trim();
-    //     });
-    //   }
-    //   if (row.color) {
-    //     row.color.forEach(color => {
-    //       color.text = color.text.replace('Colour:', '').trim();
-    //     });
-    //   }
-    //   if (row.specifications) {
-    //     row.specifications.forEach(specifications => {
-    //       specifications.text = specifications.text.replace(/\n/g, '||').trim();
-    //     });
-    //   }
-    //   if (row.variantCount) {
-    //     row.variantCount.forEach(variantCount => {
-    //       if (variantCount.text == '0') {
-    //         variantCount.text = '1';
-    //       }
-    //     });
-    //   }
+      if (row.alternateImages) {
+        if (row.alternateImages.length > 0) {
+          row.secondaryImageTotal = [
+            {
+              text: row.alternateImages.length - 1,
+            },
+          ];
+        }
+      }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {

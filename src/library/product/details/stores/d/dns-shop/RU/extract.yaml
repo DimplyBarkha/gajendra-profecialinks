@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class, 'img')]/a/@href
+    xpath: //div[contains(@class, 'img')]/a/@data-original
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -24,6 +24,9 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //h1[contains(@class, "page-title price-item-title")]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@class, 'product-card-price__previous')]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
@@ -51,14 +54,20 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
+    xpath: //*[contains(text(), 'Вес')]/parent::*/parent::*/following-sibling::*
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
+    xpath: //*[contains(text(), 'Вес вместе с упаковкой')]/parent::*/parent::*/following-sibling::*
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
     xpath: //div[contains(@id, 'flix-inpage')]/@data-flix-ean
   - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //span[contains(@data-product-param, 'code')]
+  - name: variantId
     singleValue: false
     description: The store-specific product identifier
     xpath: //span[contains(@data-product-param, 'code')]
@@ -83,7 +92,7 @@ fields:
     xpath: //*[contains(text(), 'Ширина упаковки')]/parent::*/parent::*/parent::* | //*[contains(text(), 'Высота упаковки')]/parent::*/parent::*/parent::* | //*[contains(text(), 'Глубина упаковки')]/parent::*/parent::*/parent::* | //*[contains(text(), 'Габариты и вес в упаковке')]/parent::*/following-sibling::*[1] | //*[contains(text(), 'Габариты и вес в упаковке')]/parent::*/following-sibling::*[2] | //*[contains(text(), 'Габариты и вес в упаковке')]/parent::*/following-sibling::*[3]
   - name: shippingWeight
     singleValue: false
-    xpath: //*[contains(text(), 'Вес вместе с упаковкой')]/parent::*/parent::*/parent::*
+    xpath: //*[contains(text(), 'Вес вместе с упаковкой')]/parent::*/parent::*/following-sibling::*
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
@@ -109,11 +118,11 @@ fields:
     regExpReplace: https://www.dns-shop.ru$1
   - name: largeImageCount
     singleValue: false
-    xpath: count(//div[contains(@class, 'img')]/a/@href)
+    xpath: count(//div[contains(@class, 'img')]/a/@data-original)
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //*[contains(text(), 'Габариты и вес')]/parent::*/following-sibling::*
+    xpath: //div[@id='specsArr']
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
