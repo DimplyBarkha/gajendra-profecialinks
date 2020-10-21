@@ -1,0 +1,68 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //ul[contains(@class,"ProductDetailImage")]//li[position()=1]//div[@class="ImageComponent ImageComponent--overlay"]/img/@src
+  - name: imageAlt
+    xpath: //ul[contains(@class,"ProductDetailImage")]//li[position()=1]//div[@class="ImageComponent ImageComponent--overlay"]/img/@alt
+  - name: category
+    xpath: //ol[@class="Breadcrumbs-list"]/li
+  - name: name
+    xpath: (//h1[@class="pl-Heading pl-Heading--pageTitle"])[1]
+  - name: nameExtended
+  - name: price
+    xpath: //div[@class="StandardPriceBlock"]/div[contains(@class,"BasePriceBlock")]
+  - name: listPrice
+    xpath: //div[@class="StandardPriceBlock"]/div[contains(@class,"DetailedPriceBlock")]//div[contains(@class,"BasePriceBlock")]
+  - name: availabilityText
+    xpath: //button[@id="btn-add-to-cart"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: brandText
+    xpath: (//a[@data-click-location="manufacturer_link"])[1]
+  - name: manufacturer
+    xpath: (//a[@data-click-location="manufacturer_link"])[1]
+  - name: sku
+    xpath: //meta[@property="og:upc"]/@content
+  - name: description
+    xpath: //div[@class="ProductOverviewInformation-content"]/div
+  - name: additionalDescBulletInfodescriptionBullets
+    xpath: //div[@class="ProductOverviewInformation-content"]//ul//li
+  - name: descriptionBullets
+    xpath: count(//div[@class="ProductOverviewInformation-content"]//ul//li)
+  - name: variantId
+    xpath: //input[@name="PiID[Finish]"]/@value
+  - name: alternateImages
+    xpath: //ul[contains(@class,"ProductDetailImage")]//li[position()>1]//div[@class="ImageComponent ImageComponent--overlay"]/img/@src
+  - name: secondaryImageTotal
+    xpath: count(//ul[contains(@class,"ProductDetailImage")]//li[position()>1]//div[@class="ImageComponent ImageComponent--overlay"]/img/@src)
+  - name: ratingCount
+    xpath: (//span[contains(@class,'ProductRatingNumberWithCount-count--link')])[1]
+    regExp: (\d+)
+  - name: aggregateRating
+    xpath: (//span[@class="ProductRatingNumberWithCount-rating"])[1]
+  - name: video
+    xpath: //video[@class="VideoPlayer-element"]/source[1]/@src
+  - name: mpc
+    xpath: //ol[@class="Breadcrumbs-list"]/li/span[contains(text(),'Part')]
+    regExp: 'Part #:\s(.+)'
+    regExpReplace: $1
+  - name: promotion
+    xpath: //span[contains(@class,'PercentageOff')]
+    # //kskds
+  - name: technicalInformationPdfPresent
+    defaultValue: No
+  - name: termsAndConditions
+    defaultValue: No
+  - name: privacyPolicy
+    defaultValue: No
+  - name: customerServiceAvailability
+    defaultValue: No
+  - name: materials
+  - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    defaultValue: No
