@@ -7,7 +7,7 @@ module.exports = {
     domain: 'unieuro.it',
     url: 'https://www.unieuro.it/online/?q={searchTerms}',
     loadedSelector: 'div#instant-results div.items-container img',
-    noResultsXPath: '//div[@id="no-results-message"]',
+    noResultsXPath: '//div[@id="no-results-message"] | //section[@data-module="compare"][not(section)]',
     zipcode: '',
   },
 };

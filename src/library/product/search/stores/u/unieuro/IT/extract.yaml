@@ -5,20 +5,17 @@ recordXPath: //section[contains(@class,'hits')]//section//article
 fields:
   - name: id
     singleValue: false
-    xpath: //section[contains(@class,'hits')]//section//article/@data-product-tile-sku
+    xpath: //section[contains(@class,'hits')]//section//article/@data-product-tile-sku | //section[contains(@class,'hits')]//section//article/@data-productactions-sku
   - name: rankOrganic
     singleValue: false
   - name: name
     singleValue: false
-    xpath: //article//div//div//div[@class='title']/a/text()
+    xpath: //article//div//div//div[@class='title']/a/text() | //article//div//div//div[contains(@class,'product-tile__title')]/a/text()
   - name: productUrl
     singleValue: false
     xpath: //section[contains(@class,'hits')]//section//article/@data-product-tile-url
     regExp: (.+)
     regExpReplace: http://www.unieuro.it$&
-  - name: _url    
-    singleValue: false
-    xpath: //iframe[@id='esw_storage_iframe']/@src
   - name: gtin
     singleValue: false
     xpath: //form/@name
@@ -26,17 +23,17 @@ fields:
     regExpReplace: $1
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class='product-img-container']//a//img/@src
+    xpath: //a/img[contains(@class,'product-tile__img')]/@data-src
   - name: price
     singleValue: false
-    xpath: //a//div[@class='price']
+    xpath: //a//div[@class='price'] | //div[@class="product-tile__price-container"]
   - name: aggregateRating
     singleValue: false
   - name: reviewCount
     singleValue: false
   - name: manufacturer
     singleValue: false
-    xpath: //article//div//div//div[@class='title']/a/text()
+    xpath: //article//div//div//div[@class='title']/a/text() | //div[contains(@class,'product-tile__category')]
     regExp: ^\S+
   - name: soldBy
     singleValue: false
