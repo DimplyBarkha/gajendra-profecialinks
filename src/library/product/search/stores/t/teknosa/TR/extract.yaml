@@ -13,7 +13,7 @@ fields:
     xpath: //div[@class='product-name']//span/text()
   - name: productUrl
     singleValue: false
-    xpath: concat("teknosa.com",'',//div[@class='product-name']//a/@href)
+    xpath: //div[@class='product-name']//a/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
