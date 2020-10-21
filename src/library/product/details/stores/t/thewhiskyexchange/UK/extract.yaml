@@ -9,6 +9,7 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //link[@rel="canonical"]//@href
 - name: _pageTimeStamp
   singleValue: false
 - name: image
@@ -62,7 +63,7 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  xpath: (//div[contains(@class, "product-page__section")]/h2[@class="product-title product-title--bravo"])[1]
+  # xpath: (//div[contains(@class, "product-page__section")]/h2[@class="product-title product-title--bravo"])[1]
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
@@ -112,9 +113,9 @@ fields:
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //span[@class="review-overview__rating star-rating star-rating--50"]/span
+  xpath: //span[contains(@class,"review-overview__rating")]/span
 - name: shippingInfo
-  singleValue: true
+  singleValue: false
   description: Shipping information for the product
   xpath: //h5[@class="product-shipping__type"]
 - name: shippingDimensions
@@ -401,7 +402,7 @@ fields:
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
-  xpath: //h4[not(text()="Country")]/following-sibling::p[@class="product-facts__data"]
+  xpath: (//h4[@class="product-facts__type"]) | (//h4[@class="product-facts__type"]/following-sibling::p[@class="product-facts__data"])
 - name: packaging
   singleValue: true
   description: Packaging information
@@ -412,7 +413,7 @@ fields:
   singleValue: true
   description: Price of the product split into certain units
   xpath: //p[@class='product-action__unit-price']
-  regExp: \[£\]\d+.\d+
+  regExp: .\d+.\d+
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
