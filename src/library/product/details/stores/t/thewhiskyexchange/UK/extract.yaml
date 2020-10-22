@@ -39,7 +39,7 @@ fields:
   singleValue: true
   description: The stated undiscounted price for the product
   xpath: //span[@class="product-offer__price"]
-  regExp: \[£\]\d+.\d+
+  regExp: £\d+.\d+
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
@@ -52,10 +52,10 @@ fields:
     "In Stock"
   xpath: //div[@class="product-action"]//p[@class='product-action__stock-flag']
 - name: description
-  singleValue: false
+  singleValue: true
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: concat(//span[@class="product-main__sub-name"], //ul[@class="product-main__meta"], //p[@class="product-main__data"], //div[@class="product-main__description"]/p)
+  xpath: concat(//span[@class="product-main__sub-name"], //ul[@class="product-main__meta"], //p[@class="product-main__data"])
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -137,6 +137,7 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
+  xpath: //div[@class="product-main__description"]/p
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
@@ -151,7 +152,7 @@ fields:
   singleValue: true
   description: Price in the selected store
   xpath: //p[@class="product-action__vat-price"]
-  regExp: \[£\]\d+.\d+
+  regExp: £\d+.\d+
 - name: asin
   singleValue: true
   description: 
