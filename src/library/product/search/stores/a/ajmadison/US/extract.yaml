@@ -19,7 +19,7 @@ fields:
   regExpReplace: https://www.ajmadison.com$1
 - name: reviewCount
   singleValue: false
-  xpath: //div[contains(@class,'clearfix mxn2 px2')]/div[contains(@class,'col')]/a[contains(text(),'Reviews')]
+  xpath: count(//div[@class="col col-3 lg-col-5 px-2"]//a[contains(text(),'Reviews')])
 - name: manufacturer
   singleValue: false
   xpath: //div[@class="inline-block bold black-0 f12"]/text()
