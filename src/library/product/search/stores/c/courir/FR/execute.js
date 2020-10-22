@@ -26,7 +26,7 @@ async function implementation (
     let productsCount = 0;
     while (productsCount < 150) {
       productsCount = await context.evaluate(function () {
-        const products = document.evaluate(`//div[contains(@class,'product-tile')]//div[@class='product-image']/img/@src`, document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const products = document.evaluate('//div[contains(@class,\'product-tile\')]//div[@class=\'product-image\']/img/@src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         return products.snapshotLength;
       });
 
@@ -73,10 +73,11 @@ async function implementation (
             await context.evaluateInFrame(
               captchaSelector,
               function () {
-                // @ts-ignore
+                // eslint-disable-next-line
                 const code = geetest
                   .toString()
                   .replace(/appendTo\("#([^"]+)"\)/, 'appendTo(document.getElementById("$1"))');
+                // eslint-disable-next-line
                 return eval(`(${code})()`);
               },
             );

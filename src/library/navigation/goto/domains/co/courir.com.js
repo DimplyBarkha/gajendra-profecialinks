@@ -79,10 +79,11 @@ module.exports = {
         await context.evaluateInFrame(
           captchaSelector,
           function () {
-            // @ts-ignore
+            // eslint-disable-next-line
             const code = geetest
               .toString()
               .replace(/appendTo\("#([^"]+)"\)/, 'appendTo(document.getElementById("$1"))');
+            // eslint-disable-next-line
             return eval(`(${code})()`);
           },
         );
@@ -140,10 +141,11 @@ module.exports = {
             await context.evaluateInFrame(
               captchaSelector,
               function () {
-                // @ts-ignore
+                // eslint-disable-next-line
                 const code = geetest
                   .toString()
                   .replace(/appendTo\("#([^"]+)"\)/, 'appendTo(document.getElementById("$1"))');
+                // eslint-disable-next-line
                 return eval(`(${code})()`);
               },
             );
