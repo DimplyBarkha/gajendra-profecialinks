@@ -32,12 +32,13 @@ fields:
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
   - name: brandText
     xpath: //*[@id='bylineInfo']
+  - name: gtin
+    xpath: //li[contains(.,'UPC')]//span//span[2]
   - name: manufacturer
-    xpath: //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]|//span[contains(text(), 'Manufacturer')][not(contains(text(), "Is Discontinued By Manufacturer:"))]/following-sibling::*[1]
+    singleValue: true
+    xpath: //li[contains(.,'Manufacturer')][not(contains(.,'Discontinued'))]//span//span[2] | //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]|//span[contains(text(), 'Manufacturer')][not(contains(text(), "Is Discontinued By Manufacturer:"))]/following-sibling::*[1]
   - name: weightGross
     xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1]
-  - name: gtin
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1]
   - name: asin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   - name: asin2
@@ -68,13 +69,13 @@ fields:
     regExp: ([0-9\.]{1,}) out of
     regExpReplace: $1
   - name: shippingInfo
-    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//*[@id="shipsFromSoldBy_feature_div"] | //div[contains(@id,'outOfStock')]//span[contains(@class,'a-color-price')]
+    xpath: //div[@id="buybox"]//div[@id="buyBoxAccordion"]//div[@id="sfsb_accordion_head"] | //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//*[@id="shipsFromSoldBy_feature_div"]
   - name: shippingDimensions
-    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]|//li//span[contains(text(), 'Product Dimensions:')]/../span[last()]
+    xpath: //li[contains(.,'Product Dimensions')]//span//span[2] | (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]|//li//span[contains(text(), 'Product Dimensions:')]/../span[last()]
   - name: shippingWeight
-    xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1]
-    regExp: ([^()]+)
-    regExpReplace: $1
+    xpath: //li[contains(.,'Product Dimensions')]//span//span[2] | (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1]
+    regExp: (.*);(.*)
+    regExpReplace: $2
   - name: variantCount
     xpath: //script[contains(text(),"asinVariationValues")]
     regExp: >-
@@ -124,14 +125,6 @@ fields:
     defaultValue: "NO"
   - name: videoLength
     xpath: //li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-duration
-  - name: heroQuickPromoHeadline
-    xpath: //div[@id="hero-quick-promo"]//span
-  - name: heroQuickPromoImageUrl
-    xpath: //div[contains(@id,"hero-quick-promo")]//img/@src
-  - name: heroQuickPromoUrl
-    xpath: //div[contains(@id,"hero-quick-promo")]//a/@href | //div[contains(@id,"hero-quick-promo")]//area/@href
-    regExp: (.+)
-    regExpReplace: https://www.amazon.com$1
   - name: ingredientImagePresent
     xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
     regExp: (.+)
@@ -160,8 +153,6 @@ fields:
     xpath: //div[@id="merchant-info"]/a[contains(@id,'sellerProfileTriggerId')]
   - name: otherSellersPrice
     xpath: //span[contains(@class,'mbcMerchantName')]/parent::div/preceding-sibling::div//span[contains(@id,'mbc-price')] | //div[contains(@class,'a-row')]/div[contains(@class,'Price')]/span[1]
-  - name: otherSellersShipping2
-    xpath: //span[contains(@id, "mbc-shipping")] | //div[contains(@class,'a-row')]/div[contains(@class,'Price')]/p
   - name: otherSellersPrime
     xpath: //span[contains(@id, "mbc-shipping")] | //div[contains(@class,'a-row')]/div[contains(@class,'Price')]//span/following-sibling::*[preceding-sibling::*[position()=1][contains(@class,'price')]][last()]/@class
   - name: secondaryImageTotal
@@ -183,9 +174,6 @@ fields:
   - name: materials
     xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
   - name: Image360Present
-    xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
-    regExp: (.+)
-    regExpReplace: "YES"
     defaultValue: "NO"
   - name: imageZoomFeaturePresent
     xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
