@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'FI',
     store: 'tokmanni',
-    nextLinkSelector: '#pagnNextString, #pagnNextLink, div.kuPagination2 a:nth-child(5)',
+    nextLinkSelector: 'a[title="Next"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '#kuLandingProductsListUl > li',
+    loadedSelector: '#kuLandingProductsListUl >li',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'tokmanni.fi',
