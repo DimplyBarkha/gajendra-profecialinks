@@ -64,8 +64,8 @@ fields:
   - name: sku
     singleValue: true
     xpath: //span[@class="sku"]
-    #regExp: ([0-9])
-    type: NUMBER
+    regExp: (\d{7,8})|(\d{6,8})
+    #type: NUMBER
   - name: variantId
     singleValue: false
   - name: mpc
