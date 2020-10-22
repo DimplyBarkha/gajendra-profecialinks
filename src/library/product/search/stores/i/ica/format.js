@@ -30,7 +30,7 @@ const transform = (data) => {
         }
         if(row.thumbnail){
             var tmpIdDataArr=row.thumbnail[0]['text'].split('/');
-            var tmpIdArr=tmpIdDataArr[tmpIdDataArr.length-1].split('.');
+            var tmpIdArr=tmpIdDataArr.pop().split('.');
             row.id[0]['text']=tmpIdArr[0];
         }
         if(row.price){
