@@ -114,11 +114,13 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //h2[contains(.,'Die Marke')]/following-sibling::div
+    # xpath: //h2[contains(.,'Die Marke')]/following-sibling::div | //div[@id="enhancedContent"]/text()
+    xpath: //div[@id="enhancedContent"]/text()
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
     # xpath: //div[@data-component-type='LARGE_STATIC_IMAGE']//img[contains(@class,'largeDisplayImage')]/@src
+    xpath: //div[@id="aplusImages"]/text()
     description: Images within the third party description
   - name: videos
     singleValue: false

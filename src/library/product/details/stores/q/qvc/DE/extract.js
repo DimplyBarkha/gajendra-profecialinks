@@ -12,14 +12,107 @@ async function implementation (
   });
   console.log('Length', variantLength);
   async function preparePage (index, variantLength) {
-    await context.evaluate(async (index, variantLength) => {
+
+
+    // const checkExistance = async (selector) => {
+    //   return await context.evaluate(async (currentSelector) => {
+    //     return await Boolean(document.querySelector(currentSelector));
+    //   }, selector);
+    // };
+    
+    const productUrl = await context.evaluate(async () => {
+      let url = window.location.href;
+      return url;
+    });
+
+     
+     let iframeLink=await context.evaluate(async () => {
+       let iframeLink=null;
+      let accordionTitles=document.querySelectorAll('a[class*="accordionTitle"]');
+      let contentAccordion=null;
+      for(let i=0;i<accordionTitles.length;i++){
+         if(accordionTitles[i].textContent.includes('Produktdetails von'))   contentAccordion=accordionTitles[i];
+        }
+        contentAccordion.click();
+      let iframeSelector=document.querySelector('iframe#loadbeeIframeId');
+      if(iframeSelector){
+       iframeLink=iframeSelector.getAttribute('src');
+      }
+      console.log('here is the iframe link '+iframeLink);
+      return iframeLink;
+    });
+
+    let manufacturerDesc=[],manufacturerImages=[];
+
+    // if (await checkExistance(document.querySelector('iframe#loadbeeIframeId'))) {
+    if(iframeLink!==null){
+    await context.goto(iframeLink, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
+    await context.waitForXPath('//img');
+
+    
+    manufacturerDesc=await context.evaluate(async (manufacturerDesc) => {
+      let textSelector1=document.querySelector('div[class="header-title"] span');
+      let textSelector2=document.querySelectorAll('div[class="pic-text"] div:nth-child(2)');
+      let textSelector3=document.querySelectorAll('table[class="table table-striped"] tr td');
+      if(textSelector1){
+      manufacturerDesc.push(textSelector1.innerText);
+    }
+      if(textSelector2){
+      for(let i=0;i<textSelector2.length;i++){
+        manufacturerDesc.push(textSelector2[i].innerText);
+      }
+    }
+    if(textSelector3){
+      for(let i=0;i<textSelector3.length;i++){
+        manufacturerDesc.push(textSelector3[i].innerText);
+      }
+    }
+      return manufacturerDesc;
+    },manufacturerDesc);
+
+
+    manufacturerImages=await context.evaluate(async (manufacturerImages) => {
+      let imageSelector=document.querySelectorAll('img');
+      for(let i=0;i<imageSelector.length;i++){
+        manufacturerImages.push(imageSelector[i].getAttribute('src'));
+      }
+      return manufacturerImages;
+    },manufacturerImages);
+    }
+
+  
+    await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+
+    await context.evaluate(async (index, variantLength,manufacturerDesc,manufacturerImages) => {
       console.log('index of variant', index);
+     
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
+      }
+
+      if(manufacturerDesc.length!==0){
+        let enhancedContent="";
+        for(let i=0;i<manufacturerDesc.length;i++){
+          if(i!==manufacturerDesc.length-1)
+            enhancedContent+=manufacturerDesc[i]+" || ";
+          else
+            enhancedContent+=manufacturerDesc[i];
+        }
+        addHiddenDiv('enhancedContent',enhancedContent);
+      }
+      if(manufacturerImages.length!==0){
+        let aplusImages="";
+        for(let i=0;i<manufacturerImages.length;i++){
+          if(i!==manufacturerImages.length-1)
+            aplusImages+=manufacturerImages[i]+" || ";
+          else
+            aplusImages+=manufacturerImages[i];
+        }
+        addHiddenDiv('aplusImages',aplusImages);
       }
       // Video API call
       var element = (document.querySelectorAll("div[class='videoThumbnails'] > div[class*='video']")) ? document.querySelectorAll("div[class='videoThumbnails'] > div[class*='video']") : null;
@@ -53,7 +146,7 @@ async function implementation (
         skuNumber = (skuNumber.offers && skuNumber.offers[index]) ? skuNumber.offers[index].sku : '';
         skuNumber && addHiddenDiv('ii_sku', skuNumber);
       }
-    }, index, variantLength);
+    }, index, variantLength,manufacturerDesc,manufacturerImages);
   }
   async function scrollToImg () {
     await context.evaluate(async () => {
@@ -86,6 +179,7 @@ async function implementation (
   } else {
     await preparePage(0, 0);
   }
+  if(variantLength<=1)
   return await context.extract(productDetails, { transform });
 }
 
