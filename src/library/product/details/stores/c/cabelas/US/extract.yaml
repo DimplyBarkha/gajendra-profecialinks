@@ -78,6 +78,7 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xpath: (//span[@class="sku"])
+    regExp: (\d{7})
     type: NUMBER
   - name: variantId
     singleValue: true
