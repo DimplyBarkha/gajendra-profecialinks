@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'submarino.com.br',
     prefix: null,
-    url: 'https://www.submarino.com.br/produto/{id}/{name}',
+    url: null,
     country: 'BR',
     store: 'submarino',
   },
