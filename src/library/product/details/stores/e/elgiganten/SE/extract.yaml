@@ -1,0 +1,95 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+- name: image
+  singleValue: true
+  xpath: (//img[@class='first-product-image'])[1]/@src
+  regExp: (/.+)
+  regExpReplace: https://www.elgiganten.se$1
+- name: imageAlt
+  singleValue: true
+  xpath : (//img[@class='first-product-image'])[1]/@alt
+- name: alternateImages
+  singleValue: false
+  xpath: //ul[@class='slick-dots']/li/img/@src
+  regExp: (/.+)
+  regExpReplace: https://www.elgiganten.se$1
+- name: metaKeywords
+  singleValue: true
+  xpath: //meta[@name='keywords']/@content
+- name: category
+  singleValue: false
+  xpath: //meta[@itemprop='category']/@content
+- name: nameExtended
+  singleValue: true
+  xpath: //meta[@property="og:title"]/@content
+- name: listPrice
+  singleValue: true
+  xpath: //meta[@itemprop="price"]/@content
+- name: price
+  singleValue: true
+  xpath: //meta[@itemprop="price"]/@content
+- name: availabilityText
+  singleValue: true
+  xpath: //span[@class="checkout-spacing"]//text()
+  defaultValue: Out of Stock
+- name: description
+  singleValue: false
+  xpath: (//div[@class="brand-features-wrap any-1-1 o-hidden"]/following::p)[1]
+- name: brandText
+  singleValue: true
+  xpath: //span[@itemprop="brand"]/meta/@content
+- name: manufacturer
+  singleValue: true
+  xpath: //span[@itemprop="brand"]/meta/@content
+- name: weightNet
+  singleValue: true
+  xpath: //td[@data-md-value-id="31682"]//text()
+- name: gtin
+  singleValue: true
+  xpath: //meta[@itemprop="gtin8"]/@content
+- name: sku
+  singleValue: true
+  xpath: //meta[@itemprop="sku"]/@content
+- name: ratingCount
+  singleValue: true
+  type: NUMBER
+  xpath: (//div[@class="product-ratings__count"]//text())[1]
+- name: aggregateRating
+  singleValue: true
+  type: NUMBER
+  xpath: (//div[@class="product-ratings__avarage"]//text())[1]
+- name: variantCount
+  defaultValue: '0'
+- name: color
+  singleValue: true
+  xpath: //td[@data-md-value-id="30290"]/text()
+- name: name
+  singleValue: true
+  xpath: //meta[@property="og:title"]/@content
+- name: warranty
+  singleValue: true
+  xpath: //h4[@class="product-promotion"]//text()
+- name: productOtherInformation
+  singleValue: false
+  xpath: //ul[@class="specs"]//text()
+- name: technicalInformationPdfPresent
+  singleValue: true
+  defaultValue: No
+- name: termsAndConditions
+  singleValue: true
+  defaultValue: No
+- name: privacyPolicy
+  singleValue: true
+  defaultValue: No
+- name: customerServiceAvailability
+  singleValue: true
+  defaultValue: No
+- name: Image360Present
+  singleValue: true
+  defaultValue: No
+- name: imageZoomFeaturePresent
+  singleValue: true
+  defaultValue: Yes
