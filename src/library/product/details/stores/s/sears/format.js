@@ -72,13 +72,17 @@ const transform = (data) => {
           row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
         } 
         if (row.category) {
-            let info = [];
-            row.category.forEach(item => {
-                item.text = item.text.replace(/(\s*)+/g, '').trim();
-                info.push(item.text);
+          let info = [];
+          row.category.forEach(item => {
+            info.push(item.text.trim());
+          });
+          if (info.length) {
+            row.category = [];
+            info.forEach(item => {
+              row.category.push({ "text": item});
             });
-            row.category = [{ 'text': info.join(' > ').replace('Home > ', '').trim(), 'xpath': row.category[0].xpath }];
-        }  
+          }
+        }
       }
     }
     return cleanUp(data);

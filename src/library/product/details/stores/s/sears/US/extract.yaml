@@ -14,7 +14,7 @@ fields:
     xpath: //h4//span[@class="price-wrapper"]
   - name: category
     singleValue: false
-    xpath: //div[@id="gnf_breadcrumb"]//ul//li//a
+    xpath: //div[@id="gnf_breadcrumb"]//ul//li[not(contains(@class,'home'))]//a
   - name: name
     singleValue: false 
     xpath: //div[@class="product-content"]//h1
