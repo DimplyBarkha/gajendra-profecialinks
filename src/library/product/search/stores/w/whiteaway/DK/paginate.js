@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'DK',
     store: 'whiteaway',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div.preloader__spinner',
     mutationSelector: null,
-    spinnerSelector: null,
-    loadedSelector: null,
+    spinnerSelector: 'div.preloader__spinner',
+    loadedSelector: 'body',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'whiteaway.com',

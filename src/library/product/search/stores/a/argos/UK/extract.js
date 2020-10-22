@@ -25,7 +25,7 @@ async function implementation (
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
-          }, ms);
+          }, ms);``
         });
       }
     });
