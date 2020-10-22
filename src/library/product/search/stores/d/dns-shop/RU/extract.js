@@ -17,6 +17,24 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
 
+    await context.evaluate(async function () {
+      let scrollSelector = document.querySelector('footer[class="main-footer"]');
+      let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+      let yPos = 0;
+      while (scrollLimit && yPos < scrollLimit) {
+        yPos = yPos + 350;
+        window.scrollTo(0, yPos);
+        scrollSelector = document.querySelector('footer[class="main-footer"]');
+        scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+        await new Promise(resolve => setTimeout(resolve, 3500));
+      }
+    });
+    try {
+      await context.waitForSelector('div[class=product-info] picture img');
+    } catch (error) {
+      console.log('All images not loaded after scrolling!!');
+    }
+
     await context.evaluate(async () => {
       function addElementToDocument (doc, key, value) {
         const catElement = document.createElement('div');
