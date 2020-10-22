@@ -5,4 +5,10 @@ recordXPath: null
 fields:
   - name: sku
     singleValue: false
-    xpath: //meta[@property='product:retailer_part_no']/@content
+    xpath: //meta[@itemprop='sku']/@content
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@itemprop='sku']/@content
+  - name: price
+    singleValue: false
+    xpath: //div[@id='product_price']
