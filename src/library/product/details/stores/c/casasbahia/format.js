@@ -42,7 +42,7 @@ const transform = (data) => {
       }
       if (row.category) {
         if (row.category.length) {
-          row.category.splice(0, 2);
+          row.category.splice(0, 1);
         }
       }
     }

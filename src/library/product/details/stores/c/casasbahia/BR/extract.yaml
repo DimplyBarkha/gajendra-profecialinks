@@ -25,7 +25,7 @@ fields:
     xpath: //strong[contains(@id,'_precoPorValue')]
   - name: category
     singleValue: false
-    xpath: //div[@class="breadcrumb"]//span
+    xpath: //div[@class="breadcrumb"]//span[@itemprop='name']
   - name: availabilityText
     singleValue: true
     xpath: //a[@id="btnAdicionarCarrinho" and @class="bt buy"]
