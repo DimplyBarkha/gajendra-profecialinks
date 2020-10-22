@@ -86,7 +86,7 @@ const transform = (data) => {
         });
         row.manufacturerDescription = [
           {
-            text: cleanUp(text),
+            text: cleanUp(text.replace(/^\d+\s/, '')),
           },
         ];
       }
@@ -109,6 +109,20 @@ const transform = (data) => {
             text: cleanUp(data.join(' ')),
           },
         ];
+      }
+      if (row.videos) {
+        const videos = [];
+        row.videos.forEach(item => {
+          !item.text.startsWith('https') ? videos.push({ text: item.text.replace(/(.*)(\/)(.*).mp4(.*)/, 'https://content.jwplatform.com/videos/$3.mp4') }) : videos.push({ text: item.text });
+        });
+        row.videos = videos;
+      }
+      if (row.manufacturerImages) {
+        const manufacturerImages = [];
+        row.manufacturerImages.forEach(item => {
+          manufacturerImages.push({ text: `https:${item.text}` });
+        });
+        row.manufacturerImages = manufacturerImages;
       }
     }
   }

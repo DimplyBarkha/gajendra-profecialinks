@@ -17,7 +17,7 @@ fields:
     xpath: //meta[contains(@name, "keywords")]/@content
   - name: category
     singleValue: false
-    xpath: //ol[@class='breadcrumb']//li
+    xpath: (//ol[@class='breadcrumb']//li)[position()<last()]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
@@ -58,6 +58,7 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
+    xpath: //th[contains(text(),"UPC")]/following-sibling::td
   - name: sku
     singleValue: false
     description: The store-specific product identifier
@@ -116,14 +117,14 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div[id="product-manufacturer-content"]:nth-child(2)
+    manualSelector: div[id="product-manufacturer-content"]:nth-child(2) div[class="collapse show"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="product-manufacturer-content"]//img/@src
+    xpath: //div[@id="product-manufacturer-content"]//img/@srcset
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[@id="pd_videos"]
+    xpath: //div[@id="pd_videos"] | //input[@class="flix-jw"]/@value
   - name: name
     xpath: //h1[@class='product-name']
   - name: inStorePrice
@@ -379,7 +380,7 @@ fields:
     singleValue: false
     xpath: //section[@class='product-specifications']//table//tr
   - name: warranty
-    xpath:  //section[@class='product-specifications']//table//tr//td[contains(text(),'Warranty') and not(contains(., '('))][1]/following-sibling::td
+    xpath:  //section[@class='product-specifications']//table//tr//td[contains(text(),"Manufacturer's Warranty")][1]/following-sibling::td
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
