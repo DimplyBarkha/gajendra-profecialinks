@@ -1,0 +1,478 @@
+input:
+  _url: http://boulanger.com
+  URL: https://www.boulanger.com/ref/1114934
+extractions:
+  - html: https://workbench.import.io/html/run=880c66fb-9af5-4903-9b38-a2d39f9d050d/task=e842097a-a3e6-401c-9e36-748eabe8357c/233b4b33-bb24-448f-94ee-3dbda3bf3222.html
+    extractionConfigId: product/details/stores/b/boulanger/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.boulanger.com/ref/1114934
+                xpath: /html/head[1]/link[10]/@href
+            image:
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_f_l_0?qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0&id=TUKo51&fmt=jpg&fit=constrain,1&wid=206&hei=350&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[3]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_f_l_1
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_f_l_2
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_f_l_3
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_f_l_4
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[5]/div[1]/@style
+            category:
+              - text: Maison - Entretien
+                xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[2]
+              - text: Aspirateur
+                xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[3]
+              - text: Aspirateur balai
+                xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[4]
+            nameExtended:
+              - text: Nettoyeur de sol Karcher FC3 sans fil
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: 219,99€
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]
+            brandText:
+              - text: Karcher
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
+            manufacturer:
+              - text: Karcher
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
+            gtin:
+              - text: "4054278311852"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            sku:
+              - text: "000000000001114934"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[3]
+            variantId:
+              - text: "000000000001114934"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[3]
+            mpc:
+              - text: "0001114934"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            aggregateRatingText:
+              - text: 3,7 / 5
+                xpath: /html/body/div[4]/div[2]/div[3]/div[6]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]
+            aggregateRating:
+              - text: 3,7
+                xpath: /html/body/div[4]/div[2]/div[3]/div[6]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/span[1]
+            shippingDimensions:
+              - text: 22.6 x 122 x 30.5 cm
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[6]/tr[1]/td[1]/text()[1]
+            color:
+              - text: Jaune et noir
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[1]/tr[8]/td[1]/text()[1]
+            manufacturerImages:
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_p1?wid=1000
+                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/center[1]/img[1]/@src
+            videos:
+              - text: https://boulanger.scene7.com/is/content/Boulanger/4054278311852_v_0
+                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/p[7]/video[1]/@src
+            name:
+              - text: Nettoyeur de sol Karcher FC3 sans fil
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            inStorePrice:
+              - text: 219,99€
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            coupon:
+              - text: "- 18%"
+                xpath: /html/body/div[4]/div[2]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/span[2]
+            brandLink:
+              - text: https://www.boulanger.com/resultats?tr=karcher#searchinputmode=product
+                xpath: /html/body/@brandhref
+            videoLength:
+              - text: "72.896"
+                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/p[7]/video[1]/@duration
+            additionalDescBulletInfo:
+              - text: >-
+                  Les points clés
+                   
+                   
+                   Lave 
+                   
+                   Sans fil - Poids Net 3,20 Kg 
+                   
+                   Autonomie standard (20 mn) 
+                   
+                   Batterie longue durée (Li-Ion) - Hygiénique : double réservoir Permet de séparer votre eau propre de votre eau sale 
+
+                   
+
+                   
+
+                   
+                  Le + : La solution sans fil pour un sol propre et sec en 2 min
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[4]
+              - text: >-
+                  Caractéristiques générales
+
+                  Caractéristiques générales
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Type de produit : Nettoyeur de sol
+                   
+
+                   
+
+                   
+                  Fonctions : Lave
+                   
+
+                   
+
+                   
+                  Produit utilisé : Eau et détergent nettoyeur de sols Karcher
+                   
+
+                   
+
+                   
+                  Utilisation : Sans fil
+                   
+
+                   
+
+                   
+                  Puissance consommée : 40 W
+                   
+
+                   
+
+                   
+                  Puissance (en V) : Puissance Standard (7,2V)
+                   
+
+                   
+
+                   
+                  Niveau sonore : 70 dB
+                   
+
+                   
+
+                   
+                  Coloris : Jaune et noir
+                   
+
+                   
+
+                   
+                  Gamme : FC3
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Batterie
+
+                  Batterie
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Type de batterie : Batterie longue durée (Li-Ion)
+                   
+
+                   
+
+                   
+                  Temps de charge : 4 heures
+                   
+
+                   
+
+                   
+                  Autonomie : Autonomie standard (20 mn)
+                   
+
+                   
+
+                   
+                  Support de charge : Station d'accueil et chargeur
+                   
+
+                   
+
+                   
+                  Nettoyage : Convient à tous types de sols durs y compris le parquet
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Réservoir
+
+                  Réservoir
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Capacité eau propre : 360 ml
+                   
+
+                   
+
+                   
+                  Hygiénique : double réservoir : Permet de séparer votre eau propre de votre eau sale
+                   
+
+                   
+
+                   
+                  Capacité eau sale : 140 ml
+                   
+
+                   
+
+                   
+                  Bac à poussière débrits : Non
+                   
+
+                   
+
+                   
+                  Réservoir amovible : Oui
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Maniabilité
+
+                  Maniabilité
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Position parking : Permet de tenir seul debout
+                   
+
+                   
+
+                   
+                  Commande à la poignées : Oui
+                   
+
+                   
+
+                   
+                  Rayon d'action (en mètres) : Sans fil, rayon d'action illimité
+                   
+
+                   
+
+                   
+                  Programmes : Non
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Entretien
+
+                  Entretien
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Filtre permanents : Non
+                   
+
+                   
+
+                   
+                  Filtre lavable : Non
+                   
+
+                   
+
+                   
+                  Auto-nettoyage : Oui
+                   
+
+                   
+
+                   
+                  Conseil d'entretien : Rouleaux lavables en machine à 60°C max sans adoucissant
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Dimensions
+
+                  Dimensions
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Dimensions l x h x p : 22.6 x 122 x 30.5 cm
+                   
+
+                   
+
+                   
+                  Poids Net : 3,20 Kg
+                   
+
+                   
+
+                   
+                  Poids Brut : 4,19 Kg
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Informations et Services
+
+                  Informations et Services
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Durée de la garantie (Pièces et main d'oeuvre pour un produit neuf vendu par Boulanger) : 24
+                   
+
+                   
+
+                   
+                  Fabriqué en : Hongrie
+                   
+
+                   
+
+                   
+                  Disponibilité des pièces détachées (données fournisseur) : Pendant 5 ans, à compter de la date d'achat
+                   
+
+                   
+
+                   
+                  Référence constructeur : FC3 sans fil
+                   
+
+                   
+
+                   
+                  Marque : KARCHER
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Contenu du carton
+
+                  Contenu du carton
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Notice : Oui
+                   
+
+                   
+
+                   
+                  Livré avec : Notice, Nettoyant pour sol
+                   
+
+                   
+
+                   
+                  Nettoyant pour sol : Oui
+                   
+                   
+                   
+                   
+                   Plus de caractéristiques Moins de caractéristiques 
+
+                   
+                  * Indépendamment de la garantie commerciale Boulanger, vous bénéficiez des garanties légales. (En savoir plus)
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]
+            technicalInformationPdfPresent:
+              - text: Yes
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[3]/li[1]/@pdfpresent
+            quantity:
+              - text: "1"
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1603377884724

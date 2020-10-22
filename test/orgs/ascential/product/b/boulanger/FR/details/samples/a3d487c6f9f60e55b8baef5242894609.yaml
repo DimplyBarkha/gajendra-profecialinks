@@ -1,0 +1,650 @@
+input:
+  _url: http://boulanger.com
+  URL: https://www.boulanger.com/ref/1152297
+extractions:
+  - html: https://workbench.import.io/html/run=880c66fb-9af5-4903-9b38-a2d39f9d050d/task=f7b9208f-891d-473b-9022-350944b8d59a/5da6c7c7-22e1-4fbd-89a5-bd91c78b059b.html
+    extractionConfigId: product/details/stores/b/boulanger/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.boulanger.com/ref/1152297
+                xpath: /html/head[1]/link[10]/@href
+            image:
+              - text: https://boulanger.scene7.com/is/image/Boulanger/bfr_overlay?$product_id=4242005187300_h_f_l_0&bfr_overlay?layer=comp&$t1=&$product_id=Boulanger/4242005187300_h_f_l_0&$i3=Overlay_VU-A-LA-TELE-D&$i1=Boulanger/new_default&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0&id=ltQJZ0&fmt=jpg&fit=constrain,1&wid=350&hei=350&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[3]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4242005187300_h_f_l_1
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4242005187300_h_f_l_2
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4242005187300_h_f_l_3
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4242005187300_h_f_l_4
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[5]/div[1]/@style
+            category:
+              - text: Gros électroménager
+                xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[2]
+              - text: Lave-vaisselle
+                xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[3]
+              - text: Lave-vaisselle encastrable
+                xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[4]
+            nameExtended:
+              - text: Lave vaisselle tout intégrable Bosch SMI6ZDS49E
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: 1099,00€
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            price:
+              - text: 899,00€
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]
+            brandText:
+              - text: Bosch
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
+            manufacturer:
+              - text: Bosch
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
+            weightNet:
+              - text: 47,8 kg
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[7]/tr[3]/td[1]/text()[1]
+            gtin:
+              - text: "4242005187300"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            sku:
+              - text: "000000000001152297"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[3]
+            variantId:
+              - text: "000000000001152297"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[3]
+            mpc:
+              - text: "0001152297"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            videos:
+              - text: https://boulanger.scene7.com/is/content/Boulanger/4242005187300_v_0
+                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/p[1]/video[1]/@src
+            name:
+              - text: Lave vaisselle tout intégrable Bosch SMI6ZDS49E
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            inStorePrice:
+              - text: 899,00€
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            coupon:
+              - text: "- 18%"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]
+            brandLink:
+              - text: https://www.boulanger.com/resultats?tr=bosch#searchinputmode=product
+                xpath: /html/body/@brandhref
+            videoLength:
+              - text: "139.900227"
+                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/p[1]/video[1]/@duration
+            additionalDescBulletInfo:
+              - text: >-
+                  Les points clés
+                   
+                   
+                   L x H x P : 600 x 815 x 550 cm 
+                   
+                   13 couverts - 42 dB - Très éco A+++ 
+                   
+                   Conso moyenne d'eau par cycle 9,5L 
+                   
+                   Départ différé 24 heures - 8 programmes 
+
+                   
+
+                   
+
+                   
+                  Le + : le Séchage Zeolith permet d'économiser tout en renforçant la qualité du séchage
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[4]
+              - text: "Caractéristiques principales
+
+                  Caractéristiques principales
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Nombre de couverts : 13 couverts
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Niveau sonore (+ d'infos) : 42 dB
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Type d'installation : Encastrable: Convient
+                  aux personnes disposant d'une cuisine équipée. L'appareil est
+                  spécialement conçu pour être encastré dans une niche.
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Type de séchage : Séchage Extra : phase de
+                  séchage augmentée pour un résultat optimal
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Nombre de programmes : 8 programmes
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Détails des programmes et températures : Eco
+                  50 °C, Auto 45-65 °C, Intensive 70 °C, Quotidien 60 °C, Rapide
+                  45 °C, Verre 40 °C, Silence 50 °C, Favourite (Pré-rinçage)
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Type de moteur : Moteur EcoSilence Drive:
+                  économie, silence et longévité
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Couleur : Autres
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Départ différé (délai maximum) (+ d'infos) :
+                  24 heures
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Modularité
+
+                  Modularité
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Nombre de panier à couverts : 3 panier à
+                  couverts
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Porte habillable fournie : Non
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Tiroir à couverts (+ d'infos) : Il est placé
+                  dans la partie haute du lave vaisselle et permet de bénéficier
+                  de 25% d'espace supplémentaire dans le panier inférieur.
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Bandeau de commandes
+
+                  Bandeau de commandes
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Couleur du bandeau : Bandeau gris
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Emplacement du bandeau : Frontal
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Afficheur : Digit
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Sécurité
+
+                  Sécurité
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Détail : Sécurité enfant, Sécurité aquastop
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Consommation
+
+                  Consommation
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Classe énergétique (+ d'infos) : A+++
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Efficacité de séchage : A
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Consommation d'énergie annuelle : 234 kWh/an
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Consommation d'eau annuelle : 2660 L
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Coût annuel d'utilisation (pour 280 cycles
+                  de lavage par an) : 45 euros
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Conso moyenne d'eau par cycle : 9,5L
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Raccordement eau chaude ou eau froide :
+                  Grâce au branchement direct à une arrivée d'eau chaude (60°C
+                  max), vous économisez la résistance de votre lave vaisselle et
+                  votre porte monnaie !
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Coût annuel de consommation ( base de
+                  calcul) : Sur la base de 280 cycles de lavages avec
+                  0.1503/Kwh d'electricité et 0.0038/Litre d'eau
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Spécificités professionnelles
+
+                  Spécificités professionnelles
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Puissance (en W) : 2400
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Dimensions
+
+                  Dimensions
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Hauteur sans top : 6,6 m
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Longueur du cordon électrique : 175 cm
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Poids net : 47,8 kg
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Poids brut : 50,0 kg
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Longueur du tuyau d'arrivée d'eau : 165 cm
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Longueur du tuyau de vidange : 190 cm
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  L x H x P : : 600 x 815 x 550 cm
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Dimensions d'encastrement mini l x h x p :
+                  598 x 815 x 550 cm
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Dimensions d'encastrement maxi l x h x p :
+                  600 x 875 x 550 cm
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Général
+
+                  Général
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Top amovible : Non
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Pieds réglables : Oui
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Fond de cuve : Inox (Résiste aux rayures ,
+                  taches et odeur)
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Contenu du carton
+
+                  Contenu du carton
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Livré avec : Notice, Cordon d'alimentation
+                  d'eau, Cordon d'évacuation d'eau, Cordon d'alimentation
+                  électrique, Panier à couverts
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Informations et Services
+
+                  Informations et Services
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Fabriqué en : Allemagne
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Durée de la garantie (Pièces et main
+                  d'oeuvre pour un produit neuf vendu par Boulanger) : 2 ans
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Disponibilité des pièces détachées (données
+                  fournisseur) : Pendant 10 ans, à compter de la date d'achat
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  \ Plus de caractéristiques Moins de
+                  caractéristiques\ 
+
+                  \\ 
+
+                  * Indépendamment de la garantie commerciale
+                  Boulanger, vous bénéficiez des garanties légales. (En savoir
+                  plus)"
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]
+            technicalInformationPdfPresent:
+              - text: Yes
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[3]/li[1]/@pdfpresent
+            quantity:
+              - text: "1"
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "1"
+        xpath: /
+    timestamp: 1603377766021

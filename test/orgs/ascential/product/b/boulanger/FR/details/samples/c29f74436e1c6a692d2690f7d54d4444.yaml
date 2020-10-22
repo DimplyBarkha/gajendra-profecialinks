@@ -1,0 +1,415 @@
+input:
+  _url: http://boulanger.com
+  URL: https://www.boulanger.com/ref/1145662
+extractions:
+  - html: https://workbench.import.io/html/run=880c66fb-9af5-4903-9b38-a2d39f9d050d/task=3e075315-f902-44f1-996a-4e4638db011a/da48d789-9195-44da-83dc-3c2ed71a6a49.html
+    extractionConfigId: product/details/stores/b/boulanger/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.boulanger.com/ref/1145662
+                xpath: /html/head[1]/link[10]/@href
+            image:
+              - text: https://boulanger.scene7.com/is/image/Boulanger/bfr_overlay?$product_id=5025155046302_h_f_l_0&bfr_overlay?layer=comp&$t1=&$product_id=Boulanger/5025155046302_h_f_l_0&$i1=Boulanger/new_default&$i6=Boulanger/best_seller_defaut&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0&id=RscL93&fmt=jpg&fit=constrain,1&wid=350&hei=350&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[3]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://boulanger.scene7.com/is/image/Boulanger/5025155046302_h_f_l_1
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/5025155046302_h_f_l_2
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/5025155046302_h_f_l_3
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/5025155046302_h_f_l_4
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[5]/div[1]/@style
+            category:
+              - text: Maison - Entretien
+                xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[2]
+              - text: Traitement de l'air
+                xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[3]
+              - text: Purificateur d'air
+                xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[4]
+            nameExtended:
+              - text: Purificateur d'air Dyson PH01 PURE HUMIDIFY + COOL
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: 699,00€
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]
+            description:
+              - text: >-
+                  Optez pour un purificateur d'air discret et performant avec le
+                  Dyson Pure Humidify + Cool. Respirez un air plus sain dans une
+                  pièce parfaitement humidifiée et ventilée.
+
+                  Un purificateur d'air hygiénique pour votre intérieur
+
+                  Le purificateur d'air Dyson Pure Humidify + Cool fait appel à une technologie de pointe pour assainir votre pièce. Avec son filtre HEPA hermétique à 360°, il capture les polluants et projette un air purifié. L'appareil utilise également un filtre à charbon actif, pour une détection des allergènes naturelle et sans produits chimiques.
+
+                  Doté d'un réservoir d'eau de 5 L, le purificateur d'air humidifie automatiquement la pièce selon les besoins. Sa grande capacité vous permet d'éviter d'avoir à remplir le réservoir trop souvent. Il garantit une hygiène irréprochable en exposant la moindre gouttelette à une lumière ultraviolette capable de détruire 99,9 % des bactéries. 
+
+                  Une technologie de pointe pour vous rafraîchir
+
+                  Le purificateur d'air Dyson Pure Humidify + Cool est non seulement apprécié pour sa capacité à purifier et humidifier l'air ambiant, il l'est également pour sa fonction ventilateur. Son débit d'air maximum de 350 L/s assure une brise rafraîchissante agréable lors des fortes chaleurs
+
+                  La technologie est au service de la performance avec ce purificateur d'air Dyson. Son écran LCD intégré affiche les niveaux de pollution et d'humidité de la pièce de façon claire. Laissez-vous séduire par sa facilité d'utilisation en le programmant directement depuis l'application Dyson Link, disponible sur smartphone et tablette.
+                xpath: /html/body/div[4]/div[2]/div[3]/div[5]/div[2]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
+            gtin:
+              - text: "5025155046302"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            sku:
+              - text: "000000000001145662"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[3]
+            variantId:
+              - text: "000000000001145662"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[3]
+            mpc:
+              - text: "0001145662"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            shippingDimensions:
+              - text: 35 x 100 x 35 cm
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[6]/tr[1]/td[1]/text()[1]
+            color:
+              - text: Blanc
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[1]/tr[11]/td[1]/text()[1]
+            manufacturerImages:
+              - text: https://boulanger.scene7.com/is/image/Boulanger/5025155046302_h_f_l_2?wid=400&hei=270
+                xpath: /html/body/div[4]/div[2]/div[3]/div[5]/div[2]/h3[1]/img[1]/@src
+              - text: https://boulanger.scene7.com/is/image/Boulanger/5025155046302_h_f_l_1?wid=400&hei=270
+                xpath: /html/body/div[4]/div[2]/div[3]/div[5]/div[2]/h3[2]/img[1]/@src
+            name:
+              - text: Purificateur d'air Dyson PH01 PURE HUMIDIFY + COOL
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            inStorePrice:
+              - text: 699,00€
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            brandLink:
+              - text: https://www.boulanger.com/resultats?tr=dyson#searchinputmode=product
+                xpath: /html/body/@brandhref
+            additionalDescBulletInfo:
+              - text: >-
+                  Les points clés
+                   
+                   
+                   Surface couverte 50 m² 
+                   
+                   Allumage à distance 
+                   
+                   Oscillation 350° 
+
+                   
+
+                   
+
+                   
+                  Le + : Détecte et capture les polluants grâce à son filtre à charbon actif et son filtre HEPA hermétique à 360°C.
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[4]
+              - text: >-
+                  Caractéristique générale
+
+                  Caractéristique générale
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Catégorie : Purficateur d'air connecté
+                   
+
+                   
+
+                   
+                  Produit : Purificateur d'air
+                   
+
+                   
+
+                   
+                  Modèle : A poser au sol
+                   
+
+                   
+
+                   
+                  Fonctionnement : Allumage à distance
+                   
+
+                   
+
+                   
+                  Surface couverte de : 50 m²
+                   
+
+                   
+
+                   
+                  Puissance : 230,0 W
+                   
+
+                   
+
+                   
+                  Débit d'air : 350 m³/h
+                   
+
+                   
+
+                   
+                  Ecran : LCD
+                   
+
+                   
+
+                   
+                  Oscillation : Oscillation 350°
+                   
+
+                   
+
+                   
+                  Connecté : Oui
+                   
+
+                   
+
+                   
+                  Coloris : Blanc
+                   
+
+                   
+
+                   
+                  Technologie : Filtration
+                   
+
+                   
+
+                   
+                  Autre fonction : Détecteur de particules fines
+                   
+
+                   
+
+                   
+                  Mode : 1 mode : filtration
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Filtration
+
+                  Filtration
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Nombre de filtre(s) : 1
+                   
+
+                   
+
+                   
+                  Type de filtre(s) : Filtre HEPA
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Fonction
+
+                  Fonction
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Diffuseur huiles essentielles : Non
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Equipement
+
+                  Equipement
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Télécommande : Oui
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Connectivité
+
+                  Connectivité
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Synchronisation : Synchronisation directe via application avec le smartphone
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Dimensions
+
+                  Dimensions
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Dimensions l x h x p : 35 x 100 x 35 cm
+                   
+
+                   
+
+                   
+                  Poids Net : 8,29 Kg
+                   
+
+                   
+
+                   
+                  Poids Brut : 12,46 Kg
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Informations et Services
+
+                  Informations et Services
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Disponibilité des pièces détachées (données fournisseur) : Pendant 3 ans, à compter de la date de fabrication
+                   
+
+                   
+
+                   
+                  Durée de la garantie (Pièces et main d'oeuvre pour un produit neuf vendu par Boulanger) : 2 ans
+                   
+
+                   
+
+                   
+                  Référence constructeur : PH01 PURE HUMIDIFY + COOL
+                   
+
+                   
+
+                   
+                  Marque : DYSON
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Contenu du carton
+
+                  Contenu du carton
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Livré avec : Télécommande Manuel d'utilisation
+                   
+                   
+                   
+                   
+                   Plus de caractéristiques Moins de caractéristiques 
+
+                   
+                  * Indépendamment de la garantie commerciale Boulanger, vous bénéficiez des garanties légales. (En savoir plus)
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]
+            technicalInformationPdfPresent:
+              - text: Yes
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[3]/li[1]/@pdfpresent
+            quantity:
+              - text: "1"
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "1"
+        xpath: /
+    timestamp: 1603377699274

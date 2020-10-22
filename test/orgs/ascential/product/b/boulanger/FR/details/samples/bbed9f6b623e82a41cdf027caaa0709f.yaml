@@ -1,0 +1,589 @@
+input:
+  _url: http://boulanger.com
+  URL: https://www.boulanger.com/ref/1149623
+extractions:
+  - html: https://workbench.import.io/html/run=880c66fb-9af5-4903-9b38-a2d39f9d050d/task=7fc082dc-d6cb-41e6-a827-dfdf21c35d8b/e3472b7d-322b-4f92-9e74-5060d419c0d1.html
+    extractionConfigId: product/details/stores/b/boulanger/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.boulanger.com/ref/1149623
+                xpath: /html/head[1]/link[10]/@href
+            image:
+              - text: https://boulanger.scene7.com/is/image/Boulanger/3280192006098_h_f_l_1?qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0&id=n4Ynt2&fmt=jpg&fit=constrain,1&wid=400&hei=325&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[3]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://boulanger.scene7.com/is/image/Boulanger/3280192006098_h_f_l_2
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/3280192006098_h_f_l_3
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/3280192006098_h_f_l_4
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/3280192006098_h_f_l_0
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[5]/div[1]/@style
+            category:
+              - text: Smartphone - Téléphonie
+                xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[2]
+              - text: Smartphone
+                xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[3]
+            nameExtended:
+              - text: Smartphone Huawei Pack P30 Noir + Band 4 Noir
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: 688,00€
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            price:
+              - text: 399,00€
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]
+            brandText:
+              - text: Huawei
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
+            manufacturer:
+              - text: Huawei
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
+            weightNet:
+              - text: 165,00 g
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[12]/tr[4]/td[1]/text()[1]
+            gtin:
+              - text: "3280192006098"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            sku:
+              - text: "000000000001149623"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[3]
+            variantId:
+              - text: "000000000001149623"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[3]
+            mpc:
+              - text: "0001149623"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            aggregateRatingText:
+              - text: 4,6 / 5
+                xpath: /html/body/div[4]/div[2]/div[3]/div[6]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]
+            aggregateRating:
+              - text: 4,6
+                xpath: /html/body/div[4]/div[2]/div[3]/div[6]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/span[1]
+            manufacturerImages:
+              - text: https://boulanger.scene7.com/is/image/Boulanger/6901443288014_p1?wid=1000
+                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/p[3]/img[1]/@src
+            name:
+              - text: Smartphone Huawei Pack P30 Noir + Band 4 Noir
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            inStorePrice:
+              - text: 399,00€
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            coupon:
+              - text: "- 42%"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]
+            brandLink:
+              - text: https://www.boulanger.com/resultats?tr=huawei#searchinputmode=product
+                xpath: /html/body/@brandhref
+            additionalDescBulletInfo:
+              - text: |-
+                  Les points clés
+                   
+                   
+                   Ecran large 6,1" soit 15,5 cm 
+                   
+                   Stockage très élevé 128 Go 
+                   
+                   Batterie très longue durée 3650mAh 
+                   
+                   Mémoire RAM 6 Go 
+                   
+                   
+                   
+                  Le + : Triple capteur photo + montre connectée
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[4]
+              - text: >-
+                  Appareil photo numérique
+
+                  Appareil photo numérique
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Note DXOMARK (caméra principale) (+ d'infos) : Non testé
+                   
+
+                   
+
+                   
+                  Nombre de capteurs (+ d'infos) : 3
+                   
+
+                   
+
+                   
+                  Résolution : 40 mégapixels+ 16 mégapixels+ 8 mégapixels
+                   
+
+                   
+
+                   
+                  Résolution caméra avant (Selfie) : 32 mégapixels
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Ecran
+
+                  Ecran
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Taille de l'écran (diagonale, en pouces) (+ d'infos) : 6,1" soit 15,5 cm
+                   
+
+                   
+
+                   
+                  Technologie de l'écran : AMOLED (OLED)
+                   
+
+                   
+
+                   
+                  Résolution de l'écran : 2340 x 1080 pixels
+                   
+
+                   
+
+                   
+                  Type d'écran (+ d'infos) : Plat
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Mémoire
+
+                  Mémoire
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Mémoire interne : 128 Go
+                   
+
+                   
+
+                   
+                  Extension de la mémoire : NM Card
+                   
+
+                   
+
+                   
+                  Capacité maximale de la carte mémoire : 256 Go
+                   
+
+                   
+
+                   
+                  Mémoire RAM : 6 Go
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Caractéristiques générales
+
+                  Caractéristiques générales
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Modèle : HUAWEI P30
+                   
+
+                   
+
+                   
+                  Couleur : Noir
+                   
+
+                   
+
+                   
+                  Système d'exploitation : Android 9.0 Pie
+                   
+
+                   
+
+                   
+                  Type de SIM (+ d'infos) : Nano SIM (x2) et micro SD
+                   
+
+                   
+
+                   
+                  Nombre de SIM : 2 SIM + 1 Micro SD
+                   
+
+                   
+
+                   
+                  Processeur : Non communiqué
+                   
+
+                   
+
+                   
+                  Détails du Processeur : HiSilicon Kirin 980 Octo-Core
+                   
+
+                   
+
+                   
+                  Batterie : 3650 mAh
+                   
+
+                   
+
+                   
+                  Charge par induction (+ d'infos) : Non
+                   
+
+                   
+
+                   
+                  Charge rapide : Non
+                   
+
+                   
+
+                   
+                  Qu'est-ce que le DAS : Le débit d'absorption spécifique (DAS) local quantifie l'exposition de l'utilisateur aux ondes électromagnétiques de l'équipement concerné. Le DAS maximal autorisé est de 2 W/kg pour la tête et le tronc et de 4 W/kg pour les membres
+                   
+
+                   
+
+                   
+                  Exposition aux ondes électromagnétiques : L'utilisation d'un kit main libre est recommandée afin de vous protéger d'une exposition continue aux ondes électromagnétiques
+                   
+
+                   
+
+                   
+                  Information sur l'état du produit (+ d'infos) : Neuf
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Connectivité
+
+                  Connectivité
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Bluetooth : 5.0
+                   
+
+                   
+
+                   
+                  Norme WiFi : WiFi 802.11 a/b/g/n/ac (2,4/5 GHz)
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Communication et réseaux
+
+                  Communication et réseaux
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Réseau (+ d'infos) : 4G+
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Connectiques
+
+                  Connectiques
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Port USB Type-C : Oui
+                   
+
+                   
+
+                   
+                  Jack 3.5 mm : Non
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Applications (outils)
+
+                  Applications (outils)
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Télécharger vos applis sur : Play Store
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Résistance
+
+                  Résistance
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Résistant à l'eau : Non
+                   
+
+                   
+
+                   
+                  Résistant à la poussière : Non
+                   
+
+                   
+
+                   
+                  Résistance aux chocs : Non
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Sécurité et biométrie
+
+                  Sécurité et biométrie
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Modes de déverrouillage : Lecteur d'empreintes digitales
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Informations et Services
+
+                  Informations et Services
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Durée de la garantie (Pièces et main d'oeuvre pour un produit neuf vendu par Boulanger) : 2 ans
+                   
+
+                   
+
+                   
+                  Disponibilité des pièces détachées (données fournisseur) : Pendant 3 ans, à compter de la date d'achat
+                   
+
+                   
+
+                   
+                  DAS Tête : 0,330 W/kg
+                   
+
+                   
+
+                   
+                  DAS Tronc : 0,850 W/kg
+                   
+
+                   
+
+                   
+                  DAS Membres : 3,190 W/kg
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Dimensions
+
+                  Dimensions
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Hauteur produit : 14,90 mm
+                   
+
+                   
+
+                   
+                  Largeur produit : 71,40 mm
+                   
+
+                   
+
+                   
+                  Epaisseur produit : 7,60 mm
+                   
+
+                   
+
+                   
+                  Poids net : 165,00 g
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Contenu du carton
+
+                  Contenu du carton
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Livré avec : Chargeur: secteur USB, Câble USB: USB Type C, Kit mains-libres /Écouteurs: Kit mains-libres, Notice /Manuel /Guide d'utilisation, Outil d'éjection de carte SIM /carte mémoire
+                   
+                   
+                   
+                   
+                   Plus de caractéristiques Moins de caractéristiques 
+
+                   
+                  * Indépendamment de la garantie commerciale Boulanger, vous bénéficiez des garanties légales. (En savoir plus)
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]
+            technicalInformationPdfPresent:
+              - text: Yes
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[3]/li[1]/@pdfpresent
+            quantity:
+              - text: "1"
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1603377703817
