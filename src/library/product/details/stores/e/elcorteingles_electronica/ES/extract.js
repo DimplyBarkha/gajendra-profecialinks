@@ -16,7 +16,7 @@ module.exports = {
     
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
-    const enhancedContent = '#tab-content-3 .js-media-holder';
+    const enhancedContent = '#tab-content-1 .js-media-holder';
     console.log('.....waiting......');
     await context.waitForSelector(enhancedContent, { timeout: 90000 });
 
