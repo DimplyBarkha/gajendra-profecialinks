@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'bhphotovideo',
-    nextLinkSelector: 'a[data-selenium="listingPagingPageNext"]',
+    nextLinkSelector: 'a[data-selenium="listingPagingPageNext"] svg[class="bhIcon "]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[data-selenium="miniProductPage"]',
