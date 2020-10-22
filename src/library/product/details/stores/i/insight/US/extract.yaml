@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -23,7 +23,7 @@ fields:
   xpath: //h1
 - name: image 
   singleValue: false 
-  xpath: //div[@class='ccs-fancybox-gallery ccs-slick-slide ccs-slick-current ccs-slick-active']//img/@src
+  xpath: //div[contains(@class,"ccs-fancybox-gallery")]//img/@src
 - name: alternateImages
   singleValue: false 
   xpath: //div[@class='ccs-ds-cloud-thumbs ccs-slick-initialized ccs-slick-slider']//img/@src
