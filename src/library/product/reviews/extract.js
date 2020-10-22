@@ -12,7 +12,7 @@ async function implementation (
   dependencies,
 ) {
   const { date } = inputs;
-  const { transform } = parameters;
+  const { transform, filterReviews } = parameters;
   const { productReviews } = dependencies;
   const data = await context.extract(productReviews, { transform });
   let stop = false;
@@ -26,7 +26,9 @@ async function implementation (
     if (filteredReivews.length < data[0].group.length) {
       stop = true;
     }
-    data[0].group = filteredReivews;
+    if (filterReviews) {
+      data[0].group = filteredReivews;
+    }
   }
   return { data, stop };
 }
@@ -44,6 +46,11 @@ module.exports = {
     {
       name: 'transform',
       description: 'transform function for the extraction',
+      optional: true,
+    },
+    {
+      name: 'filterReviews',
+      description: 'Boolean (true or false), filters out reviews outside given date.',
       optional: true,
     },
   ],
