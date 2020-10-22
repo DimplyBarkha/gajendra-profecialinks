@@ -1,0 +1,97 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //table/tbody/tr[@class="append_variant"]
+fields:
+  - name: image
+    xpath: ancestor::html//picture//img[contains(@name,"gallery-image")]/@src
+    regExp: (.+)&w=(.+)&h=
+    regExpReplace: $1&w=780&h=1196
+    singleValue: true
+  - name: alternateImages
+    xpath: ancestor::html//ul[@class="slider-list"]//li//button[@class="BIgNz"]//img[contains(@name,"gallery-image")]/@src
+    regExp: (.*)&w=(.*)&h=
+    regExpReplace: $1&w=780&h=1196
+  - name: nameExtended
+    xpath: ancestor::html//section//span[@itemprop="name"] | //h1[@itemprop="name"]
+  - name: listPrice
+    xpath: ancestor::html//section[@id="product-page-price-lockup"]//span[contains(@id,"original-price")]/span[last()]
+  - name: price
+    xpath: ancestor::html//span[@id="current-price-string"] | //span[@id="current-price-string"]/following-sibling::sup
+    regExp: ^[^–]+
+  - name: availabilityText
+    xpath: ancestor::html//span[contains(text(),'Add to Bag')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath:  ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::div[1] |  ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::ul/li
+    singleValue: false
+  - name: descriptionBullets
+    xpath: count(//div[contains(text(),"Details & Care")]/following-sibling::ul/li)
+  - name: brandText
+    xpath: ancestor::html//section//span[@itemprop="name"]
+  - name: brandLink
+    xpath: ancestor::html//section//span[@itemprop="name"]/parent::a/@href
+    regExp: (.+)
+    regExpReplace: https://www.nordstrom.com$1
+  - name: variantId 
+    xpath: //table/tbody/tr[@class="append_variant"]//@variant_id
+  - name: ratingCount
+    xpath: ancestor::html//span[@itemprop="reviewCount"]/@content
+    description: The number of ratings
+  - name: aggregateRating
+    xpath: ancestor::html//span[@itemprop="ratingValue"]/@content
+  - name: videos
+    xpath: ancestor::html//a[@class='appendedvideo']/@href
+    description: URLs of videos on page
+  - name: name
+    xpath: ancestor::html//h1[@itemprop="name"]
+  - name: sku
+    xpath: //table/tbody/tr[@class="append_variant"]//td[@class='sku']/@sku
+  - name: variants
+    xpath: //table/tbody/tr[@class="append_variant"]//@variant_id
+  - name: additionalDescBulletInfo
+    xpath: ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::ul/li
+  - name: shippingDimensions
+    xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x')]
+  - name: warranty
+    xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),'warranty')]
+  - name: specifications
+    xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x') or contains(text(),'cord')]
+    singleValue: true
+  - name: weightNet
+    xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' lb.')]
+  - name: mpc
+    xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),'Model')]
+    regExp: (.+):\s(.+)
+    regExpReplace: $2
+  - name: metaKeywords
+    xpath: ancestor::html//meta[@name="keywords"]/@content
+  - name: ingredientsList
+    xpath: ancestor::html//span[contains(text(),'Ingredients')]/following-sibling::p[1]
+  - name: legalDisclaimer
+    xpath: ancestor::html//p[@class="disclaimer"]
+  - name: directions
+    xpath: ancestor::html//strong[contains(text(),'How to use')]/parent::p | ancestor::html//p[contains(text(),'How to use')]/following-sibling::p[1] | ancestor::html//p[contains(text(),'How to use')] | ancestor::html//strong[contains(text(),'How to use')]/parent::p/following-sibling::p
+  - name: promotion
+    xpath: ancestor::html//section[@id="product-page-price-lockup"]//span[contains(text(),'% off')] | ancestor::html//div[@id="product-page-banner-giftwithpurchase"]//span
+  - name: productDescriptionIm
+  - name: imageAlt
+    xpath: ancestor::html//picture//img/@alt
+    singleValue: true
+  - name: firstVariant
+    xpath: ancestor::html//ul//li//span[@class="UI69S"] | ancestor::html//ul[@id="product-page-swatches"]/li/button/img/@alt
+    regExp: selected\s(.+)\scolor
+    regExpReplace: $1
+    singleValue: true
+  - name: variantCount
+    xpath: count(//table/tbody/tr[@class="append_variant"]/@variant_id)
+  - name: quantity
+    xpath: ancestor::html//ul[@id="size-filter-product-page-option-list"]//div[@class="_11U2i"]//span[2]/parent::div/span[1] | ancestor::html//button[@class="_1oaUx"]
+    singleValue: false
+  - name: color
+    xpath: ancestor::html//ul[@id="product-page-swatches"]//li/button/img/@alt
+    singleValue: false
+  - name: variantInformation
+    xpath: //table/tbody/tr[@class="append_variant"]//td[@class="variant"]
