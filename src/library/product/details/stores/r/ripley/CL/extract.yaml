@@ -36,68 +36,34 @@ fields:
     xpath: //table[@class='table table-striped']//tr/td[text()='Marca']/parent::tr/td[2]
   - name: weightNet
     singleValue: false
-    xpath: //table[@class='table table-striped']//tr/td[contains(text(),'Peso')]/parent::tr/td[2]  
-  - name: gtin
-    singleValue: false
-    description: GTIN code (includes UPC/EAN)
+    xpath: //table[@class='table table-striped']//tr/td[contains(text(),'Peso')]/parent::tr/td[2]    
   - name: sku
     singleValue: false
-    description: The store-specific product identifier
+    xpath: //div[@id='row']//span[@class='sku']
   - name: variantId
     singleValue: false
-    description: Identifier for a variant from a store where variants share the same sku
-  - name: mpc
-    singleValue: false
-    description: The manufacturer model code (unique) of the product
-  - name: packSize
-    singleValue: false
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
+    xpath: //div[@class='product-rating-no-review-btn']//a[@class='btn btn-lavanda product-rating-btn']/@href
   - name: legalDisclaimer
     singleValue: false
-    description: Content under "legal disclaimer" header
-  - name: directions
-    singleValue: false
-    description: Content under "directions" header
-  - name: warnings
-    singleValue: false
-    description: Content under "warnings" header
+    xpath: //div[@class='product-general-info__warranty row']//div[@class='col-xs-12 content']  
   - name: ratingCount
     singleValue: false
-    description: The number of ratings
-    type: NUMBER
-  - name: aggregateRatingText
-    singleValue: false
-    description: The stated aggregate rating
+    xpath: //span[@itemprop="reviewCount"]  
   - name: aggregateRating
     singleValue: false
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //span[@itemprop="ratingValue"]    
   - name: shippingInfo
     singleValue: false
-    description: Shipping information for the product
-  - name: shippingDimensions
-    singleValue: false
-    description: Stated shipping dimensions
-  - name: shippingWeight
-    singleValue: false
-    description: Stated shipping weight
+    xpath: //a[@class="product-information-shop-name"]  
   - name: variantCount
     singleValue: false
-    description: Number of variants listed
-    type: NUMBER
+    xpath: //section[@class="product-options"]//div[@class='product-options-desktop-wrapper']//div[@class='radio-items']//input[contains(@name,'talla')]/@value
   - name: color
     singleValue: false
-    description: A textual description of the colour
+    xpath: //section[@class="product-options"]//div[@class='product-options-desktop-wrapper']//div[@class='radio-items']//li[contains(@class,'radio-item')]//label[contains(@for,'color')]
   - name: colorCode
     singleValue: false
-    description: A code description of the color (e.g. RGB hex)
-  - name: manufacturerDescription
-    singleValue: false
-    description: The extended description of the product supplied by the lister
-  - name: manufacturerImages
-    singleValue: false
-    description: Images within the third party description
+    xpath: //section[@class="product-options"]//div[@class='product-options-desktop-wrapper']//div[@class='radio-items']//li[contains(@class,'radio-item')]//label[contains(@for,'color')]  
   - name: videos
     singleValue: false
     description: URLs of videos on page
