@@ -1,146 +1,145 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: "#product-options-false > div._2E0-s > div > div > ul > li"
-recordXpath: //ul[@data-automation-id="product-dimensions-color"]//li
+recordSelector: "#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li"
+recordXpath: //div[@id="option-wrapper-false"]//div[@id="product-options-false"]//div[last()]//ul//li
 fields:
   - name: image
     singleValue: true
-    xpath : //@mainimage
-  # - name: metaKeywords
-  #   singleValue: false
-  #   xpath : ancestor::html //meta[@name="keywords"]/@content
-  # - name: imageAlt
-  #   xpath: ancestor::html//h1[@aria-label="productTitle"]
-  # - name: alternateImages
-  #   xpath: ancestor::html//div[@class="slick-list"]//div[@class="slick-track"]//a[position()>1]//div[@class="image-desktop"]//img/@src
-  # - name: category
+    xpath: //@mainimage
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: metaKeywords
+    xpath: ancestor::html //*//meta[@name="keywords"]/@content
+  - name: imageAlt
+    xpath: ancestor::html//h1[@aria-label="productTitle"]
+  - name: alternateImages
+    xpath: //@secondaryimages
+  - name: category
   - name: nameExtended
-    xpath: ancestor::html //*//h1[@id="productTitle-false"]
-  # - name: listPrice
-  #   xpath: ancestor::html//div[@data-automation-id="product-content-block"]//span[@data-automation-id="price-original-price"]
-  # - name: price
-  #   xpath: ancestor::html//div[@data-automation-id="product-content-block"]//section//span[@data-automation-id="at-price-value"]
-  # - name: availabilityText
-  #   xpath: ancestor::html//div[@class="_1YUMp"]
-  #   regExp: (.+)
-  #   regExpReplace: Out of Stock
-  #   defaultValue: In Stock
-  # - name: description
-  #   xpath: ancestor::html//section[@aria-label="productDescription"]//p | ancestor::html//section[@aria-label="productDescription"]//ul//li
-  # - name: descriptionBullets
-  #   xpath : count(//section[@aria-label="productDescription"]//ul//li)
-  # - name: brandText
-  #   xpath: ancestor::html//script[@type="application/ld+json"][contains(text(),"brand")]
-  #   regExp: brand":{"@type":"[^"]+","name":"([^"]+)
-  #   regExpReplace: $1
-  # - name: sku
-  #   xpath: ancestor::html//script[@type="application/ld+json"][contains(text(),"sku")]
-  #   regExp: sku":"([^"]+)
-  #   regExpReplace: $1
-  # - name: variantId
-  #   xpath: ancestor::html//meta[@property="og:url"]/@content
-  #   regExp: (.+/)(.+)(\?.+)
-  #   regExpReplace: $2
-  # - name: ratingCount
-  #   xpath: ancestor::html//script[@type="application/ld+json"][contains(text(),"reviewCount")]
-  #   regExp: reviewCount":(\d+)(.+)
-  #   regExpReplace: $1
-  # - name: aggregateRating
-  #   xpath: ancestor::html//script[@type="application/ld+json"][contains(text(),"ratingValue")]
-  #   regExp: ratingValue":(.+)(,.+)
-  #   regExpReplace: $1
-  # - name: manufacturer
-  # - name: quantity
-  # - name: weightNet
-  # - name: weightGross
-  # - name: gtin
-  # - name: mpc
-  #   xpath: ancestor::html//div[@data-automation-id="product-content-block"]//span[@class="_3_di8"]
-  # - name: packSize
-  # - name: legalDisclaimer
-  # - name: directions
-  # - name: shippingInfo
-  # - name: shippingDimensions
-  #   xpath: ancestor::html//li[contains(.,"Height (in.)")]
-  # - name: shippingWeight
-  #   xpath: ancestor::html//li[contains(.,"Weight")]
-  # - name: variantCount
-  #   xpath: count(//ul[@data-automation-id="product-dimensions-color"]//li|//div[@class="_2tEML"]//section//ul//li)
-  # - name: color
-  # - name: colorCode
-  # - name: manufacturerDescription
-  # - name: manufacturerImages
-  #   xpath: ancestor::html//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")]//ul//li//img/@src
-  # - name: videos
-  #   xpath: ancestor::html//div[contains(@class,"videoLabel")]/parent::a/@href
-  # - name: name
-  #   xpath: ancestor::html//h1[@aria-label="productTitle"]
-  # - name: inStorePrice
-  # - name: asin
-  # - name: coupon
-  #   xpath: ancestor::html//div[@class="_2i-XY"]
-  # - name: amazonChoice
-  # - name: amazonChoiceCategory
-  # - name: brandLink
-  # - name: internationalShipping
-  # - name: salesRank
-  # - name: salesRankCategory
-  # - name: subscriptionPrice
-  # - name: subscribeAndSave
-  # - name: heroQuickPromoHeadline
-  # - name: heroQuickPromoImageUrl
-  # - name: heroQuickPromoUrl
-  # - name: pasin
-  # - name: videoLength
-  # - name: ingredientImagePresent
-  # - name: factImagePresent
-  # - name: largeImageCount
-  # - name: variantAsins
-  # - name: primeFlag
-  # - name: lbb
-  # - name: lbbPrice
-  # - name: featureBullets
-  # - name: otherSellersName
-  # - name: otherSellersPrice
-  # - name: otherSellersShipping
-  # - name: secondaryImageTotal
-  #   xpath: count(//div[@class="slick-list"]//div[@class="slick-track"]//a[position()>1]//div[@class="image-desktop"]//img)
-  # - name: specifications
-  #   xpath: ancestor::html//ul[@div="bulletedCopy"]//li
-  # - name: warranty
-  #   xpath: ancestor::html//li[contains(.,"warranty")]
-  # - name: storage
-  # - name: countryOfOrigin
-  # - name: allergyAdvice
-  # - name: recyclingInformation
-  # - name: productOtherInformation
-  # - name: packaging
-  # - name: additives
-  # - name: pricePerUnit
-  # - name: pricePerUnitUom
-  # - name: promotion
-  #   xpath: ancestor::html//div[@data-automation-id="product-content-block"]//span[@data-automation-id="price-percent-off"]
-  # - name: alcoholContent
-  # - name: newVersion
-  # - name: newAsin
-  # - name: variantInformation
-  #   xpath: ancestor::html//ul[@data-automation-id="product-dimensions-color"]//li//button/@data-for|//div[@class="_2tEML"]//section//ul//li//button
-  # - name: firstVariant
-  # - name: variants
-  # - name: additionalDescBulletInfo
-  # - name: prop65Warning
-  # - name: ageSuitability
-  # - name: energyEfficiency
-  # - name: technicalInformationPdfPresent
-  #   defaultValue: No
-  # - name: termsAndConditions
-  #   defaultValue: No
-  # - name: privacyPolicy
-  #   defaultValue: No
-  # - name: customerServiceAvailability
-  #   defaultValue: No
-  # - name: materials
-  # - name: Image360Present
-  #   defaultValue: No
-  # - name: imageZoomFeaturePresent
-  #   defaultValue: No
+    xpath: //@nameextended
+  - name: listPrice
+    xpath: ancestor::html//div[@data-automation-id="product-content-block"]//span[@data-automation-id="price-original-price"]
+  - name: price
+    xpath: ancestor::html//div[@data-automation-id="product-content-block"]//section//span[@data-automation-id="at-price-value"]
+  - name: availabilityText
+    xpath: ancestor::html//div[@class="_1YUMp"]
+    regExp: (.+)
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
+  - name: description
+    xpath: ancestor::html//section[@aria-label="productDescription"]//p | ancestor::html//section[@aria-label="productDescription"]//ul//li
+  - name: descriptionBullets
+    xpath : count(//section[@aria-label="productDescription"]//ul//li)
+  - name: brandText
+    xpath: ancestor::html//script[@type="application/ld+json"][contains(text(),"brand")]
+    regExp: brand":{"@type":"[^"]+","name":"([^"]+)
+    regExpReplace: $1
+  - name: sku
+    xpath: //@sku
+  - name: variantId
+    xpath: ancestor::html//meta[@property="og:url"]/@content
+    regExp: (.+/)(.+)(\?.+)
+    regExpReplace: $2
+  - name: ratingCount
+    xpath: ancestor::html//script[@type="application/ld+json"][contains(text(),"reviewCount")]
+    regExp: reviewCount":(\d+)(.+)
+    regExpReplace: $1
+  - name: aggregateRating
+    xpath: ancestor::html//script[@type="application/ld+json"][contains(text(),"ratingValue")]
+    regExp: ratingValue":(.+)(,.+)
+    regExpReplace: $1
+  - name: manufacturer
+  - name: quantity
+  - name: weightNet
+  - name: weightGross
+  - name: gtin
+  - name: mpc
+    xpath: ancestor::html//div[@data-automation-id="product-content-block"]//span[@class="_3_di8"]
+  - name: packSize
+  - name: legalDisclaimer
+  - name: directions
+  - name: shippingInfo
+  - name: shippingDimensions
+    xpath: ancestor::html//li[contains(.,"Height (in.)")]
+  - name: shippingWeight
+    xpath: ancestor::html//li[contains(.,"Weight")]
+  - name: variantCount
+    xpath: count(//ul[@data-automation-id="product-dimensions-color"]//li|//div[@class="_2tEML"]//section//ul//li)
+  - name: color
+  - name: colorCode
+  - name: manufacturerDescription
+  - name: manufacturerImages
+    xpath: ancestor::html//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")]//ul//li//img/@src
+  - name: videos
+    xpath: ancestor::html//div[contains(@class,"videoLabel")]/parent::a/@href
+  - name: name
+    xpath: ancestor::html//h1[@aria-label="productTitle"]
+  - name: inStorePrice
+  - name: asin
+  - name: coupon
+    xpath: ancestor::html//div[@class="_2i-XY"]
+  - name: amazonChoice
+  - name: amazonChoiceCategory
+  - name: brandLink
+  - name: internationalShipping
+  - name: salesRank
+  - name: salesRankCategory
+  - name: subscriptionPrice
+  - name: subscribeAndSave
+  - name: heroQuickPromoHeadline
+  - name: heroQuickPromoImageUrl
+  - name: heroQuickPromoUrl
+  - name: pasin
+  - name: videoLength
+  - name: ingredientImagePresent
+  - name: factImagePresent
+  - name: largeImageCount
+  - name: variantAsins
+  - name: primeFlag
+  - name: lbb
+  - name: lbbPrice
+  - name: featureBullets
+  - name: otherSellersName
+  - name: otherSellersPrice
+  - name: otherSellersShipping
+  - name: secondaryImageTotal
+    xpath: count(//div[@class="slick-list"]//div[@class="slick-track"]//a[position()>1]//div[@class="image-desktop"]//img)
+  - name: specifications
+    xpath: ancestor::html//ul[@div="bulletedCopy"]//li
+  - name: warranty
+    xpath: ancestor::html//li[contains(.,"warranty")]
+  - name: storage
+  - name: countryOfOrigin
+  - name: allergyAdvice
+  - name: recyclingInformation
+  - name: productOtherInformation
+  - name: packaging
+  - name: additives
+  - name: pricePerUnit
+  - name: pricePerUnitUom
+  - name: promotion
+    xpath: ancestor::html//div[@data-automation-id="product-content-block"]//span[@data-automation-id="price-percent-off"]
+  - name: alcoholContent
+  - name: newVersion
+  - name: newAsin
+  - name: variantInformation
+    xpath: ancestor::html//ul[@data-automation-id="product-dimensions-color"]//li//button/@data-for|//div[@class="_2tEML"]//section//ul//li//button
+  - name: firstVariant
+  - name: variants
+  - name: additionalDescBulletInfo
+  - name: prop65Warning
+  - name: ageSuitability
+  - name: energyEfficiency
+  - name: technicalInformationPdfPresent
+    defaultValue: No
+  - name: termsAndConditions
+    defaultValue: No
+  - name: privacyPolicy
+    defaultValue: No
+  - name: customerServiceAvailability
+    defaultValue: No
+  - name: materials
+  - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    defaultValue: No
