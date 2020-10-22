@@ -5,10 +5,10 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@class="image-slider--container"]//img/@src
+    xpath: //div[contains(@class,"image-slider--container")]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class="image-slider--container"]//img/@alt
+    xpath: //div[contains(@class,"image-slider--container")]//img/@alt
   - name: alternateImages
     singleValue: false
     description: //div[@class="image-slider--thumbnails-slide"]/a[position()>0]/@href
