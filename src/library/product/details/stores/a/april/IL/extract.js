@@ -53,6 +53,7 @@ module.exports = {
       const avaiableText = getXpath("//div[@class='addToCart pull-right']//@disabled", 'nodeValue');
       if (avaiableText === 'disabled') {
         addElementToDocument('availableText', 'Out of Stock');
+        console.log('out of');
       } else addElementToDocument('availableText', 'In Stock');
 
       const alternateBulletInfoXpath = "//div[@id='mytab_0']//ul//li";

@@ -13,7 +13,6 @@ fields:
   singleValue: false
   #xpath: //div[@id='category'] 
   xpath: //ol[contains(@class,"breadcrumb")]/li[position()>1 and position()<last()]
-
 - name: price
   singleValue: true
   xpath: concat(//meta[@property='product:sale_price:amount']//@content," " ,//meta[@property='og:price:currency']//@content)
