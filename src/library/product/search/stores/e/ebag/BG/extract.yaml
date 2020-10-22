@@ -1,0 +1,56 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //article[@class="item"]
+fields:
+  # - name: _input
+  #   singleValue: false
+  # - name: _pageTimestamp
+  #   singleValue: false
+  # - name: _url
+  #   singleValue: false
+  # - name: aggregateRating2
+  #   singleValue: false
+  #   xpath: //acl-rating//a/@title
+  #   type: NUMBER
+  # - name: brandText
+  #   singleValue: false
+  #   xpath: //a[contains(@class, "acl-product-card__title-link")]//span[contains(@class, "brand")]
+  # - name: endorsementText
+  #   singleValue: false
+  # - name: gtin
+  #   singleValue: false
+  #   xpath: //a[contains(@class, "acl-product-card__title-link")]/@href
+  #   regExp: .*\/(.*)$
+  #   regExpReplace: $1
+  - name: id
+    singleValue: false
+    xpath: //div[@id="added-productId"]
+  - name: name
+    singleValue: false
+    xpath: //h2
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class, "item-purchase-info")]//p[@class="new-price"] | //div[contains(@class, "item-purchase-info")]//p[@class="product-price"]
+  # - name: priceCent
+  #   singleValue: false
+  #   xpath: //div[contains(@class, "price-cents-unit")]//span[1]
+  - name: productUrl
+    singleValue: false
+    xpath: //h2//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.ebag.bg$1
+  - name: ratingCount
+    singleValue: false
+    type: NUMBER
+  - name: reviewCount
+    singleValue: false
+    type: NUMBER
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="item-information"]//img/@src
+    regExp: (.+)/200
+    regExpReplace: https://www.ebag.bg$1/800
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="added-searchurl"]
