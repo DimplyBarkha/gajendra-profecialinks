@@ -23,15 +23,19 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
-      var rank = 1;
+      var rank = 1; var id='';
       for (let row of group) {
         if(row.productUrl){
-          row.productUrl[0]['text']="https://www.ica.se"+row.productUrl[0]['text'];
+          row.productUrl.forEach(item=>{
+            item.text="https://www.ica.se"+item.text;
+          })
         }
         if(row.thumbnail){
-            var tmpIdDataArr=row.thumbnail[0]['text'].split('/');
-            var tmpIdArr=tmpIdDataArr.pop().split('.');
-            row.id[0]['text']=tmpIdArr[0];
+            row.thumbnail.forEach(item=>{
+              var tmpIdDataArr=item.text.split('/');
+              var tmpIdArr=tmpIdDataArr.pop().split('.');
+              id=tmpIdArr[0];
+            })
         }
         if(row.price){
           row.price.forEach(item => {
@@ -40,6 +44,7 @@ const transform = (data) => {
             item.text=reviewCountData1[0].replace(',','.');
           });
         }
+        row.id= [{ "text": id }];
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
         rank++;
