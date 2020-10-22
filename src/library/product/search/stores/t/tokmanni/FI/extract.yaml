@@ -16,6 +16,8 @@ fields:
   - name: id
     singleValue: true
     description: The store-specific product identifier
+    xpath: //div[@class='klevuImgWrap']/a/@href
+    regExp: (\d+\d)$
   - name: price
     singleValue: true
     description: The offered price for the product
