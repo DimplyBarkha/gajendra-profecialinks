@@ -11,13 +11,13 @@ fields:
     xpath: //div[contains(@class,"image-slider--container")]//img/@alt
   - name: alternateImages
     singleValue: false
-    description: //div[@class="image-slider--thumbnails-slide"]/a[position()>0]/@href
+    description: //div[contains(@class="image-slider--thumbnails-slide")]/a[position()>0]/@href
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    xpath: //ul[@class="breadcrumb--list"]/li[@role="menuitem"]/a/@title
+    xpath: //ul[contains(@class="breadcrumb--list")]/li[@role="menuitem"]/a/@title
   - name: nameExtended
     singleValue: true
     xpath: //h1[@class="product--title"]
