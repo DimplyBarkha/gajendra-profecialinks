@@ -6,6 +6,10 @@ fields:
   - name: image
     singleValue: single
     xpath: (//div[@class="image"]/a/img)/@src
+  - name: id
+    singleValue: single
+    xpath: //div[@class="product_price "]/@id
+    # regExp: (\d{0,9})
   - name: price
     singleValue: single
     xpath: (//span[@class="price "]/span)
