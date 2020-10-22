@@ -20,9 +20,9 @@ fields:
     xpath: //div[@class='productImage']/a[@class='itemImage']/img/@src
   - name: reviewCount
     singleValue: false
-    xpath: //a[@class='itemRating']/@title
-    regExp: ( \d)
-    defaultValue: 0
+    #xpath: //a[@class='itemRating']/@title
+    #regExp: ( \d)
+    #defaultValue: 0
     type: NUMBER
   - name: gtin
     singleValue: false
@@ -35,9 +35,9 @@ fields:
     type: NUMBER
   - name: ratingCount
     singleValue: false
-    xpath: //a[@class='itemRating']/@title
-    regExp: ^\d
-    defaultValue: 0
+    #xpath: //a[@class='itemRating']/@title
+    #regExp: ^\d
+    #defaultValue: 0
   - name: soldBy
     singleValue: true
   - name: rank
