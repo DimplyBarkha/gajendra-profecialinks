@@ -8,7 +8,7 @@ fields:
   - name: imageAlt
     xpath: //ul[contains(@class,"ProductDetailImage")]//li[position()=1]//div[@class="ImageComponent ImageComponent--overlay"]/img/@alt
   - name: category
-    xpath: //ol[@class="Breadcrumbs-list"]/li
+    xpath: //ol[@class="Breadcrumbs-list"]/li/a
   - name: name
     xpath: (//h1[@class="pl-Heading pl-Heading--pageTitle"])[1]
   - name: nameExtended
@@ -23,12 +23,14 @@ fields:
     defaultValue: Out of Stock
   - name: brandText
     xpath: (//a[@data-click-location="manufacturer_link"])[1]
+  - name: brandLink
+    xpath: //div[@class="ManufacturerDetails"]//a/@href
   - name: manufacturer
     xpath: (//a[@data-click-location="manufacturer_link"])[1]
   - name: sku
     xpath: //meta[@property="og:upc"]/@content
   - name: description
-    xpath: //div[@class="ProductOverviewInformation-content"]/div
+    xpath: //body/@description
   - name: additionalDescBulletInfodescriptionBullets
     xpath: //div[@class="ProductOverviewInformation-content"]//ul//li
   - name: descriptionBullets
@@ -52,7 +54,11 @@ fields:
     regExpReplace: $1
   - name: promotion
     xpath: //span[contains(@class,'PercentageOff')]
-    # //kskds
+  - name: weightNet
+    xpath: //div[contains(text(),"Overall Product Weight")]/parent::dt/following-sibling::dd
+  - name: specifications
+    xpath: //body/@specification
+    # //static
   - name: technicalInformationPdfPresent
     defaultValue: No
   - name: termsAndConditions
