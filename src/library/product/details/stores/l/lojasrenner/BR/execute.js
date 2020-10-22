@@ -5,8 +5,8 @@ module.exports = {
     country: 'BR',
     store: 'lojasrenner',
     domain: 'lojasrenner.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'section.main_product',
+    noResultsXPath: '//div[contains(@class, "product_404")]//p',
     zipcode: '',
   },
 };
