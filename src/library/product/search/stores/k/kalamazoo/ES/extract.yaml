@@ -4,9 +4,11 @@ recordSelector: null
 recordXPath: //section[@class="page-category__products-cards"]//article[contains(@class,"product-card product-card--close")]
 fields:
   - name: id
-    xpath: //article[contains(@class,"product-card product-card--close")]/@data-sku
+    xpath: //span[@class="typo-blueCap-12 product-card__ref"]
+    regExp: (WW)(\s|)(-)(\s|)(\d+)
+    regExpReplace: $1$3$5
   - name: name
-    xpath: //span[@class="product-card__size js-count-limit-characters"]
+    xpath: //a/@title
   - name: thumbnail
     xpath: //img[@class="product-card__pic"]/@src
     regExp: (.+)(hei=)(\d+)(&wid=)(\d+)

@@ -16,7 +16,7 @@
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
