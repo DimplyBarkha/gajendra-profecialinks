@@ -14,7 +14,7 @@ fields:
   - name: metaKeywords
     xpath: //meta[@name="keywords"]/@content
   - name: category
-    xpath: //li[@class="breadcrumb-item"][position()>1][position()<last()]//span
+    xpath: //li[@class="breadcrumb-item"][position()>1]//span
   - name: nameExtended
     xpath: concat(//span[@itemprop="brand"],' ',//div[@id="product-content"]//span[@itemprop="name"],' - ',//span[@itemprop="color"])
   - name: listPrice

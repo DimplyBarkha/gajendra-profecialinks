@@ -3,7 +3,6 @@ module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'courir.com',
-    prefix: null,
     url: 'https://www.courir.com/on/demandware.store/Sites-Courir-FR-Site/fr_FR/Product-Variation?pid={id}',
     country: 'FR',
     store: 'courir',
