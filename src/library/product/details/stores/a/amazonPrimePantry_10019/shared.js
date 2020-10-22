@@ -13,6 +13,16 @@ module.exports.implementation = async function implementation(
             element.scrollIntoView({ behavior: 'smooth' });
             await new Promise(resolve => setTimeout(resolve, 5000));
         }
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
+        let getBrand = document.querySelector('#bylineInfo') ? document.querySelector('#bylineInfo').innerText : null
+        if (getBrand && getBrand.includes('Visit the'))
+            getBrand = getBrand.split('Visit the')[1].split('Store')[0];
+
+        if (getBrand && getBrand.includes('Brand:'))
+            getBrand = getBrand.split('Brand:')[1]
+        document.head.setAttribute('brand', getBrand);
+
         let getSecondaryImageCount = document.querySelectorAll('li.a-spacing-small.item.imageThumbnail.a-declarative')
         let count = 0;
         for (i = 1; i < getSecondaryImageCount.length; i++) {
