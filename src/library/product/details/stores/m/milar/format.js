@@ -36,10 +36,9 @@ const transform = (data) => {
           }
           if (row.aggregateRating) {
             row.aggregateRating.forEach(item => {
-                item.text  = item.text.replace(/\./g, ',').trim();
+              item.text  = item.text.replace(/\./g, ',').trim();
             });
-          }
-          
+          }          
           if (row.additionalDescBulletInfo) {
             let info = [];          
             row.additionalDescBulletInfo.forEach(item => {
