@@ -51,19 +51,20 @@ fields:
     is no availability but the product can be added to cart, this field should be
     "In Stock"
   xpath: //div[@class="product-action"]//p[@class='product-action__stock-flag']
+  defaultValue: "Out of Stock"
 - name: description
   singleValue: true
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: concat(//span[@class="product-main__sub-name"], //ul[@class="product-main__meta"], //p[@class="product-main__data"])
+  xpath: concat(//span[@class="product-main__sub-name"], //ul[@class="product-main__meta"], //p[@class="product-main__data"], //ul[@class='product-notes'])
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count(//ul[@class='product-notes']//li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  # xpath: (//div[contains(@class, "product-page__section")]/h2[@class="product-title product-title--bravo"])[1]
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
