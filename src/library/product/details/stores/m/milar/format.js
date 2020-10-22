@@ -34,6 +34,11 @@ const transform = (data) => {
                 item.text  = item.text.replace(/(\s*\n\s\n\s*)/g, '  ').trim();
             });
           }
+          if (row.aggregateRating) {
+            row.aggregateRating.forEach(item => {
+                item.text  = item.text.replace(/\./g, ',').trim();
+            });
+          }
           
           if (row.additionalDescBulletInfo) {
             let info = [];          
