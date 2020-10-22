@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'tigerdirect',
     domain: 'tigerdirect.com',
-    url: 'https://www.tigerdirect.com/applications/SearchTools/search.asp?keywords=apc+backup',
+    url: 'https://www.tigerdirect.com/applications/SearchTools/search.asp?keywords={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
