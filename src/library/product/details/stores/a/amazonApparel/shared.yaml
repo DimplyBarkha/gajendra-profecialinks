@@ -71,7 +71,7 @@ fields:
     singleValue: true
     xpath: (//li[contains(.,'ASIN')]//span//span[2] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1])[1]
   - name: mpc
-    xpath: //li/b[contains(., 'Modellnummer')][1]/../text()
+    xpath: //li[contains(., 'Modellnummer')]//span//span[2] | //li/b[contains(., 'Modellnummer')][1]/../text()
     singleValue: true
   - name: packSize
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1] | //title[contains(text(), 'Pack')])[1]
