@@ -1,0 +1,113 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@class="shopping-list-side-panel"]//section[@class="product-details"]//div[@class="product-details-image-container"]//img/@src
+    regExp: (.+)w=(\d+)&h=(\d+)(.+)
+    regExpReplace: $1$4
+  - name: imageAlt
+    xpath: //div[@class="shopping-list-side-panel"]//section[@class="product-details"]//div[@class="product-details-image-container"]//img/@alt
+  - name: category
+    xpath: //div[@class="side-panel-header-content"]//ul//li
+  - name: name
+    xpath: //div[@class="shopping-list-side-panel"]//div[@class="product-details-content"]//h1/span
+  - name: nameExtended
+  - name: price
+    xpath: //div[@class="shopping-list-side-panel"]//div[@class="price-info"]//span[@class="price"]
+  - name: availabilityText
+    xpath: //div[@class="shopping-list-side-panel"]//div[@class="product-details-not-available"]
+    regExp: (.+)
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
+  - name: brandText
+    xpath: //script[@id="product-json-ld"]
+    regExp: ("@type":"Thing","name":")(\w+)
+    regExpReplace: $2
+  - name: manufacturer
+    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Alkuperämaa/valmistusmaa")]/parent::h4/following-sibling::p
+  - name: gtin
+    xpath: //div[@class="shopping-list-side-panel"]//section/@id
+  - name: sku
+    xpath: //div[@class="shopping-list-side-panel"]//section/@id
+  - name: ingredientsList
+    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Ainesosat")]/parent::h4/following-sibling::p
+  - name: caloriesPerServing
+    xpath: //span[contains(text(),"Energia")]/parent::td/following-sibling::td
+  - name: totalFatPerServing
+    xpath: //span[contains(text(),"Rasva")]/parent::td/following-sibling::td
+    regExp: ^[^\s]+
+  - name: totalFatPerServingUom
+    xpath: //span[contains(text(),"Rasva")]/parent::td/following-sibling::td
+    regExp: '[^\s]$'
+  - name: saturatedFatPerServing
+    xpath: //span[contains(text(),"josta tyydyttynyttä")]/parent::td/following-sibling::td
+    regExp: ^[^\s]+
+  - name: saturatedFatPerServingUom
+    xpath: //span[contains(text(),"josta tyydyttynyttä")]/parent::td/following-sibling::td
+    regExp: '[^\s]$'
+  - name: totalCarbPerServing
+    xpath: //span[contains(text(),"Hiilihydraatit")]/parent::td/following-sibling::td
+    regExp: ^[^\s]+
+  - name: totalCarbPerServingUom
+    xpath: //span[contains(text(),"Hiilihydraatit")]/parent::td/following-sibling::td
+    regExp: '[^\s]$'
+  - name: dietaryFibrePerServing
+    xpath: //span[contains(text(),"Ravintokuitu")]/parent::td/following-sibling::td
+    regExp: ^[^\s]+
+  - name: dietaryFibrePerServingUom
+    xpath: //span[contains(text(),"Ravintokuitu")]/parent::td/following-sibling::td
+    regExp: '[^\s]$'
+  - name: totalSugarsPerServing
+    xpath: //span[contains(text(),"josta sokereita")]/parent::td/following-sibling::td
+    regExp: ^[^\s]+
+  - name: totalSugarsPerServingUom
+    xpath: //span[contains(text(),"josta sokereita")]/parent::td/following-sibling::td
+    regExp: '[^\s]$'
+  - name: proteinPerServing
+    xpath: //span[contains(text(),"Proteiini")]/parent::td/following-sibling::td
+    regExp: ^[^\s]+
+  - name: proteinPerServingUom
+    xpath: //span[contains(text(),"Proteiini")]/parent::td/following-sibling::td
+    regExp: '[^\s]$'
+  - name: saltPerServing
+    xpath: //span[contains(text(),"Suola")]/parent::td/following-sibling::td
+    regExp: ^[^\s]+
+  - name: saltPerServingUom
+    xpath: //span[contains(text(),"Suola")]/parent::td/following-sibling::td
+    regExp: '[^\s]$'
+  - name: storage
+    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Säilytys- ja käyttöohjeet")]/parent::h4/following-sibling::p[1]
+  - name: countryOfOrigin
+    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Markkinoija")]/parent::h4/following-sibling::p/span[1]
+  - name: allergyAdvice
+    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Allergeenit")]/parent::h4/following-sibling::div
+  - name: recyclingInformation
+  - name: productOtherInformation
+    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Lisätiedot")]/parent::h4/following-sibling::div
+  - name: additives
+    xpath: //div[@class="nutritional-properties"]//ul
+  - name: pricePerUnit
+    xpath: //div[@class="shopping-list-side-panel"]//div[@class="price-info"]//span[@class="price"]
+  - name: pricePerUnitUom
+    xpath: //div[@class="shopping-list-side-panel"]//div[@class="original-price"]/span[last()] | //div[@class="shopping-list-side-panel"]//div[@class="price-info"]//span[@class="pricing-unit"]/span
+  - name: technicalInformationPdfPresent
+    defaultValue: No
+  - name: termsAndConditions
+    defaultValue: No
+  - name: privacyPolicy
+    defaultValue: No
+  - name: customerServiceAvailability
+    defaultValue: No
+  - name: materials
+  - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    defaultValue: No
+  - name: description
+    xpath: //div[@class="shopping-list-side-panel"]//div[@class="product-details-description"]
+  - name: shippingInfo
+    xpath: //script[@id="product-json-ld"]
+    regExp: ("@type":"Organization","name":")(.+)","chain":"
+    regExpReplace: $2
