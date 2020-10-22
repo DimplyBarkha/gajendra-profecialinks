@@ -5,10 +5,8 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: 
   - name: rankOrganic
     singleValue: true
-    xpath: 
   - name: productUrl
     singleValue: false
     xpath: //h3[@class="itemName"]/a[@class="itemImage"]/@href
@@ -24,6 +22,7 @@ fields:
     singleValue: false
     xpath: //a[@class='itemRating']/@title
     regExp: ( \d)
+    defaultValue: 0
     type: NUMBER
   - name: gtin
     singleValue: false
@@ -38,6 +37,7 @@ fields:
     singleValue: false
     xpath: //a[@class='itemRating']/@title
     regExp: ^\d
+    defaultValue: 0
   - name: soldBy
     singleValue: true
   - name: rank
