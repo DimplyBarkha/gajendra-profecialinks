@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id='productsContainer']//div[(contains(@class,'product'))]
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@id='productsContainer']//div[(contains(@class,'product'))]//span[contains(@style,'color:#B12704')]
+  - name: name
+    singleValue: false
+    xpath: //div[@id='productsContainer']//div[(contains(@class,'product'))]//img[(contains(@src,'media/product'))]/@alt
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id='productsContainer']//div[(contains(@class,'product'))]//a[(starts-with(@href,'ItemDetails.aspx')) and (contains(@class,'custombtn'))]/@href
+    regExp: (.+)
+    regExpReplace: https://www.olsale.co.il/$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@id='productsContainer']//div[(contains(@class,'product'))]//img[(contains(@src,'media/product'))]/@src
+  - name: id
+    singleValue: false
+    xpath: //div[@id='productsContainer']//div[(contains(@class,'product'))]//a[(starts-with(@href,'ItemDetails.aspx')) and (contains(@class,'custombtn'))]/@href
+    regExp: (\d*)
+    regExpReplace: $1
+  - name: endorsementText
+    singleValue: false
+    
