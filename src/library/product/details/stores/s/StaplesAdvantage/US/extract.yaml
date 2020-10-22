@@ -11,25 +11,39 @@ fields:
   singleValue: false
 - name: _pageTimeStamp
   singleValue: false
+
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpatth: //img[@class='image-gallery-ux2dot0__image_element picture__img_resp']/@alt
+
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
+  xpath: //img[@class='image-gallery-ux2dot0__image_element picture__img_resp']/@alt
+
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: //div[@class='verticalCarousel__thumb']/img/@src
+
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
+  xpath: //meta
+
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: //div[@id='breadcrumbs_container']/ol
+
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //h1[@id='product_title']
+  regExp: ^.*(?=(, 2))
+
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -42,20 +56,29 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: //div[@id='ProductDetailsSummaryWrapper']/ul
+
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count(//div[@id='ProductDetailsSummaryWrapper']/ul/li)
+
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //tr[@class='product-details-ux2dot0__specificationRow'][1]//td[@class='product-details-ux2dot0__spec_value']
+
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
+  xpath: //tr[@class='product-details-ux2dot0__specificationRow'][1]//td[@class='product-details-ux2dot0__spec_value']
+
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -76,12 +99,15 @@ fields:
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
-  singleValue: tru
+  singleValue: true
   description: The manufacturer model code (unique) of the product
+
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
+  xpath: //tr[@class='product-details-ux2dot0__specificationRow'][2]/td[@class='product-details-ux2dot0__spec_value']
+
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
@@ -94,12 +120,17 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: //a[@id='altItem-reviewCount']
+  regExp: ^.*(?=( R))
+
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //span[@class='starNumbers']
+
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -115,21 +146,28 @@ fields:
 - name: color
   singleValue: true
   description: A textual description of the colour
+
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
+
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
+
 - name: videos
   singleValue: false
   description: URLs of videos on page
+
 - name: name
   singleValue: true
   description: The product name
+  xpath: //h1[@class='search-prod-desc disp-block font-norm']
+  regExp: ^.*(?=(, 2))
+
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
