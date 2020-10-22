@@ -1,0 +1,37 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="product-tile"]
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class="thumb-link"]//img/@srcset
+  - name: name
+    xpath: //div[@class="product-name"]
+    singleValue: false
+    description: The product name 
+  - name: price
+    xpath: //div[@class="product-price"]//span[1]
+    singleValue: false
+    description: The offered price for the product
+  - name: id
+    singleValue: false
+    xpath: //div[@class="bazar-words-ratings"]//div/@data-bv-product-id
+    # regExp: Rated ([^()]+)out of 5 stars
+    # regExpReplace: $1
+    description: Unique id (within this extractor)
+  - name: rankOrganic
+    singleValue: true
+  - name: rank
+    singleValue: false
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="bv_stars_component_container"]//div 
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="product-name"]//a/@href 
+    regExp: (.+)
+    regExpReplace: https://www.fragrancedirect.co.uk$1
+  # - name: endorsementText
+  #   singleValue: false
+  #   xpath:  //div[@class="promotional-message message-1"]//span
