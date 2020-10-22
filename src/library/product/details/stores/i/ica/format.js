@@ -25,16 +25,16 @@ const transform = (data) => {
     for (const { group } of data) {
       var rank = 1;
       for (let row of group) {
+        var variantIdsku=''; var brandTextData=''; var nameExtendedData='';
         if(row.image){
-          var imgSrc='';
+          var imgSrc=''; 
           row.image.forEach(item => {
             var tmp=item.text.split(' ');
             item.text=imgSrc=tmp[1];
           });
           var imgSrcVar=imgSrc.split('/');
-          var imgSrcVar1=imgSrcVar[imgSrcVar.length-1].split('.');
-          row.variantId[0]['text']=imgSrcVar1[0];
-          row.sku[0]['text']=imgSrcVar1[0];
+          var imgSrcVar1=imgSrcVar.pop().split('.');
+          variantIdsku=imgSrcVar1[0];
         }
         if(row.pricePerUnitUom){
           row.pricePerUnitUom.forEach(item => {
@@ -44,18 +44,34 @@ const transform = (data) => {
           });
         }
         if(row.price){
-          row.price[0]['text']=row.price[0]['text'].replace(',','.');
+          row.price.forEach(item=>{
+            item.text=item.text.replace(',','.');
+          })
         }
         if(row.termsAndConditions){
-          if(row.termsAndConditions[0]['text']!=''){
-            row.termsAndConditions[0]['text']='Yes';
-          }else{
-            row.termsAndConditions[0]['text']='No';
-          }
+          row.termsAndConditions.forEach(item => {
+            if(item.text!=''){
+              item.text='Yes';
+            }else{
+              item.text='No';
+            }
+          });
         }
         if(row.brandText){
-          row.nameExtended[0]['text']=row.brandText[0]['text']+' '+row.nameExtended[0]['text'];
+          row.brandText.forEach(item => {
+            brandTextData=item.text;
+          });
         }
+        if(row.nameExtended){
+          row.nameExtended.forEach(item=>{
+            nameExtendedData=item.text;
+          });
+        }
+        if(brandTextData!=''){
+          row.nameExtended=[{"text":brandTextData+' '+nameExtendedData}];
+        }
+        row.variantId=[{"text":variantIdsku}];
+        row.sku=[{"text":variantIdsku}];
       }
     }
     return cleanUp(data);
