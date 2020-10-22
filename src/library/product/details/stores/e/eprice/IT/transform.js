@@ -24,6 +24,15 @@ const transform = (data) => {
           alternateImages.text = alternateImages.text.replace('/75/', '/Lightbox/');
         });
       }
+      if (row.warranty) {
+        let text = '';
+        row.warranty.forEach(warranty => {
+          text = warranty.text;
+        });
+        row.warranty = [{
+          text: cleanUp(text),
+        }];
+      }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(manufacturerDescription => {
