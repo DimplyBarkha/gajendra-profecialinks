@@ -3,9 +3,9 @@ module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'UK',
-    store: 'tennents',
+    store: 'tennentsdirect',
     transform: null,
-    domain: 'tennents.co.uk',
+    domain: 'tennentsdirect.com',
     zipcode: '',
   },
 };

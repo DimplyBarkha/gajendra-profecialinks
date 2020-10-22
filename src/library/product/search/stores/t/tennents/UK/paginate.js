@@ -3,14 +3,14 @@ module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'UK',
-    store: 'tennents',
+    store: 'tennentsdirect',
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
-    domain: 'tennents.co.uk',
+    domain: 'tennentsdirect.com',
     zipcode: '',
   },
 };

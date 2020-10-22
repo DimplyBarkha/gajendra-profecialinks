@@ -3,8 +3,8 @@ module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
     country: 'UK',
-    store: 'tennents',
-    domain: 'tennents.co.uk',
+    store: 'tennentsdirect',
+    domain: 'tennentsdirect.com',
     url: null,
     loadedSelector: null,
     noResultsXPath: null,
