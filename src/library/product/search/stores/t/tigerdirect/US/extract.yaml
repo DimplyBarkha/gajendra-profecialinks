@@ -30,9 +30,9 @@ fields:
     regExp:  ([A-Z]{2}.+)
   - name: id
     singleValue: false
-    #xpath: //p[@class="itemModel"]
-    #regExp: \d[0-9].+\|
-    type: NUMBER
+    xpath: //p[@class="itemModel"]
+    regExp: (\d{7,8})|(\d{6,8})
+    #type: NUMBER
   - name: ratingCount
     singleValue: false
     #xpath: //a[@class='itemRating']/@title
