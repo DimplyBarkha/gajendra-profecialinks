@@ -3,6 +3,10 @@ module.exports.implementation = async function implementation(
     context, { productDetails },
 ) {
     await context.evaluate(async() => {
+        let brandlink = document.querySelector('#bylineInfo') ? document.querySelector('#bylineInfo').getAttribute('href') : null;
+        if (brandlink)
+            brandlink = 'https://amazon.de' + brandlink;
+        document.head.setAttribute('brandlink', brandlink);
         let rating = document.querySelector('span[data-hook="rating-out-of-text"]') ? document.querySelector('span[data-hook="rating-out-of-text"]').innerText : null;
         if (rating)
             rating = rating.split('von')[0];
@@ -15,7 +19,7 @@ module.exports.implementation = async function implementation(
                 getMaterial.push(materials);
             }
         });
-        let materials = getMaterial.join('|')
+        let materials = getMaterial.join(' | ')
         document.head.setAttribute('materials', materials);
 
         function removeDuplicates(array) {
@@ -42,9 +46,16 @@ module.exports.implementation = async function implementation(
         });
         removeDuplicates(product_rank);
         removeDuplicates(product_rank_category);
-        let rank = product_rank.join(' | ');
+        for (let i = 0; i < product_rank.length; i++) {
+            const div = document.createElement('div');
+            div.className = 'rank';
+            const getInput = document.createElement('li');
+            getInput.id = 'rank';
+            div.appendChild(getInput);
+            document.body.appendChild(div);
+            getInput.setAttribute('value', product_rank[i]);
+        }
         let category = product_rank_category.join(' | ');
-        document.head.setAttribute('rank', rank);
         document.head.setAttribute('category', category);
 
     });
@@ -56,7 +67,6 @@ module.exports.implementation = async function implementation(
         await context.click('li.videoThumbnail');
         await context.waitForSelector('div#main-video-container video');
     }
-
     const productPrimeCheck = async() => {
         console.log('EXECUTING PRIME RELATED CODE.');
         let primeValue = 'No';

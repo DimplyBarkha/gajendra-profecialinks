@@ -39,15 +39,20 @@ fields:
     regExpReplace: Count
   - name: availabilityText
     singleValue: true
-    xpath: //*[@id='availability']/span
+    xpath: (//input[@id="add-to-cart-button"]/@value | //*[@id='availability']/span)
+    regExp: (.*)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
-    xpath: //*[@id='feature-bullets']//ul/li[not(@id)]|//div[@id="productDescription"]/p[text()]/text()
+    xpath: //*[@id='feature-bullets']//ul/li
   - name: descriptionBullets
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
   - name: brandText
     xpath: //*[@id='bylineInfo']
+    regExp: (.*)den(.*)-(.*)
+    regExpReplace: $2
   - name: manufacturer
-    xpath: (//li[contains(.,'Hersteller')][2]//span[1]//span[2] | //th[contains(text(), 'Hersteller')]/following-sibling::*[1]|//span[contains(text(), 'Manufacturer')][not(contains(text(), "Is Discontinued By Manufacturer:"))]/following-sibling::*[1])[1]
+    xpath: (//li[contains(.,'Hersteller')][not(contains(.,'eingestellt'))][1]//span[1]//span[2] | //th[contains(text(), 'Hersteller')]/following-sibling::*[1]|//span[contains(text(), 'Manufacturer')][not(contains(text(), "Is Discontinued By Manufacturer:"))]/following-sibling::*[1])[1]
   - name: quantity
     xpath: //div/label[contains(.,"Size") and not(contains(.,"Special"))]/following-sibling::span[1] | (//span[@class="a-dropdown-prompt"][ancestor::span/preceding-sibling::div/label[contains(.,"Size")]])[1]
   - name: weightGross
@@ -64,7 +69,7 @@ fields:
     singleValue: true
   - name: variantId
     singleValue: true
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] 
+    xpath: (//li[contains(.,'ASIN')]//span//span[2] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1])[1]
   - name: mpc
     xpath: //li/b[contains(., 'Modellnummer')][1]/../text()
     singleValue: true
@@ -120,15 +125,11 @@ fields:
   - name: news
     xpath: //a[@class="badge-link"]
   - name: brandLink
-    xpath: //a[@id="bylineInfo"]/@href
-    regExp: >-
-      (.+)
-    regExpReplace: amazon.de$1
-    singleValue: true
+    xpath: //head/@brandlink
   - name: internationalShipping
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1]
   - name: salesRank
-    xpath: //head/@rank
+    xpath: //li[@id='rank']/@value
   - name: salesRankCategory
     xpath: //head/@category
   - name: subscriptionPrice
@@ -153,12 +154,9 @@ fields:
     regExpReplace: "YES"
     defaultValue: "NO"
   - name: variantAsins
-    xpath: //li[contains(., 'ASIN')]
-    regExp: >-
-      (.+):(.+)
-    regExpReplace: $2
+    xpath: //li[contains(@id,"color_name")]/@data-defaultasin | //li[contains(., 'ASIN')]//span//span[2]
   - name: specifications
-    xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
+    xpath: //div[@id="detailBullets_feature_div"]//li | //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
     xpath: //*[@id="primeValue"]
   - name: featureBullets
@@ -187,7 +185,7 @@ fields:
   - name: promotion
     xpath: //tr[@id="regularprice_savings"]
   - name: additionalDescBulletInfo
-    xpath: count(//div[@data-feature-name="featurebullets"]//ul/li)
+    xpath: //div[@data-feature-name="featurebullets"]//ul/li
   - name: technicalInformationPdfPresent
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
   - name: firstVariant
@@ -229,13 +227,8 @@ fields:
   - name: imageZoomFeaturePresent
     defaultValue: Yes
   - name: materials
-    xpath: //div[@id='feature-bullets']//li[contains(.,'Innenmaterial')]
-    regExp: (.*)\:(.*)
-    regExpReplace: $1
+    xpath: //head/@materials
   - name: image360Present
     defaultValue: No
   - name: variants
     xpath: //div[@id="variation_size_name"]//li/@data-defaultasin | //div[@id="variation_color_name"]//li/@data-defaultasin
-  - name: materials
-    singleValue: true
-    xpath: //head/@materials
