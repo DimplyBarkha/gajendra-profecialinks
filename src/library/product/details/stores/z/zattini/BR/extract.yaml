@@ -29,7 +29,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@class="badges list"]
+    xpath: //ol[@class="breadcrumb"]/li[position()>=2 and  position()<=4]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -39,13 +39,13 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: (//div//del[@class='default-price reduce '])[1]
-    regExp: ( .*)
+    # regExp: ( .*)
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: (//div[@class='default-price'])[1]
-    regExp: ( .*)
+    # regExp: ( .*)
   - name: _url
     singleValue: true
     description: URL of the page
@@ -94,10 +94,11 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: (//div[@class="price-api-content"]//section/@data-sku-ref)[1]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //p[@class="reference"]
+    xpath: //ul[@class="attributes"]//li//strong[text()='Volumetria:']/following::text()[1]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -133,7 +134,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //span[@class='product-seller-info']
+    xpath: //div[@class='product-seller']
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -257,6 +258,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    xpath: count(//ul[@class="swiper-wrapper"]//img//@data-src)
   - name: news
     singleValue: true
     description: null
@@ -427,6 +429,7 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
+    xpath: //ul[@class="attributes"]//li//strong[text()='Origem:']/following::text()[1]
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -452,6 +455,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: (//span[@class="default-price saving "])[1]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
