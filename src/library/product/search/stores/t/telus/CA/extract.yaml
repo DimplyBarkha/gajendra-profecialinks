@@ -1,0 +1,24 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"sc-gqjmRU hQIhVa")]
+fields:
+  - name: id
+    SingleValue: true
+    xpath: (//div[contains(@class,"sc-gqjmRU hQIhVa")]//a)[1]/@href
+  - name: productUrl
+    SingleValue: true
+    xpath: (//div[contains(@class,"sc-gqjmRU hQIhVa")]//a)[1]/@href
+  - name: price
+    SingleValue: true
+    xpath: //div[contains(@class,"sc-gqjmRU hQIhVa")]//p[@data-id="finance-retail-amount"]
+  - name: thumbnail
+    SingleValue: true
+    xpath: //div[contains(@class,"sc-gqjmRU hQIhVa")]//div[contains(@class,"is-visible")]/img/@src
+  - name: name
+    SingleValue: true
+    xpath: //div[contains(@class,"sc-gqjmRU hQIhVa")]//a
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
