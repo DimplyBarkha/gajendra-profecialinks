@@ -17,7 +17,7 @@ module.exports = {
   parameterValues: {
     domain: 'kalamazoo.es',
     prefix: null,
-    url: 'https://www.kalamazoo.es/product/cbs/{id}.html',
+    url: 'https://www.kalamazoo.es/_sku{id}.html',
     store: 'kalamazoo',
     country: 'ES',
     zipcode: '',

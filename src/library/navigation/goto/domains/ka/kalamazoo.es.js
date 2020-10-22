@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
@@ -8,9 +7,37 @@ module.exports = {
     country: 'ES',
     zipcode: '',
   },
-  implementation: async ({ id, url, zipcode, storeId }, parameters, context, dependencies) => {
+  implementation: async (
+    { id, url, zipcode, storeId },
+    parameters,
+    context,
+    dependencies,
+  ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
-    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, {
+      timeout: timeout,
+      waitUntil: 'load',
+      checkBlocked: true,
+    });
+
+    const optionalWait = async (sel) => {
+      try {
+        await context.waitForSelector(sel, { timeout });
+        console.log(`Selector loaded -> ${sel}`);
+        return true;
+      } catch (err) {
+        console.log(`Selector did not load -> ${sel}`);
+        return false;
+      }
+    };
+
+    const cookieButton = await optionalWait('#onetrust-accept-btn-handler');
+
+    if (cookieButton) {
+      console.log('Accepting cookies dialouge.');
+      await context.click('#onetrust-accept-btn-handler');
+    }
+
     console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
