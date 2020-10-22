@@ -8,9 +8,9 @@ assignees: ''
 ---
 
 ## Build Notes
-- For each issue, make sure to create a new branch and work on that issue's build tasks while on that branch. 
- branch template: `{issue_title}`
- example git branch creation command: `git checkout -b DS-core-amazon_us`
+- For each issue, make sure to use the retailer branch that references the core feed  and work on that issue's build tasks while on that branch.
+ branch template: `{DS-feed-retailer_title}`
+ example git branch creation command: `git checkout -b DS-core-amazon`
 - Commit code for tasks as they are completed(if code was needed) to that issue's branch. When starting or continuing work on different issue, make sure to `git checkout master` and create a new branch from master, or `git checkout {branch_name}` if a. branch was already created. 
 - Work on 2 or more issues at once, but make sure to commit changes and `git checkout {branch_name}` your other issue's branch prior to starting the other issue's tasks. This will help avoid merge conflicts.
 - Include issue hash `#` in every commit message. Reference the build task in the commit message.
@@ -76,14 +76,6 @@ https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 - [ ] Confirm source params are set up properly in workbench. Source `state` should be `development`
 - [ ] Scale/High Volume run
 - [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
-
-#### Peer Review
-- [ ] Promote Source to `Peer Review` in Project Dash
-- [ ] Add `Peer Review Requested` Label
-- [ ] Confirm that a reviewer has been assigned to this issue
-- [ ] Peer Review QA Complete (must be checked by reviewer)
-- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
-- [ ] Remove `Peer Review Requested` Label
 
 #### Staging Deployment
 - [ ] Promote Source to `Staging Deployment` in Project Dash

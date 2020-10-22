@@ -3,8 +3,8 @@ module.exports = {
   implements: 'product/search',
   parameterValues: {
     country: 'IT',
-    store: 'amazonMsReviews',
+    store: 'amazon',
     domain: 'amazon.it',
-    zipcode: '',
+    zipcode: '20019',
   },
 };

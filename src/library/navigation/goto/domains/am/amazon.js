@@ -1,5 +1,5 @@
-async function implementation (inputs, { addressRegExp, zipRegExp, countryCode, domain }, context, { customGoto }) {
-  inputs.context = context;
+async function implementation (inputs, parameterValues, context, { customGoto }) {
+  inputs.context = context
   await customGoto(inputs);
 };
 

@@ -3,11 +3,11 @@ module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
     country: 'IT',
-    store: 'amazonMsReviews',
+    store: 'amazon',
     domain: 'amazon.it',
-    url: 'https://www.amazon.it/product-reviews/{searchTerms}/?sortBy=recent',
-    loadedSelector: 'div[data-hook="review"]',
-    noResultsXPath: '/html[not(//script[contains(text(),\'pageType: "CustomerReviews"\')])] | //a//img[contains(@src,"503.png")] | //a[contains(@href,"ref=cs_503_link")] | //script[contains(text(),"PageNotFound")] | /html[//script[contains(text(),\'pageType: "CustomerReviews"\')]][not(//div[@data-hook="review"])] | //div[contains(@class, "page-content") and not(//div[contains(@class, "reviews-content")])] | //div[contains(@class, "no-reviews-section")] | //a[contains(@href, "404")] | //a[contains(@href, "dogsofamazon")] | //b[contains(@class, "h1") and contains(text(), "particolare")] | //b[contains(@class, "h1") and contains(text(), "Buscas algo")] | //img[contains(@alt, "fetch that page")] | //*[contains(text(),"Cerchi qualcosa in particolare")] | //a[contains(@href,"ref=cs_503_link")]',
-    zipcode: '',
+    url: 'https://www.amazon.it/s?k={searchTerms}&__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&ref=nb_sb_noss_2',
+    loadedSelector: 'div[data-asin][data-component-type=s-search-result]',
+    noResultsXPath: '//span[contains(@cel_widget_id, "MAIN-TOP_BANNER_MESSAGE") and contains(., "Nessun risultato per")]',
+    zipcode: '20019',
   },
 };

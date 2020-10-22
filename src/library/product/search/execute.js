@@ -11,9 +11,9 @@ async function implementation (
   context,
   dependencies,
 ) {
-  console.log('params', parameters);
+  const zipcode = encodeURIComponent(inputs.zipcode)
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
-  await dependencies.goto({ url, zipcode: inputs.zipcode, inputs });
+  await dependencies.goto({ url, zipcode: zipcode, inputs });
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());

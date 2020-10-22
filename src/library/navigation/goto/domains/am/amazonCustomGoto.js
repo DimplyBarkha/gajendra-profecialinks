@@ -1,13 +1,11 @@
-async function goto (gotoInput) {
-  const extractorContext = gotoInput.context
-  const zipcode = gotoInput.zipcode;
-
-  // @FIX: doesnt get input to extractor;
-  // const input = extractorContext.input;
+async function goto(gotoInput, parameterValues, context, dependencies) {
+  // const extractorContext = gotoInput.context
+  const extractorContext = gotoInput.context;
+  const zipcode  =  gotoInput.zipcode;
 
   // strategies can  be  turned on and off
   const fillRateStrategies = {
-    variantAPIAppendData: false,
+    variantAPIAppendData: true,
     nonVariantReload: true,
     variantReload: true,
     acceptCookies: true,
@@ -76,7 +74,7 @@ async function goto (gotoInput) {
   // checking for blank pages and reloads if blank (data dropped)
   const pageContextCheck = async (page) => {
     console.log('pageContextCheck', page)
-    if (Object.values(page).filter(item => item).length === 0) {
+    if (Object.entries(page).filter(item=>item[0]!="windowLocation").filter(item=>item[1] === true).length  === 0) {
       extractorContext.counter.set('dropped_data', 1);
       await extractorContext.reload();
       await new Promise(resolve => setTimeout(resolve, 2000));
@@ -3641,12 +3639,13 @@ async function goto (gotoInput) {
       config: '{"userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36/xGHzvfMy-13"}',
     },
   ];
+
   let userAgentString = JSON.parse(allUserAgentString[Math.floor(allUserAgentString.length * Math.random())].config).userAgent + ' ' + Math.random().toString(36).substring(2, 15);
 
   // clean cookie retry in session
   try {
-    page =await run(userAgentString);
-    await setZip(zipcode, page);
+    await run(userAgentString);
+    await setZip(zipcode);
   } catch (err) {
     console.error(err);
     const message = err.message ? err.message.includes('MISSING_DATA') : false;
