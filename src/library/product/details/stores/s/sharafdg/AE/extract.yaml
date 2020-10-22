@@ -53,6 +53,9 @@ fields:
   - name: sku
     singleValue: true
     xpath: //div[@class='sku-wrap']//strong[contains(text(),'SKU:')]//following-sibling::span/text()
+  - name: variantId
+    singleValue: true
+    xpath: //div[@class='sku-wrap']//strong[contains(text(),'SKU:')]//following-sibling::span/text()
   - name: shippingDimensions
     singleValue: true
     xpath: //td[contains(text(),' Dimensions ')]//following-sibling::td/text()
