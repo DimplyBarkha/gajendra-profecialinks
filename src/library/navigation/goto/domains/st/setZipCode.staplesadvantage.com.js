@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     domain: 'staplesadvantage.com',
-    store: 'StaplesAdvantage',
+    store: 'staplesAdvantage',
     zipcode: '',
   },
 };
