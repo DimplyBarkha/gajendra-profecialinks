@@ -83,6 +83,28 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.nameExtended) {
+        let text = '';
+        row.nameExtended.forEach(item => {
+          text = item.text.replace('Характеристики ', '');
+        });
+        row.nameExtended = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
+      if (row.name) {
+        let text = '';
+        row.name.forEach(item => {
+          text = item.text.replace('Характеристики ', '');
+        });
+        row.name = [
+          {
+            text: cleanUp(text),
+          },
+        ];
+      }
     }
   }
   return data;
