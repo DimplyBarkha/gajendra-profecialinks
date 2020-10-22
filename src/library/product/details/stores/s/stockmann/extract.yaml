@@ -5,44 +5,46 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[contains(@class,"big-image-container")]/div[1]/a/img/@src
+    xpath: //div[contains(@class,"big-image-container")]/div[1]/a/img/@src | //div[contains(@class,"big-image-container")]//div[contains(@class,'big-image swiper-slide')and position()=1]//img/@src
   - name: imageAlt
     singleValue: true
-    xpath: //div[contains(@class,"big-image-container")]/div[1]/a/img/@alt
+    xpath: //div[contains(@class,"big-image-container")]/div[1]/a/img/@alt | //div[contains(@class,"big-image-container")]//div[contains(@class,'big-image swiper-slide')and position()=1]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"big-image-container")]/div/a/img/@src
+    xpath: //div[contains(@class,"big-image-container")]/div/a/img/@src | //div[contains(@class,"big-image-container")]//div[contains(@class,'big-image swiper-slide')and position()>1]//img/@src
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    xpath: //ol[contains(@class,"nav-breadcrumbs")]//li[position()>1 and position()<=last()]//a//span
+    xpath: //ol[contains(@class,"nav-breadcrumbs")]//li[position()>1 and position()<=last()]//a//span | //ol[@class='breadcrumb']//li[position()>1]//a//text()
   - name: nameExtended
     singleValue: true
-    xpath: //div[contains(@class,"product-view-headlines")]
+    # xpath: //div[contains(@class,"product-view-headlines")]
+    xpath: concat(//h2[@class='brand-name'],//h1[@class='product-name'])
   - name: listPrice
     singleValue: true
     xpath: //div[contains(@class,"price-box")]//span[contains(@class,"skin-obsolete")]
   - name: price
     singleValue: true
-    xpath: //span[@class='price skin-big']
+    xpath: //span[@class='price skin-big'] | //div[@class='detail-name-prices']//div[@class='price']//span[@class='value']//text()
   - name: availabilityText
-    xpath: //button[contains(@class,"btn-cart")]
+    xpath: //button[contains(@class,"btn-cart")] | //button[contains(@class,'add-to-cart')]
     singleValue: true
     regExp: (.+)
     regExpReplace: In stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"product-description")]
+    # xpath: //div[contains(@class,"product-description")]
+    xpath: //ul[@class='detail-content']//div[@class='content txt']
   #- name: descriptionBullets
   #  singleValue: true
   #  type: NUMBER
   #  xpath: count(//div[contains(@class,"product-detail-info")]//ul/li)
   - name: brandText
     singleValue: true
-    xpath: //strong[contains(@class,"product-brand")]/a
+    xpath: //strong[contains(@class,"product-brand")]/a | //h2[@class='brand-name']//font/text()
   #- name: manufacturer
   #  singleValue: false
   #  xpath: //strong[contains(@class,"product-brand")]/a
@@ -53,7 +55,7 @@ fields:
     # regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
-    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Paino')]/following::td[1]
+    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Paino')]/following::td[1] | //table//tr/th//div[contains(text(),'Paino')]/../following-sibling::td
   - name: weightGross
     singleValue: true
     xpath:
@@ -65,13 +67,22 @@ fields:
   #  xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
   - name: sku
     singleValue: true
-    xpath: //script[contains(text(), "Product")]
+    # xpath: //script[contains(text(), "Product")]
+    xpath: normalize-space(//script[@type='application/ld+json'])
+    # regExp: (.+)(sku":")(.+)(","brand)(.+)
+    # regExpReplace: $3
   - name: variantId
     singleValue: true
-    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
+    # xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Tuotenumero')]/following::td[1]
+    xpath: //div[contains(@class,'product-detail-page')]/@data-product
+    regExp: (.+)(variantSKU":")(.+)(")(.+)
+    regExpReplace: $3
   - name: mpc
     singleValue: true
-    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Valmistajan tuotenumero')]/following::td[1]
+    # xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Valmistajan tuotenumero')]/following::td[1]
+    xpath: normalize-space(//script[@type='application/ld+json'])
+    # regExp: (.+)(mpn":")(.+)(","sku)(.+)
+    # regExpReplace: $3
   - name: packSize
     singleValue: true
     xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Accessories')]/following::td[1]
@@ -87,7 +98,7 @@ fields:
     xpath: //h1[contains(@class,"product-title")]
   - name: warranty
     singleValue: true
-    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Takuu')]/following::td[1]
+    xpath: //table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Takuu')]/following::td[1] | //table//tbody//tr//div[contains(text(), 'Takuu')]/../following-sibling::td
   - name: variantCount
     singleValue: true
     type: NUMBER
@@ -119,7 +130,8 @@ fields:
     regExp: (sku:.\S{0,}.\S{0,}.\d+)
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@id,"stflix")]//div[contains(@id, "inpage_container")]//img//@srcset
+    xpath: //div[contains(@id,"stflix")]//div[contains(@id, "inpage_container")]//img//@srcset | //div[contains(@id,'flix-dyson')]//img/@srcset
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@id, "inpage_container")]//div[contains(@class, "flix-Text-block")]//text()
+    # xpath: //div[contains(@id, "inpage_container")]//div[contains(@class, "flix-Text-block")]//text()
+    xpath: //div[contains(@id, "inpage_container")]//div[contains(@class, "flix-Text-block")]//text() | //div[contains(@id, "inpage_container")]//div[contains(@class, "flix-std-title")]/text() |//div[contains(@id, "inpage_container")]//div[contains(@class,'flix-std-desc')]//text()

@@ -16,13 +16,10 @@ const transform = (data) => {
                 // }
 
                 if (row.sku) {
-                    var skuJson = row.sku[0].text;
-                    if (skuJson) {
-                        var skuJsonData = JSON.parse(skuJson);
-                        if (skuJsonData) {
-                            row.sku[0].text = skuJsonData.sku;
-                        }
-                    }
+                    row.sku[0].text=row.sku[0].text.replace(/(.+)(sku":")(.+)(","brand)(.+)/g,'$3')
+                }
+                if(row.mpc){
+                    row.mpc[0].text=row.mpc[0].text.replace(/(.+)(mpn":")(.+)(","sku)(.+)/g,'$3')
                 }
                 if (row.firstVariant) {
                     var itemText = row.firstVariant[0].text.replace('sku: ', '');
