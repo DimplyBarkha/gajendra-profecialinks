@@ -30,4 +30,9 @@ fields:
     xpath: //meta[@itemprop="reviewCount"]/@content
   - name: ratingCount
     singleValue: true
-    xpath: //meta[@itemprop="reviewCount"]/@content    
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    singleValue: true
+    xpath: //a[@itemprop="aggregateRating"]/@aria-label
+    regExp: (.+)\s+out of 5 star
+    regExpReplace: $1
