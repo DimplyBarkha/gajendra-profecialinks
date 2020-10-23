@@ -16,7 +16,8 @@ const transform = (data, context) => {
     .replace(/^ +| +$|( )+/g, ' ')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
     // eslint-disable-next-line no-control-regex
-    .replace(/[\x00-\x1F]/g, '');
+    .replace(/[\x00-\x1F]/g, '')
+    .trim();
 
   const sg = item => item[0].text;
   const joinArray = (array, delim = ' | ') => array.join(delim).trim().replace(/\| \|/g, '|');
@@ -85,8 +86,15 @@ const transform = (data, context) => {
       Object.entries(mappingObject).forEach(([key, fct]) => {
         if (row[key] && row[key].length > 0) {
           const result = fct(row[key]);
-          if (Array.isArray(result)) row[key] = result;
-          else row[key] = [{ text: result }];
+          if (Array.isArray(result)) {
+            if (result[0] === Object(result[0])) {
+              row[key] = result;
+            } else {
+              row[key] = [{ text: result[0] }];
+            }
+          } else {
+            row[key] = [{ text: result }];
+          }
         }
       });
       if (!(row.quantity && row.quantity[0] && row.quantity[0].text) && (row.nameExtended && row.nameExtended[0] && row.nameExtended[0].text)) {
@@ -272,9 +280,14 @@ const transform = (data, context) => {
       const subscriptionPresent = row.subscriptionPrice ? 'YES' : 'NO';
       row.subscribeAndSave = [{ text: subscriptionPresent }];
 
-      Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
-      }));
+      Object.keys(row).forEach(header => {
+        // console.log('header ', header);
+        row[header].forEach(el => {
+          // console.log('el', el);
+          // console.log('el text', el.text);
+          el.text = clean(el.text);
+        });
+      });
     }
   }
   return data;
