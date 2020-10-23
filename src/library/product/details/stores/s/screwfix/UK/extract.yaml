@@ -12,3 +12,28 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@id='product_price']
+  - name: image
+    singleValue: true 
+    xpath: //meta[@property='og:image']/@content
+  - name: alternateImages
+    singleValue: false 
+    xpath: //div[@class='pr__media--carousel']//img/@src
+  - name: category
+    singleValue: false
+    xpath: //ul[contains(@class,'n il bc__list')]//li[ not(contains(@class,'bc__hm')) and not(contains(@class,'bc__md')) ]//a
+  - name: brandText
+    singleValue: false 
+    xpath: //div[@class='pr__product__logo']//img/@alt
+  - name: name
+    singleValue: false  
+    xpath: //meta[@property='og:title']/@content
+  - name: nameExtended
+    singleValue: false  
+    xpath: //meta[@property='og:title']/@content
+  - name: description 
+    singleValue: false 
+    xpath: //meta[@property='og:description']/@content
+  - name: specifications
+    singleValue: false
+    xpath: //ul[@id='product_specification_list']//li
+ 
