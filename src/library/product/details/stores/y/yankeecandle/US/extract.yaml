@@ -89,7 +89,6 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    defaultValue: '7800055'
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -436,7 +435,6 @@ fields:
     singleValue: true
     description: The unit of measurement used in price_per_unit
     xpath: //p[@class="origPrice"]/span[2]
-    regExp: (\D)
   - name: promotion
     singleValue: true
     description: promotion text on product page
