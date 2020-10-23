@@ -1,10 +1,10 @@
-
+const {transform}=require('../format')
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'rei',
-    transform: null,
+    transform,
     domain: 'rei.com',
     zipcode: '',
   },
