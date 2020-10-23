@@ -18,7 +18,11 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { variants } = dependencies;
-  await context.waitForSelector('div.product-grid__items div.grid-item');
+  try {
+    await context.waitForSelector('div.product-grid__items div.grid-item');
+  } catch (error) {
+    console.log('error: ', error);
+  }
   async function firstItemLink () {
     return await context.evaluate(function () {
       let firstItem = document.querySelector('div.grid-product__content.grid-item__content a')

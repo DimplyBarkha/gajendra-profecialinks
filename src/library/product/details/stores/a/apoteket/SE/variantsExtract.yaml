@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //select[@id="variants"] | //div[contains(@class,"nosto_product")]
+recordXPath: //select[@id="variants"] | //div[contains(@class,"nosto_product")] | //html
 fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //option[position() > 1]/@value | //span[@class="url"]
+    xpath: //option[position() > 1]/@value | //span[@class="url"] | //link[@rel="canonical"]/@href
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //option[position() > 1]/@value | //span[@class="url"]
+    xpath: //option[position() > 1]/@value | //span[@class="url"] | //link[@rel="canonical"]/@href
     # xpath: //option[position() > 1]/@value
