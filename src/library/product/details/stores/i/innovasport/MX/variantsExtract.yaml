@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+ - name: variantId
+   xpath: //ul[contains(@class, 'product-colorways__list')][count(li)>1]//a/@href | //ul[contains(@class, 'product-colorways__list')][count(li)=1]/ancestor::html //meta[@property='og:url']/@content
+   regExp: (.+)p\/(\d+)
+   regExpReplace: $2
+ - name: variantUrl 
+   xpath: //ul[contains(@class, 'product-colorways__list')][count(li)>1]//a/@href | //ul[contains(@class, 'product-colorways__list')][count(li)=1]/ancestor::html //meta[@property='og:url']/@content
+  #  regExp: (.+)
+  #  regExpReplace: https://www.innovasport.com$1
+ 

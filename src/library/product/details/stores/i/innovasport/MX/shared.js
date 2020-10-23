@@ -18,15 +18,16 @@ const transform = (data) => {
         if (row.brandText) {
           row.name[0].text = row.brandText[0].text + ' ' + row.name[0].text;
         }
+        row.nameExtended = [{ text: row.name[0].text }];
       }
 
-      if (row.additionalDescription) {
+      if (row.description) {
         if (row.additionalDescBulletInfo) {
           let ulString = '';
           for (let i = 0; i < row.additionalDescBulletInfo.length; i++) {
             ulString += `|| ${row.additionalDescBulletInfo[i].text} `;
           }
-          row.additionalDescription[0].text = `${row.additionalDescription[0].text} ${ulString}`;
+          row.description[0].text = `${row.description[0].text} ${ulString}`;
           row.additionalDescBulletInfo[0].text = `|| ${row.additionalDescBulletInfo[0].text}`;
         }
       }
@@ -43,6 +44,18 @@ const transform = (data) => {
 
       if (row.mpc) {
         row.mpc = [{ text: row.mpc[0].text.replace('Modelo', '') }];
+      }
+
+      if (row.variants) {
+        const variants = row.variants;
+        for (let i = 0; i < variants.length; i++) {
+          variants[i].text = parseInt(variants[i].text);
+        }
+        row.variants = variants;
+      }
+
+      if (row.price) {
+        row.price = [{ text: row.price[0].text.replace(/[.,]/g, function ($1) { return $1 === '.' ? ',' : '.'; }) }];
       }
     }
   }
