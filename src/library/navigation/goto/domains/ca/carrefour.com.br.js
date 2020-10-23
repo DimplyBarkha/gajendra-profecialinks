@@ -1,9 +1,8 @@
-
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'carrefour.com.br',
-    timeout: null,
+    timeout: 50000,
     country: 'BR',
     store: 'Carrefour',
     zipcode: '',

@@ -1,10 +1,10 @@
-
+const { cleanUp } = require('../../../../shared.js');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'BR',
     store: 'Carrefour',
-    transform: null,
+    transform: cleanUp,
     domain: 'carrefour.com.br',
     zipcode: '',
   },
