@@ -17,7 +17,10 @@ fields:
     xpath: //div[@class="card-image-height-box"]/a/img/@src
   - name: price 
     SingleValue: false 
-    xpath: //div[@class='nonbundle price-container  no-mp card-has-price price-container-old']//span
+    xpath: //span[@ng-bind-html='product.finalPrice']
+  - name: soldBy
+    SingleValue: false
+    xpath: //a[contains(@class,'card-soldby')]//span
   - name: ratingCount
     SingleValue: false
     xpath: //a[@class="card-soldby ng-scope"]//span
