@@ -16,13 +16,15 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //ul[@class="thumbs animated"]/li/a/img/@src
+    regExp: (.+)
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //span[@class="bs_badge"]
+    xpath: //ul[@class="pdp breadcrumb"]/li[2]/div/a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -32,6 +34,7 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //p[@class="origPrice"]/span[2]
+    regExp: '\d*\.\d*'
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -41,14 +44,14 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //p[@class="inStock"]
+    xpath: (//button[@class="addToBagBtnDefault addToBagBtn"])[1]
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="descriptionContainer"]/p
+    xpath: //ul[@class="pdp breadcrumb"]/li[4]/div
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -57,6 +60,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    defaultValue: YankeeCandle
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -78,12 +82,14 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xapth: (//div[@class="numbr-frgnce"]/p)[2]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    defaultValue: '7800055'
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -416,7 +422,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: (//div[@class="col-md-10 col-sm-12 col-xs-12"])[1]
+    xpath: //div[@class="col-md-6 col-sm-12 col-xs-12"]
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -469,6 +475,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@class="descriptionContainer"]/p
   - name: prop65Warning
     singleValue: true
     description: null

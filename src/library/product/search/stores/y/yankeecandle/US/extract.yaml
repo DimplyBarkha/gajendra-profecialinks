@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //div[@class="product_image"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.yankeecandle.com$1
+  
+  
+ 
