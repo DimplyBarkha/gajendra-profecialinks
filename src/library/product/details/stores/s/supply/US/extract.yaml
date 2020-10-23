@@ -23,7 +23,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@class='tc center']//img/@src
+  xpath: //div[@data-index]//img/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -145,7 +145,6 @@ fields:
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
-  xpath: //img[contains(@class, 'OK')]/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
@@ -391,6 +390,7 @@ fields:
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
+  xpath: (//li[contains(text(), 'warranty')])[1]
 - name: storage
   singleValue: true
   description: Suggested storage location for product
