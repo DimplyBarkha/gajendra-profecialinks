@@ -25,7 +25,9 @@ const transform = (data) => {
     for (const { group } of data) {
         for (let row of group) {
             if (row.image) {
-                row.image[0]['text']= 'https:' + row.image[0]['text']
+                row.image.forEach(item=>{
+                    item.text='https:' +item.text;
+                })
             }
             if (row.alternateImages) {
                 row.alternateImages.forEach(item => {
@@ -74,7 +76,7 @@ const transform = (data) => {
                 row.specifications=[{"text":tmpArr.join(" || "),"xpth":row.specifications[0]['xpath']}];
             }
             if(row.imageZoomFeaturePresent){
-                row.imageZoomFeaturePresent[0]['text']="Yes";
+                row.imageZoomFeaturePresent=[{"text":"Yes"}];
             }else{
                 row.imageZoomFeaturePresent=[{"text":"No"}];
             }
