@@ -1,4 +1,3 @@
-
 async function implementation (
   inputs,
   parameters,
@@ -16,9 +15,20 @@ async function implementation (
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     }
+
+    const dataSheet = document.querySelectorAll('section table tbody tr');
+    Array.from(dataSheet)
+      .map(node => {
+        node
+          .setAttribute('id', node.innerText.toLowerCase()
+            .replace(' ', '')
+            // eslint-disable-next-line no-tabs
+            .split('	')[0]);
+      });
   });
   await context.extract(productDetails, { transform });
 }
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
