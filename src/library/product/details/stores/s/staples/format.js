@@ -64,7 +64,12 @@ const transform = (data) => {
         row.packSize.forEach(item => {
           item.text = item.text.replace(/\D+/g, '');
         });
-      }      
+      }
+      if (row.image) {        
+        row.image.forEach(item => {
+          item.text = item.text.replace(/140x140/i, '1000x1000');
+        });        
+      }
       if (row.alternateImages) {
         row.alternateImages.splice(0,1);
         row.alternateImages.forEach(item => {
