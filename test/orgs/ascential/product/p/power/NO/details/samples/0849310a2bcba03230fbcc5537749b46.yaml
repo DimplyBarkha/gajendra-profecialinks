@@ -1,0 +1,90 @@
+input:
+  _url: http://power.no
+  URL: https://www.power.no/hjem-og-fritid/stoevsuger-og-rengjoering/tilbehoer-til-stoevsuger-og-rengjoering/annet-tilbehoer/dyson-tilbehoerssett-for-stoevsuger/p-260083/
+extractions:
+  - html: https://workbench.import.io/html/run=3e88922a-0466-4a10-8c22-cb142c0606fb/task=72243382-f227-467a-a998-ecec0adcf14c/a7fb32c7-1c99-4f3d-8ab9-937fbd439956.html
+    extractionConfigId: product/details/stores/p/power/NO/extract
+    data:
+      - group:
+          - image:
+              - text: https://media.power-cdn.net/images/h-c1ad0decf71012ede4882ef44aed27f2/products/260083/260083_1_600x600_w_g.jpg
+                xpath: /html/body/div[9]
+            imageAlt:
+              - text: DYSON TILBEHØRSSETT FOR STØVSUGER
+                xpath: /html/body/div[13]
+            alternateImages:
+              - text: https://media.power-cdn.net/images/h-34adaab9a44f8f9cd7204634cdad8f68/products/260083/260083_2_600x600_w_g.jpg
+                xpath: /html/body/div[10]
+              - text: https://media.power-cdn.net/images/h-b4a36ef7ce3034c9e04c99762581ba41/products/260083/260083_3_600x600_w_g.jpg
+                xpath: /html/body/div[11]
+            category:
+              - text: Hjem og fritid
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Støvsuger og rengjøring
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Tilbehør til støvsuger og rengjøring
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Munnstykker
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[5]
+            price:
+              - text: 399.00 NOK
+                xpath: /html/body/div[12]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[14]
+            description:
+              - text: "|| Tilbehørssettet inneholder blandt annet: || Myk børste || Hard
+                  gulvbørste || Møbeltrekksdyse || Skjøterør || Passer til Dyson
+                  V6"
+                xpath: /html/body/div[19]
+            sku:
+              - text: "260083"
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
+            variantId:
+              - text: "260083"
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/meta[1]/@content
+                type: NUMBER
+                raw: "1"
+                locale: nb_NO
+                value: 1
+            aggregateRating:
+              - text: 5,0
+                xpath: /html/body/div[21]
+            shippingInfo:
+              - text: Fraktpriser fra 79,-Alltid fri frakt til POWER-butikk
+                xpath: /html/body/div[15]
+            manufacturerDescription:
+              - text: Ekstra tilbehør til din Dyson V6 støvsuger - perfekt til bilen og møbler
+                  Med dette tilbehørssettet får du 4 forskjellige tilbehørsdeler
+                  Munnstykke med myke børster som forsiktig fjerner støv og
+                  allergener fra flate overflater og møbler. Munnstykke med
+                  harde børster for de vanskeligste flekkene. Ekstra bredt
+                  munnstykke som er perfekt til møbler.
+                xpath: /html/body/div[17]
+            name:
+              - text: DYSON TILBEHØRSSETT FOR STØVSUGER
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h1[1]
+            additionalDescBulletInfo:
+              - text: "|| Tilbehørssettet inneholder blandt annet: || Myk børste || Hard
+                  gulvbørste || Møbeltrekksdyse || Skjøterør || Passer til Dyson
+                  V6"
+                xpath: /html/body/div[19]
+            nameExtended:
+              - text: DYSON TILBEHØRSSETT FOR STØVSUGER - 260083
+            descriptionBullets:
+              - text: "6"
+                type: NUMBER
+                raw: "6"
+                locale: nb_NO
+                value: 6
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            Image360Present:
+              - text: No
+        xpath: /html
+    timestamp: 1602169640986

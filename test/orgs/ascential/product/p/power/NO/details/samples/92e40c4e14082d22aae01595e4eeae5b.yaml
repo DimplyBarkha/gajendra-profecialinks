@@ -1,0 +1,84 @@
+input:
+  _url: http://power.no
+  URL: https://www.power.no/hjem-og-fritid/stoevsuger-og-rengjoering/tilbehoer-til-stoevsuger-og-rengjoering/annet-tilbehoer/dyson-v781011-tilbehoerspakke/p-616295/
+extractions:
+  - html: https://workbench.import.io/html/run=3e88922a-0466-4a10-8c22-cb142c0606fb/task=42f44764-93a6-447b-85b6-e5f4d3cec82c/811ed294-e6b2-4566-8257-9822cecbe1b0.html
+    extractionConfigId: product/details/stores/p/power/NO/extract
+    data:
+      - group:
+          - image:
+              - text: https://media.power-cdn.net/images/h-5591e3d0de526d71dc16e1a19ed7277c/products/616295/616295_2_600x600_w_g.jpg
+                xpath: /html/body/div[9]
+            imageAlt:
+              - text: DYSON V7/8/10/11 TILBEHØRSPAKKE
+                xpath: /html/body/div[11]
+            category:
+              - text: Hjem og fritid
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Støvsuger og rengjøring
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: Tilbehør til støvsuger og rengjøring
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[4]
+              - text: Munnstykker
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[5]
+            price:
+              - text: 799.00 NOK
+                xpath: /html/body/div[10]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[12]
+            description:
+              - text: "|| Passer til: Dyson V7 + V8 + V10 || Tilbehørsdeler: 4 stk. || Perfekt
+                  til bilen"
+                xpath: /html/body/div[17]
+            sku:
+              - text: "616295"
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
+            variantId:
+              - text: "616295"
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/meta[2]/@content
+            ratingCount:
+              - text: "7"
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/meta[1]/@content
+                type: NUMBER
+                raw: "7"
+                locale: nb_NO
+                value: 7
+            aggregateRating:
+              - text: 4,6
+                xpath: /html/body/div[19]
+            shippingInfo:
+              - text: Fraktpriser fra 79,-Alltid fri frakt til POWER-butikk
+                xpath: /html/body/div[13]
+            manufacturerDescription:
+              - text: Ekstra tilbehør til din trådløse rengjøring - perfekt for bilen og
+                  møblerMed Dyson toolkit tilbehør får du 4 forskjellige typer
+                  tilbehørMunnstykke med fine børster - Myke børster som
+                  forsiktig fjerner støv og allergener fra flate overflater og
+                  møbler.Munnstykke til grovt smuss - Munnstykke med solide
+                  børster som forgrenet smuss som gjørmeEkstra bred dyse -
+                  Perfekt for møbler.
+                xpath: /html/body/div[15]
+            name:
+              - text: DYSON V7/8/10/11 TILBEHØRSPAKKE
+                xpath: /html/body/pwr-main[1]/div[1]/pwr-product-page[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h1[1]
+            additionalDescBulletInfo:
+              - text: "|| Passer til: Dyson V7 + V8 + V10 || Tilbehørsdeler: 4 stk. || Perfekt
+                  til bilen"
+                xpath: /html/body/div[17]
+            nameExtended:
+              - text: DYSON V7/8/10/11 TILBEHØRSPAKKE - 616295
+            descriptionBullets:
+              - text: "3"
+                type: NUMBER
+                raw: "3"
+                locale: nb_NO
+                value: 3
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            Image360Present:
+              - text: No
+        xpath: /html
+    timestamp: 1602169644571
