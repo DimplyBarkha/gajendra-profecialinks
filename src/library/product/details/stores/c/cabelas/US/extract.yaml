@@ -105,6 +105,7 @@ fields:
     description: The number of ratings
     type: NUMBER
     xpath: (//div[@class="bv_numReviews_text"])
+    regExp: (\d{1,2})|(\d{3,4})
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
