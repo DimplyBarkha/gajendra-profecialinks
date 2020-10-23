@@ -32,7 +32,7 @@ fields:
     xpath: //ul[@class="product-images"]//li[@class="media-image firstImage"]//img/@alt
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@class='soldBy']
+    xpath: //figure[contains(@class,'productSellersPanel-page panel panel-bg-dark row-fluid panel-wrapper')]
   - name: brandText
     singleValue: false  
     xpath: //div[@class="productBrand-page"]//div[@class="span18"]//div[last()]

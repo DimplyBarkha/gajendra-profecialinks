@@ -48,6 +48,12 @@ const transform = (data) => {
               item.text = item.text.replace('All', '').trim();
             });
         }
+        if (row.manufacturer) {
+          row.manufacturer.forEach(item => {
+            item.text = item.text.replace(/(\s*)+/g, '').trim();
+            item.text = item.text.replace('All', '').trim();
+          });
+      }
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {
             item.text =  Number(item.text);
