@@ -1,0 +1,59 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[contains(@class,'mc-primary-img align-center ')]//img[contains(@data-ui,'media-center-primary-image')]/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name='description']/@content
+  - name: category
+    singleValue: false
+    xpath: //ol[@id='breadcrumbWrapper']//li
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@data-ui='product-information-title']
+  - name: availabilityText
+    singleValue: true
+    xpath: //span[contains(@id,'js-product-cart-primary-text')]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@data-is,'apparel-media-center')]//div[@data-ui='image-carousel']//div[not(contains(@class,'selected')) and not (contains(@class,'video-thumb')) and contains(@class,'thumb')]//img/@src
+  - name: listPrice
+    singleValue: true
+    xpath: //span[contains(@class,'product-current-price')]//span
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[@id='bv2-desktop']//span[contains(@class,'cdr-rating__number_4.2.0')]
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@id='bv2-desktop']//span[contains(@class,'cdr-rating__number_4.2.0')]//following-sibling::*
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class,'mc-primary-img align-center ')]//img[contains(@data-ui,'media-center-primary-image')]/@alt
+  - name: promotion
+    singleValue: true
+    xpath: //p[contains(@data-ui,'product-price-note')]
+  - name:  description
+    singleValue: false
+    xpath: //ul[contains(@class,'product-features-list')]
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class,'product-price-original')]//span[not(contains(@class,'sr-only'))]/text()[2]
+  - name: brandText
+    singleValue: true
+    xpath: //div[contains(@class,'brand-link')]//a[@data-ui='view-brand-link']//span
+  - name: weightNet
+    singleValue: true
+    xpath: //div[@data-ui='product-specs']//th[contains(text(),'Weight')]//following-sibling::td
+  - name: shippingDimensions
+    singleValue: true
+    xpath: //div[@data-ui='product-specs']//th[contains(text(),'Dimensions')]//following-sibling::td
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@class,'product-specs-table')]//tr
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@data-is,'apparel-media-center')]//div[@data-ui='image-carousel']//div[not(contains(@class,'selected')) and contains(@class,'video-thumb') and contains(@class,'thumb')]//img/@src
