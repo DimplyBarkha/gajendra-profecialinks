@@ -25,6 +25,13 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.variants) {
+        let text = '';
+        row.variants.forEach(item => {
+          text = row.variants.map(elm => elm.text).join(' | ');
+        });
+        row.variants = [{ text }];
+      }
     }
   }
 

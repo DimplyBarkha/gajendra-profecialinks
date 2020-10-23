@@ -438,9 +438,10 @@ fields:
 #       all variants of a product, this rpc becomes the common link between other
 #       variants. method 3 = apply some logic to determine link between variants,
 #       this will need analysis
-#   - name: variants
-#     singleValue: false
-#     description: null
+  - name: variants
+    xpath: //body/div[@id="container"]/div[@class="productResponsive"]//ul[@id="skuskuAvailableSelect"]//li//a//@href | //link[@rel="canonical"]//@href
+    regExp: (.+products\/)(\d+)(.+)
+    regExpReplace: $2
 #   - name: additionalDescBulletInfo
 #     singleValue: false
 #     description: null
@@ -485,9 +486,7 @@ fields:
 #     description: If 360 image is present in the carousel ['Yes','No']
 #     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
 #     defaultValue: No
-#   - name: imageZoomFeaturePresent
-#     singleValue: true
-#     description: If Zoom feature is available for Main image or images in the
-#       carousel,['Yes','No']
-#     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-#     defaultValue: No
+  - name: imageZoomFeaturePresent
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    defaultValue: Yes
