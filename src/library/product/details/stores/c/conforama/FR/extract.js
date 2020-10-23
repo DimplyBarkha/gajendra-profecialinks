@@ -50,10 +50,14 @@ module.exports = {
         let des= document.querySelector('div[id="tabs-1"]');
         // @ts-ignore
         let des1 = des ? des.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').replace('Description du produit','').replace('La marque vous parle La marque vous parle','').trim() : '';
-        addHiddenDiv('co_description',des1);
+        let des2 = des1 ? des1.split("La marque vous parle") : '';
+        des2 = des2 ? des2[0] : '';
+        console.log('des2: ', des2);
+        addHiddenDiv('co_description',des2);
         let enhancedContent = document.querySelector('div#flix-inpage');
         // @ts-ignore
         enhancedContent = enhancedContent ? enhancedContent.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+        // @ts-ignore
         addHiddenDiv('enhancedContent', enhancedContent);
         let specTrs = document.querySelectorAll('table.productSpecifications tr');
         let finalSpecArr = [];

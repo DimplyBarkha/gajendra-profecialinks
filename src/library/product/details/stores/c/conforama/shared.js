@@ -51,6 +51,11 @@ const transform = (data) => {
             item.text = item.text.replace('.', ',');
           });
         }
+        if (row.manufacturerDescription) {
+          row.manufacturerDescription.forEach(item => {
+            item.text = item.text.replace(/\|\|\s\|\|/g,'');
+          });
+        }
         if (row.description) {
           row.description.forEach(item => {
             item.text = item.text.replace('La marque vous parle La marque vous parle','');
