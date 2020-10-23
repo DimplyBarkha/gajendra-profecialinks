@@ -58,3 +58,12 @@ fields:
   - name: descriptionBullets
     singleValue: false
     manualSelector: div#descriptionBulletCount
+  - name: brandText
+    singleValue: false
+    xpath: //table[contains(@id,'product-attribute-specs-table')]//th[contains(text(),'Brand')]/following::td[1]
+  - name: gtin
+    singleValue: false
+    xpath: //table[contains(@id,'product-attribute-specs-table')]//th[contains(text(),'EAN')]/following::td[1]
+  - name: packSize
+    singleValue: false
+    manualSelector: div#packSize

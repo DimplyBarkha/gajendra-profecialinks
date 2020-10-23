@@ -23,6 +23,12 @@ module.exports = {
         if (liSelector.length > 0) {
           addHiddenDiv('descriptionBulletCount', liSelector.length);
         }
+
+        const packSize = document.querySelector('div[itemprop*=sku]');
+        if (packSize.innerHTML && packSize.innerHTML.includes('Pack')) {
+          const pack = packSize.innerHTML.split(' ')[2];
+          addHiddenDiv('packSize', pack);
+        }
       });
 
       await context.evaluate(async () => {
