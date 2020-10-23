@@ -25,7 +25,10 @@ fields:
   #   regExpReplace: $1
   - name: id
     singleValue: false
-    xpath: //div[@id="added-productId"]
+    xpath: //div[contains(@class, 'item-information')]/a/@href
+    regExp: .*\/(.*)
+    regExpReplace: $1
+    # xpath: //div[@id="added-productId"]
   - name: name
     singleValue: false
     xpath: //h2

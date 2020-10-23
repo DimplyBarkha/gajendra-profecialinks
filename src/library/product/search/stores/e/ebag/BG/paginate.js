@@ -9,7 +9,9 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'article.item',
     noResultsXPath: '//div[contains(@class, "items-container")]//div[not(//div[@class="item-and-popup"])]',
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.ebag.bg/search/?query={searchTerms}&page={page}',
+    },
     domain: 'ebag.bg',
     zipcode: '',
   },
