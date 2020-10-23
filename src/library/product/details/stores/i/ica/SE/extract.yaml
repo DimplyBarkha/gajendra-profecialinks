@@ -54,3 +54,10 @@ fields:
   - name: totalFatPerServing
     singleValue: false
     xpath: //div[contains(@class,'gcVnmg')]/strong[contains(text(),'Näringsvärde per 100 g')]/parent::div/p
+  - name: availabilityText
+    singleValue: false
+    xpath: //h1[contains(@class,"sc-AxhUy") and text()='Produkten finns inte']/text()
+    defultValue: 'In Stock'
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defultValue: No

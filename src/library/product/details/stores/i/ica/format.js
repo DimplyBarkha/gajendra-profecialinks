@@ -72,14 +72,93 @@ const transform = (data) => {
         }
         if(row.totalFatPerServing){
           row.totalFatPerServing.forEach(item=>{
-            var myRegexp = /Fett\s+(\d+)\s+g/;
-            var match = myRegexp.exec(item.text);
-            if(match.length){
-                item.text = match[1].trim();
+            var totalFatmatch = /Fett\s+([\d|\.]+)\s+g/.exec(item.text);
+            //console.log('totalFatmatch :',totalFatmatch);
+            if(totalFatmatch!=null){
+              if(totalFatmatch.length){
+                row.totalFatPerServing = [{"text":totalFatmatch[1].trim()}];
+                row.totalFatPerServingUom=[{"text":'g'}];
+              }else{
+                row.totalFatPerServing = [{"text":''}];
+                row.totalFatPerServingUom=[{"text":''}];
+              }
             }else{
-                item.text = "";
+              row.totalFatPerServing = [{"text":''}];
+              row.totalFatPerServingUom=[{"text":''}];
+            }
+            var saturatedFatPerServingmatch = /Varav mättat fett\s+([\d|\.]+)\s+g/.exec(item.text);
+            if(saturatedFatPerServingmatch!=null){
+              if(saturatedFatPerServingmatch.length){
+                row.saturatedFatPerServing = [{"text":saturatedFatPerServingmatch[1].trim()}];
+                row.saturatedFatPerServingUom=[{"text":'g'}];
+              }else{
+                row.saturatedFatPerServing = [{"text":""}];
+                row.saturatedFatPerServingUom=[{"text":''}];
+              }
+            }else{
+              row.saturatedFatPerServing = [{"text":""}];
+              row.saturatedFatPerServingUom=[{"text":''}];
+            }
+            var sodiumPerServingmatch = /Salt\s+([\d|\.]+)\s+g/.exec(item.text);
+            if(sodiumPerServingmatch!=null){
+              if(sodiumPerServingmatch.length){
+                row.sodiumPerServing = [{"text":sodiumPerServingmatch[1].trim()}];
+                row.sodiumPerServingUom=[{"text":'g'}];
+              }else{
+                row.sodiumPerServing = [{"text":""}];
+                row.sodiumPerServingUom=[{"text":''}];
+              }
+            }else{
+              row.sodiumPerServing = [{"text":""}];
+              row.sodiumPerServingUom=[{"text":''}];
+            }
+            var totalCarbPerServingmatch = /Kolhydrater\s+([\d|\.]+)\s+g/.exec(item.text);
+            if(totalCarbPerServingmatch!=null){
+              if(totalCarbPerServingmatch.length){
+                row.totalCarbPerServing = [{"text":totalCarbPerServingmatch[1].trim()}];
+                row.totalCarbPerServingUom=[{"text":'g'}];
+              }else{
+                row.totalCarbPerServing = [{"text":""}];
+                row.totalCarbPerServingUom=[{"text":''}];
+              }
+            }else{
+              row.totalCarbPerServing = [{"text":""}];
+              row.totalCarbPerServingUom=[{"text":''}];
+            }
+            var dietaryFibrePerServingmatch = /Fiber\s+([\d|\.]+)\s+g/.exec(item.text);
+            if(dietaryFibrePerServingmatch!=null){
+              if(dietaryFibrePerServingmatch.length){
+                row.dietaryFibrePerServing = [{"text":dietaryFibrePerServingmatch[1].trim()}];
+                row.dietaryFibrePerServingUom=[{"text":'g'}];
+              }else{
+                row.dietaryFibrePerServing = [{"text":""}];
+                row.dietaryFibrePerServingUom=[{"text":''}];
+              }
+            }else{
+              row.dietaryFibrePerServing = [{"text":""}];
+              row.dietaryFibrePerServingUom=[{"text":''}];
+            }
+            var proteinPerServingmatch = /Protein\s+([\d|\.]+)\s+g/.exec(item.text);
+            if(proteinPerServingmatch!=null){
+              if(proteinPerServingmatch.length){
+                row.proteinPerServing = [{"text":proteinPerServingmatch[1].trim()}];
+                row.dietaryFibrePerServingUom=[{"text":'g'}];
+              }else{
+                row.proteinPerServing = [{"text":""}];
+                row.dietaryFibrePerServingUom=[{"text":''}];
+              }
+            }else{
+              row.proteinPerServing = [{"text":""}];
+              row.dietaryFibrePerServingUom=[{"text":''}];
             }
           })
+        }
+        if(row.availabilityText){
+          row.availabilityText.forEach(item=>{
+            if(item.text!=''){
+              item.text='Out of Stock';
+            }
+          });
         }
         row.variantId=[{"text":variantIdsku}];
         row.sku=[{"text":variantIdsku}];
