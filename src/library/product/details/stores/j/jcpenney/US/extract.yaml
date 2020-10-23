@@ -35,11 +35,9 @@ fields:
     regExp: brand":{"@type":"[^"]+","name":"([^"]+)
     regExpReplace: $1
   - name: sku
-    xpath: //@sku
+    xpath: //@skuid
   - name: variantId
-    xpath: ancestor::html//meta[@property="og:url"]/@content
-    regExp: (.+/)(.+)(\?.+)
-    regExpReplace: $2
+    xpath: ancestor::html//span//div[@class="tfc-fitrec-product"]/@id
   - name: ratingCount
     xpath: ancestor::html//script[@type="application/ld+json"][contains(text(),"reviewCount")]
     regExp: reviewCount":(\d+)(.+)
@@ -53,6 +51,7 @@ fields:
   - name: weightNet
   - name: weightGross
   - name: gtin
+    xpath: ancestor::html//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")][1]/@data-gtin
   - name: mpc
     xpath: ancestor::html//div[@data-automation-id="product-content-block"]//span[@class="_3_di8"]
   - name: packSize
@@ -68,6 +67,7 @@ fields:
   - name: color
   - name: colorCode
   - name: manufacturerDescription
+    xpath: ancestor::html//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")][position()>1]
   - name: manufacturerImages
     xpath: ancestor::html//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")]//ul//li//img/@src
   - name: videos

@@ -19,66 +19,72 @@ async function implementation(
     }
 
     function appendImages(selector, images) {
-      [...document.querySelectorAll(selector)].map((e, index) => { e.setAttribute("mainImage", `${images[index][0]}`)});
+      [...document.querySelectorAll(selector)].map((e, index) => { e.setAttribute('mainImage', `${images[index][0]}`)});
     }
-    // function secondaryImages(selector, images) {
-    //   [...document.querySelectorAll(selector)].map((e, index) => { e.setAttribute("secondaryImages", `${alternateImages}`)});
-    // }
 
-    // function addHiddenDiv (id, content) {
-    //   const newDiv = document.createElement('div');
-    //   newDiv.id = id;
-    //   newDiv.textContent = content;
-    //   newDiv.style.display = 'none';
-    //   document.body.appendChild(newDiv);
-    // }
-
-    // const optionalWait = async (sel) => {
-    //   try {
-    //     await context.waitForSelector(sel, { timeout: 60000 });
-    //   } catch (err) {
-    //     console.log(`Couldn't load selector => ${sel}`);
-    //   }
-    // };
+    const optionalWait = async (sel) => {
+      try {
+        await context.waitForSelector(sel, { timeout: 60000 });
+      } catch (err) {
+        console.log(`Couldn't load selector => ${sel}`);
+      }
+    };
     const finalImages = [];
-    const isVariants = document.querySelector('ul[data-automation-id="product-dimensions-color"]');
-    const variants = "#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li"
-
+    const isVariants = document.querySelector('#option-wrapper-false #product-options-false');
+    const variants = '#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li';
 
     if (isVariants) {
+      optionalWait('h1[data-automation-id="product-title"]');
       document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li button').forEach(ele => {
         ele.click();
         console.log('Clicked');
-        var jsonString = document.querySelector("script[type='application/ld+json']").innerText;
-        let jsonParsed = {};
-        jsonParsed = JSON.parse(jsonString);
-
+        var array = [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')];
+        var jsonString = JSON.parse(document.querySelector("script[type='application/ld+json']").innerText);
+        var skus = jsonString.offers.map(e=>e.sku);
+        for ( i = 0; i < array.length; i++ ) {
+          if( skus[i] == undefined ) {
+            array[i].setAttribute('skuId',skus[0]);
+          } else {
+          array[i].setAttribute('skuId',skus[i]);
+          }
+        }
         [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
-          e.setAttribute("sku", jsonParsed.offers.map(( ele )=>{ return ele.sku }))});
-
-        [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
-          e.setAttribute("nameExtended",`${document.querySelector('h1[data-automation-id="product-title"]').textContent} ` + `- ${e.textContent}`)});
+          e.setAttribute("nameExtended",`${document.querySelector('h1[data-automation-id="product-title"]').textContent}` + `- ${e.textContent}`)});
 
         [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
           e.setAttribute("secondaryImages", [...document.querySelectorAll('#contentContainer > section > section:nth-child(3) > div.sm12.md6.lg6.xl7._3AtEJ > div > div.carousel-wrapper > div > div._3h_IA.lg2.xl2.md2.sm2._1sbcC.noPad > div > div.slick-list a:not(._2JSHu)')].map(e => { return `https:${e.querySelector('img').getAttribute('src')}`}))});
 
-        finalImages.push([...document.querySelectorAll('#contentContainer > section > section:nth-child(3) > div.sm12.md6.lg6.xl7._3AtEJ > div > div.carousel-wrapper > div > div._3h_IA.lg2.xl2.md2.sm2._1sbcC.noPad > div > div.slick-list a:not(._2JSHu)')].map(e => { return e.querySelector('img').getAttribute('src')}));
-        // optionalWait('h1[data-automation-id="product-title"]');
-        // const mainImage = document.querySelector('div._3IMdO div.image-desktop img').getAttribute('src');
-        // const newDiv = document.createElement('div');
-        // newDiv.id = 'mainImage';
-        // newDiv.textContent = mainImage;
-        // // newDiv.style.display = 'none';
-        // document.querySelector('main#mainContainerBlock').appendChild(newDiv);
-        // alternateImages.push([...document.querySelectorAll('#contentContainer > section > section:nth-child(3) > div.sm12.md6.lg6.xl7._3AtEJ > div > div.carousel-wrapper > div > div._3h_IA.lg2.xl2.md2.sm2._1sbcC.noPad > div > div.slick-list a:not(._2JSHu)')].map(e => { return e.querySelector('img').getAttribute('src')}));
-        // secondaryImages(variants, alternateImages);
+        finalImages.push([...document.querySelectorAll('#contentContainer > section > section:nth-child(3) > div.sm12.md6.lg6.xl7._3AtEJ > div > div.carousel-wrapper > div > div._3h_IA.lg2.xl2.md2.sm2._1sbcC.noPad > div > div.slick-list a')].map(e => { return e.querySelector('img').getAttribute('src')}));
       });
+    } else {
+      optionalWait('h1[data-automation-id="product-title"]');
+      var newDiv = document.createElement('div');
+      newDiv.id = 'option-wrapper-false';
+      document.querySelector('section[id="dimensions-false"]').append(newDiv);
+      var newDiv1 = document.createElement('div');
+      newDiv1.id = 'product-options-false';
+      document.querySelector('section[id="dimensions-false"] #option-wrapper-false').append(newDiv1);
+      var newDiv2 = document.createElement('div');
+      document.querySelector('#option-wrapper-false #product-options-false').appendChild(newDiv2);
+      var newUl = document.createElement('ul');
+      document.querySelector('#option-wrapper-false #product-options-false div').appendChild(newUl);
+      var newLi = document.createElement('li');
+      document.querySelector('#option-wrapper-false #product-options-false div ul').appendChild(newLi);
+      var array = [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')];
+      var jsonString = JSON.parse(document.querySelector("script[type='application/ld+json']").innerText);
+      var skus = jsonString.offers.map(e=>e.sku);
+      for ( i = 0; i < array.length; i++ ) {
+        array[i].setAttribute('skuId', skus[i]);
+       }
+      [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
+      e.setAttribute("nameExtended",`${document.querySelector('h1[data-automation-id="product-title"]').textContent} ` + `- ${e.textContent}`)});
+
+      [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
+      e.setAttribute("secondaryImages", [...document.querySelectorAll('#contentContainer > section > section:nth-child(3) > div.sm12.md6.lg6.xl7._3AtEJ > div > div.carousel-wrapper > div > div._3h_IA.lg2.xl2.md2.sm2._1sbcC.noPad > div > div.slick-list a:not(._2JSHu)')].map(e => { return `https:${e.querySelector('img').getAttribute('src')}`}))});
+
+     finalImages.push([...document.querySelectorAll('#contentContainer > section > section:nth-child(3) > div.sm12.md6.lg6.xl7._3AtEJ > div > div.carousel-wrapper > div > div._3h_IA.lg2.xl2.md2.sm2._1sbcC.noPad > div > div.slick-list a')].map(e => { return e.querySelector('img').getAttribute('src')}));
     }
     appendImages(variants, finalImages);
-    // let images = '';
-    // Array.from(alternateImages).forEach(el => {
-    //   images += `https:${el}` ? `| https:${el}` : `https:${el}`;
-    // });
 
     let scrollTop = 500;
     while (true) {

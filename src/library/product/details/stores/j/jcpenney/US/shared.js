@@ -30,6 +30,37 @@ const transform = (data) => {
         });
         row.variantInformation = [{ text }];
       }
+
+      if (row.nameExtended) {
+        let text = '';
+        row.nameExtended.forEach(item => {
+          if (item.text.endsWith('-')) {
+            text = item.text.slice(0, -1);
+          } else {
+            text = item.text;
+          }
+        });
+        row.nameExtended = [
+          {
+            text,
+          },
+        ];
+      }
+      if (row.alternateImages) {
+        let text = '';
+        row.alternateImages.forEach(item => {
+          if (item.text.includes(',')) {
+            text = item.text.replace(/,/g, ' | ');
+          } else {
+            text = item.text;
+          }
+        });
+        row.alternateImages = [
+          {
+            text,
+          },
+        ];
+      }
     }
   }
 
