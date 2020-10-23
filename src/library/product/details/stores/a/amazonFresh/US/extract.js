@@ -104,7 +104,7 @@ async function implementation (
   await loadAllResources();
   addContent(parentInput, id);
   console.log('autoscroll end');
-  
+
   await amazonHelp.appendData();
 
   return await context.extract(productDetails, { transform });

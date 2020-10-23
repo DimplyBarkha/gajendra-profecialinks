@@ -21,7 +21,6 @@ async function implementation (
   const helpers = new Helpers(context);
   const amazonHelp = new AmazonHelp(context, helpers);
 
-
   try {
     await context.waitForSelector('form#sp-cc', { timeout: 20000 });
     await context.evaluate(async function () {

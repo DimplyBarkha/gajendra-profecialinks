@@ -1,7 +1,7 @@
 
 /**
  *
- * @param { { URL: string, id: any, RPC: string, SKU: string, parentInput: string } } inputs
+ * @param { { URL: string, id: any, RPC: string, SKU: string, zipcode: any } } inputs
  * @param { { store: any, country: any, zipcode: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
@@ -12,19 +12,19 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { URL, RPC, SKU, rpc, parentInput } = inputs;
+  const { URL, RPC, SKU } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;
-  const id = (RPC) || ((SKU) || (rpc) || inputs.id);
-  // await execute({ url, id, zipcode: parameters.zipcode });
-  const productFound = await execute({ url, id, zipcode: parameters.zipcode });
+  const id = (RPC) || ((SKU) || inputs.id);
+  const zipcode = inputs.zipcode || parameters.zipcode;
+  const productFound = await execute({ url, id, zipcode: zipcode });
 
   if (!productFound) {
     console.log('No product found');
     return;
   }
 
-  await extract({ url, id, parentInput });
+  await extract({ url, id });
 }
 
 module.exports = {
@@ -67,20 +67,8 @@ module.exports = {
       optional: true,
     },
     {
-      name: 'rpc',
-      description: 'rpc for product',
-      type: 'string',
-      optional: true,
-    },
-    {
       name: 'SKU',
       description: 'sku for product',
-      type: 'string',
-      optional: true,
-    },
-    {
-      name: 'parentInput',
-      description: 'parent input value',
       type: 'string',
       optional: true,
     },

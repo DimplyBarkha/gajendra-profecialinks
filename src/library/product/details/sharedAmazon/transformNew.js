@@ -22,7 +22,6 @@ const transform = (data, context) => {
   const joinArray = (array, delim = ' | ') => array.join(delim).trim().replace(/\| \|/g, '|');
 
   const doubleRegexSearch = (regex1, regex2, item) => {
-    console.log('doubleRegexSearch')
     const matchArray = sg(item).toString().match(regex1);
     if (!matchArray) return '';
     return joinArray(matchArray.map(mtch => mtch.match(regex2) ? mtch.match(regex2)[0] : ''));
@@ -35,7 +34,6 @@ const transform = (data, context) => {
 
   const regexTestNReplace = (regex, item, { extraRegex, matchRegex } = {}) => {
     if (regex.test(item)) {
-      console.log('regexTestNReplace')
       if (extraRegex) return item.toString().replace(regex, '').replace(extraRegex, '');
       if (matchRegex) return matchRegex(matchRegex, item.toString().replace(regex, ''));
       return item.toString().replace(regex, '');
@@ -58,7 +56,6 @@ const transform = (data, context) => {
         shippingWeight: item => sg(item).replace(/\s\(/g, '').trim(),
         grossWeight: item => sg(item).replace(/\s\(/g, '').trim(),
         largeImageCount: item => {
-          console.log('largeImageCount')
           const array = sg(item).toString().split('SL1500');
           return array.length === 0 ? 0 : array.length;
         },
@@ -75,7 +72,7 @@ const transform = (data, context) => {
           return txt.trim();
         },
         name: item => regexTestNReplace(new RegExp(String.raw`(${websiteName.replace(/\./g, '\\.')}\s*:)`), sg(item)),
-        pricePerUnit: item => (sg(item).includes('(')) ? regexTestNReplaceArray(/[{()}]/g, item, { extraRegex: /[/].*$/g }) : sg(item).trim(),
+        pricePerUnit: item => regexTestNReplaceArray(/[{()}]/g, item, { extraRegex: /[/].*$/g }),
         pricePerUnitUom: item => regexTestNReplaceArray(/[{()}]/g, item, { matchRegex: /([^/]+$)/g }),
         secondaryImageTotal: item => castToInt(sg(item)),
         ratingCount: item => sg(item),
@@ -118,17 +115,17 @@ const transform = (data, context) => {
       if (row.variantId) {
         row.variantId = [{ text: row.variantId[0].text.replace('parentAsin":"', '') }];
       }
-      if (row.salesRankCategory) {
-        row.salesRankCategory = row.salesRankCategory.map(item => {
-          const unWantedTxt = 'See Top 100 in ';
-          if (item.text.includes('#')) {
-            const regex = /#[0-9,]{1,} in (.+) \(/s;
-            const rawCat = item.text.match(regex);
-            return { text: rawCat ? rawCat[1].replace(unWantedTxt, '') : '' };
-          }
-          return { text: item.text.replace(unWantedTxt, '') };
-        });
-      }
+      // if (row.salesRankCategory) {
+      //   row.salesRankCategory = row.salesRankCategory.map(item => {
+      //     const unWantedTxt = 'See Top 100 in ';
+      //     if (item.text.includes('#')) {
+      //       const regex = /#[0-9,]{1,} in (.+) \(/s;
+      //       const rawCat = item.text.match(regex);
+      //       return { text: rawCat ? rawCat[1].replace(unWantedTxt, '') : '' };
+      //     }
+      //     return { text: item.text.replace(unWantedTxt, '') };
+      //   });
+      // }
       if (row.salesRank) {
         row.salesRank = row.salesRank.map(item => {
           if (item.text.includes('#')) {
@@ -143,7 +140,6 @@ const transform = (data, context) => {
         const description = [];
         row.manufacturerDescription.forEach(item => {
           const regexIgnoreText = /^(Read more)/;
-          console.log('manufacturerDescription')
           item.text = (item.text).toString().replace(regexIgnoreText, '');
           if (!regexIgnoreText.test(item.text)) {
             description.push(item.text);
@@ -235,16 +231,16 @@ const transform = (data, context) => {
       if (row.ingredientsList) {
         row.ingredientsList = [{ text: row.ingredientsList.map(item => `${item.text}`).join(' ') }];
       }
-      if (row.frequentlyBoughtTogether) {
-        row.frequentlyBoughtTogether = [{ text: row.frequentlyBoughtTogether[0].text.replace(/\{([^}]*)\}/g, '') }];
-      }
-      if (row.ratingsDistribution) {
-        const filteredRatings = row.ratingsDistribution.map(rating => {
-          let split = rating.text.split('star');
-          return split[0].trim() + ':' + (split[1].replace('%','').trim()/100).toString();
-        });
-        row.ratingsDistribution = [{ text: filteredRatings }];
-      }
+      // if (row.frequentlyBoughtTogether) {
+      //   row.frequentlyBoughtTogether = [{ text: row.frequentlyBoughtTogether[0].text.replace(/\{([^}]*)\}/g, '') }];
+      // }
+      // if (row.ratingsDistribution) {
+      //   const filteredRatings = row.ratingsDistribution.map(rating => {
+      //     let split = rating.text.split('star');
+      //     return split[0].trim() + ':' + (split[1].replace('%','').trim()/100).toString();
+      //   });
+      //   row.ratingsDistribution = [{ text: filteredRatings }];
+      // }
       if (row.lowestPriceIn30Days) {
         row.lowestPriceIn30Days = [{ text: 'True' }];
       } else {
@@ -259,12 +255,12 @@ const transform = (data, context) => {
           row.shippingWeight = [{ text: dimText.split(';')[1].trim() }];
         }
       }
-      if (row.customerQuestionsAndAnswers) {
-        row.customerQuestionsAndAnswers = [{ text: row.customerQuestionsAndAnswers[0].text.replace(/\<([^>]*)\>/g, '').replace(/\{([^}]*)\}/g, '') }];
-      }
+      // if (row.customerQuestionsAndAnswers) {
+      //   row.customerQuestionsAndAnswers = [{ text: row.customerQuestionsAndAnswers[0].text.replace(/\<([^>]*)\>/g, '').replace(/\{([^}]*)\}/g, '') }];
+      // }
       if (row.featureNames && row.featureStars) {
         featArr = [];
-        for (let i=0;i<row.featureNames.length; i++) {
+        for (let i = 0; i < row.featureNames.length; i++) {
           featArr.push(`${row.featureNames[i].text}:${row.featureStars[i].text}`);
         }
         row.starsByFeature = [{ text: featArr }];
@@ -273,13 +269,11 @@ const transform = (data, context) => {
       const zoomText = row.imageZoomFeaturePresent ? 'Yes' : 'No';
       row.imageZoomFeaturePresent = [{ text: zoomText }];
 
-      const subscriptionPresent = row.subscriptionPrice ? 'Yes' : 'No';
+      const subscriptionPresent = row.subscriptionPrice ? 'YES' : 'NO';
       row.subscribeAndSave = [{ text: subscriptionPresent }];
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
-        if (el.text) {
-          el.text = clean(el.text);
-        }
+        el.text = clean(el.text);
       }));
     }
   }
