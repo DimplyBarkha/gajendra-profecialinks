@@ -47,6 +47,27 @@ async function implementation (
       productAvaibility = 'In Stock';
      }
      addElementToDocument('bb_availibility',productAvaibility);
+     function findJsonObj (scriptSelector) {
+      try {
+        const xpath = `//script[contains(.,'${scriptSelector}')]`;
+        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let jsonStr = element.textContent;
+        jsonStr = jsonStr.trim();
+        return JSON.parse(jsonStr);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+    let str = '"@type":"Product"';
+    let JSONArr = findJsonObj(str);
+    console.log(JSONArr , 'JSONArr');
+     let brandText = JSONArr ? JSONArr.brand : ''
+     let brand = brandText ? brandText.name : ''
+     addElementToDocument('bb_brand', brand);
+     let sku = JSONArr ? JSONArr.sku : ''
+     addElementToDocument('bb_sku', sku);
+     let mpc = JSONArr ? JSONArr.mpn : ''
+     addElementToDocument('bb_mpc', mpc);
     });
     return await context.extract(productDetails, { transform });
     }

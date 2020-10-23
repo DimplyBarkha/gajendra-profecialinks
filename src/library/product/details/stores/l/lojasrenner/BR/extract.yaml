@@ -13,6 +13,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //div[contains(@class , 'open-gallery ')]/img/@src
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -24,12 +25,14 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//li[contains(text(), "Marca:")],"-",//h1[@class="product_name"]/span)
+    xpath: concat(//div[@id="bb_brand"],"-",//h1[@class="product_name"]/span)
+    # xpath: concat(//li[contains(text(), "Marca:")],"-",//h1[@class="product_name"]/span)
     # regExp: Marca:(.*)
     # regExpReplace: $1
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
+    xpath: //label[contains(@class , "js-select-label active")]//span[@class="old_price"]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
@@ -52,14 +55,14 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@id="bb_brand"]
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //label[contains(@class , "js-select-label active")]//span[@class="size"]
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -72,12 +75,15 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
+    xpath: //label[contains(@class , "js-select-label active")]//input[@name="sku"]/@value | //div[@id="bb_sku"]
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //label[contains(@class , "js-select-label active")]//input[@name="sku"]/@value | //div[@id="bb_sku"]
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
+    xpath: //div[@id="bb_mpc"]
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on

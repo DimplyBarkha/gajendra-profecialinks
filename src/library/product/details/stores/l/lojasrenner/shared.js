@@ -33,6 +33,16 @@ const transform = (data) => {
             }
           });
         }
+        if (row.alternateImages) {
+          row.alternateImages.shift();
+          row.alternateImages.forEach(item => {
+            if(item.text.includes('https:')){
+                item.text = item.text;
+            }else{
+                item.text = "https:"+item.text;
+            }
+          });
+        }
         if (row.nameExtended) {
             row.nameExtended.forEach(item => {
               if(item.text.includes('Marca:')){
