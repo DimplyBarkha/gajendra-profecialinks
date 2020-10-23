@@ -26,58 +26,25 @@ const transform = (data) => {
     for (const { group } of data) {
       for (let row of group) {
         let tmp_desc = ''
-
-        /*if (row.description2) {
-            let info = [];          
-            row.description2.forEach(item => {
-              info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());            
-            });            
-            tmp_desc = info.join(' || ');
-            delete row.description2;
-        }
-        if (row.description) {
-            let info = [];
-            row.description.forEach(item => {
-                info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
-            });
-            if(tmp_desc != ''){
-                info.push(tmp_desc);
-            }
-            row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];
-        }
-
-        if(row.aggregateRating){
-            let count = 0;
-            row.aggregateRating.forEach(item => {
-                count++;
-            });
-            row.aggregateRating = [{'text': count,'xpath':row.aggregateRating[0].xpath}];
-        }
-
-        if (row.sku) {
-           row.sku.forEach(item => {
-           var matches = /\/cards\/(.*?)\.html/isg.exec(item.text);
-           if (matches) {
-             item.text = matches[1];
-             row.sku = [{'text': matches[1],'xpath':row.sku[0].xpath}];
-           }
+        if (row.promotion) {          
+          row.promotion.forEach(item => {
+            item.text = item.text.replace(/(\s*You\s+save\s*:\s*)+/isg, '').trim();
           });
-          
-        }*/
-
+        }
+        if (row.specifications) {
+          let info = [];
+          row.specifications.forEach(item => {
+              info.push(item.text.replace(/(\s*\n\s*)+/g, ' : ').trim());
+          });          
+          row.specifications = [{'text':info.join(' | '),'xpath':row.specifications[0].xpath}];
+        }
         if (row.description) {
-            let info = [];          
-            row.description.forEach(item => {
-                info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());            
-            });
-            row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
+          let info = [];          
+          row.description.forEach(item => {
+              info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());            
+          });
+          row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
         }
-        if (row.availabilityText) {          
-            row.availabilityText.forEach(item => {
-                item.text = 'In Stock'
-            });
-        }
-       
       }
     }
     return cleanUp(data);

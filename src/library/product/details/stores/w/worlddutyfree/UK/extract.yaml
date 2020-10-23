@@ -6,18 +6,9 @@ fields:
   - name: image
     singleValue: false
     xpath: //main[@id="maincontent"]//div[@class="product media"]/div[@class="gallery-placeholder"]/div[@class="zoom"]/img/@src
-  - name: keywords
+  - name: metaKeywords
     singleValue: false
-    xpath: //head/meta[@name="keywords"]
-  - name: url
-    singleValue: false
-    xpath: //head/meta[@property="og:url"]
-  - name: category
-    singleValue: false
-    xpath: //div[@class="page-wrapper"]/div[@class="breadcrumbs"]/h3/ul/li[@class="item product"]
-  - name: sub_category
-    singleValue: false
-    xpath: 
+    xpath: //head/meta[@name="keywords"]  
   - name: nameExtended
     singleValue: false
     xpath: //main[@id="maincontent"]//div[@class="product-info-main"]//h1[@class="page-title"]/span[@data-ui-id="page-title-wrapper"]
@@ -26,19 +17,19 @@ fields:
     xpath: //main[@id="maincontent"]//div[@class="product-info-main"]//h1[@class="page-title"]/span[@data-ui-id="page-title-wrapper"]
   - name: price
     singleValue: false
-    xpath: //main[@id="maincontent"]//div[@class="price-box price-final_price"]//span[@class="price-container "]/meta[@itemprop="price"]
-  - name: currency
-    singleValue: false
-    xpath: //main[@id="maincontent"]//div[@class="price-box price-final_price"]//span[@class="price-container "]/meta[@itemprop="priceCurrency"]
+    xpath: //main[@id="maincontent"]//div[@class="price-box price-final_price"]//span[@class="price-container "]//span[@data-price-type='finalPrice']//span[@class='price']
   - name: availabilityText
-    singleValue: false
-    xpath: //main[@id="maincontent"]//div[@class="product-add-form"]/form[@id="product_addtocart_form"]//div[@class="actions"]/button[@id="product-addtocart-button"]/span
+    singleValue: false    
+    xpath: //div[@class='fieldset']//div[@class='flags']//span[contains(@class,'stock-status')]    
   - name: description
     singleValue: false
-    xpath: //main[@id="maincontent"]//div[@class="product-block-additional"]//div[@id="additional"]//table[@id="product-attribute-specs-table"]
+    xpath: //div[@id='description']
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='additional']//table[@id='product-attribute-specs-table']//tbody//tr
   - name: brandText
     singleValue: false
-    xpath: //div[@class="page-wrapper"]/header//div[@class="logo-wrapper"]/a[@title]
+    xpath: //table[@id='product-attribute-specs-table']//tbody//td[@data-th='Brand']
   - name: sku
     singleValue: false
     xpath: //main[@id="maincontent"]//div[@class="product attribute sku"]/div[@itemprop="sku"]
@@ -47,16 +38,16 @@ fields:
     xpath: //main[@id="maincontent"]//div[@class="price-box price-final_price"]/@data-product-id
   - name: alternateImages
     singleValue: false
-    xpath: //main[@id="maincontent"]//div[@class="product media"]//img[@id="product-image"]/@data-src
+    xpath: //div[@id='product-gallery']//a[not(@class)]/@data-zoom
   - name: imageAlt
     singleValue: false
     xpath: //main[@id="maincontent"]//div[@class="product media"]/div[@class="gallery-placeholder"]/div[@class="zoom"]/img/@alt
   - name: promotion
     singleValue: false
     xpath: //div[@class='product-info-price']//div[@class='high_street_price']//span[@class='savings d-block']
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath:
   - name: listPrice
     singleValue: false
-    xpath:
+    xpath: //div[@class='product-info-price']//div[@class='high_street_price']//span[@class='hsp_price']
+  - name: packSize
+    singleValue: false
+    xpath: //table[@id='product-attribute-specs-table']//tbody//td[@data-th='Pack Size']
