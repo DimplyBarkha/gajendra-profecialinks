@@ -34,10 +34,10 @@ fields:
     regExpReplace: $1  
   - name: gtin
     singleValue: true
-    description: //section[contains(@class,"search-active")]//div[@class="collapsible-container-content"]//h4[contains(.,"EAN")]//parent::div
+    xpath: //section[contains(@class,"search-active")]//div[@class="collapsible-container-content"]//h4[contains(.,"EAN")]//parent::div
   - name: upc
     singleValue: true
-    description: //section[contains(@class,"search-active")]//div[@class="collapsible-container-content"]//h4[contains(.,"EAN")]//parent::div  
+    xpath: //section[contains(@class,"search-active")]//div[@class="collapsible-container-content"]//h4[contains(.,"EAN")]//parent::div  
   - name: shippingInfo
     singleValue: true
     xpath: //script[@id='product-json-ld']    
@@ -48,10 +48,10 @@ fields:
     xpath: //section[contains(@class,"search-active")]//div[@class="product-details-content"]//h1  
   - name: ingredientsList
     singleValue: true
-    description: //section[contains(@class,"search-active")]//div[@class="collapsible-container-content"]//h4[contains(.,"Ainesosat")]//parent::div  
+    xpath: //section[contains(@class,"search-active")]//div[@class="collapsible-container-content"]//h4[contains(.,"Ainesosat")]//parent::div  
   - name: caloriesPerServing
     singleValue: true
-    description: //section[contains(@class,"search-active")]//div[contains(@class,"nutritional-contents")]  
+    xpath: //section[contains(@class,"search-active")]//div[contains(@class,"nutritional-contents")]  
   - name: countryOfOrigin
     singleValue: true
     xpath: //section[contains(@class,"search-active")]//div[@class="collapsible-container-content"]//h4[contains(.,"Alkuperämaa")]//parent::div//p  
