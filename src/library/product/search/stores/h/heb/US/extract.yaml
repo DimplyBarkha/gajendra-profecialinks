@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: single
+    xpath: (//div[@class="cat-list-img gtm-product gtm-impressed"]/img)/@src
+  - name: id
+    singleValue: single
+    xpath: (//li[@class="responsivegriditem product-grid-large-fifth product-grid-small-6"]/a)/@id
+    regExp: (\d{7})
+  - name: price
+    singleValue: single
+    xpath: (//span[@class="cat-price-number"])
+  - name: name
+    singleValue: false
+    xpath: (//span[@class="responsivegriditem__title"])
+  - name: productUrl
+    singleValue: false
+    xpath: (//li[@class="responsivegriditem product-grid-large-fifth product-grid-small-6"]/a)/@href
+    regExp: (product-detail/.*)
+    regExpReplace: https://www.heb.com/$1
+  - name: quantity
+    singleValue: false
+    xpath: (//span[@class="item-size"])
+    
