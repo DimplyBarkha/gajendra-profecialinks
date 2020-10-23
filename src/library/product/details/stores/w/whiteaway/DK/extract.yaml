@@ -21,6 +21,11 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //ol/li[2]/a/span
+  - name: subcategory
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //ol/li[3]/a/span
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -41,7 +46,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //span[@class="vip__accordion__header-text delivery-header"]/span[@class="in-stock"][1]
+    xpath: //div[@class="vip__price-add-to-cart-wrap js-add-to-cart-wrap js-vip-main-atb"]/button
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -58,6 +63,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@class="vip__heading"]/div/h1
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -144,6 +150,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: (//div[@class="gallery__thumb thumb__is__video"]/picture//@srcset)[1]
   - name: name
     singleValue: true
     description: The product name
@@ -435,6 +442,7 @@ fields:
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
+    defaultValue: 'DKM'
   - name: promotion
     singleValue: true
     description: promotion text on product page
@@ -473,6 +481,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@class="vip__description__bullets"]
   - name: prop65Warning
     singleValue: true
     description: null
