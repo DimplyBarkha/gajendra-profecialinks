@@ -1,0 +1,167 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //meta[@property="og:image"]/@content 
+    description: URL of the main product image
+  - name: imageAlt
+    singleValue: false
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    xpath: //li[@class="thumb"]//a[@class="thumbnail-link"]//img/@src
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    xpath: //ol[@class="breadcrumb"]//li[position()>1]
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@id="product-content"]//h1[@class="product-name"]
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: false
+    xpath: (//span[@class="price-sales"])[1]
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="availability-msg"]
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class="long-desc"] | //div[@class="top-comment"] | //span[contains(text(),"Product Details")] | //span[@itemprop="description"]//div/text()[2] | //span[@itemprop="description"]//p[not(strong)] | //div[@class="top-comment"] | //div[@class="feature-bullets bumper"]//ul//li
+  - name: brandText
+    singleValue: false
+    xpath: //span[@itemprop="brand"]
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@class="feature-bullets bumper"]//ul//li)
+    description: Product manufacturer
+  - name: quantity
+    singleValue: false
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@itemprop="description"]//li[contains(text(),"Weight")]
+    regExp: \W\W([^.]+)
+    regExpReplace: $1
+    description: Net weight as described on the page
+  - name: weightGross
+    singleValue: false
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: false
+    xpath: //span[@itemprop="sku"]
+    description: The store-specific product identifier
+  - name: variantId
+    singleValue: false
+    xpath: (//div[@class="product-number"]//span[@itemprop="productID"])[1]
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    singleValue: false
+    xpath: //div[@class="product-description"]//div//span[contains(text(),"Model ")]
+    description: The manufacturer model code (unique) of the product
+  - name: specifications
+    singleValue: false 
+    xpath: //div[@itemprop="description"]//strong[contains(text(),"Product Specifications")]//..//..//following-sibling::ul[1]/li   | //div[@class="product-description"]//p[contains(text(),"Product Specs:")]//..//ul[2]/li
+  - name: warranty
+    singleValue: false
+    xpath: //div[@class="feature-bullets bumper"]//ul//li[contains(text(),"warranty")]
+    description: Content under "warnings" header
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@itemprop="reviewCount"]
+    description: The number of ratings
+    type: NUMBER
+  - name: aggregateRatingText
+    singleValue: false
+    description: The stated aggregate rating
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@itemprop="ratingValue"]
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="promotion-callout"]
+    description: A textual description of the colour
+  - name: colorCode
+    singleValue: false
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //li[@tabindex]//a[contains(text(),"How to" )]  | //li[@tabindex]//a[contains(text(),"Why Use" )]
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+  - name: videos
+    singleValue: false
+    xpath: //li[@class="thumb"][position()>1]//a[@class="video initialized"]/@href
+    description: URLs of videos on page
+  - name: name
+    singleValue: false
+    xpath: //meta[@property="og:title"]/@content
+    description: The product name
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//li[@class="thumb"]//a[@class="thumbnail-link"]//img/@src)
+    description: null
+    #type: NUMBER
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //div[@itemprop="description"]//li[contains(text(),"Wattage")]
+    description: Energy rating of a product.
+      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: false
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: false
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: materials
+    singleValue: false
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present
+    singleValue: false
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes
