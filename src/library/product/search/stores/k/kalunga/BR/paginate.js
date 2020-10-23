@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'kalunga',
-    nextLinkSelector: 'a.page-link.ultima',
+    nextLinkSelector: null,
     mutationSelector: null,
-    spinnerSelector: 'div.loading div.sk-fading-circle div.sk-circle::before',
-    loadedSelector: null,
+    spinnerSelector: null,
+    loadedSelector: 'div.blocoproduto',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'kalunga.com.br',
