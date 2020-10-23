@@ -30,7 +30,7 @@ async function implementation (
     await context.waitForFunction((selector) => {
       console.log(selector, document.querySelector(selector));
       return !document.querySelector(selector);
-    }, { timeout: 20000 }, spinnerSelector);
+    }, { timeout: 60000 }, spinnerSelector);
     console.log('Spinner went away', spinnerSelector);
     return true;
   }
