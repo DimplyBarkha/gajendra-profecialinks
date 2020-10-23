@@ -23,22 +23,37 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
-      var brandTextStr='';
+      var brandTextStr=''; var nameExtendedSr='';
       for (let row of group) {
         if(row.brandText){
-          brandTextStr=row.brandText[0]['text'];
+          row.brandText.forEach(item=>{
+            brandTextStr=item.text;
+          });
         }
         if(row.nameExtended){
-          row.nameExtended[0]['text']=brandTextStr+" "+row.nameExtended[0]['text'];
+          row.nameExtended.forEach(item=>{
+            nameExtendedSr=item.text;
+          });
         }
         if(row.availabilityText){
-          row.availabilityText[0]['text']='In Stock';
+          row.availabilityText=[{"text":'In Stock'}];
         }
         if(row.pricePerUnitUom){
-          row.pricePerUnitUom[0]['text']=row.pricePerUnitUom[0]['text'].replace(' -','');
+          row.pricePerUnitUom.forEach(item=>{
+            item.text=item.text.replace(' -','');
+          });
         }
         if(row.pricePerUnit){
-          row.pricePerUnit[0]['text']=row.pricePerUnit[1]['text']+'/'+row.pricePerUnit[0]['text'].replace(' -','');
+          var priceUn=[];
+          row.pricePerUnit.forEach(item=>{
+            priceUn.push(item.text);
+          });
+          if(priceUn.length>1){
+            row.pricePerUnit=[{"text":priceUn[1]+'/'+priceUn[0]}];
+          }
+        }
+        if(brandTextStr!=''){
+          row.nameExtended=[{"text":brandTextStr+' '+nameExtendedSr}];
         }
       }
     }
