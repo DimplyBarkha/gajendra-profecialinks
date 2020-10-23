@@ -36,6 +36,12 @@ const transform = (data) => {
               item.text = item.text.replace('Item#', '').trim();
             });
         }
+        if (row.mpc) {
+          row.mpc.forEach(item => {
+            item.text = item.text.replace(/(\s*)+/g, '').trim();
+            item.text = item.text.replace('Model#', '').trim();
+          });
+        }
         if (row.brandText) {
             row.brandText.forEach(item => {
               item.text = item.text.replace(/(\s*)+/g, '').trim();

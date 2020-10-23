@@ -9,6 +9,9 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //section[@class='product-description']//small[1]
+  - name: mpc
+    singleValue: false
+    xpath: //section[@class='product-description']//small[2]
   - name: price
     singleValue: false
     xpath: //h4//span[@class="price-wrapper"]
@@ -29,11 +32,13 @@ fields:
     xpath: //ul[@class="product-images"]//li[@class="media-image firstImage"]//img/@alt
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@class='freeShippingTest innerPanel']
+    xpath: //div[@class='soldBy']
   - name: brandText
     singleValue: false  
     xpath: //div[@class="productBrand-page"]//div[@class="span18"]//div[last()]
-    defaultValue: 'sears'
+  - name: manufacturer
+    singleValue: false  
+    xpath: //div[@class="productBrand-page"]//div[@class="span18"]//div[last()]
   - name: description
     singleValue: false
     xpath: //section[@id='description']
