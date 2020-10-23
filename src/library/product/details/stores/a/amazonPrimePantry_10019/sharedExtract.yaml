@@ -81,9 +81,6 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //*[@id="twister"]//span[@class="selection"]
-  - name: category
-    singleValue: false
-    xpath: (//*[@id="SalesRank"]/ul/li//a[1] | (//*[@id="detailBulletsWrapper_feature_div"]//span[contains(.,'Rank')][1]//ul//li//a)[1])[1]
   - name: variantCount
     singleValue: false
     xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
