@@ -82,7 +82,7 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text += item.text.replace(/\n \n/g, ' ').replace('Content from the Manufacturer', '');
+          text += item.text.replace(/\n \n/g, ' ').replace('Content from the Manufacturer', '').replace('This content uses cookies to improve your experience. By continuing, you agree to this use. Learn More at https://flixmedia.eu/privacy-policy/', '');
         });
         row.manufacturerDescription = [
           {
