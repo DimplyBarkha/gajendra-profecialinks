@@ -127,7 +127,6 @@ module.exports = {
     country: 'DE',
     store: 'amazon',
     transform,
-    // transform: null,
     domain: 'amazon.de',
   },
   dependencies: {

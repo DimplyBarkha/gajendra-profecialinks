@@ -1,8 +1,10 @@
+
 module.exports = {
-  extends: 'navigation/goto/domains/am/amazon',
+  implements: 'product/details',
   parameterValues: {
     country: 'DE',
+    store: 'amazonSediva',
     domain: 'amazon.de',
-    store: 'amazon',
+    zipcode: '10117',
   },
 };

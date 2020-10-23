@@ -5,6 +5,6 @@ module.exports = {
     domain: 'amazon.de',
     url: 'https://amazon.de/dp/{id}',
     country: 'DE',
-    store: 'amazon',
+    store: 'amazonSediva',
   },
 };
