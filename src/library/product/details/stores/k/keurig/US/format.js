@@ -17,10 +17,6 @@ const transform = (data) => {
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-    el.text = clean(el.text);
-  }))));
-
   for (const { group } of data) {
     for (const row of group) {
       if (!row.price && row.price1) {
@@ -38,7 +34,7 @@ const transform = (data) => {
         ];
       }
       if (row.description) {
-        row.description = [{ text: row.description[0].text.replace(/•/gm, '||') }];
+        row.description = [{ text: row.description[0].text.replace(/•/gm, '||').replace(/Nutritional Information$/, '') }];
       }
       if (row.variants1 && row.variants1.length > 1) {
         row.variants = row.variants1;
@@ -79,6 +75,9 @@ const transform = (data) => {
       }
     }
   }
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
   return data;
 };
 
