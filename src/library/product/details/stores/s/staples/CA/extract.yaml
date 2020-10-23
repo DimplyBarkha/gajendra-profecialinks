@@ -32,7 +32,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@id="product_description"]//div[@class="product-details__content"]/p[@itemprop="description"]
+    xpath: //div[@id="product_description"]//div[@class="product-details__content"]/p
   - name: descriptionBullets
     singleValue: false
     xpath: //div[@id="product_description"]//ul/li
@@ -93,3 +93,9 @@ fields:
     #"upc_code:070330201200"
     regExp: \"upc_code:(.+?)\"
     regExpReplace: $1
+  - name: brandText
+    singleValue: false
+    xpath: (//script[@id='swym-snippet'])[1]
+    #"brand:BIC"
+    regExp: \"brand:(.+?)\"
+    regExpReplace: $1    
