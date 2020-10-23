@@ -1,0 +1,77 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"product-gallery-first-image")]/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,"product-gallery-first-image")]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //li[contains(@class,"product-gallery-thumb-entity") and position()>1]//img/@data-zoom-image
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@class="breadcrumbs"]//li[position()>1 and not(contains(@class,"product"))]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="product-info-price"]//span[@data-price-type="was_price"]/span
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-info-price"]//span[@data-price-type="finalPrice"]/span
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="product-info-stock-sku"]/div[@title="Availability"]/span
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,"product-attribute-description")]/div[contains(@class,"product-attribute-value")]
+  - name: descriptionBullets
+    singleValue: false
+    defultValue: '0'
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="page-columns"]//span[@class="nosto_product"]/span[@class="brand"]
+  - name: quantity
+    singleValue: false
+    xpath: //input[@id="qty"]/@value
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"product-attribute-sku")]/div[contains(@class,"product-attribute-value")]
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"product-attribute-sku")]/div[contains(@class,"product-attribute-value")]
+  - name: url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="page-columns"]//span[@class="nosto_product"]//span[@class="review_count"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="page-columns"]//span[@class="nosto_product"]//span[@class="rating_value"]
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: color
+    singleValue: false
+    xpath: //span[@class="swatch-attribute-selected-option"]
+  - name: name
+    singleValue: false
+    xpath: //h1
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="product-info-price"]//span[contains(@class,"product-info-promo")]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,"product-attribute-description")]/div[contains(@class,"product-attribute-value")]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
