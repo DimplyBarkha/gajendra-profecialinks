@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -7,27 +7,26 @@ async function implementation(
   const { createUrl, variants } = dependencies;
   await context.evaluate(async function () {
     var variantArr = [];
-    function timeout(ms) {
+    function timeout (ms) {
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
     const getVariant = async function () {
-      var image_rows = [...document.querySelectorAll('div.color-attribute')];
-      for (let index = 0; index < image_rows.length; index++) {
-        image_rows[index].click()
-        await timeout(2000)
+      var imageRows = [...document.querySelectorAll('div.color-attribute')];
+      for (let index = 0; index < imageRows.length; index++) {
+        imageRows[index].click();
+        await timeout(2000);
         var variantUrl = window.location.href;
         variantArr.push(variantUrl);
-        let div = document.createElement('div');
+        const div = document.createElement('div');
         div.className = 'variant';
-        let getInput = document.createElement('input');
+        const getInput = document.createElement('input');
         div.appendChild(getInput);
         document.body.appendChild(div);
-        getInput.setAttribute("value", variantUrl);
-        await timeout(5000)
+        getInput.setAttribute('value', variantUrl);
+        await timeout(5000);
       }
-    }
-    await getVariant()
-    
+    };
+    await getVariant();
   }, createUrl);
   return await context.extract(variants);
 }
