@@ -31,7 +31,7 @@ const transform = (data) => {
           if (match) {
             item.text = match[1].trim();
           }
-          row.variantId = row.sku;
+          row.firstVariant = row.variantId = row.sku;
         });
       }
       if (row.variants) {

@@ -47,6 +47,8 @@ fields:
     xpath: //link[@rel="canonical"]/@href
   - name: variantId
     singleValue: false
+  - name: firstVariant
+    singleValue: false
   - name: mpc
     singleValue: false
     xpath: //div[contains(@class,"product-property")]//span[contains(@class,"product-property__item") and contains(text(),"Model")]
@@ -79,3 +81,15 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: (//span[@class="product-form__price-wrapper"])[1]/span[@class="pack-info"]
+  - name: upc
+    singleValue: false
+    xpath: (//script[@id='swym-snippet'])[1]
+    #"upc_code:070330201200"
+    regExp: \"upc_code:(.+?)\"
+    regExpReplace: $1
+  - name: gtin
+    singleValue: false
+    xpath: (//script[@id='swym-snippet'])[1]
+    #"upc_code:070330201200"
+    regExp: \"upc_code:(.+?)\"
+    regExpReplace: $1
