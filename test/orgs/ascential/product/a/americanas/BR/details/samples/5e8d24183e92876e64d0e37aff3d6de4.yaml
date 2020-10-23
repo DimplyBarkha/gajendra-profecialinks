@@ -1,0 +1,45 @@
+input:
+  _url: http://americanas.com.br
+  URL: https://www.americanas.com.br/produto/1448008211/samsung-galaxy-a01-desbloqueado-32gb-4g-android-10-0-tela-5-7-octa-core-camera-13mp
+extractions:
+  - html: https://workbench.import.io/html/run=7a425899-1c49-4909-872c-0df0fc906670/task=e639d8c8-d485-422b-96f1-86cd3f97b28b/41d3aab7-634c-4013-b9b5-ef3458420fc4.html
+    extractionConfigId: product/details/stores/a/americanas/BR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.americanas.com.br/produto/1448008211/samsung-galaxy-a01-desbloqueado-32gb-4g-android-10-0-tela-5-7-octa-core-camera-13mp
+                xpath: /html/body/div[2]
+            image:
+              - text: https://images-americanas.b2w.io/zion/manifest/icons/1f3cb37c9be5fb0e9dd16b6ac97e213c.opengraph-image.png
+                xpath: /html/head[1]/meta[23]/@content
+            imageAlt:
+              - text: Americanas - Tudo. A toda hora. Em qualquer lugar.
+                xpath: /html/head[1]/meta[24]/@content
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[16]
+            manufacturer:
+              - text: Samsung
+                xpath: /html/body/div[6]
+            weightNet:
+              - text: 0.148kg
+                xpath: /html/body/div[7]
+            gtin:
+              - text: undefined
+                xpath: /html/body/div[8]
+            variantId:
+              - text: undefined
+                xpath: /html/body/div[8]
+            shippingDimensions:
+              - text: 14,6x7,0x0,8
+                xpath: /html/body/div[11]
+            variantCount:
+              - text: "0"
+                xpath: /html/body/div[10]
+            manufacturerImages:
+              - text: https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/01.png,https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/02.png,https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/03.png,https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/04.png,https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/05.png,https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/layout3.png
+                xpath: /html/body/div[23]
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1603377583201

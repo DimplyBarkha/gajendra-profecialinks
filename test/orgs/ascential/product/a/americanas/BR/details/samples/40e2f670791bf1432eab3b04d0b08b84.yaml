@@ -1,0 +1,45 @@
+input:
+  _url: http://americanas.com.br
+  URL: https://www.americanas.com.br/produto/134511851/smart-tv-android-led-32-semp-32s5300-bluetooth-2-hdmi-1-usb-controle-remoto-com-comando-de-voz-e-google-assistant
+extractions:
+  - html: https://workbench.import.io/html/run=c1b8240a-9053-4999-ae2f-b80bfc1955b8/task=c871d0a5-5212-42b4-8415-10df686114fd/1490b26e-15af-4ff4-b1f5-592f6fb39c8b.html
+    extractionConfigId: product/details/stores/a/americanas/BR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.americanas.com.br/produto/134511851/smart-tv-android-led-32-semp-32s5300-bluetooth-2-hdmi-1-usb-controle-remoto-com-comando-de-voz-e-google-assistant
+                xpath: /html/body/div[2]
+            image:
+              - text: https://images-americanas.b2w.io/zion/manifest/icons/1f3cb37c9be5fb0e9dd16b6ac97e213c.opengraph-image.png
+                xpath: /html/head[1]/meta[23]/@content
+            imageAlt:
+              - text: Americanas - Tudo. A toda hora. Em qualquer lugar.
+                xpath: /html/head[1]/meta[24]/@content
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[16]
+            manufacturer:
+              - text: Semp TCL
+                xpath: /html/body/div[6]
+            weightNet:
+              - text: 4kg
+                xpath: /html/body/div[7]
+            gtin:
+              - text: undefined
+                xpath: /html/body/div[8]
+            variantId:
+              - text: undefined
+                xpath: /html/body/div[8]
+            shippingDimensions:
+              - text: 43,2x73,2x7,9cm
+                xpath: /html/body/div[11]
+            variantCount:
+              - text: "0"
+                xpath: /html/body/div[10]
+            manufacturerImages:
+              - text: https://statics-americanas.b2w.io/produtos/01/02/special/134511851/styles/Images/Conteudo/S5300-banner.jpg
+                xpath: /html/body/div[23]
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1603455286571
