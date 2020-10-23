@@ -16,13 +16,14 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //ul[@class="thumbs animated"]/li/a/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //span[@class="bs_badge"]
+    xpath: //ul[@class="pdp breadcrumb"]/li[2]/div/a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -48,7 +49,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="descriptionContainer"]/p
+    xpath: //ul[@class="pdp breadcrumb"]/li[4]/div
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -78,6 +79,8 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //div[@class="numbr-frgnce"]/p[2]
+    regExp: '\d+'
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
