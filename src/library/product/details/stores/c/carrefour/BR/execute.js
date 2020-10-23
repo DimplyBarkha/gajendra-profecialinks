@@ -4,7 +4,7 @@ module.exports = {
     country: 'BR',
     store: 'Carrefour',
     domain: 'carrefour.com.br',
-    loadedSelector: '.vtex-seller-selector-0-x-sellerMasterContainer',
+    loadedSelector: 'img[class*="productImageTag"]',
     noResultsXPath: '//*[contains(@class,"searchNotFoundOops") or contains(@class,"not-found")]',
     zipcode: '',
   },
