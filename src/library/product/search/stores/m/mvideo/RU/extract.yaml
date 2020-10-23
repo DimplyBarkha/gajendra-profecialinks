@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@class="fl-product-tile__checkout-section c-product-tile__checkout-section"]//div//div//span//font//font//text()
+  - name: name
+    singleValue: true
+  - name: productUrl
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="lazy-load-image-holder lazy-loaded"]//img//@src
+  - name: aggregateRating
+    singleValue: true
+    xpath: //span[@class="fl-product-tile-rating__stars-value"]//font//font
+  - name: id
+    singleValue: false
+  - name: reviewCount
+    singleValue: true
+  - name: ratingCount
+    singleValue: true
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: true
+  - name: gtin
+    singleValue: true
