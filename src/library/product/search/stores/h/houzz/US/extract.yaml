@@ -1,0 +1,105 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: paid
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: true
+    description: The brand name
+    example: Panasonic
+    xpath: //span[@data-compid="manufacturer"]/span
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+    xpath: (//span[@class="hz-breadcrumb__title"])[2]
+  - name: productUrl
+    singleValue: true
+    description: The URL for the product details page
+    xpath: //a[@class="hz-product-card__link"]/@href
+  - name: thumbnail
+    singleValue: true
+    description: The URL for the product thumbnail image
+    xpath: //picture[@class=" hz-image-container"]/source/@srcset
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class="hz-product-card__meta"]/span[@data-compid="title"]/span
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+    xpath: //span[@class="star-rating hz-product-card__review-stars"]/@aria-label
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    xpath: //span[@class="star-rating__review-text"]
+  - name: price
+    singleValue: true
+    description: The offered price for the product
+    xpath: //span[@class="hz-product-price hz-product-price--v2 hz-product-price--final"]/span
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //span[@class="hz-product-price hz-product-price--v2 hz-product-price--strikethrough"]/del/span
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+    xpath: //span[@data-compid="manufacturer"]/span
+
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: true
+    description: Unique id (within this extractor)
+    xpath: //div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-objid
+  - name: nameExtended
+    singleValue: true
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //span[@data-compid="title"]/span
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //span[@class="star-rating hz-product-card__review-stars"]/@aria-label
