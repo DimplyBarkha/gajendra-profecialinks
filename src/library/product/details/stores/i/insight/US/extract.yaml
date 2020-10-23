@@ -22,14 +22,14 @@ fields:
   singleValue: false 
   xpath: //h1
 - name: image 
-  singleValue: false 
+  singleValue: true
   xpath: //div[contains(@class,"ccs-fancybox-gallery")]//img/@src
 - name: alternateImages
   singleValue: false 
   xpath: //div[@class='ccs-ds-cloud-thumbs ccs-slick-initialized ccs-slick-slider']//img/@src
 - name: gtin
   singleValue: false 
-  xpath: //div[@class='prod-description-bottom']//meta[@itemprop='gtin8']/@content
+  xpath: //div[@class='prod-description-bottom']//meta[@itemprop='mpn']/@content
 - name: brandText
   singleValue: false 
   xpath: //div[@class='prod-description-bottom']//meta[@itemprop='brand']/@content
