@@ -70,6 +70,17 @@ const transform = (data) => {
         if(brandTextData!=''){
           row.nameExtended=[{"text":brandTextData+' '+nameExtendedData}];
         }
+        if(row.totalFatPerServing){
+          row.totalFatPerServing.forEach(item=>{
+            var myRegexp = /Fett\s+(\d+)\s+g/;
+            var match = myRegexp.exec(item.text);
+            if(match.length){
+                item.text = match[1].trim();
+            }else{
+                item.text = "";
+            }
+          })
+        }
         row.variantId=[{"text":variantIdsku}];
         row.sku=[{"text":variantIdsku}];
       }

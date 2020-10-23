@@ -41,10 +41,16 @@ fields:
     defaultValue: '0'
   - name: ingredientsList
     singleValue: false
-    xpath: //div[contains(@class,'gcVnmg')]/strong[contains(text(),'Näringsvärde per 100 g') or contains(text(),'Näringsinnehåll')]/parent::div/p
+    xpath: //div[contains(@class,'gcVnmg')]/strong[contains(text(),'Ingredienser')]/parent::div/p
   - name: brandText
     singleValue: false
     xpath: //li[contains(@class,'gXCJIU')]/img/@alt
   - name: termsAndConditions
     singleValue: false
     xpath: //label[contains(@class,'hrxVUT')]/span[2]/a/@herf
+  - name: category
+    singleValue: false
+    xpath: //ul[contains(@class,"sc-fzoLsD")]/li/a
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //div[contains(@class,'gcVnmg')]/strong[contains(text(),'Näringsvärde per 100 g')]/parent::div/p
