@@ -23,6 +23,7 @@ fields:
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
+    xpath: //div[@class='kalunga_productUrl']
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
@@ -34,6 +35,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //div[@class='kalunga_sku']
   - name: mpc
     singleValue: true
     description: The model code of the product
@@ -52,6 +54,7 @@ fields:
   - name: price
     singleValue: true
     description: The offered price for the product
+    xpath: //span[@class='blocoproduto__text blocoproduto__text--bold blocoproduto__price']
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -90,3 +93,4 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //div[@class='kalunga_aggregateRating']
