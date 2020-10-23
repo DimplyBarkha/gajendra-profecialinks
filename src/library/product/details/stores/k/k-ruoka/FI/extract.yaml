@@ -34,10 +34,10 @@ fields:
     regExpReplace: $1  
   - name: gtin
     singleValue: true
-    xpath: //section[contains(@class,"search-active")]//div[@class="collapsible-container-content"]//h4[contains(.,"EAN")]//parent::div
+    xpath: //section[contains(@class,"search-active")]//div[@class="collapsible-container-content"]//h4[contains(.,"EAN")]//parent::div/p
   - name: upc
     singleValue: true
-    xpath: //section[contains(@class,"search-active")]//div[@class="collapsible-container-content"]//h4[contains(.,"EAN")]//parent::div  
+    xpath: //section[contains(@class,"search-active")]//div[@class="collapsible-container-content"]//h4[contains(.,"EAN")]//parent::div/p  
   - name: shippingInfo
     singleValue: true
     xpath: //script[@id='product-json-ld']    
