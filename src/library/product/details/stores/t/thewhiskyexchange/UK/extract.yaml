@@ -57,7 +57,7 @@ fields:
   singleValue: true
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: concat(//span[@class="product-main__sub-name"], //ul[@class="product-main__meta"], //p[@class="product-main__data"], //ul[@class='product-notes'])
+  xpath: concat(//span[@class="product-main__sub-name"], //ul[@class="product-main__meta"], //p[@class="product-main__data"], //div[@class="product-main__description"], //ul[@class='product-notes'])
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -140,7 +140,6 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[@class="product-main__description"]/p
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
