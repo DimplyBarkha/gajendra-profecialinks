@@ -23,7 +23,7 @@ async function implementation (
   dependencies,
 ) {
   const { keywords, page, offset } = inputs;
-  const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
+  const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
 
   if (nextLinkSelector) {
     const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
@@ -32,8 +32,15 @@ async function implementation (
     }
   }
 
+  if (nextLinkXpath) {
+    const hasNextLink = await context.evaluate((selector) => {
+      const elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+      return elem ? !!elem.singleNodeValue : false;
+    }, nextLinkXpath);
+    if (!hasNextLink) return false;
+  }
   const { pager } = dependencies;
-  const success = await pager({ keywords, nextLinkSelector, loadedSelector, mutationSelector, spinnerSelector });
+  const success = await pager({ keywords, nextLinkSelector: nextLinkSelector || nextLinkXpath, loadedSelector, mutationSelector, spinnerSelector });
   if (success) {
     return true;
   }
@@ -88,6 +95,10 @@ module.exports = {
     {
       name: 'nextLinkSelector',
       description: 'CSS selector for the next link',
+    },
+    {
+      name: 'nextLinkXpath',
+      description: 'Xpath selector for the next link',
     },
     {
       name: 'mutationSelector',
