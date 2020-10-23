@@ -14,6 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //div[@class="slick-track"]//a[contains(@class,"RICHFXColorChangeLink")]//img[contains(@class,"RICHFXColorChangeView")]/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -119,6 +120,7 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
+    xpath: //div[@id="dimensionValue"]/text()
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -142,6 +144,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //video[@class="vjs-tech"]/@src
   - name: name
     singleValue: true
     description: The product name
@@ -401,6 +404,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //figure[@class="product-concierge"]//ul[@class="product-info-concierge"]//li//p[1]/text()
   - name: storage
     singleValue: true
     description: Suggested storage location for product

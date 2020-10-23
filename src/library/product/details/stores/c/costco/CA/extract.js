@@ -61,7 +61,10 @@ module.exports = {
       }
 
       const specXpath = '//div[@class="product-info-specs body-copy"]//div[@class="row"]//div[@class="col-xs-6 col-md-7 col-lg-8"]';
+      const dimenXpath = '//div[@class="product-info-description"]/ul[2]/li';
       const specValue = getAllXpath(specXpath, 'innerText');
+      const dimenValue = getAllXpath(dimenXpath, 'innerText');
+      console.log('My dimenValue Values', dimenValue);
       console.log('My Specification Values', specValue);
       console.log('My Specification length ', specValue.length);
       specValue.forEach(function (element) {
@@ -70,6 +73,12 @@ module.exports = {
         if (element.includes('kg')) {
           console.log('My weightValue element kg', element);
           addElementToDocument('weightValue', element);
+        }
+        if (element.includes('in') || element.includes('cm')) {
+          console.log('My dimension element in ', element);
+          addElementToDocument('dimensionValue', element);
+        } else {
+          addElementToDocument('dimensionValue', dimenValue);
         }
       });
 
