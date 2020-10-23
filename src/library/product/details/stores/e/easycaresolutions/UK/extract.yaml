@@ -14,11 +14,11 @@ fields:
     xpath: //div[contains(@class,'fotorama__nav__frame') and  not(contains(@class,'fotorama__active'))]//img/@src
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[contains(@class,'fotorama__stage__frame') and  not(contains(@class,'fotorama__active'))]/img/@src)
+    xpath: count(//div[contains(@class,'fotorama__nav__frame') and  not(contains(@class,'fotorama__active'))]//img/@src)
   - name: availabilityText
     singleValue: false
     xpath: //div[contains(@class,'stock available')]
-    defaultValue: 'In Stock'
+    defaultValue: 'Out of Stock'
   - name: _pageTimestamp
     singleValue: true
   - name: _url
@@ -67,3 +67,21 @@ fields:
   - name: packSize
     singleValue: false
     manualSelector: div#packSize
+  - name: quantity
+    singleValue: false
+    xpath: (//table[contains(@id,'product-attribute-specs-table')]//th[contains(text(),'Size')]/following::td[1])[1]
+  - name: variantCount
+    singleValue: false
+    defaultValue: '1'
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //table[contains(@id,'product-attribute-specs-table')]//th[contains(text(),'Price Per Unit')]/following::td[1]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@itemprop,'description')]//li
+  - name: materials
+    singleValue: false
+    xpath: //table[contains(@id,'product-attribute-specs-table')]//th[contains(text(),'Material')]/following::td[1]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: 'Yes'

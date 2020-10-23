@@ -22,6 +22,13 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.includes('Ingredients') ? row.manufacturerDescription[0].text.replace(/\n/g, '').replace(/Ingredients.*$/g, '').trim() : row.manufacturerDescription[0].text;
       }
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(desc => {
+          text += ' || ' + desc.text;
+        });
+        row.additionalDescBulletInfo = [{ text: text.trim() }];
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

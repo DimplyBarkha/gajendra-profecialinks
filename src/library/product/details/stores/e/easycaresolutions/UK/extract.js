@@ -24,10 +24,13 @@ module.exports = {
           addHiddenDiv('descriptionBulletCount', liSelector.length);
         }
 
-        const packSize = document.querySelector('div[itemprop*=sku]');
-        if (packSize.innerHTML && packSize.innerHTML.includes('Pack')) {
-          const pack = packSize.innerHTML.split(' ')[2];
-          addHiddenDiv('packSize', pack);
+        const packSize = document.querySelector('span[itemprop*=name]');
+        if (packSize.innerHTML && packSize.innerHTML.includes('Packs')) {
+          const pack = packSize.innerHTML.match(/([0-9]{1,}) Packs of ([0-9]{1,})/);
+          addHiddenDiv('packSize', pack[0]);
+        } else if (packSize.innerHTML && packSize.innerHTML.includes('Pack')) {
+          const pack = packSize.innerHTML.match(/Pack of ([0-9]{1,})/);
+          addHiddenDiv('packSize', pack[0]);
         }
       });
 
