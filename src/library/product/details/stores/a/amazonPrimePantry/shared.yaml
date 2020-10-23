@@ -97,9 +97,6 @@ fields:
     defaultValue: No
   - name: legalDisclaimer
     xpath: //div[@id="legal-disclaimer"]//p[@class='tiny']
-  - name: category
-    singleValue: false
-    xpath: (//*[@id="SalesRank"]/ul/li//a[1] | (//*[@id="detailBulletsWrapper_feature_div"]//span[contains(.,'Rank')][1]//ul//li//a)[1])[1]
   - name: salesRank
     xpath: //li[@id='rank']/@value
   - name: salesRankCategory
