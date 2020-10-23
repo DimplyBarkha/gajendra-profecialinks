@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'supply',
     domain: 'supply.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[data-testid="productPage"]',
+    noResultsXPath: '//section[@class="bono404"]',
     zipcode: '',
   },
 };

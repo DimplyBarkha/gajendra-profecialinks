@@ -9,27 +9,33 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //ancestor::html//meta[@property='og:url']/@content
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: //picture//img/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
+  xpath: //picture//img/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: //div[@class='tc center']//img/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: //div[contains(@class, 'f7 items-center')]//a
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //div[contains(@class, '_2Bss8')]/h1
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -37,25 +43,35 @@ fields:
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //span[contains(@class, 'kudzu')]/strong
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  xpath: //div[@data-testid='delivery-estimate']/span 
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: concat((//div[contains(@class, 'tl tc-l f6')])[2], (//div[@id='productDetails']//div)[1]//ul)
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count((//div[@id="productDetails"]//div)[1]//ul/li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //html//meta[@property='og:title']/@content
+  regExp: \"(\w+)\s
+  regExpReplace: "$1"
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
+  xpath: //meta[@property='og:title']/@content
+  regExp: \"(\w+)\s
+  regExpReplace: "$1"
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -71,12 +87,13 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
+  xpath: //strong[contains(text(), 'SKU')]/following-sibling::text()[2]
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
-  singleValue: tru
+  singleValue: true
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
@@ -94,15 +111,18 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: //button[contains(@class, 'numReviews')]
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //button[@itemprop='ratingValue']
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: //div[contains(@class, 'tc source')]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -112,6 +132,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  xpath: count(//div[@data-testid='swatches']//img)
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -124,15 +145,18 @@ fields:
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
+  xpath: //img[contains(@class, 'OK')]/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
 - name: name
   singleValue: true
   description: The product name
+  xpath: //div[contains(@class, '_2Bss8')]/h1
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
+  xpath: //span[contains(@class, 'kudzu')]/strong
 - name: asin
   singleValue: true
   description: 
@@ -462,6 +486,7 @@ fields:
   singleValue: true
   description: Materials used to make the product
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  xpath: (//td[contains(text(), 'Material')])[2]/following-sibling::td
 - name: Image360Present
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
