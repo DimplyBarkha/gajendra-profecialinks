@@ -9,7 +9,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 1500));
+  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 
   await context.evaluate(() => {
     function addProp(selector, iterator, propName, value) {

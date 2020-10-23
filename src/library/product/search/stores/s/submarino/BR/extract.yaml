@@ -14,6 +14,7 @@ fields:
     xpath: //div[@class="RippleContainer-sc-1rpenp9-0 dMCfqq"]/@rankorganic
   - name: name
     description: The product name
+    xpath: //div[contains(@class, 'TitleWrapper')]/h2
   - name: productUrl
     description: The URL for the product details page
     xpath: //div[@class="row product-grid no-gutters main-grid"]//a[starts-with(@href, '/produto/')][@class="Link-bwhjk3-2 iDkmyz TouchableA-p6nnfn-0 joVuoc"]/@href
@@ -21,23 +22,29 @@ fields:
     regExpReplace: https://www.submarino.com.br/produto/$1
   - name: gtin
     description: GTIN code (includes UPC/EAN)
-  - name: thumbnail
+  - name: thumbnail #todo
     description: The URL for the product thumbnail image
-  - name: aggregateRating
+    xpath: //div[contains(@class, 'WrapperPicture')]/picture/img/@src
+  - name: aggregateRating #todo
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-  - name: reviewCount
+  - name: reviewCount # todo
     description: The number of reviews
     type: NUMBER
-  - name: ratingCount
+  - name: ratingCount # todo
     description: The number of ratings
-  - name: price
+  - name: price # todo
     description: The offered price for the product
-  - name: manufacturer
+  - name: manufacturer # todo
     description: Product manufacturer
-  - name: soldBy
+  - name: soldBy # todo
     description: The name of the seller of the item (if available)
-  - name: rank
+  - name: rank # todo
     description: search/listing rank
-  - name: endorsementText
+    xpath:  //div[@class="RippleContainer-sc-1rpenp9-0 dMCfqq"]/@rankorganic
+  - name: endorsementText # todo
     description: The text that signifies that a product is endorsed
+  - name: sponsored # todo
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
