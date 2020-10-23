@@ -32,10 +32,14 @@ const transform = (data) => {
           row.description=[{"text":"|| "+tmp.join(' || '),"xpath":row.description[0]['xpath']}];
         }
         if (row.listPrice) {
-          row.listPrice[0]['text']=row.listPrice[0]['text'].replace('*','').trim();
+          row.listPrice.forEach(item=>{
+            item.text=item.text.replace('*','').trim();
+          })
         }
         if (row.price) {
-          row.price[0]['text']=row.price[0]['text'].replace('*','').trim();
+          row.price.forEach(item=>{
+            item.text=item.text.replace('*','').trim();
+          })
         }
         if (row.manufacturer) {
           row.manufacturer.forEach(item => {
