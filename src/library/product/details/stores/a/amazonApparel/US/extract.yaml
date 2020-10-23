@@ -7,3 +7,45 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //title
+  - name: brandText
+    xpath: //head//@brand
+  - name: description
+    singleValue: true
+    xpath: //head/@description
+  - name: manufacturer
+    singleValue: true
+    xpath: //span[contains(., 'Manufacturer')][not(contains(., "Discontinued"))]/following-sibling::*[1]
+  - name: weightNet
+    singleValue: true
+    xpath: //li[contains(.,'Product Dimensions')]//span//span[2]
+    regExp: (.*);(.*)
+    regExpReplace: $2
+  - name: asin
+    xpath: //li[contains(.,'ASIN')]//span//span[2]
+  - name: variantId
+    singleValue: true
+    xpath: (//div[@id="cerberus_feature_div"]//*[@data-asin])[1]/@data-asin
+  - name: shippingInfo
+    xpath: normalize-space(//div[@id="buybox-tabular-side-sheet-content"])
+  - name: specifications
+    xpath: //div[@id="detailBullets_feature_div"]//li
+  - name: manufacturerDescription
+    xpath: //div[@data-a-expander-name="aplus-module-expander"] | //div[@class="aplus-module-wrapper"]//div[contains(@class,"apm-tablemodule")]//tr[1]/following-sibling::tr
+  - name: lbb
+    defaultValue: "NO"
+  - name: lbbPrice
+  - name: salesRank
+    xpath: //li[@id='rank']//@value
+  - name: salesRankCategory
+    xpath: //head/@category
+  - name: Image360Present
+    defaultValue: "NO"
+  - name: variantAsins
+    xpath: //li[contains(@id,"color_name")]/@data-defaultasin | //li[contains(@id,"special_size_type")]/@data-defaultasin
+  - name: variantCount
+    xpath: count(//li[contains(@id,"color_name")]/@data-defaultasin | //li[contains(@id,"special_size_type")]/@data-defaultasin | //span[@id="dropdown_selected_size_name"])
+  - name: additionalDescBulletInfo
+    xpath: //div[@data-feature-name="featurebullets"]//ul/li
+ 
+   
+  

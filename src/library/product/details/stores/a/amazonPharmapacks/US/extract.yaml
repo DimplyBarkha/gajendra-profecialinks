@@ -111,14 +111,6 @@ fields:
     regExpReplace: https://www.amazon.com$1
   - name: internationalShipping
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1]
-  - name: salesRank
-    xpath: //*[@id="SalesRank"]/text()[contains(., "#")] | //*[@id="SalesRank"]//span[contains(., "#")]
-    regExp: \#([^\s]+)
-    regExpReplace: $1
-  - name: salesRankCategory
-    xpath: //*[@id="SalesRank"]/text()[contains(., "in")] | //*[@id="SalesRank"]//span[contains(., "in")]/a
-    regExp: ((?:\S*[A-Z]){1}[A-Za-z\s&!@#^*,'$+-]{1,})
-    regExpReplace: $1
   - name: subscriptionPrice
     xpath: //*[@id="sns-base-price"]
     regExp: ([^ ]+)
@@ -148,11 +140,6 @@ fields:
     regExp: (.+)
     regExpReplace: "YES"
     defaultValue: "NO"
-  - name: variantAsins
-    xpath: //script[contains(text(),"asinVariationValues")]
-    regExp: >-
-      "ASIN":\s*"([^\"]+)
-    regExpReplace: $1
   - name: specifications
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
   - name: primeFlag
@@ -224,12 +211,7 @@ fields:
     singleValue: true
     xpath: //h1//span[@id="productTitle"]
   - name: lbb
-    xpath: //span[@id="price_inside_buybox"]
-    regExp: (.+)
-    regExpReplace: "YES"
     defaultValue: "NO"
-  - name: lbbPrice
-    xpath: //span[@id="price_inside_buybox"]
   - name: weightNet
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text()
     regExp: '[^()]+'
