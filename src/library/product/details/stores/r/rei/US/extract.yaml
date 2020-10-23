@@ -8,10 +8,10 @@ fields:
     xpath: //div[contains(@class,'mc-primary-img align-center ')]//img[contains(@data-ui,'media-center-primary-image')]/@src
   - name: metaKeywords
     singleValue: true
-    xpath: //meta[@name='description']/@content
+    xpath: //meta[@name='keywords']/@content
   - name: category
     singleValue: false
-    xpath: //ol[@id='breadcrumbWrapper']//li
+    xpath: //ol[@id='breadcrumbWrapper']//a[@data-ui='product-breadcrumbs']
   - name: nameExtended
     singleValue: true
     xpath: //h1[@data-ui='product-information-title']
@@ -57,3 +57,9 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[contains(@data-is,'apparel-media-center')]//div[@data-ui='image-carousel']//div[not(contains(@class,'selected')) and contains(@class,'video-thumb') and contains(@class,'thumb')]//img/@src
+  - name: sku
+    singleValue: false
+    xpath: //input[@name='itemNumber']/@value
+  - name: variantId
+    singleValue: false
+    xpath: //input[@name='itemNumber']/@value
