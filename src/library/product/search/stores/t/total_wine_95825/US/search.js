@@ -5,6 +5,6 @@ module.exports = {
     country: 'US',
     store: 'total_wine_95825',
     domain: 'totalwine.com',
-    zipcode: "95825",
+    zipcode: '95825',
   },
 };

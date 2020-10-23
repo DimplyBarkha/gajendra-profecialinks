@@ -8,6 +8,6 @@ module.exports = {
     url: 'https://www.totalwine.com/search/all?text={searchTerms}',
     loadedSelector: 'a[class="productImg__3fOOgAmO"] > picture > img',
     noResultsXPath: '//p[@class="resultsTitle__2yxTXNeW"]/span',
-    zipcode: "95825",
+    zipcode: '95825',
   },
 };

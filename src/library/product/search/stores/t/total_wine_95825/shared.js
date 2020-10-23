@@ -23,15 +23,15 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.name) {
-        let text = " "
+        let text = ' ';
         row.name.forEach((item) => {
-          text += " " + item.text.trim()
-        })
-        let text1 = text.trim();
+          text += ' ' + item.text.trim();
+        });
+        const text1 = text.trim();
         row.name = [{ text: text1 }];
       }
       if (row.aggregateRating2) {
-        row.aggregateRating2 = [{ text: ((row.aggregateRating2[0].text) / 20).toFixed(1) }]
+        row.aggregateRating2 = [{ text: ((row.aggregateRating2[0].text) / 20).toFixed(1) }];
       }
     }
   }

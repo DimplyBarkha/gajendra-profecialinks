@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     domain: 'totalwine.com',
     timeout: 50000,
-    zipcode: "95825",
+    zipcode: '95825',
     store: 'total_wine_95825',
     country: 'US',
   },
@@ -11,8 +11,7 @@ module.exports = {
     if (zipcode) {
       url = `${url}#[!opt!]{"cookie_jar":[{"name":"twm-userStoreInformation","value":"ispStore~1108:ifcStore~${zipcode}@ifcStoreState~US-CA@method~INSTORE_PICKUP"}]}[/!opt!]`;
     }
-    await context.goto(url)
+    await context.goto(url);
     await new Promise((resolve) => setTimeout(resolve, 20000));
   },
 };
-
