@@ -16,11 +16,17 @@ fields:
     xpath: //*[@id="imageBlock_feature_div"]/script
     regExp: large\":\"(.{40,200})\"\,\"main
     regExpReplace: $1
+  - name: name
+    xpath: normalize-space(//span[@id="productTitle"])
+  - name: brandLink
+    xpath: //*[@id="bylineInfo"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com/$1
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //meta[@name='title']/@content
+    xpath: normalize-space(//span[@id="productTitle"])
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -44,7 +50,7 @@ fields:
     xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
   - name: brandText
     singleValue: false
-    xpath: //*[@id='bylineInfo']
+    xpath: //head/@brand
   - name: sku
     singleValue: false
     xpath: (//*[@data-asin])[1]/@data-asin
@@ -72,7 +78,7 @@ fields:
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
   - name: shippingDimensions
     singleValue: false
-    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
+    xpath: //li[contains(.,'Package Dimensions')]//span//span[2] | (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
@@ -86,7 +92,7 @@ fields:
     singleValue: false
     xpath: //*[@id="twister"]//span[@class="selection"]
   - name: category
-    xpath: (//*[@id="SalesRank"]/ul/li//a[1] | (//*[@id="detailBulletsWrapper_feature_div"]//span[contains(.,'Rank')][1]//ul//li//a)[1])[1]
+    xpath: //div[@id="wayfinding-breadcrumbs_feature_div"]//span[@class="a-list-item"] 
   - name: variantCount
     singleValue: false
     xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
@@ -215,9 +221,9 @@ fields:
     description: Unit of Measure Data for Salt
   - name: weightNet
     singleValue: false
-    xpath: //td[text()='Weight']/following-sibling::*[1]/text()[1]|//div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //tr[contains(@class,'size-weight')][1]//td[2]
-    regExp: ([^()]+)
-    regExpReplace: $1
+    xpath: //li[contains(.,'Package Dimensions')]//span//span[2] | //td[text()='Weight']/following-sibling::*[1]/text()[1]|//div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //tr[contains(@class,'size-weight')][1]//td[2]
+    regExp: (.*);(.*)
+    regExpReplace: $2
   - name: weightGross
     singleValue: false
     xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //tr[contains(@class,'shipping-weight')][1]//td[2]
@@ -260,8 +266,6 @@ fields:
     xpath: (//li[contains(@data-dp-url,"dp/")])[1]/@data-dp-url
     regExp: twister_([A-Z0-9]{9,})
     regExpReplace: $1
-  - name: videoLength
-    xpath: (//li[contains(@class,"vse-video-card")][div/h4[contains(text(),"Videos for this product")]]//div/@data-duration | //div[@id="main-video-container"]//div[@class="airy-duration-label"])[1]
   - name: variants
     xpath: //li[contains(@id,'flavor_name')]//@data-defaultasin
   - name: variantAsins
@@ -273,6 +277,8 @@ fields:
   - name: coupon
     singleValue: false
     xpath: //label[@id='couponBadge']|//tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]/div[@id="unclippedCoupon"] | //tr[@class="couponFeature vpc_oneTimeBuy regularVpc"]/td[2]//div[contains(@class,"vpcApplyCoupon")]
+  - name: featureBullets
+    xpath: //div[@id="detailBulletsWrapper_feature_div"]//div[@id="detailBullets_feature_div"]//li
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //*[@id='feature-bullets']/ul/li[not(@id)]

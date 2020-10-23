@@ -13,6 +13,17 @@ module.exports.implementation = async function implementation(
             element.scrollIntoView({ behavior: 'smooth' });
             await new Promise(resolve => setTimeout(resolve, 5000));
         }
+        let getBrand = document.querySelector('#bylineInfo') ? document.querySelector('#bylineInfo').innerText : null
+        if (getBrand.toLowerCase().includes('visit the')) {
+            getBrand = getBrand.split('Visit the')[1].split('store')[0];
+            getBrand = getBrand.split('Store')[0];
+            document.head.setAttribute('brand', getBrand);
+        }
+        if (getBrand.includes('Brand:')) {
+            getBrand = getBrand.split('Brand:')[1];
+            getBrand = getBrand.split('Store')[0];
+            document.head.setAttribute('brand', getBrand);
+        }
 
         function removeDuplicates(array) {
             array.splice(0, array.length, ...(new Set(array)))
