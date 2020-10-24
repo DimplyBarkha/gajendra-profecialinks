@@ -1,24 +1,24 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="vtex-search-result-3-x-galleryItem vtex-search-result-3-x-galleryItem--normal pa4"]
+recordXPath: //div[contains(@class,"galleryItem")]
 fields:
   - name: productUrl
-    xpath: //a[@class="vtex-product-summary-2-x-clearLink h-100 flex flex-column"]/@href
+    xpath: //a[contains(@class,"Link")]/@href
     regExp: (.+)
     regExpReplace: https://www.carrefour.com.br$1
   - name: thumbnail
-    xpath: //div[@class="dib relative vtex-product-summary-2-x-imageContainer vtex-product-summary-2-x-imageStackContainer vtex-product-summary-2-x-hoverEffect"]/img/@src
+    xpath: //div[contains(@class,"imageContainer")]/img/@src
     regExp: (.+)(ids/)(\d+)(-)(\d+)(-)(\d+)(\?)(width=)(\d+)(&height=)(\d+)(.+)
     regExpReplace: $1$2$3$4800$6800$8$9800$11800$13
   - name: name
-    xpath: //h2[@class="carrefourbr-carrefour-components-0-x-productName"]
+    xpath: //h2[contains(@class,"productName")]
   - name: price
-    xpath: //span[@class="vtex-product-price-1-x-currencyContainer"]
+    xpath: //span[contains(@class,"PriceValue")]/span
     regExp: (\d+)(,)(\d+)
   - name: id
-    xpath: //a[@class="vtex-product-summary-2-x-clearLink h-100 flex flex-column"]/@href
+    xpath: //a[contains(@class,"Link")]/@href
     regExp: (.+)(mp|mv)(\d+)(/)(.+)
     regExpReplace: $3
   - name: searchUrl
-    xpath: //div[@class="vtex-search-result-3-x-galleryItem vtex-search-result-3-x-galleryItem--normal pa4"]/@searchurl
+    xpath: //div[contains(@class,"galleryItem")]/@searchurl
