@@ -55,7 +55,8 @@ fields:
   - name: videos
     singleValue: false
     # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
-    xpath: //div[contains(@class,'video-slides')]/@data-url
+    xpath: (//div[@id='thumbnailVideo'] | //div[contains(@class,'video-slides')]/@data-url[not(//div[@id='thumbnailVideo'])])[1]
+    # xpath: //div[contains(@class,'video-slides')]/@data-url
   - name: name
     xpath : //meta[@name="twitter:title"]/@content
   - name: ratingCount

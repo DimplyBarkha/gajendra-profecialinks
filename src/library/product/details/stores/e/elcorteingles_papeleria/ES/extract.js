@@ -111,6 +111,17 @@ module.exports = {
                     addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
                     addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse).id);
                     addElementToDocument('variantInformation', JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant ? JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant[0].value : "");
+                    if(JSON.parse(apiDataResponse).video && JSON.parse(apiDataResponse).video.length > 0) {
+                        console.log('we have the video array in the api response');
+                        if(JSON.parse(apiDataResponse).video[0].url) {
+                            console.log('we have url in the video array');
+                            addElementToDocument('thumbnailVideo', JSON.parse(apiDataResponse).video[0].url);
+                        } else {
+                            console.log('there is no url in the video array');
+                        }
+                    } else {
+                        console.log('There is no video in the api response');
+                    }
                 }
             }
 
