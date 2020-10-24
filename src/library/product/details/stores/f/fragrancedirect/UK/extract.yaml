@@ -1,0 +1,156 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class="product-col-1 product-image-container"]//div[@class="hide-mobile pdp-hide-mobile"]//img[@class="primary-image"]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="product-col-1 product-image-container"]//div[@class="hide-mobile pdp-hide-mobile"]//img[@class="primary-image"]/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class="product-col-1 product-image-container"]//div[@class="hide-mobile pdp-hide-mobile"]//ul/li[@class="thumb"]//a//img/@src
+  - name: metaKeywords
+    singleValue: false
+    description: The <meta> keywords content
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: _url
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class, "breadcrumb")]//ol/li[position() > 1]/a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div//h1[@class="product-name"]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@class="price-retail"]
+    regExp: RRP(.+)
+    regExpReplace: $1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-col-2 product-detail"]//div[@class="product-price"]/span[@class="price-sales"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="product-col-2 product-detail"]//div[@class="availability-msg"]/p
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //span[@itemprop="description"]
+  - name: descriptionBullets
+    singleValue: false
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: brandText
+    singleValue: false
+    xpath: //span[@itemprop="brand"]
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+  - name: quantity
+    singleValue: false
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue: false
+    description: Net weight as described on the page
+  - name: weightGross
+    singleValue: false
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="product-col-2 product-detail"]//div[@class="product-number"]/span
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="product-col-2 product-detail"]//div[@class="product-number"]/span
+  - name: mpc
+    singleValue: false
+    description: The manufacturer model code (unique) of the product
+  - name: packSize
+    singleValue: false
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: legalDisclaimer
+    singleValue: false
+    description: Content under "legal disclaimer" header
+  - name: directions
+    singleValue: false
+    description: Content under "directions" header
+  - name: warnings
+    singleValue: false
+    description: Content under "warnings" header
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="product-col-2 product-detail"]//meta[@itemprop="reviewCount"]/@content
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="product-col-2 product-detail"]//div[@class="bv_avgRating_component_container notranslate"]
+    type: NUMBER
+  - name: shippingInfo
+    singleValue: false
+    description: Shipping information for the product
+  - name: shippingDimensions
+    singleValue: false
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    singleValue: false
+    description: Stated shipping weight
+  - name: variantCount
+    singleValue: false
+    description: Number of variants listed
+    type: NUMBER
+  - name: color
+    singleValue: false
+    description: A textual description of the colour
+  - name: colorCode
+    singleValue: false
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class="hidden-mobile image-content-section"]/img/@src | //div[@class="fm-output fm-modern"]/div/@data-permalink
+    description: Images within the third party description
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[@class="product-col-1 product-image-container"]//div[@class="hide-mobile pdp-hide-mobile"]//ul//li[@class="video-thumb rel"]/a/@data-videoid
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //meta[@property='og:title']/@content
+  - name: inStorePrice
+    singleValue: false
+    description: Price in the selected store
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="product-col-1 product-image-container"]//div[@class="hide-mobile pdp-hide-mobile"]//ul/li[@class="thumb"]//a//img/@src)
+  - name: specifications
+    singleValue: false
+    description: The physical dimensions of the product including packaging.
+  - name: warranty
+    singleValue: false
+    description: Guarantee associated with the product
+  - name: storage
+    singleValue: false
+    description: Suggested storage location for product
+  - name: countryOfOrigin
+    singleValue: false
+    description: The country from which the product originates
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="product-col-2 product-detail"]//div[@class="product-price"]/span[@class="price-save"]
+    
+  
