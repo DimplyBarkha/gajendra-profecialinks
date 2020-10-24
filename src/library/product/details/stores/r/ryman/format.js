@@ -26,27 +26,10 @@ const transform = (data) => {
       for (let row of group) {
         var bulletInfo=[];
         if(row.description){
-            row.description.forEach(item=>{
-                var itemArr=item.text.split('\n');
-                item.text=item.text.replace('\n',' || ');
-                itemArr.forEach(element => {
-                    console.log('**:',element);
-                    if(element.indexOf(". ")==0){
-                        console.log('adding bullet data :',element);
-                        var tmp=element.replace('. ','');
-                        console.log('before push remove bullet data : ',tmp);
-                        bulletInfo.push(tmp);
-                    }
-                });
-                console.log('bulletInfo :',bulletInfo);
-            })
-        }
-        if(bulletInfo.length>0){
-            row.descriptionBullets=[{"text":bulletInfo.length}];
-            row.additionalDescBulletInfo=[{"text":"|| "+bulletInfo.join(' || ')}];
-        }else{
-            delete row.additionalDescBulletInfo;
-            delete row.descriptionBullets;
+          row.description.forEach(item=>{
+            var itemArr=item.text.split('\n');
+            item.text=item.text.replace('\n',' || ');
+          })
         }
       }
     }
