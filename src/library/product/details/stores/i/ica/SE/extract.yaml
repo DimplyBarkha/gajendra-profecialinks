@@ -20,10 +20,10 @@ fields:
     xpath: //div[contains(@class,"dAvxTh")]/h2
   - name: price
     singleValue: false
-    xpath: //p[contains(@class,'ciXVYf')]
+    xpath: //p[contains(@class,'ciXVYf') or contains(@class,"gBbDnd")]
   - name: pricePerUnitUom
     singleValue: false
-    xpath: //p[contains(@class,'ciXVYf')]/parent::*/small
+    xpath: //p[contains(@class,'ciXVYf') or contains(@class,"gBbDnd")]/parent::*/small
   - name: nameExtended
     singleValue: false
     xpath: //div[contains(@class,"dAvxTh")]/h2
