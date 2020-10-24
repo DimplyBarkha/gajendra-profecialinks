@@ -41,7 +41,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     xpath: //script[@id='product-json-ld']    
-    regExp: \"brand\":.+?\"seller\"\s*:\s*\"(.+?)\"
+    regExp: \"seller\":.+?\"name\"\s*:\s*\"(.+?)\"          
     regExpReplace: $1
   - name: name
     singleValue: true
