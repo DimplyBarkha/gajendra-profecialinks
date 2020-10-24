@@ -6,11 +6,9 @@ fields:
   - name: rankOrganic
     singleValue: false
     description:
-    xpath: //div[contains(@class,"shop-results")]//a//@href
   - name: rank
     singleValue: false
     description:
-    xpath: //div[contains(@class,"shop-results")]//a//@href
   - name: name
     singleValue: false
     description:
@@ -22,7 +20,7 @@ fields:
   - name: _url
     singleValue: false
     description:
-    xpath: //div[contains(@class,"shop-results")]//a//@href
+    xpath: //div[@id='document-url']/text()
   - name: thumbnail
     singleValue: false
     description:
@@ -30,4 +28,4 @@ fields:
   - name: id
     singleValue: false
     description:
-    xpath: //div[contains(@class,"shop-results")]//a//@productCode
+    xpath: //div[contains(@class,"shop-results")]//a//@productcode

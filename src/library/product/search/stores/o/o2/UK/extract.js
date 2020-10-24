@@ -61,37 +61,33 @@ async function implementation(
     results[i].code = productCode;
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   };
-  var productcodes = [];
-  results.map((item) => {
-    productcodes.push(item.code);
-  });
+  // var productcodes = [];
+  // results.map((item) => {
+  //   productcodes.push(item.code);
+  // });
 
-  await context.goto(mainUrl + "&pc=" + productcodes.join(), { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
+  await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
   await applyScroll(context);
-  await context.evaluate(async function () {
-    var qs = (function (a) {
-      if (!a) return {};
-      var b = {};
-      for (var i = 0; i < a.length; ++i) {
-        var p = a[i].split('=', 2);
-        if (p.length == 1)
-          b[p[0]] = "";
-        else
-          b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
-      }
-      return b;
-    })(window.location.search.substr(1).split('&'));
+  await context.evaluate(async function (results) {
     try {
-      var pc = (qs["pc"]).split(',');
-      let index = 0;
+      var index = 0;
       (document.querySelectorAll('div .shop-results a')).forEach((node) => {
-        node.setAttribute('productCode', pc[index]);
+        node.setAttribute('productCode', results[0][index].code);
         index++;
       });
+      function addHiddenDiv(id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      addHiddenDiv('document-url', document.URL);
+
     } catch (error) {
       console.log('Error: ', error);
     }
-  });
+  }, [results]);
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

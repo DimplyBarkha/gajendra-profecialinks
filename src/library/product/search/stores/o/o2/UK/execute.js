@@ -4,7 +4,7 @@ module.exports = {
     country: 'UK',
     store: 'o2',
     domain: 'o2.co.uk',
-    url: 'https://search.o2.co.uk/?i=1&iframe=1&parentdomain=www.o2.co.uk&q={searchTerms}&q1=Shop&rank=rank_default&view=html&x1=page_type&count=20',
+    url: 'https://search.o2.co.uk/?i=1&iframe=1&parentdomain=www.o2.co.uk&q={searchTerms}&q1=Shop&rank=rank_default&view=html&x1=page_type&count=100000',
     loadedSelector: '.col-2thirds-search',
     noResultsXPath: '//span[@class="totalCount" and text()=0]',
     zipcode: '',
