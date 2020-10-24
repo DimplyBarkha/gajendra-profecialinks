@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="product-grid-container"]//div[contains(@class,"product-grid-item")]
+fields:
+  - name: id
+    SingleValue: true
+    xpath: //div[contains(@class,"product-grid-item")]//div[contains(@class,"product-image")]/a/@data-id
+  - name: productUrl
+    SingleValue: true
+    xpath: //div[contains(@class,"product-grid-item")]//div[contains(@class,"product-image")]/a/@href
+  - name: price
+    SingleValue: true
+    xpath: //div[contains(@class,"product-grid-item")]//span[contains(@id,"product-price")]
+  - name: listPrice
+    SingleValue: true
+    xpath: //div[contains(@class,"product-grid-item")]//span[contains(@id,"old-price")]
+  - name: thumbnail
+    SingleValue: true
+    xpath: //div[contains(@class,"product-grid-item")]//div[contains(@class,"product-image")]//img/@src
+  - name: name
+    SingleValue: true
+    xpath: //div[contains(@class,"product-grid-item")]//h2[contains(@class,"product-name")]/a
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
