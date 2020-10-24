@@ -6,7 +6,7 @@ module.exports = {
     domain: 'unieuro.it',
     url: 'https://www.unieuro.it/online/?q=Dyson%20cordfree',
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: "//div[@id='no-results-message']/p",
     zipcode: '',
   },
 };

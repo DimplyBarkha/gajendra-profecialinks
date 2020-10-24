@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: "//div[@id='no-results-message']/p",
     openSearchDefinition: null,
     domain: 'unieuro.it',
     zipcode: '',
