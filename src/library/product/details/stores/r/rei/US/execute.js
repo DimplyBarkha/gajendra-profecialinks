@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'rei',
     domain: 'rei.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div#product-container',
+    noResultsXPath: "//p[contains(text(),'The page you're looking for is not available for one of the following reasons')]",
     zipcode: '',
   },
 };

@@ -21,6 +21,8 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@data-is,'apparel-media-center')]//div[@data-ui='image-carousel']//div[not(contains(@class,'selected')) and not (contains(@class,'video-thumb')) and contains(@class,'thumb')]//img/@src
+    regExp: (.+?)\?size=90x120
+    regExpReplace: $1?size=512x682
   - name: listPrice
     singleValue: true
     xpath: //span[contains(@class,'product-current-price')]//span
@@ -30,6 +32,8 @@ fields:
   - name: aggregateRating
     singleValue: true
     xpath: //div[@id='bv2-desktop']//span[contains(@class,'cdr-rating__number_4.2.0')]//following-sibling::*
+    regExp: \((.+?)\)
+    regExpReplace: $1
   - name: imageAlt
     singleValue: true
     xpath: //div[contains(@class,'mc-primary-img align-center ')]//img[contains(@data-ui,'media-center-primary-image')]/@alt
@@ -54,6 +58,8 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //table[contains(@class,'product-specs-table')]//tr
+    regExp: (.+?)<\/th>(.+)
+    regExpReplace: $1:$2
   - name: videos
     singleValue: false
     xpath: //div[contains(@data-is,'apparel-media-center')]//div[@data-ui='image-carousel']//div[not(contains(@class,'selected')) and contains(@class,'video-thumb') and contains(@class,'thumb')]//img/@src
