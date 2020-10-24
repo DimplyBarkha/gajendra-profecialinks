@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'fragrancedirect.co.uk',
-    timeout: 50000,
     country: 'UK',
     store: 'fragrancedirect',
+    domain: 'fragrancedirect.co.uk',
     zipcode: '',
   },
 };
