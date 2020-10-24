@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    description: price of the product
+    xpath: //div[@class='info']/div[@class='prices']/a/div[@class='price']
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page 
+    xpath: //div[@class="item-container"]/div/div[@class='title']/a/@href
+    regExp: (online/.*)
+    regExpReplace: https://www.unieuro.it/$1
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //div[@class='info']/div[@class='product-img-container']/a/img[@class='product-img lazyloaded']/@src
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class='item-container']/div[@class='info']/div[@class='title']/a/text()
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //article/@data-product-tile-sku
