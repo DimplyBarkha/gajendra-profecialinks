@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'IT',
     store: 'unieuro',
-    nextLinkSelector: '#pagnNextString, #pagnNextLink, span[class="page-number-container"] ul li:nth-child(4) a',
+    nextLinkSelector: '#pagnNextString, #pagnNextLink, span[class="page-number-container"] ul li:last-child a.go-to-page',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
