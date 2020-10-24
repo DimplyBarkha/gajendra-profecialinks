@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'rigla',
-    nextLinkSelector: 'div.catalog-toolbar-pages div.catalog-toolbar-pages__item_active:not(.catalog-toolbar-pages__separate_hidden) + div',
+    nextLinkSelector: 'div.catalog-toolbar-pages div.catalog-toolbar-pages__item_active ~ div.catalog-toolbar-pages__item',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.catalog-content',
