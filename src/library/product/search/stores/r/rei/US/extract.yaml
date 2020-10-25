@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id='search-results']//li
+fields:  
+  - name: rankOrganic
+    SingleValue: false
+    defaultValue: 1
+  - name: rank
+    SingleValue: false
+    defaultValue: 1
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@id='search-results']//li//a[1]/@href
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@id='search-results']//li//img[1]/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@id='search-results']//li//h3
+  - name: price
+    SingleValue: false
+    xpath: //div[@id='search-results']//li//div[contains(@class,'_1zwqhlCzOK-xETXwFg_-iZ')]//span[not(descendant::*) and not(contains(text(),'Compared to'))]
+  - name: reviewCount
+    SingleValue: false
+    xpath: //div[@id='search-results']//li//span[contains(@class,'cdr-rating__count_5.2.1')]
