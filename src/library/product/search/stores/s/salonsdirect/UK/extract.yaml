@@ -1,0 +1,22 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="products wrapper grid products-grid"]//ol[@class="products list items product-items"]//li
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="products wrapper grid products-grid"]//ol[@class="products list items product-items"]//li//div[@class="price-box price-final_price"]//@data-product-id
+  - name: name
+    singleValue: false
+    xpath: //div[@class="products wrapper grid products-grid"]//ol[@class="products list items product-items"]//li//div[@class="product details product-item-details"]//a[@class="product-item-link"]
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class,'price-wrapper price-excluding-tax')]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="products wrapper grid products-grid"]//ol[@class="products list items product-items"]//li//div[@class="product details product-item-details"]//a[@class="product-item-link"]/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="products wrapper grid products-grid"]//ol[@class="products list items product-items"]//li//div[@class="product-item-info"]//span[@class="product-image-container"]//span[@class="product-image-wrapper"]//img//@src
+  - name: rank
+  - name: rankOrganic
