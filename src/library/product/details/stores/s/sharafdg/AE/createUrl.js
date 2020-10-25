@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'sharafdg.com',
     prefix: null,
-    url: null,
+    url: 'https://uae.sharafdg.com/?p={id}',
     country: 'AE',
     store: 'sharafdg',
     zipcode: '',

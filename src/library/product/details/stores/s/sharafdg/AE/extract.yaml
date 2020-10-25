@@ -16,20 +16,23 @@ fields:
     singleValue: true
     xpath: //div[contains(@class,'product-title')]//h1
   - name: availabilityText
-    singleValue: true
-    xpath: //button[@id='snrsWarrantyBtn']/text()
+    singleValue: false
+    xpath: //button[@class="button btn btn-secondary alt" and text()="Buy Now"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,' slick-vertical')]//div[contains(@class,'slick-track')]//div[contains(@class,'slick-slide') and not(contains(@class,'slick-cloned')) and not(contains(@class,'slick-active'))]//img/@src
+    xpath: //div[contains(@class,' slick-vertical')]//div[contains(@class,'slick-track')]//div[contains(@class,'slick-slide') and not(contains(@class,'slick-cloned')) and not(contains(@class,'slick-current'))]//img/@src
   - name: listPrice
     singleValue: true
-    xpath: //div[contains(@class,'quick-right')]//div[contains(@class,'cross-price')]//span[contains(@class,'strike')]
+    xpath: //div[contains(@class,'quick-right')]//div[contains(@class,'cross-price')]
   - name: ratingCount
     singleValue: true
-    xpath: //span[@itemprop='reviewCount']/text()
+    xpath: //span[@itemprop='reviewCount']
   - name: aggregateRating
     singleValue: true
-    xpath: //div[contains(@class,'product-title')]//span[@itemprop='ratingValue']/text()
+    xpath: //div[contains(@class,'product-title')]//span[@itemprop='ratingValue']
     regExp: ([\d\.]+)
     regExpReplace: $1
   - name: imageAlt
@@ -40,40 +43,58 @@ fields:
     xpath: //div[contains(@class,'quick-right')]//div[contains(@class,'discount-holder')]//div[contains(@class,'product-disc')]
   - name:  description
     singleValue: false
-    xpath: //div[contains(@class,'detailspecbox')]//table[contains(@itemprop,'description')]//tr[not(./th)]
+    xpath: //div[@id="prodcut-tab1"]
+  - name:  specifications
+    singleValue: false
+    xpath: //div[contains(@class,'detailspecbox')]//table[contains(@itemprop,'description')]//tr[not(./th)]    
   - name: price
     singleValue: false
-    xpath: //div[contains(@itemprop,'offers')]//div[@class='price']//span
+    xpath: //div[contains(@itemprop,'offers')]//div[@class='price']
   - name: brandText
     singleValue: true
     xpath: //td[contains(@itemprop,'brand')]
   - name: weightNet
     singleValue: true
-    xpath: //td[contains(text(),' Weight ')]//following-sibling::td//text()
+    xpath: //td[contains(text(),' Weight ')]//following-sibling::td
+  - name: weightGross
+    singleValue: true
+    xpath: //td[contains(text(),' Package weight ')]//following-sibling::td
   - name: sku
     singleValue: true
-    xpath: //div[@class='sku-wrap']//strong[contains(text(),'SKU:')]//following-sibling::span/text()
+    xpath: //div[@class='sku-wrap']//strong[contains(text(),'SKU:')]//following-sibling::span
   - name: variantId
     singleValue: true
-    xpath: //div[@class='sku-wrap']//strong[contains(text(),'SKU:')]//following-sibling::span/text()
+    xpath: //link[@rel="shortlink"]/@href
   - name: shippingDimensions
     singleValue: true
-    xpath: //td[contains(text(),' Dimensions ')]//following-sibling::td/text()
+    xpath: //td[contains(text(),' Dimensions ')]//following-sibling::td
   - name: countryOfOrigin
     singleValue: true
-    xpath: //td[contains(text(),' Country ')]//following-sibling::td/text()
+    xpath: //td[contains(text(),' Country ')]//following-sibling::td
   - name: specifications
     singleValue: false
     xpath: //div[@id='inpage_selector_specification']//div[contains(@class,'flix-tech-spacs-contents')]//div[contains(@class,'flix-dl')]
   - name: mpc
     singleValue: true
-    xpath: //div[@class='sku-wrap']//strong[contains(text(),'Model:')]//following-sibling::span/text()
+    xpath: //div[@class='sku-wrap']//strong[contains(text(),'Model:')]//following-sibling::span
   - name: videos
     singleValue: false
     xpath: //video[contains(@class,'jw-video')]/@src
   - name: shippingInfo
     singleValue: true
     xpath: //div[contains(@class,'quick-right')]//span[contains(@class,'sold-by')]//a//b
+  - name: gtin
+    singleValue: false
+    xpath: //script/@data-flix-ean
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@class,'product-tab')]//img/@src
+    xpath: //div[@id="prodcut-tab1"]//div[contains(@class,"flix-feature-image")]//img/@srcset
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="prodcut-tab1"]//div[@class="inpage_selector_feature"]
+  - name: warranty
+    singleValue: false
+    xpath: //div[contains(@class,'quick-right')]//i[contains(@class,'dg-warranty') or contains(@class,'sh-warranty')]//parent::div/parent::div
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //td[contains(text(),' Energy Rating ')]//following-sibling::td
