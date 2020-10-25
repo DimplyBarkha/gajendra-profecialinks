@@ -24,3 +24,8 @@ fields:
   - name: price
     SingleValue: false
     xpath: //div[contains(@class,'slider-extra--wrp')]//div[@class='price']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class="product-rating-count"]
+    regExp: ([\d|\.]+)
+    regExpReplace: $1    
