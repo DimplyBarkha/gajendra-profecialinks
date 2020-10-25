@@ -16,7 +16,7 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //article/@data-product-tile-sku
+    xpath: //div[@class="item-container"]//div[@class="actions-container is-active"]/form/input/@value
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
