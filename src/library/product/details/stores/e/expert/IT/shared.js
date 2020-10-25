@@ -1,4 +1,3 @@
-
 /**
  *
  * @param {ImportIO.Group[]} data
@@ -18,24 +17,21 @@ const transform = (data) => {
   // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  for (const { group } of data) {
+  for (const { group }
+    of data) {
     for (const row of group) {
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {
           text += `|| ${item.text.trim()}`;
         });
-        row.additionalDescBulletInfo = [
-          {
-            text: text,
-          },
-        ];
+        row.additionalDescBulletInfo = [{
+          text: text,
+        }];
       }
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(item => {
-          if (item.text.includes('https:') || item.text.includes('http:')) {
-            item.text = item.text;
-          } else {
+          if (!(item.text.includes('https:') || item.text.includes('http:'))) {
             item.text = item.text ? 'https:' + item.text : '';
           }
         });

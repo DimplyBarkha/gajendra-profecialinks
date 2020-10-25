@@ -43,6 +43,7 @@ async function implementation (
     } catch (error) {
       console.log(error);
     }
+
     function addHiddenDiv (id, content, index) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -50,6 +51,7 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+
     function findJsonObj1 (scriptSelector) {
       try {
         const xpath = `//script[contains(.,'${scriptSelector}')]`;
@@ -61,6 +63,7 @@ async function implementation (
         console.log(error.message);
       }
     }
+
     function findJsonObj2 () {
       try {
         const xpath = '//script[contains(id,\'productMicroData\')]';
@@ -88,14 +91,14 @@ async function implementation (
         JSONArr = JSONArr2;
       }
     }
-    const offer_text = JSONArr ? JSONArr.offers : '';
-    let availability_text = offer_text ? offer_text.availability : '';
-    if (availability_text.includes('OutOfStock')) {
-      availability_text = 'Out of Stock';
+    const offerText = JSONArr ? JSONArr.offers : '';
+    let availabilityText = offerText ? offerText.availability : '';
+    if (availabilityText.includes('OutOfStock')) {
+      availabilityText = 'Out of Stock';
     } else {
-      availability_text = 'In Stock';
+      availabilityText = 'In Stock';
     }
-    addHiddenDiv('availability', availability_text);
+    addHiddenDiv('availability', availabilityText);
     const gtin = JSONArr ? JSONArr.gtin13 : '';
     addHiddenDiv('gtin', gtin);
     const Sku = JSONArr ? JSONArr.sku : '';
@@ -115,7 +118,6 @@ async function implementation (
     // addHiddenDiv('li_enhancedContent', enhancedContent);
     const specTrs = document.querySelectorAll('#Dettaglio table tr');
     const finalSpecArr = [];
-    const fieldVal = '';
     let field;
     let value;
     for (let index = 0; index < specTrs.length; index++) {
