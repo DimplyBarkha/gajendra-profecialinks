@@ -11,7 +11,7 @@ fields:
     xpath: //figure[@class="product_tile__figure"]/img/@src
   - name: productUrl
     singleValue: false
-    xpath: //a[@class="product_tile__link"]
+    xpath: //a[@class="product_tile__link"]/@href
   - name: thumbnail
     singleValue: false
     xpath: //figure[@class="product_tile__figure"]/img/@src
@@ -20,4 +20,4 @@ fields:
     xpath: //li[@class="product_grid__item"]//div[@class="j-star_rating"]/@data-rating
   - name: price
     singleValue: false
-    xpath: //li[@class="product_grid__item"]//div[@class="product_tile__price"]
+    xpath: //li[@class="product_grid__item"]//p[@class="product_tile__price"]

@@ -31,6 +31,12 @@ const transform = (data) => {
             item.text=tmp[0];
           });
         }
+        if(row.price){
+          row.price.forEach(item=>{
+            var tmp=item.text.split('-');
+            item.text=tmp[0].trim();
+          })
+        }
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
         rank++;
