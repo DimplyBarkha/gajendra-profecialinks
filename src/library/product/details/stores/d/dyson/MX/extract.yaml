@@ -29,7 +29,7 @@ fields:
     xpath: //span[contains(@class,"spec") and *[contains(text(),"Peso")]]//span
   - name: aggregateRating
     singleValue: false
-    xpath: //span[contains(@class,"rating__data__value")] | //div[contains(@class,"hgroup")]//span[@itemprop="ratingValue"] div 20
+    xpath: //span[contains(@class,"rating__data__value")] | //div[contains(@class,"hgroup")]//span[@itemprop="ratingValue"] 
   - name: ratingCount
     singleValue: false
     manualSelector: div.rating span[itemprop="reviewCount"], div.hgroup span[itemprop="reviewCount"]

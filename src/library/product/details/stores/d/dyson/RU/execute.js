@@ -5,7 +5,7 @@ module.exports = {
     country: 'RU',
     store: 'dyson',
     domain: 'dyson.ru',
-    loadedSelector: null,
+    loadedSelector: 'div[class*="product-shop"]',
     noResultsXPath: null,
     zipcode: '',
   },

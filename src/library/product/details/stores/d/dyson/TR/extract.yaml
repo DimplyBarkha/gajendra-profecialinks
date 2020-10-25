@@ -124,15 +124,20 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //div[@id="reviewCount"]
+    xpath: //span[@itemprop="reviewCount"]
+    defaultValue: 0
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    xpath: //div[@id="ratingText"]
+    xpath: //span[@itemprop="ratingValue"]
+    regExp: (\d{1,3})\.?(\d{0,3})
+    regExpReplace: $1,$2
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@id="rating"]
+    xpath: //span[@itemprop="ratingValue"]
+    regExp: (\d{1,3})\.?(\d{0,3})
+    regExpReplace: $1,$2
   - name: shippingInfo #localedependent
     singleValue: true
     description: Shipping information for the product
