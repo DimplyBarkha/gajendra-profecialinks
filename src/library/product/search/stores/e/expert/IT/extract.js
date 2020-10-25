@@ -31,24 +31,25 @@ async function implementation (
       let ul;
       if (nextLink.length > 0) {
         ul = nextLink[0];
-      } else if (nextLink.length = 1) {
+      } else if (nextLink.length === 1) {
         ul = nextLink[0];
       }
-      const finalUl = ul;
+      // const finalUl = ul;
       const activeUl = ul ? ul.querySelector('li.active') : '';
       if (activeUl !== undefined) {
         // @ts-ignore
         nextSibling = activeUl ? activeUl.nextElementSibling : '';
       }
       console.log('nextSibling: ', nextSibling);
+    } else {
+      console.log('nextSibling not found');
     }
 
-    function addHiddenDiv (id, content) {
+    function addDiv (id, content) {
       const newDiv = document.createElement('a');
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.href = content;
-      // newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
     // @ts-ignore
@@ -57,20 +58,20 @@ async function implementation (
       // @ts-ignore
       hrefLink = hrefLink ? hrefLink.href : '';
       // @ts-ignore
-      if (hrefLink.includes('https://www.')) {
-        hrefLink = hrefLink;
-      } else {
+      if (!hrefLink.includes('https://www.')) {
         hrefLink = 'https://www.expertonline.it' + hrefLink;
       }
       // @ts-ignore
       if (nextSibling.innerText === '»') {
         console.log('Next link is last');
       } else {
-        addHiddenDiv('nextLinkSelector', hrefLink);
+        console.log(`nextLinkSelector: ${hrefLink}`);
+        addDiv('nextLinkSelector', hrefLink);
       }
     }
     // -----------------------------------------------------------------------
     async function infiniteScroll () {
+      console.log('Doing infinite scroll..');
       let prevScroll = document.documentElement.scrollTop;
       while (true) {
         window.scrollBy(0, document.documentElement.clientHeight);
@@ -81,6 +82,7 @@ async function implementation (
         }
         prevScroll = currentScroll;
       }
+      console.log('Infinite scroll over..');
     }
     await infiniteScroll();
     try {
@@ -104,9 +106,7 @@ async function implementation (
       const element = ids[index];
       console.log('element: ', element, index);
       let id = element.getAttribute('data-codiceextra');
-      if (id.includes('PROD')) {
-        id = id;
-      } else {
+      if (!id.includes('PROD')) {
         id = 'PROD_' + id;
       }
       idsArr.push(id);
@@ -125,7 +125,7 @@ async function implementation (
         ReviewTypes: '',
         Language: '',
       };
-      const other_params = {
+      const otherParams = {
         headers: { 'content-type': 'application/json; charset=UTF-8', 'Access-Control-Allow-Origin': '*' },
         body: JSON.stringify(data),
         method: 'POST',
@@ -133,7 +133,7 @@ async function implementation (
       };
 
       // @ts-ignore
-      return fetch(url, other_params)
+      return fetch(url, otherParams)
         .then(async function (response) {
           console.log('response: ', response);
           if (response.ok) {
@@ -156,20 +156,18 @@ async function implementation (
     ratingReviewObj = ratingReviewObj ? ratingReviewObj.Counters : '';
     const lis = document.querySelectorAll('div[id="app"] div.skywalker_riga');
     for (let index = 0; index < lis.length; index++) {
-    // console.log('lis.length: ', lis.length);
+      // console.log('lis.length: ', lis.length);
       const element = lis[index];
       console.log('element: ', element, index);
       let id = element.getAttribute('data-codiceextra');
-      if (id.includes('PROD')) {
-        id = id;
-      } else {
+      if (!id.includes('PROD')) {
         id = 'PROD_' + id;
       }
       // console.log(id);
       ratingReviewObj.find(param => {
         console.log('param: ', param, id);
         if (param) {
-        // @ts-ignore
+          // @ts-ignore
           if (param.SubjectKey === id) {
             console.log('param.SubjectKey: ', param.SubjectKey);
             console.log('id: ', id);
