@@ -1,0 +1,123 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    description: URL of the main product image
+    xpath: (//div[@data-id='fullImage']//img//@src)[1]
+  - name: imageAlt
+    singleValue: false
+    description: Alt text of the main product image
+    xpath: (//div[@data-id='fullImage']//img//@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: (//div[@class='carouselBox']//a//@rev)[position()>1]
+  - name: metaKeywords
+    singleValue: false
+    description: The <meta> keywords content
+    xpath: //meta[@name='keywords']//@content
+  - name: category
+    singleValue: false
+    xpath: (//div[contains(@class,'breadcrumb')]//span[@itemprop="itemListElement"])[position()>1]
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //meta[@name='twitter:title']//@content
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: //span[@class='from']//strong
+  - name: price
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //span[@class='for']//strong
+  - name: availabilityText
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //a[@id='btnAdicionarCarrinho']
+    regExp: Comprar
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: concat(//div[@itemprop="description"]//h2,//div[@itemprop="description"]//div[@id='descricao'])
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //span[@class='marcaProduto']
+  - name: weightGross
+    singleValue: false
+    xpath: //dl[@class='Peso-s--base--kg-- even']//dd
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //span[@class='rating-count']
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[contains(@class,'rating')]//span[contains(@class,'rating-value')]
+  - name: color
+    singleValue: false
+    description: A textual description of the colour
+    xpath: //dl[contains(@class,'Cor')]//dd
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //div[@class='produtoNome']
+  - name: _url
+    singleValue: false
+    xpath: //div[@id='document_url']
+  - name: url
+    singleValue: false
+    xpath: //div[@id='document_url']
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id='document_url']
+  - name: specifications
+    singleValue: false
+    description: The physical dimensions of the product including packaging.
+    xpath: //div[@id='caracteristicas']//dl
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    defaultValue: No
+    xpath: //div[@id='divFullImage']//span[@class='zoomPup']//img//@src
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+    xpath: //span[@class='productEan']
+  - name: sku
+    singleValue: false
+    xpath: //input[@id='ctl00_Conteudo_hdnIdSkuSelecionado']//@value
+  - name: variantId
+    singleValue: false
+    xpath: //input[@id='IdProduto']//@value
+  - name: termsAndConditions
+    singleValue: false
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+    xpath: //div[@id='infoImportante']
+  - name: customerServiceAvailability
+    singleValue: false
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+    xpath: //div[@class='contatoFornecedor']
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[@id='wpPlayerVideo']//embed//@src
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[contains(@class,'buying')]
+    
