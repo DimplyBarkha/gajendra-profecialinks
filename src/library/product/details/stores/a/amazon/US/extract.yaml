@@ -139,7 +139,7 @@ fields:
   #   xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
   - name: variantInformation
     singleValue: false
-    xpath: (//div[contains(@id, "variation_") and not(contains(@id, "size"))]//span)[1]
+    xpath: //li[@data-defaultasin]//img/@alt | 
   - name: color
     singleValue: false
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")] | //td/span[contains(text(),"Color")]//parent::td//following-sibling::td/span
@@ -177,6 +177,11 @@ fields:
   - name: amazonChoice
     singleValue: false
     xpath: //*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge-text-primary")]
+  - name: amazonChoiceBoolean
+    singleValue: true
+    xpath: //*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge-text-primary")]
+    type: BOOLEAN
+    defaultValue: false
   - name: amazonChoiceCategory
     singleValue: false
     xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-keyword-link")]//text()
@@ -197,6 +202,11 @@ fields:
     xpath: //*[@id="sns-base-price"]
     regExp: ([^ ]+)
     regExpReplace: $1
+  - name: subscribeAndSaveBoolean
+    singleValue: true
+    xpath: //*[@id="sns-base-price"]
+    type: BOOLEAN
+    defaultValue: false
   - name: pasin
     singleValue: false
     xpath: //script[contains(@type,"a-state") and contains(text(), "parentAsin")]
@@ -222,12 +232,22 @@ fields:
     regExp: (.+)
     regExpReplace: 'YES'
     defaultValue: 'NO'
+  - name: ingredientImagePresentBoolean
+    singleValue: true
+    xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
+    type: BOOLEAN
+    defaultValue: false
   - name: factImagePresent
     singleValue: true
     xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "FACT")]
     regExp: (.+)
     regExpReplace: 'YES'
     defaultValue: 'NO'
+  - name: factImagePresentBoolean
+    singleValue: true
+    xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "FACT")]
+    type: BOOLEAN
+    defaultValue: false
   - name: variantAsins
     singleValue: false
     xpath: //div[@id="my-variants"]/ul/li
@@ -243,10 +263,19 @@ fields:
   - name: primeFlag
     singleValue: false
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//div[contains(@id,"shipping")]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//span[contains(@id, "shipping-message")]//a[contains(@href, "prime") and contains(text(), "Amazon")] | //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell"))]//a[contains(text(), "Prime")]/text())[1]
+  - name: primeFlagBoolean
+    singleValue: true
+    xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//div[contains(@id,"shipping")]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//span[contains(@id, "shipping-message")]//a[contains(@href, "prime") and contains(text(), "Amazon")] | //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell"))]//a[contains(text(), "Prime")]/text())[1]
+    type: BOOLEAN
   - name: lbb
     singleValue: true
     xpath: //div[@id='ii_lbb']
     defaultValue: 'NO'
+  - name: lbbBoolean
+    singleValue: true
+    xpath: //div[@id='ii_lbb']
+    type: BOOLEAN
+    defaultValue: false
   - name: lbbPrice
     singleValue: true
     xpath: //div[@id='ii_lbbPrice']
@@ -409,6 +438,9 @@ fields:
   - name: productOtherInformation
     singleValue: false
     xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img) and not(contains(@class, "a-color-secondary"))]
+  - name: rawProductOtherInformation
+    singleValue: false
+    xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img) and not(contains(@class, "a-color-secondary"))]
   - name: packaging
     singleValue: true
     xpath: 
@@ -444,6 +476,9 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@id="feature-bullets"]//ul/li
+  - name: rawAdditionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@id="feature-bullets"]//ul/li
   - name: prop65Warning
     singleValue: true
     xpath: 
@@ -457,15 +492,32 @@ fields:
     singleValue: true
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
     defaultValue: No
+  - name: technicalInformationPdfPresentBoolean
+    singleValue: true
+    xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
+    type: BOOLEAN
+    defaultValue: false
   - name: termsAndConditions
     singleValue: true
     defaultValue: No
+  - name: termsAndConditionsBoolean
+    singleValue: true
+    type: BOOLEAN
+    defaultValue: false
   - name: privacyPolicy
     singleValue: true
     defaultValue: No
+  - name: privacyPolicyBoolean
+    singleValue: true
+    type: BOOLEAN
+    defaultValue: false
   - name: customerServiceAvailability
     singleValue: true
     defaultValue: No
+  - name: customerServiceAvailabilityBoolean
+    singleValue: true
+    type: BOOLEAN
+    defaultValue: false
   - name: materials
     singleValue: true
     xpath: //div[contains(@id, "prodDetails")]//tr[contains(., "Material") or (contains(., "material"))]/td[contains(@class,'value')]
@@ -474,8 +526,19 @@ fields:
     #xpath: //li[contains(@class, "pos-360") and not(contains(@class,'aok-hidden'))]//img/@src
     xpath: //div[@id='added-image360Present']
     defaultValue: No
+  - name: image360PresentBoolean
+    singleValue: true
+    xpath: //div[@id='added-image360Present']
+    type: BOOLEAN
+    defaultValue: false
   - name: imageZoomFeaturePresent
+    singleValue: true
     xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+  - name: imageZoomFeaturePresentBoolean
+    singleValue: true
+    xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+    type: BOOLEAN
+    defaultValue: false
   - name: zipcode
     singleValue: false
     xpath: //span[contains(@id,'glow-ingress')]
@@ -483,7 +546,7 @@ fields:
       [\d]+
   - name: frequentlyBoughtTogether
     singleValue: false
-    xpath: //div[@id='sims-fbt-content']/*[not(self::script)]/input/@value
+    xpath: //div[@id='sims-fbt-content']/*[not(self::script)]/input[contains(@name,"Asin")]/@value
   - name: topAd
     singleValue: true
     # xpath: //iframe[contains(@name,"ilm_desk")]
@@ -555,11 +618,16 @@ fields:
     singleValue: false
     xpath: //span[@data-hook="cr-widget-FocalReviews"]
   - name: andonCords
-    singleValue: false
-    xpath: //div[@id="andonCord_feature_div"]//child::text()
+    singleValue: true
+    xpath: //div[@id="andonCord_feature_div"]//*
+    type: BOOLEAN
   - name: badges
     singleValue: false
-    xpath: //*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge-rectangle")] | //a[@class="badge-link"]
+    xpath: //*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge-rectangle")] | //a[@class="badge-link"] | //*[@id="sns-base-price"]
   - name: lowestPriceIn30Days
     singleValue: true
     xpath: //*[contains(text(),"owest") and contains(text(),"rice") and contains (text(),"30 days")]
+  - name: lowestPriceIn30DaysBoolean
+    singleValue: true
+    xpath: //*[contains(text(),"owest") and contains(text(),"rice") and contains (text(),"30 days")]
+    type: BOOLEAN

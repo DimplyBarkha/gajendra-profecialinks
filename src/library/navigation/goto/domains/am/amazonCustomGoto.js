@@ -12,7 +12,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
     // missingDataRetry has dependants
     missingDataRetry: true,
     // dependant on missingDataRetry
-    cleanCookieRetry: true,
+    cleanCookieRetry: false,
     // dependant on missingDataRetry
     salesRankBadgeRetry: true,
     hourlyRetryLimit: false

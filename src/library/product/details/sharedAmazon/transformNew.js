@@ -115,17 +115,17 @@ const transform = (data, context) => {
       if (row.variantId) {
         row.variantId = [{ text: row.variantId[0].text.replace('parentAsin":"', '') }];
       }
-      // if (row.salesRankCategory) {
-      //   row.salesRankCategory = row.salesRankCategory.map(item => {
-      //     const unWantedTxt = 'See Top 100 in ';
-      //     if (item.text.includes('#')) {
-      //       const regex = /#[0-9,]{1,} in (.+) \(/s;
-      //       const rawCat = item.text.match(regex);
-      //       return { text: rawCat ? rawCat[1].replace(unWantedTxt, '') : '' };
-      //     }
-      //     return { text: item.text.replace(unWantedTxt, '') };
-      //   });
-      // }
+      if (row.salesRankCategory) {
+        row.salesRankCategory = row.salesRankCategory.map(item => {
+          const unWantedTxt = 'See Top 100 in ';
+          if (item.text.includes('#')) {
+            const regex = /#[0-9,]{1,} in (.+) \(/s;
+            const rawCat = item.text.match(regex);
+            return { text: rawCat ? rawCat[1].replace(unWantedTxt, '') : '' };
+          }
+          return { text: item.text.replace(unWantedTxt, '') };
+        });
+      }
       if (row.salesRank) {
         row.salesRank = row.salesRank.map(item => {
           if (item.text.includes('#')) {
@@ -179,22 +179,22 @@ const transform = (data, context) => {
         });
         row.specifications = [{ text: text }];
       }
-      // if (row.productOtherInformation) {
-      //   const text = [];
-      //   row.productOtherInformation.forEach(item => { text.push(item.text); });
-      //   if (text.length > 0) {
-      //     row.productOtherInformation = [{ text: text.join(' | ').trim().replace(/\| \|/g, '|') }];
-      //   }
-      // }
-      // if (row.additionalDescBulletInfo) {
-      //   const text = [''];
-      //   row.additionalDescBulletInfo.forEach(item => {
-      //     if (item.text.length > 0) { text.push(item.text); }
-      //   });
-      //   if (text.length > 0) {
-      //     row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
-      //   }
-      // }
+      if (row.productOtherInformation) {
+        const text = [];
+        row.productOtherInformation.forEach(item => { text.push(item.text); });
+        if (text.length > 0) {
+          row.productOtherInformation = [{ text: text.join(' | ').trim().replace(/\| \|/g, '|') }];
+        }
+      }
+      if (row.additionalDescBulletInfo) {
+        const text = [''];
+        row.additionalDescBulletInfo.forEach(item => {
+          if (item.text.length > 0) { text.push(item.text); }
+        });
+        if (text.length > 0) {
+          row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+        }
+      }
       if (row.otherSellersPrime) {
         row.otherSellersPrime.forEach(item => {
           if (item.text.includes('mazon') || item.text.includes('rime')) {
@@ -231,16 +231,7 @@ const transform = (data, context) => {
       if (row.ingredientsList) {
         row.ingredientsList = [{ text: row.ingredientsList.map(item => `${item.text}`).join(' ') }];
       }
-      // if (row.frequentlyBoughtTogether) {
-      //   row.frequentlyBoughtTogether = [{ text: row.frequentlyBoughtTogether[0].text.replace(/\{([^}]*)\}/g, '') }];
-      // }
-      // if (row.ratingsDistribution) {
-      //   const filteredRatings = row.ratingsDistribution.map(rating => {
-      //     let split = rating.text.split('star');
-      //     return split[0].trim() + ':' + (split[1].replace('%','').trim()/100).toString();
-      //   });
-      //   row.ratingsDistribution = [{ text: filteredRatings }];
-      // }
+
       if (row.lowestPriceIn30Days) {
         row.lowestPriceIn30Days = [{ text: 'True' }];
       } else {
@@ -255,17 +246,13 @@ const transform = (data, context) => {
           row.shippingWeight = [{ text: dimText.split(';')[1].trim() }];
         }
       }
-      // if (row.customerQuestionsAndAnswers) {
-      //   row.customerQuestionsAndAnswers = [{ text: row.customerQuestionsAndAnswers[0].text.replace(/\<([^>]*)\>/g, '').replace(/\{([^}]*)\}/g, '') }];
+      // if (row.featureNames && row.featureStars){
+      //   featArr = [];
+      //   for (let i=0;i<row.featureNames.length; i++){
+      //     featArr.push(`${row.featureNames[i].text}:${row.featureStars[i].text}`);
+      //   }
+      //   row.starsByFeature = [{ text: featArr }];
       // }
-      if (row.featureNames && row.featureStars){
-        featArr = [];
-        for (let i=0;i<row.featureNames.length; i++){
-          featArr.push(`${row.featureNames[i].text}:${row.featureStars[i].text}`);
-        }
-        row.starsByFeature = [{ text: featArr }];
-      }
-
       const zoomText = row.imageZoomFeaturePresent ? 'Yes' : 'No';
       row.imageZoomFeaturePresent = [{ text: zoomText }];
 

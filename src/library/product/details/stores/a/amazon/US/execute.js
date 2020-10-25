@@ -37,8 +37,8 @@ module.exports = {
     country: 'US',
     store: 'amazon',
     domain: 'amazon.com',
-    loadedSelector: '#productTitle',
-    // noResultsXPath: '//b[contains(@class, "h1") and contains(text(), "particolare")] | //b[contains(@class, "h1") and contains(text(), "Buscas algo")] | //img[contains(@alt, "fetch that page")] | //*[contains(text(),"Looking for something?")] | //img[contains(@alt,"Sorry! Something went wrong on our end. ")] | //span[contains(text(),"No results for")]',
+    loadedSelector: '#productTitle, [data-automation-id=title], [id*=Title] h1, h1[class*=title],  h1[id*=title]',
+    noResultsXPath: '//a[contains(@href, "dogsofamazon")]',
   },
   implementation,
 };
