@@ -43,14 +43,19 @@ fields:
     singleValue: true
     xpath: //meta[@property="product:brand"]/@content
   - name: quantity
-    singleValue: true
-    xpath: (//div[@class="content--wrapper"]//div[@class="variant--info"])[1]
+    singleValue: false
+    xpath: (//div[@class="content--wrapper"]//div[@class="variant--info"])[1]//div[@class="variant--name"]
   - name: sku
     singleValue: true
-    xpath: (//div[@class="content--wrapper"]//div[@class="variant--articleId"]//span[@class="entry--content is--selectable"])[2]
+    xpath: (//div[@class="content--wrapper"]//div[@class="variant--articleId"]//span[@class="entry--content is--selectable"])[1]
   - name: variantId
     singleValue: true
-    xpath: (//div[@class="content--wrapper"]//div[@class="variant--articleId"]//span[@class="entry--content is--selectable"])[2]
+    xpath: (//div[@class="content--wrapper"]//div[@class="variant--articleId"]//span[@class="entry--content is--selectable"])[1]
+  - name: mpc
+    singleValue: true
+    xpath: (//div[@class="content--wrapper"]//div[@class="variant--pzn"]//span[@class="is--selectable"])[1]
+    regExp: PZN:\s*(.+)
+    regExpReplace: $1
   - name: ratingCount
     singleValue: true
     xpath: //div[@class="content--wrapper"]//span[@class="rating--count"]

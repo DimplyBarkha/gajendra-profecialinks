@@ -35,11 +35,6 @@ const transform = (data) => {
                     item.text = item.text.trim() + "%";
                 });
             }
-            if (row.quantity) {
-                row.quantity.forEach(item => {
-                    item.text = item.text.replace(/[a-zA-Z]{2,}/g, '').trim();
-                });
-            }
             if (row.listPrice) {
                 row.listPrice.forEach(item => {
                     item.text = item.text.replace(/\*/g, '').trim();;
