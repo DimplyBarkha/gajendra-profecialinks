@@ -37,6 +37,11 @@ const transform = (data) => {
             item.text=tmp[0].trim();
           })
         }
+        if(row.productUrl){
+          row.productUrl.forEach(item=>{
+            item.text="https://www.theperfumeshop.com/"+item.text;
+          })
+        }
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
         rank++;
