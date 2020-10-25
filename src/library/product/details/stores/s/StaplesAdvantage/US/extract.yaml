@@ -14,27 +14,16 @@ fields:
   singleValue: false
 - name: image
   singleValue: true
-<<<<<<< HEAD
   xpath: //img[@class='image-gallery-ux2dot0__image_element picture__img_resp']/@alt
-=======
-  xpatth: //img[@class='image-gallery-ux2dot0__image_element picture__img_resp']/@alt
->>>>>>> 77e48e295... Added all paths
 - name: imageAlt
   singleValue: true
   xpath: //img[@class='image-gallery-ux2dot0__image_element picture__img_resp']/@alt
 - name: alternateImages
   singleValue: false
-<<<<<<< HEAD
   xpath: //div[@class='verticalCarousel__thumbnails']/descendant::img/@src
 - name: metaKeywords
   singleValue: false
   xpath: (//meta/@content)[1]
-=======
-  xpath: //div[@class='verticalCarousel__thumb']/img/@src
-- name: metaKeywords
-  singleValue: true
-  xpath: //meta
->>>>>>> 77e48e295... Added all paths
 - name: category
   singleValue: false
   xpath: normalize-space(//div[@id='breadcrumbs_container']/ol)
@@ -50,10 +39,7 @@ fields:
   xpath: //div[@class='price-info__final_price']
 - name: availabilityText
   singleValue: true
-<<<<<<< HEAD
   defaultValue: Out of Stock
-=======
->>>>>>> 77e48e295... Added all paths
 - name: description
   singleValue: false
   xpath: normalize-space(//div[@id='ProductDetailsSummaryWrapper']/ul)
@@ -68,15 +54,10 @@ fields:
   xpath: //td[normalize-space(text())="Brand Name"]/following-sibling::td
 - name: quantity
   singleValue: true
-<<<<<<< HEAD
-=======
-  xpath: //div[@class='quantitySelector__current_value']
->>>>>>> 77e48e295... Added all paths
 - name: weightNet
   singleValue: true
   xpath: (//td[contains(., 'Weight ')]/following-sibling::td)[1]
 - name: weightGross
-<<<<<<< HEAD
   singleValue: true 
 - name: gtin
   singleValue: true
@@ -89,22 +70,6 @@ fields:
   singleValue: true
 - name: mpc
   singleValue: true
-=======
-  singleValue: true
-  xpath: 
-- name: gtin
-  singleValue: true
-  xpath: 
-- name: sku
-  singleValue: true
-  xpath:
-- name: variantId
-  singleValue: true
-  xpath:
-- name: mpc
-  singleValue: true
-  xpath:
->>>>>>> 77e48e295... Added all paths
 - name: packSize
   singleValue: true
   xpath: (//td[contains(., 'Pack Size') or contains(., 'Pack Qty')]/following-sibling::td)[1]
@@ -125,28 +90,15 @@ fields:
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
-<<<<<<< HEAD
   xpath: //div[@class='review-snapshot-ux2dot0__review_section']/descendant::span[@class='rating__review_link']
-=======
-  xpath: //span[@class='ReviewStyles__average_Rating_count']
-
->>>>>>> 77e48e295... Added all paths
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
   xpath: //span[@class='ReviewStyles__average_Rating_count']
-<<<<<<< HEAD
-=======
-
->>>>>>> 77e48e295... Added all paths
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
   xpath: normalize-space(//div[@class='delivery-info-ux2__full_width'])
-<<<<<<< HEAD
-=======
-
->>>>>>> 77e48e295... Added all paths
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -168,10 +120,6 @@ fields:
   singleValue: false
   description: The extended description of the product supplied by the lister
   xpath: //iframe[@id='ccsStaplesIframeId']
-<<<<<<< HEAD
-=======
-
->>>>>>> 77e48e295... Added all paths
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
@@ -183,31 +131,18 @@ fields:
 - name: name
   singleValue: true
   description: The product name
-<<<<<<< HEAD
   xpath: //h1[@id='product_title']
   regExp: ^.*(?=(, ))
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
   xpath: //div[@class='price-info__final_price']
-=======
-  xpath: //h1[@class='search-prod-desc disp-block font-norm']
-  regExp: ^.*(?=(, ))
-
-- name: inStorePrice
-  singleValue: true
-  description: Price in the selected store
-  xpath: 
-
->>>>>>> 77e48e295... Added all paths
 - name: asin
   singleValue: true
   description: 
 - name: coupon
   singleValue: true
   description: Text of any coupon offer
-  xpath:
-
 - name: amazonChoice
   singleValue: true
   description: YES or Blank
@@ -254,10 +189,6 @@ fields:
   description: 
 - name: factImagePresent
   singleValue: true
-<<<<<<< HEAD
-=======
-  xpath: 
->>>>>>> 77e48e295... Added all paths
 - name: largeImageCount
   singleValue: true
   description: 
@@ -311,16 +242,13 @@ fields:
 - name: servingSizeUom
   singleValue: true
   description: Unit of measure of serving
-
 - name: numberOfServingsInPackage
   singleValue: true
   description: Suggested number of servings of the product.
-
 - name: caloriesPerServing
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
-  xpath: 
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
@@ -441,11 +369,7 @@ fields:
   description: The physical dimensions of the product including packaging.
 - name: warranty
   singleValue: true
-<<<<<<< HEAD
   xpath: (//td[contains(., 'Warranty')]/following-sibling::td)[1]
-=======
-  xpath: //td[normalize-space(text())="Warranty"]/following-sibling::td
->>>>>>> 77e48e295... Added all paths
   description: Guarantee associated with the product
 - name: storage
   singleValue: true
@@ -462,10 +386,6 @@ fields:
   description: Recycling information associated with the product
 - name: productOtherInformation
   singleValue: false
-<<<<<<< HEAD
-=======
-  xpath: //todo
->>>>>>> 77e48e295... Added all paths
 - name: packaging
   singleValue: true
   description: Packaging information
@@ -499,11 +419,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
-<<<<<<< HEAD
   xpath: normalize-space(//div[@id='ProdSpecSection'])
-=======
-  xpath: //TODO
->>>>>>> 77e48e295... Added all paths
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
@@ -562,9 +478,5 @@ fields:
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-<<<<<<< HEAD
   defaultValue: false
   xpath: //div[@class='image-gallery-ux2dot0__hero_zoom_lens img_zoom_lens']
-=======
-  xpath: //div[@class='image-gallery-ux2dot0__hero_zoom_lens img_zoom_lens']
->>>>>>> 77e48e295... Added all paths
