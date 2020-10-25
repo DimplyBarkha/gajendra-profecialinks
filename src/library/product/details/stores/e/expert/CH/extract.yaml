@@ -1,0 +1,135 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //meta[contains(@property,'og:image')]/@content
+    description: URL of the main product image
+  - name: imageAlt
+    xpath: //picture[contains(@class,'mediaPicture')]//img/@alt
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='ii_images']
+    description: Other product images (not in manufacturer description)
+  - name: category
+    singleValue: false
+    xpath: //div[@id='ii_category']
+    # xpath: //div[contains(@class,'Z1yg')]//div[contains(@class,'Z1yj')] | //div[contains(@class,'Z1cc')]//div[contains(@class,'Z1ce')] | //div[contains(@class,'Z1bf')]//div[contains(@class,'Z1bh')] | //div[contains(@class,'Z1')]//div[contains(@class,'Z199')] 
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    xpath: //h1[contains(@class,'productHeaderTitle__Title')]
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    xpath: //meta[contains(@property,'price:standard')]/@content
+    description: The stated undiscounted price for the product
+  - name: price
+    xpath: //meta[contains(@property,'price:amount')]/@content
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    xpath: //button[contains(@id,'addToCartButton') and not(@disabled)] | //meta[contains(@property,'og:availability')]/@content[not(contains(.,'out of stock'))]
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@id,'description')] | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'description')])]//div[contains(@class,'expandablePanel')]
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: brandText
+    xpath: //meta[contains(@property,'og:brand')]/@content
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: manufacturer
+    xpath: //table[contains(.,'Allgemeine Informationen')]//td[contains(.,'Hersteller') and not(contains(.,'Herstellernr'))]/following-sibling::td
+    description: Product manufacturer
+  - name: weightNet
+    description: Net weight as described on the page
+    xpath: //table[contains(.,'Produktdimensionen')]//td[contains(.,'Gewicht')]/following-sibling::td
+  - name: weightGross
+    description: Gross weight as described on the page
+    xpath: //table[contains(.,'Verpackungsdimensionen')]//td[contains(.,'Gewicht')]/following-sibling::td
+  - name: gtin
+    xpath: //meta[contains(@property,'gtin')]/@content
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    xpath: //div[contains(@id,'ii_sku')]
+    description: The store-specific product identifier
+  - name: variantId
+    xpath: //div[contains(@id,'ii_sku')]
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    xpath: //table[contains(.,'Allgemeine Informationen')]//td[contains(.,'Herstellernr.')]/following-sibling::td
+    description: The manufacturer model code (unique) of the product
+  - name: ratingCount
+    xpath: //meta[contains(@property,'og:rating_count')]/@content
+    description: The number of ratings
+  - name: aggregateRating
+    xpath: //meta[@property='og:rating']/@content
+    description: The stated aggregate rating normalized to be out of 5
+  - name: shippingDimensions
+    xpath: //div[@id='ii_shippingDimensions']
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    xpath: //table[contains(.,'Verpackungsdimensionen')]//td[contains(.,'Gewicht')]/following-sibling::td
+    description: Stated shipping weight
+  - name: variantCount
+    xpath: count(//div[contains(@id,'Farbvariante')]//a[contains(@class,'styled')]/@href)
+    # defaultValue: '0'
+    description: Number of variants listed
+  - name: color
+    xpath: //div[@id='ii_color']
+    description: A textual description of the colour
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+  - name: name
+    xpath: //h1[contains(@class,'productHeaderTitle__Title')]
+    description: The product name
+  - name: specifications
+    xpath: //div[@id='ii_specs']
+    description: The physical dimensions of the product including packaging.
+  - name: warranty
+    xpath: //td[contains(.,'Garantie')]/following-sibling::td
+    description: Guarantee associated with the product
+  - name: productOtherInformation
+    singleValue: false
+    description: Any other product information
+  - name: promotion
+    xpath: //div[contains(@class,'productDetail')]//div[contains(@class,'ZZjl ZZjm')]
+    description: promotion text on product page
+  - name: variantInformation
+    xpath: //div[@id='ii_varInfo']
+    description: colour / scent / flavour / other
+  - name: firstVariant
+    xpath: //div[@id='ii_firstVariant']
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+  - name: variants
+    xpath: //div[contains(@id,'ii_variants')]
+    singleValue: false
+    description: null
+  - name: technicalInformationPdfPresent
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    xpath: //div[contains(@id,'downloads')]//a[contains(@href,'pdf')]/@href | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'downloads')])]//div[contains(@class,'expandablePanel')]//a[contains(@href,'pdf')]/@href
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: videos
+    xpath: //div[contains(@id,'ii_video')]
+    singleValue: false
+    description: null

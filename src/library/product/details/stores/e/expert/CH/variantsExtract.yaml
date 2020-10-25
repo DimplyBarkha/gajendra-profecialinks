@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    description: variant id, to uniquely identify variant
+    xpath: //*[@id='ii_variantId']    
+  - name: variantUrl
+    description: variant Url
+    xpath: //*[@id='ii_variantId']
+    regExp: (\d+)
+    regExpReplace: https://www.digitec.ch/de/s1/product/$1
