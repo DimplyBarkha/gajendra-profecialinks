@@ -5,9 +5,9 @@ module.exports = {
     country: 'US',
     store: 'rei',
     domain: 'rei.com',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.rei.com/search?q={searchTerms}',
+    loadedSelector: 'div#search-results',
+    noResultsXPath: "//p[contains(text(),'Sorry, we couldn’t find any matches')]",
     zipcode: '',
   },
 };

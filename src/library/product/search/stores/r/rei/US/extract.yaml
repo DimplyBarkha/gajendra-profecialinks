@@ -12,6 +12,11 @@ fields:
   - name: productUrl
     SingleValue: false
     xpath: //div[@id='search-results']//li//a[1]/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[@id='search-results']//li//a[1]/@href
+    regExp: product\/(\d+)
+    regExpReplace: $1
   - name: thumbnail
     SingleValue: false
     xpath: //div[@id='search-results']//li//img[1]/@src
@@ -24,3 +29,5 @@ fields:
   - name: reviewCount
     SingleValue: false
     xpath: //div[@id='search-results']//li//span[contains(@class,'cdr-rating__count_5.2.1')]
+    regExp: \((.+?)\)
+    regExpReplace: $1
