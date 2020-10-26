@@ -2,7 +2,7 @@ input:
   id: 125037700
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=b8fd6195-bb38-4a91-8e8b-c83222964fc0/task=26355ff9-da7a-48f2-88db-31767c4083a9/af47634b-b6cd-45c0-9efc-52cc5183c57e.html
+  - html: https://workbench.import.io/html/run=8453b8a2-fd09-4bd2-907a-38a787f6d3b9/task=d42339a3-599c-4447-aa19-40067d962e01/82f60921-62cf-41ae-9a4b-e6954b21b448.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -61,15 +61,6 @@ extractions:
               - text: Lenovo IdeaPad 3 81WD006JTX Intel Core i5-1035G1 8 GB 256 GB SSD
                   Integrated Intel UHD Graphics 14" FHD W10 Platin Gri Notebook
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
-            listPrice:
-              - text: 6.499 TL
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/text()[1]
-            price:
-              - text: 6.499 TL
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/text()[1]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/text()[2]
             description:
               - text: Intel® Turbo Boost teknolojisi
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/p[1]/text()[1]
@@ -93,26 +84,26 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/p[1]/text()[1]
             brandText:
               - text: LENOVO
-                xpath: /html/head[1]/script[7]/@data-flix-brand
+                xpath: /html/head[1]/script[4]/text()[1]
             manufacturer:
               - text: LENOVO
-                xpath: /html/head[1]/script[7]/@data-flix-brand
+                xpath: /html/head[1]/script[4]/text()[1]
             weightGross:
               - text: 1, 6 g
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[3]/tbody[1]/tr[1]/td[2]
             gtin:
               - text: "195042390643"
-                xpath: /html/head[1]/script[7]/@data-flix-ean
+                xpath: /html/head[1]/script[4]/text()[1]
             sku:
               - text: "125037700"
-                xpath: /html/head[1]/script[7]/@data-flix-sku
+                xpath: /html/head[1]/script[4]/text()[1]
             ratingCount:
-              - text: "29"
+              - text: "30"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/a[1]/text()[1]
                 type: NUMBER
-                raw: Yorumlar (29)
+                raw: Yorumlar (30)
                 locale: tr
-                value: 29
+                value: 30
             aggregateRatingText:
               - text: 4,7
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/text()[1]
@@ -148,20 +139,6 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
               - text: https://images.icecat.biz/img/feature_logo/69-581.png
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: /_ui/responsive/theme-teknosa/images/pages/product-detail/bank-logos/credit-card-Axess.png
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: /_ui/responsive/theme-teknosa/images/pages/product-detail/bank-logos/credit-card-Bonus.png
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/img[1]/@src
-              - text: /_ui/responsive/theme-teknosa/images/pages/product-detail/bank-logos/credit-card-Cardfinans.png
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/img[1]/@src
-              - text: /_ui/responsive/theme-teknosa/images/pages/product-detail/bank-logos/credit-card-World.png
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/img[1]/@src
-              - text: /_ui/responsive/theme-teknosa/images/pages/product-detail/bank-logos/credit-card-Bankkart.png
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]/img[1]/@src
-              - text: /_ui/responsive/theme-teknosa/images/pages/product-detail/bank-logos/credit-card-Maximum.png
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[1]/div[1]/img[1]/@src
-              - text: /_ui/responsive/theme-teknosa/images/pages/product-detail/bank-logos/credit-card-Paraf.png
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/div[1]/div[1]/img[1]/@src
             specifications:
               - text: Ağırlık
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[3]/tbody[1]/tr[1]/td[1]
@@ -184,6 +161,8 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]
               - text: Intel® Quick Sync Video Teknolojisi
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]
+            availabilityText:
+              - text: Out of Stock
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -203,4 +182,4 @@ extractions:
                 locale: tr
                 value: 2
         xpath: /
-    timestamp: 1603438745609
+    timestamp: 1603723753309

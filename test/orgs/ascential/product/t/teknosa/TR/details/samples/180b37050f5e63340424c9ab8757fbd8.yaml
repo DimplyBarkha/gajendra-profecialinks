@@ -2,7 +2,7 @@ input:
   id: 125077277
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=b8fd6195-bb38-4a91-8e8b-c83222964fc0/task=270fc236-d783-48d6-89ed-90704b8827d4/9f645f20-7fd1-4466-a801-8b043679ad9f.html
+  - html: https://workbench.import.io/html/run=8453b8a2-fd09-4bd2-907a-38a787f6d3b9/task=82772056-b938-409d-964f-f430a5c79539/fbda74b1-6e7e-4ba8-b3a5-4fc4278955f3.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -191,19 +191,19 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/p[4]/text()[1]
             brandText:
               - text: APPLE
-                xpath: /html/head[1]/script[7]/@data-flix-brand
+                xpath: /html/head[1]/script[4]/text()[1]
             manufacturer:
               - text: APPLE
-                xpath: /html/head[1]/script[7]/@data-flix-brand
+                xpath: /html/head[1]/script[4]/text()[1]
             weightGross:
               - text: 194 g
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[1]/td[2]
             gtin:
               - text: "190199223790"
-                xpath: /html/head[1]/script[7]/@data-flix-ean
+                xpath: /html/head[1]/script[4]/text()[1]
             sku:
               - text: "125077277"
-                xpath: /html/head[1]/script[7]/@data-flix-sku
+                xpath: /html/head[1]/script[4]/text()[1]
             ratingCount:
               - text: "39"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/a[1]/text()[1]
@@ -450,4 +450,4 @@ extractions:
                 locale: tr
                 value: 11
         xpath: /
-    timestamp: 1603438763363
+    timestamp: 1603723767706

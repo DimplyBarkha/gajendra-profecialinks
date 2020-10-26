@@ -2,7 +2,7 @@ input:
   id: 125077495
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=b8fd6195-bb38-4a91-8e8b-c83222964fc0/task=b4a52b3c-3272-4042-8a8b-af350319881b/ec3d5209-8c3b-438b-8dd9-1b8eb8375be6.html
+  - html: https://workbench.import.io/html/run=8453b8a2-fd09-4bd2-907a-38a787f6d3b9/task=934c8878-d107-4316-8f0c-66c8507220e8/cf9f6cfb-8c95-4369-9a69-cbf4049a64d6.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -122,19 +122,19 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/p[1]/text()[11]
             brandText:
               - text: SAMSUNG
-                xpath: /html/head[1]/script[7]/@data-flix-brand
+                xpath: /html/head[1]/script[4]/text()[1]
             manufacturer:
               - text: SAMSUNG
-                xpath: /html/head[1]/script[7]/@data-flix-brand
+                xpath: /html/head[1]/script[4]/text()[1]
             weightGross:
               - text: 172 g
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[1]/td[2]
             gtin:
               - text: "8806090265075"
-                xpath: /html/head[1]/script[7]/@data-flix-ean
+                xpath: /html/head[1]/script[4]/text()[1]
             sku:
               - text: "125077495"
-                xpath: /html/head[1]/script[7]/@data-flix-sku
+                xpath: /html/head[1]/script[4]/text()[1]
             ratingCount:
               - text: "60"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/a[1]/text()[1]
@@ -273,4 +273,4 @@ extractions:
                 locale: tr
                 value: 0
         xpath: /
-    timestamp: 1603438746404
+    timestamp: 1603723745231

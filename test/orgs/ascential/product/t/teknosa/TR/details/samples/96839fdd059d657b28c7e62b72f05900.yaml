@@ -2,12 +2,12 @@ input:
   id: 125036755
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=b8fd6195-bb38-4a91-8e8b-c83222964fc0/task=32fd3724-de3a-457c-b5e3-40c80767bae0/05665948-39c2-4eb7-bc41-b7b9fb0865e3.html
+  - html: https://workbench.import.io/html/run=8453b8a2-fd09-4bd2-907a-38a787f6d3b9/task=55cd40a5-16d8-4d28-a551-5cf76dfef338/788afa3b-aaf5-4ce6-a1a1-aba49b965c76.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
           - image:
-              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/125036755/125036755_0_MC/38552888.jpg
+              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/125036755/125036755_0_MC/47290652.jpg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: HP Pavilion Gaming 15-dk0006nt Intel Core i5-9300H 16 GB Ram 512 GB SSD
@@ -15,7 +15,7 @@ extractions:
                   6ZH62EA
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
             alternateImages:
-              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/125036755/125036755_0_MC/38552888.jpg
+              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/125036755/125036755_0_MC/47290652.jpg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
               - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/125036755/125036755_1_MC/45557802.png
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]/img[1]/@src
@@ -164,19 +164,19 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/p[1]/text()[1]
             brandText:
               - text: HP
-                xpath: /html/head[1]/script[7]/@data-flix-brand
+                xpath: /html/head[1]/script[4]/text()[1]
             manufacturer:
               - text: HP
-                xpath: /html/head[1]/script[7]/@data-flix-brand
+                xpath: /html/head[1]/script[4]/text()[1]
             weightGross:
               - text: 2250 g
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
             gtin:
               - text: "193905317226"
-                xpath: /html/head[1]/script[7]/@data-flix-ean
+                xpath: /html/head[1]/script[4]/text()[1]
             sku:
               - text: "125036755"
-                xpath: /html/head[1]/script[7]/@data-flix-sku
+                xpath: /html/head[1]/script[4]/text()[1]
             ratingCount:
               - text: "16"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/a[1]/text()[1]
@@ -384,4 +384,4 @@ extractions:
                 locale: tr
                 value: 13
         xpath: /
-    timestamp: 1603438742087
+    timestamp: 1603723758503
