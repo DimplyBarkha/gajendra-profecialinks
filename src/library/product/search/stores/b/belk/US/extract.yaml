@@ -44,7 +44,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[@class="product-standard-price" or @class="product-price-with-coupon"] 
+    xpath: //div[@class="product-standard-price" or (@class="product-price-with-coupon") or (@class="product-sales-price")] 
     regExp: \$\d+\.\d+
   - name: manufacturer
     singleValue: true
