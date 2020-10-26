@@ -183,5 +183,10 @@ module.exports = {
     if (zipcode) {
       await dependencies.setZipCode({ url, zipcode });
     }
+    const finalPageStatus = await context.evaluate(analyzePage);
+    console.log('Final page status after zipcode change : ' + finalPageStatus.status);
+    if (finalPageStatus.status === 503) {
+      throw new Error('503 page after zipcode change');
+    }
   },
 };
