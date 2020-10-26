@@ -1,0 +1,112 @@
+input:
+  _url: http://submarino.com.br
+  URL: https://www.submarino.com.br/produto/124738331/geladeira-refrigerador-brastemp-inverse-frost-free-bre80ak-573-litros-evox?DCSext.recom=RR_item_page.rr2-PurchaseEV&nm_origem=rec_item_page.rr2-PurchaseEV&nm_ranking_rec=1&voltagem=110%20volts
+extractions:
+  - html: https://workbench.import.io/html/run=c9c88035-6331-44d1-aa3f-8364010ad78c/task=9066e487-8694-4f39-ae89-c1e603076d24/b523e264-c7ec-43c7-a108-69f4011335de.html
+    extractionConfigId: product/details/stores/s/submarino/BR/extract
+    data:
+      - group:
+          - image:
+              - text: https://images-submarino.b2w.io/produtos/01/00/item/124738/3/124738331P1.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Geladeira / Refrigerador Brastemp Inverse Frost Free BRE80AK 573 Litros
+                  Evox no Submarino.com
+                xpath: /html/head[1]/meta[18]/@content
+            category:
+              - text: Eletrodomésticos
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/a[1]/div[1]/span[1]
+              - text: Geladeira / Refrigerador
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[3]/a[1]/div[1]/span[1]
+            nameExtended:
+              - text: Geladeira / Refrigerador Brastemp Domést Frost Free 2 Portas BRE80 573
+                  Litros Evox 110V
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: R$ 4.989,00
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            price:
+              - text: R$ 4.490,10
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/span[1]
+            description:
+              - text: >-
+                  A Geladeira Brastemp Inverse BRE80AK com capacidade para 573
+                  litros tem design inovador e funcional. Com refrigerador na
+                  parte de cima e freezer embaixo, os alimentos mais utilizados
+                  ficam sempre ao alcance das mãos. Ela também conta com funções
+                  especiais para o seu dia a dia.
+                   Controle Eletrônico
+                   Além do controle de temperatura, também conta com funções pré programadas para otimizar seu tempo.
+                   Capacidade
+                   Compacto por fora, gigante por dentro! Capacidade de Side by Side, aliada ao maior freezer da categoria. Capacidade total de 573 litros. (Comparada com os modelos de Side by Side com litragem entre 480L e 560 litros). 
+                   Iluminação LED
+                   Moderna e inovadora, a iluminação com 8 pontos de LED (1 no freezer) melhora a visualização na parte interna do produto. Além disso, consome menos energia que as lâmpadas tradicionais.
+                   Smart Bar
+                   Compartimento removível para gelar bebidas mais rapidamente. Avisa quando a bebida estiver pronta para você nunca mais esquecê-la!
+                   Smart Ice
+                   Gelo sempre que precisar! Forma gelo mais rapidamente e avisa quando o gelo está pronto e também quando está acabando. 
+                   Turbo Freezer
+                   Com capacidade para até 12 garrafas de 600ml ou 32 latas de 350ml, este compartimento gela suas bebidas ou alimentos mais rapidamente.
+                   Gavetas Especiais
+                   Muito mais espaço para organizar seus alimentos. 3 Gavetas dedicadas para frutas, legumes e verduras e frios.
+                   Evox
+                   Acabamento da porta com maior durabilidade.
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   Imagens Meramente Ilustrativas.
+                   Todas as Informações divulgadas são de responsabilidade do Fabricante/Fornecedor.
+                   Verifique com os fabricantes do produto e de seus componentes eventuais limitações à utilização de todos os recursos e funcionalidades.
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]
+            weightNet:
+              - text: 108kg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[42]/td[2]/span[1]
+            gtin:
+              - text: 7891129236707, 7891129236714
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+            sku:
+              - text: "124738331"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            mpc:
+              - text: BRE80AK
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[45]/td[2]/span[1]
+            ratingCount:
+              - text: "14"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[7]/div[1]/section[1]/div[1]/header[1]/div[1]/div[1]/span[2]
+            aggregateRating:
+              - text: "4.3"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[7]/div[1]/section[1]/div[1]/header[1]/div[1]/div[1]/span[1]
+            color:
+              - text: Inox
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[10]/td[2]/span[1]
+            name:
+              - text: Geladeira / Refrigerador Brastemp Domést Frost Free 2 Portas BRE80 573
+                  Litros Evox 110V
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            specifications:
+              - text: 185,7x82,9x74,7cm
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[40]/td[2]/span[1]
+            warranty:
+              - text: 12 meses
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[44]/td[2]/span[1]
+            variantInformation:
+              - text: Voltagem
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/@type
+            ageSuitability:
+              - text: 573 Litros
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[6]/td[2]/span[1]
+            materials:
+              - text: "Portas: chapa de aço, poliuretano, plástico; Prateleiras: plástico e
+                  vidro; Gabinete: chapa de aço, poliuretano, plástico, rede
+                  elétrica, EPS (isopor)"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[5]/td[2]/span[1]
+            descriptionBullets:
+              - text: "48"
+            variantCount:
+              - text: "1"
+        xpath: /
+    timestamp: 1603722325867

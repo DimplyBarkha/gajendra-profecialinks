@@ -1,0 +1,78 @@
+input:
+  _url: http://submarino.com.br
+  URL: https://www.submarino.com.br/produto/73770732/pijama-feminino-longo-plus-size?DCSext.recom=RR_item_page.rr1-ClickCP&cor=%C3%81gua&nm_origem=rec_item_page.rr1-ClickCP&nm_ranking_rec=2&tamanho=54
+extractions:
+  - html: https://workbench.import.io/html/run=c9c88035-6331-44d1-aa3f-8364010ad78c/task=eb9a17d4-4a46-4397-af63-e871d7b5d35a/3e47cd8c-1cf3-4ef6-a2f9-b71f0af2c677.html
+    extractionConfigId: product/details/stores/s/submarino/BR/extract
+    data:
+      - group:
+          - image:
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/73770/7/73770740P1.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Pijama Feminino Longo Plus Size no Submarino.com
+                xpath: /html/head[1]/meta[18]/@content
+            category:
+              - text: Moda
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/a[1]/div[1]/span[1]
+              - text: Feminino
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[3]/a[1]/div[1]/span[1]
+              - text: Roupas
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[4]/a[1]/div[1]/span[1]
+              - text: Camisolas e Pijamas
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[5]/a[1]/div[1]/span[1]
+            nameExtended:
+              - text: Pijama Feminino Longo Plus Size
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            price:
+              - text: R$ 59,49
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            description:
+              - text: >-
+                  O Pijama Feminino Longo Plus Size é fabricado em Malha P.V,
+                  conhecida também como malha fria que proporciona conforto na
+                  hora de dormir e praticidade com demais afazeres,
+                  possibilitando movimentos. 
+                   
+                  Guia de Tamanhos: 
+
+                  M - Veste 48 G - Veste 50 GG - Veste 52 EGG - Veste 54 
+
+                  (Os tamanhos em alfabeto se referem a grade Plus Size)
+
+                  Guia de Composição: 
+                   
+
+                   
+                  Segmento: Feminino
+                   
+                  Material: Malha P.V 
+                   
+                  Ocasião de Uso: Dormir 
+                   
+                  Linha: Pijamas Básicos 
+                   
+                  Composição: 65% Poliéster 35% Viscose 
+                   
+                  Instruções de Lavagem: Pode ser lavado em máquina de lavar
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]
+            manufacturer:
+              - text: Soneca & Cia
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[3]/td[2]/span[1]
+            sku:
+              - text: "73770732"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            name:
+              - text: Pijama Feminino Longo Plus Size
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            variantInformation:
+              - text: Tamanho
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/@type
+              - text: Cor
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/@type
+            descriptionBullets:
+              - text: "3"
+            variantCount:
+              - text: "12"
+        xpath: /
+    timestamp: 1603722321666

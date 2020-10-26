@@ -96,7 +96,6 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on the
       site to quantity)
-    # @todo check
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -111,7 +110,7 @@ fields:
     description: The number of ratings
     xpath: //div[contains(@class, 'summary-rating')]//span[contains(@class, 'Quantity')]
     regExp: "[0-9]+"
-  - name: aggregateRatingText #?
+  - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
@@ -131,7 +130,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    xpath: count(//div[contains(@class, 'variation__')]/div) # @todo check json
+    xpath: count(//span[@type and contains(@class, 'variation')])
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -436,9 +435,10 @@ fields:
     singleValue: true
     description: In product page, information about a new version of the product - new
       desription info
+
   - name: variantInformation
-    singleValue: true
     description: colour / scent / flavour / other
+    xpath: //div[@type and contains(@class, 'variation') and not(span)]/@type
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of core
@@ -462,6 +462,7 @@ fields:
     singleValue: true
     description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
+    xpath: //tr[contains(@id, 'idade')][1]/td[2]/span
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
@@ -487,6 +488,7 @@ fields:
     singleValue: true
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: //tr[contains(@id, 'material/composição')][1]/td[2]/span
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
