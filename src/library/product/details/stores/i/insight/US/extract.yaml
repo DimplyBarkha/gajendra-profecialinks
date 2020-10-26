@@ -21,6 +21,9 @@ fields:
 - name: nameExtended
   singleValue: false 
   xpath: //h1
+- name: imageAlt 
+  singleValue: true
+  xpath: //div[contains(@class,"ccs-fancybox-gallery")]//img/@alt
 - name: image 
   singleValue: true
   xpath: //div[contains(@class,"ccs-fancybox-gallery")]//img/@src
@@ -35,20 +38,20 @@ fields:
   xpath: //div[@class='prod-description-bottom']//meta[@itemprop='brand']/@content
 - name: description 
   singleValue: false 
-  xpath: //div[@id='ccs-inline']
+  xpath: meta[@name="description"]/@content
 - name: specifications
   singleValue: false    
   xpath: //div[@id='tpl-specs-specs-target']//table[@class='table-specs']//tr
 - name: availabilityText
   singleValue: false    
-  xpath: //div[@class='stock-info']//span manufacturerDescription
+  xpath: //div[@class='stock-info']//span 
   defaultValue: 'In Stock'
 - name: manufacturer
   singleValue: false    
   xpath: //div[@class='prod-description-bottom']//meta[@itemprop='manufacturer']/@content
 - name: mpc
   singleValue: false    
-  xpath: //div[@class='prod-description-bottom']//meta[@itemprop='model']/@content
+  xpath: //div[@class='prod-description-bottom']//meta[@itemprop='mpn']/@content
 - name: variantCount
   singleValue: false
   defaultValue: '0'
