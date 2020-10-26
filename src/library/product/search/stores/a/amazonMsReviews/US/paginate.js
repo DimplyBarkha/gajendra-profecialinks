@@ -60,10 +60,10 @@ async function implementation (
   }
   async function checkNoPagination () {
     const nextPageBtn = document.querySelector('ul.a-pagination>li.a-last>a');
-    if(!nextPageBtn){
-      return true
-    }else{
-      return false
+    if (!nextPageBtn) {
+      return true;
+    } else {
+      return false;
     }
   }
   if (await context.evaluate(checkNoPagination)) {

@@ -38,7 +38,7 @@ module.exports = {
         imageElement: 'form img',
         autoSubmit: true,
       });
-      const [response] = await Promise.all([
+      await Promise.all([
         console.log('solved captcha, waiting for page change'),
         context.waitForNavigation(),
         await new Promise(resolve => setTimeout(resolve, 3000)),
@@ -71,7 +71,7 @@ module.exports = {
       let status = 200;
       if (document.querySelector('a img[src*="503.png"], a[href*="ref=cs_503_link"]')) {
         status = 503;
-      } else if (document.evaluate("//script[contains(text(),'PageNotFound')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength > 0 || !!document.querySelector('a[href*="dogsofamazon"],img[alt*="unde"],img[alt*="Dogs"],img[alt*="hein"]') ) {
+      } else if (document.evaluate("//script[contains(text(),'PageNotFound')]", document.body, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength > 0 || !!document.querySelector('a[href*="dogsofamazon"],img[alt*="unde"],img[alt*="Dogs"],img[alt*="hein"]')) {
         status = 404;
       }
       return { status };
@@ -83,7 +83,7 @@ module.exports = {
       }
 
       if (lastResponseData.status === 503) {
-        const [response] = await Promise.all([
+        await Promise.all([
           console.log('Waiting for page to reload on homepage'),
           context.waitForNavigation(),
           console.log('Clicking 503 image'),

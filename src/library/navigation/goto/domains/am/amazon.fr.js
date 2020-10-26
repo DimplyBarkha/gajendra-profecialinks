@@ -14,11 +14,10 @@ module.exports = {
     console.log('backconnect', backconnect);
     const benchmark = !!memory.benchmark;
     console.log('benchmark', benchmark);
-    const start = Date.now();
     const MAX_CAPTCHAS = 3;
 
     let captchas = 0;
-    let hasCaptcha = false;
+    // let hasCaptcha = false;
     let lastResponseData;
 
     const isCaptcha = async () => {
@@ -41,7 +40,7 @@ module.exports = {
         imageElement: 'form img',
         autoSubmit: true,
       });
-      const [response] = await Promise.all([
+      await Promise.all([
         console.log('solved captcha, waiting for page change'),
         context.waitForNavigation(),
         await new Promise(resolve => setTimeout(resolve, 3000)),
@@ -85,7 +84,7 @@ module.exports = {
       }
 
       if (lastResponseData.status === 503) {
-        const [response] = await Promise.all([
+        await Promise.all([
           console.log('Waiting for page to reload on homepage'),
           context.waitForNavigation(),
           console.log('Clicking 503 image'),
@@ -93,7 +92,7 @@ module.exports = {
         ]);
 
         if (await solveCaptchaIfNecessary() === 'false') {
-          hasCaptcha = true;
+          // hasCaptcha = true;
           return;
         }
 
@@ -146,7 +145,7 @@ module.exports = {
       }
 
       if (await solveCaptchaIfNecessary() === 'false') {
-        hasCaptcha = true;
+        // hasCaptcha = true;
         return;
       }
 
