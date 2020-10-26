@@ -21,12 +21,9 @@ fields:
 - name: nameExtended
   singleValue: false 
   xpath: //h1
-- name: imageAlt 
-  singleValue: true
-  xpath: //div[contains(@class,"ccs-fancybox-gallery")]//img/@alt
 - name: image 
   singleValue: false
-  xpath: //div[contains(@class,"ccs-fancybox-gallery")]//img/@src
+  xpath: //div[@class='cart-wrapper']//a/@data-image-url
 - name: alternateImages
   singleValue: false 
   xpath: //div[@class='ccs-ds-cloud-thumbs ccs-slick-initialized ccs-slick-slider']//img/@src
