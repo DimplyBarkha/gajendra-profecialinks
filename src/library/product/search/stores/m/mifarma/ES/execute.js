@@ -5,7 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'mifarma',
     domain: 'mifarma.es',
-    url: null,
+    url: 'https://www.mifarma.es/catalogsearch/result/?q={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',

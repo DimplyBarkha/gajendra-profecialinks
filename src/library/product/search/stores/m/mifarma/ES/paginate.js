@@ -12,5 +12,6 @@ module.exports = {
     openSearchDefinition: null,
     domain: 'mifarma.es',
     zipcode: '',
+    timeout: 30000,
   },
 };
