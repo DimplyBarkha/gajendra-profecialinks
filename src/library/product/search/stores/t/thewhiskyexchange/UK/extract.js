@@ -5,7 +5,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
 
-  await context.evaluate(() => {
+  await context.evaluate(async() => {
     function addProp(selector, iterator, propName, value) {
       document
         .querySelectorAll(selector)
@@ -34,12 +34,12 @@ async function implementation(inputs, parameters, context, dependencies) {
     }
 
     let scrollTop = 0;
-    while (scrollTop !== 1000) {
-      await stall(1000);
-      scrollTop += 2000;
+    while (scrollTop !== 7000) {
+      await stall(500);
+      scrollTop += 500;
       window.scroll(0, scrollTop);
-      if (scrollTop === 8000) {
-        await stall(1000);
+      if (scrollTop === 7000) {
+        await stall(500);
         break;
       }
     }

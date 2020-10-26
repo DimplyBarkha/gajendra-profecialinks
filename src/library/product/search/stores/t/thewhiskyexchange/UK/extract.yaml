@@ -23,7 +23,7 @@ fields:
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //div[@class="image-container"]//@src
+    xpath: //div[@class="image-container"]/child::img/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -46,6 +46,7 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //div[@class='item']//@rankorganic
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER 
