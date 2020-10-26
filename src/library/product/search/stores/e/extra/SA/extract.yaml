@@ -1,0 +1,45 @@
+singleRecord: false
+regionsSelector: null
+recordXPath: //div[contains(@class, 'c_product-tile')]
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: ./@data-imageurl
+    regExp: (^.*)(?=\?)
+  - name: brandText
+    singleValue: false
+    xpath: ./@data-brand
+  - name: name
+    singleValue: false
+    description: 
+    xpath: ./@data-name
+  - name: price
+    singleValue: false
+    xpath: //div[@class='c_product-price-current']
+  - name: rankOrganic
+    singleValue: false
+    xpath: ./@data-position
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[@class='c_rating-rate']
+    regExp: (^[^/]+)
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class='c_rating-total']
+    regExp: (^[^\s]+)
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class='c_rating-total']
+    regExp: (^[^\s]+)
+  - name: rank
+    singleValue: false
+    xpath: ./@data-position
+  - name: variantId
+    singleValue: false
+    xpath: ./@data-sku
+  - name: productUrl
+    singleValue: false
+    xpath: //a/@href
+  - name: id
+    singleValue: false
+    xpath: ./@data-productid
