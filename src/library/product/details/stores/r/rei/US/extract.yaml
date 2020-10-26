@@ -60,9 +60,7 @@ fields:
     xpath: //div[@data-ui='product-specs']//th[contains(text(),'Dimensions')]//following-sibling::td
   - name: specifications
     singleValue: false
-    xpath: //table[contains(@class,'product-specs-table')]//tr
-    regExp: (.+?)<\/th>(.+)
-    regExpReplace: $1:$2
+    xpath: //table[contains(@class,'product-specs-table')]//tr    
   - name: videos
     singleValue: false
     xpath: //script[@data-client-store="video-data"]

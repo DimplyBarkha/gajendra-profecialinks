@@ -38,11 +38,15 @@ const transform = (data) => {
       if (row.videos) {
 
         row.videos.forEach(item => {
-            var json_obj = JSON.parse(item.text);
-            json_obj.forEach(element => {
-              
-            });
-            item.text = 'https://www.rei.com' + item.text              
+          var temp_json = JSON.parse(item.text);
+          var json_obj = temp_json['videos'];
+          var arr_video = [];
+          json_obj.forEach(inner_obj => {
+            arr_video.push(inner_obj['articleUrl']);                
+          });
+          if(arr_video.length){
+            row.videos = [{'text':arr_video}];
+          }
         });
       }
     }
