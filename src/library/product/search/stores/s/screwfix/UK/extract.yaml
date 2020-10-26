@@ -1,5 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[@id='sticky-right-content']//div[contains(@class,"lg-12 md-24 sm-24 cols")]
+fields: 
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="lii_head"]//h3[@class="lii__title"]//a/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="lii_head"]//h3[@class="lii__title"]//span/@quotenumberproductid
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="lii_head"]//h3[@class="lii__title"]//a/@title

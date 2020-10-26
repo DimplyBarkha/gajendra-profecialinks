@@ -30,7 +30,7 @@ async function implementation (
     await context.waitForFunction((selector) => {
       console.log(selector, document.querySelector(selector));
       return !document.querySelector(selector);
-    }, { timeout: 20000 }, spinnerSelector);
+    }, { timeout: 200000 }, spinnerSelector);
     console.log('Spinner went away', spinnerSelector);
     return true;
   }
@@ -47,9 +47,9 @@ async function implementation (
 
   if (nextLinkSelector) {
     console.log('Clicking', nextLinkSelector);
-    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 20000 });
+    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 200000 });
     if (loadedSelector) {
-      await context.waitForSelector(loadedSelector, { timeout: 20000 });
+      await context.waitForSelector(loadedSelector, { timeout: 200000 });
     }
     return true;
   }

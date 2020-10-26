@@ -25,11 +25,6 @@ const transform = (data) => {
     for (const { group } of data) {
       let rank = 1;
       for (const row of group) {
-        if (row.productUrl) {
-          row.productUrl.forEach(item => {
-            item.text = 'https://www.sears.com' + item.text;
-          });
-        }
         if (row.id) {
           row.id.forEach(item => {
             item.text = item.text.match(/p-(.*)/)[1];
