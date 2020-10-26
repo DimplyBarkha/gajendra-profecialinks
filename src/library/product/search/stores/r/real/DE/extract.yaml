@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+  - name: id
+    xpath: //div[@id="rd-item-grid"]/div/@data-item-id
+  - name: productUrl
+    xpath: //div[@id="rd-item-grid"]/div/a/@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.real.de/$1
+  - name: thumbnail
+    xpath: //div[@class="img-wrapper rd-product__image-container"]/img/@src
+  - name: name
+    xpath: //div[@class="_title"]/span/text()
+  - name: gtin
+    xpath: //meta[@itemprop="gtin13"]/@content
+  - name: aggregateRating
+    xpath: //div[@class="_rating star-icons star-icons--small"]/@data-rating
+  - name: price
+    xpath: //div[@id="rd-item-grid"]/div/@data-price
+  - name: rankOrganic
+    xpath: //div[@id="rd-item-grid"]/div/@data-list-position
