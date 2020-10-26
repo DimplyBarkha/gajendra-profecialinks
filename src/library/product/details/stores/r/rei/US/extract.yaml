@@ -17,7 +17,10 @@ fields:
     xpath: //h1[@data-ui='product-information-title']
   - name: availabilityText
     singleValue: true
-    xpath: //span[contains(@id,'js-product-cart-primary-text')]
+    xpath: //button[contains(@class,'product-buy-button')]//span[contains(text(),'Add to cart')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@data-is,'apparel-media-center')]//div[@data-ui='image-carousel']//div[not(contains(@class,'selected')) and not (contains(@class,'video-thumb')) and contains(@class,'thumb')]//img/@src
