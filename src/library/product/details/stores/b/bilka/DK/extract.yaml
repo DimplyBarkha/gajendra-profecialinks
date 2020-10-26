@@ -5,13 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath:
-      //div[contains(@class,'gallery-top swiper-container swiper-container-initialized swiper-container-horizontal')]
-      //div[contains(@class,'swiper-wrapper')]
-      //div[contains(@class,'swiper-slide swiper-slide-active')]
-      //div[contains(@class,'image__wrapper')]
-      //div[contains(@class,'image__container contain animate')]
-      /img[contains(@class,'fade-in')]/@src
+    xpath: //div[@class='product-gallery']/div[@class='gallery']//div[@class='swiper-wrapper']/div[position()=1]//picture/img/@src
   - name: imageAlt
     singleValue: false
     xpath:
