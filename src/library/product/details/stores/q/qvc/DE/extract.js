@@ -30,10 +30,13 @@ async function implementation (
        let iframeLink=null;
       let accordionTitles=document.querySelectorAll('a[class*="accordionTitle"]');
       let contentAccordion=null;
-      for(let i=0;i<accordionTitles.length;i++){
+      for(let i=0;i<accordionTitles.length;i++) {
          if(accordionTitles[i].textContent.includes('Produktdetails von'))   contentAccordion=accordionTitles[i];
-        }
-        contentAccordion.click();
+      }
+      if(contentAccordion === null) {
+        return null;
+      }
+      contentAccordion.click();
       let iframeSelector=document.querySelector('iframe#loadbeeIframeId');
       if(iframeSelector){
        iframeLink=iframeSelector.getAttribute('src');

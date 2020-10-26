@@ -65,7 +65,7 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
-    xpath: //h3[contains(.,'Identifikationsnummer')]/following-sibling::ul
+    xpath: //h3[contains(.,'Identifikationsnummer')]/following-sibling::ul | //h3[contains(.,'Identifikationsnnummer')]/following-sibling::ul
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
