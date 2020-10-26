@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'lowes',
-    zipcode: '91504',
     domain: 'lowes.com',
+    zipcode: '',
   },
 };
