@@ -36,4 +36,20 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //ul[@id='product_specification_list']//li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //ul[@id='product_specification_list']//li
+  - name: availabilityText
+    singleValue: false
+    xpath: //link[@itemprop='availability']/@href
+    defaultValue: In Stock 
+  - name: packSize
+    singleValue: false
+    xpath: //table[@id="product_selling_attributes_table"]//td[text()="Pack Size"]/parent::tr/td[2]
+  - name: mpc
+    singleValue: false
+    xpath: //table[@id="product_selling_attributes_table"]//td[text()="Model No"]/parent::tr/td[2]
+  - name: quantity
+    singleValue: false
+    xpath: //table[@id="product_selling_attributes_table"]//td[text()="Model No"]/parent::tr/td[2]
  
