@@ -1,0 +1,104 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //*[@id="content"]/div[3]/div/div[1]/div[4]/div/div//div[1]/ul/li
+  - name: aggregateRating
+    singleValue: false
+    xpath: //*[@id="productReviews"]//div[@class='average']
+  - name: alternateImages
+    singleValue: false
+    xpath: //*[@id="amp-container"]/div/div/div[2]/ul/div/li[position()>1]/img[1]/@src
+    regExp: (^.*)(?=\?)
+  - name: availabilityText
+    singleValue: false
+    xpath: (//*[@id="addToCartButton"])[1]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: brandText
+    singleValue: false
+    xpath: //head/meta[@property='og:title']/@content
+    regExp: (^[^\s]+)
+  - name: category
+    singleValue: false
+    xpath: (//*[@class="c_breadcrumb"]/ul[1]/li/a[1])[position()>1]
+  - name: color
+    singleValue: false
+    xpath: //ul/li[contains(text(),'Color')] | //ul/li[contains(text(),'color')]
+  - name: image
+    singleValue: false
+    xpath: //head/meta[@property='og:image']/@content
+  - name: listPrice
+    singleValue: false
+    xpath: //*[@id="content"]/div[3]/div/div[2]//div[@class='c_product-price-was-is']/span/text()
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //*[@id="highlightcont"]//p
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //*[@id="highlightcont"]//img/@src
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //*[@id="content"]/div[3]/div/div[1]//div[@class='c_keyfeatures-content-container-details']//img/@src
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id='product_information_highlights']//img/@srcset
+  - name: mpc
+    singleValue: false
+    xpath: //*[@id="product_specification"]//div[@class='c_product-details-brandsku']/span[1]/text()
+  - name: name
+    singleValue: false
+    xpath: //head/meta[@property='og:title']/@content
+  - name: nameExtended
+    singleValue: false
+    xpath: //*[@id="content"]/div[3]/div/div[2]//div[contains(@class,'c_product-details-title')]
+  - name: price
+    singleValue: false
+    xpath: //*[@id="content"]/div[3]/div/div[2]//div[@class='c_product-price-current']/text()
+  - name: price
+    singleValue: false
+    xpath: //*[@id="content"]/div[3]/div/div[2]//div[@class='c_product-price-current']/span[@class='currency']/text()
+  - name: promotion
+    singleValue: false
+    xpath: //*[@id="content"]/div[3]/div/div[2]/div[1]/div[1]/h1/span[1]
+  - name: quantity
+    singleValue: false
+    xpath: //ul/li[contains(text(),'size')] | //ul/li[contains(text(),'Size')]
+  - name: ratingCount
+    singleValue: false
+    xpath: (//*[@id="productReviews"]//div[@class='reviews'])[1]
+    regExp: (^[^\s]+)
+  - name: sku
+    singleValue: false
+    xpath: //*[@id="product_specification"]/div[1]/div/div[1]/span[2]/text()
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //ul/li[contains(text(),'Length')] | //ul/li[contains(text(),'Width')] | //ul/li[contains(text(),'Height')] 
+  - name: specifications
+    singleValue: false
+    xpath: //*[@id="product_information_specification"]/div/ul//li/text()
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    xpath: //*[@id="slot_FooterBottomLinksNavigationComponent_0"]/li[3]/a
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: variantId
+    singleValue: false
+    xpath: //*[@id="product_specification"]/div[1]/div/div[1]/span[2]/text()
+  - name: videos
+    singleValue: false
+    xpath: //*[@id="content"]//*[self::video or self::iframe]/@src
+  - name: warranty
+    singleValue: false
+    xpath: //*[@id="product_specification"]/div[1]/div/div[2]/h2/text()
+  - name: weightNet
+    singleValue: false
+    xpath: //ul/li[contains(text(),'Weight')] | //ul/li[contains(text(),'weight')]
