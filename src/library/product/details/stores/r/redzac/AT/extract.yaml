@@ -105,7 +105,7 @@ fields:
     - name: variantId
       singleValue: true
       description: Identifier for a variant from a store where variants share the same sku
-      # xpath: /html/head/script/@data-flix-ean
+      xpath: /html/head/script/@data-flix-ean
     # - name: mpc
       # singleValue: true
       # description: The manufacturer model code (unique) of the product
@@ -138,7 +138,7 @@ fields:
     - name: aggregateRating
       singleValue: true
       description: The stated aggregate rating normalized to be out of 5
-      xpath: //*[@id="BVRRSearchContainer"]//dd[@class="bv-rating-ratio-number"]/*
+      xpath: //div[@id='properrating']
       # type: NUMBER
     - name: shippingInfo
       singleValue: true

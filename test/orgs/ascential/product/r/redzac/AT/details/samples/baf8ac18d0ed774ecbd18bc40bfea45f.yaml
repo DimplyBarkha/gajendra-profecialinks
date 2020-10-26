@@ -2,7 +2,7 @@ input:
   _url: http://redzac.at
   URL: https://www.redzac.at/produkt/AM10-humidifier-Luftbefeuchter-weiss-silber-Dyson-Luftbefeuchter-303124-01
 extractions:
-  - html: https://workbench.import.io/html/run=b9217ee8-b697-4763-8506-173374cca887/task=74323828-d317-41ec-a0d3-d8f4c1027f36/235493b6-4283-4e70-bdb0-ffae3fe0d6c7.html
+  - html: https://workbench.import.io/html/run=018a6721-655d-46f7-9d67-442ad9fd372a/task=d35e90e8-9751-4cda-b07f-df8f6000f23f/589604f6-c21d-4441-9a1c-65db33f8be1d.html
     extractionConfigId: product/details/stores/r/redzac/AT/extract
     data:
       - group:
@@ -40,66 +40,298 @@ extractions:
                   Klima & Heizen, Red Zac, Shop, kaufen
                 xpath: /html/head[1]/meta[11]/@content
             category:
-              - text: Home Produkte Haushalt & Küche Klima & Heizen Luftbefeuchter Dyson AM10
-                  humidifier Luftbefeuchter weiß/silber
-                xpath: /html/body/div[5]/div[1]/div[1]/div[1]
+              - text: Produkte
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/a[2]
+            sub_category:
+              - text: Haushalt & Küche>Klima & Heizen>Luftbefeuchter
+                xpath: /html/body/div[11]
             nameExtended:
-              - text: AM10 humidifier Luftbefeuchter weiß/​silber
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/h1[1]
-            listPrice:
-              - text: 499,
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/span[1]
+              - text: Dyson - AM10 humidifier Luftbefeuchter weiß/​silber
+                xpath: /html/body/div[12]
             price:
               - text: 499,
                 xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
             availabilityText:
-              - text: Lagernd im Versandlager und bei 11 HändlernInnerhalb von 4-5 Werktagen bei
+              - text: Lagernd im Versandlager und bei 9 HändlernInnerhalb von 4-5 Werktagen bei
                   Ihnen oder abholbereit bei Ihrem Händler
                 xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[4]/p[1]
             description:
-              - text: >-
-                  Ultraviolet Cleanse Technologie: Mithilfe von UV-C Licht
-                  werden 99,9 % der Bakterien im Wasser abgetötet, bevor das
-                  Wasser als feiner Nebel in die Raumluft abgegeben wird.
-                  Auszeichnungen:
-
-                  Der weltweit erste Luftbefeuchter, der mit dem „Quiet Mark” der „Noise Abatement Society” ausgezeichnet und dessen Hautfreundlichkeit von der Skin Health Alliance bestätigt wurde.
-
-                  Ultraviolet Cleanse Technologie: Mithilfe von UV-C Licht werden 99,9 % der Bakterien im Wasser abgetötet, bevor das Wasser als feiner Nebel in die Raumluft abgegeben wird. Ultraschall-Technologie: Eine piezoelektronische Keramikscheibe teilt das Wasser in feinste Tröpfchen. Air MultiplierTM Technologie: Gleichmäßige und schnelle Befeuchtung der Raumluft.
-
-                  Auszeichnungen: Der weltweit erste Luftbefeuchter, der mit dem „Quiet Mark” der „Noise Abatement Society” ausgezeichnet und dessen Hautfreundlichkeit von der Skin Health Alliance bestätigt wurde. Raumklimakontrolle: Das Gerät misst Temperatur und Luftfeuchtigkeit des Raumes, um die gewünschte Feuchtigkeit zu erreichen. Auto-Modus: Das Gerät wählt automatisch die optimale Luftfeuchtigkeit für den Raum. Zusätzlich mit Fernbedienung, Sleep-Timer Funktion, Ventilatorfunktion. 2 Jahre Garantie - Mit kostenlosem Dyson Abhol- und Lieferservice. Motorleistung 55 Watt. Luftstromeinstellungen 10 Stufen. Luftbefeuchtung: Wassertank 2,84 Liter. Max. Nutzungsdauer 18 Std. Wassersterilisation 3 Min. Sterilisationsgrad (Bakterien) 99,9 % nach 3 Min. Relative Luftfeuchtigkeit 30 – 70 %. Luftbefeuchtung max. 300 ml / Std. Ventilatorfunktion: Luftdurchsatz 460 Liter/Sek. (max). Luftgeschwindigkeit 2,0 Meter/Sek. (max). Lautstärke 62 dBA (max). Kabellänge 2,00 m. Fernbedienung, magnetisch zur Aufbewahrung am Gerät, Batterietyp 1x CR 2032. Sleep-Timer - Intervall 15, 30, 45 Min / 1 - 9 Std. Farbe: Weiß/Silber.
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]
+              - text: "|| Motorleistung 55 Watt, Standby-Power < 0,5 Watt||
+                  Luftstromeinstellungen 10 Stufen|| Wassertank 2,84 Liter||
+                  Max. Nutzungsdauer 18 Std.|| Wassersterilisation 3 Min.,
+                  Sterilisationsgrad (Bakterien) 99,9 % nach 3 Min.|| Relative
+                  Luftfeuchtigkeit 30 – 70 %, Luftbefeuchtung max. 300 ml /
+                  Std.|| Luftdurchsatz 460 Liter/Sek. (max), Luftgeschwindigkeit
+                  2,0 Meter/Sek. (max)|| Lautstärke 62 dBA (max), Kabellänge
+                  2,00 m|| Fernbedienung, magnetisch zur Aufbewahrung am Gerät,
+                  Batterietyp 1x CR 2032 || Ultraviolet Cleanse Technologie:
+                  Mithilfe von UV-C Licht werden 99,9 % der Bakterien im Wasser
+                  abgetötet, bevor das Wasser als feiner Nebel in die Raumluft
+                  abgegeben wird. Auszeichnungen: Der weltweit erste
+                  Luftbefeuchter, der mit dem „Quiet Mark” der „Noise Abatement
+                  Society” ausgezeichnet und dessen Hautfreundlichkeit von der
+                  Skin Health Alliance bestätigt wurde. Ultraviolet Cleanse
+                  Technologie: Mithilfe von UV-C Licht werden 99,9 % der
+                  Bakterien im Wasser abgetötet, bevor das Wasser als feiner
+                  Nebel in die Raumluft abgegeben wird. Ultraschall-Technologie:
+                  Eine piezoelektronische Keramikscheibe teilt das Wasser in
+                  feinste Tröpfchen. Air MultiplierTM Technologie: Gleichmäßige
+                  und schnelle Befeuchtung der Raumluft. Auszeichnungen: Der
+                  weltweit erste Luftbefeuchter, der mit dem „Quiet Mark” der
+                  „Noise Abatement Society” ausgezeichnet und dessen
+                  Hautfreundlichkeit von der Skin Health Alliance bestätigt
+                  wurde. Raumklimakontrolle: Das Gerät misst Temperatur und
+                  Luftfeuchtigkeit des Raumes, um die gewünschte Feuchtigkeit zu
+                  erreichen. Auto-Modus: Das Gerät wählt automatisch die
+                  optimale Luftfeuchtigkeit für den Raum. Zusätzlich mit
+                  Fernbedienung, Sleep-Timer Funktion, Ventilatorfunktion. 2
+                  Jahre Garantie - Mit kostenlosem Dyson Abhol- und
+                  Lieferservice. Motorleistung 55 Watt. Luftstromeinstellungen
+                  10 Stufen. Luftbefeuchtung: Wassertank 2,84 Liter. Max.
+                  Nutzungsdauer 18 Std. Wassersterilisation 3 Min.
+                  Sterilisationsgrad (Bakterien) 99,9 % nach 3 Min. Relative
+                  Luftfeuchtigkeit 30 – 70 %. Luftbefeuchtung max. 300 ml / Std.
+                  Ventilatorfunktion: Luftdurchsatz 460 Liter/Sek. (max).
+                  Luftgeschwindigkeit 2,0 Meter/Sek. (max). Lautstärke 62 dBA
+                  (max). Kabellänge 2,00 m. Fernbedienung, magnetisch zur
+                  Aufbewahrung am Gerät, Batterietyp 1x CR 2032. Sleep-Timer -
+                  Intervall 15, 30, 45 Min / 1 - 9 Std. Farbe: Weiß/Silber."
+                xpath: /html/body/div[14]
+            brandText:
+              - text: Dyson
+                xpath: /html/head[1]/script[14]/@data-flix-brand
             manufacturer:
               - text: Dyson
                 xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
-            mpc:
+            eangtin:
               - text: "5025155018651"
-                xpath: /html/head[1]/script[12]/@data-flix-ean
-            legalDisclaimer:
-              - text: Alle Preise sind Online-Werbepreise in Euro inklusive gesetzlicher MwSt.
-                  und können von den Preisen Ihres Red Zac-Händlers vor Ort
-                  abweichen. Die Produktabbildungen können vom Original
-                  abweichen. Informationen zu allfällig bestehenden
-                  Herstellergarantien erhalten Sie auf den Internetseiten des
-                  jeweiligen Herstellers. Der gesetzliche
-                  Gewährleistungsanspruch des Verbrauchers wird durch allfällige
-                  Garantiezusagen des Herstellers nicht berührt, besteht also
-                  unabhängig davon. Wir liefern nur innerhalb von Österreich.
-                xpath: /html/body/div[6]/div[2]/div[1]/div[2]
+                xpath: /html/head[1]/script[14]/@data-flix-ean
+            gtin:
+              - text: "5025155018651"
+                xpath: /html/head[1]/script[14]/@data-flix-ean
+            variantId:
+              - text: "5025155018651"
+                xpath: /html/head[1]/script[14]/@data-flix-ean
             color:
               - text: weiß
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[8]/tr[2]/td[2]
-            warranty:
-              - text: Alle Preise sind Online-Werbepreise in Euro inklusive gesetzlicher MwSt.
-                  und können von den Preisen Ihres Red Zac-Händlers vor Ort
-                  abweichen. Die Produktabbildungen können vom Original
-                  abweichen. Informationen zu allfällig bestehenden
-                  Herstellergarantien erhalten Sie auf den Internetseiten des
-                  jeweiligen Herstellers. Der gesetzliche
-                  Gewährleistungsanspruch des Verbrauchers wird durch allfällige
-                  Garantiezusagen des Herstellers nicht berührt, besteht also
-                  unabhängig davon. Wir liefern nur innerhalb von Österreich.
-                xpath: /html/body/div[6]/div[2]/div[1]/div[2]
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[3]/tr[2]/td[2]
+            name:
+              - text: AM10 humidifier Luftbefeuchter weiß/​silber
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/h1[1]
+            specifications:
+              - text: |-
+                  Leistungsaufnahme, Stand-By (W) 
+                   
+                  0,5
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  Anzahl der Wassertanks 
+                   
+                  1
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  Luftleistung (l/Sek.) 
+                   
+                  460
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+              - text: |-
+                  UV-C Licht Technologie 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+              - text: |-
+                  Wassersterilisation 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+              - text: |-
+                  Geräusch-Schallleistung (dBA) 
+                   
+                  62
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
+              - text: |-
+                  Befeuchtungsleistung (l/Std.) 
+                   
+                  0,3
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
+              - text: |-
+                  Wassertank Fassungsvermögen (l) 
+                   
+                  2,84
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
+              - text: |-
+                  Luftbefeuchterprinzip 
+                   
+                  Ultraschall-Verneblungsprinzip
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
+              - text: |-
+                  Ausstattung 
+                   
+                   
+                   Ausstattung
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[2]/tr[1]
+              - text: |-
+                  Temperatursensor 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[2]/tr[2]
+              - text: |-
+                  max. Betriebszeit (Std.) 
+                   
+                  18
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[2]/tr[3]
+              - text: |-
+                  integrierter Ventilator 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[2]/tr[4]
+              - text: |-
+                  min. einstellb. relative Luftfeucht. (%) 
+                   
+                  30
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[2]/tr[5]
+              - text: |-
+                  max. einstellb. relative Luftfeucht. (%) 
+                   
+                  70
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[2]/tr[6]
+              - text: |-
+                  Luftgeschwindigkeit (m/Sek.) 
+                   
+                  2
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[2]/tr[7]
+              - text: |-
+                  Farben 
+                   
+                   
+                   Farben
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[3]/tr[1]
+              - text: |-
+                  Gehäuse-Farben 
+                   
+                  weiß
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[3]/tr[2]
+              - text: |-
+                  Bedienung/Ausstattung 
+                   
+                   
+                   Bedienung/Ausstattung
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[4]/tr[1]
+              - text: |-
+                  Feuchtigkeitssensor 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[4]/tr[2]
+              - text: |-
+                  magnetische Aufbewahrung am Gerät 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[4]/tr[3]
+              - text: |-
+                  Infrarot-Fernbedienung 
+                   
+                  Infrarot-Fernbedienung
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[4]/tr[4]
+              - text: |-
+                  Bedienung 
+                   
+                   
+                   Bedienung
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[1]
+              - text: |-
+                  max. Timer-Laufzeit (Std.) 
+                   
+                  9
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[2]
+              - text: |-
+                  Intervall-Schaltung 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[3]
+              - text: >-
+                  Timer 
+                   
+                   Timer-Funktion
+                  Hier ist zu beachten, daß es sich nur um eine Zeitsteuerungs-
+
+                  eignung (Timer-Tauglichkeit) handelt, die nur in Verbindung mit einer Schaltuhr genutzt werden kann.
+
+                  Geräte, die über eine solche Funktion verfügen, werden durch
+
+                  einen Schaltimpuls automatisch ein-und/oder ausgeschaltet.
+
+                  Dieser Impuls wird von einer Schaltuhr über entsprechende
+
+                  Timerein-/ ausgänge an die zu steuernden Geräte geleitet.
+
+                  Auch zeitgesteuerte Aufnahmen sind bei vielen Geräten so
+
+                  möglich (Rec.-Timer).
+
+                  Die benötigte Schaltuhr wird bei vielen Herstellern oftmals in 
+
+                  Tuner-Komponenten integriert, die somit auch über eine permanente Uhrzeitanzeige verfügen. 
+                   
+
+                   
+
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[4]
+              - text: |-
+                  Automatik-Betrieb 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[5]
+              - text: |-
+                  Anzahl der Gebläsestufen 
+                   
+                  10
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[6]
+              - text: |-
+                  Gehäuse-Eigenschaften 
+                   
+                   
+                   Gehäuse-Eigenschaften
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[6]/tr[1]
+              - text: |-
+                  keine Rotorflügel 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[6]/tr[2]
+              - text: |-
+                  Leistungsaufnahme 
+                   
+                   
+                   Leistungsaufnahme
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[7]/tr[1]
+              - text: |-
+                  Leistungsaufnahme (W) 
+                   
+                  55
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[7]/tr[2]
+              - text: |-
+                  Bedienung des Dampfreinigers 
+                   
+                   
+                   Bedienung des Dampfreinigers
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[8]/tr[1]
+              - text: |-
+                  Länge der Anschlussleitung (m) 
+                   
+                  2
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[8]/tr[2]
+            additionalDescBulletInfo:
+              - text: "|| Motorleistung 55 Watt, Standby-Power < 0,5 Watt||
+                  Luftstromeinstellungen 10 Stufen|| Wassertank 2,84 Liter||
+                  Max. Nutzungsdauer 18 Std.|| Wassersterilisation 3 Min.,
+                  Sterilisationsgrad (Bakterien) 99,9 % nach 3 Min.|| Relative
+                  Luftfeuchtigkeit 30 – 70 %, Luftbefeuchtung max. 300 ml /
+                  Std.|| Luftdurchsatz 460 Liter/Sek. (max), Luftgeschwindigkeit
+                  2,0 Meter/Sek. (max)|| Lautstärke 62 dBA (max), Kabellänge
+                  2,00 m|| Fernbedienung, magnetisch zur Aufbewahrung am Gerät,
+                  Batterietyp 1x CR 2032"
+                xpath: /html/body/div[13]
             quantity:
               - text: "1"
             variantCount:
@@ -108,6 +340,8 @@ extractions:
                 raw: "0"
                 locale: de_DE
                 value: 0
+            technicalInformationPdfPresent:
+              - text: No
             descriptionBullets:
               - text: "9"
                 type: NUMBER
@@ -115,4 +349,4 @@ extractions:
                 locale: de_DE
                 value: 9
         xpath: /
-    timestamp: 1601653160097
+    timestamp: 1603726848863

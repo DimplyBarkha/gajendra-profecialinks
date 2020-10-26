@@ -10,12 +10,7 @@ module.exports = {
     zipcode: '',
   },
 
-  implementation: async (
-    { inputString },
-    { country, domain },
-    context,
-    { productDetails },
-  ) => {
+  implementation: async (inputs, { country, domain, transform: transformParam }, context, dependencies) => {
     // await context.waitForSelector(
     //   '#product_detail_image_wrapper__details_image_container > picture > source:nth-child(1)',
     // );
@@ -134,7 +129,17 @@ module.exports = {
           addElementToDocument('energyefficiency', found[1]);
         }
       }
+
+      // Modyfing ratingValue
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      const ratingValueSelector = document.querySelector('span.bv-rating > span');
+      console.log(ratingValueSelector);
+      if (ratingValueSelector) {
+        const newRating = ratingValueSelector.textContent.replace(/\./, ',');
+        addElementToDocument('properrating', newRating);
+      }
     });
-    await context.extract(productDetails);
+    const { productDetails } = dependencies;
+    await context.extract(productDetails, { transform: transformParam });
   },
 };

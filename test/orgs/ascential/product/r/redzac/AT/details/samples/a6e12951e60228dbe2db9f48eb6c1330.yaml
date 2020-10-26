@@ -2,13 +2,13 @@ input:
   _url: http://redzac.at
   URL: https://www.redzac.at/produkt/PH01-Pure-HumidifyCool-weiss-silber-275413-01-Dyson-Luftreiniger
 extractions:
-  - html: https://workbench.import.io/html/run=b9217ee8-b697-4763-8506-173374cca887/task=3637b12b-e3eb-464f-8444-5c44c3195a3c/8a0b072f-6a88-4e5c-94f2-48aeaa412312.html
+  - html: https://workbench.import.io/html/run=018a6721-655d-46f7-9d67-442ad9fd372a/task=583c8961-8472-4de8-833d-8bcefb6e9b8b/63c170b7-d876-4e4a-92c0-001ba5768cb3.html
     extractionConfigId: product/details/stores/r/redzac/AT/extract
     data:
       - group:
           - image:
               - text: https://www.redzac.at/Produktabbildung/Dyson-PH01-Pure-HumidifyCool-weiss-silber-275413-01-Abbildung-1.webp?V1ID011421845Nfiles/110488/rzat_product_image_detail_uhd__webp
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[10]
             imageAlt:
               - text: Produktabbildung Dyson PH01 Pure Humidify+Cool weiß/silber (275413-01)
                 xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/picture[1]/img[1]/@alt
@@ -30,84 +30,351 @@ extractions:
                   Klima & Heizen, Red Zac, Shop, kaufen
                 xpath: /html/head[1]/meta[11]/@content
             category:
-              - text: Home Produkte Haushalt & Küche Klima & Heizen Luftreiniger Dyson PH01 Pure
-                  Humidify+Cool weiß/silber (275413-01)
-                xpath: /html/body/div[5]/div[1]/div[1]/div[1]
+              - text: Produkte
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/a[2]
+            sub_category:
+              - text: Haushalt & Küche>Klima & Heizen>Luftreiniger
+                xpath: /html/body/div[13]
             nameExtended:
-              - text: PH01 Pure Humidify+​Cool weiß/​silber (275413-01)
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/h1[1]
-            listPrice:
-              - text: 699,
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/span[1]
+              - text: Dyson - PH01 Pure Humidify+​Cool weiß/​silber (275413-01)
+                xpath: /html/body/div[14]
             price:
               - text: 699,
                 xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
             availabilityText:
-              - text: Lagernd im Versandlager und bei 5 HändlernInnerhalb von 4-5 Werktagen bei
+              - text: Lagernd im Versandlager und bei 7 HändlernInnerhalb von 4-5 Werktagen bei
                   Ihnen oder abholbereit bei Ihrem Händler
                 xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[4]/p[1]
             description:
-              - text: >-
-                  Der Luftreiniger von Dyson mit Befeuchtungs- und
-                  Ventilatorfunktion
-                   Trockene Luft kann zu Dehydrierung führen. Der Dyson Luftbefeuchter mit Luftreinigungsfunktion hält automatisch das richtige Feuchtigkeitsniveau in der Raumluft aufrecht. Für eine angenehmere Umgebung das ganze Jahr.
-                   Entfernt Gase und ultrafeine Partikel
-                   Der Dyson Pure Humidify+Cool™ verfügt über ein versiegeltes 360˚-Filtrationssystem. Es kombiniert einen Aktivkohlefilter zum Entfernen von Gasen und Gerüchen und einen versiegelten HEPA-Filter zum Entfernen von 99,95 % der ultrafeinen Partikel. 
-                   Tötet potenziell schädliche Bakterien ab
-                   Dyson Ultraviolet Cleanse Technologie setzt jeden Tropfen Wasser einem ultravioletten Licht aus. Dadurch werden 99,9 % der Bakterien im Wasser entfernt. 
-                   Mehr als 36 Stunden lang hygienische Befeuchtung 
-                   Ein effizientes Wassermanagementsystem und ein 5-Liter-Wassertank sorgen für kontinuierliche Befeuchtung ohne regelmäßiges Nachfüllen.
-                   Vermischt und verteilt die Luft in drei Modi
-                   Die Air Multiplier™ Technologie verteilt bis zu 350 Liter kühlende Luft 5 pro Sekunde. Die Luft wird dabei vermischt und im gesamten Raum 4 verteilt, sodass Sie keine trockene, verbrauchte Luft einatmen. Wählen Sie zwischen dem Ventilatormodus, dem Brise-Modus, um eine kühlende, erfrischende Brise zu imitieren und in den Wintermonaten können Sie die Verteilungsfunktion nutzen, um die Luft zu reinigen und zu befeuchten – ohne direkten frontalen Luftstrom.
-                   Kühlender Effekt durch Verdunstung
-                   Für angenehme Luft an heißen, trockenen Tagen. Der biostatische Verdampfer absorbiert Wärmeenergie und wandelt sie in einen kühlenden, erfrischenden Luftstrom um.
-                   Einfache Filterwartung
-                   Die integrierte Erinnerungsfunktion zeigt an, wann die Filter gewechselt werden müssen. Der Austausch der Filter ist schnell und einfach. Somit stellen Sie sicher, dass Ihr Gerät immer optimal arbeitet.
-                   Dauerhafte hygienische Luftbefeuchtung
-                   Der Tiefreinigungsmodus entfernt Kalkablagerungen im gesamten Wassersystem des Geräts. Auf Knopfdruck wird der Zyklus aktiviert und Sie werden durch einen einfachen Schritt-für-Schritt-Prozess geführt.
-                   Vollständige Kontrolle auf Knopfdruck
-                   Mit der Dyson Link App können Sie Ihren Luftbefeuchter mit Luftreinigungsfunktion überwachen und steuern.7 So können Sie die Raumluftbedingungen in Ihrer Wohnung von überall aus nachvollziehen und anpassen.
-                  Der erste Luftreiniger von Dyson mit Befeuchtungs- und Ventilatorfunktion. Entfernt Gase und ultrafeine Partikel. Tötet potenziell schädliche Bakterien ab. Mehr als 36 Stunden lang hygienische Befeuchtung. Kühlender Effekt durch Verdunstung. Vermischt und verteilt die Luft in drei Modi. Einfache Filterwartung. Dauerhafte hygienische Luftbefeuchtung. Vollständige Kontrolle auf Knopfdruck. Kabellänge 1,83 m. Fernbedienung. Sleep-Timer. Intervall Aus, 30 min, 1 h, 2 h, 4 h, 8 h. 
-
-                  Nachtmodus. Dyson Link-App Ja, iOS App Store oder Google Play Store.
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]
+              - text: "|| Anzahl der Luftstromgeschwindigkeiten: 1 bis 10|| Drehbewegung/Winkel:
+                  Aus, 45˚, 90° & Natürliche Brise|| Integriertes LCD Display||
+                  Sleep-Timer-Intervalle: Aus, 30 min, 1 h, 2 h, 4 h, 8 h||
+                  Standby-Energieverbrauch (Wifi An/Aus): <1 W / <0,25 W||
+                  Leistung Gerät Ventilator Modus (Stufe 1/10): 6 W / 40 W||
+                  Leistung Gerät Befeuchtungsmodus (Stufe 1/10): 10 W / 43 W||
+                  Luftstrom bei max. Einstellung: 350 l/s|| Gemessener
+                  Schallpegel bei min./max. Luftstrom: Ø 36dB / Ø 61 dB || Der
+                  Luftreiniger von Dyson mit Befeuchtungs- und
+                  Ventilatorfunktion Trockene Luft kann zu Dehydrierung führen.
+                  Der Dyson Luftbefeuchter mit Luftreinigungsfunktion hält
+                  automatisch das richtige Feuchtigkeitsniveau in der Raumluft
+                  aufrecht. Für eine angenehmere Umgebung das ganze Jahr.
+                  Entfernt Gase und ultrafeine Partikel Der Dyson Pure
+                  Humidify+Cool™ verfügt über ein versiegeltes
+                  360˚-Filtrationssystem. Es kombiniert einen Aktivkohlefilter
+                  zum Entfernen von Gasen und Gerüchen und einen versiegelten
+                  HEPA-Filter zum Entfernen von 99,95 % der ultrafeinen
+                  Partikel. Tötet potenziell schädliche Bakterien ab Dyson
+                  Ultraviolet Cleanse Technologie setzt jeden Tropfen Wasser
+                  einem ultravioletten Licht aus. Dadurch werden 99,9 % der
+                  Bakterien im Wasser entfernt. Mehr als 36 Stunden lang
+                  hygienische Befeuchtung Ein effizientes Wassermanagementsystem
+                  und ein 5-Liter-Wassertank sorgen für kontinuierliche
+                  Befeuchtung ohne regelmäßiges Nachfüllen. Vermischt und
+                  verteilt die Luft in drei Modi Die Air Multiplier™ Technologie
+                  verteilt bis zu 350 Liter kühlende Luft 5 pro Sekunde. Die
+                  Luft wird dabei vermischt und im gesamten Raum 4 verteilt,
+                  sodass Sie keine trockene, verbrauchte Luft einatmen. Wählen
+                  Sie zwischen dem Ventilatormodus, dem Brise-Modus, um eine
+                  kühlende, erfrischende Brise zu imitieren und in den
+                  Wintermonaten können Sie die Verteilungsfunktion nutzen, um
+                  die Luft zu reinigen und zu befeuchten – ohne direkten
+                  frontalen Luftstrom. Kühlender Effekt durch Verdunstung Für
+                  angenehme Luft an heißen, trockenen Tagen. Der biostatische
+                  Verdampfer absorbiert Wärmeenergie und wandelt sie in einen
+                  kühlenden, erfrischenden Luftstrom um. Einfache Filterwartung
+                  Die integrierte Erinnerungsfunktion zeigt an, wann die Filter
+                  gewechselt werden müssen. Der Austausch der Filter ist schnell
+                  und einfach. Somit stellen Sie sicher, dass Ihr Gerät immer
+                  optimal arbeitet. Dauerhafte hygienische Luftbefeuchtung Der
+                  Tiefreinigungsmodus entfernt Kalkablagerungen im gesamten
+                  Wassersystem des Geräts. Auf Knopfdruck wird der Zyklus
+                  aktiviert und Sie werden durch einen einfachen
+                  Schritt-für-Schritt-Prozess geführt. Vollständige Kontrolle
+                  auf Knopfdruck Mit der Dyson Link App können Sie Ihren
+                  Luftbefeuchter mit Luftreinigungsfunktion überwachen und
+                  steuern.7 So können Sie die Raumluftbedingungen in Ihrer
+                  Wohnung von überall aus nachvollziehen und anpassen. Der erste
+                  Luftreiniger von Dyson mit Befeuchtungs- und
+                  Ventilatorfunktion. Entfernt Gase und ultrafeine Partikel.
+                  Tötet potenziell schädliche Bakterien ab. Mehr als 36 Stunden
+                  lang hygienische Befeuchtung. Kühlender Effekt durch
+                  Verdunstung. Vermischt und verteilt die Luft in drei Modi.
+                  Einfache Filterwartung. Dauerhafte hygienische
+                  Luftbefeuchtung. Vollständige Kontrolle auf Knopfdruck.
+                  Kabellänge 1,83 m. Fernbedienung. Sleep-Timer. Intervall Aus,
+                  30 min, 1 h, 2 h, 4 h, 8 h. Nachtmodus. Dyson Link-App Ja, iOS
+                  App Store oder Google Play Store."
+                xpath: /html/body/div[16]
+            brandText:
+              - text: Dyson
+                xpath: /html/head[1]/script[15]/@data-flix-brand
             manufacturer:
               - text: Dyson
                 xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
             weightNet:
               - text: 8,29
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[6]/td[2]
-            mpc:
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[8]/tr[6]/td[2]
+            eangtin:
               - text: "5025155046302"
-                xpath: /html/head[1]/script[13]/@data-flix-ean
-            legalDisclaimer:
-              - text: Alle Preise sind Online-Werbepreise in Euro inklusive gesetzlicher MwSt.
-                  und können von den Preisen Ihres Red Zac-Händlers vor Ort
-                  abweichen. Die Produktabbildungen können vom Original
-                  abweichen. Informationen zu allfällig bestehenden
-                  Herstellergarantien erhalten Sie auf den Internetseiten des
-                  jeweiligen Herstellers. Der gesetzliche
-                  Gewährleistungsanspruch des Verbrauchers wird durch allfällige
-                  Garantiezusagen des Herstellers nicht berührt, besteht also
-                  unabhängig davon. Wir liefern nur innerhalb von Österreich.
-                xpath: /html/body/div[6]/div[2]/div[1]/div[2]
+                xpath: /html/head[1]/script[15]/@data-flix-ean
+            gtin:
+              - text: "5025155046302"
+                xpath: /html/head[1]/script[15]/@data-flix-ean
+            variantId:
+              - text: "5025155046302"
+                xpath: /html/head[1]/script[15]/@data-flix-ean
             color:
               - text: weiß
-                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[6]/tr[2]/td[2]
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[4]/tr[2]/td[2]
+            name:
+              - text: PH01 Pure Humidify+​Cool weiß/​silber (275413-01)
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/h1[1]
             specifications:
+              - text: |-
+                  Leistungsaufnahme, Stand-By (W) 
+                   
+                  1
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[3]/tr[2]
+              - text: |-
+                  Fassungsvermögen Wassertank (l) 
+                   
+                  5
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[3]/tr[3]
+              - text: >-
+                  min. Betriebsgeräusch (dB) 
+                   
+                   Betriebsgeräusch (dBA)
+                  dB = Decibel
+
+                  Dezibel : Bei vielen technischen Beschreibungen oder Daten- angaben wird bei der Angabe von Leistung, Verstärkungsgrad und Gewinn der Begriff Dezibel (db) verwendet. Das Dezibel (amerik. Physiker A.G. Bell , 1847-1922) gibt das Verhältnis zweier gemessener Werte zueinander an.
+
+                  Es werden nicht nur Verstärkungsverhältnisse, die auf Spannungen, Stromstärken oder Leistungen bezogen sind, angegeben, sondern auch Dämpfungen.
+
+                  Die absoluten Größen sind nicht zu erkennen, weil es sich immer um Verhältniszahlen handelt.
+
+                  Das Dezibel gibt dieses Verhältnis nicht in natürlichen Zahlen, sondern in logarithmischen an. Da sich von Bel zu Bel ( 1 dB = 1/10 Bel ) zu große Zahlensprünge ergeben, ist es üblich, in der Praxis nicht die Einheit Bel, sondern Dezibel zu gebrauchen.
+
+                  1 Bel sind also 10 dB.
+                   
+
+                   
+
+                   
+
+                   
+                  36
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[3]/tr[4]
+              - text: |-
+                  Apps ladbar 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[3]/tr[5]
+              - text: >-
+                  Geräusch-Schallleistung (dB) 
+                   
+                   Geräusch-Schalleistung
+                  A-bewerteter Schalleistungspegel. Je höher der Wert, um so lauter ist das Geäusch. 2 dB mehr sind kaum wahrnehmbar.
+
+                  10 dB mehr werden als doppelt so laut empfunden.
+
+                  Die hier verwendeten Schalleistungspegel sind mit den in dB(A) angegebenen Schalldruckpegeln (z. B. Verkehr, Arbeitsplatz) nicht vergleichbar.
+                   
+
+                   
+
+                   
+
+                   
+                  61
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[3]/tr[6]
+              - text: |-
+                  220-240V 50/60Hz Netzanschluss 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[3]/tr[7]
+              - text: |-
+                  Leistung (W) 
+                   
+                  43
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[3]/tr[8]
+              - text: |-
+                  Farben 
+                   
+                   
+                   Farben
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[4]/tr[1]
+              - text: |-
+                  Gehäuse-Farben 
+                   
+                  weiß
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[4]/tr[2]
+              - text: |-
+                  Bedienung 
+                   
+                   
+                   Bedienung
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[1]
+              - text: |-
+                  iOS-kompatibel 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[2]
+              - text: |-
+                  Android kompatibel 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[3]
+              - text: |-
+                  max. Timer-Laufzeit (Std.) 
+                   
+                  8
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[4]
+              - text: |-
+                  Intervall-Schaltung 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[5]
+              - text: >-
+                  Timer 
+                   
+                   Timer-Funktion
+                  Hier ist zu beachten, daß es sich nur um eine Zeitsteuerungs-
+
+                  eignung (Timer-Tauglichkeit) handelt, die nur in Verbindung mit einer Schaltuhr genutzt werden kann.
+
+                  Geräte, die über eine solche Funktion verfügen, werden durch
+
+                  einen Schaltimpuls automatisch ein-und/oder ausgeschaltet.
+
+                  Dieser Impuls wird von einer Schaltuhr über entsprechende
+
+                  Timerein-/ ausgänge an die zu steuernden Geräte geleitet.
+
+                  Auch zeitgesteuerte Aufnahmen sind bei vielen Geräten so
+
+                  möglich (Rec.-Timer).
+
+                  Die benötigte Schaltuhr wird bei vielen Herstellern oftmals in 
+
+                  Tuner-Komponenten integriert, die somit auch über eine permanente Uhrzeitanzeige verfügen. 
+                   
+
+                   
+
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[6]
+              - text: |-
+                  Anzahl der Gebläsestufen 
+                   
+                  10
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[5]/tr[7]
+              - text: |-
+                  Filter-Eigenschaften 
+                   
+                   
+                   Filter-Eigenschaften
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[6]/tr[1]
+              - text: |-
+                  zuschaltbares ultraviolettes Licht 
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[6]/tr[2]
+              - text: >-
+                  Aktiv-Kohle-Filter 
+                   
+                   Feature: Aktiv-Kohle-Filter
+                  Spezieller Filter für Umluftbetrieb. Eine Füllung mit Aktiv- Kohlekörnchen bindet wirkungsvoll Geruchsstoffe. Lebensdauer einer Füllung: ca. 1 Jahr
+                   
+
+                   
+
+                   
+
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[6]/tr[3]
+              - text: |-
+                  Anzeige 
+                   
+                   
+                   Anzeige
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[7]/tr[1]
+              - text: >-
+                  LCD-Anzeige 
+                   
+                   LCD-Multifunktionsanzeige
+                  LCD : Abkürzung für Liquid Cristal Display.
+
+                  (Flüssigkristallanzeige)
+
+                  Verbraucht im Gegensatz zur LED-Anzeige weniger Strom und ist besonders flach. Wird als alphanumerische Anzeige und zur Darstellung von Symbolen in einer Vielzahl von Geräten ein- gesetzt.
+
+                  LC-Displays gibt es in verschiedenen Farben mit und ohne Hintergrundbeleuchtung für Nachtbetrieb.
+                   
+
+                   
+
+                   
+
+                   
+                  ja
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[7]/tr[2]
+              - text: |-
+                  Gehäuse-Eigenschaften 
+                   
+                   
+                   Gehäuse-Eigenschaften
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[8]/tr[1]
+              - text: |-
+                  Winkel Drehbewegung in Grad 
+                   
+                  90
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[8]/tr[2]
+              - text: |-
+                  Breite (cm) 
+                   
+                  22
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[8]/tr[3]
+              - text: |-
+                  Höhe (cm) 
+                   
+                  92,3
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[8]/tr[4]
+              - text: |-
+                  Tiefe (cm) 
+                   
+                  15,5
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[8]/tr[5]
+              - text: |-
+                  Gewicht (kg) 
+                   
+                  8,29
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[8]/tr[6]
+              - text: |-
+                  Bedienung des Dampfreinigers 
+                   
+                   
+                   Bedienung des Dampfreinigers
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[9]/tr[1]
+              - text: |-
+                  Länge der Anschlussleitung (m) 
+                   
+                  1,83
+                xpath: /html/body/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[9]/tr[2]
               - text: Breite (cm) 22 Höhe (cm) 92,3 Tiefe (cm) 15,5
-                xpath: /html/body/div[10]
-            warranty:
-              - text: Alle Preise sind Online-Werbepreise in Euro inklusive gesetzlicher MwSt.
-                  und können von den Preisen Ihres Red Zac-Händlers vor Ort
-                  abweichen. Die Produktabbildungen können vom Original
-                  abweichen. Informationen zu allfällig bestehenden
-                  Herstellergarantien erhalten Sie auf den Internetseiten des
-                  jeweiligen Herstellers. Der gesetzliche
-                  Gewährleistungsanspruch des Verbrauchers wird durch allfällige
-                  Garantiezusagen des Herstellers nicht berührt, besteht also
-                  unabhängig davon. Wir liefern nur innerhalb von Österreich.
-                xpath: /html/body/div[6]/div[2]/div[1]/div[2]
+                xpath: /html/body/div[11]
+            additionalDescBulletInfo:
+              - text: "|| Anzahl der Luftstromgeschwindigkeiten: 1 bis 10|| Drehbewegung/Winkel:
+                  Aus, 45˚, 90° & Natürliche Brise|| Integriertes LCD Display||
+                  Sleep-Timer-Intervalle: Aus, 30 min, 1 h, 2 h, 4 h, 8 h||
+                  Standby-Energieverbrauch (Wifi An/Aus): <1 W / <0,25 W||
+                  Leistung Gerät Ventilator Modus (Stufe 1/10): 6 W / 40 W||
+                  Leistung Gerät Befeuchtungsmodus (Stufe 1/10): 10 W / 43 W||
+                  Luftstrom bei max. Einstellung: 350 l/s|| Gemessener
+                  Schallpegel bei min./max. Luftstrom: Ø 36dB / Ø 61 dB"
+                xpath: /html/body/div[15]
             quantity:
               - text: "1"
             variantCount:
@@ -116,6 +383,8 @@ extractions:
                 raw: "0"
                 locale: de_DE
                 value: 0
+            technicalInformationPdfPresent:
+              - text: No
             descriptionBullets:
               - text: "9"
                 type: NUMBER
@@ -123,4 +392,4 @@ extractions:
                 locale: de_DE
                 value: 9
         xpath: /
-    timestamp: 1601653156063
+    timestamp: 1603726848615
