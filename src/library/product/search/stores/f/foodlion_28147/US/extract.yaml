@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ol[contains(@class,"cell-container")]/li[contains(@class,"product-wrapper")]
+recordXPath:  //ol[contains(@class,"cell-container")]/li[contains(@class,"product-wrapper") and .//span[contains(@id,"add-to-cart-ada-increment")]/@id]
 fields:
   - name: paid
     singleValue: false
