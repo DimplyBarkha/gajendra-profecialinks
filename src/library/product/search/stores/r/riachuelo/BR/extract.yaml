@@ -1,0 +1,34 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[@class="product-list__item"]
+fields:
+  - name: thumbnail
+    singleValue: false
+    #xpath: //div[@class="owl-stage"]//img/@src
+    #xpath: //div[@class="owl-item"]//div[@class="item"]//img/@src
+    xpath: //div[@class="product-block__slider"]//div[1]//img/@src
+  - name: name
+    singleValue: false
+    xpath: //strong[@class="product-block__name"]//a
+    description: The product name 
+  - name: price
+    singleValue: false
+    xpath: //span[@class="product-block__price"][@data-price-type="finalPrice"]
+    description: The offered price for the product
+  - name: id
+    singleValue: false
+    xpath: //a[@class="product-block__wishlist-btn action wishlist-link"]/@data-sku
+    # regExp: Rated ([^()]+)out of 5 stars
+    # regExpReplace: $1
+    description: Unique id (within this extractor)
+  - name: rankOrganic
+    singleValue: true
+  - name: rank
+    singleValue: false
+  # - name: reviewCount
+  #   singleValue: false
+  #   xpath: 
+  - name: productUrl
+    singleValue: false
+    xpath:  //a[@class="product-block__gallery"]/@href 
