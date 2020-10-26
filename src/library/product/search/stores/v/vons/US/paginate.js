@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'vons',
-    nextLinkSelector: 'document.querySelector',
+    nextLinkSelector: '.primary-btn.btn.btn-default.btn-secondary.bloom-load-button',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '#search-grid_0 > div.col-12.bloom-load-wrapper > button',
+    loadedSelector: '#search-grid_0 > div.row.gutters-items-v2.grid-wrapper.product-grid-v2 > product-item-v2',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'vons.com',
