@@ -1,0 +1,24 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="hawkitemlist"]//div[contains(@class,"hawk-listing-item")]
+fields:
+  - name: id
+    SingleValue: true
+    xpath: //a[@class="itemLink squre-img"]/@href
+  - name: productUrl
+    SingleValue: true
+    xpath: //a[@class="itemLink squre-img"]/@href
+  - name: price
+    SingleValue: true
+    xpath: //span[contains(@class,"retailPrice")]
+  - name: thumbnail
+    SingleValue: true
+    xpath: //img[@class="itemImage hawk-itemImage"]/@src
+  - name: name
+    SingleValue: true
+    xpath: //a[contains(@class,"card-title")]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
