@@ -35,11 +35,11 @@ async function implementation(inputs, parameters, context, dependencies) {
 
     let scrollTop = 0;
     while (scrollTop !== 7000) {
-      await stall(500);
+      await stall(1000);
       scrollTop += 500;
       window.scroll(0, scrollTop);
       if (scrollTop === 7000) {
-        await stall(500);
+        await stall(1000);
         break;
       }
     }
