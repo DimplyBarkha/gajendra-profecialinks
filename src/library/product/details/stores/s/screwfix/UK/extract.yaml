@@ -17,11 +17,14 @@ fields:
     xpath: //meta[@property='og:image']/@content
   - name: alternateImages
     singleValue: false 
-    xpath: //div[@class='pr__media--carousel']//img/@src
+    xpath: //div[@class='pr__media--carousel']//div[contains(@id,'product-slider-nav')]//img/@src
   - name: category
     singleValue: false
     xpath: //ul[contains(@class,'n il bc__list')]//li[ not(contains(@class,'bc__hm')) and not(contains(@class,'bc__md')) ]//a
   - name: brandText
+    singleValue: false 
+    xpath: //div[@class='pr__product__logo']//img/@alt
+  - name: manufacturer
     singleValue: false 
     xpath: //div[@class='pr__product__logo']//img/@alt
   - name: name
@@ -50,6 +53,11 @@ fields:
     singleValue: false
     xpath: //table[@id="product_selling_attributes_table"]//td[text()="Model No"]/parent::tr/td[2]
   - name: quantity
+    singleValue: true
+    xpath: //div[@class='pr__qty']//input[contains(@class,'fm-input--items fm-input--qty')]/@value
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[@class='BVRRRatingNormalImage']//img/@alt
+  - name: variantCount
     singleValue: false
-    xpath: //table[@id="product_selling_attributes_table"]//td[text()="Model No"]/parent::tr/td[2]
- 
+    defaultValue: '0'

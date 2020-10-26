@@ -25,16 +25,18 @@ const transform = (data) => {
     for (const { group } of data) {
       for (let row of group) {
         if (row.ratingCount) {
-          row.ratingCount.forEach(item => {
-            item.text =  Number(item.text);
-          });
-        }
-        if (row.availabilityText) {
-            row.availabilityText.forEach(item => {
+            row.ratingCount.forEach(item => {
               item.text = item.text.replace(/(\s*)+/g, '').trim();
-              item.text = item.text.replace('http://schema.org/', '').trim();
+              item.text = item.text.replace('outof5', '').trim();
+              item.text =  Number(item.text);
             });
         }
+        if (row.availabilityText) {
+          row.availabilityText.forEach(item => {
+            item.text = item.text.replace(/(\s*)+/g, '').trim();
+            item.text = item.text.replace('http://schema.org/', '').trim();
+          });
+      }
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
