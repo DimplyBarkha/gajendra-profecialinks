@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'SE',
     store: 'pacson',
-    nextLinkSelector: '.pagination>li:nth-child(3)>a',
+    nextLinkSelector: "#pagnNextString, #pagnNextLink, ul.pagination li:nth-child(3) a[class*=pagination__link]:not([class*='pagination__link--current'])",
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
