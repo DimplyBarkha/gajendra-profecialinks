@@ -1,0 +1,102 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //img[@class='rd-product-image-gallery__slide-large-image drift-initialized']/@src
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@cs-id,'image-gallery-thumbnail')]/@style
+  - name: category
+    singleValue: false
+    xpath: //a[@cs-id='breadcrumb-level-6-link']/text()
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@class="rd-product-detail__title"]/@title
+  - name: listPrice
+    singleValue: true
+    xpath: //meta[@property="product:price:amount"]/@content
+  - name: price
+    singleValue: true
+    xpath: //meta[@property="product:price:amount"]/@content
+  - name: availabilityText
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+    xpath: //meta[@property="product:availability"]/@content
+  - name: description
+    singleValue: false
+    xpath: //div[@class="rd-product-description__text"]
+  - name: brandText
+    singleValue: true
+    xpath: //meta[@property="product:brand"]/@content
+  - name: manufacturer
+    singleValue: true
+    xpath: //meta[@property="product:brand"]/@content
+  - name: quantity
+    singleValue: true
+    xpath: //html//div[@id='quantity']
+  - name: weightNet
+    singleValue: true
+    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Inhalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Inhalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span
+  - name: gtin
+    singleValue: true
+    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'EAN')]/following::div[@class="rd-product-information-cell__value-data"])[1]
+  - name: legalDisclaimer
+    singleValue: true
+    xpath: //div[@class="rd-product-buybox__age-restriction rd-age-restriction-message"]
+  - name: warnings
+    singleValue: true
+    xpath: (//div[contains(text(),'Zusatzinformation')]/following::div)[1]/text()
+  - name: ratingCount
+    singleValue: true
+    type: NUMBER
+    xpath: //span[@class="rd-link rd-link--secondary rd-review-stars-and-count__review-count"]
+  - name: aggregateRating
+    singleValue: true
+    type: NUMBER
+    xpath: //html//div[@id='addedAggregateRating']
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[@class="rd-product-sidebar__info-card--bold"]
+  - name: name
+    singleValue: true
+    xpath: //h1[@class="rd-product-detail__title"]/@title
+  - name: storage
+    singleValue: true
+    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Aufbewahrung und Verwendung')]/following::div[@class="rd-product-information-cell__value-data"])[1]
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Herkunft')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Herkunft')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span
+  - name: productOtherInformation
+    singleValue: true
+    xpath: //html//div[@id='shippingInfo']
+  - name: alcoholContent
+    singleValue: true
+    xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'Alkoholgehalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/a | (//div[@class="rd-product-information-cell"]/div[contains(text(),'Alkoholgehalt')]/following::div[@class="rd-product-information-cell__value-data"])[1]/span
+  - name: ageSuitability
+    singleValue: true
+    example: 4 - 99 years
+    xpath: //div[@class="rd-product-buybox__age-restriction rd-age-restriction-message"]
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    defaultValue: Yes
+  - name: privacyPolicy
+    singleValue: true
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    defaultValue: No
+  - name: Image360Present
+    singleValue: true
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: Yes
