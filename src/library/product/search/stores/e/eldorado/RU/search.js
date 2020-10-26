@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'eldorado.ru',
-    timeout: 800000,
     country: 'RU',
     store: 'eldorado',
+    domain: 'eldorado.ru',
     zipcode: '',
   },
 };
