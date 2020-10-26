@@ -5,19 +5,24 @@ recordXPath: null
 fields:
   - name: price
     singleValue: false
-    xpath: //div[@class="fl-product-tile__checkout-section c-product-tile__checkout-section"]//div//div//span//font//font//text()
+    xpath: //span[@itemprop="price"]
   - name: name
     singleValue: true
+    xpath: //div//h4[@class="fl-product-tile-title e-h4 fl-product-tile__title"]
   - name: productUrl
     singleValue: false
+    xpath: //a[@class="fl-product-tile-picture fl-product-tile-picture__link"]/@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.mvideo.ru/$1
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="lazy-load-image-holder lazy-loaded"]//img//@src
   - name: aggregateRating
     singleValue: true
-    xpath: //span[@class="fl-product-tile-rating__stars-value"]//font//font
+    xpath: //span[@class="fl-product-tile-rating__stars-value"]
   - name: id
     singleValue: false
+    xpath: //div[@class="fl-product-tile c-product-tile "]/@data-productid
   - name: reviewCount
     singleValue: true
   - name: ratingCount
