@@ -6,7 +6,7 @@ module.exports = {
     store: 'lowes',
     domain: 'lowes.ca',
     loadedSelector: 'div[id="product-header"]',
-    noResultsXPath: 'div[class="error-page"]',
+    noResultsXPath: '//div[@class="error-page"]',
     zipcode: null,
   },
 };
