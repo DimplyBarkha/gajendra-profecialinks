@@ -1,0 +1,68 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //img[@id='image-main']/@src
+  - name: metaKeywords
+    singleValue: true`
+    xpath: //meta[@name='keywords']/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@class='breadcrumbs']//ul/li//a
+  - name: name
+    singleValue: true
+    xpath: //div[contains(@class,'product-info')]//h1
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[contains(@class,'product-info')]//h1
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@class,'product-info')]//div[contains(@class,'availability') and text()=' Készleten']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[contains(@class,'product-image-thumbs')]//a[not(contains(@class,'active'))]//img/@src
+  - name: listPrice
+    singleValue: true
+    xpath: //span[contains(@itemprop,'offers')]//span[@class='price']
+  - name: imageAlt
+    singleValue: true
+    xpath: //img[@id='image-main']/@alt
+  - name:  description
+    singleValue: true
+    xpath: //div[@class='short-description']
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@class,'old-price')]//span[@class='price' and @id]
+  - name: brandText
+    singleValue: true
+    xpath: //div[@class='product-info']//div[contains(text(),'Márka:')]//strong
+  - name: sku
+    singleValue: true
+    xpath: //div[@class='product-sku']//span[not(@class)]  
+  - name: variantId
+    singleValue: true
+    xpath: //div[@class='product-sku']//span[not(@class)]  
+  - name: promotion
+    singleValue: true
+    xpath: //div[contains(@class,'badge-description')]/text()[2]
+  - name: weightGross
+    singleValue: true
+    xpath: //h4[text()='Súly']//following-sibling::p[1]
+  - name: quantity
+    singleValue: true
+    xpath: //h4[text()='Kiszerelés']//following-sibling::p[1]
+  - name: directions
+    singleValue: true
+    xpath: //h4[text()='Elkészítés és felhasználás']//following-sibling::p[1]
+  - name: warnings
+    singleValue: true
+    xpath: //h4[text()='Biztonsági figyelmeztetés']//following-sibling::p[1]
+  - name: ingredientsList
+    singleValue: true
+    xpath: //h4[text()='Címkézhető összetevők']//following-sibling::p[1]
