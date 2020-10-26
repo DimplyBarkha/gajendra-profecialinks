@@ -34,12 +34,12 @@ fields:
     xpath: //span[contains(@class,'product-current-price')]//span
   - name: ratingCount
     singleValue: true
-    xpath: //div[@id='bv2-desktop']//span[contains(@class,'cdr-rating__number_4.2.0')]
-  - name: aggregateRating
-    singleValue: true
     xpath: //div[@id='bv2-desktop']//span[contains(@class,'cdr-rating__number_4.2.0')]//following-sibling::*
     regExp: \((.+?)\)
-    regExpReplace: $1
+    regExpReplace: $1    
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@id='bv2-desktop']//span[contains(@class,'cdr-rating__number_4.2.0')]
   - name: imageAlt
     singleValue: true
     xpath: //div[contains(@class,'mc-primary-img align-center ')]//img[contains(@data-ui,'media-center-primary-image')]/@alt
