@@ -30,6 +30,23 @@ module.exports = {
       // @ts-ignore
       const quantity = window.document.getElementById('amount').value;
       addElementToDocument('quantity', quantity);
+      // Method to Retrieve Xpath content of a Multiple Nodes
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+      };
+      const sliceURL = (data) => {
+        for (let index = 0; index < data.length; index++) {
+          addElementToDocument('altImages', data[index].slice(23, -37));
+        }
+      };
+      var backgroundURL = getAllXpath("//div[contains(@cs-id,'image-gallery-thumbnail')]/@style", 'nodeValue');
+      sliceURL(backgroundURL);
     });
     await context.extract(productDetails);
   },

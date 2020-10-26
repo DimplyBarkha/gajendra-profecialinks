@@ -8,7 +8,7 @@ fields:
     xpath: //img[@class='rd-product-image-gallery__slide-large-image drift-initialized']/@src
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@cs-id,'image-gallery-thumbnail')]/@style
+    xpath: //html//div[@id='altImages']
   - name: category
     singleValue: false
     xpath: //a[@cs-id='breadcrumb-level-6-link']/text()
