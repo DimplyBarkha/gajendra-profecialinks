@@ -5,7 +5,7 @@ module.exports = {
     country: 'RU',
     store: 'eldorado',
     domain: 'eldorado.ru',
-    url: 'https://www.eldorado.ru/search/catalog.php?q=dyson',
+    url: 'https://www.eldorado.ru/search/catalog.php?q={searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',

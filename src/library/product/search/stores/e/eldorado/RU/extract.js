@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'eldorado',
-    transform: 'cleanUp',
+    transform: cleanUp,
     domain: 'eldorado.ru',
     zipcode: '',
   },
