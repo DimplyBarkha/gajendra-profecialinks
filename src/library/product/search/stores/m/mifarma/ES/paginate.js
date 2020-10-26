@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'mifarma',
-    nextLinkSelector: null,
+    nextLinkSelector: '.ais-pagination--item.ais-pagination--item__next > a.ais-pagination--link',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
@@ -12,6 +12,5 @@ module.exports = {
     openSearchDefinition: null,
     domain: 'mifarma.es',
     zipcode: '',
-    timeout: 30000,
   },
 };
