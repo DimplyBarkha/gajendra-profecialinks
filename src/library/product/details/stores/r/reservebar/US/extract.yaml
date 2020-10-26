@@ -1,0 +1,58 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class='grid__item product-single__photos product-image-mobile medium-up--one-half']//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='header__logo']//img/@alt
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class='product-single__title']
+  - name: price
+    singleValue: false
+    xpath: (//div[@class='price__sale']//dd)[1]
+  - name: listPrice
+    singleValue: false
+    xpath: (//div[contains(@class,'price__regular')]//dd)[1]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: Out of Stock
+    xpath: (//span[contains(@class,'price-item price-item--regular')])[1]
+  - name: brandText
+    singleValue: false
+    xpath: //span[@class='title__sub title__sub--light product__brand']
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='product-single__title']
+  - name: description
+    singleValue: false
+    xpath: //div[@class='product__description is-visible']
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class='product__description is-visible']
+    regExp: Bottle Size:\s*(\S+)
+    regExpReplace: $1
+  - name: sku
+    singleValue: false
+    xpath: (//script[@type="application/ld+json"][contains(text(),"sku")])[1]
+  - name: variantId
+    singleValue: false
+    xpath: //script[contains(@id,'ProductJson-product-template')]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //section[contains(@class,'product__origin origin')] | //section[@class='container product__cocktail cocktail']
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'cocktail__image-ir')]//img/@src
