@@ -6,27 +6,23 @@ fields:
   - name: price
     singleValue: false
     description: price of the product
-    xpath: //div[@class='info']/div[@class='prices']/a/div[@class='price']
+    xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='prices product-tile__prices']/div[@class='product-tile__price-container']/a[@class='prices__price product-tile__price']/span
   - name: productUrl
     singleValue: false
     description: The URL for the product details page 
-    xpath: //div[@class="item-container"]/div/div[@class='title']/a/@href
+    xpath: //div[@class="item-container product-tile__container"]/div[@class="info product-tile__info"]/div[@class="product-img-container product-tile__img-container"]/a/@href
     regExp: (online/.*)
     regExpReplace: https://www.unieuro.it/$1
-  - name: id
-    singleValue: false
-    description: Unique id (within this extractor)
-    xpath: //div[@class="item-container"]//div[@class="actions-container is-active"]/form/input/@value
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //div[@class='info']/div[@class='product-img-container']/a/img[@class='product-img lazyloaded']/@src
+    xpath: //a/img[@class='product-img product-tile__img lazyloaded']/@src
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@class='item-container']/div[@class='info']/div[@class='title']/a/text()
-  - name: sku
-    singleValue: false
+    xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='title product-tile__title']/a/text()
+  - name: id
+    singleValue: true
     description: The store-specific product identifier
-    xpath: //article/@data-product-tile-sku
- 
+    xpath: //article[@class="product-tile  promotion "]/@data-productactions-sku
+  
