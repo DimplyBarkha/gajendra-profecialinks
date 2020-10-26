@@ -1,0 +1,22 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: true
+    description: Name of a product
+    xpath: //ul[@class='clearfix']/li[@class='column']//a[@class='plink']/h3[@class='productName']
+  - name: price
+    singleValue: false
+    description: Price of a product
+    xpath: //ul[@class='clearfix']/li[@class='column']//div[@class='proDetail']/a[@class='newPrice']/ins
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //ul[@class='clearfix']/li[@class='column ']//a/@href
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //ul[@class='clearfix']/li[@class='column']//div[@class='pro']/a[@class='plink']/img[@class='lazy']/@src
+
