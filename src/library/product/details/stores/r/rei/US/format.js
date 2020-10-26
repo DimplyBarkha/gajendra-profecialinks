@@ -35,6 +35,16 @@ const transform = (data) => {
             item.text = 'https://www.rei.com' + item.text              
         });
       }
+      if (row.videos) {
+
+        row.videos.forEach(item => {
+            var json_obj = JSON.parse(item.text);
+            json_obj.forEach(element => {
+              
+            });
+            item.text = 'https://www.rei.com' + item.text              
+        });
+      }
     }
   }
   return cleanUp(data);

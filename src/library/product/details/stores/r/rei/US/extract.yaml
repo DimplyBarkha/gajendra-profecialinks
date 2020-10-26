@@ -15,6 +15,9 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //h1[@data-ui='product-information-title']
+  - name: name
+    singleValue: true
+    xpath: //h1[@data-ui='product-information-title']
   - name: availabilityText
     singleValue: true
     xpath: //button[contains(@class,'product-buy-button')]//span[contains(text(),'Add to cart')]
@@ -51,10 +54,7 @@ fields:
     xpath: //span[contains(@class,'product-price-original')]//span[not(contains(@class,'sr-only'))]/text()[2]
   - name: brandText
     singleValue: true
-    xpath: //div[contains(@class,'brand-link')]//a[@data-ui='view-brand-link']//span
-  - name: weightNet
-    singleValue: true
-    xpath: //div[@data-ui='product-specs']//th[contains(text(),'Weight')]//following-sibling::td
+    xpath: //div[contains(@class,'brand-link')]//a[@data-ui='view-brand-link']//span  
   - name: shippingDimensions
     singleValue: true
     xpath: //div[@data-ui='product-specs']//th[contains(text(),'Dimensions')]//following-sibling::td
@@ -65,7 +65,7 @@ fields:
     regExpReplace: $1:$2
   - name: videos
     singleValue: false
-    xpath: //div[contains(@data-is,'apparel-media-center')]//div[@data-ui='image-carousel']//div[not(contains(@class,'selected')) and contains(@class,'video-thumb') and contains(@class,'thumb')]//img/@src
+    xpath: //script[@data-client-store="video-data"]
   - name: sku
     singleValue: false
     xpath: //input[@name='itemNumber']/@value
