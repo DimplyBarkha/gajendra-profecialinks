@@ -15,6 +15,9 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //div[contains(@class,'product-title')]//h1
+  - name: name
+    singleValue: true
+    xpath: //div[contains(@class,'product-title')]//h1    
   - name: availabilityText
     singleValue: false
     xpath: //button[@class="button btn btn-secondary alt" and text()="Buy Now"]
