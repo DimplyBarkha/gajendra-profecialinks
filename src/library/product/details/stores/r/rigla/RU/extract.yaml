@@ -1,0 +1,59 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[contains(@class,"product-card__main-slider")]//div[contains(@class,'slick-slide slick-current slick-active')]//img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class,"product-card__main-slider")]//div[contains(@class,'slick-slide slick-current slick-active')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'slick-slide slick-active')]//img/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[contains(@name,'keywords')]/@content
+  - name: category
+    singleValue: false
+    xpath: //span[contains(@class,'breadcrumbs__wrapper')]/a[contains(@class,'breadcrumbs__item')]
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[contains(@class,'product-cart__title')]
+  - name: listPrice
+    singleValue: true
+    xpath: //div[contains(@class,'product-cart__content-price-old')]
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@class,'product-cart__content-price-actual')]
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@class,'product-cart__content-availability')]//div[contains(@class,'product-info__stock-type-item product-info__stock-type__stock_in') and contains(text(),"В наличии")]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,"product-cart__content-tabs-contents")][1]//div[contains(@class,'product-cart__paragraph-section')]
+  - name: manufacturer
+    singleValue: true
+    xpath: //a[contains(@class,'product-cart__content-info-header-black')]
+  - name: quantity
+    singleValue: true
+    xpath: //input[@class="product-cart__content-basket-inp"]
+  - name: sku
+    singleValue: true
+    xpath: //div[contains(@class,'product-cart__toolbar-code')]//span[contains(@class,'product-cart__toolbar-code-number')]
+  - name: variantId
+    singleValue: true
+    xpath: //div[contains(@class,'product-cart__toolbar-code')]//span[contains(@class,'product-cart__toolbar-code-number')]
+  - name: shippingInfo
+    singleValue: true
+    xpath: //span[contains(@class,'product-cart__content-availability-info-text') and contains(.,"Pick up")]//parent::div//span[contains(@class,"product-cart__content-availability-info-value")]
+  - name: name
+    singleValue: true
+    xpath: //h1[contains(@class,'product-cart__title')]
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,"product-cart__content-tabs-contents")][1]//div[contains(@class,'product-cart__paragraph-section')]
