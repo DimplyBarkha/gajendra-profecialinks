@@ -93,7 +93,7 @@ fields:
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
-  singleValue: tru
+  singleValue: true
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
@@ -111,24 +111,31 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: //span[@data-selenium="reviewsNumber"]
+  regExp: (\d+)
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: #accessible only on hovering
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: //button[@data-selenium="shipMessage"]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
+  xpath: //td[contains(text(), "Box Dimensions")]/following-sibling::td[1]/span
 - name: shippingWeight
   singleValue: true
   description: Stated shipping weight
+  xpath: //td[contains(text(), "Package Weight")]/following-sibling::td[1]/span
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  xpath: count(//span[@data-selenium="optionsGroupingName"])
 - name: color
   singleValue: true
   description: A textual description of the colour
