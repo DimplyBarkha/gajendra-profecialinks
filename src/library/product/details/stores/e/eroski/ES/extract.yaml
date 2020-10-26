@@ -1,0 +1,191 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //img[@class='product-big-image']/@src
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href    
+  - name: url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+  - name: description
+    singleValue: false
+    xpath: //meta[@name="description"]/@content
+  - name: promotion
+    singleValue: false
+    xpath: //span[contains(@class,'product-offer-yellow')]//font//font
+  - name: manufacturer
+    singleValue: false
+    xpath: //strong[contains(text(),"Nombre")]//../following-sibling::p[1]
+    regExp: (.+)
+    regExpReplace: In Stock
+  - name: price
+    singleValue: false
+    xpath: //span[@class="price-now"]//span[position()>1]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@class="price-before"]//span[position()>1] 
+  - name: availabilityText
+    singleValue: false
+    # xpath: //form[@id='form_1']//a//font//font
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    defaultValue: In Stock
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@class,"feature-text-ingredients")]//p
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //li[contains(text(), 'Ácidos grasos saturados ')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: $1
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: //li[contains(text(), 'Ácidos grasos saturados ')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: gramos
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //li[contains(text(), 'carbono')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: $1
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: //li[contains(text(), 'carbono')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: gramos
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //li[contains(text(), 'Proteínas')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: $1
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //li[contains(text(), 'Proteínas')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: gramos
+  - name: saltPerServing
+    singleValue: false
+    xpath: //li[contains(text(), 'Sal')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: $1
+  - name: saltPerServingUom
+    singleValue: false
+    xpath: //li[contains(text(), 'Sal')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: gramos
+  - name: name
+    singleValue: false
+    xpath: //title
+  - name: nameExtended
+    singleValue: false
+    xpath: //title
+  - name: brandText
+    singleValue: false
+    xpath: //script[contains(@type,"text/javascript") and contains(text(), "brand" and contains(text(),'category'))]//text()
+    regExp: (?<=brand\\":\\").*?(?=\\")
+  - name: category
+    singleValue: false
+    xpath: //div[@class="col col-lg-12 m__breadcrumb__path"]//a[position()>1]
+    # regExp: (?<=category\\":\\").*?(?=\\")
+    # regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id="my-variantId"]  
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="ratingSubtitle"]/text()[1]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,"starbar")]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //h3[contains(text(),"País de origen")]//.//following-sibling::p  
+  - name: directions
+    singleValue: false
+    xpath: //strong[contains(text(),"Dirección")]//../following-sibling::p
+  - name: storage
+    singleValue: false
+    xpath: //h3[contains(text(),"Condiciones de conservación")]//..//p   
+  - name: promotion
+    singleValue: false
+    xpath: //span[contains(@class,"partner-price-background")]
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //li[contains(text(), 'Azúcares')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: $1
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //li[contains(text(), 'Azúcares')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: gramos
+  - name: calciumPerServing
+    singleValue: false
+    xpath: //li[contains(text(), 'Calcio')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: $1
+  - name: calciumPerServingUom
+    singleValue: false
+    xpath: //li[contains(text(), 'Calcio')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: gramos
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //li[contains(text(), 'Fibra alimentaria')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: $1
+  - name: dietaryFibrePerServingUom    
+    singleValue: false
+    xpath: //li[contains(text(), 'Fibra alimentaria')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: gramos
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //li[contains(text(), 'Grasas')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: $1
+  - name: totalFatPerServingUom    
+    singleValue: false
+    xpath: //li[contains(text(), 'Grasas')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: gramos
+  - name: vitaminAPerServing
+    singleValue: false
+    xpath: //li[contains(text(), 'Vitamina A')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: $1
+  - name: vitaminAPerServingUom
+    singleValue: false
+    xpath: //li[contains(text(), 'Vitamina A')]//span
+    regExp: ([^ ]+) gramos
+    regExpReplace: gramos
+  - name: quantity
+    singleValue: false
+    xpath: //title
+    regExp: ,(.+)
+    regExpReplace: $1
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //p[@itemprop="price"]/span
+    regExp: (.+)€
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    singleValue: false
+    xpath: //p[@itemprop="price"]/span
+    regExp: €
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@id="my-variantId"]
+    regExp: (.+)
+    regExpReplace: "0"
+    defaultValue: 0
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[@class='product-big-image']/@alt 
+    
