@@ -99,6 +99,8 @@ const transform = (data) => {
           row.alternateImages = result;
           row.secondaryImageTotal = [{text: row.alternateImages.length}];
         }
+
+        row.variantCount = [{text: 1}];
       }
     }
     return data;
