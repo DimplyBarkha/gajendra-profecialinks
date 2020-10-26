@@ -2,7 +2,7 @@ input:
   keywords: laptop
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=d2bf4c43-ffb3-4306-a837-d70606a9f93b/task=94d5fa8f-93d7-426b-976e-9e4b3b794128/97c0daf9-8e81-4838-9764-c754a06ea6ea.html
+  - html: https://workbench.import.io/html/run=a2599c1a-cb1e-453a-9e59-f7c33e2c743f/task=b185f47a-48be-46b8-b1e9-bd6edfefe5ab/2d437335-f24e-4818-bede-262187e5781a.html
     extractionConfigId: product/search/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -360,6 +360,9 @@ extractions:
             thumbnail:
               - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125037127/125037127_4_MC/47023261.png
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 5.299 TL
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[1]/text()[1]
             manufacturer:
               - text: ASUS
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
@@ -594,8 +597,8 @@ extractions:
                 locale: tr
                 value: 16
         xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]
-    timestamp: 1603696804936
-  - html: https://workbench.import.io/html/run=d2bf4c43-ffb3-4306-a837-d70606a9f93b/task=94d5fa8f-93d7-426b-976e-9e4b3b794128/8f3d7213-af46-4fea-a7c9-1e0c26b07d3c.html
+    timestamp: 1603697390554
+  - html: https://workbench.import.io/html/run=a2599c1a-cb1e-453a-9e59-f7c33e2c743f/task=b185f47a-48be-46b8-b1e9-bd6edfefe5ab/8fbe9155-7568-4b33-ad7f-a9d5875bbef9.html
     extractionConfigId: product/search/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -1307,14 +1310,17 @@ extractions:
                 locale: tr
                 value: 36
         xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]
-    timestamp: 1603696804936
-  - html: https://workbench.import.io/html/run=d2bf4c43-ffb3-4306-a837-d70606a9f93b/task=94d5fa8f-93d7-426b-976e-9e4b3b794128/a6685a2c-4c9c-47cc-9045-bb24dfcb76fd.html
+    timestamp: 1603697390554
+  - html: https://workbench.import.io/html/run=a2599c1a-cb1e-453a-9e59-f7c33e2c743f/task=b185f47a-48be-46b8-b1e9-bd6edfefe5ab/0ff98805-3c78-459b-b121-a516c3a5ce37.html
     extractionConfigId: product/search/stores/t/teknosa/TR/extract
     data:
       - group:
           - id:
               - text: "125046299"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/@searchurl
             name:
               - text: CaseLogic Jaunt Notebook Sırt Çantası 15.6" Brıck
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1330,9 +1336,26 @@ extractions:
             manufacturer:
               - text: CASE LOGIC
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "37"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]
+                type: NUMBER
+                raw: "37"
+                locale: tr
+                value: 37
+            rankOrganic:
+              - text: "37"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]
+                type: NUMBER
+                raw: "37"
+                locale: tr
+                value: 37
           - id:
               - text: "125046943"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/@searchurl
             name:
               - text: HP Commuter 5EE91AA Siyah Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1348,9 +1371,26 @@ extractions:
             manufacturer:
               - text: HP
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "38"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]
+                type: NUMBER
+                raw: "38"
+                locale: tr
+                value: 38
+            rankOrganic:
+              - text: "38"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]
+                type: NUMBER
+                raw: "38"
+                locale: tr
+                value: 38
           - id:
               - text: "125047075"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/@searchurl
             name:
               - text: Mack MCC-202 15.6" Belize Gri Notebook Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1366,9 +1406,26 @@ extractions:
             manufacturer:
               - text: MACK
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "39"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]
+                type: NUMBER
+                raw: "39"
+                locale: tr
+                value: 39
+            rankOrganic:
+              - text: "39"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]
+                type: NUMBER
+                raw: "39"
+                locale: tr
+                value: 39
           - id:
               - text: "125047055"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/@searchurl
             name:
               - text: Preo My Cooler MGF01 Gaming Notebook Soğutucu
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1384,9 +1441,26 @@ extractions:
             manufacturer:
               - text: PREO
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "40"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]
+                type: NUMBER
+                raw: "40"
+                locale: tr
+                value: 40
+            rankOrganic:
+              - text: "40"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]
+                type: NUMBER
+                raw: "40"
+                locale: tr
+                value: 40
           - id:
               - text: "125046781"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/@searchurl
             name:
               - text: Thule Enroute 23L Notebook Siyah Sırt Çantası 15.6"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1405,9 +1479,26 @@ extractions:
             endorsementText:
               - text: Tükenmek Üzere
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[2]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "41"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[2]
+                type: NUMBER
+                raw: "41"
+                locale: tr
+                value: 41
+            rankOrganic:
+              - text: "41"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[2]
+                type: NUMBER
+                raw: "41"
+                locale: tr
+                value: 41
           - id:
               - text: "125045993"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/@searchurl
             name:
               - text: HP T0F84Aa 15.6" Siyah Smb Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1423,9 +1514,26 @@ extractions:
             manufacturer:
               - text: HP
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "42"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[2]
+                type: NUMBER
+                raw: "42"
+                locale: tr
+                value: 42
+            rankOrganic:
+              - text: "42"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[2]
+                type: NUMBER
+                raw: "42"
+                locale: tr
+                value: 42
           - id:
               - text: "125047064"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/@searchurl
             name:
               - text: Caselogic 15.6" Commence Notebook Sırt Çantası - Siyah
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1441,9 +1549,26 @@ extractions:
             manufacturer:
               - text: CASE LOGIC
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "43"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/div[2]
+                type: NUMBER
+                raw: "43"
+                locale: tr
+                value: 43
+            rankOrganic:
+              - text: "43"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/div[2]
+                type: NUMBER
+                raw: "43"
+                locale: tr
+                value: 43
           - id:
               - text: "125047083"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/@searchurl
             name:
               - text: Mack MCC-203 15.6" Belize Bordo Notebook Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1459,9 +1584,26 @@ extractions:
             manufacturer:
               - text: MACK
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "44"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[2]
+                type: NUMBER
+                raw: "44"
+                locale: tr
+                value: 44
+            rankOrganic:
+              - text: "44"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[2]
+                type: NUMBER
+                raw: "44"
+                locale: tr
+                value: 44
           - id:
               - text: "125046413"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/@searchurl
             name:
               - text: Preo My Cooler Mcl02 Notebook Soğutucu
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1477,9 +1619,26 @@ extractions:
             manufacturer:
               - text: PREO
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "45"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[2]
+                type: NUMBER
+                raw: "45"
+                locale: tr
+                value: 45
+            rankOrganic:
+              - text: "45"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[2]
+                type: NUMBER
+                raw: "45"
+                locale: tr
+                value: 45
           - id:
               - text: "125046780"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/@searchurl
             name:
               - text: Thule Enroute 14L Notebook Sırt Çantası, Teal 13"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1495,9 +1654,26 @@ extractions:
             manufacturer:
               - text: THULE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "46"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[2]
+                type: NUMBER
+                raw: "46"
+                locale: tr
+                value: 46
+            rankOrganic:
+              - text: "46"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[2]
+                type: NUMBER
+                raw: "46"
+                locale: tr
+                value: 46
           - id:
               - text: "125049111"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/@searchurl
             name:
               - text: INCA INC-608GMS Arrax Series Gaming Notebook Soğutucu
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1516,9 +1692,26 @@ extractions:
             endorsementText:
               - text: Yeni
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[2]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "47"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[2]
+                type: NUMBER
+                raw: "47"
+                locale: tr
+                value: 47
+            rankOrganic:
+              - text: "47"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[2]
+                type: NUMBER
+                raw: "47"
+                locale: tr
+                value: 47
           - id:
               - text: "125047073"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[12]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[12]/@searchurl
             name:
               - text: CaseLogic Uplink 15.6" Siyah Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[12]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1534,9 +1727,26 @@ extractions:
             manufacturer:
               - text: CASE LOGIC
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[12]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "48"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[12]/div[2]
+                type: NUMBER
+                raw: "48"
+                locale: tr
+                value: 48
+            rankOrganic:
+              - text: "48"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[12]/div[2]
+                type: NUMBER
+                raw: "48"
+                locale: tr
+                value: 48
           - id:
               - text: "125047061"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[13]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[13]/@searchurl
             name:
               - text: Caselogic Commence 15.6" Notebook Sırt Çantası - Trellis/Cumin
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[13]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1552,9 +1762,26 @@ extractions:
             manufacturer:
               - text: CASE LOGIC
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[13]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "49"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[13]/div[2]
+                type: NUMBER
+                raw: "49"
+                locale: tr
+                value: 49
+            rankOrganic:
+              - text: "49"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[13]/div[2]
+                type: NUMBER
+                raw: "49"
+                locale: tr
+                value: 49
           - id:
               - text: "125047115"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[14]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[14]/@searchurl
             name:
               - text: Thule Enroute 18L Notebook Sırt Çanta, Rooibos 15"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[14]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1570,9 +1797,26 @@ extractions:
             manufacturer:
               - text: THULE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[14]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "50"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[14]/div[2]
+                type: NUMBER
+                raw: "50"
+                locale: tr
+                value: 50
+            rankOrganic:
+              - text: "50"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[14]/div[2]
+                type: NUMBER
+                raw: "50"
+                locale: tr
+                value: 50
           - id:
               - text: "125047099"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/@searchurl
             name:
               - text: Mack MCC-201 15.6" Belize Notebook Çantası Siyah
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1588,9 +1832,26 @@ extractions:
             manufacturer:
               - text: MACK
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "51"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/div[2]
+                type: NUMBER
+                raw: "51"
+                locale: tr
+                value: 51
+            rankOrganic:
+              - text: "51"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/div[2]
+                type: NUMBER
+                raw: "51"
+                locale: tr
+                value: 51
           - id:
               - text: "125046899"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/@searchurl
             name:
               - text: Preo My Case MCS002 15.6" Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1606,9 +1867,26 @@ extractions:
             manufacturer:
               - text: PREO
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "52"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[2]
+                type: NUMBER
+                raw: "52"
+                locale: tr
+                value: 52
+            rankOrganic:
+              - text: "52"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[2]
+                type: NUMBER
+                raw: "52"
+                locale: tr
+                value: 52
           - id:
               - text: "125046773"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/@searchurl
             name:
               - text: Thule Accent 23L Notebook 15,6" Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1624,9 +1902,26 @@ extractions:
             manufacturer:
               - text: THULE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "53"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[2]
+                type: NUMBER
+                raw: "53"
+                locale: tr
+                value: 53
+            rankOrganic:
+              - text: "53"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[2]
+                type: NUMBER
+                raw: "53"
+                locale: tr
+                value: 53
           - id:
               - text: "125047117"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/@searchurl
             name:
               - text: Enroute 23L Notebook Sırt Çanta, Dark Forest 15.6"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1645,9 +1940,26 @@ extractions:
             endorsementText:
               - text: Tükenmek Üzere
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[2]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "54"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[2]
+                type: NUMBER
+                raw: "54"
+                locale: tr
+                value: 54
+            rankOrganic:
+              - text: "54"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[2]
+                type: NUMBER
+                raw: "54"
+                locale: tr
+                value: 54
           - id:
               - text: "125049046"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/@searchurl
             name:
               - text: Case Logic Founder Notebook Sırt Çantası, Mg/Heater
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1663,9 +1975,26 @@ extractions:
             manufacturer:
               - text: CASE LOGIC
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "55"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[2]
+                type: NUMBER
+                raw: "55"
+                locale: tr
+                value: 55
+            rankOrganic:
+              - text: "55"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[2]
+                type: NUMBER
+                raw: "55"
+                locale: tr
+                value: 55
           - id:
               - text: "125047035"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=2
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/@searchurl
             name:
               - text: HP 14 Carry Sleeve Black/Gold Notebook Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -1681,9 +2010,23 @@ extractions:
             manufacturer:
               - text: HP
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "56"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/div[2]
+                type: NUMBER
+                raw: "56"
+                locale: tr
+                value: 56
+            rankOrganic:
+              - text: "56"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/div[2]
+                type: NUMBER
+                raw: "56"
+                locale: tr
+                value: 56
         xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]
-    timestamp: 1603696804936
-  - html: https://workbench.import.io/html/run=d2bf4c43-ffb3-4306-a837-d70606a9f93b/task=94d5fa8f-93d7-426b-976e-9e4b3b794128/82828e6b-f5ef-44d6-93f2-a9036b228ee9.html
+    timestamp: 1603697390554
+  - html: https://workbench.import.io/html/run=a2599c1a-cb1e-453a-9e59-f7c33e2c743f/task=b185f47a-48be-46b8-b1e9-bd6edfefe5ab/a96aa7a8-b3f4-49c4-bfb3-f4b1bfc9782a.html
     extractionConfigId: product/search/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -2400,8 +2743,8 @@ extractions:
                 locale: tr
                 value: 76
         xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]
-    timestamp: 1603696804936
-  - html: https://workbench.import.io/html/run=d2bf4c43-ffb3-4306-a837-d70606a9f93b/task=94d5fa8f-93d7-426b-976e-9e4b3b794128/c8e3eca1-1b48-4e51-9498-1300b4a1f474.html
+    timestamp: 1603697390554
+  - html: https://workbench.import.io/html/run=a2599c1a-cb1e-453a-9e59-f7c33e2c743f/task=b185f47a-48be-46b8-b1e9-bd6edfefe5ab/1dfa4709-5ed7-46f3-9951-b390ec49993f.html
     extractionConfigId: product/search/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -3115,8 +3458,8 @@ extractions:
                 locale: tr
                 value: 96
         xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]
-    timestamp: 1603696804936
-  - html: https://workbench.import.io/html/run=d2bf4c43-ffb3-4306-a837-d70606a9f93b/task=94d5fa8f-93d7-426b-976e-9e4b3b794128/f02e73c9-00a1-4440-bdef-73d262b62c82.html
+    timestamp: 1603697390554
+  - html: https://workbench.import.io/html/run=a2599c1a-cb1e-453a-9e59-f7c33e2c743f/task=b185f47a-48be-46b8-b1e9-bd6edfefe5ab/70ec2c06-fdda-46ef-9f47-df5b26a5dc58.html
     extractionConfigId: product/search/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -3681,26 +4024,29 @@ extractions:
                 locale: tr
                 value: 112
           - id:
-              - text: "125049065"
+              - text: "125045526"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/@data-product-id
             searchUrl:
               - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=5
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/@searchurl
             name:
-              - text: Thule Exeo Notebook Sırt Çantası, 28L, 15.6", Black
+              - text: HP L8J89Aa 15.6" Gri-Yeşil Odyssey Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
             productUrl:
-              - text: https://www.teknosa.com/thule-exeo-notebook-sirt-cantasi-28l-156-black-p-125049065
+              - text: https://www.teknosa.com/hp-l8j89aa-156-griyesil-odyssey-notebook-sirt-cantasi-p-125045526
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125049065/125049065_0_MC/37925032.jpg
+              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125045526/125045526_1_MC/37335305.jpg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 699 TL
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[1]/text()[1]
+              - text: 249,90 TL
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[3]/text()[1]
             manufacturer:
-              - text: THULE
+              - text: HP
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            endorsementText:
+              - text: Tükenmek Üzere
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[2]/div[1]/span[1]/text()[1]
             rank:
               - text: "113"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[2]
@@ -3716,25 +4062,25 @@ extractions:
                 locale: tr
                 value: 113
           - id:
-              - text: "125044832"
+              - text: "125046854"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/@data-product-id
             searchUrl:
               - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=5
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/@searchurl
             name:
-              - text: Inca Inc-321 Ergonomik Çift Fanlı Sessiz Notebook Soğutucu (Siyah)
+              - text: HP 15.6 Signature Slim Gri/Siyah Notebook Çantası (L6V68AA)
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
             productUrl:
-              - text: https://www.teknosa.com/inca-inc321-ergonomik-cift-fanli-sessiz-notebook-sogutucu-siyah-p-125044832
+              - text: https://www.teknosa.com/hp-156-signature-slim-grisiyah-notebook-cantasi-l6v68aa-p-125046854
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125044832/125044832_0_MC/40579393.jpg
+              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125046854/125046854_0_MC/38250137.png
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 149,90 TL
+              - text: 159,90 TL
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[1]/text()[1]
             manufacturer:
-              - text: INCA
+              - text: HP
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
             rank:
               - text: "114"
@@ -3751,25 +4097,25 @@ extractions:
                 locale: tr
                 value: 114
           - id:
-              - text: "125046047"
+              - text: "125049065"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/@data-product-id
             searchUrl:
               - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=5
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/@searchurl
             name:
-              - text: Samsonite 16N-01-002 15.6" Mavi Qibyte Notebook Çantası
+              - text: Thule Exeo Notebook Sırt Çantası, 28L, 15.6", Black
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
             productUrl:
-              - text: https://www.teknosa.com/samsonite-16n01002-156-mavi-qibyte-notebook-cantasi-p-125046047
+              - text: https://www.teknosa.com/thule-exeo-notebook-sirt-cantasi-28l-156-black-p-125049065
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125046047/125046047_0_MC/20982672.jpg
+              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125049065/125049065_0_MC/37925032.jpg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 439 TL
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[3]/text()[1]
+              - text: 699 TL
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[1]/text()[1]
             manufacturer:
-              - text: SAMSONITE
+              - text: THULE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
             rank:
               - text: "115"
@@ -3786,25 +4132,25 @@ extractions:
                 locale: tr
                 value: 115
           - id:
-              - text: "125046049"
+              - text: "125044832"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/@data-product-id
             searchUrl:
               - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=5
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/@searchurl
             name:
-              - text: Samsonite 16N-01-004 14.1" Mavi Qibyte Notebook Sırt Çantası
+              - text: Inca Inc-321 Ergonomik Çift Fanlı Sessiz Notebook Soğutucu (Siyah)
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
             productUrl:
-              - text: https://www.teknosa.com/samsonite-16n01004-141-mavi-qibyte-notebook-sirt-cantasi-p-125046049
+              - text: https://www.teknosa.com/inca-inc321-ergonomik-cift-fanli-sessiz-notebook-sogutucu-siyah-p-125044832
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125046049/125046049_0_MC/28281813.jpg
+              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125044832/125044832_0_MC/40579393.jpg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 519 TL
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[3]/text()[1]
+              - text: 149,90 TL
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[1]/text()[1]
             manufacturer:
-              - text: SAMSONITE
+              - text: INCA
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
             rank:
               - text: "116"
@@ -3821,110 +4167,195 @@ extractions:
                 locale: tr
                 value: 116
         xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]
-    timestamp: 1603696804936
-  - html: https://workbench.import.io/html/run=d2bf4c43-ffb3-4306-a837-d70606a9f93b/task=94d5fa8f-93d7-426b-976e-9e4b3b794128/e7ab4d89-f8c8-44e9-bfaa-f78e34d0bbf3.html
+    timestamp: 1603697390554
+  - html: https://workbench.import.io/html/run=a2599c1a-cb1e-453a-9e59-f7c33e2c743f/task=b185f47a-48be-46b8-b1e9-bd6edfefe5ab/4fedffb5-95e4-40fa-abd7-0716034cd4b4.html
     extractionConfigId: product/search/stores/t/teknosa/TR/extract
     data:
       - group:
           - id:
-              - text: "125046052"
+              - text: "125046047"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/@searchurl
             name:
-              - text: Samsonite 16N-09-001 14.1" Antrasit Qibyte Notebook Çantası
+              - text: Samsonite 16N-01-002 15.6" Mavi Qibyte Notebook Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
             productUrl:
-              - text: https://www.teknosa.com/samsonite-16n09001-141-antrasit-qibyte-notebook-cantasi-p-125046052
+              - text: https://www.teknosa.com/samsonite-16n01002-156-mavi-qibyte-notebook-cantasi-p-125046047
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125046052/125046052_0_MC/21266137.jpg
+              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125046047/125046047_0_MC/20982672.jpg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 399 TL
+              - text: 439 TL
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[3]/text()[1]
             manufacturer:
               - text: SAMSONITE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
-            endorsementText:
-              - text: Tükenmek Üzere
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "117"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]
+                type: NUMBER
+                raw: "117"
+                locale: tr
+                value: 117
+            rankOrganic:
+              - text: "117"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]
+                type: NUMBER
+                raw: "117"
+                locale: tr
+                value: 117
           - id:
-              - text: "125046054"
+              - text: "125046049"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/@searchurl
             name:
-              - text: Samsonite 16N-09-003 17.3" Antrast Qibyte Notebook Çantası
+              - text: Samsonite 16N-01-004 14.1" Mavi Qibyte Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
             productUrl:
-              - text: https://www.teknosa.com/samsonite-16n09003-173-antrast-qibyte-notebook-cantasi-p-125046054
+              - text: https://www.teknosa.com/samsonite-16n01004-141-mavi-qibyte-notebook-sirt-cantasi-p-125046049
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125046054/125046054_0_MC/20982644.jpg
+              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125046049/125046049_0_MC/28281813.jpg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 479 TL
+              - text: 519 TL
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[3]/text()[1]
             manufacturer:
               - text: SAMSONITE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "118"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]
+                type: NUMBER
+                raw: "118"
+                locale: tr
+                value: 118
+            rankOrganic:
+              - text: "118"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]
+                type: NUMBER
+                raw: "118"
+                locale: tr
+                value: 118
           - id:
-              - text: "125047070"
+              - text: "125046052"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/@searchurl
             name:
-              - text: Caselogic Uplink 15.6" Notebook Sırt Çantası - Açık Gri/Siyah
+              - text: Samsonite 16N-09-001 14.1" Antrasit Qibyte Notebook Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
             productUrl:
-              - text: https://www.teknosa.com/caselogic-uplink-156-notebook-sirt-cantasi-acik-grisiyah-p-125047070
+              - text: https://www.teknosa.com/samsonite-16n09001-141-antrasit-qibyte-notebook-cantasi-p-125046052
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125047070/125047070_0_MC/29114469.jpg
+              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125046052/125046052_0_MC/21266137.jpg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 249 TL
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[1]/text()[1]
+              - text: 399 TL
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[3]/text()[1]
             manufacturer:
-              - text: CASE LOGIC
+              - text: SAMSONITE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
-          - id:
-              - text: "125045526"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/@data-product-id
-            name:
-              - text: HP L8J89Aa 15.6" Gri-Yeşil Odyssey Notebook Sırt Çantası
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
-            productUrl:
-              - text: https://www.teknosa.com/hp-l8j89aa-156-griyesil-odyssey-notebook-sirt-cantasi-p-125045526
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125045526/125045526_1_MC/37335305.jpg
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: 249,90 TL
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[3]/text()[1]
-            manufacturer:
-              - text: HP
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
             endorsementText:
               - text: Tükenmek Üzere
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/span[1]/text()[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "119"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]
+                type: NUMBER
+                raw: "119"
+                locale: tr
+                value: 119
+            rankOrganic:
+              - text: "119"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]
+                type: NUMBER
+                raw: "119"
+                locale: tr
+                value: 119
           - id:
-              - text: "125046854"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/@data-product-id
+              - text: "125046054"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/@searchurl
             name:
-              - text: HP 15.6 Signature Slim Gri/Siyah Notebook Çantası (L6V68AA)
+              - text: Samsonite 16N-09-003 17.3" Antrast Qibyte Notebook Çantası
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
+            productUrl:
+              - text: https://www.teknosa.com/samsonite-16n09003-173-antrast-qibyte-notebook-cantasi-p-125046054
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125046054/125046054_0_MC/20982644.jpg
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: 479 TL
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[3]/text()[1]
+            manufacturer:
+              - text: SAMSONITE
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "120"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]
+                type: NUMBER
+                raw: "120"
+                locale: tr
+                value: 120
+            rankOrganic:
+              - text: "120"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]
+                type: NUMBER
+                raw: "120"
+                locale: tr
+                value: 120
+          - id:
+              - text: "125047070"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/@searchurl
+            name:
+              - text: Caselogic Uplink 15.6" Notebook Sırt Çantası - Açık Gri/Siyah
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
             productUrl:
-              - text: https://www.teknosa.com/hp-156-signature-slim-grisiyah-notebook-cantasi-l6v68aa-p-125046854
+              - text: https://www.teknosa.com/caselogic-uplink-156-notebook-sirt-cantasi-acik-grisiyah-p-125047070
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125046854/125046854_0_MC/38250137.png
+              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/125047070/125047070_0_MC/29114469.jpg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 159,90 TL
+              - text: 249 TL
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[1]/text()[1]
             manufacturer:
-              - text: HP
+              - text: CASE LOGIC
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "121"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[2]
+                type: NUMBER
+                raw: "121"
+                locale: tr
+                value: 121
+            rankOrganic:
+              - text: "121"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[2]
+                type: NUMBER
+                raw: "121"
+                locale: tr
+                value: 121
           - id:
               - text: "125046473"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/@searchurl
             name:
               - text: Mack MCC-002 15.6" Procity Siyah Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -3940,9 +4371,26 @@ extractions:
             manufacturer:
               - text: MACK
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "122"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[2]
+                type: NUMBER
+                raw: "122"
+                locale: tr
+                value: 122
+            rankOrganic:
+              - text: "122"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[2]
+                type: NUMBER
+                raw: "122"
+                locale: tr
+                value: 122
           - id:
               - text: "125049057"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/@searchurl
             name:
               - text: Case Logic Query Notebook Sırt Çantası, 15.6", PT/Kona
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -3958,9 +4406,26 @@ extractions:
             manufacturer:
               - text: CASE LOGIC
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "123"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/div[2]
+                type: NUMBER
+                raw: "123"
+                locale: tr
+                value: 123
+            rankOrganic:
+              - text: "123"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[7]/div[2]
+                type: NUMBER
+                raw: "123"
+                locale: tr
+                value: 123
           - id:
               - text: "125049064"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/@searchurl
             name:
               - text: Thule Indago Notebook Sırt Çantası, 23L, 15.6", Olivine
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -3976,9 +4441,26 @@ extractions:
             manufacturer:
               - text: THULE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "124"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[2]
+                type: NUMBER
+                raw: "124"
+                locale: tr
+                value: 124
+            rankOrganic:
+              - text: "124"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[2]
+                type: NUMBER
+                raw: "124"
+                locale: tr
+                value: 124
           - id:
               - text: "125047078"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/@searchurl
             name:
               - text: Samsonite CC8-01-002 15.6" Network 3 Mavi Notebook Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -3994,9 +4476,26 @@ extractions:
             manufacturer:
               - text: SAMSONITE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "125"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[2]
+                type: NUMBER
+                raw: "125"
+                locale: tr
+                value: 125
+            rankOrganic:
+              - text: "125"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[2]
+                type: NUMBER
+                raw: "125"
+                locale: tr
+                value: 125
           - id:
               - text: "125046275"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/@searchurl
             name:
               - text: HP K5Q03Aa 17.3" Siyah Omen Oyuncu Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -4012,9 +4511,26 @@ extractions:
             manufacturer:
               - text: HP
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "126"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[2]
+                type: NUMBER
+                raw: "126"
+                locale: tr
+                value: 126
+            rankOrganic:
+              - text: "126"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[2]
+                type: NUMBER
+                raw: "126"
+                locale: tr
+                value: 126
           - id:
               - text: "110271765"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/@searchurl
             name:
               - text: Inca Notebook Power Kablosu Blister 1,5m
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -4030,9 +4546,26 @@ extractions:
             manufacturer:
               - text: INCA
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "127"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[2]
+                type: NUMBER
+                raw: "127"
+                locale: tr
+                value: 127
+            rankOrganic:
+              - text: "127"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[2]
+                type: NUMBER
+                raw: "127"
+                locale: tr
+                value: 127
           - id:
               - text: "125046812"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[12]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[12]/@searchurl
             name:
               - text: Samsonite CM5-09-003 15.6" Guard It 2.0 Siyah Notebook Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[12]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -4051,9 +4584,26 @@ extractions:
             endorsementText:
               - text: Tükenmek Üzere
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[12]/div[1]/div[2]/div[1]/span[1]/text()[1]
+            rank:
+              - text: "128"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[12]/div[2]
+                type: NUMBER
+                raw: "128"
+                locale: tr
+                value: 128
+            rankOrganic:
+              - text: "128"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[12]/div[2]
+                type: NUMBER
+                raw: "128"
+                locale: tr
+                value: 128
           - id:
               - text: "125046813"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[13]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[13]/@searchurl
             name:
               - text: SAMSONITE CM5-01-003 15.6" GUARD IT 2.0 NOTEBOOK ÇANTASI MAVİ
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[13]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -4069,9 +4619,26 @@ extractions:
             manufacturer:
               - text: SAMSONITE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[13]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "129"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[13]/div[2]
+                type: NUMBER
+                raw: "129"
+                locale: tr
+                value: 129
+            rankOrganic:
+              - text: "129"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[13]/div[2]
+                type: NUMBER
+                raw: "129"
+                locale: tr
+                value: 129
           - id:
               - text: "125046821"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[14]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[14]/@searchurl
             name:
               - text: Samsonite CM5-09-006 15.6" Guard It 2.0 Siyah Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[14]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -4087,9 +4654,26 @@ extractions:
             manufacturer:
               - text: SAMSONITE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[14]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "130"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[14]/div[2]
+                type: NUMBER
+                raw: "130"
+                locale: tr
+                value: 130
+            rankOrganic:
+              - text: "130"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[14]/div[2]
+                type: NUMBER
+                raw: "130"
+                locale: tr
+                value: 130
           - id:
               - text: "125046824"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/@searchurl
             name:
               - text: Samsonite CM5-09-007 17.3" Guard It 2.0 Siyah Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -4105,9 +4689,26 @@ extractions:
             manufacturer:
               - text: SAMSONITE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "131"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/div[2]
+                type: NUMBER
+                raw: "131"
+                locale: tr
+                value: 131
+            rankOrganic:
+              - text: "131"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[15]/div[2]
+                type: NUMBER
+                raw: "131"
+                locale: tr
+                value: 131
           - id:
               - text: "125046818"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/@searchurl
             name:
               - text: Samsonite CM5-09-005 14.1" Guard It 2.0 Siyah Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -4123,9 +4724,26 @@ extractions:
             manufacturer:
               - text: SAMSONITE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "132"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[2]
+                type: NUMBER
+                raw: "132"
+                locale: tr
+                value: 132
+            rankOrganic:
+              - text: "132"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[2]
+                type: NUMBER
+                raw: "132"
+                locale: tr
+                value: 132
           - id:
               - text: "125046819"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/@searchurl
             name:
               - text: Samsonite CM5-01-005 14.1" Guard It 2.0 Mavi Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -4141,9 +4759,26 @@ extractions:
             manufacturer:
               - text: SAMSONITE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "133"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[2]
+                type: NUMBER
+                raw: "133"
+                locale: tr
+                value: 133
+            rankOrganic:
+              - text: "133"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[17]/div[2]
+                type: NUMBER
+                raw: "133"
+                locale: tr
+                value: 133
           - id:
               - text: "125046820"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/@searchurl
             name:
               - text: Samsonite CM5-08-005 14.1" Guard IT 2.0 Gri Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -4159,9 +4794,26 @@ extractions:
             manufacturer:
               - text: SAMSONITE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "134"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[2]
+                type: NUMBER
+                raw: "134"
+                locale: tr
+                value: 134
+            rankOrganic:
+              - text: "134"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[2]
+                type: NUMBER
+                raw: "134"
+                locale: tr
+                value: 134
           - id:
               - text: "125046823"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/@searchurl
             name:
               - text: Samsonite CM5-08-006 15.6" Guard It 2.0 Gri Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -4177,9 +4829,26 @@ extractions:
             manufacturer:
               - text: SAMSONITE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "135"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[2]
+                type: NUMBER
+                raw: "135"
+                locale: tr
+                value: 135
+            rankOrganic:
+              - text: "135"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[2]
+                type: NUMBER
+                raw: "135"
+                locale: tr
+                value: 135
           - id:
               - text: "125044634"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/@data-product-id
+            searchUrl:
+              - text: https://www.teknosa.com/arama?q=laptop%3Arelevance&page=6
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/@searchurl
             name:
               - text: Samsonite 88U-09-005 15"-16" Guard It Siyah Notebook Sırt Çantası
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/span[1]/text()[1]
@@ -4195,9 +4864,23 @@ extractions:
             manufacturer:
               - text: SAMSONITE
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/div[1]/div[4]/div[1]/div[1]/div[1]/img[1]/@alt
+            rank:
+              - text: "136"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/div[2]
+                type: NUMBER
+                raw: "136"
+                locale: tr
+                value: 136
+            rankOrganic:
+              - text: "136"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[20]/div[2]
+                type: NUMBER
+                raw: "136"
+                locale: tr
+                value: 136
         xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]
-    timestamp: 1603696804936
-  - html: https://workbench.import.io/html/run=d2bf4c43-ffb3-4306-a837-d70606a9f93b/task=94d5fa8f-93d7-426b-976e-9e4b3b794128/d5880b53-cd9d-4c9c-bbf0-21c60dd38634.html
+    timestamp: 1603697390554
+  - html: https://workbench.import.io/html/run=a2599c1a-cb1e-453a-9e59-f7c33e2c743f/task=b185f47a-48be-46b8-b1e9-bd6edfefe5ab/614c5e98-e227-48f9-862b-25e599d7f79c.html
     extractionConfigId: product/search/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -4775,4 +5458,4 @@ extractions:
                 locale: tr
                 value: 152
         xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]
-    timestamp: 1603696804936
+    timestamp: 1603697390554
