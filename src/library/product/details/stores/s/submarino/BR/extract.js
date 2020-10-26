@@ -16,14 +16,12 @@ async function implementation (
       document.body.appendChild(catElement);
     }
 
+    const createId = (str) => str.toLowerCase().split(/[ ,.\t]+/)[0];
+
     const dataSheet = document.querySelectorAll('section table tbody tr');
     Array.from(dataSheet)
       .map(node => {
-        node
-          .setAttribute('id', node.innerText.toLowerCase()
-            .replace(' ', '')
-            // eslint-disable-next-line no-tabs
-            .split('	')[0]);
+        node.setAttribute('id', createId(node.innerText));
       });
   });
   await context.extract(productDetails, { transform });

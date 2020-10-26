@@ -14,11 +14,11 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@class='image-gallery-slide center gallery-video-item']/div[1]/picture[1]/img[1]/@src
+    xpath: //div[contains(@class, 'image-gallery-slides')]//img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[@class='image-gallery-slide center gallery-video-item']/div[1]/picture[1]/img[1]/@alt
+    xpath: //meta[contains(@property, 'og:image:alt')]/@content
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -28,7 +28,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[contains(@class, 'product-breadcrumb')]/div/a
+    xpath: //div[contains(@class, 'product-breadcrumb')]/div[position() < last()]//span
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -37,12 +37,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //span[@class='price__Strike-sc-1i11rkh-1 cCQnIG TextUI-sc-12tokcy-0 CIZtP']
+    xpath: //span[contains(@class, 'price__Strike')]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user clicks
       add to basket this is the price they would be charged
-    xpath: //span[@class='price__SalesPrice-sc-1i11rkh-2 jjADsQ TextUI-sc-12tokcy-0 CIZtP']
+    xpath: //span[contains(@class, 'price__SalesPrice')]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If there
@@ -52,10 +52,11 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class='ViewUI-sc-1ijittn-6 iXIDWU']/span[1]/font[1]/font[1] # ?
+    xpath: //div[contains(@class, 'info-description')]/*
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
+    xpath: count(//table//tr)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -63,23 +64,26 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //tr[25]/td[2]/span[1]/font[1]/font[1] # @todo
+    xpath: //tr[contains(@id, 'fabricante')]/td[2]/span
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
+    # @todo check ^
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //tr[22]/td[2]/span[1]/font[1]/font[1]
+    xpath: //tr[contains(@id, 'peso')]/td[2]/span
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //tr[contains(@id, 'código')][2]/td[2]/span
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //tr[contains(@id, 'código')][1]/td[2]/span
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same
@@ -87,10 +91,12 @@ fields:
   - name: mpc
     singleValue: tru
     description: The manufacturer model code (unique) of the product
+    xpath: //tr[contains(@id, 'modelo')][1]/td[2]/span
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on the
       site to quantity)
+    # @todo check
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -103,15 +109,19 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-  - name: aggregateRatingText
+    xpath: //div[contains(@class, 'summary-rating')]//span[contains(@class, 'Quantity')]
+    regExp: "[0-9]+"
+  - name: aggregateRatingText #?
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[contains(@class, 'summary-rating')]//span[contains(@class, 'Average')]
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    # @todo
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -121,9 +131,11 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    xpath: count(//div[contains(@class, 'variation__')]/div) # @todo check json
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //tr[contains(@id, 'cor')][1]/td[2]/span
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -133,12 +145,14 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //body//div//img # @todo check json
   - name: videos
     singleValue: false
     description: URLs of videos on page
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[contains(@id, 'product-name')]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -373,9 +387,11 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //tr[contains(@id, 'dimensões')][1]/td[2]/span
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //tr[contains(@id, 'garantia')][1]/td[2]/span
   - name: storage
     singleValue: true
     description: Suggested storage location for product
