@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'rei.com',
     prefix: null,
-    url: null,
+    url: 'https://www.rei.com/product/{id}',
     country: 'US',
     store: 'rei',
     zipcode: '',
