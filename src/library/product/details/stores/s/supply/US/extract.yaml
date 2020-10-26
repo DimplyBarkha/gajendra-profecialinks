@@ -23,7 +23,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@data-index]//img/@src
+  xpath: (//div[@class='alternate-images']/@href)[position()<last()]
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -63,15 +63,15 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  xpath: //html//meta[@property='og:title']/@content
-  regExp: \"(\w+)\s
-  regExpReplace: "$1"
+  xpath: //img[@class='_29_OK']/@src
+  regExp: logos\/(\w+)
+  regExpReplace: $1
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
-  xpath: //meta[@property='og:title']/@content
-  regExp: \"(\w+)\s
-  regExpReplace: "$1"
+  xpath: //img[@class='_29_OK']/@src
+  regExp: logos\/(\w+)
+  regExpReplace: $1
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -110,15 +110,18 @@ fields:
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
+  type: STRING
   description: The number of ratings
-  xpath: //button[contains(@class, 'numReviews')]
+  xpath: //div[@class='ratingCount')]
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
+  type: STRING
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //button[@itemprop='ratingValue']
+  xpath: //button[@itemprop='ratingValue']/text()
+  regExp: \d+\.\d+
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -171,6 +174,7 @@ fields:
 - name: brandLink
   singleValue: true
   description: 
+  xpath: //img[@class='_29_OK']/@src 
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
@@ -387,6 +391,7 @@ fields:
 - name: specifications
   singleValue: true
   description: The physical dimensions of the product including packaging.
+  xpath: //div[@data-title='Specifications']/following-sibling::div//td[contains(text(), 'Cutout Dimensions')]/following-sibling::td
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
@@ -470,6 +475,7 @@ fields:
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
   defaultValue: false
+  xpath: //div[@class='pdfPresent']
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
