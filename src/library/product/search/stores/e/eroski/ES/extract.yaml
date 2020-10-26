@@ -1,0 +1,42 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+#recordXPath: //div[@class="col border-0 product-item-lineal item-type-1 col-xs-12 col-sm-12 col-md-6 col-lg-4"]
+recordXPath: //div[@id="productListZone"]//div[contains(@class,"product-item-lineal")]
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[contains(@class,"product-image-resp")]//img/@src
+  - name: name
+    xpath: //h2[@class="product-title"]//a/text()
+    singleValue: false
+    description: The product name 
+  - name: price
+    singleValue: false
+    xpath: //span[@class="price-offer-now"]/text()
+    regExp: (.+)
+    regExpReplace: $1€
+    description: The offered price for the product
+  - name: id
+    singleValue: false
+    xpath: //a[contains(@class,"product-image-resp")]/@href
+    regExp: \Wes\Wproductdetail\W([^-]+)
+    regExpReplace: $1
+    description: Unique id (within this extractor)
+  - name: rankOrganic
+    singleValue: true
+  - name: rank
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,"starbar-container")]//div[contains(@class,"starbar ")]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,"product-image-resp")]/@href
+    regExp: (.+)
+    regExpReplace: https://supermercado.eroski.es/$1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="ratingSubtitle"]/text()[1]
+  
+  
