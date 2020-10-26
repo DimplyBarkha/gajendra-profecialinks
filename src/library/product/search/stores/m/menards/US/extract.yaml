@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@class="details"]//span[@class="font-weight-bold"]//span
+  - name: name
+    singleValue: true
+    xpath: //div[@class="multilines-3 text-truncate-multilines"]/span[@class="font-weight-bold text-dark"]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="image py-5 pr-1 pr-sm-0"]/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="d-flex m-auto align-items-start main-image"]/img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: id
+    singleValue: false
+    xpath: //div[@id="search-items"]//div[@class="search-item"]/@id
+  - name: ratingCount
+    singleValue: true
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: gtin
+    singleValue: true
+    #xpath: //div[@class='details']/div[4]/span
