@@ -30,9 +30,12 @@ fields:
   - name: imageAlt
     singleValue: false 
     xpath: //ul[@class="product-images"]//li[@class="media-image firstImage"]//img/@alt
+  - name: alternateImages
+    singleValue: false 
+    xpath: //div[@data-id="product-image-alt"]//img/@src
   - name: shippingInfo
     singleValue: false
-    xpath: //figure[contains(@class,'productSellersPanel-page panel panel-bg-dark row-fluid panel-wrapper')]
+    xpath: //div[contains(@class,"soldBy")]//strong
   - name: brandText
     singleValue: false  
     xpath: //div[@class="productBrand-page"]//div[@class="span18"]//div[last()]
@@ -51,7 +54,6 @@ fields:
   - name: availabilityText
     singleValue: false
     defaultValue: 'In Stock'
-    xpath: //div[contains(@data-method,'pickup')]//span[contains(@class,'outlined')]//strong
   - name: ratingCount
     singleValue: false
     xpath: //div[@class='product-nav']//a//span
