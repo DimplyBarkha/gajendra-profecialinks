@@ -54,6 +54,11 @@ fields:
   - name: variantId
     singleValue: true
     xpath: (//div[@class="content--wrapper"]//div[@class="variant--articleId"]//span[@class="entry--content is--selectable"])[1]
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="content--wrapper"]//div[@class="variant--group"]/a/@href
+    regExp: .+-(\d+)
+    regExpReplace: $1
   - name: mpc
     singleValue: true
     xpath: (//div[@class="content--wrapper"]//div[@class="variant--pzn"]//span[@class="is--selectable"])[1]
@@ -84,7 +89,7 @@ fields:
     singleValue: true
     xpath: //div[@class="content--wrapper"]//div[@class="variant--discount"]
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="content--wrapper"]//div[@class="variant--info"]
   - name: imageZoomFeaturePresent
     singleValue: true

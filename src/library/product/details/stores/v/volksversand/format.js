@@ -75,6 +75,9 @@ const transform = (data) => {
             if (row.aggregateRatingTmp) {
                 delete row.aggregateRatingTmp;
             }
+            if (row.variants) {
+                row.variantCount = [{'text':row.variants.length}];
+            }            
         }
     }
     return cleanUp(data);
