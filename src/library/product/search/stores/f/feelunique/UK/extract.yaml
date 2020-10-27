@@ -11,8 +11,8 @@ fields:
     xpath: //div[@class="Product-summary "]
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="Product"]/a/@href
-    regExp: (.*)
+    xpath: (//div[@class="Product"]/a/@href)[1]
+    regExp: (.+)
     regExpReplace: https://www.feelunique.com$1
   - name: thumbnail
     singleValue: false
@@ -23,11 +23,11 @@ fields:
     type: NUMBER
   - name: reviewCount
     singleValue: false
-    regExp: (\d+)
+    regExp: \d+
   - name: ratingCount
     singleValue: false
     xpath: //span[@class="Rating-count"]
-    regExp: (\d*)
+    regExp: \d+
   - name: price
     singleValue: false
     xpath:  //div[@class="Product-price "]
