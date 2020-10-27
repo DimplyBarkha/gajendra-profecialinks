@@ -27,12 +27,12 @@ const transform = (data) => {
       for (let row of group) {
         if(row.productUrl){
           row.productUrl.forEach(item=>{
-            item.text="https://simple.ripley.com.pe/"+item.text;
+            item.text="https://simple.ripley.com.pe"+item.text;
           });
         }
         if(row.thumbnail){
           row.thumbnail.forEach(item=>{
-            item.text="https://simple.ripley.com.pe/"+item.text;
+            item.text="https:"+item.text;
           });
         }
         row.rank = [{ "text": rank }];
