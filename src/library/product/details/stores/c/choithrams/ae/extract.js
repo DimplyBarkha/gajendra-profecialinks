@@ -47,8 +47,8 @@ module.exports = {
       const avaiableText = getXpath("//div[@class='cart-actions']//button[@class='bright-button']//text()", 'nodeValue');
       console.log('my availability', avaiableText);
       if (avaiableText === 'Add to cart') {
-        addElementToDocument('availableText', 'instock');
-      } else addElementToDocument('availableText', 'outofstock');
+        addElementToDocument('availableText', 'in stock');
+      } else addElementToDocument('availableText', 'out of stock');
 
       const idPath = getXpath("//div[@class='details']//script/text()", 'nodeValue');
       if (idPath) {
@@ -64,32 +64,32 @@ module.exports = {
       console.log('myIdArrmyIdArr', myMacrosArr);
       for (var i = 0; i <= myMacrosArr.length; i++) {
         if (myMacrosArr[i] === 'Carbs') {
-          addElementToDocument('totalCarbPerServing', myMacrosArr[i + 1]);
-          addElementToDocument('totalCarbPerServingUom', myMacrosArr[i + 1].replace('g', '%'));
+          addElementToDocument('totalCarbPerServing', myMacrosArr[i + 1].replace(/[^\d.-]/g, ''));
+          addElementToDocument('totalCarbPerServingUom', myMacrosArr[i + 1].replace(/[^A-Za-z]+/g, ''));
         }
         if (myMacrosArr[i] === 'Fat') {
-          addElementToDocument('caloriesFromFatPerServing', myMacrosArr[i + 1]);
-          addElementToDocument('totalFatPerServingUom', myMacrosArr[i + 1].replace('g', '%'));
+          addElementToDocument('caloriesFromFatPerServing', myMacrosArr[i + 1].replace(/[^\d.-]/g, ''));
+          addElementToDocument('totalFatPerServingUom', myMacrosArr[i + 1].replace(/[^A-Za-z]+/g, ''));
         }
         if (myMacrosArr[i] === 'Fiber') {
-          addElementToDocument('dietaryFibrePerServing', myMacrosArr[i + 1]);
-          addElementToDocument('dietaryFibrePerServingUom', myMacrosArr[i + 1].replace('g', '%'));
+          addElementToDocument('dietaryFibrePerServing', myMacrosArr[i + 1].replace(/[^\d.-]/g, ''));
+          addElementToDocument('dietaryFibrePerServingUom', myMacrosArr[i + 1].replace(/[^A-Za-z]+/g, ''));
         }
         if (myMacrosArr[i] === 'Protein') {
-          addElementToDocument('proteinPerServing', myMacrosArr[i + 1]);
-          addElementToDocument('proteinPerServingUom', myMacrosArr[i + 1].replace('g', '%'));
+          addElementToDocument('proteinPerServing', myMacrosArr[i + 1].replace(/[^\d.-]/g, ''));
+          addElementToDocument('proteinPerServingUom', myMacrosArr[i + 1].replace(/[^A-Za-z]+/g, ''));
         }
         if (myMacrosArr[i] === 'Salt') {
-          addElementToDocument('saltPerServing', myMacrosArr[i + 1]);
-          addElementToDocument('saltPerServingUom', myMacrosArr[i + 1].replace('mg', '%'));
+          addElementToDocument('saltPerServing', myMacrosArr[i + 1].replace(/[^\d.-]/g, ''));
+          addElementToDocument('saltPerServingUom', myMacrosArr[i + 1].replace(/[^A-Za-z]+/g, ''));
         }
         if (myMacrosArr[i] === 'Saturates') {
-          addElementToDocument('saturatedFatPerServing', myMacrosArr[i + 1]);
-          addElementToDocument('saturatedFatPerServingUom', myMacrosArr[i + 1].replace('g', '%'));
+          addElementToDocument('saturatedFatPerServing', myMacrosArr[i + 1].replace(/[^\d.-]/g, ''));
+          addElementToDocument('saturatedFatPerServingUom', myMacrosArr[i + 1].replace(/[^A-Za-z]+/g, ''));
         }
         if (myMacrosArr[i] === 'Sugar') {
-          addElementToDocument('totalSugarsPerServing', myMacrosArr[i + 1]);
-          addElementToDocument('totalSugarsPerServingUom', myMacrosArr[i + 1].replace('g', '%'));
+          addElementToDocument('totalSugarsPerServing', myMacrosArr[i + 1].replace(/[^\d.-]/g, ''));
+          addElementToDocument('totalSugarsPerServingUom', myMacrosArr[i + 1].replace(/[^A-Za-z]+/g, ''));
         }
         if (myMacrosArr[i] === 'Kcal') {
           addElementToDocument('caloriesPerServing', myMacrosArr[i + 1]);

@@ -6,10 +6,9 @@ async function implementation (
   context,
   dependencies,
 ) {
+  const { transform } = parameters;
   const { productDetails } = dependencies;
-  const { domain, country } = parameters;
-  const { keywords } = inputs;
-  await context.evaluate(async (domain, country, keywords) => {
+  await context.evaluate(async function () {
     // function addElementToDocument (key, value) {
     //   const catElement = document.createElement('div');
     //   catElement.id = key;
@@ -89,15 +88,16 @@ async function implementation (
       // row.setAttribute('idMatch', '123456');
       // console.log('My row get Attribute', row);
     }
-  }, domain, country, keywords);
+  });
   return await context.extract(productDetails, { transform });
 }
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'ae',
     store: 'choithrams',
-    transform: transform,
+    transform,
     domain: 'choithrams.com',
     zipcode: '',
   },
