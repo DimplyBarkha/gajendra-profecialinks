@@ -17,6 +17,20 @@ const transform = (data) => {
                     if(data['product']['product']['url']){
                         p_url = data['product']['product']['url'];
                     }
+                    let att_data = [];
+                    if(data['product']['product']['definingAttributes']){
+                        data['product']['product']['definingAttributes'].forEach(att_variation => {                    
+                            if (att_variation['values']){
+                                att_variation['values'].forEach(variants_data => {                        
+                                    if (variants_data['values']){                          
+                                        let key = variants_data['values'].toLowerCase()+'_'+variants_data['identifier'].toLowerCase();
+                                        att_data[key] = variants_data['slug'];
+                                    }                        
+                                });
+                            }
+                        });
+                    }
+
                     if(data['product']['product']['SKUs']){
                         data['product']['product']['SKUs'].forEach(variation => {
                         let tmp_variations = {};
@@ -31,18 +45,23 @@ const transform = (data) => {
                         variation['Attributes'].forEach(variants_data => {                            
                             if (variants_data['usage'] == 'Defining'){
                                 let name = "";
-                                variants_data['Values'].forEach(variants_sku => {                                    
-                                    tmp_variations["variant"].push({"text": variants_sku['values'], "xpath": item["xpath"]});
-                                    name = variants_sku['values'];
+                                variants_data['Values'].forEach(variants_sku => {                                                                        
+                                    name = variants_sku['values'].toLowerCase();
                                 });
                                 if (name != ''){
-                                    color_list.push(variants_data['identifier']+"="+name);
+                                    let v_key = name+'_'+variants_data['identifier'].toLowerCase();
+                                    if (att_data[v_key]){
+                                        color_list.push(variants_data['identifier']+"="+att_data[v_key]);
+                                    }
                                 }
                             }
                         });
-                        if (color_list.length > 0 && p_url != ''){
+                        if (color_list.length > 0 && p_url != ''){                            
+                            let variant_sku = color_list.join(", ");
+                            tmp_variations["variant"].push({"text": variant_sku, "xpath": item["xpath"]});
                             let v_url = p_url + "?s=o&" + color_list.join("&");
                             tmp_variations["variantUrl"].push({"text": v_url, "xpath": item["xpath"]});
+
                         }
                         final_variations.push(tmp_variations);
                         });
