@@ -1,0 +1,50 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //section[@class="ff-ajax-price"]/@data-sku-ref
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //a[@class='item-card__description__product-name']//font/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class='item-card__description__stars']/@href
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //img/@data-src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //a[@class='item-card__description__stars']
+    type: NUMBER
+  - name: reviewCount
+    singleValue: false
+    regExp: (\d+)
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    regExp: ( .*)
+    xpath:  //span[@class='full-mounted-price']
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
