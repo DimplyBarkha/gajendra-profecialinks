@@ -22,6 +22,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: //div[@class='more-views']//img/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -33,32 +34,42 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //div[@class='product-name nombre-producto']/h1/text()
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
+  xpath: //div[@class='no-movil']//p[@class='old-price']/span[@class='price']/text()
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //div[@class='no-movil']//p[@class='special-price']/span[@class='price']/text()
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  xpath: //button[@title='Añadir']/@title
+  regExp: (.+)
+  regExpReplace: In Stock
+  defaultValue: Out of Stock
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-- name: descriptionBullets
+  xpath: //div[@class='short-description']//p
+- name: descriptionBullets #to do
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //span[@class='brand']
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
+  xpath: //span[@class='brand']
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -68,6 +79,7 @@ fields:
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
+  xpath: concat(//meta[@property='product:weight:value']/@content,' ', //meta[@property='product:weight:units']/@content)
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
@@ -81,31 +93,36 @@ fields:
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
-- name: packSize
+  xpath: //div[@class='cn_product_visited']/span[@class='product_id']
+- name: packSize #todo
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
-- name: legalDisclaimer
+- name: legalDisclaimer #todo
   singleValue: true
   description: Content under "legal disclaimer" header
-- name: directions
+- name: directions #todo
   singleValue: true
   description: Content under "directions" header
-- name: warnings
+- name: warnings #todo
   singleValue: true
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: //div[@class='cn_product_visited']/span[@class='rating_count']
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
+  xpath: //div[@class='cn_product_visited']/span[@class='rating_value']
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //div[@class='cn_product_visited']/span[@class='rating_value']
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: //div[@class='texto-extra']/p/text()
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -124,15 +141,18 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
+  xpath: //div[@id='secc-description']/div[@class='std']/p/text()
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
-- name: videos
+- name: videos #https://www.mifarma.es/chicco-casita-de-los-animales
   singleValue: false
   description: URLs of videos on page
+  xpath: //div[@class='ytp-title']//a/@href
 - name: name
   singleValue: true
   description: The product name
+  xpath: //div[@class='product-name nombre-producto']/h1/text()
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -236,6 +256,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
+  xpath: //h3[text()='Composición']/following-sibling::p
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -454,13 +475,13 @@ fields:
   description: Terms and conditions information text ['Yes','No']
   defaultValue: false
 - name: privacyPolicy
-  singleValue: true
+  singleValue: No
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: materials
   singleValue: true
   description: Materials used to make the product
@@ -470,8 +491,14 @@ fields:
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: false
+  xpath: //div[@class='zoomContainer']/@class
+  regExp: (.+)
+  regExpReplace: Yes
 - name: imageZoomFeaturePresent
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   defaultValue: false
+  xpath: //div[@class='zoomContainer']/@class
+  regExp: (.+)
+  regExpReplace: Yes
