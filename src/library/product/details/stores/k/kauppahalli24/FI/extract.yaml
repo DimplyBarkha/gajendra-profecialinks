@@ -63,7 +63,7 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
-    description: Net weight as described on the page
+    xpath: //div[contains(@class,"frosmo-popup__body frosmo-store__card")]//div[contains(@class,"product-information")]//div[contains(@class,"weight")]
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -239,7 +239,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
-    xpath: normalize-space(//div[contains(@class,"frosmo-card-ingredients")])
+    xpath: //div[@id="pd_ingredients"]
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
@@ -265,23 +265,25 @@ fields:
   - name: totalFatPerServing
     singleValue: false
     xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Rasva') or contains(.,'rasva')]
-    regExp: Rasvaa\s*(.+)
+    regExp: Rasva\s*(.+)
     regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: false
     xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Rasva') or contains(.,'rasva')]
-    regExp: Rasvaa\s*([-,0-9]+)\s*(.+)
+    regExp: Rasva\s*([-,0-9]+)\s*(.+)
     regExpReplace: $2
   - name: saturatedFatPerServing
     singleValue: false
     xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'tyydyttyneitä rasvoja') or contains(.,'tyydyttynyt rasva')]
-    regExp: (.*)tyydyttyneitä rasvoja\s*([-,0-9]+)(.+)
-    regExpReplace: $2
+    regExp: >-
+        (.*)tyydyttyn(.*)\srasv(.*)\s[<]?([-,0-9]+)\s*(.+)
+    regExpReplace: $4
   - name: saturatedFatPerServingUom
     singleValue: false
     xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'tyydyttyneitä rasvoja') or contains(.,'tyydyttynyt rasva')]
-    regExp: (.*)tyydyttyneitä rasvoja\s*([-,0-9]+)(.+)
-    regExpReplace: $3
+    regExp: >-
+        (.*)tyydyttyn(.*)\srasv(.*)\s[<]?([-,0-9]+)\s*(.+)
+    regExpReplace: $5
   - name: transFatPerServing
     singleValue: false
     description: Nutritional Information for Trans Fat content - Usually based on
@@ -308,48 +310,53 @@ fields:
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: false
-    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Hiilihydraattia') or contains(.,'hiilihydraattia')]
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Hiilihydra') or contains(.,'hiilihydra')]
     regExp: >-
-        [Hh]iilihydraattia\s*(.+)
-    regExpReplace: $1
+        [Hh]iilihydra(.+)\s([-,0-9]+)\s*(.+)
+    regExpReplace: $2
   - name: totalCarbPerServingUom
     singleValue: false
-    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Hiilihydraattia') or contains(.,'hiilihydraattia')]
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Hiilihydra') or contains(.,'hiilihydra')]
     regExp: >-
-        [Hh]iilihydraattia\s*([-,0-9]+)(.+)
-    regExpReplace: $2
+        [Hh]iilihydra(.+)\s([-,0-9]+)\s*(.+)
+    regExpReplace: $3
   - name: dietaryFibrePerServing
     singleValue: false
-    description: Nutritional Information for Dietary Fibre content - Usually based
-      on per 100g serving
-    type: NUMBER
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Ravintok') or contains(.,'ravintok')]
+    regExp: >-
+        [Rr]avinto(.+)\s([-,0-9]+)\s*(.+)
+    regExpReplace: $2
   - name: dietaryFibrePerServingUom
     singleValue: false
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Ravintok') or contains(.,'ravintok')]
+    regExp: >-
+        [Rr]avinto(.+)\s([-,0-9]+)\s*(.+)
+    regExpReplace: $3
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
     singleValue: false
-    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Sokeria') or contains(.,'sokereita')]
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Soker') or contains(.,'soker')]
     regExp: >-
-        [Ss]okeria\s*(.+)
-    regExpReplace: $1
+        (.+)?[Ss]oker(.+)\s([-,0-9]+)\s(.+)
+    regExpReplace: $3
   - name: totalSugarsPerServingUom
     singleValue: false
-    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Sokeria') or contains(.,'sokereita')]
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Soker') or contains(.,'soker')]
     regExp: >-
-        [Ss]okeria\s*([-,0-9]+)\s*(.+)
-    regExpReplace: $2
+        (.+)?[Ss]oker(.+)\s([-,0-9]+)\s(.+)
+    regExpReplace: $4
   - name: proteinPerServing
     singleValue: false
-    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Proteiinia') or contains(.,'proteiinia')]
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Prote') or contains(.,'prote')]
     regExp: >-
-        [Pp]roteiinia\s*(.+)
-    regExpReplace: $1
+        [Pp]rot(.*)\s([-,0-9]+)\s(.+)
+    regExpReplace: $2
   - name: proteinPerServingUom
     singleValue: false
-    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Proteiinia') or contains(.,'proteiinia')]
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Prote') or contains(.,'prote')]
     regExp: >-
-        [Pp]roteiinia\s*([-,0-9]+)\s*(.+)
-    regExpReplace: $2
+        [Pp]rot(.*)\s([-,0-9]+)\s(.+)
+    regExpReplace: $3
   - name: vitaminAPerServing
     singleValue: false
     description: Nutritional Information for Vitamin A content - Usually based on
@@ -376,12 +383,16 @@ fields:
     description: Unit of Measure Data for Calcium
   - name: ironPerServing
     singleValue: false
-    description: Nutritional Information for Iron content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Prote') or contains(.,'prote')]
+    regExp: >-
+        [Rr]aut(.*)\s([-,0-9]+)\s(.+)  
+    regExpReplace: $2  
   - name: ironPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Iron
+    xpath: //div[contains(@class,"frosmo-card-values")]//text()[contains(.,'Prote') or contains(.,'prote')]
+    regExp: >-
+        [Rr]aut(.*)\s([-,0-9]+)\s(.+)  
+    regExpReplace: $3 
   - name: dietarySymbols
     singleValue: false
     description: Information related to the dietary symbols of a specific product
@@ -437,10 +448,15 @@ fields:
     description: List of additives in the product
   - name: pricePerUnit
     singleValue: false
+    xpath: //div[contains(@class,"frosmo-popup__body frosmo-store__card")]//div[contains(@class,"product-information")]//div[contains(@class,"comparison-price")]
+    regExp: ([-,0-9]+)\s(.+)\/(.+)\)
+    regExpReplace: $1
     description: Price of the product split into certain units
   - name: pricePerUnitUom
     singleValue: false
-    description: The unit of measurement used in price_per_unit
+    xpath: //div[contains(@class,"frosmo-popup__body frosmo-store__card")]//div[contains(@class,"product-information")]//div[contains(@class,"comparison-price")]
+    regExp: ([-,0-9]+)\s(.+)\/(.+)\)
+    regExpReplace: $3
   - name: promotion
     singleValue: false
     description: promotion text on product page
