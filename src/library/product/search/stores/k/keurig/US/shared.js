@@ -28,6 +28,9 @@ const transform = (data, context) => {
       if (!row.id && row.id1) {
         row.id = [{ text: row.id1[0].text }];
       }
+      if (!row.price && row.price1) {
+        row.price = [{ text: `$${row.price1[0].text}` }];
+      }
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;

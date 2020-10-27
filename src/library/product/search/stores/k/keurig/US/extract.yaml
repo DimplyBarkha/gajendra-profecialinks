@@ -62,6 +62,9 @@ fields:
     xpath: //div[@class="price-container  "]/div[not(./span)] | //span[@class="new-price"] | //p[@class="ad-price-msg "]/following-sibling::div | //div[contains(@class,"product-price-container")]//span[@class="product-price"] | //div[contains(@class,"new-price")] | //div[contains(@class,"price-container no-stock  ") or contains(@class,"price-container with-ad no-stock  ") ]/div
     regExp: (\$)(.*)
     regExpReplace: $1$2
+  - name: price1
+    singleValue: false
+    xpath: //div[@class="color-swatches"]/button[@data-isdefault="true"]/@data-list-price
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -98,7 +101,7 @@ fields:
     regExpReplace: $2
   - name: id1
     singleValue: false
-    xpath: //div[@class="keurig_card"]/input[@data-isdefault="true"]/@data-variant-code | //meta[@itemprop="sku"]/@content
+    xpath: //div[@class="keurig_card"]/input[@data-isdefault="true"]/@data-variant-code | //meta[@itemprop="sku"]/@content | //div[@class="color-swatches"]/button[@data-isdefault="true"]/@data-swatch-code
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
