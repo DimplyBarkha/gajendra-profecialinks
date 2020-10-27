@@ -47,6 +47,7 @@ const transform = (data, context) => {
       if (row.id) {
         row.id.forEach(item => {
           let nTxt = item.text.replace('.jpg', '');
+          nTxt = nTxt.replace('.png', '');
           nTxt = nTxt.substring(nTxt.lastIndexOf('_'));
           nTxt = nTxt.substring(nTxt.lastIndexOf('-'));
           nTxt = nTxt.substring(nTxt.lastIndexOf('=/') + 2);
