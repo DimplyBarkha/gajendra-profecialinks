@@ -4,27 +4,23 @@ recordSelector: null
 # recordXPath: //td[@class="docs depth_1"]/table[1]/tbody/tr
 fields:
   - name: productUrl
-    xpath: (//div[@class="sc-19ibhqc-2 jNsyzk"]//@href)[1]
+    xpath: //a[@class="sc-1w9a1pg-5 sc-19ibhqc-3 gjliPR"]/@href
     regExp: (.+)
     regExpReplace: https://eldorado.ru$1
     description: The URL for the product details page
   - name: thumbnail
-    xpath: (//div[@class="sc-19ibhqc-2 jNsyzk"]//@src)[1]
+    xpath: //a[@class="sc-1w9a1pg-5 sc-19ibhqc-3 gjliPR"]/img/@src
     description: The URL for the product thumbnail image
   - name: name
-    xpath: (//div[@class="sc-1w9a1pg-12 sc-19ibhqc-13 hhdhoM"]//a)[1]
+    xpath: (//div[@class="sc-1w9a1pg-12 sc-19ibhqc-13 hhdhoM"]//a)
     description: The product name
   - name: id
-    xpath: (//span[@class="sc-19ibhqc-10 jCwEGn"]//font)[1]
+    xpath: //span[@class="sc-19ibhqc-10 jCwEGn"]
     description: The store-specific product identifier
-  - name: aggregateRating
-    xpath: count((//div[@class="sc-19ibhqc-7 kLOnjx"]//span[@class="tevqf5-0 cbJQML"])[1]/span)
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
   - name: reviewCount
-    xpath: //*[@id="__next"]//ul/li[3]//span/a/font/font
+    xpath: //a[@class="sc-1w9a1pg-11 sc-19ibhqc-9 bnWFSv ReviewLink"]
   - name: price
-    xpath: (//div[@class="sc-1xca1up-0 sc-3lsqu-0 gqWynP"]//span)[1]
+    xpath: //span[@class="sc-1xca1up-1 sc-3lsqu-1 kQIWtq"]
     description: The offered price for the product
   - name: rank
   - name: rankOrganic
