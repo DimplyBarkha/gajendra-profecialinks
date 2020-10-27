@@ -24,6 +24,9 @@ fields:
   singleValue: true
   description: Alt text of the main product image
 - name: alternateImages
+  xpath: //img[@class="bop-gallery__miniature "]/@src
+  regExp: (.+)
+  regExpReplace: http://groceries.morrisons.com$1
   singleValue: false
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
@@ -65,16 +68,22 @@ fields:
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
+  xpath: //a[@class="bop-tag"]/text()
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
+  xpath: //a[@class="bop-tag"]/text()
   singleValue: true
   description: Product manufacturer
 - name: quantity
+  regExp: (\d{1,})+.+\s(pack)
+  xpath: //header[@class="bop-title"]//span[@class="bop-catchWeight"]
   singleValue: true
   description: Quantity as described on the page
 - name: weightNet
+  regExp: (\d{1,}.\d{1,}|\d{1,})+(g|kg)
+  xpath: //header[@class="bop-title"]//span[@class="bop-catchWeight"]
   singleValue: true
   description: Net weight as described on the page
 - name: weightGross
@@ -404,9 +413,15 @@ fields:
   singleValue: true
   description: List of additives in the product
 - name: pricePerUnit
+  xpath: //span[@class="bop-price__per"]//text()
+  regExp: (.{1,})+\s{1,}+(per)+\s{1,}+(.{1,})
+  regExpReplace: $1
   singleValue: true
   description: Price of the product split into certain units
 - name: pricePerUnitUom
+  # xpath: //span[@class="bop-price__per"]//text()
+  # regExp: (.{1,})+\s{1,}+(per)+\s{1,}+(.{1,})
+  # regExpReplace: $3
   singleValue: true
   description: The unit of measurement used in price_per_unit
 - name: promotion
