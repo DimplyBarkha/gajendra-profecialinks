@@ -74,7 +74,7 @@ module.exports.implementation = async function implementation(
             });
         }
         // @ts-ignore
-        let packSize = document.querySelector("h1[id*='title']").innerText;
+        let packSize = document.querySelector("h1[id*='title']") ? document.querySelector("h1[id*='title']").innerText : '';
         if (packSize.search(/pack of/gmi) > -1) {
             packSize = (packSize.match(/pack of (\d+)/i)[1]) ? packSize.match(/pack of (\d+)/i)[1] : '';
             addHiddenDiv('ii_packSize', clean(packSize));
@@ -96,6 +96,16 @@ module.exports.implementation = async function implementation(
                 finalVal = item.text;
                 addHiddenDiv('ii_brandLink', clean(finalVal));
             });
+        }
+        let getBrand = document.querySelector('a[id="bylineInfo"]') ? document.querySelector('a[id="bylineInfo"]').innerText : null;
+        if (getBrand && getBrand.includes('Visit the')) {
+            getBrand = getBrand.split('Visit the')[1];
+            getBrand = getBrand.split('Store')[0];
+            document.head.setAttribute('brand', getBrand);
+        }
+        if (getBrand.includes('Brand:')) {
+            getBrand = getBrand.split('Brand:')[1];
+            document.head.setAttribute('brand', getBrand);
         }
         const totalFatPerServingUom = await domEvaluate("//td[contains(text(),'Fat')]/following-sibling::*[1] | //table//tr//*[contains(text(),'Fat')]/following-sibling::*[1]");
         if (totalFatPerServingUom) {
