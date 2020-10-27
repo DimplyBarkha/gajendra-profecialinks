@@ -25,11 +25,11 @@ fields:
   singleValue: false
   xpath: //div[@class='cart-wrapper']//a/@data-image-url
 - name: imageAlt 
-  singleValue: false
-  xpath: //div[@class="ccs-fancybox-gallery ccs-slick-slide ccs-slick-current ccs-slick-active"]//img/@alt
-- name: alternateImages
   singleValue: false 
-  xpath: //div[@class='ccs-ds-cloud-thumbs ccs-slick-initialized ccs-slick-slider']//img/@src
+  xpath: //div[contains(@class,'ccs-fancybox-gallery ccs-slick-slide ccs-slick-current ccs-slick-active')]//img/@alt
+- name: alternateImages
+  singleValue: false   
+  xpath: //div[contains(@class,'ccs-ds-cloud-thumbs ccs-slick-initialized ccs-slick-slider')]//img/@src
 - name: gtin
   singleValue: false 
   xpath: //div[@class='prod-description-bottom']//meta[@itemprop='gtin8']/@content
@@ -52,6 +52,9 @@ fields:
 - name: mpc
   singleValue: false    
   xpath: //div[@class='prod-description-bottom']//meta[@itemprop='mpn']/@content
+- name: warranty
+  singleValue: false    
+  xpath: //table[@class="product-specs"]//td[text()="Manufacturer Warranty:"]/parent::tr/td[2]
 - name: variantCount
   singleValue: false
   defaultValue: '1'
