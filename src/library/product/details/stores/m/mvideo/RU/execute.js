@@ -1,12 +1,11 @@
 
 module.exports = {
-  implements: 'product/search/execute',
+  implements: 'product/details/execute',
   parameterValues: {
     country: 'RU',
     store: 'mvideo',
     domain: 'mvideo.ru',
-    url: 'https://www.mvideo.ru/product-list-page-cls?q={seachTerms}',
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },
