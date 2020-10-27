@@ -6,18 +6,14 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="Product"]/@data-sku
-  - name: searchUrl
-    singleValue: true
   - name: name
     singleValue: false
     xpath: //div[@class="Product-summary "]
   - name: productUrl
     singleValue: false
     xpath: //div[@class="Product"]/a/@href
-    regExp: (.+)
+    regExp: (.*)
     regExpReplace: https://www.feelunique.com$1
-  - name: gtin
-    singleValue: false
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="Product-image-wrapper"]/img/@src
@@ -34,19 +30,4 @@ fields:
     regExp: (\d*)
   - name: price
     singleValue: false
-    regExp: ( .*)
     xpath:  //div[@class="Product-price "]
-  - name: manufacturer
-    singleValue: true
-  - name: soldBy
-    singleValue: true
-  - name: endorsementText
-    singleValue: false
-  - name: rank
-    singleValue: false
-    description: search/listing rank
-    type: NUMBER
-  - name: rankOrganic
-    singleValue: true
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
