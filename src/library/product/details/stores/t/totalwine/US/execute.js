@@ -1,3 +1,4 @@
+const { implementation } = require('../executeImplementation');
 
 module.exports = {
   implements: 'product/details/execute',
@@ -5,8 +6,8 @@ module.exports = {
     country: 'US',
     store: 'totalwine',
     domain: 'totalwine.com',
-    loadedSelector: null,
-    noResultsXPath: null,
-    zipcode: '',
+    loadedSelector: 'div[class*="productResultContainer"]',
+    noResultsXPath: '//input[contains(@value,"Not Found")]',
   },
+  implementation,
 };

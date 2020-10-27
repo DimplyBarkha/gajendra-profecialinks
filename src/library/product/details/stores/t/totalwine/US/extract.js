@@ -4,8 +4,6 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'totalwine',
-    transform: null,
     domain: 'totalwine.com',
-    zipcode: '',
   },
 };

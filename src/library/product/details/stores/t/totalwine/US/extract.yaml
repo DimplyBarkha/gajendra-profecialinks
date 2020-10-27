@@ -5,10 +5,10 @@ recordXPath: null
 fields:
   - name: image
     description: URL of the main product image
-    xpath: //div[contains(@class,'prodImage')]//img/@src
+    xpath: (//div[contains(@class,'prodImage')]//img/@src)[1]
   - name: imageAlt
     description: Alt text of the main product image
-    xpath: //div[contains(@class,'prodImage')]//img/@title
+    xpath: (//div[contains(@class,'prodImage')]//img/@title)[1]
   - name: alternateImages
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
@@ -193,8 +193,8 @@ fields:
     description: null
     type: NUMBER
   - name: variantAsins
-    singleValue: true
     description: null
+    xpath: //div[contains(@class,'packageOptions')]/ul[@role='listbox']/li/div
   - name: primeFlag
     singleValue: true
     description: null
@@ -450,6 +450,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
+    xpath: //div[contains(@class,'packageOptions')]/ul[@role='listbox']/li/div
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
