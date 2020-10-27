@@ -5,23 +5,19 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  const cleanUp = (data, context) => {
-    let dataStr = JSON.stringify(data);
-    dataStr = dataStr.replace(/(?:\\r\\n|\\r|\\n)/g, ' ')
-      .replace(/\r\n|\r|\n/g, ' ')
-      .replace(/&amp;nbsp;/g, ' ')
-      .replace(/&amp;#160/g, ' ')
-      .replace(/\u00A0/g, ' ')
-      .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, ' ')
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+    .replace(/\\"/gm, '"')
     // eslint-disable-next-line no-control-regex
-      .replace(/[\x00-\x1F]/g, '')
-      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-
-    return JSON.parse(dataStr);
-  };
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
       if (row.specifications) {
@@ -31,7 +27,7 @@ const transform = (data) => {
         });
         row.specifications = [
           {
-            text: cleanUp(text.slice(0, -4)),
+            text: text.slice(0, -4),
           },
         ];
       }
@@ -42,7 +38,7 @@ const transform = (data) => {
         });
         row.shippingInfo = [
           {
-            text: cleanUp(text),
+            text: text,
           },
         ];
       }
@@ -53,7 +49,7 @@ const transform = (data) => {
         });
         row.weightNet = [
           {
-            text: cleanUp(text),
+            text: text,
           },
         ];
       }
@@ -64,7 +60,7 @@ const transform = (data) => {
         });
         row.shippingDimensions = [
           {
-            text: cleanUp(text.slice(0, -3)),
+            text: text.slice(0, -3),
           },
         ];
       }
@@ -75,7 +71,7 @@ const transform = (data) => {
         });
         row.shippingWeight = [
           {
-            text: cleanUp(text.slice(0, -3)),
+            text: text.slice(0, -3),
           },
         ];
       }
@@ -86,7 +82,7 @@ const transform = (data) => {
         });
         row.manufacturerDescription = [
           {
-            text: cleanUp(text.replace(/^\d+\s/, '')),
+            text: text.replace(/^\d+\s/, ''),
           },
         ];
       }
@@ -106,7 +102,7 @@ const transform = (data) => {
         const data = [textOne, textTwo];
         row.description = [
           {
-            text: cleanUp(data.join(' ')),
+            text: data.join(' '),
           },
         ];
       }
@@ -126,6 +122,9 @@ const transform = (data) => {
       }
     }
   }
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
   return data;
 };
 
