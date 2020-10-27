@@ -1,0 +1,87 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[contains(@role,'treeitem') and contains(@class,'is-selected')]//img/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name='description']/@content
+  - name: category
+    singleValue: false
+    xpath: //nav[@role='navigation']//a
+  - name: name
+    singleValue: true
+    xpath: //h1[@class='h2']
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@class='h2']
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@class,'shipping-info')]//p[contains(text(),'In Stock')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'carousel-nav')]//a[not(contains(@class,'is-nav-selected'))]//img/@src
+  - name: listPrice
+    singleValue: true
+    xpath: //div[contains(@class,'price-wrapper')]//p
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@role,'treeitem') and contains(@class,'is-selected')]//img/@alt
+  - name:  description
+    singleValue: true
+    xpath: //div[contains(@class,'text-black ')]
+  - name:  descriptionBullets
+    singleValue: false
+    xpath: //div[contains(@class,'text-black ')]//ul//li
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@class,'price-wrapper')]//s
+  - name: brandText
+    singleValue: true
+    xpath: (//script[@id='__st'])
+    regExp: \"vendor\":\":(.+?)\"
+    regExpReplace: $1    
+  - name: sku
+    singleValue: true
+    xpath: //select[@name='id']//option/@data-sku
+  - name: gtin
+    singleValue: true
+    xpath: //form[@data-hawkId]/@data-hawkId
+  - name: variantId
+    singleValue: true
+    xpath: //meta[@property="og:url"]/@content
+  - name: promotion
+    singleValue: true
+    xpath: //div[contains(@class,'price-wrapper')]//span
+  - name: specifications
+    singleValue: false
+    xpath: //table[contains(@class,'table-discription')]//tr
+  - name: quantity
+    singleValue: true
+    xpath: //table[contains(@class,'table-discription')]//th[contains(text(),'Number of pieces')]/following-sibling::td
+  - name: color
+    singleValue: true
+    xpath: //table[contains(@class,'table-discription')]//th[contains(text(),'Color ')]/following-sibling::td
+  - name: shippingDimensions
+    singleValue: true
+    xpath: //table[contains(@class,'table-discription')]//th[contains(text(),'Size')]/following-sibling::td
+  - name: materials
+    singleValue: true
+    xpath: //table[contains(@class,'table-discription')]//th[contains(text(),'Material')]/following-sibling::td
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,"product-details-wrapper")]//select[@class="selectpicker"]/option/@value
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,"product-details-wrapper")]//select[@class="selectpicker"]/option[@selected="selected"]
+  - name: variantCount
+    defaultValue: '0'
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[contains(@class,"product-details-wrapper")]//select[@class="selectpicker"]/option[@selected="selected"]/@value

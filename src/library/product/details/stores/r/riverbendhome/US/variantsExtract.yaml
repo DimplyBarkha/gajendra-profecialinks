@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"product-details-wrapper")]//select[@class="selectpicker"]/option
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //option/@value
+  - name: variantUrl
+    singleValue: false
+    xpath: //option/@value
+  - name: variant
+    singleValue: false
+    xpath: //option
