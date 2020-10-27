@@ -8,6 +8,5 @@ module.exports = {
     url: 'https://www.lowes.com/search?searchTerm={searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
-    zipcode: '',
   },
 };
