@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //td[contains(@class,"products depth_0")]/table/tbody/tr
+fields: 
+- name: rank
+  singleValue: true
+  description: search/listing rank
+  type: NUMBER
+- name: id
+  description: Unique id (within this extractor)
+  xpath: //td[contains(@class,"id depth_1")]
+- name: productUrl
+  description: The URL for the product details page
+  xpath: //td[contains(@class,"url depth_1")]
+  regExp: (.+)
+  regExpReplace: https://butik.mad.coop.dk$1
+- name: thumbnail
+  description: The URL for the product thumbnail image
+  xpath: //td[contains(@class,"image depth_1")]
+  regExp: (.+)
+  regExpReplace: $1&width=320&height=320&mode=pad&format=jpg&bgcolor=ffffff
+- name: name
+  description: The product name
+  xpath: //td[contains(@class,"brand depth_1")]
+- name: name2
+  description: The product name
+  xpath: //td[contains(@class,"displayName depth_1")] 
+- name: price
+  description: The offered price for the product
+  xpath: //td[contains(@class,"formattedAmountLong depth_2")]

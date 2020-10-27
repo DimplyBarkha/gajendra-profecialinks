@@ -4,17 +4,11 @@ parameters:
   domain: officedepot.com
   store: officedepot
   zipcode: ""
-proxy:
-  zone: ZUS
-  type: DATA_CENTER
-policy:
-  numberRetries: 3
-  priority: MEDIUM
-  retryDelay: 120
-  backoffPolicy: EXPONENTIAL
-  retryWithResidentialProxyAfter: 3
 meta:
   branches:
     DS_officedepot_US_search:
       extractor: 349af9fb-6d55-4be0-bbb0-2fe3e03182fa
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    DS_officedepot_US_search_richa:
+      extractor: 61aeb7f9-361c-4dab-8875-1e05eecb36a5
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
