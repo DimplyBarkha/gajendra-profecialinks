@@ -1,0 +1,46 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[contains(@class, 'is-galleryWrapper')]//div[@class='is-active']//div[contains(@class, 'c-offerBox_galleryItem')]//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.mediaexpert.pl$1
+  - name: category 
+    xpath: //ul[contains(@class, 'c-breadcrumb_wrapper')]/li[position()>1 and position()!=last()]
+  - name: nameExtended
+    xpath: //div[contains(@class, 'is-productName')]//h1
+  - name: price
+    xpath: //meta[@property='product:price:amount']/@content
+  - name: availabilityText
+    xpath: //span[@class='is-starred']
+    regExp: (.+)
+    regExpReplace: Out of stock
+    defaultValue: In stock
+  - name: description
+    xpath: //div[@data-zone="OFFERBOX_ATTRIBUTES"]
+  - name: brandText
+    xpath: //meta[@property='product:brand']/@content
+  - name: brandLink
+    xpath: //meta[@property='product:brand']/@content
+    regExp: (.+)
+    regExpReplace: https://www.mediaexpert.pl/$1
+  - name: quantity
+    xpath: //div[contains(@class, 'c-offerBox_variantsContent')]//a[contains(@class, 'is-active')]
+  - name: sku
+    xpath: //TODO
+  - name: variantId
+    xpath: //meta[contains(@property,'product:retailer_part_no')]/@content
+  - name: alternateImages
+    xpath: //div[not(contains(@class, 'is-active'))]/div[contains(@class,'c-offerBox_galleryItem')]//div[@data-component="magnifier modal"]/@data-settings
+  - name: productData
+    xpath: //script[contains(@type, 'application/ld+json')][2]
+  - name: ratingCount
+    xpath: //div[contains(@class, 'is-productNameInfobar')]//div[contains(@class, 'c-reviews_count')]
+  - name: reviewCount
+    xpath: //div[contains(@class, 'is-productNameInfobar')]//div[contains(@class, 'c-reviews_count')]
+  - name: manufacturerImages
+    xpath: //div[@class='prawa']//img/@src
+    # regExp: (.+)
+    # regExpReplace: https://www.mediaexpert.pl$1
