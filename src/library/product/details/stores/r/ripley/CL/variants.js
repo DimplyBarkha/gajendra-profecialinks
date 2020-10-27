@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/variants',
   parameterValues: {
-    domain: 'ripley.cl',
-    timeout: 500000,
     country: 'CL',
     store: 'ripley',
+    domain: 'ripley.cl',
     zipcode: '',
   },
 };

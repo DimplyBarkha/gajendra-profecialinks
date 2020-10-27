@@ -25,6 +25,11 @@ const transform = (data) => {
       for (const { group } of data) {
         for (let row of group) {
           
+          if (row.image) {
+            row.image.forEach(item => {
+              item.text = "https:" + item.text;
+            });
+          }
           if (row.metaKeywords) {
             row.metaKeywords = [{'text':row.metaKeywords[0]['text'],'xpath':row.metaKeywords[0].xpath}];            
           }
