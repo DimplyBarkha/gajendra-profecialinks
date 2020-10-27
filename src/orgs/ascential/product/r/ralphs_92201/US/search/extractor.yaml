@@ -1,0 +1,25 @@
+robot: product/search
+parameters:
+  country: US
+  domain: ralphs.com
+  store: ralphs_92201
+  zipcode: "92201"
+proxy:
+  zone: USA
+  type: RESIDENTIAL
+  # zone: ZUS
+  # type: DATA_CENTER
+policy:
+  # numberRetries: 3
+  # priority: MEDIUM
+  # retryDelay: 60
+  numberRetries: 4
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99       
+meta:
+  branches:
+    dev:
+      extractor: 8fd42349-f667-4c9d-aade-a63d053ead39
+      legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
