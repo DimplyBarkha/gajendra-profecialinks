@@ -28,6 +28,15 @@ module.exports = {
         return result && result.trim ? result.trim() : result;
       };
 
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+      };
       const tabContent = getXpath("//div[@class='TabContent']", 'innerText');
 
       if (tabContent) {
@@ -86,6 +95,11 @@ module.exports = {
       const listPriceCurrency = getXpath("//div[@class='SalePrice']//small/text()", 'nodeValue');
       if (listPriceValue && listPriceCurrency) {
         addElementToDocument('added_list_price', listPriceCurrency + ' ' + listPriceValue);
+      }
+
+      const descriptionText = getAllXpath("((//div[@class='TabContent'])[1]//p) | ((//div[@class='TabContent'])[1]//ul/li)", 'innerText').join(',');
+      if (descriptionText) {
+        addElementToDocument('added_description', descriptionText);
       }
     });
     await context.extract(productDetails);
