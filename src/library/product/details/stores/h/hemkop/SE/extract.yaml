@@ -1,0 +1,66 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@class="product-image"]//img/@ng-src
+    singleValue: false
+  - name: nameExtended
+    xpath: //div[@class='product-info layout-column']//h1
+    singleValue: false
+  - name: category
+    xpath: //div[contains(@class, "breadcrumbs")]
+    singleValue: false
+  - name: price
+    xpath: //div[@class='product-info layout-column']//span[@class='selenium-puff-price']
+    regExp: (\d.*)
+    regExpReplace: $1 kr
+    singleValue: false
+  - name: availabilityText
+    xpath: //div[@class="price-wrapper"]/div[@layout="column"]
+    singleValue: false
+  - name: brandText
+    xpath: //div[contains(@class, 'product-info layout-column')]//a[@id='selenium--product-detail-manufacturer-link']
+    singleValue: false
+  - name: sku
+    xpath: //ax-accordion-panel[@label="Produktfakta"]//div[contains(@class, "main-info")]//div[@class="product-article-number"]//div[2]
+    singleValue: false
+  - name: variantId
+    xpath: //ax-accordion-panel[@label="Produktfakta"]//div[contains(@class, "main-info")]//div[@class="product-article-number"]//div[2]
+    singleValue: false
+  - name: numberOfServingsInPackage
+    xpath: //div[contains(@class, 'product-info layout-column')]//div[@class='volume']
+    regExp: \D+(.*)
+    regExpReplace: $1
+    singleValue: false
+  - name: packSize
+    xpath: //div[contains(@class, 'product-info layout-column')]//div[@class='volume']
+    regExp: (\d+)p
+    regExpReplace: $1
+    singleValue: false
+  - name: pricePerUnit
+    xpath: (//div[contains(@class, 'product-detail-wrap')]//span[contains(@class, 'product-compare-price')])
+    regExp: \D+(.*)\/
+    regExpReplace: $1
+    singleValue: false
+  - name: pricePerUnitUom
+    # xpath: (//div[contains(@class, 'product-detail-wrap')]//span[contains(@class, 'product-compare-price')])
+    # regExp: \D+(.*)\/
+    # regExpReplace: $1
+    # singleValue: false
+  - name: imageAlt
+    xpath: //div[@class="product-image"]//img/@alt
+    singleValue: false
+  - name: promotion
+    xpath: //div[contains(@class, 'product-info layout-column')]//ax-promotion-text
+    singleValue: false
+  - name: description
+    xpath: //ax-accordion-panel[@label="Produktfakta"]//div[contains(@class, "main-info")]
+    singleValue: false
+  - name: countryOfOrigin
+    xpath: //ax-accordion-panel[@label="Produktfakta"]//div[contains(@class, "main-info")]//div[contains(@ng-if,"CountryOfOrigin")]//div[2]
+    singleValue: false
+  - name: variantCount
+    defaultValue: 1
+    singleValue: false

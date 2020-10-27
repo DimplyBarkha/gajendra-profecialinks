@@ -1,0 +1,22 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    xpath: //ax-product-grid[@search-results="vm.searchResults.results"]//div[contains(@class, "ax-product-grid-content")]//div[contains(@class, "ax-product-grid-tile")]//div[contains(@class, "product-puff-name")]
+    singleValue: false
+  - name: thumbnail
+    xpath: //ax-product-grid[@search-results="vm.searchResults.results"]//div[contains(@class, "ax-product-grid-content")]//div[contains(@class, "ax-product-grid-tile")]//img/@ng-src
+    singleValue: false
+  - name: price
+    xpath: //ax-product-grid[@search-results="vm.searchResults.results"]//div[contains(@class, "ax-product-grid-content")]//div[contains(@class, "ax-product-grid-tile")]//span[@class="selenium-puff-price"]
+    singleValue: false
+  - name: productUrl
+    xpath: //ax-product-grid[@search-results="vm.searchResults.results"]//div[contains(@class, "ax-product-grid-content")]//div[contains(@class, "ax-product-puff-head")]//a/@href
+    singleValue: false
+  - name: id
+    xpath: //ax-product-grid[@search-results="vm.searchResults.results"]//div[contains(@class, "ax-product-grid-content")]//div[contains(@class, "ax-product-puff-head")]//a/@href
+    regExp: \/.*-(\d.*)
+    regExpReplace: $1
+    singleValue: false
