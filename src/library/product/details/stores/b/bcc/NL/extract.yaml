@@ -49,10 +49,12 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: concat(//section[@id='productinfo']//h2[contains(@class, 'pdp__SectionTitle')], //section[@id='description']/*[not(a[@role='button'])])
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: number(count(//section[@id='description']//li))
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -60,6 +62,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //a[contains(@class, 'brandlogo')]/img/@alt
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -68,21 +71,26 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[text() = 'Gewicht']/following-sibling::td
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
+    xpath: //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[text() = 'Gewicht']/following-sibling::td
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[text() = 'EAN']/following-sibling::td
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //meta[@name='sku']/@content
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[text() = 'Type']/following-sibling::td
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -100,6 +108,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: //*[contains(@itemprop, 'reviewCount')]/@content[1]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -107,9 +116,11 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //*[contains(@itemprop, 'ratingValue')][1]
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: (//ul[@class='USPList'])[1]//li[1]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -120,9 +131,11 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: count(//div[@id='productvariants']//div[@class='ProductVariants__Group']//a | //div[@id='productvariants']//div[@class='ProductVariants__Group']//span)
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[contains(text(), 'Kleur van het')]/following-sibling::td
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -138,6 +151,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //a[contains(@class, 'brandlogo')]/following-sibling::h1
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -390,9 +404,11 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: concat(//div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[contains(text(), 'Hoogte')]/following-sibling::td, ' x ', //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[contains(text(), 'Breedte')]/following-sibling::td, ' x ', //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[contains(text(), 'Diepte')]/following-sibling::td)
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: (//ul[@class='USPList'])[1]//li[2]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -441,6 +457,13 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: concat(
+      substring((//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[1], 1, string-length((//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[1])),
+      substring(concat(' / ', (//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[2]), 1, string-length((//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[2])*string-length((//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[2])),
+      substring(concat(' / ', (//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[3]), 1, string-length((//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[3])*string-length((//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[3])),
+      substring(concat(' / ', (//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[4]), 1, string-length((//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[4])*string-length((//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[4])),
+      substring(concat(' / ', (//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[5]), 1, string-length((//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[5])*string-length((//div[@id='productvariants']//div[@class='ProductVariants__Group']//span)[5]))
+      )
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -455,6 +478,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
+    xpath: //div[@id='productvariants']//div[@class='ProductVariants__Group']//a | //div[@id='productvariants']//div[@class='ProductVariants__Group']//span
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
@@ -471,6 +495,7 @@ fields:
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
+    xpath: //div[contains(@class, 'expander__content')]//table[contains(@class, 'productspecifications')]//th[text() = 'Energie-efficiëntieklasse']/following-sibling::td
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
@@ -503,3 +528,4 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+    xpath: substring('Yes', 1, string-length(//div[@class='galleryzoom__fog']/@class))
