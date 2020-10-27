@@ -26,6 +26,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
 
   const onCorrectZip = await context.evaluate((zipcode) => {
     const zipText = document.querySelector('div#glow-ingress-block');
+    if (!zipText) return false;
     return zipText.textContent.includes(zipcode);
   }, zipcode);
 
