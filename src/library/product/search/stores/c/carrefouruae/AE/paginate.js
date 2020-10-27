@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AE',
     store: 'carrefouruae',
-    nextLinkSelector: 'div[class="css-1hbp62g"] button',
+    nextLinkSelector: 'button[data-testid="trolly-button"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'p[data-testid="page-info-content"]',

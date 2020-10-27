@@ -1,17 +1,17 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@data-testid="scrollable-list-view"]/div[@class="css-cphitw"]//div[@class="css-jyyiad"]
+recordXPath: //ul[@data-testid="scrollable-list-view"]/div[@height="0"]//div[@offset="5"]
 fields:
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //div[@class='css-cssveg']//a/img/@src
+    xpath: //img[@data-testid="product_image"]/@src
   - name: brand
     singleValue: false
     description: The brand name
     example: Panasonic
-    xpath: //div[@class='css-12fzzt2']/a
+    xpath: //a[@data-testid="product_name"]
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
