@@ -41,6 +41,13 @@ const transform = (data) => {
 					},
 				];
 			}
+			if (row.specifications) {
+				let text = '';
+				row.specifications.forEach(item => {
+					text = text + (text ? ' | ' : '') + item.text;
+				  });
+				  row.specifications = [{ text }];
+			}
 			if (row.manufacturerDescription) {
 				let text = '';
 				row.manufacturerDescription.forEach(item => {
