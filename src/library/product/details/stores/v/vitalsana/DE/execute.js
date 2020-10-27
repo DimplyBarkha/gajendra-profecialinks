@@ -6,7 +6,7 @@ module.exports = {
     store: 'vitalsana',
     domain: 'vitalsana.com',
     loadedSelector: '#maincontent',
-    noResultsXPath: null,
+    noResultsXPath: "//div[@class='message notice']/div/text()",
     zipcode: '',
   },
 };

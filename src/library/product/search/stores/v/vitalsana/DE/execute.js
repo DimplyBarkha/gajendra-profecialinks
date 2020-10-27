@@ -7,7 +7,7 @@ module.exports = {
     domain: 'vitalsana.com',
     url: 'https://www.vitalsana.com/catalogsearch/result/?q={searchTerms}',
     loadedSelector: '#maincontent',
-    noResultsXPath: null,
+    noResultsXPath: "//div[@class='message notice']/div",
     zipcode: '',
   },
 };
