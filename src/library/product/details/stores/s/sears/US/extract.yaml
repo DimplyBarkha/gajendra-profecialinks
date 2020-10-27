@@ -15,6 +15,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //h4//span[@class="price-wrapper"]
+  - name: listPrice
+    singleValue: false
+    xpath: //li[(contains(@class,'product-price-regular abc'))]//span[@class='price-wrapper']
   - name: category
     singleValue: false
     xpath: //div[@id="gnf_breadcrumb"]//ul//li[not(contains(@class,'home'))]//a
@@ -57,6 +60,9 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //div[@class='product-nav']//a//span
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: 'yes'
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
+    defaultValue: '1'
