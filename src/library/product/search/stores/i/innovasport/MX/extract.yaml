@@ -5,21 +5,21 @@ recordSelector: null
 recordXPath: //div[@class='is-pw__product']
 fields: 
 - name: id
-  xpath: //a[@class="js-gtm-product-click"]//@data-productcode
+  xpath: //a[@class="js-gtm-product-click"]/@data-productcode
 - name: rankOrganic
 - name: name
   xpath: //span[@class="is-gridwallCard__item__name"]
 - name: productUrl
-  xpath: //a[@class="js-gtm-product-click"]//@href
+  xpath: //a[@class="js-gtm-product-click"]/@href
   regExp: (.+)
   regExpReplace: https://www.innovasport.com$1
 - name: thumbnail
-  xpath: //figure[@class="is-gridwallCard__item__imageContainer"]//img//@src
+  xpath: //figure[@class="is-gridwallCard__item__imageContainer"]/img/@src
   regExp: (.+)
   regExpReplace: https://www.innovasport.com$1
 - name: price
   xpath: //div[@class="is-gridwallCard__item"]//span[contains(@class,"gridwallCard__item__price")]
 - name: searchUrl
-  xpath: //@searchurl
+  xpath: /@searchurl
   
   
