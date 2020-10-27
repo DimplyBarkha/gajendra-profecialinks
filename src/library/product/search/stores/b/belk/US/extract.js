@@ -8,6 +8,19 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+  const isPopupPresent = await context.evaluate(async () => {
+    return document.querySelector('div[id="monetate_lightbox_content_container"]');
+  });
+  
+  if(isPopupPresent !== null) {
+    await context.evaluate(() => {
+      document.querySelector('div[id="monetate_lightbox_content_container"]').remove();
+      document.querySelector('div[id="monetate_lightbox_mask"]').remove();
+    });
+  }
+
   var data = await context.extract(productDetails, { transform });
 
   for(let i=0;i<data[0].group.length;i++){
