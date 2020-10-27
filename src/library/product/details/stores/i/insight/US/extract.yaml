@@ -26,7 +26,7 @@ fields:
   xpath: //div[@class='cart-wrapper']//a/@data-image-url
 - name: imageAlt 
   singleValue: false 
-  xpath: //div[contains(@class,'ccs-fancybox-gallery ccs-slick-slide ccs-slick-current ccs-slick-active')]//img/@alt
+  xpath: //div[@class='ccs-slick-track']//div[1]/@data-caption
 - name: alternateImages
   singleValue: false   
   xpath: //div[contains(@class,'ccs-ds-cloud-thumbs ccs-slick-initialized ccs-slick-slider')]//img/@src
