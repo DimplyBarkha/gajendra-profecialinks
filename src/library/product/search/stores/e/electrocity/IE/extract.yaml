@@ -40,5 +40,5 @@ fields:
     defaultValue: 0
   - name: price
     singleValue: false
-    xpath:  //span[contains(@class,'price')]//ins//span[contains(@class,'woocommerce-Price-amount')]|//span[contains(@class,'price')]//span[contains(@class,'wdr_product_strikeout')]//span[contains(@class,'woocommerce-Price-amount')] 
+    xpath: //span[@class='price']/ins | //span[@class='price']/span
 
