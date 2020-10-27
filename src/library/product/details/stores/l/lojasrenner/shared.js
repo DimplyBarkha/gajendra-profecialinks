@@ -52,6 +52,16 @@ const transform = (data) => {
               }
             });
           }
+          if (row.firstVariant) {
+            row.firstVariant.forEach(item => {
+                  item.text = item.text.replace(/Ref\:(.*)/g,'$1').trim();
+            });
+          }
+          if (row.variants) {
+            row.variants.forEach(item => {
+                  item.text = item.text.replace(/Ref\:(.*)/g,'$1').trim();
+            });
+          }
       }
     }
     return data;

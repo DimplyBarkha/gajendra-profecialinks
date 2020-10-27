@@ -1,0 +1,16 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="js-only-one-level"]/div[@class="form_item"] | //div[contains(@class,"js-only-one-level")]//*[contains(@class,"js-select-label")] | //body[contains(@id, "id_you_like")]
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //input[@name="sku"]/@value | //div[@id="pd_productSku"]
+    # regExp: Ref\:(.*)
+    # regExpReplace: $1
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //div[@id="pd_productUrl"]
+    # xpath: //link[@rel="canonical"]/@href

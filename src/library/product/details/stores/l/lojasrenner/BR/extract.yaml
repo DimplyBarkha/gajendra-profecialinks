@@ -32,16 +32,16 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //label[contains(@class , "js-select-label active")]//span[@class="old_price"]
+    xpath: //span[@class="product_price"]//span[@class="old_price"] | //div[@id="pd_oldPrice"]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[@class="product_price"]//span[@class="best_price"]
+    xpath: //span[@class="product_price"]//span[@class="best_price"] | //div[@id="pd_price"]
   - name: availabilityText
     singleValue: false
     xpath: //div[@id="bb_availibility"]
-    # defaultValue: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -79,7 +79,7 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //label[contains(@class , "js-select-label active")]//input[@name="sku"]/@value | //div[@id="bb_sku"]
+    xpath: //label[contains(@class , "js-select-label active")]//input[@name="sku"]/@value | //div[contains(@class,"js-only-one-level")]//*[contains(@class,"js-select-label active")]//input/@value | //div[@id="bb_sku"]
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -120,7 +120,8 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    type: NUMBER
+    xpath: count(//div[@class="js-only-one-level"]/div[@class="form_item"]//span[@class="ref"] | //div[contains(@class,"js-only-one-level")]//*[contains(@class,"js-select-label")]//input)
+    defaultValue: '0'
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -443,6 +444,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
+    xpath: //div[@class="js-only-one-level"]/div[@class="form_item"]//label[contains(@class, "item js-select-label active")]//span[@class="size"] | //div[contains(@class,"js-only-one-level")]//*[contains(@class,"js-select-label active")]//span[@class="name"]
   - name: firstVariant
     singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
@@ -454,9 +456,15 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: //div[@class="js-only-one-level"]/div[@class="form_item"][1]//span[@class="ref"] | //div[contains(@class,"js-only-one-level")]//*[contains(@class,"js-select-label")][1]/input/@value
+    # regExp: Ref\:(.*)
+    # regExpReplace: $1
   - name: variants
     singleValue: false
     description: null
+    xpath: //div[@class="js-only-one-level"]/div[@class="form_item"]//span[@class="ref"] | //div[contains(@class,"js-only-one-level")]//*[contains(@class,"js-select-label")]//input/@value
+    # regExp: Ref\:(.*)
+    # regExpReplace: $1
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
