@@ -21,6 +21,13 @@ const transform = (data) => {
                     text = row.description[0].text.replace(/\n/g, ' || ');;
                     row.description = [{ text }];
                 }
+                if (row.specifications) {
+                    let text = '';
+                    row.specifications.forEach(item => {
+                        text = text + (text ? ' | ' : '') + item.text;
+                      });
+                      row.specifications = [{ text }];
+                }
                 if (row.variants) {
                     let text = '';
                     row.variants.forEach(item => {

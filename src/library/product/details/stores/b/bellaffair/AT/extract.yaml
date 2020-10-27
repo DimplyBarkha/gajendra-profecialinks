@@ -21,6 +21,9 @@ fields:
   - name: category 
     singleValue: false
     xpath: //div[contains(@id,'breadCrumb')]//li[position()>1 and position()<last()]
+  - name: specifications
+    description: The physical dimensions of the product including packaging.
+    xpath: //div[@class="description"]//ul[not(@class="checkListing")]/li
   # - name: subCategory 
   #   singleValue: false
   #   xpath: //div[contains(@id,'breadCrumb')]//li[position()>1 and position()<last()]
