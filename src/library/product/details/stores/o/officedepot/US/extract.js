@@ -17,7 +17,7 @@ module.exports = {
       function timeout (ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
-      await timeout(5000);
+      await timeout(10000);
       const getDescription = async function () {
         // console.log(document.querySelector('#vjs_video_1_html5_api')?document.querySelector('#vjs_video_1_html5_api').getAttribute('src'):'');
         let text = '';
@@ -35,7 +35,7 @@ module.exports = {
       if (document.querySelector('.sku_desc')) {
         await getDescription();
       }
-      await timeout(5000);
+      await timeout(10000);
       const value = document.querySelector('div.wc-video-gallery > iframe#wcframable1-0') ? document.querySelector('div.wc-video-gallery > iframe') : '';
       if (value !== '') {
         var doc = value.contentDocument;
