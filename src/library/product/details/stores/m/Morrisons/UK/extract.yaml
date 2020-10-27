@@ -8,10 +8,16 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
+  xpath: //meta[@property="og:url"]/@content
+  regExp: (.+)
+  regExpReplace: http://groceries.morrisons.com$1
   singleValue: false
 - name: _pageTimeStamp
   singleValue: false
 - name: image
+  xpath: //img[@class="bop-gallery__image"]//@src
+  regExp: (.+)
+  regExpReplace: http://groceries.morrisons.com$1
   singleValue: true
   description: URL of the main product image
 - name: imageAlt
@@ -21,24 +27,33 @@ fields:
   singleValue: false
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
+  xpath: //meta[@name="keywords"]//@content
   singleValue: true
   description: The <meta> keywords content
 - name: category
+  xpath: //ul[contains(@class,'breadcrumb')]/li/a/text()
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
+  xpath: concat(//section[@class="bop-section bop-intro"]/header[@class="bop-title"]/h2//text(), " ", //section[@class="bop-section bop-intro"]/header[@class="bop-title"]//span/text())
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
+  xpath: //span[contains(@class, "bop-price__old")]//text()
   singleValue: true
   description: The stated undiscounted price for the product
 - name: price
+  xpath: //h2[contains(@class, "bop-price__current ")]//text()
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
   singleValue: true
+  defaultValue: "In Stock"
+  regExp: .+
+  regExpReplace: "Out of Stock"
+  xpath: //div[@class="bop-outOfStock"]
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"

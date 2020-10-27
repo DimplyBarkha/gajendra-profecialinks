@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'morrisons',
     domain: 'groceries.morrisons.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'section[id="categories"]',
+    noResultsXPath: '//p[@class="hd-searchTermCorrection__noResultsFoundMessage"]',
     zipcode: '',
   },
 };
