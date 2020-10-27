@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"catalog-page__product-grid--with-sidebar")]//a[contains(@class,"catalog-product-item__container")]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //a[contains(@class,"catalog-product-item")]/@id
+  - name: name
+    singleValue: false
+    xpath: //div[@class="catalog-product-details__name"]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,"catalog-product-item")]/@href
+  - name: price
+    singleValue: false
+    xpath: //li[contains(@class,"catalog-prices__offer-price")]
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,"images-preview-item") and contains(@class,"is-active")]/img/@data-src
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class,"catalog-product-details__logo-container")]//span
