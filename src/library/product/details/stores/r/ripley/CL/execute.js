@@ -5,7 +5,7 @@ module.exports = {
     country: 'CL',
     store: 'ripley',
     domain: 'ripley.cl',
-    loadedSelector: "div[class='product-carousel-container gallery-container'] div[class='owl-wrapper-outer'] div[class='owl-item'] img",
+    loadedSelector: "section[class='product-options'] div[class='product-options-desktop-wrapper'] div[class='radio-items']",
     noResultsXPath: "//div[@class='error-page-container']//div[@class='error-page']",
     zipcode: '',
   },
