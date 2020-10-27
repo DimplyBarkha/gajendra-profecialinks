@@ -10,7 +10,7 @@ fields:
   - name: productUrl
     singleValue: false
     description: The URL for the product details page 
-    xpath: //div[@class="info product-tile__info"]/div[@class="product-img-container product-tile__img-container"]/a/@href
+    xpath: //div[@class="info"]//div[@class="product-img-container"]/a/@href
     regExp: (online/.*)
     regExpReplace: https://www.unieuro.it/$1
   - name: thumbnail
