@@ -17,20 +17,17 @@ fields:
     xpath: //span[@class="price--pseudo"]
   - name: thumbnail
     SingleValue: true
-    xpath: //a[@class="product--title"]//img/@srcset
+    xpath: //a[@class="product--image"]//img/@srcset
   - name: name
     SingleValue: true
     xpath: //a[@class="product--title"]
   - name: rankOrganic
     SingleValue: true
   - name: rank
-    SingleValue: true
+    SingleValue: true  
   - name: reviewCount
     singleValue: true
-    xpath: //span[@class="rating--count"]
-  - name: ratingCount
-    singleValue: true
-    xpath: //span[@class="rating--count"]
+    xpath: //span[@class="rating--count-wrapper"]//span[@class='rating--count']/text()
   - name: aggregateRating
     singleValue: false
     xpath: //span[@class="product--rating"]/i[@class="icon--star"]/@class
