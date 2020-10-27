@@ -56,8 +56,7 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //div[@class="selected-option "]/span
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -91,12 +90,15 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
-    xpath: //div[@class="product-col-2 product-detail"]//meta[@itemprop="reviewCount"]/@content
-    type: NUMBER
+    xpath: //meta[@itemprop="reviewCount"]/@content
+    # regExp: \W\W([^ ]+)
+    #regExpReplace: $1
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="product-col-2 product-detail"]//div[@class="bv_avgRating_component_container notranslate"]
-    type: NUMBER
+    regExp: ([0-9]\W[0-9])
+    regExpReplace: $1
+    #type: NUMBER
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -108,7 +110,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    description: Number of variants listed
+    xpath: count(//ul[@class="swatches size"]/li)
     type: NUMBER
   - name: color
     singleValue: false
@@ -152,5 +154,9 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[@class="product-col-2 product-detail"]//div[@class="product-price"]/span[@class="price-save"]
+  - name:  coupon
+    singleValue: false
+    xpath: //div[@class="product-promo"]/div/span
+  
     
   

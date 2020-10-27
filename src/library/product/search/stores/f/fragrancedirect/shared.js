@@ -31,6 +31,15 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
+
+      if (row.aggregateRating2) {
+        for (const aggRate of row.aggregateRating2) {
+          if (aggRate.text.indexOf('out') > 0) {
+            const arr = aggRate.text.split('out');
+            aggRate.text = arr[0].trim();
+          }
+        }
+      }
     }
   }
   context.setState({ rankCounter });
