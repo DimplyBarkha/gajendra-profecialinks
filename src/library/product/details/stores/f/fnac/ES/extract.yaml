@@ -68,7 +68,7 @@ fields:
     xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Color')]//parent::div/dd/p
   - name: videos
     singleValue: false
-    xpath: //meta[@itemprop="contentURL"]/@content[1]
+    xpath: //meta[@itemprop="contentURL"]/@content[1] | //iframe[contains(@id,'flix-iframe')]/@src
   - name: name
     singleValue: false
     manualSelector: h1.f-productHeader-Title
