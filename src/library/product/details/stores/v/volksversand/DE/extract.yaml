@@ -23,10 +23,10 @@ fields:
     xpath: //div[@class="content--wrapper"]//h1[@class="product--title"]
   - name: listPrice
     singleValue: true
-    xpath: (//div[@class="content--wrapper"]//span[@class="content--discount price--line-through"])[1]
+    xpath: //div[@class='variant--option tooltip is--active']//span[@class="content--discount price--line-through"]
   - name: price
     singleValue: true
-    xpath: (//div[@class="content--wrapper"]//span[@class="price--content content--default"])[1]
+    xpath: //div[@class='variant--option tooltip is--active']//span[@class="price--content content--default"]
   - name: availabilityText
     singleValue: true
     xpath: //button[@class="buybox--button block btn is--primary is--icon-right is--center is--large"]
@@ -44,7 +44,10 @@ fields:
     xpath: //meta[@property="product:brand"]/@content
   - name: quantity
     singleValue: false
-    xpath: (//div[@class="content--wrapper"]//div[@class="variant--info"])[1]//div[@class="variant--name"]
+    xpath: (//div[@class="content--wrapper"]//div[@class="variant--info"])[1]//div[@class="variant--name"]  
+  - name: pricePerUnit
+    singleValue: false
+    xpath: (//div[@class="content--wrapper"]//div[@class="variant--info"])[1]//div[@class="variant--unit"]
   - name: sku
     singleValue: true
     xpath: (//div[@class="content--wrapper"]//div[@class="variant--articleId"]//span[@class="entry--content is--selectable"])[1]
@@ -83,3 +86,6 @@ fields:
   - name: variantInformation
     singleValue: true
     xpath: //div[@class="content--wrapper"]//div[@class="variant--info"]
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: YES
