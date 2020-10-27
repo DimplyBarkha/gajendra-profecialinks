@@ -1,0 +1,84 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'ProductCard')][contains(@data-qa,'product-card')]
+fields:
+  - name: paid
+    singleValue: false
+    type: BOOLEAN
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@class='my-search-url']
+  - name: brand
+    singleValue: false
+  - name: category
+    singleValue: false
+  - name: id
+    singleValue: false
+    # xpath: //a[@class='Color Link']/@href
+    # xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    xpath: //div[contains(@class,"ProductCard")]/div[@class="py-16 flex"]//a/@href
+    regExp: >-
+      [0-9]{13}
+  - name: productUrl
+    singleValue: false
+    # xpath: //a[@componentname='internal search']/@href
+    # xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    xpath: //div[contains(@class,"ProductCard")]/div[@class="py-16 flex"]//a/@href
+    regExp: >-
+       ^(.*)$
+    regExpReplace:
+      https://www.kroger.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class='kds-Image-img']/@src
+  - name: name
+    singleValue: false
+    xpath: //h3[@data-qa='cart-page-item-description']
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"ProductCard")]/div[@class="py-16 flex"]//a/@href
+    regExp: >-
+      [0-9]{13}
+  - name: mpc
+    singleValue: false
+  - name: gtin
+    singleValue: false
+    xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
+    regExp: >-
+      [0-9]{13}
+  - name: aggregateRatingText
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+    defaultValue: ''
+  - name: reviewCount
+    singleValue: false
+    defaultValue: ''
+  - name: price
+    singleValue: false
+    xpath: //span[@class='kds-Price-singular']|//mark[@class="kds-Price-promotional"]
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
+  - name: shippingInfo
+    singleValue: false
+  - name: nameExtended
+    singleValue: false
+  - name: aggregateRating
+    singleValue: false
+    type: NUMBER
+  - name: aggregateRating2
+    singleValue: false
+    type: NUMBER
+  - name: rank
+    singleValue: false
+  - name: rankOrganic
+    singleValue: false
+  - name: sponsored
+    singleValue: false
+    type: BOOLEAN
+    xpath: //div[@data-qa='featured-product-tag']
