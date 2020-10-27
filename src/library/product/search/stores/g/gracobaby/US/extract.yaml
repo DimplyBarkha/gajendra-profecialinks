@@ -1,0 +1,45 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="product"]/@data-pid
+  - name: rangOrganic
+    singleValue: false
+  - name: name
+    singleValue: false
+    xpath: //div[@class='link text16-16-12']/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class='product-tile-link']/@href
+    regExp: (/.+)
+    regExpReplace: https://www.gracobaby.com$1
+  - name: gtin
+    singleValue: true
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='image-container']/img/@src
+  - name: url
+    singleValue: false
+    xpath: //input[@class='permalink']/@value
+  - name: aggregateRating
+    singleValue: false
+    xpath: //html//div[@class='graco_dimensions']
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class='BVInlineRatings-count pl-1 text14-14-12']/text()
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //html//div[@class='graco_price']
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: true
+  - name: endorsementText
+    singleValue: true
