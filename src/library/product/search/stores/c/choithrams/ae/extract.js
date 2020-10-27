@@ -9,22 +9,6 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
-    // function addElementToDocument (key, value) {
-    //   const catElement = document.createElement('div');
-    //   catElement.id = key;
-    //   catElement.style.display = 'none';
-    //   document.body.appendChild(catElement);
-    //   if (Array.isArray(value)) {
-    //     const innerHTML = value.reduce((acc, val) => {
-    //       return `${acc}<li>${val}</li>`;
-    //     }, '<ul>') + '</ul>';
-    //     catElement.innerHTML = innerHTML;
-    //   } else {
-    //     catElement.textContent = value;
-    //   }
-    //   return catElement;
-    // }
-
     function addElementToDocumentOld (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
@@ -51,14 +35,6 @@ async function implementation (
       }
       return result;
     };
-
-    // const getXpath = (xpath, prop) => {
-    //   const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-    //   let result;
-    //   if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-    //   else result = elem ? elem.singleNodeValue : '';
-    //   return result && result.trim ? result.trim() : result;
-    // };
 
     const priceText = getAllXpath("//div[@class='price']//span[1]//text()", 'nodeValue').join('|');
     var priceTextValue = priceText.split('|');
