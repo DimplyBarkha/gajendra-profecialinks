@@ -1,0 +1,60 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='item']
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class='item']//a[@class='product']/@href
+    regExp: \/p\/(\d+)\/
+    regExpReplace: $1
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //div[@class='item']//@title
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='item']//a[@class='product']/@href
+    regExp: (\/p\/.+)
+    regExpReplace: https://www.thewhiskyexchange.com$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="image-container"]/child::img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //span[@class="price"]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: //div[@class='item']//@rankorganic
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+    xpath: //div[@class='item']//@rankorganic
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
