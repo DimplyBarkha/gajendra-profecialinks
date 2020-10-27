@@ -8,6 +8,13 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const windowScroll = await context.evaluate(async () => {
+    for(let i=0;i<=document.body.scrollHeight;i=i+500){
+      window.scroll(0,i);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+  });
+  
   var data = await context.extract(productDetails, { transform });
 
   for(let i=0;i<data[0].group.length;i++){
@@ -20,6 +27,7 @@ async function implementation (
   }
 
   return data;
+
 }
 module.exports = {
   implements: 'product/search/extract',
