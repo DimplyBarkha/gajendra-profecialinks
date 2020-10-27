@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'feelunique',
     domain: 'feelunique.com',
-    url: "https://www.feelunique.com/search?q=ACNE",
+    url: "https://www.feelunique.com/search?q={searchTerms}",
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
