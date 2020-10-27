@@ -1,0 +1,75 @@
+input:
+  _url: http://submarino.com.br
+  URL: https://www.submarino.com.br/produto/1862555149/boneca-baby-alive-grows-up-feliz-e8199-hasbro?DCSext.recom=RR_category_page.rr1-CategoryTopProducts&nm_origem=rec_category_page.rr1-CategoryTopProducts&nm_ranking_rec=1&voltagem=NAO%20SE%20APLICA
+extractions:
+  - html: https://workbench.import.io/html/run=338af552-595f-42a1-827a-a24ef9eb1fb8/task=8df23d0e-8f04-4439-93b8-b899014036db/b3728cc0-e382-48a9-82c8-4d388537e714.html
+    extractionConfigId: product/details/stores/s/submarino/BR/extract
+    data:
+      - group:
+          - image:
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/1862555/1/1862555190P1.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Boneca Baby Alive Grows Up Feliz - E8199 - Hasbro no Submarino.com
+                xpath: /html/head[1]/meta[18]/@content
+            category:
+              - text: Brinquedos
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/a[1]/div[1]/span[1]
+              - text: Bonecas
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[3]/a[1]/div[1]/span[1]
+            nameExtended:
+              - text: Boneca Baby Alive Grows Up Feliz - E8199 - Hasbro
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            price:
+              - text: R$ 529,99
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+            description:
+              - text: Ela CRESCE de verdade! As crianças podem ver a bebê virar uma garotinha.
+                  Ela cresce 10 cm e traz 8 acessórios. Que tipo de bebê ela
+                  será? Happy Hope ou Merry Meadow? É uma grande surpresa! Com a
+                  primeira mamadeira, ela abre os olhos e revela a cor deles.
+                  Para revelar a cor do cabelo, basta remover a touca. Depois de
+                  ser ninada e tomar a sua mamadeira, ela chuta o seu lençol.
+                  Depois de sentar, a boneca Baby Alive Baby Grows Up reage com
+                  lindas frases e sons. Ela faz ruídos de que está satisfeita
+                  quando come a comidinha de boneca. Basta segurar as suas mãos
+                  para que ela se levante e fique mais alta. A boneca pode
+                  vestir a saia e os sapatos surpresa. O cabelo se estende
+                  também. Basta puxá-lo para que ele cresça. As instruções
+                  ajudam os pais e o guia rápido ensina a cuidar da boneca em
+                  todas as fases do crescimento! Baby Alive e todas as
+                  propriedades relacionadas são marcas registradas da Hasbro.
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]
+            manufacturer:
+              - text: Hasbro
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[3]/td[2]/span[1]
+            weightNet:
+              - text: "1.5"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[19]/td[2]/span[1]
+            gtin:
+              - text: "5010993756209"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+            sku:
+              - text: "1862555149"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            mpc:
+              - text: Boneca Baby Alive Grows Up Feliz - E8199 - Hasbro
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[6]/td[2]/span[1]
+            name:
+              - text: Boneca Baby Alive Grows Up Feliz - E8199 - Hasbro
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            specifications:
+              - text: Alt. 35,6 Larg. 11,4 Comp. 40,6 cm
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[18]/td[2]/span[1]
+            warranty:
+              - text: 3 Meses
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[17]/td[2]/span[1]
+            ageSuitability:
+              - text: 3+
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[12]/td[2]/span[1]
+            descriptionBullets:
+              - text: "24"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1603793076541
