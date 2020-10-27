@@ -14,9 +14,11 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: //img[@id='image-main']/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
+  xpath: //img[@id='image-main']/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
@@ -26,6 +28,7 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: //div[@class='breadcrumbs']/ul/li/a/text()
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
