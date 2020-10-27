@@ -18,6 +18,9 @@ fields:
   - name: price 
     SingleValue: false 
     xpath: //div[@class='lii_price']
-  - name: name
+  - name: ratingCount
     SingleValue: false
-    xpath: //div[@class="lii_head"]//h3[@class="lii__title"]//a/@title
+    xpath: //dd[@class="rating-stars__content"]//span//span
+  - name: reviewCount
+    SingleValue: false
+    xpath: //div[@class="sf__rating-stars--sm"]//a[@class="pr__view"]

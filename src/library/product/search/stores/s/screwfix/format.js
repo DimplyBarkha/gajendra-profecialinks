@@ -25,12 +25,6 @@ const transform = (data) => {
     for (const { group } of data) {
       let rank = 1;
       for (const row of group) {
-        if (row.id) {
-          row.id.forEach(item => {
-            item.text = item.text.match(/p-(.*)/)[1];
-            item.text = 'p-' + item.text
-          });
-        }
         if (row.reviewCount) {
           row.reviewCount.forEach(item => {
             var tmp = item.text.replace('(', '');
