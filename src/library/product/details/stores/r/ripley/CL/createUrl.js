@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'ripley.cl',
     prefix: null,
-    url: null,
+    url: 'https://simple.ripley.cl/{id}',
     country: 'CL',
     store: 'ripley',
     zipcode: '',
