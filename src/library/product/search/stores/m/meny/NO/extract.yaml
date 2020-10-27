@@ -5,6 +5,7 @@ recordXPath: //li[@class="ws-product-list-vertical__item"]
 fields:
   - name: productUrl
     description: The URL for the product details page
+    xpath: //picture[@class="ws-product-vertical__image"]//img/@url
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //picture[@class="ws-product-vertical__image"]//img/@src
