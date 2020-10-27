@@ -1,12 +1,11 @@
 
 module.exports = {
-  implements: 'product/search/execute',
+  implements: 'product/details/execute',
   parameterValues: {
     country: 'UK',
     store: 'feelunique',
     domain: 'feelunique.com',
-    url: "https://www.feelunique.com/search?q=ACNE",
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },
