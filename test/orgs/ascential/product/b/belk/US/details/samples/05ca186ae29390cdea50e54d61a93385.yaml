@@ -1,0 +1,156 @@
+input:
+  _url: http://belk.com
+  URL: https://www.belk.com/p/dji-parrot-anafi-work---4k-drone-solution/8100731PF728100.html?rrec=true
+extractions:
+  - html: https://workbench.import.io/html/run=f724ebc6-e458-45ca-be73-cacc76683f6f/task=267b3644-5d38-4f91-9167-c349731028f2/337a652b-553e-4acd-820d-5edfe78ab3da.html
+    extractionConfigId: product/details/stores/b/belk/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://belk.scene7.com/is/image/Belk?layer=0&src=8100731_PF728100_A_000&$DWP_PRODUCT_PDP_LARGE$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Parrot Parrot ANAFI Work - 4K Drone Solution
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://belk.scene7.com/is/image/Belk?layer=0&src=8100731_PF728100_B_000&$DWP_PRODUCT_PDP_LARGE$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[2]/@src
+              - text: https://belk.scene7.com/is/image/Belk?layer=0&src=8100731_PF728100_C_000&$DWP_PRODUCT_PDP_LARGE$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[3]/@src
+            category:
+              - text: Kids
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[1]
+              - text: Toys & Games
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[2]
+              - text: Outdoor Toys
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[3]
+              - text: Parrot Parrot ANAFI Work - 4K Drone Solution
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[4]
+            nameExtended:
+              - text: |-
+                  Parrot 
+                   
+                   Parrot ANAFI Work - 4K Drone Solution
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: $1,259.90
+                xpath: /html/body/div[8]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[10]
+            description:
+              - text: >-
+                  Description 
+                   
+                  The Anafi Work 4K Portable Drone from Parrot is a compact high-resolution aerial photography and videography solution for everything from entertainment productions to industrial applications. Whether you're in need of aerial assistance in public safety, inspections, or site surveillance, the Anafi Work gives you the ability to capture 4K videos with 100 Mb/s bit rate, and 21MP HDR-enhanced still photos. The 3-axis stabilization helps keep all your footage and pictures stable and clear. With the addition of a 180° gimbal, tracking A.I., and a host of photo modes, the Anafi can give you professional-quality results anytime, anywhere. 
+                   
+                  Product Details
+                   
+
+                   
+                  1-year limited liability warranty
+                   
+                  Imported
+                   
+
+                   
+                  Product Specifications
+                   
+
+                   
+                  5.3 in H x 12.5 in W x 8.7 in D
+                   
+
+                   
+                  Material & Care
+                   
+
+                   
+                  Plastic
+                   
+                  Requires specialty care
+                   
+
+                   
+                  UPC: 3520410047770
+                   
+
+                   
+                  California Residents
+                   
+                  For orders being shipped to California, please click here for Proposition 65 WARNING.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[2]/div[2]/div[1]/div[2]
+            brandText:
+              - text: Parrot
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]/div[1]/span[1]/a[1]/span[1]
+            manufacturer:
+              - text: Parrot
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]/div[1]/span[1]/a[1]/span[1]
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[3]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/select[1]/option[1]
+            gtin:
+              - text: "3520410047770"
+                xpath: /html/body/div[17]
+            sku:
+              - text: 8100731PF728100
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/span[1]
+            variantId:
+              - text: 8100731PF728100
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/span[1]
+            shippingInfo:
+              - text: This item ships directly from the vendor, usually within 4 business days.
+                  Details
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[2]/div[2]/div[1]/div[3]/p[1]
+            color:
+              - text: NO COLOR
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[3]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/span[2]
+            name:
+              - text: Parrot ANAFI Work - 4K Drone Solution
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]/div[2]
+            specifications:
+              - text: 5.3 in H x 12.5 in W x 8.7 in D
+                xpath: /html/body/div[13]
+            warranty:
+              - text: 1-year limited liability warranty
+                xpath: /html/body/div[14]
+            variants:
+              - text: "000368589984"
+                xpath: /html/body/div[16]
+            additionalDescBulletInfo:
+              - text: "||1-year limited liability warranty||Imported||5.3 in H x 12.5 in W x 8.7
+                  in D||Plastic||Requires specialty care"
+                xpath: /html/body/div[15]
+            prop65Warning:
+              - text: For orders being shipped to California, please click here for Proposition
+                  65 WARNING.
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[2]/div[2]/div[1]/div[2]/span[2]/p[2]
+            productUrl:
+              - text: https://www.belk.com/p/parrot-parrot-anafi-work---4k-drone-solution/8100731PF728100.html
+                xpath: /html/head[1]/meta[18]/@content
+            descriptionBullets:
+              - text: "5"
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+            variantCount:
+              - text: "1"
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1603104006186

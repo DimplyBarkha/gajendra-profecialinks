@@ -1,0 +1,139 @@
+input:
+  _url: http://belk.com
+  URL: https://www.belk.com/p/1928-jewelry-28-inch-rose-gold-tone-purple-crystal-flower-oval-pendant-necklace/580077851527.html#brand=1928+Jewelry&start=1
+extractions:
+  - html: https://workbench.import.io/html/run=f724ebc6-e458-45ca-be73-cacc76683f6f/task=4677d1ba-3ddb-4336-8753-3ed37f6b3559/3e89003e-343e-4d98-b0a3-3d099cb3d643.html
+    extractionConfigId: product/details/stores/b/belk/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://belk.scene7.com/is/image/Belk?layer=0&src=5800778_51527_A_000&$DWP_PRODUCT_PDP_LARGE$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: 1928 Jewelry 28 Inch Rose Gold Tone Purple Crystal Flower Oval Pendant
+                  Necklace
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Jewelry
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[1]
+              - text: Fashion Jewelry
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[2]
+              - text: Necklaces
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[3]
+              - text: 1928 Jewelry 28 Inch Rose Gold Tone Purple Crystal Flower Oval Pendant
+                  Necklace
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[4]
+            nameExtended:
+              - text: >-
+                  1928 Jewelry 
+                   
+                   28 Inch Rose Gold Tone Purple Crystal Flower Oval Pendant Necklace
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: $60.00
+                xpath: /html/body/div[8]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[10]
+            description:
+              - text: >-
+                  Description 
+                   
+                  A classic piece from 1928 Jewelry's Manor House collection, this Victorian-inspired necklace is set in antiqued rose gold-tone metal. This necklace features amethyst purple crystals that surround a rose gold filigree pendant.
+                   
+                  Product Details
+                   
+
+                   
+                  Lobster closure
+                   
+                  Polished finish
+                   
+                  Imported
+                   
+
+                   
+                  Product Specifications
+                   
+
+                   
+                  28 in x 2 in x 1 in
+                   
+
+                   
+                  Material & Care
+                   
+
+                   
+                  Rose gold-tone metal
+                   
+                  Wipe clean
+                   
+
+                   
+                  UPC: 0011996515270
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[2]/div[2]/div[1]/div[2]
+            brandText:
+              - text: 1928 Jewelry
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]/div[1]/span[1]/a[1]/span[1]
+            manufacturer:
+              - text: 1928 Jewelry
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]/div[1]/span[1]/a[1]/span[1]
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[3]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/select[1]/option[1]
+            gtin:
+              - text: "0011996515270"
+                xpath: /html/body/div[17]
+            sku:
+              - text: "580077851527"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/span[1]
+            variantId:
+              - text: "580077851527"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/span[1]
+            shippingInfo:
+              - text: This item ships directly from the vendor, usually within 4 business days.
+                  Details
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[2]/div[2]/div[1]/div[3]/p[1]
+            color:
+              - text: Rose Gold
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[3]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/span[2]
+            name:
+              - text: 28 Inch Rose Gold Tone Purple Crystal Flower Oval Pendant Necklace
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]/div[2]
+            specifications:
+              - text: 28 in x 2 in x 1 in
+                xpath: /html/body/div[13]
+            additionalDescBulletInfo:
+              - text: "||Lobster closure||Polished finish||Imported||28 in x 2 in x 1 in||Rose
+                  gold-tone metal||Wipe clean"
+                xpath: /html/body/div[15]
+            productUrl:
+              - text: https://www.belk.com/p/1928-jewelry-28-inch-rose-gold-tone-purple-crystal-flower-oval-pendant-necklace/580077851527.html
+                xpath: /html/head[1]/meta[18]/@content
+            descriptionBullets:
+              - text: "6"
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1603104003355

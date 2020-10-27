@@ -1,0 +1,138 @@
+input:
+  _url: http://belk.com
+  URL: https://www.belk.com/p/lionel-trains-the-polar-express-o-gauge-model-train-diner-car/8100691684604.html
+extractions:
+  - html: https://workbench.import.io/html/run=72804727-bc42-481f-b8b0-6622f4ee2965/task=f3cdae28-36e2-416e-8e23-45dddbccd4aa/e9714c0f-ad5c-4559-ae25-897a7ba7ad8d.html
+    extractionConfigId: product/details/stores/b/belk/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://belk.scene7.com/is/image/Belk?layer=0&src=8100691_684604_A_999_T10L00&layer=comp&$DWP_PRODUCT_PDP_LARGE$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Lionel Trains The Polar Express O Gauge Model Train Diner Car
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Kids
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[1]
+              - text: Toys & Games
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[2]
+              - text: Vehicles
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[3]
+              - text: Lionel Trains The Polar Express O Gauge Model Train Diner Car
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[4]
+            nameExtended:
+              - text: |-
+                  Lionel Trains 
+                   
+                   The Polar Express O Gauge Model Train Diner Car
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: $74.90
+                xpath: /html/body/div[8]
+            price:
+              - text: $74.90
+                xpath: /html/body/div[9]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[10]
+            description:
+              - text: >-
+                  Description 
+                   
+                  Expand your Polar Express layout with The Polar Express Diner Car by Lionel Trains that features interior illumination and a snow-covered roof with footprints.
+                   
+                  Product Details
+                   
+
+                   
+                  Ages 8 and up
+                   
+                  Interior illumination
+                   
+                  1-year limited liability warranty
+                   
+                  Imported
+                   
+
+                   
+                  Material & Care
+                   
+
+                   
+                  Plastic
+                   
+                  Requires specialty care
+                   
+
+                   
+                  UPC: 0023922846044
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[2]/div[2]/div[1]/div[2]
+            brandText:
+              - text: Lionel Trains
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]/div[1]/span[1]/a[1]/span[1]
+            manufacturer:
+              - text: Lionel Trains
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]/div[1]/span[1]/a[1]/span[1]
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[3]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/select[1]/option[1]
+            gtin:
+              - text: "0023922846044"
+                xpath: /html/body/div[17]
+            sku:
+              - text: "8100691684604"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/span[1]
+            variantId:
+              - text: "8100691684604"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/span[1]
+            shippingInfo:
+              - text: This item ships directly from the vendor, usually within 4 business days.
+                  Details
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[2]/div[2]/div[1]/div[3]/p[1]
+            color:
+              - text: Multi
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[3]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/span[2]
+            name:
+              - text: The Polar Express O Gauge Model Train Diner Car
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]/div[2]
+            specifications:
+              - text: Ages 8 and up Interior illumination 1-year limited liability warranty
+                  Imported
+                xpath: /html/body/div[13]
+            warranty:
+              - text: 1-year limited liability warranty
+                xpath: /html/body/div[14]
+            additionalDescBulletInfo:
+              - text: "||Ages 8 and up||Interior illumination||1-year limited liability
+                  warranty||Imported||Plastic||Requires specialty care"
+                xpath: /html/body/div[15]
+            productUrl:
+              - text: https://www.belk.com/p/lionel-trains-the-polar-express-o-gauge-model-train-diner-car/8100691684604.html
+                xpath: /html/head[1]/meta[18]/@content
+            descriptionBullets:
+              - text: "6"
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+        xpath: /html
+    timestamp: 1603277310459

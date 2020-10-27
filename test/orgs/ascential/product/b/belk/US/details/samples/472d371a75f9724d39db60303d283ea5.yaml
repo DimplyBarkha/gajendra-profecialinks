@@ -1,0 +1,181 @@
+input:
+  _url: http://belk.com
+  URL: https://www.belk.com/p/lionel-trains-union-pacific-flyer-lionchief-set/81006911923040.html
+extractions:
+  - html: https://workbench.import.io/html/run=72804727-bc42-481f-b8b0-6622f4ee2965/task=f68cea2f-0bab-40c4-bb31-c329d70359fc/27bff885-7389-4d08-bafd-efe9436e42dc.html
+    extractionConfigId: product/details/stores/b/belk/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://belk.scene7.com/is/image/Belk?layer=0&src=8100691_1923040_A_999_T10L00&layer=comp&$DWP_PRODUCT_PDP_LARGE$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Lionel Trains Union Pacific Flyer LionChief Set
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://belk.scene7.com/is/image/Belk?layer=0&src=8100691_1923040_B_999_T10L00&layer=comp&$DWP_PRODUCT_PDP_LARGE$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[2]/@src
+            category:
+              - text: Kids
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[1]
+              - text: Toys & Games
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[2]
+              - text: Vehicles
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[3]
+              - text: Lionel Trains Union Pacific Flyer LionChief Set
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[4]
+            nameExtended:
+              - text: |-
+                  Lionel Trains 
+                   
+                   Union Pacific Flyer LionChief Set
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: $299.90
+                xpath: /html/body/div[8]
+            price:
+              - text: $299.90
+                xpath: /html/body/div[9]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[10]
+            description:
+              - text: >-
+                  Description 
+                   
+                  Featuring a powerful steam locomotive pulling a string of great Union Pacific train cars by Lionel Trains is a great way to get started in the model railroad hobby! The ready-to-run set includes everything needed to get started and will have you ruling the rails in no time!
+
+                  Set includes:
+
+                  0 8 0 Steam locomotive and tender
+
+                  Union Pacific boxcar
+
+                  Union Pacific tank car
+
+                  Union Pacific caboose
+
+                  8 pieces of O36 curved FasTrack
+
+                  2 FasTrack 10-inch straight track sections
+
+                  1 LionChief FasTrack terminal section
+
+                  1 Plug-Expand-Play power lock-on section
+
+                  Wall pack power supply
+
+                  LionChief remote for locomotive.
+                   
+                  Product Details
+                   
+
+                   
+                  Electric locomotive controlled by LionChief remote
+                   
+                  LionChief Universal Remote (sold separately)
+                   
+                  On/Off switch for sound
+                   
+                  Powerful maintenance-free motor
+                   
+                  4 removable canisters in gondola
+                   
+                  Forward and reverse speed control knob
+                   
+                  3 AAA alkaline batteries (not included)
+                   
+                  1-year limited liability warranty
+                   
+                  Imported
+                   
+
+                   
+                  Material & Care
+                   
+
+                   
+                  Plastic
+                   
+                  Requires specialty care
+                   
+
+                   
+                  UPC: 0023922023384
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[2]/div[2]/div[1]/div[2]
+            brandText:
+              - text: Lionel Trains
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]/div[1]/span[1]/a[1]/span[1]
+            manufacturer:
+              - text: Lionel Trains
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]/div[1]/span[1]/a[1]/span[1]
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[3]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/select[1]/option[1]
+            gtin:
+              - text: "0023922023384"
+                xpath: /html/body/div[17]
+            sku:
+              - text: "81006911923040"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/span[1]
+            variantId:
+              - text: "81006911923040"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/span[1]
+            shippingInfo:
+              - text: This item ships directly from the vendor, usually within 4 business days.
+                  Details
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[2]/div[2]/div[1]/div[3]/p[1]
+            color:
+              - text: Multi
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[3]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/span[2]
+            name:
+              - text: Union Pacific Flyer LionChief Set
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]/div[2]
+            specifications:
+              - text: Electric locomotive controlled by LionChief remote LionChief Universal
+                  Remote (sold separately) On/Off switch for sound Powerful
+                  maintenance-free motor 4 removable canisters in gondola
+                  Forward and reverse speed control knob 3 AAA alkaline
+                  batteries (not included) 1-year limited liability warranty
+                  Imported
+                xpath: /html/body/div[13]
+            warranty:
+              - text: 1-year limited liability warranty
+                xpath: /html/body/div[14]
+            additionalDescBulletInfo:
+              - text: "||Electric locomotive controlled by LionChief remote||LionChief Universal
+                  Remote (sold separately)||On/Off switch for sound||Powerful
+                  maintenance-free motor||4 removable canisters in
+                  gondola||Forward and reverse speed control knob||3 AAA
+                  alkaline batteries (not included)||1-year limited liability
+                  warranty||Imported||Plastic||Requires specialty care"
+                xpath: /html/body/div[15]
+            productUrl:
+              - text: https://www.belk.com/p/lionel-trains-union-pacific-flyer-lionchief-set/81006911923040.html
+                xpath: /html/head[1]/meta[18]/@content
+            descriptionBullets:
+              - text: "11"
+                type: NUMBER
+                raw: "11"
+                locale: en
+                value: 11
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+        xpath: /html
+    timestamp: 1603277304920

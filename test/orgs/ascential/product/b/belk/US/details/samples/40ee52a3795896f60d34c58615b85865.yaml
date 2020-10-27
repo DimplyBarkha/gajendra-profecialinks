@@ -1,0 +1,111 @@
+input:
+  _url: http://belk.com
+  URL: https://www.belk.com/p/lionel-trains-disney-villians-scar-hi-cube-boxcar-o-gauge/8100691682922.html
+extractions:
+  - html: https://workbench.import.io/html/run=9a280ef4-3717-40c3-8f07-39d4090f73d5/task=21e6dae5-2241-417f-9370-739a5c39b23a/17cc8315-73c9-49d0-954b-567536e736f3.html
+    extractionConfigId: product/details/stores/b/belk/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://belk.scene7.com/is/image/Belk?layer=0&src=8100691_682922_A_999_T10L00&layer=comp&$DWP_PRODUCT_PDP_LARGE$
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Lionel Trains Disney Villians Scar Hi Cube Boxcar O Gauge
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Kids
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[1]
+              - text: Toys & Games
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[2]
+              - text: Vehicles
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[3]
+              - text: Lionel Trains Disney Villians Scar Hi Cube Boxcar O Gauge
+                xpath: /html/body/div[1]/div[2]/div[2]/div[2]/ol[1]/li[4]
+            nameExtended:
+              - text: |-
+                  Lionel Trains 
+                   
+                   Disney Villians Scar Hi Cube Boxcar O Gauge
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: $79.90
+                xpath: /html/body/div[9]
+            price:
+              - text: $79.90
+                xpath: /html/body/div[10]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[11]
+            description:
+              - text: "Grow your Disney Villians collection with this Scar Hi Cube Boxcar by
+                  Lionel Trains that features operating couplers and opening
+                  doors. Product Details ||Ages 8 and up||1-year limited
+                  liability warranty||Imported Product Specifications ||Minimum
+                  Curve: O27 Material & Care ||Plastic||Requires specialty care"
+                xpath: /html/body/div[20]
+            brandText:
+              - text: Lionel Trains
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]/div[1]/span[1]/a[1]/span[1]
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[3]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/select[1]/option[1]
+            gtin:
+              - text: "0023922829221"
+                xpath: /html/body/div[19]
+            sku:
+              - text: "8100691682922"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/span[1]
+            variantId:
+              - text: "8100691682922"
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/span[1]
+            color:
+              - text: Multi
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[3]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/span[2]
+            name:
+              - text: Disney Villians Scar Hi Cube Boxcar O Gauge
+                xpath: /html/body/div[1]/div[2]/div[2]/div[3]/div[1]/span[1]/div[1]/div[1]/h1[1]/div[2]
+            specifications:
+              - text: "Minimum Curve: O27"
+                xpath: /html/body/div[16]
+            warranty:
+              - text: 1-year limited liability warranty
+                xpath: /html/body/div[14]
+            additionalDescBulletInfo:
+              - text: "||Ages 8 and up||1-year limited liability warranty||Imported||Minimum
+                  Curve: O27||Plastic||Requires specialty care"
+                xpath: /html/body/div[15]
+            ageSuitability:
+              - text: Ages 8 and up
+                xpath: /html/body/div[17]
+            materials:
+              - text: Plastic
+                xpath: /html/body/div[13]
+            productUrl:
+              - text: https://www.belk.com/p/lionel-trains-disney-villians-scar-hi-cube-boxcar-o-gauge/8100691682922.html
+                xpath: /html/head[1]/meta[18]/@content
+            descriptionBullets:
+              - text: "6"
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+        xpath: /html
+    timestamp: 1603711121209
