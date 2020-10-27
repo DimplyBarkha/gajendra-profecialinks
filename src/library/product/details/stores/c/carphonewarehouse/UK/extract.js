@@ -49,15 +49,19 @@ module.exports = {
         addElementToDocument('added_variant', descriptionColor + ' ' + descriptionModel);
       }
       const title = getXpath("//meta[@property='og:title']/@content", 'nodeValue');
-      const titleList = title.split(' ');
-      addElementToDocument('added_brand', titleList[0]);
+      if (title) {
+        const titleList = title.split(' ');
+        addElementToDocument('added_brand', titleList[0]);
+      }
 
       const manufacturerDesc = getAllXpath("//div[contains(@class, 'pxInfoTxt')]", 'innerText').join(',');
       addElementToDocument('added_manufacturer_desc', manufacturerDesc);
 
       var specification = getXpath("//div[@class='deviceSummryDiv']", 'innerText');
-      specification = specification.replace('\n \n \n \n \n \n \n \n', ' ');
-      addElementToDocument('added_specification', specification);
+      if (specification) {
+        specification = specification.replace('\n \n \n \n \n \n \n \n', ' ');
+        addElementToDocument('added_specification', specification);
+      }
     });
     await context.extract(productDetails);
   },

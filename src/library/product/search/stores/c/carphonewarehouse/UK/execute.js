@@ -6,7 +6,7 @@ module.exports = {
     store: 'carphonewarehouse',
     domain: 'carphonewarehouse.com',
     url: 'https://www.carphonewarehouse.com/search.html?keyword={searchTerms}',
-    loadedSelector: "div.filterSearchResult",
+    loadedSelector: 'div.filterSearchResult',
     noResultsXPath: null,
     zipcode: '',
   },
