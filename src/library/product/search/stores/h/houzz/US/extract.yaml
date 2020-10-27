@@ -26,10 +26,14 @@ fields:
     singleValue: true
     description: The URL for the product details page
     xpath: //a[@class="hz-product-card__link"]/@href
+  - name: _input
+    singleValue: true
+    description: Search keywords
+    xpath: //div[@role="combobox"]/input/@value
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
-    xpath: //picture[@class=" hz-image-container"]/source/@srcset
+    xpath: //picture[@class=" hz-image-container"]/img/@src
   - name: name
     singleValue: true
     description: The product name
@@ -57,7 +61,7 @@ fields:
   - name: price
     singleValue: true
     description: The offered price for the product
-    xpath: //span[@class="hz-product-price hz-product-price--v2 hz-product-price--final"]/span
+    xpath: //span[@class="hz-product-card__prices hz-color-link hz-color-link--static hz-color-link--enabled "]/span/span
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
