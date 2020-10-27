@@ -7,6 +7,7 @@
  * }} inputs
  * @param {{
  *  nextLinkSelector: string,
+ * nextLinkXpath: string,
  *  mutationSelector: string,
  *  loadedSelector: string,
  *  noResultsXPath: string,
@@ -25,22 +26,31 @@ async function implementation (
   const { keywords, page, offset } = inputs;
   const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
 
+  let nextLink;
+
   if (nextLinkSelector) {
     const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
-    if (!hasNextLink) {
-      return false;
-    }
+    if (!hasNextLink) return false;
+    nextLink = nextLinkSelector;
   }
 
   if (nextLinkXpath) {
-    const hasNextLink = await context.evaluate((selector) => {
+    // add a unique ID to the elem so it can be targeted by css
+    const uuid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+    const hasNextLink = await context.evaluate(({ selector, uuid }) => {
       const elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-      return elem ? !!elem.singleNodeValue : false;
-    }, nextLinkXpath);
+      if (elem && elem.singleNodeValue && elem.singleNodeValue.nodeType === 1) { // check the node type is element
+        // @ts-ignore
+        elem.singleNodeValue.id = uuid;
+        return true;
+      }
+      return false;
+    }, { selector: nextLinkXpath, uuid });
     if (!hasNextLink) return false;
+    nextLink = `#${uuid}`;
   }
   const { pager } = dependencies;
-  const success = await pager({ keywords, nextLinkSelector: nextLinkSelector || nextLinkXpath, loadedSelector, mutationSelector, spinnerSelector });
+  const success = await pager({ keywords, nextLinkSelector: nextLink, loadedSelector, mutationSelector, spinnerSelector });
   if (success) {
     return true;
   }
