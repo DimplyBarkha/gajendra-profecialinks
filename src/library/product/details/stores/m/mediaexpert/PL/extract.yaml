@@ -7,6 +7,8 @@ fields:
     xpath: //div[contains(@class, 'is-galleryWrapper')]//div[@class='is-active']//div[contains(@class, 'c-offerBox_galleryItem')]//img/@src
     regExp: (.+)
     regExpReplace: https://www.mediaexpert.pl$1
+  - name: imageAlt
+    xpath: //div[contains(@class, 'is-galleryWrapper')]//div[@class='is-active']//div[contains(@class, 'c-offerBox_galleryItem')]//img/@alt
   - name: category 
     xpath: //ul[contains(@class, 'c-breadcrumb_wrapper')]/li[position()>1 and position()!=last()]
   - name: nameExtended
@@ -34,6 +36,8 @@ fields:
     xpath: //meta[contains(@property,'product:retailer_part_no')]/@content
   - name: alternateImages
     xpath: //div[not(contains(@class, 'is-active'))]/div[contains(@class,'c-offerBox_galleryItem')]//div[@data-component="magnifier modal"]/@data-settings
+  - name: secondaryImageTotal
+    xpath: count(//div[not(contains(@class, 'is-active'))]/div[contains(@class,'c-offerBox_galleryItem')]//div[@data-component="magnifier modal"])
   - name: productData
     xpath: //script[contains(@type, 'application/ld+json')][2]
   - name: ratingCount
@@ -42,5 +46,17 @@ fields:
     xpath: //div[contains(@class, 'is-productNameInfobar')]//div[contains(@class, 'c-reviews_count')]
   - name: manufacturerImages
     xpath: //div[@class='prawa']//img/@src
-    # regExp: (.+)
-    # regExpReplace: https://www.mediaexpert.pl$1
+    regExp: (.+)
+    regExpReplace: https://www.mediaexpert.pl$1
+  - name: manufacturerDescription
+    xpath: //div[@class='prawa']
+  - name: specifications
+    xpath: //table[contains(@class, 'is-specification')]//tr
+  - name: warranty
+    xpath: //td[contains(., 'Gwarancja ')]/following-sibling::td[1]
+  - name: videos
+    xpath: //div[contains(@class, 'is-magnifier')]//iframe[@data-component='youtube']/@data-src
+    regExp: (.+)embed\/(.+)
+    regExpReplace: $2
+  - name: listPrice
+    xpath: //div[contains(@class, 'is-main')]//div[@class='inner-wrapper-sticky']//div[contains(@class,'a-price_old')][1]

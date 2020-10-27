@@ -43,7 +43,18 @@ const transform = (data) => {
           prodData = prodData[0];
           if (prodData) {
             row.aggregateRating = [{ text: prodData.aggregateRating.ratingValue }];
+            prodData.sku ? row.sku = [{ text: prodData.sku }] : row.sku = [];
+            prodData.gtin13 ? row.eangtin = [{ text: prodData.gtin13 }] : row.eangtin = [];
           }
+        }
+      }
+
+      if (row.videos) {
+        for (let i = 0; i < row.videos.length; i++) {
+          let videoStr = row.videos[i].text;
+          videoStr = videoStr.substring(0, videoStr.indexOf('?'));
+          videoStr = `https://www.youtube.com/watch?v=${videoStr}`;
+          row.videos[i].text = videoStr;
         }
       }
     }
