@@ -7,20 +7,20 @@ fields:
   - name: brand
     xpath: //span[@class="pt-brand"]
   - name: productUrl
-    xpath: //div[@class="tile-product__top-section__details"]//a//@href
+    xpath: //div[@class="tile-product__top-section__details"]/a/@href
     regExp: (.+)
     regExpReplace: https://www.metro.ca$1
   - name: thumbnail
-    xpath: //picture[@class="tile-product__top-section__visuals__img-product defaultable-picture"]//img//@src
+    xpath: //picture[@class="tile-product__top-section__visuals__img-product defaultable-picture"]/img/@src
   - name: name
     xpath: //div[@class="pt-title"]
   - name: price
     xpath: //span[@class="pi-price price-update"] | //span[contains(@class,"pi-price price-update pi-price-promo")][2]| //span[@class="pi-price price-update pi-price-promo" and following-sibling::span[@class="pi-unit pi-price-promo"]]
   - name: id
-    xpath: //div[@class="tile-product__top-section__details"]//a//@href
+    xpath: //div[@class="tile-product__top-section__details"]/a/@href
     regExp: (.+)(/p/)(.+)
     regExpReplace: $3
   - name: searchUrl
-    xpath: //@searchurl
+    xpath: /@searchurl
 
 
