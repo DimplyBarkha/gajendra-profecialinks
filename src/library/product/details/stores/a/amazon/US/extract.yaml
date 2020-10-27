@@ -560,3 +560,82 @@ fields:
   - name: lowestPriceIn30Days
     singleValue: true
     xpath: //*[contains(text(),"owest") and contains(text(),"rice") and contains (text(),"30 days")]
+  - name: rawDescription
+    singleValue: false
+    xpath: //div[@id="feature-bullets"]//ul/li[@id] | //div[@id="productDescription"]//*[not(@class="disclaim") and not(self::strong)] | //div[@id="detailBullets_feature_div"]//ul//li
+  - name: rawVariantInformation
+    singleValue: false
+    xpath: //li[@data-defaultasin]//img/@alt
+  - name: rawProductOtherInformation
+    singleValue: false
+    xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img) and not(contains(@class, "a-color-secondary"))] | //div[@id='aplus']//p[contains(.,"") and not(img)]
+  - name: rawAdditionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@id="feature-bullets"]//ul/li
+  - name: amazonChoiceBoolean
+    singleValue: true
+    xpath: //*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge-text-primary")]
+    type: BOOLEAN
+    defaultValue: false
+  - name: lowestPriceIn30DaysBoolean
+    singleValue: true
+    xpath: //*[contains(text(),"owest") and contains(text(),"rice") and contains (text(),"30 days")]
+    type: BOOLEAN
+    defaultValue: false 
+  - name: subscribeAndSaveBoolean
+    singleValue: true
+    xpath: //*[@id="sns-base-price"]
+    type: BOOLEAN
+    defaultValue: false
+  - name: ingredientImagePresentBoolean
+    singleValue: true
+    xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
+    type: BOOLEAN
+    defaultValue: false
+  - name: factImagePresentBoolean
+    singleValue: true
+    xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "FACT")]
+    type: BOOLEAN
+    defaultValue: false 
+  - name: primeFlagBoolean
+    singleValue: true
+    xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//div[contains(@id,"shipping")]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//span[contains(@id, "shipping-message")]//a[contains(@href, "prime") and contains(text(), "Amazon")] | //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell"))]//a[contains(text(), "Prime")]/text())[1]
+    type: BOOLEAN
+    defaultValue: false
+  - name: lbbBoolean
+    singleValue: true
+    xpath: //div[@id='ii_lbb']
+    type: BOOLEAN
+    defaultValue: false 
+  - name: technicalInformationPdfPresentBoolean
+    singleValue: true
+    xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
+    type: BOOLEAN
+    defaultValue: false
+  - name: termsAndConditionsBoolean
+    singleValue: true
+    type: BOOLEAN
+    defaultValue: false
+  - name: privacyPolicyBoolean
+    singleValue: true
+    type: BOOLEAN
+    defaultValue: false
+  - name: customerServiceAvailabilityBoolean
+    singleValue: true
+    type: BOOLEAN
+    defaultValue: false
+  - name: image360PresentBoolean
+    singleValue: true
+    xpath: //div[@id='added-image360Present']
+    type: BOOLEAN
+    defaultValue: false
+  - name: imageZoomFeaturePresentBoolean
+    singleValue: true
+    xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")] | //div[@id='magnifierLens']
+    type: BOOLEAN
+    defaultValue: false
+  - name: andonCords
+    singleValue: true
+    xpath: //div[@id="andonCord_feature_div"]//*
+    type: BOOLEAN
+    defaultValue: false
