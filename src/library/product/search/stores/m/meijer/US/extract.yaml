@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+ - name: id
+   singleValue: false
+ - name: rankOrganic
+   singleValue: false
+ - name: name
+   singleValue: false
+   xpath: //div[@class="tile-column details"]//a[@class="h7"]
+ - name: productUrl
+   singleValue: false
+   xpath: //div[@class="tile-column details"]//a[@class="h7"]/@href
+   regExp: (/.+)
+   regExpReplace: https://www.meijer.com$1
+ - name: gtin
+   singleValue: false
+ - name: thumbnail
+   singleValue: false
+   xpath: //div[@class="tile-row details-container"]//a//img/@src
+ - name: url
+   singleValue: false
+ - name: aggregateRating
+   singleValue: false
+ - name: reviewCount
+   singleValue: false
+ - name: price
+   singleValue: false
+   xpath: concat((//div[@class="for-tile"]//div[@class="rsection price-container"]//div[@class="display-price"]//span)[1],(//div[@class="for-tile"]//div[@class="rsection price-container"]//div[@class="display-price"]//span)[2])
+ - name: manufacturer
+   singleValue: false
+ - name: soldBy
+   singleValue: false
+ - name: rank
+   singleValue: false
+ - name: endorsementText
+   singleValue: false
+ - name: ratingCount
+   singleValue: false
