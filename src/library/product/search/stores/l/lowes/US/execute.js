@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'lowes',
     domain: 'lowes.com',
-    url: 'https://www.lowes.com/search?searchTerm={searchTerms}',
+    url: 'https://www.lowes.com/search?searchTerm={air cleaner}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
