@@ -16,7 +16,7 @@ fields:
     regExpReplace: $2
   - name: name
     singleValue: false
-    xpath: //p[@itemprop="name"]
+    xpath: //p[@itemprop="name"]//text()
   - name: productUrl
     singleValue: false
     xpath: //div[@class='ProductCard__ProductContainer-sc-2vuvzo-2 gVgtAI']//a/@href
@@ -32,6 +32,3 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //meta[@itemprop="reviewCount"]//@content
-  - name: rank
-  - name: rankOrganic
-  - name: sponsored

@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[@class='carouselBox']//a//@rev)[position()>1]
+    xpath: (//body[not(contains(@class,'indisp'))]//div[@class='carouselBox']//a//@rev)[position()>1]
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -54,7 +54,7 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //span[@class='marcaProduto']
+    xpath: //span[@class='marcaProduto']//strong[contains(@class,'brand')]
   - name: weightGross
     singleValue: false
     xpath: //dl[@class='Peso-s--base--kg-- even']//dd
@@ -86,7 +86,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id='caracteristicas']//dl
+    xpath: //div[@id='caracteristicas']//div[contains(@class,'wrp')]
   - name: imageZoomFeaturePresent
     singleValue: false
     description: If Zoom feature is available for Main image or images in the
@@ -112,12 +112,44 @@ fields:
     singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
     defaultValue: No
-    xpath: //div[@class='contatoFornecedor']
+    xpath: //div[contains(@class,'contatoFornecedor')]
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id='wpPlayerVideo']//embed//@src
+    xpath: //div[@id='wpPlayerVideo']//embed//@src | //div[contains(@class,'flix-videodiv')]//iframe//@src
   - name: shippingInfo
     singleValue: false
     xpath: //div[contains(@class,'buying')]
-    
+  - name: warranty
+    singleValue: false
+    description: Guarantee associated with the product
+    xpath: //dl[contains(@class,'Garantia')]//dd
+  - name: productOtherInformation
+    singleValue: false
+    description: Any other product information
+    xpath: //div[@id='detalhes']
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+    xpath: //div[@id='descricao']//img//@src
+  - name: secondaryImageTotal
+  - name: privacyPolicy
+    singleValue: false
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+    xpath: //a[@title="Política de Privacidade"]
+  - name: videoLength
+    singleValue: false
+    xpath: //div[@id="videoDurations-1"]    
+  - name: variantInformation
+    singleValue: false
+    xpath: //select[contains(@class,'lista-voltagem')]//option[@selected='selected']
+  - name: variants
+    singleValue: false
+    xpath: //select[contains(@class,'lista-voltagem')]
+  - name: quantity
+    singleValue: false
+    xpath: //div[@id='descricao']
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id='descricao']
