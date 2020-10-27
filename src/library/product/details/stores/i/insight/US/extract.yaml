@@ -24,12 +24,15 @@ fields:
 - name: image 
   singleValue: false
   xpath: //div[@class='cart-wrapper']//a/@data-image-url
+- name: imageAlt 
+  singleValue: false
+  xpath: //div[@class="ccs-fancybox-gallery ccs-slick-slide ccs-slick-current ccs-slick-active"]//img/@alt
 - name: alternateImages
   singleValue: false 
   xpath: //div[@class='ccs-ds-cloud-thumbs ccs-slick-initialized ccs-slick-slider']//img/@src
 - name: gtin
   singleValue: false 
-  xpath: //div[@class='prod-description-bottom']//meta[@itemprop='mpn']/@content
+  xpath: //div[@class='prod-description-bottom']//meta[@itemprop='gtin8']/@content
 - name: brandText
   singleValue: false 
   xpath: //div[@class='prod-description-bottom']//meta[@itemprop='brand']/@content
@@ -51,4 +54,4 @@ fields:
   xpath: //div[@class='prod-description-bottom']//meta[@itemprop='mpn']/@content
 - name: variantCount
   singleValue: false
-  defaultValue: '0'
+  defaultValue: '1'

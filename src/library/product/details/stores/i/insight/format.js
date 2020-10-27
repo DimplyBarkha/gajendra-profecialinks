@@ -34,6 +34,7 @@ const transform = (data) => {
         if (row.specifications) {
             let specifications_info = [];
             row.specifications.forEach(item => {
+                item.text = item.text.replace('General', '').trim();
                 specifications_info.push(item.text);
             });
             if (specifications_info.length) {
