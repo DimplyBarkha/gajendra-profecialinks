@@ -24,7 +24,7 @@ module.exports = {
         const catElement = document.createElement('div');
         catElement.classList.add(key);
         catElement.setAttribute('href', href);
-        catElement.textContent = value;
+        catElement.innerText = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
@@ -38,10 +38,11 @@ module.exports = {
         addElementToDocument('pdfPresent', '#', 'Yes');
       } else addElementToDocument('pdfPresent', '#', 'No');
 
-      const ratingCount = document.querySelector('button[class*="numReviews"]')
+      const rating = document.querySelector('button[class*="numReviews"]')
         // @ts-ignore
         ? document.querySelector('button[class*="numReviews"]').innerText : '';
-      addElementToDocument('ratingCount', '#', ratingCount.replace(/[()']+/g, ''));
+      const ratingCount = rating.replace(/[()']+/g, '');
+      addElementToDocument('ratingCount', '#', ratingCount);
     });
     await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     await context.evaluate(async function () {
