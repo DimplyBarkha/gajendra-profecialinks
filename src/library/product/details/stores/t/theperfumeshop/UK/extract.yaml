@@ -39,7 +39,7 @@ fields:
     xpath: //div[contains(@class,"product_info__secondary_info")]/span[@itemprop="mpn"]
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,"product_info__secondary_info")]/span[@itemprop="mpn"]
+    xpath: //ul[@id="price-grid-product_details_card"]/li[contains(@class,"product_variants__item") and contains(@class,"selected")]/@data-code
   - name: mpc
     singleValue: false
     xpath: //div[contains(@class,"product_info__secondary_info")]/span[@itemprop="mpn"]
@@ -51,7 +51,7 @@ fields:
     xpath: //div[contains(@class,"product_info__rating_container")]/meta[@itemprop="ratingValue"]/@content
   - name: variantCount
     singleValue: false
-    defultValue: '1'
+    xpath: //ul[@id="price-grid-product_details_card"]/li[contains(@class,"product_variants__item")]/@data-code
   - name: name
     singleValue: false
     xpath: //h1/div[@itemprop="name"]
@@ -79,3 +79,12 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     xpath: //div[contains(@class,"imageTextBlock")]/div[contains(@class,"visual")]/img/@src
+  - name: variants
+    singleValue: false
+    xpath: //ul[@id="price-grid-product_details_card"]/li[contains(@class,"product_variants__item")]/@data-code
+  - name: variantInformation
+    singleValue: false
+    xpath: //ul[@id="price-grid-product_details_card"]/li[contains(@class,"product_variants__item") and contains(@class,"selected")]/label/@aria-label
+  - name: firstVariant
+    singleValue: false
+    xpath: //ul[@id="price-grid-product_details_card"]/li[contains(@class,"product_variants__item") and contains(@class,"selected")]/@data-code

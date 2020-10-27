@@ -59,13 +59,8 @@ const transform = (data) => {
         if(row.description){
           var tdNo=0;var trDataArr=[]; var tdData=''; var allDataArr=[];
           row.description.forEach(item=>{
-            //trDataArr.push(item.text.replace(/\s*\n\s*\n\s*/g, '').trim());
-            //trDataArr.push();
             allDataArr=item.text.split(/\s*\n\s*\n\s*/g);
-            //var allDataArr=item.text.split('/\n \n/');
             allDataArr.forEach(element => {
-              //console.log('tdNo :',tdNo);
-              //console.log('tdData :',tdData);
               if(tdNo==0){
                 tdData=element;
               }
@@ -73,16 +68,12 @@ const transform = (data) => {
                 tdData=tdData+" : "+element;
               }
               tdNo++;
-              //console.log('tdNo1 :',tdNo);
-              //console.log('tdData1 :',tdData);
               if(tdNo==2){
                 trDataArr.push(tdData);tdNo=0;tdData='';
               }
-              //console.log('trDataArr :',trDataArr);  
             });
           });
           var tmpStr=trDataArr.join(' || ');
-          //console.log('tmpStr :',tmpStr);
           row.description=[{"text":tmpStr}];
         }
         if(row.secondaryImageTotal){
@@ -91,6 +82,34 @@ const transform = (data) => {
             tot++;
           })
           row.secondaryImageTotal=[{"text":tot}];
+        }
+        if(row.variantCount){
+          var tot=1;
+          row.variantCount.forEach(item=>{
+            tot++;
+          })
+          row.variantCount=[{"text":tot}];
+        }
+        if(row.variants){
+          var info=[];
+          row.variants.forEach(item=>{
+            info.push(item.text);
+          });
+          row.variants=[{"text":info.join(' | ')}];
+        }
+        if(row.manufacturerImages){
+          var info=[];
+          row.manufacturerImages.forEach(item=>{
+            info.push(item.text);
+          });
+          row.manufacturerImages=[{"text":info.join(' | ')}];
+        }
+        if(row.productOtherInformation){
+          var info=[];
+          row.productOtherInformation.forEach(item=>{
+            info.push(item.text);
+          });
+          row.productOtherInformation=[{"text":info.join(' | ')}];
         }
         if(brandTextStr!=''){
           row.nameExtended=[{"text":brandTextStr+' '+nameExtendedSr}];
