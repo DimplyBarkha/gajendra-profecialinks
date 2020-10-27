@@ -46,8 +46,14 @@ const transform = (data, context) => {
 
       if (row.id) {
         row.id.forEach(item => {
-          const text1 = item.text;
-          const nTxt = text1.substring(text1.lastIndexOf('-') + 1, text1.indexOf('f1'));
+          let nTxt = item.text.replace('.jpg', '');
+          nTxt = nTxt.substring(nTxt.lastIndexOf('_'));
+          nTxt = nTxt.substring(nTxt.lastIndexOf('-'));
+          nTxt = nTxt.substring(nTxt.lastIndexOf('=/') + 2);
+          var idx = nTxt.indexOf('f1');
+          if (idx === -1) idx = nTxt.indexOf('F1');
+          if (idx === -1) idx = nTxt.length;
+          nTxt = nTxt.substring(0, idx);
           item.text = nTxt;
         });
       }
