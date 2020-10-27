@@ -4,13 +4,13 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: price
-    singleValue: false
+    singleValue: true
     description: price of the product
-    xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='prices product-tile__prices']/div[@class='product-tile__price-container']/a[@class='prices__price product-tile__price']/span
+    xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='prices product-tile__prices']/div[@class='product-tile__price-container']/a[@class='prices__price product-tile__price']
   - name: productUrl
     singleValue: false
     description: The URL for the product details page 
-    xpath: //div[@class="item-container product-tile__container"]/div[@class="info product-tile__info"]/div[@class="product-img-container product-tile__img-container"]/a/@href
+    xpath: //div[@class="info product-tile__info"]/div[@class="product-img-container product-tile__img-container"]/a/@href
     regExp: (online/.*)
     regExpReplace: https://www.unieuro.it/$1
   - name: thumbnail
