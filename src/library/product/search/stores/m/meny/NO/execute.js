@@ -17,13 +17,13 @@ async function implementation(
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
-        const seeAllSelector = document.querySelector("div[id='ws-search-block-products']>button[class*='ws-link']");
-        if (seeAllSelector) {
-          console.log('See all selector found');
-          seeAllSelector.click()
-          console.log('See all selector clicked');
-          await new Promise(resolve => { setTimeout(resolve, 20000) })
-        }
+        // const seeAllSelector = document.querySelector("div[id='ws-search-block-products']>button[class*='ws-link']");
+        // if (seeAllSelector) {
+        //   console.log('See all selector found');
+        //   seeAllSelector.click()
+        //   console.log('See all selector clicked');
+        //   await new Promise(resolve => { setTimeout(resolve, 20000) })
+        // }
 
           const products = document.evaluate('//li[@class="ws-product-list-vertical__item"]', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           const productsCount = products.snapshotLength;

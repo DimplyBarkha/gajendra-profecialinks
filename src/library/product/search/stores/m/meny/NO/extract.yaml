@@ -33,8 +33,10 @@ fields:
 
 #  Should these be source specific formulas or in the extractor? 
   - name: id
-    singleValue: true
     description: Unique id (within this extractor)
+    xpath: //picture[@class="ws-product-vertical__image"]//img/@src
+    regExp: (.+)(Product/)(\d+)(.jpg)
+    regExpReplace: $3
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
