@@ -1,0 +1,86 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@id='js-offerGallery']//div[contains(@class, 'slick-current')]/img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: imageAlt
+    xpath: //div[@id='js-offerGallery']//div[contains(@class, 'slick-current')]/img/@alt
+  - name: videos
+    xpath: //div[@id='js-offerGallery']//div[@data-media='yt']/@data-yt
+    regExp: (.+)
+    regExpReplace: https://www.youtube.com/embed/$1
+  - name: category
+    xpath: //div[@class='m-breadcrumb']/ul/li[position()>2]/a/span
+  - name: nameExtended
+    xpath: //h1[contains(@class, 'm-typo')]
+  - name: price
+    xpath: concat(//div[@itemprop="offers"]/span[@itemprop='priceCurrency'], ' ',//div[@itemprop="offers"]/span[@itemprop='price'])
+  - name: availabilityText
+    xpath: //form[contains(@class, 'no-notify')]//p[@class='m-productUnavail_headerTitle']
+    regExp: (.+)
+    regExpReplace: Out of stock
+    defaultValue: In stock
+  - name: description
+    xpath: //div[contains(@class, 'b-offerDescription_short')]/*[not(self::ul)]
+  - name: brandText
+    xpath: //meta[@itemprop='brand']/@content
+  - name: brandLink
+    xpath: //dt[contains(@class, 'm-offerShowData_name') and contains(., 'Producent')]/following-sibling::dd//a/@href
+    regExp: (.+)
+    regExpReplace: https://mediamarkt.pl/$1
+  - name: manufacturer
+    xpath: //dt[contains(., 'Producent')]/following-sibling::dd
+  - name: weightNet
+    xpath: //dt[contains(., 'Waga')]/following-sibling::dd
+  - name: gtin
+    xpath: //meta[@itemprop='gtin13']/@content
+  - name: eangtin
+    xpath: //meta[@itemprop='gtin13']/@content
+  - name: sku
+    xpath: //meta[@itemprop='sku']/@content
+  - name: variantId
+    xpath: //meta[@itemprop='sku']/@content
+  - name: alternateImages
+    xpath: //div[@id='js-offerGallery']//div[contains(@class, 'slick-slide') and not(contains(@class, 'slick-current'))]/img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: ratingCount
+    xpath: //meta[@itemprop='reviewCount']/@content
+  - name: reviewCount
+    xpath: //meta[@itemprop='reviewCount']/@content
+  - name: aggregateRating
+    xpath: //meta[@itemprop='ratingValue']/@content
+  - name: aggregateRating2
+    xpath: //meta[@itemprop='ratingValue']/@content
+  - name: manufacturerImages
+    xpath: //div[@id='description']//img[contains(@class, 'description-img')]/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: specificationsTitle
+    xpath: //div[contains(@class, 'm-offerShowData')]/dl/dt
+  - name: specificationsValue
+    xpath: //div[contains(@class, 'm-offerShowData')]/dl/dd
+  - name: warranty
+    xpath: //div[contains(@class, 'm-offerShowData')]/dl/dt[contains(., 'Okres gwarancji')]/following-sibling::dd
+  - name: firstVariant
+    xpath: //div[contains(@id, 'js-variantsSlider')]//div[contains(@class, 'slick-track')]/div[1]//div[contains(@class, 'm-prdSlider_inner')]/@data-id
+  - name: variants
+    xpath: //div[contains(@class, 'm-prdSlider_inner')]/@data-id
+  - name: variantCount
+    xpath: count(//div[contains(@id,'js-variantsSlider')]//div[contains(@class, 'm-prdSlider_inner')])
+  - name: mpc
+    xpath: //meta[@itemprop='model']/@content
+  - name: descriptionBullets
+    xpath: count(//div[contains(@class, 'b-offerDescription_short')]/ul/li)
+  - name: additionalDescBulletInfo
+    xpath: //div[contains(@class, 'b-offerDescription_short')]/ul/li
+  - name: listPrice
+    xpath: //div[contains(@class, 'm-priceBox_old')]
+  - name: variantInformation
+    xpath: //dt[contains(., 'Kolor')]/following-sibling::dd
+  - name: color
+    xpath: //dt[contains(., 'Kolor')]/following-sibling::dd
