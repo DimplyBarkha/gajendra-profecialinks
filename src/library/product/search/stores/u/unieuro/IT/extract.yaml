@@ -17,6 +17,10 @@ fields:
     singleValue: false
     description: The URL for the product thumbnail image
     xpath: //a/img[@class='product-img product-tile__img lazyloaded']/@src
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //article[@class="product-tile  promotion "]/@data-productactions-sku
   - name: name
     singleValue: true
     description: The product name
