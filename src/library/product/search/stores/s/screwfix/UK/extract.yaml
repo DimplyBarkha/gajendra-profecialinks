@@ -12,3 +12,12 @@ fields:
   - name: name
     SingleValue: false
     xpath: //div[@class="lii_head"]//h3[@class="lii__title"]//a/@title
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="lii__l clearfix"]//a//img//@src
+  - name: price 
+    SingleValue: false 
+    xpath: //div[@class='lii_price']
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="lii_head"]//h3[@class="lii__title"]//a/@title
