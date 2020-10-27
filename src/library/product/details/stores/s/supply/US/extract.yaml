@@ -67,7 +67,7 @@ fields:
   regExp: logos\/(\w+)
   regExpReplace: $1
 - name: manufacturer
-  singleValue: true
+  singleValue: false
   description: Product manufacturer
   xpath: //img[@class='_29_OK']/@src
   regExp: logos\/(\w+)
@@ -110,7 +110,6 @@ fields:
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
-  type: STRING
   description: The number of ratings
   xpath: //div[@class='ratingCount')]
 - name: aggregateRatingText
@@ -118,7 +117,6 @@ fields:
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
-  type: STRING
   description: The stated aggregate rating normalized to be out of 5
   xpath: //button[@itemprop='ratingValue']/text()
   regExp: \d+\.\d+
