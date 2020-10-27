@@ -1,0 +1,97 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[@class="product"]
+fields:
+  - name: image
+    singleValue: false
+    xpath: //img[@id="image-main"]//@src
+    regExp: (.*)(-\d+-\d+)(\/.*.jpg)
+    regExpReplace: $1$3
+  - name: imageAlt
+    singleValue: false
+    xpath: (//a[@id="botaoZoom"]//img/@alt)[1]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //td[contains(@class,"Sobre-a-Marca")]
+  - name: alternateImages
+    singleValue: false
+    xpath: //li//a[@id="botaoZoom"]/@rel
+    regExp: (.*)(-\d+-\d+)(\/.*.jpg)
+    regExpReplace: $1$3
+  - name: category
+    singleValue: false
+    xpath: //li[@itemprop="itemListElement"]//span[@itemprop="name"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,'fn')]
+  - name: availabilityText
+    singleValue: false
+    xpath: (//div[@itemprop="offers"]//link[@itemprop="availability"]/@href)[1]
+  - name: price
+    singleValue: false
+    xpath: //strong[@class="skuBestPrice"]
+  - name: description
+    singleValue: false
+    xpath: //div[@class="productDescription"]
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,"brandName")]
+  - name: directions
+    singleValue: false
+    xpath: //div[contains(@class,'product__info--description')]//div[@class="productDescription"]
+    regExp: \Modo de Usar:(.*)
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@itemprop="productID"]/content
+  - name: sku
+    singleValue: false
+    xpath: (//meta[@itemprop="sku"]/@content)[1]
+  - name: gtin
+    singleValue: false
+    xpath: //meta[@itemprop="gtin13"]/@content
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//ul[contains(@class,'thumbs')]//a[(@id="botaoZoom")]//img/@src)-1
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="ts-v-rating-based-on"]//span
+  - name: aggregateRating
+    singleValue: false
+    xpath: (//div[@class="ts-v-rating-note"]//span)[1]
+    regExp: (\d).(\d)
+    regExpReplace: $1,$2
+  - name: aggregateRating2
+    singleValue: false
+    xpath: (//div[@class="ts-v-rating-note"]//span)[1]
+  - name: eangtin
+    singleValue: false
+    xpath: //meta[@itemprop="gtin13"]/@content
+  - name: videos
+    singleValue: false
+    xpath: //ul[@class="thumbs"]//li[@class="video"]/@data-iframe
+    regExp: (\/\/)(.*)
+    regExpReplace: $2
+  - name: promotion
+    singleValue: false
+    xpath: //label[contains(@class,'checked')]/@data-discount
+  - name: listPrice
+    singleValue: false
+    xpath: //p[@class="descricao-preco"]//strong[@class="skuListPrice"]
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,"product__info--specification")]//div[contains(@class,"accordion__container")]//div[@id="caracteristicas"]
+  - name: variants
+    singleValue: false
+    xpath: //li[contains(@class,"select")]//input[contains(@class,"skuselector-specification-label")]/@id
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class, 'product__info--accordion')]//img[not(contains(@title,'Trustvox'))]/@src
+    regExp: (\/arquivos.*.jpg)
+    regExpReplace: https://www.epocacosmeticos.com.br$1
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@class="productDescription"]
+    regExp: (•.*)
+    regExpReplace: $1
