@@ -4,7 +4,7 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  const cleanUp = text => text.toString()
+  const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
     .replace(/&amp;#160/g, ' ')
@@ -116,7 +116,7 @@ const transform = (data) => {
 
       if (row.manufacturerDescription1) {
         row.manufacturerDescription1.forEach(item => {
-          item.text = cleanUp(item.text);
+          item.text = clean(item.text);
           manufacturerDescription[0] = item;
         });
         delete row.manufacturerDescription1;
@@ -125,12 +125,27 @@ const transform = (data) => {
 
       if (row.video1) {
         row.video1.forEach(item => {
-          item.text = cleanUp(item.text);
+          item.text = clean(item.text);
           video[0] = item;
         });
         delete row.video1;
         row.videos = video;
       }
+
+      if (row.additionalDescBulletInfo) {
+        const info = [];
+        const elem = []
+        row.additionalDescBulletInfo.forEach(item => {
+          info.push(clean(item.text))
+          // item.text = clean(item.text);
+          elem[0] = item;
+        });
+        row.additionalDescBulletInfo = [{text: info.join(' | '), xpath: elem[0].xpath}];
+      }
+      
+      Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+      }));
     }
   }
   return data;
