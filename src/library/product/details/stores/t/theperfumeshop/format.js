@@ -40,17 +40,57 @@ const transform = (data) => {
         }
         if(row.pricePerUnitUom){
           row.pricePerUnitUom.forEach(item=>{
-            item.text=item.text.replace(' -','');
+            var UomStr=item.text.replace(' -','');
+            item.text=UomStr.replace(/[^a-z]/gi, '');
           });
         }
         if(row.pricePerUnit){
           var priceUn=[];
           row.pricePerUnit.forEach(item=>{
-            priceUn.push(item.text);
+            priceUn=item.text.split('|');
           });
-          if(priceUn.length>1){
-            row.pricePerUnit=[{"text":priceUn[1]+'/'+priceUn[0]}];
-          }
+          row.pricePerUnit=[{"text":priceUn.pop()}];
+        }
+        if(row.quantity){
+          row.quantity.forEach(item=>{
+            item.text=item.text.replace(' -','').trim();
+          })
+        }
+        if(row.description){
+          var tdNo=0;var trDataArr=[]; var tdData=''; var allDataArr=[];
+          row.description.forEach(item=>{
+            //trDataArr.push(item.text.replace(/\s*\n\s*\n\s*/g, '').trim());
+            //trDataArr.push();
+            allDataArr=item.text.split(/\s*\n\s*\n\s*/g);
+            //var allDataArr=item.text.split('/\n \n/');
+            allDataArr.forEach(element => {
+              //console.log('tdNo :',tdNo);
+              //console.log('tdData :',tdData);
+              if(tdNo==0){
+                tdData=element;
+              }
+              if(tdNo==1){
+                tdData=tdData+" : "+element;
+              }
+              tdNo++;
+              //console.log('tdNo1 :',tdNo);
+              //console.log('tdData1 :',tdData);
+              if(tdNo==2){
+                trDataArr.push(tdData);tdNo=0;tdData='';
+              }
+              //console.log('trDataArr :',trDataArr);  
+            });
+          });
+          var tmpStr=trDataArr.join(' || ');
+          //console.log('tmpStr :',tmpStr);
+          row.description=[{"text":tmpStr}];
+        }
+        if(row.secondaryImageTotal){
+          var tot=1
+          row.secondaryImageTotal.forEach(item=>{
+            tot++;
+          })
+          row.secondaryImageTotal=[{"text":tot}];
         }
         if(brandTextStr!=''){
           row.nameExtended=[{"text":brandTextStr+' '+nameExtendedSr}];

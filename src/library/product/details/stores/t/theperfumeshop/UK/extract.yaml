@@ -33,7 +33,7 @@ fields:
     xpath: //h1/a/div
   - name: quantity
     singleValue: false
-    xpath: //div[contains(@class,"Quantity_Selector")]//input[@id="qty"]
+    xpath: //span[@class="product_info__size"]
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,"product_info__secondary_info")]/span[@itemprop="mpn"]
@@ -51,16 +51,31 @@ fields:
     xpath: //div[contains(@class,"product_info__rating_container")]/meta[@itemprop="ratingValue"]/@content
   - name: variantCount
     singleValue: false
-    defultValue: '0'
+    defultValue: '1'
   - name: name
     singleValue: false
     xpath: //h1/div[@itemprop="name"]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
+  - name: description
+    singleValue: false
+    xpath: //dl[@class="product_descr__experts_say_list"]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,"imageTextBlock")]/div[contains(@class,"visual")]/img/@src
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[contains(@class,"imageTextBlock")]/div[contains(@class,"copy")]
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,"owl-item") and contains(@class,"cloned")]//iframe[@id="galleryVideoId"]/@src
   - name: pricePerUnit
     singleValue: false
-    xpath: //div[contains(@class,"product_info__size_and_price")]/span[@class!="product_info__price-promo"]
+    xpath: //div[contains(@class,"product_info__secondary_info")]/text()
   - name: pricePerUnitUom
     singleValue: false
     xpath: //div[contains(@class,"product_info__size_and_price")]/span[@class="product_info__size"]
-  - name: imageZoomFeaturePresent
-    singleValue: true
-    defaultValue: Yes
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: //div[contains(@class,"imageTextBlock")]/div[contains(@class,"visual")]/img/@src
