@@ -63,15 +63,11 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  xpath: //img[@class='_29_OK']/@src
-  regExp: logos\/(\w+)
-  regExpReplace: $1
+  xpath: //div[@class='brandName']
 - name: manufacturer
-  singleValue: false
+  singleValue: true
   description: Product manufacturer
-  xpath: //img[@class='_29_OK']/@src
-  regExp: logos\/(\w+)
-  regExpReplace: $1
+  xpath: //div[@class='brandName']
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -111,15 +107,14 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
-  xpath: //div[@class='ratingCount')]
+  xpath: //div[@class='reviewCount']
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //button[@itemprop='ratingValue']/text()
-  regExp: \d+\.\d+
+  xpath: //div[@class='ratingValue']
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product

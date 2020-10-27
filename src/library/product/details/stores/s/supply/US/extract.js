@@ -18,7 +18,7 @@ module.exports = {
       // @ts-ignore
       if (moreImgs) moreImgs.click();
     });
-    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 1500));
     await context.evaluate(async function () {
       function addElementToDocument (key, href, value) {
         const catElement = document.createElement('div');
@@ -37,20 +37,22 @@ module.exports = {
       if (pdfPresent) {
         addElementToDocument('pdfPresent', '#', 'Yes');
       } else addElementToDocument('pdfPresent', '#', 'No');
-
-      const rating = document.querySelector('button[class*="numReviews"]')
-        // @ts-ignore
-        ? document.querySelector('button[class*="numReviews"]').innerText : '';
-      const ratingCount = rating.replace(/[()']+/g, '');
-      addElementToDocument('ratingCount', '#', ratingCount);
+      const dataFromJSON = document.querySelector('main script[type*="json"]')
+      // @ts-ignore
+        ? document.querySelector('main script[type*="json"]').textContent : '';
+      const reviewCount = JSON.parse(dataFromJSON).aggregateRating.reviewCount;
+      addElementToDocument('reviewCount', '#', reviewCount);
+      const ratingValue = JSON.parse(dataFromJSON).aggregateRating.ratingValue;
+      addElementToDocument('ratingValue', '#', ratingValue);
+      const brandName = JSON.parse(dataFromJSON).brand.name;
+      addElementToDocument('brandName', '#', brandName);
     });
-    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 1500));
     await context.evaluate(async function () {
       const closeMoreImgs = document.querySelector('a[class*= "trigger"]');
       // @ts-ignore
       if (closeMoreImgs) closeMoreImgs.click();
     });
-    // await context.click('a[class*= "trigger"]');
     await context.extract(productDetails, { transform });
   },
 };
