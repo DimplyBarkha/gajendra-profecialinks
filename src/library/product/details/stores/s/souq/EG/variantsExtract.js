@@ -59,11 +59,50 @@ async function implementation (
         console.log(error.message);
       }
     }
+    function findJsonObj1 () {
+      try {
+       const xpath = `//script[contains(.,'"item_id":')]`;
+        const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let jsonStr = element.textContent;
+        jsonStr = jsonStr.trim();
+        return jsonStr;
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
    let JSONObj = await findJsonObj();
    console.log('JSONObj: ', JSONObj);
    let url = JSONObj ? JSONObj.url : '';
    console.log('url: ', url);
    addElementToDocument('bb_url',url);
+   let defaultSize = document.querySelectorAll('div#defaultSize div.item-connection');
+   console.log('defaultSize: ', defaultSize);
+   let size_en = document.querySelectorAll('div#size_en div.item-connection');
+   console.log('size_en: ', size_en);
+   let colorsblock = document.querySelectorAll('div.colors-block span.has-tip');
+   console.log('colorsblock: ', colorsblock);
+   let colors_en = document.querySelectorAll('div#colors_en div.item-connection');
+   console.log('colors_en: ', colors_en);
+   let display_diagonal_en = document.querySelectorAll('div#display_diagonal_en div.item-connection');
+   console.log('display_diagonal_en: ', display_diagonal_en);
+   let promotionSlider = document.querySelectorAll('div#promotionSlider div.slick-track div.preSlickSlider');
+   console.log('promotionSlider: ', promotionSlider);
+   if((defaultSize.length == 0) && (size_en.length == 0) && (colorsblock.length == 0) &&(colors_en.length == 0) && (display_diagonal_en.length == 0) && (promotionSlider.length == 0)){
+    // let bodyId = document.querySelector('body.product-page');
+    let bodyId = document.querySelector('html');
+    if(bodyId){
+      bodyId.setAttribute("id", "customId");
+      // let idJosn = await findJsonObj1();
+      // let id = idJosn ? idJosn.replace(/\"item\_id\"\:(.*)\,\"offer\_id/g, '$1') : '';
+      // addElementToDocument('pd_variantId', id);
+      let JSONObj = await findJsonObj();
+      console.log('JSONObj: ', JSONObj);
+      let url = JSONObj ? JSONObj.url : '';
+      console.log('url: ', url);
+      addElementToDocument('pd_variantId',url);
+    }
+    
+  }
     });
   return await context.extract(variants, { transform });
   }

@@ -64,6 +64,11 @@ const transform = (data) => {
               item.text = arr[length-1].replace(/\/i\//,'');
           });
         }
+        // if (row.variantId) {
+        //   row.variantId.forEach(item => {
+        //       item.text = item.text.replace(/\"item\_id\"\:(.*)\,\"offer\_id/g, '$1');
+        //   });
+        // }
       }
     }
   
