@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'menards.com',
     prefix: null,
-    url: 'https://www.menards.com/main/kitchen/kitchen-sinks/undermount-sink/nantucket-sinks-undermount-18-round-stainless-steel-bar-prep-sink/ns18/p-1457357837889-c-1524576222147.htm?tid=-1&ipos=1',
+    url: 'https://www.menards.com/main/bath/toilets/two-piece-toilets/american-standard-astute-trade-vormax-reg-tall-height-elongated-complete-toilet-with-slow-close-seat/727aa-121-020/p-1444423992105-c-5974.htm?tid=5976492407131538170&ipos=1',
     country: 'US',
     store: 'menards',
     zipcode: '',

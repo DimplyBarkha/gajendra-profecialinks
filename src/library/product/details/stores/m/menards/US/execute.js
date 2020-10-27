@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'menards',
     domain: 'menards.com',
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },
