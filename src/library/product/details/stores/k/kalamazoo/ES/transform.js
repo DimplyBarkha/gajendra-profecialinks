@@ -6,6 +6,18 @@
 const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
+      if (row.sku) {
+        let text = '';
+        text = row.sku[0].text.replace(/[a-zA-Z]+\s?-\s?/g, '');
+        row.sku = [{ text }];
+      }
+
+      if (row.variantId) {
+        let text = '';
+        text = row.variantId[0].text.replace(/[a-zA-Z]+\s?-\s?/g, '');
+        row.variantId = [{ text }];
+      }
+
       if (!row.sku) {
         const text = '';
         row.availabilityText = [{ text }];
@@ -65,6 +77,12 @@ const transform = (data, context) => {
         });
         text = '|| ' + text;
         row.additionalDescBulletInfo = [{ text }];
+        row.descriptionBullets = [{ text: text.split('||').length - 1 }];
+      }
+
+      if (!row.variantCount) {
+        const text = 0;
+        row.variantCount = [{ text }];
       }
     }
   }

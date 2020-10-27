@@ -22,7 +22,7 @@ module.exports = {
 
     const optionalWait = async (sel) => {
       try {
-        await context.waitForSelector(sel, { timeout });
+        await context.waitForSelector(sel, { timeout: 20000 });
         console.log(`Selector loaded -> ${sel}`);
         return true;
       } catch (err) {

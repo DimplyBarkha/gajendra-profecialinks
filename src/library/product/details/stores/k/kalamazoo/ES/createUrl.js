@@ -4,8 +4,7 @@ async function implementation (
   parameters,
 ) {
   let { id } = inputs;
-  id = id.toString().replace(/[a-zA-Z]+-/g, '');
-  console.log('Id from my createUrl file: ' + id);
+  id = id.toString().replace(/[a-zA-Z]+\s?-\s?/g, '');
   if (parameters.url) {
     const url = parameters.url.replace('{id}', encodeURIComponent(id));
     return url;

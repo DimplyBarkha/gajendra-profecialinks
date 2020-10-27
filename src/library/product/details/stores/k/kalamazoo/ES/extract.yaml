@@ -47,14 +47,11 @@ fields:
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[@id="long_description"]//ul/li)
   - name: brandText
     description:
       Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //div[@id="feature"]//li/span[contains(.,"Marca")]/following-sibling::*
-  - name: quantity
-    description: Quantity as described on the page
   - name: sku
     description: The store-specific product identifier
     xpath: //div[contains(@class,"product-sku__ref")]
@@ -63,10 +60,24 @@ fields:
     xpath: //div[contains(@class,"product-sku__ref")]
   - name: mpc
     description: The manufacturer model code (unique) of the product
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class="js-energetic-perf-container"]/@data-upcean
+  - name: eangtin
+    xpath: //div[@class="js-energetic-perf-container"]/@data-upcean
   - name: packSize
     description:
       The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //div[@class="product-sku__pack"]
+    regExp: '[0-9,]+(.+)'
+  - name: pricePerUnit
+    description: Price of the product split into certain units
+    xpath: //div[contains(@class,"price-table__col--current")]/div[contains(.,"€")]
+    regExp: '[0-9,]+'
+  - name: variantCount
+    description: Number of variants listed
+    type: NUMBER
   - name: ratingCount
     description: The number of ratings
     type: NUMBER
@@ -88,6 +99,9 @@ fields:
   - name: specifications
     description: The physical dimensions of the product including packaging.
     xpath: //div[@id="feature"]//ul/li
+  - name: packaging
+    description: Packaging information
+    xpath: //div[@id="feature"]//li/span[contains(text(),"embalaje")]/following-sibling::*
   - name: promotion
     description: promotion text on product page
     xpath: //div[contains(@class,"product-sku__promo")]
@@ -111,8 +125,11 @@ fields:
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
+  - name: materials
+    description: Materials used to make the product
+    xpath: //div[@id="feature"]//li/span[contains(text(),"Material")][not(contains(text(),"punta"))]/following-sibling::*
   - name: imageZoomFeaturePresent
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    xpath: main/@zoom-feature
