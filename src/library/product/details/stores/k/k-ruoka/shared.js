@@ -7,13 +7,13 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      let text = '';
-      text = [String(row.brandText && row.brandText[0].text), String(row.name && row.name[0].text)].filter(e => e !== 'undefined').join(' - ');
-      row.nameExtended = [
-        {
-          text: text,
-        },
-      ];
+      // let text = '';
+      // text = [String(row.brandText && row.brandText[0].text), String(row.name && row.name[0].text)].filter(e => e !== 'undefined').join(' - ');
+      // row.nameExtended = [
+      //   {
+      //     text: text,
+      //   },
+      // ];
       if (row.totalFatPerServing) {
         let text = '';
         row.totalFatPerServing.forEach(item => {
@@ -97,7 +97,13 @@ const transform = (data) => {
           },
         ];
       }
-
+      if (row.otherSellersName) {
+        let text = '';
+        row.otherSellersName.forEach(item => {
+          text = row.otherSellersName.map(elm => elm.text).join(' | ');
+        });
+        row.otherSellersName = [{ text }];
+      }
     }
   }
 

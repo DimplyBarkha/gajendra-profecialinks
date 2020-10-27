@@ -10,10 +10,11 @@ fields:
   - name: imageAlt
     xpath: //div[@class="shopping-list-side-panel"]//section[@class="product-details"]//div[@class="product-details-image-container"]//img/@alt
   - name: category
-    xpath: //div[@class="side-panel-header-content"]//ul//li
+    xpath: //div[contains(@class,'shopping-list-content')]//div[@class="product-details__tag-container"]//a
   - name: name
     xpath: //div[@class="shopping-list-side-panel"]//div[@class="product-details-content"]//h1/span
   - name: nameExtended
+    xpath: //div[@class="shopping-list-side-panel"]//div[@class="product-details-content"]//h1/span
   - name: price
     xpath: //div[@class="shopping-list-side-panel"]//div[@class="price-info"]//span[@class="price"]
   - name: availabilityText
@@ -26,10 +27,12 @@ fields:
     regExp: ("@type":"Thing","name":")(\w+)
     regExpReplace: $2
   - name: manufacturer
-    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Alkuperämaa/valmistusmaa")]/parent::h4/following-sibling::p
+    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Markkinoija")]/parent::h4/following-sibling::p/span[1]
   - name: gtin
     xpath: //div[@class="shopping-list-side-panel"]//section/@id
   - name: sku
+    xpath: //div[@class="shopping-list-side-panel"]//section/@id
+  - name: variantId
     xpath: //div[@class="shopping-list-side-panel"]//section/@id
   - name: ingredientsList
     xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Ainesosat")]/parent::h4/following-sibling::p
@@ -80,10 +83,14 @@ fields:
   - name: storage
     xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Säilytys- ja käyttöohjeet")]/parent::h4/following-sibling::p[1]
   - name: countryOfOrigin
-    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Markkinoija")]/parent::h4/following-sibling::p/span[1]
+    xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Alkuperämaa/valmistusmaa")]/parent::h4/following-sibling::p
+  - name: variantCount
+    defaultValue: "0"
   - name: allergyAdvice
     xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Allergeenit")]/parent::h4/following-sibling::div
   - name: recyclingInformation
+  - name: otherSellersName
+    xpath: //ul//li[contains(@class,'product-availability-container__store')]/div/a
   - name: productOtherInformation
     xpath: //div[@class="shopping-list-side-panel"]//span[contains(text(),"Lisätiedot")]/parent::h4/following-sibling::div
   - name: additives
