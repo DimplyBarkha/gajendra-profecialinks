@@ -8,7 +8,7 @@ module.exports = {
   },
   implementation: async ({ url }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addHiddenDiv (id, content) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
