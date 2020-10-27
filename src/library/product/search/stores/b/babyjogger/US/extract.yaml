@@ -1,0 +1,29 @@
+Search:
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='product-tile']
+fields: 
+- name: id
+  xpath: //div[@class='pdp-link']/div/@data-href
+  regExp: (.+)(SAP_)(\d+)
+  regExpReplace: $3
+- name: thumbnail
+  xpath: //img[@class='tile-image']/@src
+- name: aggregateRating2
+  xpath: //div[@data-bv-show="inline_rating"]/div/a/@aria-label
+  regExp: (\d.\d)(.+)
+  regExpReplace: $1
+- name: reviewCount
+  xpath: //div[@data-bv-show="inline_rating"]/div/a
+  regExp: (\d+)
+- name: name
+  xpath: //div[@class='pdp-link']
+- name: productUrl
+  xpath: //div[@class='pdp-link']/div/@data-href
+  regExp: (.+)
+  regExpReplace: https://www.babyjogger.com$1
+- name: price
+  xpath: /@price1
+- name: searchUrl
+  xpath: /@searchurl
