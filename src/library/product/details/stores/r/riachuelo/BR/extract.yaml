@@ -30,12 +30,14 @@ fields:
     xpath: normalize-space(//span[@itemprop="offers"]//span[@class="price-wrapper "]//span)
   - name: availabilityText
     singleValue: false
+    xpath: //div[@class="product-add-form"]//form//div[@class="actions"]//button/@title
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    regExp: (.+)
+    regExpReplace: Out of stock
     defaultValue: In Stock
-    # regExp: (.+)
-    # regExpReplace: In Stock
+    
     # defaultValue: Out of Stock
   - name: description
     singleValue: false
@@ -53,8 +55,7 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //tbody//tr//td[@data-th="Conteúdo da Embalagem"]
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -78,9 +79,7 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
-    xpath: //tbody//tr//td[@data-th="Conteúdo da Embalagem"]
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
+    xpath: (//a[@class="swatch-option   text"]/@title)[1]
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
@@ -112,10 +111,12 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
+    xpath: count(//div[@class="swatch-attribute-options clearfix"]//a[@class="swatch-option   text"])
     description: Number of variants listed
     type: NUMBER
   - name: color
     singleValue: false
+    xpath: //tbody//tr//td[@data-th="Cor do Produto"] | //strong[contains(text(),"Cor do Produto")]
     description: A textual description of the colour
   - name: colorCode
     singleValue: false
@@ -417,7 +418,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
-    xpath: //div[@class="installement-info"]//p//font//font | 
+    xpath: //div[@class="installement-info"]//p//font//font  
     description: promotion text on product page
   - name: alcoholContent
     singleValue: false
@@ -436,9 +437,11 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: false
+    xpath: //span[@class="swatch-attribute-label"]
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: false
+    # xpath: (//a[@class="swatch-option   text"]/@title)[1]
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
