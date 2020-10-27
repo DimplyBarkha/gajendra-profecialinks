@@ -11,7 +11,7 @@ fields:
     xpath: //button[contains(@aria-label,'1 of ')]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //button[contains(@class,'carousel-img-wrap')]/img/@src
+    xpath: //button[@class="carousel-img-wrap"]/img[not(parent::button/parent::div/@class='carousel-item active')]/@src
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
@@ -23,48 +23,51 @@ fields:
   - name: category
     singleValue: false
     xpath: //ol[@class="breadcrumb"]/li[2]/a/text()
+  - name: sub_category
+    singleValue: false
+    xpath: //html//div[@class="addSubCategoryInfo"]
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class="d-md-none col-sm-12"]/h5/text()
+    xpath: //html//div[@class="addProductDescInfo"]
   - name: price
     singleValue: true
-    xpath: (//span[@class='price-tag']//span[@class="outline "])[1]/text()
+    xpath: (//span[@class='price-tag']//span[@class="outline "])[1]/text() | (//span[@class="outline color"])[1]/text()
   - name: availabilityText
     singleValue: true
     xpath: //html//div[@class="graco_availability"]
   - name: description
-    singleValue: true
-    xpath: //div[@id='collapsible-pdp-details-1']/text()
+    singleValue: false
+    xpath: //html//div[@class="adddescriptionInfo"]
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//ul[@id='collapsible-pdp-details-2']/li)
+    xpath: count(//ul[@id='collapsible-pdp-details-2']/li | //ul[@id='collapsible-pdp-details-4']/li)
   - name: brandText
     singleValue: true
     xpath: (//button[@class='title btn text-left btn-block d-sm-none'])[1]/text()
   - name: gtin
     singleValue: true
-    xpath: (//div[contains(@class,'pdp-whereToBuyButton')])[1]/div/@ps-sku
+    xpath: (//div[@class="wc-fragment"])[1]/@data-gtin
   - name: sku
     singleValue: true
     xpath: //div[@class='container product-detail product-wrapper']/@data-pid
+  - name: mpc
+    singleValue: true
+    xpath: (//span[@class="manufacturer-sku-id"]/@data-manufacturersku)[1]
   - name: legalDisclaimer
     singleValue: true
     xpath: //div[@class='container text14']/text()
   - name: directions
     singleValue: false
-    xpath: //div[@id='collapsible-pdp-details-6']/span/text()
+    xpath: //html//div[@class="addDirectionInfo"]
   - name: warnings
     singleValue: false
-    xpath: //ul[@id='collapsible-pdp-details-4']/li/text()
+    xpath: //html//div[@class="addwarningInfo"]
   - name: ratingCount
     singleValue: true
-    xpath: (//div[@class='bv_numReviews_text'])[1]/text()
+    xpath: (//meta[@itemprop="reviewCount"]/@content)[1]
   - name: aggregateRating
     singleValue: true
     xpath: (//div[@itemprop='ratingValue'])[1]/text()
-  - name: shippingDimensions
-    singleValue: true
-    xpath: //html//div[@class="graco_dimensions"]
   - name: specifications
     singleValue: true
     xpath: //html//div[@class="graco_dimensions"]
@@ -73,13 +76,19 @@ fields:
     xpath: //span[@class='color-display-value order-3 ml-1']/text()
   - name: manufacturerDescription
     singleValue: false
-    xpath: //ul[@id='collapsible-pdp-details-2']/li/text()
+    xpath: //html//div[@class="addManufacturerDescInfo"]
   - name: name
     singleValue: true
     xpath: //div[@class="d-md-none col-sm-12"]/h5/text()
   - name: additionalDescBulletInfo
     singleValue: true
     xpath: //html//div[@class="addDescBulletInfo"]
+  - name: variantInformation
+    singleValue: true
+    xpath: //html//div[@class="addvariantInfo"]
+  - name: promotion
+    singleValue: true
+    xpath: (//div[@class="carousel-item  active "]//span[contains(@style,'color')]/text())[1]
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
@@ -107,3 +116,18 @@ fields:
     singleValue: true
     description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
     defaultValue: Yes
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //img[@class="wc-media wc-image"]/@src
+  - name: firstVariant
+    singleValue: true
+    xpath: (//div[contains(@class,'color-attribute')]/@aria-describedby)[1]
+  - name: variantCount
+    singleValue: true
+    xpath: count(//div[contains(@class,'color-attribute')]/span[contains(@class,'js-nonretail')]/@data-attr-value)
+  - name: variants
+    singleValue: true
+    xpath: count(//div[contains(@class,'color-attribute')]/span[contains(@class,'js-nonretail')]/@data-attr-value)
+  - name: video
+    singleValue: false
+    xpath: //html//div[@class="addvideoInfo"]
