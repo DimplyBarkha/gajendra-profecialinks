@@ -107,15 +107,15 @@ fields:
 - name: warnings #todo
   singleValue: true
   description: Content under "warnings" header
-- name: ratingCount
+- name: ratingCount # to change
   singleValue: true
   description: The number of ratings
   xpath: //div[@class='cn_product_visited']/span[@class='rating_count']
-- name: aggregateRatingText
+- name: aggregateRatingText # to change
   singleValue: true
   description: The stated aggregate rating
   xpath: //div[@class='cn_product_visited']/span[@class='rating_value']
-- name: aggregateRating
+- name: aggregateRating # to change
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
   xpath: //div[@class='cn_product_visited']/span[@class='rating_value']
