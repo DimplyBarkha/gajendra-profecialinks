@@ -7,6 +7,31 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  // Loading issue of warranty and youtube videos
+  await context.waitForSelector('#portalVariables');
+  await context.evaluate(async () => {
+    async function infiniteScroll () {
+      let prevScroll = document.documentElement.scrollTop;
+      while (true) {
+        window.scrollBy(0, document.documentElement.clientHeight);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const currentScroll = document.documentElement.scrollTop;
+        if (currentScroll === prevScroll) {
+          break;
+        }
+        prevScroll = currentScroll;
+      }
+    }
+    await infiniteScroll();
+  });
+  // await context.waitForMutuation('body', { timeout: 30000 });
+  await context.waitForXPath("//div[contains(@id,'returnsAndWarranty')]//button[contains(.,'Mehr anzeigen')] | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'returnsAndWarranty')])]//button[contains(.,'Mehr anzeigen')]");
+  try {
+    await context.waitForXPath("//div[contains(@id,'youtube')]//img/@srcset | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'youtube')])]//div[contains(@class,'expandablePanel')]//img/@srcset");
+  } catch (e) {
+    console.log('Youtube Videos not found', e);
+  }
+  // End
   await context.evaluate(async () => {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
