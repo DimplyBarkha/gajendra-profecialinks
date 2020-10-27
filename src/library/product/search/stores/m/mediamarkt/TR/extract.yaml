@@ -1,0 +1,6 @@
+extends: ../ES/extract
+fields:
+- name: productUrl
+  xpath: //div[@class="product-wrapper"]//div[@class="content "]//h2//a//@href
+  regExp: (.+)
+  regExpReplace: https://www.mediamarkt.com.tr$1

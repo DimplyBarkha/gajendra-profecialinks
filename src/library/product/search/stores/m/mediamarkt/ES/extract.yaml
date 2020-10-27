@@ -1,0 +1,34 @@
+Search:
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+- name: id
+  xpath: //div[@class="product-wrapper"]/@data-modelnumber
+- name: thumbnail
+  xpath: //div[@class="product-wrapper"]//img[@class="loaded"]/@src
+  regExp: (.+)
+  regExpReplace: https:$1
+- name: name
+  xpath: //div[@class="product-wrapper"]//div[@class="content "]/h2
+- name: productUrl
+  xpath: //div[@class="product-wrapper"]//div[@class="content "]/h2/a/@href
+  regExp: (.+)
+  regExpReplace: https://www.mediamarkt.es$1
+- name: price
+  xpath: //div[@class="product-wrapper"]//aside[@class="product-price alt"]//div[contains(@class,"price-box")]//div[contains(@class,"price small")]
+- name: aggregateRating2
+  xpath: //footer//div[contains(@class,'rating rating')]//div/@class
+  regExp: (\d+)(-|)(\d+|)
+- name: reviewCount
+  xpath: //footer//ul/div[contains(@class,'rating')]/following-sibling::a
+  regExp: (\d+)
+- name: searchUrl
+  xpath: //div[@class="product-wrapper"]/@searchurl
+- name: gtin
+  xpath: //li//script[contains(text(),'ean')]
+  regExp: ("ean":)(")(\d+)(")
+  regExpReplace: $3
+- name: manufacturer
+  xpath: //a[@class="manufacturer clickable"]//img/@alt
