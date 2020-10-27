@@ -6,7 +6,7 @@ module.exports = {
     store: 'lowes',
     domain: 'lowes.com',
     url: 'https://www.lowes.com/search?searchTerm={searchTerms}',
-    loadedSelector: 'body',
+    loadedSelector: 'a > span > article > span',
     noResultsXPath: null,
   },
 };
