@@ -3,10 +3,10 @@ module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
     country: 'SE',
-    store: 'handla_willys',
+    store: 'handlaWillys',
     domain: 'willys.se',
     loadedSelector: null,
     noResultsXPath: null,
-    zipcode: "''",
+    zipcode: '',
   },
 };

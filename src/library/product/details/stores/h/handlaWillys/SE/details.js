@@ -1,9 +1,9 @@
 
 module.exports = {
-  implements: 'product/search',
+  implements: 'product/details',
   parameterValues: {
     country: 'SE',
-    store: 'handlawillys',
+    store: 'handlaWillys',
     domain: 'willys.se',
     zipcode: '',
   },

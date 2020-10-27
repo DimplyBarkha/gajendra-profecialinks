@@ -1,32 +1,34 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: //ax-product-grid[@type-of-results="results"]//ax-product-puff[@class="ax-product-grid-tile"]
+recordSelector: ax-product-grid[type-of-results="results"] > div > div > ax-product-puff.ax-product-grid-tile
+# recordXPath: //ax-product-grid[@type-of-results="results"]//ax-product-puff[@class="ax-product-grid-tile"]
 fields:
   - name: price
     singleValue: false
-    xpath: //ax-product-grid[@type-of-results="results"]//div[@class="ax-product-priceinfo-compare"]
+    xpath: //div[@class="ax-product-priceinfo-compare"]
     regExp: Jmf-pris (.+)
     regExpReplace: $1
   - name: name
     singleValue: false
-    xpath: //ax-product-grid[@type-of-results="results"]//div[@class="ax-product-title selenium--product-title"]/text()
+    xpath: //div[@class="ax-product-title selenium--product-title"]/text()
   - name: productUrl
     singleValue: false
+    xpath: //div[@class='extra-info-url']
   - name: thumbnail
     singleValue: false
-    xpath: //ax-product-grid[@type-of-results="results"]//div[contains(@class,"ax-product-puff-image")]/img/@src
+    xpath: //div[contains(@class,"ax-product-puff-image")]/img/@src
   - name: aggregateRating
     singleValue: false
   - name: id
     singleValue: false
+    xpath: //div[@class='extra-info-id']    
   - name: wieght
     singleValue: true
   - name: ratingCount
     singleValue: true
   - name: manufacturer
     singleValue: false
-    xpath: //ax-product-grid[@type-of-results="results"]//span[@class="selenium--product-manufacturer-name"]/text()
+    xpath: //span[@class="selenium--product-manufacturer-name"]/text()
   - name: soldBy
     singleValue: true
   - name: endorsementText

@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'product/search',
   parameterValues: {
     country: 'SE',
-    store: 'handla_willys',
+    store: 'handlaWillys',
     domain: 'willys.se',
-    // zipcode: "",
+    zipcode: '',
   },
 };

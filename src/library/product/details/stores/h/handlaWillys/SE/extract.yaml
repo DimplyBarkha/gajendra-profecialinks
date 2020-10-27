@@ -39,7 +39,8 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: (//div[@class="detail line-break"])[1] | (//div[@class="detail line-break"]/span)[2] 
+    # xpath: (//div[@class="detail line-break"])[1] | (//div[@class="detail line-break"]/span)[2] 
+    xpath: (//div[@class="detail line-break"])[1]
   - name: descriptionBullets
     singleValue: false
     xpath: count((//div[@class="info-block nutrition-facts"])[2]/table//td/following-sibling::td)
@@ -80,7 +81,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
-    xpath: (//div[contains(text(),"Användarinstruktioner")]//..//../following-sibling::div)[1]/text()
+    xpath: (//div[contains(text(),"Anv�ndarinstruktioner")]//..//../following-sibling::div)[1]/text()
   - name: warnings
     singleValue: false
     xpath: //div[contains(text(),"Varning")]//..//../following-sibling::div
@@ -97,7 +98,7 @@ fields:
     type: NUMBER
   - name: shippingInfo
     singleValue: false
-    # xpath: (//div[contains(text(),"Kontaktuppgifter till livsmedelsföretaget")]//../following-sibling::div)[1]
+    # xpath: (//div[contains(text(),"Kontaktuppgifter till livsmedelsf�retaget")]//../following-sibling::div)[1]
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
@@ -258,11 +259,11 @@ fields:
     regExpReplace: gram
   - name: saturatedFatPerServing
     singleValue: false
-    xpath: (//div[@class="info-block nutrition-facts"])[2]/table//td[text()="varav mättat fett"]/following-sibling::td
+    xpath: (//div[@class="info-block nutrition-facts"])[2]/table//td[text()="varav m�ttat fett"]/following-sibling::td
     type: NUMBER
   - name: saturatedFatPerServingUom
     singleValue: false
-    xpath: (//div[@class="info-block nutrition-facts"])[2]/table//td[text()="varav mättat fett"]/following-sibling::td
+    xpath: (//div[@class="info-block nutrition-facts"])[2]/table//td[text()="varav m�ttat fett"]/following-sibling::td
     regExp: (.+)
     regExpReplace: gram
   - name: transFatPerServing
@@ -387,7 +388,7 @@ fields:
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
-    xpath: (//div[contains(text(),"Förvaring")]//../following-sibling::div[@class="detail line-break"])[1]
+    xpath: (//div[contains(text(),"F�rvaring")]//../following-sibling::div[@class="detail line-break"])[1]
   - name: countryOfOrigin
     singleValue: false
     xpath: (//div[@class="info-block country"]//div[@class="detail line-break"])[2]

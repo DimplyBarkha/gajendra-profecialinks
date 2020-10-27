@@ -5,7 +5,7 @@ module.exports = {
     domain: 'willys.se',
     timeout: 50000,
     country: 'SE',
-    store: 'handla_willys',
-    zipcode: "''",
+    store: 'handlaWillys',
+    zipcode: '',
   },
 };
