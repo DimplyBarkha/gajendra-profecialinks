@@ -17,9 +17,7 @@ fields:
     xpath: //span[contains(., 'Manufacturer')][not(contains(., "Discontinued"))]/following-sibling::*[1]
   - name: weightNet
     singleValue: true
-    xpath: //li[contains(.,'Product Dimensions')]//span//span[2]
-    regExp: (.*);(.*)
-    regExpReplace: $2
+    xpath: //head//@netweight
   - name: asin
     xpath: //li[contains(.,'ASIN')]//span//span[2]
   - name: variantId
@@ -30,10 +28,9 @@ fields:
   - name: specifications
     xpath: //div[@id="detailBullets_feature_div"]//li
   - name: manufacturerDescription
-    xpath: //div[@data-a-expander-name="aplus-module-expander"] | //div[@class="aplus-module-wrapper"]//div[contains(@class,"apm-tablemodule")]//tr[1]/following-sibling::tr
+    xpath: //div[@data-a-expander-name="aplus-module-expander"]//p | //div[@class="aplus-module-wrapper"]//div[contains(@class,"apm-tablemodule")]//tr[1]/following-sibling::tr   
   - name: lbb
     defaultValue: "NO"
-  - name: lbbPrice
   - name: salesRank
     xpath: //li[@id='rank']//@value
   - name: salesRankCategory
@@ -44,8 +41,7 @@ fields:
     xpath: //li[contains(@id,"color_name")]/@data-defaultasin | //li[contains(@id,"special_size_type")]/@data-defaultasin
   - name: variantCount
     xpath: count(//li[contains(@id,"color_name")]/@data-defaultasin | //li[contains(@id,"special_size_type")]/@data-defaultasin | //span[@id="dropdown_selected_size_name"])
-  - name: additionalDescBulletInfo
-    xpath: //div[@data-feature-name="featurebullets"]//ul/li
+  
  
    
   

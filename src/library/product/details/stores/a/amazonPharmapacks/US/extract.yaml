@@ -170,9 +170,9 @@ fields:
   - name: warranty
     xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
   - name: promotion
-    xpath: //tr[@id="regularprice_savings"]
+    xpath: //tr[@id="regularprice_savings"
   - name: additionalDescBulletInfo
-    xpath: count(//div[@data-feature-name="featurebullets"]//ul/li)
+    xpath: //div[@data-feature-name="featurebullets"]//ul/li
   - name: technicalInformationPdfPresent
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
   - name: materials

@@ -187,16 +187,16 @@ const transform = (data, context) => {
             //   if (text.length > 0) {
             //     row.productOtherInformation = [{ text: text.join(' | ').trim().replace(/\| \|/g, '|') }];
             //   }
-            // }
-            // if (row.additionalDescBulletInfo) {
-            //   const text = [''];
-            //   row.additionalDescBulletInfo.forEach(item => {
-            //     if (item.text.length > 0) { text.push(item.text); }
-            //   });
-            //   if (text.length > 0) {
-            //     row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
-            //   }
-            // }
+            //}
+            if (row.additionalDescBulletInfo) {
+                const text = [''];
+                row.additionalDescBulletInfo.forEach(item => {
+                    if (item.text.length > 0) { text.push(item.text); }
+                });
+                if (text.length > 0) {
+                    row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+                }
+            }
             if (row.otherSellersPrime) {
                 row.otherSellersPrime.forEach(item => {
                     if (item.text.includes('mazon') || item.text.includes('rime')) {
@@ -229,6 +229,10 @@ const transform = (data, context) => {
             //   const text = row.featureBullets.map(item => `${item.text}`);
             //   row.featureBullets = [{ text: text.join(' | ').trim().replace(/\|\| \|/g, '|') }];
             // }
+            if (row.variantAsins) {
+                const text = row.variantAsins.map(item => `${item.text}`);
+                row.variantAsins = [{ text: text.join(' | ').trim().replace(/\|\| \|/g, '|') }];
+            }
             if (row.primeFlag) {
                 row.primeFlag = [{ text: 'Yes - Shipped and Sold' }];
             }

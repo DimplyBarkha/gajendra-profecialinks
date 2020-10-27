@@ -161,7 +161,18 @@ module.exports = {
             }
             let category = product_rank_category.join(' | ');
             document.head.setAttribute('category', category);
+            let getFeatureBullets = document.querySelectorAll('#detailBulletsWrapper_feature_div li')
+            let netweight = ''
+            for (i = 0; i < getFeatureBullets.length; i++) {
+                if (getFeatureBullets[i].innerText.includes('Dimensions') || getFeatureBullets[i].innerText.includes('Weight')) {
+                    if (getFeatureBullets[i].innerText.includes(';'))
+                        netweight = getFeatureBullets[i].innerText.split(';')[1];
+                    else
+                        netweight = getFeatureBullets[i].innerText.split(':')[1];
+                }
 
+            }
+            document.head.setAttribute('netweight', netweight)
         });
         return await context.extract(productDetails, { transform });
     },
