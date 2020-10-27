@@ -1,0 +1,56 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class, 'item-sku')]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class, 'item-sku')]/@item-sku
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//a[@class="page-link"]/@href
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, "ribbon-info")]/a
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="imagePanel"]/a/@href
+    regExp: (.*)
+    regExpReplace: https://www.thefragranceshop.co.uk$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class="image1 omni-img"]/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //span[@class="productPriceFromFormatted"]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div[contains(@class,"item-sku")]//@rankorganic
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true
+  #   type: NUMBER
