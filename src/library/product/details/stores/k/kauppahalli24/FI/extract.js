@@ -44,8 +44,9 @@ async function implementation (
         .catch(error => console.error('Error:', error));
       if (response && response.data[0] && response.data[0].products[0] && response.data[0].products[0].id) {
         const dataObj = response.data[0].products[0];
-        addElementToDocument('pd_price', dataObj.price);
+        addElementToDocument('pd_price', String(dataObj.price).replace('.', ','));
         Number(dataObj.inStock) && addElementToDocument('pd_stock', 'Yes');
+        dataObj && dataObj.ingredients && addElementToDocument('pd_ingredients', dataObj.ingredients);
       }
     }
   });
