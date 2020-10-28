@@ -63,6 +63,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: (//table[@class="table table-striped product-details-table"][12]//span[@class="product-details-overview-specification"])[2]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -110,6 +111,7 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
+    xpath: (//table[@class="table table-striped product-details-table"][13]//span[@class="product-details-overview-specification"])[2]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -120,6 +122,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: (//table[@class="table table-striped product-details-table"][11]//span[@class="product-details-overview-specification"])[2]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -394,7 +397,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: //span[@class="product-details-overview-specification"]
+    xpath: (//table[@class="table table-striped product-details-table"][1]//span[@class="product-details-overview-specification"])[2]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
