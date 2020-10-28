@@ -37,7 +37,7 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class,"product-main")]//span[@class="ttu"]
+    xpath: //div[contains(@class,"product-available-desktop")]//span[@class="ttu"]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -66,8 +66,6 @@ fields:
     singleValue: false
     description: Quantity as described on the page
     xpath: //*[@data-specification="Conteúdo"]/following-sibling::*
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
