@@ -90,4 +90,4 @@ fields:
     xpath: //link[@rel="canonical"]/@href
   - name: gtin
     singleValue: false
-    xpath: 
+    xpath: //span[@class="unpc-wrapper"]//span[contains(@itemprop,"gtin")]
