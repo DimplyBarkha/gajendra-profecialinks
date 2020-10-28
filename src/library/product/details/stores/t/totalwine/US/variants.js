@@ -1,9 +1,9 @@
 
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: 'product/details/variants',
   parameterValues: {
     country: 'US',
-    domain: 'totalwine.com',
     store: 'totalwine',
+    domain: 'totalwine.com',
   },
 };

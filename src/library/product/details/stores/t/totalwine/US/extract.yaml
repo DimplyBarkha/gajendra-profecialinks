@@ -194,7 +194,7 @@ fields:
     type: NUMBER
   - name: variantAsins
     description: null
-    xpath: //div[contains(@class,'packageOptions')]/ul[@role='listbox']/li/div
+    xpath: //div[contains(@class,'packageOptions')]/ul[@role='listbox']/li/div[contains(@class,'itemId')]
   - name: primeFlag
     singleValue: true
     description: null
@@ -450,7 +450,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
-    xpath: //div[contains(@class,'packageOptions')]/ul[@role='listbox']/li/div
+    xpath: //div[contains(@class,'packageOptions')]/ul[@role='listbox']/li/div[contains(@class,'itemId')]
   - name: additionalDescBulletInfo
     singleValue: false
     description: null

@@ -1,6 +1,6 @@
 
 module.exports = {
-  implements: 'product/details/extract',
+  implements: 'product/details/variants/variantsExtract',
   parameterValues: {
     country: 'US',
     store: 'totalwine_95825',

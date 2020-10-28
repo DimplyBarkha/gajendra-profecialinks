@@ -7,7 +7,7 @@ module.exports = {
     store: 'totalwine',
     domain: 'totalwine.com',
     loadedSelector: 'div[class*="productResultContainer"]',
-    noResultsXPath: '//input[contains(@value,"Not Found")]',
+    noResultsXPath: '//input[contains(@value,"Not Found")] | //p[contains(.,"doesn’t exist")]',
   },
   implementation,
 };

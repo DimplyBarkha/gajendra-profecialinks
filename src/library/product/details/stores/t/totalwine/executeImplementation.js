@@ -18,7 +18,7 @@ const implementation = async function (
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, { timeout: 20000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
 
   async function getData (variantUrl) {
@@ -45,7 +45,7 @@ const implementation = async function (
     return;
   }
   // API call to fetch variants
-  const sku = url.match(/(\d+)\?s=/g)[0].replace('?s=', '');
+  const sku = url.match(/p\/(.+)\?s=/g)[0].replace('?s=', '').replace('p/', '');
   const storeUniqueId = zipcode === '95825' ? 1108 : url.match(/s=(\d+)/g)[0].replace('s=', '');
 
   try {
@@ -55,11 +55,12 @@ const implementation = async function (
       // Add skus to DOM
       const skus = document.querySelectorAll('ul[role="listbox"][class*="reset"] > li');
       for (let i = 0; i < skus.length; i++) {
-        if (data.skuId === data.skus[i].skuId) {
-          continue;
-        }
         const newDiv = document.createElement('div');
-        newDiv.setAttribute('class', 'itemId');
+        if (data.skuId === data.skus[i].skuId) {
+          newDiv.setAttribute('class', 'currentItemId');
+        } else {
+          newDiv.setAttribute('class', 'itemId');
+        }
         newDiv.textContent = data.skus[i].skuId;
         newDiv.style.display = 'none';
         skus[i].appendChild(newDiv);
