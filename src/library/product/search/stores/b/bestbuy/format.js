@@ -25,6 +25,11 @@ const transform = (data) => {
     var p_count = 1;
     for (const { group } of data) {
         for (let row of group) {          
+            if (row.price) {
+                row.price.forEach(item => {                    
+                    item.text = item.text.replace(/(\s*,\s*)+/isg, '').trim();                    
+                });
+            }
             if (row.rankOrganic && row.rank) {
                 row.rankOrganic = [{'text':p_count}];
                 row.rank = [{'text':p_count}];
