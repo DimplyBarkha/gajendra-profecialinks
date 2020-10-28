@@ -32,3 +32,6 @@ fields:
     xpath: //span[@class="rating-stars"]/i[@class="star-rating-svg"]/i/@style
     regExp: width\:(.*)\%
     regExpReplace: $1
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl'][last()]
