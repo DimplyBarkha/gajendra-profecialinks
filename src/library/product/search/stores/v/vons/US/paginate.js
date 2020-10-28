@@ -6,7 +6,7 @@ module.exports = {
   nextLinkSelector: null,
   mutationSelector: null,
   spinnerSelector: null,
-  loadedSelector: '#search-grid_0',
+  loadedSelector: null,
   noResultsXPath: null,
   openSearchDefinition: null,
   domain: 'vons.com',
