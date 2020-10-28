@@ -1,4 +1,3 @@
-
 async function implementation (
   inputs,
   parameters,
@@ -8,7 +7,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await context.waitForXPath("//li");
+  await context.waitForXPath('//li');
 
   const productUrl = await context.evaluate(async function () {
     function stall (ms) {
@@ -59,7 +58,7 @@ async function implementation (
     console.log('hastheCTA');
     await context.click('[aria-label="show from the manufacturer content"]');
 
-  // [class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]  
+    // [class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]
   }
 
   await context.waitForXPath("//h1[@data-test='product-title']");
@@ -134,26 +133,26 @@ async function implementation (
           secondaryImages = variant.enrichment.images[0].alternate_urls.map(image => variant.enrichment.images[0].base_url + image);
         }
         if (variant.enrichment.images[0].content_labels && variant.enrichment.images[0].content_labels.length) {
-          secondaryImages = variant.enrichment.images[0].content_labels.filter((image, ind) => image.image_url != variant.enrichment.images[0].primary && image.image_url != variant.enrichment.images[0].swatch).map(image => variant.enrichment.images[0].base_url + image.image_url);
+          secondaryImages = variant.enrichment.images[0].content_labels.filter((image, ind) => image.image_url !== variant.enrichment.images[0].primary && image.image_url !== variant.enrichment.images[0].swatch).map(image => variant.enrichment.images[0].base_url + image.image_url);
         }
       }
-      secondaryImages = secondaryImages.filter(function(item, pos) {
-        return secondaryImages.indexOf(item) == pos;
+      secondaryImages = secondaryImages.filter(function (item, pos) {
+        return secondaryImages.indexOf(item) === pos;
       });
 
       let videos = [];
       if (parentData.product &&
-        parentData.product.item.enrichment &&
-        parentData.product.item.enrichment.videos &&
-        parentData.product.item.enrichment.videos.length) {
+                parentData.product.item.enrichment &&
+                parentData.product.item.enrichment.videos &&
+                parentData.product.item.enrichment.videos.length) {
         videos = parentData.product.item.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
           'https:' + video.video_files[0].video_url,
         );
       }
 
       if (!videos.length &&
-        variant.enrichment.videos &&
-        variant.enrichment.videos.length) {
+                variant.enrichment.videos &&
+                variant.enrichment.videos.length) {
         videos = variant.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
           'https:' + video.video_files[0].video_url,
         );
@@ -344,10 +343,9 @@ async function implementation (
       }
 
       if (variant.enrichment &&
-        variant.enrichment.nutrition_facts &&
-        variant.enrichment.nutrition_facts.value_prepared_list &&
-        variant.enrichment.nutrition_facts.value_prepared_list.length) {
-
+                variant.enrichment.nutrition_facts &&
+                variant.enrichment.nutrition_facts.value_prepared_list &&
+                variant.enrichment.nutrition_facts.value_prepared_list.length) {
         variant.enrichment.nutrition_facts.value_prepared_list.forEach(valList => {
           if (valList.serving_size) {
             const servingSize = valList.serving_size;
