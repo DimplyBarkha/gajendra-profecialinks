@@ -69,10 +69,11 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-  - name: sku
+  - name: rpc
     singleValue: true
     description: The store-specific product identifier
-    xpath: (//div[@class="product-detail__article-number"]/div/font/font)
+    xpath: //div[@class="product-detail__article-number"]/div
+    # xpath: (//div[@class="product-detail__article-number"]/div/font/font)
     regExp: (\d)
   - name: variantId
     singleValue: true

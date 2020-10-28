@@ -19,6 +19,7 @@ fields:
     xpath: (//span[@class="product__name"]/span)
   - name: productUrl
     singleValue: single
-    xpath: (//figure[@class="product__figure"]/a)/@href
+    xpath: //ul[@class="row product-list"]/li/figure/a/@href
+    # xpath: (//figure[@class="product__figure"]/a)/@href
     regExp: (sortiment/.*)
     regExpReplace: https://pacson.se/$1
