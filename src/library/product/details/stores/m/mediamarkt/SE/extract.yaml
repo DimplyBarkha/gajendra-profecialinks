@@ -75,7 +75,7 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
-    xpath: //div[@id="added_gtim"]
+    xpath: //div[@id="added_gtim"]|//script[contains(@type, 'text/javascript')]/@data-flix-ean
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
