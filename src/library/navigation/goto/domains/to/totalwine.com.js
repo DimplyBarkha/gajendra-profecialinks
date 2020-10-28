@@ -5,7 +5,7 @@ module.exports = {
     domain: 'totalwine.com',
     timeout: 50000,
     zipcode: '',
-    store: 'TotalWine',
+    store: 'totalwine',
     country: 'US',
   },
 };

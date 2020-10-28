@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
     country: 'US',
-    store: 'TotalWine',
+    store: 'totalwine',
     domain: 'totalwine.com',
     url: 'https://www.totalwine.com/search/all?text={searchTerms}',
     loadedSelector: 'a[class="productImg__3fOOgAmO"] > picture > img',
