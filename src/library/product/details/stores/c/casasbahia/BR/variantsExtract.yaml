@@ -1,0 +1,17 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //select[@data-id='dropdown-skus']/option
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //option/@value
+  - name: variantUrl
+    singleValue: false
+    xpath: //option/@data-url
+  - name: variant
+    singleValue: false
+    xpath: //option/text()

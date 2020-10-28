@@ -35,6 +35,9 @@ fields:
   - name: brandText
     singleValue: true 
     xpath: //span[@class="marcaProduto"]//strong[contains(@class,'brand')]
+  - name: brandLink
+    singleValue: true 
+    xpath: //span[@class="marcaProduto"]/a/@href
   - name: ratingCount
     singleValue: true
     xpath: //span[@class="nota yv-itens"]//p[contains(@class,'avaliacoes')]
@@ -52,9 +55,9 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[@id="descricao"]
-  - name: descriptionBullets
-    singleValue: false
-    xpath: //div[@class="detalhesProduto infoImportante"]//div[@class="descricao"]/ul/li
+  # - name: descriptionBullets
+  #   singleValue: false
+  #   xpath: //div[@class="detalhesProduto infoImportante"]//div[@class="descricao"]/ul/li
   - name: name
     singleValue: true
     xpath: //h1//b[@itemprop="name"]
@@ -67,9 +70,30 @@ fields:
     singleValue: true
     xpath: //span[@itemprop="productID"]
     regExp: Item\s*(.+)\)
+    regExpReplace: $1  
+  - name: firstVariant
+    singleValue: true
+    xpath: //span[@itemprop="productID"]
+    regExp: Item\s*(.+)\)
     regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    xpath: //select[@data-id='dropdown-skus']/option[@class='skuItem']
+    defaultValue: 0
+  - name: variantInformation
+    singleValue: true
+    xpath: //select[@data-id='dropdown-skus']/option[@selected='selected']/text()
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //ul[@class='flix-key-feature']/li
+  - name: variants
+    singleValue: true
+    xpath: //select[@data-id='dropdown-skus']/option/@value
   - name: gtin
     singleValue: true
     xpath: //span[@itemprop="productEan"]
     regExp: EAN\s*(.+)\)
     regExpReplace: $1
+  - name: imageZoomFeaturePresent
+    singleValue: true    
+    defaultValue: YES
