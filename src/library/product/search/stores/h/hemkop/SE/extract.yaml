@@ -6,6 +6,9 @@ fields:
   - name: name
     xpath: //ax-product-grid[@search-results="vm.searchResults.results"]//div[contains(@class, "ax-product-grid-content")]//div[contains(@class, "ax-product-grid-tile")]//div[contains(@class, "product-puff-name")]
     singleValue: false
+  - name: manufacturer
+    xpath: //ax-product-grid[@search-results="vm.searchResults.results"]//div[contains(@class, "ax-product-grid-content")]//div[contains(@class, "ax-product-grid-tile")]//div[contains(@class, "product-puff-manufacturer")]//span[1]
+    singleValue: false
   - name: thumbnail
     xpath: //ax-product-grid[@search-results="vm.searchResults.results"]//div[contains(@class, "ax-product-grid-content")]//div[contains(@class, "ax-product-grid-tile")]//img/@ng-src
     singleValue: false
