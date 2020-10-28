@@ -12,6 +12,6 @@ module.exports = {
       url = `${url}#[!opt!]{"cookie_jar":[{"name":"twm-userStoreInformation","value":"ispStore~1108:ifcStore~${zipcode}@ifcStoreState~US-CA@method~INSTORE_PICKUP"}]}[/!opt!]`;
     }
     await context.goto(url);
-    await context.waitForSelector('article[class="info__1tmaekGO"] > h2', { timeout: 30000 })
+    await context.waitForSelector('article[class="info__1tmaekGO"] > h2', { timeout: 30000 });
   },
 };
