@@ -34,9 +34,12 @@ const transform = (data) => {
           row.additionalDescBulletInfo = [{'text':'|| ' + info.join(' || '),'xpath':row.additionalDescBulletInfo[0].xpath}];          
         }
         if (row.specifications) {
+          var arr_temp = [];
           row.specifications.forEach(item => {
-            item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();            
+            item.text = item.text.replace(/\n\s*\n/g,':');
+            arr_temp.push(item.text);            
           });
+          row.specifications = [{'text':'||'+arr_temp.join('||')}];
         }
         if (row.alternateImages) {
             row.largeImageCount = [{'text':row.alternateImages.length}];            

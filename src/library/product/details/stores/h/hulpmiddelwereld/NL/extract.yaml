@@ -81,5 +81,8 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'toggle_description ')]//div//li
   - name: specifications
-    singleValue: true
+    singleValue: false
     xpath: //table[@id='product-attribute-specs-table']//tr
+  - name: quantity
+    singleValue: true
+    xpath: //table[@id='product-attribute-specs-table']//th[text()='Maat']/parent::*//td[@class='data']
