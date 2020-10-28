@@ -89,7 +89,7 @@ fields:
     xpath: (//*[@data-asin])[1]/@data-asin
     description: The store-specific product identifier
   - name: variantId
-    xpath: (//*[@data-asin])[1]/@data-asin | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Model Number')]/../td | //tr[contains(@class,'item-model-number')][1]//td[2] | //*[contains(text(),'Model Number')]/following-sibling::*[1]
+    xpath: (//tr[contains(.,'model number')]//td | //*[@data-asin])[1]/@data-asin | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Model Number')]/../td | //tr[contains(@class,'item-model-number')][1]//td[2] | //*[contains(text(),'Model Number')]/following-sibling::*[1]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
