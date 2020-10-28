@@ -11,7 +11,7 @@
   * @param { ImportIO.IContext } context
   * @param { Record<string, any> } dependencies
   */
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -47,9 +47,9 @@ async function implementation (
 
   if (nextLinkSelector) {
     console.log('Clicking', nextLinkSelector);
-    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 20000 });
+    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 60000 });
     if (loadedSelector) {
-      await context.waitForSelector(loadedSelector, { timeout: 20000 });
+      await context.waitForSelector(loadedSelector, { timeout: 30000 });
     }
     return true;
   }
