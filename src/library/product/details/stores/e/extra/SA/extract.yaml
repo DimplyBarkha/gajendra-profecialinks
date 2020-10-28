@@ -21,7 +21,10 @@ fields:
     defaultValue: Out of Stock
   - name: brandText
     singleValue: false
-    xpath: //head/meta[@property='og:title']/@content
+    xpath: (//*[@id="product_information_highlights"]/script/@data-flix-brand)
+  - name: brandText
+    singleValue: false
+    xpath: (//head/meta[@property='og:title']/@content)
     regExp: (^[^\s]+)
   - name: category
     singleValue: false

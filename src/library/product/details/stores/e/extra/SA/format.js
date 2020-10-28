@@ -100,7 +100,14 @@ const transform = (data) => {
           row.secondaryImageTotal = [{text: row.alternateImages.length}];
         }
 
+        if (row.brandText) {
+          row.brandText = [{ text: row.brandText[0].text, xpath: row.brandText[0].xpath }];
+          row.manufacturer = row.brandText;
+        }
+
         row.variantCount = [{text: 1}];
+        row.imageZoomFeaturePresent = [{text: "Yes"}];
+        row.shippingInfo = [{text: "Extra Stores"}];
       }
     }
     return data;

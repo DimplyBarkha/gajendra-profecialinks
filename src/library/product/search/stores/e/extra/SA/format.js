@@ -22,6 +22,9 @@ const transform = (data, context) => {
                 });
             }
 
+            if (row.brandText) {
+              row.manufacturer = row.brandText;
+            }
         }        
     }
 
