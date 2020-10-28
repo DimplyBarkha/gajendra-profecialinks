@@ -5,7 +5,7 @@ module.exports = {
     country: 'RU',
     store: 'mvideo',
     domain: 'mvideo.ru',
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },
