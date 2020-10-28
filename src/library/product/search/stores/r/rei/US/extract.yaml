@@ -5,10 +5,8 @@ recordXPath: //div[@id='search-results']//li
 fields:  
   - name: rankOrganic
     SingleValue: false
-    defaultValue: 1
   - name: rank
     SingleValue: false
-    defaultValue: 1
   - name: productUrl
     SingleValue: false
     xpath: //div[@id='search-results']//li//a[1]/@href
@@ -31,3 +29,13 @@ fields:
     xpath: //div[@id='search-results']//li//span[contains(@class,'cdr-rating__count_5.2.1')]
     regExp: \((.+?)\)
     regExpReplace: $1
+  - name: ratingCount
+    SingleValue: false
+    xpath: //div[@id='search-results']//li//span[contains(@class,'cdr-rating__count_5.2.1')]
+    regExp: \((.+?)\)
+    regExpReplace: $1    
+  - name: aggregateRating
+    SingleValue: false
+    xpath: //div[@id='search-results']//li//span[contains(@class,'cdr-rating__caption-sr_5.2.1')]
+    regExp: average\s+rating\s+of\s+([\d|\.]+)\s+out
+    regExpReplace: $1    
