@@ -6,7 +6,9 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@class="hgroup__main-image"]/img/@src|//div[@class="image image--stretch"]/picture/img/@src
+    xpath: //figure[@class="product-image"]//img/@src | //div[@class="hgroup__main-image"]/img/@src|//div[@class="image image--stretch"]/picture/img/@src
+    regExp: (.+)
+    regExpReplace: https://shop.dyson.ru/$1
   - name: pageTimeStamp
     singleValue: true
     xpath: //div[@id="pageTimeStamp"]
@@ -16,7 +18,7 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[@class="hgroup__main-image"]/img/@alt
+    xpath: //figure[@class="product-image"]//img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -25,15 +27,15 @@ fields:
     singleValue: true
     description: The <meta> keywords content
     xpath: //meta[contains(@name, "keywords")]/@content
-  #- name: category
-  #  singleValue: false
-  #  description: The categories (e.g. from breadcrumbs)
-  #  xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' breadcrumb ')])[1]//li[position()>1]//a/span
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[contains(@class,'breadcrumbs')]//a[position()>1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
+    xpath: //div[@class="product-name"] | //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -60,12 +62,12 @@ fields:
     singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="product__claims__features"]
+    xpath: //div[@class="description"]//div[@class="std"] | //div[@class="product-features"]//li//p | //div[@class="product__claims__features"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[@id="added_descBullets"]//li)
+    xpath: count(//div[@class="product-features"]//li | //div[@id="added_descBullets"]//li)
     #xpath: count(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//*[contains(text(), '•')] | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__text-wrapper ')]//li)
   - name: brandText
     singleValue: true
@@ -96,13 +98,12 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@id='sku']
+    xpath: //head//@sku
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@id='sku']
+    xpath: //head//@sku
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -124,17 +125,17 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //div[@id="reviewCount"]
+    xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
     regExp: (^.{3,3})
     regExpReplace: $1
-    xpath: //div[@id="ratingText"]
+    xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@id="rating"]
+    xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
   - name: shippingInfo #localedependent
     singleValue: true
     description: Shipping information for the product
@@ -169,11 +170,13 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id='videos']
+    xpath: //div[contains(@id,"feature_video")]//@src[contains(.,'video')]
+    regExp: (.+)
+    regExpReplace: https://shop.dyson.ru/$1
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
+    xpath: //div[@class="product-name"] | //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
   - name: inStorePrice #missing
     singleValue: true
     description: Price in the selected store
@@ -426,7 +429,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id="specifications"]
+    xpath: //ul[contains(@class,'product-specification')]//li[contains(.,'Габариты')]//p[2]
   - name: warranty #localedependent
     singleValue: true
     description: Guarantee associated with the product

@@ -8,24 +8,23 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  function stall(ms) {
+  function stall (ms) {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve();
-      }, ms)
-    })
+      }, ms);
+    });
   }
 
   await stall(5000);
 
-  await context.evaluate(async function() {
-
-    function stall(ms) {
+  await context.evaluate(async function () {
+    function stall (ms) {
       return new Promise(resolve => {
         setTimeout(() => {
           resolve();
-        }, ms)
-      })
+        }, ms);
+      });
     }
 
     function addHiddenDiv (id, content) {
@@ -48,11 +47,12 @@ async function implementation (
         }
       });
     }
+    const getUrl = document.querySelector('div.add-to-cart a').getAttribute('href');
 
     if (!document.getElementById('sku')) {
       document.querySelectorAll('script').forEach(script => {
         const matches = script.innerText.match(/productSKU: \"[0-9]+\-[0-9]+\"/);
-        if(matches && matches.length) {
+        if (matches && matches.length) {
           addHiddenDiv('sku', matches[0].replace('productSKU: ', '').replace(/"/g, ''));
         }
       });
@@ -67,8 +67,8 @@ async function implementation (
       addHiddenDiv('reviewCount', 0);
     }
 
-    document.querySelectorAll('.icon-info__body').forEach(el => {
-      if (el.innerText.includes('year guarantee')) {
+    document.querySelectorAll('div.description').forEach(el => {
+      if (el.innerText.includes('Гарантия')) {
         addHiddenDiv('warranty', el.innerText);
       }
       if (el.innerText.includes('shipping')) {
@@ -78,7 +78,7 @@ async function implementation (
 
     if (!document.getElementById('warranty')) {
       document.querySelectorAll('p').forEach(el => {
-        if (el.innerText.includes('year guarantee') && !document.getElementById('warranty')) {
+        if (el.innerText.includes('Гарантия') && !document.getElementById('warranty')) {
           addHiddenDiv('warranty', el.innerText);
         }
       });
@@ -89,24 +89,24 @@ async function implementation (
     }
 
     let outOfStock = false;
-    if (document.querySelector('.legacy__product__availability-messaging')
-    && document.querySelector('.legacy__product__availability-messaging').innerText.includes('Unfortunately, this product is no longer available.')) {
+    if (document.querySelector('.legacy__product__availability-messaging') &&
+            document.querySelector('.legacy__product__availability-messaging').innerText.includes('Unfortunately, this product is no longer available.')) {
       outOfStock = true;
     }
 
     if (document.querySelector('.hero__pricing__sold-out') || outOfStock) {
       addHiddenDiv('availabilityText', 'Out of Stock');
     } else {
-      addHiddenDiv('availabilityText', 'In Stock')
+      addHiddenDiv('availabilityText', 'In Stock');
     }
 
     const manufacturerImages = [];
     let enhancedContent = '';
     document.querySelectorAll('.layout').forEach(el => {
-      if(el.querySelector('h2')
-      && (el.querySelector('h2').innerText.includes('In the box')
-      || el.querySelector('h2').innerText.includes('Key features')
-      || el.querySelector('h2').innerText.includes('All features'))) {
+      if (el.querySelector('h2') &&
+                (el.querySelector('h2').innerText.includes('In the box') ||
+                    el.querySelector('h2').innerText.includes('Key features') ||
+                    el.querySelector('h2').innerText.includes('All features'))) {
         enhancedContent += el.innerText + ' ';
         el.querySelectorAll('img').forEach(img => {
           manufacturerImages.push(img.getAttribute('src'));
@@ -120,17 +120,17 @@ async function implementation (
     addHiddenDiv('manufacturerImages', manufacturerImages.join(' | '));
 
     const alternateImages = [];
-    if (document.querySelector('button[data-modal="product_mini_gallery_video"]')) {
-      document.querySelector('button[data-modal="product_mini_gallery_video"]').click();
+    if (document.querySelector('a.product-video-thumbnail-img')) {
+      document.querySelector('a.product-video-thumbnail-img').click();
       await stall(1000);
       if (document.querySelector('video')) {
         addHiddenDiv('videos', document.querySelector('video').querySelector('source').getAttribute('src'));
       }
-      document.getElementById('product_mini_gallery_video').querySelectorAll('picture').forEach(pic => {
-        if (pic.querySelector('img')) {
-          alternateImages.push(pic.querySelector('img').getAttribute('src'));
-        }
-      });
+      const alternateImages = [];
+      await stall(1000);
+      if (document.querySelector('div.images')) {
+        alternateImages.push(document.querySelector('div.images').getAttribute('src'));
+      }
     }
     addHiddenDiv('alternateImages', alternateImages.join(' | '));
 
@@ -149,7 +149,8 @@ async function implementation (
       }
     });
     addHiddenDiv('specifications', specifications.join(' | '));
-
+    const sku = getUrl.split('=').pop();
+    document.head.setAttribute('sku', sku);
   });
 
   return await context.extract(productDetails, { transform });
