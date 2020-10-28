@@ -22,7 +22,7 @@ fields:
     RegExp: '[^\d]+$'
   - name: Rating
     description: The rating value of the product
-    xpath: //div[@class='panel-body']//a//@data-rating
+    xpath: //div[@class="infinite-scroll"]//div[@class="rating "]/@data-rating
   - name: Availability
     description: The availability status of the product
     xpath: //div[@class='article-stock ']//font//font//text()
