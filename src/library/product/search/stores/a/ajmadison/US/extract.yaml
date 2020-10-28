@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+- name: id
+  singleValue: false
+  xpath: //div[@class="js-add-to-compare search-page__add-to-compare"]/@data-sku
+- name: name
+  singleValue: false
+  xpath: //div[@class="block mr2 bold f13 font-size-md"]/text()
+- name: thumbnail
+  singleValue: false
+  xpath: //div[@class="product-list--image-container relative mb2"]/a/div[@class='cp__image cp__image--is_selected']/img/@src | //div[@class="product-list--image-container relative mb2"]/a/img/@src
+- name: productUrl
+  singleValue: false
+  xpath: //div[@class="clearfix"]//a[@class="hover-text-decoration-none "]/@href
+  regExp: (/.+)
+  regExpReplace: https://www.ajmadison.com$1
+- name: reviewCount
+  singleValue: false
+  xpath: count(//div[@class="col col-3 lg-col-5 px-2"]//a[contains(text(),'Reviews')])
+- name: manufacturer
+  singleValue: false
+  xpath: //div[@class="inline-block bold black-0 f12"]/text()
+- name: aggregateRating
+  singleValue: false
+  xpath: //html//div[@class="ajmadison_Agg_Rating"]
+- name: Price
+  singleValue: false
+  xpath: //tr[1]//td[@class='py05 nowrap right-align']/a/text()
