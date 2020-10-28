@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: 'product/details',
   parameterValues: {
     country: 'US',
+    store: 'totalwine_95825',
     domain: 'totalwine.com',
-    store: 'totalwine',
-    zipcode: '',
+    zipcode: '95825',
   },
 };
