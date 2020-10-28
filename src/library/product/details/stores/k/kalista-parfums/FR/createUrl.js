@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'kalista-parfums.com',
     prefix: null,
-    url: null,
+    url: 'https://www.kalista-parfums.com/fr/{searchTerms}',
     country: 'FR',
     store: 'kalista-parfums',
     zipcode: '',

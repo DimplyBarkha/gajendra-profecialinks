@@ -5,8 +5,8 @@ module.exports = {
     country: 'FR',
     store: 'kalista-parfums',
     domain: 'kalista-parfums.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '.columns-container',
+    noResultsXPath: '//p[contains(text(),"Aucun résultat trouvé")]',
     zipcode: '',
   },
 };
