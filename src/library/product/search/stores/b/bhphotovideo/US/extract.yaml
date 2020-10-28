@@ -1,0 +1,73 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //*[@data-selenium="miniProductPage"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //a[@data-selenium="miniProductPageProductNameLink"]/@href
+    regExp: .*product\/([^\/]*)\/.*
+    regExpReplace: $1
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //span[@data-selenium="miniProductPageProductName"]
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //a[@data-selenium="miniProductPageProductNameLink"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.bhphotovideo.com$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //a[@data-selenium="miniProductPageProductImgLink"]/img/@src
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: count(*//div/*[contains(@class, "star")][contains(@class, "full")])+0.5*count(*//*[@href="#StarHalfIconColored"])
+  - name: aggregateRating2
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: count(*//div/*[contains(@class, "star")][contains(@class, "full")])+0.5*count(*//*[@href="#StarHalfIconColored"])
+  - name: reviewCount
+    singleValue: false
+    description: The number of reviews
+    type: NUMBER
+    xpath: /*//span[@data-selenium="miniProductPageProductReviews"]
+    regExp: \d+
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //*[@data-selenium="uppedDecimalPriceFirst"] | //*[@data-selenium="uppedDecimalPriceSecond"]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: count(preceding-sibling::div)+1
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: count(preceding-sibling::div)+1
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
