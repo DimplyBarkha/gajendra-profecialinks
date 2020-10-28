@@ -115,27 +115,27 @@ const transform = (data, context) => {
       if (row.variantId) {
         row.variantId = [{ text: row.variantId[0].text.replace('parentAsin":"', '') }];
       }
-      if (row.salesRankCategory) {
-        row.salesRankCategory = row.salesRankCategory.map(item => {
-          const unWantedTxt = 'See Top 100 in ';
-          if (item.text.includes('#')) {
-            const regex = /#[0-9,]{1,} in (.+) \(/s;
-            const rawCat = item.text.match(regex);
-            return { text: rawCat ? rawCat[1].replace(unWantedTxt, '') : '' };
-          }
-          return { text: item.text.replace(unWantedTxt, '') };
-        });
-      }
-      if (row.salesRank) {
-        row.salesRank = row.salesRank.map(item => {
-          if (item.text.includes('#')) {
-            const regex = /([0-9,]{1,})/s;
-            const rawCat = item.text.match(regex);
-            return { text: rawCat ? castToInt(rawCat[0].split(/[,.\s]/).join('')) : 0 };
-          }
-          return { text: 0 };
-        });
-      }
+      // if (row.salesRankCategory) {
+      //   row.salesRankCategory = row.salesRankCategory.map(item => {
+      //     const unWantedTxt = 'See Top 100 in ';
+      //     if (item.text.includes('#')) {
+      //       const regex = /#[0-9,]{1,} in (.+) \(/s;
+      //       const rawCat = item.text.match(regex);
+      //       return { text: rawCat ? rawCat[1].replace(unWantedTxt, '') : '' };
+      //     }
+      //     return { text: item.text.replace(unWantedTxt, '') };
+      //   });
+      // }
+      // if (row.salesRank) {
+      //   row.salesRank = row.salesRank.map(item => {
+      //     if (item.text.includes('#')) {
+      //       const regex = /([0-9,]{1,})/s;
+      //       const rawCat = item.text.match(regex);
+      //       return { text: rawCat ? castToInt(rawCat[0].split(/[,.\s]/).join('')) : 0 };
+      //     }
+      //     return { text: 0 };
+      //   });
+      // }
       if (row.manufacturerDescription && row.manufacturerDescription[0]) {
         const description = [];
         row.manufacturerDescription.forEach(item => {

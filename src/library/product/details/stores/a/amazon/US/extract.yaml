@@ -183,12 +183,6 @@ fields:
   - name: internationalShipping
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1] | //table[contains(@id, 'detail')]//th[contains(text(), 'International Shipping')]/following-sibling::td/text() | //div[contains(@id, 'Detail')]//td[contains(text(), 'International Shipping')]/following-sibling::td/text()
-  - name: salesRank
-    singleValue: false
-    xpath: //*[@id="SalesRank"]//*[contains(text(), "#")]/text() | //*[@id="SalesRank"]/text()[contains(., "#")] | //th[contains(text(),"Best Sellers Rank")]/following-sibling::td/span/span | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller")]/ancestor::ul//span[contains(@class,  "a-list-item")]
-  - name: salesRankCategory
-    singleValue: false
-    xpath: //*[@id="SalesRank"]/text()[contains(., "in")] | //*[@id="SalesRank"]//span[contains(., "in")]/a | //th[contains(text(),"Best Sellers Rank")]/following-sibling::td/span//span[contains(., "in")]/
   - name: subscriptionPrice
     singleValue: true
     xpath: //*[@id="sns-base-price"]
@@ -540,7 +534,10 @@ fields:
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")] | //span[contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")] | //div[contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"]/a
   - name: starsByFeature
     singleValue: false
-    xpath: //div[@id="cr-dp-summarization-attributes"]//div[contains(@id, "attribute-attr")]//span[contains(@class, "a-size-base")]/text()
+    xpath: //div[@id="cr-dp-summarization-attributes"]//div[contains(@id, "attribute-attr")]
+    regExp: ^([^0-9]+).+([0-9\.]{3})$
+    regExpReplace: >-
+       $1 : $2%
   - name: featureNames
     singleValue: false
     xpath: //div[@data-hook="cr-summarization-attributes-list"]//span[contains(@class,"a-size-base") and contains(@class,"a-color-base")]
@@ -649,4 +646,15 @@ fields:
     singleValue: false 
     xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
     regExp: \#([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
-    regExpReplace: $1 | $2
+    regExpReplace: >-
+      #$1 in $2
+  - name: salesRank
+    singleValue: false
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
+    regExp: \#([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
+    regExpReplace: $1
+  - name: salesRankCategory
+    singleValue: false
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
+    regExp: \#([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
+    regExpReplace: $2
