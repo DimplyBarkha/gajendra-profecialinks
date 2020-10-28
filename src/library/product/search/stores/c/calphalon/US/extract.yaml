@@ -8,10 +8,8 @@ fields:
     xpath: //li//div[contains(@class,'item-cont')]/@id
   - name: rankOrganic
     SingleValue: false
-    defaultValue: 1
   - name: rank
     SingleValue: false
-    defaultValue: 1
   - name: productUrl
     SingleValue: false
     xpath: //li//div[contains(@class,'item-cont')]//a//@href
@@ -27,3 +25,11 @@ fields:
   - name: aggregateRating
     SingleValue: false
     xpath: //li//span[contains(@class,'bv-rating-stars-on')]//@class
+  - name: ratingCount
+    SingleValue: false
+    xpath: //li//dd[contains(@class,'bv-rating-ratio-count')]
+    type: NUMBER
+  - name: reviewCount
+    SingleValue: false
+    xpath: //li//dd[contains(@class,'bv-rating-ratio-count')]
+    type: NUMBER
