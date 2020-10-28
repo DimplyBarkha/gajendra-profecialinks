@@ -25,10 +25,16 @@ const transform = (data) => {
     for (const { group } of data) {
       for (let row of group) {
         let tmp_desc = ''
-        if (row.listPrice) {            
-            row.listPrice.forEach(item => {
-                item.text = item.text.replace(/(\s*Antes\s*)+/isg, '').trim();
+        if (row.price) {            
+            row.price.forEach(item => {
+                item.text = item.text.replace(/(\s*,\s*)+/isg, '').trim();
             });
+        }
+        if (row.listPrice) {            
+          row.listPrice.forEach(item => {
+              item.text = item.text.replace(/(\s*Antes\s*)+/isg, '').trim();
+              item.text = item.text.replace(/(\s*,\s*)+/isg, '').trim();
+          });
         }
         if (row.promotion) {            
             row.promotion.forEach(item => {
