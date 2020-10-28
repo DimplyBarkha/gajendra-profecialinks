@@ -37,6 +37,11 @@ module.exports = {
       const image360 = document.querySelector('button[data-selenium="inlineMediaOpenMedia inlineMedia3DGallery"]');
       const image360Present = image360 ? 'Yes' : 'No';
       document.querySelector('body').setAttribute('image360Present', image360Present);
+
+      const ratingFullStars = document.querySelectorAll('div[class*=name] svg[class*="full"]').length;
+      const ratingHalfStar = document.querySelector('div[class*=name] use[href*="Half"]') ? 0.5 : 0;
+      const rating = String(ratingFullStars + ratingHalfStar).replace('.', ',');
+      document.querySelector('body').setAttribute('rating', rating);
     });
 
     var dataRef = await context.extract(productDetails);
