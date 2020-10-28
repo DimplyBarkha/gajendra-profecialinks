@@ -262,8 +262,9 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
-    xpath: concat(//dl[@class="specification"]//dt[contains(text(),"Breite Verpackung:")], ' ',(//dl[@class="specification"]//dt[contains(text(),"Breite Verpackung:")]//following-sibling::dd)[1], ' ', (//dl[@class="specification"]//dt[contains(text(),"Höhe Verpackung:")]), ' ', (//dl[@class="specification"]//dt[contains(text(),"Höhe Verpackung:")]//following-sibling::dd)[1],  ' ',(//dl[@class="specification"]//dt[contains(text(),"Tiefe Verpackung:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Tiefe Verpackung")]//following-sibling::dd)[1], ' ',(//dl[@class="specification"]//dt[contains(text(),"Gurtmaß Verpackung:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Gurtmaß Verpackung:")]//following-sibling::dd)[1])
+    # singleValue: true
+    # xpath: concat(//dl[@class="specification"]//dt[contains(text(),"Breite Verpackung:")], ' ',(//dl[@class="specification"]//dt[contains(text(),"Breite Verpackung:")]//following-sibling::dd)[1], ' ', (//dl[@class="specification"]//dt[contains(text(),"Höhe Verpackung:")]), ' ', (//dl[@class="specification"]//dt[contains(text(),"Höhe Verpackung:")]//following-sibling::dd)[1],  ' ',(//dl[@class="specification"]//dt[contains(text(),"Tiefe Verpackung:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Tiefe Verpackung")]//following-sibling::dd)[1], ' ',(//dl[@class="specification"]//dt[contains(text(),"Gurtmaß Verpackung:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Gurtmaß Verpackung:")]//following-sibling::dd)[1])
+    xpath: //div[contains(@class,'features-wrapper')]//section//dl[@class='specification']/*
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true

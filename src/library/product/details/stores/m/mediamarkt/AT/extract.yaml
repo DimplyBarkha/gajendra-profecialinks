@@ -270,9 +270,10 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
+    # singleValue: true
     # xpath: (//tr[contains(@class,"TableRow")]//td//*[contains(text(),"Farbe")]//ancestor::td//following-sibling::td)[1]
     # xpath: concat(//dl[@class="specification"]//dt[contains(text(),"Breite Verpackung:")], ' ',(//dl[@class="specification"]//dt[contains(text(),"Breite Verpackung:")]//following-sibling::dd)[1], ' ', (//dl[@class="specification"]//dt[contains(text(),"Höhe Verpackung:")]), ' ', (//dl[@class="specification"]//dt[contains(text(),"Höhe Verpackung:")]//following-sibling::dd)[1],  ' ',(//dl[@class="specification"]//dt[contains(text(),"Tiefe Verpackung:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Tiefe Verpackung")]//following-sibling::dd)[1], ' ',(//dl[@class="specification"]//dt[contains(text(),"Gurtmaß Verpackung:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Gurtmaß Verpackung:")]//following-sibling::dd)[1])
+    xpath: //div[contains(@class,'ProductFeatures__StyledFeatureContainer')]//table//tbody//td//text()
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
