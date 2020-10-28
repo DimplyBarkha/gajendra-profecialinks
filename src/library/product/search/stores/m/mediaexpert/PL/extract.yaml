@@ -5,7 +5,7 @@ recordXPath: //div[contains(@class,"c-grid_col is-grid-col-1")]
 fields:
   - name: id
     xpath: //div[contains(@class,'is-productCode')]/div
-    regExp: (/d+)
+    regExp: (\d+)
   - name: name
     xpath: //h2[contains(@data-zone,"OFFERBOX_NAME")]
   - name: productUrl
@@ -15,10 +15,12 @@ fields:
   - name: thumbnail
     xpath: //div[@data-zone="OFFERBOX_PHOTO"]/a/img/@src
     regExp: (.+)
-    regExpReplace: https://www.mediaexpert.pl$1
+    regExpReplace: https:$1
   - name: aggregateRating
     # xpath:
   - name: reviewCount
     xpath: //div[contains(@class,"reviews_count")]/a/@data-label
   - name: price
     xpath: //div[contains(@class,"normalPrice")]
+  - name: searchUrl
+    xpath: //div[contains(@class,"c-grid_col is-grid-col-1")]/@searchurl

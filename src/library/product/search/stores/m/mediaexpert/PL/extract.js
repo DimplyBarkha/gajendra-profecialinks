@@ -24,8 +24,8 @@ module.exports = {
       await context.evaluate(async function () {
         let scrollTop = 0;
         while (scrollTop !== 20000) {
-          await stall(500);
-          scrollTop += 1000;
+          await stall(1000);
+          scrollTop += 800;
           window.scroll(0, scrollTop);
           if (scrollTop === 20000) {
             await stall(1000);
@@ -42,6 +42,15 @@ module.exports = {
       });
     };
     await applyScroll(context);
+    await context.evaluate(() => {
+      var searchUrl = window.location.href;
+      var appendElements = document.querySelectorAll('div[class*="c-grid_col is-grid-col-1"]');
+      if (appendElements.length) {
+        appendElements.forEach((element) => {
+          element.setAttribute('searchurl', searchUrl);
+        })
+      }
+    });
     return await context.extract(productDetails, { transform });
   }
 };
