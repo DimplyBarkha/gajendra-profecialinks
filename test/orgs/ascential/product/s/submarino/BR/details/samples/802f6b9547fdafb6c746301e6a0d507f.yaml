@@ -2,7 +2,7 @@ input:
   _url: http://submarino.com.br
   URL: https://www.submarino.com.br/produto/124738331/geladeira-refrigerador-brastemp-inverse-frost-free-bre80ak-573-litros-evox?DCSext.recom=RR_item_page.rr2-PurchaseEV&nm_origem=rec_item_page.rr2-PurchaseEV&nm_ranking_rec=1&voltagem=110%20volts
 extractions:
-  - html: https://workbench.import.io/html/run=422bafe0-2251-44bd-9665-0221d5e57452/task=17371af5-2664-409f-8f9e-e367c0a7eb97/276006ff-1741-4fe5-bfd1-75e425cd371d.html
+  - html: https://workbench.import.io/html/run=abb9b325-5055-419f-9df9-0d883878c85b/task=b668829e-be88-45b0-853c-5917ca7e5814/34527a07-fe42-4a94-b196-1aa08e154602.html
     extractionConfigId: product/details/stores/s/submarino/BR/extract
     data:
       - group:
@@ -30,12 +30,9 @@ extractions:
               - text: Geladeira / Refrigerador Brastemp Domést Frost Free 2 Portas BRE80 573
                   Litros Evox 110V
                 xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
-            listPrice:
+            price:
               - text: R$ 4.989,00
                 xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
-            price:
-              - text: R$ 4.490,10
-                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/span[1]
             availabilityText:
               - text: In stock
                 xpath: /html/body/div[7]
@@ -77,7 +74,7 @@ extractions:
               - text: 108kg
                 xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[42]/td[2]/span[1]
             gtin:
-              - text: 7891129236714, 7891129236707
+              - text: 7891129236707, 7891129236714
                 xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
             sku:
               - text: "124738331"
@@ -108,8 +105,8 @@ extractions:
               - text: 12 meses
                 xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[44]/td[2]/span[1]
             variantInformation:
-              - text: Voltagem
-                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/@type
+              - text: 110 volts
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
             materials:
               - text: "Portas: chapa de aço, poliuretano, plástico; Prateleiras: plástico e
                   vidro; Gabinete: chapa de aço, poliuretano, plástico, rede
@@ -118,6 +115,6 @@ extractions:
             descriptionBullets:
               - text: "48"
             variantCount:
-              - text: "2"
+              - text: "1"
         xpath: /
-    timestamp: 1603886126948
+    timestamp: 1603889671556

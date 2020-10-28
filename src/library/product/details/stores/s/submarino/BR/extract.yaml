@@ -131,7 +131,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    xpath: count(//span[@type and contains(@class, 'variation')]) #@todo
+    xpath: //div[contains(@id, 'variantsCount')]
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -145,6 +145,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[contains(@id, 'info-section')]//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page

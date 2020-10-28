@@ -21,6 +21,20 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
+      const variantTypes = document.querySelectorAll('div[type] > div[type]');
+
+      const variantsObj = {};
+      Array.from(variantTypes).map(el => {
+        variantsObj[el.getAttribute('type')] = el.childElementCount;
+      });
+      if (Object.keys(variantsObj).length > 1) {
+        variantsObj.variants = Object.values(variantsObj).reduce((a, b) => a * b);
+        addElementToDocument('variantsCount', variantsObj.variants);
+      } else {
+        addElementToDocument('variantsCount', Object.values(variantsObj));
+      }
+
+
       addElementToDocument('productUrl', window.location.href);
       const hiddenVideoInImg = document.evaluate('//img[contains(@alt, \'Vídeo\')]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (hiddenVideoInImg) hiddenVideoInImg.click();

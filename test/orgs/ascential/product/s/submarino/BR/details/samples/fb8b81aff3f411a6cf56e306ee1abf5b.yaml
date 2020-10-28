@@ -1,0 +1,72 @@
+input:
+  _url: http://submarino.com.br
+  URL: https://www.submarino.com.br/produto/1223949766/carrinho-da-patrulha-canina-kit-com-6-carros-brinquedo-crianca-infantil?DCSext.recom=RR_category_page.rr2-CategoryTopProducts&nm_origem=rec_category_page.rr2-CategoryTopProducts&nm_ranking_rec=1&pfm_carac=Destaques&pfm_page=category&pfm_pos=category_page.rr1&pfm_type=vit_recommendation
+extractions:
+  - html: https://workbench.import.io/html/run=abb9b325-5055-419f-9df9-0d883878c85b/task=5bc374c6-2d94-45a9-9e90-d761d03ddc36/00b7b001-affd-4578-9a7f-951c05507f02.html
+    extractionConfigId: product/details/stores/s/submarino/BR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.submarino.com.br/produto/1223949766/carrinho-da-patrulha-canina-kit-com-6-carros-brinquedo-crianca-infantil?DCSext.recom=RR_category_page.rr2-CategoryTopProducts&nm_origem=rec_category_page.rr2-CategoryTopProducts&nm_ranking_rec=1&pfm_carac=Destaques&pfm_page=category&pfm_pos=category_page.rr1&pfm_type=vit_recommendation
+                xpath: /html/body/div[6]
+            image:
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/1223949/7/1223949782P1.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Carrinho da Patrulha Canina kit com 6 Carros brinquedo criança infantil no
+                  Submarino.com
+                xpath: /html/head[1]/meta[18]/@content
+            alternateImages:
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/1223949/7/1223949782P1.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/1223949/7/1223949782_2GG.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
+            category:
+              - text: Brinquedos
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/a[1]/div[1]/span[1]
+              - text: Bonecos
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[3]/a[1]/div[1]/span[1]
+            nameExtended:
+              - text: Carrinho da Patrulha Canina kit com 6 Carros brinquedo criança infantil
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            price:
+              - text: R$ 93,00
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[7]
+            description:
+              - text: >-
+                  Carrinho da Patrulha Canina kit com 6 Carros brinquedo criança
+                  infantil
+
+                  Tamanho: aproximadamente 7cm
+
+                  Peso: aproximadamente de cada carrinho 30g
+
+                  Material: Plástico PVC
+
+                  Especialidade: Todos de Fricção
+
+                  6 Personagens: CHASE, MARSHALL, RUBBLE, ZUMA, SKYE, ROCK.
+
+                  Toda Turma reunida em um único kit, ótimo para presentear
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]
+            sku:
+              - text: "1223949766"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[8]/div[1]/section[1]/div[1]/header[1]/div[1]/div[1]/span[2]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[8]/div[1]/section[1]/div[1]/header[1]/div[1]/div[1]/span[1]
+            name:
+              - text: Carrinho da Patrulha Canina kit com 6 Carros brinquedo criança infantil
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            descriptionBullets:
+              - text: "2"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1603889674966
