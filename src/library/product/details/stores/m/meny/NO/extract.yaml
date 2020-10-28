@@ -266,14 +266,12 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-    type: NUMBER
   - name: totalFatPerServing
     description:
       Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    type: NUMBER
     xpath: //*[contains(text(),"Fett")]/..
-    regExp: (\d+)(,|)(\d+)
+    regExp: (\d+)(,|)(\d+|)
   - name: totalFatPerServingUom
     description: Unit of Measure Data for Total Fat content
     xpath: //*[contains(text(),"Fett")]/..
@@ -282,7 +280,6 @@ fields:
     description:
       Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    type: NUMBER
     xpath: //*[contains(text(),"Mettet fett")]/..
     regExp: (\d+)(,|)(\d+|)
   - name: saturatedFatPerServingUom
@@ -320,7 +317,6 @@ fields:
     description:
       Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-    type: NUMBER
     xpath: //*[contains(text(),"Karbohydrater")]/..
     regExp: (\d+)(,|)(\d+|)
   - name: totalCarbPerServingUom
@@ -331,7 +327,6 @@ fields:
     description:
       Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
-    type: NUMBER
     xpath: //*[contains(text(),"Kostfiber")]/..
     regExp: (\d+)(,|)(\d+)
   - name: dietaryFibrePerServingUom
@@ -342,7 +337,6 @@ fields:
     description:
       Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-    type: NUMBER
     xpath: //*[contains(text(),"Sukkerarter")]/..
     regExp: (\d+)(,|)(\d+|)
   - name: totalSugarsPerServingUom
@@ -353,7 +347,6 @@ fields:
     description:
       Nutritional Information for Protein content - Usually based on per
       100g serving
-    type: NUMBER
     xpath: //*[contains(text(),"Protein")]/..
     regExp: (\d+)(,|)(\d+|)
   - name: proteinPerServingUom
@@ -410,7 +403,6 @@ fields:
   - name: saltPerServing
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
-    type: NUMBER
     xpath: //*[contains(text(),"Salt")]/..
     regExp: (\d+)(,|)(\d+|)
   - name: saltPerServingUom

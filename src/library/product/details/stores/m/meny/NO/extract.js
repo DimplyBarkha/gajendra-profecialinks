@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { cleanUp } = require('../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -8,7 +8,14 @@ module.exports = {
     zipcode: ' ',
     domain: 'meny.no',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async function implementation(
+    inputs,
+    parameters,
+    context,
+    dependencies,
+  ) {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
     await context.evaluate(async () => {
       // const { transform } = parameters;
       const informationDiv = document.createElement('div');
@@ -48,6 +55,6 @@ module.exports = {
         }
       }
     })
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
