@@ -134,7 +134,8 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
         } else {
           await extractorContext.reload();
           page = await pageContextCheck(await pageContext());
-          await solveCaptchaIfNecessary(page);
+          // await solveCaptchaIfNecessary(page);
+          await handlePage(page, null)
         }
       }
     }
@@ -350,6 +351,8 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
   };
 
   const handlePage = async (page, lastResponseData) => {
+    let lastResponseCode = lastResponseData ? lastResponseData.status : 200;
+
     console.log('HANDLING PAGE');
     // checking for blank  page and  reloading
     page = await pageContextCheck(page);
@@ -362,10 +365,10 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
     if (page.isCaptchaPage) {
       console.log('checking captcha', page);
       // we failed to solve the CAPTCHA or a second captcha was thrown
-      extractorContext.reportBlocked(lastResponseData.status, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
+      extractorContext.reportBlocked(lastResponseCode, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
     }
 
-    if (lastResponseData.status === 503 || page.is500Page) {
+    if (lastResponseCode === 503 || page.is500Page) {
       console.log('getting  503 pageId');
       // pageId = await extractorContext.getPageId();
 
@@ -380,13 +383,13 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
       page = await pageContext();
       if (page.is500Page) {
         // we failed to solve the CAPTCHA or a second captcha was thrown
-        extractorContext.reportBlocked(lastResponseData.status, 'Blocked: Could not work around 503');
+        extractorContext.reportBlocked(lastResponseCode, 'Blocked: Could not work around 503');
       }
 
       page = await solveCaptchaIfNecessary(page);
       if (page.isCaptchaPage) {
         // we failed to solve the CAPTCHA or a second captcha was thrown
-        extractorContext.reportBlocked(lastResponseData.status, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
+        extractorContext.reportBlocked(lastResponseCode, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
       }
 
       console.log('Go to some random page');
@@ -401,34 +404,35 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
 
       if (!clickedOK) {
         console.log('Could not click a product, aborting... :/');
-        return await pageContext();
+        // return await pageContext();
       }
 
       await new Promise(r => setTimeout(r, 2000));
 
       console.log('Going back to desired page');
       lastResponseData = await extractorContext.goto(gotoInput.url, {
-        checkBlocked: false
+        checkBlocked: true
       });
-
-      console.log('lastResponseData: ', lastResponseData);
+      lastResponseCode = lastResponseData.status
+      console.log('lastResponseData: ', lastResponseCode);
       page = await pageContext();
       console.log('page: ', page);
     }
 
-    if (lastResponseData.status === 404 || lastResponseData.status === 410 || page.is400Page || (page.hasDogsofAmazon && !page.is500Page)) {
+    if (lastResponseCode === 404 || lastResponseCode === 410 || page.is400Page || (page.hasDogsofAmazon && !page.is500Page)) {
       return false;
     }
 
-    if (lastResponseData.status !== 200) {
-      return extractorContext.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
+    if (lastResponseCode !== 200) {
+      return extractorContext.reportBlocked(lastResponseCode, 'Blocked: ' + lastResponseCode);
     }
 
     await extractorContext.checkBlocked();
 
     page = await acceptCookiesIfNecessary(page);
 
-    if (lastResponseData.url.includes('elasticbeanstalk') || lastResponseData.url.includes('www.primevideo.com')) {
+
+    if (lastResponseData && (lastResponseData.url.includes('elasticbeanstalk') || lastResponseData.url.includes('www.primevideo.com'))) {
       extractorContext.counter.set('primevideo', 1);
     }
 
