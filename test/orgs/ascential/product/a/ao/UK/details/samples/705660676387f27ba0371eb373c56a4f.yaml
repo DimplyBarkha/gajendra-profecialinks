@@ -1,0 +1,101 @@
+input:
+  _url: http://ao.com
+  URL: https://ao.com/product/480003-morphy-richards-fryer-black-66151-97.aspx?cmredirectionvalue=480001_BK
+extractions:
+  - html: https://workbench.import.io/html/run=f4e9ad23-5402-4255-87e4-ac290593cb88/task=9c7ae6cf-2223-4043-931c-eb8ce95fa2eb/0e93912a-ef72-44ed-a8c6-45de26b7f4f1.html
+    extractionConfigId: product/details/stores/a/ao/UK/extract
+    data:
+      - group:
+          - metaKeywords:
+              - text: Fryer, Morphy Richards, 480003, Free Standing, Black
+                xpath: /html/head[1]/meta[14]/@content
+            category:
+              - text: Small Appliances
+                xpath: /html/body/div[15]
+              - text: Small Cooking Appliances
+                xpath: /html/body/div[16]
+              - text: Fryers
+                xpath: /html/body/div[17]
+            nameExtended:
+              - text: Morphy Richards 480003 Fryer - Black
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/h1[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[10]
+            brandText:
+              - text: Morphy Richards
+                xpath: /html/body/div[18]
+            manufacturer:
+              - text: Morphy
+                xpath: /html/body/div[11]
+            gtin:
+              - text: Morphy Richards 480003
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[5]
+            sku:
+              - text: 480003_BK
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[2]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            variantId:
+              - text: 480003_BK
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[2]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/div[2]/a[3]/span[1]
+            aggregateRatingText:
+              - text: (3)
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/a[1]
+            aggregateRating:
+              - text: "4.3"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[4]/div[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]
+            name:
+              - text: Morphy Richards 480003 Fryer - Black
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/h1[1]
+            specifications:
+              - text: Dimensions (H)32.0 x (W)35.0 x (D)28.0 Auto Shut Off Yes Food Capacity 3
+                  Kg Fryer Type Health Fryer Grill Yes Manual Control Yes Power
+                  1400 Watt Timer Yes Variable Temperature Yes Viewing Window No
+                  Cool Touch Handles Yes Dishwasher Safe Components No Easy
+                  Clean Yes Rapid Air Technology Yes Removable Bowl Yes Safety
+                  Locking Lid No Brand Morphy Richards Category Fryers Colour
+                  Black Dimensions (H)32.0 x (W)35.0 x (D)28.0 SKU 480003_BK
+                  Bake Yes Defrost Function Yes Roast Yes Extra Large Capacity
+                  Yes Fry Yes Manufacturer Warranty
+                xpath: /html/body/div[14]
+            firstVariant:
+              - text: 480003_BK
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[2]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            additionalDescBulletInfo:
+              - text: "||Has a 3kg food capacity||Set the timer for perfectly cooked
+                  food||Clever tech cooks food quickly and
+                  thoroughly||Easy-to-use manual dials||Quick and easy to clean
+                  - saving time and effort"
+                xpath: /html/body/div[13]
+            Image360Present:
+              - text: No
+                xpath: /html/body/div[12]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            price:
+              - text: "69.0 "
+            description:
+              - text: " ||Has a 3kg food capacity||Set the timer for perfectly cooked
+                  food||Clever tech cooks food quickly and
+                  thoroughly||Easy-to-use manual dials||Quick and easy to clean
+                  - saving time and effort"
+            descriptionBullets:
+              - text: "5"
+            variantCount:
+              - text: "0"
+            warranty:
+              - text: |
+                  
+                  2 Year
+        xpath: /
+    timestamp: 1603918429368

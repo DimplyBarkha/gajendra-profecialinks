@@ -1,0 +1,224 @@
+input:
+  _url: http://ao.com
+  URL: https://ao.com/product/75un81006lb-lg-un8100-tv-grey-75282-108.aspx?cmredirectionvalue=75282
+extractions:
+  - html: https://workbench.import.io/html/run=f4e9ad23-5402-4255-87e4-ac290593cb88/task=1f3c45e4-e1d1-4d6e-b3a4-60a747debc9b/5321aedb-ddc0-4d0f-85a4-684b466109fe.html
+    extractionConfigId: product/details/stores/a/ao/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://assets.products-live.ao.com/Images/9e505c43-1a64-4740-b3db-552ed861829d/2000x680/ao_ppp_hero_image_lg_75UN81006LB_01.gif
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[1]/section[1]/div[1]/div[2]/ul[1]/li[1]/img[1]/@src
+            imageAlt:
+              - text: LG 75UN81006LB 75" Smart 4K Ultra HD TV with HDR, Ultra Surround and
+                  Filmmaker Mode
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[1]/section[1]/div[1]/div[2]/ul[1]/li[1]/img[1]/@alt
+            alternateImages:
+              - text: https://f1.media.brightcove.com/8/710857100001/710857100001_6184965059001_6184973461001-vs.jpg?pubId=710857100001&videoId=6184973461001
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[1]/section[1]/div[1]/div[2]/ul[1]/li[2]/img[1]/@src
+              - text: https://assets.products-live.ao.com/Images/ab38f48f-e455-4cac-a9c8-c49ba7c604ae/1280x1280/75UN81006LB_lg_ledtv_01a.png
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[1]/section[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@src
+              - text: https://assets.products-live.ao.com/Images/1747fbc0-8de7-4ba5-a07c-78259b2a5481/1280x1280/75UN81006LB_lg_ledtv_02.png
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[1]/section[1]/div[1]/div[2]/ul[1]/li[4]/img[1]/@src
+              - text: https://assets.products-live.ao.com/Images/fa1bed9d-7f50-4b3d-97e2-39f8a557ae74/1280x1280/75UN81006LB_lg_ledtv_03.png
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[1]/section[1]/div[1]/div[2]/ul[1]/li[5]/img[1]/@src
+              - text: https://assets.products-live.ao.com/Images/74a36177-1d54-4a4c-b552-9b3aae8714c5/1280x1280/75UN81006LB_lg_ledtv_04.png
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[1]/section[1]/div[1]/div[2]/ul[1]/li[6]/img[1]/@src
+              - text: https://assets.products-live.ao.com/Images/d83824b3-149b-4449-b508-88c19628be40/1280x1280/75UN81006LB_lg_ledtv_05a.png
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[1]/section[1]/div[1]/div[2]/ul[1]/li[7]/img[1]/@src
+              - text: https://assets.products-live.ao.com/Images/65ff7ea5-54ec-42a3-be43-83b52906c3e7/1280x1280/75UN81006LB_lg_ledtv_06.png
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[1]/section[1]/div[1]/div[2]/ul[1]/li[8]/img[1]/@src
+              - text: https://assets.products-live.ao.com/Images/9d4881a7-2a07-45d7-9dc4-39a2d8502c0b/1280x1280/75UN81006LB_lg_ledtv_07.png
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[1]/section[1]/div[1]/div[2]/ul[1]/li[9]/img[1]/@src
+              - text: https://assets.products-live.ao.com/Images/42373e7c-91a2-4d36-8b74-ea5c0bd48eef/1280x1280/LG_whichaward_01.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[1]/section[1]/div[1]/div[2]/ul[1]/li[16]/img[1]/@src
+            metaKeywords:
+              - text: TVs, LG, UN8100, 75UN81006LB, Free Standing, Grey
+                xpath: /html/head[1]/meta[14]/@content
+            category:
+              - text: Sound & Vision
+                xpath: /html/body/div[15]
+              - text: TVs
+                xpath: /html/body/div[16]
+            nameExtended:
+              - text: LG 75UN81006LB 75" Smart 4K Ultra HD TV with HDR, Ultra Surround and
+                  Filmmaker Mode
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/h1[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[10]
+            brandText:
+              - text: LG
+                xpath: /html/body/div[17]
+            manufacturer:
+              - text: LG
+                xpath: /html/body/div[11]
+            gtin:
+              - text: LG 75UN81006LB
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]
+            sku:
+              - text: 75UN81006LB
+                xpath: /html/body/div[1]/div[1]/main[1]/div[4]/section[2]/div[1]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            variantId:
+              - text: 75UN81006LB
+                xpath: /html/body/div[1]/div[1]/main[1]/div[4]/section[2]/div[1]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            ratingCount:
+              - text: "8"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/div[2]/a[3]/span[1]
+            aggregateRatingText:
+              - text: Read 8 customer reviews
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/div[2]/a[3]
+            aggregateRating:
+              - text: "4.6"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[6]/div[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]
+            manufacturerDescription:
+              - text: Colour that really pops Active HDR takes viewing to the next level,
+                  delivering incredibly vivid, life-like colours over and above
+                  standard HDR. With a wider range of brightness, Active HDR
+                  provides subtler gradients and more detail, so every frame is
+                  super-dynamic. This means a more realistic picture onscreen,
+                  so you’ll feel more immersed in what you’re watching. Get your
+                  game on You’ll always get the most out of your favourite games
+                  thanks to LG’s HGiG mode. It cleverly scans the TV’s picture
+                  quality and performance, then fine tunes every little detail
+                  for a breathtaking image full of colour and detail. So, you
+                  can dive into a really immersive experience when you get stuck
+                  into a new smash hit title, and enjoy smooth gameplay with no
+                  interruptions. You only need to ask LG ThinQ AI lets you
+                  control the TV, and do a whole host of other clever things
+                  too, using just your voice. It has Google Assistant built-in,
+                  so you’ll just need to speak for full control of the TV and
+                  other smart devices in your home. That means whether you want
+                  to dim the lights for movie night, or you see an advert for
+                  shampoo and want to add it to a shopping list, you can simply
+                  ask. A TV that waits for no one WebOS adds a whole lot of
+                  convenience and colour to your TV’s menus. All the smart
+                  features pop up at the bottom of the screen in attractively
+                  vibrant shades, and thanks to the powerful processor, you can
+                  flick between apps quickly while still bingeing a boxset. So,
+                  if you remember that a new series of your favourite show has
+                  just launched, it’ll only be two ticks before you’re sucked
+                  into the action. TV at your command This TV includes the
+                  innovative Google Assistant to make your at-home entertainment
+                  smoother and more enjoyable. By using voice commands, you can
+                  search for your favourite films, play music, discover brand
+                  new content, check what’s on later, and even change settings.
+                  So, you can easily access a whole host of content without
+                  having to type anything, and control your experience with a
+                  few simple requests. Top TV tips Remember that a TV’s size in
+                  inches is diagonal from corner to corner. So, if you're using
+                  the stand, you’ll need to check the width of the TV in the
+                  product specification to make sure it’ll fit on your
+                  furniture. Check the feet too – if they’re at the edges of the
+                  TV, make sure they’ll both fit on your TV stand.
+                xpath: /html/body/div[18]
+            manufacturerImages:
+              - text: https://ao.com/~/media/productPage/tv/LGActiveHDR.ashx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[4]/section[1]/article[1]/div[1]/img[1]/@src
+              - text: https://ao.com/~/media/productPage/tv/LGTVUN81006HGIG.ashx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[4]/section[1]/article[2]/div[1]/img[1]/@src
+              - text: https://ao.com/~/media/productPage/tv/LGUHDTVNanoCellNanoCellAI.ashx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[4]/section[1]/article[3]/div[1]/div[1]/img[1]/@src
+              - text: https://ao.com/~/media/productPage/tv/LGWebOSNew.ashx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[4]/section[1]/article[4]/div[1]/img[1]/@src
+              - text: https://ao.com/~/media/productPage/tv/LGTVGoogleAssistant.ashx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[4]/section[1]/article[5]/div[1]/img[1]/@src
+              - text: https://ao.com/~/media/productPage/Built-in-guides/TVMG.ashx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[4]/section[1]/article[6]/div[1]/img[1]/@src
+            videos:
+              - text: https://f1.media.brightcove.com/4/710857100001/710857100001_6184973187001_6184973461001.mp4?pubId=710857100001&videoId=6184973461001
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[2]/div[1]/div[1]/video[1]/@src
+              - text: http://f1.media.brightcove.com/4/710857100001/710857100001_6105466336001_6105462408001.mp4?pubId=710857100001&videoId=6105462408001
+                xpath: /html/body/div[19]
+            name:
+              - text: LG 75UN81006LB 75" Smart 4K Ultra HD TV with HDR, Ultra Surround and
+                  Filmmaker Mode
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/h1[1]
+            specifications:
+              - text: Dimensions (H)105.3 x (W)169.3 x (D)37.7 Energy Rating A Energy Saving
+                  Mode Yes Aerial Input (RF) Yes Common Interface (CI) Yes
+                  Component Video Input Yes Composite Video Input Yes Digital
+                  Optical Output Yes HDMI ARC (Audio Return Channel) Yes HDMI
+                  Input 4 Internet Connection Built-in WiFi Satellite Input
+                  (LNB) Yes USB Input 2 Stand Type Static Thin Bezel Yes LG
+                  Sports Alert Yes LG ThinQ AI Yes Low Input Lag Yes Voice
+                  Assistant Technology Yes Vesa Wall Mount Size 600 x 400 mm
+                  Vesa Wall Mount Supported Yes Weight With Stand 38.9 Kg Weight
+                  Without Stand 35.7 Kg Annual Power Consumption 243 Kwh Brand
+                  LG Category TVs Colour Grey Dimensions (H)105.3 x (W)169.3 x
+                  (D)37.7 On-mode Power Consumption 175 Watt SKU 75UN81006LB
+                  Standby Power Consumption 0.5 Watt Title with HDR, Ultra
+                  Surround and Filmmaker Mode Width Of Stand 89.5 cm FILMMAKER
+                  MODE™ Yes Game Mode Yes HDR (High Dynamic Range) Yes HDR Type
+                  HDR10, HLG HDR10 Yes HLG Yes Manufacture Motion Rate 100 Hz
+                  Maximum Refresh Rate 50 Hz Movie Mode Yes Picture Processor
+                  Quad Core Processor 4K Resolution Size 3840 x 2160 Resolution
+                  Type 4K Ultra HD Screen Size 75 Inches Screen Type LED Sports
+                  Picture Mode Yes Ultra HD 4K Upscaling Yes App / Portal Store
+                  Yes Screen Mirroring Yes Smart Phone / Tablet App Available
+                  Yes Smart TV Yes Voice Control Yes - via Smart Remote
+                  (Included) Works With Amazon Alexa Yes Works With Google
+                  Assistant Yes Audio Power 20 Watt Number of Internal Speakers
+                  2 Ultra Surround Yes Auto Power Off Yes Auto Tuning Yes EPG
+                  Yes Parental Control Yes Sleep Mode Yes All 4 Yes - Coming
+                  Soon Apple TV app Yes BBC iPlayer Yes - Coming Soon Demand 5
+                  Yes - Coming Soon Disney+ Yes - Coming Soon ITV Hub Yes -
+                  Coming Soon LG Channels Yes Netflix Yes - Coming Soon Now TV
+                  Yes - Coming Soon Spotify Yes Tuner Type Freeview HD and
+                  Freesat HD Youtube Yes USB Recording (DVR) Yes Manufacturer
+                  Warranty 1 Year Manual / Quick Guide Included Remote Control
+                  Smart Bluetooth Yes Miracast
+                xpath: /html/body/div[14]
+            promotion:
+              - text: Save £100
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]
+            variantInformation:
+              - text: Choose size
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/div[4]/div[4]/div[1]/h3[1]
+            firstVariant:
+              - text: 75UN81006LB
+                xpath: /html/body/div[1]/div[1]/main[1]/div[4]/section[2]/div[1]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            variants:
+              - text: 65"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/div[4]/div[4]/div[1]/ul[1]/li[2]
+            additionalDescBulletInfo:
+              - text: "||4K Ultra HD & Quad Core Processor - incredible images||ThinQ AI - voice
+                  control for your home through your TV||Smart TV includes
+                  streaming services like Disney+||Ultra Surround tech puts you
+                  at the heart of movies||Filmmaker Mode™ provides a more
+                  cinematic experience"
+                xpath: /html/body/div[13]
+            energyEfficiency:
+              - text: A
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/div[4]/div[2]/span[1]/div[1]
+            Image360Present:
+              - text: No
+                xpath: /html/body/div[12]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            price:
+              - text: "999.0 "
+            description:
+              - text: " ||4K Ultra HD & Quad Core Processor - incredible images||ThinQ AI -
+                  voice control for your home through your TV||Smart TV includes
+                  streaming services like Disney+||Ultra Surround tech puts you
+                  at the heart of movies||Filmmaker Mode™ provides a more
+                  cinematic experience"
+            descriptionBullets:
+              - text: "5"
+            variantCount:
+              - text: "2"
+            warranty:
+              - text: |
+                  
+                  1 Year
+        xpath: /
+    timestamp: 1603918428762
