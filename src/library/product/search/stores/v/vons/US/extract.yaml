@@ -5,6 +5,7 @@ recordXPath: null
 fields:
   - name: productUrl
     xpath: //div//a[@class='product-title']/@href
+    regExp: (.+)
     regExpReplace: https://www.vons.com$1
     description: The URL for the product details page
   - name: thumbnail

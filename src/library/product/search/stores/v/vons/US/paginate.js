@@ -3,10 +3,10 @@ module.exports = {
   parameterValues: {
   country: 'US',
   store: 'vons',
-  nextLinkSelector: "#searchGridLoading",
+  nextLinkSelector: null,
   mutationSelector: null,
   spinnerSelector: null,
-  loadedSelector: 'body',
+  loadedSelector: '#search-grid_0',
   noResultsXPath: null,
   openSearchDefinition: null,
   domain: 'vons.com',
