@@ -1,0 +1,21 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    description: the product name
+    xpath: //a[@class="js-ga-productname"]
+  - name: thumbnail
+    description: a smaller image of the product e.g. on a search results page
+    xpath: //img[@id="body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl0_ctl00_1_ProductImage_1"]
+  - name: price
+    description: the offered price of the selected product 
+    xpath: //span[@class="price text--strong"]
+  - name: productUrl 
+    description: The url of the product details page
+    xpath: class="item-product js-product js-equalized js-addtolist-container js-ga"
+  - name: _url
+    description: The url of the page
+    xpath: //meta[@property="og:url"]
+    
