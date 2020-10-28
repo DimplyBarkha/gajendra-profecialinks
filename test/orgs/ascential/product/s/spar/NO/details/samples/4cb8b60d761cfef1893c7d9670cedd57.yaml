@@ -1,0 +1,66 @@
+input:
+  _url: http://spar.no
+  URL: https://spar.no/nettbutikk/varer/hygiene-og-helse/hudpleie/handkrem/klar-handkrem-7046110032329
+extractions:
+  - html: https://workbench.import.io/html/run=acc3a368-a4cb-4a84-9248-bf38ee60382d/task=371a871f-8f58-4d58-8439-de78d596480a/3f8492f9-cc10-4481-bfad-6cd576ecbc55.html
+    extractionConfigId: product/details/stores/s/spar/NO/extract
+    data:
+      - group:
+          - image:
+              - text: https://res.cloudinary.com/norgesgruppen/image/upload/c_pad,b_white,f_auto,h_900,q_50,w_900/v1588724009/Product/7046110032329.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Klar Håndkrem
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/picture[1]/img[1]/@alt
+            category:
+              - text: Nettbutikk
+                xpath: /html/body/main[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
+              - text: produktdetaljer
+                xpath: /html/body/main[1]/div[1]/ol[1]/li[3]/a[1]/span[1]
+            brandText:
+              - text: Klar
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/ul[1]/li[2]
+            manufacturer:
+              - text: Lilleborg as dagl
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/ul[1]/li[1]/strong[1]
+            gtin:
+              - text: "7046110032329"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            variantId:
+              - text: "7046110032329"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            name:
+              - text: Klar Håndkrem
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/h1[1]
+            ingredientsList:
+              - text: Aqua, aloe barbadensis leaf juice*, cetearyl alcohol, helianthus annuus
+                  seed oil, glycerin, glyceryl stearate, cetearyl wheat straw
+                  glycosides, stearic acid, butyrospermum parkii butter*,
+                  glyceryl caprylate, palmitic acid, xanthan gum, potassium
+                  sorbate, sodium benzoate, sodium gluconate, tocopherol,
+                  parfum.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/p[1]
+            pricePerUnit:
+              - text: kr 638,67
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
+            pricePerUnitUom:
+              - text: l
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
+            nameExtended:
+              - text: Klar Håndkrem - 7046110032329
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[5]
+            description:
+              - text: "75ml || Lilleborg as dagl || Merke: Klar || Opprinnelsesland: Norge ||
+                  EAN: 7046110032329"
+                xpath: /html/body/div[6]
+            price:
+              - text: kr 47,90
+            descriptionBullets:
+              - text: "4"
+            inStorePrice:
+              - text: kr 47,90
+        xpath: /html/body
+    timestamp: 1603796925785

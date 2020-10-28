@@ -1,0 +1,59 @@
+input:
+  _url: http://spar.no
+  URL: https://spar.no/nettbutikk/varer/hygiene-og-helse/bind-og-tamponger/bind/libresse-normal-7310790088311
+extractions:
+  - html: https://workbench.import.io/html/run=acc3a368-a4cb-4a84-9248-bf38ee60382d/task=3d14d18b-0767-4030-83b2-98f37f196377/e40860ed-32ff-4269-b1e3-a6cd2389524d.html
+    extractionConfigId: product/details/stores/s/spar/NO/extract
+    data:
+      - group:
+          - image:
+              - text: https://res.cloudinary.com/norgesgruppen/image/upload/c_pad,b_white,f_auto,h_900,q_50,w_900/v1602115961/Product/7310790088311.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Libresse Normal
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/picture[1]/img[1]/@alt
+            category:
+              - text: Nettbutikk
+                xpath: /html/body/main[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
+              - text: produktdetaljer
+                xpath: /html/body/main[1]/div[1]/ol[1]/li[3]/a[1]/span[1]
+            brandText:
+              - text: Libresse
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
+            manufacturer:
+              - text: Essity norway as dagligvare
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/strong[1]
+            gtin:
+              - text: "7310790088311"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[5]
+            variantId:
+              - text: "7310790088311"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[5]
+            name:
+              - text: Libresse Normal
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/h1[1]
+            pricePerUnit:
+              - text: kr 1,59
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
+            pricePerUnitUom:
+              - text: stk
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
+            nameExtended:
+              - text: Libresse Normal - 7310790088311
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[5]
+            description:
+              - text: "Bind 16stk || Essity norway as dagligvare || Merke: Libresse ||
+                  Opprinnelsesland: Slovakia || Opphavssted: Sverige || EAN:
+                  7310790088311"
+                xpath: /html/body/div[6]
+            price:
+              - text: kr 25,50
+            descriptionBullets:
+              - text: "5"
+            inStorePrice:
+              - text: kr 25,50
+        xpath: /html/body
+    timestamp: 1603796927324

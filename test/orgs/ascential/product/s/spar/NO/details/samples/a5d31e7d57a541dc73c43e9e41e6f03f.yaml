@@ -1,0 +1,124 @@
+input:
+  _url: http://spar.no
+  URL: https://spar.no/nettbutikk/varer/middag/pasta/bandspagetti/tagliatelle-7035620041631
+extractions:
+  - html: https://workbench.import.io/html/run=acc3a368-a4cb-4a84-9248-bf38ee60382d/task=a6610ba3-14cb-4c31-80f7-976e1c980eed/c7f99a8b-bcd5-41d2-b82f-2436deeb6f91.html
+    extractionConfigId: product/details/stores/s/spar/NO/extract
+    data:
+      - group:
+          - caloriesPerServing:
+              - text: 281 kcal
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[2]
+            totalFatPerServing:
+              - text: 1,9
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[3]
+            saturatedFatPerServing:
+              - text: 0,5
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            totalCarbPerServing:
+              - text: "53"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[7]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[7]
+            totalSugarsPerServing:
+              - text: "1"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[8]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[8]
+            dietaryFibrePerServing:
+              - text: "6"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[10]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[10]
+            proteinPerServing:
+              - text: "10"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[11]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[11]
+            saltPerServing:
+              - text: "0"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[12]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/ul[1]/li[12]
+            manufacturer:
+              - text: Unil as d
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/ul[1]/li[1]/strong[1]
+            countryOfOrigin:
+              - text: Italia
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/ul[1]/li[3]
+            gtin:
+              - text: "7035620041631"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            variantId:
+              - text: "7035620041631"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            image:
+              - text: https://res.cloudinary.com/norgesgruppen/image/upload/c_pad,b_white,f_auto,h_900,q_50,w_900/v1592353700/Product/7035620041631.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Tagliatelle
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/picture[1]/img[1]/@alt
+            category:
+              - text: Nettbutikk
+                xpath: /html/body/main[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
+              - text: produktdetaljer
+                xpath: /html/body/main[1]/div[1]/ol[1]/li[3]/a[1]/span[1]
+            listPrice:
+              - text: FÃ¸r kr  19,90
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]/text()[1]
+            name:
+              - text: Tagliatelle
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/h1[1]
+            ingredientsList:
+              - text: Durumhvete av fullkorn 75 %, egg 16 %, vann.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/p[1]
+            servingSizeUom:
+              - text: gram
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/button[1]
+            allergyAdvice:
+              - text: |-
+                  Allergener
+                  Inneholder:
+                  Egg
+                  Gluten
+                  Kan inneholde spor av:
+                  Soya
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[2]
+            pricePerUnit:
+              - text: kr 55,72
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[2]
+            pricePerUnitUom:
+              - text: kg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[2]
+            promotion:
+              - text: Skiguttas favoritter -30%
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/p[2]/a[1]
+            nameExtended:
+              - text: Eldorado Tagliatelle - 7035620041631
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[5]
+            description:
+              - text: "Fullkorn 250g Eldorado || Unil as d || Merke: Eldorado ||
+                  Opprinnelsesland: Italia || EAN: 7035620041631"
+                xpath: /html/body/div[6]
+            price:
+              - text: kr 13,93
+            descriptionBullets:
+              - text: "4"
+            inStorePrice:
+              - text: kr 13,93
+        xpath: /html
+    timestamp: 1603796927249

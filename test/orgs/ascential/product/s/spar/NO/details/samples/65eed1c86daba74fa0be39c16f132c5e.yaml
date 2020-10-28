@@ -1,0 +1,58 @@
+input:
+  _url: http://spar.no
+  URL: https://spar.no/nettbutikk/varer/hygiene-og-helse/bind-og-tamponger/tamponger/ob-procomfort-3574660245615
+extractions:
+  - html: https://workbench.import.io/html/run=acc3a368-a4cb-4a84-9248-bf38ee60382d/task=211da8e9-c789-41b8-b965-8006734fb8d3/158e280e-42a5-40e3-9260-940f7c0fc118.html
+    extractionConfigId: product/details/stores/s/spar/NO/extract
+    data:
+      - group:
+          - image:
+              - text: https://res.cloudinary.com/norgesgruppen/image/upload/c_pad,b_white,f_auto,h_900,q_50,w_900/v1588810334/Product/3574660245615.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Ob Procomfort
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/picture[1]/img[1]/@alt
+            category:
+              - text: Nettbutikk
+                xpath: /html/body/main[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
+              - text: produktdetaljer
+                xpath: /html/body/main[1]/div[1]/ol[1]/li[3]/a[1]/span[1]
+            brandText:
+              - text: O.b.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
+            manufacturer:
+              - text: Johnson & johnson consumer nordic
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/strong[1]
+            gtin:
+              - text: "3574660245615"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            variantId:
+              - text: "3574660245615"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            name:
+              - text: Ob Procomfort
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/h1[1]
+            pricePerUnit:
+              - text: kr 0,99
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
+            pricePerUnitUom:
+              - text: stk
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
+            nameExtended:
+              - text: O.b. Ob Procomfort - 3574660245615
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[5]
+            description:
+              - text: "Normal 16stk || Johnson & johnson consumer nordic || Merke: O.b. ||
+                  Opprinnelsesland: Frankrike || EAN: 3574660245615"
+                xpath: /html/body/div[6]
+            price:
+              - text: kr 15,90
+            descriptionBullets:
+              - text: "4"
+            inStorePrice:
+              - text: kr 15,90
+        xpath: /html/body
+    timestamp: 1603796924368
