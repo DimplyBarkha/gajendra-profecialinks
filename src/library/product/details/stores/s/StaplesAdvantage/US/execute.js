@@ -7,6 +7,7 @@ async function implementation(inputs, parameters, context, dependencies) {
 
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   // after the search results page and checking loadedSelector and noResultsXPath
+
   // the extractor goes to the logging in page
   await context.goto(loginUrl);
   // the popup is visible after a moment -> delaying the removal
@@ -41,7 +42,7 @@ async function implementation(inputs, parameters, context, dependencies) {
       await context.click('input#loginUserId');
       // after filling in the account number input and clicking away, the page is reloaded
       // and the extractor needs to wait to fill in the rest of the inputs
-      await new Promise((resolve) => setTimeout(resolve, 20000));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       await context.evaluate(async () => {
         document.querySelector('input#loginUserId').setAttribute('value', 'LLAWSON');
       });
