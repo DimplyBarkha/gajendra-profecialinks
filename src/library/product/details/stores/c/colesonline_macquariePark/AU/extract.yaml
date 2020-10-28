@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@class="product-hero-image-container"]/img/@src
+    regExp: (.+)
+    regExpReplace: https://shop.coles.com.au$1
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //h1[@class="product-title"]//span[@class="product-name"]
