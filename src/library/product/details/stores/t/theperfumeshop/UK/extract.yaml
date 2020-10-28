@@ -11,7 +11,7 @@ fields:
     xpath: //li[@class="product_gallery__preview_item" and position()=1]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //li[@class="product_gallery__preview_item" and position()>1]/img[not(contains(@class,"Product_Video"))]/@src
+    xpath: //li[@class="product_gallery__preview_item" and position()>1]/img/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
