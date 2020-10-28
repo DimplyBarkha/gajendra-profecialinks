@@ -75,7 +75,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   await context.waitForNavigation();
   await new Promise((resolve) => setTimeout(resolve, 3000));
   // going to the search results page
-  await context.goto(url);
+  // await context.goto(url);
 
   // removing again loaded popup
 
@@ -128,6 +128,8 @@ async function implementation(inputs, parameters, context, dependencies) {
       document.querySelector('div.delivery-info-ux2__additional_info div a').click();
     });
   };
+
+  await context.extract('/product/details/stores/s/StaplesAdvantage/US/extract', 'APPEND');
 
   return await context.evaluate(function (xp) {
     const r = document.evaluate(
