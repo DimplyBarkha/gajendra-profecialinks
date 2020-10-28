@@ -20,7 +20,22 @@ const transform = (data) => {
     for (const { group } of data) {
       for (const row of group) {
         if(row.availabilityText){
-            row.availabilityText[0].text = row.availabilityText[0].text.toLowerCase() === 'Add To Cart'.toLowerCase() ? 'In stock' : 'Out of Stock';
+            row.availabilityText[0].text = cleanUp(row.availabilityText[0].text.toLowerCase() === 'Add To Cart'.toLowerCase() ? 'In stock' : 'Out of Stock');
+        }
+        if(row.nameExtended){
+            row.nameExtended[0].text = cleanUp(row.nameExtended[0].text);
+        }
+        if(row.description){
+            row.description[0].text = cleanUp(row.description[0].text);
+        }
+        if(row.aggregateRatingText){
+            row.aggregateRatingText[0].text = cleanUp(row.aggregateRatingText[0].text);
+        }
+        if(row.name){
+            row.name[0].text = cleanUp(row.name[0].text);
+        }
+        if(row.promotion){
+            row.promotion[0].text = cleanUp(row.promotion[0].text);
         }
       }
     }
