@@ -26,7 +26,8 @@ const transform = (data) => {
         for (let row of group) {
             if (row.image) {
                 row.image.forEach(item=>{
-                    item.text='https:' +item.text;
+                    if(item.text.indexOf('https:')!=0)
+                        item.text='https:' +item.text;
                 })
             }
             if (row.alternateImages) {
