@@ -1,0 +1,83 @@
+input:
+  _url: http://submarino.com.br
+  URL: https://www.submarino.com.br/produto/1672310941/aspirador-de-po-vertical-mondial-ap37-azul-cyclone-stick-110v?DCSext.recom=RR_item_page.rr2-PurchaseEV&nm_origem=rec_item_page.rr2-PurchaseEV&nm_ranking_rec=3&voltagem=220V
+extractions:
+  - html: https://workbench.import.io/html/run=422bafe0-2251-44bd-9665-0221d5e57452/task=230aff60-829f-4bd3-b982-5ea8bb4161a8/c3a93226-7d7f-401c-adbe-33dce95c7f7e.html
+    extractionConfigId: product/details/stores/s/submarino/BR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.submarino.com.br/produto/1672310941/aspirador-de-po-vertical-mondial-ap37-azul-cyclone-stick-110v?DCSext.recom=RR_item_page.rr2-PurchaseEV&nm_origem=rec_item_page.rr2-PurchaseEV&nm_ranking_rec=3&voltagem=220V
+                xpath: /html/body/div[6]
+            image:
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/1672310/9/1672310950P1.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Aspirador De Pó Vertical Mondial Ap37 Azul Cyclone Stick 110v no
+                  Submarino.com
+                xpath: /html/head[1]/meta[18]/@content
+            alternateImages:
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/1672310/9/1672310950P1.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/1672310/9/1672310950_2GG.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
+            category:
+              - text: Eletroportáteis
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/a[1]/div[1]/span[1]
+              - text: Aspirador de Pó
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[3]/a[1]/div[1]/span[1]
+            nameExtended:
+              - text: ASPIRADOR DE PÓ VERTICAL MONDIAL AP37 AZUL CYCLONE STICK 220V
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            price:
+              - text: R$ 299,00
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[7]
+            description:
+              - text: "Aspirador de Pó Vertical Mondial Ap37 Azul Cyclone Stick Seus dias de
+                  limpeza serão mais simples com este aspirador Mondial. É
+                  aquele companheiro indispensável para a sua casa, porque,
+                  graças a isso, você deixará seus ambientes livres de poeira e
+                  detritos.O melhor aliado para o larAo não usar um saco
+                  coletor, você terá uma experiência diferente, tornando mais
+                  fácil e eficiente o descarte da sujeira coletada.FILTRO HEPA
+                  REMOVÍVEL E LAVÁVEL:Prático e fácil de limpar;COLETOR DE PÓ
+                  TRANSLÚCIDO:Indica quando o coletor de pó está cheio;MOTOR
+                  SUPERPOTENTE 1100 WATTS:Alta eficiência na sucção,
+                  proporcionando uma limpeza mais rápida;HASTE REMOVÍVEL:Pode
+                  ser usado como aspirador vertical ou portátil;CABO ELÉTRICO
+                  COM 4,5m:Praticidade e flexibilidade para alcançar todos os
+                  cantos da casa;ACOMPANHAM:Bocal Multiuso;Bocal para cantos e
+                  frestas;Bocal para estofados;Informações TécnicasPotência:
+                  1100 WConsumo: 1,1 Kw/hGarantia: 12 mesesMedidasAltura:
+                  110cmLargura: 25cm"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]
+            manufacturer:
+              - text: Mondial
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[4]/td[2]/span[1]
+            gtin:
+              - text: 7899882306033, 7899882306040
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+            sku:
+              - text: "1672310941"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            color:
+              - text: Azul
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[10]/td[2]/span[1]
+            name:
+              - text: ASPIRADOR DE PÓ VERTICAL MONDIAL AP37 AZUL CYCLONE STICK 220V
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            warranty:
+              - text: 12 meses
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[9]/td[2]/span[1]
+            variantInformation:
+              - text: Voltagem
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/@type
+            descriptionBullets:
+              - text: "10"
+            variantCount:
+              - text: "1"
+        xpath: /
+    timestamp: 1603886125062

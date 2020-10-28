@@ -1,0 +1,84 @@
+input:
+  _url: http://submarino.com.br
+  URL: https://www.submarino.com.br/produto/1878473797/figura-marvel-legends-series-vintage-collection-marvel-s-kingpin-rei-do-crime-e9636-hasbro?pfm_carac=Bonecos&pfm_index=2&pfm_page=category&pfm_pos=grid&pfm_type=vit_product_grid
+extractions:
+  - html: https://workbench.import.io/html/run=e52b8e56-9498-4595-a784-435ecce1bd3f/task=d664c3b2-2e3b-4acf-93e9-5a50473c0d68/e79760b2-f192-4db3-a78b-766b0de5b5da.html
+    extractionConfigId: product/details/stores/s/submarino/BR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.submarino.com.br/produto/1878473797/figura-marvel-legends-series-vintage-collection-marvel-s-kingpin-rei-do-crime-e9636-hasbro?pfm_carac=Bonecos&pfm_index=2&pfm_page=category&pfm_pos=grid&pfm_type=vit_product_grid
+                xpath: /html/body/div[6]
+            image:
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/1878473/8/1878473800P1.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: Figura Marvel Legends Series Vintage Collection Marvel’s Kingpin, Rei Do
+                  Crime - E9636 - Hasbro no Submarino.com
+                xpath: /html/head[1]/meta[18]/@content
+            alternateImages:
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/1878473/8/1878473800P1.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/1878473/8/1878473800_2GG.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
+            category:
+              - text: Brinquedos
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/a[1]/div[1]/span[1]
+              - text: Bonecos
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[3]/a[1]/div[1]/span[1]
+            nameExtended:
+              - text: Figura Marvel Legends Series Vintage Collection Marvel’s Kingpin, Rei Do
+                  Crime - E9636 - Hasbro
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            availabilityText:
+              - text: Out of stock
+                xpath: /html/body/div[7]
+            description:
+              - text: Astuto e impiedoso, Wilson Fisk controla o submundo de Nova Iorque com mão
+                  de ferro. Com mais de 80 anos de história em quadrinhos, a
+                  Marvel tornou-se referência para fãs e colecionadores em todo
+                  o mundo. Com a série Marvel Legends, os personagens favoritos
+                  dos fãs do universo dos quadrinhos Marvel e do universo
+                  cinematográfico Marvel são criados com detalhes e articulações
+                  de alta qualidade para serem exibidos como incríveis peças. De
+                  figuras a veículos a itens de cosplay, a série Marvel Legends
+                  oferece produtos inspirados em personagens para fãs Marvel.
+                  Figuras adicionais vendidas separadamente. Sujeitas à
+                  disponibilidade. Copyright 2020 MARVEL. Hasbro e todos os
+                  termos relacionados são marcas registradas da Hasbro.
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]
+            manufacturer:
+              - text: Hasbro
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[3]/td[2]/span[1]
+            weightNet:
+              - text: "0.6"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[18]/td[2]/span[1]
+            gtin:
+              - text: "5010993744343"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+            sku:
+              - text: "1878473797"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            mpc:
+              - text: Figura Marvel Legends Series Vintage Collection Marvel’S Kingpin, Rei do
+                  Crime - E9636 - Hasbro
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[6]/td[2]/span[1]
+            name:
+              - text: Figura Marvel Legends Series Vintage Collection Marvel’s Kingpin, Rei Do
+                  Crime - E9636 - Hasbro
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            specifications:
+              - text: Alt. 36,1 Larg. 6,3 Comp. 26,9 cm
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[17]/td[2]/span[1]
+            warranty:
+              - text: 3 Meses
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[16]/td[2]/span[1]
+            ageSuitability:
+              - text: 4+
+                xpath: /html/body/div[4]/div[1]/div[1]/div[5]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[11]/td[2]/span[1]
+            descriptionBullets:
+              - text: "23"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1603887441460

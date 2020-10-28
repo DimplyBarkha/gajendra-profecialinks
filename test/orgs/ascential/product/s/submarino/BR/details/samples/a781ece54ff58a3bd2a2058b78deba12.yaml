@@ -1,0 +1,86 @@
+input:
+  _url: http://submarino.com.br
+  URL: https://www.submarino.com.br/produto/132345941/little-mommy-meu-primeiro-passeio?DCSext.recom=RR_item_page.rr1-ClickCP&nm_origem=rec_item_page.rr1-ClickCP&nm_ranking_rec=2
+extractions:
+  - html: https://workbench.import.io/html/run=e52b8e56-9498-4595-a784-435ecce1bd3f/task=6552e0f6-9579-4a08-ae54-2da643f68774/3108134f-0a15-4f90-afe2-14b5b74bb3a5.html
+    extractionConfigId: product/details/stores/s/submarino/BR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.submarino.com.br/produto/132345941/little-mommy-meu-primeiro-passeio?DCSext.recom=RR_item_page.rr1-ClickCP&nm_origem=rec_item_page.rr1-ClickCP&nm_ranking_rec=2
+                xpath: /html/body/div[6]
+            imageAlt:
+              - text: Little Mommy - Meu Primeiro Passeio no Submarino.com
+                xpath: /html/head[1]/meta[18]/@content
+            alternateImages:
+              - text: https://images-submarino.b2w.io/produtos/01/00/item/132345/9/132345941P1.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
+            category:
+              - text: Brinquedos
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/a[1]/div[1]/span[1]
+              - text: Bonecas
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[3]/a[1]/div[1]/span[1]
+            nameExtended:
+              - text: Little Mommy - Meu Primeiro Passeio
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            price:
+              - text: R$ 249,99
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[7]
+            description:
+              - text: >-
+                  Lembra como foi aprender a andar na sua primeira bicicleta?
+                  Agora sua filha pode ir para sua primeira pedalada também, com
+                  a boneca Meu Primeiro Passeio! Tudo pronto para um dia de
+                  diversão ao ar livre, a Little Mommy usa um top quadriculado,
+                  jeans, sandálias e um capacete rosa é claro! Ainda mais, tem
+                  uma cesta de bicicleta com espaço para a garrafa d'água na
+                  frente e outra atrás para seu filhote de cachorro. Agora ela
+                  está pronta para pedalar de duas maneiras: com ou sem rodinhas
+                  de segurança. Basta apertar os pés da boneca na fita do pedal
+                  e ela vai andar sozinha! Desencaixe a boneca das fitas e ela
+                  vai poder descansar com seu amigo filhotinho. Inclui boneca,
+                  bicicleta, capacete, garrafa d'água, cachorrinho e rodas de
+                  segurança. As cores e as decorações podem variar. 
+                   Imagens meramente ilustrativas.
+                   Todas as informações divulgadas são de responsabilidade do Fabricante/Fornecedor.
+                   Observe atentamente a idade recomendada para o brinquedo. Pode conter partes pequenas que podem ser engolidas.
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]
+            weightNet:
+              - text: 1,1kg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[10]/td[2]/span[1]
+            gtin:
+              - text: "0887961455441"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+            sku:
+              - text: "132345941"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            mpc:
+              - text: FCN11
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[14]/td[2]/span[1]
+            ratingCount:
+              - text: "8"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[8]/div[1]/section[1]/div[1]/header[1]/div[1]/div[1]/span[2]
+            aggregateRating:
+              - text: "3.9"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[8]/div[1]/section[1]/div[1]/header[1]/div[1]/div[1]/span[1]
+            name:
+              - text: Little Mommy - Meu Primeiro Passeio
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            specifications:
+              - text: 37x12x30cm
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[9]/td[2]/span[1]
+            warranty:
+              - text: 3 meses
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[13]/td[2]/span[1]
+            ageSuitability:
+              - text: 3 a 4 anos
+                xpath: /html/body/div[4]/div[1]/div[1]/div[6]/div[2]/section[1]/div[2]/section[1]/table[1]/tbody[1]/tr[5]/td[2]/span[1]
+            descriptionBullets:
+              - text: "17"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1603887868322
