@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'NO',
     store: 'meny',
-    nextLinkSelector: null,
+    nextLinkSelector: 'button[class*="ws-button ws-button--primary"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'picture[class="ws-product-vertical__image"]',
