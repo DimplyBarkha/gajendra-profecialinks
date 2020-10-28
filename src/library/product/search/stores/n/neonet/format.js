@@ -47,10 +47,15 @@ const transform = (data, context) => {
       if (row.id) {
         row.id.forEach(item => {
           let nTxt = item.text.replace('.jpg', '');
-          nTxt = nTxt.replace('.png', '');
-          nTxt = nTxt.substring(nTxt.lastIndexOf('_'));
-          nTxt = nTxt.substring(nTxt.lastIndexOf('-'));
-          nTxt = nTxt.substring(nTxt.lastIndexOf('=/') + 2);
+          if (nTxt.lastIndexOf('-') > -1) {
+	          nTxt = nTxt.substring(nTxt.lastIndexOf('-'));
+          }
+          if (nTxt.lastIndexOf('-') > -1) {
+          	nTxt = nTxt.substring(nTxt.lastIndexOf('-'));
+          }
+          if (nTxt.lastIndexOf('=/') > -1) {
+          	nTxt = nTxt.substring(nTxt.lastIndexOf('=/') + 2);
+          }
           var idx = nTxt.indexOf('f1');
           if (idx === -1) idx = nTxt.indexOf('F1');
           if (idx === -1) idx = nTxt.length;
