@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
-    store: 'total_wine_95825',
+    store: 'totalwine_95825',
     transform,
     zipcode: '95825',
     domain: 'totalwine.com',

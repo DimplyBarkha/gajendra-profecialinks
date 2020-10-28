@@ -3,7 +3,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     domain: 'totalwine.com',
-    store: 'total_wine_95825',
+    store: 'totalwine_95825',
     zipcode: '95825',
   },
 };

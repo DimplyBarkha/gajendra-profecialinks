@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'US',
-    store: 'total_wine_95825',
+    store: 'totalwine_95825',
     nextLinkSelector: 'a[aria-label*="Next page"]',
     mutationSelector: null,
     spinnerSelector: null,

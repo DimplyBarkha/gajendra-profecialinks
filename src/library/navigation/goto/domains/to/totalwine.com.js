@@ -4,7 +4,7 @@ module.exports = {
     domain: 'totalwine.com',
     timeout: 50000,
     zipcode: '95825',
-    store: 'total_wine_95825',
+    store: 'totalwine_95825',
     country: 'US',
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
