@@ -1,10 +1,10 @@
-
+const {transform} = require('../variantsFormat')
 module.exports = {
   implements: 'product/details/variants/variantsExtract',
   parameterValues: {
     country: 'BR',
     store: 'casasbahia',
-    transform: null,
+    transform,
     domain: 'casasbahia.com.br',
     zipcode: '',
   },
