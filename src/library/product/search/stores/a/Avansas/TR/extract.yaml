@@ -1,0 +1,51 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="product-list"]
+fields: 
+  - name: price
+    singleValue: false
+    #xpath: //div[@class="product-list"]/@data-product-price
+    xpath: //span[@class="current-price"] 
+  - name: rankOrganic
+    singleValue: false
+    xpath: 
+  - name: rank
+    singleValue: false
+    xpath: 
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product-list"]//figure/img/@title
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="center"]/a[1]
+  # - name: Description
+  #   singleValue: false
+  #   xpath: //ul[@class="check-list"]/li
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product-list"]//figure/img/@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="br-current-rating"]/text()
+  - name: id
+    singleValue: false
+    xpath: //div[@class="product-list"]/@data-product-id
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="comment-count"]/span/text()
+    regExp: (.+)\sYorum
+    regExpReplace: $1
+  - name: manufacturer
+    singleValue: false
+    xpath: 
+    regExp: 
+  - name: Availabilty
+    singleValue: false
+    xpath: //div[@class="no-stock"]
+    regExp: (.+)
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
+  - name: endorsementText
+    singleValue: false
+    xpath: 
