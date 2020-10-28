@@ -35,7 +35,7 @@ module.exports = {
       await context.waitForNavigation({ timeout: 30000, waitUntil: 'networkidle0' });
     }
 
-    const response = await context.searchAllRequests('/episearch/.*');
+    const response = await context.searchAllRequests('/episearch/1300/products.*');
 
     for (const res of response) {
       if (!res.responseBody || !res.responseBody.body) continue;
