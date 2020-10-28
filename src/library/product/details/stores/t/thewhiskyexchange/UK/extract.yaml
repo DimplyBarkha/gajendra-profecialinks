@@ -15,7 +15,7 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: //div[@class="product-main__image-container"]//@src
+  xpath: //div[@class="product-main__image-container"]/img/@src | //div[@class="product-slider__slide slick-slide slick-current slick-active"]//img[@class="product-slider__image lazyloaded"]//@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
@@ -88,6 +88,7 @@ fields:
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //input[@id="productID"]//@value
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
