@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //a[@class='title']/img/@src
+  - name: name
+    singleValue: true
+    xpath: //a[@class='title']/img/@alt
+  - name: id
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: $.div.button[*].id
+  - name: price
+    singleValue: true
+    description: The offered price for the product
+    xpath: //div[@id='searchList']//span[@class='article-price-default article-club-hidden']//font//font//text()
+    RegExp: '[^\d]+$'
+  - name: Rating
+    description: The rating value of the product
+    xpath: //div[@class='panel-body']//a//@data-rating
+  - name: Availability
+    description: The availability status of the product
+    xpath: //div[@class='article-stock ']//font//font//text()
+
