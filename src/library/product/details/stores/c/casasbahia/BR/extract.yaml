@@ -36,8 +36,8 @@ fields:
     singleValue: true 
     xpath: //span[@class="marcaProduto"]//strong[contains(@class,'brand')]
   - name: brandLink
-    singleValue: true 
-    xpath: //span[@class="marcaProduto"]/a/@href
+    singleValue: false 
+    xpath: //span[contains(@class,"marcaProduto")]//a/@href
   - name: ratingCount
     singleValue: true
     xpath: //span[@class="nota yv-itens"]//p[contains(@class,'avaliacoes')]
