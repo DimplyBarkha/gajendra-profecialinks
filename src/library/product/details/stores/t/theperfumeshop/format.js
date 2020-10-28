@@ -47,7 +47,7 @@ const transform = (data) => {
         if(row.pricePerUnit){
           var priceUn=[];
           row.pricePerUnit.forEach(item=>{
-            priceUn=item.text.split('|');
+            priceUn=item.text;
           });
           row.pricePerUnit=[{"text":priceUn.pop()}];
         }
