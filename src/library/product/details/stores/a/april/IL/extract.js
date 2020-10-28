@@ -9,9 +9,9 @@ module.exports = {
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -19,7 +19,7 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -79,11 +79,11 @@ module.exports = {
       }
       const variantId = getAllXpath("//div[@class='colors']//button[@class='color_img']/@id", 'nodeValue').join('|');
       if (variantId.length > 1) {
-        var str = variantId.split('|');
-        addElementToDocument('variantId', str[0]);
+        // var str = variantId.split('|');
+        // addElementToDocument('variantId', str[0]);
       } else {
-        const variantIdForSingle = getAllXpath("//div[@class='imgProduct']//img/@id", 'nodeValue');
-        addElementToDocument('variantId', variantIdForSingle);
+        // const variantIdForSingle = getAllXpath("//div[@class='imgProduct']//img/@id", 'nodeValue');
+        // addElementToDocument('variantId', variantIdForSingle);
       }
 
       const warranty = getAllXpath("//div[@id='mytab_0']", 'innerText').join('|');
@@ -123,6 +123,14 @@ module.exports = {
             console.log('variantData', categoryData);
             addElementToDocument('variantInformation', categoryData);
           }
+          if (categoryData.match('ברקוד בינלאומי')) {
+            console.log('variantData', categoryData);
+            var gtin = categoryData.split(':');
+            addElementToDocument('gtin', gtin[1]);
+            addElementToDocument('variantId', gtin[1]);
+          }
+
+          // ברקוד בינלאומי
         });
       }
 
@@ -136,6 +144,6 @@ module.exports = {
         }
       }
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform: transformParam });
   },
 };
