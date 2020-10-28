@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="search-card j-search-card"]
+recordXPath: //div[contains(@class,"page-search-results")]//div[@class="search-card j-search-card"]
 fields:
   - name: id
     SingleValue: false
@@ -17,7 +17,7 @@ fields:
     xpath: //img[@class="search-card__image"]/@src
   - name: name
     SingleValue: false
-    xpath: //div[contains(@class,"header-card-search"]
+    xpath: //div[contains(@class,"header-card-search")]//h4[@class="header-card-search__title"]
   - name: rankOrganic
     SingleValue: false
   - name: rank
