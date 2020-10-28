@@ -54,7 +54,7 @@ fields:
   xpath: //div[@class="product-action"]//p[@class='product-action__stock-flag']
   defaultValue: "Out of Stock"
 - name: description
-  singleValue: true
+  singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
   xpath: concat(//span[@class="product-main__sub-name"], //ul[@class="product-main__meta"], //p[@class="product-main__data"], //div[@class="product-main__description"], //ul[@class='product-notes'])
@@ -118,7 +118,7 @@ fields:
   description: The stated aggregate rating normalized to be out of 5
   xpath: //span[contains(@class,"review-overview__rating")]/span
 - name: shippingInfo
-  singleValue: false
+  singleValue: true
   description: Shipping information for the product
   xpath: //h5[@class="product-shipping__type"]
 - name: shippingDimensions
@@ -432,7 +432,7 @@ fields:
   singleValue: true
   description: Alcohol content information
   xpath: //p[@class='product-main__data']
-  regExp: \d+%
+  regExp: \d+.?\d+?%
 - name: newVersion
   singleValue: true
   description: In product page, information about a new version of the product (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
@@ -478,19 +478,19 @@ fields:
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: "No"
+  defaultValue: 'No'
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: "No"
+  defaultValue: 'No'
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: "No"
+  defaultValue: 'No'
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: "No"
+  defaultValue: 'No'
 - name: materials
   singleValue: true
   description: Materials used to make the product
@@ -499,9 +499,9 @@ fields:
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: false
+  defaultValue: 'No'
 - name: imageZoomFeaturePresent
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  defaultValue: 'No'
