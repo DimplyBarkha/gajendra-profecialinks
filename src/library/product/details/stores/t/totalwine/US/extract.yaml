@@ -20,7 +20,7 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//div[contains(@class,'productHeader')]/h1, ' ', //div[contains(@class,'productHeader')]/h2)
+    xpath: concat(//meta[contains(@property,'og:title')]/@content, ' ', //div[contains(@class,'productHeader')]/h2)
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -129,7 +129,7 @@ fields:
     description: URLs of videos on page
   - name: name
     description: The product name
-    xpath: (//div[contains(@class,'productHeader')]/h1)[1]
+    xpath: //meta[contains(@property,'og:title')]/@content
   - name: inStorePrice
     description: Price in the selected store
     xpath: //div[contains(@id, 'edlpPrice')]
