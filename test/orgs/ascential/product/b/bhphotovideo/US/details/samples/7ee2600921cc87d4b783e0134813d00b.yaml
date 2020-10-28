@@ -1,0 +1,119 @@
+input:
+  id: 1538307-REG
+  _url: http://bhphotovideo.com
+extractions:
+  - html: https://workbench.import.io/html/run=554fff9b-fbb4-4498-af70-e5ffdebdb3a5/task=76184a3f-926b-44a7-9bf7-4da367d426ad/a08883db-9a28-4f40-ad80-7eb7f28ebbc2.html
+    extractionConfigId: product/details/stores/b/bhphotovideo/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.bhphotovideo.com/c/product/1538307-REG/panasonic_ag_cx10_4k_camcorder.html
+                xpath: /html/head[1]/link[5]/@href
+            image:
+              - text: https://static.bhphoto.com/images/images500x500/panasonic_ag_cx10_4k_camcorder_1578319560_1538307.jpg
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Panasonic AG-CX10 4K Camcorder
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://static.bhphoto.com/images/smallimages/1578319560_1538307.jpg
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://static.bhphoto.com/images/multiple_images/thumbnails/1578319218_IMG_1298882.jpg
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://static.bhphoto.com/images/multiple_images/thumbnails/1578319218_IMG_1298883.jpg
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/img[1]/@src
+              - text: https://static.bhphoto.com/images/multiple_images/thumbnails/1578319218_IMG_1298884.jpg
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/img[1]/@src
+              - text: https://static.bhphoto.com/images/multiple_images/thumbnails/1578319218_IMG_1298885.jpg
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/img[1]/@src
+              - text: https://static.bhphoto.com/images/multiple_images/thumbnails/1578319218_IMG_1298886.jpg
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: Panasonic AG-CX10 4K Camcorder
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Professional Video
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[2]/a[1]
+              - text: Camcorders
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[3]/a[1]
+            price:
+              - text: $2,595.00
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            brandText:
+              - text: Panasonic
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]/a[1]/img[1]/@alt
+            manufacturer:
+              - text: Panasonic
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]/a[1]/img[1]/@alt
+            gtin:
+              - text: "885170425897"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/article[1]/div[4]/div[2]/div[1]
+            sku:
+              - text: "1538307"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[6]/div[1]/a[1]/@href
+            ratingCount:
+              - text: "14"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/span[1]/div[1]/a[1]/span[2]
+            aggregateRating:
+              - text: 3,5
+                xpath: /html/body/@rating
+            shippingInfo:
+              - text: Free Expedited Shipping
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/span[1]/button[1]
+            shippingDimensions:
+              - text: 12.9 x 11 x 8.6"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[10]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+            shippingWeight:
+              - text: 5.955 lb
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[10]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            manufacturerDescription:
+              - text: >-
+                  Whether you're shooting for broadcast, behind the scenes
+                  (BTS), documentary, narrative, or live streaming in HD and
+                  would like to add 4K to your repertoire, the Panasonic AG-CX10
+                  4K Camcorder can help balance your needs or allow you to jump
+                  straight to 4K. Compact and lightweight, the AG-CX10 shoots
+                  and records UHD 4K at broadcast-compatible frame rates, so it
+                  fits smoothly into your existing broadcast workflow. The
+                  AG-CX10 features a 1/2.5" 8.29M MOS sensor that is always
+                  shooting at 4K resolution, the Venus processing engine to
+                  scale the 4K image for Full HD delivery, and both 3G-SDI and
+                  HDMI outputs. Audio is recorded in up to 24-bit PCM via the
+                  built-in microphone. Additionally, with an optional NDI|HX
+                  license, it supports a full IP workflow including streaming
+                  via its Ethernet port.
+                   
+                   The built-in Leica Dicomar lens features a 24x zoom with its widest angle at 25mm, and it uses the digital iZoom feature to zoom up to 48x. The Face Detection AF feature allows you to track faces and automatically adjusts focus on your subject. It also features manual control rings, a control dial, and a 5-axis optical image stabilization to keep your shots steady. The 3.5" fold-out LCD features a high-resolution touchscreen. The camera records in .mp4, .mov, and AVCHD codecs and features HEVC compression. The camera incorporates two SD card slots, allowing you to use both relay and simultaneous recording. The camera also supports live streaming over 2.4 GHz Wi-Fi via RTP/RTSP/RTMP/RTMPS streams.
+                   
+                   The VW-HU1 removable top handle unit is included, which provides two 3-pin XLR inputs that can be switched between mic, line, and +48V phantom power, and feature individual volume control knobs. A built-in LED light on the front of the unit allows you to illuminate your subject with a soft, diffused light and it also features dimming. A microphone holder is also attached to hold a standard shotgun mic, and the handle also features a shoe mount and mounting thread for additional accessories. Whether you're shooting for broadcast, behind the scenes (BTS), documentary, narrative, or live streaming in HD and would like to add 4K to your repertoire, the Panasonic AG-CX10 4K Camcorder can help balance your needs or allow you to jump straight to 4K. Compact and lightweight, the AG-CX10 shoots and records UHD 4K at broadcast-compatible frame rates, so it fits smoothly into your existing broadcast workflow. The AG-CX10 features a 1/2.5" 8.29M MOS sensor that is always shooting at 4K resolution, the Venus processing engine to scale the 4K image for Full HD delivery, and both 3G-SDI and HDMI outputs. Audio is recorded in up to 24-bit PCM via the built-in microphone. Additionally, with an optional NDI|HX license, it supports a full IP workflow including streaming via its Ethernet port.
+                   
+                   The built-in Leica Dicomar lens features a 24x zoom with its widest angle at 25mm, and it uses the digital iZoom feature to zoom up to 48x. The Face Detection AF feature allows you to track faces and automatically adjusts focus on your subject. It also features manual control rings, a control dial, and a 5-axis optical image stabilization to keep your shots steady. The 3.5" fold-out LCD features a high-resolution touchscreen. The camera records in .mp4, .mov, and AVCHD codecs and features HEVC compression. The camera incorporates two SD card slots, allowing you to use both relay and simultaneous recording. The camera also supports live streaming over 2.4 GHz Wi-Fi via RTP/RTSP/RTMP/RTMPS streams.
+                   
+                   The VW-HU1 removable top handle unit is included, which provides two 3-pin XLR inputs that can be switched between mic, line, and +48V phantom power, and feature individual volume control knobs. A built-in LED light on the front of the unit allows you to illuminate your subject with a soft, diffused light and it also features dimming. A microphone holder is also attached to hold a standard shotgun mic, and the handle also features a shoe mount and mounting thread for additional accessories. The AG-CX10 includes advanced IP networking features, such as built-in Wi-Fi support for HD live streaming to YouTube, Facebook, and other social sites via RTMP/RTMPS/RTSP protocols. In addition, the AG-CX10 includes an Ethernet connection for streaming and an NDI|HX connectivity for use in live production, as well as ROP tablet-based control. Please note that NDI|HX functionality requires an optional license. The camera supports a variety of high-quality recording options using the Venus engine, including 4:2:2 10-bit internal recording with a maximum 29.97p in UHD, and a maximum 59.94p in FHD. When recording in 10-bit, the camcorder delivers 4K 60p 4:2:2 10-bit HDMI output. It also supports HEVC recording (LongGOP/10-bit 4:2:0/MOV) at 59.94p with a bit rate of 200 Mb/s. In addition to MOV, MP4, and AVCHD, the AG-CX10 also supports P2 MXF for broadcast stations, with AVC-LongG support, plus AVC-Intra100/50 support planned via a future firmware update. Dual SD card slots support relay recording for virtually limitless record times.
+                   
+                   Please note that P2 recording requires microP2 cards. The wide-angle 24x optical lens offers a zoom range of 25 to 600mm (35mm-equivalent), and it features 32x iZoom in 4K and 48x iZoom in HD. Panasonic's exclusive high-precision AF also provides high-speed, accurate focusing for both 4K and Full HD shooting. The AG-CX10 features two manual lens control rings, one for focus and the second switchable between zoom and iris. The two rings are different sizes, allowing you to identify each ring by feel so you don't have to look away from the shot to confirm you are using the correct ring. An integrated ND wheel enables rapidly, switching between clear, 2-stop, 4-stop, and 6-stop NDs. The removable top handle incorporates two 3-pin XLR audio inputs and a built-in LED video light. The top handle supports +48V phantom power/mic/line selectable XLR audio input with manual volume control for each of the two channels. Also supported is a 24-bit linear PCM system (MOV/P2 MXF), 16-bit AAC (MP4), or Dolby Audio system (AVCHD) high-quality 2-channel audio recording. FHD mode enables slow-motion recording at up to 120 fps (for 59.94 Hz)/100 fps (for 50 Hz). And 10-bit recording is supported, for full-frame images with no crop and autofocus active. For both UHD and FHD modes, in addition to Optical Image Stabilization (O.I.S.), the camera also features Electronic Image Stabilization which operates to detect and correct handshake in five axes, including rotational blurring. The Ball O.I.S. System reduces friction on the drive section, achieving delicate correction even for small-amplitude handshake at all focal lengths. Face Detection AF/AE provides precise focusing while compensating the exposure for subjects, and together with the camera's precise focus lens drive achieves rapid focusing speed, stability, and tracking performance in both 4K and Full HD. In addition, subject tracking with color recognition can be activated on the LCD panel.
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/article[1]/div[3]/div[1]/div[1]
+            name:
+              - text: Panasonic AG-CX10 4K Camcorder
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[1]/h1[1]
+            warranty:
+              - text: Limited 1-Year Warranty
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/aside[1]/div[1]/div[1]/ul[1]/li[12]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[4]/section[1]/div[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1603893075011
