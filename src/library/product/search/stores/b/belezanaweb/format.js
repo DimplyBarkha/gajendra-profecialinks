@@ -58,10 +58,10 @@ const transform = (data) => {
                     var matches = /.+product-rating-star-(\d)(\d)/isg.exec(item.text);
                     var matches1 = /.+product-rating-star-(\d)/isg.exec(item.text);
                     if (matches) {
-                        item.text = matches[1]+"."+matches[2]
+                        item.text = matches[1]+","+matches[2];
                     }
                     else if (matches1) {
-                        item.text = matches1[1]
+                        item.text = matches1[1];
                     }
                 });
             }
