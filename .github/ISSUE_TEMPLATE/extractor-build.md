@@ -130,6 +130,7 @@ Example:
 - [ ] Promote Source to `Internal Deployment` in Project Dash
 - [ ] Add `Development` Label
 - [ ] Use `npm run lint` or `npm run lint:fix` before creating pull request
+- [ ] Pull the latest changes from master and run the command `git merge master -m "Update to master"`, this will merge the klatest changes from master into your branch
 - [ ] Create a pull request (PR) but not for `master` branch. Instead the base branch must be `internal`. Make sure that the automated merging check is green
 - [ ] Add label to this PR `Ready for internal review`
 - [ ] Add label to this issue `Ready for internal review`
