@@ -61,6 +61,7 @@ fields:
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
+  xpath: normalize-space(//div[@class="gn-accordionElement__wrapper"])
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
@@ -68,7 +69,7 @@ fields:
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
-  xpath: //a[@class="bop-tag"]/text()
+  # xpath: //a[@class="bop-tag"]/text()
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
@@ -107,21 +108,26 @@ fields:
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
 - name: legalDisclaimer
+  xpath: //span[@class="bop-ageRestriction__title"]
   singleValue: true
   description: Content under "legal disclaimer" header
 - name: directions
+  xpath: normalize-space(//section[@id="productInformation"]/div[@class="bop-section bop-productDetails gn-accordion"]/div[@class="gn-accordionElement"][2]/div[2]/div)
   singleValue: true
   description: Content under "directions" header
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
 - name: ratingCount
+  xpath: //span[@class="gn-rating__voteCount gn-content__paragraph--small"]
+  regExp: \d
   singleValue: true
   description: The number of ratings
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
+  xpath: //span[@itemprop="ratingValue"]
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
@@ -170,6 +176,9 @@ fields:
   singleValue: true
   description: Text of link next to Amazon choice graphic
 - name: brandLink
+  xpath: //a[@class="bop-tag"]/@src
+  regExp: (.+)
+  regExpReplace: http://groceries.morrisons.com$1
   singleValue: true
   description: 
 - name: internationalShipping
@@ -419,9 +428,9 @@ fields:
   singleValue: true
   description: Price of the product split into certain units
 - name: pricePerUnitUom
-  # xpath: //span[@class="bop-price__per"]//text()
-  # regExp: (.{1,})+\s{1,}+(per)+\s{1,}+(.{1,})
-  # regExpReplace: $3
+  xpath: //span[@class="bop-price__per"]//text()[3]
+  regExp:  (\d{0,}+(kg|g|ml|each))
+  regExpReplace: $1
   singleValue: true
   description: The unit of measurement used in price_per_unit
 - name: promotion
