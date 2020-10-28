@@ -5,11 +5,13 @@ module.exports = {
   parameterValues: {
     country: 'AT',
     store: 'redzac',
-    transform: transform,
+    transform,
     domain: 'redzac.at',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         function stall (ms) {
@@ -50,6 +52,6 @@ module.exports = {
         allProductsPrice[z].textContent = newProductsPrice;
       }
     });
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
