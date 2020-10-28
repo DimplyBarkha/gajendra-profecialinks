@@ -126,8 +126,10 @@ module.exports = {
           if (categoryData.match('ברקוד בינלאומי')) {
             console.log('variantData', categoryData);
             var gtin = categoryData.split(':');
-            addElementToDocument('gtin', gtin[1]);
-            addElementToDocument('variantId', gtin[1]);
+            if (gtin.length > 1) {
+              addElementToDocument('gtin', gtin[1]);
+              addElementToDocument('variantId', gtin[1].substring(4));
+            }
           }
 
           // ברקוד בינלאומי
