@@ -120,6 +120,9 @@ const transform = (data) => {
         });
         row.manufacturerImages = manufacturerImages;
       }
+      if (!row.mpc && row.mpc1) {
+        row.mpc = [{ text: row.mpc1[0].text }];
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

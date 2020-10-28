@@ -49,7 +49,7 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: false
-    xpath: //section[@class='product-specifications']//table//tr//td[contains(text(),'Quantity')][1]/following-sibling::td
+    xpath: 
   - name: weightNet
     xpath: //section[@class='product-specifications']//table//tr//td[2]/*[not(name()='i')]/ancestor::tr/td[1][contains(text(),'Weight (')]/parent::tr/td/span
   - name: weightGross
@@ -71,10 +71,14 @@ fields:
     singleValue: false
     description: The manufacturer model code (unique) of the product
     xpath: //span[contains(text(),'MFR#')]/analytics
+  - name: mpc1
+    singleValue: false
+    xpath: (//section[@class='product-specifications']//table//tr//td[contains(text(),"Complete The Set Model Ids")]/following-sibling::td)[1]
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //section[@class='product-specifications']//table//tr//td[contains(text(),'Package Quantity')][1]/following-sibling::td
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
