@@ -69,12 +69,12 @@ fields:
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
-  # xpath: //a[@class="bop-tag"]/text()
+  xpath: //ul[@class="bop-tagsList"]/li[last()]/div[@class='bop-tagsWrapper']/a[@class='bop-tag']
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
-  xpath: //a[@class="bop-tag"]/text()
+  xpath: //ul[@class="bop-tagsList"]/li[last()]/div[@class='bop-tagsWrapper']/a[@class='bop-tag']
   singleValue: true
   description: Product manufacturer
 - name: quantity
@@ -176,7 +176,7 @@ fields:
   singleValue: true
   description: Text of link next to Amazon choice graphic
 - name: brandLink
-  xpath: //a[@class="bop-tag"]/@src
+  xpath: //ul[@class='bop-tagsList']/li[last()]/div[@class='bop-tagsWrapper']/a[@class='bop-tag']/@href
   regExp: (.+)
   regExpReplace: http://groceries.morrisons.com$1
   singleValue: true
@@ -263,6 +263,9 @@ fields:
   singleValue: true
   description: 
 - name: ingredientsList
+  xpath: //div[@class='gn-accordionElement'][last()-1]//div[@class='gn-content bop-info__field']
+  regExp: Ingredients+(.{1,})
+  regExpReplace: $1
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
