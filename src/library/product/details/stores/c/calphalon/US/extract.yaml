@@ -25,10 +25,10 @@ fields:
     xpath: //h1[contains(@class,'main_header')]
   - name: listPrice
     singleValue: true
-    xpath: //div[contains(@class,'prod-listing-prices')]//span[@class='price']
+    xpath: //div[contains(@class,'prod-listing-prices')]//span[@class='old_price']
   - name: price
     singleValue: true
-    xpath: //div[contains(@class,'prod-listing-prices')]//span[@class='old_price']      
+    xpath: //div[contains(@class,'prod-listing-prices')]//span[@class='price']
   - name: availabilityText
     singleValue: true
     xpath: //div[contains(@class,'quantity_section')]//a[@id='add2CartBtn']
