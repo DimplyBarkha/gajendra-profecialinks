@@ -1,8 +1,8 @@
 input:
+  id: 1152297
   _url: http://boulanger.com
-  URL: https://www.boulanger.com/ref/1152297
 extractions:
-  - html: https://workbench.import.io/html/run=880c66fb-9af5-4903-9b38-a2d39f9d050d/task=f7b9208f-891d-473b-9022-350944b8d59a/5da6c7c7-22e1-4fbd-89a5-bd91c78b059b.html
+  - html: https://workbench.import.io/html/run=b27d28b5-8d35-404c-83d7-b9b80ae2e070/task=e5a4dfdf-c17b-4b85-a939-c2bb68f09b4c/dc8e31d6-7b52-4596-ba4a-8c6713c4236d.html
     extractionConfigId: product/details/stores/b/boulanger/FR/extract
     data:
       - group:
@@ -31,11 +31,8 @@ extractions:
             nameExtended:
               - text: Lave vaisselle tout intégrable Bosch SMI6ZDS49E
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
-            listPrice:
-              - text: 1099,00€
-                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
             price:
-              - text: 899,00€
+              - text: 1099,00€
                 xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
             availabilityText:
               - text: In Stock
@@ -68,11 +65,11 @@ extractions:
               - text: Lave vaisselle tout intégrable Bosch SMI6ZDS49E
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
             inStorePrice:
-              - text: 899,00€
+              - text: 1099,00€
                 xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
             coupon:
-              - text: "- 18%"
-                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]
+              - text: "- 30%"
+                xpath: /html/body/div[4]/div[2]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[4]/div[1]/span[2]
             brandLink:
               - text: https://www.boulanger.com/resultats?tr=bosch#searchinputmode=product
                 xpath: /html/body/@brandhref
@@ -647,4 +644,4 @@ extractions:
             descriptionBullets:
               - text: "1"
         xpath: /
-    timestamp: 1603377766021
+    timestamp: 1603884666097

@@ -14,9 +14,11 @@ module.exports = {
     await context.evaluate(async function () {
       // Get brand link
       const brandSelector = document.querySelector("span[itemprop='brand']");
-      const linkBrand = brandSelector.closest('a').getAttribute('href');
-      if (linkBrand) {
-        document.body.setAttribute('brandhref', `https://www.boulanger.com${linkBrand}`);
+      if (brandSelector) {
+        const linkBrand = brandSelector.closest('a').getAttribute('href');
+        if (linkBrand) {
+          document.body.setAttribute('brandhref', `https://www.boulanger.com${linkBrand}`);
+        }
       }
       // Create videos duration
       const videosSelector = document.querySelectorAll('video.s7Video');

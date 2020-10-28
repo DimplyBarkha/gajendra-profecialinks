@@ -1,0 +1,31 @@
+input:
+  id: 9000164864
+  _url: http://boulanger.com
+extractions:
+  - html: https://workbench.import.io/html/run=b27d28b5-8d35-404c-83d7-b9b80ae2e070/task=c9312f46-8476-4fa5-9118-d565fd4033cc/0f56f760-9b66-4f56-8b8f-e533bbb73bb1.html
+    extractionConfigId: product/details/stores/b/boulanger/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.boulanger.com/c/ecran-pc-moniteur
+                xpath: /html/head[1]/link[8]/@href
+            category:
+              - text: Informatique - Tablette
+                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/ul[1]/li[2]
+              - text: Ecran PC
+                xpath: /html/body/div[3]/div[2]/div[1]/div[2]/ul[1]/li[3]
+            coupon:
+              - text: "- 16%"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[6]/div[2]/div[2]/div[3]/div[3]/div[1]/span[2]
+            availabilityText:
+              - text: Out of Stock
+            quantity:
+              - text: "1"
+            technicalInformationPdfPresent:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1603884603584

@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'boulanger.com',
     prefix: null,
-    url: null,
+    url: 'https://www.boulanger.com/ref/{id}',
     country: 'FR',
     store: 'boulanger',
     zipcode: "''",
