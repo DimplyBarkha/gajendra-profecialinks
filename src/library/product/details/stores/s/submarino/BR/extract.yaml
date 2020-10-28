@@ -9,12 +9,13 @@ fields:
     singleValue: false
   - name: productUrl
     singleValue: false
+    xpath: //div[contains(@id, 'productUrl')]
   - name: _pageTimeStamp
     singleValue: false
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[contains(@class, 'image-gallery-slides')]//img/@src
+    xpath: //div[contains(@class, 'image-gallery-slide center')]//img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -22,6 +23,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //div[contains(@class, 'image-gallery-slide')]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -48,6 +50,7 @@ fields:
     description: Availability as described on page for the selected variant. If there
       is no availability but the product can be added to cart, this field should be
       "In Stock"
+    xpath: //div[contains(@id, 'Stock')]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -128,7 +131,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    xpath: count(//span[@type and contains(@class, 'variation')])
+    xpath: count(//span[@type and contains(@class, 'variation')]) #@todo
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -142,10 +145,10 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //body//div//img # @todo check json
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //video/source/@src | //video/@src
   - name: name
     singleValue: true
     description: The product name
@@ -433,10 +436,9 @@ fields:
     singleValue: true
     description: In product page, information about a new version of the product - new
       desription info
-
   - name: variantInformation
     description: colour / scent / flavour / other
-    xpath: //div[@type and contains(@class, 'variation') and not(span)]/@type
+    xpath: //span[@type and contains(@class, 'variation')]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of core
@@ -460,7 +462,7 @@ fields:
     singleValue: true
     description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
-    xpath: //tr[contains(@id, 'idade')][1]/td[2]/span
+    xpath: //tr[starts-with(@id, 'idade')][1]/td[2]/span
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14

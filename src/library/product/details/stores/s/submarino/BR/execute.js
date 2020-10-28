@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
@@ -7,5 +6,6 @@ module.exports = {
     domain: 'submarino.com.br',
     loadedSelector: 'div[class*=\'product-main-area\']',
     noResultsXPath: null,
+    zipcode: '',
   },
 };

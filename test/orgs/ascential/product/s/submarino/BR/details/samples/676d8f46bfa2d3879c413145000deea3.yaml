@@ -2,16 +2,24 @@ input:
   _url: http://submarino.com.br
   URL: https://www.submarino.com.br/produto/73770732/pijama-feminino-longo-plus-size?DCSext.recom=RR_item_page.rr1-ClickCP&cor=%C3%81gua&nm_origem=rec_item_page.rr1-ClickCP&nm_ranking_rec=2&tamanho=54
 extractions:
-  - html: https://workbench.import.io/html/run=338af552-595f-42a1-827a-a24ef9eb1fb8/task=41c76cc4-1966-4db8-9f72-6460fabea3b6/93572991-d7f0-4f8a-bda4-3f9b716fe47d.html
+  - html: https://workbench.import.io/html/run=e52b8e56-9498-4595-a784-435ecce1bd3f/task=7a739011-d0fd-4377-a942-21b15a71e4e1/fb860b9c-ca2c-43db-ae91-2946c082a894.html
     extractionConfigId: product/details/stores/s/submarino/BR/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://www.submarino.com.br/produto/73770732/pijama-feminino-longo-plus-size?DCSext.recom=RR_item_page.rr1-ClickCP&cor=%C3%81gua&nm_origem=rec_item_page.rr1-ClickCP&nm_ranking_rec=2&tamanho=54
+                xpath: /html/body/div[6]
+            image:
               - text: https://images-submarino.b2w.io/produtos/01/00/img/73770/7/73770740P1.jpg
                 xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             imageAlt:
               - text: Pijama Feminino Longo Plus Size no Submarino.com
                 xpath: /html/head[1]/meta[18]/@content
+            alternateImages:
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/73770/7/73770740P1.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/73770/7/73770740_2GG.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
             category:
               - text: Moda
                 xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/a[1]/div[1]/span[1]
@@ -27,6 +35,9 @@ extractions:
             price:
               - text: R$ 59,49
                 xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[7]
             description:
               - text: >-
                   O Pijama Feminino Longo Plus Size é fabricado em Malha P.V,
@@ -66,13 +77,33 @@ extractions:
               - text: Pijama Feminino Longo Plus Size
                 xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
             variantInformation:
-              - text: Tamanho
-                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/@type
-              - text: Cor
-                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/@type
+              - text: "48"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+              - text: "50"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+              - text: "52"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]
+              - text: "54"
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/span[1]
+              - text: Amarelo
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+              - text: Azul Aço
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+              - text: Fúcsia
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/span[1]
+              - text: Lilás
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[4]/div[1]/div[1]/span[1]
+              - text: Rosa
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[5]/div[1]/div[1]/span[1]
+              - text: Terracota
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[6]/div[1]/div[1]/span[1]
+              - text: Vermelho
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[7]/div[1]/div[1]/span[1]
+              - text: água
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
             descriptionBullets:
               - text: "3"
             variantCount:
               - text: "12"
         xpath: /
-    timestamp: 1603792711789
+    timestamp: 1603887627756

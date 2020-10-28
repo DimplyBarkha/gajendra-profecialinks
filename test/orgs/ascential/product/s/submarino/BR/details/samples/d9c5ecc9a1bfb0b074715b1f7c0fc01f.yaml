@@ -2,16 +2,24 @@ input:
   _url: http://submarino.com.br
   URL: https://www.submarino.com.br/produto/1862555149/boneca-baby-alive-grows-up-feliz-e8199-hasbro?DCSext.recom=RR_category_page.rr1-CategoryTopProducts&nm_origem=rec_category_page.rr1-CategoryTopProducts&nm_ranking_rec=1&voltagem=NAO%20SE%20APLICA
 extractions:
-  - html: https://workbench.import.io/html/run=338af552-595f-42a1-827a-a24ef9eb1fb8/task=8df23d0e-8f04-4439-93b8-b899014036db/b3728cc0-e382-48a9-82c8-4d388537e714.html
+  - html: https://workbench.import.io/html/run=e52b8e56-9498-4595-a784-435ecce1bd3f/task=f7322492-17f5-41f2-a629-c40b47a3c748/168145ee-b4c0-4db0-85ce-1a52d2189d59.html
     extractionConfigId: product/details/stores/s/submarino/BR/extract
     data:
       - group:
-          - image:
+          - productUrl:
+              - text: https://www.submarino.com.br/produto/1862555149/boneca-baby-alive-grows-up-feliz-e8199-hasbro?DCSext.recom=RR_category_page.rr1-CategoryTopProducts&nm_origem=rec_category_page.rr1-CategoryTopProducts&nm_ranking_rec=1&voltagem=NAO%20SE%20APLICA
+                xpath: /html/body/div[6]
+            image:
               - text: https://images-submarino.b2w.io/produtos/01/00/img/1862555/1/1862555190P1.jpg
                 xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             imageAlt:
               - text: Boneca Baby Alive Grows Up Feliz - E8199 - Hasbro no Submarino.com
                 xpath: /html/head[1]/meta[18]/@content
+            alternateImages:
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/1862555/1/1862555190P1.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+              - text: https://images-submarino.b2w.io/produtos/01/00/img/1862555/1/1862555190_2GG.jpg
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
             category:
               - text: Brinquedos
                 xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/a[1]/div[1]/span[1]
@@ -21,8 +29,11 @@ extractions:
               - text: Boneca Baby Alive Grows Up Feliz - E8199 - Hasbro
                 xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/h1[1]
             price:
-              - text: R$ 529,99
-                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+              - text: R$ 474,90
+                xpath: /html/body/div[4]/div[1]/div[1]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[7]
             description:
               - text: Ela CRESCE de verdade! As crianças podem ver a bebê virar uma garotinha.
                   Ela cresce 10 cm e traz 8 acessórios. Que tipo de bebê ela
@@ -72,4 +83,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1603793076541
+    timestamp: 1603887501869
