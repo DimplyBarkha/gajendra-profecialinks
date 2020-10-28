@@ -86,7 +86,7 @@ fields:
     xpath: //div[@class='price-block ']//div[@class='product-savings']
   - name: mpc
     singleValue: false
-    xpath: //span[@id='model-value']
+    xpath: //li[@class='model-number']//span[@id='model-value']
   - name: videos
     singleValue: false
     xpath: //div[@class='video-carousel-wrapper']//ol[@class='carousel-indicate']//li[@class='video-item-wrapper']//img[@class='video-thumbnail']/@src
