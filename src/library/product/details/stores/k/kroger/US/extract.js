@@ -147,11 +147,11 @@ const implementation = async (
     const purchaseOptions = document.getElementsByClassName('flex flex-col items-end');
     const numOptions = purchaseOptions.length;
 
-    const shippingAvailable = document.evaluate('count(//span[contains(@class,"PurchaseOptions") and contains(text(),"Ship")]/parent::span/parent::div/following-sibling::div/data)>0', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
+    const shippingAvailable = document.evaluate('count(//span[contains(@class,"PurchaseOptions") and contains(text(),"Ship")]/parent::span/parent::div/following-sibling::div//data)>0', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
 
     if (numOptions > 0) {
       // Different requirements for 45232 only
-      if (numOptions === 3 || shippingAvailable || (zipcode !== '45232' && zipcode !== '41071')) {
+      if (shippingAvailable) {
         available.textContent = 'In Stock';
       } else {
         available.textContent = 'In Store Only';
@@ -159,6 +159,7 @@ const implementation = async (
     } else {
       available.textContent = 'Out of Stock';
     }
+    console.log('availabilityText : ' + available.textContent);
 
     document.body.append(available);
   }, zipcode);
