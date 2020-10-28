@@ -28,16 +28,15 @@ module.exports = {
       }
     };
 
-    // const seeAll = await optionalWait("div[id='ws-search-block-products']>button[class*='ws-link']");
+    const seeAll = await optionalWait("div[id='ws-search-block-products']>button[class*='ws-link']");
 
-    // if (seeAll) {
-    //   await context.click("div[id='ws-search-block-products']>button[class*='ws-link']");
-    //   await context.waitForNavigation({ timeout: 30000, waitUntil: 'networkidle0' });
-    // }
-     
-    const response = await context.searchAllRequests("/episearch/1300/products.*");
-    // const response = await context.searchAllRequests('/episearch/.*');
-    console.log("This is the response recieved=>",response);
+    if (seeAll) {
+      await context.click("div[id='ws-search-block-products']>button[class*='ws-link']");
+      await context.waitForNavigation({ timeout: 30000, waitUntil: 'networkidle0' });
+    }
+
+    const response = await context.searchAllRequests('/episearch/1300/products.*');
+
 
     for (const res of response) {
       if (!res.responseBody || !res.responseBody.body)continue;
