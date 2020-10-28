@@ -1,11 +1,11 @@
-
 /**
-*
-* @param {ImportIO.Group[]} data
-* @returns {ImportIO.Group[]}
-*/
+ *
+ * @param {ImportIO.Group[]} data
+ * @returns {ImportIO.Group[]}
+ */
 const transform = (data) => {
-  for (const { group } of data) {
+  for (const { group }
+    of data) {
     for (const row of group) {
       let text = '';
       if (row.availabilityJson) {
@@ -13,15 +13,15 @@ const transform = (data) => {
         let deliver = false;
         const availabilityData = JSON.parse(row.availabilityJson[0].text.replace(/\\/g, ''));
         if (availabilityData &&
-      availabilityData.data &&
-      availabilityData.data.product &&
-      availabilityData.data.product.fulfillment) {
+                    availabilityData.data &&
+                    availabilityData.data.product &&
+                    availabilityData.data.product.fulfillment) {
           if (!availabilityData.data.product.fulfillment.is_out_of_stock_in_all_store_locations) {
             inStore = true;
           }
 
           if (availabilityData.data.product.fulfillment.store_options &&
-            availabilityData.data.product.fulfillment.store_options.length) {
+                        availabilityData.data.product.fulfillment.store_options.length) {
             availabilityData.data.product.fulfillment.store_options.forEach(store => {
               if (store.in_store_only.availability_status === 'IN_STOCK' || store.in_store_only.availability_status.includes('LIMITED_STOCK')) {
                 inStore = true;
@@ -30,7 +30,7 @@ const transform = (data) => {
           }
 
           if (availabilityData.data.product.fulfillment.shipping_options &&
-            (availabilityData.data.product.fulfillment.shipping_options.availability_status === 'IN_STOCK' || availabilityData.data.product.fulfillment.shipping_options.availability_status.includes('LIMITED_STOCK'))) {
+                        (availabilityData.data.product.fulfillment.shipping_options.availability_status === 'IN_STOCK' || availabilityData.data.product.fulfillment.shipping_options.availability_status.includes('LIMITED_STOCK'))) {
             deliver = true;
           }
         }
@@ -46,6 +46,16 @@ const transform = (data) => {
         text = 'Out of Stock';
       }
       row.availabilityText = [{ text }];
+      if (row.manufacturerDescription) {
+        console.log('manufacturerDescription: Cleaning in progress..');
+        const manufacturerDescriptionText = row.manufacturerDescription[0].text;
+        const manufacturerDescription = manufacturerDescriptionText.replace(/^(From the manufacturer[s\s])(.*)$/, '$2')
+          .replace(/(.*)(Show less)$/, '$1')
+          .replace(/(.*)(Show more)$/, '$1');
+        console.log(`manufacturerDescription: ${manufacturerDescription}`);
+        row.manufacturerDescription[0].text = manufacturerDescription;
+        console.log('manufacturerDescription: Cleaning completed..');
+      }
     }
   }
 
@@ -59,7 +69,7 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-    // eslint-disable-next-line no-control-regex
+  // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 

@@ -121,6 +121,8 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@class="manufacturerDesc"]
+    regExp: (From the manufacturer\s?(\d{0,5})?\D{0,100}(Show less|Show more))?(.*)
+    regExpReplace: $4
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@class="manufacturerImgs"]
