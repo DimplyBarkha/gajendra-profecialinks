@@ -10,7 +10,7 @@ module.exports = {
     loadedSelector: 'a[class="productImg__3fOOgAmO"] > picture > img',
     noResultsXPath: '//p[@class="resultsTitle__2yxTXNeW"]/span',
     openSearchDefinition: null,
-    zipcode: "'95825",
+    zipcode: '95825',
     domain: 'totalwine.com',
   },
 };
