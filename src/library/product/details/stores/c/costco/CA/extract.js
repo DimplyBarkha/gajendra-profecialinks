@@ -50,37 +50,48 @@ module.exports = {
       }; */
 
       // Get Single Value XPATH Extraction
+
+      // xpath for description
+      const featureDescInfoXpath = "//div[@class='features-container form-group']";
+      const featureDescInfo = getAllXpath(featureDescInfoXpath, 'innerText');
+      const tabDescInfoXpath = "//div[@class='product-info-description']";
+      const tabDescInfo = getAllXpath(tabDescInfoXpath, 'innerText');
+      let finalDescInfo;
+      finalDescInfo = featureDescInfo + '||' + tabDescInfo;
+
+      finalDescInfo = finalDescInfo.replace('\n', '||');
+      addElementToDocument('added_descriptionText', finalDescInfo);
+
+      // xpath for specificationValue
+      const specifictionXpath = '//div[@class="product-info-description"]/ul[3]';
+      const specificationValue = getAllXpath(specifictionXpath, 'innerText');
+
+      specificationValue.forEach(function (element) {
+        const specArray = element.split('\n');
+
+        var i;
+        for (i = 0; i < specArray.length; i++) {
+          if (specArray[i].includes('Weight')) {
+            const weight = specArray[i].replace('Weight:', '');
+
+            addElementToDocument('weightValue', weight);
+          }
+          if (specArray[i].includes('in') || specArray[i].includes('cm')) {
+            const dimensions = specArray[i].replace('Dimensions (L × W × H): ', '');
+
+            addElementToDocument('dimensionValue', dimensions);
+          }
+        }
+      });
+
       // xpath for colorValue
       const colorXpath = '//div[@class="product-info-description"]//ul//li[position()=1]';
       let colorValue = getXpath(colorXpath, 'innerText');
       console.log('My colorValue', colorValue);
       if (colorValue !== null && colorValue.length > 0 && colorValue.includes('Colour')) {
         colorValue = colorValue.replace('Colour:', '');
-        console.log('My colorValue', colorValue);
         addElementToDocument('colorValue', colorValue);
       }
-
-      const specXpath = '//div[@class="product-info-specs body-copy"]//div[@class="row"]//div[@class="col-xs-6 col-md-7 col-lg-8"]';
-      const dimenXpath = '//div[@class="product-info-description"]/ul[2]/li';
-      const specValue = getAllXpath(specXpath, 'innerText');
-      const dimenValue = getAllXpath(dimenXpath, 'innerText');
-      console.log('My dimenValue Values', dimenValue);
-      console.log('My Specification Values', specValue);
-      console.log('My Specification length ', specValue.length);
-      specValue.forEach(function (element) {
-        console.log('My weightValue element', element);
-        console.log('My weightValue element includes kg ', element.includes('kg'));
-        if (element.includes('kg')) {
-          console.log('My weightValue element kg', element);
-          addElementToDocument('weightValue', element);
-        }
-        if (element.includes('in') || element.includes('cm')) {
-          console.log('My dimension element in ', element);
-          addElementToDocument('dimensionValue', element);
-        } else {
-          addElementToDocument('dimensionValue', dimenValue);
-        }
-      });
 
       let scrollTop = 500;
       while (true) {

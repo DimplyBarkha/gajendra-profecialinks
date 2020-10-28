@@ -5,10 +5,11 @@ recordXPath: null
 fields:
   - name: thumbnail
     singleValue: false
-    xpath: //img[contains(@class,'img-responsive')]/@src
+    xpath: //div[contains(@class,'product-img-holder')]//img[contains(@class,'img-responsive')]/@src
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,'thumbnail')]/@itemid
+    #xpath: //div[contains(@class,'thumbnail')]/@itemid
+    xpath: //div[@class="omniture"]//div[@class="scProdId"]/@sc.prodid
   - name: productUrl
     singleValue: false
     xpath: //span[@class="description"]//a/@href
@@ -18,12 +19,10 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //meta[@itemprop='ratingValue']/@content
+    type: NUMBER
   - name: reviewCount
     singleValue: false
     xpath: //meta[@itemprop='reviewCount']/@content
-  - name: ratingCount
-    singleValue: false
-    xpath: //meta[@itemprop='ratingValue']/@content
   - name: price
     singleValue: false
     xpath: //div[@class="price"]/text()

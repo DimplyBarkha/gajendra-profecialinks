@@ -47,12 +47,15 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //h1[contains(@itemprop,'name')]/text()
+    #xpath: //h1[contains(@itemprop,'name')]/text()
+    xpath: //div[@id="added_descriptionText"]/text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//ul[contains(@class,'pdp-features')]//li)
+    #xpath: //div[@id="added_bulletCount"]/text()
+    #xpath: sum(count(//ul[contains(@class,'pdp-features')]//li),count(//div[@id='nav-pdp-tab-header-3']/div[@class='panel-body col-xs-12']/div[@class='product-info-description']//ul//li))
+    xpath: count(//ul[contains(@class,'pdp-features')]//li |  //div[@id='nav-pdp-tab-header-3']//div[@class='panel-body col-xs-12']//div[@class='product-info-description']/ul/li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -70,6 +73,9 @@ fields:
     singleValue: true
     description: Net weight as described on the page
     xpath: //div[@id="weightValue"]/text()
+    #xpath: //div[@class='product-info-description']//ul[3]//li[2]/text()
+    #regExp: (Weight:)(.*)
+    #regExpReplace: $2
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -79,7 +85,8 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //p[contains(@id,'product-body-item-number')]//span/@data-sku
+    #xpath: //p[contains(@id,'product-body-item-number')]//span/@data-sku
+    xpath: //div[@class="row"]//div[contains(@class,"item-model-number")]//span/@data-model-number
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -121,6 +128,7 @@ fields:
     singleValue: true
     description: Stated shipping dimensions
     xpath: //div[@id="dimensionValue"]/text()
+    #xpath: //div[@class='product-info-description']//ul[3]//li[1]/text()
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -400,11 +408,12 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(@class,'product-info-description')]/text()
+    xpath: //div[contains(@class,"product-info-specs")]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: //figure[@class="product-concierge"]//ul[@class="product-info-concierge"]//li//p[1]/text()
+    #xpath: //figure[@class="product-concierge"]//ul[@class="product-info-concierge"]//li//p[1]/text()
+    xpath: //div[@class='product-info-description']//ul[4]//li/text()
   - name: storage
     singleValue: true
     description: Suggested storage location for product
