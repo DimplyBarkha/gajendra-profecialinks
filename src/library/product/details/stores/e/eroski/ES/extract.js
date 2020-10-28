@@ -7,7 +7,10 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
+  console.log("inputs:: ", inputs);
+  const {url, id } = inputs;
+  console.log("parameters:: ", parameters);
+  if(id){
   await new Promise((resolve, reject) => setTimeout(resolve, 10000));
   await context.waitForXPath('//h2[@role="presentation"]//a');
 
@@ -39,7 +42,7 @@ async function implementation (
       addHiddenDiv('my-variantId', variantIdText);
     }
   });
-
+  }
   return await context.extract(productDetails, { transform });
 }
 
