@@ -38,10 +38,10 @@ fields:
     xpath: //span[contains(@class,'manufacturer-link')]//a  
   - name: weightNet
     singleValue: true
-    xpath: //table[@id='product-attribute-specs-table']//th//font[contains(text(),'Weight')]/parent::*/parent::*/parent::*/td
+    xpath: //table[@id='product-attribute-specs-table']//th[text()='Gewicht']/parent::*//td[@class='data']
   - name: weightGross
     singleValue: true
-    description: //table[@id='product-attribute-specs-table']//tr//th[contains(text(),'Gewicht')]//parent::*//td
+    description: //table[@id='product-attribute-specs-table']//th[text()='Gewicht']/parent::*//td[@class='data']
   - name: gtin
     singleValue: true
     xpath: //script[@type='application/ld+json']  
