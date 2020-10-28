@@ -3,11 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null #//div[@class="product-grid-item ColUI-gjy0oc-0 ifczFg ViewUI-sc-1ijittn-6 iXIDWU"]|//div[@class="carousel-item"]
 fields:
-  - name: id
+  - name: id 
     description: Unique id (within this extractor)
-    xpath: //div[@class="row product-grid no-gutters main-grid"]//a[starts-with(@href, '/produto/')][@class="Link-bwhjk3-2 iDkmyz TouchableA-p6nnfn-0 joVuoc"]/@href|//a[@class="card-product-url"]/@href
-    regExp: \/produto\/(\d+)\?
-    regExpReplace: $1
+    xpath: //div[@class="RippleContainer-sc-1rpenp9-0 dMCfqq"]/@currentid|//a[@class="card-product-url"]/@currentid
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
@@ -15,20 +13,18 @@ fields:
   - name: name
     description: The product name
     xpath: //div[@class="product-grid-item ColUI-gjy0oc-0 ifczFg ViewUI-sc-1ijittn-6 iXIDWU"]//div[contains(@class, 'TitleWrapper')]/h2|//h3[@class="card-product-name"]
-  - name: productUrl
+  - name: productUrl 
     description: The URL for the product details page
-    xpath: //div[@class="row product-grid no-gutters main-grid"]//a[starts-with(@href, '/produto/')][@class="Link-bwhjk3-2 iDkmyz TouchableA-p6nnfn-0 joVuoc"]/@href|//a[@class="card-product-url"]/@href
-    regExp: \/produto\/(\d+)\?
-    regExpReplace: https://www.submarino.com.br/produto/$1
+    xpath: //div[@class="RippleContainer-sc-1rpenp9-0 dMCfqq"]/@urldata|//a[@class="card-product-url"]/@urldata
   - name: gtin
     description: GTIN code (includes UPC/EAN)
-  - name: thumbnail #todo
+  - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //div[@class="product-grid-item ColUI-gjy0oc-0 ifczFg ViewUI-sc-1ijittn-6 iXIDWU"]//div[contains(@class, 'WrapperPicture')]/picture/img/@src|//div[@class="card-product-figure"]//picture/img/@src
-  - name: aggregateRating #todo
+  - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     singleValue: true
-    type: NUMBER
+    type: STRING
     xpath: //div[@class="product-grid-item ColUI-gjy0oc-0 ifczFg ViewUI-sc-1ijittn-6 iXIDWU"]//div[contains(@class, "RatingWrapper-sc")]
     regExp: (\d)\.(\d)
     regExpReplace: $1,$2
@@ -41,19 +37,21 @@ fields:
     xpath: //div[@class="product-grid-item ColUI-gjy0oc-0 ifczFg ViewUI-sc-1ijittn-6 iXIDWU"]//span[contains(@class, "Quantity-sc")]/text()
     regExp: (\d+)
     regExpReplace: $1
-  - name: price # todo
+  - name: price 
     description: The offered price for the product
-    xpath: //div[@class="product-grid-item ColUI-gjy0oc-0 ifczFg ViewUI-sc-1ijittn-6 iXIDWU"]//span[contains(@class, "PriceUI")]
-  # - name: manufacturer # todo
-  #   description: Product manufacturer
-  # - name: soldBy # todo
-  #   description: The name of the seller of the item (if available)
-  # - name: rank # todo - just added carousel items.
-  #   description: search/listing rank
-  #   xpath:  //div[@class="RippleContainer-sc-1rpenp9-0 dMCfqq"]/@rankorganic
-  # - name: endorsementText # todo
-  #   description: The text that signifies that a product is endorsed
-  # - name: sponsored # todo
-  #   singleValue: false
-  #   description: Is sponsored/paid
-  #   type: BOOLEAN
+    xpath: //div[@class="product-grid-item ColUI-gjy0oc-0 ifczFg ViewUI-sc-1ijittn-6 iXIDWU"]//span[contains(@class, "PriceUI")]|//div[@class="card-product-price text-highlight-1"]
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: rank
+    description: search/listing rank
+    xpath:  //div[@class="RippleContainer-sc-1rpenp9-0 dMCfqq"]/@rank|//a[@class="card-product-url"]/@rank
+  - name: endorsementText 
+    description: The text that signifies that a product is endorsed
+    xpath: //span[@class="featured-flag"]
+  - name: sponsored 
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    xpath: //span[@class="featured-flag"]
