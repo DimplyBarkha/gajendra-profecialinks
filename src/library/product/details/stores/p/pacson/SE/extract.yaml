@@ -65,11 +65,11 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //div[@class="product-detail__specification"]/table/tbody/tr[4]/td[2]
+    xpath: //div[@class="product-detail__specification"]/table/tbody/tr[6]/td[2]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //div[@class="product-detail__specification"]/table/tbody/tr[6]/td[2]
+    xpath: //div[@class="product-detail__specification"]/table/tbody/tr[4]/td[2]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -80,6 +80,7 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xpath: //div[@class="product-detail__article-number"]/div
+    regExp: (\d)
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
