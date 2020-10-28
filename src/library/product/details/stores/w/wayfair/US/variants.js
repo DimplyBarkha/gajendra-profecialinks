@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/variants',
   parameterValues: {
-    domain: 'wayfair.com',
-    timeout: 50000,
     country: 'US',
     store: 'wayfair',
+    domain: 'wayfair.com',
     zipcode: '',
   },
 };

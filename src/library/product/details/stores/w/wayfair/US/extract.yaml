@@ -30,24 +30,41 @@ fields:
   - name: sku
     xpath: //meta[@property="og:upc"]/@content
   - name: description
-    xpath: //body/@description
-  - name: additionalDescBulletInfodescriptionBullets
-    xpath: //div[@class="ProductOverviewInformation-content"]//ul//li
+    xpath: //div[contains(@class,'ProductOverviewInformation-description')] | //h3[contains(.,'Features')]/following-sibling::ul//li | //h3[contains(.,'Product Details')]/following-sibling::ul//li | //h3[contains(.,'More About This Product')]/..
+  # - name: additionalDescBulletInfodescriptionBullets
+  #   xpath: //div[@class="ProductOverviewInformation-content"]//ul//li
   - name: descriptionBullets
-    xpath: count(//div[@class="ProductOverviewInformation-content"]//ul//li)
+    xpath: count(//div[contains(@class,'ProductOverviewInformation-description')]//ul//li | //h3[contains(.,'Features')]/following-sibling::ul//li | //h3[contains(.,'Product Details')]/following-sibling::ul//li | //h3[contains(.,'More About This Product')]/..//ul//li)
   - name: variantId
     xpath: //input[@name="PiID[Finish]"]/@value
+  - name: variantInformation
+    xpath: //p[contains(.,'Select Finish')]/following-sibling::p
+  - name: variantCount
+    description: Number of variants listed
+    xpath: count(//div[contains(@class,'is-checkbox')]//input/@value)
+  - name: variants
+    xpath: //div[contains(@class,'is-checkbox')]//input/@value
   - name: alternateImages
-    xpath: //ul[contains(@class,"ProductDetailImage")]//li[position()>1]//div[@class="ImageComponent ImageComponent--overlay"]/img/@src
+    xpath: //div[contains(@class,"ProductDetailImageCarouselVariantB-top")]//ul//li[position()>1]//img//@src
   - name: secondaryImageTotal
-    xpath: count(//ul[contains(@class,"ProductDetailImage")]//li[position()>1]//div[@class="ImageComponent ImageComponent--overlay"]/img/@src)
+    xpath: count(//div[contains(@class,"ProductDetailImageCarouselVariantB-top")]//ul//li[position()>1]//img//@src)
   - name: ratingCount
     xpath: (//span[contains(@class,'ProductRatingNumberWithCount-count--link')])[1]
     regExp: (\d+)
   - name: aggregateRating
     xpath: (//span[@class="ProductRatingNumberWithCount-rating"])[1]
+  - name: countryOfOrigin
+    xpath: //dt[contains(.,'Country of Origin')]/following-sibling::dd
+  - name: manufacturerDescription
+    description: The extended description of the product supplied by the lister
+    xpath: //div[contains(@class,'WaymoreModulesContainer')]//section//text()
+  - name: manufacturerImages
+    description: Images within the third party description
+    xpath: //div[contains(@class,'WaymoreModulesContainer')]//section//img//@src
   - name: video
     xpath: //video[@class="VideoPlayer-element"]/source[1]/@src
+  - name: warranty
+    xpath: //dt[contains(.,'Warranty Length')]/following-sibling::dd[1]
   - name: mpc
     xpath: //ol[@class="Breadcrumbs-list"]/li/span[contains(text(),'Part')]
     regExp: 'Part #:\s(.+)'
@@ -57,7 +74,7 @@ fields:
   - name: weightNet
     xpath: //div[contains(text(),"Overall Product Weight")]/parent::dt/following-sibling::dd
   - name: specifications
-    xpath: //body/@specification
+    xpath: //div[@data-enzyme-id="specificationsLeftColumn"]//div[contains(@class,"Specifications-descriptionList-cell")] |//div[@class="Specifications"]/div//div[@class="Specifications-descriptionList"]//div[contains(@class,"Specifications-descriptionList-cell")] | //div[@class="ProductWeightsDimensions-descriptionListItem"]
     # //static
   - name: technicalInformationPdfPresent
     defaultValue: No

@@ -8,12 +8,44 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       let text = '';
-      text = [String(row.brandText && row.brandText[0].text), String(row.name && row.name[0].text)].filter(e => e !== 'undefined').join(' - ');
+      text = [String(row.name && row.name[0].text), String(row.variantInformation && row.variantInformation[0].text)].filter(e => e !== 'undefined').join(' ');
       row.nameExtended = [
         {
           text: text,
         },
       ];
+      if (row.variants) {
+        let text = '';
+        row.variants.forEach(item => {
+          text = row.variants.map(elm => elm.text).join(' | ');
+        });
+        row.variants = [{ text }];
+      }
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text = row.description.map(elm => elm.text).join(' || ');
+        });
+        row.description = [{ text }];
+      }
+      if (row.specifications) {
+        let text = '';
+        let count = 0;
+        row.specifications.forEach(item => {
+          count++;
+          const val = (count % 2);
+          if (val === 0) {
+            text += `: ${item.text}`;
+          } else {
+            text += ` | ${item.text}`;
+          }
+        });
+        row.specifications = [
+          {
+            text: text.replace(new RegExp('(\\s\\|\\s)(.+)', 'g'), '$2'),
+          },
+        ];
+      }
     }
   }
 
