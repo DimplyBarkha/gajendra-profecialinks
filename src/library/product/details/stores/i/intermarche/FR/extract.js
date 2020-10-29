@@ -11,7 +11,6 @@ module.exports = {
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await new Promise(resolve => setTimeout(resolve, 10000));
-
     await context.evaluate(function (parentInput) {
       function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');

@@ -17,6 +17,7 @@ module.exports = {
   ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let morePages = true;
