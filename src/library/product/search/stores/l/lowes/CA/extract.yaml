@@ -1,0 +1,110 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="tab-products-wrapper"]/ul/li
+fields:
+  - name: paid
+    singleValue: false
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: false
+    description: The brand name
+    example: Panasonic
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example:
+      - Dental Care
+      - Toothbrushes & Accessories
+      - Electric Toothbrushes & Accessories
+      - Electric Toothbrushes
+      - Rotating
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="price"]/following-sibling::a/@href
+    regExp: (.+)
+    regExpReplace: https://www.lowes.ca$1
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="content-image"]//img/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: false
+    xpath: //div[@class="price"]/following-sibling::a
+    description: The product name
+  - name: sku
+    singleValue: false
+    xpath: //span[contains(text(),'Item#')]/span
+  - name: mpc
+    singleValue: false
+    xpath: //span[contains(text(),'MFR#')]/span
+    description: The model code of the product
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: false
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class="rating-vote"]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class="rating-vote"]
+    regExp: (\d+)
+    regExpReplace: $1
+    description: The number of reviews
+  - name: price
+    singleValue: false
+    xpath: //div[@class='price-actual']
+    description: The offered price for the product
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: false
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: false
+    xpath: 
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: false
+    description: Shipping information for the product
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: false
+    xpath: //span[contains(text(),'Item#')]/span
+    description: Unique id (within this extractor)
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="price"]/following-sibling::a
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[@class="rating-stars"]/../@aria-label
+    regExp: (.+)(\sout.+)
+    regExpReplace: $1
+    type: NUMBER
+  - name: variantId
+    singleValue: false
+    xpath: //span[contains(text(),'Item#')]/span
