@@ -127,6 +127,7 @@ fields:
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
+  type: STRING
   xpath: //span[@itemprop="ratingValue"]
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
@@ -263,13 +264,13 @@ fields:
   singleValue: true
   description: 
 - name: ingredientsList
-  xpath: //div[@class='gn-accordionElement'][last()-1]//div[@class='gn-content bop-info__field']
-  regExp: Ingredients+(.{1,})
-  regExpReplace: $1
+  xpath: normalize-space(//div[@class='gn-accordionElement'][2]/div[@class='gn-accordionElement__content gn-accordionElement__content--expanded']/div[@class='gn-accordionElement__wrapper']/div[@class='gn-content bop-info__field'][1])
+  regExp: Ingredients(.{1,})
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
 - name: servingSize
+  xpath: //table/tbody/tr[1]/th[2]/text()
   singleValue: true
   description: The size of serving Nutritional information is based on.
 - name: servingSizeUom
@@ -279,18 +280,25 @@ fields:
   singleValue: true
   description: Suggested number of servings of the product.
 - name: caloriesPerServing
+  xpath: //table/tbody/tr[3]/td[2]/text()
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
 - name: caloriesFromFatPerServing
+  xpath: //table/tbody/tr[5]/td[3]/text()
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
     on per 100g serving
 - name: totalFatPerServing
+  xpath: //table/tbody/tr[5]/td[2]/text()
+  type: STRING
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
 - name: totalFatPerServingUom
+  xpath: //table/tbody
+  regExp: Fat(.{1,4})g
+  regExpReplace: $1
   singleValue: true
   description: Unit of Measure Data for Total Fat content
 - name: saturatedFatPerServing
@@ -395,6 +403,7 @@ fields:
   singleValue: true
   description: Unit of Measure Data for Salt
 - name: dietaryInformation
+  xpath: //div[@class='gn-accordionElement'][last()]/div[@class='gn-accordionElement__content gn-accordionElement__content--expanded']//div[@class='gn-content bop-info__field'][last()]/div[@class='bop-info__content']
   singleValue: true
   description: 
 - name: specifications
