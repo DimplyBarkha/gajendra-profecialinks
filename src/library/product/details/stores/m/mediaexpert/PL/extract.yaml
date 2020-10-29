@@ -13,6 +13,8 @@ fields:
     xpath: //ul[contains(@class, 'c-breadcrumb_wrapper')]/li[position()>1 and position()!=last()]
   - name: nameExtended
     xpath: //div[contains(@class, 'is-productName')]//h1
+  - name: name
+    xpath: //div[contains(@class, 'is-productName')]//h1
   - name: price
     xpath: //meta[@property='product:price:amount']/@content
   - name: availabilityText
@@ -63,6 +65,8 @@ fields:
   - name: variantInformation
     xpath: //td[contains(., 'Kolor')]/following-sibling::td
   - name: weightNet
-    xpath: //td[contains(., 'Waga [kg]')]/following-sibling::td
+    xpath: //td[contains(., 'Waga')]/following-sibling::td
     regExp: (.+)
     regExpReplace: $1 kg
+  - name: manufacturer
+    xpath: //td[contains(., 'Nazwa producenta')]/following-sibling::td
