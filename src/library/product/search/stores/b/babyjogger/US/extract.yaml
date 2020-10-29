@@ -5,9 +5,13 @@ recordSelector: null
 recordXPath: //div[@class='product-tile']
 fields: 
 - name: id
-  xpath: //div[@class='pdp-link']/div/@data-href
-  regExp: (.+)(SAP_)(\d+)
+  xpath: //div[@class='product-tile']/@data-analytics-data
+  regExp: (.+)("product_sku":")(.+)(",)("category")(.+)
   regExpReplace: $3
+- name: price
+  xpath: //div[@class='pdp-link']/@price1
+- name: searchUrl
+  xpath: //div[@class='pdp-link']/@searchurl
 - name: thumbnail
   xpath: //img[@class='tile-image']/@src
 - name: aggregateRating2
@@ -23,7 +27,3 @@ fields:
   xpath: //div[@class='pdp-link']/div/@data-href
   regExp: (.+)
   regExpReplace: https://www.babyjogger.com$1
-- name: price
-  xpath: /@price1
-- name: searchUrl
-  xpath: /@searchurl
