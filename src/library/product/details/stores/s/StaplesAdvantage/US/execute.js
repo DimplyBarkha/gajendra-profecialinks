@@ -4,10 +4,12 @@ async function implementation (inputs, parameters, context, dependencies) {
     encodeURIComponent(inputs.id),
   );
   const loginUrl = 'https://www.staplesadvantage.com/idm';
+  const storeIdUrl = 'https://www.staplesadvantage.com/learn/?storeId=10101';
 
-  // after the search results page and checking loadedSelector and noResultsXPath
+  await dependencies.goto({ url, zipcode: inputs.zipcode });
 
   // the extractor goes to the logging in page
+  await context.goto(storeIdUrl);
   await context.goto(loginUrl);
 
   await context.waitForNavigation();
@@ -84,8 +86,6 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   };
 
-  await context.extract('/product/details/stores/s/StaplesAdvantage/US/extract', 'APPEND');
-
   return await context.evaluate(function (xp) {
     const r = document.evaluate(
       xp,
@@ -99,7 +99,6 @@ async function implementation (inputs, parameters, context, dependencies) {
   }, parameters.noResultsXPath);
 };
 
-
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
@@ -107,7 +106,7 @@ module.exports = {
     store: 'staplesadvantage',
     domain: 'staplesadvantage.com',
     url: 'https://www.staplesadvantage.com//product_{id}',
-    zipcode: '',
+    zipcode: '10101',
   },
   implementation,
 };
