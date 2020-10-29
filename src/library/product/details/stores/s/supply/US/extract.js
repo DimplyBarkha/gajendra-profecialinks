@@ -12,7 +12,6 @@ module.exports = {
   },
   // @ts-ignore
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-    await context.setUseRelayProxy(true);
     await new Promise((resolve, reject) => setTimeout(resolve, 1500));
     await context.evaluate(async function () {
       const moreImgs = document.querySelector('span[class*= "trigger"]');
