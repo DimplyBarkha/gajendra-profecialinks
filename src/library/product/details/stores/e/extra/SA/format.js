@@ -101,7 +101,9 @@ const transform = (data) => {
         }
 
         if (row.brandText) {
-          row.brandText = [{ text: row.brandText[0].text, xpath: row.brandText[0].xpath }];
+          if (row.brandText.length > 1) {
+            row.brandText = [{ text: row.brandText[1].text, xpath: row.brandText[1].xpath }];
+          }
           row.manufacturer = row.brandText;
         }
 
