@@ -51,17 +51,20 @@ const implementation = async function (
   try {
     const productDetails = await getData(`https://www.totalwine.com/product/api/product/product-detail/v1/getProduct/${sku}?shoppingMethod=INSTORE_PICKUP&state=US-CA&storeId=${storeUniqueId}`);
     console.log('API call done');
-    await context.evaluate(async function (data) {
+
+    await context.evaluate(async function (details) {
       // Add skus to DOM
       const skus = document.querySelectorAll('ul[role="listbox"][class*="reset"] > li');
-      for (let i = 0; i < skus.length; i++) {
+      for (let i = 0; i < details.skus.length; i++) {
         const newDiv = document.createElement('div');
-        if (data.skuId === data.skus[i].skuId) {
+        console.log('sku id found ' + details.skuId);
+        console.log('sku found ' + JSON.stringify(details.skus[i]));
+        if (details.skuId === details.skus[i].skuId) {
           newDiv.setAttribute('class', 'currentItemId');
         } else {
           newDiv.setAttribute('class', 'itemId');
         }
-        newDiv.textContent = data.skus[i].skuId;
+        newDiv.textContent = details.skus[i].skuId;
         newDiv.style.display = 'none';
         skus[i].appendChild(newDiv);
       }
