@@ -1,0 +1,110 @@
+input:
+  id: santiveri-jarabe-equinacea-flor-forte-200ml
+  _url: http://mifarma.es
+extractions:
+  - html: https://workbench.import.io/html/run=f8ee689c-281b-4206-8bb0-0a5ca02c7fe3/task=ab749059-62f0-4fe7-b7a3-029bca4bd1b5/1d4fdb1c-b2c8-4e9d-9b83-ab4967a3f3ae.html
+    extractionConfigId: product/details/stores/m/mifarma/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mifarma.es/santiveri-jarabe-equinacea-flor-forte-200ml
+                xpath: /html/head[1]/link[33]/@href
+            image:
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/9d6758f7fb7476b09aa51a3fa7ce618a/5/8/585001001_.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Santiveri Jarabe Equinaflor Forte 200ml
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@alt
+            category:
+              - text: Mifarma
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[1]/a[1]/text()[1]
+              - text: Herbolario
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/text()[1]
+              - text: Aumentar las Defensas
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/text()[1]
+            nameExtended:
+              - text: Santiveri Jarabe Equinaflor Forte 200ml
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            listPrice:
+              - text: 20,87 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
+            price:
+              - text: 18,15 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/button[1]/@title
+            description:
+              - text: Este complemento alimenticio de la casa Santiveri ayuda a mantener en buen
+                  estado el sistema inmune y las vías respiratorias. Sin gluten,
+                  sin lactosa, sin alcohol y sin colorantes.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[1]/div[2]/div[1]/p[1]
+            brandText:
+              - text: Santiveri
+                xpath: /html/body/div[1]/span[12]
+            manufacturer:
+              - text: Santiveri
+                xpath: /html/body/div[1]/span[12]
+            mpc:
+              - text: "138641"
+                xpath: /html/body/div[1]/span[2]
+            legalDisclaimer:
+              - text: "Responsable de los datos: Mifarma Tienda Online S.L."
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[3]/div[2]/div[1]/form[1]/div[3]/div[2]/p[1]/text()[1]
+            directions:
+              - text: Tomar dos medidas de 15 ml (30 ml=3 cucharadas) diluidas en medio vaso de
+                  agua, preferiblemente por las mañanas antes del desayuno.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[4]/p[2]/text()[1]
+            warnings:
+              - text: No superar la dosis diaria recomendada.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[3]/p[2]/text()[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[1]/span[13]
+            aggregateRatingText:
+              - text: "0"
+                xpath: /html/body/div[1]/span[14]
+            aggregateRating:
+              - text: "0"
+                xpath: /html/body/div[1]/span[14]
+            shippingInfo:
+              - text: Envío urgente gratis en la Península en pedidos desde 59€.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[2]/div[1]/p[1]/text()[1]
+            manufacturerDescription:
+              - text: Este complemento alimenticio de la casa Santiveri ayuda a mantener en buen
+                  estado el sistema inmune y las vías respiratorias.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[3]/text()[1]
+              - text: Indicado para reforzar las defensas naturales del organismo y prevenir
+                  catarros y resfriados.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[4]/text()[1]
+              - text: Contiene tapón dosificador. Envase de 200 ml.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[6]/text()[1]
+            name:
+              - text: Santiveri Jarabe Equinaflor Forte 200ml
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            ingredientsList:
+              - text: "Jugo de equinácea (Echinacea purpurea Moench. – planta) reconstituido
+                  (agua, jugo concentrado de equinácea: EFLA® 894 titulado al
+                  2,4% en β-1,2-Dfructofuranósidos), miel, jugo concentrado de
+                  saúco (Sambucus nigra L. – fruto), sirope de arce (Acer
+                  saccharinumL. – savia), extractos de frutos de acerola y
+                  escaramujo (rosa canina): fuentes naturales de vitamina C
+                  (ácido L-ascórbico), extracto seco de saúco (Sambucus nigra L.
+                  – fruto), extracto seco de reishi (Ganodermalucidum(Curtis) P.
+                  Karst. –micelio) titulado al 50% en polisacáridos y 17,5% en
+                  betaglucanos, extracto seco de líquen de Islandia (Cetraria
+                  islandica (L.) Ach. - talo), zinc (lactato de zinc),
+                  conservador (sorbato potásico) y aroma natural."
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            weightGross:
+              - text: 0.2200 kg
+        xpath: /
+    timestamp: 1603971100541

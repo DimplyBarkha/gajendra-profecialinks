@@ -9,6 +9,7 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //link[@rel='canonical']/@href
 - name: _pageTimeStamp
   singleValue: false
 - name: image
@@ -58,7 +59,7 @@ fields:
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
   xpath: //div[@class='short-description']//p
-- name: descriptionBullets #to do
+- name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
@@ -94,28 +95,31 @@ fields:
   singleValue: tru
   description: The manufacturer model code (unique) of the product
   xpath: //div[@class='cn_product_visited']/span[@class='product_id']
-- name: packSize #todo
+- name: packSize 
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
-- name: legalDisclaimer #todo
+- name: legalDisclaimer 
   singleValue: true
   description: Content under "legal disclaimer" header
-- name: directions #todo
+  xpath: //div[@class='textoform-legal']/p/text()
+- name: directions 
   singleValue: true
   description: Content under "directions" header
-- name: warnings #todo
+  xpath: //div[@id='secc-modouso']/p/text()
+- name: warnings 
   singleValue: true
   description: Content under "warnings" header
-- name: ratingCount # to change
+  xpath: //div[@id='secc-opinionfarma']/p/text()
+- name: ratingCount 
   singleValue: true
   description: The number of ratings
   xpath: //div[@class='cn_product_visited']/span[@class='rating_count']
-- name: aggregateRatingText # to change
+- name: aggregateRatingText 
   singleValue: true
   description: The stated aggregate rating
   xpath: //div[@class='cn_product_visited']/span[@class='rating_value']
-- name: aggregateRating # to change
+- name: aggregateRating 
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
   xpath: //div[@class='cn_product_visited']/span[@class='rating_value']
@@ -486,19 +490,17 @@ fields:
   singleValue: true
   description: Materials used to make the product
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+- name: imageZoomFeaturePresents
+  singleValue: true
+  description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
+  example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+  xpath: //div[@class='zoomContainer']/div[@class='zoomLens']/@class
+  regExp: (.*?)
+  regExpReplace: Yes
+  defaultValue: No
 - name: Image360Present
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: false
-  xpath: //div[@class='zoomContainer']/@class
-  regExp: (.+)
-  regExpReplace: Yes
-- name: imageZoomFeaturePresent
-  singleValue: true
-  description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
-  example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
-  xpath: //div[@class='zoomContainer']/@class
-  regExp: (.+)
-  regExpReplace: Yes
+  defaultValue: No
+
