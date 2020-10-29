@@ -63,7 +63,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: 
+    xpath: (//table[@class="table table-striped product-details-table"][12]//span[@class="product-details-overview-specification"])[2]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -123,6 +123,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: (//table[@class="table table-striped product-details-table"][11]//span[@class="product-details-overview-specification"])[2]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -135,6 +136,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //div[@data-init="add-youtube-video-statistic"]//iframe[@id="media-container-player"]/@src
   - name: name
     singleValue: true
     description: The product name
@@ -148,6 +150,7 @@ fields:
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
+    xpath: //div[@class="container"]//font//font/text()
   - name: amazonChoice
     singleValue: true
     description: YES or Blank
@@ -396,6 +399,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: (//table[@class="table table-striped product-details-table"][1]//span[@class="product-details-overview-specification"])[2]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
