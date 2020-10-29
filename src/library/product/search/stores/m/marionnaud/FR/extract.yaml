@@ -1,0 +1,39 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //ul[@class='product-listing product-grid']//li//div/div[@class='infoTextCarousel']/div[@class='daily-offer-block daily-offer-countdown']/@data-product-id
+  - name: rankOrganic
+    singleValue: true
+  - name: name
+    singleValue: true
+    xpath: //ul[@class='product-listing product-grid']//li//div/div[@class='infoTextCarousel']//div[@class='product_name']
+  - name: productUrl
+    singleValue: true
+    xpath: //ul[@class='product-listing product-grid']//li//div[@class="infoTextCarousel"]/a[@class='ProductInfoAnchor']/@href
+  - name: gtin
+    singleValue: true
+  - name: thumbnail
+    singleValue: true
+    xpath: //ul[@class='product-listing product-grid']//li//div/a/div/div[@class='product_img']/img[@class='primImg primaryImage_prodcat']/@src
+  - name: aggregateRating
+    singleValue: true
+    xpath: //ul[@class='product-listing product-grid']//li//div/div[@class='infoTextCarousel']//div[@class='star-rating star-rating--plp']/div[@class='star-rating__filled-stars']/@style
+    regExp: (?<=:).*$
+  - name: reviewCount
+    singleValue: true
+  - name: price
+    singleValue: true
+    xpath: //ul[@class='product-listing product-grid']//li//div/div[@class='infoTextCarousel']//div[@class='price']//span[@class='lineinner']
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: true
+  - name: endorsementText
+    singleValue: true
+    xpath: //ul[@class='product-listing product-grid']//li//div//div[@class='topimg product-promotions']/img/@src
