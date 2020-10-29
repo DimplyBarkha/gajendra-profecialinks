@@ -22,7 +22,6 @@ async function implementation (
     const elem = await helpers.checkXpathSelector("//div[contains(@id, 'glow-toaster-body') and //*[contains(text(), 'Amazon Fresh')]]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']");
     if (elem) {
       await helpers.checkAndClick('#olpLinkWidget_feature_div span[data-action="show-all-offers-display"] a', 'css', 20000);
-      // await helpers.checkURLFor('offer');
 
       const otherSellersDiv = 'div#all-offers-display div#aod-offer div[id*="aod-price"]';
       await context.waitForSelector(otherSellersDiv, { timeout: 20000 });
@@ -58,11 +57,50 @@ async function implementation (
     }
   }
 
-  await amazonHelp.setLocale('10001');
-
   await getLbb();
   await helpers.addURLtoDocument('added-url');
   await helpers.addURLtoDocument('added-asin', true);
+  const variants = await amazonHelp.getVariants();
+
+  if (variants && variants.length) {
+    // helpers.addItemToDocument('my-variants', variants.join(' | '));
+    helpers.addItemToDocument('my-variants', variants);
+  }
+
+  await context.evaluate(() => {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    const enhContent = document.querySelector('div#aplus');
+    if (enhContent) {
+      addHiddenDiv('enh-html', enhContent.outerHTML);
+    }
+  });
+
+  const additionalRatings = await context.evaluate(async () => {
+    const reviewSect = document.querySelector('table#histogramTable');
+    if (reviewSect) {
+      reviewSect.scrollIntoView();
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  if (additionalRatings) {
+    await context.waitForXPath('//div[@data-hook="cr-summarization-attributes-list"]//span[contains(@class,"a-size-base")]', { timeout: 5000 })
+      .catch(() => console.log('no additional ratings'));
+  }
+
+  const customerQAndA = await context.evaluate(() => {
+    const qAndA = document.querySelector('span.askTopQandA');
+    return qAndA ? qAndA.innerText : '';
+  });
+  helpers.addItemToDocument('my-q-and-a', customerQAndA);
 
   const zoomXpath = '//span[@id="canvasCaption" and contains(text(),  "Roll over")]';
   await helpers.getAndAddElem(zoomXpath, 'added-imageZoomFeaturePresent', { callback: val => val ? 'Yes' : 'No' });

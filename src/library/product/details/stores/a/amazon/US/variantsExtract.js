@@ -8,5 +8,9 @@ module.exports = {
     transform: null,
     domain: 'amazon.com',
   },
+  dependencies: {
+    Helpers: 'module:helpers/helpers',
+    AmazonHelp: 'module:helpers/amazonHelp',
+  },
   implementation,
 };

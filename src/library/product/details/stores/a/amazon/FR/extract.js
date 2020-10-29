@@ -9,35 +9,6 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  async function setZipCode () {
-    const isZipCodePresent = await context.evaluate(async function () {
-      let isZipCodePresent = document.querySelector('#glow-ingress-block');
-      isZipCodePresent = isZipCodePresent ? isZipCodePresent.innerText.includes('75019') : '';
-      return !!isZipCodePresent;
-    });
-    if (!isZipCodePresent) {
-      await context.waitForSelector('#nav-packard-glow-loc-icon');
-      await context.click('#nav-packard-glow-loc-icon');
-      await context.waitForSelector('input#GLUXZipUpdateInput');
-      try {
-        await context.click('a#GLUXChangePostalCodeLink');
-      } catch (error) {
-        console.log('Element not visible');
-      }
-      await context.setInputValue('input#GLUXZipUpdateInput', '75019');
-      await context.waitForSelector('#GLUXZipUpdate input');
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      await context.click('#GLUXZipUpdate input');
-      try {
-        await context.waitForSelector('button[name="glowDoneButton"]');
-        await context.click('button[name="glowDoneButton"]');
-      } catch (error) {
-        console.log('Done button not found');
-      }
-      await context.waitForNavigation();
-    }
-  }
-
   async function waitForAplus () {
     // Scrolling to bottom of page where aplus images are located
     await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -220,7 +191,7 @@ async function implementation (
 
   if (!aplusFlag) {
     console.log('page reloading');
-    await setZipCode();
+    // await setZipCode();
     await context.waitForXPath('(//img[@id="landingImage"])[1]/@data-old-hires | (//img[@id="landingImage"])[1]/@src');
     await waitForAplus();
   }

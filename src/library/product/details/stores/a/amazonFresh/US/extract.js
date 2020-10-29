@@ -1,4 +1,5 @@
-const { transform } = require('../../../../sharedAmazon/transform');
+// const { transform } = require('../../../../sharedAmazon/transform');
+const { transform } = require('./transform');
 /**
  *
  * @param { { url?: string,  id?: string, parentInput?: string} } inputs
@@ -8,7 +9,7 @@ const { transform } = require('../../../../sharedAmazon/transform');
  */
 
 async function implementation (
-  { parentInput },
+  { parentInput, id },
   parameters,
   context,
   dependencies,
@@ -52,8 +53,8 @@ async function implementation (
     }
   }
 
-  async function addContent (parentInput) {
-    await context.evaluate(async (parentInput) => {
+  async function addContent (parentInput, id) {
+    await context.evaluate(async (parentInput, id) => {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -67,20 +68,44 @@ async function implementation (
           allText += element.querySelector('.apm-hovermodule-slides-inner').innerText;
         }
       });
-      addHiddenDiv('added-enhanced-content', document.querySelector('div#aplus') ? document.querySelector('div#aplus').innerText + allText : '');
+      const manufContent = document.querySelector('div#aplus') || document.querySelector('div.aplus');
+      let manufContentText = '';
+      if (manufContent) {
+        const clonedManufContent = manufContent.cloneNode(true);
+        if (clonedManufContent.getElementsByTagName('style')) {
+          [...clonedManufContent.getElementsByTagName('style')].forEach((styleElement) => styleElement.remove());
+        }
+        if (clonedManufContent.getElementsByTagName('script')) {
+          [...clonedManufContent.getElementsByTagName('script')].forEach((scriptElement) => scriptElement.remove());
+        }
+        manufContentText = clonedManufContent.innerHTML.replace(/<(li)[^>]+>/ig, '<$1>').replace(/<li>/gm, ' || ').replace(/<[^>]*>/gm, '').trim();
+      }
+      addHiddenDiv('added-enhanced-content', (manufContent ? manufContentText : '') + allText);
       if (parentInput) {
         addHiddenDiv('added-parentInput', parentInput);
       }
-    }, parentInput);
+      addHiddenDiv('added-url', window.location.href);
+      addHiddenDiv('added-id', id);
+    }, parentInput, id);
   }
 
-  await new Promise(resolve => setTimeout(resolve, 5000));
-  await amazonHelp.setLocale('90210');
-  await context.waitForXPath('//div[@id="nav-global-location-slot"]//*[contains(text(), "90210")]');
+  const endUrlFirstItem = await context.evaluate(() => {
+    const firstItem = document.querySelector('span[data-component-type="s-product-image"] a');
+    return firstItem.getAttribute('href');
+  });
+  const itemUrl = 'https://www.amazon.com' + endUrlFirstItem;
+  await context.setLoadAllResources(true)
+    .then(async () => {
+      await context.goto(itemUrl);
+    });
+
+  await context.waitForXPath('//span[@id="productTitle"]', { timeout: 20000 });
 
   await loadAllResources();
-  addContent(parentInput);
+  addContent(parentInput, id);
   console.log('autoscroll end');
+  
+  await amazonHelp.appendData();
 
   return await context.extract(productDetails, { transform });
 }
@@ -97,6 +122,7 @@ module.exports = {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
     Helpers: 'module:helpers/helpers',
     AmazonHelp: 'module:helpers/amazonHelp',
+    goto: 'action:navigation/goto',
   },
   implementation,
 };

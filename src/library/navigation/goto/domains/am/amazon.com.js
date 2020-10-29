@@ -2,10 +2,10 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     country: 'US',
-    domain: 'amazon.us',
+    domain: 'amazon.com',
     store: 'amazon',
   },
-  implementation: async ({ url }, parameterValues, context, dependencies) => {
+  implementation: async ({ url, zipcode }, parameterValues, context, dependencies) => {
     const memory = {};
     const backconnect = !!memory.backconnect;
     console.log('backconnect', backconnect);
@@ -84,7 +84,7 @@ module.exports = {
         }
         console.log('Go to some random page');
         const clickedOK = await context.evaluate(async function () {
-        // Changed xpath to check for any link.
+          // Changed xpath to check for any link.
           const randomLinkEls = document.evaluate('//a[@href]', document, null, XPathResult.ANY_TYPE, null);
           const randomLinkEl = randomLinkEls.iterateNext();
           if (randomLinkEl) {
@@ -103,7 +103,7 @@ module.exports = {
         }
         console.log('Going back to desired page');
         lastResponseData = await context.goto(url, {
-          timeout: 10000,
+          timeout: 20000,
           waitUntil: 'load',
           checkBlocked: false,
           js_enabled: true,
@@ -124,7 +124,7 @@ module.exports = {
     const run = async () => {
       // do we perhaps want to go to the homepage for amazon first?
       lastResponseData = await context.goto(url, {
-        timeout: 10000,
+        timeout: 20000,
         waitUntil: 'load',
         checkBlocked: false,
         js_enabled: true,
@@ -180,5 +180,13 @@ module.exports = {
       }
     };
     await run();
+    if (zipcode) {
+      await dependencies.setZipCode({ url, zipcode });
+    }
+    const finalPageStatus = await context.evaluate(analyzePage);
+    console.log('Final page status after zipcode change : ' + finalPageStatus.status);
+    if (finalPageStatus.status === 503) {
+      throw new Error('503 page after zipcode change');
+    }
   },
 };

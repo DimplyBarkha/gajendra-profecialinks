@@ -22,6 +22,7 @@ const transform = (data, context) => {
   const joinArray = (array, delim = ' | ') => array.join(delim).trim().replace(/\| \|/g, '|');
 
   const doubleRegexSearch = (regex1, regex2, item) => {
+    console.log('doubleRegexSearch')
     const matchArray = sg(item).toString().match(regex1);
     if (!matchArray) return '';
     return joinArray(matchArray.map(mtch => mtch.match(regex2) ? mtch.match(regex2)[0] : ''));
@@ -34,6 +35,7 @@ const transform = (data, context) => {
 
   const regexTestNReplace = (regex, item, { extraRegex, matchRegex } = {}) => {
     if (regex.test(item)) {
+      console.log('regexTestNReplace')
       if (extraRegex) return item.toString().replace(regex, '').replace(extraRegex, '');
       if (matchRegex) return matchRegex(matchRegex, item.toString().replace(regex, ''));
       return item.toString().replace(regex, '');
@@ -56,22 +58,28 @@ const transform = (data, context) => {
         shippingWeight: item => sg(item).replace(/\s\(/g, '').trim(),
         grossWeight: item => sg(item).replace(/\s\(/g, '').trim(),
         largeImageCount: item => {
+          console.log('largeImageCount')
           const array = sg(item).toString().split('SL1500');
-          return array.length === 0 ? 0 : array.length - 1; // why minus 1???
+          return array.length === 0 ? 0 : array.length;
         },
-        alternateImages: array => joinArray(array.map(item => item.text)),
+        // alternateImages: array => joinArray(array.map(item => item.text)),
         videos: item => doubleRegexSearch(/"url":"([^"]+)/g, /(https.+mp4)/s, item),
         videoLength: item => doubleRegexSearch(/"durationTimestamp":"([^"]+)/g, /([0-9:]{3,})/s, item),
         brandLink: item => {
           if (!sg(item).includes(hostName)) return `https://${hostName}${sg(item)}`;
           return sg(item);
         },
-        brandText: item => regexTestNReplace(/([B|b]rand:)|([B|b]y)|([B|b]rand)|([V|v]isit the)/gm, sg(item)),
+        brandText: item => {
+          let txt = regexTestNReplace(/([B|b]rand:)|([B|b]y)|([B|b]rand)|([V|v]isit the)/gm, sg(item));
+          if (txt.includes('Dyson Store')) txt = 'Dyson';
+          return txt.trim();
+        },
         name: item => regexTestNReplace(new RegExp(String.raw`(${websiteName.replace(/\./g, '\\.')}\s*:)`), sg(item)),
-        pricePerUnit: item => regexTestNReplaceArray(/[{()}]/g, item, { extraRegex: /[/].*$/g }),
+        pricePerUnit: item => (sg(item).includes('(')) ? regexTestNReplaceArray(/[{()}]/g, item, { extraRegex: /[/].*$/g }) : sg(item).trim(),
         pricePerUnitUom: item => regexTestNReplaceArray(/[{()}]/g, item, { matchRegex: /([^/]+$)/g }),
         secondaryImageTotal: item => castToInt(sg(item)),
-        ratingCount: item => castToInt(sg(item)),
+        ratingCount: item => sg(item),
+        color: item => sg(item),
         descriptionBullets: item => castToInt(sg(item)),
         shippingInfo: array => [{ text: array.map(item => `${item.text}`).join(' ') }],
         ingredientsList: array => [{ text: array.map(item => `${item.text}`).join(' ') }],
@@ -102,61 +110,23 @@ const transform = (data, context) => {
           row.quantity[0].text += row.quantity[0].text.length ? ' ' + packText[0] : packText[0];
         }
       }
-      if (row.variantAsins) {
-        let asins = [];
-        if (row.variantAsins[0]) {
-          if ((row.variantAsins[0].text.includes('asinVariationValues') && (row.variantAsins[0].text.includes('dimensionValuesData')))) {
-            let jsonStr = row.variantAsins[0].text.split('"asinVariationValues" : ')[1].split('"dimensionValuesData" : ')[0];
-            jsonStr = jsonStr.slice(0, -2);
-            const jsonObj = JSON.parse(jsonStr);
-            asins = Object.keys(jsonObj);
-          } else {
-            asins = [];
-          }
-        }
-        const dedupeAsins = [...new Set(asins)];
-        row.variantAsins = [{ text: joinArray(dedupeAsins) }];
-      }
-      if (row.variantCount && row.variantCount[0]) {
-        if (typeof row.variantCount[0].text !== 'number') {
-          if ((row.variants && row.variants[0])) {
-            if ((row.variantCount[0].text.includes('asinVariationValues') && (row.variantCount[0].text.includes('dimensionValuesData')))) {
-              let jsonStr = row.variantCount[0].text.split('"asinVariationValues" : ')[1].split('"dimensionValuesData" : ')[0];
-              jsonStr = jsonStr.slice(0, -2);
-              const jsonObj = JSON.parse(jsonStr);
-              row.variantCount = [{ text: Object.keys(jsonObj).length }];
-            } else {
-              row.variantCount = [{ text: castToInt(sg(row.variantCount), 1) }];
-            }
-          } else {
-            if (row.variantCount.length > 1) {
-              row.variantCount = [{ text: [...new Set(row.variantCount)].length - 1 }];
-            } else {
-              row.variantCount = [{ text: castToInt(sg(row.variantCount), 1) }];
-            }
-          }
-        } else {
-          row.variantCount = [{ text: castToInt(sg(row.variantCount), 1) }];
-        }
-      }
+
       if (row.variants) {
-        const asins = row.variants.reduce((acc, item) => {
-          if (item.text) {
-            acc.push(item.text);
-            return acc;
-          }
-          return acc;
-        }, []);
-        row.variants = [{ text: [...new Set(asins)] }];
+        // row.variantCount = [{ text: row.variants[0].text.split('|').length + 1 }];
+        row.variantCount = [{ text: row.variants.length + 1 }];
+      }
+      if (row.variantId) {
+        row.variantId = [{ text: row.variantId[0].text.replace('parentAsin":"', '') }];
       }
       if (row.salesRankCategory) {
         row.salesRankCategory = row.salesRankCategory.map(item => {
+          const unWantedTxt = 'See Top 100 in ';
           if (item.text.includes('#')) {
             const regex = /#[0-9,]{1,} in (.+) \(/s;
             const rawCat = item.text.match(regex);
-            return { text: rawCat ? rawCat[1] : '' };
+            return { text: rawCat ? rawCat[1].replace(unWantedTxt, '') : '' };
           }
-          return { text: item.text };
+          return { text: item.text.replace(unWantedTxt, '') };
         });
       }
       if (row.salesRank) {
@@ -173,6 +143,7 @@ const transform = (data, context) => {
         const description = [];
         row.manufacturerDescription.forEach(item => {
           const regexIgnoreText = /^(Read more)/;
+          console.log('manufacturerDescription')
           item.text = (item.text).toString().replace(regexIgnoreText, '');
           if (!regexIgnoreText.test(item.text)) {
             description.push(item.text);
@@ -187,15 +158,22 @@ const transform = (data, context) => {
           row.heroQuickPromoUrl = [{ text: `https://${hostName}/${row.heroQuickPromoUrl[0].text}` }];
         }
       }
-      if (row.description) {
-        const text = row.description.map(item => item.text);
-        row.description = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+      if (row.description || row.extraDescription) {
+        const bonusDesc = row.extraDescription ? row.extraDescription.map(item => item.text).join(' ').split('From the Manufacturer')[0] : '';
+        if (row.description) {
+          const text = row.description.map(item => item.text);
+          // const formattedText = '|| ' + text.join(' || ').trim().replace(/\|\| \|/g, '|');
+          // row.description = [{ text: formattedText + bonusDesc }];
+          row.description = [{ text: [...text, bonusDesc] }];
+        } else {
+          row.description = [{ text: [bonusDesc] }];
+        }
       }
       if (row.amazonChoice && row.amazonChoice[0]) {
         if (row.amazonChoice[0].text.includes('Amazon')) {
           row.amazonChoice = [{ text: 'Yes' }];
         } else {
-          row.amazonChoice = [{ text: 'No' }];
+          delete row.amazonChoice;
         }
       }
       if (row.specifications) {
@@ -203,30 +181,30 @@ const transform = (data, context) => {
         row.specifications.forEach(item => {
           text.push(`${item.text.replace(/\n \n/g, ':')}`);
         });
-        row.specifications = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+        row.specifications = [{ text: text }];
       }
-      if (row.productOtherInformation) {
-        const text = [];
-        row.productOtherInformation.forEach(item => { text.push(item.text); });
-        if (text.length > 0) {
-          row.productOtherInformation = [{ text: text.join(' | ').trim().replace(/\| \|/g, '|') }];
-        }
-      }
-      if (row.additionalDescBulletInfo) {
-        const text = [''];
-        row.additionalDescBulletInfo.forEach(item => {
-          if (item.text.length > 0) { text.push(item.text); }
-        });
-        if (text.length > 0) {
-          row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
-        }
-      }
+      // if (row.productOtherInformation) {
+      //   const text = [];
+      //   row.productOtherInformation.forEach(item => { text.push(item.text); });
+      //   if (text.length > 0) {
+      //     row.productOtherInformation = [{ text: text.join(' | ').trim().replace(/\| \|/g, '|') }];
+      //   }
+      // }
+      // if (row.additionalDescBulletInfo) {
+      //   const text = [''];
+      //   row.additionalDescBulletInfo.forEach(item => {
+      //     if (item.text.length > 0) { text.push(item.text); }
+      //   });
+      //   if (text.length > 0) {
+      //     row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+      //   }
+      // }
       if (row.otherSellersPrime) {
         row.otherSellersPrime.forEach(item => {
           if (item.text.includes('mazon') || item.text.includes('rime')) {
             item.text = 'YES';
           } else {
-            item.text = 'NO';
+            item.text = 'FALSE';
           }
         });
       }
@@ -237,6 +215,10 @@ const transform = (data, context) => {
           },
         ];
       }
+      if (row.unavailableMsg) {
+        row.availabilityText = [{ text: 'Out of stock' }];
+      }
+
       if (row.otherSellersShipping2) {
         row.otherSellersShipping2 = row.otherSellersShipping2.map(item => {
           if (item.text.includes('+ $')) {
@@ -247,15 +229,57 @@ const transform = (data, context) => {
           return { text: '0.00' };
         });
       }
-      if (row.featureBullets) {
-        const text = row.featureBullets.map(item => `${item.text}`);
-        row.featureBullets = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
-      }
       if (row.primeFlag) {
-        row.primeFlag = [{ text: 'Yes' }];
+        row.primeFlag = [{ text: 'Yes - Shipped and Sold' }];
       }
+      if (row.ingredientsList) {
+        row.ingredientsList = [{ text: row.ingredientsList.map(item => `${item.text}`).join(' ') }];
+      }
+      if (row.frequentlyBoughtTogether) {
+        row.frequentlyBoughtTogether = [{ text: row.frequentlyBoughtTogether[0].text.replace(/\{([^}]*)\}/g, '') }];
+      }
+      if (row.ratingsDistribution) {
+        const filteredRatings = row.ratingsDistribution.map(rating => {
+          let split = rating.text.split('star');
+          return split[0].trim() + ':' + (split[1].replace('%','').trim()/100).toString();
+        });
+        row.ratingsDistribution = [{ text: filteredRatings }];
+      }
+      if (row.lowestPriceIn30Days) {
+        row.lowestPriceIn30Days = [{ text: 'True' }];
+      } else {
+        row.lowestPriceIn30Days = [{ text: 'False' }];
+      }
+      if (!row.brandText && row.backupBrand) {
+        row.brandText = [{ text: row.backupBrand[0].text }];
+      }
+      if (!row.shippingWeight && row.dimensions) {
+        const dimText = row.dimensions[0].text;
+        if (dimText.includes(';')) {
+          row.shippingWeight = [{ text: dimText.split(';')[1].trim() }];
+        }
+      }
+      if (row.customerQuestionsAndAnswers) {
+        row.customerQuestionsAndAnswers = [{ text: row.customerQuestionsAndAnswers[0].text.replace(/\<([^>]*)\>/g, '').replace(/\{([^}]*)\}/g, '') }];
+      }
+      if (row.featureNames && row.featureStars) {
+        featArr = [];
+        for (let i=0;i<row.featureNames.length; i++) {
+          featArr.push(`${row.featureNames[i].text}:${row.featureStars[i].text}`);
+        }
+        row.starsByFeature = [{ text: featArr }];
+      }
+
+      const zoomText = row.imageZoomFeaturePresent ? 'Yes' : 'No';
+      row.imageZoomFeaturePresent = [{ text: zoomText }];
+
+      const subscriptionPresent = row.subscriptionPrice ? 'Yes' : 'No';
+      row.subscribeAndSave = [{ text: subscriptionPresent }];
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
+        if (el.text) {
+          el.text = clean(el.text);
+        }
       }));
     }
   }
