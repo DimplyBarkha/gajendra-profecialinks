@@ -1,0 +1,29 @@
+
+singleRecord: false
+regionsSelector: null
+recordSelector: div[data-index]
+recordXPath: //div[@data-index]
+fields: 
+  - name: id
+    singleValue: false
+    manualSelector: div.sku
+  - name: price
+    singleValue: false
+    xpath: //div[@class="row-price"]
+  - name: name
+    singleValue: false
+    manualSelector: a.product-name span.table-cell
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,"product-name")]/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class="product-image-link"]/img/@src
+    regExp: (.+)\?.*
+    regExpReplace: https://www.elgiganten.se/$1
+  - name: aggregateRating2
+    singleValue: false
+    manualSelector: div.product-ratings__avarage
+  - name: reviewCount
+    singleValue: false
+    manualSelector: div.product-ratings__count
