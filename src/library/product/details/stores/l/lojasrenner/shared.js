@@ -45,7 +45,11 @@ const transform = (data) => {
         }
         if (row.secondaryImageTotal) {
           row.secondaryImageTotal.forEach(item => {
-           item.text = Number(item.text) -1;
+            if(item.text === '1'){
+              item.text = '0';
+            }else{
+              item.text = Number(item.text) -1;
+            }
           });
         }
         if (row.nameExtended) {
