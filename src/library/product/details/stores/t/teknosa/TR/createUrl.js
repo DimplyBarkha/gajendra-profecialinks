@@ -1,9 +1,9 @@
-
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'teknosa.com',
-    timeout: 40000,
+    prefix: null,
+    url: 'https://www.teknosa.com/-p-{id}',
     country: 'TR',
     store: 'teknosa',
     zipcode: '',

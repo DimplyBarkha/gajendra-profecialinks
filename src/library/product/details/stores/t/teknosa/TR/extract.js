@@ -1,11 +1,11 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/extract',
   parameterValues: {
-    domain: 'teknosa.com',
-    timeout: 40000,
     country: 'TR',
     store: 'teknosa',
+    transform: null,
+    domain: 'teknosa.com',
     zipcode: '',
   },
 };
