@@ -6,7 +6,7 @@ fields:
     regExpReplace: https://www.amazon.com/dp/$1?th=1&psc=1
   - name: nameExtended
     singleValue: true
-    xpath: //title
+    xpath: //span[@id="productTitle"]
   - name: brandText
     xpath: //head//@brand
   - name: description
