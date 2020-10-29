@@ -1,7 +1,7 @@
 ---
 name: Check list for an extractor build
 about: Create an issue with this template before starting a source build for a any feed type (search, core, media_tracker...)
-title: "{feed_underscored}-{retailer_name}_{country code}"
+title: "{feed_underscored_lowercase}-{retailer_name_camelcase}_{country_code_lowercase}, example: search-amazonPantry_us, core-mediaMarkt_de"
 labels: Source
 assignees: "@me"
 
@@ -72,6 +72,33 @@ In case of any Access trouble please contact immediatly someone at import.io
 - [ ] From Master, check-out the proper branch as described in the pre-requisites and the build notes above
 - [ ] Change the file `config.yaml` located in `orgs>{org name}` and update the `legacyAccountId` to your import.io-GUID
 
+<<<<<<< HEAD
+=======
+#### Site scoping
+- [ ] Verify if the data on the website is coming from an API network call
+    - [ ] Mark this box if the data is only coming embedded in an HTML file and xpath/selectors need to be used to extract it
+    - [ ] Mark this box if the data is coming from an ajax call or an api call
+- [ ] Verify if the website can be accessed from anywhere or if geolocalized proxies are necessary (you can test it by using a vpn to the country where the website is based)
+    - [ ] Mark this box if geoproxies are needed
+    - [ ] Mark this box if geoproxies are not needed
+- [ ] Verify if the website is detecting data center IPs and blocking them. Run a a remote command for that (this test can be done later during building)
+    - [ ] Mark this box if remote runs get blocked
+    - [ ] Mark this box if remote runs do not get blocked
+- [ ] Verify if the website is requiring a custom preamble (check the classroom or contact SA for help)
+    - [ ] Mark this box is requiring a custom preamble
+    - [ ] Mark this box is not requiring a custom preamble
+- [ ] Verify if the website has variants (if a product on a product page has multiple product variation, i.e. color, size, packaging...)
+    - [ ] Mark this box if the website has variants, this means the variants flow must be used
+    - [ ] Mark this box if the website doe not have variants
+- [ ] Verify if a product page can be accessed directly from the retailer product code (RPC) or if a search needs to be done
+    - [ ] Mark this box if the website requires a search before being able to access the product page when given RPC as input
+    - [ ] Mark this box if the product page can directly be accessed when given RPC as input (through building the url or other means)
+- [ ] Verify if the website can be navigated without providing a zipcode or selecting a location
+    - [ ] Mark this box if the website requires to provide a zipcode or selecting a location
+    - [ ] Mark this box if the website does not requires to provide a zipcode or selecting a location
+
+
+>>>>>>> d0247493bfc841bcf568b88d07a36ff96a2c01f1
 #### Building
 - [ ] Promote Source to `Building` in Project Dash
 - [ ] Add `Building` Label
@@ -84,6 +111,10 @@ example:
 - [ ] Commit latest code changes to branch with a commit message that includes the issue# (`#{:number}`)
 - [ ] Remove `Building` Label
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d0247493bfc841bcf568b88d07a36ff96a2c01f1
 #### Testing
 - [ ] Promote Source to `Testing` in Project Dash
 - [ ] Add `Testing` Label
@@ -105,8 +136,15 @@ Example:
 - [ ] Promote Source to `Internal Deployment` in Project Dash
 - [ ] Add `Development` Label
 - [ ] Use `npm run lint` or `npm run lint:fix` before creating pull request
+<<<<<<< HEAD
 - [ ] Create a pull request (PR) but not for `master` branch. Instead the base branch must be `internal`. Make sure that the automated merging check is green
 - [ ] Add label `Ready for internal review`
+=======
+- [ ] Pull the latest changes from master and run the command `git merge master -m "Update to master"`, this will merge the klatest changes from master into your branch
+- [ ] Create a pull request (PR) but not for `master` branch. Instead the base branch must be `internal`. Make sure that the automated merging check is green
+- [ ] Add label to this PR `Ready for internal review`
+- [ ] Add label to this issue `Ready for internal review`
+>>>>>>> d0247493bfc841bcf568b88d07a36ff96a2c01f1
 - [ ] Deploy extractor, this will generate an extractor ID located in a file called `exractor.yaml` within the orgs folder
 `import-io extractor:deploy -o <workbench org slug> -p product/<first letter of retailer>/<retailerName>/<country code>/<extractor type> -b <team name>`
 example:
@@ -115,7 +153,12 @@ example:
 - [ ] Confirm source params are set up properly in workbench.
 - [ ] In workbench, the source parameter called `state` be set to `development`
 - [ ] Copy the extractor ID to the appropriate field in the newly created source(s)
+<<<<<<< HEAD
 - [ ] Create a `.csv` file with a sample set of inputs. The sample set must have a minimum of 50 unique inputs and a maximum of 100 inputs.
+=======
+- [ ] Copy the extractor ID tright here: `copy-paste-the-extractor-ID-here-instead-of-this-text`
+- [ ] Create a `.csv` file with a sample set of inputs. The sample set must have between 50 and 100 inputs, or as many as available in the full input file (but never more than 100)
+>>>>>>> d0247493bfc841bcf568b88d07a36ff96a2c01f1
 - [ ] Upload sample input file to the appropriate path in the import.io AWS S3 bucket
 - [ ] Implement PR feedback
 - [ ] Commit latest code changes to branch with a commit message that includes the issue# (`#{:number}`)
@@ -129,12 +172,20 @@ This branch is now used to commit new changes. Similarly as before, always refer
 - [ ] Personal QA2 : run the appropriate flow (ask SA in case of doubts) to test the source with the sample inputs and modify code if necessary
 - [ ] When personal QA is satisfactory remove `Development` Label
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d0247493bfc841bcf568b88d07a36ff96a2c01f1
 #### Staging Deployment
 - [ ] Promote Source to `Staging` in Project Dash
 - [ ] Add `Staging` Label
 - [ ] In workbench, change the source parameter called `state` from `development` to `staging`
+<<<<<<< HEAD
 - [ ] Create a `.csv` file with the full set of inputs
 - [ ] Upload full input file to the appropriate path in the import.io AWS S3 bucket
+=======
+- [ ] Check this to confirm that the source is now ready for manual QA
+>>>>>>> d0247493bfc841bcf568b88d07a36ff96a2c01f1
 - [ ] In workbench, change the source parameter called `state` from `staging` to `scaleTest`
 - [ ] System runs automated flow at scheduled time on the full input file, when this is done collect the resulting output `.csv` file
 - [ ] In workbench, revert the source parameter called `state` from `scaleTest` back to `staging`
@@ -154,6 +205,10 @@ This branch is now used to commit new changes. Similarly as before, always refer
 - [ ] Accuracy level on sample input file and on QA1 or QA2 is above acceptance threshold
 - [ ] Remove `Staging` Label
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d0247493bfc841bcf568b88d07a36ff96a2c01f1
 #### Pre-Live
 - [ ] Promote Source to `Pre-Live` in Project Dash
 - [ ] Add `Pre-Live` Label
@@ -161,6 +216,10 @@ This branch is now used to commit new changes. Similarly as before, always refer
 - [ ] Use `npm run lint` or `npm run lint:fix` before creating pull request
 - [ ] Create a pull request (PR) for `master` branch. Make sure that the automated merging check is green
 - [ ] Add label `Final Review Requested`
+<<<<<<< HEAD
+=======
+- [ ] Add label `Final Review Requested` to the pull request
+>>>>>>> d0247493bfc841bcf568b88d07a36ff96a2c01f1
 - [ ] Check that the feed is properly imported in the UAT tool
 - [ ] If required, Score card is built and approved
 - [ ] Implement PR feedback and possible required code updates to satisfy the UAT QA and the score card
