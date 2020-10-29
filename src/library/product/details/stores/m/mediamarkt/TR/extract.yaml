@@ -1,0 +1,231 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: /html/body/div[@id="product-wrapper"]
+fields:
+  - name: image
+    description: URL of the main product image
+    xpath: //div[@class="preview"]//img[@itemprop="image"]/@src
+    regExp: (.+fee_)(\d+_\d+)(.+)
+    regExpReplace: https:$1786_587$3
+  - name: imageAlt
+    description: Alt text of the main product image
+    xpath: //div[@class="preview"]//img[@itemprop="image"]/@alt
+  - name: alternateImages
+    description: Other product images (not in manufacturer description)
+    xpath: //ul[contains(@class,"thumbs")]/li[position()>1]//img/@src
+    regExp: (.+fee_)(\d+_\d+)(.+)
+    regExpReplace: https:$1786_587$3
+  - name: metaKeywords
+    description: The <meta> keywords content
+  - name: category
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //ul[@class="breadcrumbs"]/li[not(@class="home")][not(@class="current")]
+  - name: nameExtended
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@itemprop="name"]
+  - name: listPrice
+    description: The stated undiscounted price for the product
+    xpath: //div[contains(@class,"price-details")]//div[contains(@class,"price-old")][not(contains(@class,"price-old-you-save"))]
+    regExp: ([0-9]+\.?[0-9]+?)
+  - name: price
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //meta[@itemprop="price"]/@content
+  - name: availabilityText
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: ../../head/meta[@property="og:availability"]/@content
+  - name: description
+    description:
+      Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //*[@class="product-details"]
+  - name: descriptionBullets
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: brandText
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: ../../head/meta[@property="product:brand"]/@content
+  - name: manufacturer
+    description: Product manufacturer
+    xpath: //div[@id="features"]//dt[contains(.,"firma")]/following-sibling::dd[1]
+  - name: quantity
+    description: Quantity as described on the page
+  - name: weightNet
+    description: Net weight as described on the page
+    xpath: //div[@id="features"]//dt[contains(.,"Ağırlık")]/following-sibling::dd[1]
+  - name: weightGross
+    description: Gross weight as described on the page
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class="loadbeeTabContent"]/@data-loadbee-gtin
+  - name: eangtin
+    xpath: //div[@class="loadbeeTabContent"]/@data-loadbee-gtin
+  - name: sku
+    description: The store-specific product identifier
+    xpath: //span[@itemprop="sku"]
+  - name: variantId
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //span[@itemprop="sku"]
+  - name: mpc
+    description: The manufacturer model code (unique) of the product
+  - name: packSize
+    description:
+      The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: legalDisclaimer
+    description: Content under "legal disclaimer" header
+  - name: directions
+    description: Content under "directions" header
+  - name: warnings
+    description: Content under "warnings" header
+  - name: ratingCount
+    description: The number of ratings
+    type: NUMBER
+    xpath: //dd[@itemprop="aggregateRating"]/meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRatingText
+    description: The stated aggregate rating
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //dd[@itemprop="aggregateRating"]/meta[@itemprop="ratingValue"]/@content
+  - name: shippingInfo
+    description: Shipping information for the product
+  - name: shippingDimensions
+    description: Stated shipping dimensions
+    xpath: //div[@id="features"]//dt[contains(.,"Ambalaj Boyutu")]/following-sibling::dd[1]
+  - name: shippingWeight
+    description: Stated shipping weight
+  - name: variantCount
+    description: Number of variants listed
+    type: NUMBER
+    xpath: count(//div[contains(@class,"product-attributes")]//@data-action-id)
+  - name: color
+    description: A textual description of the colour
+    xpath: //div[@id="features"]//dt[contains(.,"Renk:")]/following-sibling::dd[1]
+  - name: colorCode
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    description: The extended description of the product supplied by the lister
+    xpath: //div[@id="flix-inpage"] | //div[@id="rcm-container"]
+  - name: manufacturerImages
+    description: Images within the third party description
+    xpath: //div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//img/@data-flixsrcset | //div[@id="rcm-container"]//img/@src
+  - name: videos
+    description: URLs of videos on page
+    xpath: //div[contains(@class,"inpage_selector_video")]//input/@value
+  - name: name
+    description: The product name
+    xpath: //h1[@itemprop="name"]
+  - name: coupon
+    description: Text of any coupon offer
+  - name: secondaryImageTotal
+    description: null
+    type: NUMBER
+    xpath: count(//ul[contains(@class,"thumbs")]/li[position()>1]//img/@src)
+  - name: specifications
+    description: The physical dimensions of the product including packaging.
+    xpath: '@specs'
+  - name: warranty
+    description: Guarantee associated with the product
+    xpath: //div[@id="features"]//dt[contains(.,"Garantisi")]/following-sibling::dd[1]
+  - name: storage
+    description: Suggested storage location for product
+  - name: countryOfOrigin
+    description: The country from which the product originates
+  - name: allergyAdvice
+    description: Allergy information associated with the product
+  - name: recyclingInformation
+    description: Recycling information associated with the product
+  - name: productOtherInformation
+    description: Any other product information
+  - name: packaging
+    description: Packaging information
+  - name: additives
+    description: List of additives in the product
+  - name: pricePerUnit
+    description: Price of the product split into certain units
+  - name: pricePerUnitUom
+    description: The unit of measurement used in price_per_unit
+  - name: promotion
+    description: promotion text on product page
+  - name: alcoholContent
+    description: Alcohol content information
+  - name: newVersion
+    description: In product page, information about a new version of the product
+      (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
+  - name: newAsin
+    description:
+      In product page, information about a new version of the product -
+      new asin info
+  - name: newDescription
+    description:
+      In product page, information about a new version of the product -
+      new desription info
+  - name: variantInformation
+    description: colour / scent / flavour / other
+    xpath: //div[contains(@class,"product-attributes") and contains(@class,"active")]/@data-value | //div[contains(@class,"product-attributes")]//option[@selected="true"]
+  - name: firstVariant
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+    xpath: '@first-variant'
+  - name: variants
+    description: null
+    xpath: //div[contains(@class,"product-attributes")]//@data-action-id 
+  - name: additionalDescBulletInfo
+    description: null
+  - name: prop65Warning
+    description: null
+  - name: ageSuitability
+    description: Recommended age displayed on the product page.
+      https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
+    example: 4 - 99 years
+  - name: energyEfficiency
+    description: Energy rating of a product.
+      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+    xpath: //div[@id="features"]//dt[contains(.,"Enerji verimlilik sınıfı")]/following-sibling::dd[1]
+  - name: technicalInformationPdfPresent
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    xpath: //a[contains(@class,"flix-doc-download")]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: termsAndConditions
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: materials
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    xpath: //a[@class="zoom"]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
