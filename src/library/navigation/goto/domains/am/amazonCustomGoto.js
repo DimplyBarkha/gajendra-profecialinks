@@ -1,6 +1,4 @@
 async function goto(gotoInput, parameterValues, context, dependencies) {
-    // const extractorContext = gotoInput.context
-    const extractorContext = gotoInput.context;
     const zipcode = gotoInput.zipcode;
 
     // strategies can  be  turned on and off
@@ -12,23 +10,23 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
         // missingDataRetry has dependants
         missingDataRetry: true,
         // dependant on missingDataRetry
-        cleanCookieRetry: true,
+        cleanCookieRetry: false,
         // dependant on missingDataRetry
         salesRankBadgeRetry: true,
-        hourlyRetryLimit: false,
+        hourlyRetryLimit: false
     };
-    console.log('fillRateStrategies: ', fillRateStrategies);
+    console.log('fillRateStrategies: ', fillRateStrategies)
 
-    // input.extractor ||
-    const extractor = '';
-    // parseInt(input.maxCaptchas) ||
-    const MAX_CAPTCHAS = 3;
-    // parseInt(input.maxSessionRetries) ||
-    const MAX_SESSION_RETRIES = 2;
-    // HOURLY_RETRY_LIMIT is a variable  depending on throughput and proxy pool volumee
-    // We may need to expand the "key" to be project&extractor specific beecause projects have custom domain limits
-    // parseInt(input.hourlyRetryLimit) ||
-    const HOURLY_RETRY_LIMIT = 90000;
+    //input.extractor || 
+    const extractor = ''
+        //parseInt(input.maxCaptchas) ||
+    const MAX_CAPTCHAS = 3
+        //parseInt(input.maxSessionRetries) ||
+    const MAX_SESSION_RETRIES = 2
+        // HOURLY_RETRY_LIMIT is a variable  depending on throughput and proxy pool volumee
+        // We may need to expand the "key" to be project&extractor specific beecause projects have custom domain limits
+        //parseInt(input.hourlyRetryLimit) ||
+    const HOURLY_RETRY_LIMIT = 90000
 
     let page;
     let captchas = 0;
@@ -37,8 +35,8 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
 
     // checking for elements on page after goto/captcha/reload/etc.
     const pageContext = async() => {
-        return await extractorContext.evaluate(() => {
-            console.log('extractorContext.evaluate');
+        return await context.evaluate(() => {
+            console.log('context.evaluate');
             const selectors = {
                 hasVariants: 'div[id*="variation_"] ul, div[id*="variation_"] option',
                 hasProdDetails: '#prodDetails, #detailBullets_feature_div',
@@ -66,17 +64,17 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
                     elementChecks[prop] = true;
                 } else { elementChecks[prop] = false; }
             }
-            elementChecks.windowLocation = window.location;
+            elementChecks["windowLocation"] = window.location
             return elementChecks;
         });
     };
 
     // checking for blank pages and reloads if blank (data dropped)
     const pageContextCheck = async(page) => {
-        console.log('pageContextCheck', page);
-        if (Object.entries(page).filter(item => item[0] != 'windowLocation').filter(item => item[1] === true).length === 0) {
-            extractorContext.counter.set('dropped_data', 1);
-            await extractorContext.reload();
+        console.log('pageContextCheck', page)
+        if (Object.entries(page).filter(item => item[0] != "windowLocation").filter(item => item[1] === true).length === 0) {
+            context.counter.set('dropped_data', 1);
+            await context.reload();
             await new Promise(resolve => setTimeout(resolve, 2000));
             console.log('Waiting for page to reload');
             return await solveCaptchaIfNecessary(await pageContext());
@@ -100,14 +98,14 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
                 counts.push({ key, inc: boolean ? 1 : 0 });
             }
             counts.forEach(({ key, inc }) => {
-                extractorContext.counter.set(key, inc);
+                context.counter.set(key, inc);
             });
         }
     };
 
     const setZip = async(zip) => {
         if (zip) {
-            const apiZipChange = await extractorContext.evaluate(async(zipcode) => {
+            const apiZipChange = await context.evaluate(async(zipcode) => {
                 const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
                 const response = await fetch('/gp/delivery/ajax/address-change.html', {
                     headers: {
@@ -124,26 +122,26 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
                 return response.status === 200;
             }, zipcode);
 
-            const onCorrectZip = await extractorContext.evaluate((zipcode) => {
-                const zipText = document.querySelector('div#glow-ingress-block');
-                return zipText ? zipText.textContent.includes(zipcode) : false;
+            const onCorrectZip = await context.evaluate((zipcode) => {
+                const zipText = document.querySelector('div#glow-ingress-block')
+                return zipText ? zipText.textContent.includes(zipcode) : false
             }, zipcode);
 
-            if (!onCorrectZip) {
-                if (!apiZipChange) {
-                    throw new Error('API zip change failed');
-                } else {
-                    await extractorContext.reload();
-                    page = await pageContextCheck(await pageContext());
-                    await solveCaptchaIfNecessary(page);
-                }
+            if (!apiZipChange) {
+                console.log('API zip change failed')
+                    // throw new Error('API zip change failed');
+            } else {
+                await context.reload();
+                page = await pageContextCheck(await pageContext());
+                // await solveCaptchaIfNecessary(page);
+                await handlePage(page, null)
             }
         }
-    };
+    }
 
     // calls refresh API and appends data to the page that doesnt already exist
     const appendData = async(page) => {
-        return await extractorContext.evaluate(async(page) => {
+        return await context.evaluate(async(page) => {
             const getParams = async() => {
                 const paramLocators = [
                     'pgid',
@@ -195,15 +193,15 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
                     dataRaw.forEach(part => {
                         const element = document.getElementById(Object.keys(part.Value.content)[0]);
                         if (element) {
-                            // element.innerHTML = Object.values(part.Value.content)[0];
+                            //element.innerHTML = Object.values(part.Value.content)[0];
                         } else {
                             const div = document.createElement('div');
                             div.setAttribute('id', Object.keys(part.Value.content)[0]);
                             div.innerHTML = Object.values(part.Value.content)[0];
                             const appendAtBottom = document.getElementById('a-page');
                             if (appendAtBottom) {
-                                appendAtBottom.insertBefore(div, document.getElementById('navFooter'));
-                            } else { console.log('couldnt find a good place to append data'); }
+                                appendAtBottom.insertBefore(div, document.getElementById('navFooter'))
+                            } else { console.log('couldnt find a good place to append data') }
                         }
                     });
                     return true;
@@ -217,30 +215,31 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
 
     // checks internal expected API
     const getShouldHaveData = async(url) => {
-        try {
-            const apiUrl = 'https://moorhe2t18.execute-api.us-east-1.amazonaws.com/prod/?url=' + encodeURIComponent(url || gotoInput.url);
-            const res = await Promise.race([
-                extractorContext.fetch(apiUrl, { timeout: 1e3 }),
-                new Promise((r, j) => setTimeout(j, 1e3)),
-            ]);
-            const data = await res.json();
-            if (data) {
-                console.log('expectedAPI: ', data);
-                return data;
-            }
-            return { details: 0 };
-        } catch (err) {
-            console.error('shouldHave:error', err);
-            return { details: 0 };
+        // try {
+        const apiUrl = 'https://moorhe2t18.execute-api.us-east-1.amazonaws.com/prod/?url=' + encodeURIComponent(url || gotoInput.url);
+
+        // console.log('shouldhavefetch :', apiUrl)
+
+        const res = await Promise.race([
+            extractorContext.fetch(apiUrl, { timeout: 1e3 }),
+            new Promise((r, j) => setTimeout(j, 1e3)),
+        ]);
+        const data = await res.json();
+        if (data) {
+            console.log('expectedAPI: ', data);
+            return data;
         }
+        // return { details: 0 };
+        // } catch (err) {
+        //   console.error('shouldHave:error', err);
+        return { details: 0 };
+        // }
     };
 
     const solveCaptcha = async() => {
         console.log('isCaptcha');
 
-        // pageId = await extractorContext.getPageId();
-
-        await extractorContext.solveCaptcha({
+        await context.solveCaptcha({
             type: 'IMAGECAPTCHA',
             inputElement: 'form input[type=text][name]',
             imageElement: 'form img',
@@ -248,9 +247,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
         });
 
         console.log('solved captcha, waiting for page change');
-        // await extractorContext.waitForNextPage(30);
-        // port
-        await extractorContext.waitForNavigation();
+        await context.waitForNavigation()
 
         console.log('Captcha vanished');
 
@@ -268,7 +265,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
 
     const acceptCookies = async() => {
         console.log('page.hasCookieAcceptRequest: ', 'true');
-        await extractorContext.click('#sp-cc-accept');
+        await context.click('#sp-cc-accept');
         console.log('Waiting for cookie modal to close');
     };
 
@@ -331,16 +328,16 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
                 return HOURLY_RETRY_LIMIT;
             }
         }
-        return 0;
+        return 0
     };
 
     const retryContext = async() => {
-        const retry = extractorContext.retryContext;
-        const context = {
+        const retry = context.retryContext;
+        const rcontext = {
             isLastRetry: parseInt(retry.maxRetries) <= parseInt(retry.retryNumber),
             isRetry: parseInt(retry.retryNumber) > 0,
         };
-        return context;
+        return rcontext;
     };
 
     const hasSalesRankBadgeAndNoData = (page) => {
@@ -351,6 +348,8 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
     };
 
     const handlePage = async(page, lastResponseData) => {
+        let lastResponseCode = lastResponseData ? lastResponseData.status : 200;
+
         console.log('HANDLING PAGE');
         // checking for blank  page and  reloading
         page = await pageContextCheck(page);
@@ -363,35 +362,32 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
         if (page.isCaptchaPage) {
             console.log('checking captcha', page);
             // we failed to solve the CAPTCHA or a second captcha was thrown
-            extractorContext.reportBlocked(lastResponseData.status, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
+            context.reportBlocked(lastResponseCode, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
         }
 
-        if (lastResponseData.status === 503 || page.is500Page) {
+        if (lastResponseCode === 503 || page.is500Page) {
             console.log('getting  503 pageId');
-            // pageId = await extractorContext.getPageId();
 
             console.log('Clicking 503 image');
-            await extractorContext.click('a img[src*="503.png"], a[href*="ref=cs_503_link"], a img[src*="error/500-title"]');
+            await context.click('a img[src*="503.png"], a[href*="ref=cs_503_link"], a img[src*="error/500-title"]');
 
             console.log('Waiting for page to reload on homepage using 503  pageId');
-            // await extractorContext.waitForNextPage(30);
-            // port
-            await extractorContext.waitForNavigation();
+            await context.waitForNavigation()
 
             page = await pageContext();
             if (page.is500Page) {
                 // we failed to solve the CAPTCHA or a second captcha was thrown
-                extractorContext.reportBlocked(lastResponseData.status, 'Blocked: Could not work around 503');
+                context.reportBlocked(lastResponseCode, 'Blocked: Could not work around 503');
             }
 
             page = await solveCaptchaIfNecessary(page);
             if (page.isCaptchaPage) {
                 // we failed to solve the CAPTCHA or a second captcha was thrown
-                extractorContext.reportBlocked(lastResponseData.status, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
+                context.reportBlocked(lastResponseCode, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
             }
 
             console.log('Go to some random page');
-            const clickedOK = await extractorContext.evaluate(function() {
+            const clickedOK = await context.evaluate(function() {
                 const links = Array.from(document.querySelectorAll('a[href*="/dp/"]'));
                 if (links.length === 0) {
                     return false;
@@ -402,63 +398,64 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
 
             if (!clickedOK) {
                 console.log('Could not click a product, aborting... :/');
-                return await pageContext();
+                // return await pageContext();
             }
 
             await new Promise(r => setTimeout(r, 2000));
 
             console.log('Going back to desired page');
-            lastResponseData = await extractorContext.goto(gotoInput.url, {
-                checkBlocked: false,
+            lastResponseData = await context.goto(gotoInput.url, {
+                checkBlocked: true
             });
-
-            console.log('lastResponseData: ', lastResponseData);
+            lastResponseCode = lastResponseData.status
+            console.log('lastResponseData: ', lastResponseCode);
             page = await pageContext();
             console.log('page: ', page);
         }
 
-        if (lastResponseData.status === 404 || lastResponseData.status === 410 || page.is400Page || (page.hasDogsofAmazon && !page.is500Page)) {
+        if (lastResponseCode === 404 || lastResponseCode === 410 || page.is400Page || (page.hasDogsofAmazon && !page.is500Page)) {
             return false;
         }
 
-        if (lastResponseData.status !== 200) {
-            return extractorContext.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
+        if (lastResponseCode !== 200) {
+            return context.reportBlocked(lastResponseCode, 'Blocked: ' + lastResponseCode);
         }
 
-        await extractorContext.checkBlocked();
+        await context.checkBlocked();
 
         page = await acceptCookiesIfNecessary(page);
 
-        if (lastResponseData.url.includes('elasticbeanstalk') || lastResponseData.url.includes('www.primevideo.com')) {
-            extractorContext.counter.set('primevideo', 1);
+
+        if (lastResponseData && (lastResponseData.url.includes('elasticbeanstalk') || lastResponseData.url.includes('www.primevideo.com'))) {
+            context.counter.set('primevideo', 1);
         }
 
         return page;
     };
 
     const run = async(user_agent) => {
-        // extractorContext.enableNetworkDebugger();
+        // context.enableNetworkDebugger();
         // redshift health counters set to 0
-        extractorContext.counter.set('task', 0);
-        extractorContext.counter.set('expected', 0);
-        extractorContext.counter.set('primevideo', 0);
-        extractorContext.counter.set('refresh', 0);
-        extractorContext.counter.set('append', 0);
+        context.counter.set('task', 0)
+        context.counter.set('expected', 0)
+        context.counter.set('primevideo', 0)
+        context.counter.set('refresh', 0)
+        context.counter.set('append', 0)
 
         // options used for all goto's
-        await extractorContext.setUserAgent(user_agent);
-        await extractorContext.setJavaScriptEnabled(true);
-        await extractorContext.setCssEnabled(false);
+        await context.setUserAgent(user_agent)
+        await context.setJavaScriptEnabled(true)
+        await context.setCssEnabled(false)
 
-        lastResponseData = await extractorContext.goto(gotoInput.url, {
-            checkBlocked: false,
+        lastResponseData = await context.goto(gotoInput.url, {
+            checkBlocked: false
         });
         console.log('lastResponseData: ', lastResponseData);
 
         // get all needed selectors  on  page as booleans as pageContext
         // solve  captcha, handle 503, accept cookies, etc
 
-        console.log('about to  handle page');
+        console.log('about to  handle page')
         page = await handlePage(await pageContext(), lastResponseData);
         console.log('page handled: ', page);
         if (!page) {
@@ -468,48 +465,44 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
 
         const retry = await retryContext();
         console.log('retryContextAPI: ', retry);
-        const shouldRetry = (!retry.isLastRetry && await getHourlyRetryCount() < HOURLY_RETRY_LIMIT);
+        const shouldRetry = (!retry.isLastRetry && await getHourlyRetryCount() < HOURLY_RETRY_LIMIT)
 
-        const shouldHaveData = await getShouldHaveData(gotoInput.url);
-        console.log('blank page check');
-        page = await pageContextCheck(await pageContext());
-        console.log('blank page check done :', page);
+        const shouldHaveData = await getShouldHaveData(gotoInput.url)
+        console.log('blank page check')
+        page = await pageContextCheck(await pageContext())
+        console.log('blank page check done :', page)
 
         // API append if variants exist and prodDetails expected, otherwise reload
         if (page.isProductPage && !!parseInt(shouldHaveData.details) && !page.hasProdDetails) {
             if (page.hasVariants && fillRateStrategies.variantAPIAppendData) {
-                console.log('append ------>', 'Missing prodDetails when API history says it is expected, and variants exist.');
+                console.log('append ------>', 'Missing prodDetails when API history says it is expected, and variants exist.')
                 if (await appendData(page)) {
-                    extractorContext.counter.set('append', 1);
-                    console.log('appended data to bottom of page');
+                    context.counter.set('append', 1)
+                    console.log('appended data to bottom of page')
                 } else {
-                    console.log('failed to append data');
+                    console.log('failed to append data')
                 }
                 page = await pageContext();
                 console.log('page update after append: ', page);
             } else if (page.hasVariants && fillRateStrategies.variantReload && !page.hasProdDetails && inSessionRetries < MAX_SESSION_RETRIES) {
                 console.log('reload ------>', 'Missing prodDetails when API history says it is expected, and variants exist.');
                 inSessionRetries += 1;
-                extractorContext.counter.set('refresh', 1);
-                await extractorContext.reload();
+                context.counter.set('refresh', 1);
+                await context.reload();
                 await new Promise(r => setTimeout(r, 2000));
                 console.log('Waiting for page to reload');
-                // await extractorContext.waitForNextPage(30);
-                // port
-                await extractorContext.waitForNavigation();
+                await context.waitForNavigation()
                 console.log('Page reloaded');
                 page = await handlePage(await pageContext(), lastResponseData);
                 console.log('page handled: ', page);
             }
             if (!page.hasVariants && fillRateStrategies.nonVariantReload) {
                 console.log('reload ------>', 'Missing prodDetails when API history says it is expected, and variants  do not exist.');
-                extractorContext.counter.set('refresh', 1);
-                await extractorContext.reload();
+                context.counter.set('refresh', 1);
+                await context.reload();
                 await new Promise(r => setTimeout(r, 2000));
                 console.log('Waiting for page to reload');
-                // await extractorContext.waitForNextPage(30);
-                // port
-                await extractorContext.waitForNavigation();
+                await context.waitForNavigation()
                 console.log('Page reloaded');
                 page = await handlePage(await pageContext(), lastResponseData);
                 console.log('page handled: ', page);
@@ -519,7 +512,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
         await counter(page);
 
         if (!!parseInt(shouldHaveData.details) || page.hasProdDetails) {
-            extractorContext.counter.set('expected', 1);
+            context.counter.set('expected', 1);
         }
         // check for blank  page
         console.log('final blank page check');
@@ -539,7 +532,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
         }
         // checking for blank  page and  reloading
         console.log('task ok');
-        extractorContext.counter.set('task', 1);
+        context.counter.set('task', 1);
     };
 
     const allUserAgentString = [{
@@ -3651,19 +3644,19 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
         const message = err.message ? err.message.includes('MISSING_DATA') : false;
         if (message && fillRateStrategies.cleanCookieRetry && inSessionRetries < MAX_SESSION_RETRIES) {
             inSessionRetries += 1;
-            extractorContext.counter.set('missing-data-retry', 1);
-            await extractorContext.evaluate(() => {
+            context.counter.set('missing-data-retry', 1);
+            await context.evaluate(() => {
                 localStorage.clear();
                 sessionStorage.clear();
             });
-            await extractorContext.clearAllCookies();
-            await extractorContext.playActionNow({
+            await context.clearAllCookies();
+            await context.playActionNow({
                 constructor: 'ViewportAction',
                 width: 1920,
                 height: 1080 - 23,
             });
             userAgentString = JSON.parse(allUserAgentString[Math.floor(allUserAgentString.length * Math.random())].config).userAgent + ' ' + Math.random().toString(36).substring(2, 15);
-            await extractorContext.goto('about:blank');
+            await context.goto('about:blank');
             console.log('starting in session retry');
             await run(userAgentString);
             await setZip(zipcode);

@@ -183,12 +183,6 @@ fields:
   - name: internationalShipping
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1] | //table[contains(@id, 'detail')]//th[contains(text(), 'International Shipping')]/following-sibling::td/text() | //div[contains(@id, 'Detail')]//td[contains(text(), 'International Shipping')]/following-sibling::td/text()
-  - name: salesRank
-    singleValue: false
-    xpath: //*[@id="SalesRank"]//*[contains(text(), "#")]/text() | //*[@id="SalesRank"]/text()[contains(., "#")] | //th[contains(text(),"Best Sellers Rank")]/following-sibling::td/span/span
-  - name: salesRankCategory
-    singleValue: false
-    xpath: //*[@id="SalesRank"]/text()[contains(., "in")] | //*[@id="SalesRank"]//span[contains(., "in")]/a | //th[contains(text(),"Best Sellers Rank")]/following-sibling::td/span//span[contains(., "in")]/a
   - name: subscriptionPrice
     singleValue: true
     xpath: //*[@id="sns-base-price"]
@@ -639,3 +633,24 @@ fields:
     xpath: //div[@id="andonCord_feature_div"]//*
     type: BOOLEAN
     defaultValue: false
+  - name: salesRankNodeRaw
+    singleValue: false
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1]/following-sibling::a/@href |  //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1]//a/@href | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]//a/@href
+    # regExp: bestsellers\/(.+)\/ref
+    # regExpReplace: $1
+  - name: salesRankRaw
+    singleValue: false 
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
+    regExp: \#([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
+    regExpReplace: >-
+      #$1 in $2
+  - name: salesRank
+    singleValue: false
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
+    regExp: \#([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
+    regExpReplace: $1
+  - name: salesRankCategory
+    singleValue: false
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
+    regExp: \#([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
+    regExpReplace: $2
