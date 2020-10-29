@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'real',
-    nextLinkSelector: 'ul[class="pagination list -inline item-pagination"]>:last-child>a',
-    loadedSelector: 'body',
+    nextLinkSelector: 'a[class="btn -default pagination"]',
+    loadedSelector: 'div#page',
     domain: 'real.de',
     zipcode: '',
   },

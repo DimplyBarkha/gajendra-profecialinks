@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'real',
     domain: 'real.de',
-    url: 'https://www.real.de/item/search/?original_search_value=vodka%203%20litre&search_value=vodka%203%20liter',
+    url: 'https://www.real.de/item/search/?search_value={searchTerms}&valueKey_search_value=',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
