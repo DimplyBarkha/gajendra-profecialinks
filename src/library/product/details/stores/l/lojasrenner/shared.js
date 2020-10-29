@@ -43,6 +43,11 @@ const transform = (data) => {
             }
           });
         }
+        if (row.secondaryImageTotal) {
+          row.secondaryImageTotal.forEach(item => {
+           item.text = Number(item.text) -1;
+          });
+        }
         if (row.nameExtended) {
             row.nameExtended.forEach(item => {
               if(item.text.includes('Marca:')){
@@ -57,10 +62,31 @@ const transform = (data) => {
                   item.text = item.text.replace(/Ref\:(.*)/g,'$1').trim();
             });
           }
+          if (row.variantCount) {
+            row.variantCount.forEach(item => {
+                  item.text = item.text.replace(/Ref\:(.*)/g,'$1').trim();
+            });
+          }
           if (row.variants) {
             row.variants.forEach(item => {
                   item.text = item.text.replace(/Ref\:(.*)/g,'$1').trim();
             });
+            let variants = [];
+            row.variants.forEach(item => {
+              variants.push(item.text)
+            })
+            // @ts-ignore
+            let uniqVariants = [...new Set(variants)];
+            row.variants = [
+              {
+                text: uniqVariants.join(' | '),
+              },
+            ];
+            if (row.variantCount) {
+              row.variantCount.forEach(item => {
+                    item.text = uniqVariants.length;
+              });
+            }
           }
       }
     }

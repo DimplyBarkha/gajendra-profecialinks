@@ -25,7 +25,8 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//div[@id="bb_brand"],"-",//h1[@class="product_name"]/span)
+    xpath: //h1[@class="product_name"]/span
+    # xpath: concat(//div[@id="bb_brand"],"-",//h1[@class="product_name"]/span)
     # xpath: concat(//li[contains(text(), "Marca:")],"-",//h1[@class="product_name"]/span)
     # regExp: Marca:(.*)
     # regExpReplace: $1
@@ -40,7 +41,7 @@ fields:
     xpath: //span[@class="product_price"]//span[@class="best_price"] | //div[@id="pd_price"]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id="bb_availibility"]
+    xpath: //div[@id="pd_availability"] | //div[@id="bb_availibility"]
     defaultValue: In Stock
   - name: description
     singleValue: false
@@ -62,7 +63,8 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    xpath: //label[contains(@class , "js-select-label active")]//span[@class="size"]
+    xpath: //div[@id="pd_size"]
+    # xpath: //label[contains(@class , "js-select-label active")]//span[@class="size"]
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -230,8 +232,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
-    description: null
-    type: NUMBER
+    xpath: count(//div[contains(@class , 'open-gallery ')]/img/@src)
   - name: news
     singleValue: false
     description: null
@@ -512,4 +513,7 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    # xpath: //div[contains(@class, "large-image-carousel")]
+    # regExp: (.*)
+    # regExpReplace: 'Yes'
+    defaultValue:  'Yes'

@@ -62,17 +62,33 @@ async function implementation(
         console.log('sku: ', fSku);
         // element.classList.add("selected");
         console.log('element: ', element);
+         // @ts-ignore
+         element.querySelector('input').click();
         let price = element.querySelector('span.best_price');
         // @ts-ignore
         price = price ? price.innerText : '';
+        console.log('price: ', price);
         addElementToDocument('pd_price',price);
+        let size = element.querySelector('span.size');
+        // @ts-ignore
+        size = size ? size.innerText : '';
+        console.log('size: ', size);
+        addElementToDocument('pd_size',size);
         let oldPrice = element.querySelector('span.old_price');
         // @ts-ignore
         oldPrice = oldPrice ? oldPrice.innerText : '';
-        addElementToDocument('pd_oldPrice',oldPrice);
+        addElementToDocument('pd_oldPrice',oldPrice); 
+        let availibility = element.querySelector('span.unavailable.js-preWarnMe');
         // @ts-ignore
-        element.querySelector('input').click();
-        
+        availibility = availibility ? availibility.innerText : '';
+        let availableStatus;
+        // @ts-ignore
+        if(availibility.includes('INDISPONÍVEL')){
+          availableStatus ="Out of Stock";
+        }else{
+          availableStatus ="In Stock";
+        }
+        addElementToDocument('pd_availability',availableStatus); 
       }
     }
    }
@@ -90,6 +106,8 @@ async function implementation(
         console.log('sku: ', fSku);
         // element.classList.add("selected");
         console.log('element: ', element);
+         // @ts-ignore
+         element.querySelector('input').click();
         let price = element.querySelector('span.best_price');
         // @ts-ignore
         price = price ? price.innerText : '';
@@ -97,10 +115,7 @@ async function implementation(
         let oldPrice = element.querySelector('span.old_price');
         // @ts-ignore
         oldPrice = oldPrice ? oldPrice.innerText : '';
-        addElementToDocument('pd_oldPrice',oldPrice);
-        // @ts-ignore
-        element.querySelector('input').click();
-        
+        addElementToDocument('pd_oldPrice',oldPrice); 
       }
     }
    }
@@ -115,16 +130,7 @@ async function implementation(
        console.log('notAvailable: ', notAvailable);
       productAvaibility = 'Out of Stock';
      }
-     let unavailable = document.querySelector('label.item.js-select-label.unavailable.active span.unavailable.js-preWarnMe')
-     if(unavailable){
-       console.log('unavailable: ', unavailable);
-      productAvaibility = 'Out of Stock';
-     }
-     let available = document.querySelector('button.buy_button.js-buy');
-     if(available){
-       console.log('available: ', available);
-      productAvaibility = 'In Stock';
-     }
+     
      addElementToDocument('bb_availibility',productAvaibility);
      function findJsonObj (scriptSelector) {
       try {
@@ -143,8 +149,8 @@ async function implementation(
      let brandText = JSONArr ? JSONArr.brand : ''
      let brand = brandText ? brandText.name : ''
      addElementToDocument('bb_brand', brand);
-    //  let sku = JSONArr ? JSONArr.sku : ''
-    //  addElementToDocument('bb_sku', sku);
+     let sku = JSONArr ? JSONArr.sku : ''
+     addElementToDocument('bb_sku', sku);
      let mpc = JSONArr ? JSONArr.mpn : ''
      addElementToDocument('bb_mpc', mpc);
     }, inputs);
