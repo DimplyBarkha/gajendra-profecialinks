@@ -36,13 +36,15 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[contains(@id,'pull-right-price')]
+    #xpath: //div[contains(@id,'pull-right-price')]
+    xpath: //div[@id="priceValue"]/text()
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //meta[@property='og:availability']/@content
+    xpath: //div[@id="availabilityText"]/text()
+    #xpath: //meta[@property='og:availability']/@content
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from

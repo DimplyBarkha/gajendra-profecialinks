@@ -93,6 +93,29 @@ module.exports = {
         addElementToDocument('colorValue', colorValue);
       }
 
+      // xpath for priceValue
+      const priceXpath = '//div[contains(@id,"pull-right-price")]/span';
+      const priceValue = getAllXpath(priceXpath, 'innerText');
+      console.log('My priceValue ', priceValue);
+      console.log('My priceValue 1', priceValue[0]);
+      console.log('My priceValue 2', priceValue[1]);
+      const priceNew = [priceValue[1], priceValue[0]];
+      console.log('My priceNew ', priceNew);
+      addElementToDocument('priceValue', priceNew);
+
+      // xpath for availabilityText
+      const availXpath = '//meta[@property="og:availability"]/@content';
+      const availValue = getXpath(availXpath, 'nodeValue');
+      console.log('My availValue 1', availValue);
+      let availabilityText;
+      if (availValue.includes('instock')) {
+        availabilityText = 'In Stock';
+      } else {
+        availabilityText = 'Out of Stock';
+      }
+      console.log('My availabilityText 1', availabilityText);
+      addElementToDocument('availabilityText', availabilityText);
+
       let scrollTop = 500;
       while (true) {
         window.scroll(0, scrollTop);
