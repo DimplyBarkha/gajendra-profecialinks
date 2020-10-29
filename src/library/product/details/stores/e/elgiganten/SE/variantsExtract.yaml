@@ -1,0 +1,21 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //div[@class="table-cell variations"]//@data-variation-sku
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //div[@class="table-cell variations"]//a/@href
+    # regExp: (.*)url(\()(.*)(\);)
+    # regExpReplace: $3
+  # - name: variantUrl1
+  #   singleValue: false
+  #   xpath: //li[contains(@class,"selectVariant")]/@data-varianturlsuffix
+  # - name: productUrl
+  #   singleValue: false
+  #   xpath: //link[@itemprop="url"]/@href
