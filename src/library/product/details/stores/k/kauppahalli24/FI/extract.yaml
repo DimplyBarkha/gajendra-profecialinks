@@ -17,6 +17,7 @@ fields:
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: false
+    xpath: //meta[contains(@name,"keywords")]/@content
     description: The <meta> keywords content
   - name: category
     singleValue: false
