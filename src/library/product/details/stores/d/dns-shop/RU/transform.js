@@ -107,6 +107,11 @@ const transform = (data) => {
       }
     }
   }
+
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = cleanUp(el.text);
+  }))));
+
   return data;
 };
 module.exports = { transform };
