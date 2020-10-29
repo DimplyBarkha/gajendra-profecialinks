@@ -3,6 +3,38 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@id="ii_price"][last()]
+  - name: quantity
+    singleValue: false
+    xpath: //div[@id="ii_quantity"][last()]
+    regExp: (\d+ \w+)|(\d+\w+)
+  - name: promotion
+    singleValue: false
+    xpath: //div[@id="ii_promotion"][last()]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@id="ii_listPrice"][last()]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@id="ii_nameExtended"][last()]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id="ii_variantId"][last()]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@id="ii_availabilityText"][last()]
+  - name: variants
+    singleValue: false
+    xpath: //td[contains(@class, 'tab-img-td')]//img//@title
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    xpath: count(//table[@id="product_combinations"]//tr)
   - name: image
     singleValue: false
     xpath: //img[@id='bigpic']/@src
@@ -18,25 +50,13 @@ fields:
     regExpReplace: $1$2
   - name: metaKeywords
     singleValue: false
-    xpath: //div[@id="resume_content"]
-  - name: _url
+    xpath: //div[@id="resume_content"]//p
+  - name: url
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: false
     xpath: //div[contains(@class, 'breadcrumb')]//span[@class="navigation_page"]//span//a
-  - name: nameExtended
-    singleValue: false
-    xpath: //tr[1]//td[contains(@class, "tab-attribute-td")]
-  - name: listPrice
-    singleValue: false
-    xpath: //span[@class="price_without_reduction"]
-  - name: price
-    singleValue: false
-    xpath: (//td[@class="tab-price-td clearfix"]//span)[1] | //div[@id="price_wrapper"]//span[@id="our_price_display"]
-  - name: availabilityText
-    singleValue: false
-    xpath: (//td[@class="tab-add-td clearfix"]//a)[1] | //div[@id="add_to_cart"]//button//span
   - name: description
     singleValue: false
     xpath: //div[@id="tab_content"]//section[@id="desc_product"]//div//p
@@ -58,41 +78,21 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //p[@class="netreviews_note_generale"]
-  - name: variantCount
-    singleValue: false
-    xpath: count(//table[@id="product_combinations"]//tr)
-  - name: promotion
-    singleValue: false
-    xpath: //span[@class="reduction"]
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id="thumbs_list"]//li[contains(@id, "thumbnail")][position()>1])
   - name: name
     singleValue: false
-    xpath: //div[@id="product_right"]//h1 | //div[@id="resume_content"]
-  - name: quantity
-    singleValue: false
-    xpath: //tr[position()=1]//td//span[@class="combination"]
-    regExp: (\d+ \w+)|(\d+\w+)
+    xpath: //div[@id="ii_nameExtended"][last()]
   - name: gtin
     singleValue: false
     xpath: //tr[position()=1]//td[contains(@class, "tab-quantity-td")]//input[@class="combination-quantity"]//@data-key
   - name: sku
     singleValue: false
     xpath: //tr[position()=1]//td[contains(@class, "tab-img-td")]//img//@title
-  - name: variantId
-    singleValue: false
-    xpath: //tr[position()=1]//td[contains(@class, "tab-img-td")]//img//@title
-    regExp: (\d+)
-    regExpReplace: $1
   - name: sku
     singleValue: false
     xpath: (//tr[position()=1]//td[contains(@class, "tab-quantity-td")]//input[@class="combination-quantity"]//@data-key)[1]
   - name: videos
     singleValue: false
     xpath: //section[@id="youtube"]//iframe//@src
-  - name: variants
-    singleValue: false
-    xpath: //td[contains(@class, "tab-img-td")]//img//@title
-    regExp: (\d+)
-    regExpReplace: $1

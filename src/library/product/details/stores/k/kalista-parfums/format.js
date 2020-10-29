@@ -51,13 +51,19 @@ const transform = (data) => {
         const variantsArr = row.variants.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/g, '|') : '|';
         });
-        row.variants = [{ text: variantsArr.join('|'), xpath: row.variants[0].xpath }];
+        row.variants = [{ text: variantsArr.join(' | '), xpath: row.variants[0].xpath }];
       }
       if (row.nameExtended) {
         const nameExtendedArr = row.nameExtended.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/g, ' ') : '|';
         });
         row.nameExtended = [{ text: nameExtendedArr.join('|'), xpath: row.nameExtended[0].xpath }];
+      }
+      if (row.variantInformation) {
+        const variantInformationArr = row.variantInformation.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/g, '') : '|';
+        });
+        row.variantInformation = [{ text: variantInformationArr.join('|'), xpath: row.variantInformation[0].xpath }];
       }
     }
   }
