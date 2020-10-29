@@ -27,11 +27,11 @@ async function implementation (
     const clientID = 'goldbox';
     const sessionID = ue_sid || document.cookie.match(/session-id=([^;]+)/)[1];
     const tld = document
-      .querySelector('[class="nav-logo-link"]')
+      .querySelector('.nav-logo-link')
       .getAttribute('aria-label')
       .match(/\.(.+)$/)
       ? document
-        .querySelector('[class="nav-logo-link"]')
+        .querySelector('.nav-logo-link')
         .getAttribute('aria-label')
         .match(/\.(.+)$/)[1]
       : 'com';
