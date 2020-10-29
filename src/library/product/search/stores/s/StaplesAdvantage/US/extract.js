@@ -1,13 +1,13 @@
-const { transform } = require("../../../../shared");
+const { transform } = require('../../../../shared');
 
 module.exports = {
-  implements: "product/search/extract",
+  implements: 'product/search/extract',
   parameterValues: {
-    country: "US",
-    store: "StaplesAdvantage",
+    country: 'US',
+    store: 'StaplesAdvantage',
     transform,
-    domain: "staplesadvantage.com",
-    zipcode: "",
+    domain: 'staplesadvantage.com',
+    zipcode: '',
   },
   implementation: async (
     { inputString },
