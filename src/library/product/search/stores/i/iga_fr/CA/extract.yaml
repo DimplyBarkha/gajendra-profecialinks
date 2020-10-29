@@ -9,18 +9,18 @@ fields:
   - name: thumbnail
     singleValue: true
     description: a smaller image of the product e.g. on a search results page
-    xpath: //img[@id="body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl0_ctl00_1_ProductImage_1"]
+    xpath: //a[@id='body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl0_ctl00_1_NavigateTo_1']
   - name: productImage
     description: image url of product
     singleValue: true 
-    xpath: //img[@src="https://az836796.vo.msecnd.net/media/image/product/fr/small/0005574235632.jpg"]
+    xpath: //a[@id='body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl0_ctl00_1_NavigateTo_1']
   - name: price
     description: the offered price of the selected product 
     xpath: //span[@class="price text--strong"]
   - name: productUrl 
     singlevalue: true 
     description: The url of the product details page
-    xpath: //a[@href="/fr/produit/painfromage/00000_000000081605500186"]
+    xpath: //a[@id='body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl0_ctl00_1_NavigateTo_1']
   - name: _url
     description: The url of the page
     xpath: //meta[@property="og:url"]
