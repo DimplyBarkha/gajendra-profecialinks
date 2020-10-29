@@ -20,7 +20,7 @@ async function implementation (
       document.querySelector('div[id="monetate_lightbox_mask"]').remove();
     });
   }
-
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   var data = await context.extract(productDetails, { transform });
 
   for(let i=0;i<data[0].group.length;i++){
@@ -51,7 +51,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'belk',
-    transform: null,
+    transform: transform,
     domain: 'belk.com',
     zipcode: '',
   },
