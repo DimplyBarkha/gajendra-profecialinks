@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id='products']/li
+fields: 
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'grid-view-item__title')]
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,'grid-view-item__image-wrapper')]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class,'price-item price-item--regular')]
+  - name: searchUrl
+    singleValue: false
+    xpath: //ul[contains(@id,'products')]//div[@id='added-search-url']
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,'grid-view-item__image-wrapper')]//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.reservebar.com/$1
+  - name: id
+    singleValue: false
+    xpath: //ul[contains(@id,'products')]//div[@id='fetch-product-id']
+  - name: sponsored
+    singleValue: false
