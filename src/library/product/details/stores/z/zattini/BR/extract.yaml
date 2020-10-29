@@ -80,25 +80,30 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //ul[@class="attributes"]//li//strong[text()='Volumetria:']/following::text()[1]
+    # xpath: //ul[@class="attributes"]//li//strong[text()='Volumetria:']/following::text()[1]
+    xpath: (//div[@class="price price-box "]//link//@href)[1]
+    regExp: \d+ml|\d+g
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //ul[@class="attributes"]//li//strong[text()='Volumetria:']/following::text()[1]
+    # xpath: //ul[@class="attributes"]//li//strong[text()='Volumetria:']/following::text()[1]
+    xpath: (//div[@class="price price-box "]//link//@href)[1]
+    regExp: \d+ml|\d+g
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: (//div[@class="price-api-content"]//section/@data-sku-ref)[1]
+    # xpath: (//div[@class="price-api-content"]//section/@data-sku-ref)[1]
+    xpath: //button[@id="buy-button-now-float"]/@data-sku
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //ul[@class="attributes"]//li//strong[text()='Volumetria:']/following::text()[1]
+    # xpath: //ul[@class="attributes"]//li//strong[text()='Volumetria:']/following::text()[1]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -141,7 +146,9 @@ fields:
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
-    xpath: //ul[@class="attributes"]//li//strong[text()='Volumetria:']/following::text()[1]
+    # xpath: //ul[@class="attributes"]//li//strong[text()='Volumetria:']/following::text()[1]
+    xpath: (//div[@class="price price-box "]//link//@href)[1]
+    regExp: \d+ml|\d+g
   - name: variantCount
     singleValue: true
     description: Number of variants listed
