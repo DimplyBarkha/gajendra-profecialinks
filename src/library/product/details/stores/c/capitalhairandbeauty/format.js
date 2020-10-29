@@ -83,6 +83,11 @@ const transform = (data) => {
           item.text = "https://www.capitalhairandbeauty.co.uk" + item.text;
         });
       }
+      if (row.videos) {
+        row.videos.forEach(item => {
+          item.text = "http:" + item.text;
+        });
+      }
       if (row.alternateImages) {
         row.alternateImages.splice(0, 1);
         if (row.alternateImages.length) {

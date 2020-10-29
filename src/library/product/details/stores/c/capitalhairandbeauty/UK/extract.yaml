@@ -4,8 +4,8 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
-    xpath: //div[@id="ProductDetail"]//div[@class="main-image"]/img/@src
+    singleValue: false
+    xpath: //div[@id="ProductDetail"]//div[@class="main-image"]/a/@href
   - name: imageAlt
     singleValue: true
     xpath: //div[@id="ProductDetail"]//div[@class="main-image"]/img/@alt
@@ -22,11 +22,11 @@ fields:
     singleValue: true
     xpath: //div[@id="ProductDetail"]//div[@class="product-item"]//h1
   - name: listPrice
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="ProductDetail"]//div[@class="prices"]/span[@class="wasprice"]
   - name: price
-    singleValue: true
-    xpath: //div[@id="ProductDetail"]//div[@class="prices"]//span[@class="nowprice"]//span[@class="inc-vat"]
+    singleValue: false
+    xpath: //div[@id="ProductDetail"]//div[@class="prices"]//span[@class="nowprice"]//span[@class="inc-vat"]    
   - name: availabilityText
     singleValue: false
     xpath: //div[@id="ProductDetail"]//form[@id="AddToBasketForm"]//div[contains(@class,"availability") and contains(., 'In stock for delivery')]
@@ -44,10 +44,7 @@ fields:
     xpath: //meta[@property="product:brand:"]/@content
   - name: quantity
     singleValue: true
-    xpath: //div[@id="ProductDetail"]//input[@class="basket_quantity"]/@value
-  - name: gtin
-    singleValue: true
-    xpath: //meta[@property="product:retailer_item_id:"]/@content
+    xpath: //div[@id="ProductDetail"]//input[@class="basket_quantity"]/@value  
   - name: sku
     singleValue: true
     xpath: //meta[@property="product:retailer_item_id:"]/@content
@@ -71,4 +68,12 @@ fields:
     xpath: //div[@id="ProductDetail"]//select[@id="variation_selection"]/option/@value
   - name: specifications
     singleValue: false
-    xpath: //p//strong[contains(text(),'Specifications')]//parent::p//following-sibling::p[1]    
+    xpath: //p//strong[contains(text(),'Specifications')]//parent::p//following-sibling::p[1]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='avgRating']//feefowidget-rating-stars/@rating
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='avgRating']//span[@class='feefowidget-reviews-total']
+    regExp: \((.+?)\)
+    regExpReplace: $1
