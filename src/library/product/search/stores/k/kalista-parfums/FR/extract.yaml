@@ -1,28 +1,27 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@id="product_search_page"]//li[contains(@class,'ajax_block_product')]
+recordXPath: //ul[contains(@class,"product_list")]//li[contains(@class,'ajax_block_product')] | //ul[@id="product_list"]//li
 fields: 
   - name: id
-    xpath: //ul[@id='product_search_page']//li//span//a/ancestor::li//div[@class="product-image-container"]//a[@class="product_img_link"]/img[@class="replace-2x img-responsive"]/@title
+    xpath: //ul[contains(@class,"product_list")]//li//span//a/ancestor::li//div[@class="product-image-container"]//a[@class="product_img_link"]/img[@class="replace-2x img-responsive"]/@title
     regExp: .*\-\s(.*)
     regExpReplace: $1
   - name: name
-    xpath: //ul[@id='product_search_page']//li//span//a/ancestor::li//div[@class="right-block"]//span[@class="product-name-wrapper"]//a/@title
+    xpath: //ul[contains(@class,"product_list")]//li//span//a/ancestor::li//div[@class="right-block"]//span[@class="product-name-wrapper"]//a/@title
     singleValue: false
   - name: rankOrganic
   - name: rank 
   - name: productUrl
-    xpath: //ul[@id="product_search_page"]//li//span//a/ancestor::li//a[@class="product_img_link"]//@href
+    xpath: //ul[contains(@class,"product_list")]//li//span//a/ancestor::li//a[@class="product_img_link"]//@href
     singleValue: false
   - name: thumbnail
-    xpath: //ul[@id="product_search_page"]//li//span//a/ancestor::li//a/img/@src
+    xpath: //ul[contains(@class,"product_list")]//li//span//a/ancestor::li//a/img/@src
     singleValue: false
   - name: price
-    xpath: //ul[@id="product_search_page"]//li//span//a/ancestor::li//div[@itemprop="offers"]//span[@itemprop="price"]
-    regExp: (\d+\d+)(.*)
-    regExpReplace: $1.$2
-    
+    xpath: //ul[contains(@class,"product_list")]//li//span//a/ancestor::li//div[@itemprop="offers"]//span[@itemprop="price"]
+    regExp: (\d+\d+),(.*)
+    regExpReplace: $1.$2   
     
   
     

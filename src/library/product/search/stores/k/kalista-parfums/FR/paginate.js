@@ -43,7 +43,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'ul#product_search_page',
+    loadedSelector: 'ul.product_list',
     noResultsXPath: '//p[contains(text(),"Aucun résultat trouv")]',
     openSearchDefinition: {
       template: 'https://www.kalista-parfums.com/fr/recherche?search_query={searchTerms}&q={page}',
