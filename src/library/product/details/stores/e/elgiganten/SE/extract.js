@@ -23,7 +23,7 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
-    if (document.querySelector('div.product-more-info')) {
+    if (document.querySelector('section.section.product-more-info')){
       document.querySelector('li#tab-specs').click();
       await new Promise(resolve => setTimeout(resolve, 1000));
     } else if (document.querySelector('div.tab-specs-row')) {

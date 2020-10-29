@@ -73,7 +73,7 @@ const transform = (data) => {
 
           if (item.text.split('/').length > 1) {
             video.push({
-              text: 'https://www.elgiganten.dk' + item.text,
+              text: '' + item.text,
               xpath: item.xpath
             })
           } else {
@@ -83,10 +83,28 @@ const transform = (data) => {
             })
           }
         });
-
-
-        row.videos = video;
+      row.videos = video;
       }
+      // if (row.videos) {
+      //   const nDesc = [];
+      //   let newDesc = '';
+      //   let idx = 0;
+      //   row.videos.forEach(item => {
+      //     nDesc[0] = item;
+      //     if (idx > 0) {
+      //       newDesc = newDesc + '||';
+      //     }
+      //     newDesc = newDesc + item.text;
+      //     idx++;
+      //   });
+      //   nDesc.forEach(item => {
+      //     item.text = newDesc;
+      //   });
+      //   row.videos = nDesc;
+      // }
+
+
+      //  
       if (row.manufacturerImages) {
         let text = '';
         row.manufacturerImages.forEach(item => {

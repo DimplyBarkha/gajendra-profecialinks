@@ -15,16 +15,16 @@ fields:
   - name: image
     singleValue: false
     # xpath: //div[contains(@class,"slick-current")]/img/@src | //img[@class="first-product-image"]/@src
-    xpath: //img[@class="first-product-image"]/@src
+    xpath: (//img[@class="first-product-image"]/@src)[1]
     regExp: (.+)\?.*
-    regExpReplace: https://www.elgiganten.se$1?$fullsize$
+    regExpReplace: https://www.elgiganten.se$1?
   - name: imageAlt
     singleValue: false
     # xpath: //div[contains(@class,"slick-current")]/img/@alt | //img[@class="first-product-image"]/@alt
-    xpath: //img[@class="first-product-image"]/@alt
+    xpath: (//img[@class="first-product-image"]/@alt)[1]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="slick-slide"]/img/@data-lazy
+    xpath: //ul[@class="slick-dots"]//li[position()>1]
     regExp: (.+)\?.*
     regExpReplace: https://www.elgiganten.se$1
   - name: metaKeywords
@@ -38,7 +38,7 @@ fields:
     manualSelector: h1.product-title
   - name: price
     singleValue: false
-    manualSelector: div.product-price-container > span, div.product-price > span
+    manualSelector: concat('div.product-price-container > span, div.product-price > span','//meta[@itemprop="priceCurrency"]/@content')
   - name: manufacturerDescription
     singleValue: false
     xpath: //section[contains(@class,"article-page")]
@@ -49,13 +49,15 @@ fields:
     regExpReplace: https://www.elgiganten.se$1
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,"product-video")]//@src | //div[@data-vidurl="vidURL"] | //li[@class="b-video-item"]
+    xpath: //div[contains(@class,"product-video")]//@src | //div[@data-vidurl="vidURL"] 
+    #xpath: //div[contains(@class,"product-video")]//@src | //div[@data-vidurl="vidURL"] | //li[@class="b-video-item"]
   - name: weightNet 
     singleValue: false
     xpath: //td[contains(text(),"Vikt")]/following-sibling::td
   - name: gtin 
     singleValue: false
-    xpath: //td[contains(text(),"EAN-kod")]/following-sibling::td | //meta[@itemprop="gtin8"]/@content
+    # xpath: //td[contains(text(),"EAN-kod")]/following-sibling::td | //meta[@itemprop="gtin8"]/@content
+    xpath: //td[contains(text(),"EAN-kod")]/following-sibling::td
   - name: sku
     singleValue: false
     # xpath: //p/@data-product-sku | //meta[@itemprop="productID"]/@content
@@ -73,7 +75,8 @@ fields:
     # defaultValue: '0'
   - name: description
     singleValue: false
-    manualSelector: div.product-more-info p
+    # manualSelector: div.product-more-info p
+    xpath: //div[@data-tab="tab-more-info"]/div/h3  | //div[@data-tab="tab-more-info"]/div/p/text() | //div[@id="misc-info"]
   - name: descriptionTop
     singleValue: false
     manualSelector: p.short-description
@@ -85,14 +88,32 @@ fields:
     xpath: //td[contains(text(),"Färg")]/following-sibling::td
   - name: aggregateRating 
     singleValue: false
-    xpath: //div[@class="product-ratings__avarage"]
+    xpath: //div[@class="product-ratings__avarage"]/a/text()
     # manualSelector: div.bv_avgRating_component_container
   - name: ratingCount
     singleValue: false
-    xpath: //div[@class="product-ratings__count"]
+    xpath: //div[@class="product-ratings__count"]/a/text()
     # manualSelector: div.bv_numReviews_component_container
-    regExp: (\d+)
+    regExp: ([\d]+)
     regExpReplace: $1
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@id="misc-info"]//ul[@class="specs"]//li
+  - name: mpc
+    singleValue: false
+    xpath: //td[contains(text(),"Produkt-ID (artikelnummer)")]/following-sibling::td
+  - name: manufacturer
+    singleValue: false
+    xpath: //td[contains(text(),"Märke")]/following-sibling::td
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //span[contains(text(),"Energiklass")]//../following-sibling::td
+  - name: weightNet
+    singleValue: false
+    xpath: //td[contains(text(),"Vikt (kg)")]//following-sibling::td
+  - name: packSize
+    singleValue: false
+    xpath: //td[contains(text(),"Skärmstorlek (tum/cm)")]/following-sibling::td
   - name: name
     singleValue: false
     manualSelector: h1.product-title
@@ -107,4 +128,25 @@ fields:
     xpath: //*[contains(text(),"Användarmanual")]/following-sibling::a/@href
     regExp: (.+)
     regExpReplace: 'Yes'
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@id="misc-info"]//ul[@class="specs"]//li
+  - name: mpc
+    singleValue: false
+    xpath: //td[contains(text(),"Produkt-ID (artikelnummer)")]/following-sibling::td
+  - name: manufacturer
+    singleValue: false
+    xpath: //td[contains(text(),"Märke")]/following-sibling::td
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //span[contains(text(),"Energiklass (EU)")]//../following-sibling::td
+  - name: weightNet
+    singleValue: false
+    xpath: //td[contains(text(),"Vikt (kg)")]//following-sibling::td
+  - name: packSize
+    singleValue: false
+    xpath: //td[contains(text(),"Skärmstorlek (tum/cm)")]/following-sibling::td
+#  - name: 
+#     singleValue: false
+#     xpath:
 
