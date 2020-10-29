@@ -58,7 +58,7 @@ const transform = (data) => {
       }
       if (row.id) {
         row.id.forEach(item => {
-          item.text = item.text.replace(/.+systemowy\s*:\s*\[(.+?)\].*/g, "$1");
+          item.text = item.text.replace(/.+producenta\s*:\s*\[(.+?)\].*/g, "$1");
         });
         row.variantId = row.id;
       }
