@@ -40,7 +40,9 @@ fields:
   - name: sku
     xpath: //span[@itemprop="sku"]
   - name: variantId
-    xpath: //span[@itemprop="productID"]
+    xpath: //div[@class="product-content"]//link[@itemprop="url"]/@content
+    regExp: (.+-)(.+)(.html)
+    regExpReplace: $2
   - name: mpc
   - name: packSize
   - name: legalDisclaimer
