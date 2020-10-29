@@ -14,7 +14,10 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id='images'][position() > 1]
+    xpath: //div[@id='product-image-carousel']//div[contains(@class, 'owl-item')][1]/following-sibling::*//img/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@id='product-image-carousel']//div[contains(@class, 'owl-item')][1]/following-sibling::*//img/@src)
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content

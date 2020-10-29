@@ -10,7 +10,19 @@ module.exports = {
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+  implementation: async (inputString, { country, domain, transform }, context, { productDetails }) => {
+    const { id } = inputString;
+    if (id) {
+      await context.waitForSelector('a.product__link');
+      try {
+        await context.click('#declineButton');
+      } catch (error) {
+        console.log('Popup not present');
+      }
+      await context.waitForSelector('div.product-image-picture');
+      await context.click('a.product__link');
+    }
+
     await context.waitForSelector('#product-information-tabs > div:nth-child(1) > div > i');
     await context.waitForSelector('#product-intro pwr-product-stock-label');
     await context.click('#product-information-tabs > div:nth-child(1) > div > i');
@@ -123,7 +135,11 @@ module.exports = {
       if (shipingInfo) addElementToDocument('shipingInfo', shipingInfo);
 
       const description = document.querySelectorAll('div#product-tab-description p');
+      const descTitle = document.querySelector('h3[class*=webheader]');
       const descArr = [];
+      if (descTitle) {
+        descArr.push(descTitle.innerText);
+      }
       if (description) {
         description.forEach(e => {
           descArr.push(e.innerText.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
@@ -132,7 +148,7 @@ module.exports = {
       addElementToDocument('description', descArr.join(' || '));
 
       const manufacturerDesc = document.querySelector('div#product-tab-description')
-        ? document.querySelector('div#product-tab-description').innerText: '';
+        ? document.querySelector('div#product-tab-description').innerText : '';
       if (manufacturerDesc) {
         addElementToDocument('manufacturerDesc', manufacturerDesc.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
       };
