@@ -10,7 +10,7 @@ fields:
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //a[@class='item-card__description__product-name']//font/text()
+    xpath: //a[@class='item-card__description__product-name']/span
   - name: productUrl
     singleValue: false
     xpath: //a[@class='item-card__description__stars']/@href
@@ -23,10 +23,11 @@ fields:
     xpath: //img/@data-src
   - name: aggregateRating
     singleValue: false
-    xpath: //a[@class='item-card__description__stars']
+    xpath: //div[@id="item-list"]//span[@class="ns-icon ns-icon-rating-mask stars"]//text()
     type: NUMBER
   - name: reviewCount
-    singleValue: false
+    singleValue: true
+    xpath: //div[@class="ratings-count"]
     regExp: (\d+)
   - name: ratingCount
     singleValue: false
@@ -44,7 +45,9 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //div[@class="item-card card-desktop card-with-rating lazy-price item-desktop--3"]/@data-position
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //div[@class="item-card card-desktop card-with-rating lazy-price item-desktop--3"]/@data-position
