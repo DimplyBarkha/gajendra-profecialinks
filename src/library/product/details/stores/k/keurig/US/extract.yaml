@@ -173,6 +173,7 @@ fields:
   - name: coupon
     singleValue: false
     description: Text of any coupon offer
+    xpath: //span[@class="coupon-message"]
   - name: amazonChoice
     singleValue: false
     description: YES or Blank
@@ -200,8 +201,8 @@ fields:
   - name: subscribeAndSave
     singleValue: false
     description: YES/NO
-    xpath: //label[@class="discount-info"]/text()[contains(.,"Save")]
-    regExp: (.+)
+    xpath: //label[@class="auto-delivery__label"]
+    regExp: Subscription
     regExpReplace: YES
     defaultValue: NO
   - name: heroQuickPromoHeadline
@@ -501,7 +502,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[contains(@class,"product-details__desc-content")]//p/text()[preceding-sibling::br or following-sibling::br and contains(.,"•")] | //div[contains(@class,"product-details__desc-content")]//ul/li
+    xpath: //div[contains(@class,"product-details__desc-content")]//text()[(preceding-sibling::br or following-sibling::br) and contains(.,"•")] | //div[contains(@class,"product-details__desc-content")]//ul/li
   - name: prop65Warning
     singleValue: false
     description: null
