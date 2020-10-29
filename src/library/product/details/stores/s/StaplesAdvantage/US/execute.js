@@ -72,20 +72,6 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   };
 
-  // checking if shipping info link is present
-
-  const isShippingInfoLinkPresent = await context.evaluate(async () => {
-    return document.querySelector('div.delivery-info-ux2__additional_info div a');
-  });
-
-  // clicking on delivery link in order to receive shipping info
-
-  if (isShippingInfoLinkPresent !== null) {
-    await context.evaluate(() => {
-      document.querySelector('div.delivery-info-ux2__additional_info div a').click();
-    });
-  };
-
   return await context.evaluate(function (xp) {
     const r = document.evaluate(
       xp,
