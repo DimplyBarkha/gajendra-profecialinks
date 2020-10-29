@@ -57,28 +57,25 @@ module.exports = {
       const tabDescInfoXpath = "//div[@class='product-info-description']";
       const tabDescInfo = getAllXpath(tabDescInfoXpath, 'innerText');
       let finalDescInfo;
-      finalDescInfo = featureDescInfo + '||' + tabDescInfo;
-
-      finalDescInfo = finalDescInfo.replace('\n', '||');
-      addElementToDocument('added_descriptionText', finalDescInfo);
+      if (tabDescInfo.length > 0 && featureDescInfo.length > 0) {
+        finalDescInfo = featureDescInfo + '||' + tabDescInfo;
+        finalDescInfo = finalDescInfo.replace('\n', '||');
+        addElementToDocument('added_descriptionText', finalDescInfo);
+      }
 
       // xpath for specificationValue
       const specifictionXpath = '//div[@class="product-info-description"]/ul[3]';
       const specificationValue = getAllXpath(specifictionXpath, 'innerText');
-
       specificationValue.forEach(function (element) {
         const specArray = element.split('\n');
-
         var i;
         for (i = 0; i < specArray.length; i++) {
           if (specArray[i].includes('Weight')) {
             const weight = specArray[i].replace('Weight:', '');
-
             addElementToDocument('weightValue', weight);
           }
           if (specArray[i].includes('in') || specArray[i].includes('cm')) {
             const dimensions = specArray[i].replace('Dimensions (L × W × H): ', '');
-
             addElementToDocument('dimensionValue', dimensions);
           }
         }
@@ -87,7 +84,6 @@ module.exports = {
       // xpath for colorValue
       const colorXpath = '//div[@class="product-info-description"]//ul//li[position()=1]';
       let colorValue = getXpath(colorXpath, 'innerText');
-      console.log('My colorValue', colorValue);
       if (colorValue !== null && colorValue.length > 0 && colorValue.includes('Colour')) {
         colorValue = colorValue.replace('Colour:', '');
         addElementToDocument('colorValue', colorValue);
@@ -96,25 +92,24 @@ module.exports = {
       // xpath for priceValue
       const priceXpath = '//div[contains(@id,"pull-right-price")]/span';
       const priceValue = getAllXpath(priceXpath, 'innerText');
-      console.log('My priceValue ', priceValue);
-      console.log('My priceValue 1', priceValue[0]);
-      console.log('My priceValue 2', priceValue[1]);
-      const priceNew = [priceValue[1], priceValue[0]];
-      console.log('My priceNew ', priceNew);
-      addElementToDocument('priceValue', priceNew);
+      let priceNew;
+      if (priceValue.length > 0 && !priceValue[0].includes('- -.- -')) {
+        priceNew = [priceValue[1], priceValue[0]];
+        addElementToDocument('priceValue', priceNew);
+      }
 
       // xpath for availabilityText
       const availXpath = '//meta[@property="og:availability"]/@content';
       const availValue = getXpath(availXpath, 'nodeValue');
-      console.log('My availValue 1', availValue);
       let availabilityText;
-      if (availValue.includes('instock')) {
-        availabilityText = 'In Stock';
-      } else {
-        availabilityText = 'Out of Stock';
+      if (availValue != null) {
+        if (availValue.includes('instock')) {
+          availabilityText = 'In Stock';
+        } else {
+          availabilityText = 'Out of Stock';
+        }
+        addElementToDocument('availabilityText', availabilityText);
       }
-      console.log('My availabilityText 1', availabilityText);
-      addElementToDocument('availabilityText', availabilityText);
 
       let scrollTop = 500;
       while (true) {
