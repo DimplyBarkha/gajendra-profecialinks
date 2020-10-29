@@ -48,11 +48,17 @@ module.exports = {
         for (const varId of ids) {
           const varinatInfo = {};
           const variant = filters[type].byId[varId];
+          const priceSku = [];
+          priceSku.push(variant.relatedSkuIds[0]);
+          for (const val of priceSku) {
+            var data = styleDetails.price.bySkuId[val];
+          }
           Object.assign(varinatInfo, {
             media: [],
             variantId: variant.id,
             sku: variant.relatedSkuIds[0],
             value: variant.value,
+            price: data.priceString,
           });
           const mediaIds = filters[type].byId[varId].styleMediaIds;
           if (!mediaIds) {
@@ -89,6 +95,11 @@ module.exports = {
           sku.setAttribute('class', 'sku');
           sku.setAttribute('sku', varinatInformation[index].sku);
           newlink.appendChild(sku);
+
+          const price = document.createElement('td');
+          price.setAttribute('class', 'price');
+          price.setAttribute('price', varinatInformation[index].price);
+          newlink.appendChild(price);
 
           const variant = document.createElement('td');
           variant.setAttribute('class', 'variant');

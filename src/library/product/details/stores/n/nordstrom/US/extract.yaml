@@ -4,20 +4,20 @@ recordSelector: null
 recordXPath: //table/tbody/tr[@class="append_variant"]
 fields:
   - name: image
-    xpath: ancestor::html//picture//img[contains(@name,"gallery-image")]/@src
-    regExp: (.+)&w=(.+)&h=
-    regExpReplace: $1&w=780&h=1196
-    singleValue: true
+    xpath: //td[@class="images"]/img[1]//@src
+    # regExp: (.+)&w=(.+)&h=
+    # regExpReplace: $1&w=780&h=1196
+    # singleValue: true
   - name: alternateImages
-    xpath: ancestor::html//ul[@class="slider-list"]//li//button[@class="BIgNz"]//img[contains(@name,"gallery-image")]/@src
-    regExp: (.*)&w=(.*)&h=
-    regExpReplace: $1&w=780&h=1196
+    xpath: //td[@class="images"]/img[position()>1]//@src
+    # regExp: (.*)&w=(.*)&h=
+    # regExpReplace: $1&w=780&h=1196
   - name: nameExtended
     xpath: ancestor::html//section//span[@itemprop="name"] | //h1[@itemprop="name"]
   - name: listPrice
     xpath: ancestor::html//section[@id="product-page-price-lockup"]//span[contains(@id,"original-price")]/span[last()]
   - name: price
-    xpath: ancestor::html//span[@id="current-price-string"] | //span[@id="current-price-string"]/following-sibling::sup
+    xpath: //table/tbody/tr[@class="append_variant"]//td[@class='price']/@price
     regExp: ^[^–]+
   - name: availabilityText
     xpath: ancestor::html//span[contains(text(),'Add to Bag')]
