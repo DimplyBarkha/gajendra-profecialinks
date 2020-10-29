@@ -5,7 +5,7 @@ module.exports = {
     country: 'CA',
     store: 'iga_fr',
     domain: 'iga.net/fr',
-    url: 'https://www.iga.net/fr/search?t=&k=olive',
+    url: 'https://www.iga.net/fr/search',
     loadedSelector: 'body',
     noResultsXPath: 'body',
     zipcode: '',
