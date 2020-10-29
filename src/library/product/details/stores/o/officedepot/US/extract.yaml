@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     description: URL of the main product image
-    xpath: (//div[@id="product-gallery"]//div[@data-test="gallery-viewer-wrap"]//img[@itemprop="image"]//@src)[1]
+    xpath: //body/div[@id="container"]/div[@class="productResponsive"]//img[@id="mainSkuProductImage"]//@src
   - name: imageAlt
     description: Alt text of the main product image
     xpath: //body/div[@id="container"]/div[@class="productResponsive"]//div[@class="main_sku_image"]//@alt
@@ -50,9 +50,9 @@ fields:
     xpath: //body/div[@id="container"]/div[@class="productResponsive"]//td[contains(.,'brand name')]/following-sibling::td
   - name: manufacturer
     description: Product manufacturer
-    xpath: //td[contains(.,'manufacturer')]/following-sibling::td
-  # - name: quantity
-  #   xpath: //td[contains(.,'uantity')]//following-sibling::td
+    xpath: //body/div[@id="container"]/div[@class="productResponsive"]//td[contains(.,'manufacturer')]/following-sibling::td
+  - name: quantity
+    xpath: //body/div[@id="container"]/div[@class="productResponsive"]//td[contains(.,'container weight')]/following-sibling::td
 #   - name: weightNet
 #     singleValue: true
 #     description: Net weight as described on the page
@@ -132,9 +132,11 @@ fields:
 #   - name: asin
 #     singleValue: true
 #     description: null
-#   - name: coupon
-#     singleValue: true
-#     description: Text of any coupon offer
+  - name: coupon
+    description: Text of any coupon offer
+    xpath: //body/div[@id="container"]/div[@class="productResponsive"]//p[contains(.,'Save 20% OFF Today')]
+    regExp: (.+)
+    regExpReplace: "Save 20% OFF Today"
 #   - name: amazonChoice
 #     singleValue: true
 #     description: YES or Blank
