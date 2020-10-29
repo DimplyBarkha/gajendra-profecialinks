@@ -11,6 +11,6 @@ module.exports = {
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'alcampo.es',
-    zipcode: "''",
+    zipcode: '',
   },
 };

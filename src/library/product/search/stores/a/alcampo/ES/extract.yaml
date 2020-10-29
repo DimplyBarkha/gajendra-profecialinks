@@ -2,4 +2,55 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //a[@class="productMainLink productTooltipClass"]/attribute::data-id 
+  - name: searchUrl
+    singleValue: true
+    xpath: 
+  - name: name
+    singleValue: false
+    xpath: //div[@class='productName truncate']/span
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="productMainLink productTooltipClass"]/attribute::href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='thumb cut-alt-img']/img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: normalize-space(concat(//div[@class="priceContainer"]/span/font/font, //div[@class="priceContainer"]/span/strong)) // todo
+  - name: manufacturer
+    xpath: //div[@class='marca']
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    name: totalRecordCount
+    singleValue: true 
+    type: NUMBER
+    xpath: (//div[@class='totalResults cartReviewTotal'])[1]

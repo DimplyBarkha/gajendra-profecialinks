@@ -6,6 +6,6 @@ module.exports = {
     store: 'alcampo',
     transform: null,
     domain: 'alcampo.es',
-    zipcode: "''",
+    zipcode: '',
   },
 };

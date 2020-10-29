@@ -5,9 +5,9 @@ module.exports = {
     country: 'ES',
     store: 'alcampo',
     domain: 'alcampo.es',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
-    zipcode: "''",
+    url: "https://www.alcampo.es/compra-online/search/?department=&text={searchTerms}",
+    loadedSelector: 'div.productDetailsPanel',
+    noResultsXPath: '//div[@class="page-not-found-content"]',
+    zipcode: '',
   },
 };
