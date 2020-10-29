@@ -49,6 +49,9 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //div[@class='nproduct-info']//div[@class='product-brand']//h2//span[@class='is-hidden']
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class='nproduct-info']//div[@class='product-brand']//h2//span[@class='is-hidden']
   - name: promotion
     singleValue: false
     xpath: //div[@class='nprodct-price']//strong[@class='nproduct-price-max']//span[contains(text(),'desconto')]
