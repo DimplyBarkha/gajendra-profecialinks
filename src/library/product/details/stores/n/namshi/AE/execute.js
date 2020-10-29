@@ -6,7 +6,7 @@ module.exports = {
     store: 'namshi',
     domain: 'namshi.com',
     loadedSelector: 'div#product_carousel',
-    noResultsXPath: '//h2[contains(text(),"وصلنا حديثا")]',
+    noResultsXPath: '//div[@id="section_404_container"]',
     zipcode: "''",
   },
 };
