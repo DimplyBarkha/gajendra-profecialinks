@@ -5,18 +5,20 @@ recordXPath: null
 fields:
   - name: name
     singleValue: true
-    description: Name of a product
-    xpath: //ul[@class='clearfix']/li[@class='column']//a[@class='plink']/h3[@class='productName']
+    xpath: //div[@class='pro']/a[@class='plink']/h3
+  - name: subName
+    singleValue: true
+    xpath: //div[@class='pro']/a[@class='plink']/h4
   - name: price
-    singleValue: false
-    description: Price of a product
-    xpath: //ul[@class='clearfix']/li[@class='column']//div[@class='proDetail']/a[@class='newPrice']/ins
+    singleValue: true
+    xpath: //div[@class='proDetail']/a[@class='newPrice']/ins
   - name: productUrl
-    singleValue: false
-    description: The URL for the product details page
+    singleValue: true
     xpath: //ul[@class='clearfix']/li[@class='column ']//a/@href
-  - name: thumbnail
-    singleValue: false
-    description: The URL for the product details page
-    xpath: //ul[@class='clearfix']/li[@class='column']//div[@class='pro']/a[@class='plink']/img[@class='lazy']/@src
+  - name: image
+    singleValue: true
+    xpath: //div[@class='pro']/a[@class='plink']/img/@src
+  - name: discount
+    singleValue: true
+    xpath: //div[@class='proDetail']/div/div/span[@class='ratio']
 

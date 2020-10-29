@@ -1,4 +1,4 @@
-
+// const { transform } = require('./shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -7,12 +7,5 @@ module.exports = {
     transform: null,
     domain: 'n11.com',
     zipcode: '',
-  },
-  implementation: async ({ url }, { country, domain }, context, dependencies) => {
-    await context.evaluate(() => {
-      const imgAlt = document.querySelector('.unf-p-img');
-      document.body.setAttribute('imgAlt', imgAlt ? imgAlt.alt : null);
-    });
-    await context.extract(dependencies.productDetails);
   },
 };

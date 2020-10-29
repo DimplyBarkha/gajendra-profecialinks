@@ -3,9 +3,84 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: imgAlt
+  - name: name
     singleValue: true
-    xpath: //div[@class='proImg easyzoom easyzoom--overlay is-ready']/div[@class='easyzoom-flyout']/img/@src
-  - name: imgAlt
+    xpath: //div[@class='nameHolder']/h1[@class='proName']
+  - name: subName
     singleValue: true
-    xpath: //div[@class='proImg easyzoom easyzoom--overlay is-ready']/div[@class='easyzoom-flyout']/img/@src
+    xpath: //div[@class='nameHolder']/h2[@class='proSubName']
+  - name: price
+    singleValue: true
+    xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins
+  - name: priceOld
+    singleValue: true
+    xpath: //div[@class='priceDetail']/del[@class='oldPrice']/ins
+  - name: discount
+    singleValue: true
+    xpath: //div[@class='price']/div/span[@class='ratio']
+  - name: thumbs
+    singleValue: false
+    xpath: //ul/li/@data-thumb
+  - name: productUrl
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
+  - name: featuresLabel
+    singleValue: false
+    xpath: //div[@class='panelContent']/section/div/div/span[@class='label']
+  - name: featuresData
+    singleValue: false
+    xpath: //div[@class='panelContent']/section/div/div/span[@class='data']
+  - name: details
+    singleValue: false
+    xpath: //div[@class='panelContent']/section
+  - name: otherStoreImages
+    singleValue: false
+    xpath: //ul[@class='slideList slidesjs-slide']/li/a/img/@src
+  - name: otherStoreAlts
+    singleValue: false
+    xpath: //ul[@class='slideList slidesjs-slide']/li/a/img/@alt
+  - name: otherStoreUrls
+    singleValue: false
+    xpath: //ul[@class='slideList slidesjs-slide']/li/a/@href
+  - name: otherStoreTitles
+    singleValue: false
+    xpath: //ul[@class='slideList slidesjs-slide']/li/a/h2
+  - name: otherStoreOldPrices
+    singleValue: false
+    xpath: //ul[@class='slideList slidesjs-slide']/li/a/del
+  - name: otherStoreNewPrices
+    singleValue: false
+    xpath: //ul[@class='slideList slidesjs-slide']/li/a/ins
+  - name: otherStoreDiscounts
+    singleValue: false
+    xpath: //ul[@class='slideList slidesjs-slide']/li/a/div/div/span[@class='ratio']
+  - name: recommendTitles
+    singleValue: false
+    xpath: //div[@class='asideSlide recomOtherProSlide']/div/div/div/ul[@class='slideList slidesjs-slide']/li/a/h2
+  - name: recommendUrls
+    singleValue: false
+    xpath: //div[@class='asideSlide recomOtherProSlide']/div/div/div/ul[@class='slideList slidesjs-slide']/li/a/@href
+  - name: recommendImages
+    singleValue: false
+    xpath: //div[@class='asideSlide recomOtherProSlide']/div/div/div/ul[@class='slideList slidesjs-slide']/li/a/img/@src
+  - name: recommendImagesAlts
+    singleValue: false
+    xpath: //div[@class='asideSlide recomOtherProSlide']/div/div/div/ul[@class='slideList slidesjs-slide']/li/a/img/@alt
+  - name: recommendPrices
+    singleValue: false
+    xpath: //div[@class='asideSlide recomOtherProSlide']/div/div/div/ul[@class='slideList slidesjs-slide']/li/a/inc
+  - name: recommendNewPrices
+    singleValue: false
+    xpath: //div[@class='asideSlide recomOtherProSlide']/div/div/div/ul[@class='slideList slidesjs-slide']/li/a/del
+  - name: recommendDiscounts
+    singleValue: false
+    xpath: //div[@class='asideSlide recomOtherProSlide']/div/div/div/ul[@class='slideList slidesjs-slide']/li/a/div/div/span[@class='ratio']
+  - name: commentNames
+    singleValue: false
+    xpath: //ul/li[@class='comment']/div/span[@class='userName']
+  - name: commentTitles
+    singleValue: false
+    xpath: //ul/li[@class='comment']/h5
+  - name: rating
+    singleValue: true
+    xpath: /html/body/div[@id='wrapper']/div[@id='contentProDetail']/div[@class='container']/div[@class='proDetailArea']/div[@id='productDetailTab']/div[@id='tabPanelProComments']/div[@class='panelContent']/div[@class='commentHeader']/div[@class='avarageRating']/div[@class='avarageText']
