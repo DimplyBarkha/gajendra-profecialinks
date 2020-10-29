@@ -60,18 +60,15 @@ fields:
   - name: gtin
     xpath: //li/b[contains(text(), 'UPC:')]/../text()
   - name: asin
-    xpath: //script[contains(.,'parentAsin')][contains(@type, "a-state")]
-    regExp: (.+)\"asinList\"\:\"([A-Z0-9]+)(.*)
-    regExpReplace: $2
-    singleValue: true
+    xpath: //li[contains(.,'ASIN')]//span//span[2] | (//*[@data-asin])[1]/@data-asin
   - name: sku
     xpath: //li/b[contains(., 'Modellnummer')][1]/../text()
     singleValue: true
   - name: variantId
     singleValue: true
-    xpath: (//li[contains(.,'ASIN')]//span//span[2] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1])[1]
+    xpath: (//div[contains(@id,"variation")]//li/@data-defaultasin)[1] | (//li[contains(.,'ASIN')]//span//span[2] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1])[1]
   - name: mpc
-    xpath: //li[contains(., 'Modellnummer')]//span//span[2] | //li/b[contains(., 'Modellnummer')][1]/../text()
+    xpath: //tr[contains(., 'Modellnummer')]//td | //li[contains(., 'Modellnummer')]//span//span[2] | //li/b[contains(., 'Modellnummer')][1]/../text()
     singleValue: true
   - name: packSize
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1] | //title[contains(text(), 'Pack')])[1]

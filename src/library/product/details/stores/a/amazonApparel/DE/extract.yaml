@@ -4,4 +4,11 @@ fields:
   defaultValue: No
 - name: Image360Present
   defaultValue: No
+- name: asin
+  xpath: //li[contains(.,'ASIN')]//span//span[2]
+- name: mpc
+  xpath: //tr[contains(., 'Modellnummer')]//td | //li[contains(., 'Modellnummer')]//span//span[2] | //li/b[contains(., 'Modellnummer')][1]/../text()
+  singleValue: true
+  
+
   
