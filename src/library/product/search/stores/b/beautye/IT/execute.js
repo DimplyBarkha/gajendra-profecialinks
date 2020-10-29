@@ -1,0 +1,13 @@
+
+module.exports = {
+  implements: 'product/search/execute',
+  parameterValues: {
+    country: 'IT',
+    store: 'beautye',
+    domain: 'beautye.it',
+    url: 'https://www.beautye.it/search/{searchTerms}',
+    loadedSelector: 'div.products-grid',
+    noResultsXPath: '//div[@class="message notice"]/div/text()',
+    zipcode: '',
+  },
+};
