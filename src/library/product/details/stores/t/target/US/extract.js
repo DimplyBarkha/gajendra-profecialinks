@@ -8,7 +8,7 @@ async function implementation (
   const { productDetails } = dependencies;
 
   await context.waitForXPath('//li');
-  
+
   const productUrl = await context.evaluate(async function () {
     function stall (ms) {
       return new Promise((resolve, reject) => {
@@ -59,16 +59,16 @@ async function implementation (
     await context.waitForSelector(manufacturerDescButton);
 
     console.log(`waitForLoader 30 seconds: ${manufacturerDescButton}`);
-        await context.execute(async function (selector) {
-            let timer = 0;
-            while (timer < 240 && document.querySelector(selector)) {
-                console.log('waiting !!!! ');
-                timer++;
-                await new Promise(r => setTimeout(r, 500));
-            }
-        }, manufacturerDescButton);
-  } catch(e) {
-    console.log("ERROR WHILE WAITING");
+    await context.execute(async function (selector) {
+      let timer = 0;
+      while (timer < 240 && document.querySelector(selector)) {
+        console.log('waiting !!!! ');
+        timer++;
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+    }, manufacturerDescButton);
+  } catch (e) {
+    console.log('ERROR WHILE WAITING');
     console.log(e.message);
   }
 
@@ -573,19 +573,17 @@ async function implementation (
       const manufacturerImgs = [];
       const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.igoiFK.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
       // document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
-      let  frameContents = document.querySelector('#frameContents' + variant.tcin);
-      let domCheck = document.querySelector('#frameContents' + variant.tcin) ? document.querySelector('#frameContents' + variant.tcin).innerText.length : 0;
+      const frameContents = document.querySelector('#frameContents' + variant.tcin);
+      const domCheck = document.querySelector('#frameContents' + variant.tcin) ? document.querySelector('#frameContents' + variant.tcin).innerText.length : 0;
       let frameContentsDom = document.evaluate('//div[contains(@data-test,"manufacturer-notes-wrapper")]', document, null, 7, null);
-      
+
       if (domCheck > 0) {
         await stall(2000);
-        //frameContents = frameContents.snapshotItem(0);
         manufacturerDesc = frameContents.innerText;
-        console.log("MANUFACTUERE DESC"+ manufacturerDesc);
+        console.log('MANUFACTUERE DESC' + manufacturerDesc);
         frameContents.querySelectorAll('img').forEach(e => {
           manufacturerImgs.push(e.getAttribute('src'));
         });
-        console.log("MANCF IMAGES:" + manufacturerImgs);
         frameContents.querySelectorAll('video').forEach(e => {
           videos.push(e.src);
         });
