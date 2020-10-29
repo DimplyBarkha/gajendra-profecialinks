@@ -9,6 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    await context.click('.js-toggle-collapsed');
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -19,7 +20,6 @@ module.exports = {
       }
 
       // Getting specifications
-      document.querySelector('.js-toggle-collapsed').click();
       let specifications = '';
       document.querySelectorAll('dl.specification').forEach(specificationGroup => {
         specifications += `${specificationGroup.innerText}\n`;
@@ -27,22 +27,15 @@ module.exports = {
       addElementToDocument('mm_specifications', specifications);
 
       // Getting images
-      const images = document.querySelectorAll('ul.thumbs li a:not(.thumb--play-video-btn)');
+      const images = Array.from(document.querySelectorAll('ul.thumbs li a:not(.thumb--play-video-btn)'));
       const image = `https:${images[0].dataset.magnifier}`;
-      let alternativeImages = '';
-      images.forEach((link, i) => {
-        if (i > 0) {
-          alternativeImages += `${i !== 1 ? ' | ' : ''}https:${link.dataset.magnifier}`;
-        }
-      });
+      const alternativeImages = images.reduce((accumulator, link, i) => i > 0 ? accumulator + `${i !== 1 ? ' | ' : ''}https:${link.dataset.magnifier}` : '', '');
       addElementToDocument('mm_image', image);
       addElementToDocument('mm_alternateImages', alternativeImages);
 
       // Getting category
-      let category = '';
-      document.querySelectorAll('ul.breadcrumbs li a').forEach((item, i) => {
-        category += `${i !== 0 ? ' > ' : ''}${item.innerText}`;
-      });
+      const breadcrumbs = Array.from(document.querySelectorAll('ul.breadcrumbs li a'));
+      const category = breadcrumbs.reduce((accumulator, item, i) => accumulator + `${i !== 0 ? ' > ' : ''}${item.innerText}`, '');
       addElementToDocument('mm_category', category);
 
       // Checking if in stock
