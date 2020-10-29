@@ -17,7 +17,7 @@ fields:
     xpath: //span[contains(., 'Manufacturer')][not(contains(., "Discontinued"))]/following-sibling::*[1]
   - name: weightNet
     singleValue: true
-    xpath: //head//@netweight
+    xpath: //li[contains(.,'Weight')]//span//span[2] | //head//@netweight
   - name: asin
     xpath: //li[contains(.,'ASIN')]//span//span[2]
   - name: variantId
