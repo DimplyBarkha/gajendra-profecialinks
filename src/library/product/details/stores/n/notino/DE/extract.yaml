@@ -6,46 +6,43 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//div[@class="productMainImg noBorder slider-item slider-item-active"]/img/@src)[1]
+    xpath: //div[@class="styled__ImageWrapper-sz48g6-2 PneRI"]/img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: (//div[@class="productMainImg noBorder slider-item slider-item-active"]/img/@alt)[1]
+    xpath: //div[@class="styled__ImageWrapper-sz48g6-2 PneRI"]/img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[@class="productMainImg noBorder slider-item"]/img/@src)[1]
+    xpath: (//div[@class="styled__Div-sc-1rh5pwd-2 kzchAg"]/img/@src)[1]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//div[@class="breadcrumbs qr-breadcrumbs"]/span)[5]
-  - name: sub-category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="breadcrumbs qr-breadcrumbs"]/span[7]/a
+    xpath: (//div[@class="styled__BreadcrumbInsideWrapper-sc-1pbk7u7-1 cwPbkK"]/a)[2]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@class="catalogItemDetailHd"]
+    xpath: //span[@class="styled__Span-sc-3sotvb-3 gWmwsW"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class="price"] | //div[@class="product-box-price__active"]
+    xpath: (//span[@class="styled__PriceWrapper-wpdhab-5 lgUoac"])
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: (//span[@class="product-box-price__old-el"])[1]
+    xpath: (//div[@class="styled__Wrapper-mirfw-1 iYngdQ"])
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: (//span[@class="gtmAddToBasket addToCartBigCP cartButtonText"])[1]
+    xpath: //span[@class="sc-fzXfPa cxuroG"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -53,24 +50,24 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //*[@id="cont_description"]/div/div[3]
+    xpath: //div[@id="pd-description-text"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
+    xpath: count(//*[@id="pd-description-text"]/ul/li)
     type: NUMBER
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: (//ul[@class="headerCatalogSubWrap"]/li[3]/a)[2]
+    xpath: (//div[@class="styled__BreadcrumbInsideWrapper-sc-1pbk7u7-1 cwPbkK"]/a)[3]  
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //div[@class="styled__Name-h83s98-4 izOgAK"]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -83,18 +80,19 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //*[@itemprop="sku"]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: (//span[@class="styled__CodeBlock-mu8uqe-1 fuzqBd"])
+    regExp: Code(:) (.+)
+    regExpReplace: $2
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: (//div[@id="cont_properties"]//td)[10]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -107,19 +105,20 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    xpath: //*[@id="pdHeader"]/a/div/span
     type: NUMBER
   - name: aggregateRatingText
-    xpath: (//div[@class="reviews"]//a)[1]
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: count((//div[@class="topBlockContent"]//div[@class="itemRate"])[1]/div)
+    xpath: count((//div[@class="sc-fzXfLW casIUc"]//div[@class="sc-fzXfLO bZdkmI"])[1]/div)
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //div[@class="styled__DeliveryList-qokxj1-3 iqFbW"]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -238,6 +237,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//div[@class="styled__Div-sc-1rh5pwd-2 kzchAg"]/img)
     type: NUMBER
   - name: news
     singleValue: true
@@ -400,11 +400,9 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@class="specificationTextTable q-item-full-specs-table"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: (//div[@id="cont_properties"]//td)[4]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -420,7 +418,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: (//div[@class="container"])[6]
+    xpath: //div[@class="styled__CommonMarginWrapper-aohf13-8 styled__MarginWrapper-sc-1st2cwk-1 fKfgxO"]
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -430,10 +428,11 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
+    xpath: (//span[@class="styled__PriceWrapper-wpdhab-5 lgUoac"])
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
-    xpath: (//div[@class="product-box-price__active"])[1]
+    xpath: (//span[@class="styled__PriceWrapper-wpdhab-5 lgUoac"])
   - name: promotion
     singleValue: true
     description: promotion text on product page
@@ -490,6 +489,9 @@ fields:
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
+  - name: url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href  
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
@@ -517,7 +519,3 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-  - name: url
-    singleValue: true
-    description: The URL of the product
-    xpath: //link[@rel="canonical"]/@href

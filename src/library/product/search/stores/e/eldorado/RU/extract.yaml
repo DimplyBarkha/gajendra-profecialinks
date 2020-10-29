@@ -20,10 +20,14 @@ fields:
   - name: reviewCount
     xpath: //a[@class="sc-1w9a1pg-11 sc-19ibhqc-9 bnWFSv ReviewLink"]
   - name: price
-    xpath: //span[@class="sc-1xca1up-1 sc-3lsqu-1 kQIWtq"]
+    xpath: //span[@class="sc-1xca1up-1 sc-3lsqu-1 kQIWtq"] | //span[@class="sc-1cthcno-1 sc-1jb1pug-1 jXDfSo"]
     description: The offered price for the product
   - name: rank
+    xpath: //li[@class="sc-1w9a1pg-0 sc-19ibhqc-0 gUmybO"]//@data-product-index
+    singleValue: false
   - name: rankOrganic
   - name: sponsored
     defaultValue: false
+  - name: store
+    defaultValue: eldorado  
 

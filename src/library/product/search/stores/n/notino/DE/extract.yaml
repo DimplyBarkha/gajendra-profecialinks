@@ -1,0 +1,45 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[contains(@class,'product-wrapper')] | //div[@class="sc-AxiKw lgkHlP"] | //div[@class="sc-AxgMl ioeiag"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="product-image"]//img//@data-productid | //div[@class="sc-AxiKw lgkHlP"]//div//@id | //div[@class="sc-AxgMl ioeiag"]//div//@id
+  - name: price
+    singleValue: false
+    xpath: //div[@aria-label="product details"]//div[contains(@aria-label,'Actual Price')] | //div[@aria-label="product details"]//p[contains(@aria-label,'$')][1]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@aria-label,"product details")]//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.lowes.com$1
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product-image"]//div[contains(@class, 'normalize-size')]//img/@data-src | //img[contains(@class,'product-image')]/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product-details "]//p | //div[@aria-label="product details"]//a//@aria-label
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,'product-rating')]//span//i/@data-rating | //div[@class="no-pointer-events"]//a/@aria-label |  //div[contains(@aria-label,"product details")]//div[contains(@role,"link")]/@aria-label
+    regExp: (.+)(\sout.+)
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,'product-rating v-spacing-small')]//small | //div[@class="no-pointer-events"]//a | //div[contains(@aria-label,"product details")]//div[contains(@role,"link")]
+    regExp: \d+
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,'product-rating v-spacing-small')]//small | //div[@class="no-pointer-events"]//a | //div[contains(@aria-label,"product details")]//div[contains(@role,"link")]
+    regExp: \d+
+  - name: rank
+    singleValue: false
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBER
+
+
