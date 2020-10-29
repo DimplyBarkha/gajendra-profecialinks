@@ -1,0 +1,110 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: shippingInfo 
+    singleValue: false
+    xpath: //div[@class="seller-name-wrapper"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="product-price-button-wrap"]
+    regExp: (.+)
+    regExpReplace: Out of Stock 
+    defaultValue: In Stock
+  - name: image
+    singleValue: false
+    # xpath: //div[contains(@class,"slick-current")]/img/@src | //img[@class="first-product-image"]/@src
+    xpath: //img[@class="first-product-image"]/@src
+    regExp: (.+)\?.*
+    regExpReplace: https://www.elgiganten.se$1?$fullsize$
+  - name: imageAlt
+    singleValue: false
+    # xpath: //div[contains(@class,"slick-current")]/img/@alt | //img[@class="first-product-image"]/@alt
+    xpath: //img[@class="first-product-image"]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="slick-slide"]/img/@data-lazy
+    regExp: (.+)\?.*
+    regExpReplace: https://www.elgiganten.se$1
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class,"breadcrumbs")]//a[@href and @title]
+  - name: nameExtended
+    singleValue: false
+    manualSelector: h1.product-title
+  - name: price
+    singleValue: false
+    manualSelector: div.product-price-container > span, div.product-price > span
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //section[contains(@class,"article-page")]
+  - name: manufacturerImages 
+    singleValue: false
+    xpath: //div[contains(@class,"article-text")]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.elgiganten.se$1
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,"product-video")]//@src | //div[@data-vidurl="vidURL"] | //li[@class="b-video-item"]
+  - name: weightNet 
+    singleValue: false
+    xpath: //td[contains(text(),"Vikt")]/following-sibling::td
+  - name: gtin 
+    singleValue: false
+    xpath: //td[contains(text(),"EAN-kod")]/following-sibling::td | //meta[@itemprop="gtin8"]/@content
+  - name: sku
+    singleValue: false
+    # xpath: //p/@data-product-sku | //meta[@itemprop="productID"]/@content
+    xpath: //p/@data-product-sku
+  - name: variantId
+    singleValue: false
+    #xpath: //p/@data-product-sku | //meta[@itemprop="productID"]/@content
+    xpath: //p/@data-product-sku
+  - name: brandText
+    singleValue: false
+    # xpath: //span[@itemprop="brand"]/meta/@content | //div[@class="brand-logo"]//img/@alt
+    xpath: //span[@itemprop="brand"]/meta/@content 
+  - name: variantCount 
+    singleValue: false
+    # defaultValue: '0'
+  - name: description
+    singleValue: false
+    manualSelector: div.product-more-info p
+  - name: descriptionTop
+    singleValue: false
+    manualSelector: p.short-description
+  - name: additionalDescBulletInfo
+    singleValue: false 
+    xpath: //div[@id="misc-info"]/ul[@class="specs"]/li
+  - name: color 
+    singleValue: false
+    xpath: //td[contains(text(),"Färg")]/following-sibling::td
+  - name: aggregateRating 
+    singleValue: false
+    xpath: //div[@class="product-ratings__avarage"]
+    # manualSelector: div.bv_avgRating_component_container
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="product-ratings__count"]
+    # manualSelector: div.bv_numReviews_component_container
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    manualSelector: h1.product-title
+  - name: specifications
+    singleValue: false
+    manualSelector: table.spec-table tr
+  - name: warranty
+    singleValue: false
+    xpath: //strong[contains(text(),"garanti")]
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //*[contains(text(),"Användarmanual")]/following-sibling::a/@href
+    regExp: (.+)
+    regExpReplace: 'Yes'
+
