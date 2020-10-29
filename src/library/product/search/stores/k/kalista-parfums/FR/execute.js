@@ -5,8 +5,8 @@ module.exports = {
     store: 'kalista-parfums',
     domain: 'kalista-parfums.com',
     url: 'https://www.kalista-parfums.com/fr/recherche?search_query={searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: 'p.alert.alert-warning',
+    loadedSelector: 'ul#product_search_page',
+    noResultsXPath: '//p[contains(text(),"Aucun résultat trouv")]',
     zipcode: '',
   },  
 };
