@@ -9,23 +9,28 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //ancestor::html//link[@rel="canonical"]/@href
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: //div[@id="primary_image"]//img/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
+  xpath: //div[@id="primary_image"]//img/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: (//ul[contains(@class, "jcarousel-list")]//img/@data-primaryimagesrc)[position()>1]
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: (//div[@id="breadcrumb"]//a)[position()>2 and position()<last()]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -37,31 +42,42 @@ fields:
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //div[@class="addToCartDetail"]//span[contains(@class, "big-price price right precio")]
+  regExp: ([\d,]{1,4} €)
+  regExpReplace: $1
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  defaultValue: "In Stock"
+  xpath: //button[contains(@class, "addToCartButton outOfStock")]
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: //div[@id="productDescriptionTab"]//div[@class="productDescriptionText"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count(//div[@id="productDescriptionTab"]//div[@class="productDescriptionText"]//li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //div[@class="productTitle"]
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
+  xpath: //div[@class="productTitle"]
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  xpath: //div[@class="productUnitMeasure"]
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
+  xpath: //table[@class="tablaInformacionAdicional"]//span[text()="Peso Neto"]/following-sibling::span
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
@@ -88,6 +104,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
+  xpath: //div[@class="productHowToUse"]
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -130,6 +147,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
+  ###
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -229,6 +247,7 @@ fields:
 - name: fastTrack
   singleValue: true
   description: 
+  ###
 - name: ingredientsList
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
@@ -370,6 +389,7 @@ fields:
 - name: storage
   singleValue: true
   description: Suggested storage location for product
+  xpath: //div[@class="productConservationCoditions"]
 - name: countryOfOrigin
   singleValue: true
   description: The country from which the product originates
@@ -382,6 +402,7 @@ fields:
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
+  xpath: //div[@class="productAdditionalInformation"]
 - name: packaging
   singleValue: true
   description: Packaging information
@@ -400,6 +421,7 @@ fields:
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
+  xpath: //table[@class="tablaInformacionAdicional"]//span[text()="Graduación"]/following-sibling::span
 - name: newVersion
   singleValue: true
   description: In product page, information about a new version of the product (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)

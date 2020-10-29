@@ -5,8 +5,8 @@ module.exports = {
     country: 'ES',
     store: 'alcampo',
     domain: 'alcampo.es',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.productDetailsPanel',
+    noResultsXPath: '//div[@class="page-not-found-content"]',
     zipcode: '',
   },
 };

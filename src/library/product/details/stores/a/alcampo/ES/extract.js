@@ -8,4 +8,12 @@ module.exports = {
     domain: 'alcampo.es',
     zipcode: '',
   },
+  implementation: async (
+    { inputString },
+    { country, domain, transform },
+    context,
+    { productDetails },
+  ) => {
+    await context.extract(productDetails);
+  },
 };
