@@ -28,7 +28,6 @@ const transform = (data) => {
       }
 
       if (row.alternateImages) {
-        // const imagesArray = [];
         for (let i = 0; i < row.alternateImages.length; i++) {
           const imageObj = row.alternateImages[i].text;
           const image = imageObj.substring(imageObj.indexOf('media'), imageObj.indexOf("',"));
@@ -42,7 +41,7 @@ const transform = (data) => {
         if (prodData) {
           prodData = prodData[0];
           if (prodData) {
-            row.aggregateRating = [{ text: prodData.aggregateRating.ratingValue }];
+            row.aggregateRating = prodData.aggregateRating && prodData.aggregateRating.ratingValue ? [{ text: prodData.aggregateRating.ratingValue }] : [];
             prodData.sku ? row.sku = [{ text: prodData.sku }] : row.sku = [];
             prodData.gtin13 ? row.eangtin = [{ text: prodData.gtin13 }] : row.eangtin = [];
           }
@@ -56,6 +55,27 @@ const transform = (data) => {
           videoStr = `https://www.youtube.com/watch?v=${videoStr}`;
           row.videos[i].text = videoStr;
         }
+      }
+
+      if (row.aggregateRating && row.aggregateRating.length > 0) {
+        row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
+      }
+
+      if (row.price) {
+        row.price[0].text = row.price[0].text.replace('.', ',');
+      }
+
+      if (row.listPrice) {
+        row.listPrice[0].text = row.listPrice[0].text.replace('.', ',');
+      }
+
+      if (row.specifications) {
+        let specStr = '';
+        for (let i = 0; i < row.specifications.length; i++) {
+          specStr += `${row.specifications[i].text} || `;
+        }
+        specStr = specStr.substring(0, specStr.lastIndexOf('|| '));
+        row.specifications = [{ text: specStr }];
       }
     }
   }

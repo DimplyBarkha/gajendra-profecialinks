@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'mediaexpert.pl',
     prefix: null,
-    url: null,
+    url: 'https://www.mediaexpert.pl/search?query[menu_item]=&query[querystring]={id}',
     country: 'PL',
     store: 'mediaexpert',
     zipcode: '',

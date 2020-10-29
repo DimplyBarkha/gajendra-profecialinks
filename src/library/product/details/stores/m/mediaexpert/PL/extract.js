@@ -9,7 +9,8 @@ module.exports = {
     domain: 'mediaexpert.pl',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+  implementation: async (inputs, { country, domain, transform: transformParam }, context, { productDetails }) => {
+    await context.waitForNavigation({ timeout: 60000, waitUntil: 'networkidle0' });
     await context.evaluate(async function () {
       const applyScroll = async function (context) {
         let scrollTop = 0;
@@ -36,7 +37,6 @@ module.exports = {
         await applyScroll();
       }
     });
-
     return await context.extract(productDetails, { transform: transformParam });
   },
 };

@@ -30,8 +30,6 @@ fields:
     regExpReplace: https://www.mediaexpert.pl/$1
   - name: quantity
     xpath: //div[contains(@class, 'c-offerBox_variantsContent')]//a[contains(@class, 'is-active')]
-  - name: sku
-    xpath: //TODO
   - name: variantId
     xpath: //meta[contains(@property,'product:retailer_part_no')]/@content
   - name: alternateImages
@@ -45,11 +43,11 @@ fields:
   - name: reviewCount
     xpath: //div[contains(@class, 'is-productNameInfobar')]//div[contains(@class, 'c-reviews_count')]
   - name: manufacturerImages
-    xpath: //div[@class='prawa']//img/@src
+    xpath: //div[@class='prawa']//img/@src | //div[@class='is-description']//section[contains(@class, 'TFL_section') and not(contains(@class, 'TFL_top'))]//img/@src
     regExp: (.+)
     regExpReplace: https://www.mediaexpert.pl$1
   - name: manufacturerDescription
-    xpath: //div[@class='prawa']
+    xpath: //div[@class='prawa'] | //div[@class='is-description']//section[contains(@class, 'TFL_section TFL_info')]
   - name: specifications
     xpath: //table[contains(@class, 'is-specification')]//tr
   - name: warranty
@@ -60,3 +58,11 @@ fields:
     regExpReplace: $2
   - name: listPrice
     xpath: //div[contains(@class, 'is-main')]//div[@class='inner-wrapper-sticky']//div[contains(@class,'a-price_old')][1]
+  - name: color
+    xpath: //td[contains(., 'Kolor')]/following-sibling::td
+  - name: variantInformation
+    xpath: //td[contains(., 'Kolor')]/following-sibling::td
+  - name: weightNet
+    xpath: //td[contains(., 'Waga [kg]')]/following-sibling::td
+    regExp: (.+)
+    regExpReplace: $1 kg

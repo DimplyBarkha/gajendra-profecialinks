@@ -6,7 +6,7 @@ module.exports = {
     store: 'mediaexpert',
     domain: 'mediaexpert.pl',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"is-noResults")]',
     zipcode: '',
   },
 };
