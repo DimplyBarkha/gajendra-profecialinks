@@ -1,0 +1,183 @@
+input:
+  _url: http://elkjop.no
+  URL: https://www.elkjop.no/product/hjem-og-husholdning/inneklima/vifter/DYSAM07/dyson-cool-tarnvifte-am07
+extractions:
+  - html: https://workbench.import.io/html/run=0074594a-037d-4c32-bd19-92430c8e60f0/task=35eb3d6c-a3e7-4991-b225-98019e3f4be7/7cca84df-f57b-46bf-ad08-04913db7cbb2.html
+    extractionConfigId: product/details/stores/e/elkjop/NO/extract
+    data:
+      - group:
+          - imageAlt:
+              - text: Dyson Cool tårnvifte AM07
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://elkjop.no/image/dv_web_D18000100291670/DYSAM07/dyson-cool-taarnvifte-am07.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[2]/img[1]/@src
+              - text: https://elkjop.no/image/dv_web_D18000100291665/DYSAM07/dyson-cool-taarnvifte-am07.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[3]/img[1]/@src
+              - text: https://elkjop.no/image/dv_web_D18000100291666/DYSAM07/dyson-cool-taarnvifte-am07.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[4]/img[1]/@src
+              - text: https://elkjop.no/image/dv_web_D18000100291667/DYSAM07/dyson-cool-taarnvifte-am07.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[5]/img[1]/@src
+              - text: https://elkjop.no/image/dv_web_D18000100291675/DYSAM07/dyson-cool-taarnvifte-am07.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[6]/img[1]/@src
+              - text: https://elkjop.no/image/dv_web_D18000100291678/DYSAM07/dyson-cool-taarnvifte-am07.jpg?$prod_all4one$
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[2]/div[1]/ul[1]/li[7]/img[1]/@src
+            metaKeywords:
+              - text: Dyson Cool tårnvifte AM07, 8012804 Woods SMF-filter, ACA Clean Line
+                  filtersett M1002FILTER, ACA Clean Line komplett filterpakke
+                  M501, ACA Clean Line luftrenser M1002, ACA Clean Line
+                  luftrenser M501GT (gull), , Inneklima
+                xpath: /html/head[1]/meta[11]/@content
+            category:
+              - text: Hjem og Husholdning
+                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[2]/a[1]/@title
+              - text: Inneklima
+                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[3]/a[1]/@title
+              - text: Vifter
+                xpath: /html/body/div[1]/header[1]/nav[1]/ol[1]/li[4]/a[1]/@title
+            price:
+              - text: 3 790
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[3]/div[1]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[5]/div[1]/div[1]/div[2]/span[1]/span[1]
+            description:
+              - text: Kjøl deg ned på varme sommerdager med den kvalitetssikre Dyson Cool
+                  tårnvifte med Air Multiplier-teknologi, jevn luftfordeling og
+                  fjernkontroll. Viften kommer uten vifteblader og er trygg i
+                  bruk.
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[11]/p[1]
+              - text: "Viftediameter: 35,6 cm"
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[11]/ul[1]/li[1]
+              - text: Air Multiplier-teknologi
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[11]/ul[1]/li[2]
+              - text: Fjernkontroll, enkel rengjøring
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[11]/ul[1]/li[3]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/span[1]/meta[1]/@content
+            gtin:
+              - text: "5025155017838"
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[7]/@content
+            sku:
+              - text: DYSAM07
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/meta[3]/@content
+            ratingCount:
+              - text: "23"
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[1]/meta[1]/@content
+                type: NUMBER
+                raw: "23"
+                locale: nb_NO
+                value: 23
+            aggregateRating:
+              - text: "4.35"
+                xpath: /html/body/div[6]
+                type: NUMBER
+                raw: "4.35"
+                locale: nb_NO
+                value: 4.35
+            color:
+              - text: Sølv;Hvit
+                xpath: /html/body/div[2]/main[1]/div[1]/section[3]/div[2]/div[1]/div[3]/div[1]/div[1]/dl[4]/dd[1]/table[1]/tbody[1]/tr[1]/td[2]
+            manufacturerDescription:
+              - text: Kontakt Oss
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[1]/div[1]
+              - text: Ofte stilte spørsmål
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[2]/div[1]
+              - text: Åpent kjøp
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[3]/div[1]
+              - text: Kundeklubb
+                xpath: /html/body/div[2]/footer[1]/div[1]/div[4]/div[1]
+            name:
+              - text: Dyson Cool tårnvifte AM07
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[1]/h1[1]
+            warranty:
+              - text: "[object XPathResult]"
+                xpath: /html/body/div[7]
+            productOtherInformation:
+              - text: >-
+                  Mer informasjon
+                   
+
+                   
+
+                   
+
+                   
+                  Vil du ha en behagelig temperatur i hjemmet ditt? Nyt en jevn luftstrøm fra Dyson Cool tårnvifte. Den har Air Multiplier-teknologi, smart svingningsfunksjon og timer. Tårnviften er tildelt Quiet Mark-varemerket og er svært stillegående.
+
+                  Air Multiplier-teknologi
+
+                  Viften har en kraftig, rask luftstrøm som du enkelt kontrollerer slik at varme sommerdager blir mer behagelige.
+
+                  Svingningsfunksjon
+
+                  Viftens svingningsfunksjon sørger for at luften fordeles jevnt ut i rommet.
+
+                  Timer
+
+                  Enheten kan programmeres til å skru seg av etter en forhåndsbestemt tid, fra 15 minutter til 9 timer, takket være timerfunksjonen. Perfekt for eksempelvis bruk på natten og lignende.
+
+                  Quiet Mark-godkjent
+
+                  Viften fra Dyson er blitt tildelt Quiet Mark-varemerket av Noise Abatement Society, noe som betyr at den produserer svært lite lyd.
+
+                  Trygg bruk
+
+                  Cool har ikke tradisjonelle vifteblader og er trygg i bruk. Den bladløse viften er også utrolig lett å rengjøre og kommer uten sikkerhetsgitter.
+
+                  Enkel rengjøring
+
+                  Viften har ikke blader eller sikkerhetsgitter og er svært enkel å holde ren – tørk over med en tørr eller fuktet klut.
+
+                  Inkludert fjernkontroll
+
+                  Kontroller viften mens du slapper av i sofaen eller i favorittstolen sin. Velg mellom 10 luftstrømshastigheter. Når fjernkontrollen ikke er i bruk kan den plasseres på viften takket være den buede og magnetiske konstruksjonen.
+
+                  Dette produktet har 2-års garanti.
+                xpath: /html/body/div[2]/main[1]/div[1]/section[3]/div[2]/div[1]/div[2]
+            additionalDescBulletInfo:
+              - text: "Viftediameter: 35,6 cm"
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[11]/ul[1]/li[1]
+              - text: Air Multiplier-teknologi
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[11]/ul[1]/li[2]
+              - text: Fjernkontroll, enkel rengjøring
+                xpath: /html/body/div[2]/main[1]/div[1]/section[1]/div[3]/div[3]/div[11]/ul[1]/li[3]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            image:
+              - text: https://www.elkjop.no/image/dv_web_D18000100291664/DYSAM07/dyson-cool-taarnvifte-am07.jpg?$prod_all4one$
+            nameExtended:
+              - text: "Dyson Cool tårnvifte AM07 "
+            descriptionBullets:
+              - text: "3"
+                type: NUMBER
+                raw: "3"
+                locale: nb_NO
+                value: 3
+            weightNet:
+              - text: "2,85 "
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nb_NO
+                value: 0
+            specifications:
+              - text: |-
+                  Høyde (cm) 
+                   100,00 Bredde (cm) 
+                   19,00 Dybde (cm) 
+                   11,00
+        xpath: /
+    timestamp: 1600788557557
