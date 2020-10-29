@@ -27,13 +27,11 @@ fields:
     regExpReplace: Out of Stock
     defaultValue: In Stock
   - name: description
-    xpath: ancestor::html//section[@aria-label="productDescription"]//p | ancestor::html//section[@aria-label="productDescription"]//ul//li
+    xpath: ancestor::html//*[@id="productDescriptionParent"]/div[1]/section/div[1]/b/parent::div | ancestor::html//section[@aria-label="productDescription"]/div[1]/p[1] | ancestor::html//section[@aria-label="productDescription"]/div[1]/text() | ancestor::html//section[@aria-label="productDescription"]//ul//li | ancestor::html//*[@id="productDescriptionParent"]/div[1]/section/div[1]/p[2]/strong
   - name: descriptionBullets
     xpath : count(//section[@aria-label="productDescription"]//ul//li)
   - name: brandText
-    xpath: ancestor::html//script[@type="application/ld+json"][contains(text(),"brand")]
-    regExp: brand":{"@type":"[^"]+","name":"([^"]+)
-    regExpReplace: $1
+    xpath: ancestor::html//h1[@aria-label="productTitle"]/@brand
   - name: sku
     xpath: //@skuid
   - name: variantId
@@ -67,11 +65,11 @@ fields:
   - name: color
   - name: colorCode
   - name: manufacturerDescription
-    xpath: ancestor::html//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")][position()>1]
+    xpath: ancestor::html//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")]//div//div//ul//li//div[position()>1]//div[not(contains(@class,"wc-json-data"))]
   - name: manufacturerImages
     xpath: ancestor::html//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")]//ul//li//img/@src
   - name: videos
-    xpath: ancestor::html//div[contains(@class,"videoLabel")]/parent::a/@href
+    xpath: ancestor::html//div[contains(@class,"videoLabel")]/parent::a/@href | ancestor::html//div[@class="wc-video-container"]//video/@src
   - name: name
     xpath: ancestor::html//h1[@aria-label="productTitle"]
   - name: inStorePrice
@@ -81,6 +79,7 @@ fields:
   - name: amazonChoice
   - name: amazonChoiceCategory
   - name: brandLink
+    xpath: ancestor::html//h1[@data-automation-id="product-title"]/following-sibling::span/section//a/@href
   - name: internationalShipping
   - name: salesRank
   - name: salesRankCategory
@@ -107,7 +106,6 @@ fields:
   - name: specifications
     xpath: ancestor::html//ul[@div="bulletedCopy"]//li
   - name: warranty
-    xpath: ancestor::html//li[contains(.,"warranty")]
   - name: storage
   - name: countryOfOrigin
   - name: allergyAdvice
@@ -119,6 +117,7 @@ fields:
   - name: pricePerUnitUom
   - name: promotion
     xpath: ancestor::html//div[@data-automation-id="product-content-block"]//span[@data-automation-id="price-percent-off"]
+    regExp: (\d+)
   - name: alcoholContent
   - name: newVersion
   - name: newAsin

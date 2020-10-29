@@ -31,6 +31,14 @@ const transform = (data) => {
         row.variantInformation = [{ text }];
       }
 
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        row.manufacturerDescription = [{ text }];
+      }
+
       if (row.nameExtended) {
         let text = '';
         row.nameExtended.forEach(item => {

@@ -38,14 +38,17 @@ async function implementation(
       document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li button').forEach(ele => {
         ele.click();
         console.log('Clicked');
+        const skus =[];
         var array = [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')];
-        var jsonString = JSON.parse(document.querySelector("script[type='application/ld+json']").innerText);
-        var skus = jsonString.offers.map(e=>e.sku);
+        for (i=0;i<__PRELOADED_STATE__.productDetails.lots[0].items.length;i++){
+          skus.push(__PRELOADED_STATE__.productDetails.lots[0].items[i].id)
+          }
+
         for ( i = 0; i < array.length; i++ ) {
-          if( skus[i] == undefined ) {
-            array[i].setAttribute('skuId',skus[0]);
+         if( skus[i] == undefined){
+         array[i].setAttribute('skuId', skus[0]);
           } else {
-          array[i].setAttribute('skuId',skus[i]);
+          array[i].setAttribute('skuId', skus[i]);
           }
         }
         [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
@@ -85,7 +88,8 @@ async function implementation(
      finalImages.push([...document.querySelectorAll('#contentContainer > section > section:nth-child(3) > div.sm12.md6.lg6.xl7._3AtEJ > div > div.carousel-wrapper > div > div._3h_IA.lg2.xl2.md2.sm2._1sbcC.noPad > div > div.slick-list a')].map(e => { return e.querySelector('img').getAttribute('src')}));
     }
     appendImages(variants, finalImages);
-
+    const brand = document.evaluate('//script[@type="application/ld+json"][contains(.,"brand")]',document).iterateNext().textContent.split('"brand":{"@type":"Thing","name":"')[1].split('"},')[0];
+    document.querySelector('h1[data-automation-id="product-title"]').setAttribute('brand', brand);
     let scrollTop = 500;
     while (true) {
       window.scroll(0, scrollTop);
