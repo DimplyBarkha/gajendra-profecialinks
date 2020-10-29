@@ -4,13 +4,25 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  const clean = text => text.toString()
+      .replace(/\r\n|\r|\n/g, ' ')
+      .replace(/&amp;nbsp;/g, ' ')
+      .replace(/&amp;#160/g, ' ')
+      .replace(/\u00A0/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/"\s{1,}/g, '"')
+      .replace(/\s{1,}"/g, '"')
+      .replace(/^ +| +$|( )+/g, ' ')
+      // eslint-disable-next-line no-control-regex
+      .replace(/[\x00-\x1F]/g, '')
+      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
       if (row.specifications) {
         let specs = '';
         let xpath = ''
         for (const item of row.specifications) {
-          specs += item.text.replace('\n', ':').replace("\n","").replace("\n","") + ' || ';
+          specs += clean(item.text.replace('\n', ':').replace("\n","").replace("\n","")) + ' || ';
           xpath = item.xpath;
         }
         row.specifications = [{ text: specs, xpath: xpath }];
@@ -47,7 +59,7 @@ const transform = (data) => {
 
       if (row.gtin) {
           var text = row.gtin[0].text;
-          row.gtin[0].text = String(text).trim().split(" ")[2].split(")")[0];
+          row.gtin[0].text = clean(String(text).trim().split(" ")[2].split(")")[0]);
         }
 
         if(row.alternateImages){
@@ -56,7 +68,7 @@ const transform = (data) => {
         }
 
         if(row.variants){
-          const text = String(row.variants.length);
+          const text = clean(String(row.variants.length));
           row.variants[0].text = text;
         }
 
@@ -67,7 +79,7 @@ const transform = (data) => {
             if(x.indexOf("Capacidade Total") > -1){
               var str = txtArray[index].split(":");
               if(str.length == 2){
-                row.quantity[0].text = str[1];
+                row.quantity[0].text = clean(str[1]);
               }
             }
           })
@@ -82,7 +94,7 @@ const transform = (data) => {
           if(y.indexOf("Peso") > -1){
           var str1 = str[ind].split(":");
             if(str1.length == 2){
-            row.weightNet[0].text = str1[1];
+            row.weightNet[0].text = clean(str1[1]);
             }
           }
         })
