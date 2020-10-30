@@ -8,10 +8,10 @@ fields:
     xpath: //div[@class="seller-name-wrapper"]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class="product-price-button-wrap"]
+    xpath: (//span[contains(text(),"Lägg i kundvagn")])[1]
     regExp: (.+)
-    regExpReplace: Out of Stock 
-    defaultValue: In Stock
+    regExpReplace: In Stock 
+    defaultValue: Out of Stock 
   - name: image
     singleValue: false
     # xpath: //div[contains(@class,"slick-current")]/img/@src | //img[@class="first-product-image"]/@src
@@ -38,7 +38,7 @@ fields:
     manualSelector: h1.product-title
   - name: price
     singleValue: false
-    manualSelector: concat('div.product-price-container > span, div.product-price > span','//meta[@itemprop="priceCurrency"]/@content')
+    xpath: concat(//div[@class="product-price-container"]/span,//meta[@itemprop="priceCurrency"]/@content)
   - name: manufacturerDescription
     singleValue: false
     xpath: //section[contains(@class,"article-page")]
@@ -53,7 +53,7 @@ fields:
     #xpath: //div[contains(@class,"product-video")]//@src | //div[@data-vidurl="vidURL"] | //li[@class="b-video-item"]
   - name: weightNet 
     singleValue: false
-    xpath: //td[contains(text(),"Vikt")]/following-sibling::td
+    #xpath: //td[contains(text(),"Vikt")]/following-sibling::td
   - name: gtin 
     singleValue: false
     # xpath: //td[contains(text(),"EAN-kod")]/following-sibling::td | //meta[@itemprop="gtin8"]/@content
@@ -146,7 +146,10 @@ fields:
   - name: packSize
     singleValue: false
     xpath: //td[contains(text(),"Skärmstorlek (tum/cm)")]/following-sibling::td
-#  - name: 
-#     singleValue: false
-#     xpath:
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//ul[@class="slick-dots"]//li[position()>1])
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //span[contains(text(),"Mått & vikt")]//..//following-sibling::dd//tr
 
