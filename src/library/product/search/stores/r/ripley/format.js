@@ -35,6 +35,11 @@ const transform = (data) => {
             item.text="https:"+item.text;
           });
         }
+        if(row.price){
+          row.thumbnail.forEach(item=>{
+            item.text=item.text.replace(',','');
+          });
+        }
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
         rank++;
