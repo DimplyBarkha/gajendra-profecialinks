@@ -1,80 +1,81 @@
 input:
-  id: "183972"
+  id: "2140557"
   _url: http://staplesadvantage.com
 extractions:
-  - html: https://workbench.import.io/html/run=19b1b4c6-8140-46fd-a55b-9e0ee7cf1f06/task=547ffea7-beef-4212-a386-bd8c64adefed/88b41319-f851-4342-a428-12ba33060487.html
+  - html: https://workbench.import.io/html/run=19b1b4c6-8140-46fd-a55b-9e0ee7cf1f06/task=5ed9a2df-2706-4737-8756-b000ca94dd12/7505ae71-5211-46ac-8e94-0e1a48b9066b.html
     extractionConfigId: product/details/stores/s/staplesadvantage/US/extract
     data:
       - group:
           - image:
-              - text: https://images.staplesadvantage.com/is/image/Staples/sp46530111_sc7
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp40797807_sc7
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/img[1]/@alt
             imageAlt:
-              - text: https://images.staplesadvantage.com/is/image/Staples/sp46530111_sc7
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp40797807_sc7
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://images.staplesadvantage.com/is/image/Staples/sp46530111_sc7?wid=70&hei=70
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp40797807_sc7?wid=70&hei=70
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@src
-              - text: https://images.staplesadvantage.com/is/image/Staples/sp46530112_sc7?wid=70&hei=70
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp40797806_sc7?wid=70&hei=70
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/img[1]/@src
-              - text: https://images.staplesadvantage.com/is/image/Staples/sp46530113_sc7?wid=70&hei=70
+              - text: https://images.staplesadvantage.com/is/image/Staples/s0964275_sc7?wid=70&hei=70
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/img[1]/@src
-              - text: https://images.staplesadvantage.com/is/image/Staples/sp46530114_sc7?wid=70&hei=70
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/img[1]/@src
             metaKeywords:
               - text: width=device-width, initial-scale=1.0
                 xpath: /html/head[1]/meta[2]/@content
             nameExtended:
-              - text: King Leo Mints
+              - text: Starbucks Pike Place Coffee, Keurig® K-Cup® Pods, Medium Roast
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: $26.82
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
             price:
-              - text: $30.44
+              - text: $25.39
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandText:
-              - text: King Leo
+              - text: Starbucks
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]
             manufacturer:
-              - text: King Leo
+              - text: Starbucks
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]
-            weightNet:
-              - text: "5"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[6]/td[2]
             sku:
-              - text: 210-00050
+              - text: "353578"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/h1[1]
             packSize:
-              - text: "1"
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[2]
+              - text: "40"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[10]/td[2]
             ratingCount:
-              - text: 76 Reviews
+              - text: 179 Reviews
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/span[2]
             aggregateRatingText:
-              - text: 76 Reviews
+              - text: 179 Reviews
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/span[2]
             aggregateRating:
-              - text: "4.51"
+              - text: "4.72"
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/span[1]
             name:
-              - text: King Leo Mints
+              - text: Starbucks Pike Place Coffee, Keurig® K-Cup® Pods, Medium Roast
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/h1[1]
             inStorePrice:
-              - text: $30.44
+              - text: $25.39
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
             availabilityText:
               - text: Out of Stock
             category:
-              - text: Home>Coffee, Water & Snacks>Candy, Gum & Mints>Gum & Mints
+              - text: Home>Coffee, Water & Snacks>Coffee, Coffee Makers & Supplies>Single Serve
+                  & Keurig® K-Cup® Pods
             description:
-              - text: "Soft peppermint for fresher breathWeight: 80 oz.Made with real peppermint
-                  oil"
+              - text: Coffee K-Cups for Keurig brewersMedium-roast coffee with Pike Place
+                  flavor40 K-Cups per box
             descriptionBullets:
               - text: "3"
             shippingInfo:
               - text: Delivery
             variantInformation:
-              - text: Specifications tableAttribute nameAttribute valueBrand NameKing
-                  LeoPackagingBagPack Size1Gum & Mint TypeMintFlavorSoft
-                  PeppermintWeight (lbs.)5Weight (Ounces)80Sugar FreeNoSize of
-                  Unit400Number of Pieces400
+              - text: Specifications tableAttribute nameAttribute valueBrand
+                  NameStarbucksCaffeinated or DecafCaffeinatedCoffee
+                  RoastMediumFlavoringUnflavoredFair Trade CertifiedNoHot or
+                  IcedHotKosherYesOrganicNoSingle Serve Cup TypeCoffeeSingle
+                  Serve Cup Pack Size40Single Serve Pod TypePodBrewing
+                  SystemKeurig K-CupSeries or CollectionPike Place
         xpath: /
-    timestamp: 1604055962650
+    timestamp: 1604055964754

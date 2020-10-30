@@ -1,4 +1,4 @@
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   // extracting data in default url
 
   const { productDetails } = dependencies;
@@ -37,7 +37,7 @@ module.exports = {
     store: 'staplesadvantage',
     transform: null,
     domain: 'staplesadvantage.com',
-    zipcode: '10101',
+    zipcode: '',
   },
   implementation,
 };
