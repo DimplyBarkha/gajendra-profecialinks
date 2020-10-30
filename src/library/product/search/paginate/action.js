@@ -7,8 +7,10 @@
  * }} inputs
  * @param {{
  *  nextLinkSelector: string,
+ * nextLinkXpath: string,
  *  mutationSelector: string,
  *  loadedSelector: string,
+ *  loadedXpath: string,
  *  noResultsXPath: string,
  *  spinnerSelector: string,
  *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number }
@@ -23,24 +25,33 @@ async function implementation (
   dependencies,
 ) {
   const { keywords, page, offset } = inputs;
-  const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
+  const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
+
+  let nextLink;
 
   if (nextLinkSelector) {
     const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
-    if (!hasNextLink) {
-      return false;
-    }
+    if (!hasNextLink) return false;
+    nextLink = nextLinkSelector;
   }
 
   if (nextLinkXpath) {
-    const hasNextLink = await context.evaluate((selector) => {
+    // add a unique ID to the elem so it can be targeted by css
+    const uuid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+    const hasNextLink = await context.evaluate(({ selector, uuid }) => {
       const elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-      return elem ? !!elem.singleNodeValue : false;
-    }, nextLinkXpath);
+      if (elem && elem.singleNodeValue && elem.singleNodeValue.nodeType === 1) { // check the node type is element
+        // @ts-ignore
+        elem.singleNodeValue.id = uuid;
+        return true;
+      }
+      return false;
+    }, { selector: nextLinkXpath, uuid });
     if (!hasNextLink) return false;
+    nextLink = `#${uuid}`;
   }
   const { pager } = dependencies;
-  const success = await pager({ keywords, nextLinkSelector: nextLinkSelector || nextLinkXpath, loadedSelector, mutationSelector, spinnerSelector });
+  const success = await pager({ keywords, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector });
   if (success) {
     return true;
   }
@@ -71,6 +82,11 @@ async function implementation (
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, loadedSelector, noResultsXPath);
+  }
+  if (loadedXpath) {
+    await context.waitForFunction(function (sel, xp) {
+      return Boolean(document.evaluate(sel, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext() || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+    }, { timeout: 10000 }, loadedXpath, noResultsXPath);
   }
   console.log('Checking no results', noResultsXPath);
   return await context.evaluate(function (xp) {
@@ -111,6 +127,10 @@ module.exports = {
     {
       name: 'loadedSelector',
       description: 'CSS to tell us the page has loaded',
+    },
+    {
+      name: 'loadedXpath',
+      description: 'Xpath to tell us the page has loaded',
     },
     {
       name: 'noResultsXPath',
