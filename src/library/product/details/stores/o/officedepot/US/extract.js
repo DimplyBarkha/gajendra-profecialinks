@@ -13,6 +13,12 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    try {
+      const sectionsDiv = '[data-test="gallery-thumbnail-wrap"] [data-test="img-zoom-wrap"]';
+      await context.waitForSelector(sectionsDiv, { timeout: 30000 });
+    } catch (error) {
+      console.log("couldn't find the selector due to - " + error.message);
+    }
     await context.evaluate(async function () {
       function timeout (ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));

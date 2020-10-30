@@ -21,7 +21,7 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //body/div[@id="container"]/div[@class="productResponsive"]//div[@class="main_sku_image"]//@alt
+    xpath: (//body/div[@id="container"]/div[@class="productResponsive"]//h1//text())[1]
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: //body/div[@id="container"]/div[@class="productResponsive"]//span[@class="strike"]
@@ -64,17 +64,17 @@ fields:
 #     description: GTIN code (includes UPC/EAN)
   - name: sku
     description: The store-specific product identifier
-    xpath: //td[contains(.,'Manufacture')]//following-sibling::td
+    xpath: //body/div[@id="container"]/div[@class="productResponsive"]//td[contains(.,'Manufacture')]//following-sibling::td
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //td[contains(.,'Item')]//following-sibling::td
+    xpath: //body/div[@id="container"]/div[@class="productResponsive"]//td[contains(.,'Item')]//following-sibling::td
   - name: mpc
     description: The manufacturer model code (unique) of the product
-    xpath: //td[contains(.,'Product Model')]/following-sibling::td
+    xpath: //body/div[@id="container"]/div[@class="productResponsive"]//td[contains(.,'Product Model')]/following-sibling::td
   - name: packSize
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: //td[contains(.,'uantity')]//following-sibling::td
+    xpath: //body/div[@id="container"]/div[@class="productResponsive"]//td[contains(.,'uantity')]//following-sibling::td
 #   - name: legalDisclaimer
 #     singleValue: true
 #     description: Content under "legal disclaimer" header
@@ -110,7 +110,7 @@ fields:
 #     type: NUMBER
   - name: color
     description: A textual description of the colour
-    xpath: //td[@itemprop="color"]
+    xpath: //body/div[@id="container"]/div[@class="productResponsive"]//td[@itemprop="color"]
 #   - name: colorCode
 #     singleValue: true
 #     description: A code description of the color (e.g. RGB hex)
@@ -119,13 +119,13 @@ fields:
     xpath: //div[contains(@class,"wc-fragment")]//h2 | //div[contains(@class,"wc-fragment")]//h3 | //div[@class="wc-rich-content-description"]
   - name: manufacturerImages
     description: Images within the third party description
-    xpath: //div[contains(@class,"wc-fragment")]//img//@src
+    xpath: //body/div[@id="container"]/div[@class="productResponsive"]//div[contains(@class,"wc-fragment")]//img//@src
   - name: videos
     description: URLs of videos on page
     xpath: //video//source//@src[contains(.,'mp4')] | //head//@video
   - name: name
     description: The product name
-    xpath: //body/div[@id="container"]/div[@class="productResponsive"]//div[@class="main_sku_image"]//@alt
+    xpath: (//body/div[@id="container"]/div[@class="productResponsive"]//h1//text())[1]
 #   - name: inStorePrice
 #     singleValue: true
 #     description: Price in the selected store
