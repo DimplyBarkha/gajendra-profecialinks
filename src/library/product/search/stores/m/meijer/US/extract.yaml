@@ -1,0 +1,18 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='product-item']
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class='tile-column details']
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class='thumb']/img/@src
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class='h7']/@href
+  - name: price
+    singleValue: false
+    xpath: //div[@class='display-price sale-price']
+    type: NUMBER
