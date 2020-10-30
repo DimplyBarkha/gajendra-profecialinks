@@ -17,6 +17,7 @@ module.exports = {
     await context.evaluate(() => {
       var clickButton = document.querySelector('a[data-component="triggerClick"]');
       if (clickButton) {
+        // @ts-ignore
         clickButton.click();
       }
     });
