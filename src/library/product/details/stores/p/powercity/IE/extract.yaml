@@ -57,13 +57,15 @@ fields:
     xpath: //div[@class="product rightbar"]/p[span[contains(text(),"Product Code")]]/text() | //script[@data-flix-mpn]/@data-flix-mpn
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="inpage_container"]
+    xpath: //div[@id="inpage_container"] | //div[@id="manufacturerDescription"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="inpage_selector_feature"]//img/@data-flixsrcset
+    xpath: //div[@class="inpage_selector_feature"]//img/@src | //div[@id='enhancedContentImages']
+    regExp: (https:)?(.+)
+    regExpReplace: https:$2
   - name: videos
     singleValue: false
-    xpath: //input[@class="flix-jw"]/@value | //video/source/@src
+    xpath: //input[@class="flix-jw"]/@value | //video/source/@src | //div[@id='enhancedContentVideo']
   - name: name
     singleValue: false
     xpath: //div[contains(@class, "product rightbar")]/text()[string-length() > 1] | //div[@class="producttitle"]
