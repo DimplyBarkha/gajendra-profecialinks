@@ -36,7 +36,7 @@ const transform = (data) => {
           });
         }
         if(row.price){
-          row.thumbnail.forEach(item=>{
+          row.price.forEach(item=>{
             item.text=item.text.replace(',','');
           });
         }
