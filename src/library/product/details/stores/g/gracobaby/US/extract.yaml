@@ -6,12 +6,14 @@ fields:
   - name: image
     singleValue: true
     xpath: //button[contains(@aria-label,'1 of ')]/img/@src
+    regExp: (.*\?)
   - name: imageAlt
     singleValue: true
     xpath: //button[contains(@aria-label,'1 of ')]/img/@alt
   - name: alternateImages
     singleValue: false
     xpath: //button[@class="carousel-img-wrap"]/img[not(parent::button/parent::div/@class='carousel-item active')]/@src
+    regExp: (.*\?)
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
