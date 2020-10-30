@@ -5,6 +5,7 @@ recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
+    xpath: //a[@class='title']/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //a[@class='title']/img/@src
@@ -26,5 +27,3 @@ fields:
   - name: availabilityText
     singleValue: true
     xpath: //div[@class="infinite-scroll"]//span[@class='hasTooltip']//text()
-    # defaultValue: In stock
-    # regExp: OutOfStock
