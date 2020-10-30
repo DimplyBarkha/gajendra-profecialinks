@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'meijer',
     domain: 'meijer.com',
-    url: 'https://www.meijer.com/shop/en/food-nutrition/baby-toddler-food/c/L3-358',
+    url: 'https://www.meijer.com/shop/en/search/?text={searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
