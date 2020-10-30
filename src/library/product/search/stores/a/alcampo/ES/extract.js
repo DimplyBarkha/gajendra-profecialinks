@@ -12,6 +12,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     const price = document.querySelectorAll('.priceContainer');
     let priceIteration;
     let manufacturerIteration;
+    let words;
 
     // there are same number of products so i < price.length will work for i < manufacturer.length
 
@@ -23,6 +24,13 @@ async function implementation (inputs, parameters, context, dependencies) {
 
       manufacturerIteration = manufacturer[i].textContent;
       manufacturerIteration.replace(/\s\s+/g, '');
+      words = manufacturerIteration.match(/([\w+]+)/g);
+
+      if (words.length <= 1) {
+        manufacturerIteration = words;
+      } else {
+        manufacturerIteration = words[0] + ' ' + words[1];
+      };
 
       addProp('.priceContainer', i, 'price', priceIteration);
       addProp('.marca', i, 'manufacturer', manufacturerIteration);
