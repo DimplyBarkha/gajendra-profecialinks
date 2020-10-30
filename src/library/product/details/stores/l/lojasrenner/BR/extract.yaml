@@ -26,7 +26,7 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     # xpath: //h1[@class="product_name"]/span
-    xpath: concat(//div[@id="bb_brand"],"-",//h1[@class="product_name"]/span)
+    xpath: concat(//div[@id="bb_brand"]," ",//h1[@class="product_name"]/span)
     # xpath: concat(//li[contains(text(), "Marca:")],"-",//h1[@class="product_name"]/span)
     # regExp: Marca:(.*)
     # regExpReplace: $1
