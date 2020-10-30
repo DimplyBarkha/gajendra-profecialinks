@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recrecordXPath: null # //div[@class="caja caja-reposo productGridItem"] | //div[@class="caja caja-reposo productGridItem fueraStock"]
 fields:
   - name: id
     singleValue: false
     xpath: //a[@class="productMainLink productTooltipClass"]/attribute::data-id 
   - name: searchUrl
     singleValue: true
-    xpath: 
+    xpath: //link[@rel="canonical"]/attribute::href
   - name: name
     singleValue: false
     xpath: //div[@class='productName truncate']/span
@@ -18,7 +18,7 @@ fields:
   - name: gtin
     singleValue: false
   - name: thumbnail
-    singleValue: false
+    singleValue: false     
     xpath: //div[@class='thumb cut-alt-img']/img/@src
   - name: aggregateRating
     singleValue: false
@@ -29,11 +29,11 @@ fields:
   - name: ratingCount
     singleValue: false
   - name: price
-    singleValue: false
-    xpath: normalize-space(concat(//div[@class="priceContainer"]/span/font/font, //div[@class="priceContainer"]/span/strong)) // todo
+    singleValue: false  
+    xpath: //div[@class="priceContainer"]/attribute::price
   - name: manufacturer
-    xpath: //div[@class='marca']
-    singleValue: true
+    xpath: //div[@class='marca']/attribute::manufacturer
+    singleValue: false
   - name: soldBy
     singleValue: true
   - name: endorsementText
@@ -49,8 +49,8 @@ fields:
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
-    type: BOOLEAN
-    name: totalRecordCount
+    type: BOOELAN
+  - name: totalRecordCount
     singleValue: true 
     type: NUMBER
     xpath: (//div[@class='totalResults cartReviewTotal'])[1]
