@@ -8,7 +8,7 @@ fields:
     xpath: //main[@id="maincontent"]//div[@class="product media"]/div[@class="gallery-placeholder"]/div[@class="zoom"]/img/@src
   - name: metaKeywords
     singleValue: false
-    xpath: //head/meta[@name="keywords"]  
+    xpath: //meta[@name="keywords"] /@content 
   - name: nameExtended
     singleValue: false
     xpath: //main[@id="maincontent"]//div[@class="product-info-main"]//h1[@class="page-title"]/span[@data-ui-id="page-title-wrapper"]
