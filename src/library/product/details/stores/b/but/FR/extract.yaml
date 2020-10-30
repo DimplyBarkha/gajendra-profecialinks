@@ -34,7 +34,7 @@ fields:
   - name: videos
     # xpath: //div[@class="mfp-content"]/div[@class="mfp-iframe-scaler"]/iframe/@src
     xpath: //div[@id="videos"]
-    regExp: appData\.videoUrl\s=\s\'(.*)'\;\sappData.view3D
+    regExp: appData\.videoUrl\s=\s\'(.*)'\;\sappData.view3D    
     regExpReplace: $1 
     singleValue: false
   # - name: video
@@ -120,10 +120,10 @@ fields:
     # xpath: //p/span[contains(text() , 'description')]/../following-sibling::*[not(self::div)]
     singleValue: false
   - name: manufacturerDescription
-    xpath: //div[contains(@id ,"inpage_container")]//div
+    xpath: //div[contains(@id ,"inpage_container")]//div | //body/@desc
     singleValue: false
   - name: manufacturerImages
-    xpath: //div[contains(@id ,"inpage_container")]//img/@srcset
+    xpath: //div[contains(@id ,"inpage_container")]//img/@srcset | /html/body/@img-src
     singleValue: false
   - name: specifications
     xpath: //div[@class="table-heading-product"]/ul/*[position() > 1]
