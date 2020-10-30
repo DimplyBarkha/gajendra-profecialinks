@@ -127,7 +127,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //div[@id='detalhes']
+    xpath: //div[@id='detalhes']//p
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -158,4 +158,4 @@ fields:
     xpath: //input[@id='ctl00_Conteudo_hdnIdSkuSelecionado']//@value
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id='detalhes']//h2
+    xpath: //div[@id='detalhes']//h2 | //div[@id='descricao']//p

@@ -8,7 +8,29 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.evaluate(() => {
+  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          await stall(500);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(5000);
+            break;
+          }
+        }
+        function stall(ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+  await context.evaluate(async () => {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -18,12 +40,11 @@ async function implementation(
     }
 
     const url = window.location.href;
-      addHiddenDiv(`document_url`, url);
+    addHiddenDiv(`document_url`, url);
     //@ts-ignore
     var productId = window.siteMetadata.page.product.idProduct;
     addHiddenDiv(`document_product_id`, productId);
 
-    
     function addHiddenDivWithClass (class1, content1) {
       const newDiv1 = document.createElement('div');
       newDiv1.className = class1;
@@ -31,10 +52,13 @@ async function implementation(
       newDiv1.style.display = 'none';
       document.body.appendChild(newDiv1);
     }
-    var imgs = document.querySelectorAll("#flix-lg-inpage img")
-    imgs.forEach(x=> addHiddenDivWithClass('aplusImages',x.getAttribute("srcset")));
-  });
+
+    
   
+      var imgs = document.querySelectorAll("#flix-lg-inpage img")
+      imgs.forEach(x=> addHiddenDivWithClass('aplusImages',x.getAttribute("srcset")));
+  });
+  await applyScroll(context);
   return await context.extract(productDetails, { transform });
 }
 

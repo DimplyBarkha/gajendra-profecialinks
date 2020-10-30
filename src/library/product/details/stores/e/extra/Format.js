@@ -113,6 +113,26 @@ const transform = (data) => {
           }
         })
       }
+
+      if(row.manufacturerDescription){
+        //@ts-ignore
+        var text = "";
+        row.manufacturerDescription.forEach(x =>{
+          text += x.text;
+        })
+        text = text.replace("Características do Produto:","");
+        row.manufacturerDescription = [{ text: text, xpath: '' }]
+      }
+
+      if(row.productOtherInformation){
+        //@ts-ignore
+        var text = "";
+        row.productOtherInformation.forEach(x =>{
+          text += x.text;
+        })
+        text = text.replace("Características do Produto:","");
+        row.productOtherInformation = [{ text: text, xpath: '' }]
+      }
     }
   }
   return data;
