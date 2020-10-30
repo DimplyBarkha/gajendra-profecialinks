@@ -10,7 +10,7 @@ module.exports = {
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -161,6 +161,6 @@ module.exports = {
         }
       }
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform: transformParam });
   },
 };
