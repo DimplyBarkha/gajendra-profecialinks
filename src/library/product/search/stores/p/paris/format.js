@@ -27,6 +27,16 @@ const transform = (data, context) => {
           productUrlItem.text = 'https://www.paris.cl' + productUrlItem.text;
         });
       }
+      if (row.price) {
+        row.price.forEach((priceItem) => {
+          priceItem.text = priceItem.text.replace(/[^\d]/gm, '');
+        });
+      }
+      if (row.listPrice) {
+        row.listPrice.forEach((listPriceItem) => {
+          listPriceItem.text = listPriceItem.text.replace(/[^\d]/gm, '');
+        });
+      }
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;
