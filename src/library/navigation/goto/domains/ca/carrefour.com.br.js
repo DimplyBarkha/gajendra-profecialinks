@@ -26,9 +26,11 @@ module.exports = {
       try {
         var clickButton = document.querySelectorAll('a[class="c-link f5 mb2 mt0 db-m dn"]');
         if (clickButton.length) {
-          if (clickButton.length == 2) {
+          if (clickButton.length === 2) {
+            // @ts-ignore
             clickButton[1].click();
           } else {
+            // @ts-ignore
             clickButton[0].click();
           }
         }
@@ -38,24 +40,5 @@ module.exports = {
       }
     });
     await context.waitForNavigation({ timeout });
-    // await context.evaluate(() => {
-    //   const showMoreProducts = document.querySelectorAll('a[class="c-link f5 mb2 mt0 db-m dn"]');
-    //   if (showMoreProducts.length) {
-    //     showMoreProducts.forEach((element, index) => {
-    //       if (index == 1) {
-    //         element.click();
-    //         console.log('click happend');
-    //       } else {
-    //         console.log('not able to click')
-    //       }
-    //     })
-    //   }
-    // });
-    // try {
-    //   await context.waitForNavigation({ timeout: 50000 });
-    //   console.log('waiting for next page to load')
-    // } catch (e) {
-    //   console.log('can not move to the next page')
-    // }
   },
 };
