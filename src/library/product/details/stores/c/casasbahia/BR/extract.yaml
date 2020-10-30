@@ -62,10 +62,8 @@ fields:
     singleValue: true
     xpath: //h1//b[@itemprop="name"]
   - name: sku
-    singleValue: true
-    xpath: //span[@itemprop="productID"]
-    regExp: Item\s*(.+)\)
-    regExpReplace: $1
+    singleValue: false
+    xpath: //input[@id='ctl00_Conteudo_hdnIdSkuSelecionado']/@value    
   - name: variantId
     singleValue: true
     xpath: //span[@itemprop="productID"]
