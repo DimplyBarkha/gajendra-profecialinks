@@ -13,7 +13,7 @@ fields:
     singleValue: true
     description: Alt text of the main product image
     xpath: //ul[@class="slider animated"]/li/div/img/@alt
-    regExp: (larger View of)(.)
+    regExp: (larger View of)(.+)
     regExpReplace: $2
   - name: alternateImages
     singleValue: false
