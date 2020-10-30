@@ -42,6 +42,9 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //p[@class="stock in-stock"]/text()
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -409,6 +412,7 @@ fields:
     description: null
   - name: specifications
     singleValue: true
+    xpath: //div[@id="specs"]/text()
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true

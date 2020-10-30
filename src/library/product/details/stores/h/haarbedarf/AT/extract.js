@@ -1,18 +1,38 @@
-const { cleanUp } = require("../../../../shared");
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
-  implements: "product/details/extract",
+  implements: 'product/details/extract',
   parameterValues: {
-    country: "AT",
-    store: "haarbedarf",
+    country: 'AT',
+    store: 'haarbedarf',
     transform: cleanUp,
-    domain: "haarbedarf.at",
+    domain: 'haarbedarf.at',
   },
 
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-    await context.waitForSelector("#tab-description");
+    await context.waitForSelector('#tab-description');
     await context.evaluate(async function () {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      if (document.querySelector('li[class*="additional_information"]')) {
+        const listItem = document.querySelector('li[class*="additional_information"]');
+        listItem.querySelector('a').click();
+        const tbl = document.querySelector('table[class*="product-attributes"]');
+        const tblRows = tbl.querySelectorAll('tr');
+        let specsString = '';
+        for (let i = 0; i < tblRows.length; i++) {
+          specsString += tblRows[i].querySelector('th').innerText + ' || ';
+          specsString += tblRows[i].querySelector('td').innerText + ' || ';
+        }
+        console.log(specsString);
+        addHiddenDiv('specs', specsString);
+      }
       // Removing spaces between colors e.g. 'schwarz / nickel' to 'schwarz/nickel'
       const colorInH1 = document.querySelector('h1.product_title.entry-title');
       const newColorSlash = colorInH1.textContent.replace(/\s\/\s/, '/');
@@ -41,6 +61,6 @@ module.exports = {
       const breadcrumbs = document.querySelector('span.posted_in').innerText.replace(',', ' >').replace(',', ' >');
       document.querySelector('span.posted_in').setAttribute('breadcrums', breadcrumbs);
     });
-    await context.extract(productDetails, {transform: transformParam });
+    await context.extract(productDetails, { transform: transformParam });
   },
 };
