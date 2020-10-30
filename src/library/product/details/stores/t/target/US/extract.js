@@ -697,7 +697,12 @@ async function implementation (
             }
             if (variantData.price.save_dollar) {
               addHiddenDiv(newDiv, 'promotion', 'Save $' + variantData.price.save_dollar.toFixed(2) + ' ' + variantData.price.save_percent + '%' + ' off');
+            } 
+            
+            if(variantData.promotions && variantData.promotions.length > 0 && variantData.promotions[0].plp_message) {
+              addHiddenDiv(newDiv, 'promotion', variantData.promotions[0].plp_message);
             }
+            
           }
         });
 
