@@ -31,7 +31,7 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'riachuelo',
-    transform: transform,
+    transform,
     domain: 'riachuelo.com.br',
     zipcode: '',
   },

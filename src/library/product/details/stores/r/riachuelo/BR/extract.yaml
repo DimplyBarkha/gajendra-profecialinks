@@ -9,7 +9,7 @@ fields:
     description: URL of the main product image
   - name: imageAlt
     singleValue: false
-    xpath: (//div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]//img/@alt)[1]  Image Alt
+    xpath: (//div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]//img/@alt)[1] 
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
@@ -31,13 +31,9 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="product-add-form"]//form//div[@class="actions"]//button/@title
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
     regExp: (.+)
     regExpReplace: Out of stock
     defaultValue: In Stock
-    
     # defaultValue: Out of Stock
   - name: description
     singleValue: false
@@ -79,7 +75,7 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
-    xpath: (//a[@class="swatch-option   text"]/@title)[1]
+    xpath: //tbody//tr//td[@data-th="Tamanho"] 
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
@@ -222,7 +218,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[@class="fotorama__nav__frame fotorama__nav__frame--thumb"]//img)
+    # xpath: count(//div[@class="fotorama__nav__frame fotorama__nav__frame--thumb"]//img)
     type: NUMBER
   - name: news
     singleValue: false
