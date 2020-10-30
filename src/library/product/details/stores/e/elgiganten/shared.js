@@ -67,6 +67,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.shippingDimensions) {
+        let text = '';
+        row.shippingDimensions.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} | `;
+        });
+        row.shippingDimensions = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
       if (row.videos) {
         let video = [];
         row.videos.forEach(item => {
