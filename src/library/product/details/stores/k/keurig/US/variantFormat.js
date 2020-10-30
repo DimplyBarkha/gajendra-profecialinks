@@ -17,15 +17,11 @@ const transform = (data) => {
   // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-    el.text = clean(el.text);
-  }))));
-
   for (const { group } of data) {
     for (const row of group) {
       if (!row.variantUrl && row.variantUrl1 && row.productUrl) {
         const variantUrl = [];
-        const productUrl = row.productUrl[0].text.replace(/(.*):(.*)/, '$1');
+        const productUrl = row.productUrl[0].text.replace(/(.*):(.*)_CT(.*)/, '$1');
         row.variantUrl1.forEach(item => {
           variantUrl.push({ text: productUrl + ':' + item.text });
         });
@@ -33,6 +29,9 @@ const transform = (data) => {
       }
     }
   }
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
   return data;
 };
 

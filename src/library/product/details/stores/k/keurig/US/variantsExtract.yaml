@@ -6,13 +6,10 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //div[@class="productVariantColor"]//a/@data-swatch-color | //li[contains(@class,"selectVariant")]/@data-code
+    xpath: //li[contains(@class,"selectVariant")]/@data-code
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //div[@class="productVariantColor"]//a/@style
-    regExp: (.*)url(\()(.*)(\);)
-    regExpReplace: $3
   - name: variantUrl1
     singleValue: false
     xpath: //li[contains(@class,"selectVariant")]/@data-varianturlsuffix
