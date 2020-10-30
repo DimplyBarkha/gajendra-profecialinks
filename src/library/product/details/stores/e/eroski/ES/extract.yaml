@@ -21,8 +21,8 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //strong[contains(text(),"Nombre")]//../following-sibling::p[1]
-    regExp: (.+)
-    regExpReplace: In Stock
+    # regExp: (.+)
+    # regExpReplace: In Stock
   - name: price
     singleValue: false
     xpath: //span[@class="price-now"]//span[position()>1]
@@ -46,8 +46,8 @@ fields:
   - name: saturatedFatPerServingUom
     singleValue: false
     xpath: //li[contains(text(), 'Ácidos grasos saturados ')]//span
-    regExp: ([^ ]+) gramos
-    regExpReplace: gramos
+    regExp: ([a-zA-Z]+)
+    regExpReplace: $1
   - name: totalCarbPerServing
     singleValue: false
     xpath: //li[contains(text(), 'carbono')]//span
@@ -56,8 +56,8 @@ fields:
   - name: totalCarbPerServingUom
     singleValue: false
     xpath: //li[contains(text(), 'carbono')]//span
-    regExp: ([^ ]+) gramos
-    regExpReplace: gramos
+    regExp: ([a-zA-Z]+)
+    regExpReplace: $1
   - name: proteinPerServing
     singleValue: false
     xpath: //li[contains(text(), 'Proteínas')]//span
@@ -66,8 +66,8 @@ fields:
   - name: proteinPerServingUom
     singleValue: false
     xpath: //li[contains(text(), 'Proteínas')]//span
-    regExp: ([^ ]+) gramos
-    regExpReplace: gramos
+    regExp: ([a-zA-Z]+)
+    regExpReplace: $1
   - name: saltPerServing
     singleValue: false
     xpath: //li[contains(text(), 'Sal')]//span
@@ -76,8 +76,8 @@ fields:
   - name: saltPerServingUom
     singleValue: false
     xpath: //li[contains(text(), 'Sal')]//span
-    regExp: ([^ ]+) gramos
-    regExpReplace: gramos
+    regExp: ([a-zA-Z]+)
+    regExpReplace: $1
   - name: name
     singleValue: false
     xpath: //title
@@ -91,11 +91,12 @@ fields:
   - name: category
     singleValue: false
     xpath: //div[@class="col col-lg-12 m__breadcrumb__path"]//a[position()>1]
-    # regExp: (?<=category\\":\\").*?(?=\\")
-    # regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: //div[@id="my-variantId"]  
+    #xpath: //div[@id="my-variantId"]  
+    xpath: //img[@class='product-big-image']/@src  
+    regExp: \W([\d]+)
+    regExpReplace: $1
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="ratingSubtitle"]/text()[1]
@@ -117,53 +118,53 @@ fields:
   - name: totalSugarsPerServing
     singleValue: false
     xpath: //li[contains(text(), 'Azúcares')]//span
-    regExp: ([^ ]+) gramos
+    regExp: ([-+]?[0-9]*\.?[0-9])
     regExpReplace: $1
   - name: totalSugarsPerServingUom
     singleValue: false
     xpath: //li[contains(text(), 'Azúcares')]//span
-    regExp: ([^ ]+) gramos
-    regExpReplace: gramos
+    regExp: ([a-zA-Z]+)
+    regExpReplace: $1
   - name: calciumPerServing
     singleValue: false
     xpath: //li[contains(text(), 'Calcio')]//span
-    regExp: ([^ ]+) gramos
+    regExp: ([-+]?[0-9]*\.?[0-9])
     regExpReplace: $1
   - name: calciumPerServingUom
     singleValue: false
     xpath: //li[contains(text(), 'Calcio')]//span
-    regExp: ([^ ]+) gramos
-    regExpReplace: gramos
+    regExp: ([a-zA-Z]+)
+    regExpReplace: $1
   - name: dietaryFibrePerServing
     singleValue: false
     xpath: //li[contains(text(), 'Fibra alimentaria')]//span
-    regExp: ([^ ]+) gramos
+    regExp: ([-+]?[0-9]*\.?[0-9])
     regExpReplace: $1
   - name: dietaryFibrePerServingUom    
     singleValue: false
     xpath: //li[contains(text(), 'Fibra alimentaria')]//span
-    regExp: ([^ ]+) gramos
-    regExpReplace: gramos
+    regExp: ([a-zA-Z]+)
+    regExpReplace: $1
   - name: totalFatPerServing
     singleValue: false
     xpath: //li[contains(text(), 'Grasas')]//span
-    regExp: ([^ ]+) gramos
+    regExp: ([-+]?[0-9]*\.?[0-9])
     regExpReplace: $1
   - name: totalFatPerServingUom    
     singleValue: false
     xpath: //li[contains(text(), 'Grasas')]//span
-    regExp: ([^ ]+) gramos
-    regExpReplace: gramos
+    regExp: ([a-zA-Z]+)
+    regExpReplace: $1
   - name: vitaminAPerServing
     singleValue: false
     xpath: //li[contains(text(), 'Vitamina A')]//span
-    regExp: ([^ ]+) gramos
+    regExp: ([-+]?[0-9]*\.?[0-9])
     regExpReplace: $1
   - name: vitaminAPerServingUom
     singleValue: false
     xpath: //li[contains(text(), 'Vitamina A')]//span
-    regExp: ([^ ]+) gramos
-    regExpReplace: gramos
+    regExp: ([a-zA-Z]+)
+    regExpReplace: $1
   - name: quantity
     singleValue: false
     xpath: //title
