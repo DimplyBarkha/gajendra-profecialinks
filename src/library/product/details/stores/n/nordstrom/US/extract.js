@@ -62,6 +62,12 @@ module.exports = {
           });
           const mediaIds = filters[type].byId[varId].styleMediaIds;
           if (!mediaIds) {
+            document.querySelectorAll('#product-page-thumbnail-gallery > div > div.slider-frame > ul > li > div > button > picture > img').forEach(item => {
+              varinatInfo.media.push({
+                mediaType: 'Image',
+                imageMediaUri: item.getAttribute('src'),
+              });
+            });
             varinatInformation.push(varinatInfo);
             continue;
           }
