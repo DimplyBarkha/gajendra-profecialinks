@@ -89,11 +89,11 @@ fields:
     singleValue: false
     description: The extended description of the product supplied by the lister
     # xpath: //div[@id="li_enhancedContent"]
-    xpath: //div[@id="flix-inpage"]/div/*[not(self::style)] | //div[@data-equal-heights="div.boxMiele"]
+    xpath: //div[@id="flix-inpage"]/div/*[not(self::style)] | //div[@data-equal-heights="div.boxMiele"]|//div[@id="enhancedContent"]/text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@id="flix-inpage"]/div//img/@srcset
+    xpath: //div[@id="flix-inpage"]/div//img/@srcset|//div[@id='aplusImages']/text()
     # xpath: //div[@id="flix-inpage"]/div//img/@srcset | //div[@data-equal-heights="div.boxMiele"]//img/@src
   - name: videos
     singleValue: false
