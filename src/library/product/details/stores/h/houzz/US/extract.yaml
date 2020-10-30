@@ -38,7 +38,10 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //span[@class="pricing-info__price"]
-
+  - name: size
+    singleValue: true
+    description: The manufacturer model size of the product
+    xpath: //dt[contains(text(),'Size/Weight')]/following-sibling::dd
   - name: productUrl
     singleValue: true
     description: the url of the product detail page
@@ -106,10 +109,6 @@ fields:
     singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //dt[contains(text(),'(MPN)')]/following-sibling::dd
-  - name: size
-    singleValue: true
-    description: The manufacturer model size of the product
-    xpath: //dt[contains(text(),'Size/Weight')]/following-sibling::dd
   - name: packSize
     singleValue: true
     description:
