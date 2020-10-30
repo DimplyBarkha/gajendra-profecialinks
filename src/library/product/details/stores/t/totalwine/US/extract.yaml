@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     description: URL of the main product image
-    xpath: (//div[contains(@class,'prodImage')]//img/@src)[1]
+    xpath: //meta[contains(@property,'og:image')]/@content
   - name: imageAlt
     description: Alt text of the main product image
     xpath: (//div[contains(@class,'prodImage')]//img/@title)[1]
@@ -39,7 +39,7 @@ fields:
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class, 'detailsTabReview')]
+    xpath: //meta[contains(@property,'og:description')]/@content
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
@@ -73,7 +73,6 @@ fields:
     singleValue: true
     description: The manufacturer model code (unique) of the product
   - name: packSize
-    singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
     xpath: (//div[contains(@class,'productHeader')]/h2)[1]
@@ -111,7 +110,7 @@ fields:
   - name: variantCount
     description: Number of variants listed
     type: NUMBER
-    xpath: count(//div[contains(@class,'packageOptions')]/ul[@role='listbox']/li)
+    xpath: count(//div[contains(@class,'itemId')])
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -147,7 +146,7 @@ fields:
     description: Text of link next to Amazon choice graphic
   - name: brandLink
     description: null
-    xpath: //div[contains(., 'BRAND')]/following-sibling::div/a/@href
+    xpath: (//div[contains(., 'BRAND')]/following-sibling::div/a/@href)[1]
     regExp: (.+)
     regExpReplace: https://www.totalwine.com$1
   - name: internationalShipping
@@ -194,7 +193,7 @@ fields:
     type: NUMBER
   - name: variantAsins
     description: null
-    xpath: //div[contains(@class,'packageOptions')]/ul[@role='listbox']/li/div[contains(@class,'itemId')]
+    xpath: //div[contains(@class,'itemId')]
   - name: primeFlag
     singleValue: true
     description: null
@@ -450,7 +449,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
-    xpath: //div[contains(@class,'packageOptions')]/ul[@role='listbox']/li/div[contains(@class,'itemId')]
+    xpath: //div[contains(@class,'itemId')]
   - name: additionalDescBulletInfo
     singleValue: false
     description: null

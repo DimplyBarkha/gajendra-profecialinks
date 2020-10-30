@@ -5,7 +5,7 @@ const implementation = async function (
   context,
   dependencies,
 ) {
-  let { url, id, zipcode, storeId } = inputs;
+  let { url, id, zipcode } = inputs;
   if (!url) {
     if (!id) {
       throw new Error('no id provided');
@@ -13,7 +13,21 @@ const implementation = async function (
     url = await dependencies.createUrl({ id });
   }
 
-  await dependencies.goto({ url, zipcode, storeId });
+  try {
+    const response = await context.goto(url, { timeout: 10000, waitUntil: 'networkidle0', checkBlocked: true });
+    console.log('Response ' + JSON.stringify(response));
+    if (response.message && response.message.includes('code 403')) {
+      console.log('Response failed');
+      return context.reportBlocked(451, 'Blocked!');
+    }
+  } catch (err) {
+    console.log('Error response' + JSON.stringify(err));
+    if (err.message && err.message.includes('code 403')) {
+      console.log('403 Response');
+      return context.reportBlocked(451, 'Blocked!');
+    }
+    return context.reportBlocked(451, 'Blocked!');
+  }
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -54,7 +68,6 @@ const implementation = async function (
 
     await context.evaluate(async function (details) {
       // Add skus to DOM
-      const skus = document.querySelectorAll('ul[role="listbox"][class*="reset"] > li');
       for (let i = 0; i < details.skus.length; i++) {
         const newDiv = document.createElement('div');
         console.log('sku id found ' + details.skuId);
@@ -66,7 +79,7 @@ const implementation = async function (
         }
         newDiv.textContent = details.skus[i].skuId;
         newDiv.style.display = 'none';
-        skus[i].appendChild(newDiv);
+        document.body.appendChild(newDiv);
       }
     }, productDetails);
   } catch (err) {
