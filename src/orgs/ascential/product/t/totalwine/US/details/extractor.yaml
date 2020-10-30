@@ -1,0 +1,20 @@
+robot: product/details
+parameters:
+  country: US
+  domain: totalwine.com
+  store: totalwine
+  zipcode: ""
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+policy:
+  numberRetries: 4
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
+meta:
+  branches:
+    totalwine_us-product_details:
+      extractor: 4ead96bf-1ca6-4c72-bae9-154f4556b5fd
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
