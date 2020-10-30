@@ -81,7 +81,7 @@ fields:
     xpath: //div[@class="content-product-spec"]//li//li
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class="main-features"]//li
+    xpath: //div[@class="product-features"]//li
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: //div[@class="main-media"]/div[contains(@class,"has-zoom")]/@data-edc
@@ -91,3 +91,21 @@ fields:
   - name: gtin
     singleValue: false
     xpath: //span[@class="unpc-wrapper"]//span[contains(@itemprop,"gtin")]
+  - name: weightGross
+    singleValue: false
+    xpath: //div[@class="content-product-spec"]//li//li/label[normalize-space()="Shipping Weight :" or normalize-space()="Shipping Weight :"]/parent::*/span
+  - name : shippingDimensions
+    singleValue: false
+    xpath: //div[@class="content-product-spec"]//li/h4/span[text()="Dimensions & Weight (Shipping)"]/parent::*/parent::*//li[position()<4]/span
+  - name: shippingWeight
+    singleValue: false
+    xpath: //div[@class="content-product-spec"]//li//li/label[normalize-space()="Shipping Weight :" or normalize-space()="Shipping Weight :"]/parent::*/span
+  - name: featureBullets
+    singleValue: false
+    xpath: //div[@class="overview-wrapper"]//div[@class="main-features"]//li
+  - name: customerServiceAvailability
+    singleValue: false
+    xpath: 
+  - name: customerServiceAvailability
+    singleValue: false
+    xpath: //div[contains(@class,"warranty-list")]//div[contains(@class,"item")]

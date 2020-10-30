@@ -31,9 +31,12 @@ const transform = (data) => {
                 })
             }
             if (row.alternateImages) {
+                var tot=1;
                 row.alternateImages.forEach(item => {
+                    tot++;
                     item.text = 'https:' + item.text;
                 });
+                row.secondaryImageTotal=[{"text":tot,"xpath":row.alternateImages[0]['xpath']}];
             }
             if (row.reviewCount) {
                 row.reviewCount.forEach(item => {
@@ -46,14 +49,14 @@ const transform = (data) => {
                 row.description.forEach(item=>{
                     tmpArr.push(item.text);
                 });
-                row.description=[{"text":"|| "+tmpArr.join(" || "),"xpth":row.description[0]['xpath']}];
+                row.description=[{"text":"|| "+tmpArr.join(" || "),"xpath":row.description[0]['xpath']}];
             }
             if(row.descriptionBullets){
                 var tmpArr=[];
                 row.descriptionBullets.forEach(item=>{
                     tmpArr.push(item.text);
                 });
-                row.descriptionBullets=[{"text":tmpArr.length,"xpth":row.descriptionBullets[0]['xpath']}];
+                row.descriptionBullets=[{"text":tmpArr.length,"xpath":row.descriptionBullets[0]['xpath']}];
             }
             if(row.ratingCount){
                 var tmpArr=[];
@@ -67,15 +70,41 @@ const transform = (data) => {
                 row.additionalDescBulletInfo.forEach(item=>{
                     tmpArr.push(item.text);
                 });
-                row.additionalDescBulletInfo=[{"text":"|| "+tmpArr.join(" || "),"xpth":row.descriptionBullets[0]['xpath']}];
+                row.additionalDescBulletInfo=[{"text":"|| "+tmpArr.join(" || "),"xpath":row.descriptionBullets[0]['xpath']}];
             }
             if(row.specifications){
                 var tmpArr=[];
                 row.specifications.forEach(item=>{
                     tmpArr.push(item.text);
                 });
-                row.specifications=[{"text":tmpArr.join(" || "),"xpth":row.specifications[0]['xpath']}];
+                row.specifications=[{"text":tmpArr.join(" || "),"xpath":row.specifications[0]['xpath']}];
             }
+            if(row.shippingDimensions){
+                var tmpArr=[];
+                row.shippingDimensions.forEach(item=>{
+                tmpArr.push(item.text);
+                })
+                row.shippingDimensions=[{"text":tmpArr.join(" X "),"xpath":row.shippingDimensions[0]['xpath']}];
+            }
+            if(row.featureBullets){
+                var tmpArr=[];
+                row.featureBullets.forEach(item=>{
+                tmpArr.push(item.text);
+                })
+                row.featureBullets=[{"text":tmpArr.join(" | "),"xpath":row.featureBullets[0]['xpath']}];
+            }
+            if(row.customerServiceAvailability){
+                var tmpArr=[];
+                row.customerServiceAvailability.forEach(item=>{
+                tmpArr.push(item.text);
+                })
+                if(tmpArr.length>0){
+                    row.featureBullets=[{"text":"Yes"}];
+                }else{
+                    row.featureBullets=[{"text":"No"}];
+                }
+            }
+            
             if(row.imageZoomFeaturePresent){
                 row.imageZoomFeaturePresent=[{"text":"Yes"}];
             }else{
