@@ -26,19 +26,14 @@ fields:
     defaultValue: Out of Stock
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@data-is,'apparel-media-center')]//div[@data-ui='image-carousel']//div[not(contains(@class,'selected')) and not (contains(@class,'video-thumb')) and contains(@class,'thumb')]//img/@src
-    regExp: (.+?)\?size=90x120
-    regExpReplace: $1?size=512x682
-  - name: listPrice
-    singleValue: true
-    xpath: //span[contains(@class,'product-current-price')]//span
+    xpath: //div[@data-ui='image-carousel']//div[not(contains(@class,'selected')) and not (contains(@class,'video-thumb')) and contains(@class,'thumb')]//img/@src
   - name: ratingCount
-    singleValue: true
-    xpath: //div[@id='bv2-desktop']//span[contains(@class,'cdr-rating__number_4.2.0')]//following-sibling::*
-    regExp: \((.+?)\)
-    regExpReplace: $1    
+    singleValue: false
+    xpath: //div[@class="bv-content-pagination-pages-current bv-focusable" and contains(.,"Reviews")]
+    regExp: of\s+(\d+)\s+Reviews
+    regExpReplace: $1
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     xpath: //div[@id='bv2-desktop']//span[contains(@class,'cdr-rating__number_4.2.0')]
   - name: imageAlt
     singleValue: true
@@ -48,10 +43,10 @@ fields:
     xpath: //p[contains(@data-ui,'product-price-note')]
   - name:  description
     singleValue: false
-    xpath: //ul[contains(@class,'product-features-list')]
+    xpath: //ul[contains(@class,'product-features-list')]//li
   - name: price
     singleValue: false
-    xpath: //span[contains(@class,'product-price-original')]//span[not(contains(@class,'sr-only'))]/text()[2]
+    xpath: //span[contains(@class,'product-price')]//span[not(contains(@class,'product-current-price'))]
   - name: brandText
     singleValue: true
     xpath: //div[contains(@class,'brand-link')]//a[@data-ui='view-brand-link']//span  
@@ -60,13 +55,34 @@ fields:
     xpath: //div[@data-ui='product-specs']//th[contains(text(),'Dimensions')]//following-sibling::td
   - name: specifications
     singleValue: false
-    xpath: //table[contains(@class,'product-specs-table')]//tr    
+    xpath: //table[contains(@class,'product-specs-table')]//tr
   - name: videos
     singleValue: false
     xpath: //script[@data-client-store="video-data"]
   - name: sku
     singleValue: false
-    xpath: //input[@name='itemNumber']/@value
+    xpath: //meta[@name="product:retailer_part_no"]/@content
   - name: variantId
     singleValue: false
-    xpath: //input[@name='itemNumber']/@value
+    xpath: //meta[@name="product:retailer_part_no"]/@content
+  - name: quantity
+    singleValue: false
+    xpath: //div[@data-ui='product-specs']//th[contains(text(),'Liquid Capacity (fl. oz.)')]//following-sibling::td
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@data-ui='product-specs']//th[contains(text(),'Weight')]//following-sibling::td
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
+  - name: color
+    singleValue: false
+    xpath: //span[@class="wrapper-name color-wrapper-name"]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class="product-tabs-details"]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class="product-tabs-details"]//div[@class="featured-banner-img"]//img/@src
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'

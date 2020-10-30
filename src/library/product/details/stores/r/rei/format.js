@@ -27,27 +27,74 @@ const transform = (data) => {
     for (let row of group) {
       if (row.image) {
         row.image.forEach(item => {
-          item.text = 'https://www.rei.com' + item.text
+          item.text = 'https://www.rei.com' + item.text;
         });
       }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
-          item.text = 'https://www.rei.com' + item.text
+          item.text = 'https://www.rei.com' + item.text.replace('size=120x90','size=512x682');
         });
       }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          item.text = 'https://www.rei.com' + item.text;
+        });
+      }
+      if (row.color) {
+        row.color.forEach(item => {
+          item.text = item.text.replace(':','').trim();
+        });
+      }      
       if (row.videos) {
         row.videos.forEach(item => {
           var temp_json = JSON.parse(item.text);
           var json_obj = temp_json['videos'];
           var arr_video = [];
-          json_obj.forEach(inner_obj => {
-            arr_video.push(inner_obj['articleUrl']);
-          });
+          if(json_obj){
+            json_obj.forEach(inner_obj => {
+              arr_video.push({"text":inner_obj['articleUrl']});
+            });
+          }
           if (arr_video.length) {
-            row.videos = [{ 'text': arr_video }];
+            row.videos = arr_video;
+          }else{
+            delete row.videos;
           }
         });
       }
+      if (row.variants) {
+        row.variants.forEach(item => {
+          var temp_json = JSON.parse(item.text);
+          var json_obj = temp_json['variants'];
+          var variants = [];
+          if(json_obj){
+            json_obj.forEach(inner_obj => {
+              variants.push(inner_obj['sku']);
+              var count = 0;
+              if(count == 0){
+                row.firstVariant = [{"text":inner_obj['sku']}];
+                row.firstInformation = [{"text":inner_obj['size']}];
+                row.colorCode = [{"text":inner_obj['color']['code']}];
+                var upc_arr = inner_obj['identifiers'];
+                if(upc_arr){
+                  upc_arr.forEach(inner_ar => {
+                    if(inner_ar['type'] == "UPC"){
+                      row.gtin = [{"text":inner_ar['value']}];
+                    }
+                  });
+                }
+                count++;
+              }
+            });
+          }
+          if (variants.length) {
+            row.variants = [{ 'text': variants.join(' | ') }];
+            row.variantCount = [{"text":variants.length}];
+          }else{
+            delete row.variants;
+          }
+        });
+      }      
       if (row.specifications) {
         var specificationsArr = [];
         row.specifications.forEach(item => {
@@ -56,7 +103,17 @@ const transform = (data) => {
         if(specificationsArr.length){
           row.specifications = [{"text": specificationsArr.join(" || ")}];
         }
-      }      
+      }
+      if (row.description) {
+        var descriptionArr = [];
+        row.description.forEach(item => {
+          descriptionArr.push(item.text);
+        });
+        if(descriptionArr.length){
+          row.description = [{"text": "|| " + descriptionArr.join(" || ")}];
+          row.descriptionBullets = [{"text": descriptionArr.length}];
+        }
+      }
     }
   }
   return cleanUp(data);
