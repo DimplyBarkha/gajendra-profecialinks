@@ -1,0 +1,17 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //p[@class='pWCRS310_Desc']
+  - name: id
+    singleValue: false
+    xpath: //li[@class='liWCRS310_Product     ']/@id
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class='aWCRS310_Product']/img/@src
+  - name: price
+    singleValue: false
+    xpath: //p[@class='pWCRS310_PrixUnitaire']
