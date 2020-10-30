@@ -25,7 +25,11 @@ async function implementation (
     await infiniteScroll();
   });
   // await context.waitForMutuation('body', { timeout: 30000 });
-  await context.waitForXPath("//div[contains(@id,'returnsAndWarranty')]//button[contains(.,'Mehr anzeigen')] | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'returnsAndWarranty')])]//button[contains(.,'Mehr anzeigen')]");
+  try {
+    await context.waitForXPath("//div[contains(@id,'returnsAndWarranty')]//button[contains(.,'Mehr anzeigen')] | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'returnsAndWarranty')])]//button[contains(.,'Mehr anzeigen')]");
+  } catch (e) {
+    console.log('Return and warranty not found', e);
+  }
   try {
     await context.waitForXPath("//div[contains(@id,'youtube')]//img/@srcset | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'youtube')])]//div[contains(@class,'expandablePanel')]//img/@srcset");
   } catch (e) {
