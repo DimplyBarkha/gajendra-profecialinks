@@ -5,26 +5,43 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
+    xpath: //a[@class="product-link image-container"]/@href
+    regExp: .*\/product\/([^\/]+)\/.*
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //a[@class="product-link image-container"]/@title
   - name: productUrl
     singleValue: false
+    xpath: //a[@class="product-link image-container"]/@href
+    regExp: (\/product.*)
+    regExpReplace: https://www.blush.no$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //img[@class="product-image"]/@src
+    regExp: (\/img.*)
+    regExpReplace: https://www.blush.no$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
     singleValue: false
+    xpath: //div[@class="review"]/span[contains(@class,'rating-stars')]/@title
+    regExp: ^\d+(\.?\,?\d+)?
   - name: reviewCount
     singleValue: false
+    xpath: //span[@class="review-count"]
+    regExp: \d+(\.?\,?\d+)?
   - name: ratingCount
     singleValue: false
+    xpath: //span[@class="review-count"]
+    regExp: \d+(\.?\,?\d+)?
   - name: price
     singleValue: false
+    xpath: //@priceId
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -34,11 +51,13 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
+    xpath: //@rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
