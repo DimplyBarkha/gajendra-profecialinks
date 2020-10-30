@@ -11,7 +11,7 @@ const transform = (data) => {
       .replace(/&amp;#160/g, ' ')
       .replace(/\u00A0/g, ' ')
       .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
+      //.replace(/"\s{1,}/g, '"')
       .replace(/\s{1,}"/g, '"')
       .replace(/^ +| +$|( )+/g, ' ')
       // eslint-disable-next-line no-control-regex
@@ -70,6 +70,11 @@ const transform = (data) => {
           }
         });
       }
+      if (row.brandText) {
+        row.brandText.forEach(item => {
+          item.text = item.text.replace('-', ' ');
+        });
+      }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
           item.text = item.text.replace('_300x', '_1920x');
@@ -89,7 +94,7 @@ const transform = (data) => {
           bulletArr.push(item.text);
         });
         if (row.description && bulletArr.length) {
-          row.description = [{ "text": row.description[0]["text"] + " || " + bulletArr.join(" || ") }];
+          row.description = [{ "text": row.description[0]["text"].replace(/^Description/,'').trim() + " || " + bulletArr.join(" || ") }];
         }
         row.descriptionBullets = [{ "text": row.descriptionBullets.length }];
       }

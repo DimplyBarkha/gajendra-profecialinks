@@ -8,7 +8,7 @@ fields:
     xpath: //div[contains(@role,'treeitem') and contains(@class,'is-selected')]//img/@src
   - name: metaKeywords
     singleValue: true
-    xpath: //meta[@name='description']/@content
+    xpath: //meta[@name='keywords']/@content
   - name: category
     singleValue: false
     xpath: //nav[@role='navigation']//a
@@ -26,10 +26,10 @@ fields:
     defaultValue: Out of Stock
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'carousel-nav')]//a[not(contains(@class,'is-nav-selected'))]//img/@src
+    xpath: //div[contains(@class,'carousel-nav')]//a[not(contains(@class,'is-nav-selected')) and not(contains(@class,'video-cell'))]//img/@src
   - name: listPrice
     singleValue: true
-    xpath: //div[contains(@class,'price-wrapper')]//p
+    xpath: //div[contains(@class,'price-wrapper')]//s
   - name: imageAlt
     singleValue: true
     xpath: //div[contains(@role,'treeitem') and contains(@class,'is-selected')]//img/@alt
@@ -41,11 +41,11 @@ fields:
     xpath: //div[contains(@class,'text-black ')]//ul//li
   - name: price
     singleValue: true
-    xpath: //div[contains(@class,'price-wrapper')]//s
+    xpath: //div[contains(@class,'price-wrapper')]//p
   - name: brandText
     singleValue: true
-    xpath: (//script[@id='__st'])
-    regExp: \"vendor\":\":(.+?)\"
+    xpath: //div[contains(@class,"brand-icon")]/img/@src
+    regExp: .+\/(.+?)-gallery
     regExpReplace: $1    
   - name: sku
     singleValue: true
@@ -68,9 +68,6 @@ fields:
   - name: color
     singleValue: true
     xpath: //table[contains(@class,'table-discription')]//th[contains(text(),'Color ')]/following-sibling::td
-  - name: shippingDimensions
-    singleValue: true
-    xpath: //table[contains(@class,'table-discription')]//th[contains(text(),'Size')]/following-sibling::td
   - name: materials
     singleValue: true
     xpath: //table[contains(@class,'table-discription')]//th[contains(text(),'Material')]/following-sibling::td
@@ -85,3 +82,17 @@ fields:
   - name: firstVariant
     singleValue: false
     xpath: //div[contains(@class,"product-details-wrapper")]//select[@class="selectpicker"]/option[@selected="selected"]/@value
+  - name:  weightNet
+    singleValue: false
+    xpath: //div[contains(@class,'text-black ')]//ul//li[contains(.,"Weight")]
+    regExp: Weight\s*:\s*(.+)
+    regExpReplace: $1
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,"video-cell")]//iframe/@src
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    xpath: //span[text()="Specification Sheet"]//ancestor::a[contains(@href,".pdf")]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
