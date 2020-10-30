@@ -129,13 +129,13 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    regExp: (^.{3,3})
+    regExp: (^,{3,3})
     regExpReplace: $1
-    xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
+    xpath: //head/@rating
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
+    xpath: //head/@rating
   - name: shippingInfo #localedependent
     singleValue: true
     description: Shipping information for the product
