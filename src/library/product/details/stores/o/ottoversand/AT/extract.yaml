@@ -37,7 +37,7 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     # xpath: //h1[@class="sc-AxhUy joerwJ"]
-    xpath: //h1[contains(@class,"sc-AxhUy")]    
+    xpath: //h1[contains(@data-testid,"headline__component")]    
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -115,7 +115,7 @@ fields:
     singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //span[contains(@class,'OrderNumber-sc-16ohlta ihUzmb')]
-    regExp: (?<=:).*
+    regExp: (?<=:)[^\s]*
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
