@@ -1,4 +1,4 @@
-const { transform } = require("../shared")
+const { transform } = require('../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -22,9 +22,9 @@ module.exports = {
       if (appendElements.length) {
         appendElements.forEach((element) => {
           element.setAttribute('searchurl', searchUrl);
-        })
+        });
       }
     });
     return await context.extract(productDetails, { transform });
-  }
+  },
 };
