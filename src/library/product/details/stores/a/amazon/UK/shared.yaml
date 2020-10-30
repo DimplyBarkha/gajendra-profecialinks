@@ -86,10 +86,10 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath: (//*[@data-asin])[1]/@data-asin
+    xpath: //tr[contains(.,'ASIN')]//td | //li[contains(.,'ASIN')]//span//span[2]
     description: The store-specific product identifier
   - name: variantId
-    xpath: (//tr[contains(.,'model number')]//td | //*[@data-asin])[1]/@data-asin | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item model number')]/following-sibling::text()[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Model Number')]/../td | //tr[contains(@class,'item-model-number')][1]//td[2] | //*[contains(text(),'Model Number')]/following-sibling::*[1]
+    xpath: //tr[contains(.,'ASIN')]//td | //li[contains(.,'ASIN')]//span//span[2]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
@@ -147,10 +147,7 @@ fields:
     # xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1] | (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1] | //tr//td[contains(text(),'Product Dimensions')]/../td[2]| //*[contains(text(),'Package Dimensions')]/following-sibling::*[1] | //div[contains(@id, 'detailBullets_feature_div')]//li[contains(.,'Product Dimensions')]
     description: Stated shipping weight
   - name: variantCount
-    singleValue: false
-    xpath: //div[@id='ii_variantCount']
-    description: Number of variants listed
-    defaultValue: '1'
+    defaultValue: 0
     # type: NUMBER
   - name: color
     singleValue: true
@@ -183,7 +180,7 @@ fields:
     description: Price in the selected store
   - name: asin
     singleValue: true
-    xpath: (//*[@data-asin])[1]/@data-asin
+    xpath: //tr[contains(.,'ASIN')]//td | //li[contains(.,'ASIN')]//span//span[2]
     description: null
   - name: coupon
     singleValue: true
@@ -211,7 +208,7 @@ fields:
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'International Shipping')]/following-sibling::text()[1]
   - name: salesRank
     singleValue: false
-    xpath: //tr[contains(.,'Best Sellers Rank')]//span//span
+    xpath: //tr[contains(.,'Best Sellers Rank')]//span//span | //li[contains(.,'Best Sellers Rank')]//span
     regExp: (.*?)\s(.*)
     regExpReplace: $1
     description: Amazon best selling rank from product details (linked back) - needs
@@ -576,7 +573,7 @@ fields:
     description: Recycling information associated with the product
   - name: productOtherInformation
     singleValue: false
-    xpath: //div[@id="productDescription"] | //div[@id='ii_productOtherInformation']
+    xpath: //div[@id="detailBullets_feature_div"]//ul//li | //div[@id="productDescription"] | //div[@id='ii_productOtherInformation']
     # xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
     description: Any other product information
   - name: packaging
