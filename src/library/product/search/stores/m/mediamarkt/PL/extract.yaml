@@ -1,0 +1,30 @@
+Search:
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="m-offerBox_content clearfix"] | //div[@class="m-productsBox_container"]
+fields: 
+- name: name
+  xpath: //div[@class="m-offerBox_header"]/h2[contains(@class,"headline")]/a | //p[@class="m-productsBox_name"]/a/@title
+- name: productUrl
+  xpath: //div[@class="m-offerBox_header"]/h2[contains(@class,"headline")]/a/@href | //p[@class="m-productsBox_name"]/a/@href
+  regExp: (.+)
+  regExpReplace: https://mediamarkt.pl$1
+- name: thumbnail
+  xpath: //div[contains(@class,"m-offerBox_box")]/a/img/@src | //div[contains(@class,"m-productsBox_photo")]/a/img/@src
+  regExp: (.+)
+  regExpReplace: https:$1
+- name: id
+  xpath: //h2[@class="m-offerBox_headline"]/a/@data-offer-erp | //p[@class="m-productsBox_name"]/a/@data-offer-erp
+- name: price
+  xpath: //h2[@class="m-offerBox_headline"]/a/@data-offer-price | //p[@class="m-productsBox_name"]/a/@data-offer-price
+- name: gtin
+  xpath: //h2[@class="m-offerBox_headline"]/a/@data-offer-ean | //p[@class="m-productsBox_name"]/a/@data-offer-ean
+- name: reviewCount
+  xpath: //div[@class="m-offerBox_rating"]/a/span | //div[@class="m-productsBox_rating"]/a/span
+  regExp: (\d+)
+- name: aggregateRating2
+  xpath: //h2[@class="m-offerBox_headline"]/a/@ratingvalue | //p[@class="m-productsBox_name"]/a/@ratingvalue
+  # regExp: ([^0])
+- name: searchUrl
+  xpath: //h2[@class="m-offerBox_headline"]/a/@searchurl | //p[@class="m-productsBox_name"]/a/@searchurl
