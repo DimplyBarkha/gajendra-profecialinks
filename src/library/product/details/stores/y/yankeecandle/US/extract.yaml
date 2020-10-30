@@ -13,18 +13,26 @@ fields:
     singleValue: true
     description: Alt text of the main product image
     xpath: //ul[@class="slider animated"]/li/div/img/@alt
+    regExp: (larger View of)(.)
+    regExpReplace: $2
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //ul[@class="thumbs animated"]/li/a/img/@src
-    regExp: (.+)
+    regExp: (.*)
+    regExpReplace: https://www.yankeecandle.com$1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //ul[@class="pdp breadcrumb"]/li[2]/div/a
+  - name: sub_Category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //ul[@class="pdp breadcrumb"]/li[3]/div/a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -33,12 +41,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //p[@class="origPrice"]/span[2]
-    regExp: '\d*\.\d*'
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //p[@class="origPrice"]/span[2]
+    regExp: (\d*\.\d*)
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -60,7 +68,9 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    defaultValue: YankeeCandle
+    xpath: //ul[@class="slider animated"]/li/div/img/@src
+    regExp: (.*)
+    regExpReplace: YankeeCandle 
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -72,7 +82,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: (//td[@class="specsDescription"])[1]
+    xpath: //td[contains(text(),'Weight')]/following::td[1]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -83,9 +93,14 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xapth: (//div[@class="numbr-frgnce"]/p)[2]
+    regExp: (Item \#) (.*)
+    regExpReplace: $2
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xapth: (//div[@class="numbr-frgnce"]/p)[2]
+    regExp: (Item \#) (.*)
+    regExpReplace: $2
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -119,7 +134,6 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: (//select/option[@selected])[1]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -130,6 +144,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    defaultValue: '0'
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -239,6 +254,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//ul[@class="thumbs animated"]/li/a/img/@src)
     type: NUMBER
   - name: news
     singleValue: true
@@ -259,7 +275,6 @@ fields:
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
-    xpath:  (//td[@class="specsDescription"])[2]
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
@@ -421,7 +436,6 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //div[@class="col-md-6 col-sm-12 col-xs-12"]
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -434,7 +448,6 @@ fields:
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
-    xpath: //p[@class="origPrice"]/span[2]
   - name: promotion
     singleValue: true
     description: promotion text on product page
@@ -473,7 +486,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[@class="descriptionContainer"]/p
+    xpath: concat(//div[@class="descriptionContainer"]/p, //div[@class="col-md-6 col-sm-12 col-xs-12"])
   - name: prop65Warning
     singleValue: true
     description: null
