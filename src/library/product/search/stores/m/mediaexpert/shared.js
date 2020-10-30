@@ -23,7 +23,7 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.price) {
-        let text = row.price[0].text.replace(' ', '');
+        const text = row.price[0].text.replace(' ', '');
         row.price[0].text = text.match(/(\d+)(,)(\d+)/g)[0];
       }
     }

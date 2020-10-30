@@ -1,4 +1,4 @@
-const { transform } = require('../shared')
+const { transform } = require('../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -19,7 +19,7 @@ module.exports = {
       if (clickButton) {
         clickButton.click();
       }
-    })
+    });
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
@@ -32,7 +32,7 @@ module.exports = {
             break;
           }
         }
-        function stall(ms) {
+        function stall (ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
@@ -48,9 +48,9 @@ module.exports = {
       if (appendElements.length) {
         appendElements.forEach((element) => {
           element.setAttribute('searchurl', searchUrl);
-        })
+        });
       }
     });
     return await context.extract(productDetails, { transform });
-  }
+  },
 };
