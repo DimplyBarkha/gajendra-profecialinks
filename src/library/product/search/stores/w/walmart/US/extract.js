@@ -11,6 +11,13 @@ module.exports = {
     productDetails: 'extraction:product/search/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation: async ({ inputString }, { country, store, transform: transformParam }, context, dependencies) => {
+    try{
+      // @ts-ignore
+      // eslint-disable-next-line no-undef
+      await context.evaluateInFrame('iframe', () => grecaptcha.execute());        
+    }catch(err){
+      console.log('Captcha did not load');
+    }
     async function addUrl() {
       function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
