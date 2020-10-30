@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.product-container
+recordXPath: null
+fields:
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //a[@class="product__link"]/@href
+    regExp: (\/.*)\/p-(.+)\/$
+    regExpReplace: $2
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+    xpath: //div[@id='pd_rank']
+  - name: name
+    description: The product name
+    xpath: //span[@class="product-name"]
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //a[@class="product__link"]/@href
+    regExp: (\/.*)
+    regExpReplace: https://www.power.no$1
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="product-image-picture"]//img/@src
+  - name: aggregateRating2
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@id='aggRating']
+  - name: reviewCount
+    description: The number of reviews
+    type: NUMBER
+  - name: ratingCount
+    description: The number of ratings
+  - name: price
+    description: The offered price for the product
+    xpath: //div[@id="price"]
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: rank
+    description: search/listing rank
+    type: NUMBER 
+    xpath: //div[@id='pd_rank']
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed 
