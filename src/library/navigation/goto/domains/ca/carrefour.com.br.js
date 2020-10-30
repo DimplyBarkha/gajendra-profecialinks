@@ -19,7 +19,7 @@ module.exports = {
       await context.waitForSelector('a[class="c-link f5 mb2 mt0 db-m dn"]', { timeout });
       console.log('click button loaded successfully');
     } catch (e) {
-      console.log('not able to load the click button')
+      console.log('not able to load the click button');
     }
 
     await context.evaluate(() => {
@@ -36,7 +36,7 @@ module.exports = {
       } catch (e) {
         console.log('not able to click');
       }
-    })
+    });
     await context.waitForNavigation({ timeout });
     // await context.evaluate(() => {
     //   const showMoreProducts = document.querySelectorAll('a[class="c-link f5 mb2 mt0 db-m dn"]');
@@ -58,4 +58,4 @@ module.exports = {
     //   console.log('can not move to the next page')
     // }
   },
-}
+};

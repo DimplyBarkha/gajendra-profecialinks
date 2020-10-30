@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -12,7 +12,7 @@ async function implementation(
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
-  //written code for custom pagination to solve the product repeatation issue
+  // written code for custom pagination to solve the product repeatation issue
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
@@ -27,7 +27,7 @@ async function implementation(
             if (element.getAttribute('searchurl') == null) {
               element.setAttribute('searchurl', searchUrl);
             }
-          })
+          });
         }
         try {
           await context.waitForSelector('div[class*="imageContainer"] > img', { timeout: 50000 });
@@ -35,19 +35,20 @@ async function implementation(
         } catch (e) {
           console.log('can not load the image');
         }
-        let totalProductOnPage = document.querySelectorAll('div[class*="galleryItem"]');
-        console.log('total product on the page is this number ->', totalProductOnPage.length)
+        const totalProductOnPage = document.querySelectorAll('div[class*="galleryItem"]');
+        console.log('total product on the page is this number ->', totalProductOnPage.length);
         if (scrollTop === 20000 || totalProductOnPage.length >= 125) {
-          console.log('here the loop is going to break')
+          console.log('here the loop is going to break');
           await stall(1500);
           break;
         }
         const clickButton = document.querySelector('a[rel="next"]');
         if (clickButton) {
+          // @ts-ignore
           clickButton.click();
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -61,7 +62,7 @@ async function implementation(
           if (element.getAttribute('searchurl') == null) {
             element.setAttribute('searchurl', searchUrl);
           }
-        })
+        });
       }
     });
   };
