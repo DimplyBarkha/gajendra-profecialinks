@@ -3,120 +3,79 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: image
-    singleValue: true
-    description: URL of the main product image
-    xpath: //img[@id='slick-slide10']/@src
-  - name: url
-    singleValue: true
-    description: URL of the main product image
-    xpath: //link[@rel='canonical']/@href
-  - name: imageAlt
-    singleValue: true
-    description: Alt text of the main product image
-    xpath: (//div[@class="product-image-container"]/div/div/div/img/@alt)[1]
-  - name: alternateImages
-    singleValue: false
-    description: Other product images (not in manufacturer description)
-    xpath: //div[@class="slick-list draggable"]/div/div/img/@src
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: (//div[@class='title']/span)[1]
-  - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
-    xpath: //div[@class='discount']/span[@class='original-price']
-    regExp: (\d+,*\d+)
-  - name: price
-    singleValue: true
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
-    xpath: //div[@class="prices-content"]/div[@class='price']
-    regExp: (\d+,*\d+)   
-  - name: availabilityText
-    singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    xpath: //*[@id="features"]/div[1]/div/div/span[2]
-  - name: description
-    singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
-    xpath: //div[@class='info-description-content']/div[@class='description']
-  - name: weightNet
-    singleValue: true
-    description: Net weight as described on the page
-    xpath: //div[@class='item']//span[text()='Peso']//following-sibling::span[1]
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-    xpath: //div[@data-module='productdetail']/@data-productdetail-productean
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-    xpath: //div[@data-module='productdetail']/@data-productdetail-sku
-  - name: variantId
-    singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@data-module='productdetail']/@data-productdetail-manufactureraid
-  - name: legalDisclaimer
-    singleValue: true
-    description: Content under "legal disclaimer" header
-    xpath: //div[@id="modal-legalwarranty"]/div/div/text()
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-    type: NUMBER
-    xpath: //div[@class='left-section']/span[@class='total-review']
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: //div[@class='left-section']/span[@class='total-vote']
-  - name: variantCount
-    singleValue: true
-    description: Number of variants listed
-    type: NUMBER
-    defaultValue: 1
-  - name: color
-    singleValue: true
-    description: A textual description of the colour
-    xpath: //div[@class='techs']//span[text()='Colore del prodotto']//following-sibling::span[1]
-  - name: name
-    singleValue: true
-    description: The product name
-    xpath: //section[@class='container-center-cell']/h1[@class='subtitle']
-  - name: coupon
-    singleValue: true
-    description: Text of any coupon offer
-    xpath: //div[@class='promo-cart-container mobile-hide']/div/span
-  - name: technicalInformationPdfPresent
-    singleValue: true
-    description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
-  - name: termsAndConditions
-    singleValue: true
-    description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
-  - name: privacyPolicy
-    singleValue: true
-    description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
-  - name: customerServiceAvailability
-    singleValue: true
-    description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
-  - name: Image360Present
-    singleValue: true
-    description: If 360 image is present in the carousel ['Yes','No']
-    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
-  - name: imageZoomFeaturePresent
-    singleValue: true
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: yes
+- name: image
+  singleValue: true  
+  xpath: //img[@id='slick-slide10']/@src 
+- name: category
+  singleValue: false
+  xpath: //div[@class='container']/section[@class='breadcrumbs']/span[2]/a
+- name: sub-category
+  singleValue: false
+  xpath: //div[@class='container']/section[@class='breadcrumbs']//span[position() >= 3 and position()<last()]/a
+- name: product-description
+  singleValue: true
+  xpath: //section[@class='container-center-cell']/h1[@class='subtitle']
+- name: online-price
+  singlevalue: true
+  xpath: //div[@class="prices-content"]/div[@class='price']
+  regExp: (\d+,*\d+)
+  type: CURRENCY
+- name: online-price-currency
+  singlevalue: true
+  xpath: //div[@class='prices-content']/div[@class='price']/span[@class='currency']
+- name: availability
+  singleValue: true
+  xpath: (//*[@id="features"]/div[1]/div/div/span[2])[1]  
+- name: additional-description
+  singleValue: true
+  xpath: //div[@class='descriptions']/ul
+- name: upc
+  singleValue: true
+  xpath: //div[@data-module='productdetail']/@data-productdetail-productean
+- name: Product-code
+  singleValue: true  
+  xpath: //div[@data-module='productdetail']/@data-productdetail-sku
+- name: sku
+  singleValue: true
+  xpath: //*[@id="warranty-modal"]/div/div[5]/form/input[3]/@value
+- name: imageAlt
+  singleValue: true  
+  xpath: (//div[@class="product-image-container"]/div/div/div/img/@alt)[1]
+- name: alternateImages
+  singleValue: false
+  description: Other product images
+  xpath: //div[@class="slick-list draggable"]/div/div/img/@src
+- name: ratingCount
+  singleValue: true
+  type: NUMBER
+  xpath: //div[@class='left-section']/span[@class='total-review'] 
+- name: aggregateRating
+  singleValue: true 
+  xpath: //div[@class='left-section']/span[@class='total-vote']
+- name: manufacturerImages
+  singleValue: false
+  xpath: //div[@class="flix-mod-header "]/img/@src  
+- name: shippingDimensions
+  singleValue: false
+  xpath: //div[@class='techs']//span[(text()='Altezza')or(text()='Profondità')or(text()='Larghezza')]/following-sibling::span
+- name: specifications
+  singleValue: false
+  xpath: //div[@id="specifications"]
+- name: weightNet
+  singleValue: false
+  xpath: //div[@class='techs']//span[(text()='Peso')]/following-sibling::span
+- name: videos
+  singleValue: true
+  xpath: //div[@class='slick-track']/div[@id='slick-slide115']/iframe[@class='youtube-container']/@src
+- name: listPrice
+  singleValue: true
+  xpath: //div[@class='discount']/span[@class='original-price'] 
+- name: promotion
+  singleValue: true
+  xpath: //div[@class='discount']/span[@class='text']
+- name: gtin
+  singleValue: true  
+  xpath: //div[@data-module='productdetail']/@data-productdetail-productean
+- name: secondaryImageTotal
+  singleValue: true
+  xpath: (//div[position()=last()]/@data-slick-index)[1]
