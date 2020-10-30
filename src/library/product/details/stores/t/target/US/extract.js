@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -16,7 +16,7 @@ async function implementation(
     });
     await context.waitForXPath('//li[contains(@class,"Col-favj32")]//div[@data-test="product-details"]');
     const productUrl = await context.evaluate(async function () {
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -41,28 +41,36 @@ async function implementation(
     await context.goto('https://www.target.com' + productUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
   }
 
+  await context.waitForXPath("//h1[@data-test='product-title']");
+
   try {
+    await context.evaluate(async function () {
+      const reviewsContainer = 'h2[data-test="reviews-heading"]';
+      const reviewsNode = document.querySelector(reviewsContainer);
+      if (reviewsNode) {
+        reviewsNode.scrollIntoView();
+      }
+    });
     const manufacturerCTASelector = 'button[aria-label="show from the manufacturer content"]';
 
     await context.waitForSelector(manufacturerCTASelector, { timeout: 60000 });
     const manufacturerCTA = await context.evaluate((selector) => !!document.querySelector(selector), manufacturerCTASelector);
 
     if (manufacturerCTA) {
-      console.log('hastheCTA');      
+      console.log('hastheCTA');
+      await new Promise((resolve, reject) => setTimeout(resolve, 20000));
       await context.waitForSelector('#wc-power-page', { timeout: 30000 });
       await context.click(manufacturerCTASelector);
     }
+  } catch (error) {
+    console.log(`Manufacturer content is not loaded ${error.message}`);
   }
-  catch (error) {
-   console.log(`Manufacturer content is not loaded ${error}`)
-  }
-  await context.waitForXPath("//h1[@data-test='product-title']");
 
   await context.evaluate(async function () {
     let parentData = {};
     let origData = {};
 
-    function addHiddenDiv(el, className, content) {
+    function addHiddenDiv (el, className, content) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('class', className);
       newDiv.textContent = content;
@@ -70,7 +78,7 @@ async function implementation(
       el.appendChild(newDiv);
     }
 
-    function stall(ms) {
+    function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -78,7 +86,7 @@ async function implementation(
       });
     }
 
-    function createListItem() {
+    function createListItem () {
       const newDiv = document.createElement('li');
       newDiv.setAttribute('class', 'productInfo');
       newDiv.textContent = '';
@@ -87,14 +95,13 @@ async function implementation(
       return newDiv;
     }
 
-    function decodeHtml(html) {
+    function decodeHtml (html) {
       const txt = document.createElement('textarea');
       txt.innerHTML = html;
       return txt.value;
     }
 
-    async function getProductInfo(variant, productName, variantCount = null) {
-
+    async function getProductInfo (variant, productName, variantCount = null) {
       await fetch('https://salsify-ecdn.com/target/en-US/BTF/TCIN/' + variant.tcin + '/index.html')
         .then(async function (response) {
           const sometext = await response.text();
@@ -128,7 +135,6 @@ async function implementation(
       }
 
       let videos = [];
-      let alternateImages = [];
       if (parentData.product &&
         parentData.product.item.enrichment &&
         parentData.product.item.enrichment.videos &&
@@ -136,7 +142,6 @@ async function implementation(
         videos = parentData.product.item.enrichment.videos.filter(video => video.video_files && video.video_files.length).map(video =>
           'https:' + video.video_files[0].video_url,
         );
-
       }
 
       if (!videos.length &&
@@ -154,12 +159,6 @@ async function implementation(
         addHiddenDiv(newDiv, 'imageAlt', productTitle);
       }
 
-      // if (productTitle && variant.variation_info && variant.variation_info.themes) {
-      //   addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
-      // } else {
-      //   addHiddenDiv(newDiv, 'nameExtended', decodeHtml(productTitle));
-      // }
-
       if (variant.product_description && variant.product_description.title) {
         addHiddenDiv(newDiv, 'keywords', decodeHtml(variant.product_description.title));
         addHiddenDiv(newDiv, 'nameExtended', decodeHtml(variant.product_description.title));
@@ -173,7 +172,7 @@ async function implementation(
 
       let description = '';
       if (variant.product_description && variant.product_description.soft_bullets && variant.product_description.soft_bullets.bullets && variant.product_description.soft_bullets.bullets.length) {
-        description = decodeHtml(`|| ` + variant.product_description.soft_bullets.bullets.join(' || ')) + ' ';
+        description = decodeHtml('|| ' + variant.product_description.soft_bullets.bullets.join(' || ')) + ' ';
         addHiddenDiv(newDiv, 'descriptionBullets', variant.product_description.soft_bullets.bullets.length);
         addHiddenDiv(newDiv, 'additionalDesc', ' || ' + decodeHtml(variant.product_description.soft_bullets.bullets.join(' || ')));
       }
@@ -215,7 +214,7 @@ async function implementation(
         addHiddenDiv(newDiv, 'color', variant.variation.color);
       }
 
-      let hasSpecifications = false;
+      const hasSpecifications = false;
       let storage = '';
       if (variant.product_description && variant.product_description.bullet_description) {
         const materials = [];
@@ -480,7 +479,6 @@ async function implementation(
         addHiddenDiv(newDiv, 'rotate', 'No');
       }
 
-
       const moreImageBtn = document.querySelector('.styles__LegendGridButtonOverlay-beej2j-13');
 
       if (moreImageBtn) {
@@ -492,18 +490,13 @@ async function implementation(
           slideDeck.querySelectorAll('.ZoomedSlide__Image-sc-10kwhw6-0').forEach(async (e, ind) => {
             if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
               e.click();
-              await new Promise((resolve, reject) => {
-                setTimeout(() => {
-                  resolve();
-                }, 1000);
-              });
+              await stall(1000);
               if (document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
                 videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
               }
             } else if (ind > 0) {
-              var images = e.getAttribute('src')
+              var images = e.getAttribute('src');
               if (!images.startsWith('https')) {
-                var image = e.getAttribute('src').startsWith('//');
                 secondaryImages.push(e.getAttribute('src').replace('//', 'https://').replace('/sc/64x64', ''));
               }
               if (images.startsWith('https')) {
@@ -518,18 +511,13 @@ async function implementation(
           sideImages.forEach(async (e, ind) => {
             if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
               e.click();
-              await new Promise((resolve, reject) => {
-                setTimeout(() => {
-                  resolve();
-                }, 1000);
-              });
+              await stall(1000);
               if (document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
                 videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
               }
             } else if (ind > 0) {
-              var images = e.getAttribute('src')
+              var images = e.getAttribute('src');
               if (!images.startsWith('https')) {
-                var image = e.getAttribute('src').startsWith('//');
                 secondaryImages.push(e.getAttribute('src').replace('//', 'https://').replace('/sc/64x64', ''));
               }
               if (images.startsWith('https')) {
@@ -539,10 +527,6 @@ async function implementation(
           });
         }
       }
-
-
-
-
 
       addHiddenDiv(newDiv, 'secondaryImages', secondaryImages.filter(img => img !== variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary).filter(onlyUnique).join(' | '));
       if (secondaryImages.length) {
@@ -554,8 +538,8 @@ async function implementation(
       fetch('https://redsky.target.com/v3/pdp/tcin/' + variant.tcin + '?excludes=taxonomy%2Cbulk_ship%2Cawesome_shop%2Cquestion_answer_statistics%2Crating_and_review_reviews%2Crating_and_review_statistics%2Cdeep_red_labels%2Cin_store_location%2Cavailable_to_promise_store%2Cavailable_to_promise_network&key=eb2551e4accc14f38cc42d32fbc2b2ea&fulfillment_test_mode=grocery_opu_team_member_test')
         .then(data => data.json())
         .then(async function (parent) {
-          var base = parent.product.item.enrichment.images[0].base_url
-          var alternateImages = parent.product.item.enrichment.images[0].alternate_urls.map(image => base + image)
+          var base = parent.product.item.enrichment.images[0].base_url;
+          var alternateImages = parent.product.item.enrichment.images[0].alternate_urls.map(image => base + image);
           addHiddenDiv(newDiv, 'alternateImages', alternateImages.filter(img => img !== parent.product.item.enrichment.images[0].base_url + parent.product.item.enrichment.images[0].primary).filter(onlyUnique).join(' | '));
           if (alternateImages.length) {
             addHiddenDiv(newDiv, 'alternateImageTotal', alternateImages.filter(img => img !== parent.product.item.enrichment.images[0].base_url + parent.product.item.enrichment.images[0].primary).filter(onlyUnique).length);
@@ -571,10 +555,11 @@ async function implementation(
         }
       }
 
+      console.log('Starting to gather manufacturer content');
       let hasTechnicalInfoPDF = 'No';
       let manufacturerDesc = '';
       const manufacturerImgs = [];
-      const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
+      const manufacturerCTA = document.querySelector('#wc-power-page');
       const frameContents = document.getElementById('frameContents' + variant.tcin);
       if (frameContents && frameContents.querySelector('#salsify-content')) {
         await stall(2000);
@@ -586,76 +571,73 @@ async function implementation(
           videos.push(e.src);
         });
       } else if (manufacturerCTA) {
-        if (document.getElementById('wc-power-page')) {
-          if (document.getElementById('wc-power-page').querySelector('button.wc-document-view-link.wc-document-view-link-with-image.wc-doc-thumb')) {
-            hasTechnicalInfoPDF = 'Yes';
+        if (document.getElementById('wc-power-page').querySelector('button.wc-document-view-link.wc-document-view-link-with-image.wc-doc-thumb')) {
+          hasTechnicalInfoPDF = 'Yes';
+        }
+
+        console.log('haswcpowerpage');
+        const manufacturerDescArr = [];
+        document.querySelectorAll('.wc-fragment').forEach(e => {
+          if (e.getAttribute('data-section-caption') && e.getAttribute('data-section-caption') === 'Docs') {
+            return;
           }
 
-          console.log('haswcpowerpage');
-          const manufacturerDescArr = [];
-          document.querySelectorAll('.wc-fragment').forEach(e => {
-            if (e.getAttribute('data-section-caption') && e.getAttribute('data-section-caption') === 'Docs') {
-              return;
-            }
-
-            if (e.querySelector('.wc-pct-data')) {
-              e.querySelectorAll('tr').forEach(tr => {
-                if (tr && tr.innerText && !manufacturerDescArr.includes(tr.innerText)) {
-                  manufacturerDescArr.push(tr.innerText);
-                }
-              });
-            } else {
+          if (e.querySelector('.wc-pct-data')) {
+            e.querySelectorAll('tr').forEach(tr => {
+              if (tr && tr.innerText && !manufacturerDescArr.includes(tr.innerText)) {
+                manufacturerDescArr.push(tr.innerText);
+              }
+            });
+          } else {
+            manufacturerDescArr.push(e.innerText);
+          }
+        });
+        document.getElementById('wc-power-page').querySelectorAll('iframe').forEach(e => {
+          console.log('hasframehere');
+          const frameContents = e.contentWindow.document.body;
+          frameContents.querySelectorAll('h1, h2, h3, p, li').forEach(e => {
+            if (!e.getAttribute('class') || (e.getAttribute('class') && !e.getAttribute('class').includes('vjs'))) {
               manufacturerDescArr.push(e.innerText);
             }
           });
-          document.getElementById('wc-power-page').querySelectorAll('iframe').forEach(e => {
-            console.log('hasframehere');
-            const frameContents = e.contentWindow.document.body;
-            frameContents.querySelectorAll('h1, h2, h3, p, li').forEach(e => {
-              if (!e.getAttribute('class') || (e.getAttribute('class') && !e.getAttribute('class').includes('vjs'))) {
-                manufacturerDescArr.push(e.innerText);
-              }
-            });
-            frameContents.querySelectorAll('img').forEach(e => {
-              manufacturerImgs.push(e.src);
-            });
-            frameContents.querySelectorAll('video').forEach(e => {
-              videos.push(e.src);
-            });
-            frameContents.querySelectorAll('.wc-thumb').forEach(async (e, ind) => {
-              setTimeout(() => {
-                if (e.querySelector('button')) {
-                  e.querySelector('img').click();
-                  if (frameContents.querySelector('.wc-video-container')) {
-                    videos.push(frameContents.querySelector('.wc-video-container').querySelector('video').src);
-                  }
-                }
-              }, (ind * 500) + 500);
-            });
-          });
-          manufacturerDesc = manufacturerDescArr.join(' ').replace(/See product page/g, '').replace(/\d options available/g, '');
-          if (!manufacturerDescArr.length) {
-            manufacturerDesc = document.getElementById('wc-power-page').innerText;
-          }
-          document.getElementById('wc-power-page').querySelectorAll('img').forEach(e => {
-            console.log('wcimagehere', e.src);
+          frameContents.querySelectorAll('img').forEach(e => {
             manufacturerImgs.push(e.src);
           });
-          document.getElementById('wc-power-page').querySelectorAll('video').forEach(e => {
+          frameContents.querySelectorAll('video').forEach(e => {
             videos.push(e.src);
           });
-        }
+          frameContents.querySelectorAll('.wc-thumb').forEach(async (e, ind) => {
+            setTimeout(() => {
+              if (e.querySelector('button')) {
+                e.querySelector('img').click();
+                if (frameContents.querySelector('.wc-video-container')) {
+                  videos.push(frameContents.querySelector('.wc-video-container').querySelector('video').src);
+                }
+              }
+            }, (ind * 500) + 500);
+          });
+        });
+        manufacturerDesc = manufacturerDescArr.join(' ').replace(/See product page/g, '').replace(/\d options available/g, '');
       }
 
       addHiddenDiv(newDiv, 'pdf', hasTechnicalInfoPDF);
 
-      function onlyUnique(value, index, self) {
+      function onlyUnique (value, index, self) {
         return self.indexOf(value) === index;
       }
-
+      if (!manufacturerDesc) {
+        manufacturerDesc = document.getElementById('wc-power-page').innerText;
+        document.getElementById('wc-power-page').querySelectorAll('img').forEach(e => {
+          manufacturerImgs.push(e.src);
+        });
+        document.getElementById('wc-power-page').querySelectorAll('video').forEach(e => {
+          videos.push(e.src);
+        });
+      }
       if (manufacturerDesc && manufacturerDesc !== 'Loading, please wait...') {
         addHiddenDiv(newDiv, 'manufacturerDesc', manufacturerDesc);
       }
+      console.log('manufacturimgs', manufacturerDesc);
       addHiddenDiv(newDiv, 'manufacturerImgs', manufacturerImgs.filter(img => !img.includes('/assets/') && !img.includes('/resources/')).filter(onlyUnique).join('|'));
       console.log('manufacturimgs', manufacturerImgs);
 
@@ -680,7 +662,7 @@ async function implementation(
 
       var query = document.evaluate('//div[@class="Col-favj32-0 hezhbt h-padding-h-default"]/div/b/parent::div', document,
         null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      var results = Array(query.snapshotLength).fill(0).map((element, index) => query.snapshotItem(index).innerText)
+      var results = Array(query.snapshotLength).fill(0).map((element, index) => query.snapshotItem(index).innerText);
       results.map(val => {
         return addHiddenDiv(newDiv, 'specificationsdiv', val);
       });
@@ -702,7 +684,6 @@ async function implementation(
           }
         });
 
-
       await fetch('https://redsky.target.com/v3/pdp/tcin/' + variant.tcin + '?pricing_store_id=1465&key=eb2551e4accc14f38cc42d32fbc2b2ea')
         .then(data => data.json())
         .then(variantData => {
@@ -711,7 +692,6 @@ async function implementation(
             if (variantData.price.current_retail || variantData.price.formatted_current_price) {
               addHiddenDiv(newDiv, 'price', variantData.price.current_retail || variantData.price.formatted_current_price);
             }
-
           }
         });
 

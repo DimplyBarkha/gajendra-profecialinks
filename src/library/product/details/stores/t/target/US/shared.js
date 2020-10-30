@@ -51,7 +51,7 @@ const transform = (data) => {
         let text = '';
         row.specifications.forEach(item => {
           text = text + (text ? ' || ' : '') + item.text;
-          text = text.replace('<B>','').replace('</B>','')
+          text = text.replace('<B>', '').replace('</B>', '');
         });
         row.specifications = [{ text }];
       }
