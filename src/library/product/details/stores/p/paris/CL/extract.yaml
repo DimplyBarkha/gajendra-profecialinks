@@ -18,11 +18,11 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //div[contains(@class,"breadcrumb mt-20")]/a/span
+    xpath: //div[contains(@class,"breadcrumb mt-20")]/a/span | //a[contains(@class,"breadcrumb-element")]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
-    xpath: //h1[contains(@class,"product-name")]
+    xpath: //h1[contains(@class,"product-name")]/text()[normalize-space()]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -31,7 +31,7 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
-    xpath: (//div[contains(@class,"item-price offer-price price-tc cencosud-price-2")]/node()[not(self::input)])[1] | (//div[contains(@class,"default-price")])[1] 
+    xpath: (//div[contains(@class,"item-price offer-price price-tc cencosud-price-2")]/node()[not(self::input)])[1] | (//div[contains(@class,"default-price")]/text()[normalize-space()])[1] 
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -130,7 +130,7 @@ fields:
     defaultValue: '0'
   - name: name
     singleValue: false
-    xpath: //h1[contains(@class,"product-name")]
+    xpath: //h1[contains(@class,"product-name")]/text()[normalize-space()]
     description: The product name
   - name: specifications
     singleValue: false
