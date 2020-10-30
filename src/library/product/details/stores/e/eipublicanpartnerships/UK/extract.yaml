@@ -1,0 +1,63 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//figure[contains(@class,'mz-figure')]//img/@src)[1]
+  - name: keywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: url
+    singleValue: false
+    xpath: //form[@name="aspnetForm"]/@action
+    regExp: (\/.*)
+    regExpReplace: https://ordering.eipublicanpartnerships.com$1
+  - name: category
+    singleValue: false
+    xpath: //div[@class="BreadCrumbs_LeftSectionContainer"]//span[@class="BreadCrumbs_BreadCrumbLinks"]/a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="ProductTitleBar_Title"]
+  - name: price
+    singleValue: false
+    xpath: (//div[@class="Prices_PriceText"])[2]
+  - name: listPrice
+    singleValue: false
+    xpath: (//div[@class="Prices_PriceText"])[1]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div//span[@class="stock-status-container"]
+  - name: description
+    singleValue: false
+    xpath: //div[@class="ProductDescription_Container ProductSKU_ProductDescription"]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@class="ProductShortDescription"]//ul[@class="noinherit"]//li[@class="noinherit"])
+  - name: quantity
+    singleValue: false
+    xpath: //div[@id="dvSellingUnits"]
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="CollapsiblePanelHead_HeaderTitle"]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="CollapsiblePanelHead_HeaderTitle"]
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //div[@class="allergen-info"]
+  - name: _input
+    singleValue: false
+    xpath: //div[@class="CollapsiblePanelHead_HeaderTitle"]
+  - name: alcoholContent
+    singleValue: false
+    xpath: //div[@class="ProductShortDescription"]
+    regExp: ABV:\s(\d.*%)
+    regExpReplace: $1
+  - name: direction
+    singlevalue: false
+    xpath: //div[@class="eipp_u-clearfix"]//p[@class="eipp_p"][2]
+  - name: ingredientsList
+    singlevalue: false
+    xpath: //div[@class="eipp_u-clearfix"]//p[@class="eipp_p"][1]  
