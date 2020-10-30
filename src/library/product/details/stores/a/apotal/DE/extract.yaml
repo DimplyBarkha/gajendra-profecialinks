@@ -1,0 +1,49 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    xpath: //meta[@name="keywords"]/@content
+    singleValue: false
+  - name: name
+    xpath: //div[@class="boxProductDetail"]//h1
+    singleValue: false
+  - name: nameExtended
+    xpath: //div[@class="boxProductDetail"]//h1
+    singleValue: false
+  - name: image
+    xpath: //div[@class="boxProductDetail"]//div[@class="image"]//img/@src
+    singleValue: false
+  - name: manufacturer
+    xpath: //div[@class="boxProductDetail"]//dd[@class="producer"]
+    singleValue: false
+  - name: quantity
+    xpath: //div[@class="boxProductDetail"]//dd[@class="packageSize"]
+    singleValue: false
+  - name: price
+    xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//dd[@class="yourPrice"]
+    # regExp: (\d.*)
+    # regExpReplace: $1 kr
+    singleValue: false
+  - name: availabilityText
+    xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//dl[@class="productAvailability"]//dd//span[2]
+    singleValue: false
+  - name: sku
+    xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//meta[@itemprop="sku"]/@content
+    singleValue: false
+  - name: description
+    xpath: //div[@class="boxProductDetail"]//div[@id="productDesc"]
+    singleValue: false
+  - name: packSize
+    xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//dd[@class="packageSize"]
+    regExp: (\d+)p
+  - name: category
+    xpath: //div[@class="navigatorBoxLeft"]//div[@class="navigatorBoxMiddle"]/a
+    singleValue: false
+  - name: ratingCount
+    xpath: //div[@class="boxProductDetail"]//div[contains(@class, "customerReviews")]//a//span/text()
+    singleValue: false
+  - name: eangtin
+    xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//meta[@itemprop="gtin14"]/@content
+    singleValue: false
