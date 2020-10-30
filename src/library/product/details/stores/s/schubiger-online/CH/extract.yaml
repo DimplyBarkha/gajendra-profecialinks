@@ -6,15 +6,17 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: //div[contains(@class, "thumbnails")]//div[contains(@class, "swiper-slide") and contains(@class, "swiper-slide-active")]//img/@src
+    # xpath: //div[contains(@class, "thumbnails")]//div[contains(@class, "swiper-slide") and contains(@class, "swiper-slide-active")]//img/@src
+    xpath: //div[@class='swiper-wrapper']/div[position()=1]//div[contains(@class,'product-gallery')]//img/@src
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
-    xpath: //div[contains(@class, "thumbnails")]//div[contains(@class, "swiper-slide") and contains(@class, "swiper-slide-active")]//img/@alt
+    # xpath: //div[contains(@class, "thumbnails")]//div[contains(@class, "swiper-slide") and contains(@class, "swiper-slide-active")]//img/@alt
+    xpath: //div[@class='swiper-wrapper']//div[contains(@class,'product-gallery')]//img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class, "thumbnails")]//div[contains(@class, "swiper-slide") and not(contains(@class, "swiper-slide-active"))]//img/@src
+    xpath: //div[@class='swiper-wrapper']/div[position()>1]//div[contains(@class,'product-gallery')]//img/@src
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -38,7 +40,7 @@ fields:
     manualSelector: div[id="added_availabilityText"]
   - name: description
     singleValue: false
-    xpath: //div[contains(@class, "accordion__text")]  
+    xpath: //div[contains(@class, "accordion__text")]|//div[contains(@class,'product-detail')]//div[contains(@class,'tabs__text')]/text()
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -127,7 +129,7 @@ fields:
   - name: color
     singleValue: false
     description: A textual description of the colour
-    xpath: //dt[contains(text(), "Farbe")]/following-sibling::*
+    xpath: //th[contains(text(), "Farbe")]/following-sibling::td/span/text()
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
@@ -397,7 +399,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(@data-accordion, "product-specifications")]//div[contains(@class, "item-content")]
+    xpath: //div[@id="specs"]/text()|//div[contains(@data-accordion, "product-specifications")]//div[contains(@class, "item-content")]
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product

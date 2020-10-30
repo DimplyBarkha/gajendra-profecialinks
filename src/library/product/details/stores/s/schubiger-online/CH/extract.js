@@ -57,6 +57,29 @@ async function implementation (inputs, parameters, context, dependencies) {
   async function openProductDetailsTab () {
     // Clicking on the product specifications and other tabs to load product details on the DOM
     await context.evaluate(async function () {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      if (document.querySelector('span[data-component*="product-specification"]')) {
+        const expandableSpan = document.querySelector('span[data-component*="product-specification"]');
+        const expandableAnchor = expandableSpan.parentNode;
+        expandableAnchor.click();
+        if (document.querySelector('table[class*="product-specification"]')) {
+          const tbl = document.querySelector('table[class*="product-specification"]');
+          const tblRows = tbl.querySelectorAll('tr[class*="product-specifications"]');
+          let specsString = '';
+          for (let i = 0; i < tblRows.length; i++) {
+            specsString += tblRows[i].querySelector('th').innerText + ' || ';
+            specsString += tblRows[i].querySelector('td span').innerText + ' || ';
+          }
+          addHiddenDiv('specs', specsString);
+        }
+      }
+
       const infoTabSelector = document.querySelectorAll('div[class*="accordion__item"] div[class*="accordion__item-head"]');
       for (let i = 0; i < infoTabSelector.length; i++) {
         const infoTab = infoTabSelector[i];
