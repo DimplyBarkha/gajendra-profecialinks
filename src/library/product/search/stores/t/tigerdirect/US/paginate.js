@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'tigerdirect',
-    nextLinkSelector: '#pagnNextString, #pagnNextLink, table tbody tr td a.paginatNext',
+    nextLinkSelector: 'a[title="Next page"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',

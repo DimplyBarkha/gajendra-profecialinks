@@ -3,52 +3,27 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: id
-    singleValue: false
-  - name: rankOrganic
-    singleValue: true
   - name: productUrl
     singleValue: false
-    xpath: //h3[@class="itemName"]/a[@class="itemImage"]/@href
+    xpath: //div[@class="sku-img"]//a//@href
     regExp: (applications/.+)
     regExpReplace: https://www.tigerdirect.com/$1
   - name: name
     singleValue: false
-    xpath: //h3[@class="itemName"]//a/@title
+    xpath: //div[@class="sku-img"]//a//@title
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class='productImage']/a[@class='itemImage']/img/@src
-  - name: reviewCount
+    xpath: //div[@class="sku-img"]//a//img//@src
+  - name: sku
     singleValue: false
-    #xpath: //a[@class='itemRating']/@title
-    #regExp: ( \d)
-    #defaultValue: 0
-    type: NUMBER
-  - name: gtin
-    singleValue: false
-    xpath: //p[@class="itemModel"]
-    regExp:  ([A-Z]{2}.+)
+    xpath: //div[@class="sku-details"]//p
+    regExp: ([A-Z]{2}.+)
   - name: id
     singleValue: false
-    xpath: //p[@class="itemModel"]
+    xpath: //div[@class="sku-details"]//p
     regExp: (\d{7,8})|(\d{6,8})
-    #type: NUMBER
-  - name: ratingCount
-    singleValue: false
-    #xpath: //a[@class='itemRating']/@title
-    #regExp: ^\d
-    #defaultValue: 0
-  - name: soldBy
-    singleValue: true
-  - name: rank
-    singleValue: true
-  - name: aggregateRating
-    singleValue: false
-  - name: endorsementText
-    singleValue: true
   - name: price
     singleValue: false
-    #xpath: concat(//div[@class="salePrice"]/sup,//div[@class="salePrice"]/text(),//span[@class="priceDecimalMark"])
-    xpath: //div[@class='salePrice']
-    regExp: (.*)(\$[0-9.]+)
+    xpath: //p[@class="price"]
+    regExp: (.*)(\$[0-9],?[0-9.]+)
     regExpReplace: $2
