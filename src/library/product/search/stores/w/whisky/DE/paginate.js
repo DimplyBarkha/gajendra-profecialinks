@@ -3,10 +3,10 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'whisky',
-    nextLinkSelector:'body > ul > li.first > a',
+    nextLinkSelector:'body > div.goog-te-spinner-pos',
     mutationSelector: null,
-    spinnerSelector:'body > ul',
-    loadedSelector: null,
+    spinnerSelector:null,
+    loadedSelector:'body',
     openSearchDefinition: null,
     domain: 'whisky.de',
   },

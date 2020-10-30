@@ -10,20 +10,21 @@ fields:
     xpath: //a[@class='title']/img/@src
   - name: name
     singleValue: true
-    xpath: //div[@class="infinite-scroll"]//div[@class="article-title"]//font//font//text()
+    xpath: //a[@class='title']/@title
   - name: id
-    singleValue: true
     description: The store-specific product identifier
     xpath: //div[@class='form-group to-basket-default']//button//@data-datamints-enhancedga-product
-    RegExp: (\d+)
+    regExp: '"(.*?)"([^:",]+)'
+    regExpReplace: $2
   - name: price
     singleValue: true
     description: The offered price for the product
-    xpath: //div[@class="infinite-scroll"]//div[@class='article-price']//font//text()
+    xpath: //div[@class="infinite-scroll"]//span[@class="article-price-default article-club-hidden"]//text()
   - name: Rating
     description: The rating value of the product
     xpath: //div[@class="infinite-scroll"]//div[@class="rating "]/@data-rating
-  - name: Availability
-    description: The availability status of the product
-    xpath: //span[@class='hasTooltip']//font//font//text()
-
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@class="infinite-scroll"]//span[@class='hasTooltip']//text()
+    # defaultValue: In stock
+    # regExp: OutOfStock
