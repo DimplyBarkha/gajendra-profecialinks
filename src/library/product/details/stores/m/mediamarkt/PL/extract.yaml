@@ -10,7 +10,7 @@ fields:
   - name: imageAlt
     xpath: //div[@id='js-offerGallery']//div[contains(@class, 'slick-current')]/img/@alt
   - name: videos
-    xpath: //div[@id='js-offerGallery']//div[@data-media='yt']/@data-yt
+    xpath: //li[contains(@class, 'ytGallery')]/@data-video
     regExp: (.+)
     regExpReplace: https://www.youtube.com/embed/$1
   - name: category
@@ -22,10 +22,10 @@ fields:
   - name: availabilityText
     xpath: //form[contains(@class, 'no-notify')]//p[@class='m-productUnavail_headerTitle']
     regExp: (.+)
-    regExpReplace: Out of stock
-    defaultValue: In stock
+    regExpReplace: Out Of Stock
+    defaultValue: In Stock
   - name: description
-    xpath: //div[contains(@class, 'b-offerDescription_short')]/*[not(self::ul)]
+    xpath: //div[contains(@class,'descriptionInner')]//div[contains(@class,'editorContent')]/*[not(self::ul)]
   - name: brandText
     xpath: //meta[@itemprop='brand']/@content
   - name: brandLink
@@ -79,8 +79,14 @@ fields:
   - name: additionalDescBulletInfo
     xpath: //div[contains(@class, 'b-offerDescription_short')]/ul/li
   - name: listPrice
-    xpath: //div[contains(@class, 'm-priceBox_old')]
+    xpath: //div[contains(@class,"productAction")]//div[contains(@class, 'm-priceBox_old')] 
   - name: variantInformation
     xpath: //dt[contains(., 'Kolor')]/following-sibling::dd
   - name: color
     xpath: //dt[contains(., 'Kolor')]/following-sibling::dd
+  - name: name
+    xpath: //h1[contains(@class, 'm-typo')]
+  - name: energyEfficiency
+    xpath: //dt[contains(., 'lasa energetyczna')]/following-sibling::dd
+  - name: enhancedContent
+    xpath: //meta[@itemprop="description"]/@content 
