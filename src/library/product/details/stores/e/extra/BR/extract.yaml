@@ -131,7 +131,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@id='descricao']//img//@src | //div[@id='flix-lg-inpage']//img[contains(@class,'flix-img-responsive')]/@srcset
+    xpath: //div[@id='descricao']//img//@src | //div[contains(@class,'aplusImages')]
   - name: secondaryImageTotal
   - name: privacyPolicy
     singleValue: false
