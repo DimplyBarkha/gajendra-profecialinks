@@ -77,7 +77,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin
+    #xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -89,7 +89,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    #xpath: //div[@class="product_meta"]//span//span[@class="sku"]
+    xpath: //div[@class="product_meta"]//span//span[@class="sku"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on

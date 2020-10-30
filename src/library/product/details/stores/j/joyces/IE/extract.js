@@ -9,7 +9,7 @@ module.exports = {
     domain: 'joyces.ie',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -128,6 +128,6 @@ module.exports = {
         addElementToDocument('added_bulletCount', descBulletCount.length);
       }
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform: transformParam });
   },
 };
