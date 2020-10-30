@@ -3,42 +3,44 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: image
+  - name: product_image
     singleValue: true
-    xpath: //div[@class='fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img fotorama__active']/img[@src]
-  - name: imageAlt
+    xpath: //div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]//img[@class="fotorama__img"]//@alt
+  - name: image_alt_text
     singleValue: true
+    xpath: //div[@class="page-title-wrapper product"]//h1//span
   - name: alternateImages
     singleValue: false
+    xpath: //div[@class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]//img//@src
   - name: metaKeywords
     singleValue: true
-    xpath: //meta[contains(@name, "keywords")]/@content
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    xpath: //li[@class="item category2437"]/a/font//text()
-  - name: nameExtended
+    xpath: //div[@class="breadcrumbs"]
+  - name: sub_Category
+    singleValue: false
+    xpath: //div[@class="breadcrumbs"]  
+  - name: product_description
     singleValue: true
+    xpath: //span[@class="base"]
   - name: listPrice
     singleValue: true
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[@class="price-wrapper "][@data-price-amount]
+    xpath: //span[@id="product-price-29234"][@data-price-amount]
+  - name: harvested_price
+    singleValue: true   
+    description: The offered price for the selected product variant - if a user clicks add to basket this is the price they would be charged
+    xpath: //span[@id="product-price-154271"]/@data-price-amount
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
-    xpath: //div[@class="box-tocart"]
-  - name: description
-    singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
-    xpath: //div[@class="page-title-wrapper product"]
+    xpath: //button[@class="richrelevance-recommendations-item-cart action primary tocart product-add-to-cart-7311380007378 disabled"]//span
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -50,6 +52,10 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+  - name: packSize
+    singleValue: true
+    description: The number of products on offer or in the package
+    xpath: //div[@class="product attribute description"]//div
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -61,29 +67,38 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-  - name: gtin
+    xpath: //div[@class="mt2 mb1"]//div[5]
+  - name: ean_gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class="product attribute description"]//div
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class="product attribute sku"]
+    xpath: //div[@class="product attribute sku"]//div[@class="value"]
+  - name: rpc
+    singleValue: true
+    description: The retailer product code
+    xpath: //div[@class="product attribute sku"]//div[@class="value"]
+    xpath: //div[@class="swatch-opt"]/@data-product-sku
+  - name: mpc
+    singleValue: true
+    description: The manufacturer product code / Model Number
+    xpath: //div[@class="swatch-opt"]/@data-product-sku
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-  - name: mpc
+  - name: size
     singleValue: true
-    description: The manufacturer model code (unique) of the product
-  - name: packSize
-    singleValue: true
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
+    description: The size of the product
+    xpath: //div[@class="product attribute description"]//div//ul//li
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
-  - name: directions
+  - name: directions_information
     singleValue: true
     description: Content under "directions" header
+    xpath: //div[@class="product attribute description"]//div
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -105,9 +120,11 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
+    xpath: //div[@class="mt2 mb1"]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
+    xpath: //div[@class='mt2 mb1']//div[5]
   - name: variantCount
     singleValue: true
     description: Number of variants listed
@@ -115,22 +132,24 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //div[@class="product attribute description"]//div
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
-  - name: manufacturerDescription
+  - name: additional_description
     singleValue: false
-    description: The extended description of the product supplied by the lister
+    description: The description of the product supplied by the lister
+    xpath: //div[@class="product attribute description"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
   - name: videos
     singleValue: false
     description: URLs of videos on page
-  - name: name
+  - name: brand
     singleValue: true
-    description: The product name
-    xpath: //span[@class="base"]//text()
+    description: The brand name
+    xpath: //div[@class="item-brand-name"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -388,6 +407,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //div[@id="attribute-value"]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -436,6 +456,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //div[@class="product attribute description"]//div//ul//li[2]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -459,8 +480,8 @@ fields:
   - name: ageSuitability
     singleValue: true
     description: Recommended age displayed on the product page.
-      https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
+    xpath: //div[@class="product attribute description"]//div
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product.
@@ -486,7 +507,7 @@ fields:
   - name: materials
     singleValue: true
     description: Materials used to make the product
-    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: //div[@class="product attribute description"]//div//ul//li[3]
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
