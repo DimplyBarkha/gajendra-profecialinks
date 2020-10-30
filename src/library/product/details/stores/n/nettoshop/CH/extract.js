@@ -16,7 +16,7 @@ module.exports = {
     dependencies,
   ) => {
     // const cssProduct = 'div.c-product-detail ember-view';
-    const cssProductDetails = 'div[class="c-accordion__toggle-icon"] button';
+    const cssProductDetails = 'div.ivy-tabs-tablist a.ivy-tabs-tab';
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
@@ -59,7 +59,7 @@ module.exports = {
     }
 
     // specs click
-    const specSelector = 'div[data-accordion="c-product-specifications"] button';
+    const specSelector = 'div.ivy-tabs-tablist a.ivy-tabs-tab';
 
     console.log('.....waiting......');
     await context.waitForSelector(specSelector, { timeout: 5000 });

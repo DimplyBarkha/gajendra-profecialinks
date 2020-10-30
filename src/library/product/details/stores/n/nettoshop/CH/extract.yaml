@@ -13,9 +13,9 @@ fields:
     xpath: (//div[@class="swiper-slide ember-view swiper-slide-active"])[1]//img[@class="c-media-container__fallback-img lazyloaded"]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="c-product-gallery__thumbnails"]//@src
-    regExp: (.*)XXS(.*)
-    regExpReplace: https:$1M$2
+    xpath: //div[@class="c-product-gallery__item"]//img//@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
