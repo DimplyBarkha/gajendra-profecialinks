@@ -24,9 +24,13 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //div[@id="ProductDetail"]//div[@class="prices"]/span[@class="wasprice"]
+    regExp: (.+?)\sex\s
+    regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //div[@id="ProductDetail"]//div[@class="prices"]//span[@class="nowprice"]//span[@class="inc-vat"]    
+    xpath: //div[@id="ProductDetail"]//div[@class="prices"]//span[@class="nowprice"]
+    regExp: (.+?)\sex\s
+    regExpReplace: $1
   - name: availabilityText
     singleValue: false
     xpath: //div[@id="ProductDetail"]//form[@id="AddToBasketForm"]//div[contains(@class,"availability") and contains(., 'In stock for delivery')]
@@ -55,7 +59,7 @@ fields:
     singleValue: false
     xpath: //div[@id="ProductDetail"]//div[@class="product-media"]//div[@class="videoWrap"]//iframe/@src
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="ProductDetail"]//div[@class="product-item"]//h1
   - name: variantInformation
     singleValue: false
