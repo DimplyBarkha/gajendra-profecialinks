@@ -66,14 +66,10 @@ fields:
     xpath: //input[@id='ctl00_Conteudo_hdnIdSkuSelecionado']/@value    
   - name: variantId
     singleValue: true
-    xpath: //span[@itemprop="productID"]
-    regExp: Item\s*(.+)\)
-    regExpReplace: $1  
+    xpath: //input[@id='ctl00_Conteudo_hdnIdSkuSelecionado']/@value      
   - name: firstVariant
     singleValue: true
-    xpath: //span[@itemprop="productID"]
-    regExp: Item\s*(.+)\)
-    regExpReplace: $1
+    xpath: //input[@id='ctl00_Conteudo_hdnIdSkuSelecionado']/@value    
   - name: variantCount
     singleValue: false
     xpath: //select[@data-id='dropdown-skus']/option[@class='skuItem']
