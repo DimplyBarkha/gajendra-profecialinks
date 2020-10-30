@@ -74,7 +74,7 @@ fields:
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
-  xpath: //ul[@class="bop-tagsList"]/li[last()]/div[@class='bop-tagsWrapper']/a[@class='bop-tag']
+  xpath: //h6[text()="Manufacturer"]/following-sibling::div
   singleValue: true
   description: Product manufacturer
 - name: quantity
@@ -112,10 +112,11 @@ fields:
   singleValue: true
   description: Content under "legal disclaimer" header
 - name: directions
-  xpath: normalize-space(//section[@id="productInformation"]/div[@class="bop-section bop-productDetails gn-accordion"]/div[@class="gn-accordionElement"][2]/div[2]/div)
+  xpath: //div[@class='gn-content bop-info__field'][2]/h6[contains(text(), "Usage")]/following-sibling::div
   singleValue: true
   description: Content under "directions" header
 - name: warnings
+  xpath: //div[contains(text(), "Warning")]
   singleValue: true
   description: Content under "warnings" header
 - name: ratingCount
@@ -127,8 +128,8 @@ fields:
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
-  type: STRING
-  xpath: //span[@itemprop="ratingValue"]
+  defaultValue: null
+  xpath: //span[@itemprop="ratingValue"]/text()
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
@@ -264,8 +265,7 @@ fields:
   singleValue: true
   description: 
 - name: ingredientsList
-  xpath: normalize-space(//div[@class='gn-accordionElement'][2]/div[@class='gn-accordionElement__content gn-accordionElement__content--expanded']/div[@class='gn-accordionElement__wrapper']/div[@class='gn-content bop-info__field'][1])
-  regExp: Ingredients(.{1,})
+  xpath: //h6[contains(text(), "Ingredients")]/following-sibling::div
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
@@ -280,32 +280,33 @@ fields:
   singleValue: true
   description: Suggested number of servings of the product.
 - name: caloriesPerServing
-  xpath: //table/tbody/tr[3]/td[2]/text()
+  xpath: //td[contains(text(), "Energy")]/following::td
+  regExp: (\d+kcal)
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
 - name: caloriesFromFatPerServing
-  xpath: //table/tbody/tr[5]/td[3]/text()
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
     on per 100g serving
 - name: totalFatPerServing
-  xpath: //table/tbody/tr[5]/td[2]/text()
-  type: STRING
+  xpath: //td[contains(text(), "Fat")]/following-sibling::td
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
 - name: totalFatPerServingUom
-  xpath: //table/tbody
-  regExp: Fat(.{1,4})g
-  regExpReplace: $1
+  xpath: //td[contains(text(), "Fat")]/following-sibling::td
+  regExp: \D$
   singleValue: true
   description: Unit of Measure Data for Total Fat content
 - name: saturatedFatPerServing
+  xpath: //td[contains(text(), "aturates")]/following-sibling::td
   singleValue: true
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
 - name: saturatedFatPerServingUom
+  xpath: //td[contains(text(), "Fat")]/following-sibling::td
+  regExp: \D$
   singleValue: true
   description: Unit of Measure Data for Saturated Fat content
 - name: transFatPerServing
@@ -330,80 +331,110 @@ fields:
   singleValue: true
   description: Unit of Measure Data for Sodium content
 - name: totalCarbPerServing
+  xpath: //td[contains(text(), "Carbohydrate")]/following-sibling::td
   singleValue: true
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
 - name: totalCarbPerServingUom
+  xpath: //td[contains(text(), "Carbohydrate")]/following-sibling::td
+  regExp: \D$
   singleValue: true
   description: Unit of Measure Data for Total Carbohydrate content
 - name: dietaryFibrePerServing
+  xpath: //td[contains(text(), "Fibre")]/following-sibling::td
   singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
 - name: dietaryFibrePerServingUom
+  xpath: //td[contains(text(), "Fibre")]/following-sibling::td
+  regExp: \D$
   singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
 - name: totalSugarsPerServing
+  xpath: //td[contains(text(), "ugars")]/following-sibling::td
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
 - name: totalSugarsPerServingUom
+  xpath: //td[contains(text(), "ugars")]/following-sibling::td
+  regExp: \D$
   singleValue: true
   description: Unit of Measure Data for Total Sugar content
 - name: proteinPerServing
+  xpath: //td[contains(text(), "Protein")]/following-sibling::td
   singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
 - name: proteinPerServingUom
+  xpath: //td[contains(text(), "Protein")]/following-sibling::td
+  regExp: \D$
   singleValue: true
   description: Unit of Measure Data for Protein
 - name: vitaminAPerServing
+  xpath: //td[contains(text(), "itamin A")]/following-sibling::td
   singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
 - name: vitaminAPerServingUom
+  xpath: //td[contains(text(), "itamin A")]/following-sibling::td
+  regExp: \D{1,}$
   singleValue: true
   description: Unit of Measure Data for Vitamin A
 - name: vitaminCPerServing
+  xpath: //td[contains(text(), "itamin C")]/following-sibling::td
   singleValue: true
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
 - name: vitaminCPerServingUom
+  xpath: //td[contains(text(), "itamin C")]/following-sibling::td
+  regExp: \D{1,}$
   singleValue: true
   description: Unit of Measure Data for Vitamin C
 - name: calciumPerServing
+  xpath: //td[contains(text(), "Calcium")]/following-sibling::td
   singleValue: true
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
 - name: calciumPerServingUom
+  xpath: //td[contains(text(), "Calcium")]/following-sibling::td
+  regExp: \D{1,}$
   singleValue: true
   description: Unit of Measure Data for Calcium
 - name: ironPerServing
+  xpath: //td[contains(text(), "Iron")]/following-sibling::td
   singleValue: true
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
 - name: ironPerServingUom
+  xpath: //td[contains(text(), "Iron")]/following-sibling::td
+  regExp: \D{1,}$
   singleValue: true
   description: Unit of Measure Data for Iron
 - name: dietarySymbols
   singleValue: true
   description: Information related to the dietary symbols of a specific product
 - name: magnesiumPerServing
+  xpath: //td[contains(text(), "Magnesium")]/following-sibling::td
   singleValue: true
   description: Nutritional Information for Magnesium content - Usually based on per
     100g serving
 - name: magnesiumPerServingUom
+  xpath: //td[contains(text(), "Magnesium")]/following-sibling::td
+  regExp: \D{1,}$
   singleValue: true
   description: Unit of Measure Data for Magnesium
 - name: saltPerServing
+  xpath: //td[contains(text(), "Salt")]/following-sibling::td
   singleValue: true
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
 - name: saltPerServingUom
+  xpath: //td[contains(text(), "Salt")]/following-sibling::td
+  regExp: \D{1,}$
   singleValue: true
   description: Unit of Measure Data for Salt
 - name: dietaryInformation
-  xpath: //div[@class='gn-accordionElement'][last()]/div[@class='gn-accordionElement__content gn-accordionElement__content--expanded']//div[@class='gn-content bop-info__field'][last()]/div[@class='bop-info__content']
+  xpath: //h6[contains(text(), "Dietary")]/following-sibling::div
   singleValue: true
   description: 
 - name: specifications
@@ -413,21 +444,26 @@ fields:
   singleValue: true
   description: Guarantee associated with the product
 - name: storage
-  singleValue: true
+  xpath: //h6[contains(text(), "Storage")]/following-sibling::div
+  singleValue: false
   description: Suggested storage location for product
 - name: countryOfOrigin
+  xpath: //h6[text()="Country of Origin"]/following-sibling::div
   singleValue: true
   description: The country from which the product originates
 - name: allergyAdvice
   singleValue: true
   description: Allergy information associated with the product
 - name: recyclingInformation
+  xpath: //h6[contains(text(), "Recycling ")]/following-sibling::div
   singleValue: true
   description: Recycling information associated with the product
 - name: productOtherInformation
+  xpath: //h6[contains(text(), "Other Information")]/following-sibling::div
   singleValue: false
   description: Any other product information
 - name: packaging
+  xpath: //h6[contains(text(), "Packaging")]/following-sibling::div
   singleValue: true
   description: Packaging information
 - name: additives
@@ -446,9 +482,13 @@ fields:
   singleValue: true
   description: The unit of measurement used in price_per_unit
 - name: promotion
+  xpath: //p[@class="bop-promotion__title bop-promotion__title--offer"]
   singleValue: true
   description: promotion text on product page
 - name: alcoholContent
+  xpath: //h6[contains(text(), "ABV")]/following-sibling::div
+  regExp: (.+)
+  regExpReplace: $1%
   singleValue: true
   description: Alcohol content information
 - name: newVersion
@@ -519,7 +559,9 @@ fields:
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: false
 - name: imageZoomFeaturePresent
+  xpath: //img[@role="presentation"][1]/@src
+  regExp: (.+)
+  regExpReplace: "Yes"
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
