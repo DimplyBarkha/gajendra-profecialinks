@@ -12,7 +12,9 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="product-col-1 product-image-container"]//div[@class="hide-mobile pdp-hide-mobile"]//ul/li[@class="thumb"]//a//img/@src
+    xpath: //div[@class="product-col-1 product-image-container"]//div[@class="hide-mobile pdp-hide-mobile"]//ul/li[@class="thumb"]//a//img/@data-lgimg
+    regExp: url":"([^"]+)
+    regExpReplace: $1
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -123,7 +125,7 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="hidden-mobile image-content-section"]/img/@src | //div[@class="fm-output fm-modern"]/div/@data-permalink
+    xpath: //div[@class="pdp-assets-top"]//div[contains(@class, "image-content-section") and contains(@class, "hidden-mobile")]/img/@src
     description: Images within the third party description
   - name: videos
     singleValue: false
