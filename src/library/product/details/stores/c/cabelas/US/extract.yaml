@@ -20,10 +20,12 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@aria-label="breadcrumb navigation region"]/li
+    # xpath: //ul[@aria-label="breadcrumb navigation region"]/li
     # xpath: (//div[@id='widget_breadcrumb']/ul/li[2]/a)
+    # xpath: //div[@id="widget_breadcrumb"]/ul/li[position()>1]
+    xpath: //div[@id="widget_breadcrumb"]/ul/li[position()>1 and position()<5] 
   # - name: sub_category
-  #   singleValue: false
+  #   singleValue: true
   #   description: The categories (e.g. from breadcrumbs)
   #   xpath: (//div[@id='widget_breadcrumb']/ul/li[3]/a)
   - name: nameExtended
@@ -74,11 +76,9 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    # regExpReplace: $1$2$3$4
-    # xpath: //div[@class="definingAttributes"]/div[contains(text(),'Size:')]
-    xpath: //input[@class="input_field quantity_input"]/@value
-    # regExp: (\d.+)
+    xpath: //div[@class="definingAttributes"]/div[contains(text(),'Size:')]
+    # xpath: //input[@class="input_field quantity_input"]/@value
+    regExp: (\d.+)
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
