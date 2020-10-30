@@ -21,10 +21,12 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //ol[@class="breadcrumb-list"]/li[position()>=2 and position()<4]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //li[@class="breadcrumb-list__item"][3]/a/span
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -49,7 +51,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: (//div[@class="vip__video-description__container"])[1]
+    xpath: (//div[@class="vip__video-description__container"])
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -58,6 +60,9 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //li[@class="breadcrumb-list__item"][5]/a/span
+    regExp: (.+) (.+)
+    regExpReplace: $1
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
