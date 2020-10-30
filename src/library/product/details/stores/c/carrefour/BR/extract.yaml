@@ -30,6 +30,7 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
+    xpath: //div[contains(@class,'product-available')]//span[contains(@class,'listPriceValue')]
   - name: price
     singleValue: false
     xpath: (//span[contains(@class,"sellingPrice")])[1]
@@ -406,6 +407,7 @@ fields:
   - name: countryOfOrigin
     singleValue: false
     description: The country from which the product originates
+    xpath: //*[@data-specification="País"]/following-sibling::*
   - name: allergyAdvice
     singleValue: false
     description: Allergy information associated with the product
@@ -418,6 +420,7 @@ fields:
     description: Any other product information
   - name: packaging
     singleValue: false
+    xpath: //*[@data-specification="Embalagem"]/following-sibling::*
     description: Packaging information
   - name: additives
     singleValue: false
@@ -509,7 +512,10 @@ fields:
     defaultValue: No
   - name: imageZoomFeaturePresent
     singleValue: false
+    xpath: (//div[contains(@class,'swiper-wrapper')]/@style)[4]
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: 'No'
