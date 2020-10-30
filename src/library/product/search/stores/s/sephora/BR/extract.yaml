@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='nm-main-search-container']/div[contains(@class,'col-main')]/div[contains(@class,'category-products')]/ul/li[contains(@class,'nm-product-item')]
+fields: 
+  - name: id
+    SingleValue: false
+    xpath: //div[@class='nm-product-img-container']//a[@class="product-image nm-product-img-link"]/@href
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class='nm-product-img-container']//a[@class="product-image nm-product-img-link"]/@href
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class='nm-product-img-container']//a[@class="product-image nm-product-img-link"]/img/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[4]/h2/a
+  - name: price
+    SingleValue: false
+    xpath: //div[4]/div[@class='hide-out-of-stock nm-offer']//div[@class='price-box']/span/span[@class='price']
+  - name: rankOrganic
+    SingleValue: false
+    defaultValue: 1
+  - name: rank
+    SingleValue: false
+    defaultValue: 1
+  - name: aggregateRating2
+    SingleValue: false
+    xpath: //div[contains(@class,'ratings')]//div[@class="rating"]//@style
