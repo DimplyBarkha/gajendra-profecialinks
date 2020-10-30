@@ -20,11 +20,12 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//div[@id='widget_breadcrumb']/ul/li[2]/a)
-  - name: sub_category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: (//div[@id='widget_breadcrumb']/ul/li[3]/a)
+    xpath: //ul[@aria-label="breadcrumb navigation region"]/li
+    # xpath: (//div[@id='widget_breadcrumb']/ul/li[2]/a)
+  # - name: sub_category
+  #   singleValue: false
+  #   description: The categories (e.g. from breadcrumbs)
+  #   xpath: (//div[@id='widget_breadcrumb']/ul/li[3]/a)
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
