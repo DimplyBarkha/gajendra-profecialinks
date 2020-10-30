@@ -4,22 +4,22 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     xpath: //img[@id='image-main']/@src
   - name: metaKeywords
-    singleValue: true`
+    singleValue: false
     xpath: //meta[@name='keywords']/@content
   - name: category
     singleValue: false
     xpath: //div[@class='breadcrumbs']//ul/li//a
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'product-info')]//h1
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'product-info')]//h1
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'product-info')]//div[contains(@class,'availability') and text()=' Készleten']
     regExp: (.+)
     regExpReplace: In Stock
@@ -27,42 +27,84 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //ul[contains(@class,'product-image-thumbs')]//a[not(contains(@class,'active'))]//img/@src
-  - name: listPrice
-    singleValue: true
+  - name: price
+    singleValue: false
     xpath: //span[contains(@itemprop,'offers')]//span[@class='price']
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     xpath: //img[@id='image-main']/@alt
   - name:  description
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='short-description']
-  - name: price
-    singleValue: true
-    xpath: //div[contains(@class,'old-price')]//span[@class='price' and @id]
+  - name:  description
+    singleValue: false
+    xpath: //div[@class='product-details-wrapper']//h4[contains(.,"Termék információk")]/following-sibling::p[1]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'old-price')]//span[@class='price' and contains(@id,'old-price')]
   - name: brandText
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='product-info']//div[contains(text(),'Márka:')]//strong
   - name: sku
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='product-sku']//span[not(@class)]  
   - name: variantId
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='product-sku']//span[not(@class)]  
   - name: promotion
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'badge-description')]/text()[2]
   - name: weightGross
-    singleValue: true
+    singleValue: false
     xpath: //h4[text()='Súly']//following-sibling::p[1]
   - name: quantity
-    singleValue: true
-    xpath: //h4[text()='Kiszerelés']//following-sibling::p[1]
+    singleValue: false
+    xpath: //h4[text()='Pelenkaméret']//following-sibling::p[1]
   - name: directions
-    singleValue: true
+    singleValue: false
     xpath: //h4[text()='Elkészítés és felhasználás']//following-sibling::p[1]
   - name: warnings
-    singleValue: true
+    singleValue: false
     xpath: //h4[text()='Biztonsági figyelmeztetés']//following-sibling::p[1]
   - name: ingredientsList
-    singleValue: true
-    xpath: //h4[text()='Címkézhető összetevők']//following-sibling::p[1]
+    singleValue: false
+    xpath: //h3[text()='Összetevők']//following-sibling::p[1]
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //h4[text()='Méretek']//following-sibling::ul[1]
+  - name: specifications
+    singleValue: false
+    xpath: //h4[text()='Jellemzők']//following-sibling::p[1]
+  - name: storage
+    singleValue: false
+    xpath: //h4[text()='Tárolási típus']//following-sibling::p[1]
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //h4[text()='Egyéb információk']//following-sibling::p[1]
+  - name: packaging
+    singleValue: false
+    xpath: //h4[text()='Csomagolási típus']//following-sibling::p[1]
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //div[contains(@class,'product-info')]//span[@class='unit-price-normal']
+  - name: brandLink
+    singleValue: false
+    xpath: //h4[text()='Webcím']//following-sibling::p[1]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultVAlue: Yes
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //h4[text()='Származási ország']//following-sibling::p[1]
+  - name: customerServiceavAilability
+    singleValue: false
+    xpath: //h4[text()='Vevőszolgálat']
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: manufacturer
+    singleValue: false
+    xpath: //h4[text()='Cég neve']//following-sibling::p[1]

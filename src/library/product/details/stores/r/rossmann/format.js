@@ -29,6 +29,32 @@ const transform = (data) => {
           row.category.splice(0,1);
         }
       }
+      if (row.alternateImages) {
+        row.alternateImages.forEach(item => {
+          item.text = item.text.replace(/\/image\/.+?\//,'/image/');
+        });
+      }
+      if (row.pricePerUnit) {
+        row.pricePerUnit.forEach(item => {
+          var d_arr = item.text.split("/");
+          item.text = d_arr[0];
+          row.pricePerUnitUom = [{"text": d_arr[1]}];
+        });
+      }        
+      if (row.description) {
+        var descArr = [];
+        row.description.forEach(item => {
+          item.text = descArr.push(item.text);
+        });
+        if(descArr.length){
+          row.description = [{"text": descArr.join(' | ')}];
+        }
+      }
+      if (row.countryOfOrigin) {
+        row.countryOfOrigin.forEach(item => {
+          item.text = item.text.replace(/Place\s+of\s+origin\s*:/,'');
+        });
+      }            
     }
   }
   return cleanUp(data);
