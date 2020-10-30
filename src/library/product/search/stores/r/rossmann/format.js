@@ -19,17 +19,12 @@ const transform = (data) => {
     };  
     for (const { group } of data) {
       var rank = 1;
-      for (const row of group) {        
-        // if (row.productUrl) {
-        //   row.productUrl.forEach(item => {
-        //     item.text = 'https://www.wine.com'.concat(item.text);
-        //   });
-        // }
-        // if (row.thumbnail) {
-        //     row.thumbnail.forEach(item => {
-        //       item.text = 'https://www.wine.com'.concat(item.text);
-        //     });
-        // }
+      for (const row of group) {
+        if (row.thumbnail) {
+            row.thumbnail.forEach(item => {
+              item.text = item.text.replace(/\/small_image\/.+?\//,'/image/');
+            });
+        }
         row.rank = row.rankOrganic = [{"text": rank}];
         rank += 1;
       }
