@@ -39,7 +39,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@id,'description')] | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'description')])]//div[contains(@class,'expandablePanel')]
+    xpath: //div[@id='ii_desc']
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: brandText

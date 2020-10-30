@@ -81,6 +81,9 @@ async function implementation (
     await new Promise(resolve => setTimeout(resolve, 100));
     clickXpath("//div[contains(@id,'returnsAndWarranty')]//button[contains(.,'Mehr anzeigen')] | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'returnsAndWarranty')])]//button[contains(.,'Mehr anzeigen')]");
     await new Promise(resolve => setTimeout(resolve, 100));
+    let description = findXpath("//div[contains(@id,'description')] | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'description')])]//div[contains(@class,'expandablePanel')]");
+    description = description.replace('Beschreibung', '');
+    addHiddenDiv('ii_desc', description);
     // eslint-disable-next-line quotes
     let id = findXpath(`//script[contains(@type,'application/ld+json') and contains(.,'"@type":"Product"')]`);
     id = id.replace(/.*(?:"sku":(.*?),.*)/, '$1');
