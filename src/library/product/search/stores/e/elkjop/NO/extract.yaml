@@ -1,28 +1,28 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"mini-product-list")]/div
+recordXPath: //div[contains(@id,"searchProductsInfo")]//div[contains(@class,"col-mini-product")]/div | //section[contains(@class,"product-main-info")]
 fields:
   - name: id
     description: Unique id (within this extractor)
-    xpath: //div[contains(@class,"product-number")]
+    xpath: //div[contains(@class,"product-number")] | //meta[contains(@itemprop,"sku")]
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER 
-    xpath: //div[@id='pd_rank']
+    xpath: 
   - name: name
     description: The product name
-    xpath: //*[contains(@class,"table-cell")]
+    xpath: //*[contains(@class,"table-cell")] | //h1[contains(@class,"product-title")]
   - name: productUrl
     description: The URL for the product details page
-    xpath: //a[contains(@class, "product-name")]/@href
+    xpath: //a[contains(@class, "product-name")]/@href | (//link[contains(@itemprop,"url")] /@href)[1]
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //img[contains(@class,"b-lazy product-image b-loaded")]/@src
+    xpath: //div[contains(@class,"product-number")] | //meta[contains(@itemprop,"sku")]
     regExp: (.+)
-    regExpReplace: https://elkjop.no$1
+    regExpReplace: https://www.elkjop.no/primaryimage/$1
   - name: aggregateRating2
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[contains(@class,'product-ratings__avarage')]
@@ -30,7 +30,6 @@ fields:
     #regExpReplace: $1.$3
   - name: reviewCount
     description: The number of reviews
-    type: NUMBER
     xpath: //div[contains(@class,'product-ratings__count')]
     regExp: (\d+)
     regExpReplace: $1
@@ -41,7 +40,7 @@ fields:
     regExpReplace: $1
   - name: price
     description: The offered price for the product
-    xpath: //div[contains(@class,'product-price')]/text()[1]
+    xpath: //div[contains(@class,'product-price')]/text()[1] | //div[contains(@class,'product-price-container')]/span/text()
     regExp: (\d*)( *)(\d*)(,*)(\d*)
     regExpReplace: $1$3$4$5
   - name: manufacturer
@@ -50,6 +49,9 @@ fields:
     description: The name of the seller of the item (if available)
   - name: rank
     description: search/listing rank
-    xpath: //div[@id='pd_rank']
+    xpath: 
   - name: endorsementText
     description: The text that signifies that a product is endorsed
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl'][last()]
