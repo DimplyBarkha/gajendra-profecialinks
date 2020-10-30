@@ -1,0 +1,59 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: true
+    description: name of product
+    xpath: //div[@id='header-infos-produto']/h1
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name='keywords']/@content
+  - name: url
+    singleValue: true
+    xpath: //link[@rel='canonical']/@href
+  - name: image
+    singleValue: false
+    description: images of product
+    xpath: //div[@class='owl-stage']/div[@class='owl-item active']/div[@class='galeriaproduto__item item']/img/@src
+  - name: imageAlt
+    singleValue: false
+    description: images alt of product
+    xpath: //div[@class='owl-stage']/div[@class='owl-item active']/div[@class='galeriaproduto__item item']/img/@alt
+  - name: uniqCode
+    singleValue: true
+    description: unic code of product
+    xpath: //div[@id='header-infos-produto']//p[@id='codigo-produto']
+  - name: discount
+    singleValue: true
+    description: discount of product
+    xpath: //div[@id='desconto_content_info_produto']/span[@class='badge']
+  - name: price
+    singleValue: true
+    description: price of product
+    xpath: //div[@class='row produtoinfos border rounded px-4 py-4 m-0']/h3[@class='produtoinfos__price']/span
+  - name: description
+    singleValue: false
+    description: description of product
+    xpath: //div[@id='container_produto']/div[@id='descricaoProduto']
+  - name: rating
+    singleValue: true
+    description: rating of product
+    xpath: //div[@class='reviewsproduto__reviews col-12 col-xl-4']/h3
+  - name: comments
+    singleValue: false
+    description: comments for product
+    xpath: //div[@id='avaliacao_clientes_content']/div[@class='reviewsproduto__commentitem row avaliacao_box']/div[@class='col-12 col-md-8 reviews border-right']
+  - name: category
+    singleValue: true
+    description: category product
+    xpath: //div[@class='breadcrumbs']/a[@class='classificacao mr-1 breadcrumbs__link']
+  - name: manufacturerImages
+    singleValue: false
+    description: additional images product
+    xpath: //picture/img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    description: additional description product
+    xpath: //div[@id='dvEspecificacaoAdicionalTop']/div/div
