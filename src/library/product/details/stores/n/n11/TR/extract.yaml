@@ -5,25 +5,36 @@ recordXPath: null
 fields:
   - name: name
     singleValue: true
+    description: name of product
     xpath: //div[@class='nameHolder']/h1[@class='proName']
-  - name: subName
+  - name: nameExtended
+    description: extend name of product
     singleValue: true
     xpath: //div[@class='nameHolder']/h2[@class='proSubName']
+  - name: metaKeywords
+    singleValue: true
+    description: keywords of product
+    xpath: //meta[@name='keywords']/@content
+  - name: url
+    singleValue: true
+    description: url of product
+    xpath: //link[@rel='canonical']/@href
   - name: price
     singleValue: true
+    description: new price of product
     xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins
   - name: priceOld
     singleValue: true
+    description: old price of product
     xpath: //div[@class='priceDetail']/del[@class='oldPrice']/ins
   - name: discount
+    description: product discount
     singleValue: true
     xpath: //div[@class='price']/div/span[@class='ratio']
-  - name: thumbs
+  - name: manufacturerImages
     singleValue: false
+    description: manufacturer images
     xpath: //ul/li/@data-thumb
-  - name: productUrl
-    singleValue: true
-    xpath: //link[@rel="canonical"]/@href
   - name: featuresLabel
     singleValue: false
     xpath: //div[@class='panelContent']/section/div/div/span[@class='label']
