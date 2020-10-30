@@ -122,7 +122,7 @@ async function implementation(
     //--------------------------------------
      let descElement1;
      let description1 = document.querySelector('div.desc');
-     descElement1 = description1 ? description1.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+     descElement1 = description1 ? description1.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').replace(/\&nbsp;/g, '').trim() : '';
      addElementToDocument('bb_description',descElement1);
      let productAvaibility;
      let notAvailable = document.querySelector('div.product_404');
