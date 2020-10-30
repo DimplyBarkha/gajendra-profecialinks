@@ -25,6 +25,12 @@ const transform = (data) => {
     for (const { group } of data) {
       let rank = 1;
       for (const row of group) {
+        if (row.price) {
+          row.price.forEach(item => {
+            item.text = item.text.replace('.','');
+            item.text = item.text.replace(',','.');
+          });
+        }
         row.rank = row.rankOrganic = [{ "text": rank }];
         rank++;
       }
