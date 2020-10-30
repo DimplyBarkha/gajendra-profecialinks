@@ -1,4 +1,4 @@
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -16,7 +16,7 @@ async function implementation (
     });
     await context.waitForXPath('//li[contains(@class,"Col-favj32")]//div[@data-test="product-details"]');
     const productUrl = await context.evaluate(async function () {
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -41,37 +41,28 @@ async function implementation (
     await context.goto('https://www.target.com' + productUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
   }
 
-  const manufacturerCTA = await context.evaluate(async function () {
-    let scrollTop = 750;
-    while (true) {
-      window.scroll(0, scrollTop);
-      await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve();
-        }, 750);
-      });
-      scrollTop += 750;
-      if (scrollTop === 15000) {
-        break;
-      }
+  try {
+    const manufacturerCTASelector = 'button[aria-label="show from the manufacturer content"]';
+
+    await context.waitForSelector(manufacturerCTASelector, { timeout: 60000 });
+    const manufacturerCTA = await context.evaluate((selector) => !!document.querySelector(selector), manufacturerCTASelector);
+
+    if (manufacturerCTA) {
+      console.log('hastheCTA');      
+      await context.waitForSelector('#wc-power-page', { timeout: 30000 });
+      await context.click(manufacturerCTASelector);
     }
-
-    window.scroll(0, 1000);
-    return Boolean(document.querySelector('[class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]'));
-  });
-
-  if (manufacturerCTA) {
-    console.log('hastheCTA');
-    await context.click('[class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]');
   }
-
+  catch (error) {
+   console.log(`Manufacturer content is not loaded ${error}`)
+  }
   await context.waitForXPath("//h1[@data-test='product-title']");
 
   await context.evaluate(async function () {
     let parentData = {};
     let origData = {};
 
-    function addHiddenDiv (el, className, content) {
+    function addHiddenDiv(el, className, content) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('class', className);
       newDiv.textContent = content;
@@ -79,7 +70,7 @@ async function implementation (
       el.appendChild(newDiv);
     }
 
-    function stall (ms) {
+    function stall(ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -87,7 +78,7 @@ async function implementation (
       });
     }
 
-    function createListItem () {
+    function createListItem() {
       const newDiv = document.createElement('li');
       newDiv.setAttribute('class', 'productInfo');
       newDiv.textContent = '';
@@ -96,13 +87,13 @@ async function implementation (
       return newDiv;
     }
 
-    function decodeHtml (html) {
+    function decodeHtml(html) {
       const txt = document.createElement('textarea');
       txt.innerHTML = html;
       return txt.value;
     }
 
-    async function getProductInfo (variant, productName, variantCount = null) {
+    async function getProductInfo(variant, productName, variantCount = null) {
 
       await fetch('https://salsify-ecdn.com/target/en-US/BTF/TCIN/' + variant.tcin + '/index.html')
         .then(async function (response) {
@@ -565,9 +556,9 @@ async function implementation (
         .then(async function (parent) {
           var base = parent.product.item.enrichment.images[0].base_url
           var alternateImages = parent.product.item.enrichment.images[0].alternate_urls.map(image => base + image)
-          addHiddenDiv(newDiv, 'alternateImages', alternateImages.filter(img => img !==  parent.product.item.enrichment.images[0].base_url +  parent.product.item.enrichment.images[0].primary).filter(onlyUnique).join(' | '));
+          addHiddenDiv(newDiv, 'alternateImages', alternateImages.filter(img => img !== parent.product.item.enrichment.images[0].base_url + parent.product.item.enrichment.images[0].primary).filter(onlyUnique).join(' | '));
           if (alternateImages.length) {
-            addHiddenDiv(newDiv, 'alternateImageTotal', alternateImages.filter(img => img !==  parent.product.item.enrichment.images[0].base_url +  parent.product.item.enrichment.images[0].primary).filter(onlyUnique).length);
+            addHiddenDiv(newDiv, 'alternateImageTotal', alternateImages.filter(img => img !== parent.product.item.enrichment.images[0].base_url + parent.product.item.enrichment.images[0].primary).filter(onlyUnique).length);
           }
         });
 
@@ -658,7 +649,7 @@ async function implementation (
 
       addHiddenDiv(newDiv, 'pdf', hasTechnicalInfoPDF);
 
-      function onlyUnique (value, index, self) {
+      function onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
       }
 
