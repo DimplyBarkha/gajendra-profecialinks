@@ -111,3 +111,12 @@ fields:
     singleValue: false
     description: promotion text on product page
     xpath: (//div[@id='view_image']//div[contains(@class,'product_image_overlay')])
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@id='alternative_package_size_container']//a[contains(@class,'active')]//div[contains(@class,'left_container')]
+  - name: variants
+    singleValue: false
+    xpath: //div[@id='alternative_package_size_container']//a//div[contains(@class,'left_container')]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[contains(@class,'product_detail_highlights')]//li

@@ -5,8 +5,8 @@ module.exports = {
     country: 'DE',
     store: 'apodiscounter',
     domain: 'apodiscounter.de',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div#content_wrapper',
+    noResultsXPath: "//div[@id='advanced_search_no_result_wrapper']",
     zipcode: '',
   },
 };

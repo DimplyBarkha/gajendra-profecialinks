@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'apodiscounter.de',
-    timeout: 99999999,
     country: 'DE',
     store: 'apodiscounter',
+    domain: 'apodiscounter.de',
     zipcode: '',
   },
 };
