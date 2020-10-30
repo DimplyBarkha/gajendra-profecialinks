@@ -147,8 +147,18 @@ async function implementation(
     let JSONArr = findJsonObj(str);
     console.log(JSONArr , 'JSONArr');
      let brandText = JSONArr ? JSONArr.brand : ''
-     let brand = brandText ? brandText.name : ''
+     let brand = brandText ? brandText.name : '';
      addElementToDocument('bb_brand', brand);
+    //  if(brand){
+    //   addElementToDocument('bb_brand', brand);
+    //  }else{
+    //    let brand2 = document.querySelector('h1.product_name span');
+    //    // @ts-ignore
+    //    let brand2InnerTxt = brand2 ? brand2.innerText : '';
+    //    // @ts-ignore
+    //    let brand2Txt = brand2InnerTxt ? brand2InnerTxt.split(' ')[0] : '';
+    //    addElementToDocument('bb_brand', brand2Txt);
+    //  }
      let sku = JSONArr ? JSONArr.sku : ''
      addElementToDocument('bb_sku', sku);
      let mpc = JSONArr ? JSONArr.mpn : ''
