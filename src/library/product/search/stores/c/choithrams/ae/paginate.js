@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'ae',
     store: 'choithrams',
-    nextLinkSelector: null,
+    nextLinkSelector: 'li[class="next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,

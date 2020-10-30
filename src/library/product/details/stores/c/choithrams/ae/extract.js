@@ -58,6 +58,21 @@ module.exports = {
         addElementToDocument('variantId', myIdValue[1]);
       }
 
+      const brand = getXpath("//div[@class='details']//h1//text()", 'nodeValue');
+      console.log('i am in my brand ', brand);
+      if (brand) {
+        // const idObj = JSON.stringify(idPath);
+        var brandTextVar = brand + '';
+        var brandText = brandTextVar.split(' ');
+        addElementToDocument('name', brand);
+
+        console.log('i am in my brand length', brand.length);
+
+        addElementToDocument('quantity', brandText[brandText.length - 1]);
+
+        addElementToDocument('brandText', brandText[0]);
+      }
+
       const macros = getAllXpath("//div[@class='nutrition']//div[@class='macros']", 'innerText').join('|');
       var myMacrosArr = macros.split('\n');
       console.log('myIdArrmyIdArr', myMacrosArr.length);
