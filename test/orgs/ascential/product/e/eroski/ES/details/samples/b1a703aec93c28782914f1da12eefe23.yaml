@@ -1,0 +1,134 @@
+input:
+  id: 18419739
+  _url: http://supermercado.eroski.es
+extractions:
+  - html: https://workbench.import.io/html/run=c66ebcd1-c0b0-4f34-9b08-63ea4891f865/task=ce7a0343-4c30-4f3c-94e6-6a243163387b/5ad8150c-edff-45c4-bdb8-13ef75144e08.html
+    extractionConfigId: product/details/stores/e/eroski/ES/extract
+    data:
+      - group:
+          - image:
+              - text: https://supermercado.eroski.es/images/18419739.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            url:
+              - text: https://supermercado.eroski.es/es/productdetail/18419739-pizza-sin-gluten-4-formaggi-buitoni-caja-360-g/
+                xpath: /html/head[1]/link[8]/@href
+            description:
+              - text: Compra Pizza sin gluten 4 formaggi BUITONI, caja 360 g y otros muchos
+                  productos en la tienda online de Eroski de la forma más fácil
+                  y con la mejor relación calidad-precio.
+                xpath: /html/head[1]/meta[3]/@content
+            manufacturer:
+              - text: Nestlé España, S.A.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[1]/p[2]
+            price:
+              - text: 3,65
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/span[2]/span[2]
+              - text: €
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/span[2]/span[3]
+            ingredientsList:
+              - text: almidón de TRIGO (sin gluten), QUESO (24,6%) (sin lactosa) (mozzarella
+                  (15%), cheddar (3,6%), grana padano (3,3%) (con lisozima de
+                  HUEVO), emmental (2,7%)), agua, puré de tomate (19,4%), aceite
+                  de girasol, dextrosa, harina de maíz, azúcar, sal, levadura,
+                  fibra vegetal (plantago ovata), estabilizantes (goma guar,
+                  hidroxipropilmetilcelulosa, mono y diglicéridos de ácidos
+                  grasos), orégano, ajo.puede contener SÉSAMO y MOSTAZA.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            saturatedFatPerServing:
+              - text: "5.2"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[6]/span[1]
+            saturatedFatPerServingUom:
+              - text: gramos
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[6]/span[1]
+            totalCarbPerServing:
+              - text: "31"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[4]/span[1]
+            totalCarbPerServingUom:
+              - text: gramos
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[4]/span[1]
+            proteinPerServing:
+              - text: "9.1"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]
+            proteinPerServingUom:
+              - text: gramos
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]
+            saltPerServing:
+              - text: "1.24"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[5]/span[1]
+            saltPerServingUom:
+              - text: gramos
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[5]/span[1]
+            name:
+              - text: Pizza sin gluten 4 formaggi BUITONI, caja 360 g
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Pizza sin gluten 4 formaggi BUITONI, caja 360 g
+                xpath: /html/head[1]/title[1]
+            brandText:
+              - text: BUITONI
+                xpath: /html/body/script[4]/text()[1]
+            category:
+              - text: Congelados
+                xpath: /html/body/div[3]/div[1]/div[1]/a[2]
+              - text: Pizzas
+                xpath: /html/body/div[3]/div[1]/div[1]/a[3]
+              - text: Pizzas
+                xpath: /html/body/div[3]/div[1]/div[1]/a[4]
+            variantId:
+              - text: "18419739"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            aggregateRating:
+              - text: "0"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[6]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]
+              - text: "0"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]
+            countryOfOrigin:
+              - text: España
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[6]/div[1]/div[1]/p[1]
+            directions:
+              - text: NESTLÉ ESPAÑA, S.A.- Av. Països Catalans, 25 - 51 - 08950 - Esplugues de
+                  Llobregat (Barcelona).
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[1]/p[4]
+            storage:
+              - text: Producto ultracongelado. Conservar a -18°C
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/p[1]
+            totalSugarsPerServing:
+              - text: "2.3"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[3]/span[1]
+            totalSugarsPerServingUom:
+              - text: gramos
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[3]/span[1]
+            dietaryFibrePerServing:
+              - text: "2.3"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/span[1]
+            dietaryFibrePerServingUom:
+              - text: gramos
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/span[1]
+            totalFatPerServing:
+              - text: "8.5"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[7]/span[1]
+            totalFatPerServingUom:
+              - text: gramos
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[7]/span[1]
+            quantity:
+              - text: " caja 360 g"
+                xpath: /html/head[1]/title[1]
+            pricePerUnit:
+              - text: "10,14 "
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]/span[2]
+            pricePerUnitUom:
+              - text: $1
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]/span[2]
+            variantCount:
+              - text: "0"
+                xpath: /html/body/div[8]
+            imageAlt:
+              - text: Pizza sin gluten 4 formaggi BUITONI, caja 360 g
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
+            availabilityText:
+              - text: In Stock
+        xpath: /html
+    timestamp: 1604042230405
