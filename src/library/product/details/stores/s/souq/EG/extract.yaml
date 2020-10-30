@@ -44,7 +44,7 @@ fields:
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
-    xpath: count(//div[@id="description-full"]/ul/li)
+    xpath: //div[@id="bb_descriptionBullets"]
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -113,6 +113,7 @@ fields:
   - name: shippingWeight
     singleValue: false
     description: Stated shipping weight
+    xpath: //dt[contains(text(), "Package weight")]/following-sibling::dd[1] | //dt[contains(text(), "package weight")]/following-sibling::dd[1] | //dt[contains(text(), "Package Weight")]/following-sibling::dd[1]
   - name: variantCount
     singleValue: false
     xpath: count(//div[@id="defaultSize"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@id="size_en"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@class="colors-block"]//a[contains(@class,"color-swatch-preview")]/@data-url | //div[@id="colors_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="display_diagonal_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")]/a/@data-url)

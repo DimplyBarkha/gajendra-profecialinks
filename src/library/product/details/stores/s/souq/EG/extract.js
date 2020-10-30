@@ -52,10 +52,26 @@ async function implementation (
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     }
-    let description = document.querySelector('div#description-full');
+    let description1 = document.querySelector('div#description-full');
+    let description2 = document.querySelector('div#description-short');
+    let description;
+    if(description1){
+    description = description1;
     let descText = description ? description.innerHTML : '';
     descText = descText ? descText.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
     addElementToDocument('bb_description', descText);
+    let descBulletCount = document.querySelectorAll('div#description-full ul li');
+    let bullets = descBulletCount ? descBulletCount.length : '';
+    addElementToDocument('bb_descriptionBullets', bullets);
+    }else if(description2){
+    description = description2;
+    let descText = description ? description.innerHTML : '';
+    descText = descText ? descText.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+    addElementToDocument('bb_description', descText);
+    let descBulletCount = document.querySelectorAll('div#description-short ul li');
+    let bullets = descBulletCount ? descBulletCount.length : '';
+    addElementToDocument('bb_descriptionBullets', bullets);
+    }
     });
     return await context.extract(productDetails, { transform });
     }
