@@ -18,6 +18,9 @@ async function implementation(
     }
     const url = window.location.href;
       addHiddenDiv(`document_url`, url);
+    //@ts-ignore
+    var productId = window.siteMetadata.page.product.idProduct;
+    addHiddenDiv(`document_product_id`, productId);
   });
   
   return await context.extract(productDetails, { transform });

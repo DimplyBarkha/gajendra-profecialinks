@@ -67,11 +67,6 @@ const transform = (data) => {
           row.secondaryImageTotal = [{ text: text, xpath: '' }];
         }
 
-        if(row.variants){
-          const text = clean(String(row.variants.length));
-          row.variants[0].text = text;
-        }
-
         if(row.quantity){
           var text = row.quantity[0].text;
           var txtArray = String(text).split("\n");
@@ -81,6 +76,9 @@ const transform = (data) => {
               if(str.length == 2){
                 row.quantity[0].text = clean(str[1]);
               }
+            }
+            else{
+              row.quantity[0].text = "";
             }
           })
         }
@@ -97,8 +95,23 @@ const transform = (data) => {
             row.weightNet[0].text = clean(str1[1]);
             }
           }
+          else{
+            row.weightNet[0].text = "";
+          }
         })
       })
+      }
+
+      Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+      }));
+
+      if(row.manufacturerImages){
+        row.manufacturerImages.forEach(x =>{
+          if(x.text.indexOf("https") == -1){
+            x.text = 'https:' + x.text;
+          }
+        })
       }
     }
   }
