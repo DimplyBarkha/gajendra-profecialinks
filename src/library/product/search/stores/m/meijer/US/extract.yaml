@@ -18,6 +18,10 @@ fields:
    regExpReplace: https://www.meijer.com$1
  - name: gtin
    singleValue: false
+   xpath: //div[@class="quickview-block"]//a/@data-ean
+ - name: sku
+   singleValue: false
+   xpath: //div[@class="quickview-block"]//a/@data-ean
  - name: thumbnail
    singleValue: false
    xpath: //div[@class="tile-row details-container"]//a//img/@src
