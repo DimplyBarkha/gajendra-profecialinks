@@ -9,16 +9,16 @@ module.exports = {
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -76,9 +76,9 @@ module.exports = {
       additionalDescBulletInfo.forEach((item) => {
         console.log(item);
         if (item.textContent.includes('צבע') || item.textContent.includes('ליטר/שנייה') ||
-             item.textContent.includes('הספק מנוע') || item.textContent.includes('כבל חשמל באורך') ||
-            item.textContent.includes('משקל') || item.textContent.includes('מידות') ||
-            item.textContent.includes('קוטר')) {
+          item.textContent.includes('הספק מנוע') || item.textContent.includes('כבל חשמל באורך') ||
+          item.textContent.includes('משקל') || item.textContent.includes('מידות') ||
+          item.textContent.includes('קוטר')) {
           specification = specification + item.textContent + '||';
         }
       });
@@ -122,6 +122,6 @@ module.exports = {
         }
       }
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform: transformParam });
   },
 };
