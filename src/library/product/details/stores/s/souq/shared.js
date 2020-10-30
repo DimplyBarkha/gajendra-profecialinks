@@ -14,7 +14,7 @@ const transform = (data) => {
         }
         if (row.countryOfOrigin) {
           row.countryOfOrigin.forEach(item => {
-                  item.text = item.text.trim();
+                  item.text = item.text.split(' ')[0].trim();
           });
         }
         if (row.alternateImages) {
