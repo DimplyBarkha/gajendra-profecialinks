@@ -22,10 +22,7 @@ fields:
   - name: price
     xpath: ancestor::html//div[@data-automation-id="product-content-block"]//section//span[@data-automation-id="at-price-value"]
   - name: availabilityText
-    xpath: ancestor::html//div[@class="_1YUMp"]
-    regExp: (.+)
-    regExpReplace: Out of Stock
-    defaultValue: In Stock
+    xpath: ancestor::html//h1[@aria-label="productTitle"]/@availability
   - name: description
     xpath: ancestor::html//*[@id="productDescriptionParent"]/div[1]/section/div[1]/b/parent::div | ancestor::html//section[@aria-label="productDescription"]/div[1]/p[1] | ancestor::html//section[@aria-label="productDescription"]/div[1]/text() | ancestor::html//section[@aria-label="productDescription"]//ul//li | ancestor::html//*[@id="productDescriptionParent"]/div[1]/section/div[1]/p[2]/strong
   - name: descriptionBullets
@@ -51,7 +48,7 @@ fields:
   - name: gtin
     xpath: ancestor::html//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")][1]/@data-gtin
   - name: mpc
-    xpath: ancestor::html//div[@data-automation-id="product-content-block"]//span[@class="_3_di8"]
+    xpath: //@mpc
   - name: packSize
   - name: legalDisclaimer
   - name: directions
@@ -61,7 +58,7 @@ fields:
   - name: shippingWeight
     xpath: ancestor::html//li[contains(.,"Weight")]
   - name: variantCount
-    xpath: count(//ul[@data-automation-id="product-dimensions-color"]//li|//div[@class="_2tEML"]//section//ul//li)
+    xpath: count(//div[@id="option-wrapper-false"]//div[@id="product-options-false"]//div[last()]//ul//li)
   - name: color
   - name: colorCode
   - name: manufacturerDescription
@@ -122,9 +119,11 @@ fields:
   - name: newVersion
   - name: newAsin
   - name: variantInformation
-    xpath: ancestor::html//ul[@data-automation-id="product-dimensions-color"]//li//button/@data-for|//div[@class="_2tEML"]//section//ul//li//button
+    xpath: ancestor::html//ul[@data-automation-id="product-dimensions-color"]//li//button/@data-for | ancestor::html//div[@class="_2tEML"]//section//ul//li/@data-option
   - name: firstVariant
+    xpath: ancestor::html//h1[@aria-label="productTitle"]/@firstvariant
   - name: variants
+    xpath: ancestor::html//h1[@aria-label="productTitle"]/@variants
   - name: additionalDescBulletInfo
   - name: prop65Warning
   - name: ageSuitability
@@ -141,4 +140,7 @@ fields:
   - name: Image360Present
     defaultValue: No
   - name: imageZoomFeaturePresent
+    xpath: ancestor::html//div[@id="fakeZoomViewer"]/@id
+    regExp: (fakeZoomViewer)
+    regExpReplace: Yes
     defaultValue: No
