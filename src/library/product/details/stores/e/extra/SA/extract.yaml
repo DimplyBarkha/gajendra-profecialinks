@@ -37,7 +37,7 @@ fields:
     xpath: //*[@id="content"]/div[3]/div/div[2]//div[@class='c_product-price-was-is']/span/text()
   - name: manufacturerDescription
     singleValue: false
-    xpath: //*[@id="highlightcont"]//p
+    xpath: (//*[@id="highlightcont"]//p) | (//div[contains(@class,"inpage_selector_feature")])
   - name: manufacturerImages
     singleValue: false
     xpath: //*[@id="highlightcont"]//img/@src
@@ -48,6 +48,9 @@ fields:
     singleValue: false
     xpath: //div[@id='product_information_highlights']//img/@srcset
   - name: mpc
+    singleValue: false
+    xpath: //*[@id="product_specification"]//div[@class='c_product-details-brandsku']/span[1]/text()
+  - name: gtin
     singleValue: false
     xpath: //*[@id="product_specification"]//div[@class='c_product-details-brandsku']/span[1]/text()
   - name: name
@@ -70,7 +73,7 @@ fields:
     xpath: //ul/li[contains(text(),'size')] | //ul/li[contains(text(),'Size')]
   - name: ratingCount
     singleValue: false
-    xpath: (//*[@id="productReviews"]//div[@class='reviews'])[1]
+    xpath: //*[@id="productReviews"]//div[@class='reviews']/div[@class='reviews']
     regExp: (^[^\s]+)
   - name: sku
     singleValue: false
