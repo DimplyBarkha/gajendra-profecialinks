@@ -24,7 +24,35 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) {
-        
+        if(row.secondaryImageTotal){
+          var tot=0;
+          row.secondaryImageTotal.forEach(item=>{
+            tot++;
+          })
+          row.secondaryImageTotal=[{"text":tot}];
+        }
+        if(row.variantId){
+          console.log('variants');
+        }else{
+          row.sku.forEach(item=>{
+            row.variantId=[{"text":item.text}];
+          });
+        }
+        if(row.specifications){
+          var tdNo=0; var info=[]; var tdata='';
+          row.specifications.forEach(item=>{
+            tdNo++;
+            if(tdNo==1){
+              tdata=item.text;  
+            }
+            if(tdNo==2){
+              tdata=tdata+" : "+item.text;
+              info.push(tdata);tdata='';tdNo=0;
+            }
+          })
+          row.specifications=[{"text":info.join(" || ")}];
+        }
+
       }
     }
     return cleanUp(data);
