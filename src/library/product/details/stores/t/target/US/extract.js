@@ -1,4 +1,4 @@
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -16,7 +16,7 @@ async function implementation (
     });
     await context.waitForXPath('//li[contains(@class,"Col-favj32")]//div[@data-test="product-details"]');
     const productUrl = await context.evaluate(async function () {
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -61,6 +61,7 @@ async function implementation (
       await new Promise((resolve, reject) => setTimeout(resolve, 20000));
       await context.waitForSelector('#wc-power-page', { timeout: 30000 });
       await context.click(manufacturerCTASelector);
+      await context.waitForSelector('.wc-fragment', { timeout: 10000 });
     }
   } catch (error) {
     console.log(`Manufacturer content is not loaded ${error.message}`);
@@ -70,7 +71,7 @@ async function implementation (
     let parentData = {};
     let origData = {};
 
-    function addHiddenDiv (el, className, content) {
+    function addHiddenDiv(el, className, content) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('class', className);
       newDiv.textContent = content;
@@ -78,7 +79,7 @@ async function implementation (
       el.appendChild(newDiv);
     }
 
-    function stall (ms) {
+    function stall(ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -86,7 +87,7 @@ async function implementation (
       });
     }
 
-    function createListItem () {
+    function createListItem() {
       const newDiv = document.createElement('li');
       newDiv.setAttribute('class', 'productInfo');
       newDiv.textContent = '';
@@ -95,13 +96,13 @@ async function implementation (
       return newDiv;
     }
 
-    function decodeHtml (html) {
+    function decodeHtml(html) {
       const txt = document.createElement('textarea');
       txt.innerHTML = html;
       return txt.value;
     }
 
-    async function getProductInfo (variant, productName, variantCount = null) {
+    async function getProductInfo(variant, productName, variantCount = null) {
       await fetch('https://salsify-ecdn.com/target/en-US/BTF/TCIN/' + variant.tcin + '/index.html')
         .then(async function (response) {
           const sometext = await response.text();
@@ -559,19 +560,23 @@ async function implementation (
       let hasTechnicalInfoPDF = 'No';
       let manufacturerDesc = '';
       const manufacturerImgs = [];
-      const manufacturerCTA = document.querySelector('#wc-power-page');
+      function addImagesVideos(node) {
+        node.querySelectorAll('img').forEach(e => {
+          manufacturerImgs.push(e.getAttribute('src'));
+        });
+        node.querySelectorAll('video').forEach(e => {
+          videos.push(e.src);
+        });
+      }
+
+      let mfgNode = document.getElementById('wc-power-page');
       const frameContents = document.getElementById('frameContents' + variant.tcin);
       if (frameContents && frameContents.querySelector('#salsify-content')) {
         await stall(2000);
         manufacturerDesc = frameContents.innerText;
-        frameContents.querySelectorAll('img').forEach(e => {
-          manufacturerImgs.push(e.getAttribute('src'));
-        });
-        frameContents.querySelectorAll('video').forEach(e => {
-          videos.push(e.src);
-        });
-      } else if (manufacturerCTA) {
-        if (document.getElementById('wc-power-page').querySelector('button.wc-document-view-link.wc-document-view-link-with-image.wc-doc-thumb')) {
+        addImagesVideos(frameContents);
+      } else if (mfgNode) {
+        if (mfgNode.querySelector('button.wc-document-view-link.wc-document-view-link-with-image.wc-doc-thumb')) {
           hasTechnicalInfoPDF = 'Yes';
         }
 
@@ -592,7 +597,7 @@ async function implementation (
             manufacturerDescArr.push(e.innerText);
           }
         });
-        document.getElementById('wc-power-page').querySelectorAll('iframe').forEach(e => {
+        mfgNode.querySelectorAll('iframe').forEach(e => {
           console.log('hasframehere');
           const frameContents = e.contentWindow.document.body;
           frameContents.querySelectorAll('h1, h2, h3, p, li').forEach(e => {
@@ -617,27 +622,40 @@ async function implementation (
             }, (ind * 500) + 500);
           });
         });
+
         manufacturerDesc = manufacturerDescArr.join(' ').replace(/See product page/g, '').replace(/\d options available/g, '');
+        addImagesVideos(mfgNode);
       }
 
       addHiddenDiv(newDiv, 'pdf', hasTechnicalInfoPDF);
 
-      function onlyUnique (value, index, self) {
+      function onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
       }
-      if (!manufacturerDesc) {
-        manufacturerDesc = document.getElementById('wc-power-page').innerText;
-        document.getElementById('wc-power-page').querySelectorAll('img').forEach(e => {
-          manufacturerImgs.push(e.src);
-        });
-        document.getElementById('wc-power-page').querySelectorAll('video').forEach(e => {
-          videos.push(e.src);
-        });
+      console.log('manufacturDesc', manufacturerDesc);
+
+      if (!manufacturerDesc && mfgNode) {
+        manufacturerDesc = mfgNode.innerText;
+        addImagesVideos(mfgNode);
       }
+      if (manufacturerDesc === 'Loading, please wait...') {
+        let syndiNode = document.querySelector('div[class="syndi_powerpage syndigo-shadowed-powerpage"]');
+        if (syndiNode) {
+          const shadow = syndiNode.shadowRoot;
+          if (shadow) {
+            let syndiNode1 = shadow.querySelector('div');
+            if (syndiNode1) {
+              manufacturerDesc = syndiNode1.innerText;
+              addImagesVideos(syndiNode1);
+            }
+          }
+        }
+      }
+
       if (manufacturerDesc && manufacturerDesc !== 'Loading, please wait...') {
         addHiddenDiv(newDiv, 'manufacturerDesc', manufacturerDesc);
       }
-      console.log('manufacturimgs', manufacturerDesc);
+      console.log('manufacturDesc', manufacturerDesc);
       addHiddenDiv(newDiv, 'manufacturerImgs', manufacturerImgs.filter(img => !img.includes('/assets/') && !img.includes('/resources/')).filter(onlyUnique).join('|'));
       console.log('manufacturimgs', manufacturerImgs);
 
