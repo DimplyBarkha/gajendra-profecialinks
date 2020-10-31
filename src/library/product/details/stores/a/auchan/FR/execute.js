@@ -5,8 +5,8 @@ module.exports = {
     country: 'FR',
     store: 'auchan',
     domain: 'auchan.fr',
-    loadedSelector: 'div.image-tapToZoom--overlay',
-    noResultsXPath: "//div[contains(@class, 'error-container')]//p",
+    loadedSelector: 'div.container-fluid',
+    noResultsXPath: "//div[contains(@class, 'error-container')]//p | //h1[@class='editorial__block-title']",
     zipcode: '',
   },
 };
