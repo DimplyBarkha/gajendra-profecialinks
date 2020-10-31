@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -16,7 +16,7 @@ async function implementation(
     });
     await context.waitForXPath('//li[contains(@class,"Col-favj32")]//div[@data-test="product-details"]');
     const productUrl = await context.evaluate(async function () {
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -71,7 +71,7 @@ async function implementation(
     let parentData = {};
     let origData = {};
 
-    function addHiddenDiv(el, className, content) {
+    function addHiddenDiv (el, className, content) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('class', className);
       newDiv.textContent = content;
@@ -79,7 +79,7 @@ async function implementation(
       el.appendChild(newDiv);
     }
 
-    function stall(ms) {
+    function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -87,7 +87,7 @@ async function implementation(
       });
     }
 
-    function createListItem() {
+    function createListItem () {
       const newDiv = document.createElement('li');
       newDiv.setAttribute('class', 'productInfo');
       newDiv.textContent = '';
@@ -96,13 +96,13 @@ async function implementation(
       return newDiv;
     }
 
-    function decodeHtml(html) {
+    function decodeHtml (html) {
       const txt = document.createElement('textarea');
       txt.innerHTML = html;
       return txt.value;
     }
 
-    async function getProductInfo(variant, productName, variantCount = null) {
+    async function getProductInfo (variant, productName, variantCount = null) {
       await fetch('https://salsify-ecdn.com/target/en-US/BTF/TCIN/' + variant.tcin + '/index.html')
         .then(async function (response) {
           const sometext = await response.text();
@@ -560,7 +560,7 @@ async function implementation(
       let hasTechnicalInfoPDF = 'No';
       let manufacturerDesc = '';
       const manufacturerImgs = [];
-      function addImagesVideos(node) {
+      function addImagesVideos (node) {
         node.querySelectorAll('img').forEach(e => {
           manufacturerImgs.push(e.getAttribute('src'));
         });
@@ -569,7 +569,7 @@ async function implementation(
         });
       }
 
-      let mfgNode = document.getElementById('wc-power-page');
+      const mfgNode = document.getElementById('wc-power-page');
       const frameContents = document.getElementById('frameContents' + variant.tcin);
       if (frameContents && frameContents.querySelector('#salsify-content')) {
         await stall(2000);
@@ -629,7 +629,7 @@ async function implementation(
 
       addHiddenDiv(newDiv, 'pdf', hasTechnicalInfoPDF);
 
-      function onlyUnique(value, index, self) {
+      function onlyUnique (value, index, self) {
         return self.indexOf(value) === index;
       }
       console.log('manufacturDesc', manufacturerDesc);
@@ -639,11 +639,11 @@ async function implementation(
         addImagesVideos(mfgNode);
       }
       if (manufacturerDesc === 'Loading, please wait...') {
-        let syndiNode = document.querySelector('div[class="syndi_powerpage syndigo-shadowed-powerpage"]');
+        const syndiNode = document.querySelector('div[class="syndi_powerpage syndigo-shadowed-powerpage"]');
         if (syndiNode) {
           const shadow = syndiNode.shadowRoot;
           if (shadow) {
-            let syndiNode1 = shadow.querySelector('div');
+            const syndiNode1 = shadow.querySelector('div');
             if (syndiNode1) {
               manufacturerDesc = syndiNode1.innerText;
               addImagesVideos(syndiNode1);
