@@ -57,7 +57,13 @@ const transform = (data) => {
         const nameExtendedArr = row.nameExtended.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/g, ' ') : '|';
         });
-        row.nameExtended = [{ text: nameExtendedArr.join('|'), xpath: row.nameExtended[0].xpath }];
+        row.nameExtended = [{ text: nameExtendedArr.join(' '), xpath: row.nameExtended[0].xpath }];
+      }
+      if (row.name) {
+        const nameArr = row.name.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/g, ' ') : '|';
+        });
+        row.name = [{ text: nameArr.join(' '), xpath: row.name[0].xpath }];
       }
       if (row.variantInformation) {
         const variantInformationArr = row.variantInformation.map((item) => {

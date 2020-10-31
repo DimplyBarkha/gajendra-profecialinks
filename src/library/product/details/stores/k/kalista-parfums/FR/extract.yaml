@@ -9,7 +9,8 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //div[@id="ii_quantity"][last()]
-    regExp: (\d+ \w+)|(\d+\w+)
+    regExp: (\d+\sml)
+    regExpReplace: $1
   - name: promotion
     singleValue: false
     xpath: //div[@id="ii_promotion"][last()]
@@ -22,19 +23,19 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //div[@id="ii_variantId"][last()]
-    regExp: (\d+)
+    regExp: (\d+.*)
     regExpReplace: $1
   - name: availabilityText
     singleValue: false
     xpath: //div[@id="ii_availabilityText"][last()]
   - name: variants
     singleValue: false
-    xpath: //td[contains(@class, 'tab-img-td')]//img//@title
-    regExp: (\d+)
+    xpath: //div[@id="ii_variants"][last()]
+    regExp: (\d+.*)
     regExpReplace: $1
   - name: variantCount
     singleValue: false
-    xpath: count(//table[@id="product_combinations"]//tr)
+    xpath: count(//div[@id="ii_variants"][last()] | //ul[@id="color_to_pick_list"]//li//a/@id)
   - name: image
     singleValue: false
     xpath: //img[@id='bigpic']/@src
@@ -78,21 +79,22 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //p[@class="netreviews_note_generale"]
+    regExp: (\d+.*)\/
+    regExpReplace: $1
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id="thumbs_list"]//li[contains(@id, "thumbnail")][position()>1])
   - name: name
     singleValue: false
-    xpath: //div[@id="ii_nameExtended"][last()]
+    xpath: //div[@id="ii_name"][last()] | //div[@class="columns-container"]//h1[@itemprop="name"]
+  - name: sku
+    singleValue: false
+    xpath: //script[contains(text(),'ecomm_prodid')]
+    regExp: \"ecomm_prodid":"(\d+-\d+)
+    regExpReplace: $1
   - name: gtin
     singleValue: false
-    xpath: //tr[position()=1]//td[contains(@class, "tab-quantity-td")]//input[@class="combination-quantity"]//@data-key
-  - name: sku
-    singleValue: false
-    xpath: //tr[position()=1]//td[contains(@class, "tab-img-td")]//img//@title
-  - name: sku
-    singleValue: false
-    xpath: (//tr[position()=1]//td[contains(@class, "tab-quantity-td")]//input[@class="combination-quantity"]//@data-key)[1]
+    xpath: //div[@id="ii_gtin"][last()]
   - name: videos
     singleValue: false
     xpath: //section[@id="youtube"]//iframe//@src
