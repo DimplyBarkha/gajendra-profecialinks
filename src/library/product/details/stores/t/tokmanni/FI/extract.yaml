@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: product_image
     singleValue: true
-    xpath: //div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]//img[@class="fotorama__img"]//@alt
+    xpath: //div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]//@href
   - name: image_alt_text
     singleValue: true
     xpath: //div[@class="page-title-wrapper product"]//h1//span
@@ -20,7 +20,7 @@ fields:
     xpath: //div[@class="breadcrumbs"]
   - name: sub_Category
     singleValue: false
-    xpath: //div[@class="breadcrumbs"]  
+    xpath: //div[@class="breadcrumbs"]
   - name: product_description
     singleValue: true
     xpath: //span[@class="base"]
@@ -30,11 +30,13 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[@id="product-price-29234"][@data-price-amount]
+    xpath: //span[@data-price-type="finalPrice"]//span[@class="price"]
   - name: harvested_price
     singleValue: true   
     description: The offered price for the selected product variant - if a user clicks add to basket this is the price they would be charged
-    xpath: //span[@id="product-price-154271"]/@data-price-amount
+    xpath: //span[@data-price-type="finalPrice"]//span[@class="price"]
+    regExp: (.+)
+    regExpReplace: €$1
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -59,8 +61,6 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -80,7 +80,6 @@ fields:
     singleValue: true
     description: The retailer product code
     xpath: //div[@class="product attribute sku"]//div[@class="value"]
-    xpath: //div[@class="swatch-opt"]/@data-product-sku
   - name: mpc
     singleValue: true
     description: The manufacturer product code / Model Number
@@ -201,7 +200,6 @@ fields:
   - name: videoLength
     singleValue: false
     description: null
-    xpath: //div[@class="video-duration "]
   - name: ingredientImagePresent
     singleValue: true
     description: null
