@@ -5,9 +5,9 @@ module.exports = {
     country: 'NL',
     store: 'bol',
     domain: 'bol.com',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.bol.com/nl/s/?searchtext={searchTerms}',
+    loadedSelector: '.loader-control__content',
+    noResultsXPath: '//div[@data-test="no-result-content"]',
     zipcode: '',
   },
 };
