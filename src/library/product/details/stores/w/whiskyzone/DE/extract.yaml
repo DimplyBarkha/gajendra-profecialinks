@@ -19,26 +19,26 @@ fields:
     singleValue: false
     xpath: //ul[contains(@class="breadcrumb--list")]/li[@role="menuitem"]/a/@title
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     xpath: //h1[@class="product--title"]
   - name: listPrice
     singleValue: false
     xpath: //div[contains(@class,"product--price")]//span[@class="price--line-through"]
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"product--price")]//span[contains(@class,"price--content")]/text()
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     defaultValue: In Stock
   - name: description
     singleValue: false
     xpath: //div[@class="product--description"]/p
   - name: brandText
     singleValue: false
-    xapth: //div[@class="product--description"]/p[last()]
+    xapth: //div[@class="product--description"]/p
   - name: manufacturer
-    singleValue: true
-    xpath: //div[@class="product--description"]/p[last()]
+    singleValue: false
+    xpath: //div[@class="product--description"]/p
   - name: quantity
     singleValue: false
     xpath: //div[@class="product--price price--unit"]/font
@@ -59,7 +59,10 @@ fields:
     xpath: //div[@class="product--rating-container"]//meta[@itemprop="ratingValue"]/@content
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
+    defaultValue: '1'
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //h1[@class="product--title"]
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="product--description"]/p/iframe/@src

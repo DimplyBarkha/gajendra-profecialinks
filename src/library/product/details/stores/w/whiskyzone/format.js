@@ -23,7 +23,11 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
+      var videoExists=false;
       for (let row of group) {
+        if(row.videos){
+          videoExists=true;
+        }
         if(row.description){
           var tmp=[];
           row.description.forEach(item => {
@@ -42,27 +46,19 @@ const transform = (data) => {
           })
         }
         if (row.manufacturer) {
+          var info=[];
           row.manufacturer.forEach(item => {
-            var myRegexp = /Hersteller\s*:\s*(.+?)\n/g;
-            var match = myRegexp.exec(item.text);
-            console.log('match :',match);
-            if(match.length){
-                item.text = match[1].trim();
-            }else{
-                item.text = "";
-            }
+            info.push(item.text);
           });
-        }
-        if (row.brandText) {
-          row.brandText.forEach(item => {
-            var myRegexp = /Hersteller\s*:\s*(.+?)\n/g;
-            var match = myRegexp.exec(item.text);
-            if(match.length){
-                item.text = match[1].trim();
-            }else{
-                item.text = "";
-            }
-          });
+          var textData=info[info.length-1];
+          var myRegexp = /Hersteller\s*:\s*(.+?)\n/g;
+          var match = myRegexp.exec(textData);
+          console.log('match :',match);
+          if(match.length){
+              row.manufacturer=[{"text":match[1].trim()}];
+              row.brandText=[{"text":match[1].trim()}];
+          }
+          console.log("manufacturer : ",info.length);
         }
         if(row.quantity){
           row.quantity.forEach(item=>{
