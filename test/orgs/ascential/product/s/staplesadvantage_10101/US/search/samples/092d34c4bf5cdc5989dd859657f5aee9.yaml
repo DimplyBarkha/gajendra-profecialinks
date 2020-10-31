@@ -1,0 +1,55 @@
+input:
+  _url: http://staplesadvantage.com
+  url: https://www.import.io
+extractions:
+  - html: https://workbench.import.io/html/run=85a12629-3210-46c3-81cc-324f3c7ac553/task=155b6476-69f5-4cae-838f-e79ef8205426/9866806e-5db0-4afc-b14f-08aac0fbbacf.html
+    extractionConfigId: product/search/stores/s/staplesadvantage_10101/US/extract
+    data:
+      - group:
+          - id:
+              - text: IM19K6758
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/@id
+            name:
+              - text: Xerox VersaLink C7020/C7025/C7030 Waste Toner Collector, null/undefined
+                  (115R00128)
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
+            productUrl:
+              - text: https://www.staplesadvantage.com/product_IM19K6758?we1match=24469292
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.staplesadvantage.com/is/image/Staples/m007165689_sc7?wid=360&hei=360
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-srcset
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[2]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[2]
+            price:
+              - text: $45.00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/span[1]
+          - id:
+              - text: IM13V6773
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/@id
+            name:
+              - text: Mionix Sargas Mouse Pad, null/undefined, Black (MNX-04-25000-G)
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]
+            productUrl:
+              - text: https://www.staplesadvantage.com/Mionix-Sargas-Mouse-Pad--null-undefined--Black--MNX-04-25000-G-/product_IM13V6773
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]/@href
+            thumbnail:
+              - text: https://images.staplesadvantage.com/is/image/Staples/m005065824_sc7?wid=360&hei=360
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-srcset
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[2]/@aria-label
+                type: STRING
+            reviewCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[2]
+            price:
+              - text: $10.49
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/span[1]
+        xpath: /html
+    timestamp: 1604048792327
