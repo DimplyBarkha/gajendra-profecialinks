@@ -14,10 +14,11 @@ fields:
     xpath: //div[contains(@class,"coreWrapper")]//h1
   - name: ratingCount
     singleValue: false
-    xpath: //span[contains(@class,'detail_percentage')]
+    xpath: //div[contains(@itemprop,"aggregateRating")]/p[contains(@class,"counter")]
+    regExp: (\d+)
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class,"starRating")]
+    xpath: //div[contains(@itemprop,"aggregateRating")]/p[contains(@class,"scoreTag")]
   - name: listPrice
     singleValue: false
     xpath: //div[contains(@class,"coreWrapper")]//span[contains(@class,'value')]/span[contains(@class,'preReductionPrice')]
@@ -92,3 +93,6 @@ fields:
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class,"richContent")]//div[contains(@class,"bannerWrapper")]//img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,"richContent")]

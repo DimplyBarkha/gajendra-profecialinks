@@ -55,14 +55,7 @@ const transform = (data) => {
           item.text = brandText + ' - ' + item.text;
         });
       }
-      if (row.aggregateRating) {
-        row.aggregateRating.forEach(item => {
-          var matches = /\s*(\d+)/isg.exec(item.text);
-          if (matches) {
-            item.text = matches[1];
-          }
-        });
-      }
+     
       if (row.specifications) {
         let info = [];
         row.specifications.forEach(item => {
