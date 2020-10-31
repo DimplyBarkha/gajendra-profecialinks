@@ -36,31 +36,72 @@ module.exports = {
     console.log('URL :', responseStatus.url);
 
     const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title])";
+    const maxRetries = 3;
+    let numberOfCaptchas = 0;
+    
     try {
       await context.waitForSelector(captchaFrame);
-    } catch (e) {
-      console.log('Captcha frame not found', e);
+    } catch(e) {
+      console.log("Didn't find Captcha.");
     }
+
     const checkExistance = async (selector) => {
       return await context.evaluate(async (captchaSelector) => {
         return Boolean(document.querySelector(captchaSelector));
       }, selector);
     };
-    const isCaptchaFramePresent = await checkExistance(captchaFrame);
 
-    if (isCaptchaFramePresent) {
+    const checkRedirection = async () => {
+      try {
+        await context.waitForSelector('h2.pdp-title', { timeout });
+        console.log('Redirected to another page.');
+        return true;
+      } catch (e) {
+        console.log('Redirection did not happen.');
+        return false;
+      }
+    };
+
+    let isCaptchaFramePresent = await checkExistance(captchaFrame);
+    console.log("isCaptcha:"+ isCaptchaFramePresent);
+
+    while (isCaptchaFramePresent && numberOfCaptchas < maxRetries) {
       console.log('isCaptcha', true);
-      await context.waitForNavigation({ timeout });
-      // @ts-ignore
-      // eslint-disable-next-line no-undef
-      await context.evaluateInFrame('iframe', () => grecaptcha.execute());
-      console.log('solved captcha, waiting for page change');
+      ++numberOfCaptchas;
       await context.waitForNavigation({ timeout });
       try {
-        await context.waitForSlector('#corePage');
+        console.log(`Trying to solve captcha - count [${numberOfCaptchas}]`);
+        // @ts-ignore
+        // eslint-disable-next-line no-undef
+        await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+        console.log('solved captcha, waiting for page change');
+        await context.waitForNavigation({ timeout });
+        const redirectionSuccess = await checkRedirection();
+
+        if (redirectionSuccess) {
+          await context.evaluate((url) => {
+            window.location.href = url;
+          }, url);
+          await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
+          break;
+        } else {
+          await context.evaluate((url) => {
+            // eslint-disable-next-line no-unused-expressions
+            window.location.reload;
+          });
+          await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
+        }
+
+        isCaptchaFramePresent = await checkExistance(captchaFrame);
       } catch (e) {
-        console.log('Details page selector not found');
+        console.log('Captcha did not load');
       }
+    }
+
+    isCaptchaFramePresent = await checkExistance(captchaFrame);
+
+    if (isCaptchaFramePresent) {
+      throw new Error('Failed to solve captcha');
     }
   },
 };

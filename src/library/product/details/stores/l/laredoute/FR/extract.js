@@ -9,6 +9,9 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   const variantArray = await context.evaluate(async function () {
+    if(document.querySelector('#productList')) {
+      throw new Error('Not a product page');
+    }
     if (document.querySelectorAll('div.clearfix.custom-dropdown-content button')) {
       const variantArray = document.querySelectorAll('div.clearfix.custom-dropdown-content button');
       return variantArray;
