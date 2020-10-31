@@ -18,31 +18,76 @@ const transform = (data) => {
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
+    /**
+     * @param {string} descText
+     * @returns {string}
+     */
+    function getIngredients(descText) {
+        let result = descText.split('.')[0].concat('. ');
+        descText.split('.').slice(1).forEach(item => {
+            if (item.includes('Ingrediente')) {
+                result += item.concat('. ');
+            }
+        });
+        return result;
+    }
+
     for (const { group } of data) {
         for (const row of group) {
             if (row.description) {
-                row.description.forEach(item => {
-                    if (item.text.includes('ingredienti')) {
-                        row.description[0].text = clean(item.text.split('ingredienti')[0]);
+                let desc = row.description[0].text;
+                let xpath = row.description[0].xpath;
+                if (desc.includes('ingredienti')) {
+                    row.description[0].text = desc.split('ingredienti')[0];
+                    if (desc.split('ingredienti').length > 1) {
+                        row.ingredientsList = [{text: getIngredients(desc.split('ingredienti')[1]), xpath: xpath}];
                     }
-                    else if (item.text.includes('Ingredienti')) {
-                        row.description[0].text = clean(item.text.split('Ingredienti')[0]);
-                    } else {
-                        row.description[0].text = clean(item.text.split('INGREDIENTI')[0]);
+                }
+                else if (desc.includes('Ingredienti')) {
+                    row.description[0].text = desc.split('Ingredienti')[0];
+                    if (desc.split('Ingredienti').length > 1) {
+                        row.ingredientsList = [{text: getIngredients(desc.split('Ingredienti')[1]), xpath: xpath}];
                     }
-                });
+                } else {
+                    row.description[0].text = desc.split('INGREDIENTI')[0];
+                    if (desc.split('INGREDIENTI').length > 1) {
+                        row.ingredientsList = [{text: getIngredients(desc.split('INGREDIENTI')[1]), xpath: xpath}];
+                    }
+                }
+            }
+            
+            if (row.price) {
+                row.price[0].text = row.price[0].text.replace(',','.');
+            }
 
-                // let result = [];
-                // for (var i=0; i < row.description.length; i++) {
-                //     if (row.description[i].text.startsWith("Ingredienti")) {
-                //         break;
-                //     }
-                //     result.push(row.description[i]);
-                // }
-                // row.description = result;
-            }          
+            if (row.listPrice) {
+                row.listPrice[0].text = row.listPrice[0].text.replace(',','.');
+            }
+
+            if (row.availabilityText) {
+                row.availabilityText[0].text = row.availabilityText[0].text == 'instock' ? 'In Stock' : 'Out of Stock';
+            }
+
+            if (row.quantity) {
+                let char = row.quantity[0].text.split(' ');
+                row.quantity[0].text = char[(char.length-1)].trim();
+            }
+
+            if (row.aggregateRating) {
+                let json = JSON.parse(row.aggregateRating[0].text);
+                row.aggregateRating[0].text = json.aggregateRating.ratingValue;
+                row.ratingCount = [{text: json.aggregateRating.ratingCount, xpath: row.aggregateRating[0].xpath}];
+            }
+
+            row.variantCount = [{text: 1}];
+            row.imageZoomFeaturePresent = [{text: "Yes"}];
         }
     }
+
+
+    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+    }))));
     return data;
   };
   
