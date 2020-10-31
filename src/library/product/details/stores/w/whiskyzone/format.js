@@ -53,6 +53,23 @@ const transform = (data) => {
             }
           });
         }
+        if (row.brandText) {
+          row.brandText.forEach(item => {
+            var myRegexp = /Hersteller\s*:\s*(.+?)\n/g;
+            var match = myRegexp.exec(item.text);
+            if(match.length){
+                item.text = match[1].trim();
+            }else{
+                item.text = "";
+            }
+          });
+        }
+        if(row.quantity){
+          row.quantity.forEach(item=>{
+            var tmp=item.text.replace(' (','');
+            item.text=tmp[0];
+          })
+        }
       }
     }
     return cleanUp(data);

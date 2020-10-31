@@ -35,13 +35,13 @@ fields:
     xpath: //div[@class="product--description"]/p
   - name: brandText
     singleValue: false
-    xapth: //div[@class="product--supplier"]/a/@title
+    xapth: //div[@class="product--description"]/p[last()]
   - name: manufacturer
     singleValue: true
     xpath: //div[@class="product--description"]/p[last()]
   - name: quantity
     singleValue: false
-    defaultValue: '1'
+    xpath: //div[@class="product--price price--unit"]/font
   - name: gtin
     singleValue: false
     xpath: //meta[@itemprop="gtin13"]/@content
