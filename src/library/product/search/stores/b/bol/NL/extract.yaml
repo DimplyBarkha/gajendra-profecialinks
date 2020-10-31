@@ -1,5 +1,63 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: null # //ul[@class="list-view product-list js_multiple_basket_buttons_page"]/li
+fields:
+  - name: id
+    singleValue: false
+    xpath: //li/@data-id
+  - name: searchUrl
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
+  - name: name
+    singleValue: false
+    xpath: //a[@data-test='product-title']
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="h-o-hidden"]/a/@href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="h-o-hidden"]/descendant::img/@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='star-rating']/@title
+  - name: aggregateRating2
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='star-rating']/@ratingsCount
+  - name: price
+    regExp: (.*[0-9])
+    regExpReplace: $1
+    singleValue: false
+    xpath: //span[@class="promo-price"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //ul[@class='product-creator']/li
+  - name: soldBy
+    singleValue: false
+    xpath: //wsp-buy-block[@class="product-item__options hit-area"]/@seller
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    xpath: //div[@class="product-item__info hit-area"]/@sponsored # //div[@class='h-color-subtext h-bottom--xs small_details']
+  - name: totalRecordCount
+    singleValue: true 
+    xpath: //p[@class='total-results js_total_results']
+    type: NUMBER
+
+    # todo soldBy nextLinkSelector 
