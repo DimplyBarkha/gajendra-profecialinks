@@ -1,0 +1,63 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+- name: image
+  singleValue: true  
+  xpath: //div[@class="imagegallery mb-2 clearfix"]/@data-default-image
+- name: category
+  singleValue: false
+  xpath: //ol[@class='breadcrumb ml-1 ml-md-0 my-1']/li[2]/a/span/text()
+- name: sub-category
+  singleValue: false
+  xpath: //li[position() >= 3 and position()<last()]/a/span
+- name: product-description
+  singleValue: true
+  xpath: //section[@id='productSheetCont']/h1[@class='h3 font-weight-normal px-4 pt-2 mb-3']
+- name: online-price
+  singlevalue: true
+  xpath: (//div[@class='prices text-center']/span[@id='price'])[1]  
+  type: CURRENCY
+- name: availability
+  singleValue: true
+  xpath: (//div[@class='col']/button[@class='btn btn-rounded btn-pf-primary btn-block EA_event-btnlanding']/@name)[1]
+- name: additional-description
+  singleValue: true
+  xpath: (//div[@class='product-info']/p[1]) | (//div[@id='description']/div[@id='wrapper-description']/div[@id='content-description'])
+- name: brandText
+  singleValue: false
+  xpath: //meta[@itemprop="brand"]/@content
+- name: ingredientsList
+  singleValue: true  
+  xpath: //div[@id='wrapper-description']/div[@id='content-composition']
+- name: size
+  singleValue: true
+  xpath: //div[@class='product-info']/p[@class='volume']
+- name: directions
+  singleValue: true  
+  xpath: //div[@class='box-white']/div[@id='professional-advice']
+- name: alternateImages
+  singleValue: false
+  description: Other product images
+  xpath: //a[@data-zoom-id="product-img"]/img/@src
+- name: sku
+  singleValue: true
+  xpath: //meta[@itemprop="sku"]/@content
+- name: ratingCount
+  singleValue: true
+  type: NUMBER
+  xpath: //div[@class='mt-4 rating-box']/div/span/span[@itemprop="reviewCount"]
+- name: aggregateRating
+  singleValue: true 
+  xpath: (//meta[@itemprop="ratingValue"]/@content)[1]
+- name: listPrice
+  singleValue: true
+  xpath: (//div[@class='prices text-center']/del[@class='old-price']) 
+- name: promotion
+  singleValue: true
+  xpath: (//div[@class='arrow-discount-tag tag-left']/div[@class='tagimg_text'])[1]
+- name: secondaryImageTotal
+  singleValue: true
+  xpath: (//div[@class="mcs-item"]/@data-item)[last()]
+  
