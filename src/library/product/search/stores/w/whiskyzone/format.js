@@ -34,7 +34,7 @@ const transform = (data) => {
                     tot=tot+0.5;
                 }
             });
-            row.aggregateRating=[{"text":tot.toString(),"xpath":row.aggregateRating[0]['xpath']}];
+            row.aggregateRating=[{"text":tot,"xpath":row.aggregateRating[0]['xpath']}];
         }
         if(row.price){
             var test=row.price[0]['text'].replace(' *','');
