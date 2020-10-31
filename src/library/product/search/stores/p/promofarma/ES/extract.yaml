@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: true    
+    xpath: //div[@class='prices']/span[@id='price']
+    type: CURRENCY
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="col-6 col-sm-12 column-text"]/div/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class="link"]/img/@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]/meta[@itemprop="ratingValue"]/@content
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class="text-container left-spacer-small pf-color-gray"]/span
+  - name: name
+    singleValue: true
+    xpath: //div[@class='wrapper pr-2 py-2 px-sm-2 d-flex flex-column']/a[@class='link GA_coupon_name ']
+  - name: id
+    singleValue: true
+    xpath: //div[@class="col-sm-6 col-md-4 col-lg-3 item-container"]/article/@data-id
