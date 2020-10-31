@@ -25,7 +25,11 @@ async function implementation (
   }catch (e) {
     console.log(e);
   }
-  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+
+  await context.setInputValue('#search',inputs.keywords);
+  await context.clickAndWaitForNavigation('div.nav-submit-button button');
+
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
