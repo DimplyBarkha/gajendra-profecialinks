@@ -62,8 +62,9 @@ const transform = (data) => {
         }
         if(row.quantity){
           row.quantity.forEach(item=>{
-            var tmp=item.text.replace(' (','');
-            item.text=tmp[0];
+            var tmp=item.text.split('(');
+            console.log('tmp',tmp);
+            item.text=tmp[0].trim();
           })
         }
       }

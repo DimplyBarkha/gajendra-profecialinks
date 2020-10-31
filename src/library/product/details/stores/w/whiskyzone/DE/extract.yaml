@@ -41,7 +41,7 @@ fields:
     xpath: //div[@class="product--description"]/p
   - name: quantity
     singleValue: false
-    xpath: //div[@class="product--price price--unit"]/font
+    xpath: //div[@class="product--price price--unit"]/text()
   - name: gtin
     singleValue: false
     xpath: //meta[@itemprop="gtin13"]/@content
@@ -66,3 +66,6 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[@class="product--description"]/p/iframe/@src
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
