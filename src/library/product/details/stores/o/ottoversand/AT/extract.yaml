@@ -115,7 +115,7 @@ fields:
     singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //span[contains(@class,'OrderNumber-sc-16ohlta ihUzmb')]
-    regExp: (?<=:)[^\s]*
+    regExp: \d+
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -136,7 +136,7 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    xpath: //span[contains(@class,'ReviewCount-sc-uptj9q Rrrfl')]
+    xpath: //span[contains(@class,'ReviewCount')]
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
