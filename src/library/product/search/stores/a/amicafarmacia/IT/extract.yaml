@@ -1,0 +1,19 @@
+singleRecord: false
+regionsSelector: null
+recordXPath: //div[@class='product-item-info']
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class='product-image-photo']/@src
+  - name: name
+    singleValue: false
+    xpath: //span[contains(@class,'product name product-item-name')]
+  - name: price
+    singleValue: false
+    xpath: //span[@class='price']
+  - name: id
+    singleValue: false
+    xpath: //input[@name='product']/@value
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class='product-image-container']/@href
