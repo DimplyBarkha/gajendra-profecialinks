@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //section[@class="buy-box"]//li[contains(@class, "thumb")]//a//@data-sku
+  - name: variantUrl
+    singleValue: false
+    xpath: //section[@class="buy-box"]//li[contains(@class, "thumb")]//a//@href
+    regExp: (\/.*)
+    regExpReplace: https://www.netshoes.com.br$1

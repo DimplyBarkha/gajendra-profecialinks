@@ -1,0 +1,80 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //img[@class="zoom"]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //ul[@class="swiper-wrapper"]/li[position()=1]/figure/img/@alt
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: _pageTimestamp
+    singleValue: true
+  - name: _url
+    singleValue: true
+    xpath: //link[@rel='canonical']/@href
+  - name: category
+    singleValue: false
+    xpath: //li[@itemprop = "itemListElement"][position()>1]
+  - name: nameExtended
+    singleValue: false
+    xpath: //section[@class="short-description"]/h1
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@class="swiper-wrapper"]/li[position()>1]/figure/img/@data-src
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//ul[@class="swiper-wrapper"]/li[position()>1]/figure/img/@data-src)
+  - name: price
+    singleValue: false
+    xpath: //section[contains(@class,"buy-box")]//div[@class="default-price"]//strong
+  - name: listPrice
+    singleValue: false
+    xpath: //section[contains(@class,"buy-box")]//del[contains(@class, "default-price")]
+  - name: description
+    singleValue: false
+    xpath: concat(//p[@itemprop="description"], substring("|", 1, boolean(string-length(//p[@itemprop="description"])>0)), //ul[@class="attributes"])
+  - name: brandText
+    singleValue: false
+    xpath: //ul[@class="attributes"]//li//strong[contains(text(),"Marca")]/../a
+  - name: quantity
+    singleValue: false
+    xpath: //ul[@class="radio-options"]//li[contains(@class,"active")]
+  - name: variantId
+    singleValue: false
+    xpath: //p[@class="reference"]/span
+  - name: sku
+    singleValue: false
+    xpath: //p[@class="reference"]/span
+    regExp: (\w+-\w+)-\w+-\w+
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[contains(@class, "Reviews")]
+    regExp: (^.*)-?[ ]avaliações
+    regExpReplace: $1
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[contains(@class, "rating") and contains(@class, "value")]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[contains(@class, "rating") and contains(@class, "value")]
+  - name: shippingInfo
+    singleValue: false
+    xpath: concat(//div[@class="product-seller"]/text(), //div[@class="product-seller"]//span)
+  - name: name
+    singleValue: false
+    xpath: //section[@class="short-description"]//h1
+  - name: variantInformation
+    singleValue: false
+    xpath: concat(//span[@class="sku-select-title"], ' ',//section[contains(@class,"buy-box")]//ul[@class="radio-options"]//li[position()=1]//a[@class="product-item"])
+  - name: availabilityText
+    singleValue: false
+    xpath: concat(substring('Out Of Stock', 1 div boolean(//strong[contains(text(), "Produto indisponível")])), substring('In Stock', 1 div not(//strong[contains(text(), "Produto indisponível")])))
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: concat(substring('Yes', 1, boolean(//div[@class="preview"])*3), substring('Yes', 1, boolean(not(//div[@class="preview"]))*3))
