@@ -9,8 +9,10 @@ fields:
     regExpReplace: https://www.vons.com$1
     description: The URL for the product details page
   - name: thumbnail
-    description: The URL for the product thumbnail image
+    description: The URL for the product thumbnail image 
     xpath: //img[@class='ab-lazy loaded']//@data-src
+    regExp: (.+)
+    regExpReplace: https://www.vons.com$1
   - name: name
     singleValue: true
     xpath: //div//a[@class='product-title']//text()
