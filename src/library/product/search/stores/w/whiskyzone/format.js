@@ -26,15 +26,19 @@ const transform = (data) => {
       var rank = 1;
       for (let row of group) {
         if(row.aggregateRating){
-            var tot=0;
+            var tot=0;var decimalPoint=false;
             row.aggregateRating.forEach(item => {
                 if(item.text=='icon--star'){
                     tot=tot+1;
                 }else if(item.text=='icon--star-half'){
-                    tot=tot+0.5;
+                  decimalPoint=true;
                 }
             });
-            var totStr=tot.toString().replace('.',',');
+            if(decimalPoint == false){
+              var totStr=tot.toString();
+            }else{
+              var totStr=tot.toString()+'.5';
+            }
             row.aggregateRating=[{"text":totStr,"xpath":row.aggregateRating[0]['xpath']}];
         }
         if(row.price){
