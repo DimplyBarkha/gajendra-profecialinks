@@ -43,7 +43,7 @@ fields:
     singleValue: false
     xpath: //div[@class="accordion-item-content"]/table//tr/td[1]/font/font[text()="Modelo"]/parent::*/parent::*/parent::*/td[2]/font/font
   - name: variantCount
-    singleValue: true
+    singleValue: false
     defaultValue: 1 
   - name: color
     singleValue: false
@@ -66,116 +66,19 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //div[@class="accordion-item-content"]/table//tr/td/text()
-  - name: warranty
-    singleValue: true
-    description: Guarantee associated with the product
-  - name: storage
-    singleValue: true
-    description: Suggested storage location for product
-  - name: countryOfOrigin
-    singleValue: true
-    description: The country from which the product originates
-  - name: allergyAdvice
-    singleValue: true
-    description: Allergy information associated with the product
-  - name: recyclingInformation
-    singleValue: true
-    description: Recycling information associated with the product
-  - name: productOtherInformation
+  - name: shippingInfo
     singleValue: false
-    description: Any other product information
-  - name: packaging
-    singleValue: true
-    description: Packaging information
-  - name: additives
-    singleValue: true
-    description: List of additives in the product
-  - name: pricePerUnit
-    singleValue: true
-    description: Price of the product split into certain units
-  - name: pricePerUnitUom
-    singleValue: true
-    description: The unit of measurement used in price_per_unit
-  - name: promotion
-    singleValue: true
-    description: promotion text on product page
-  - name: alcoholContent
-    singleValue: true
-    description: Alcohol content information
-  - name: newVersion
-    singleValue: true
-    description: In product page, information about a new version of the product
-      (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
-  - name: newAsin
-    singleValue: true
-    description: In product page, information about a new version of the product -
-      new asin info
-  - name: newDescription
-    singleValue: true
-    description: In product page, information about a new version of the product -
-      new desription info
+    xpath: //a[@class="product-information-shop-name"]
   - name: variantInformation
-    singleValue: true
-    description: colour / scent / flavour / other
+    singleValue: false
+    xpath: //div[@class="product-options-desktop-wrapper"]//div[contains(@class,"is-pristine")]//div[@class="custom-select-title"]/span[text()="Talla"]/parent::*/parent::*//li[1]/input/@value
   - name: firstVariant
-    singleValue: true
-    description: Unique identifier for a collection of variants. For a subset of
-      core feeds (43) we have a column "first_variant" that is populated with a
-      common code to link all variants for a product. method 1 (Preferred) = use
-      common tag (Could be parent sku) that is same value for all variants of a
-      product. method 2 = first_variant method technique, Identify the first
-      varient in the sequence and use this rpc to populate "first_variant" for
-      all variants of a product, this rpc becomes the common link between other
-      variants. method 3 = apply some logic to determine link between variants,
-      this will need analysis
+    singleValue: false
+    xpath: //div[@class="product-options-desktop-wrapper"]//div[contains(@class,"is-pristine")]//div[@class="custom-select-title"]/span[text()="Talla"]/parent::*/parent::*//li[1]/input/@id
   - name: variants
     singleValue: false
-    description: null
-  - name: additionalDescBulletInfo
-    singleValue: false
-    description: null
-  - name: prop65Warning
-    singleValue: true
-    description: null
-  - name: ageSuitability
-    singleValue: true
-    description: Recommended age displayed on the product page.
-      https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
-    example: 4 - 99 years
-  - name: energyEfficiency
-    singleValue: true
-    description: Energy rating of a product.
-      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-    example: A+, A+++, B
-  - name: technicalInformationPdfPresent
-    singleValue: true
-    description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
-  - name: termsAndConditions
-    singleValue: true
-    description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
-  - name: privacyPolicy
-    singleValue: true
-    description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
-  - name: customerServiceAvailability
-    singleValue: true
-    description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
-  - name: materials
-    singleValue: true
-    description: Materials used to make the product
-    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
-  - name: Image360Present
-    singleValue: true
-    description: If 360 image is present in the carousel ['Yes','No']
-    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
+    xpath: //div[@class="product-options-desktop-wrapper"]//div[contains(@class,"is-pristine")]//div[@class="custom-select-title"]/span[text()="Talla"]/parent::*/parent::*//li[1]/input/@value
   - name: imageZoomFeaturePresent
-    singleValue: true
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    singleValue: false
+    xpath: //div[contains(@class,"product-carousel-container")]//div[@class="item"]/img[@role="presentation"]/@class
     defaultValue: No

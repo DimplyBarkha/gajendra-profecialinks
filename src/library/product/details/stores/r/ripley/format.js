@@ -34,9 +34,9 @@ const transform = (data) => {
         if(row.variantId){
           console.log('variants');
         }else{
-          row.sku.forEach(item=>{
+          /*row.sku.forEach(item=>{
             row.variantId=[{"text":item.text}];
-          });
+          });*/
         }
         if(row.specifications){
           var tdNo=0; var info=[]; var tdata='';
@@ -52,7 +52,20 @@ const transform = (data) => {
           })
           row.specifications=[{"text":info.join(" || ")}];
         }
-
+        if(row.variants){
+          var info=[];
+          row.variants.forEach(item=>{
+            info.push(item.text);
+          })
+          row.variants=[{"text":info.join(' | ')}];
+        }
+        if(row.imageZoomFeaturePresent){
+          row.imageZoomFeaturePresent.forEach(item=>{
+            if(item.text=='zoomImg'){
+              item.text='Yes';
+            }
+          })
+        }
       }
     }
     return cleanUp(data);
