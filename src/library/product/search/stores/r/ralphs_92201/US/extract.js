@@ -19,7 +19,6 @@ async function implementation (
   });
 
   await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-  console.log('@@@@@@@@@@@@@@@@ extract js called @@@@@@@@@@@@@@@@@@', productDetails);
   return await context.extract(productDetails, { transform });
 }
 
