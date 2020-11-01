@@ -6,6 +6,10 @@ fields:
 - name: image
   singleValue: true  
   xpath: //div[@class="imagegallery mb-2 clearfix"]/@data-default-image
+- name: url
+  singleValue: true
+  description: URL of the main product image
+  xpath: /html/head/link[1]/@href
 - name: imageAlt
   singleValue: true
   xpath: //a[@id="product-img"]/figure/img/@alt
