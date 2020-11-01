@@ -10,7 +10,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'product_listing_base_price')]
     regExp: (.*)PZN(.*)
-    regExpReplace: $3
+    regExpReplace: $2
   - name: name
     singleValue: false
     xpath: //a[contains(@class,'product_listing_title')]

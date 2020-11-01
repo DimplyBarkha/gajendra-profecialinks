@@ -36,9 +36,9 @@ const transform = (data, context) => {
             var text = row.price[0].text;
             row.price[0].text = String(text).replace("*","");
         }
-        if(row.ratingCount){
-            var text = row.ratingCount[0].text;
-                row.ratingCount[0].text = String(text).replace("(","").replace(")","").trim();
+        if(row.reviewCount){
+            var text = row.reviewCount[0].text;
+                row.reviewCount[0].text = String(text).replace("(","").replace(")","").trim();
         }
       }
     }

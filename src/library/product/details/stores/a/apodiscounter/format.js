@@ -42,7 +42,6 @@ const transform = (data) => {
         if(row.manufacturer){
             var text = row.manufacturer[0].text;
             var array = String(text).split("\n");
-            console.log(array,'11111111111');
             if(array.length > 1){
                 row.manufacturer[0].text = array[0].replace("Originalprodukt von","").trim()
             }
