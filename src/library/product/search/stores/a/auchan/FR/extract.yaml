@@ -4,47 +4,55 @@ recordXPath: //div[contains(@class, 'product-item--wrapper')]
 fields:
   - name: _url
     singleValue: false
-    description: 
+    description:
     xpath: concat('https://www.auchan.fr',//a[contains(@class, 'product-list--seeAllProducts')]/@href)
   - name: thumbnail
     singleValue: false
-    description: 
+    description:
     xpath: //span[@class="product-item--imgFlapContainer"]//img/@src
   - name: brandText
     singleValue: false
-    description: 
+    description:
     xpath: //em[contains(@class, 'product-item--brand')]
   - name: name
     singleValue: false
-    description: 
+    description:
     xpath: //meta[@itemprop='image']/@alt
   - name: price
     singleValue: false
-    description: 
+    description:
     xpath: //span[contains(@class, 'product-item--price')]
   - name: aggregateRating
     singleValue: false
-    description: 
+    description:
+    xpath: //meta[@itemprop='ratingValue']/@content
+  - name: aggregateRating2
+    singleValue: false
+    description:
+    xpath: //meta[@itemprop='ratingValue']/@content
+  - name: aggregateRatingText
+    singleValue: false
+    description:
     xpath: //meta[@itemprop='ratingValue']/@content
   - name: reviewCount
     singleValue: false
-    description: 
+    description:
     xpath: //meta[@itemprop='reviewCount']/@content
   - name: soldBy
     singleValue: false
-    description: 
+    description:
     xpath: //div[contains(@class, 'product-item--wrapper')]//span[contains(@class, 'product-item--vendorname')]
   - name: endorsementText
     singleValue: false
-    description: 
+    description:
     xpath: //span[contains(@class, 'product-item--flap')]
   - name: variantId
     singleValue: false
-    description: 
+    description:
     xpath: //article[contains(@class, 'product-item--container')]/@data-code
   - name: productUrl
     singleValue: false
-    description: 
+    description:
     xpath: //div[@class="product-item--wrapper"]//a/@href
     regExp: (.*)
     regExpReplace: https://www.auchan.fr$1
