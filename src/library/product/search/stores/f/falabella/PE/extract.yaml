@@ -1,0 +1,40 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+# recordXPath: null
+recordXPath: "//div[contains(@class,'search-results-4-grid')]"
+
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div/@data-key
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,'layout_grid-view')]/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[contains(@class,'layout_grid-view')]//img/@src
+    # xpath: //img[contains(@id,'testId-pod-image')]/@src
+  - name: name
+    singleValue: false
+    xpath: //b[contains(@id,'testId-pod-displaySubTitle')]
+  - name: soldBy
+    singleValue: false
+    xpath: //b[contains(@class,'pod-sellerText')]
+  - name: price
+    singleValue: false
+    xpath: //li[contains(@class,'price-2') or contains(@class,'price-1') or contains(@class,'price-0')][1]
+    # xpath: (//li[contains(@class,'price-2')] | //li[contains(@class,'price-1')] | //li[contains(@class,'price-0')])
+  - name: ratingCount
+    singleValue: false
+    xpath: //span/@data-rating
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,'pod-rating')]/div/@data-rating
+  - name: brandText
+    singleValue: false
+    xpath: //b[contains(@class,'pod-title')]
+  - name: rank
+    singleValue: false
+  - name: rankOrganic
+    singleValue: true
