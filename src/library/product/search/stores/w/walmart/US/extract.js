@@ -33,7 +33,7 @@ module.exports = {
         const jsonObj = node.textContent.startsWith('{"searchContent":') ? JSON.parse(node.textContent) : null;
         if (jsonObj && jsonObj.searchContent && jsonObj.searchContent.preso && jsonObj.searchContent.preso.items) {
           jsonObj.searchContent.preso.items.forEach(item =>
-            document.querySelector(`a[class*="product-title-link"][href*="${item.usItemId}"]`) ? document.querySelector(`a[class*="product-title-link"][href*="${item.usItemId}"]`).setAttribute('added-brand', item.brand ? item.brand[0] : '') : '')
+            document.querySelector(`.search-product-result a[class*="product-title-link"][href*="${item.usItemId}"]`) ? document.querySelector(`.search-product-result a[class*="product-title-link"][href*="${item.usItemId}"]`).setAttribute('added-brand', item.brand ? item.brand[0] : '') : '')
           
         }
       }
