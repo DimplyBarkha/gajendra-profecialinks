@@ -131,4 +131,11 @@ fields:
     singleValue: false
     description: size
     xpath: //span[@data-qa="cart-page-item-sizing"]
+  - name: availabilityText
+    singleValue: false
+    description: size
+    xpath: //span[contains(@class,"kds-Text--s block text-positive")]
+    regExp: Available
+    regExpReplace: In stock
+    defaultValue: Out of stock
    
