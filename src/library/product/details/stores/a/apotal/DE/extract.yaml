@@ -35,6 +35,9 @@ fields:
   - name: sku
     xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//meta[@itemprop="sku"]/@content
     singleValue: false
+  - name: variantId
+    xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//meta[@itemprop="sku"]/@content
+    singleValue: false
   - name: description
     xpath: //div[@class="boxProductDetail"]//div[@id="productDesc"]
     singleValue: false
