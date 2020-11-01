@@ -67,8 +67,7 @@ module.exports = {
       let rating = getXpath("//span[@class='rating-value i-new-stars-on']/@style", 'nodeValue');
       console.log('rating fetched ' + rating);
 
-      // const regexp = /\:(\w+)\%/;
-      if (rating != null && rating.includes('width')) {
+      if (rating !== null && rating.includes('width')) {
         rating = rating.split(':');
         rating = rating[1];
         rating = rating.trim();
@@ -83,6 +82,19 @@ module.exports = {
           addElementToDocument('added_rating', rating);
         }
       }
+      let listPrice = getXpath("//span[@data-field='specialPrice']/text()", 'nodeValue');
+      console.log('listPrice fetched ** ' + rating);
+      if (listPrice.includes(',')) {
+        listPrice = listPrice.replace(',', '.');
+      }
+      addElementToDocument('added_listPrice', listPrice);
+
+      let price = getXpath("//div[@class='catalog-detail-price-line']/span[@data-field='finalPrice']/text()", 'nodeValue');
+      console.log('price fetched ** ' + rating);
+      if (price.includes(',')) {
+        price = price.replace(',', '.');
+      }
+      addElementToDocument('added_price', price);
 
       // const alternateImages = getAllXpath("//div[@id='offer-bg']//div[@id='offerImges']/div[position()>1]/img/@src", 'nodeValue').join(' | ');
       // console.log('alternateImages   ' + alternateImages);

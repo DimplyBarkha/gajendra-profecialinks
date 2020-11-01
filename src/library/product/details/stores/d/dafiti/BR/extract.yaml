@@ -30,12 +30,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //span[@data-field='specialPrice']/text()
+    xpath: //div[@id='added_listPrice']
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='catalog-detail-price-line']/span[@data-field='finalPrice']/text()
+    xpath: //div[@id='added_price']
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -55,8 +55,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //h1[@class='product-name']/text()
-    regExp: (Adidas)
+    xpath: //div[contains(@class,'product-brand')]/a[@itemprop='brand']/@title
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -112,7 +111,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //div[@id='added_rating']
+    # xpath: //div[@id='added_rating']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -130,6 +129,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //div[@class='box-informations']//table//tr/td[contains(text(),'Cor')]//following::td/text()
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)

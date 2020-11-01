@@ -5,10 +5,12 @@ recordXPath: null
 fields:
   - name: price
     singleValue: false
-    xpath: //div[@class='product-box-detail']//span[@class='product-box-price-to']/text()
+    xpath: //div[@class='product-box-price']//span[@class='product-box-price-from']/text()
+    regExp: (\d+)(.)(\d+)
+    regExpReplace: $1.$3
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,'product-box')]//div[contains(@class,'product-box-image')]/a/@href
+    xpath: //div[contains(@class,'product-box')]//div[contains(@class,'product-box-image')]/a[contains(@href,'.html')]/@href
     regExp: (\d+).html
     regExpReplace: $1
   - name: name
@@ -16,10 +18,10 @@ fields:
     xpath: //div[contains(@class,'product-box')]//p[@class='product-box-title']/text()
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,'product-box')]//div[contains(@class,'product-box-image')]/a/@href
+    xpath: //div[contains(@class,'product-box')]//div[contains(@class,'product-box-image')]/a[contains(@href,'.html')]/@href
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,'product-box')]//div[contains(@class,'product-box-image')]/a/@data-model-picture
+    xpath: //div[contains(@class,'product-box')]//div[contains(@class,'product-box-image')]/a/img[contains(@src,'http')]/@src
   # - name: aggregateRating
   #   singleValue: false
   #   xpath:
