@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'avansas.com',
     prefix: null,
-    url: null,
+    url: 'https://www.avansas.com/search/?q={id}',
     country: 'TR',
     store: 'Avansas',
     zipcode: "''",
