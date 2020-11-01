@@ -21,6 +21,7 @@ fields:
 - name: price
   singlevalue: true
   xpath: (//div[@class='px-1 pt-sm-2']/p[@class='pr-lg-2'])[1] 
+  type: CURRENCY
 - name: availabilityText
   singleValue: true
   xpath: (//div[@class='col']/button[@class='btn btn-rounded btn-pf-primary btn-block EA_event-btnlanding']/@name)[1]
@@ -36,6 +37,7 @@ fields:
 - name: packSize
   singleValue: true
   xpath: //div[@class='product-info']/p[@class='volume']
+  type: NUMBER
 - name: directions
   singleValue: true  
   xpath: //div[@class='box-white']/div[@id='professional-advice']
@@ -55,6 +57,7 @@ fields:
 - name: listPrice
   singleValue: true
   xpath: (//div[1]/del[@class='old-price pr-1 pr-sm-2 mt-1 mt-sm-2'])[1]
+  type: CURRENCY
 - name: promotion
   singleValue: true
   xpath: (//div[@class='arrow-discount-tag tag-left']/div[@class='tagimg_text'])[1]
