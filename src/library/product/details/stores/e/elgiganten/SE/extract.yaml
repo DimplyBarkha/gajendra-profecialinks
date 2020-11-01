@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="seller-name-wrapper"]
   - name: availabilityText
     singleValue: false
-    xpath: (//span[contains(text(),"Lägg i kundvagn")])[1]
+    xpath: //span[contains(text(),"Lägg i kundvagn")]  | (//span[contains(text(),"Köp med abonnemang")])[1]
     regExp: (.+)
     regExpReplace: In Stock 
     defaultValue: Out of Stock 
@@ -57,7 +57,7 @@ fields:
   - name: gtin 
     singleValue: false
     # xpath: //td[contains(text(),"EAN-kod")]/following-sibling::td | //meta[@itemprop="gtin8"]/@content
-    xpath: //td[contains(text(),"EAN-kod")]/following-sibling::td
+    xpath: //td[contains(text(),"EAN-kod")]/following-sibling::td | //meta[@itemprop="gtin8"]/@content
   - name: sku
     singleValue: false
     # xpath: //p/@data-product-sku | //meta[@itemprop="productID"]/@content
@@ -98,7 +98,7 @@ fields:
     regExpReplace: $1
   - name: descriptionBullets
     singleValue: false
-    xpath: //div[@id="misc-info"]//ul[@class="specs"]//li
+    xpath: count(//div[@id="misc-info"]//ul[@class="specs"]//li)
   - name: mpc
     singleValue: false
     xpath: //td[contains(text(),"Produkt-ID (artikelnummer)")]/following-sibling::td
@@ -152,4 +152,13 @@ fields:
   - name: shippingDimensions
     singleValue: false
     xpath: //span[contains(text(),"Mått & vikt")]//..//following-sibling::dd//tr
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="table-cell header"]
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class="table-cell variations"]//a)
+  - name: promotion
+    singleValue: false
+    xpath: //span[@class="subscription-campaign-logo align-left"]/span/text() | //span[@class="subscription-campaign-logo align-left"]/text() | //span[@class="additional-info"]/strong/text()
 
