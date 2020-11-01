@@ -34,9 +34,9 @@ const transform = (data) => {
         if(row.variantId){
           console.log('variants');
         }else{
-          /*row.sku.forEach(item=>{
+          row.sku.forEach(item=>{
             row.variantId=[{"text":item.text}];
-          });*/
+          });
         }
         if(row.specifications){
           var tdNo=0; var info=[]; var tdata='';
@@ -57,7 +57,9 @@ const transform = (data) => {
           row.variants.forEach(item=>{
             info.push(item.text);
           })
+          console.log('info leng',info.length);
           row.variants=[{"text":info.join(' | ')}];
+          row.variantCount=[{"text":info.length}];
         }
         if(row.imageZoomFeaturePresent){
           row.imageZoomFeaturePresent.forEach(item=>{

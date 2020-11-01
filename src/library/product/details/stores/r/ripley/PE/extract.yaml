@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //body[contains(@class,"product-detail")]
 fields:
   - name: image
     singleValue: false
@@ -9,12 +9,9 @@ fields:
   - name: imageAlt
     singleValue: false
     xpath: //ul[@class="product-image-previews"]/li[contains(@class,"is-active")]/img/@alt
-  - name: alternateImages
-    singleValue: false
-    xpath: //ul[@class="product-image-previews"]/li[not(contains(@class,"is-active"))]/img/@data-src
   - name: nameExtended
     singleValue: false
-    xpath: //h1
+    xpath: //section[@class="product-header hidden-xs"]//h1
   - name: listPrice
     singleValue: false
     xpath: //section[@class="product-info"]//li[@class="product-normal-price"]//span[contains(@class,"product-price__line-thru")]
@@ -26,10 +23,13 @@ fields:
     xpath: //section[@class="product-header hidden-xs"]//div[@class="product-short-description"]
   - name: brandText
     singleValue: false
-    xpath: //div[@class="accordion-item-content"]/table//tr/td[1]/font/font[text()="Marca"]/parent::*/parent::*/parent::*/td[2]/font/font
+    xpath: //div[@class="accordion-item-content"]/table//tr/td[text()="Marca"]/parent::*/td[2]
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@class="product-image-previews"]/li[not(contains(@class,"is-active"))]/img/@data-src
   - name: weightNet
     singleValue: false
-    xpath: //div[@class="accordion-item-content"]/table//tr/td[1]/font/font[text()="Weight (kg)"]/parent::*/parent::*/parent::*/td[2]/font/font
+    xpath: //div[@class="accordion-item-content"]/table//tr/td[contains(text(),"Peso sin") or contains(text(),"Peso (kg)")]/parent::*/td[2]
   - name: gtin
     singleValue: false
     xpath: //section[@class="product-header hidden-xs"]//span[@class="sku"]
@@ -41,7 +41,7 @@ fields:
     xpath: //div[@class="product-options-desktop-wrapper"]//div[contains(@class,"is-pristine")]//div[@class="custom-select-title"]/span[text()="Talla"]/parent::*/parent::*//li[1]/input/@id
   - name: mpc
     singleValue: false
-    xpath: //div[@class="accordion-item-content"]/table//tr/td[1]/font/font[text()="Modelo"]/parent::*/parent::*/parent::*/td[2]/font/font
+    xpath: //div[@class="accordion-item-content"]/table//tr/td[text()="Modelo"]/parent::*/td[2]
   - name: variantCount
     singleValue: false
     defaultValue: 1 
@@ -59,25 +59,25 @@ fields:
     xpath: //div[@itemprop="description"]//iframe/@src
   - name: name
     singleValue: false
-    xpath: //h1
+    xpath: //section[@class="product-header hidden-xs"]//h1
   - name: secondaryImageTotal
     singleValue: false
     xpath: //ul[@class="product-image-previews"]/li[not(contains(@class,"is-active"))]/img/@data-src
   - name: specifications
     singleValue: false
     xpath: //div[@class="accordion-item-content"]/table//tr/td/text()
-  - name: shippingInfo
+  - name: variants
     singleValue: false
-    xpath: //a[@class="product-information-shop-name"]
+    xpath: //div[@class="product-options-desktop-wrapper"]//div[contains(@class,"is-pristine")]//div[@class="custom-select-title"]/span[text()="Talla"]/parent::*/parent::*//li/input/@id
   - name: variantInformation
     singleValue: false
     xpath: //div[@class="product-options-desktop-wrapper"]//div[contains(@class,"is-pristine")]//div[@class="custom-select-title"]/span[text()="Talla"]/parent::*/parent::*//li[1]/input/@value
   - name: firstVariant
     singleValue: false
     xpath: //div[@class="product-options-desktop-wrapper"]//div[contains(@class,"is-pristine")]//div[@class="custom-select-title"]/span[text()="Talla"]/parent::*/parent::*//li[1]/input/@id
-  - name: variants
+  - name: shippingInfo
     singleValue: false
-    xpath: //div[@class="product-options-desktop-wrapper"]//div[contains(@class,"is-pristine")]//div[@class="custom-select-title"]/span[text()="Talla"]/parent::*/parent::*//li[1]/input/@value
+    xpath: //a[@class="product-information-shop-name"]
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: //div[contains(@class,"product-carousel-container")]//div[@class="item"]/img[@role="presentation"]/@class
