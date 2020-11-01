@@ -90,6 +90,19 @@ const transform = (data) => {
         });
         row.variants = vars;
       }
+      if (row.variantId) {
+        row.variantId.forEach(item => {
+          let txt = item.text;
+          const idx = txt.indexOf('?');
+          if (idx > -1) {
+            txt = txt.substring(0, idx);
+          }
+          if (txt.indexOf('/') > -1) {
+            txt = txt.substring(txt.lastIndexOf('/') + 1);
+          }          
+          item.text = txt;
+        });
+      }
       if (row.shippingInfo) {
         const vars = [];
         let cnt = 0;

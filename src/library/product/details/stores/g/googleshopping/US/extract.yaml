@@ -71,9 +71,9 @@ fields:
     #regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: //a[@data-sid='online']/@href
-    regExp: product\W([\d]+)
-    regExpReplace: $1
+    xpath: //a[@data-sid="online"]/@href|(//div[@class="sh-dvc__scroll"]/div/@data-docid)[1]|//link[@rel="canonical"]/@href
+    # regExp: product\W([\d]+)
+    # regExpReplace: $1
   - name: mpc
     singleValue: false
   - name: packSize
@@ -94,7 +94,7 @@ fields:
     #type: NUMBER
   - name: variantInformation
     singleValue: false
-    xpath: //div[@class='eyAVeb']/text() | //div[@id='TypeV67aGc']/text()
+    xpath: //div[@class='eyAVeb']/span | //div[@id='TypeV67aGc']/text()
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class='uYNZm']/text()
