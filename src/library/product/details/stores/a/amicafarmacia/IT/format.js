@@ -56,14 +56,6 @@ const transform = (data) => {
                 }
             }
             
-            if (row.price) {
-                row.price[0].text = row.price[0].text.replace(',','.');
-            }
-
-            if (row.listPrice) {
-                row.listPrice[0].text = row.listPrice[0].text.replace(',','.');
-            }
-
             if (row.availabilityText) {
                 row.availabilityText[0].text = row.availabilityText[0].text == 'instock' ? 'In Stock' : 'Out of Stock';
             }

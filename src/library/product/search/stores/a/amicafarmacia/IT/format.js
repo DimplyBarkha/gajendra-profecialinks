@@ -9,10 +9,6 @@ const transform = (data, context) => {
             if (row.productUrl) {
                 row.productUrl = [{text: row.productUrl[0].text, xpath: row.productUrl[0].xpath}];
             }
-
-            if (row.price) {
-                row.price[0].text = row.price[0].text.replace(',','.');
-            }
         }        
     }
 
