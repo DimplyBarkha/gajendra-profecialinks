@@ -3,8 +3,8 @@ module.exports = {
   implements: 'product/details',
   parameterValues: {
     country: 'FR',
-    store: 'marlionnaud',
-    domain: 'marlionnaud.fr',
+    store: 'marionnaud',
+    domain: 'marionnaud.fr',
     zipcode: '',
   },
 };

@@ -6,41 +6,51 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
+    xpath: //ul[@id='images_galery_mobile']/li/span[@class='thumb active']/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.marionnaud.fr$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //ul[@id='images_galery_mobile']/li/span/img/@alt
   - name: alternateImages
     singleValue: false
+    xpath: //ul[@id='images_galery_mobile']/li/span/img/@src
     description: Other product images (not in manufacturer description)
+    regExp: (.+)
+    regExpReplace: https://www.marionnaud.fr$1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@id='categoryValue']
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@class='productNameInfo ']/span[@class='producRangeName']
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //div[@class='markdownPrice priceformat']
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //div[@class='finalPrice']
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //div[@id='availabilityText']
   - name: description
-    singleValue: false
+    singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //*[@id="productTabs"]/div[@class='productInformationSection']/div[1][@class='row']/div/div[2]/p[1]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -49,29 +59,33 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@id='brandText']
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //div[@class='select']//div[@class='select-styled']
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //*[@class="size-box selected"]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[@id='gtinValue']
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //div[@id='auditedOpinionsContainer']/div/@data-product-code
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@id='variantId']
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -88,9 +102,11 @@ fields:
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
+    xpath: //div[@id='warningInfo']
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    xpath: //span[@class='global-rating__review-count']
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
@@ -98,6 +114,8 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@class='global-rating__rating']
+    regExp: (.*)(?=\/)
     type: NUMBER
   - name: shippingInfo
     singleValue: true
@@ -130,6 +148,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //span[@class='productName']
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -234,6 +253,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //*[@id="productTabs"]/div[2][@class='productInformationSection']/div[2]/div/div[2]/p | //*[@id="productTabs"]/div[2][@class='productInformationSection']/div[2]/div/div[2]/p/font[2]/font
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -475,7 +495,7 @@ fields:
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
