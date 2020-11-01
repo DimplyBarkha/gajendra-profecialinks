@@ -26,7 +26,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //meta[@name='twitter:title']//@content
+    xpath: //div[@class='produtoNome']
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -73,7 +73,7 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: //div[@class='produtoNome']
+    xpath: //div[contains(@class,'produtoNome')]//b[@itemprop="name"]
   - name: _url
     singleValue: false
     xpath: //div[@id='document_url']
@@ -102,7 +102,7 @@ fields:
     xpath: //input[@id='ctl00_Conteudo_hdnIdSkuSelecionado']//@value
   - name: variantId
     singleValue: false
-    xpath: //input[@id='IdProduto']//@value
+    xpath: //div[@id='document_product_id']
   - name: termsAndConditions
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
@@ -127,11 +127,11 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //div[@id='detalhes']
+    xpath: //div[@id='detalhes']//p
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@id='descricao']//img//@src
+    xpath: //div[@id='descricao']//img//@src | //div[contains(@class,'aplusImages')]
   - name: secondaryImageTotal
   - name: privacyPolicy
     singleValue: false
@@ -153,3 +153,9 @@ fields:
   - name: weightNet
     singleValue: false
     xpath: //div[@id='descricao']
+  - name: mpc
+    singleValue: false
+    xpath: //input[@id='ctl00_Conteudo_hdnIdSkuSelecionado']//@value
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id='detalhes']//h2 | //div[@id='descricao']//p | //div[@id='descricao']//strong
