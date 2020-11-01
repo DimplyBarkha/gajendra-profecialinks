@@ -8,7 +8,7 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 20000));
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
@@ -30,6 +30,7 @@ async function implementation(
         }
       });
     };
+    await applyScroll(context);
   await context.evaluate(async () => {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -58,7 +59,7 @@ async function implementation(
       var imgs = document.querySelectorAll("#flix-lg-inpage img")
       imgs.forEach(x=> addHiddenDivWithClass('aplusImages',x.getAttribute("srcset")));
   });
-  await applyScroll(context);
+  
   return await context.extract(productDetails, { transform });
 }
 
