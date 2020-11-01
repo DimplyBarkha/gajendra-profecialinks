@@ -13,6 +13,7 @@
  *  loadedXpath: string,
  *  noResultsXPath: string,
  *  spinnerSelector: string,
+ *  stopConditionSelectorOrXpath: string,
  *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number }
  * }} parameters
  * @param { ImportIO.IContext } context
@@ -25,9 +26,25 @@ async function implementation (
   dependencies,
 ) {
   const { keywords, page, offset } = inputs;
-  const { nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
+  const { stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
 
   let nextLink;
+
+  if (stopConditionSelectorOrXpath) {
+    const conditionIsTrue = await context.waitForFunction((sel) => {
+      try {
+        const isThere = document.querySelector(sel);
+        return !!isThere;
+      } catch (error) {}
+      try {
+        const isThere = document.evaluate(sel, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+        return !!isThere;
+      } catch (error) {}
+      return false;
+    }, { timeout: 10000 }, stopConditionSelectorOrXpath);
+    // @ts-ignore
+    if (conditionIsTrue) return false;
+  }
 
   if (nextLinkSelector) {
     const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
@@ -135,6 +152,10 @@ module.exports = {
     {
       name: 'noResultsXPath',
       description: 'XPath selector for no results',
+    },
+    {
+      name: 'stopConditionSelectorOrXpath',
+      description: 'if this selectors returns an element then the pagination is brought to an end',
     },
     {
       name: 'openSearchDefinition',
