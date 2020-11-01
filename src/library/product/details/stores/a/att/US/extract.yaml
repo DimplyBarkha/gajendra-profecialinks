@@ -20,10 +20,11 @@ fields:
     # regExpReplace: $1
   - name: videos
     singleValue: false
-    #xpath: //div[@class="pIb9d"]/att-gvp/script
-    xpath: //script[@type="application/ld+json"][contains(text(),"VideoObject")]/text()
-    regExp: contentUrl\W{12}([^\"]+)\W
-    #regExpReplace: $1
+    xpath: //div[contains(@id, 'my-video')]    
+    # #xpath: //div[@class="pIb9d"]/att-gvp/script
+    # xpath: //script[@type="application/ld+json"][contains(text(),"VideoObject")]/text()
+    # regExp: contentUrl\W{12}([^\"]+)\W
+    # #regExpReplace: $1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
