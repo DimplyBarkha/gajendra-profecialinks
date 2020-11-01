@@ -22,8 +22,8 @@ fields:
     singleValue: false
     #xpath: //div[@class="pIb9d"]/att-gvp/script
     xpath: //script[@type="application/ld+json"][contains(text(),"VideoObject")]/text()
-    # regExp: contentUrl":"([^"]+)
-    # regExpReplace: $1
+    regExp: contentUrl\W{12}([^\"]+)\W
+    #regExpReplace: $1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -35,10 +35,10 @@ fields:
     xpath: concat(//span[@class="jsx-3261702053 color-ui-black block type-eyebrow-sm line-h-base"], ' ',//div[@class="jsx-2574661285 flex flex-column"]/h1)
   - name: listPrice
     singleValue: false
-    xpath: //fieldset[@id="pricingTermsSelection"]//span[not (@class)][2]
+    xpath: (//fieldset[@id="pricingTermsSelection"]//span[not (@class)])[2]
   - name: price
     singleValue: false
-    xpath: //fieldset[@id="pricingTermsSelection"]//span[not (@class)][1]
+    xpath: (//fieldset[@id="pricingTermsSelection"]//span[not (@class)])[1]
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
@@ -149,7 +149,6 @@ fields:
   - name: internationalShipping
     singleValue: false
     description: Text next to bullet point
- 
   - name: videoLength
     singleValue: false
     description: null
@@ -170,7 +169,6 @@ fields:
     singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-  
   - name: specifications
     singleValue: false
     #xpath: //tr[@class="jsx-1663706573 _1bQ68"]/td
@@ -181,7 +179,6 @@ fields:
   - name: countryOfOrigin
     singleValue: false
     description: The country from which the product originates
-  
   - name: promotion
     singleValue: false
     description: promotion text on product page

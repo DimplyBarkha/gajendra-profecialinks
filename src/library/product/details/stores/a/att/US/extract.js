@@ -7,40 +7,44 @@ module.exports = {
     domain: "att.com",
     zipcode: "''",
   },
-  // @ts-ignore
-  implementation: async (inputs, parameters, context, dependencies) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-    await context.evaluate(async function () {
-      // function addHiddenDiv (id, content) {
-      //   const newDiv = document.createElement('div');
-      //   newDiv.id = id;
-      //   newDiv.textContent = content;
-      //   newDiv.style.display = 'none';
-      //   document.body.appendChild(newDiv);
-      // }
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,) => {
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    // await context.evaluate(async function () {
+    //   const newDiv = document.createElement('div');
+    //   newDiv.id = 'test';
+    //   newDiv.textContent = 'test';
+    //   newDiv.style.display = 'none';
+    //   document.body.appendChild(newDiv);
 
-      const scriptSelector = '//script[@type="application/ld+json"][contains(text(),"contentUrl")]';
-      console.log("############## scriptSelector ::::", scriptSelector);
-      const videoApi = document.evaluate(
-        scriptSelector,
-        document,
-        null,
-        XPathResult.ANY_TYPE,
-        null
-      );
-      let videoElem = videoApi.iterateNext();
-      const videos = [];
-      let idx = 0;
-      while (videoElem) {
-        let text = videoElem.textContent; //.match(/contentUrl":"([^"]+)/);
-        console.log("############## text ::::", text);
-        videos.push(text);
-        videoElem = videoApi.iterateNext();
-        //addHiddenDiv(`my-video-${idx}`, text);
-      }
-      //return videos;
-    });
-    // console.log('############## videos ::::', videos);
+    //   const videoSelector = '//script[@type="application/ld+json"][contains(text(),"VideoObject")]';
+    //   const videoApis = document.evaluate(
+    //     videoSelector,
+    //     document,
+    //     null,
+    //     XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+    //     null
+    //   );
+    //   await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    //   for (let i=0 ; i < videoApis.snapshotLength; i++ ) {
+    //     let text = videoApis.snapshotItem(i).textContent;
+    //     text = text.match(/[,]{1}[\s]*?\"contentUrl\"[ ]*?[:][ ]*?\".*\"[^,].*/)[0];
+    //     //const videoObj = JSON.parse(text);
+    //     //if (videoObj && videoObj.contentUrl) {
+    //     if (text) {  
+    //       // const url = videoObj.contentUrl;
+    //       const arr = text.split(':');
+    //       const newDiv = document.createElement('div');
+    //       newDiv.id = `${i}-myvideo`;
+    //       newDiv.textContent = arr[1];
+    //       newDiv.style.display = 'none';
+    //       document.body.appendChild(newDiv);
+    //     }
+    //  }
+    // });
+    
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });
