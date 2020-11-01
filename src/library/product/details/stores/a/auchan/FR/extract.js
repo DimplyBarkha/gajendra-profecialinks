@@ -14,41 +14,32 @@ module.exports = {
     const mainUrl = await context.evaluate(async function () {
       return document.URL;
     });
-    const needToReload = await context.evaluate(async function () {
-      function getCookie(c_name) {
-        if (document.cookie.length > 0) {
-          var c_start = document.cookie.indexOf(c_name + "=");
-          if (c_start != -1) {
-            c_start = c_start + c_name.length + 1;
-            var c_end = document.cookie.indexOf(";", c_start);
-            if (c_end == -1) {
-              c_end = document.cookie.length;
-            }
-            return unescape(document.cookie.substring(c_start, c_end));
-          }
-        }
-        return "";
-      }
-      function createCookie(name, value, days) {
-        if (days) {
-          var date = new Date();
-          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-          var expires = "; expires=" + date.toGMTString();
-        } else {
-          var expires = "";
-        }
-        document.cookie = name + "=" + value + expires + "; path=/";
-      }
-      if (getCookie('lark-journey') === "7731184e-ecf8-49a4-a64a-3777e7f30a7f") {
-        return false;
-      } else {
-        createCookie('lark-journey', "7731184e-ecf8-49a4-a64a-3777e7f30a7f", 100000)
-      }
-      return true;
-    })
-    console.log('needToReload', needToReload);
-    if (needToReload)
-      await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
+
+    await context.goto('https://www.auchan.fr/magasins/drive/aubagne-en-provence/s-684734ad-027c-3eff-0e83-4f44aec5e0b8', {
+      timeout: 10000000,
+      waitUntil: 'networkidle0',
+      checkBlocked: true,
+      js_enabled: true,
+      css_enabled: false,
+      random_move_mouse: true,
+    });
+    await context.waitForSelector('button[autotrack-event-action="tutorial_click_useful"]')
+      .catch((err) => { console.log('tutorial link error', err) })
+    await context.click('button[autotrack-event-action="tutorial_click_useful"]')
+      .catch((err) => { console.log('tutorial link click error', err) })
+    await context.waitForSelector('button.journeyChoicePlace')
+      .catch((err) => { console.log('journeyChoicePlace link error', err) })
+    await context.click('button.journeyChoicePlace')
+      .catch((err) => { console.log('journeyChoicePlace link click error', err) })
+    await context.waitForNavigation();
+    // await context.evaluate(async function () {
+    //   //await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    //   document.querySelector('button.journeyChoicePlace').click();
+    //   return;
+    // });
+    // await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+
+    await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'networkidle0', checkBlocked: true });
     await context.evaluate(async function () {
       function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
@@ -112,7 +103,7 @@ module.exports = {
                 const arr = nutData.getElementsByClassName('nutritional__cell');
                 var index = 0;
                 for (var item of arr) {
-                  if (topIndex ===0) {
+                  if (topIndex === 0) {
                     nutriData.push({ key: item.innerText, value: '' });
                   } else if (topIndex === 1) {
                     nutriData[index].value = item.innerText;
