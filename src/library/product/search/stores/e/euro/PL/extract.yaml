@@ -1,0 +1,42 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="product-for-list"]
+fields: 
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product-row"]//div//h2/a[@class="js-save-keyword"]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="product-tile js-UA-product "]/@data-product-href
+    regExp: (.+)
+    regExpReplace: https://www.euro.com.pl$&
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product-row"]//div[@class="product-photo"]/a/img/@data-original|//div[@class="product-row"]//div[@class="product-photo"]/a/img/@src
+    #//div[@class="product-row"]//div[@class="product-photo"]/a/img[position()=1]/@src
+    regExp: (.+)
+    regExpReplace: https://www.euro.com.pl$1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="product-row"]//a[@class="js-save-keyword js-scroll-by-hash"]/@title  
+    regExp: (?:^|(?:[.!?]\s))(\d+)
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="product-row"]//a[@class="js-save-keyword js-scroll-by-hash"]//following-sibling::a
+    regExp: ([0-9]+) 
+    #regExpReplace: $1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-main"]//div[@class="price-normal selenium-price-normal"]/text()
+  # - name: variantId
+  #   singleValue: false
+  #   xpath: //div[@class='selenium-product-code']/text()
+  - name: id
+    singleValue: false
+    xpath: //div[@class='selenium-product-code']/text()
+  - name: rank
+    singleValue: false

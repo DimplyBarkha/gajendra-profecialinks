@@ -1,0 +1,17 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //div[@class="product-variants-section"]//a/@data-code
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //div[@class="product-variants-section"]//a/@href
+    # regExp: ([^,]+)\W(\d)+
+    regExp: (.+)
+    regExpReplace: https://www.euro.com.pl$1
+ 
