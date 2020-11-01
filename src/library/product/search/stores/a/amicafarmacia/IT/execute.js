@@ -5,7 +5,7 @@ module.exports = {
     country: 'IT',
     store: 'amicafarmacia',
     domain: 'amicafarmacia.com',
-    url: 'https://www.amicafarmacia.com/FACT-Finder/result?query={searchTerms}&pageSize=100000',
+    url: 'https://www.amicafarmacia.com/FACT-Finder/result?query={searchTerms}',
     loadedSelector: '#maincontent > div.columns > div.column.main',
     noResultsXPath: '//ff-template[contains(text(),"0 Risultati trovati")]',
     zipcode: "''",

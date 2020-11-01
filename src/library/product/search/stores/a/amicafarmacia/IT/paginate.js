@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'IT',
     store: 'amicafarmacia',
-    nextLinkSelector: 'ff-paging-set[class=""] ff-paging-item[type="nextLink"] input',
+    nextLinkSelector: 'ff-paging-item[type="nextLink"][class=""] input',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: '#maincontent > div.columns > div.column.main',
