@@ -403,7 +403,7 @@ fields:
   - name: countryOfOrigin
     singleValue: false
     description: The country from which the product originates
-    xpath: //*[contains(text(), "Country of Origin:")]
+    xpath: //span[@class="seller-notes"]
     regExp: Country\sof\sOrigin\:(.*)
     regExpReplace: $1
   - name: allergyAdvice
