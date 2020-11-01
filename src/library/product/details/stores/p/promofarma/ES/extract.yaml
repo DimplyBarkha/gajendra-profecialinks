@@ -47,6 +47,9 @@ fields:
 - name: sku
   singleValue: true
   xpath: //meta[@itemprop="sku"]/@content
+- name: variantId
+  singleValue: true
+  xpath: //div[@class="favorite-container text-center"]/a/@data-product-id
 - name: ratingCount
   singleValue: true
   type: NUMBER
@@ -64,4 +67,32 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   xpath: (//div[@class="mcs-item"]/@data-item)[last()]
+- name: technicalInformationPdfPresent
+  singleValue: true
+  description: If there is for example a manual in pdf format on the website. ['Yes','No']
+  example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+  defaultValue: No
+- name: termsAndConditions
+  singleValue: true
+  description: Terms and conditions information text ['Yes','No']
+  defaultValue: No
+- name: privacyPolicy
+  singleValue: true
+  description: Privacy Policy information text ['Yes','No']
+  defaultValue: No
+- name: customerServiceAvailability
+  singleValue: true
+  description: Information related to customer service availability (text), ['Yes','No']
+  defaultValue: No
+- name: Image360Present
+  singleValue: true
+  description: If 360 image is present in the carousel ['Yes','No']
+  example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+  defaultValue: No
+- name: imageZoomFeaturePresent
+  singleValue: true
+  description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
+  example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+  defaultValue: yes
+
   
