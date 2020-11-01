@@ -1,10 +1,11 @@
 
-
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: 'product/details/createUrl',
   parameterValues: {
-    country: 'ES',
     domain: 'douglas.es',
+    prefix: null,
+    url: null,
+    country: 'ES',
     store: 'douglas',
     zipcode: '',
   },

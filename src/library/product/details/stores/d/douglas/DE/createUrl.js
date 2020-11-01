@@ -7,5 +7,6 @@ module.exports = {
     url: null,
     country: 'DE',
     store: 'douglas',
+    zipcode: '',
   },
 };
