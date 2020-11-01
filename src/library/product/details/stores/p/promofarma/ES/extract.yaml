@@ -9,9 +9,6 @@ fields:
 - name: imageAlt
   singleValue: true
   xpath: //a[@id="product-img"]/figure/img/@alt
-- name: _url
-  singleValue: true
-  xpath: //section[@id="productSheetCont"]/meta[@itemprop="url"]/@content
 - name: category
   singleValue: false
   xpath: //ol[@class='breadcrumb ml-1 ml-md-0 my-1']//li[position() >= 2 and position()<last()]/a/span
@@ -37,7 +34,6 @@ fields:
 - name: packSize
   singleValue: true
   xpath: //div[@class='product-info']/p[@class='volume']
-  type: NUMBER
 - name: directions
   singleValue: true  
   xpath: //div[@class='box-white']/div[@id='professional-advice']
