@@ -23,8 +23,11 @@ fields:
     singleValue: false
   - name: price
     xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//dd[@class="yourPrice"]
-    # regExp: (\d.*)
-    # regExpReplace: $1 kr
+    regExp: (\d+.*€)
+    regExpReplace: $1
+    singleValue: false
+  - name: promotion
+    xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//dd[@class="youSave"]
     singleValue: false
   - name: availabilityText
     xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//dl[@class="productAvailability"]//dd//span[2]
@@ -46,4 +49,7 @@ fields:
     singleValue: false
   - name: eangtin
     xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//meta[@itemprop="gtin14"]/@content
+    singleValue: false
+  - name: ingredientsList
+    xpath: //div[@class="boxProductDetail"]//div[@id="productDesc"]//span//br[3]/following-sibling::text()[1]
     singleValue: false

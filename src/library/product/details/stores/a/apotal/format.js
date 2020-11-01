@@ -28,26 +28,22 @@ const transform = (data) => {
       }
       if (row.ratingCount) {
         const ratingCount = row.ratingCount[0].text.replace('(', '').replace(')', '');
-        // const ratingCount = row.ratingCount.map((item) => {
-        //   return typeof (item.text) === 'string' ? item.text.replace('(', '').replace(')', '') : '';
-        // });
         row.ratingCount = [{ text: Math.floor(ratingCount), xpath: row.ratingCount[0].xpath }];
       }
       if (row.category) {
-        console.log(row.category);
-        // const categoryArray = row.category.map((item) => {
-        //   return item.text.trim();
-        // });
-        const cat = row.category[0].text.split('\n');
-        console.log('cat -> ', cat);
-        cat.shift();
-        row.category = cat.map((item) => {
+        const categoryArray = row.category.map((item) => {
+          return item.text.trim();
+        });
+        categoryArray.shift();
+        row.category = categoryArray.map((item) => {
           return { text: item, xpath: row.category[0].xpath };
         });
       }
-      // const updatedRank = rank++;
-      // row.rankOrganic = [{ text: updatedRank }];
-      // row.rank = [{ text: updatedRank }];
+      if (row.ingredientsList) {
+        let ingredients = row.ingredientsList[0].text.trim();
+        ingredients = ingredients.startsWith('Wirkstoff:') ? ingredients.substr(11) : '';
+        row.ingredientsList = [{ text: ingredients, xpath: row.ingredientsList[0].xpath }];
+      }
     }
   }
 
