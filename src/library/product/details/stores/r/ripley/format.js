@@ -24,6 +24,16 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) {
+        if(row.image){
+          row.image.forEach(item=>{
+            item.text="https:"+item.text;
+          })
+        }
+        if(row.alternateImages){
+          row.alternateImages.forEach(item=>{
+            item.text="https:"+item.text;
+          })
+        }
         if(row.secondaryImageTotal){
           var tot=0;
           row.secondaryImageTotal.forEach(item=>{
