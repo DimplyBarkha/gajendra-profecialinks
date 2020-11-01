@@ -29,17 +29,15 @@ fields:
     xpath: //span[@class="styles__TotalWrap-RC__sc-5hhhh2-4 glgCQP total"]
   - name: price
     description: The offered price for the product
-    xpath: //div[@data-selector="splp-prd-act-$"]
+    xpath: (//div[@data-selector="splp-prd-$"]//div[@data-selector="splp-prd-rng"]//@aria-label) | (//div[@data-selector="splp-prd-$"]//div[@data-selector="splp-prd-act-$"]//@aria-label)
   - name: rank
     description: search/listing rank
     type: NUMBER
+    xpath: //div[contains(@class,"sc-32fokj-0")]//div//@data-col
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-  - name: sponsored
-    description: Is sponsored/paid
-    defaultValue: false
-    type: BOOLEAN
+    xpath: //div[contains(@class,"sc-32fokj-0")]//div//@data-col
   - name: id
     description: Unique id (within this extractor)
     xpath: //article/div[1]/a/@href
@@ -47,4 +45,7 @@ fields:
     regExpReplace: $2
   - name: aggregateRating2
     type: NUMBER
-  - name: hasVariants
+    xpath: //div[contains(@class,"sc-1b7wdu0-5")]//div[contains(@class,"styles__RatingDiv-RC__sc-5hhhh2-2")]//@aria-label
+    regExp: (.+) out of(.)
+    regExpReplace: $1
+ 

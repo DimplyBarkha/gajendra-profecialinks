@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variant
+    singleValue: false
+    xpath: //div[contains(@class,"swatchWrapper")]//button/@title
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"swatchWrapper")]//button/@data-url
+    regExp: \/(\d+)
+    regExpReplace: $1
+  - name: variantUrl
+    singleValue: false
+    xpath: //div[contains(@class,"swatchWrapper")]//button/@data-url
+    regExp: (\/.*)
+    regExpReplace: https://www.lowes.com$1
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"swatchWrapper")]//button/@data-url
+    regExp: \/(\d+)
+    regExpReplace: $1
