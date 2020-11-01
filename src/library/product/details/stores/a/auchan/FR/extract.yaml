@@ -23,6 +23,14 @@ fields:
     singleValue: false
     description: Aggregate Rating of product
     xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='ratingValue']/@content | (//div[@itemprop='aggregateRating']//meter/@value)[1]
+  - name: aggregateRating2
+    singleValue: false
+    description: Aggregate Rating of product
+    xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='ratingValue']/@content | (//div[@itemprop='aggregateRating']//meter/@value)[1]
+  - name: aggregateRatingText
+    singleValue: false
+    description: Aggregate Rating of product
+    xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='ratingValue']/@content | (//div[@itemprop='aggregateRating']//meter/@value)[1]
   - name: ratingCount
     singleValue: false
     description: Rating Count of product
