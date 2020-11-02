@@ -30,7 +30,8 @@ const transform = (data) => {
           row.variantInformation.forEach(item => {
             info.push(item.text.trim());            
           });          
-          row.variantInformation = [{'text':info.join(' | '),'xpath':row.variantInformation[0].xpath}];          
+          row.variantInformation = [{'text':info.join(' | '),'xpath':row.variantInformation[0].xpath}];
+          row.variantCount = [{'text':0}];
         }           
         if (row.category) {                    
           row.category.splice(0,1);
@@ -38,20 +39,50 @@ const transform = (data) => {
         if (row.sku) {
             row.variantId = [{'text':row.sku[0].text}]
         }
-        
-        if (row.alternateImages) {                    
-            row.alternateImages.splice(0,2);
-            if(row.alternateImages.length){
-                row.alternateImages.splice(row.alternateImages.length-1,1);
-            }            
-            row.largeImageCount = [{'text':row.alternateImages.length}]
+        if (row.image) {
+          row.image.forEach(item => {
+            item.text = 'https://'+item.text;
+          });
         }
-        // if (row.specifications) {
-        //   row.specifications.forEach(item => {
-        //     item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
-        //     item.text = item.text.replace(/(\s*Overview:\s*\|\|\s*)+/g, '').trim();
-        //   });
-        // }                   
+        if (row.manufacturerImages) {
+          row.manufacturerImages.forEach(item => {
+            item.text = 'https://'+item.text;
+          });
+        }        
+        if (row.brandText) {
+          if (row.nameExtended){
+            row.nameExtended = [{'text':row.brandText[0].text+'-'+row.nameExtended[0].text}];
+          }          
+        }        
+        if (row.alternateImages) {
+          row.alternateImages.forEach(item => {
+            item.text = 'https://'+item.text;
+          });
+          row.alternateImages.splice(0,2);
+          if(row.alternateImages.length){
+              row.alternateImages.splice(row.alternateImages.length-1,1);
+          }            
+          row.largeImageCount = [{'text':row.alternateImages.length}];
+        }
+        if (row.specifications) {
+          var temp_arr = [];
+          row.specifications.forEach(item => {
+            item.text = item.text.replace(/(\s*\n\s*)+/g, ':').trim();
+            temp_arr.push(item.text);
+          });
+          if (temp_arr.length){
+            row.specifications = [{'text':'||'+temp_arr.join('||')}];
+          }
+        }
+        if (row.manufacturerDescription) {
+          var temp_arr = [];
+          row.manufacturerDescription.forEach(item => {            
+            temp_arr.push(item.text);
+          });
+          if (temp_arr.length){
+            row.manufacturerDescription = [{'text':temp_arr.join(' ')}];
+          }
+        }
       }
     }
     return cleanUp(data);

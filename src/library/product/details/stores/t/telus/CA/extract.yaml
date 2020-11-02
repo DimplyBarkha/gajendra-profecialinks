@@ -18,6 +18,9 @@ fields:
   - name: availabilityText
     singleValue: true
     xpath: //div[@id='navFlexgrid']//a[contains(@class,'Button__StyledButton-sa7xo3-0 sc-jTzLTM fQBCuB')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: quantity
     singleValue: true
     xpath: //div[contains(@class,'sc-dxgOiQ kTzMAS')]//span[contains(@class,'Text__StyledText-sc-1m0rr67-0 jyqKlU')]
@@ -30,9 +33,9 @@ fields:
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id='features_block']//img/@src
-  - name: shippingDimensions
-    singleValue: true
-    xpath: //div[@id='specifications']//div[contains(@class,'jYTUjm')]//h4[contains(text(),'Weight')]/parent::*/span
+  # - name: shippingDimensions
+  #   singleValue: true
+  #   xpath: //div[@id='specifications']//div[contains(@class,'jYTUjm')]//h4[contains(text(),'Weight')]/parent::*/span
   - name: specifications
     singleValue: false
     xpath: //div[@id='specifications']//div[contains(@class,'jYTUjm')]
@@ -79,6 +82,12 @@ fields:
     #sku=NLGGPIXEL5BK&
     regExp: sku=(.+?)\&
     regExpReplace: $1
+  - name: weightNet
+    singleValue: true
+    xpath: //h4[text()='Weight Dimensions']/parent::*/span
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
   # - name: gtin
   #   singleValue: true
   #   xpath: //html
@@ -117,10 +126,7 @@ fields:
   #   singleValue: true
   #   description: Quantity as described on the page
   #   regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-  #   regExpReplace: $1$2$3$4
-  # - name: weightNet
-  #   singleValue: true
-  #   description: Net weight as described on the page
+  #   regExpReplace: $1$2$3$4  
   # - name: weightGross
   #   singleValue: true
   #   description: Gross weight as described on the page
