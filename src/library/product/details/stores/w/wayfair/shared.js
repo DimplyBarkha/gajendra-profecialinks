@@ -28,6 +28,17 @@ const transform = (data) => {
         });
         row.description = [{ text }];
       }
+      // if (row.imageAlt) {
+      //   let text = '';
+      //   row.imageAlt.forEach(item => {
+      //     text += item.text.replace(/\\"/g, '" ');
+      //   });
+      //   row.imageAlt = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
+      // }
       if (row.specifications) {
         let text = '';
         let count = 0;
@@ -55,7 +66,7 @@ const transform = (data) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
+    .replace(/"\s{1,}/g, '" ')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex

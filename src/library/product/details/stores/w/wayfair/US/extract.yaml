@@ -30,11 +30,11 @@ fields:
   - name: sku
     xpath: //meta[@property="og:upc"]/@content
   - name: description
-    xpath: //div[contains(@class,'ProductOverviewInformation-description')] | //h3[contains(.,'Features')]/following-sibling::ul//li | //h3[contains(.,'Product Details')]/following-sibling::ul//li | //h3[contains(.,'More About This Product')]/..
+    xpath: //div[contains(@class,'ProductOverviewInformation-description')]//ul//li | //h3[contains(.,'Features')]/following-sibling::ul//li | //h3[contains(.,'Product Details')]/following-sibling::ul//li | //h3[contains(.,'More About This Product')]/..//ul//li | //h4[contains(.,'Features')]/following-sibling::ul//li | //h4[contains(.,'Product Details')]/following-sibling::ul//li | //h4[contains(.,'More About This Product')]/..//ul//li
   # - name: additionalDescBulletInfodescriptionBullets
   #   xpath: //div[@class="ProductOverviewInformation-content"]//ul//li
   - name: descriptionBullets
-    xpath: count(//div[contains(@class,'ProductOverviewInformation-description')]//ul//li | //h3[contains(.,'Features')]/following-sibling::ul//li | //h3[contains(.,'Product Details')]/following-sibling::ul//li | //h3[contains(.,'More About This Product')]/..//ul//li)
+    xpath: count(//div[contains(@class,'ProductOverviewInformation-description')]//ul//li | //h3[contains(.,'Features')]/following-sibling::ul//li | //h3[contains(.,'Product Details')]/following-sibling::ul//li | //h3[contains(.,'More About This Product')]/..//ul//li | //h4[contains(.,'Features')]/following-sibling::ul//li | //h4[contains(.,'Product Details')]/following-sibling::ul//li | //h4[contains(.,'More About This Product')]/..//ul//li)
   - name: variantId
     xpath: //input[@name="PiID[Finish]"]/@value
   - name: variantInformation
@@ -45,7 +45,9 @@ fields:
   - name: variants
     xpath: //div[contains(@class,'is-checkbox')]//input/@value
   - name: alternateImages
-    xpath: //div[contains(@class,"ProductDetailImageCarouselVariantB-top")]//ul//li[position()>1]//img//@src
+    xpath: //div[contains(@class,"ProductDetailImageCarouselVariantB-thumbnails ")]//ul//li[position()>1]//img//@src
+    regExp: (.+resize)(.+r50)(.+)
+    regExpReplace: $1-h800-w800%5Ecompr-r85$3
   - name: secondaryImageTotal
     xpath: count(//div[contains(@class,"ProductDetailImageCarouselVariantB-top")]//ul//li[position()>1]//img//@src)
   - name: ratingCount
@@ -62,7 +64,7 @@ fields:
     description: Images within the third party description
     xpath: //div[contains(@class,'WaymoreModulesContainer')]//section//img//@src
   - name: video
-    xpath: //video[@class="VideoPlayer-element"]/source[1]/@src
+    xpath: //video[@class="VideoPlayer-element"]/source[1]/@src | //video/source//@src[contains(.,'mp4')]
   - name: warranty
     xpath: //dt[contains(.,'Warranty Length')]/following-sibling::dd[1]
   - name: mpc
