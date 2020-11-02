@@ -23,10 +23,22 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     const rating = document.querySelectorAll(".rating");
     rating.forEach((el) => {
       const trimmed = el.style.width.slice(0, -1);
-      const numericRate = trimmed / 20;
+      const numericRate = String(trimmed / 20);
+      console.log(numericRate)
+      const regex = /\./
+      numericRate.replace(regex,',')
+      console.log(numericRate)
       el.setAttribute('numericrating', numericRate)
     });
   });
+  const addSearchUrl = async function (context) {
+    await context.evaluate(async function () {
+      const productList = document.querySelectorAll('.ais-hits > div');
+      const url = window.location.href;
+      productList.forEach((product) => product.setAttribute('searchurl', url));
+    });
+  };
+  await addSearchUrl(context);
   return await context.extract(productDetails, { transform });
 };
 

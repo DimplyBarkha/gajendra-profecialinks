@@ -9,7 +9,7 @@ fields:
     regExp: (?<=product\/)\d+
   - name: searchUrl
     singleValue: false
-    xpath: //div[@class='ais-hits']/div//a/@href
+    xpath: //div[@class='ais-hits']/div/@searchurl
   - name: name
     singleValue: false
     xpath: //div[@class='ais-hits']/div//h3/text()
@@ -24,7 +24,6 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class='rating']/@numericrating
-    regExp: ^([\d.]{1,3})
   - name: aggregateRating2
     singleValue: false
   - name: reviewCount
