@@ -445,7 +445,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: //div[@id="pd_size"]
+    xpath: //div[@id="pd_size"] | //div[contains(@class,"js-only-one-level")]//*[contains(@class,"js-select-label active")]//span[@class="name"]
     # xpath: //div[@class="js-only-one-level"]/div[@class="form_item"]//label[contains(@class, "item js-select-label active")]//span[@class="size"] | //div[contains(@class,"js-only-one-level")]//*[contains(@class,"js-select-label active")]//span[@class="name"]
   - name: firstVariant
     singleValue: false
