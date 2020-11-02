@@ -65,7 +65,7 @@ module.exports = {
     country: 'US',
     store: 'walmart',
     nextLinkSelector: null,
-    //nextLinkSelector: 'button.elc-icon.paginator-hairline-btn.paginator-btn.paginator-btn-next',
+    // nextLinkSelector: 'button.elc-icon.paginator-hairline-btn.paginator-btn.paginator-btn-next',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[data-type="items"]',

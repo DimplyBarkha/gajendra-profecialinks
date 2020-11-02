@@ -11,15 +11,15 @@ module.exports = {
     productDetails: 'extraction:product/search/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation: async ({ inputString }, { country, store, transform: transformParam }, context, dependencies) => {
-    try{
+    try {
       // @ts-ignore
       // eslint-disable-next-line no-undef
-      await context.evaluateInFrame('iframe', () => grecaptcha.execute());        
-    }catch(err){
+      await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+    } catch (err) {
       console.log('Captcha did not load');
     }
-    async function addUrl() {
-      function addHiddenDiv(id, content) {
+    async function addUrl () {
+      function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -33,8 +33,7 @@ module.exports = {
         const jsonObj = node.textContent.startsWith('{"searchContent":') ? JSON.parse(node.textContent) : null;
         if (jsonObj && jsonObj.searchContent && jsonObj.searchContent.preso && jsonObj.searchContent.preso.items) {
           jsonObj.searchContent.preso.items.forEach(item =>
-            document.querySelector(`.search-product-result a[class*="product-title-link"][href*="${item.usItemId}"]`) ? document.querySelector(`.search-product-result a[class*="product-title-link"][href*="${item.usItemId}"]`).setAttribute('added-brand', item.brand ? item.brand[0] : '') : '')
-          
+            document.querySelector(`.search-product-result a[class*="product-title-link"][href*="${item.usItemId}"]`) ? document.querySelector(`.search-product-result a[class*="product-title-link"][href*="${item.usItemId}"]`).setAttribute('added-brand', item.brand ? item.brand[0] : '') : '');
         }
       }
     }

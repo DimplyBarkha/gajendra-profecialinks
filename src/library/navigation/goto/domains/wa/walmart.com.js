@@ -5,11 +5,15 @@ module.exports = {
     domain: 'walmart.com',
     country: 'US',
     store: 'walmart',
-    timeout: 20000,
+    timeout: 60000,
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
-
+    await context.setBlockAds(false); 
+    await context.setJavaScriptEnabled(true); 
+    await context.setAntiFingerprint(false); 
+    await context.setUseRelayProxy(false);
+   
     await context.goto(url, {
       firstRequestTimeout: 40000,
       timeout: timeout,
@@ -19,20 +23,34 @@ module.exports = {
         type: 'RECAPTCHA',
       },
     });
-    try{
-      await context.waitForNavigantion();
-    }catch(err){
-      console.log('No Navigation')
+    const captchaFrame = 'div.g-recaptcha iframe';
+    try {
+      await context.waitForSelector(captchaFrame);
+      await context.waitForSelector("#recaptcha-token");
+    } catch (error) {
+      console.log('Captcha Selector error ', error);
     }
-    
 
-    try{
+    console.log('captchaFrame', captchaFrame);
+    const hasCaptcha = async (selector) => {
+      return await context.evaluate(async (captchaSelector) => {
+        return Boolean(document.querySelector(captchaSelector));
+      }, selector);
+    };
+    const isCaptchaFramePresent = await hasCaptcha(captchaFrame);
+
+    if (isCaptchaFramePresent) {
+      console.log('isCaptcha', true);
+      await context.waitForNavigation(timeout);
       // @ts-ignore
       // eslint-disable-next-line no-undef
-      await context.evaluateInFrame('iframe', () => grecaptcha.execute());        
-    }catch(err){
-      console.log('Captcha did not load');
+      const isCaptchaPresent = await hasCaptcha('#recaptcha-token');
+      if(isCaptchaPresent) {
+      await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+      console.log('solved captcha, waiting for page change');
+      }
+      
+      await context.waitForNavigation(timeout);
     }
-    
   },
 };
