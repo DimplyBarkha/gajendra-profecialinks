@@ -3,7 +3,7 @@ module.exports = {
     parameterValues: {
         country: 'PL',
         store: 'mediamarkt',
-        nextLinkSelector: 'form[name="paginate-form"] > nav > a[class*="pagination_next"]',
+        nextLinkSelector: 'div[class="b-listing_toolBarPagination"] > nav > a[class*="pagination_next"] , a[class*="is-nextPage"]>i',
         mutationSelector: null,
         spinnerSelector: null,
         loadedSelector: null,
