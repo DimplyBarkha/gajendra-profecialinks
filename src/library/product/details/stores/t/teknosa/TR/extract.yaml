@@ -149,7 +149,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class='tab-container']//img[not(contains(@src, 'data:image'))]/@src
+    xpath: //div[@class='tab-container']//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -251,6 +251,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    xpath: count(//div[@class='slick-track']/div//img[@class='product-detail-image']/@src) - 1
   - name: news
     singleValue: true
     description: null
@@ -424,6 +425,7 @@ fields:
     singleValue: true
     description: null
   - name: specifications
+    singleValue: false
     description: The physical dimensions of the product including packaging.
     xpath: //div[text() = 'Ağırlık & Boyutlar']/following-sibling::table[1]//tr/td
   - name: warranty
@@ -512,6 +514,7 @@ fields:
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
+    xpath: //td[contains(text(), 'Enerji')]/following-sibling::td/text()
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
