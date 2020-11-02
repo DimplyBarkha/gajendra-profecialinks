@@ -18,14 +18,11 @@ fields:
   - name: availabilityText
     singleValue: true
     xpath: //div[contains(@class,'b-product-new__info-bottom')]//a[contains(@class,'js-add-to-basket')]
-  - name: quantity
-    singleValue: true
-    xpath: //h1[contains(@class,'b-product-new__title')]
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,'owl-carousel')]//div[contains(@class,'owl-loaded')]//div[contains(@class,'active') and not(contains(@class,'current'))]//img/@src
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     xpath: //ul[contains(@class,'b-product-new__list')]//li[contains(text(),'Производитель:')]
   - name: directions
     singleValue: false
@@ -43,13 +40,24 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'b-product-new__price-new')]
   - name: storage
-    singleValue: true
+    singleValue: false
     xpath: //div[@id='product-store']//p
   - name: listPrice
     singleValue: true
     xpath: //div[contains(@class,'b-product-new__price-old')]//span
   - name: variantId
-    singleValue: true
+    singleValue: false
     xpath: //meta[@property='og:url']/@content
-    regExp: .+\/(.*)\.htm
-    regExpReplace: $1  
+    regExp: .+-(\d+)\.htm
+    regExpReplace: $1
+  - name: gtin
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
+    regExp: .+-(\d+)\.htm
+    regExpReplace: $1
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //ul[contains(@class,'b-product-new__list')]//li[contains(text(),'Страна производства:')]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="b-product-new__title"]
