@@ -22,10 +22,12 @@ fields:
     xpath: //div[@id="search-items"]//div[@class="search-item"]/@id
   - name: ratingCount
     singleValue: true
-  - name: manufacturer
-    singleValue: true
-  - name: soldBy
-    singleValue: true
+  - name: abs_rank
+    singleValue: false
+    xpath: //div[@class="search-item"]//@ipos
+  - name: rank
+    singleValue: false
+    xpath: //div[@class="search-item"]//@ipos
   - name: gtin
     singleValue: true
     xpath: //div[@class='details']/div[4]/span
