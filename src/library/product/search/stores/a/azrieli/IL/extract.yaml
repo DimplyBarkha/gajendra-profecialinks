@@ -1,0 +1,64 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    xpath:  //div[@class='discount-detail']//text()[not(parent::span[parent::del or contains(@class,"currency") or contains(@class,"discount-percent-stamp")])][1]
+    regExp: \d+
+  - name: id
+    singleValue: false 
+    xpath: //a[@id='item-box']/@href
+    regExp: o\/(.+)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: //h3[@class="title-link"]//text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id='deals']//a//@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@id='usercontroldealitems']//img[@class='productimg']//@src
+  - name: aggregateRating
+    singleValue: false
+    xpath:
+  - name: reviewCount
+    singleValue: true
+    xpath:
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer 
+  - name: soldBy
+    singleValue: true
+    xpath:
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: endorsementText
+    singleValue: true
+    xpath:
+  - name: brandText
+    singleValue: true
+    xpath: 
+    regExp: 
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: ratingCount
+    singleValue: true
+    xpath: 
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    xpath: 
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    xpath: 
+  - name: gtin
+    singleValue: true
+    xpath:
+
