@@ -37,7 +37,16 @@ fields:
     xpath: //span[@class="product-card-x__dosage"]
   - name: nameExtended
     singleValue: true
-    xpath: //h1[@class="product-card-x__title"]
+    xpath: //h1[@class="product-card-x__title"]    
   - name: manufacturer
     singleValue: true
     xpath: //div[@class='product-card-x__provider']
+  - name: warranty
+    singleValue: true
+    xpath: //span[contains(text(),' Срок годности ')]//ancestor::div[contains(@class,'instruction__bordered')]//span[@class='instruction__text']   
+  - name: allergyAdvice
+    singleValue: true
+    xpath: //span[contains(text(),' Побочные эффекты ')]//ancestor::div[contains(@class,'instruction__bordered')]//span[@class='instruction__text']      
+  - name: storage
+    singleValue: true
+    xpath: //span[contains(text(),' Условия хранения ')]//ancestor::div[contains(@class,'instruction__bordered')]//span[@class='instruction__text']      
