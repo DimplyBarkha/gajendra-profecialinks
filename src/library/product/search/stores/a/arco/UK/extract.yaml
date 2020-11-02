@@ -1,0 +1,36 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="wrapper "]
+fields:
+  - name: productUrl
+    xpath: //a/@href
+  - name: thumbnail
+    xpath: //div[@class="inner"]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.arco.co.uk/$1
+  - name: name
+    xpath: //div[@class="descr"]/span[@class="title"]
+  - name: reviewCount
+    singleValue: true
+    defaultValue: '0'
+    description: The number of reviews
+  - name: price
+    xpath: //span[@class="price"]
+    regExp: (£)(.+)
+    regExpReplace: $2
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN    
+  - name: id
+    xpath: //div[@class="wrapper "]//span[@class="code"]
+  
