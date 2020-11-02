@@ -46,13 +46,12 @@ async function implementation (
     });
   };
   console.log('going to call scroll');
-  
+  await applyScroll(context);
   console.log('just called call scroll');
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   console.log('after call scroll timeout');
   
   if (parameters.loadedSelector) {
-    await applyScroll(context);
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
