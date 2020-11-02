@@ -107,7 +107,7 @@ module.exports = {
       const onlinePrice = onlinePriceNode ? '₪ ' + onlinePriceNode : '';
       addElementToDocument('added_online_price', onlinePrice);
 
-      // Get All Value Xpath Extraction
+      // Get All Value Xpath Extraction used
 
       const addtionalContentBullets = getAllXpath("//div[contains(@class,'col-sm-7')]//ul//li/text()", 'nodeValue');
       var finalBulletText = addtionalContentBullets.join('|| ');
