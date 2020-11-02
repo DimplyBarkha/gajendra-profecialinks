@@ -10,9 +10,9 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     try {
-      const a = document.querySelector('.tabs-component-tab>a[aria-controls="#ingredienser"]');
-      const b = document.querySelector('.tabs-component-tab>a[aria-controls="#opbevaring"]');
-      const c = document.querySelector('.tabs-component-tab>a[aria-controls="#tilberedning"]');
+      const a = await context.waitForSelector('.tabs-component-tab>a[aria-controls="#ingredienser"]');
+      const b = await context.waitForSelector('.tabs-component-tab>a[aria-controls="#opbevaring"]');
+      const c = await context.waitForSelector('.tabs-component-tab>a[aria-controls="#tilberedning"]');
       if (a) {
         await context.click('.tabs-component-tab>a[aria-controls="#ingredienser"]');
       } else if (b) {
