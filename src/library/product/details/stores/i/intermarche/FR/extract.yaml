@@ -296,7 +296,7 @@ fields:
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
     # type: NUMBER
-    regExp: ([0-9,.]+)
+    regExp: (\<?[0-9,.]+)
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "gras saturé")]/div)[2]
   - name: saturatedFatPerServingUom
     regExp: ([a-zA-Z]+)
@@ -308,7 +308,7 @@ fields:
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
     # type: NUMBER
-    regExp: ([0-9,.]+)
+    regExp: (\<?[0-9,.]+)
   - name: transFatPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -318,7 +318,7 @@ fields:
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
     # type: NUMBER
-    regExp: ([0-9,.]+)
+    regExp: (\<?[0-9,.]+)
   - name: cholesterolPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -328,7 +328,7 @@ fields:
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
     # type: NUMBER
-    regExp: ([0-9,.]+)
+    regExp: (\<?[0-9,.]+)
   - name: sodiumPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -338,7 +338,7 @@ fields:
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
     # type: NUMBER
-    regExp: ([0-9,.]+)
+    regExp: (\<?[0-9,.]+)
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Glucides")]/div)[2]
   - name: totalCarbPerServingUom
     regExp: ([a-zA-Z]+)
@@ -350,7 +350,7 @@ fields:
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
     # type: NUMBER
-    regExp: ([0-9,.]+)
+    regExp: (\<?[0-9,.]+)
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Fibres Alimentaires")]/div)[2]
   - name: dietaryFibrePerServingUom
     regExp: ([a-zA-Z]+)
@@ -362,7 +362,7 @@ fields:
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
     # type: NUMBER
-    regExp: ([0-9,.]+)
+    regExp: (\<?[0-9,.]+)
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "sucre")]/div)[2]
   - name: totalSugarsPerServingUom
     regExp: ([a-zA-Z]+)
@@ -374,7 +374,7 @@ fields:
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
     # type: NUMBER
-    regExp: ([0-9,.]+)
+    regExp: (\<?[0-9,.]+)
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Protéines")]/div)[2]
   - name: proteinPerServingUom
     regExp: ([a-zA-Z]+)
@@ -386,7 +386,7 @@ fields:
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
     # type: NUMBER
-    regExp: ([0-9,.]+)
+    regExp: (\<?[0-9,.]+)
   - name: vitaminAPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -396,7 +396,7 @@ fields:
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
     # type: NUMBER
-    regExp: ([0-9,.]+)
+    regExp: (\<?[0-9,.]+)
   - name: vitaminCPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -406,7 +406,7 @@ fields:
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
     # type: NUMBER
-    regExp: ([0-9,.]+)
+    regExp: (\<?[0-9,.]+)
   - name: calciumPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -416,7 +416,7 @@ fields:
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
     # type: NUMBER
-    regExp: ([0-9,.]+)
+    regExp: (\<?[0-9,.]+)
   - name: ironPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -429,7 +429,7 @@ fields:
     description: Nutritional Information for Magnesium content - Usually based on
       per 100g serving
     # type: NUMBER
-    regExp: ([0-9,.]+)
+    regExp: (\<?[0-9,.]+)
   - name: magnesiumPerServingUom
     regExp: ([a-zA-Z]+)
     singleValue: false
@@ -439,7 +439,7 @@ fields:
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
     # type: NUMBER
-    regExp: ([0-9,.]+)
+    regExp: (\<?[0-9,.]+)
     xpath: (//div[contains(@class, 'NutritionalTable_')]//td[contains(., "Sel")]/div)[2]
   - name: saltPerServingUom
     regExp: ([a-zA-Z]+)
