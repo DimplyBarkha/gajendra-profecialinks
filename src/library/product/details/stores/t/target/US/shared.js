@@ -38,7 +38,7 @@ const transform = (data) => {
         if (deliver) {
           text = 'In Stock';
         } else if (inStore) {
-          text = 'In Stock';
+          text = 'In Store Only';
         } else {
           text = 'Out of Stock';
         }
