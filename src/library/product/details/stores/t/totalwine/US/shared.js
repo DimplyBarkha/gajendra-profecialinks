@@ -17,6 +17,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.ingredientsList) {
+        let text = '';
+        row.ingredientsList.forEach(item => {
+          text += `${item.text} `;
+        });
+        row.ingredientsList = [
+          {
+            text: text.trim(),
+          },
+        ];
+      }
     }
   }
   return data;

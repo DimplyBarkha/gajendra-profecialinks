@@ -16,7 +16,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     description: The categories (e.g. from breadcrumbs)
-    xpath: //nav[contains(@aria-label,'breadcrumb')]/span/a
+    xpath: //nav[contains(@aria-label,'breadcrumb')]/span[position()>1]/a
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
@@ -82,8 +82,8 @@ fields:
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
-    singleValue: true
     description: Content under "directions" header
+    xpath: (//p[contains(@itemprop,'recipeInstructions')])[1]
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -124,8 +124,10 @@ fields:
     singleValue: false
     description: Images within the third party description
   - name: videos
-    singleValue: false
     description: URLs of videos on page
+    xpath: //div[contains(@class,'product-video-thumb')]/@anclick
+    regExp: video_(.+)
+    regExpReplace: https://vimeo.com/$1
   - name: name
     description: The product name
     xpath: //meta[contains(@property,'og:title')]/@content
@@ -232,9 +234,9 @@ fields:
     singleValue: true
     description: null
   - name: ingredientsList
-    singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //p[contains(@itemprop,'recipeIngredient')]
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -399,8 +401,8 @@ fields:
     singleValue: true
     description: Recycling information associated with the product
   - name: productOtherInformation
-    singleValue: false
     description: Any other product information
+    xpath: //div[contains(@anclick,'Category')]/following-sibling::div//p[not(contains(@itemprop, 'recipe'))]
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -432,7 +434,6 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
     description: colour / scent / flavour / other
     xpath: //div[contains(@id,'listboxPkgDesc')]
   - name: firstVariant

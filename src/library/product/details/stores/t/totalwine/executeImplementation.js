@@ -14,7 +14,7 @@ const implementation = async function (
   }
 
   try {
-    const response = await context.goto(url, { timeout: 10000, waitUntil: 'networkidle0', checkBlocked: true });
+    const response = await context.goto(url, { timeout: 30000, waitUntil: 'networkidle0', checkBlocked: true });
     console.log('Response ' + JSON.stringify(response));
     if (response.message && response.message.includes('code 403')) {
       console.log('Response failed');
@@ -26,7 +26,7 @@ const implementation = async function (
       console.log('403 Response');
       return context.reportBlocked(451, 'Blocked!');
     }
-    return context.reportBlocked(451, 'Blocked!');
+    throw err;
   }
 
   if (parameters.loadedSelector) {
@@ -48,6 +48,7 @@ const implementation = async function (
     }, variantUrl);
     return data;
   };
+
 
   // Check if variants exists
   const variantsExist = await context.evaluate(function () {
