@@ -32,6 +32,11 @@ module.exports = {
             const brand = actualDiv.innerText.replace(/(.+)(:)(.+)/g, '$3');
             informationDiv.setAttribute('brand', brand.trim())
           }
+          if (elem.innerText == 'EAN:') {
+            const actualDiv = elem.parentElement;
+            const ean = actualDiv.innerText.replace(/(.+)(:)(.+)/g, '$3');
+            informationDiv.setAttribute('ean', ean.trim())
+          }
         })
       }
       
