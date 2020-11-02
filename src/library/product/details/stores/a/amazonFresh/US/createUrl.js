@@ -5,7 +5,7 @@ module.exports = {
     domain: 'amazon.com',
     country: 'US',
     store: 'amazonFresh',
-    url: 'https://www.amazon.com/s?k={id}&i=amazonfresh&ref=nb_sb_noss',
+    url: 'https://www.amazon.com/dp/product/{id}?s=amazonfresh',
     // url: 'https://amazon.com/dp/product/{id}/ref=sr_1_1&dchild=1&fpw=alm&s=amazonfresh?th=1',
   },
 };
