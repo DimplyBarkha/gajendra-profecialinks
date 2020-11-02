@@ -9,31 +9,25 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-
     try {
       await context.evaluate(async function () {
-        let a = document.querySelector('.tabs-component-tab>a[aria-controls="#ingredienser"]');
-        let b = document.querySelector('.tabs-component-tab>a[aria-controls="#opbevaring"]');
-        let c = document.querySelector('.tabs-component-tab>a[aria-controls="#tilberedning"]');
+        const a = document.querySelector('.tabs-component-tab>a[aria-controls="#ingredienser"]');
+        const b = document.querySelector('.tabs-component-tab>a[aria-controls="#opbevaring"]');
+        const c = document.querySelector('.tabs-component-tab>a[aria-controls="#tilberedning"]');
         if (a) {
           await context.click('.tabs-component-tab>a[aria-controls="#ingredienser"]');
-        }
-        else if (b) {
+        } else if (b) {
           await context.click('.tabs-component-tab>a[aria-controls="#opbevaring"]');
-        }
-        else if (c) {
+        } else if (c) {
           await context.click('.tabs-component-tab>a[aria-controls="#tilberedning"]');
-        }
-        else {
-          console.log("No such section present in the website.");
+        } else {
+          console.log('No such section present in the website.');
         }
       });
     } catch (e) {
       console.log(e.message);
-    }
-    finally {
+    } finally {
       await context.extract(productDetails);
     }
-
   },
 };
