@@ -2,7 +2,7 @@ input:
   keywords: nyx
   _url: http://blush.no
 extractions:
-  - html: https://workbench.import.io/html/run=833d8c24-f482-412e-944a-a82d0690cd93/task=92d62857-d9f4-4857-92aa-cf766090ac89/81712de5-4701-4d2d-85e0-c89cc771d40e.html
+  - html: https://workbench.import.io/html/run=a514a838-d089-4f45-9f89-c3fdfe49fc4b/task=b5f55559-5421-4d03-82cb-92bb400c9ee8/2fa4b711-d8df-4a97-a735-6e1293e1be0a.html
     extractionConfigId: product/search/stores/b/blush/NO/extract
     data:
       - group:
@@ -17,7 +17,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1170536.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[1]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[1]/@thumbnails
+            price:
+              - text: NÅ 749,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[1]/@priceid
             rank:
               - text: "1"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[1]/@rank
@@ -43,7 +46,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1168005.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/@thumbnails
+            price:
+              - text: NÅ 412,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/@priceid
             rank:
               - text: "2"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/@rank
@@ -69,7 +75,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1129342.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/@thumbnails
+            price:
+              - text: NÅ 352,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/@priceid
             rank:
               - text: "3"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/@rank
@@ -95,16 +104,19 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/868231.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/@thumbnails
             aggregateRating2:
-              - text: "5.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 5,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/@aggrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/@ratingcount
             ratingCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/@ratingcount
+            price:
+              - text: NÅ 194,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/@priceid
             rank:
               - text: "4"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/@rank
@@ -130,7 +142,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1124257.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/@thumbnails
+            price:
+              - text: NÅ 194,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/@priceid
             rank:
               - text: "5"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/@rank
@@ -156,7 +171,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1170435.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/@thumbnails
+            price:
+              - text: NÅ 194,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/@priceid
             rank:
               - text: "6"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/@rank
@@ -182,16 +200,19 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/984394.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/@thumbnails
             aggregateRating2:
-              - text: "5.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 5,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/@aggrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/@ratingcount
             ratingCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/@ratingcount
+            price:
+              - text: NÅ 172,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/@priceid
             rank:
               - text: "7"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/@rank
@@ -217,7 +238,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[8]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1170434.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[8]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[8]/@thumbnails
+            price:
+              - text: NÅ 179,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[8]/@priceid
             rank:
               - text: "8"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[8]/@rank
@@ -243,7 +267,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/950581.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/@thumbnails
+            price:
+              - text: NÅ 179,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/@priceid
             rank:
               - text: "9"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/@rank
@@ -269,7 +296,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1137218.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/@thumbnails
+            price:
+              - text: NÅ 172,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/@priceid
             rank:
               - text: "10"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/@rank
@@ -295,7 +325,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1168011.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/@thumbnails
+            price:
+              - text: NÅ 172,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/@priceid
             rank:
               - text: "11"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/@rank
@@ -321,7 +354,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1124291.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/@thumbnails
+            price:
+              - text: NÅ 172,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/@priceid
             rank:
               - text: "12"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/@rank
@@ -347,7 +383,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1151331.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/@thumbnails
+            price:
+              - text: NÅ 172,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/@priceid
             rank:
               - text: "13"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/@rank
@@ -373,7 +412,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1159452.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/@thumbnails
+            price:
+              - text: NÅ 172,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/@priceid
             rank:
               - text: "14"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/@rank
@@ -399,7 +441,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1129347.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/@thumbnails
+            price:
+              - text: NÅ 157,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/@priceid
             rank:
               - text: "15"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/@rank
@@ -425,7 +470,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/984388.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/@thumbnails
+            price:
+              - text: NÅ 149,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/@priceid
             rank:
               - text: "16"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/@rank
@@ -441,17 +489,20 @@ extractions:
                 locale: nb_NO
                 value: 16
           - id:
-              - text: "1151324"
+              - text: "1151333"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/a[1]/@href
             name:
               - text: NYX Professional Makeup High Glass Face Primer
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/a[1]/@title
             productUrl:
-              - text: https://www.blush.no/product/1151324/sminke/base/nyx-professional-makeup-high-glass-face-primer
+              - text: https://www.blush.no/product/1151333/sminke/base/nyx-professional-makeup-high-glass-face-primer
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/a[1]/@href
             thumbnail:
-              - text: https://www.blush.no/img/p/200/1151324.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/a[1]/div[1]/img[1]/@src
+              - text: https://www.blush.no/img/p/200/1151333.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/@thumbnails
+            price:
+              - text: NÅ 149,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/@priceid
             rank:
               - text: "17"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/@rank
@@ -477,7 +528,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[18]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1170436.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[18]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[18]/@thumbnails
+            price:
+              - text: NÅ 149,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[18]/@priceid
             rank:
               - text: "18"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[18]/@rank
@@ -503,7 +557,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[19]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1159439.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[19]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[19]/@thumbnails
+            price:
+              - text: NÅ 142,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[19]/@priceid
             rank:
               - text: "19"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[19]/@rank
@@ -529,7 +586,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[20]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/867826.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[20]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[20]/@thumbnails
+            price:
+              - text: NÅ 134,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[20]/@priceid
             rank:
               - text: "20"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[20]/@rank
@@ -553,6 +613,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1135823/sminke/oeyne/nyx-professional-makeup-gel-clear-2-pk
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[21]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[21]/@thumbnails
+            price:
+              - text: NÅ 134,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[21]/@priceid
             rank:
               - text: "21"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[21]/@rank
@@ -576,15 +642,21 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/868171/sminke/base/nyx-professional-makeup-pore-filler
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[22]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[22]/@thumbnails
             aggregateRating2:
-              - text: "3.5"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[22]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 3,5
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[22]/@aggrating
             reviewCount:
               - text: "2"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[22]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[22]/@ratingcount
             ratingCount:
               - text: "2"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[22]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[22]/@ratingcount
+            price:
+              - text: NÅ 127,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[22]/@priceid
             rank:
               - text: "22"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[22]/@rank
@@ -608,6 +680,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/868187/sminke/base/nyx-professional-makeup-shine-killer
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[23]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[23]/@thumbnails
+            price:
+              - text: NÅ 127,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[23]/@priceid
             rank:
               - text: "23"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[23]/@rank
@@ -631,6 +709,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1124272/sminke/base/nyx-professional-makeup-cant-stop-wont-stop-setting-powder
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[24]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[24]/@thumbnails
+            price:
+              - text: NÅ 127,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[24]/@priceid
             rank:
               - text: "24"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[24]/@rank
@@ -654,6 +738,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1124278/sminke/base/nyx-professional-makeup-cant-stop-wont-stop-setting-powder
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[25]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[25]/@thumbnails
+            price:
+              - text: NÅ 127,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[25]/@priceid
             rank:
               - text: "25"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[25]/@rank
@@ -677,6 +767,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1133302/sminke/oeyne/nyx-professional-makeup-mystic-petals
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[26]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[26]/@thumbnails
+            price:
+              - text: NÅ 119,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[26]/@priceid
             rank:
               - text: "26"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[26]/@rank
@@ -700,6 +796,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1159450/sminke/oeyne/nyx-professional-makeup-dip-shape-go-longwear-brow-pomade
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[27]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[27]/@thumbnails
+            price:
+              - text: NÅ 112,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[27]/@priceid
             rank:
               - text: "27"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[27]/@rank
@@ -723,6 +825,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1151325/sminke/base/nyx-professional-makeup-high-glass-finishing-powder
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[28]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[28]/@thumbnails
+            price:
+              - text: NÅ 112,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[28]/@priceid
             rank:
               - text: "28"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[28]/@rank
@@ -746,15 +854,21 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/984208/sminke/base/nyx-professional-makeup-3-steps
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[29]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[29]/@thumbnails
             aggregateRating2:
-              - text: "3.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[29]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 3,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[29]/@aggrating
             reviewCount:
               - text: "2"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[29]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[29]/@ratingcount
             ratingCount:
               - text: "2"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[29]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[29]/@ratingcount
+            price:
+              - text: NÅ 104,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[29]/@priceid
             rank:
               - text: "29"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[29]/@rank
@@ -778,15 +892,21 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1151328/sminke/base/nyx-professional-makeup-radiant-setting-spray
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[30]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[30]/@thumbnails
             aggregateRating2:
-              - text: "5.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[30]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 5,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[30]/@aggrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[30]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[30]/@ratingcount
             ratingCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[30]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[30]/@ratingcount
+            price:
+              - text: NÅ 89,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[30]/@priceid
             rank:
               - text: "30"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[30]/@rank
@@ -810,15 +930,21 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/868352/sminke/oeyne/nyx-professional-makeup-micro-brow
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[31]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[31]/@thumbnails
             aggregateRating2:
-              - text: "4.5"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[31]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 4,5
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[31]/@aggrating
             reviewCount:
               - text: "2"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[31]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[31]/@ratingcount
             ratingCount:
               - text: "2"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[31]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[31]/@ratingcount
+            price:
+              - text: NÅ 97,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[31]/@priceid
             rank:
               - text: "31"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[31]/@rank
@@ -842,6 +968,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/868258/sminke/base/nyx-professional-makeup-high-definition
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[32]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[32]/@thumbnails
+            price:
+              - text: NÅ 104,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[32]/@priceid
             rank:
               - text: "32"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[32]/@rank
@@ -865,6 +997,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/868340/sminke/base/nyx-professional-makeup-studio-perfect
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[33]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[33]/@thumbnails
+            price:
+              - text: NÅ 104,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[33]/@priceid
             rank:
               - text: "33"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[33]/@rank
@@ -888,6 +1026,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/868346/sminke/base/nyx-professional-makeup-wonder-stick
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[34]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[34]/@thumbnails
+            price:
+              - text: NÅ 104,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[34]/@priceid
             rank:
               - text: "34"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[34]/@rank
@@ -911,6 +1055,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1133313/sminke/oeyne/nyx-professional-makeup-on-the-rise-volume-liftscara-mascara
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[35]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[35]/@thumbnails
+            price:
+              - text: NÅ 104,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[35]/@priceid
             rank:
               - text: "35"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[35]/@rank
@@ -934,15 +1084,21 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/868167/sminke/base/nyx-professional-makeup-setting-spray
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[36]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[36]/@thumbnails
             aggregateRating2:
-              - text: "4.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[36]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 4,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[36]/@aggrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[36]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[36]/@ratingcount
             ratingCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[36]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[36]/@ratingcount
+            price:
+              - text: NÅ 89,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[36]/@priceid
             rank:
               - text: "36"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[36]/@rank
@@ -966,15 +1122,21 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/868034/sminke/base/nyx-professional-makeup-mineral
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[37]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[37]/@thumbnails
             aggregateRating2:
-              - text: "4.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[37]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 4,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[37]/@aggrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[37]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[37]/@ratingcount
             ratingCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[37]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[37]/@ratingcount
+            price:
+              - text: NÅ 89,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[37]/@priceid
             rank:
               - text: "37"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[37]/@rank
@@ -998,6 +1160,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1129356/sminke/base/nyx-professional-makeup-born-to-glow
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[38]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[38]/@thumbnails
+            price:
+              - text: NÅ 101,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[38]/@priceid
             rank:
               - text: "38"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[38]/@rank
@@ -1021,6 +1189,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1151339/sminke/oeyne/nyx-professional-makeup-epic-ink-eyeliner
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[39]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[39]/@thumbnails
+            price:
+              - text: NÅ 97,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[39]/@priceid
             rank:
               - text: "39"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[39]/@rank
@@ -1044,6 +1218,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1129322/sminke/oeyne/nyx-professional-makeup-fill-fluff-eye
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[40]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[40]/@thumbnails
+            price:
+              - text: NÅ 97,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[40]/@priceid
             rank:
               - text: "40"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[40]/@rank
@@ -1058,38 +1238,50 @@ extractions:
                 raw: "40"
                 locale: nb_NO
                 value: 40
-          - id:
-              - text: "1133317"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[41]/a[1]/@href
-            name:
-              - text: NYX Professional Makeup Lip Push Up
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[41]/a[1]/@title
-            productUrl:
-              - text: https://www.blush.no/product/1133317/sminke/lepper/nyx-professional-makeup-lip-push-up
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[41]/a[1]/@href
-            rank:
-              - text: "41"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[41]/@rank
-                type: NUMBER
-                raw: "41"
-                locale: nb_NO
-                value: 41
-            rankOrganic:
-              - text: "41"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[41]/@rank
-                type: NUMBER
-                raw: "41"
-                locale: nb_NO
-                value: 41
           - id:
               - text: "1129336"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[42]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[41]/a[1]/@href
             name:
               - text: NYX Professional Makeup California Beamin' Face&Body Bronzer
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[42]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[41]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1129336/sminke/base/nyx-professional-makeup-california-beamin-facebody-bronzer
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[41]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[41]/@thumbnails
+            price:
+              - text: NÅ 97,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[41]/@priceid
+            rank:
+              - text: "41"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[41]/@rank
+                type: NUMBER
+                raw: "41"
+                locale: nb_NO
+                value: 41
+            rankOrganic:
+              - text: "41"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[41]/@rank
+                type: NUMBER
+                raw: "41"
+                locale: nb_NO
+                value: 41
+          - id:
+              - text: "1133310"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[42]/a[1]/@href
+            name:
+              - text: NYX Professional Makeup Lip Push Up
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[42]/a[1]/@title
+            productUrl:
+              - text: https://www.blush.no/product/1133310/sminke/lepper/nyx-professional-makeup-lip-push-up
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[42]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[42]/@thumbnails
+            price:
+              - text: NÅ 97,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[42]/@priceid
             rank:
               - text: "42"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[42]/@rank
@@ -1113,15 +1305,21 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1068465/sminke/oeyne/nyx-professional-makeup-worth-the-hype-volumizing-lenghtening-mascara
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[43]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[43]/@thumbnails
             aggregateRating2:
-              - text: "4.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[43]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 4,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[43]/@aggrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[43]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[43]/@ratingcount
             ratingCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[43]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[43]/@ratingcount
+            price:
+              - text: NÅ 82,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[43]/@priceid
             rank:
               - text: "43"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[43]/@rank
@@ -1136,56 +1334,68 @@ extractions:
                 raw: "43"
                 locale: nb_NO
                 value: 43
-          - id:
-              - text: "868166"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/a[1]/@href
-            name:
-              - text: NYX Professional Makeup Setting Spray
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/a[1]/@title
-            productUrl:
-              - text: https://www.blush.no/product/868166/ansiktspleie/toner-ansiktsspray/nyx-professional-makeup-setting-spray
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/a[1]/@href
-            aggregateRating2:
-              - text: "5.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
-            reviewCount:
-              - text: "5"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
-            ratingCount:
-              - text: "5"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
-            rank:
-              - text: "44"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/@rank
-                type: NUMBER
-                raw: "44"
-                locale: nb_NO
-                value: 44
-            rankOrganic:
-              - text: "44"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/@rank
-                type: NUMBER
-                raw: "44"
-                locale: nb_NO
-                value: 44
           - id:
               - text: "867914"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/a[1]/@href
             name:
               - text: NYX Professional Makeup Concealer Wand
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/867914/sminke/oeyne/nyx-professional-makeup-concealer-wand
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/@thumbnails
             aggregateRating2:
-              - text: "5.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 5,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/@aggrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/@ratingcount
             ratingCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/@ratingcount
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/@priceid
+            rank:
+              - text: "44"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/@rank
+                type: NUMBER
+                raw: "44"
+                locale: nb_NO
+                value: 44
+            rankOrganic:
+              - text: "44"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[44]/@rank
+                type: NUMBER
+                raw: "44"
+                locale: nb_NO
+                value: 44
+          - id:
+              - text: "867949"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/a[1]/@href
+            name:
+              - text: NYX Professional Makeup Eyebrow
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/a[1]/@title
+            productUrl:
+              - text: https://www.blush.no/product/867949/sminke/oeyne/nyx-professional-makeup-eyebrow
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/@thumbnails
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/@aggrating
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/@ratingcount
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/@ratingcount
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/@priceid
             rank:
               - text: "45"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[45]/@rank
@@ -1201,23 +1411,20 @@ extractions:
                 locale: nb_NO
                 value: 45
           - id:
-              - text: "867949"
+              - text: "984263"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[46]/a[1]/@href
             name:
-              - text: NYX Professional Makeup Eyebrow
+              - text: NYX Professional Makeup Pro Brush
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[46]/a[1]/@title
             productUrl:
-              - text: https://www.blush.no/product/867949/sminke/oeyne/nyx-professional-makeup-eyebrow
+              - text: https://www.blush.no/product/984263/sminke/kost/nyx-professional-makeup-pro-brush
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[46]/a[1]/@href
-            aggregateRating2:
-              - text: "5.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[46]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
-            reviewCount:
-              - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[46]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[46]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[46]/@thumbnails
+            price:
+              - text: NÅ 89,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[46]/@priceid
             rank:
               - text: "46"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[46]/@rank
@@ -1241,6 +1448,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/868200/sminke/oeyne/nyx-professional-makeup-super-skinny
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[47]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[47]/@thumbnails
+            price:
+              - text: NÅ 89,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[47]/@priceid
             rank:
               - text: "47"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[47]/@rank
@@ -1264,6 +1477,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/915984/sminke/oeyne/nyx-professional-makeup-lid-lingerie
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[48]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[48]/@thumbnails
+            price:
+              - text: NÅ 89,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[48]/@priceid
             rank:
               - text: "48"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[48]/@rank
@@ -1287,6 +1506,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1167998/sminke/base/nyx-professional-makeup-sweet-cheeks-soft-cheek-tint
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[49]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[49]/@thumbnails
+            price:
+              - text: NÅ 89,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[49]/@priceid
             rank:
               - text: "49"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[49]/@rank
@@ -1310,6 +1535,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1151329/sminke/base/nyx-professional-makeup-high-glass-illuminating-powder
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[50]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[50]/@thumbnails
+            price:
+              - text: NÅ 89,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[50]/@priceid
             rank:
               - text: "50"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[50]/@rank
@@ -1333,6 +1564,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1170444/sminke/lepper/nyx-professional-makeup-shout-loud-lipstick
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[51]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[51]/@thumbnails
+            price:
+              - text: NÅ 89,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[51]/@priceid
             rank:
               - text: "51"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[51]/@rank
@@ -1356,6 +1593,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1170442/sminke/lepper/nyx-professional-makeup-shout-loud-lipstick
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[52]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[52]/@thumbnails
+            price:
+              - text: NÅ 89,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[52]/@priceid
             rank:
               - text: "52"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[52]/@rank
@@ -1379,15 +1622,21 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/867896/sminke/oeyne/nyx-professional-makeup-control-freak
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[53]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[53]/@thumbnails
             aggregateRating2:
-              - text: "5.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[53]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 5,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[53]/@aggrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[53]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[53]/@ratingcount
             ratingCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[53]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[53]/@ratingcount
+            price:
+              - text: NÅ 67,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[53]/@priceid
             rank:
               - text: "53"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[53]/@rank
@@ -1411,15 +1660,21 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/867935/sminke/oeyne/nyx-professional-makeup-doll-eye-mascara-long-lash
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[54]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[54]/@thumbnails
             aggregateRating2:
-              - text: "3.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[54]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 3,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[54]/@aggrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[54]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[54]/@ratingcount
             ratingCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[54]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[54]/@ratingcount
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[54]/@priceid
             rank:
               - text: "54"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[54]/@rank
@@ -1443,15 +1698,21 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/868031/sminke/base/nyx-professional-makeup-matte-bronzer
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[55]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[55]/@thumbnails
             aggregateRating2:
-              - text: "1.5"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[55]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 1,5
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[55]/@aggrating
             reviewCount:
               - text: "2"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[55]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[55]/@ratingcount
             ratingCount:
               - text: "2"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[55]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[55]/@ratingcount
+            price:
+              - text: NÅ 82,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[55]/@priceid
             rank:
               - text: "55"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[55]/@rank
@@ -1466,139 +1727,175 @@ extractions:
                 raw: "55"
                 locale: nb_NO
                 value: 55
-          - id:
-              - text: "984263"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[56]/a[1]/@href
-            name:
-              - text: NYX Professional Makeup Pro Brush
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[56]/a[1]/@title
-            productUrl:
-              - text: https://www.blush.no/product/984263/sminke/kost/nyx-professional-makeup-pro-brush
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[56]/a[1]/@href
-            rank:
-              - text: "56"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[56]/@rank
-                type: NUMBER
-                raw: "56"
-                locale: nb_NO
-                value: 56
-            rankOrganic:
-              - text: "56"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[56]/@rank
-                type: NUMBER
-                raw: "56"
-                locale: nb_NO
-                value: 56
           - id:
               - text: "1129326"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[56]/a[1]/@href
             name:
               - text: NYX Professional Makeup Bare With Me
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[56]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1129326/sminke/base/nyx-professional-makeup-bare-with-me
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[56]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[56]/@thumbnails
+            price:
+              - text: NÅ 83,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[56]/@priceid
             rank:
-              - text: "57"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/@rank
+              - text: "56"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[56]/@rank
                 type: NUMBER
-                raw: "57"
+                raw: "56"
                 locale: nb_NO
-                value: 57
+                value: 56
             rankOrganic:
-              - text: "57"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/@rank
+              - text: "56"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[56]/@rank
                 type: NUMBER
-                raw: "57"
+                raw: "56"
                 locale: nb_NO
-                value: 57
+                value: 56
           - id:
               - text: "889071"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/a[1]/@href
             name:
               - text: NYX Professional Makeup Soft Matte Lip Cream
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/889071/sminke/lepper/nyx-professional-makeup-soft-matte-lip-cream
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/@thumbnails
             aggregateRating2:
-              - text: "5.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 5,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/@aggrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/@ratingcount
             ratingCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/@ratingcount
+            price:
+              - text: NÅ 67,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/@priceid
             rank:
-              - text: "58"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/@rank
+              - text: "57"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/@rank
                 type: NUMBER
-                raw: "58"
+                raw: "57"
                 locale: nb_NO
-                value: 58
+                value: 57
             rankOrganic:
-              - text: "58"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/@rank
+              - text: "57"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[57]/@rank
                 type: NUMBER
-                raw: "58"
+                raw: "57"
                 locale: nb_NO
-                value: 58
+                value: 57
           - id:
               - text: "984290"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[59]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/a[1]/@href
             name:
               - text: NYX Professional Makeup Pro Brush
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[59]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/984290/sminke/kost/nyx-professional-makeup-pro-brush
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[59]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/@thumbnails
+            price:
+              - text: NÅ 82,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/@priceid
             rank:
-              - text: "59"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[59]/@rank
+              - text: "58"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/@rank
                 type: NUMBER
-                raw: "59"
+                raw: "58"
                 locale: nb_NO
-                value: 59
+                value: 58
             rankOrganic:
-              - text: "59"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[59]/@rank
+              - text: "58"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[58]/@rank
                 type: NUMBER
-                raw: "59"
+                raw: "58"
                 locale: nb_NO
-                value: 59
+                value: 58
           - id:
               - text: "1124296"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[60]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[59]/a[1]/@href
             name:
               - text: NYX Professional Makeup Ultimate Edit Petite Øyenskyggepalett
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[60]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[59]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1124296/sminke/oeyne/nyx-professional-makeup-ultimate-edit-petite-oeyenskyggepalett
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[60]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[59]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[59]/@thumbnails
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[59]/@priceid
             rank:
-              - text: "60"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[60]/@rank
+              - text: "59"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[59]/@rank
                 type: NUMBER
-                raw: "60"
+                raw: "59"
                 locale: nb_NO
-                value: 60
+                value: 59
             rankOrganic:
-              - text: "60"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[60]/@rank
+              - text: "59"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[59]/@rank
                 type: NUMBER
-                raw: "60"
+                raw: "59"
                 locale: nb_NO
-                value: 60
+                value: 59
           - id:
               - text: "1129337"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[61]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[60]/a[1]/@href
             name:
               - text: NYX Professional Makeup Filler Instinct
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[61]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[60]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1129337/sminke/lepper/nyx-professional-makeup-filler-instinct
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[60]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[60]/@thumbnails
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[60]/@priceid
+            rank:
+              - text: "60"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[60]/@rank
+                type: NUMBER
+                raw: "60"
+                locale: nb_NO
+                value: 60
+            rankOrganic:
+              - text: "60"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[60]/@rank
+                type: NUMBER
+                raw: "60"
+                locale: nb_NO
+                value: 60
+          - id:
+              - text: "1168003"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[61]/a[1]/@href
+            name:
+              - text: NYX Professional Makeup Ultimate Edit Petite Øyenskyggepalett
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[61]/a[1]/@title
+            productUrl:
+              - text: https://www.blush.no/product/1168003/sminke/oeyne/nyx-professional-makeup-ultimate-edit-petite-oeyenskyggepalett
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[61]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[61]/@thumbnails
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[61]/@priceid
             rank:
               - text: "61"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[61]/@rank
@@ -1614,14 +1911,20 @@ extractions:
                 locale: nb_NO
                 value: 61
           - id:
-              - text: "1168003"
+              - text: "1170440"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[62]/a[1]/@href
             name:
-              - text: NYX Professional Makeup Ultimate Edit Petite Øyenskyggepalett
+              - text: NYX Professional Makeup Liquid Suede Cream Lipstick Alien
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[62]/a[1]/@title
             productUrl:
-              - text: https://www.blush.no/product/1168003/sminke/oeyne/nyx-professional-makeup-ultimate-edit-petite-oeyenskyggepalett
+              - text: https://www.blush.no/product/1170440/sminke/lepper/nyx-professional-makeup-liquid-suede-cream-lipstick-alien
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[62]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[62]/@thumbnails
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[62]/@priceid
             rank:
               - text: "62"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[62]/@rank
@@ -1645,6 +1948,12 @@ extractions:
             productUrl:
               - text: https://www.blush.no/product/1159440/sminke/oeyne/nyx-professional-makeup-ultimate-edit-petite-oeyenskyggepalett
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[63]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[63]/@thumbnails
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[63]/@priceid
             rank:
               - text: "63"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[63]/@rank
@@ -1659,61 +1968,79 @@ extractions:
                 raw: "63"
                 locale: nb_NO
                 value: 63
-          - id:
-              - text: "1170440"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[64]/a[1]/@href
-            name:
-              - text: NYX Professional Makeup Liquid Suede Cream Lipstick Alien
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[64]/a[1]/@title
-            productUrl:
-              - text: https://www.blush.no/product/1170440/sminke/lepper/nyx-professional-makeup-liquid-suede-cream-lipstick-alien
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[64]/a[1]/@href
-            rank:
-              - text: "64"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[64]/@rank
-                type: NUMBER
-                raw: "64"
-                locale: nb_NO
-                value: 64
-            rankOrganic:
-              - text: "64"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[64]/@rank
-                type: NUMBER
-                raw: "64"
-                locale: nb_NO
-                value: 64
           - id:
               - text: "1167996"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[65]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[64]/a[1]/@href
             name:
               - text: NYX Professional Makeup Epic Wear Liner Stick
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[65]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[64]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1167996/sminke/oeyne/nyx-professional-makeup-epic-wear-liner-stick
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[65]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[64]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[64]/@thumbnails
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[64]/@priceid
             rank:
-              - text: "65"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[65]/@rank
+              - text: "64"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[64]/@rank
                 type: NUMBER
-                raw: "65"
+                raw: "64"
                 locale: nb_NO
-                value: 65
+                value: 64
             rankOrganic:
-              - text: "65"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[65]/@rank
+              - text: "64"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[64]/@rank
                 type: NUMBER
-                raw: "65"
+                raw: "64"
                 locale: nb_NO
-                value: 65
+                value: 64
           - id:
               - text: "1124260"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[66]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[65]/a[1]/@href
             name:
               - text: NYX Professional Makeup Ultimate Edit Petite Øyenskyggepalett
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[66]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[65]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1124260/sminke/oeyne/nyx-professional-makeup-ultimate-edit-petite-oeyenskyggepalett
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[65]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[65]/@thumbnails
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[65]/@priceid
+            rank:
+              - text: "65"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[65]/@rank
+                type: NUMBER
+                raw: "65"
+                locale: nb_NO
+                value: 65
+            rankOrganic:
+              - text: "65"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[65]/@rank
+                type: NUMBER
+                raw: "65"
+                locale: nb_NO
+                value: 65
+          - id:
+              - text: "1170439"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[66]/a[1]/@href
+            name:
+              - text: NYX Professional Makeup Sweet Cheeks Blush Creamy Powder Blush Matte
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[66]/a[1]/@title
+            productUrl:
+              - text: https://www.blush.no/product/1170439/sminke/base/nyx-professional-makeup-sweet-cheeks-blush-creamy-powder-blush-matte
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[66]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[66]/@thumbnails
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[66]/@priceid
             rank:
               - text: "66"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[66]/@rank
@@ -1729,14 +2056,20 @@ extractions:
                 locale: nb_NO
                 value: 66
           - id:
-              - text: "1159444"
+              - text: "1159453"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[67]/a[1]/@href
             name:
               - text: NYX Professional Makeup Glitter Quitter
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[67]/a[1]/@title
             productUrl:
-              - text: https://www.blush.no/product/1159444/sminke/base/nyx-professional-makeup-glitter-quitter
+              - text: https://www.blush.no/product/1159453/sminke/base/nyx-professional-makeup-glitter-quitter
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[67]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[67]/@thumbnails
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[67]/@priceid
             rank:
               - text: "67"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[67]/@rank
@@ -1751,572 +2084,621 @@ extractions:
                 raw: "67"
                 locale: nb_NO
                 value: 67
-          - id:
-              - text: "1170439"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[68]/a[1]/@href
-            name:
-              - text: NYX Professional Makeup Sweet Cheeks Blush Creamy Powder Blush Matte
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[68]/a[1]/@title
-            productUrl:
-              - text: https://www.blush.no/product/1170439/sminke/base/nyx-professional-makeup-sweet-cheeks-blush-creamy-powder-blush-matte
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[68]/a[1]/@href
-            rank:
-              - text: "68"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[68]/@rank
-                type: NUMBER
-                raw: "68"
-                locale: nb_NO
-                value: 68
-            rankOrganic:
-              - text: "68"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[68]/@rank
-                type: NUMBER
-                raw: "68"
-                locale: nb_NO
-                value: 68
           - id:
               - text: "1170441"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[69]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[68]/a[1]/@href
             name:
               - text: NYX Professional Makeup Epic Wear Liner Sticks Pink Spirit
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[69]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[68]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1170441/sminke/oeyne/nyx-professional-makeup-epic-wear-liner-sticks-pink-spirit
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[69]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[68]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/no_image_available.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[68]/@thumbnails
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[68]/@priceid
             rank:
-              - text: "69"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[69]/@rank
+              - text: "68"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[68]/@rank
                 type: NUMBER
-                raw: "69"
+                raw: "68"
                 locale: nb_NO
-                value: 69
+                value: 68
             rankOrganic:
-              - text: "69"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[69]/@rank
+              - text: "68"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[68]/@rank
                 type: NUMBER
-                raw: "69"
+                raw: "68"
                 locale: nb_NO
-                value: 69
+                value: 68
           - id:
               - text: "868280"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[70]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[69]/a[1]/@href
             name:
               - text: NYX Professional Makeup Liquid Suede Cream Lipstick
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[70]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[69]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/868280/sminke/lepper/nyx-professional-makeup-liquid-suede-cream-lipstick
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[70]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[69]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/868280.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[69]/@thumbnails
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[69]/@priceid
             rank:
-              - text: "70"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[70]/@rank
+              - text: "69"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[69]/@rank
                 type: NUMBER
-                raw: "70"
+                raw: "69"
                 locale: nb_NO
-                value: 70
+                value: 69
             rankOrganic:
-              - text: "70"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[70]/@rank
+              - text: "69"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[69]/@rank
                 type: NUMBER
-                raw: "70"
+                raw: "69"
                 locale: nb_NO
-                value: 70
+                value: 69
           - id:
               - text: "1129318"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[71]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[70]/a[1]/@href
             name:
               - text: NYX Professional Makeup Filler Instinct Plumping Lip Polish
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[71]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[70]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1129318/sminke/lepper/nyx-professional-makeup-filler-instinct-plumping-lip-polish
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[71]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[70]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/1129318.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[70]/@thumbnails
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[70]/@priceid
             rank:
-              - text: "71"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[71]/@rank
+              - text: "70"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[70]/@rank
                 type: NUMBER
-                raw: "71"
+                raw: "70"
                 locale: nb_NO
-                value: 71
+                value: 70
             rankOrganic:
-              - text: "71"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[71]/@rank
+              - text: "70"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[70]/@rank
                 type: NUMBER
-                raw: "71"
+                raw: "70"
                 locale: nb_NO
-                value: 71
+                value: 70
           - id:
               - text: "1129320"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[71]/a[1]/@href
             name:
               - text: NYX Professional Makeup Filler Instinct
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[71]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1129320/sminke/lepper/nyx-professional-makeup-filler-instinct
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[71]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/1129320.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[71]/@thumbnails
+            price:
+              - text: NÅ 74,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[71]/@priceid
             rank:
-              - text: "72"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/@rank
+              - text: "71"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[71]/@rank
                 type: NUMBER
-                raw: "72"
+                raw: "71"
                 locale: nb_NO
-                value: 72
+                value: 71
             rankOrganic:
-              - text: "72"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/@rank
+              - text: "71"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[71]/@rank
                 type: NUMBER
-                raw: "72"
+                raw: "71"
                 locale: nb_NO
-                value: 72
+                value: 71
           - id:
               - text: "889061"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/a[1]/@href
             name:
               - text: NYX Professional Makeup Lip Lingerie
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/889061/sminke/lepper/nyx-professional-makeup-lip-lingerie
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/889061.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/@thumbnails
             aggregateRating2:
-              - text: "5.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 5,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/@aggrating
             reviewCount:
               - text: "3"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/@ratingcount
             ratingCount:
               - text: "3"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/@ratingcount
+            price:
+              - text: NÅ 67,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/@priceid
             rank:
-              - text: "73"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/@rank
+              - text: "72"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/@rank
                 type: NUMBER
-                raw: "73"
+                raw: "72"
                 locale: nb_NO
-                value: 73
+                value: 72
             rankOrganic:
-              - text: "73"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/@rank
+              - text: "72"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[72]/@rank
                 type: NUMBER
-                raw: "73"
+                raw: "72"
                 locale: nb_NO
-                value: 73
+                value: 72
           - id:
               - text: "867860"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/a[1]/@href
             name:
               - text: NYX Professional Makeup Butter Gloss
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/867860/sminke/lepper/nyx-professional-makeup-butter-gloss
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/867860.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/@thumbnails
             aggregateRating2:
-              - text: "5.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 5,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/@aggrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/@ratingcount
             ratingCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/@ratingcount
+            price:
+              - text: NÅ 52,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/@priceid
             rank:
-              - text: "74"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/@rank
+              - text: "73"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/@rank
                 type: NUMBER
-                raw: "74"
+                raw: "73"
                 locale: nb_NO
-                value: 74
+                value: 73
             rankOrganic:
-              - text: "74"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/@rank
+              - text: "73"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[73]/@rank
                 type: NUMBER
-                raw: "74"
+                raw: "73"
                 locale: nb_NO
-                value: 74
+                value: 73
           - id:
               - text: "1124290"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[75]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/a[1]/@href
             name:
               - text: NYX Professional Makeup Lip Scrub
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[75]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1124290/sminke/lepper/nyx-professional-makeup-lip-scrub
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[75]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1124290.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[75]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/@thumbnails
+            price:
+              - text: NÅ 67,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/@priceid
             rank:
-              - text: "75"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[75]/@rank
+              - text: "74"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/@rank
                 type: NUMBER
-                raw: "75"
+                raw: "74"
                 locale: nb_NO
-                value: 75
+                value: 74
             rankOrganic:
-              - text: "75"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[75]/@rank
+              - text: "74"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[74]/@rank
                 type: NUMBER
-                raw: "75"
+                raw: "74"
                 locale: nb_NO
-                value: 75
+                value: 74
           - id:
               - text: "868266"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[76]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[75]/a[1]/@href
             name:
               - text: NYX Professional Makeup Tame & Frame
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[76]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[75]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/868266/sminke/oeyne/nyx-professional-makeup-tame-frame
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[76]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[75]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/868266.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[76]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[75]/@thumbnails
+            price:
+              - text: NÅ 67,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[75]/@priceid
             rank:
-              - text: "76"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[76]/@rank
+              - text: "75"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[75]/@rank
                 type: NUMBER
-                raw: "76"
+                raw: "75"
                 locale: nb_NO
-                value: 76
+                value: 75
             rankOrganic:
-              - text: "76"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[76]/@rank
+              - text: "75"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[75]/@rank
                 type: NUMBER
-                raw: "76"
+                raw: "75"
                 locale: nb_NO
-                value: 76
+                value: 75
           - id:
               - text: "1170443"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[76]/a[1]/@href
             name:
               - text: NYX Professional Makeup Suede Matte Lipstick Cherry Skies
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[76]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1170443/sminke/lepper/nyx-professional-makeup-suede-matte-lipstick-cherry-skies
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[76]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1170443.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[76]/@thumbnails
+            price:
+              - text: NÅ 67,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[76]/@priceid
             rank:
-              - text: "77"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/@rank
+              - text: "76"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[76]/@rank
                 type: NUMBER
-                raw: "77"
+                raw: "76"
                 locale: nb_NO
-                value: 77
+                value: 76
             rankOrganic:
-              - text: "77"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/@rank
+              - text: "76"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[76]/@rank
                 type: NUMBER
-                raw: "77"
+                raw: "76"
                 locale: nb_NO
-                value: 77
+                value: 76
           - id:
               - text: "868193"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/a[1]/@href
             name:
               - text: NYX Professional Makeup Slide On Eyeliner
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/868193/sminke/oeyne/nyx-professional-makeup-slide-on-eyeliner
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/868193.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/@thumbnails
             aggregateRating2:
-              - text: "2.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 2,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/@aggrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/@ratingcount
             ratingCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/@ratingcount
+            price:
+              - text: NÅ 59,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/@priceid
             rank:
-              - text: "78"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/@rank
+              - text: "77"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/@rank
                 type: NUMBER
-                raw: "78"
+                raw: "77"
                 locale: nb_NO
-                value: 78
+                value: 77
             rankOrganic:
-              - text: "78"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/@rank
+              - text: "77"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[77]/@rank
                 type: NUMBER
-                raw: "78"
+                raw: "77"
                 locale: nb_NO
-                value: 78
+                value: 77
           - id:
               - text: "867964"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[79]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/a[1]/@href
             name:
               - text: NYX Professional Makeup Eye Shadow Base High Definition
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[79]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/867964/sminke/oeyne/nyx-professional-makeup-eye-shadow-base-high-definition
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[79]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/867964.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[79]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/@thumbnails
+            price:
+              - text: NÅ 59,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/@priceid
             rank:
-              - text: "79"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[79]/@rank
+              - text: "78"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/@rank
                 type: NUMBER
-                raw: "79"
+                raw: "78"
                 locale: nb_NO
-                value: 79
+                value: 78
             rankOrganic:
-              - text: "79"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[79]/@rank
+              - text: "78"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[78]/@rank
                 type: NUMBER
-                raw: "79"
+                raw: "78"
                 locale: nb_NO
-                value: 79
+                value: 78
           - id:
               - text: "984252"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[80]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[79]/a[1]/@href
             name:
               - text: NYX Professional Makeup Eyebrow Powder
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[80]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[79]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/984252/sminke/oeyne/nyx-professional-makeup-eyebrow-powder
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[80]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[79]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/984252.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[80]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[79]/@thumbnails
+            price:
+              - text: NÅ 59,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[79]/@priceid
             rank:
-              - text: "80"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[80]/@rank
+              - text: "79"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[79]/@rank
                 type: NUMBER
-                raw: "80"
+                raw: "79"
                 locale: nb_NO
-                value: 80
+                value: 79
             rankOrganic:
-              - text: "80"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[80]/@rank
+              - text: "79"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[79]/@rank
                 type: NUMBER
-                raw: "80"
+                raw: "79"
                 locale: nb_NO
-                value: 80
+                value: 79
           - id:
               - text: "868168"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[81]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[80]/a[1]/@href
             name:
               - text: NYX Professional Makeup Proof it!
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[81]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[80]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/868168/sminke/oeyne/nyx-professional-makeup-proof-it
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[81]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[80]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/868168.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[81]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[80]/@thumbnails
+            price:
+              - text: NÅ 59,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[80]/@priceid
             rank:
-              - text: "81"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[81]/@rank
+              - text: "80"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[80]/@rank
                 type: NUMBER
-                raw: "81"
+                raw: "80"
                 locale: nb_NO
-                value: 81
+                value: 80
             rankOrganic:
-              - text: "81"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[81]/@rank
+              - text: "80"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[80]/@rank
                 type: NUMBER
-                raw: "81"
+                raw: "80"
                 locale: nb_NO
-                value: 81
+                value: 80
           - id:
               - text: "868019"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[82]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[81]/a[1]/@href
             name:
               - text: NYX Professional Makeup Lip Primer
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[82]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[81]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/868019/sminke/lepper/nyx-professional-makeup-lip-primer
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[82]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[81]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/868019.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[82]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[81]/@thumbnails
+            price:
+              - text: NÅ 59,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[81]/@priceid
             rank:
-              - text: "82"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[82]/@rank
+              - text: "81"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[81]/@rank
                 type: NUMBER
-                raw: "82"
+                raw: "81"
                 locale: nb_NO
-                value: 82
+                value: 81
             rankOrganic:
-              - text: "82"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[82]/@rank
+              - text: "81"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[81]/@rank
                 type: NUMBER
-                raw: "82"
+                raw: "81"
                 locale: nb_NO
-                value: 82
+                value: 81
           - id:
               - text: "889073"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[83]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[82]/a[1]/@href
             name:
               - text: NYX Professional Makeup Soft Matte Lip Cream
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[83]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[82]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/889073/sminke/lepper/nyx-professional-makeup-soft-matte-lip-cream
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[83]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[82]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/889073.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[83]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[82]/@thumbnails
+            price:
+              - text: NÅ 59,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[82]/@priceid
             rank:
-              - text: "83"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[83]/@rank
+              - text: "82"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[82]/@rank
                 type: NUMBER
-                raw: "83"
+                raw: "82"
                 locale: nb_NO
-                value: 83
+                value: 82
             rankOrganic:
-              - text: "83"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[83]/@rank
+              - text: "82"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[82]/@rank
                 type: NUMBER
-                raw: "83"
+                raw: "82"
                 locale: nb_NO
-                value: 83
+                value: 82
           - id:
               - text: "1133153"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[83]/a[1]/@href
             name:
               - text: NYX Professional Makeup Born To Glow
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[83]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1133153/sminke/base/nyx-professional-makeup-born-to-glow
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[83]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1133153.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[83]/@thumbnails
+            price:
+              - text: NÅ 56,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[83]/@priceid
             rank:
-              - text: "84"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/@rank
+              - text: "83"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[83]/@rank
                 type: NUMBER
-                raw: "84"
+                raw: "83"
                 locale: nb_NO
-                value: 84
+                value: 83
             rankOrganic:
-              - text: "84"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/@rank
+              - text: "83"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[83]/@rank
                 type: NUMBER
-                raw: "84"
+                raw: "83"
                 locale: nb_NO
-                value: 84
+                value: 83
           - id:
               - text: "984338"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/a[1]/@href
             name:
               - text: NYX Professional Makeup Suede Matte
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/984338/sminke/lepper/nyx-professional-makeup-suede-matte
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/984338.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/@thumbnails
             aggregateRating2:
-              - text: "3.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 3,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/@aggrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/@ratingcount
             ratingCount:
               - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/@ratingcount
+            price:
+              - text: NÅ 44,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/@priceid
             rank:
-              - text: "85"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/@rank
+              - text: "84"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/@rank
                 type: NUMBER
-                raw: "85"
+                raw: "84"
                 locale: nb_NO
-                value: 85
+                value: 84
             rankOrganic:
-              - text: "85"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/@rank
+              - text: "84"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[84]/@rank
                 type: NUMBER
-                raw: "85"
+                raw: "84"
                 locale: nb_NO
-                value: 85
+                value: 84
           - id:
               - text: "867969"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[86]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/a[1]/@href
             name:
               - text: NYX Professional Makeup Jumbo Eyeliner
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[86]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/867969/sminke/oeyne/nyx-professional-makeup-jumbo-eyeliner
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[86]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/867969.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[86]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/@thumbnails
+            price:
+              - text: NÅ 52,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/@priceid
             rank:
-              - text: "86"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[86]/@rank
+              - text: "85"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/@rank
                 type: NUMBER
-                raw: "86"
+                raw: "85"
                 locale: nb_NO
-                value: 86
+                value: 85
             rankOrganic:
-              - text: "86"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[86]/@rank
+              - text: "85"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[85]/@rank
                 type: NUMBER
-                raw: "86"
+                raw: "85"
                 locale: nb_NO
-                value: 86
+                value: 85
           - id:
               - text: "867891"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[87]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[86]/a[1]/@href
             name:
               - text: NYX Professional Makeup Blotting Paper
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[87]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[86]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/867891/ansiktspleie/rens/nyx-professional-makeup-blotting-paper
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[87]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[86]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/867891.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[87]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[86]/@thumbnails
+            price:
+              - text: NÅ 37,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[86]/@priceid
             rank:
-              - text: "87"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[87]/@rank
+              - text: "86"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[86]/@rank
                 type: NUMBER
-                raw: "87"
+                raw: "86"
                 locale: nb_NO
-                value: 87
+                value: 86
             rankOrganic:
-              - text: "87"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[87]/@rank
+              - text: "86"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[86]/@rank
                 type: NUMBER
-                raw: "87"
+                raw: "86"
                 locale: nb_NO
-                value: 87
+                value: 86
           - id:
               - text: "1170437"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[88]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[87]/a[1]/@href
             name:
               - text: NYX Professional Makeup Suede Matte Lip Liner
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[88]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[87]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1170437/sminke/lepper/nyx-professional-makeup-suede-matte-lip-liner
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[88]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[87]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1170437.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[88]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[87]/@thumbnails
+            price:
+              - text: NÅ 37,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[87]/@priceid
             rank:
-              - text: "88"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[88]/@rank
+              - text: "87"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[87]/@rank
                 type: NUMBER
-                raw: "88"
+                raw: "87"
                 locale: nb_NO
-                value: 88
+                value: 87
             rankOrganic:
-              - text: "88"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[88]/@rank
+              - text: "87"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[87]/@rank
                 type: NUMBER
-                raw: "88"
+                raw: "87"
                 locale: nb_NO
-                value: 88
+                value: 87
         xpath: /html
-    timestamp: 1604073544410
+    timestamp: 1604313357414

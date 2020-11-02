@@ -2,7 +2,7 @@ input:
   keywords: lipgloss
   _url: http://blush.no
 extractions:
-  - html: https://workbench.import.io/html/run=833d8c24-f482-412e-944a-a82d0690cd93/task=ddc6b3c0-b21a-45ea-9a3a-d4974496814d/d868d33f-02ca-476b-a673-0db8c798cd5b.html
+  - html: https://workbench.import.io/html/run=a514a838-d089-4f45-9f89-c3fdfe49fc4b/task=3905fe55-1988-4801-be36-0824de0432d6/b9bd05d0-39d4-42e6-b9d0-cb0a0eb54eca.html
     extractionConfigId: product/search/stores/b/blush/NO/extract
     data:
       - group:
@@ -17,7 +17,10 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/953678.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[1]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[1]/@thumbnails
+            price:
+              - text: NÅ 209,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[1]/@priceid
             rank:
               - text: "1"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[1]/@rank
@@ -32,44 +35,50 @@ extractions:
                 raw: "1"
                 locale: nb_NO
                 value: 1
-          - id:
-              - text: "1170570"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/a[1]/@href
-            name:
-              - text: bareMinerals Gen Nude Buttercream Lipgloss Duo Gavesett. Verdi kr 598,-
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/a[1]/@title
-            productUrl:
-              - text: https://www.blush.no/product/1170570/sminke/lepper/bareminerals-gen-nude-buttercream-lipgloss-duo-gavesett-verdi-kr-598-
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://www.blush.no/img/p/200/1170570.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/a[1]/div[1]/img[1]/@src
-            rank:
-              - text: "2"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/@rank
-                type: NUMBER
-                raw: "2"
-                locale: nb_NO
-                value: 2
-            rankOrganic:
-              - text: "2"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/@rank
-                type: NUMBER
-                raw: "2"
-                locale: nb_NO
-                value: 2
           - id:
               - text: "1135397"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/a[1]/@href
             name:
               - text: Max Factor Colour Elixir Lip Cushion Lipgloss
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1135397/sminke/lepper/max-factor-colour-elixir-lip-cushion-lipgloss
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1135397.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/@thumbnails
+            price:
+              - text: NÅ 83,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/@priceid
+            rank:
+              - text: "2"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: nb_NO
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: nb_NO
+                value: 2
+          - id:
+              - text: "1170570"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/a[1]/@href
+            name:
+              - text: bareMinerals Gen Nude Buttercream Lipgloss Duo Gavesett. Verdi kr 598,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/a[1]/@title
+            productUrl:
+              - text: https://www.blush.no/product/1170570/sminke/lepper/bareminerals-gen-nude-buttercream-lipgloss-duo-gavesett-verdi-kr-598-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/1170570.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/@thumbnails
+            price:
+              - text: 299,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/@priceid
             rank:
               - text: "3"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[3]/@rank
@@ -85,17 +94,20 @@ extractions:
                 locale: nb_NO
                 value: 3
           - id:
-              - text: "1128803"
+              - text: "1166137"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/a[1]/@href
             name:
-              - text: Sensai Total Lip Gloss
+              - text: GrandeLIPS Hydrating Lip Plumping Gloss
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/a[1]/@title
             productUrl:
-              - text: https://www.blush.no/product/1128803/sminke/lepper/sensai-total-lip-gloss
+              - text: https://www.blush.no/product/1166137/sminke/lepper/grandelips-hydrating-lip-plumping-gloss
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/a[1]/@href
             thumbnail:
-              - text: https://www.blush.no/img/p/200/1128803.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/a[1]/div[1]/img[1]/@src
+              - text: https://www.blush.no/img/p/200/1166137.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/@thumbnails
+            price:
+              - text: NÅ 247,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/@priceid
             rank:
               - text: "4"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[4]/@rank
@@ -111,26 +123,20 @@ extractions:
                 locale: nb_NO
                 value: 4
           - id:
-              - text: "914401"
+              - text: "1160469"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/a[1]/@href
             name:
-              - text: bareMinerals Gen Nude Buttercream
+              - text: Shiseido Shimmer GelGloss
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/a[1]/@title
             productUrl:
-              - text: https://www.blush.no/product/914401/sminke/lepper/bareminerals-gen-nude-buttercream
+              - text: https://www.blush.no/product/1160469/sminke/lepper/shiseido-shimmer-gelgloss
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/a[1]/@href
             thumbnail:
-              - text: https://www.blush.no/img/p/200/914401.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/a[1]/div[1]/img[1]/@src
-            aggregateRating2:
-              - text: "4.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
-            reviewCount:
-              - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+              - text: https://www.blush.no/img/p/200/1160469.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/@thumbnails
+            price:
+              - text: NÅ 240,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/@priceid
             rank:
               - text: "5"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[5]/@rank
@@ -146,17 +152,29 @@ extractions:
                 locale: nb_NO
                 value: 5
           - id:
-              - text: "984566"
+              - text: "914401"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/a[1]/@href
             name:
-              - text: bareMinerals Gen Nude Patent Lip Laqcuer
+              - text: bareMinerals Gen Nude Buttercream
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/a[1]/@title
             productUrl:
-              - text: https://www.blush.no/product/984566/sminke/lepper/bareminerals-gen-nude-patent-lip-laqcuer
+              - text: https://www.blush.no/product/914401/sminke/lepper/bareminerals-gen-nude-buttercream
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/a[1]/@href
             thumbnail:
-              - text: https://www.blush.no/img/p/200/984566.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/a[1]/div[1]/img[1]/@src
+              - text: https://www.blush.no/img/p/200/914401.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/@thumbnails
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/@aggrating
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/@ratingcount
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/@ratingcount
+            price:
+              - text: NÅ 209,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/@priceid
             rank:
               - text: "6"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[6]/@rank
@@ -172,17 +190,20 @@ extractions:
                 locale: nb_NO
                 value: 6
           - id:
-              - text: "1149066"
+              - text: "984566"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/a[1]/@href
             name:
-              - text: bareMinerals Gen Nude Metallic Patent Lip Lacquer
+              - text: bareMinerals Gen Nude Patent Lip Laqcuer
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/a[1]/@title
             productUrl:
-              - text: https://www.blush.no/product/1149066/sminke/lepper/bareminerals-gen-nude-metallic-patent-lip-lacquer
+              - text: https://www.blush.no/product/984566/sminke/lepper/bareminerals-gen-nude-patent-lip-laqcuer
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/a[1]/@href
             thumbnail:
-              - text: https://www.blush.no/img/p/200/1149066.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/a[1]/div[1]/img[1]/@src
+              - text: https://www.blush.no/img/p/200/984566.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/@thumbnails
+            price:
+              - text: NÅ 209,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/@priceid
             rank:
               - text: "7"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[7]/@rank
@@ -198,17 +219,20 @@ extractions:
                 locale: nb_NO
                 value: 7
           - id:
-              - text: "1153543"
+              - text: "1149066"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[8]/a[1]/@href
             name:
-              - text: Clarins Lip Milky Mousse
+              - text: bareMinerals Gen Nude Metallic Patent Lip Lacquer
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[8]/a[1]/@title
             productUrl:
-              - text: https://www.blush.no/product/1153543/sminke/lepper/clarins-lip-milky-mousse
+              - text: https://www.blush.no/product/1149066/sminke/lepper/bareminerals-gen-nude-metallic-patent-lip-lacquer
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[8]/a[1]/@href
             thumbnail:
-              - text: https://www.blush.no/img/p/200/1153543.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[8]/a[1]/div[1]/img[1]/@src
+              - text: https://www.blush.no/img/p/200/1149066.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[8]/@thumbnails
+            price:
+              - text: NÅ 209,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[8]/@priceid
             rank:
               - text: "8"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[8]/@rank
@@ -234,16 +258,19 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/901133.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/@thumbnails
             aggregateRating2:
-              - text: "4.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
+              - text: 4,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/@aggrating
             reviewCount:
               - text: "2"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/@ratingcount
             ratingCount:
               - text: "2"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/@ratingcount
+            price:
+              - text: NÅ 174,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/@priceid
             rank:
               - text: "9"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[9]/@rank
@@ -259,247 +286,254 @@ extractions:
                 locale: nb_NO
                 value: 9
           - id:
-              - text: "867860"
+              - text: "993285"
                 xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/a[1]/@href
-            name:
-              - text: NYX Professional Makeup Butter Gloss
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/a[1]/@title
-            productUrl:
-              - text: https://www.blush.no/product/867860/sminke/lepper/nyx-professional-makeup-butter-gloss
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/a[1]/@href
-            thumbnail:
-              - text: https://www.blush.no/img/p/200/867860.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/a[1]/div[1]/img[1]/@src
-            aggregateRating2:
-              - text: "5.0"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/div[1]/div[1]/a[2]/div[1]/div[1]/span[1]/@title
-            reviewCount:
-              - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/div[1]/div[1]/a[2]/div[1]/div[1]/span[2]
-            rank:
-              - text: "10"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/@rank
-                type: NUMBER
-                raw: "10"
-                locale: nb_NO
-                value: 10
-            rankOrganic:
-              - text: "10"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/@rank
-                type: NUMBER
-                raw: "10"
-                locale: nb_NO
-                value: 10
-          - id:
-              - text: "889073"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/a[1]/@href
-            name:
-              - text: NYX Professional Makeup Soft Matte Lip Cream
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/a[1]/@title
-            productUrl:
-              - text: https://www.blush.no/product/889073/sminke/lepper/nyx-professional-makeup-soft-matte-lip-cream
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/a[1]/@href
-            thumbnail:
-              - text: https://www.blush.no/img/p/200/889073.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/a[1]/div[1]/img[1]/@src
-            rank:
-              - text: "11"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/@rank
-                type: NUMBER
-                raw: "11"
-                locale: nb_NO
-                value: 11
-            rankOrganic:
-              - text: "11"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/@rank
-                type: NUMBER
-                raw: "11"
-                locale: nb_NO
-                value: 11
-          - id:
-              - text: "993308"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/a[1]/@href
             name:
               - text: Clarins Instant Light Natural Lip
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/a[1]/@title
             productUrl:
-              - text: https://www.blush.no/product/993308/sminke/lepper/clarins-instant-light-natural-lip
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/a[1]/@href
+              - text: https://www.blush.no/product/993285/sminke/lepper/clarins-instant-light-natural-lip
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/a[1]/@href
             thumbnail:
-              - text: https://www.blush.no/img/p/200/993308.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/a[1]/div[1]/img[1]/@src
+              - text: https://www.blush.no/img/p/200/993285.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/@thumbnails
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/@aggrating
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/@ratingcount
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/@ratingcount
+            price:
+              - text: NÅ 146,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/@priceid
             rank:
-              - text: "12"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/@rank
+              - text: "10"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/@rank
                 type: NUMBER
-                raw: "12"
+                raw: "10"
                 locale: nb_NO
-                value: 12
+                value: 10
             rankOrganic:
-              - text: "12"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/@rank
+              - text: "10"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[10]/@rank
                 type: NUMBER
-                raw: "12"
+                raw: "10"
                 locale: nb_NO
-                value: 12
+                value: 10
           - id:
-              - text: "1163886"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/a[1]/@href
+              - text: "1163888"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/a[1]/@href
             name:
               - text: Clarins Velvet Lip Perfector
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/a[1]/@title
             productUrl:
-              - text: https://www.blush.no/product/1163886/sminke/lepper/clarins-velvet-lip-perfector
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/a[1]/@href
+              - text: https://www.blush.no/product/1163888/sminke/lepper/clarins-velvet-lip-perfector
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/a[1]/@href
             thumbnail:
-              - text: https://www.blush.no/img/p/200/1163886.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/a[1]/div[1]/img[1]/@src
+              - text: https://www.blush.no/img/p/200/1163888.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/@thumbnails
+            price:
+              - text: NÅ 146,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/@priceid
             rank:
-              - text: "13"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/@rank
+              - text: "11"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/@rank
                 type: NUMBER
-                raw: "13"
+                raw: "11"
                 locale: nb_NO
-                value: 13
+                value: 11
             rankOrganic:
-              - text: "13"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/@rank
+              - text: "11"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[11]/@rank
                 type: NUMBER
-                raw: "13"
+                raw: "11"
                 locale: nb_NO
-                value: 13
+                value: 11
           - id:
-              - text: "1166137"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/a[1]/@href
+              - text: "1170304"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/a[1]/@href
             name:
-              - text: GrandeLIPS Hydrating Lip Plumping Gloss
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/a[1]/@title
+              - text: Max Factor Gavesett 2000 Calorie
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/a[1]/@title
             productUrl:
-              - text: https://www.blush.no/product/1166137/sminke/lepper/grandelips-hydrating-lip-plumping-gloss
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/a[1]/@href
+              - text: https://www.blush.no/product/1170304/sminke/oeyne/max-factor-gavesett-2000-calorie
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/a[1]/@href
             thumbnail:
-              - text: https://www.blush.no/img/p/200/1166137.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/a[1]/div[1]/img[1]/@src
+              - text: https://www.blush.no/img/p/200/1170304.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/@thumbnails
+            price:
+              - text: NÅ 119,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/@priceid
             rank:
-              - text: "14"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/@rank
+              - text: "12"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/@rank
                 type: NUMBER
-                raw: "14"
+                raw: "12"
                 locale: nb_NO
-                value: 14
+                value: 12
             rankOrganic:
-              - text: "14"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/@rank
+              - text: "12"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[12]/@rank
                 type: NUMBER
-                raw: "14"
+                raw: "12"
                 locale: nb_NO
-                value: 14
-          - id:
-              - text: "1138385"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/a[1]/@href
-            name:
-              - text: RMS Beauty LipShine - Økologisk Farge til Kinn & Lepper
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/a[1]/@title
-            productUrl:
-              - text: https://www.blush.no/product/1138385/sminke/lepper/rms-beauty-lipshine-oekologisk-farge-til-kinn-lepper
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/a[1]/@href
-            thumbnail:
-              - text: https://www.blush.no/img/p/200/1138385.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/a[1]/div[1]/img[1]/@src
-            rank:
-              - text: "15"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/@rank
-                type: NUMBER
-                raw: "15"
-                locale: nb_NO
-                value: 15
-            rankOrganic:
-              - text: "15"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/@rank
-                type: NUMBER
-                raw: "15"
-                locale: nb_NO
-                value: 15
+                value: 12
           - id:
               - text: "1136973"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/a[1]/@href
             name:
               - text: IsaDora Glossy Lip Treat
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1136973/sminke/lepper/isadora-glossy-lip-treat
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1136973.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/@thumbnails
+            price:
+              - text: NÅ 104,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/@priceid
             rank:
-              - text: "16"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/@rank
+              - text: "13"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/@rank
                 type: NUMBER
-                raw: "16"
+                raw: "13"
                 locale: nb_NO
-                value: 16
+                value: 13
             rankOrganic:
-              - text: "16"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/@rank
+              - text: "13"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[13]/@rank
                 type: NUMBER
-                raw: "16"
+                raw: "13"
                 locale: nb_NO
-                value: 16
+                value: 13
           - id:
-              - text: "1160465"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/a[1]/@href
+              - text: "867860"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/a[1]/@href
             name:
-              - text: Shiseido Shimmer GelGloss
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/a[1]/@title
+              - text: NYX Professional Makeup Butter Gloss
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/a[1]/@title
             productUrl:
-              - text: https://www.blush.no/product/1160465/sminke/lepper/shiseido-shimmer-gelgloss
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/a[1]/@href
+              - text: https://www.blush.no/product/867860/sminke/lepper/nyx-professional-makeup-butter-gloss
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/a[1]/@href
             thumbnail:
-              - text: https://www.blush.no/img/p/200/1160465.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/a[1]/div[1]/img[1]/@src
+              - text: https://www.blush.no/img/p/200/867860.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/@thumbnails
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/@aggrating
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/@ratingcount
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/@ratingcount
+            price:
+              - text: NÅ 52,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/@priceid
             rank:
-              - text: "17"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/@rank
+              - text: "14"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/@rank
                 type: NUMBER
-                raw: "17"
+                raw: "14"
                 locale: nb_NO
-                value: 17
+                value: 14
             rankOrganic:
-              - text: "17"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/@rank
+              - text: "14"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[14]/@rank
                 type: NUMBER
-                raw: "17"
+                raw: "14"
                 locale: nb_NO
-                value: 17
+                value: 14
+          - id:
+              - text: "889073"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/a[1]/@href
+            name:
+              - text: NYX Professional Makeup Soft Matte Lip Cream
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/a[1]/@title
+            productUrl:
+              - text: https://www.blush.no/product/889073/sminke/lepper/nyx-professional-makeup-soft-matte-lip-cream
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/889073.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/@thumbnails
+            price:
+              - text: NÅ 59,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/@priceid
+            rank:
+              - text: "15"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/@rank
+                type: NUMBER
+                raw: "15"
+                locale: nb_NO
+                value: 15
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[15]/@rank
+                type: NUMBER
+                raw: "15"
+                locale: nb_NO
+                value: 15
+          - id:
+              - text: "1128803"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/a[1]/@href
+            name:
+              - text: Sensai Total Lip Gloss
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/a[1]/@title
+            productUrl:
+              - text: https://www.blush.no/product/1128803/sminke/lepper/sensai-total-lip-gloss
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/a[1]/@href
+            thumbnail:
+              - text: https://www.blush.no/img/p/200/1128803.jpg
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/@thumbnails
+            price:
+              - text: 450,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/@priceid
+            rank:
+              - text: "16"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/@rank
+                type: NUMBER
+                raw: "16"
+                locale: nb_NO
+                value: 16
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[16]/@rank
+                type: NUMBER
+                raw: "16"
+                locale: nb_NO
+                value: 16
           - id:
               - text: "1140962"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[18]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/a[1]/@href
             name:
               - text: IsaDora Gavesett Glossy Lip Treat
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[18]/a[1]/@title
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/a[1]/@title
             productUrl:
               - text: https://www.blush.no/product/1140962/sminke/lepper/isadora-gavesett-glossy-lip-treat
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[18]/a[1]/@href
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/a[1]/@href
             thumbnail:
               - text: https://www.blush.no/img/p/200/1140962.jpg
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[18]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/@thumbnails
+            price:
+              - text: NÅ 209,-
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/@priceid
             rank:
-              - text: "18"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[18]/@rank
+              - text: "17"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/@rank
                 type: NUMBER
-                raw: "18"
+                raw: "17"
                 locale: nb_NO
-                value: 18
+                value: 17
             rankOrganic:
-              - text: "18"
-                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[18]/@rank
+              - text: "17"
+                xpath: /html/body/main[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[17]/@rank
                 type: NUMBER
-                raw: "18"
+                raw: "17"
                 locale: nb_NO
-                value: 18
+                value: 17
         xpath: /html
-    timestamp: 1604073542751
+    timestamp: 1604313353317

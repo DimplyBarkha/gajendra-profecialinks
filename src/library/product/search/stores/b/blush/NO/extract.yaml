@@ -22,26 +22,21 @@ fields:
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class="product-image"]/@src
-    regExp: (\/img.*)
-    regExpReplace: https://www.blush.no$1
+    xpath: //@thumbnails
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class="review"]/span[contains(@class,'rating-stars')]/@title
-    regExp: ^\d+(\.?\,?\d+)?
+    xpath: //@aggrating
   - name: reviewCount
     singleValue: false
-    xpath: //span[@class="review-count"]
-    regExp: \d+(\.?\,?\d+)?
+    xpath: //@ratingcount
   - name: ratingCount
     singleValue: false
-    xpath: //span[@class="review-count"]
-    regExp: \d+(\.?\,?\d+)?
+    xpath: //@ratingcount
   - name: price
     singleValue: false
-    xpath: //@priceId
+    xpath: //@priceid
   - name: manufacturer
     singleValue: true
   - name: soldBy
