@@ -18,10 +18,9 @@ fields:
     xpath: //div[@class="product-list"]//figure/img/@title
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="center"]/a[1]
-  # - name: Description
-  #   singleValue: false
-  #   xpath: //ul[@class="check-list"]/li
+    xpath: //div[@class="center"]/a[1]/@href
+    regExp: (.+)
+    regExpReplace: https://www.avansas.com$1
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="product-list"]//figure/img/@src
@@ -36,16 +35,6 @@ fields:
     xpath: //div[@class="comment-count"]/span/text()
     regExp: (.+)\sYorum
     regExpReplace: $1
-  - name: manufacturer
-    singleValue: false
-    xpath: 
-    regExp: 
-  - name: Availabilty
-    singleValue: false
-    xpath: //div[@class="no-stock"]
-    regExp: (.+)
-    regExpReplace: Out of Stock
-    defaultValue: In Stock
   - name: endorsementText
     singleValue: false
-    xpath: 
+    

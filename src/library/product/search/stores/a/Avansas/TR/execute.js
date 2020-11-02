@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
     country: 'TR',
-    store: 'Avansas',
+    store: 'avansas',
     domain: 'avansas.com',
     url: 'https://www.avansas.com/search/?q={searchTerms}',
     loadedSelector: 'div[class="list-container area active"]',

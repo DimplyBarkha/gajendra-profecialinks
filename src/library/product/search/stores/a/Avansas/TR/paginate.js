@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'TR',
-    store: 'Avansas',
+    store: 'avansas',
     //nextLinkSelector: 'a[aria-label="Next"] span i',
     nextLinkSelector: 'i.pagination-right',
     mutationSelector: null,

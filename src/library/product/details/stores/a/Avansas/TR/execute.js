@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
     country: 'TR',
-    store: 'Avansas',
+    store: 'avansas',
     domain: 'avansas.com',
     loadedSelector: null,
     noResultsXPath: null,

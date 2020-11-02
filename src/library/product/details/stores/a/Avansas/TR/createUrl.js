@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     url: 'https://www.avansas.com/search/?q={id}',
     country: 'TR',
-    store: 'Avansas',
+    store: 'avansas',
     zipcode: "''",
   },
 };

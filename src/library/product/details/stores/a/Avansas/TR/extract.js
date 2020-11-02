@@ -42,7 +42,7 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'TR',
-    store: 'Avansas',
+    store: 'avansas',
     transform: transform,
     domain: 'avansas.com',
     zipcode: "''",

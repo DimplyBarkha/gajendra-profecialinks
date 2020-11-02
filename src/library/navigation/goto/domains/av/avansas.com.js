@@ -5,7 +5,7 @@ module.exports = {
     domain: 'avansas.com',
     timeout: 50000,
     country: 'TR',
-    store: 'Avansas',
+    store: 'avansas',
     zipcode: "''",
   },
 };

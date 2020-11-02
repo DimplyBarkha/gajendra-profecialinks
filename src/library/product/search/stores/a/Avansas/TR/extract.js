@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'TR',
-    store: 'Avansas',
+    store: 'avansas',
     transform: transform,
     domain: 'avansas.com',
     zipcode: "''",
