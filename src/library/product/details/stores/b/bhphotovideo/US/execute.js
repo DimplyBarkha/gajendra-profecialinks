@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'bhphotovideo',
     domain: 'bhphotovideo.com',
-    loadedSelector: 'a[data-selenium="miniProductPageProductNameLink"]',
+    loadedSelector: 'img[data-selenium="miniProductPageImg"]',
     noResultsXPath: '//span[contains(text(), "No results")]',
     zipcode: '',
   },

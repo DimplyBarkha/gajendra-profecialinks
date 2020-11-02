@@ -13,13 +13,15 @@ module.exports = {
     context,
     { productDetails },
   ) => {
-    const productLink = await context.evaluate(async () => {
-      return document.querySelector('a[data-selenium="miniProductPageProductNameLink"]');
+    let productLink = 'https://www.bhphotovideo.com';
+    productLink += await context.evaluate(async () => {
+      return document.querySelector('a[data-selenium="miniProductPageProductImgLink"]').getAttribute('href');
     });
     if (productLink) {
-      context.click('a[data-selenium="miniProductPageProductNameLink"]');
+      context.goto(productLink);
     }
     await context.waitForNavigation();
+    await new Promise(resolve => setTimeout(resolve, 3000));
 
     await context.evaluate(async () => {
       let scrollTop = 0;

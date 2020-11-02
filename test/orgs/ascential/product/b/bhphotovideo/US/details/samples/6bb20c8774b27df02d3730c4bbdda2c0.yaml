@@ -1,0 +1,164 @@
+input:
+  id: APPH8
+  _url: http://bhphotovideo.com
+extractions:
+  - html: https://workbench.import.io/html/run=ab5fc4de-df82-4d51-8f37-aefc10e77317/task=b0abb334-24ba-4c67-89f8-d1fa695b6259/1fe1825c-9da0-4668-869f-686fc09ee3d9.html
+    extractionConfigId: product/details/stores/b/bhphotovideo/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.bhphotovideo.com/c/product/1391323-REG/apc_ph8_home_office_surgearrest_surge.html
+                xpath: /html/head[1]/link[15]/@href
+            image:
+              - text: https://static.bhphoto.com/images/images500x500/apc_ph8_home_office_surgearrest_surge_1520859018_1391323.jpg
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/img[1]/@src
+            imageAlt:
+              - text: APC Home Office SurgeArrest 8-Outlet Surge Protector (6', 120V, Black)
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://static.bhphoto.com/images/multiple_images/thumbnails/1520858631_IMG_948689.jpg
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://static.bhphoto.com/images/multiple_images/thumbnails/1520859642_IMG_955825.jpg
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/img[1]/@src
+              - text: https://static.bhphoto.com/images/multiple_images/thumbnails/1520859092_IMG_948688.jpg
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: APC Home Office SurgeArrest 8-Outlet Surge Protector (6&apos;, 120V,
+                  Black)
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Computers
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[2]/a[1]
+              - text: Power Accessories
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[3]/a[1]
+              - text: Power Strips & Cords
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[4]/a[1]
+              - text: Power Strips
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[5]/a[1]
+            price:
+              - text: $18.24
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            brandText:
+              - text: APC
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]/a[1]/img[1]/@alt
+            manufacturer:
+              - text: APC
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]/a[1]/img[1]/@alt
+            gtin:
+              - text: "731304335979"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/article[1]/div[2]/div[5]/div[1]/div[1]
+            sku:
+              - text: "1391323"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[6]/div[1]/a[1]/@href
+            ratingCount:
+              - text: "13"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/span[1]/div[1]/a[1]/span[2]
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/@rating
+            shippingInfo:
+              - text: Eligible for Free Expedited Shipping on orders over $49
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[3]/button[1]
+            shippingDimensions:
+              - text: 11.6 x 5.75 x 1.95"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+            shippingWeight:
+              - text: 1.54 lb
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            color:
+              - text: Black
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]/div[3]/span[1]/a[1]/span[1]
+            manufacturerDescription:
+              - text: Provide professional-grade electrical protection against power surges and
+                  spikes for computers and electronics using the black Home
+                  Office SurgeArrest 8-Outlet Surge Protector from APC. This
+                  unit has eight NEMA 5-15R outlets, three of which are spaced
+                  to accommodate larger transformer plugs, and a standard NEMA
+                  5-15P input connection. It uses an input voltage of 120V @
+                  50/60 Hz with a 15A input/line current, and has a surge energy
+                  rating of 2160 joules. This SurgeArrest model utilizes an
+                  integrated 6' power cord and turns on and off using a recessed
+                  power switch. Protection is provided by a limited lifetime
+                  warranty, and connected equipment that is damaged while the
+                  SurgeArrest is active will be covered up to $150,000, subject
+                  to APC's terms and conditions. Provide professional-grade
+                  electrical protection against power surges and spikes for
+                  computers and electronics using the black Home Office
+                  SurgeArrest 8-Outlet Surge Protector from APC. This unit has
+                  eight NEMA 5-15R outlets, three of which are spaced to
+                  accommodate larger transformer plugs, and a standard NEMA
+                  5-15P input connection. It uses an input voltage of 120V @
+                  50/60 Hz with a 15A input/line current, and has a surge energy
+                  rating of 2160 joules. This SurgeArrest model utilizes an
+                  integrated 6' power cord and turns on and off using a recessed
+                  power switch. Protection is provided by a limited lifetime
+                  warranty, and connected equipment that is damaged while the
+                  SurgeArrest is active will be covered up to $150,000, subject
+                  to APC's terms and conditions. A 90° plug angle allows for
+                  equipment and furniture to be placed closer to the wall than
+                  with a standard power cord. This also reduces cord stress.
+                  SurgeArrest components such as MOVs and thermal fuse help
+                  ensure an instantaneous reaction to lightning strikes and
+                  wiring faults. If the surge components are damaged due to
+                  power spikes or over voltage, excess power cannot reach your
+                  equipment. Unlike the APC SurgeArrest products, most surge
+                  suppressors continue to let power through even after circuits
+                  have been damaged, leaving your equipment exposed to other
+                  damaging surges. Most other surge suppressors continue to let
+                  power through even after their circuits have been damaged,
+                  leaving your equipment exposed to future surges. With APC's
+                  SurgeArrest fail-safe, once the circuit of an APC SurgeArrest
+                  has been compromised, the unit disconnects equipment from the
+                  power supply, helping to ensure that no damaging surges reach
+                  your equipment. SurgeArrest will warn you if its circuitry has
+                  been damaged by a heavy strike or power line surge and it is
+                  unable to provide 100% protection. If still under warranty,
+                  APC will then replace your damaged SurgeArrest free of charge.
+                  This LED informs users of potentially dangerous wiring
+                  problems in the wall circuit. Keeps cords and cables neat and
+                  organized. Shutters help protect users from accidental contact
+                  with unused outlets. Connect bulky transformer block plugs
+                  without covering up other outlets. A 180° rotating cord with
+                  strain relief offers flexibility in positioning the
+                  SurgeArrest and in routing the power cord. This helps prevent
+                  damage to your equipment from electric power surges and
+                  spikes. APC surge protectors undergo stringent testing by the
+                  IEEE, and have been awarded "let-through ratings," which
+                  indicate the maximum voltage level that can possibly reach
+                  your equipment after a surge or voltage spike has passed
+                  through an electric surge protector. Lower IEEE let-through
+                  ratings indicate better protection and performance. The APC
+                  SurgeArrest series offers performance with a let-through
+                  rating of less than 330V for North American products, and a
+                  rating of less than 15% for products sold worldwide. All APC
+                  products comply with local agency safety requirements,
+                  including UL in North America and
+                  CE/Kema/Gost/C-tick/A-Tick/Telepermit in their respective
+                  regions. Attenuates EMI/RFI line noise that can cause data
+                  errors and keyboard lockups, helping to ensure better
+                  performance of protected equipment.
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/article[1]/div[1]/div[1]/div[1]
+            name:
+              - text: APC Home Office SurgeArrest 8-Outlet Surge Protector (6', 120V, Black)
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[1]/h1[1]
+            warranty:
+              - text: Limited Lifetime Warranty
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/aside[1]/div[1]/div[1]/ul[1]/li[3]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[4]/section[1]/div[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            variantCount:
+              - text: "6"
+        xpath: /
+    timestamp: 1604310906774
