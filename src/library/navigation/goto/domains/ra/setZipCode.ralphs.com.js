@@ -24,19 +24,20 @@ async function implementation (
     const indexToClick = await context.evaluate(async function () {
       const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
       let smallestDistance = null;
-      let indexToClosestStore = null;
-      sections.forEach((sectionItem, i) => {
-        const section = sectionItem.querySelector('div.StoreSearchResults-StoreButtonWrapper div div');
+      //let indexToClosestStore = null;
+      let indexToClosestStore = 2;
+      // sections.forEach((sectionItem, i) => {
+      //   const section = sectionItem.querySelector('div.StoreSearchResults-StoreButtonWrapper div div');
 
-        if (section && section.textContent) {
-          const distance = parseFloat(section.textContent);
-          if (!smallestDistance || distance < smallestDistance) {
-            smallestDistance = distance;
-            indexToClosestStore = i + 1;
-          }
-        }
-        console.log(section.textContent);
-      });
+      //   if (section && section.textContent) {
+      //     const distance = parseFloat(section.textContent);
+      //     if (!smallestDistance || distance < smallestDistance) {
+      //       smallestDistance = distance;
+      //       indexToClosestStore = i + 1;
+      //     }
+      //   }
+      //   console.log(section.textContent);
+      // });
       console.log('Closest store: ' + smallestDistance);
       return indexToClosestStore;
     });
@@ -66,13 +67,13 @@ async function implementation (
     await changeZip(zipcode);
   }
 
-  await context.evaluate(() => {
-    const overlay = document.querySelector('.ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers');
+  // await context.evaluate(() => {
+  //   const overlay = document.querySelector('.ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers');
 
-    if (overlay) {
-      overlay.click();
-    }
-  });
+  //   if (overlay) {
+  //     overlay.click();
+  //   }
+  // });
   await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 }
 
