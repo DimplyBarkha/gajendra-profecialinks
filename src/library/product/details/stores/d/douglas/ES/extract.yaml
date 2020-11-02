@@ -1,0 +1,98 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class="rd__breadcrumbs__item"]
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //meta[@property='og:title']/@content
+  - name: image
+    singleValue: false
+    description: URL of the main product image
+    xpath: //div[contains(@class,'slick-current')]//img[@itemprop='image' and contains(@class,"rd__img sd__img loading")]/@src
+  - name: imageAlt
+    singleValue: false
+    description: Alt text of the main product image
+    xpath: //img[@itemprop='image' and contains(@class,"rd__img sd__img loading")]/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath : //button//img[@itemprop='image' and contains(@class,"rd__img sd__img loading")]/@src
+  - name: price
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //span[@class="rd__headline rd__headline--130 rd__discount-conflict-layer__fieldset__radio--highlighted"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,'sd__product-details__options__price__item__quantity')]
+  - name: availabilityText
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //div[@class="rd__slider-brand-nav__index__item--active rd__col--lg-12 rd__copytext--50 sd__clear"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //meta[@property='og:title']/@content
+    regExp: ^([\w\-]+)
+  - name: variantId
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //button[@data-product-code]/@data-product-code
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    type: NUMBER
+    xpath: //meta[@itemprop='reviewCount']/@content
+  - name: aggregateRatingText
+    singleValue: false
+    description: The stated aggregate rating
+    xpath: //div[@itemprop='ratingValue']
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]
+    regExp: (?<=\s).*
+  - name: packSize
+    singleValue: false
+    xpath: //h2[@title]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div//span[contains(text(),"Ingredientes")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
+  - name: directions
+    singleValue: false
+    xpath: //div//span[contains(text(),"Usos")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
+  - name: mpc
+    singleValue: false
+    description: The manufacturer model code (unique) of the product
+    xpath: //button[@data-product-code]/@data-product-code
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div//span[contains(text(),"Información del producto")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
+  - name: sku
+    singleValue: false
+    xpath: //button[@data-product-code]/@data-product-code
+  - name: secondaryImageTotal
+    singlValue: false
+    xpath: count(//ul[@class="slick-dots"]//li)
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[@class="sd__vidcontent"]//iframe/@src
