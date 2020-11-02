@@ -3,23 +3,24 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  # - name: thumbnail
-  #   singleValue: single
-  #   xpath: (//a[@class="product__image-link"]/img)/@src
-  #   regExp: (storage/.*)
-  #   regExpReplace: https://pacson.se/$1
+  - name: thumbnail
+    singleValue: single
+    xpath: (//a[@class="product__image-link"]/img)/@src
+    regExp: (storage/.*)
+    regExpReplace: https://pacson.se/$1
   - name: id
     singleValue: single
     xpath: (//span[@class="product__name__productitemno"])
   - name: price
     singleValue: single
+    type: CURRENCY
     xpath: (//span[@class="price prio-30"])
   - name: name
     singleValue: false
     xpath: (//span[@class="product__name"]/span)
   - name: productUrl
     singleValue: single
-    xpath: //ul[@class="row product-list"]/li/figure/a/@href
+    xpath: (//ul[@class="row product-list"]/li/figure/a)/@href
     # xpath: (//figure[@class="product__figure"]/a)/@href
     regExp: (sortiment/.*)
     regExpReplace: https://pacson.se/$1
