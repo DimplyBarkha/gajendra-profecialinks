@@ -8,7 +8,7 @@ module.exports = {
     domain: 'groo.co.il',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -39,13 +39,14 @@ module.exports = {
       addElementToDocument('added_netWeight', netWeightValue);
 
       const otherDescriptionXpath = "//div[@id='productExtraDescription']";
-      const otherDescriptionStr = getXpath(otherDescriptionXpath, 'innerText').replace(/\r\n|\r|\n/g, ' ');
+      const otherDescriptionStr = getXpath(otherDescriptionXpath, 'innerText');
+      // .replace(/\r\n|\r|\n/g, ' ');
       addElementToDocument('added_productOtherInformation', otherDescriptionStr);
 
       const scriptText = getXpath('//script[@id="opportunity-schema"]', 'innerText');
       var scriptTextObj = JSON.parse(scriptText);
       addElementToDocument('added_skuNumber', scriptTextObj.sku);
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform: transformParam });
   },
 };
