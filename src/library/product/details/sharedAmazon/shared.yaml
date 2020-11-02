@@ -8,7 +8,7 @@ fields:
     xpath: (//img[@id="landingImage"] | //div[@id="img-canvas"]/img[1])[1]/@src
   - name: imageAlt
     singleValue: true
-    xpath: (//img[@id="landingImage"])[1]/@alt
+    xpath: (//img[@id="landingImage"] | //div[@id="img-canvas"]/img[1])[1]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //li[contains(@class, "imageThumbnail")][position()>1]//img/@src | //img[contains(@class,"ig-thumb-inner") and not(contains(@class,"selected"))]/@src | (//span[@data-action="thumb-action"]//img/@src)[position()>1]
