@@ -135,6 +135,7 @@ fields:
     xpath: //div[contains(@class, 'label-vendor')] | //div[contains(@class, 'name-vendor')]
   - name: warranty
     singleValue: false
-    xpath: //*[contains(text(), 'Garantie')]
-    regExp: (Garantie.*?)<
-    regExpReplace: $1
+    xpath: (//div[contains(@id, "guarantyButton")])[1]|//div[@id='mainProductDescription']//table/..//*[contains(text(),'garantie') or contains(text(),'Garantie')]/../following-sibling::text()[not((//div[contains(@id, "guarantyButton")])[1])] | (//div[@id='mainProductDescription']//*[contains(text(),'garantie') or contains(text(),'Garantie')][not((//div[contains(@id, "guarantyButton")])[1])] |//div[@id='mainProductDescription']//text()[contains(.,"arantie")][not(//div[@id='mainProductDescription']//*[contains(text(),'garantie') or contains(text(),'Garantie')])])[not(//div[@id='mainProductDescription']//table/..//*[contains(text(),'garantie') or contains(text(),'Garantie')]/../following-sibling::text())][not((//div[contains(@id, "guarantyButton")])[1])]
+    # xpath: //*[contains(text(), 'Garantie')]
+    # regExp: (Garantie.*?)<
+    # regExpReplace: $1
