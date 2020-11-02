@@ -646,7 +646,7 @@ async function implementation (
       }
       addHiddenDiv(newDiv, 'videos', videos.filter(onlyUnique).join(' | '));
 
-      await fetch(`https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=ff457966e64d5e877fdbad070f276d18ecec4a01&tcin=${variant.tcin}&store_id=804&store_positions_store_id=804&has_store_positions_store_id=true&zip=50633&state=TG&latitude=17.950&longitude=79.790&pricing_store_id=804&fulfillment_test_mode=grocery_opu_team_member_test&is_bot=false`)
+      await fetch('https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=ff457966e64d5e877fdbad070f276d18ecec4a01&tcin=' + variant.tcin + '&store_id=281&store_positions_store_id=281&has_store_positions_store_id=true&zip=54166&state=WI&latitude=44.780&longitude=-88.540&pricing_store_id=281&fulfillment_test_mode=grocery_opu_team_member_test')
         .then(data => data.json())
         .then(availabilityData => {
           addHiddenDiv(newDiv, 'availabilityJson', JSON.stringify(availabilityData));
