@@ -1,0 +1,56 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class, "showcase-gondola")]//div[contains(@class, "showcase-item")][@data-event]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //@id
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //p[@class="showcase-item-name"]/a
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="showcase-item-image "]/@href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[contains(@class, "showcase-image")]/@data-src
+  - name: aggregateRating2
+    type: STRING
+    singleValue: false
+    xpath: //div[contains(@class, "showcase-item-rating")]/@class
+    regExp: \d{1}
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //span[@class="price-value"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //p[@class="showcase-item-name"]/span
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //@rankorganic
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
