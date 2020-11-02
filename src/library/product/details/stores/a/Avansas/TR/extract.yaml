@@ -20,8 +20,7 @@ fields:
     xpath: //ul[@class="breadcrumbs"]/li[position()>1]
   - name: nameExtended
     singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@id="productName"]
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product

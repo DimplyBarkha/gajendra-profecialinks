@@ -20,10 +20,12 @@ fields:
     singleValue: false
     xpath: //div[@class="center"]/a[1]/@href
     regExp: (.+)
-    regExpReplace: https://www.avansas.com$1
+    regExpReplace: https://www.avansas.com/$1
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="product-list"]//figure/img/@src
+    # xpath: //div[@class="product-list"]//figure/img/@src
+    xpath: //div[@class="product-picture"]//img/@data-src
+      #//img[@class=" lazyloaded"]/@src
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="br-current-rating"]/text()
