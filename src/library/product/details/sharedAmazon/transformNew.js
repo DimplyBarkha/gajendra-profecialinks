@@ -97,6 +97,7 @@ const transform = (data, context) => {
           }
         }
       });
+      console.log('DONE MAPPING OBJECT');
       if (row.variants) {
         row.variantCount = [{ text: row.variants.length + 1 }];
       }
@@ -290,6 +291,9 @@ const transform = (data, context) => {
       row.subscribeAndSave = [{ text: subscriptionPresent }];
       row.variantId = row.asin;
       row.sku = row.asin;
+      if (row.shippingWeight) {
+        row.grossWeight = row.shippingWeight;
+      }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
           el.text = clean(el.text);

@@ -63,14 +63,14 @@ fields:
     regExpReplace: $2$3$4
   - name: brandText
     singleValue: false
-    xpath: //*[normalize-space(text())="Brand" or normalize-space(text())="Brand:"]/following-sibling::*[1]
+    xpath: //*[normalize-space(text())="Brand" or normalize-space(text())="Brand:" or normalize-space(text())="Brand Name"]/following-sibling::*[1]
   - name: manufacturer
     singleValue: false
     xpath: //*[normalize-space(text())='Manufacturer']/following-sibling::*[1]
     # xpath: //th[contains(text(), 'Manufacturer') and not(contains(text(), "Discontinue")) and not(contains(text(),  "Part"))]/following-sibling::*[1]
   - name: quantity
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //*[starts-with(@id,"dropdown_selected_size_name")][not(contains(.,"Select"))]
+    xpath: //div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //*[starts-with(@name,"dropdown_selected_size_name")]/option[@class="dropdownSelect"]
   - name: weightNet
     singleValue: false
     xpath: //*[contains(normalize-space(text()),"Product Dimensions")]/following-sibling::*[1][contains(.,';')] | //*[normalize-space(text())="Item Weight"]/following-sibling::*[1]
@@ -81,7 +81,7 @@ fields:
     xpath: translate(//th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1]  | //th[contains(text(), ' Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text() | //td[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1], "(", "")
   - name: gtin
     singleValue: false
-    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text()|//div[contains(@id, 'important-information')]//span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
+    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1] | //span[contains(text(),"UPC") and contains(@class,"a-text")]//following-sibling::span
   - name: asin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   - name: variantId
@@ -123,10 +123,12 @@ fields:
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")] | //span[contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")] | //div[contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"]/a
   - name: shippingDimensions
     singleValue: false
-    xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
+    xpath: //*[contains(normalize-space(text()),"Package Dimensions") or contains(normalize-space(text()),"Shipping Dimensions")]/following-sibling::*[1]
+    regExp: '^[^;]+'
   - name: shippingWeight
     singleValue: false
-    xpath: //span[contains(text(),"Item Weight")]//parent::td//following-sibling::td/span
+    xpath: //*[contains(normalize-space(text()),"Package Dimensions") or contains(normalize-space(text()),"Shipping Dimensions")]/following-sibling::*[1][contains(.,';')] | //*[normalize-space(text())="Package Weight" or normalize-space(text())="Shipping Weight"]/following-sibling::*[1]
+    regExp: '[^;]+$'
     # xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //*[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text()
   - name: dimensions
     xpath: //span[contains(text(),"Product Dimensions")]//following-sibling::span
@@ -285,12 +287,12 @@ fields:
     xpath: 
   - name: totalFatPerServing
     singleValue: true
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text(),"")])
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
     regExp: Crude Fat\s+([^%]+)
     regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: true
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text(),"")])
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
     regExp: Crude Fat\s+([^%]+)
     regExpReplace: '%'
   - name: saturatedFatPerServing
@@ -325,12 +327,12 @@ fields:
     xpath: 
   - name: dietaryFibrePerServing
     singleValue: true
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text(),"")])
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
     regExp: Crude Fiber\s+([^%]+)
     regExpReplace: $1
   - name: dietaryFibrePerServingUom
     singleValue: true
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text(),"")])
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
     regExp: Crude Fiber\s+([^%]+)
     regExpReplace: '%'
   - name: totalSugarsPerServing
@@ -341,12 +343,12 @@ fields:
     xpath: 
   - name: proteinPerServing
     singleValue: true
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text(),"")])
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
     regExp: Crude Protein\s+([^%]+)
     regExpReplace: $1
   - name: proteinPerServingUom
     singleValue: true
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text(),"")])
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
     regExp: Crude Protein\s+([^%]+)
     regExpReplace: '%'
   - name: vitaminAPerServing
@@ -363,12 +365,12 @@ fields:
     xpath: 
   - name: calciumPerServing
     singleValue: true
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text(),"")])
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
     regExp: Calcium\s+([^%]+)
     regExpReplace: $1
   - name: calciumPerServingUom
     singleValue: true
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text(),"")])
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
     regExp: Calcium\s+([^%]+)%
     regExpReplace: '%'
   - name: ironPerServing
