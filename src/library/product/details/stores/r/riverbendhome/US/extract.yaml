@@ -44,15 +44,22 @@ fields:
     xpath: //div[contains(@class,'price-wrapper')]//p
   - name: brandText
     singleValue: true
-    xpath: //div[contains(@class,"brand-icon")]/img/@src
-    regExp: .+\/(.+?)-gallery
+    xpath: //script[contains(.,"vendor")]
+    regExp: .+\"vendor\":\"(.+?)\"
+    regExpReplace: $1
+  - name: shippingInfo
+    singleValue: true
+    xpath: //script[contains(.,"vendor")]
+    regExp: .+\"vendor\":\"(.+?)\"
     regExpReplace: $1    
   - name: sku
     singleValue: true
     xpath: //select[@name='id']//option/@data-sku
   - name: gtin
     singleValue: true
-    xpath: //form[@data-hawkId]/@data-hawkId
+    xpath: //script[@data-product-json]
+    regExp: .+\"barcode\":\"(\d+)\"
+    regExpReplace: $1
   - name: variantId
     singleValue: true
     xpath: //meta[@property="og:url"]/@content
@@ -64,7 +71,7 @@ fields:
     xpath: //table[contains(@class,'table-discription')]//tr
   - name: quantity
     singleValue: true
-    xpath: //table[contains(@class,'table-discription')]//th[contains(text(),'Number of pieces')]/following-sibling::td
+    xpath: //table[contains(@class,'table-discription')]//th[contains(text(),'Size')]/following-sibling::td
   - name: color
     singleValue: true
     xpath: //table[contains(@class,'table-discription')]//th[contains(text(),'Color ')]/following-sibling::td
