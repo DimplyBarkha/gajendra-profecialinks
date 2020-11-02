@@ -130,7 +130,7 @@ fields:
   xpath: //td[contains(text(),'Product Dimensions')]/following-sibling::td[@class='s-padding-ends s-padding-sides'] | //td[contains(text(),"Assembled Product Dimensions")]/following-sibling::td/div
 - name: specifications
   singleValue: true
-  xpath: //td[contains(text(),"Assembled Product Dimensions")]/following-sibling::td/div
+  xpath: //table[contains(@class,"product-specification")]
 - name: shippingWeight
   singleValue: true
   xpath: //td[contains(text(),'Product Weight')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
