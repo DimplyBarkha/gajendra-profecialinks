@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'bhphotovideo',
     domain: 'bhphotovideo.com',
-    loadedSelector: 'div[class*="productMedia"]',
-    noResultsXPath: '//section[@class="body-404"]',
+    loadedSelector: 'a[data-selenium="miniProductPageProductNameLink"]',
+    noResultsXPath: '//span[contains(text(), "No results")]',
     zipcode: '',
   },
 };

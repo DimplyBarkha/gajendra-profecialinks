@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'bhphotovideo.com',
     prefix: null,
-    url: 'https://www.bhphotovideo.com/c/product/{id}',
+    url: 'https://www.bhphotovideo.com/c/search?Ntt={id}',
     country: 'US',
     store: 'bhphotovideo',
     zipcode: '',

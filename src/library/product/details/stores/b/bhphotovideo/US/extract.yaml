@@ -23,7 +23,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[contains(@class, "thumbnails")]//img/@src
+  xpath: (//div[contains(@class, "thumbnails")]//img/@src)[position()>1]
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content

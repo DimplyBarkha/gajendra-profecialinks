@@ -13,6 +13,14 @@ module.exports = {
     context,
     { productDetails },
   ) => {
+    const productLink = await context.evaluate(async () => {
+      return document.querySelector('a[data-selenium="miniProductPageProductNameLink"]');
+    });
+    if (productLink) {
+      context.click('a[data-selenium="miniProductPageProductNameLink"]');
+    }
+    await context.waitForNavigation();
+
     await context.evaluate(async () => {
       let scrollTop = 0;
       while (scrollTop !== 15000) {
@@ -40,7 +48,7 @@ module.exports = {
 
       const ratingFullStars = document.querySelectorAll('div[class*=name] svg[class*="full"]').length;
       const ratingHalfStar = document.querySelector('div[class*=name] use[href*="Half"]') ? 0.5 : 0;
-      const rating = String(ratingFullStars + ratingHalfStar).replace('.', ',');
+      const rating = String(ratingFullStars + ratingHalfStar);
       document.querySelector('body').setAttribute('rating', rating);
     });
 
