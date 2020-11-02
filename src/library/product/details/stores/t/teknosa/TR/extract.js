@@ -1,4 +1,4 @@
-const { transform } = require('../shared')
+const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -9,5 +9,5 @@ module.exports = {
     domain: 'teknosa.com',
     zipcode: '',
   },
-  
+
 };
