@@ -1,0 +1,37 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: null
+ - name: input
+   singleValue: true
+   description: The Json input
+   xpath: //input[@data-id="search"]/@value
+ - name: price
+   singleValue: false
+   description: price of the each product 
+   xpath: 
+ - name: productUrl
+   singleValue: false
+   description: The url of the product details page
+   xpath: 
+ - name: manufacturer
+   singleValue: false
+   description: The manufacturer of the product
+   xpath: 
+ - name: rating
+   singleValue: false
+   description: The manufacturer of the product
+   xpath: 
+ - name: name
+   singleValue: false
+   description: name of the product
+   xpath: //a[@class="xf-product-title__link js-product__title  xf-product-title__link--additional "]/font/font
+ - name: id
+   singleValue: false
+   description: unique id of products
+   xpath: 
+ - name: thumbnail
+   singleValue: false
+   description: smaller image of the product
+   xpath:  
