@@ -17,10 +17,10 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="Product-image-wrapper"]/img/@src
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     xpath: //span[@class="Rating-average"]/@data-aggregate-rating
-    type: NUMBER
+    # type: NUMBER
   - name: reviewCount
     singleValue: false
     regExp: (\d+)

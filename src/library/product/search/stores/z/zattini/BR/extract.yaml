@@ -21,10 +21,10 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //img/@data-src
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
     xpath: //div[@id="item-list"]//span[@class="ns-icon ns-icon-rating-mask stars"]//text()
-    type: NUMBER
+    # type: NUMBER
   - name: reviewCount
     singleValue: true
     xpath: //div[@class="ratings-count"]
@@ -33,8 +33,8 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    regExp: ( .*)
     xpath:  //span[@class='full-mounted-price']
+    type: CURRENCY
   - name: manufacturer
     singleValue: true
   - name: soldBy
