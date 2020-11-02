@@ -7,24 +7,21 @@ fields:
     description: the product name
     xpath: //a[@class="js-ga-productname"]
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     description: a smaller image of the product e.g. on a search results page
-    xpath: //a[@id='body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl0_ctl00_1_NavigateTo_1']
-  - name: productImage
-    description: image url of product
-    singleValue: true 
-    xpath: //a[@id='body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl0_ctl00_1_NavigateTo_1']
+    xpath: //div[@class="media-overlay js-overlay-controls"]//a//img/@src
   - name: price
+    singlevalue: false
     description: the offered price of the selected product 
     xpath: //span[@class="price text--strong"]
   - name: productUrl 
-    singlevalue: true 
+    singlevalue: false 
     description: The url of the product details page
-    xpath: //a[@id='body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl0_ctl00_1_NavigateTo_1']
-  - name: _url
-    description: The url of the page
-    xpath: //meta[@property="og:url"]
+    xpath: //h3[@class="h4-like  text--brand"]//a/@href
+    regExp: (/.+)
+    regExpReplace: https://www.iga.net$1
   - name: id
+    singleValue: false
     description: pre feed calculated coloumn to prodeuce a unique id
     xpath: //div[@class="item-product js-product js-equalized js-addtolist-container js-ga"]
     
