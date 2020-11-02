@@ -1,0 +1,45 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //a[@id='gallery-product-modal']/div[@class='zoomWrapper']//img[@class="gallery-image"]//@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@class='breadcrumbs']//ul//li[position() >1]/a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='breadcrumbs']//ul//li[@class="product"]//strong
+  - name: name
+    singleValue: false
+    xpath: //div[@class='breadcrumbs']//ul//li[@class="product"]//strong
+  - name: price
+    singleValue: false
+    xpath: //div[@class='price-info-grouped']//div[@class='selected-info']//div[@class='final-price']//span
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='minicart-wrapper']//a[@id='minicart-to-cart']
+    defaultValue: "Out of stock"
+  - name: description
+    singleValue: false
+    xpath: //section[@class='section-infos']//section[@id='section-description']//div[@class='std']  
+  - name: ratingCount
+    sinngleValue: false
+    xpath: //div[@class='product-shop']//div[@class='ratings']//p[@class='rating-links']//a
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='product-shop']//div[@class='ratings']//div[@class='rating-box']//div[@class='rating']//@style
+  - name: videos
+    singleValue: false
+    xpath: //div[@class='how-to-use']//div[@class='col-1 ']//iframe//@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //a[@id='gallery-product-modal']/div[@class='zoomWrapper']//img[@class="gallery-image"]//@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='container_gallery']//a[@class='hidden']//@data-image
