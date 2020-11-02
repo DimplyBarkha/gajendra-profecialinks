@@ -1,0 +1,62 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //article
+fields:
+  - name: id
+    singleValue: false
+    xpath: //@data-id
+  - name: searchUrl
+    singleValue: true
+    xpath: 
+  - name: name
+    singleValue: false
+    xpath: //article//h3[@class='lst-product-item-title']//a//text()
+  - name: productUrl
+    singleValue: false
+    xpath: //article//h3[@class='lst-product-item-title']//a//@href
+    regExp: (.+)
+    regExpReplace: https://www.mimovrste.com/$1
+  - name: gtin
+    singleValue: false
+    xpath: 
+  - name: thumbnail
+    singleValue: false
+    xpath: //noscript//img[@class='lst-product-item-media-img']//@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class='con-reader']
+    regExp: (Ocena:)(.*)
+    regExpReplace: $2
+    type: NUMBER
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //span[@class='lst-product-item-price-value']
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   xpath: ancestor::html//p[contains(@name, 'searchresultcount')]/strong/text()
+  #   type: NUMBER
