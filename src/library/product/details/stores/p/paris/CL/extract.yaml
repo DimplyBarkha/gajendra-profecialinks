@@ -60,7 +60,7 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
-    xpath: //td[contains(text(),"Peso")]//following-sibling::td
+    xpath: //td[contains(text(),"Peso sin Base (kg)")]//following-sibling::td
     description: Net weight as described on the page
   - name: weightGross
     singleValue: false
@@ -95,6 +95,7 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
+    xpath: //div[contains(@class,"bv_numReviews_text")]
     description: The number of ratings
   - name: aggregateRatingText
     singleValue: false
@@ -106,7 +107,7 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingDimensions
     singleValue: false
-    xpath: //td[contains(text(), "Descripción de Tecnología")]//following-sibling::td
+    xpath: //font[contains(text(), "Dimensiones con Base")]/../parent::*/following-sibling::td | //td[contains(text(), "Dimensiones con Base")]//following-sibling::td
     description: Stated shipping dimensions
   - name: color
     singleValue: false
@@ -144,3 +145,15 @@ fields:
     singleValue: false
     xpath: //span[@class="discount-2"]
     description: promotion text on product page
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//li[position()>1]/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")]/@src)
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[@id='added_technicalInfo']
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //span[contains(@class,'onboarding-desktop')]
+
+
+    

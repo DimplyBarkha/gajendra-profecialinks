@@ -42,14 +42,20 @@ async function implementation (inputs, parameters, context, dependencies) {
       availabilityText = availabilityText && availabilityText.toLowerCase().includes('instock') ? 'In Stock' : 'Out Of Stock';
       addHiddenDiv('added_availabilityText', availabilityText);
     }
-    fetchDetailsFromScript();
+    function fetchTechnicalInfo () {
+      const technicalInfoSelector = document.evaluate('//div[@class="description-table"]//a[contains(@href, ".pdf")]/@href', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const technicalInfoFlag = technicalInfoSelector ? 'Yes' : 'No';
+      addHiddenDiv('added_technicalInfo', technicalInfoFlag);
+    }
     loadResults();
+    fetchDetailsFromScript();
+    fetchTechnicalInfo();
     // If images are present in description then add to manufacturerDescription else add to description
     const descriptionSelector = document.evaluate('//div[contains(@class, "description-table")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     const description = descriptionSelector ? descriptionSelector.innerText : '';
-    const manufacturerImageFlag = document.querySelector('div[class="description-table"] img');
+    const manufacturerImageFlag = document.querySelector('div[class="description-table"] img,div[id="content"] img,div[class="caracteristicas"] img');
     if (manufacturerImageFlag) {
-      addHiddenDiv('added-manufacturerDesc', description);
+      addHiddenDiv('added-manufacturerDesc', manufacturerImageFlag);
     } else {
       addHiddenDiv('added-description', description);
     }
