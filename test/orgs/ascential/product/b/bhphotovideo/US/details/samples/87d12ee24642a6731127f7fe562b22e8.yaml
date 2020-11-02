@@ -1,0 +1,93 @@
+input:
+  id: APRBC63
+  _url: http://bhphotovideo.com
+extractions:
+  - html: https://workbench.import.io/html/run=f9a9f860-f500-4480-962e-892d33cd750e/task=dfb5a054-d573-4821-a712-dc04dae11b61/839c48b8-58d7-47b4-a975-aca8d75f00ec.html
+    extractionConfigId: product/details/stores/b/bhphotovideo/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.bhphotovideo.com/c/product/500066-REG/APC_RBC63_RBC_63_Replacement_Battery.html
+                xpath: /html/head[1]/link[5]/@href
+            image:
+              - text: https://static.bhphoto.com/images/images500x500/APC_RBC63_RBC_63_Replacement_Battery_1500388575_500066.jpg
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/img[1]/@src
+            imageAlt:
+              - text: "APC RBC #63 Battery Cartridge"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://static.bhphoto.com/images/multiple_images/thumbnails/1500389145_IMG_834994.jpg
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: "APC RBC #63 Battery Cartridge"
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: TVs & Entertainment
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[2]/a[1]
+              - text: General Accessories
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[3]/a[1]
+              - text: Other Accessories
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[4]/a[1]
+            price:
+              - text: $149.99
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            brandText:
+              - text: APC
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]/a[1]/img[1]/@alt
+            manufacturer:
+              - text: APC
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]/a[1]/img[1]/@alt
+            gtin:
+              - text: "731304228455"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/article[1]/div[2]/div[2]/div[1]
+            sku:
+              - text: "500066"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[6]/div[1]/a[1]/@href
+            ratingCount:
+              - text: "8"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/span[1]/div[1]/a[1]/span[2]
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/@rating
+            shippingInfo:
+              - text: Calculate Shipping
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/span[1]/button[1]
+            shippingDimensions:
+              - text: 16.5 x 10.5 x 8.5"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+            shippingWeight:
+              - text: 25.6 lb
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            manufacturerDescription:
+              - text: "The APC RBC #63 Battery Cartridge is a replacement battery for S-type
+                  power conditioners with battery backup. It is a
+                  maintenance-free sealed lead-acid battery with suspended
+                  electrolyte. The APC RBC #63 Battery Cartridge is a
+                  replacement battery for S-type power conditioners with battery
+                  backup. It is a maintenance-free sealed lead-acid battery with
+                  suspended electrolyte. Enclosed battery cartridge"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/article[1]/div[1]/div[1]/div[1]
+            name:
+              - text: "APC RBC #63 Battery Cartridge"
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[1]/h1[1]
+            warranty:
+              - text: Limited 2-Year Warranty
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/aside[1]/div[1]/div[1]/ul[1]/li[2]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[6]/div[5]/section[1]/div[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1604315747934

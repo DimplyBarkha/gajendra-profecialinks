@@ -2,13 +2,13 @@ input:
   id: APPH8
   _url: http://bhphotovideo.com
 extractions:
-  - html: https://workbench.import.io/html/run=ab5fc4de-df82-4d51-8f37-aefc10e77317/task=b0abb334-24ba-4c67-89f8-d1fa695b6259/1fe1825c-9da0-4668-869f-686fc09ee3d9.html
+  - html: https://workbench.import.io/html/run=f9a9f860-f500-4480-962e-892d33cd750e/task=e6c253a4-0e3b-4d4e-8561-ab4a1a350694/b576362d-caa4-4b5c-b402-15d60ba5dfc7.html
     extractionConfigId: product/details/stores/b/bhphotovideo/US/extract
     data:
       - group:
           - productUrl:
               - text: https://www.bhphotovideo.com/c/product/1391323-REG/apc_ph8_home_office_surgearrest_surge.html
-                xpath: /html/head[1]/link[15]/@href
+                xpath: /html/head[1]/link[5]/@href
             image:
               - text: https://static.bhphoto.com/images/images500x500/apc_ph8_home_office_surgearrest_surge_1520859018_1391323.jpg
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/img[1]/@src
@@ -23,9 +23,8 @@ extractions:
               - text: https://static.bhphoto.com/images/multiple_images/thumbnails/1520859092_IMG_948688.jpg
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/img[1]/@src
             metaKeywords:
-              - text: APC Home Office SurgeArrest 8-Outlet Surge Protector (6&apos;, 120V,
-                  Black)
-                xpath: /html/head[1]/meta[5]/@content
+              - text: APC Home Office SurgeArrest 8-Outlet Surge Protector (6', 120V, Black)
+                xpath: /html/head[1]/meta[17]/@content
             category:
               - text: Computers
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[1]/span[2]/a[1]
@@ -60,8 +59,8 @@ extractions:
               - text: "5"
                 xpath: /html/body/@rating
             shippingInfo:
-              - text: Eligible for Free Expedited Shipping on orders over $49
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[3]/button[1]
+              - text: Calculate Shipping
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/span[1]/button[1]
             shippingDimensions:
               - text: 11.6 x 5.75 x 1.95"
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
@@ -149,7 +148,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/aside[1]/div[1]/div[1]/ul[1]/li[3]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[4]/section[1]/div[1]
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[5]/section[1]/div[1]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -161,4 +160,4 @@ extractions:
             variantCount:
               - text: "6"
         xpath: /
-    timestamp: 1604310906774
+    timestamp: 1604315749597
