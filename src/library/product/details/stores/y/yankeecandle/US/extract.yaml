@@ -13,14 +13,10 @@ fields:
     singleValue: true
     description: Alt text of the main product image
     xpath: //ul[@class="slider animated"]/li/div/img/@alt
-    regExp: (larger View of)(.+)
-    regExpReplace: $2
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //ul[@class="thumbs animated"]/li/a/img/@src
-    regExp: (.*)
-    regExpReplace: https://www.yankeecandle.com$1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -28,11 +24,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@class="pdp breadcrumb"]/li[2]/div/a
-  - name: sub_Category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@class="pdp breadcrumb"]/li[3]/div/a
+    xpath: (//ul[@class="pdp breadcrumb"]/li[position()>=2 and position()<4])
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -77,12 +69,10 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //td[contains(text(),'Weight')]/following::td[1]
+    xpath: (//td[contains(text(),'Weight')]/following::td[1]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -92,15 +82,12 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xapth: (//div[@class="numbr-frgnce"]/p)[2]
-    regExp: (Item \#) (.*)
-    regExpReplace: $2
+    xpath: //p[@class='reviewCount']//div/@data-bv-product-id
+    type: NUMBER
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xapth: (//div[@class="numbr-frgnce"]/p)[2]
-    regExp: (Item \#) (.*)
-    regExpReplace: $2
+    xpath: //p[@class='reviewCount']//div/@data-bv-product-id
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
