@@ -27,6 +27,12 @@ module.exports = {
     await context.waitForSelector('#product-intro pwr-product-stock-label');
     await context.click('#product-information-tabs > div:nth-child(1) > div > i');
     await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+
+    try {
+      await context.waitForSelector('pwr-product-specifications > div');
+    } catch (err) {
+      console.log(err);
+    }
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -70,7 +76,7 @@ module.exports = {
 
       const brand = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Produsent")]/following-sibling::div')
         ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"Produsent")]/following-sibling::div').textContent
-        : '';
+        : getElementByXpath("//div[contains(@class, 'brand-logo')]/img/@alt") ? getElementByXpath("//div[contains(@class, 'brand-logo')]/img").alt : '';
       if (brand) addElementToDocument('brand', brand);
 
       const eangtin = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"EAN")]/following-sibling::div')
@@ -94,6 +100,7 @@ module.exports = {
         addElementToDocument('stock', stock);
       }
 
+      document.querySelectorAll('h3.panel-title')[1].innerText == 'Spesifikasjoner' ? document.querySelectorAll('h3.panel-title')[1].click() : '';
       const color = getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"farge")]/following-sibling::*')
         ? getElementByXpath('//div[@class="row ng-star-inserted"]/div[contains(text(),"farge")]/following-sibling::*').textContent
         : '';
@@ -189,8 +196,26 @@ module.exports = {
       }
       const aggRating = document.querySelector('div.product-intro-details button[itemprop="ratingValue"]')
         ? document.querySelector('div.product-intro-details button[itemprop="ratingValue"]').innerText : '';
-      if (aggRating) addElementToDocument('aggRating', aggRating.replace(/\./g, ','));
+      if (aggRating) addElementToDocument('aggRating', aggRating);
     });
+    await context.evaluate(async function () {
+      let scrollSelector = document.querySelector('footer[id="footer-site"]');
+      let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+      let yPos = 0;
+      while (scrollLimit && yPos < scrollLimit) {
+        yPos = yPos + 350;
+        window.scrollTo(0, yPos);
+        scrollSelector = document.querySelector('footer[id="footer-site"]');
+        scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+        await new Promise(resolve => setTimeout(resolve, 3500));
+      }
+    });
+    try {
+      await context.waitForSelector('div.product-main-card div.product-image-container img');
+    } catch (error) {
+      console.log('All images not loaded after scrolling!!');
+    }
+
     await context.extract(productDetails, { transform });
   },
 };

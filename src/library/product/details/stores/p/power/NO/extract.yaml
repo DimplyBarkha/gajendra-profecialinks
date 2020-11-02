@@ -4,11 +4,11 @@ recordSelector: null
 recordXPath: //body
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     description: URL of the main product image
     xpath: //div[@id='images'][1]
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     description: Alt text of the main product image
     xpath: //div[@id='imageAlt']
   - name: alternateImages
@@ -19,27 +19,27 @@ fields:
     singleValue: false
     xpath: count(//div[@id='product-image-carousel']//div[contains(@class, 'owl-item')][1]/following-sibling::*//img/@src)
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //*[@class="breadcrumb"]/li[position() > 1]
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//*[@id="header-page"]//h1, ' - ', //meta[@itemprop="productId"]/@content)
+    xpath: //*[@id="header-page"]//h1
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@id="fullPrice"]
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -51,98 +51,97 @@ fields:
     xpath: //div[@id='descBulletInfo']
     regExpReplace: $1
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
     xpath: count(//*[@id="product-intro"]/div[2]//ul/li)
   - name: brandText
-    singleValue: true
+    singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //div[@id='brand']
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
   - name: quantity
-    singleValue: true
+    singleValue: false
     description: Quantity as described on the page
   - name: weightNet
-    singleValue: true
+    singleValue: false
     description: Net weight as described on the page
-    xpath: //div[@id="weightNet"]
+    xpath: //div[@id="weightNet"] | //div[contains(text(), 'Nettovekt')]/following-sibling::*
   - name: weightGross
-    singleValue: true
+    singleValue: false
     description: Gross weight as described on the page
     xpath: //div[@id="weightGross"]
   - name: gtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
     xpath: //div[@id="eangtin"]
-    regExp: (\d{13})
   - name: eangtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
     xpath: //div[@id="eangtin"]
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
     xpath: //meta[@itemprop="productId"]/@content
   - name: variantId
-    singleValue: true
+    singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //meta[@itemprop="productId"]/@content
   - name: mpc
-    singleValue: true
+    singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@id="mpc"]
+    xpath: //div[@id="mpc"] | //div[contains(text(), ' Leverandørens')]/following-sibling::*
   - name: packSize
-    singleValue: true
+    singleValue: false
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
-    singleValue: true
+    singleValue: false
     description: Content under "legal disclaimer" header
   - name: directions
-    singleValue: true
+    singleValue: false
     description: Content under "directions" header
   - name: warnings
-    singleValue: true
+    singleValue: false
     description: Content under "warnings" header
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     description: The number of ratings
     xpath: //meta[@itemprop="reviewCount"]/@content
     type: NUMBER
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating
     xpath: //div[@class='product-intro-details']//*[@itemprop='ratingValue']/@aria-label
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[@id='aggRating']
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
     description: Shipping information for the product
     xpath: //div[@id="shipingInfo"]
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
     description: Stated shipping dimensions
-    xpath: //div[@id="dimensions"]
+    xpath: //div[@id="dimensions"] | //div[contains(text(), 'Bruttomål med')]/following-sibling::*
   - name: shippingWeight
-    singleValue: true
+    singleValue: false
     description: Stated shipping weight
     xpath: //div[@id="weightGross"]
   - name: variantCount
-    singleValue: true
+    singleValue: false
     description: Number of variants listed
     type: NUMBER
   - name: color
-    singleValue: true
+    singleValue: false
     description: A textual description of the colour
     xpath: //div[@id="color"]
   - name: colorCode
-    singleValue: true
+    singleValue: false
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
@@ -151,60 +150,60 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@id="product-tab-description"]/div/div[@class="image-wrapper"]/img/@src
+    xpath: //div[contains(@class, "inpage_block")]//img/@srcset | //div[@id="product-tab-description"]/div/div[@class="image-wrapper"]/img/@src | //div[contains(@id, "product-tab-description-panel")]//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
     xpath: //div[@id="urlsForVideos"]
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
     xpath: //*[@id="header-page"]//h1
   - name: coupon
-    singleValue: true
+    singleValue: false
     description: Text of any coupon offer
   - name: lbb
-    singleValue: true
+    singleValue: false
     description: Check Lost by Box Requirements (just for Amazon and a couple of
       other stores) - LBB occurs when a product is bought from someone other
       than Amazon (on Amazon Website) - even though Amazon has the product "in
       Stock"
   - name: specifications
-    singleValue: true
+    singleValue: false
     description: The physical dimensions of the product including packaging.
     xpath: //div[@id="specifications"]
   - name: warranty
-    singleValue: true
+    singleValue: false
     description: Guarantee associated with the product
     xpath: //div[@id="warranty"]
   - name: storage
-    singleValue: true
+    singleValue: false
     description: Suggested storage location for product
     xpath: //div[@id="storage"]
   - name: countryOfOrigin
-    singleValue: true
+    singleValue: false
     description: The country from which the product originates
   - name: recyclingInformation
-    singleValue: true
+    singleValue: false
     description: Recycling information associated with the product
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
   - name: packaging
-    singleValue: true
+    singleValue: false
     description: Packaging information
   - name: promotion
-    singleValue: true
+    singleValue: false
     description: promotion text on product page
   - name: newDescription
-    singleValue: true
+    singleValue: false
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     description: colour / scent / flavour / other
   - name: firstVariant
-    singleValue: true
+    singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -222,21 +221,21 @@ fields:
     description: null
     xpath: //div[@id='descBulletInfo']
   - name: energyEfficiency
-    singleValue: true
+    singleValue: false
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
   - name: technicalInformationPdfPresent
-    singleValue: true
+    singleValue: false
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: "No"
   - name: termsAndConditions
-    singleValue: true
+    singleValue: false
     description: Terms and conditions information text ['Yes','No']
     defaultValue: "No"
   - name: Image360Present
-    singleValue: true
+    singleValue: false
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: "No" 
