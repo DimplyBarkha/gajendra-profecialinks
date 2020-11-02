@@ -41,7 +41,7 @@ const transform = (data) => {
         }
         if (row.image) {
           row.image.forEach(item => {
-            item.text = 'https://'+item.text;
+            item.text = 'https:'+item.text;
           });
         }
         if (row.manufacturerImages) {
