@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //div[@class="srp-product-box__image-section list"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.whiteaway.com$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="srp-product-box__image-section list"]/a/img/@src
+  - name: name
+    description: The product name
+    xpath: //div[@class="srp-product-box__image-section list"]/a/img/@alt
+  - name: skus
+    description: The store-specific product identifiera
+  - name: ratingCount
+    description: The number of ratings
+    regExp: (\d+)
+  - name: reviewCount
+    description: The number of reviews
+    regExp: (\d+)
+  - name: price
+    description: The offered price for the product
+    xpath: //div[@class="campaign-banner__info offer"]/div[2]/span
+    regExp: '\d+\.\d+'
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    defaultValue: false
+    type: BOOLEAN
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //h3/span[2]
+  - name: aggregateRating
+    xpath: //div[@class="star-rating__front"]/@style
+    type: NUMBER
+    regExp: (\d+)\|20
+    # regExpReplace: $./1\|20
+  - name: hasVariants
