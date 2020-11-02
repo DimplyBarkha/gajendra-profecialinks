@@ -21,7 +21,11 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//ul[@class="breadcrumbs"]/li[2]/a)
+    xpath: (//ul[@class="breadcrumbs"]/li[3]/a)
+  - name: sub_category
+    singleValue: false
+    description: The sub-categories (e.g. from breadcrumbs)
+    xpath: (//ul[@class="breadcrumbs"]/li[position()>3 and position()<6]/a)
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
