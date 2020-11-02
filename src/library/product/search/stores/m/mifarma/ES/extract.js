@@ -16,17 +16,16 @@ const implementation = async (inputs, parameters, context, dependencies) => {
       addElementToDocument(arr[i], 'pd_rank', lastProductPosition + i);
     }
     localStorage.setItem('prodCount', `${lastProductPosition + arr.length}`);
-  }); 
+  });
 
   await context.evaluate(() => {
-    
-    const rating = document.querySelectorAll(".rating");
+    const rating = document.querySelectorAll('.rating');
     rating.forEach((el) => {
       const trimmed = el.style.width.slice(0, -1);
       let numericRate = String(trimmed / 20);
-      numericRate = numericRate.replace(/\./g,',')
-      console.log(numericRate)
-      el.setAttribute('numericrating', numericRate)
+      numericRate = numericRate.replace(/\./g, ',');
+      console.log(numericRate);
+      el.setAttribute('numericrating', numericRate);
     });
   });
   const addSearchUrl = async function (context) {
@@ -41,13 +40,13 @@ const implementation = async (inputs, parameters, context, dependencies) => {
 };
 
 module.exports = {
-  implements: "product/search/extract",
+  implements: 'product/search/extract',
   parameterValues: {
-    country: "ES",
-    store: "mifarma",
+    country: 'ES',
+    store: 'mifarma',
     transform: null,
-    domain: "mifarma.es",
-    zipcode: "",
+    domain: 'mifarma.es',
+    zipcode: '',
   },
   implementation,
 };
