@@ -38,7 +38,7 @@ fields:
     singleValue: false
     xpath: (//div[@class='detailWrap']/div[@class='floaterModuleBox clearfix'])[1]/div[@class='rightCol tabContent']
     #regExp: (\\n+)
-    #regExpReplace: $2
+    #regExpReplace: ' '
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@class="ccs-cc-inline-header-description"]/ul/li)
@@ -55,9 +55,9 @@ fields:
   - name: weightNet
     singleValue: true
     #xpath: //table[@class="prodSpec"]/tbody/tr[26]/td[2]
-  - name: sub-category
-    singleValue: true
-    xpath: //div[@class='bc_container']//ul[@class='breadcrumb']//li[2] | //div[@class='bc_container']//ul[@class='breadcrumb']//li[3]
+  #- name: sub-category
+    #singleValue: true
+    #xpath: //div[@class='bc_container']//ul[@class='breadcrumb']//li[2] | //div[@class='bc_container']//ul[@class='breadcrumb']//li[3]
   - name: gtin
     singleValue: true
     xpath: //meta[@itemprop="gtin14"]/@content
@@ -91,8 +91,8 @@ fields:
     xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="reviewCount"]//@content
     #type: NUMBER
   - name: category
-    singleValue: true
-    xpath: //div[@class="bc_container"]//li[1]//text()
+    singleValue: false
+    xpath: //div[@class="bc_container"]//li[position()>0 and position()<last()]
   - name: aggregateRating
     singleValue: true
     xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]//@content
