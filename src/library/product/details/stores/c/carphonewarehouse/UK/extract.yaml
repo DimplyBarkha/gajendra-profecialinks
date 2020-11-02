@@ -6,21 +6,21 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[contains(@class,'sliderHold')][2]//ul/li[1]/img[@class='zoomMedia']/@src | //div[contains(@class,'sliderHold')][2]//ul/li[1]/img[contains(@class, 'zoomMedia')]/@data-imgpath
+    xpath: //div[contains(@class,'sliderHold')][1]//ul/li[1]/img[@class='zoomMedia']/@src | //div[contains(@class,'sliderHold')][1]//ul/li[1]/img[contains(@class, 'zoomMedia')]/@data-imgpath
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'sliderHold')][2]//ul/li[position()>1]/img[@class='zoomMedia']/@src | //div[contains(@class,'sliderHold')][2]//ul/li[position()>1]/img[contains(@class, 'zoomMedia')]/@data-imgpath
+    xpath: //div[contains(@class,'sliderHold')][1]//ul/li[position()>1]/img[@class='zoomMedia']/@src | //div[contains(@class,'sliderHold')][1]//ul/li[position()>1]/img[contains(@class, 'zoomMedia')]/@data-imgpath
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//div[@class='container-fluid']//div[@class='row'])[1]/a[position()>1]/text()
+    xpath: (//div[@class='container-fluid']//div[@class='row'])[1]/a[position()=2]/text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -50,7 +50,7 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//div[contains(@class, 'whatCarphoneSays')]//div[@class='quick']//div[@class='descData']//ul/li)
+    xpath: count(//div[contains(@class, 'whatCarphoneSays')]//div[@class='quick']//div[@class='descData']//ul/li[contains(text(), ' ')])
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -137,13 +137,14 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[contains(@class, 'panelBody')]//div[contains(@class, 'pxInfoImg')]//img/@data-blzsrc
+    xpath: //div[contains(@class, 'panelBody')]//div[contains(@class, 'pxInfoImg')]//img/@data-blzsrc | //div[contains(@class, 'panelBody')]//section[contains(@class, 'pxInfoSctnDk')]//img/@data-blzsrc | //div[@class='s7imageresize']//img/@data-blzsrc
   - name: videos
     singleValue: false
     description: URLs of videos on page
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[@id='productTitle']
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -431,6 +432,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //div[contains(@class, 'promotionalHeaders')]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -512,3 +514,6 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: _url
+    singleValue: true
+    xpath: //link[@rel='canonical']/@href

@@ -9,7 +9,7 @@ module.exports = {
     domain: 'carphonewarehouse.com',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -54,7 +54,7 @@ module.exports = {
         addElementToDocument('added_brand', titleList[0]);
       }
 
-      const manufacturerDesc = getAllXpath("//div[contains(@class, 'pxInfoTxt')]", 'innerText').join(',');
+      const manufacturerDesc = getAllXpath("//div[contains(@class, 'pxInfoTxt')] | //div[contains(@class, 'descriptiveText')]", 'innerText').join(',');
       addElementToDocument('added_manufacturer_desc', manufacturerDesc);
 
       var specification = getXpath("//div[@class='deviceSummryDiv']", 'innerText');
@@ -63,6 +63,6 @@ module.exports = {
         addElementToDocument('added_specification', specification);
       }
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform: transformParam });
   },
 };
