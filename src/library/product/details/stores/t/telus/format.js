@@ -46,7 +46,9 @@ const transform = (data) => {
         }
         if (row.manufacturerImages) {
           row.manufacturerImages.forEach(item => {
-            item.text = 'https://'+item.text;
+            if(item.text.indexOf('http')<0){
+              item.text = 'https://'+item.text;
+            }
           });
         }        
         if (row.brandText) {
@@ -56,7 +58,9 @@ const transform = (data) => {
         }        
         if (row.alternateImages) {
           row.alternateImages.forEach(item => {
-            item.text = 'https://'+item.text;
+            if(item.text.indexOf('http')<0){
+              item.text = 'https://'+item.text;
+            }
           });
           row.alternateImages.splice(0,2);
           if(row.alternateImages.length){
