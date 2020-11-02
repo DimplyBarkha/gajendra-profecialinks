@@ -147,7 +147,7 @@ fields:
     html: true
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="aplus"]//img[not(contains(@src, "common"))]/@src
+    xpath: //div[@id="aplus"]//img[not(contains(@src, "common"))][not(contains(@src,"data:image"))]/@src
   - name: videos
     singleValue: false
     xpath: //script[contains(text(), "ImageBlockBTF")]/text()
