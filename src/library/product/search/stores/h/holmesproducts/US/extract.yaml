@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[contains(@class,'grid-tile')]
+fields:
+  - name: brand
+    singleValue: false
+    xpath: //div[contains(@class,'product-tile')]/@data-itembrand
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,'product-tile')]/@data-category
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,'thumb-link')]/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //picture//source[2]/@srcset
+  - name: name
+    singleValue: false
+    xpath: //a[contains(@class,'name-link')]
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="added-searchurl"]
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,'product-tile')]/@id
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'product-tile')]/@data-itemsku
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[contains(@class,'bv-off-screen')]
+    regExp: ^([0-9\.]{1,})
+    regExpReplace: $1
+    defaultValue: '0'
+  - name: ratingCount
+    singleValue: false
+    xpath: //dd[contains(@class,'bv-rating-ratio-count')]
+    regExp: ([0-9\.]{1,})
+    regExpReplace: $1
+    defaultValue: '0'
