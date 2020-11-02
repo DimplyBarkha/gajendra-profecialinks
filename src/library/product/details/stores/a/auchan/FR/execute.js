@@ -5,7 +5,7 @@ module.exports = {
     country: 'FR',
     store: 'auchan',
     domain: 'auchan.fr',
-    loadedSelector: 'div.container-fluid',
+    loadedSelector: 'img.product-gallery__picture,a.gallery-link img',
     noResultsXPath: "//div[contains(@class, 'error-container')]//p | //h1[@class='editorial__block-title']",
     zipcode: '',
   },

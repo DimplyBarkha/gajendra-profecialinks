@@ -11,35 +11,30 @@ module.exports = {
   },
   implementation: async (inputs, parameters, context, { productDetails: data }) => {
     const { transform } = parameters;
-    const mainUrl = await context.evaluate(async function () {
-      return document.URL;
-    });
+    // const mainUrl = await context.evaluate(async function () {
+    //   return document.URL;
+    // });
 
-    await context.goto('https://www.auchan.fr/magasins/drive/aubagne-en-provence/s-684734ad-027c-3eff-0e83-4f44aec5e0b8', {
-      timeout: 10000000,
-      waitUntil: 'networkidle0',
-      checkBlocked: true,
-      js_enabled: true,
-      css_enabled: false,
-      random_move_mouse: true,
-    });
-    await context.waitForSelector('button[autotrack-event-action="tutorial_click_useful"]')
-      .catch((err) => { console.log('tutorial link error', err) })
-    await context.click('button[autotrack-event-action="tutorial_click_useful"]')
-      .catch((err) => { console.log('tutorial link click error', err) })
-    await context.waitForSelector('button.journeyChoicePlace')
-      .catch((err) => { console.log('journeyChoicePlace link error', err) })
-    await context.click('button.journeyChoicePlace')
-      .catch((err) => { console.log('journeyChoicePlace link click error', err) })
-    await context.waitForNavigation();
+    // await context.goto('https://www.auchan.fr/magasins/drive/aubagne-en-provence/s-684734ad-027c-3eff-0e83-4f44aec5e0b8', {
+    //   timeout: 10000000,
+    //   waitUntil: 'networkidle0',
+    //   checkBlocked: true,
+    //   js_enabled: true,
+    //   css_enabled: false,
+    //   random_move_mouse: true,
+    // });
+    // await context.waitForSelector('button.journeyChoicePlace')
+    // await context.stall(1000);
+    // await context.clickAndWaitForNavigation('button.journeyChoicePlace')
+
     // await context.evaluate(async function () {
     //   //await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     //   document.querySelector('button.journeyChoicePlace').click();
-    //   return;
+
     // });
     // await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
-    await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'networkidle0', checkBlocked: true });
+    // await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'networkidle0', checkBlocked: true });
     await context.evaluate(async function () {
       function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
