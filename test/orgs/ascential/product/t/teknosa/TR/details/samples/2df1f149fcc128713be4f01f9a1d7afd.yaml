@@ -2,7 +2,7 @@ input:
   id: 125037700
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=8453b8a2-fd09-4bd2-907a-38a787f6d3b9/task=d42339a3-599c-4447-aa19-40067d962e01/82f60921-62cf-41ae-9a4b-e6954b21b448.html
+  - html: https://workbench.import.io/html/run=7e774225-a65b-4635-991a-389900693039/task=974f3314-4cce-4783-bf01-b4b4bceab56b/d0eeea18-ad1c-4506-9e08-802658fc45d2.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -98,17 +98,17 @@ extractions:
               - text: "125037700"
                 xpath: /html/head[1]/script[4]/text()[1]
             ratingCount:
-              - text: "30"
+              - text: "31"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/a[1]/text()[1]
                 type: NUMBER
-                raw: Yorumlar (30)
+                raw: Yorumlar (31)
                 locale: tr
-                value: 30
+                value: 31
             aggregateRatingText:
-              - text: 4,7
+              - text: 4,6
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/text()[1]
             aggregateRating:
-              - text: 4,7
+              - text: 4,6
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/text()[1]
             color:
               - text: Gri
@@ -181,5 +181,11 @@ extractions:
                 raw: "2"
                 locale: tr
                 value: 2
+            secondaryImageTotal:
+              - text: "15"
+                type: NUMBER
+                raw: "15"
+                locale: tr
+                value: 15
         xpath: /
-    timestamp: 1603723753309
+    timestamp: 1604311758386
