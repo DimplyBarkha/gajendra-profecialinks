@@ -36,6 +36,14 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[@class="content--wrapper"]//div[@class="product--description"]
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@class="content--wrapper"]//div[@class="product--description"]
+    regExp: Nettofüllmenge\s+(.+?g\/)
+    regExpReplace: $1
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class='description--supplier']/p     
   - name: descriptionBullets
     singleValue: false
     xpath: //div[@class="content--wrapper"]//div[@class="product--info"]/ul/li
