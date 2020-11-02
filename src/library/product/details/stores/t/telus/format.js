@@ -71,7 +71,7 @@ const transform = (data) => {
             temp_arr.push(item.text);
           });
           if (temp_arr.length){
-            row.specifications = [{'text':'||'+temp_arr.join('||')}];
+            row.specifications = [{'text':temp_arr.join(' || ')}];
           }
         }
         if (row.manufacturerDescription) {
