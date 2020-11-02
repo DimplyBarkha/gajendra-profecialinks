@@ -72,13 +72,24 @@ const transform = (data) => {
               variants.push(inner_obj['sku']);
               var count = 0;
               if(count == 0){
-                row.firstVariant = [{"text":inner_obj['sku']}];
-                row.firstInformation = [{"text":inner_obj['size']}];
-                row.colorCode = [{"text":inner_obj['color']['code']}];
+                //row.firstVariant = [{"text":inner_obj['sku']}];
+                if(inner_obj['size'] && inner_obj['size'] != 'NONE'){
+                  row.variantInformation = [{"text":inner_obj['size']}];
+                }
+                if(inner_obj['color']['label'] && inner_obj['color']['label'] != 'NONE'){
+                  if(row.variantInformation){
+                    row.variantInformation = [{"text":  row.variantInformation[0]["text"] + " - " + inner_obj['size']}];
+                  }else{
+                    row.variantInformation = [{"text": inner_obj['color']['label']}];
+                  }
+                }                
+                if(inner_obj['color']['code']){
+                  row.colorCode = [{"text":inner_obj['color']['code']}];
+                }
                 var upc_arr = inner_obj['identifiers'];
                 if(upc_arr){
                   upc_arr.forEach(inner_ar => {
-                    if(inner_ar['type'] == "UPC"){
+                    if(inner_ar['type'] == "EAN"){
                       row.gtin = [{"text":inner_ar['value']}];
                     }
                   });
@@ -87,12 +98,13 @@ const transform = (data) => {
               }
             });
           }
-          if (variants.length) {
-            row.variants = [{ 'text': variants.join(' | ') }];
-            row.variantCount = [{"text":variants.length}];
-          }else{
-            delete row.variants;
-          }
+          // if (variants.length) {
+          //   row.variants = [{ 'text': variants.join(' | ') }];
+          //   row.variantCount = [{"text":variants.length}];
+          // }else{
+          //   delete row.variants;
+          // }
+          delete row.variants;
         });
       }      
       if (row.specifications) {
