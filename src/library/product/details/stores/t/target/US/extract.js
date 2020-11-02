@@ -33,53 +33,30 @@ async function implementation (
   });
 
   await context.goto('https://www.target.com' + productUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
-
-  const manufacturerCTA = await context.evaluate(async function () {
-    let scrollTop = 750;
-    while (true) {
-      window.scroll(0, scrollTop);
-      await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve();
-        }, 750);
-      });
-      scrollTop += 750;
-      if (scrollTop === 15000) {
-        break;
-      }
-    }
-
-    window.scroll(0, 1000);
-    return Boolean(document.querySelector('[aria-label="show from the manufacturer content"]'));
-    // [class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]
-  });
-
-  try {
-    const manufacturerDescButton = 'button[data-test=manufacturer-notes-button]';
-    await context.waitForSelector(manufacturerDescButton);
-
-    console.log(`waitForLoader 30 seconds: ${manufacturerDescButton}`);
-    await context.execute(async function (selector) {
-      let timer = 0;
-      while (timer < 240 && document.querySelector(selector)) {
-        console.log('waiting !!!! ');
-        timer++;
-        await new Promise(resolve => setTimeout(resolve, 500));
-      }
-    }, manufacturerDescButton);
-  } catch (e) {
-    console.log('ERROR WHILE WAITING');
-    console.log(e.message);
-  }
-
-  if (manufacturerCTA) {
-    console.log('hastheCTA');
-    await context.click('[aria-label="show from the manufacturer content"]');
-
-    // [class*="styles__ShowMoreButton"][aria-label="show from the manufacturer content"]
-  }
-
   await context.waitForXPath("//h1[@data-test='product-title']");
+  try {
+    await context.evaluate(async function () {
+      const reviewsContainer = 'h2[data-test="reviews-heading"]';
+      const reviewsNode = document.querySelector(reviewsContainer);
+      if (reviewsNode) {
+        reviewsNode.scrollIntoView();
+      }
+    });
+    const manufacturerCTASelector = 'button[aria-label="show from the manufacturer content"]';
+
+    await context.waitForSelector(manufacturerCTASelector, { timeout: 60000 });
+    const manufacturerCTA = await context.evaluate((selector) => !!document.querySelector(selector), manufacturerCTASelector);
+
+    if (manufacturerCTA) {
+      console.log('hastheCTA');
+      await new Promise((resolve, reject) => setTimeout(resolve, 20000));
+      await context.waitForSelector('#wc-power-page', { timeout: 30000 });
+      await context.click(manufacturerCTASelector);
+      await context.waitForSelector('.wc-fragment', { timeout: 10000 });
+    }
+  } catch (error) {
+    console.log(`Manufacturer content is not loaded ${error.message}`);
+  }
 
   await context.evaluate(async function () {
     let parentData = {};
@@ -517,11 +494,7 @@ async function implementation (
             slideDeck.querySelectorAll('.ZoomedSlide__Image-sc-10kwhw6-0').forEach(async (e, ind) => {
               if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
                 e.click();
-                await new Promise((resolve, reject) => {
-                  setTimeout(() => {
-                    resolve();
-                  }, 1000);
-                });
+                await stall(1000);
                 if (document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
                   videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
                 }
@@ -536,11 +509,7 @@ async function implementation (
             sideImages.forEach(async (e, ind) => {
               if (e && e.getAttribute('src') && ((e.getAttribute('alt') && e.getAttribute('alt').indexOf('- video') > -1) || e.getAttribute('type') === 'video')) {
                 e.click();
-                await new Promise((resolve, reject) => {
-                  setTimeout(() => {
-                    resolve();
-                  }, 1000);
-                });
+                await stall(1000);
                 if (document.querySelector('.VideoContainer-sc-1f1jwpc-0')) {
                   videos.push(document.querySelector('.VideoContainer-sc-1f1jwpc-0').querySelector('source').getAttribute('src'));
                 }
@@ -568,95 +537,75 @@ async function implementation (
         }
       }
 
+      console.log('Starting to gather manufacturer content');
       let hasTechnicalInfoPDF = 'No';
       let manufacturerDesc = '';
       const manufacturerImgs = [];
-      const manufacturerCTA = document.querySelector('.Button-bwu3xu-0.igoiFK.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
-      // document.querySelector('.Button-bwu3xu-0.styles__ShowMoreButton-zpxf66-2.h-padding-t-tight') || document.querySelector('button[aria-label="show from the manufacturer content"]');
-      const frameContents = document.querySelector('#frameContents' + variant.tcin);
-      const domCheck = document.querySelector('#frameContents' + variant.tcin) ? document.querySelector('#frameContents' + variant.tcin).innerText.length : 0;
-      let frameContentsDom = document.evaluate('//div[contains(@data-test,"manufacturer-notes-wrapper")]', document, null, 7, null);
+      function addImagesVideos (node) {
+        node.querySelectorAll('img').forEach(e => {
+          manufacturerImgs.push(e.getAttribute('src'));
+        });
+        node.querySelectorAll('video').forEach(e => {
+          videos.push(e.src);
+        });
+      }
 
-      if (domCheck > 0) {
+      const mfgNode = document.getElementById('wc-power-page');
+      const frameContents = document.getElementById('frameContents' + variant.tcin);
+      if (frameContents && frameContents.querySelector('#salsify-content')) {
         await stall(2000);
         manufacturerDesc = frameContents.innerText;
-        console.log('MANUFACTUERE DESC' + manufacturerDesc);
-        frameContents.querySelectorAll('img').forEach(e => {
-          manufacturerImgs.push(e.getAttribute('src'));
-        });
-        frameContents.querySelectorAll('video').forEach(e => {
-          videos.push(e.src);
-        });
-      } else if (frameContentsDom && (frameContentsDom.snapshotLength > 0)) {
-        await stall(2000);
-        frameContentsDom = frameContentsDom.snapshotItem(0);
-        manufacturerDesc = frameContentsDom.innerText;
-        frameContentsDom.querySelectorAll('img').forEach(e => {
-          manufacturerImgs.push(e.getAttribute('src'));
-        });
-        frameContentsDom.querySelectorAll('video').forEach(e => {
-          videos.push(e.src);
-        });
-      } else if (manufacturerCTA) {
-        if (document.getElementById('wc-power-page')) {
-          if (document.getElementById('wc-power-page').querySelector('button.wc-document-view-link.wc-document-view-link-with-image.wc-doc-thumb')) {
-            hasTechnicalInfoPDF = 'Yes';
+        addImagesVideos(frameContents);
+      } else if (mfgNode) {
+        if (mfgNode.querySelector('button.wc-document-view-link.wc-document-view-link-with-image.wc-doc-thumb')) {
+          hasTechnicalInfoPDF = 'Yes';
+        }
+
+        console.log('haswcpowerpage');
+        const manufacturerDescArr = [];
+        document.querySelectorAll('.wc-fragment').forEach(e => {
+          if (e.getAttribute('data-section-caption') && e.getAttribute('data-section-caption') === 'Docs') {
+            return;
           }
 
-          console.log('haswcpowerpage');
-          const manufacturerDescArr = [];
-          document.querySelectorAll('.wc-fragment').forEach(e => {
-            if (e.getAttribute('data-section-caption') && e.getAttribute('data-section-caption') === 'Docs') {
-              return;
-            }
-
-            if (e.querySelector('.wc-pct-data')) {
-              e.querySelectorAll('tr').forEach(tr => {
-                if (tr && tr.innerText && !manufacturerDescArr.includes(tr.innerText)) {
-                  manufacturerDescArr.push(tr.innerText);
-                }
-              });
-            } else {
+          if (e.querySelector('.wc-pct-data')) {
+            e.querySelectorAll('tr').forEach(tr => {
+              if (tr && tr.innerText && !manufacturerDescArr.includes(tr.innerText)) {
+                manufacturerDescArr.push(tr.innerText);
+              }
+            });
+          } else {
+            manufacturerDescArr.push(e.innerText);
+          }
+        });
+        mfgNode.querySelectorAll('iframe').forEach(e => {
+          console.log('hasframehere');
+          const frameContents = e.contentWindow.document.body;
+          frameContents.querySelectorAll('h1, h2, h3, p, li').forEach(e => {
+            if (!e.getAttribute('class') || (e.getAttribute('class') && !e.getAttribute('class').includes('vjs'))) {
               manufacturerDescArr.push(e.innerText);
             }
           });
-          document.getElementById('wc-power-page').querySelectorAll('iframe').forEach(e => {
-            console.log('hasframehere');
-            const frameContents = e.contentWindow.document.body;
-            frameContents.querySelectorAll('h1, h2, h3, p, li').forEach(e => {
-              if (!e.getAttribute('class') || (e.getAttribute('class') && !e.getAttribute('class').includes('vjs'))) {
-                manufacturerDescArr.push(e.innerText);
-              }
-            });
-            frameContents.querySelectorAll('img').forEach(e => {
-              manufacturerImgs.push(e.src);
-            });
-            frameContents.querySelectorAll('video').forEach(e => {
-              videos.push(e.src);
-            });
-            frameContents.querySelectorAll('.wc-thumb').forEach(async (e, ind) => {
-              setTimeout(() => {
-                if (e.querySelector('button')) {
-                  e.querySelector('img').click();
-                  if (frameContents.querySelector('.wc-video-container')) {
-                    videos.push(frameContents.querySelector('.wc-video-container').querySelector('video').src);
-                  }
-                }
-              }, (ind * 500) + 500);
-            });
-          });
-          manufacturerDesc = manufacturerDescArr.join(' ').replace(/See product page/g, '').replace(/\d options available/g, '');
-          if (!manufacturerDescArr.length) {
-            manufacturerDesc = document.getElementById('wc-power-page').innerText;
-          }
-          document.getElementById('wc-power-page').querySelectorAll('img').forEach(e => {
-            console.log('wcimagehere', e.src);
+          frameContents.querySelectorAll('img').forEach(e => {
             manufacturerImgs.push(e.src);
           });
-          document.getElementById('wc-power-page').querySelectorAll('video').forEach(e => {
+          frameContents.querySelectorAll('video').forEach(e => {
             videos.push(e.src);
           });
-        }
+          frameContents.querySelectorAll('.wc-thumb').forEach(async (e, ind) => {
+            setTimeout(() => {
+              if (e.querySelector('button')) {
+                e.querySelector('img').click();
+                if (frameContents.querySelector('.wc-video-container')) {
+                  videos.push(frameContents.querySelector('.wc-video-container').querySelector('video').src);
+                }
+              }
+            }, (ind * 500) + 500);
+          });
+        });
+
+        manufacturerDesc = manufacturerDescArr.join(' ').replace(/See product page/g, '').replace(/\d options available/g, '');
+        addImagesVideos(mfgNode);
       }
 
       addHiddenDiv(newDiv, 'pdf', hasTechnicalInfoPDF);
@@ -664,10 +613,30 @@ async function implementation (
       function onlyUnique (value, index, self) {
         return self.indexOf(value) === index;
       }
+      console.log('manufacturDesc', manufacturerDesc);
+
+      if (!manufacturerDesc && mfgNode) {
+        manufacturerDesc = mfgNode.innerText;
+        addImagesVideos(mfgNode);
+      }
+      if (manufacturerDesc === 'Loading, please wait...') {
+        const syndiNode = document.querySelector('div[class="syndi_powerpage syndigo-shadowed-powerpage"]');
+        if (syndiNode) {
+          const shadow = syndiNode.shadowRoot;
+          if (shadow) {
+            const syndiNode1 = shadow.querySelector('div');
+            if (syndiNode1) {
+              manufacturerDesc = syndiNode1.innerText;
+              addImagesVideos(syndiNode1);
+            }
+          }
+        }
+      }
 
       if (manufacturerDesc && manufacturerDesc !== 'Loading, please wait...') {
         addHiddenDiv(newDiv, 'manufacturerDesc', manufacturerDesc);
       }
+      console.log('manufacturDesc', manufacturerDesc);
       addHiddenDiv(newDiv, 'manufacturerImgs', manufacturerImgs.filter(img => !img.includes('/assets/') && !img.includes('/resources/')).filter(onlyUnique).join('|'));
       console.log('manufacturimgs', manufacturerImgs);
 
@@ -697,12 +666,11 @@ async function implementation (
             }
             if (variantData.price.save_dollar) {
               addHiddenDiv(newDiv, 'promotion', 'Save $' + variantData.price.save_dollar.toFixed(2) + ' ' + variantData.price.save_percent + '%' + ' off');
-            } 
-            
-            if(variantData.promotions && variantData.promotions.length > 0 && variantData.promotions[0].plp_message) {
+            }
+
+            if (variantData.promotions && variantData.promotions.length > 0 && variantData.promotions[0].plp_message) {
               addHiddenDiv(newDiv, 'promotion', variantData.promotions[0].plp_message);
             }
-            
           }
         });
 
