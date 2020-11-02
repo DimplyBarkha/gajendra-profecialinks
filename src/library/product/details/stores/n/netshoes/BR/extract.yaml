@@ -65,13 +65,13 @@ fields:
     xpath: //span[contains(@class, "rating") and contains(@class, "value")]
   - name: shippingInfo
     singleValue: false
-    xpath: concat(//div[@class="product-seller"]/text(), //div[@class="product-seller"]//span)
+    xpath: concat(substring(concat(//div[contains(@class,"product-seller")]/text(), //div[contains(@class,"product__seller_name")]//span), 1, (boolean(//div[contains(@class,"product__seller_name")])*string-length(concat(//div[contains(@class,"product-seller")]/text(), //div[contains(@class,"product__seller_name")]//span)))), substring(//div[@class="product-seller"], 1, (boolean(not(//div[contains(@class,"product__seller_name")]))*string-length(//div[@class="product-seller"]))))
   - name: name
     singleValue: false
     xpath: //section[@class="short-description"]//h1
   - name: variantInformation
     singleValue: false
-    xpath: concat(//span[@class="sku-select-title"], ' ',//section[contains(@class,"buy-box")]//ul[@class="radio-options"]//li[position()=1]//a[@class="product-item"])
+    xpath: concat(//span[@class="sku-select-title"], ' ',//ul[@class="radio-options"]//li[contains(@class,"active")])
   - name: availabilityText
     singleValue: false
     xpath: concat(substring('Out Of Stock', 1 div boolean(//strong[contains(text(), "Produto indisponível")])), substring('In Stock', 1 div not(//strong[contains(text(), "Produto indisponível")])))
