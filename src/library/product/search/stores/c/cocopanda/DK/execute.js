@@ -15,22 +15,14 @@ async function implementation (
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
 
   await dependencies.goto({ url, zipcode: inputs.zipcode });
-  //await new Promise((resolve, reject) => setTimeout(resolve, 500000));
   await context.waitForFunction('CookieInformation.declineAllCategories()');
   await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-  /*await context.click('button[aria-label="Accepter alle"]');
-  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-  await context.click('div.wca-batch-1-r1-webchannel-accelerate-ribbon-close');
-  
 
-  
-  await new Promise((resolve, reject) => setTimeout(resolve, 50000));
+  await context.click('div.wca-batch-1-r1-webchannel-accelerate-ribbon-close');
   await context.click('button.pushcrew-btn-close"]');
-  //context.waitForNavigation();
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 500));
   await context.click('div.roulette-iframe-close a');
-  //context.waitForNavigation();
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));*/
+  await new Promise((resolve, reject) => setTimeout(resolve, 500));
 
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
@@ -53,10 +45,14 @@ async function implementation (
       }
     });
   };
-  await applyScroll(context);
-
-
+  console.log('going to call scroll');
+  
+  console.log('just called call scroll');
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+  console.log('after call scroll timeout');
+  
   if (parameters.loadedSelector) {
+    await applyScroll(context);
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
