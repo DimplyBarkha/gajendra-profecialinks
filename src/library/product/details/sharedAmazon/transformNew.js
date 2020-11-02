@@ -109,8 +109,15 @@ const transform = (data, context) => {
             }
 
             if (row.variants) {
+                const text = [''];
+                row.variants.forEach(item => {
+                    if (item.text.length > 0) { text.push(item.text); }
+                });
+                if (text.length > 0) {
+                    row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+                }
                 // row.variantCount = [{ text: row.variants[0].text.split('|').length + 1 }];
-                row.variantCount = [{ text: row.variants.length + 1 }];
+                //row.variantCount = [{ text: row.variants.length + 1 }];
             }
             if (row.variantId) {
                 row.variantId = [{ text: row.variantId[0].text.replace('parentAsin":"', '') }];
@@ -145,17 +152,17 @@ const transform = (data, context) => {
                     row.heroQuickPromoUrl = [{ text: `https://${hostName}/${row.heroQuickPromoUrl[0].text}` }];
                 }
             }
-            if (row.description || row.extraDescription) {
-                const bonusDesc = row.extraDescription ? row.extraDescription.map(item => item.text).join(' ').split('From the Manufacturer')[0] : '';
-                if (row.description) {
-                    const text = row.description.map(item => item.text);
-                    // const formattedText = '|| ' + text.join(' || ').trim().replace(/\|\| \|/g, '|');
-                    // row.description = [{ text: formattedText + bonusDesc }];
-                    row.description = [{ text: [...text, bonusDesc] }];
-                } else {
-                    row.description = [{ text: [bonusDesc] }];
-                }
-            }
+            // if (row.description || row.extraDescription) {
+            //     const bonusDesc = row.extraDescription ? row.extraDescription.map(item => item.text).join(' ').split('From the Manufacturer')[0] : '';
+            //     if (row.description) {
+            //         const text = row.description.map(item => item.text);
+            //         const formattedText = '|| ' + text.join(' || ').trim().replace(/\|\| \|/g, '|');
+            //         row.description = [{ text: formattedText + bonusDesc }];
+            //         row.description = [{ text: [...text, bonusDesc] }];
+            //     } else {
+            //         row.description = [{ text: [bonusDesc] }];
+            //     }
+            // }
             if (row.amazonChoice && row.amazonChoice[0]) {
                 if (row.amazonChoice[0].text.includes('Amazon')) {
                     row.amazonChoice = [{ text: 'Yes' }];
@@ -171,22 +178,31 @@ const transform = (data, context) => {
                 // row.specifications = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
                 row.specifications = [{ text: text }];
             }
-            // if (row.productOtherInformation) {
-            //   const text = [];
-            //   row.productOtherInformation.forEach(item => { text.push(item.text); });
-            //   if (text.length > 0) {
-            //     row.productOtherInformation = [{ text: text.join(' | ').trim().replace(/\| \|/g, '|') }];
-            //   }
-            // }
-            // if (row.additionalDescBulletInfo) {
-            //   const text = [''];
-            //   row.additionalDescBulletInfo.forEach(item => {
-            //     if (item.text.length > 0) { text.push(item.text); }
-            //   });
-            //   if (text.length > 0) {
-            //     row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
-            //   }
-            // }
+            if (row.productOtherInformation) {
+                const text = [];
+                row.productOtherInformation.forEach(item => { text.push(item.text); });
+                if (text.length > 0) {
+                    row.productOtherInformation = [{ text: text.join(' | ').trim().replace(/\| \|/g, '|') }];
+                }
+            }
+            if (row.description) {
+                const text = [''];
+                row.description.forEach(item => {
+                    if (item.text.length > 0) { text.push(item.text); }
+                });
+                if (text.length > 0) {
+                    row.description = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+                }
+            }
+            if (row.additionalDescBulletInfo) {
+                const text = [''];
+                row.additionalDescBulletInfo.forEach(item => {
+                    if (item.text.length > 0) { text.push(item.text); }
+                });
+                if (text.length > 0) {
+                    row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
+                }
+            }
             if (row.otherSellersPrime) {
                 row.otherSellersPrime.forEach(item => {
                     if (item.text.includes('mazon') || item.text.includes('rime')) {

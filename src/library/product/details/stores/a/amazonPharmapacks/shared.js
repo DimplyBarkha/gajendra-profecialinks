@@ -188,14 +188,14 @@ module.exports.implementation = async function implementation(
         function removeDuplicates(array) {
             array.splice(0, array.length, ...(new Set(array)))
         };
-        let getRank = document.querySelectorAll('#detailBulletsWrapper_feature_div ul span');
+        let getRank = document.querySelectorAll('table[id^="productDetails_detailBullets"] tr');
         let rankDetails;
         let product_rank = [];
         let product_rank_category = [];
         getRank.forEach((element) => {
             if (element.innerText && element.innerText.includes('Best Sellers Rank') && element.innerText.includes('#')) {
 
-                rankDetails = element.innerText.split('Best Sellers Rank: ')[1].split('\n');
+                rankDetails = element.innerText.split('Best Sellers Rank')[1].split('\n');
                 if (rankDetails.length) {
                     for (let i = 0; i < rankDetails.length; i++) {
                         product_rank.push(rankDetails[i].split(' ')[0].trim().replace(/#/, '').replace(/,/g, "").trim());
