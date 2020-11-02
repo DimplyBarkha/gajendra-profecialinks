@@ -1,0 +1,163 @@
+input:
+  _url: http://groceries.morrisons.com
+  URL: https://groceries.morrisons.com/products/kellogg-s-squares-curious-caramel-chocolate-425055011
+extractions:
+  - html: https://workbench.import.io/html/run=9e74f1ca-16ea-4c59-a3a2-24c3b91f786a/task=dbacbc82-f689-48ae-a202-d1d261700c50/1441a94e-2f34-4677-b861-8b4c55f54f34.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: http://groceries.morrisons.com/webshop/product/Kellogg-s-Squares-Curious-Caramel-Chocolate/425055011?from=shop
+                xpath: /html/head[1]/meta[17]/@content
+            image:
+              - text: http://groceries.morrisons.com/productImages/425/425055011_0_640x640.jpg?identifier=207bf104848d04e09a8b985fccd5bf6a
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, On Offer, Kellogg's, Bars & Biscuits, Food
+                  Cupboard, Breakfast Cereals Shop, On the Go
+                xpath: /html/head[1]/meta[11]/@content
+            category:
+              - text: Food Cupboard
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/text()[1]
+              - text: Breakfast Cereals Shop
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/text()[1]
+              - text: On the Go
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/text()[1]
+              - text: Bars & Biscuits
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/text()[1]
+            listPrice:
+              - text: £2
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/span[1]/text()[1]
+            price:
+              - text: £1
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/h2[1]/text()[1]
+            brandText:
+              - text: Kellogg's
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[5]/div[2]/ul[1]/li[2]/div[1]/a[1]
+            manufacturer:
+              - text: |-
+                  Kellogg's,
+                  Orange Tower,
+                  MediaCityUK,
+                  Salford,
+                  Greater Manchester,
+                  M50 2HF,
+                  UK.
+                  Kellogg Europe Trading Limited,
+                  The Kellogg Building,
+                  Lakeshore Drive,
+                  Airside Business Park,
+                  Swords,
+                  County Dublin,
+                  Ireland.
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[3]/div[2]/div[1]/div[3]/div[1]
+            weightNet:
+              - text: 36g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/h2[1]/span[1]
+            sku:
+              - text: "425055011"
+                xpath: /html/head[1]/meta[17]/@content
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/div[1]/a[1]/div[1]/span[2]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[1]/div[1]/span[1]/text()[1]
+            ingredientsList:
+              - text: Kellogg's Toasted Rice Cereal (25%) (Rice, Sugar, Salt, Barley Malt
+                  Flavouring, Niacin, Iron, Vitamin B6, Vitamin B2 {Riboflavin},
+                  Vitamin B1 {Thiamin}, Folic Acid, Vitamin D, Vitamin B12),
+                  Sweetened Condensed Skimmed Milk (Skimmed Milk, Sugar),
+                  Chocolate Flavour Coating (12%) (Sugar, Vegetable Oil {Palm
+                  Kernel, Rapeseed} in varying proportions, Milk Whey Powder,
+                  Skimmed Milk Powder, Fat Reduced Cocoa Powder, Emulsifier {Soy
+                  Lecithin}, Flavouring), Fructose, Glucose Syrup, Milk
+                  Chocolate Chunks (10%) (Sugar, Whole Milk Powder, Cocoa
+                  Butter, Cocoa Mass, Emulsifier {Soy Lecithin}, Natural Vanilla
+                  Flavouring), Palm Oil, Invert Sugar Syrup, Sugar, Humectant
+                  (Glycerol), Salt, Gelling Agent (Agar), Flavourings,
+                  Stabiliser (Disodium Phosphate), Emulsifier (Soy Lecithin),
+                  Antioxidant (E320)
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            servingSize:
+              - text: Per 100g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/th[2]/text()[1]
+            totalFatPerServing:
+              - text: 12 g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            saturatedFatPerServing:
+              - text: 9 g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            totalCarbPerServing:
+              - text: 74 g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
+            dietaryFibrePerServing:
+              - text: 2 g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]/td[2]
+            totalSugarsPerServing:
+              - text: 40 g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]
+            proteinPerServing:
+              - text: 4.5 g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            saltPerServing:
+              - text: 0.75 g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            saltPerServingUom:
+              - text: " g"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            dietaryInformation:
+              - text: Contains Barley, Contains Milk, Contains Soya
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]
+            storage:
+              - text: Store in a cool dry place
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]
+            productOtherInformation:
+              - text: >-
+                  Full Product Name:
+
+                  Crispy grains of toasted rice cereal and milk chocolate chunks with a caramely chocolate flavour coating.
+
+                  Storage:
+
+                  Store in a cool dry place
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]
+            pricePerUnit:
+              - text: 69.5p
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/span[2]/text()[1]
+            pricePerUnitUom:
+              - text: per 100g
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/span[2]/text()[5]
+            promotion:
+              - text: Offer price £1, was £2
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[2]/div[1]/a[1]/p[1]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            availabilityText:
+              - text: In Stock
+            nameExtended:
+              - text: Kellogg's Squares Curious Caramel & Chocolate 4 x 36g
+            description:
+              - text: Suitable for vegetarians
+        xpath: /
+    timestamp: 1604328996941

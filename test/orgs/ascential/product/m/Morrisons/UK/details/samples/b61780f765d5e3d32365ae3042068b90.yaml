@@ -1,0 +1,121 @@
+input:
+  _url: http://groceries.morrisons.com
+  URL: https://groceries.morrisons.com/products/pampers-baby-dry-nappies-size-7-15-kg-essential-pack-400965011
+extractions:
+  - html: https://workbench.import.io/html/run=9e74f1ca-16ea-4c59-a3a2-24c3b91f786a/task=5e664170-3531-475c-a109-38887da1798b/5f700cfc-c095-4dde-b862-2c801f08e931.html
+    extractionConfigId: product/details/stores/m/morrisons/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: http://groceries.morrisons.com/webshop/product/Pampers-Baby-Dry-Nappies-Size-7-15-kg-Essential-Pack/400965011?from=shop
+                xpath: /html/head[1]/meta[17]/@content
+            image:
+              - text: http://groceries.morrisons.com/productImages/400/400965011_0_640x640.jpg?identifier=dd15d62734dead828795b4482561360d
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[1]/img[1]/@src
+            alternateImages:
+              - text: http://groceries.morrisons.com/productImages/400/400965011_1_75x75.jpg?identifier=dd15d62734dead828795b4482561360d
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[5]/div[1]/img[2]/@src
+              - text: http://groceries.morrisons.com/productImages/400/400965011_2_75x75.jpg?identifier=dd15d62734dead828795b4482561360d
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[5]/div[1]/img[3]/@src
+              - text: http://groceries.morrisons.com/productImages/400/400965011_3_75x75.jpg?identifier=dd15d62734dead828795b4482561360d
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[5]/div[1]/img[4]/@src
+            metaKeywords:
+              - text: online supermarket, online groceries, grocery shopping, supermarket uk,
+                  online delivery, On Offer, Pampers, SIze 7, Baby, Size 7,
+                  Nappies, Baby & Toddler, Nappies & Pants, Big Packs
+                xpath: /html/head[1]/meta[11]/@content
+            category:
+              - text: Baby & Toddler
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/text()[1]
+              - text: Nappies & Pants
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/text()[1]
+              - text: Big Packs
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/text()[1]
+              - text: Pampers
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/text()[1]
+            price:
+              - text: £9
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/h2[1]/text()[1]
+            brandText:
+              - text: Pampers
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[5]/div[2]/ul[1]/li[2]/div[1]/a[1]
+            quantity:
+              - text: 30 per pack
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/h2[1]/span[1]
+            sku:
+              - text: "400965011"
+                xpath: /html/head[1]/meta[17]/@content
+            warnings:
+              - text: >-
+                  Safety Warning:
+
+                  To avoid danger of suffocation and/or strangulation, keep all packaging material away from babies and children.
+
+                  Origin:
+
+                  United Kingdom
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/header[1]/div[1]/a[1]/div[1]/span[2]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[7]/div[1]/div[1]/span[1]/text()[1]
+            brandLink:
+              - text: http://groceries.morrisons.com/browse/pampers-107145
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[5]/div[2]/ul[1]/li[2]/div[1]/a[1]/@href
+            ingredientsList:
+              - text: Petrolatum, Stearyl Alcohol, Paraffinum Liquidum, Aloe Barbadensis Leaf
+                  Extract
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]
+            countryOfOrigin:
+              - text: United Kingdom
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]
+            productOtherInformation:
+              - text: >-
+                  Safety Warning:
+
+                  To avoid danger of suffocation and/or strangulation, keep all packaging material away from babies and children.
+
+                  Origin:
+
+                  United Kingdom
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[4]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]
+            pricePerUnit:
+              - text: 30p
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/span[1]/text()[1]
+            pricePerUnitUom:
+              - text: each
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[1]/div[1]/span[1]/text()[5]
+            promotion:
+              - text: Buy 2 for £11
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[2]/div[2]/div[1]/a[1]/p[1]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[3]/article[1]/section[1]/div[1]/div[1]/div[2]/img[1]/@src
+            availabilityText:
+              - text: In Stock
+            nameExtended:
+              - text: Pampers Baby-Dry Nappies Size 7 15+ kg Essential Pack 30 per pack
+            description:
+              - text: Air channels for dry bottoms with Pampers baby-dry nappies. As a parent
+                  you understand the importance of fresh air against your baby’s
+                  skin, which is why you may like to let your baby have some
+                  nappy-free time during the day. Pampers baby-dry nappies
+                  create space for air to flow freely inside the nappy, giving
+                  your baby that fresh air feeling. With up to 12 hours of
+                  Breathable Dryness, your baby’s bottom stays dry throughout
+                  the night for a comfortable sleep. Use with Pampers
+                  wipes.Pampers baby-dry nappies with unique Air Channels for
+                  overnight breathable dryness, An Extra Dry-Layer to help
+                  distribute wetness evenly and keep it away from baby’s skin,
+                  An absorbent core with Micro Pearls to lock away wetness. For
+                  up to 12 hours, Stretchy sides provide a comfortable fit for
+                  great overnight leakage protection, A soft like cotton top
+                  layer next to baby’s skin (does not contain cotton), Fun
+                  exterior graphics to enjoy our fun designs & characters with
+                  your baby, Want to know more about the components Pampers
+                  uses? Visit pampers.co.uk, pampers.ieCountry of OriginUnited
+                  Kingdom
+        xpath: /
+    timestamp: 1604328996662

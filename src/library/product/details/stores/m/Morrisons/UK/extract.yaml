@@ -94,6 +94,8 @@ fields:
   singleValue: true
   description: GTIN code (includes UPC/EAN)
 - name: sku
+  xpath: //meta[@property="og:url"]/@content
+  regExp: \d{4,}
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
@@ -121,7 +123,7 @@ fields:
   description: Content under "warnings" header
 - name: ratingCount
   xpath: //span[@class="gn-rating__voteCount gn-content__paragraph--small"]
-  regExp: \d
+  regExp: \d{1,}
   singleValue: true
   description: The number of ratings
 - name: aggregateRatingText
