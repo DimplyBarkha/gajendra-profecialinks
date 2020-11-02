@@ -101,11 +101,6 @@ const transform = (data) => {
         })
       })
       }
-
-      Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
-      }));
-
       if(row.manufacturerImages){
         row.manufacturerImages.forEach(x =>{
           if(x.text.indexOf("https") == -1){
@@ -135,6 +130,9 @@ const transform = (data) => {
       }
     }
   }
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+      }))));
   return data;
 };
 
