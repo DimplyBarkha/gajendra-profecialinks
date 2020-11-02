@@ -1,0 +1,88 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id='product-images-container']//div[contains(@class, 'js-main-image-container')]//div[contains(@class, 'slick-current')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id='product-images-container']//div[contains(@class, 'js-main-image-container')]//div[contains(@class, 'slick-current')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='product-images-container']//div[contains(@class, 'product-gallery__thumbnails')]//div[contains(@class, 'slick-slide') and not(contains(@class, 'slick-current')) and not(contains(@class, 'slick-cloned'))]//img[not(contains(@data-activitymap-name, 'Video'))]/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@id='product-images-container']//div[contains(@class, 'product-gallery__thumbnails')]//div[contains(@class, 'slick-slide') and not(contains(@class, 'slick-current')) and not(contains(@class, 'slick-cloned'))]//img[not(contains(@data-activitymap-name, 'Video'))]/@src)
+  - name: name
+    singleValue: false
+    xpath: //h1[@data-automation="heading"]
+  - name: category
+    singleValue: false
+    xpath: (//div[@id="breadcrumb"]//text())[position() < last() or position() = 1]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@data-automation="heading"]
+  - name: price
+    singleValue: false
+    xpath: //div[@data-automation="price"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-availability-text']/text()
+  - name: description
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-description']/text()
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-description-bullet-count']/text()
+  - name: brandText
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-brand-name']/text()
+  - name: sku
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-sku-number']/text()
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-variant-id']/text()
+  - name: mpc
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-mpc']/text()
+  - name: gtin
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-upc']/text()
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[contains(@class, 'js-rating-link')]
+    regExp: (\d*)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[contains(@class, 'bv-secondary-rating-summary-rating')]/text()
+  - name: color
+    singleValue: false
+    xpath: //span[@data-automation='finish-name']/text()
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-specifications']/text()
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //div[@id='custom-attr-image-zoom-feature-present']/text()
+  - name: video
+    singleValue: false
+    xpath: //div[@id='product-images-container']//video/@src
+  - name: variants
+    singleValue: false
+    xpath: //div[@data-automation='finish-swatch']//img/@alt
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-pdfs']/text()
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-variants-info']/text()
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class, 'description')]//img/@src
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-variants-count']/text()

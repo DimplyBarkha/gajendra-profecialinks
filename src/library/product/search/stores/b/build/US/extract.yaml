@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: "div.js-product-wrapper"
+recordXPath: null
+fields: 
+  # - name: _url
+  #   singleValue: false 
+  #   xpath: //link[@rel="canonical"]//@href
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class, 'product-details')]//a[@data-finding-method='search']/@href
+    regExp: .*uid=(\d+).*
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: //a[@data-finding-method='search']//div[contains(@class, 'lh-title')]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class, 'product-details')]//a[@data-finding-method='search']/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@data-finding-method='search']//img/@src
+  - name: price
+    singleValue: false
+    xpath: //strong[contains(@class, 'product-price')]/span
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class, 'product-details')]//div[contains(@class, 'star-rating')]/@class
+    regExp: .*rating-(\d{1})(\d{1}).*
+    regExpReplace: $1.$2
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class, 'product-details')]//span[contains(@class, 'review-count')]//text()
+    regExp: \d+
+    regExpMatch: "0"
+  - name: manufacturer
+    singleValue: false
+    xpath: //a[@data-finding-method='search']//div[contains(@class, 'lh-title')]//span[contains(@class, 'product-name')]/text()
