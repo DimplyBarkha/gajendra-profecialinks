@@ -15,14 +15,9 @@ module.exports = {
   ) {
     try {
       await context.waitForSelector('#_spring_security_remember_me');
+      context.click('#_spring_security_remember_me');
     } catch (err) {
       console.log('Keep me logged in button did not load');
-    }
-    const keepMeLoggedIn = await context.evaluate(() => {
-      return Boolean(document.querySelector('#_spring_security_remember_me'));
-    });
-    if (keepMeLoggedIn) {
-      context.click('#_spring_security_remember_me');
     }
   },
 };

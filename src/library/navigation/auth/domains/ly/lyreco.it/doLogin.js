@@ -39,7 +39,7 @@ module.exports = {
     try {
       await context.waitForSelector('#btn_lyreco_small');
     } catch (err) {
-      console.log('No user logged in');
+      console.log('No user is logged in using same credentials elsewhere');
     }
     const approveButton = await context.evaluate(() => {
       return Boolean(document.querySelector('button#btn_lyreco_small[onclick*=force]'));
