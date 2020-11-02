@@ -47,7 +47,7 @@ const transform = (data) => {
         if (row.manufacturerImages) {
           row.manufacturerImages.forEach(item => {
             if(item.text.indexOf('http')<0){
-              item.text = 'https://'+item.text;
+              item.text = 'https:'+item.text;
             }
           });
         }        
@@ -59,7 +59,7 @@ const transform = (data) => {
         if (row.alternateImages) {
           row.alternateImages.forEach(item => {
             if(item.text.indexOf('http')<0){
-              item.text = 'https://'+item.text;
+              item.text = 'https:'+item.text;
             }
           });
           row.alternateImages.splice(0,2);
