@@ -73,6 +73,8 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //h1[@class="main_header"]
+    regExp: (^\S+)
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
