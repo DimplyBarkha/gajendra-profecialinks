@@ -152,7 +152,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //a[@class="fade-on-hover pu-trigger-responsive"]/@href
+    xpath: //a[@class="fade-on-hover pu-trigger-responsive"]/@href | //iframe[@title="Flix-media-video-0"]//@src
   - name: name
     singleValue: true
     description: The product name
