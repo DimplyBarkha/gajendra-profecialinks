@@ -1,0 +1,79 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class="image-large"]/a/@href
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="image-large"]/a/figure/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"slick-vertical")]//div[@class="slick-track"]/a[@data-zoom-id="pdp-images" and position()>1]/@href
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //nav[@class="nav-breadcrumbs breadcrumbs-horizontal"]//li/a
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@id="product-title"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@id="is-on-sale-price"]
+  - name: price
+    singleValue: true
+    xpath: //div[@id="final-sales-price"]
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@class="wishlist-action nostock"]/@style
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@id="product-description"]/p[not(contains(@class,"product-number"))]
+  - name: brandText
+    singleValue: false
+    xpaht: //h2[@id="product-manufacturer"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //h2[@id="product-manufacturer"]
+  - name: sku
+    singleValue: false
+    description: //div[@id="product-description"]/p[contains(@class,"product-number")]/span
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="option-field"]//div[contains(@class,"attr-color")]/div[@class="radio-container" and position()=1]//input[@type="radio"]/@data-attribute-value-id
+  - name: mpc
+    singleValue: false
+    xpath: //div[@id="product-description"]/p[contains(@class,"product-number")]/span
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@id="rating-label"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@id="product-ratings-summary"]/@class
+  - name: videos
+    singleValue: false
+    xpath: //div[@id="video-zone"]/iframe/@src
+  - name: name
+    singleValue: false
+    xpath: //h1[@id="product-title"]
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: //div[contains(@class,"slick-vertical")]//div[@class="slick-track"]/a[@data-zoom-id="pdp-images" and position()>1]/@href
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="option-field"]//div[contains(@class,"attr-color")]/div[@class="radio-container" and position()=1]/@title
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class="option-field"]//div[contains(@class,"attr-color")]/div[@class="radio-container" and position()=1]//input[@type="radio"]/@data-attribute-value-id
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="option-field"]//div[contains(@class,"attr-color")]/div[@class="radio-container"]//input[@type="radio"]/@data-attribute-value-id
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: Yes
