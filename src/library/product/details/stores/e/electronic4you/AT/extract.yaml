@@ -170,7 +170,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //th[contains(text(),'Geräteabmessungen')]/following-sibling::td | //div[@id='specifications']
+    xpath: //th[contains(text(),'Geräteabmessungen')]/following-sibling::td | //div[@id='specifications'] | //*[contains(@id,"specs-table")]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
