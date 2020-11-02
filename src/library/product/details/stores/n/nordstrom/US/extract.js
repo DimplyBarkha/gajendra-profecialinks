@@ -65,13 +65,23 @@ module.exports = {
           });
           const mediaIds = filters[type].byId[varId].styleMediaIds;
           if (!mediaIds) {
+            const stMediaIds = styleDetails.filters.color.byId[94727].styleMediaIds;
+            if (stMediaIds) {
+              for (var stMediaId of stMediaIds) {
+                var media = styleDetails.styleMedia.byId[stMediaId];
+                varinatInfo.media.push({
+                  mediaType: media.mediaType,
+                  imageMediaUri: media.imageMediaUri.maxLargeDesktop,
+                });
+              }
+            }
             await timeout(5000);
-            document.querySelectorAll('#product-page-thumbnail-gallery > div > div.slider-frame > ul > li > div > button > img').forEach(item => {
-              varinatInfo.media.push({
-                mediaType: 'Image',
-                imageMediaUri: item.getAttribute('src'),
-              });
-            });
+            // document.querySelectorAll('#product-page-thumbnail-gallery > div > div.slider-frame > ul > li > div > button > img').forEach(item => {
+            //   varinatInfo.media.push({
+            //     mediaType: 'Image',
+            //     imageMediaUri: item.getAttribute('src'),
+            //   });
+            // });
             varinatInformation.push(varinatInfo);
             continue;
           }
