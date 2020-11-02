@@ -45,6 +45,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: (//div[@class='default-price'])[1]
+    type: CURRENCY
     # regExp: ( .*)
   - name: _url
     singleValue: true
@@ -76,7 +77,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //ul[@class="attributes"]//li//strong[contains(text(),'Marca:')]/following::text()[1]
+    # xpath: //ul[@class="attributes"]//li//strong[contains(text(),'Marca:')]/following::text()[1]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -103,11 +104,11 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    # xpath: //ul[@class="attributes"]//li//strong[text()='Volumetria:']/following::text()[1]
+    xpath: //button[@id="buy-button-now-float"]/@data-sku
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //p[@class="reference"]
+    # xpath: //p[@class="reference"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -131,15 +132,15 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: //span[@class="reviews__customerFeedback-rating-line-number"]
-    type: NUMBER
+    # type: NUMBER
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //div[@class='product-seller']
+    xpath: //div[@class='product__seller_name unic-call']|//span[@class='product-seller-info']
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
