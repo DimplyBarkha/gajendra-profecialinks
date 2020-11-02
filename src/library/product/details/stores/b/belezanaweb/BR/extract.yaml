@@ -3,9 +3,15 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='nproduct-info']//div[@class='product-brand']//h2//span[@class='is-hidden']
   - name: image
     singleValue: false
     xpath: //div[@class='nproduct-gallery']//div[@class='owl-stage-outer']//div[@class='owl-stage']//div[@class='owl-item active']//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='nproduct-gallery']//div[@class='owl-stage-outer']//div[@class='owl-stage']//div[@class='owl-item active']//img/@alt
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@property='og:title']/@content
@@ -24,6 +30,9 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //div[@class='nprodct-price']//strong[@class='nproduct-price-max']//s
+  - name: quantity
+    singleValue: false
+    defaultValue: 1
   - name: availabilityText
     singleValue: false
     xpath: //div[@class='nproduct-info']//p[@class='product-buy-subtitle']
@@ -45,10 +54,7 @@ fields:
     xpath: //meta[@property='product:retailer_item_id']/@content
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='nproduct-gallery']//div[@class='owl-stage-outer']//div[@class='owl-stage']//div[@class='owl-item']//div[@class='product-image-wrapper']//img/@data-zoom-image
-  - name: brandText
-    singleValue: false
-    xpath: //div[@class='nproduct-info']//div[@class='product-brand']//h2//span[@class='is-hidden']
+    xpath: //div[@class='nproduct-gallery']//div[@class='owl-stage-outer']//div[@class='owl-stage']//div[@class='owl-item']//div[@class='product-image-wrapper']//img/@data-zoom-image  
   - name: manufacturer
     singleValue: false
     xpath: //div[@class='nproduct-info']//div[@class='product-brand']//h2//span[@class='is-hidden']
@@ -82,3 +88,12 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@class='product-brand-description']
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class='buy-box-seller']//p[@class='buy-box-info-sell-by']
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,'product-group-item-description')]//span[@class='product-group-type' and contains(text(),'Cor:')]/parent::div/h5[@class='product-group-name']
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: 'Yes'

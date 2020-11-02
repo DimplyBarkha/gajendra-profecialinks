@@ -24,8 +24,8 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) {
-        let tmp_desc = ''
-        
+        let tmp_desc = '';
+        let brand = '';
         if (row.promotion) {            
             row.promotion.forEach(item => {
                 item.text = item.text.replace(/(\s*\(|de\s+desconto|\)\s*)+/isg, '').trim();
@@ -35,6 +35,30 @@ const transform = (data) => {
             row.videos.forEach(item => {
                 item.text = "https://www.youtube.com/watch?v=" + item.text;                
             });
+        }
+        if (row.brandText) {            
+          row.brandText.forEach(item => {
+              brand = item.text;
+          });
+        }
+        if (row.aggregateRating) {            
+          row.aggregateRating.forEach(item => {
+              item.text = item.text.replace(/(\s*\.\s*)+/g, ',').trim();
+          });
+        }
+        if (row.nameExtended) {            
+          row.nameExtended.forEach(item => {
+              if (brand != ''){
+                item.text = item.text + " - " + brand;
+              }
+          });
+        }
+        if (row.availabilityText) {            
+          row.availabilityText.forEach(item => {
+              if (item.text != 'In Stock'){
+                row.quantity = [{'text':'0'}];
+              }
+          });
         }
         if (row.description2) {
             let info = [];          
