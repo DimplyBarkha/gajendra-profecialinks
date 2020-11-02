@@ -22,7 +22,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="breadcrumb-section"]//nav//li
+    xpath: //div[@class="breadcrumb-section"]//nav//li//span[not(contains(text(), 'Meijer'))]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -77,7 +77,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@id="js-mperks-pdp-container"]/@data-ean
+    xpath: //div[@class="wc-fragment"]/@data-gtin || //div[@id="js-mperks-pdp-container"]/@data-ean
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -85,6 +85,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@id="js-mperks-pdp-container"]/@data-ean
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
