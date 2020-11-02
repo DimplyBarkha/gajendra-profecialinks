@@ -119,21 +119,22 @@ fields:
     # //div[@class='margin-t-lg-32']//div[@class='tct']//img[@class='lazy loaded']/@src
     regExp: (.+)
     regExpReplace: https://www.euro.com.pl$1
-  # - name: variantCount
-  #   singleValue: false
-  #   xpath: count(//div[@class='variant-list disable-active-item']//div//a)
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class='variant-list disable-active-item']//div//a)
   # - name: -url
   #   singleValue: false
   #   xpath: //meta[contains(@property,"og:url")]/@content
   - name: variantInformation
     singleValue: false
-    xpath: //div[@class='current-variant']//div[@class='name']/text()
+    xpath: //div[@id="product-variants"]/div/div/div
+    # xpath: //div[@class='current-variant']//div[@class='name']/text()
   - name: firstVariant
     singleValue: false
     xpath: //div[@class='current-variant']//div[@class='value']/text()
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@class='abcd'])
+    xpath: count(//div[@id="product-variants"]//a)
   - name: promotion
     singleValue: false
     xpath: //ul[@class="price-tabs"]//li[@data-context="instalment"]//div[@class="instalment-message-label"]
