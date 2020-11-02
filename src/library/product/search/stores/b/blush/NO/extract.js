@@ -24,9 +24,9 @@ module.exports = {
       const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
       const products = document.querySelectorAll('div.product-list-item');
       for (let i = 0; i < products.length; i++) {
-        console.log(products.length);
         const price = products[i].querySelector('span.product-price-now') ? products[i].querySelector('span.product-price-now').innerText.replace(/\s/g, '') : '';
-        const currency = products[i].querySelector('span.product-price-now-label') ? products[i].querySelector('span.product-price-now-label').innerText : '';
+        const currencyObj = products[i].querySelector('div.buy-button') ? products[i].querySelector('div.buy-button').getAttribute('data-initobject') : '';
+        const currency = currencyObj && JSON.parse(currencyObj) ? JSON.parse(currencyObj).currency : '';
         products[i].setAttribute('priceid', `${currency} ${price}`);
         const thumbnails = products[i].querySelector('img.product-image') ? products[i].querySelector('img.product-image').getAttribute('src') : '';
         if (thumbnails) products[i].setAttribute('thumbnails', `https://www.blush.no${thumbnails}`);
