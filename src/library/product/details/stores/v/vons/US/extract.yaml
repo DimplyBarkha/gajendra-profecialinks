@@ -3,10 +3,11 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: image
-    singleValue: true
+  - name: product_image
     description: URL of the main product image
-    xpath: (//picture[@class ='img-responsive center-block']/source/@srcset)[2]
+    xpath: //picture[@class='img-responsive center-block']/img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -20,7 +21,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//li[@class='pdpCrumbs-list']/a//text())[2]
+    xpath: //div[@class="sub-nav breadcrumbs pdpCrumbs col-12 col-sm-12 col-md-12 col-lg-12"]/ul/li[position()>1 and position()<5]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -33,12 +34,17 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: (//div[@class='product-prices-wrapper']//span//text())[2]
-  - name: availabilityText
+    xpath: (//span[@class='product-price product-strike-price']//text())[2]
+  - name: availability
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    manualSelector: script[type='application/ld+json']
+    regExp: '(\"availability\"\:\ ")(\w+)'
+    regExpReplace: $2
+  - name: product_per_page
+    defaultValue: 1
   - name: Additional_description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -48,10 +54,12 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-  - name: brandText
+  - name: brand
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div//h1[@class='modal-heading']//text()
+    regExp: '(^(?:\S+\s+\n?){1,2})'
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -64,10 +72,15 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-  - name: Dataproductupc
+  - name: upc
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class='product-content']//@data-product-upc
   - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@class='container-fluid product-details-wrapper']/@data-bpn
+  - name: retailer_product_code
     singleValue: true
     description: The store-specific product identifier
     xpath: //div[@class='container-fluid product-details-wrapper']/@data-bpn
@@ -77,10 +90,12 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-  - name: packSize
+  - name: pack_size
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //div[@class='product-heading']/h1//text()
+    regExp: '([0-9]+)'
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -91,7 +106,7 @@ fields:
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
-    xpath: (//div//span[@class='content-product-more-pdp'])[2]//text()
+    xpath: (//span[contains(text(),'Warning')]//text())[2]
   - name: ratingCount
     singleValue: true
     description: The number of ratings
@@ -135,6 +150,10 @@ fields:
     singleValue: true
     description: The product name
     xpath: //div//h1[@class='modal-heading']//text()
+  - name: harvested_product_description
+    singleValue: true
+    description: The product name
+    xpath: //product-detail/@data-product-name
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -242,147 +261,147 @@ fields:
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
     xpath: //div[@class='col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 flour']//text()
-  # - name: servingSize
-    # singleValue: true
-    # description: The size of serving Nutritional information is based on.
-    # xpath: (//span[@class='nutrition-facts']//text())[1]
-    # regExp: '(\d+)'
-  # - name: servingSizeUom
-    # singleValue: true
-    # description: Unit of measure of serving
-    # xpath: (//span[@class='nutrition-facts']//text())[1]
-    # regExp: '[^\d]+$'
-  # - name: numberOfServingsInPackage
-    # singleValue: true
-    # description: Suggested number of servings of the product.
-    # type: NUMBER
-    # xpath: (//div//td[@class='colSpan2'])[2]//text()
-  # - name: caloriesPerServing
-    # singleValue: true
-    # description: Nutritional Information for Calories Per Serving content - Usually
-    #  based on per 100g serving
-    # xpath: //td[@scope='col']//text()[2][normalize-space()]
+  - name: servingSize
+    singleValue: true
+    description: The size of serving Nutritional information is based on.
+    xpath: //span[contains(text(),'Serving Size')]//text()
+    regExp: '([0-9]+)'
+  - name: servingSizeUom
+    singleValue: true
+    description: Unit of measure of serving
+    xpath: //span[contains(text(),'Serving Size')]//text()
+    regExp: '[^\d]+$'
+  - name: numberOfServingsInPackage
+    singleValue: true
+    description: Suggested number of servings of the product.
+    type: NUMBER
+    xpath: //span[contains(text(),'Servings Per Container')]//text()
+    regExp: '[^:]*$'
+  - name: caloriesPerServing
+    singleValue: true
+    description: Nutritional Information for Calories Per Serving content - Usually
+     based on per 100g serving
+    xpath: //td[contains(text(),'Amount Per Serving')]//text()[2]
+  - name: caloriesFromFatPerServing
+    singleValue: true
+    description: Nutritional Information for Calories From Fat content - Usually
+     based on per 100g serving
+    type: NUMBER
+    xpath: (//td[contains(@class,'table-ingredients-text')]//text())[6]
     # regExp: '\d+.*\d+'
-  # - name: caloriesFromFatPerServing
-    # singleValue: true
-    # description: Nutritional Information for Calories From Fat content - Usually
-    #  based on per 100g serving
-    # type: NUMBER
-    # xpath: (//td[@class='table-ingredients-text']//text())[6]
-    # regExp: '\d+.*\d+'
-  #- name: totalFatPerServing
-   # singleValue: true
-   # description: Nutritional Information for Total Fat content - Usually based on
-    #   per 100g serving
-    #type: NUMBER
+  - name: totalFatPerServing
+    singleValue: true
+    description: Nutritional Information for Total Fat content - Usually based on
+       per 100g serving
+    type: NUMBER
+    xpath: (//td[contains(@class,'table-ingredients-text')]//text())[8]
+  # regExp: '^[1-9]\d*(\.\d+)?'
+  - name: totalFatPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Total Fat content
     #xpath: (//td[@class='table-ingredients-text']//text())[8]
-    # regExp: '\d+.*\d+'
-  # - name: totalFatPerServingUom
-    # singleValue: true
-    # description: Unit of Measure Data for Total Fat content
-    # xpath: (//td[@class='table-ingredients-text']//text())[8]
     # regExp: '[^\d]+$'
-  # - name: saturatedFatPerServing
-    # singleValue: true
-    # description: Nutritional Information for Saturated Fat content - Usually based
-      #  on per 100g serving
-    # type: NUMBER
-    # xpath: (//td[@class='table-ingredients-text']//text())[12]
+  - name: saturatedFatPerServing
+    singleValue: true
+    description: Nutritional Information for Saturated Fat content - Usually based
+       on per 100g serving
+    type: NUMBER
+    xpath: (//td[contains(@class,'table-ingredients-text')]//text())[12]
     # regExp: '\d+.*\d+'
-  # - name: saturatedFatPerServingUom
-    # singleValue: true
-    # description: Unit of Measure Data for Saturated Fat content
+  - name: saturatedFatPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Saturated Fat content
     # xpath: (//td[@class='table-ingredients-text']//text())[12]
     # regExp: '[^\d]+$'
-  # - name: transFatPerServing
-    # singleValue: true
-    # description: Nutritional Information for Trans Fat content - Usually based on
-      #  per 100g serving
-    # type: NUMBER
-    # xpath: (///td[@class='table-ingredients-text']//text())[16]
+  - name: transFatPerServing
+    singleValue: true
+    description: Nutritional Information for Trans Fat content - Usually based on
+        per 100g serving
+    type: NUMBER
+    xpath: (//td[contains(@class,'table-ingredients-text')]//text())[16]
     # regExp: '\d+.*\d+'
-  # - name: transFatPerServingUom
-    # singleValue: true
-    # description: Unit of Measure Data for Trans Fat content
-    # xpath: (//td[@class='table-ingredients-text']//text())[16]
+  - name: transFatPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Trans Fat content
+    #xpath: (//td[@class='table-ingredients-text']//text())[16]
     # regExp: '[^\d]+$'
-  # - name: cholesterolPerServing
-    # singleValue: true
-    # description: Nutritional Information for Cholesterol content - Usually based on
-      #  per 100g serving
-    # type: NUMBER
-    # xpath: (//td[@class='table-ingredients-text']//text())[24]
+  - name: cholesterolPerServing
+    singleValue: true
+    description: Nutritional Information for Cholesterol content - Usually based on
+        per 100g serving
+    type: NUMBER
+    xpath: (//td[contains(@class,'table-ingredients-text')]//text())[24]
     # regExp: '\d+.*\d+'
-  # - name: cholesterolPerServingUom
-    # singleValue: true
-    # description: Unit of Measure Data for Cholesterol content
+  - name: cholesterolPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Cholesterol content
     # xpath: (//td[@class='table-ingredients-text']//text())[24][normalize-space()]
     # regExp: '[^\d]+$'
-  # - name: sodiumPerServing
-    # singleValue: true
-    # description: Nutritional Information for Sodium content - Usually based on per
-      #  100g serving
-    # type: NUMBER
-    # xpath: (//td[@class='table-ingredients-text']//text())[27]
+  - name: sodiumPerServing
+    singleValue: true
+    description: Nutritional Information for Sodium content - Usually based on per
+        100g serving
+    type: NUMBER
+    xpath: (//td[contains(@class,'table-ingredients-text')]//text())[27]
     # regExp: '\d+.*\d+'
   # - name: sodiumPerServingUom
     # singleValue: true
     # description: Unit of Measure Data for Sodium content
     # xpath: (//td[@class='table-ingredients-text']//text())[27]
     # regExp: '[^\d]+$'
-  # - name: totalCarbPerServing
-    # singleValue: true
-    # description: Nutritional Information for Total Carbohydrate content - Usually
-      #  based on per 100g serving
-    # type: NUMBER
+  - name: totalCarbPerServing
+    singleValue: true
+    description: Nutritional Information for Total Carbohydrate content - Usually
+        based on per 100g serving
+    type: NUMBER
+    xpath: (//td[contains(@class,'table-ingredients-text')]//text())[30]
+    # regExp: '\d+.*\d+'
+  - name: totalCarbPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Total Carbohydrate content
     # xpath: (//td[@class='table-ingredients-text']//text())[29]
-    # regExp: '\d+.*\d+'
-  # - name: totalCarbPerServingUom
-    # singleValue: true
-    # description: Unit of Measure Data for Total Carbohydrate content
-    # xpath: (//td[@class='table-ingredients-text']//text())[29]
     # regExp: '[^\d]+$'
-  # - name: dietaryFibrePerServing
-    # singleValue: true
-    # description: Nutritional Information for Dietary Fibre content - Usually based
-      #  on per 100g serving
-    # type: NUMBER
-    # xpath: (//td[@class='table-ingredients-text']//text())[33]
+  - name: dietaryFibrePerServing
+    singleValue: true
+    description: Nutritional Information for Dietary Fibre content - Usually based
+        on per 100g serving
+    type: NUMBER
+    xpath: (//td[contains(@class,'table-ingredients-text')]//text())[34]
     # regExp: '\d+.*\d+'
-  # - name: dietaryFibrePerServingUom
-    # singleValue: true
-    # description: Unit of Measure Data for Dietary Fibre content
+  - name: dietaryFibrePerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Dietary Fibre content
     # xpath: (//td[@class='table-ingredients-text']//text())[33]
     # regExp: '[^\d]+$'
-  # - name: totalSugarsPerServing
-    # singleValue: true
-    # description: Nutritional Information for Total Sugar content - Usually based on
-      #  per 100g serving
-    # type: NUMBER
-    # xpath: (//td[@class='table-ingredients-text']//text())[37]
+  - name: totalSugarsPerServing
+    singleValue: true
+    description: Nutritional Information for Total Sugar content - Usually based on
+        per 100g serving
+    type: NUMBER
+    xpath: (//td[contains(@class,'table-ingredients-text')]//text())[38]
     # regExp: '\d+.*\d+'
-  # - name: totalSugarsPerServingUom
-    # singleValue: true
-    # description: Unit of Measure Data for Total Sugar content
+  - name: totalSugarsPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Total Sugar content
     # xpath: (//td[@class='table-ingredients-text']//text())[37]
     # regExp: '[^\d]+$'
-  # - name: proteinPerServing
-    # singleValue: true
-    # description: Nutritional Information for Protein content - Usually based on per
-      #  100g serving
-    # type: NUMBER
-    # xpath: (//td[@class='table-ingredients-text']//text())[39]
+  - name: proteinPerServing
+    singleValue: true
+    description: Nutritional Information for Protein content - Usually based on per
+        100g serving
+    type: NUMBER
+    xpath: (//td[contains(@class,'table-ingredients-text')]//text())[40]
     # regExp: '\d+.*\d+'
-  # - name: proteinPerServingUom
-    # singleValue: true
-    # description: Unit of Measure Data for Protein
+  - name: proteinPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Protein
     # xpath: (//td[@class='table-ingredients-text']//text())[39]
     # regExp: '[^\d]+$'
-  # - name: vitaminAPerServing
-    # singleValue: true
-    # description: Nutritional Information for Vitamin A content - Usually based on
-      #  per 100g serving
-    # type: NUMBER
+  - name: vitaminAPerServing
+    singleValue: true
+    description: Nutritional Information for Vitamin A content - Usually based on
+        per 100g serving
+    type: NUMBER
     # xpath: //th[normalize-space(text())="Vitamin A"]/following-sibling::td[1]
     # regExp: '\d+.*\d+'
   # - name: vitaminAPerServingUom
@@ -475,17 +494,17 @@ fields:
   - name: additives
     singleValue: true
     description: List of additives in the product
-  # - name: pricePerUnit
-    # singleValue: true
-    # description: Price of the product split into certain units
-    # xpath: //div[@class='product-quantity']/span[1]//text()
-    # regExp: (.\d+\.*\d+)
-  # - name: pricePerUnitUom
-    # singleValue: true
-    # description: The unit of measurement used in price_per_unit
-    # xpath: //div[@class='product-quantity']/span[1]//text()
-    # regExp: (.*/\s)(.*)(\))
-    # regExpReplace: $2
+  - name: pricePerUnit
+    singleValue: true
+    description: Price of the product split into certain units
+    xpath: //div[@class='product-quantity']/span[1]//text()
+    regExp: (.\d+\.*\d+)
+  - name: pricePerUnitUom
+    singleValue: true
+    description: The unit of measurement used in price_per_unit
+    xpath: //div[@class='product-quantity']/span[1]//text()
+    regExp: '(.*\s)(.*)(\))'
+    regExpReplace: $2
   - name: promotion
     singleValue: true
     description: promotion text on product page

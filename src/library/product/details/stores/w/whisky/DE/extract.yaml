@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@class='background']//@src
+    xpath: //meta[@property='og:image']/@content
   - name: url
     singleValue: true
     description: URL of the main product page
@@ -25,9 +25,8 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//a[@itemprop='item'])[2]//text()
+    xpath:  //ol[contains(@id,"breadcrumb")]//a[not(contains(@title,'Home page'))]/@title
   - name: sub_category
-    xpath: (//a[@itemprop='item'])[3]//text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -55,15 +54,17 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class,'information')]
+    # xpath: //div[contains(@class,'information')]
+    xpath: //meta[@name='description']/@content
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-  - name: brandText
+  - name: brand
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@class='article-distillery']//meta[@itemprop='name']/@content
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -85,6 +86,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //meta[@itemprop='gtin14']/@content
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -148,7 +150,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //a[@class='ytp-youtube-button ytp-button yt-uix-sessionlink']/@href
+    xpath: //iframe[@class='tx-datamintsflaschendb-youtube-video embed-responsive-item']/@src
   - name: product_description
     singleValue: true
     description: The product name
