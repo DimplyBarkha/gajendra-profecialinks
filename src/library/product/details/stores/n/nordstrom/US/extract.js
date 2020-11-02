@@ -17,7 +17,9 @@ module.exports = {
       document.querySelector('ul#size-filter-product-page-option-list li') && document.querySelector('ul#size-filter-product-page-option-list li').click();
       document.querySelector('ul#product-page-swatches li button') && document.querySelector('ul#product-page-swatches li button').click();
       document.querySelector('div#size-filter-product-page-anchor') && document.querySelector('div#size-filter-product-page-anchor').click();
-
+      function timeout (ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
       const videoUrls = [];
       const dataArr = window.__INITIAL_CONFIG__.viewData;
       const videoID = dataArr.salesVideoShot ? dataArr.salesVideoShot.id : dataArr.vendorVideoShot ? dataArr.vendorVideoShot.id : '';
@@ -59,10 +61,12 @@ module.exports = {
             sku: variant.relatedSkuIds[0],
             value: variant.value,
             price: data.priceString,
+            listPrice: data.originalPriceString,
           });
           const mediaIds = filters[type].byId[varId].styleMediaIds;
           if (!mediaIds) {
-            document.querySelectorAll('#product-page-thumbnail-gallery > div > div.slider-frame > ul > li > div > button > picture > img').forEach(item => {
+            await timeout(5000);
+            document.querySelectorAll('#product-page-thumbnail-gallery > div > div.slider-frame > ul > li > div > button > img').forEach(item => {
               varinatInfo.media.push({
                 mediaType: 'Image',
                 imageMediaUri: item.getAttribute('src'),
@@ -107,6 +111,13 @@ module.exports = {
           price.setAttribute('price', varinatInformation[index].price);
           newlink.appendChild(price);
 
+          const listPriceValue = document.querySelector('#original-price');
+          if (listPriceValue) {
+            const listPrice = document.createElement('td');
+            listPrice.setAttribute('class', 'listprice');
+            listPrice.setAttribute('listprice', varinatInformation[index].listPrice);
+            newlink.appendChild(listPrice);
+          }
           const variant = document.createElement('td');
           variant.setAttribute('class', 'variant');
           variant.textContent = varinatInformation[index].value;

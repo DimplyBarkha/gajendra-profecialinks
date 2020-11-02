@@ -4,6 +4,6 @@ module.exports = {
     domain: 'nordstrom.com',
     country: 'US',
     store: 'nordstrom',
-    timeout: '50000',
+    timeout: 50000,
   },
 };

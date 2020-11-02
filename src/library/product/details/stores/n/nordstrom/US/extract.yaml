@@ -5,17 +5,17 @@ recordXPath: //table/tbody/tr[@class="append_variant"]
 fields:
   - name: image
     xpath: //td[@class="images"]/img[1]//@src
-    # regExp: (.+jpeg)(\?.+)
-    # regExpReplace: $1?crop=pad&pad_color=FFF&format=jpeg&w=1660&h=2546
+    regExp: (.+jpeg)(\?.+)
+    regExpReplace: $1?crop=pad&pad_color=FFF&format=jpeg&w=1660&h=2546
     # singleValue: true
   - name: alternateImages
     xpath: //td[@class="images"]/img[position()>1]//@src
-    # regExp: (.+jpeg)(\?.+)
-    # regExpReplace: $1?crop=pad&pad_color=FFF&format=jpeg&w=1660&h=2546
+    regExp: (.+jpeg)(\?.+)
+    regExpReplace: $1?crop=pad&pad_color=FFF&format=jpeg&w=1660&h=2546
   - name: nameExtended
     xpath: ancestor::html//section//span[@itemprop="name"] | //h1[@itemprop="name"]
   - name: listPrice
-    xpath: ancestor::html//section[@id="product-page-price-lockup"]//span[contains(@id,"original-price")]/span[last()]
+    xpath: //table/tbody/tr[@class="append_variant"]//td[@class='listprice']/@listprice
   - name: price
     xpath: //table/tbody/tr[@class="append_variant"]//td[@class='price']/@price
     regExp: ^[^–]+
