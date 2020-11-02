@@ -23,11 +23,11 @@ const transform = (data, context) => {
         if (row.price) {
           row.price[0].text = row.price[0].text.replace(/(\s)+/g, '');
         }
-        if (row.aggregateRating2) {
-          row.aggregateRating2.forEach(item => {
-            item.text= item.text.replace(',','.');
-          });
-        }
+        // if (row.aggregateRating2) {
+        //   row.aggregateRating2.forEach(item => {
+        //     item.text= item.text.replace(',','.');
+        //   });
+        // }
   
         rankCounter += 1;
         orgRankCounter += 1;
