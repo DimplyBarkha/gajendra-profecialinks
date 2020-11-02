@@ -25,23 +25,27 @@ const transform = (data) => {
     for (const { group } of data) {
       var rank = 1;
       for (let row of group) {
-        if(row.image){
-          row.image.forEach(item => {
-            item.text='https://www.mediaexpert.pl'+item.text;
+        if(row.productUrl){
+          row.productUrl.forEach(item => {
+            item.text='https://www.cocopanda.dk'+item.text;
           });
         }
-        if(row.alternateImages){
-          row.alternateImages.forEach(item => {
-            item.text='https://www.mediaexpert.pl'+item.text;
+        if(row.price){
+          row.price.forEach(item => {
+            item.text=item.text.slice(0, -2);
           });
         }
-        if(row.reviewCount){
-          row.reviewCount.forEach(item => {
-            let reviewCountData=item.text.split(' ');
-            item.text=reviewCountData[0];
+        if(row.aggregateRating){
+          row.aggregateRating.forEach(item => {
+            let reviewCountData=item.text.split('-');
+            item.text=reviewCountData.pop();
           });
         }
-        
+        if(row.ratingCount){
+            row.ratingCount.forEach(item => {
+                item.text=item.text.replace('(','').replace(')','');
+            });
+        }
         
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
