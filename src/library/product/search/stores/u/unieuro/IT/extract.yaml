@@ -6,26 +6,27 @@ fields:
   - name: price
     singleValue: true
     description: price of the product
+    type: CURRENCY
     xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='prices product-tile__prices']/div[@class='product-tile__price-container']/a[@class='prices__price product-tile__price']
   - name: productUrl
     singleValue: false
     description: The URL for the product details page 
-    xpath: //div[@class="info"]//div[@class="product-img-container"]/a/@href
+    xpath: //section[@class="collapsed"]/article/@data-product-tile-url
     regExp: (online/.*)
     regExpReplace: https://www.unieuro.it/$1
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
     xpath: //a/img[@class='product-img product-tile__img lazyloaded']/@src
-  - name: sku
-    singleValue: false
+  - name: id
+    singleValue: true
     description: The store-specific product identifier
-    xpath: //article[@class="product-tile  promotion "]/@data-productactions-sku
+    xpath: //section[@class="collapsed"]/article/@data-product-tile-sku
   - name: name
     singleValue: true
     description: The product name
     xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='title product-tile__title']/a/text()
-  - name: id
+  - name: sku
     singleValue: true
     description: The store-specific product identifier
     xpath: //article[@class="product-tile  promotion "]/@data-productactions-sku

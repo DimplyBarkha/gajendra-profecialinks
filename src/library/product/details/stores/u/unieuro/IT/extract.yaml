@@ -8,36 +8,29 @@ fields:
   xpath: //img[@id='slick-slide10']/@src 
 - name: category
   singleValue: false
-  xpath: //div[@class='container']/section[@class='breadcrumbs']/span[2]/a
-- name: sub-category
-  singleValue: false
-  xpath: //div[@class='container']/section[@class='breadcrumbs']//span[position() >= 3 and position()<last()]/a
-- name: product-description
+  xpath: //div[@class='container']/section[@class='breadcrumbs']//span[position() >= 2 and position()<last()]/a
+- name: nameExtended
   singleValue: true
   xpath: //section[@class='container-center-cell']/h1[@class='subtitle']
-- name: online-price
+- name: url
+  singleValue: true
+  xpath: /html/head/link[3]/@href
+- name: price
   singlevalue: true
-  xpath: //div[@class="prices-content"]/div[@class='price']
-  regExp: (\d+,*\d+)
   type: CURRENCY
-- name: online-price-currency
-  singlevalue: true
-  xpath: //div[@class='prices-content']/div[@class='price']/span[@class='currency']
-- name: availability
+  xpath: //div[@class="prices-content"]/div[@class='price']  
+- name: availabilityText
   singleValue: true
   xpath: (//*[@id="features"]/div[1]/div/div/span[2])[1]  
-- name: additional-description
+- name: description
   singleValue: true
   xpath: //div[@class='descriptions']/ul
-- name: upc
+- name: gtin
   singleValue: true
   xpath: //div[@data-module='productdetail']/@data-productdetail-productean
-- name: Product-code
+- name: sku
   singleValue: true  
   xpath: //div[@data-module='productdetail']/@data-productdetail-sku
-- name: sku
-  singleValue: true
-  xpath: //*[@id="warranty-modal"]/div/div[5]/form/input[3]/@value
 - name: imageAlt
   singleValue: true  
   xpath: (//div[@class="product-image-container"]/div/div/div/img/@alt)[1]
@@ -54,7 +47,7 @@ fields:
   xpath: //div[@class='left-section']/span[@class='total-vote']
 - name: manufacturerImages
   singleValue: false
-  xpath: //div[@class="flix-mod-header "]/img/@src  
+  xpath: //div[@class="accordionInfo accordion-menu"]//section/div/img/@src  
 - name: shippingDimensions
   singleValue: false
   xpath: //div[@class='techs']//span[(text()='Altezza')or(text()='Profondità')or(text()='Larghezza')]/following-sibling::span
@@ -73,9 +66,6 @@ fields:
 - name: promotion
   singleValue: true
   xpath: //div[@class='discount']/span[@class='text']
-- name: gtin
-  singleValue: true  
-  xpath: //div[@data-module='productdetail']/@data-productdetail-productean
 - name: secondaryImageTotal
   singleValue: true
   xpath: (//div[position()=last()]/@data-slick-index)[1]
