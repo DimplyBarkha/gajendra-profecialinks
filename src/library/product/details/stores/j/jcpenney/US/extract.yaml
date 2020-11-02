@@ -64,7 +64,7 @@ fields:
   - name: variantCount
     xpath: count(//div[@id="option-wrapper-false"]//div[@id="product-options-false"]//div[last()]//ul//li)
   - name: color
-    xpath: ancestor::html//ul[@data-automation-id="product-dimensions-color"]//li//button/@data-for
+    xpath: //@color
   - name: colorCode
   - name: manufacturerDescription
     xpath: ancestor::html//div[@data-section-tag="features"]//ul//li//div[(contains(@class,"wc-text-wrap"))] | ancestor::html//div[@data-section-tag="faq"]
