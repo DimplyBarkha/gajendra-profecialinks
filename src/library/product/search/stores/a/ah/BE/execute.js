@@ -5,7 +5,7 @@ module.exports = {
     country: 'BE',
     store: 'ah',
     domain: 'ah.be',
-    url: 'https://www.ah.be/zoeken?query=aardbeien',
+    url: 'https://www.ah.be/zoeken?query={SearchTerms}',
     loadedSelector: '#search-lane>div>article',
     noResultsXPath: null,
     zipcode: '',
