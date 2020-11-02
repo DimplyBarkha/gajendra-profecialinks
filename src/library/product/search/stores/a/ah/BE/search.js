@@ -2,9 +2,9 @@
 module.exports = {
   implements: 'product/search',
   parameterValues: {
-    country: 'NL',
+    country: 'BE',
     store: 'ah',
-    domain: 'ah.nl',
+    domain: 'ah.be',
     zipcode: '',
   },
 };

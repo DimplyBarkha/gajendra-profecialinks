@@ -2,8 +2,8 @@
 module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    country: 'NL',
-    domain: 'ah.nl',
+    country: 'BE',
+    domain: 'ah.be',
     store: 'ah',
     zipcode: '',
   },

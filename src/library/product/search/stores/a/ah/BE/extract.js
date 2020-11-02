@@ -2,10 +2,10 @@ const { transform } = require('./shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'NL',
+    country: 'BE',
     store: 'ah',
     transform,
-    domain: 'ah.nl',
+    domain: 'ah.be',
     zipcode: '',
   },
 };

@@ -4,15 +4,15 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: false
+    singleValue: true
     description: images of products
     xpath: //figure/div/img/@src
   - name: name
-    singleValue: false
+    singleValue: true
     description: name of products
-    xpath: //figure/div/img/@src
+    xpath: //article/div/div/a/strong/span
   - name: url
-    singleValue: false
+    singleValue: true
     description: name of products
     xpath: //article/div/a/@href
   - name: price
@@ -24,6 +24,10 @@ fields:
     description: quantity of products
     xpath: //article/div[@class='header_root__3b4tI']/a[@class='link_root__fmxIo']/div[@class='product-card-portrait_pricePromotion__2CZsy']/div/span
   - name: discount
-    singleValue: false
+    singleValue: true
     description: discount of products
     xpath: //article/div/a/div/div/div/span
+  - name: manufacturedDiscount
+    singleValue: true
+    description: manufacturedDiscount of products
+    xpath: //article/div/a/div/div[@class='shield_root__YmXCB']/span

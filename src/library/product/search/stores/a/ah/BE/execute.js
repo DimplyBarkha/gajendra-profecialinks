@@ -2,11 +2,11 @@
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
-    country: 'NL',
+    country: 'BE',
     store: 'ah',
-    domain: 'ah.nl',
-    url: 'https://www.ah.nl/zoeken?query={SearchTerms}',
-    loadedSelector: null,
+    domain: 'ah.be',
+    url: 'https://www.ah.be/zoeken?query=aardbeien',
+    loadedSelector: '#search-lane>div>article',
     noResultsXPath: null,
     zipcode: '',
   },
