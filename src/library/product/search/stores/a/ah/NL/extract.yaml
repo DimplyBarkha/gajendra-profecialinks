@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    description: images of products
+    xpath: //figure/div/img/@src
+  - name: name
+    singleValue: false
+    description: name of products
+    xpath: //figure/div/img/@src
+  - name: url
+    singleValue: false
+    description: name of products
+    xpath: //article/div/a/@href
+  - name: price
+    singleValue: true
+    description: price of products
+    xpath: //div[@class='product-card-portrait_pricePromotion__2CZsy']/div/div/span
+  - name: quantity
+    singleValue: true
+    description: quantity of products
+    xpath: //article/div[@class='header_root__3b4tI']/a[@class='link_root__fmxIo']/div[@class='product-card-portrait_pricePromotion__2CZsy']/div/span
+  - name: discount
+    singleValue: false
+    description: discount of products
+    xpath: //article/div/a/div/div/div/span
