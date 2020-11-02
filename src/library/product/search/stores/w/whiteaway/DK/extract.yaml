@@ -25,7 +25,7 @@ fields:
   - name: price
     description: The offered price for the product
     xpath: //div[@class="campaign-banner__info offer"]/div[2]/span
-    regExp: '\d*\.\d*'
+    regExp: '\d+\.\d+'
   - name: rank
     description: search/listing rank
     type: NUMBER
@@ -39,6 +39,9 @@ fields:
   - name: id
     description: Unique id (within this extractor)
     xpath: //h3/span[2]
-  - name: aggregateRating2
+  - name: aggregateRating
+    xpath: //div[@class="star-rating__front"]/@style
     type: NUMBER
+    regExp: (\d+)\|20
+    # regExpReplace: $./1\|20
   - name: hasVariants
