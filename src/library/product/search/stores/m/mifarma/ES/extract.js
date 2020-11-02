@@ -23,10 +23,8 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     const rating = document.querySelectorAll(".rating");
     rating.forEach((el) => {
       const trimmed = el.style.width.slice(0, -1);
-      const numericRate = String(trimmed / 20);
-      console.log(numericRate)
-      const regex = /\./
-      numericRate.replace(regex,',')
+      let numericRate = String(trimmed / 20);
+      numericRate = numericRate.replace(/\./g,',')
       console.log(numericRate)
       el.setAttribute('numericrating', numericRate)
     });
