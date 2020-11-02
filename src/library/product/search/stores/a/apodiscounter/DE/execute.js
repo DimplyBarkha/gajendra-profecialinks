@@ -6,8 +6,8 @@ module.exports = {
     store: 'apodiscounter',
     domain: 'apodiscounter.de',
     url: 'https://www.apodiscounter.de/advanced_search_result.php?keywords={searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.product_listing_container',
+    noResultsXPath: "//div[@id='advanced_search_no_result_wrapper']",
     zipcode: '',
   },
 };

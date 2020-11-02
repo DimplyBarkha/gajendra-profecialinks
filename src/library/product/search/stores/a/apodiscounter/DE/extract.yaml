@@ -8,7 +8,7 @@ fields:
     xpath: //link[@rel="canonical"]//@href
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,'product_listing_base_price')]
+    xpath: //div[contains(@class,'product_listing_base_price')]//span[position()=1]
     regExp: (.*)PZN(.*)
     regExpReplace: $2
   - name: name
