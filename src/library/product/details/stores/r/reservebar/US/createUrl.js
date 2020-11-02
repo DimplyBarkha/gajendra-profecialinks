@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'reservebar.com',
     prefix: null,
-    url: 'https://www.reservebar.com/products/{id}',
+    url: 'https://www.reservebar.com/search?q={id}',
     country: 'US',
     store: 'reservebar',
     zipcode: '',

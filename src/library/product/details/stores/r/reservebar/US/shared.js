@@ -11,16 +11,26 @@ const transform = (data) => {
       }
       if (row.sku) {
         var skuDesc = row.sku[0].text.replace(/\\\//g, '');
-        var productInfo = JSON.parse(skuDesc.replace(/'/g, '"'));
-        if (productInfo.sku) {
-          row.sku[0].text = productInfo.sku;
+        try {
+          var productInfo = JSON.parse(skuDesc);
+          if (productInfo.sku) {
+            row.sku[0].text = productInfo.sku;
+          } else if (productInfo.offers && productInfo.offers[0].sku) {
+            row.sku[0].text = productInfo.offers[0].sku;
+          }
+        } catch (e) {
+          row.sku[0].text = '';
         }
       }
       if (row.variantId) {
         var variantDesc = row.variantId[0].text.replace(/\\\//g, '');
-        var infObj = JSON.parse(variantDesc.replace(/'/g, '"'));
-        if (infObj.id) {
-          row.variantId[0].text = infObj.id;
+        try {
+          var infObj = JSON.parse(variantDesc);
+          if (infObj.id) {
+            row.variantId[0].text = infObj.id;
+          }
+        } catch (e) {
+          row.variantId[0].text = '';
         }
       }
       if (row.manufacturerDescription) {
