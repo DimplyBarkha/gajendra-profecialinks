@@ -56,4 +56,10 @@ fields:
     xpath: //h1[contains(@class,'product-cart__title')]
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,"product-cart__content-tabs-contents")][1]//div[contains(@class,'product-cart__paragraph-section')]
+    xpath: //div[contains(@class,"product-cart__content-tabs-contents")][3]//div[contains(@class,'product-cart__paragraph-section')]
+  - name: storage
+    singleValue: false
+    xpath: //h2[contains(text(),' Условия хранения')]/ancestor::div[contains(@class,'product-cart__paragraph-section')]/p
+  - name: packSize
+    singleValue: false
+    xpath: //h2[contains(text(),' Количество в упаковке')]/ancestor::div[contains(@class,'product-cart__paragraph-section')]/p
