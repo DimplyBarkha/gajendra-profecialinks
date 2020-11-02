@@ -26,7 +26,11 @@ module.exports = {
       addHiddenDiv(`ii_parentInput`, parentInput);
 
     }, parentInput);
-
+    const request = await context.searchAllRequests('https://api.intermarche.com/produits/v2/pdvs/02111/produits/*');
+    console.log(`Request: ${request}`);
+    if(request.responseHeaders.status == 404) {
+      throw Error("No product available")
+    }
     // const dataRaw = await context.evaluate(function () {
     //   fetch('https://api.intermarche.com/produits/v2/pdvs/11833/produits/0000040198125', {
     //     method: 'GET',
