@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'DK',
     domain: 'madcoop.dk',
-    store: 'madcoop_dk',
+    store: 'madcoop',
     zipcode: '',
   },
 };

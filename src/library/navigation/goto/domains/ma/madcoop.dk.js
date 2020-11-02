@@ -5,7 +5,7 @@ module.exports = {
     domain: 'madcoop.dk',
     timeout: null,
     country: 'DK',
-    store: 'madcoop_dk',
+    store: 'madcoop',
     zipcode: '',
   },
 };

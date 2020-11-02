@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     url: null,
     country: 'DK',
-    store: 'madcoop_dk',
+    store: 'madcoop',
     zipcode: '',
   },
 };
