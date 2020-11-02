@@ -108,6 +108,7 @@ fields:
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
+  xpath: //table[@class="tablaInformacionAdicional"]//span[text()="Recomendaciones de Seguridad"]/following-sibling::span
 - name: ratingCount
   singleValue: true
   description: The number of ratings
@@ -119,6 +120,8 @@ fields:
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //div[@class="productSummary"]//span/@class
+  regExp: (\d)
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -136,6 +139,7 @@ fields:
 - name: color
   singleValue: true
   description: A textual description of the colour
+  xpath: //table[@class="tablaInformacionAdicional"]//span[text()="Color"]/following-sibling::span
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -446,9 +450,14 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
+  xpath: //span[contains(@class, "precioUnidad")]
+  regExp: ([\d, €]+)
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
+  xpath: //span[contains(@class, "precioUnidad")]
+  regExp: \/([0-9a-zA-Z]+)
+  regExpReplace: $1
 - name: promotion
   singleValue: true
   description: promotion text on product page
@@ -493,10 +502,12 @@ fields:
   singleValue: true
   description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
   example: 4 - 99 years
+  xpath: //table[@class="tablaInformacionAdicional"]//span[text()="Rango de edad"]/following-sibling::span
 - name: energyEfficiency
   singleValue: true
   description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
   example: A+, A+++, B
+  xpath: //table[@class="tablaInformacionAdicional"]//span[text()="Clase de eficiencia de energía"]/following-sibling::span
 - name: technicalInformationPdfPresent
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
