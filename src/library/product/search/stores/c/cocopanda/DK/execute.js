@@ -15,14 +15,15 @@ async function implementation (
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
 
   await dependencies.goto({ url, zipcode: inputs.zipcode });
-  await context.waitForFunction('CookieInformation.declineAllCategories()');
-  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+  
+  //await context.click('button[aria-label="Accepter alle"]');
+  //await new Promise((resolve, reject) => setTimeout(resolve, 1000));
 
-  await context.click('div.wca-batch-1-r1-webchannel-accelerate-ribbon-close');
-  await context.click('button.pushcrew-btn-close"]');
-  await new Promise((resolve, reject) => setTimeout(resolve, 500));
-  await context.click('div.roulette-iframe-close a');
-  await new Promise((resolve, reject) => setTimeout(resolve, 500));
+  //await context.click('div.wca-batch-1-r1-webchannel-accelerate-ribbon-close');
+  //await context.click('button.pushcrew-btn-close"]');
+  //await new Promise((resolve, reject) => setTimeout(resolve, 500));
+  //await context.click('div.roulette-iframe-close a');
+  //await new Promise((resolve, reject) => setTimeout(resolve, 500));
 
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
@@ -77,4 +78,5 @@ module.exports = {
     noResultsXPath: '//main[@id="main-container"]//div[@class="main-content"]/h1[contains(text(),"Vi fandt desværre ingen produkter, der matcher din søgning efter")]',
     zipcode: '',
   },
+  implementation,
 };
