@@ -14,14 +14,13 @@ module.exports = {
     dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluate(() => {
-      var clickButton = document.querySelector('a[data-component="triggerClick"]');
-      if (clickButton) {
-        // @ts-ignore
-        clickButton.click();
-      }
-    });
-    const applyScroll = async function (context) {
+    try {
+      await context.waitForSelector('a[data-component="triggerClick"]', { timeout: 40000 });
+      await context.click('a[data-component="triggerClick"]');
+    } catch (e) {
+      console.log('selector did not load');
+    }
+    const applyScroll = async function () {
       await context.evaluate(async function () {
         let scrollTop = 0;
         while (scrollTop !== 20000) {
@@ -42,7 +41,7 @@ module.exports = {
         }
       });
     };
-    await applyScroll(context);
+    await applyScroll();
     await context.evaluate(() => {
       var searchUrl = window.location.href;
       var appendElements = document.querySelectorAll('div[class*="c-grid_col is-grid-col-1"]');
