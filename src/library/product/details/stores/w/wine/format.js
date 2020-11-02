@@ -1,4 +1,3 @@
-
 /**
  *
  * @param {ImportIO.Group[]} data
@@ -23,23 +22,33 @@ const transform = (data) => {
     }))));
     return data;
   };
-  for (const { group } of data) {
-    for (let row of group) {       
-      if (row.image) {        
+  for (const {
+      group
+    } of data) {
+    for (let row of group) {
+      if (row.image) {
         row.image.forEach(item => {
           item.text = 'https://www.wine.com' + item.text;
-        });        
+        });
       }
-      if (row.alternateImages) {        
+      if (!row.price && row.listPrice) {
+        row.price = row.listPrice;
+        delete row.listPrice;;
+      }
+      if (row.alternateImages) {
         row.alternateImages.forEach(item => {
           item.text = 'https://www.wine.com' + item.text;
         });
-        row.alternateImages.splice(0,1);
-        row.secondaryImageTotal = [{'text':row.alternateImages.length}];
+        row.alternateImages.splice(0, 1);
+        row.secondaryImageTotal = [{
+          'text': row.alternateImages.length
+        }];
       }
-    }    
+    }
   }
   return cleanUp(data);
 };
 
-module.exports = { transform };
+module.exports = {
+  transform
+};

@@ -26,11 +26,11 @@ fields:
     singleValue: true    
     xpath: //h1[contains(@class,'pipName')]
   - name: listPrice
-    singleValue: true    
-    xpath: //div[contains(@itemprop,'offers')]//div//span[contains(@class,'productPrice_price-regWhole')]/text()
+    singleValue: true
+    xpath: //div[contains(@itemprop,'offers')]//div[contains(@class,'productPrice_price-reg')]
   - name: price
     singleValue: true    
-    xpath: //div[@class='prodOffer']//div[@class='productPrice_price-sale']
+    xpath: //div[contains(@itemprop,'offers')]//div[contains(@class,'productPrice_price-sale')]
   - name: availabilityText
     singleValue: true    
     regExp: (.+)
@@ -45,18 +45,18 @@ fields:
     xpath: //meta[@name='pProductID']/@content
   - name: variantId
     singleValue: true    
-    xpath: //meta[@name='pProductID']/@content
+    xpath: //meta[@name='productID']/@content
   - name: ratingCount
     singleValue: true    
-    xpath : (//span[contains(@class,'averageRating_number')])[1]
+    xpath : //div[@class="pipInfo"]//span[contains(@class,'averageRating_number')]
     type: NUMBER  
   - name: aggregateRating
     singleValue: true    
     xpath: //span[contains(@itemprop,'ratingValue')]
     type: NUMBER
-  - name: shippingInfo
-    singleValue: true    
-    xpath: //div[contains(@class,'prodItemShipping')]
+  # - name: shippingInfo
+  #   singleValue: true    
+  #   xpath: //div[contains(@class,'prodItemShipping')]
   - name: name
     singleValue: true
     xpath: //h1[contains(@class,'pipName')]
@@ -65,10 +65,7 @@ fields:
     xpath : //span[contains(@class,'prodItemInfo_originText')]//a[contains(@class,'pipOrigin_link')]
   - name: quantity
     singleValue: true    
-    xpath : (//span[@class='prodAlcoholVolume'])[1]
+    xpath : //div[@class="prodInfo"]//span[@class="prodAlcoholVolume"]
   - name: brandText
     singleValue: true    
-    xpath : //script[@name='sharify']
-    #"vineyard":{"id":45636,"fullName":"Hussong"
-    regExp: \"vineyard\"\s*:.+?\"fullName\":\"(.+?)\"
-    regExpReplace: $1
+    xpath : //div[@itemprop="brand"]//a[@itemprop="name"]
