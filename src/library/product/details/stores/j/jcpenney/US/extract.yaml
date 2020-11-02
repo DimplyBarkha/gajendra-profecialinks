@@ -15,6 +15,7 @@ fields:
   - name: alternateImages
     xpath: //@secondaryimages
   - name: category
+    xpath: ancestor::html//div[@data-automation-id="breadcrumbRow"]//ul//li
   - name: nameExtended
     xpath: //@nameextended
   - name: listPrice
@@ -44,6 +45,9 @@ fields:
   - name: manufacturer
   - name: quantity
   - name: weightNet
+    xpath: ancestor::html//section[@aria-label="productDescription"]//ul//li[contains(.,"Weight:")] | ancestor::html//section[@aria-label="productDescription"]//ul//li[contains(.,"lbs.")]
+    regExp: (.+:)?(.+)
+    regExpReplace: $2
   - name: weightGross
   - name: gtin
     xpath: ancestor::html//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")][1]/@data-gtin
@@ -56,13 +60,14 @@ fields:
   - name: shippingDimensions
     xpath: ancestor::html//li[contains(.,"Height (in.)")]
   - name: shippingWeight
-    xpath: ancestor::html//li[contains(.,"Weight")]
+    xpath: ancestor::html//li[contains(.,"Weight (lb.):")]
   - name: variantCount
     xpath: count(//div[@id="option-wrapper-false"]//div[@id="product-options-false"]//div[last()]//ul//li)
   - name: color
+    xpath: ancestor::html//ul[@data-automation-id="product-dimensions-color"]//li//button/@data-for
   - name: colorCode
   - name: manufacturerDescription
-    xpath: ancestor::html//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")]//div//div//ul//li//div[position()>1]//div[not(contains(@class,"wc-json-data"))]
+    xpath: ancestor::html//div[@data-section-tag="features"]//ul//li//div[(contains(@class,"wc-text-wrap"))] | ancestor::html//div[@data-section-tag="faq"]
   - name: manufacturerImages
     xpath: ancestor::html//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")]//ul//li//img/@src
   - name: videos
@@ -125,7 +130,9 @@ fields:
   - name: variants
     xpath: ancestor::html//h1[@aria-label="productTitle"]/@variants
   - name: additionalDescBulletInfo
+    xpath: ancestor::html//section[@aria-label="productDescription"]//ul//li
   - name: prop65Warning
+    xpath: ancestor::html//h1[@data-automation-id="product-title"]/@prop65
   - name: ageSuitability
   - name: energyEfficiency
   - name: technicalInformationPdfPresent
@@ -140,7 +147,4 @@ fields:
   - name: Image360Present
     defaultValue: No
   - name: imageZoomFeaturePresent
-    xpath: ancestor::html//div[@id="fakeZoomViewer"]/@id
-    regExp: (fakeZoomViewer)
-    regExpReplace: Yes
-    defaultValue: No
+    defaultValue: Yes

@@ -6,7 +6,7 @@ module.exports = {
     store: 'jcpenney',
     domain: 'jcpenney.com',
     loadedSelector: 'h1[aria-label="productTitle"]',
-    noResultsXPath: null,
+    noResultsXPath: '//h3[contains(.,"Oops, something went wrong")]',
     zipcode: '',
   },
 };
