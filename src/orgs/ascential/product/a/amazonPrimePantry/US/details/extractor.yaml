@@ -3,7 +3,9 @@ parameters:
   country: US
   domain: amazon.com
   store: amazonPrimePantry
-  zipcode: "10001"
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
 meta:
   branches:
     dev:
@@ -11,4 +13,7 @@ meta:
       legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
     staging:
       extractor: 5291a4f7-f7e0-4324-a3e9-ca4b88254c20
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    development:
+      extractor: 5312692d-d652-46a1-8d80-1b56b823d2ed
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

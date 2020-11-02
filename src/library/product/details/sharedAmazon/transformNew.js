@@ -289,6 +289,7 @@ const transform = (data, context) => {
       const subscriptionPresent = row.subscriptionPrice ? 'YES' : 'NO';
       row.subscribeAndSave = [{ text: subscriptionPresent }];
       row.variantId = row.asin;
+      row.sku = row.asin;
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
           el.text = clean(el.text);

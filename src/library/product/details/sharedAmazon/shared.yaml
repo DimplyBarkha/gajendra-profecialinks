@@ -8,7 +8,7 @@ fields:
     xpath: (//img[@id="landingImage"] | //div[@id="img-canvas"]/img[1])[1]/@src
   - name: imageAlt
     singleValue: true
-    xpath: (//img[@id="landingImage"] | //div[@id="img-canvas"]/img[1])[1]/@alt
+    xpath: (//img[@id="landingImage"])[1]/@alt | //div[@id="img-canvas"]/img[1]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //li[contains(@class, "imageThumbnail")][position()>1]//img/@src | //img[contains(@class,"ig-thumb-inner") and not(contains(@class,"selected"))]/@src | (//span[@data-action="thumb-action"]//img/@src)[position()>1]
@@ -56,14 +56,14 @@ fields:
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@id='feature-bullets']//ul/li[not(@id)])
-  - name: brandText
-    singleValue: false
-    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
-    regExp: '(Brand:\s+)?(.+)'
-    regExpReplace: $2
   - name: backupBrand
     singleValue: false
-    xpath: //span[contains(text(),"Brand")]//parent::td//following-sibling::td/span
+    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
+    regExp: '(Brand:\s+(.+)$|Visit the (.+) Store|^(.+)$)'
+    regExpReplace: $2$3$4
+  - name: brandText
+    singleValue: false
+    xpath: //*[normalize-space(text())="Brand" or normalize-space(text())="Brand:"]/following-sibling::*[1]
   - name: manufacturer
     singleValue: false
     xpath: //*[normalize-space(text())='Manufacturer']/following-sibling::*[1]
@@ -164,9 +164,6 @@ fields:
     singleValue: true
     xpath: //div[@id='added-asin']
   - name: sku
-    xpath: //li[contains(.,'Modellnummer:')]
-    regExp: (.+)\:(.+)
-    regExpReplace: $2
   - name: coupon
     singleValue: false
     xpath: //div[@id="price"]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text() | //div[contains(@id, "promoPriceBlockMessage")]
@@ -432,7 +429,7 @@ fields:
     xpath: //tr[contains(@id, 'almDetailPagePrice_buying_price')]//span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li | (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li|//tr[@id="almDetailPagePrice_savings_price"]
+    xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li | (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li|//tr[@id="almDetailPagePrice_savings_price"] | //*[@id="regularprice_savings"]
   - name: alcoholContent
     singleValue: true
     xpath: 

@@ -1,4 +1,5 @@
-const { transform } = require('../../../../sharedAmazon/transform');
+const { implementation } = require('../../../a/amazon/US/extract');
+const { transform } = require('../../../../sharedAmazon/transformNew');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -7,22 +8,12 @@ module.exports = {
     store: 'amazonPrimePantry',
     transform,
     domain: 'amazon.com',
-    zipcode: '10001',
   },
-  implementation: async (inputs,
-    parameters,
-    context,
-    dependencies) => {
-    const { transform } = parameters;
-    const { productDetails } = dependencies;
-    await context.evaluate(async function () {
-      await new Promise(resolve => setTimeout(resolve, 2814));
-      const element = document.getElementById('aplus');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        await new Promise(resolve => setTimeout(resolve, 2197));
-      }
-    });
-    return await context.extract(productDetails, { transform });
+  dependencies: {
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    Helpers: 'module:helpers/helpers',
+    AmazonHelp: 'module:helpers/amazonHelp',
+    goto: 'action:navigation/goto',
   },
+  implementation,
 };

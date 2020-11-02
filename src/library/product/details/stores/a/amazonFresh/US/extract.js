@@ -1,14 +1,6 @@
 const { implementation } = require('../../../a/amazon/US/extract');
 const { transform } = require('../../../../sharedAmazon/transformNew');
 
-/**
- *
- * @param { { url?: string,  id?: string, parentInput?: string} } inputs
- * @param { Record<string, any> } parameters
- * @param { ImportIO.IContext } context
- * @param { Record<string, any> } dependencies
- */
-
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
