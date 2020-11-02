@@ -23,10 +23,10 @@ fields:
     xpath: //h1[contains(@class,'js-product-detail__name')] | //div[contains(@class,'item-product__info--product-detail')]
   - name: price
     singleValue: false
-    xpath: //div[@class='grid__item']//span[@class='price']
+    xpath: //div[@class='js-product']//span[@class='price']
   - name: listPrice
     singleValue: false
-    xpath: (//div[@class='grid__item']//span[@class='price-amount'])[1]
+    xpath: //div[@class='js-product']//span[@class='price-amount']
   - name: availabilityText
     singleValue: false
     defaultValue: Out of Stock
@@ -40,4 +40,10 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //div[contains(@class,'grid__item portable-up--four-twelfths')]//span[contains(@class,'js-product-id')]//input/@value | //div[@id='product-id']
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'grid__item portable-up--four-twelfths')]//span[contains(@class,'js-product-id')]//input/@value | //div[@id='product-id']
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,'grid__item')]//div[contains(@class,'item-product__info--product-detail')]
 
