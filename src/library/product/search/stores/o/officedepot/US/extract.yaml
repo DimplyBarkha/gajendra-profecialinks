@@ -15,24 +15,21 @@ fields:
   xpath: //div[@class="description descriptionFull"]//a//@href
   regExp: (.+)
   regExpReplace: https://www.officedepot.com$1
-- name: searchUrl
-  xpath: //@search_url
 - name: thumbnail
   description: The URL for the product thumbnail image
-  xpath: //div[@class="photo_no_QV flcl"]//img//@data-src
+  xpath: //div[@class="photo_no_QV flcl"]//img//@data-src | //div[@class="photo_no_QV flcl"]//img//@src
 - name: name
   description: The product name
   xpath: //div[@class="description descriptionFull"]//a//@title
 - name: reviewCount
   description: The number of reviews
-  xpath: //div[@class="bv_numReviews_component_container"]
+  xpath: //div[contains(@class,"numReviews")]
   regExp: (\d+)
 - name: price
   description: The offered price for the product
-  xpath: //span[@class="price_column right "]
-- name: aggregateRating
+  xpath: //span[contains(@class,"price_column right")]
+- name: aggregateRating2
   description: The stated aggregate rating normalized to be out of 5
-  type: NUMBER
   xpath: //div[@class="bv-off-screen"]
   regExp: (\d.+)(out)
   regExpReplace: $1
