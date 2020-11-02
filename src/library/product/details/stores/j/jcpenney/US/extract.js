@@ -64,7 +64,7 @@ await context.evaluate(async function () {
           array[i].setAttribute('skuId', skus[i]);
         }
       }
-      //  let variants = '';
+
       const arr = skus.filter (function (value, index, array) {
         return skus.indexOf(value) === index;
     });
@@ -90,12 +90,6 @@ await context.evaluate(async function () {
 
       finalImages.push([...document.querySelectorAll('#contentContainer > section > section:nth-child(3) > div.sm12.md6.lg6.xl7._3AtEJ > div > div.carousel-wrapper > div > div._3h_IA.lg2.xl2.md2.sm2._1sbcC.noPad > div > div.slick-list a')].map(e => { return e.querySelector('img').getAttribute('src'); }));
     });
-
-    let color = [...document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li')].map(e => { return e.querySelector('button').getAttribute('data-for')});
-
-    for (i = 0; i < color.length; i++) {
-      document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li')[i].setAttribute('color', color[i]);
-      }
 
   } else {
     optionalWait('h1[data-automation-id="product-title"]');
@@ -147,7 +141,6 @@ await context.evaluate(async function () {
     document.querySelector('h1[data-automation-id="product-title"]').setAttribute('availability', availability);
   }
 
-
   let prop = document.evaluate('//h3[@data-automation-id="general-info-title"][contains(.,"Proposition 65 WARNING")]',document).iterateNext();
 
   if(prop){
@@ -159,9 +152,9 @@ await context.evaluate(async function () {
 
   let color = [...document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li')].map(e => { return e.querySelector('button').getAttribute('data-for')});
 
-    for (i = 0; i < color.length; i++) {
-      document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li')[i].setAttribute('color', color[i]);
-      }
+  for (i = 0; i < color.length; i++) {
+    document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li')[i].setAttribute('color', color[i]);
+   }
   let scrollTop = 500;
   while (true) {
     window.scroll(0, scrollTop);
