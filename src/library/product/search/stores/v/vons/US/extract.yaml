@@ -10,9 +10,9 @@ fields:
     description: The URL for the product details page
   - name: thumbnail
     description: The URL for the product thumbnail image 
-    xpath: //img[@class='ab-lazy loaded']//@data-src
+    xpath: //img[@class='ab-lazy loaded']/@src
     regExp: (.+)
-    regExpReplace: https://www.vons.com$1
+    regExpReplace: https:$1
   - name: name
     singleValue: true
     xpath: //div//a[@class='product-title']//text()

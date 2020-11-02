@@ -8,10 +8,6 @@ fields:
     xpath: //picture[@class='img-responsive center-block']/img/@src
     regExp: (.+)
     regExpReplace: https:$1
-  - name: url
-    singleValue: true
-    description: A harvest url
-    xpath: //div[@id='url']
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
