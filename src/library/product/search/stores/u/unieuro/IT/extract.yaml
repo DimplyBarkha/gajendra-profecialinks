@@ -7,7 +7,7 @@ fields:
     singleValue: true
     description: price of the product
     type: CURRENCY
-    xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='prices product-tile__prices']/div[@class='product-tile__price-container']/a[@class='prices__price product-tile__price']
+    xpath: //div[@class='info']/div[@class='prices']/a/div[@class='price']
   - name: productUrl
     singleValue: false
     description: The URL for the product details page 
@@ -25,5 +25,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='title product-tile__title']/a/text()
+    xpath: //div[@class="item-container"]//div/div[@class="title"]/a/text()
+  
+  
   
