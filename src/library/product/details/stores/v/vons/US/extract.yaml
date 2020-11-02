@@ -22,7 +22,6 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //div[@class="sub-nav breadcrumbs pdpCrumbs col-12 col-sm-12 col-md-12 col-lg-12"]/ul/li[position()>1 and position()<5]
-  - name: sub_category
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -76,7 +75,7 @@ fields:
   - name: upc
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@class='container-fluid product-details-wrapper']/@data-upc
+    xpath: //div[@class='product-content']//@data-product-upc
   - name: sku
     singleValue: true
     description: The store-specific product identifier
