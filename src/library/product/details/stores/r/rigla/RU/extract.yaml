@@ -63,3 +63,6 @@ fields:
   - name: packSize
     singleValue: false
     xpath: //h2[contains(text(),' Количество в упаковке')]/ancestor::div[contains(@class,'product-cart__paragraph-section')]/p
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //h2[contains(text(),' Страна производства')]/ancestor::div[contains(@class,'product-cart__paragraph-section')]/p
