@@ -1,0 +1,73 @@
+input:
+  id: "505764"
+  _url: http://staplesadvantage.com
+extractions:
+  - html: https://workbench.import.io/html/run=04e142ef-c3b0-4ac3-8d9a-f37082502018/task=da79200d-99a6-48d2-b515-b63baaeb51ea/5ee6763c-0f92-48a8-b994-d74ec77620a7.html
+    extractionConfigId: product/details/stores/s/staplesadvantage_10101/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.staplesadvantage.com/is/image/Staples/s0175059_sc7
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
+            imageAlt:
+              - text: https://images.staplesadvantage.com/is/image/Staples/s0175059_sc7
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
+            metaKeywords:
+              - text: width=device-width, initial-scale=1.0
+                xpath: /html/head[1]/meta[2]/@content
+            nameExtended:
+              - text: Safco Adjustable Mobile Computer Table, Gray and Black
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: $346.99
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Safco
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]
+            manufacturer:
+              - text: Safco
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]
+            weightNet:
+              - text: "60"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[6]/td[2]
+            ratingCount:
+              - text: No reviews
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/span[1]
+            aggregateRatingText:
+              - text: No reviews
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/span[1]
+            color:
+              - text: Gray and Black
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[10]/td[2]
+            name:
+              - text: Safco Adjustable Mobile Computer Table, Gray and Black
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/h1[1]
+            inStorePrice:
+              - text: $346.99
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            warranty:
+              - text: Lifetime Limited Warranty
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[4]/td[2]
+            materials:
+              - text: Plastic
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[7]/td[2]
+            availabilityText:
+              - text: Out of Stock
+            category:
+              - text: Home>Furniture>Desks>Office Desks
+            description:
+              - text: Perfect computer table for Small Offices or Home OfficesHolds monitor,
+                  keyboard, printer, CPU and peripherals in seven square
+                  feet50"H x 32"W x 31"D
+            descriptionBullets:
+              - text: "3"
+            shippingInfo:
+              - text: Delivery
+            variantInformation:
+              - text: Specifications tableAttribute nameAttribute valueBrand NameSafcoShelf
+                  Count4Home & Computer Desk TypeComputerWarrantyLifetime
+                  Limited WarrantyHeight in Inches50Weight (lbs.)60Base
+                  MaterialPlasticFurnishing ColorMulticolorFurnishing
+                  StyleContemporaryTrue ColorGray and BlackIsFurnitureSKUtrue
+        xpath: /
+    timestamp: 1604399932291

@@ -1,0 +1,81 @@
+input:
+  id: "2140557"
+  _url: http://staplesadvantage.com
+extractions:
+  - html: https://workbench.import.io/html/run=04e142ef-c3b0-4ac3-8d9a-f37082502018/task=cd9c69d1-a9d4-4eed-8f7d-44f459f1bb65/033b8c60-47f8-4582-9712-1d5871922ca2.html
+    extractionConfigId: product/details/stores/s/staplesadvantage_10101/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp40797807_sc7
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/img[1]/@alt
+            imageAlt:
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp40797807_sc7
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp40797807_sc7?wid=70&hei=70
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@src
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp40797806_sc7?wid=70&hei=70
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/img[1]/@src
+              - text: https://images.staplesadvantage.com/is/image/Staples/s0964275_sc7?wid=70&hei=70
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/img[1]/@src
+            metaKeywords:
+              - text: width=device-width, initial-scale=1.0
+                xpath: /html/head[1]/meta[2]/@content
+            nameExtended:
+              - text: Starbucks Pike Place Coffee, Keurig® K-Cup® Pods, Medium Roast
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: $26.82
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+            price:
+              - text: $25.39
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Starbucks
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]
+            manufacturer:
+              - text: Starbucks
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]
+            sku:
+              - text: "353578"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/h1[1]
+            packSize:
+              - text: "40"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[10]/td[2]
+            ratingCount:
+              - text: 179 Reviews
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/span[2]
+            aggregateRatingText:
+              - text: 179 Reviews
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/span[2]
+            aggregateRating:
+              - text: "4.72"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/span[1]
+            name:
+              - text: Starbucks Pike Place Coffee, Keurig® K-Cup® Pods, Medium Roast
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/h1[1]
+            inStorePrice:
+              - text: $25.39
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            availabilityText:
+              - text: Out of Stock
+            category:
+              - text: Home>Coffee, Water & Snacks>Coffee, Coffee Makers & Supplies>Single Serve
+                  & Keurig® K-Cup® Pods
+            description:
+              - text: Coffee K-Cups for Keurig brewersMedium-roast coffee with Pike Place
+                  flavor40 K-Cups per box
+            descriptionBullets:
+              - text: "3"
+            shippingInfo:
+              - text: Delivery
+            variantInformation:
+              - text: Specifications tableAttribute nameAttribute valueBrand
+                  NameStarbucksCaffeinated or DecafCaffeinatedCoffee
+                  RoastMediumFlavoringUnflavoredFair Trade CertifiedNoHot or
+                  IcedHotKosherYesOrganicNoSingle Serve Cup TypeCoffeeSingle
+                  Serve Cup Pack Size40Single Serve Pod TypePodBrewing
+                  SystemKeurig K-CupSeries or CollectionPike Place
+        xpath: /
+    timestamp: 1604399932111

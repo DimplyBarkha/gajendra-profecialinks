@@ -1,0 +1,92 @@
+input:
+  id: "332895"
+  _url: http://staplesadvantage.com
+extractions:
+  - html: https://workbench.import.io/html/run=04e142ef-c3b0-4ac3-8d9a-f37082502018/task=12933e7c-debe-414b-b690-4141dcff7c2e/bf5b3f31-4859-4bbe-bd72-2589af011a36.html
+    extractionConfigId: product/details/stores/s/staplesadvantage_10101/US/extract
+    data:
+      - group:
+          - image:
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp50978728_sc7
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/img[1]/@alt
+            imageAlt:
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp50978728_sc7
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp50978728_sc7?wid=70&hei=70
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/img[1]/@src
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp50978671_sc7?wid=70&hei=70
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/img[1]/@src
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp54761290_sc7?wid=70&hei=70
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/img[1]/@src
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp54761344_sc7?wid=70&hei=70
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/img[1]/@src
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp54761343_sc7?wid=70&hei=70
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[5]/img[1]/@src
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp54761342_sc7?wid=70&hei=70
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[6]/img[1]/@src
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp54761347_sc7?wid=70&hei=70
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[7]/img[1]/@src
+              - text: https://images.staplesadvantage.com/is/image/Staples/sp54761345_sc7?wid=70&hei=70
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[8]/img[1]/@src
+            metaKeywords:
+              - text: width=device-width, initial-scale=1.0
+                xpath: /html/head[1]/meta[2]/@content
+            nameExtended:
+              - text: Kar's Nuts, Trail Mix
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: $28.00
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]
+            price:
+              - text: $26.59
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Kar's
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]
+            manufacturer:
+              - text: Kar's
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]
+            sku:
+              - text: "08361"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/h1[1]
+            packSize:
+              - text: "24"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[2]
+            ratingCount:
+              - text: 88 Reviews
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/span[2]
+            aggregateRatingText:
+              - text: 88 Reviews
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/span[2]
+            aggregateRating:
+              - text: "4.38"
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/span[1]
+            name:
+              - text: Kar's Nuts, Trail Mix
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/h1[1]
+            inStorePrice:
+              - text: $26.59
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]
+            allergyAdvice:
+              - text: Contains Nuts
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[13]/td[2]
+            availabilityText:
+              - text: Out of Stock
+            category:
+              - text: Home>Coffee, Water & Snacks>Snacks & Food
+            description:
+              - text: Pack contains eight Mango Pineapple trail mix packs, eight Yogurt Apple
+                  nut mix packs, and eight Sweet 'n Spicy mix packsEight 1.75
+                  oz. packages and 16 1.5 oz. packages24 per box
+            descriptionBullets:
+              - text: "3"
+            shippingInfo:
+              - text: Delivered FREE tomorrow
+            variantInformation:
+              - text: Specifications tableAttribute nameAttribute valueBrand NameKar'sPack
+                  Size24All NaturalNoFat FreeNoGluten FreeNoFlavorTrail MixSnack
+                  FlavorTrail MixKosherNoOrganicNoSugar FreeNoSnack & Meal
+                  TypeNuts & SeedsNext Day DeliveryYesContains NutsContains Nuts
+        xpath: /
+    timestamp: 1604399934842
