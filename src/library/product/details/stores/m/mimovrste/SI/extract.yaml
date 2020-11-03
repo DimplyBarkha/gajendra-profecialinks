@@ -26,15 +26,17 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //h1[@itemprop='name']
-  - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
-    xpath: //del[@class='rrp-price']
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //b[contains(@class, 'pro-price')]
+    regExp: (^([^€]*))(\,)([^\€]*)(€)
+    regExpReplace: '$5 $2.$4'
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //div[@id='added_listPrice']
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If

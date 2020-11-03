@@ -16,7 +16,7 @@ fields:
     singleValue: false
     xpath: //article//h3[@class='lst-product-item-title']//a//@href
     regExp: (.+)
-    regExpReplace: https://www.mimovrste.com/$1
+    regExpReplace: https://www.mimovrste.com$1
   - name: gtin
     singleValue: false
     xpath: 
@@ -25,12 +25,15 @@ fields:
     xpath: //noscript//img[@class='lst-product-item-media-img']//@src
   - name: aggregateRating
     singleValue: false
-    xpath: //span[@class='con-reader']
-    regExp: (Ocena:)(.*)
-    regExpReplace: $2
+    # xpath: //span[@class='con-reader']
+    # regExp: (Ocena:)(.*)
+    # regExpReplace: $2
     type: NUMBER
   - name: aggregateRating2
     singleValue: false
+    xpath: //span[@class='con-reader']
+    regExp: (Ocena:)([^\,]*)(\,)(.?)(.*)
+    regExpReplace: '$2.$4'
   - name: reviewCount
     singleValue: false
   - name: ratingCount
@@ -38,6 +41,8 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[@class='lst-product-item-price-value']
+    regExp: (^([^€]*))(\,)([^\€]*)(€)
+    regExpReplace: '$5 $2.$4'
   - name: manufacturer
     singleValue: true
   - name: soldBy
