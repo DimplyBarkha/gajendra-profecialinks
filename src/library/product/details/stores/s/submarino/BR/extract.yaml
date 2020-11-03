@@ -15,7 +15,9 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[contains(@class, 'image-gallery-slide center')]//img/@src
+    xpath: (//div[contains(@class, 'image-gallery-thumbnail-inner')]/img/@src)[1]
+    regExp: (.*)P1(\..*)$
+    regExpReplace: $1_1SZ$2
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -136,7 +138,7 @@ fields:
     description: Number of variants listed
     xpath: //div[contains(@id, 'variantsCount')]
   - name: color
-    singleValue: true
+    singleValue: false
     description: A textual description of the colour
     xpath: //tr[contains(@id, 'cor')][1]/td[2]/span | //span[@type='Cor']
   - name: colorCode
@@ -152,7 +154,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //video//@src
+    xpath: //video/source/@src | //video/@src | //div[@class='gallery-product-video']//iframe/@src
   - name: name
     singleValue: true
     description: The product name
