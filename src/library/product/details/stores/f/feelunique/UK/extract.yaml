@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//div[@class="productpage-image galleryimages-main"]/img/@src)[1]
+    xpath: (//div[@class="productpage-image galleryimages-main"]/img/@src)[1]|(//div[@class="productpage-image productpage-image--fill galleryimages-main"]/img/@src)[1]
   - name:  productUrl
     singleValue: true
     description: URL of the main product image
@@ -88,6 +88,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //form[@id="buy-this-product"]/input[@name="p"]/@value
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -465,6 +466,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //span[@class="product-options-identifier"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
