@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: "//li[@class='sku-item']"
+recordXPath: //li[@class='sku-item']
 
 fields:
   - name: id
@@ -9,7 +9,7 @@ fields:
     xpath: //li[@class='sku-item']/@data-sku-id
   - name: productUrl
     singleValue: false
-    xpath: concat("https://www.bestbuy.com/",//a[@class='image-link']/@href)
+    xpath: //a[@class='image-link']/@href
   - name: thumbnail
     singleValue: false
     xpath: //img[@class='product-image']/@src
@@ -29,6 +29,11 @@ fields:
     xpath: //li[@class="sku-item"]//p[@class="sr-only"]
     regExp: (["\d"]+)\Wreviews
     regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    xpath: //li[@class="sku-item"]//p[@class="sr-only"]
+    regExp: (["\d"]+)\Wreviews
+    regExpReplace: $1    
   - name: aggregateRating
     singleValue: false
     xpath: //li[@class="sku-item"]//p[@class="sr-only"]

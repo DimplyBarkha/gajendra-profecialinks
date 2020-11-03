@@ -47,6 +47,11 @@ const transform = (data, context) => {
             // item.text = item.text.replace(',', '.');
           });
         }
+        if (row.productUrl) {
+          row.productUrl.forEach(item => {
+            item.text = "https://www.bestbuy.com/"+item.text;
+          });
+        }
         row.rank = [{ text: rankCounter }];
         
         row.name=[{text: brandData+' '+nameData}];

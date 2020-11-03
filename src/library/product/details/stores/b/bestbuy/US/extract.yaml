@@ -81,14 +81,14 @@ fields:
     regExpReplace: $1   
   - name: additionalDescBulletInfo
     singleValue: false
-    # manualSelector: div.overview-accordion-content-wrapper li 
-    xpath: count(//div[@class="features-list all-features"]/div)
+    manualSelector: div.overview-accordion-content-wrapper li 
+    # xpath: count(//div[@class="features-list all-features"]/div)
   - name: promotion
     singleValue: false
     xpath: //div[@class='pricing-price__savings'] | //div[@class='special-offer']//li
   - name: description
     singleValue: false
-    xpath: //div[@class='feature-body-container']
+    xpath: concat(//div[@class='long-description-container body-copy '],//div[@class='feature-body-container'])
   - name: brandText
     singleValue: false
     manualSelector: a.btn-brand-link
@@ -97,7 +97,7 @@ fields:
     xpath: //div[contains(@class,"hover-name")] | //div[div[contains(@class,"row-title") and contains(.,'Color')]]/following-sibling::div[contains(@class,'row-value')]
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div#wc-power-page
+    xpath: //div[@id="wc-power-page"] | //div[@class="c-accordion-content  c-accordion-content-active  c-accordion-content-complete"]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="wc-power-page"]//img/@src
