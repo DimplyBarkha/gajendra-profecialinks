@@ -3,6 +3,21 @@
 const transform = (data) => {
     for (const { group } of data) {
       for (const row of group) {
+        if (row.specifications) {
+          let text = '';
+          row.specifications.forEach((item, index) => {
+            if (index % 2 === 0) {
+              text += item.text.trim() + ' : ';
+            } else {
+              text += item.text.trim() + ' || ';
+            }
+          });
+          row.specifications = [
+            {
+              text: text.slice(0, -4),
+            },
+          ];
+        }
         if (row.availabilityText) {
           let newText = 'Out of Stock';
           row.availabilityText.forEach(item => {

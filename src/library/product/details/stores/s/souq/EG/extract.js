@@ -72,6 +72,12 @@ async function implementation (
     let bullets = descBulletCount ? descBulletCount.length : '';
     addElementToDocument('bb_descriptionBullets', bullets);
     }
+    let zoomImg = document.querySelector('i.fi-zoom-in');
+    let zoom = 'No';
+    if(zoomImg){
+    zoom = 'Yes';
+    addElementToDocument('bb_zoomImg', zoom);
+    }
     });
     return await context.extract(productDetails, { transform });
     }

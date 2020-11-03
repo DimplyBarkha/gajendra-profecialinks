@@ -62,9 +62,11 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
+    xpath: //dt[contains(text(), "Product weight")]/following-sibling::dd[1]
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
+    xpath: //dt[contains(text(), "Package weight")]/following-sibling::dd[1]
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
@@ -120,7 +122,7 @@ fields:
     xpath: //dt[contains(text(), "Package weight")]/following-sibling::dd[1] | //dt[contains(text(), "package weight")]/following-sibling::dd[1] | //dt[contains(text(), "Package Weight")]/following-sibling::dd[1]
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@id="defaultSize"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@id="size_en"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@class="colors-block"]//a[contains(@class,"color-swatch-preview")]/@data-url | //div[@id="colors_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="display_diagonal_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")]/a/@data-url)
+    xpath: count(//div[@id="defaultSize"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@class="colors-block"]//a[contains(@class,"color-swatch-preview")]/@data-url | //div[@id="colors_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="display_diagonal_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")]/a/@data-url)
     defaultValue: '0'
   - name: color
     singleValue: false
@@ -160,7 +162,7 @@ fields:
   - name: brandLink
     singleValue: false
     description: null
-    xpath: //div[@id="productTrackingParams"]//@data-brand-name | //dt[contains(text() , 'Brand')]/following-sibling::dd[1]
+    # xpath: //div[@id="productTrackingParams"]//@data-brand-name | //dt[contains(text() , 'Brand')]/following-sibling::dd[1]
   - name: internationalShipping
     singleValue: false
     description: Text next to bullet point
@@ -398,7 +400,8 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //li[@id="specs"]/div[@id="specs-full"]
+    # xpath: //li[@id="specs"]/div[@id="specs-full"]
+    xpath: //div[contains(@id,'specs-full')]//dl[contains(@class,'stats')]/*
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
@@ -462,7 +465,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[@id="description-full"]/ul/li
+    xpath: //div[@id="bb_description"]
   - name: prop65Warning
     singleValue: false
     description: null
@@ -508,4 +511,7 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    xpath: //div[@id="bb_zoomImg"]
+    # regExp: (.*)
+    # regExpReplace: Yes
     defaultValue: No
