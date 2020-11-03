@@ -4,12 +4,10 @@ async function implementation (inputs, parameters, context, dependencies) {
     encodeURIComponent(inputs.id),
   );
   const loginUrl = 'https://www.staplesadvantage.com/idm';
-  const storeIdUrl = 'https://www.staplesadvantage.com/learn/?storeId=10101';
 
   await dependencies.goto({ url, zipcode: inputs.zipcode });
 
   // the extractor goes to the logging in page
-  await context.goto(storeIdUrl);
   await context.goto(loginUrl);
 
   await context.waitForNavigation();
@@ -92,7 +90,7 @@ module.exports = {
     store: 'staplesadvantage',
     domain: 'staplesadvantage.com',
     url: 'https://www.staplesadvantage.com//product_{id}',
-    zipcode: '10101',
+    zipcode: '',
   },
   implementation,
 };

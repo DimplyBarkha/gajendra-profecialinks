@@ -7,6 +7,6 @@ module.exports = {
     url: null,
     country: 'US',
     store: 'staplesadvantage',
-    zipcode: '',
+    zipcode: "''",
   },
 };
