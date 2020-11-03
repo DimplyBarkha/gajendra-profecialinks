@@ -43,12 +43,6 @@ const transform = (data) => {
 
                 row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];
             }
-
-            if (row.availabilityText) {                    
-                row.availabilityText.forEach(item => {
-                  item.text = "In Stock";
-                });          
-              }
         }
     }
     return cleanUp(data);

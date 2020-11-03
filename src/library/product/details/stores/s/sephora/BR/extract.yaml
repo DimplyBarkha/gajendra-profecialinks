@@ -6,6 +6,12 @@ fields:
   - name: image
     singleValue: false
     xpath: //a[@id='gallery-product-modal']/div[@class='zoomWrapper']//img[@class="gallery-image"]//@src
+  - name: sku
+    singleValue: false
+    xpath: //input[@name='item_group_id']//@value
+  - name: variantId
+    singleValue: false
+    xpath: //input[@name='product']//@value  
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -24,10 +30,13 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[@class='minicart-wrapper']//a[@id='minicart-to-cart']
-    defaultValue: "Out of stock"
+    defaultValue: "In Stock"
   - name: description
     singleValue: false
-    xpath: //section[@class='section-infos']//section[@id='section-description']//div[@class='std']  
+    xpath: //section[@class='section-infos']//section[@id='section-description']//div[@class='std'] 
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='brands-view']//div[@class='col-1']//a//img//@alt    
   - name: ratingCount
     sinngleValue: false
     xpath: //div[@class='product-shop']//div[@class='ratings']//p[@class='rating-links']//a
@@ -42,4 +51,7 @@ fields:
     xpath: //a[@id='gallery-product-modal']/div[@class='zoomWrapper']//img[@class="gallery-image"]//@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id='container_gallery']//a[@class='hidden']//@data-image
+    xpath: //div[@id='container_gallery']//a[@class='hidden']//@data-image 
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@class='brands-view']//div[@class='col-2']//p
