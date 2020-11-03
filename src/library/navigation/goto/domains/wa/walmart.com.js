@@ -20,7 +20,7 @@ module.exports = {
       waitUntil: 'load',
       checkBlocked: true,
       antiCaptchaOptions: {
-        type: 'RECAPTCHA_V3',
+        type: 'RECAPTCHA',
       },
     });
     const captchaFrame = 'div.g-recaptcha iframe';
