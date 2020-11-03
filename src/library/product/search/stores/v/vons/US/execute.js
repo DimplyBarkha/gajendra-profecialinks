@@ -6,7 +6,7 @@ module.exports = {
     store: 'vons',
     domain: 'vons.com',
     url: 'https://www.vons.com/shop/search-results.html?q=%2212%20pack%20beer%22',
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },
