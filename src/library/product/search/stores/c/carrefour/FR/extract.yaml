@@ -1,0 +1,90 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="pagination"]/following-sibling::ul[@id="data-plp_produits"][1]/li[@class="product-grid-item"]/article
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class='ds-product-card__shimzone--large']/a/h2
+  - name: brandText
+    singleValue: false
+    description: The brand name
+    xpath: //div[@class='ds-product-card__shimzone--large']/a/h2
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //div[@class='ds-product-card__shimzone--large']/a/@href
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //div[@class='ds-product-card--vertical-image']/a/img/@src
+  # - name: mpc
+  #   singleValue: false
+  #   description: The model code of the product
+  #   xpath: //@id
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //span[contains(@class,'ds-title product-card-price__price--final ds-title--m')]
+  # - name: listPrice
+  #   singleValue: false
+  #   description: The stated undiscounted price for the product
+  #   xpath: //div[contains(@class, "product-card-price__crossed-out")]
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+  # - name: sponsored
+  #   singleValue: false
+  #   description: Is sponsored/paid
+  #   type: BOOLEAN    
+
+#  Should these be source specific formulas or in the extractor? 
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //@id
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //div[@class="ds-product-card__shimzone--large"] | //div[@class="ds-product-card__shimzone--medium"]
+  # - name: aggregateRating
+  #   singleValue: false
+  #   description: The stated aggregate rating normalized to be out of 5
+  #   type: NUMBER 
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+    xpath: //@id
+  # - name: aggregateRatingText
+  #   singleValue: false
+  #   description: The stated aggregate rating
+  # - name: sku
+  #   singleValue: false
+  #   description: The store-specific product identifier
+  # - name: manufacturer
+  #   singleValue: false
+  #   description: Product manufacturer
+  # - name: soldBy
+  #   singleValue: false
+  #   description: The name of the seller of the item (if available)
+  # - name: endorsementText
+  #   singleValue: false
+  #   description: The text that signifies that a product is endorsed
+  # - name: shippingInfo
+  #   singleValue: false
+  #   description: Shipping information for the product
+  # - name: ratingCount
+  #   singleValue: false
+  #   description: The number of ratings
+  #   regExp: (.*) avis
+  #   regExpReplace: $1
+  # - name: reviewCount
+  #   singleValue: false
+  #   description: The number of reviews
+  #   regExp: (.*) avis
+  #   regExpReplace: $1
