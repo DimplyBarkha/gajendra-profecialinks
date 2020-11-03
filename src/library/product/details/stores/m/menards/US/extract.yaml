@@ -14,21 +14,31 @@ fields:
     xpath: //meta[@property="og:url"]/@content
   - name: category
     singleValue: false
-    xpath: //ol[@class="breadcrumb"]//li[2]
-  - name: sub_category
-    singleValue: false
-    xpath: //div[@id="sub-category"]
+    xpath: //div[@class="container d-print-none"]//li[position()>1 and position()<5]
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id="itemDetailsDataVars"]//@data-main-item-id
     #regExp: (>(.+))
     #regExpReplace: $3
   - name: nameExtended
     singleValue: true
-    xpath: //div[@id="itemDetailPage"]//div[@class="h3"]
+    xpath: //div[@id="itemDetailPage"]//div[@data-at-id="itemTitle"]
   - name: description
     singleValue: false
-    xpath: //meta[@property="og:description"]/@content
+    xpath: (//div[@id="descriptDocs"]//p//text())[1]
+  - name: quantity
+    singleValue: false
+    xpath: (//div[@class="card-body row d-flex justify-content-center col-12"]/div/div[contains(text(),'Package Quantity')])/following-sibling::div[1]
+  - name: featureBullets
+    singleValue: false
+    xpath: //div[@id="features"]//ul//li[1] | //div[@id="features"]//ul//li[2] | //div[@id="features"]//ul//li[3] | //div[@id="features"]//ul//li[4] | //div[@id="features"]//ul//li[5] | //div[@id="features"]//ul//li[6] | //div[@id="features"]//ul//li[7] | //div[@id="features"]//ul//li[8] | //div[@id="features"]//ul//li[9] | //div[@id="features"]//ul//li[10]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@id='features']//ul/li)
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="d-inline d-print-none"]//span//a//img//@src)
+    type: NUMBER
   - name: brandText
     singleValue: true
     xpath: //div[@class='mb-0']//div//span[@class="font-weight-bold text-success pl-1"]
@@ -53,17 +63,16 @@ fields:
     description: Content under "directions" header
   - name: warranty
     singleValue: true
-    xpath: //div[@class='row m-0 w-100'][10]/div[@class='col-6 col-md-3 border td p-2 odd-column'][2]
+    xpath: (//div[@class="card-body row d-flex justify-content-center col-12"]/div/div[contains(text(),'Manufacturer Warranty')])/following-sibling::div[1]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-  - name: weightGross
-    singleValue: true
-    xpath: //div[@class='row m-0 w-100'][3]/div[@class='col-6 col-md-3 border td p-2 odd-column'][1]
-    description: Stated shipping weight
+  - name: weightNet
+    singleValue: true 
+    xpath: (//div[@class="card-body row d-flex justify-content-center col-12"]/div/div[contains(text(),'Weight')])/following-sibling::div[1]
   - name: color
     singleValue: true
-    xpath: //p[@class="mt-3 mb-1"]//span[2]
+    xpath: (//div[@class="card-body row d-flex justify-content-center col-12"]//div//div[contains(text(),'Color')])[1]//following-sibling::div
   - name: promotion
     singleValue: true
     xpath: //div[@id='priceOptions']/div[@id='full-price']/div/p[@class='mt-0 text-danger']
@@ -76,9 +85,12 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[@class="text-center p2 pt-3"]/@data-first-file-path
+  - name: videoLength
+    singleValue: false
+    xpath: //div[@class="jw-group jw-controlbar-right-group jw-reset"]//span[@class="jw-text jw-reset jw-text-duration"]
   - name: name
     singleValue: true
-    xpath: //div[@id="itemDetailPage"]//div[@class="h3"]
+    xpath: //div[@id="itemDetailPage"]//div[@data-at-id="itemTitle"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected storeer
@@ -91,3 +103,12 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="slick-list draggable"]//img[@class="img-fluid img-thumbnail border-0 py-3"]/@src
+  - name: variantInformation
+    singleValue: true
+    xpath: (//div[@class="card-body row d-flex justify-content-center col-12"]//div//div[contains(text(),'Color')])[1]//following-sibling::div 
+  - name: variants
+    singleValue: false
+    xpath: (//div[@class="card-body row d-flex justify-content-center col-12"]//div//div[contains(text(),'Color')])[1]//following-sibling::div
+  - name: firstVariant
+    singleValue: true
+    xpath: (//div[@class="card-body row d-flex justify-content-center col-12"]//div//div[contains(text(),'Color')])[1]//following-sibling::div
