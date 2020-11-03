@@ -279,14 +279,14 @@ const transform = (data, context) => {
             const subscriptionPresent = row.subscriptionPrice ? 'YES' : 'NO';
             row.subscribeAndSave = [{ text: subscriptionPresent }];
 
-            Object.keys(row).forEach(header => {
-                // console.log('header ', header);
-                row[header].forEach(el => {
-                    // console.log('el', el);
-                    // console.log('el text', el.text);
-                    el.text = clean(el.text);
-                });
-            });
+            // Object.keys(row).forEach(header => {
+            //     // console.log('header ', header);
+            //     row[header].forEach(el => {
+            //         // console.log('el', el);
+            //         // console.log('el text', el.text);
+            //         el.text = clean(el.text);
+            //     });
+            // });
         }
     }
     return data;
