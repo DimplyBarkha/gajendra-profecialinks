@@ -18,6 +18,12 @@ fields:
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
+  - name: price
+    singleValue: false
+    type: CURRENCY
+    xpath: (//span[@class="price prio-30"])
+    regExp: (\d+),?(\d+).+
+    regExpReplace: $1.$2
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -34,12 +40,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-  - name: price
-    singleValue: true
-    type: CURRENCY
-    xpath: (//span[@class="price prio-30"])
-    regExp: (\d+),?(\d+).+
-    regExpReplace: $1.$2
+  # - name: price
+  #   singleValue: true
+  #   type: CURRENCY
+  #   xpath: (//span[@class="price prio-30"])
+  #   regExp: (\d+),?(\d+).+
+  #   regExpReplace: $1.$2
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
