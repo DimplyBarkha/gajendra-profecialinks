@@ -1,4 +1,4 @@
-const { transform } = require('./format');
+const { transform } = require('../../../../sharedAmazon/transformNew');
 const { implementation } = require('./sharedExtract')
 
 module.exports = {

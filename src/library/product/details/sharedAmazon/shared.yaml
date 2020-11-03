@@ -79,9 +79,9 @@ fields:
   - name: weightGross
     singleValue: false
     xpath: translate(//th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1]  | //th[contains(text(), ' Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text() | //td[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1], "(", "")
-  - name: gtin
-    singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1] | //span[contains(text(),"UPC") and contains(@class,"a-text")]//following-sibling::span
+  #- name: gtin
+  #  singleValue: false
+  #  xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1] | //span[contains(text(),"UPC") and contains(@class,"a-text")]//following-sibling::span
   - name: asin
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   - name: variantId
@@ -576,7 +576,6 @@ fields:
   - name: lowestPriceIn30Days
     singleValue: true
     xpath: //*[contains(text(),"owest") and contains(text(),"rice") and contains (text(),"30 days")]
-
   - name: rawDescription
     singleValue: false
     xpath: //div[@id="feature-bullets"]//ul/li[@id] | //div[@id="productDescription"]/*[not(@class="disclaim")]
