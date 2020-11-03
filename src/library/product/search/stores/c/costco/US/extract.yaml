@@ -1,3 +1,4 @@
+
 singleRecord: false
 regionsSelector: null
 recordSelector: null
@@ -18,28 +19,27 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //div[@class='stars']//div[@class='ratings-number']
-    regExp: \d+
+    # regExp: \d+
   - name: ratingCount
     singleValue: false
     xpath: //div[@class='stars']//div[@class='ratings-number']
-    regExp: \d+
+    # regExp: \d+
   - name: price
     singleValue: false
     xpath: //div[@class="caption"]//div[contains(@id,"price")] | //div[@class="caption"]//div[contains(@class,"price")] | //div[@class='price']
-  - name: manufacturer
-  - name: aggregateRating2
-    singleValue: false
-    xpath: //div[@class='ratings row']/div/@aria-label
-    type: number
-    regExp: >-
-      Rated (\d(\.?\d+)?) out
-    regExpReplace: $1
+  # - name: aggregateRating2
+  #   singleValue: false
+  #   xpath: //div[@class='ratings row']/div/@aria-label
+  #   type: number
+    # regExp: >-
+    #   Rated (\d(\.?\d+)?) out
+    # regExpReplace: $1
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class='ratings row']/div/@aria-label
     type: number
-  # - name: rankOrganic
-  # - name: rank
-  # - name: sponsored
-  #   defaultValue: truesingleRecord: true
+  - name: rankOrganic
+  - name: rank
+  - name: sponsored
+    # defaultValue: truesingleRecord: true
     

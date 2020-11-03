@@ -19,10 +19,10 @@ module.exports = {
       if (videoLink !== '') {
         arr.push(videoLink);
       }
-      // document.querySelectorAll('#vjs_video_1_html5_api').forEach(item => {
-      //   const videoUrl = item.getAttribute('src');
-      //   arr.push(videoUrl);
-      // });
+      document.querySelectorAll('#vjs_video_1_html5_api').forEach(item => {
+        const videoUrl = item.getAttribute('src');
+        arr.push(videoUrl);
+      });
       const id = document.querySelector('#product-body-item-number') ? document.querySelector('#product-body-item-number').textContent.match(/(\d+)/g) : '';
       if (id !== '') {
         const url = `https://cors-anywhere.herokuapp.com/https://sc.liveclicker.net/service/api?method=liveclicker.widget.getList&account_id=69&dim5=${id}&format=json`;

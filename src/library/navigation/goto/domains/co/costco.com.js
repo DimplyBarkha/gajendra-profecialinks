@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'costco.com',
     country: 'US',
-    store: 'costco_lg',
+    store: 'costco',
     zipcode: '',
   },
   implementation: async ({ url, zipcode }, parameters, context, dependencies) => {

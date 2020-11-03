@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     domain: 'costco.com',
-    store: 'costco_lg',
+    store: 'costco',
     zipcode: '',
   },
 };
