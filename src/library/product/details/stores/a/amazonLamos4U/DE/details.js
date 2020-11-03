@@ -5,6 +5,6 @@ module.exports = {
     country: 'DE',
     store: 'amazonLamos4U',
     domain: 'amazon.de',
-    zipcode: '10117',
+    // zipcode: '10117',
   },
 };
