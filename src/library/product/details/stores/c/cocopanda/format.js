@@ -23,7 +23,13 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
+      var skuText='';
       for (let row of group) {
+        if(row.sku){
+          row.sku.forEach(item=>{
+            skuText=item.text;
+          });
+        }
         if(row.price){
           row.price.forEach(item => {
             item.text=item.text.slice(0, -2);
@@ -46,9 +52,9 @@ const transform = (data) => {
         if(row.variantId){
           console.log('variantId');
         }else{
-          row.sku.forEach(item=>{
-            row.variantId=[{"text":item.text}];
-          })
+          if(skuText!=''){
+            row.variantId=[{"text":skuText}];
+          }
         }
         if(row.aggregateRating){
           row.aggregateRating.forEach(item => {
@@ -75,6 +81,13 @@ const transform = (data) => {
           })
           row.variantCount=[{"text":info.length}];
           row.variants=[{"text":info.join(" || ")}];
+        }
+        if(row.description){
+          var info=[];
+          row.description.forEach(item=>{
+            info.push(item.text);
+          })
+          row.description=[{"text":info.join(" | ")}];
         }
       }
     }
