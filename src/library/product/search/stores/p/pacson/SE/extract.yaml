@@ -24,6 +24,13 @@ fields:
     singleValue: false
     type: CURRENCY
     xpath: (//span[@class="price prio-30"])
+    regExp: (\d+),?(\d+).+
+    regExpReplace: $1.$2
   - name: name
     singleValue: false
     xpath: (//span[@class="product__name"]/span)
+  - name: rankOrganic
+    singleValue: false
+    xpath: //html//div[@id='altImages']
+  
+
