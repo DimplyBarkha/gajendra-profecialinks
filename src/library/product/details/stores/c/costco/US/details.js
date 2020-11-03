@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: 'product/details',
   parameterValues: {
     country: 'US',
+    store: 'costco',
     domain: 'costco.com',
-    store: 'costco_lg',
     zipcode: '',
   },
 };
