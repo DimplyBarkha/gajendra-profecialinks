@@ -1,0 +1,56 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='product-item']
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@id='product-item']/@data-product-id
+  - name: searchUrl
+    xpath: //div[@class='product-item']/@searchurl
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-name']//span/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='product-name']//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.teknosa.com$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='product-image']//a/img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product-price visible-grid-view clearfix']/span[last()]/text()
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@class='product-detail']//img/@alt
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+    xpath: //div[@class='product-list-badge-item']/span/text()
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: //div[@id='pd_rank']
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div[@id='pd_rank']
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
