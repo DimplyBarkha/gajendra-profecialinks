@@ -1,6 +1,8 @@
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
+  await new Promise((resolve, reject) => setTimeout(resolve, 50000));
+
   await context.evaluate(() => {
     function addProp (selector, iterator, propName, value) {
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
