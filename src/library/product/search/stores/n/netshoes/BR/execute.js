@@ -6,8 +6,8 @@ module.exports = {
     store: 'netshoes',
     domain: 'netshoes.com.br',
     url: 'https://www.netshoes.com.br/busca?q={searchTerms}',
-    loadedSelector: 'section.ff-ajax-price',
-    noResultsXPath: '//div[contains(@class,"no-results")]//h2',
+    loadedSelector: 'section.search-list',
+    noResultsXPath: '//div[contains(@class, "no-results")]//h2[contains(text(), "Não foi possível encontrar resultados para o termo procurado")]',
     zipcode: "''",
   },
 };

@@ -5,7 +5,7 @@ recordXPath: //div[@id="item-list"]//div[contains(@class, "card-desktop")]
 fields: 
   - name: id
     singleValue: false
-    xpath: //section[@class="ff-ajax-price"]/@data-sku-ref
+    xpath: //div[@class="item-card__images"]//a/@data-product-code
   - name: rankOrganic
   - name: name
     singleValue: false
