@@ -1,3 +1,4 @@
+
 /**
  *
  * @param {ImportIO.Group[]} data
@@ -42,7 +43,7 @@ const transform = (data) => {
           prodData = prodData[0];
           if (prodData) {
             row.aggregateRating = prodData.aggregateRating && prodData.aggregateRating.ratingValue ? [{ text: prodData.aggregateRating.ratingValue }] : [];
-            prodData.sku ? row.sku = [{ text: prodData.sku }] : row.sku = [];
+            prodData.sku ? row.variantId = [{ text: prodData.sku }] : row.variantId = [];
             prodData.gtin13 ? row.eangtin = [{ text: prodData.gtin13 }] : row.eangtin = [];
           }
         }
@@ -76,6 +77,40 @@ const transform = (data) => {
         }
         specStr = specStr.substring(0, specStr.lastIndexOf('|| '));
         row.specifications = [{ text: specStr }];
+      }
+
+      if (row.weightNet) {
+        let netWeight = row.weightNet[0].text;
+        if (netWeight.includes('/')) {
+          netWeight = netWeight.split('/')[1];
+        }
+        row.weightNet = [{ text: netWeight }];
+      }
+
+      if (row.image) {
+        let imageData = row.image[0].text;
+        imageData = imageData.substring(imageData.indexOf("'/media") + 1, imageData.indexOf("',"));
+        row.image = [{ text: `https://www.mediaexpert.pl${imageData}` }];
+      }
+
+      if (!row.image && row.productSingleImage) {
+        row.image = row.productSingleImage;
+        let imageData = row.image[0].text;
+        imageData = imageData.substring(imageData.indexOf("'/media") + 1, imageData.indexOf("',"));
+        row.image = [{ text: `https://www.mediaexpert.pl${imageData}` }];
+        row.imageAlt = row.productSingleImageAltText ? row.productSingleImageAltText : [];
+        if (row.alternateImages) {
+          delete row.alternateImages;
+          delete row.secondaryImageTotal;
+        }
+      }
+
+      if (row.manufacturerDescription) {
+        let enhancedContent = '';
+        for (let i = 0; i < row.manufacturerDescription.length; i++) {
+          enhancedContent += row.manufacturerDescription[i].text + ' ';
+        }
+        row.manufacturerDescription = [{ text: enhancedContent }];
       }
     }
   }

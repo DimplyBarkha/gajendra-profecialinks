@@ -1,0 +1,9 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    xpath: //html[count(//div[contains(@class, 'c-offerBox_variantsContent')]) > 0]//div[contains(@class, 'c-offerBox_variantsContent')]/div[not(contains(@class, 'is-active'))]//div[contains(@class, 'c-offerBox_photo')]/@data-offer-id | //html[count(//div[contains(@class, 'c-offerBox_variantsContent')]) = 0]//meta[contains(@property,'product:retailer_part_no')]/@content
+  - name: variantUrl
+    xpath: //html[count(//div[contains(@class, 'c-offerBox_variantsContent')]) > 0]//div[contains(@class, 'c-offerBox_variantsContent')]/div[not(contains(@class, 'is-active'))]//div[contains(@class, 'c-offerBox_photo')]/a/@href | //html[count(//div[contains(@class, 'c-offerBox_variantsContent')]) = 0]//meta[contains(@property,'og:url')]/@content
