@@ -48,6 +48,16 @@ const transform = (data) => {
           delete row.listPrice;
         };
       }
+      if (row.quantity) {
+        if (row.quantity.length > 1) {
+          row.quantity = [{
+            text: row.quantity[row.quantity.length - 1].text,
+          }];
+        }
+      }
+      if (row.mpc && row.sku) {
+        row.mpc[0].text = row.sku[0].text;
+      }
     }
   }
   const clean = text => text.toString()

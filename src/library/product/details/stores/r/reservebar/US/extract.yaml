@@ -42,7 +42,7 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //div[@class='product__description is-visible']
-    regExp: Bottle Size:\s*(\S+)
+    regExp: ([A-Za-z]+[\d@]+[\w@]*|[\d@]+[A-Za-z]+[\w@]*)
     regExpReplace: $1
   - name: sku
     singleValue: false
@@ -56,3 +56,6 @@ fields:
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class,'cocktail__image-ir')]//img/@src
+  - name: mpc
+    singleValue: false
+    xpath: (//script[@type="application/ld+json"][contains(text(),"mpn")])[1]
