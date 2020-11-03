@@ -25,11 +25,6 @@ const transform = (data) => {
     for (const { group } of data) {
       var skuText='';
       for (let row of group) {
-        if(row.sku){
-          row.sku.forEach(item=>{
-            skuText=item.text;
-          });
-        }
         if(row.price){
           row.price.forEach(item => {
             item.text=item.text.slice(0, -2);
@@ -73,14 +68,6 @@ const transform = (data) => {
             tot++;
           })
           row.secondaryImageTotal=[{"text":tot}];
-        }
-        if(row.variants){
-          var info=[];
-          row.variants.forEach(item=>{
-            info.push(item.text);
-          })
-          row.variantCount=[{"text":info.length}];
-          row.variants=[{"text":info.join(" || ")}];
         }
         if(row.description){
           var info=[];
