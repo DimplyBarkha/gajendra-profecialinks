@@ -30,13 +30,13 @@ fields:
     xpath: //div[contains(@itemprop,'offers')]//div[contains(@class,'productPrice_price-reg')]
   - name: price
     singleValue: true    
-    xpath: //div[contains(@itemprop,'offers')]//div[contains(@class,'productPrice_price-sale')]
+    xpath: //meta[@name="productPrice"]/@content
   - name: availabilityText
     singleValue: true    
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-    xpath: //div[contains(@class,'prodItemStock')]//button/text()
+    xpath: //meta[@name="ProductAvailability" and @content="In Stock"]
   - name: description
     singleValue: false    
     xpath: //div[contains(@class,'pipWineNotes')]//div[contains(@itemprop,'description')]
