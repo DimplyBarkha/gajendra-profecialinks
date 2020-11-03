@@ -121,7 +121,7 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
-  xpath: //h5[@class="product-shipping__type"]
+  xpath: //div[@class="deliveryInfo"]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -405,9 +405,9 @@ fields:
   singleValue: true
   description: Recycling information associated with the product
 - name: productOtherInformation
-  singleValue: false
+  singleValue: true
   description: Any other product information
-  xpath: (//h4[@class="product-facts__type"]) | (//h4[@class="product-facts__type"]/following-sibling::p[@class="product-facts__data"])
+  xpath: //div[@class='otherProdInfo']
 - name: packaging
   singleValue: true
   description: Packaging information
