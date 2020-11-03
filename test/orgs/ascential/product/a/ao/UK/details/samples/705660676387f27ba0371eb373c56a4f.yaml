@@ -1,0 +1,115 @@
+input:
+  _url: http://ao.com
+  URL: https://ao.com/product/480003-morphy-richards-fryer-black-66151-97.aspx?cmredirectionvalue=480001_BK
+extractions:
+  - html: https://workbench.import.io/html/run=20f073db-64f3-4a9f-af59-70d05b9d1fc8/task=642ae637-b1ee-4d65-9b64-3d6dd775f4f6/326e66f6-28c1-4acf-adb1-3ccff40a8dd4.html
+    extractionConfigId: product/details/stores/a/ao/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://assets.products-live.ao.com/Images/464719f8-6ccd-4a7b-a31f-0421a25ac4bb/1280x1280/480003_bk_morphyrichards_fryer_01.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Morphy Richards 480003 Fryer - Black
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://assets.products-live.ao.com/Images/44367a6c-d631-493b-bf69-075bbcc91cf4/1280x1280/480003_bk_morphyrichards_fryer_02.jpg
+                xpath: /html/body/div[14]
+              - text: https://assets.products-live.ao.com/Images/b4cba6fe-bd0f-431f-8da8-3654c41e1d41/1280x1280/480003_bk_morphyrichards_fryer_03.jpg
+                xpath: /html/body/div[15]
+              - text: https://assets.products-live.ao.com/Images/922b3788-ea85-4f8f-afd5-db07f787ebe1/1280x1280/480003_bk_morphyrichards_fryer_04.jpg
+                xpath: /html/body/div[16]
+              - text: https://assets.products-live.ao.com/Images/04eed29e-0a4d-4511-9025-600ceaec57ef/1280x1280/480003_bk_morphyrichards_fryer_05.jpg
+                xpath: /html/body/div[17]
+              - text: https://assets.products-live.ao.com/Images/e1bf29ae-2162-4b3d-94aa-12900720f859/1280x1280/480003_bk_morphyrichards_fryer_06.jpg
+                xpath: /html/body/div[18]
+            metaKeywords:
+              - text: Fryer, Morphy Richards, 480003, Free Standing, Black
+                xpath: /html/head[1]/meta[14]/@content
+            category:
+              - text: Small Appliances
+                xpath: /html/body/div[20]
+              - text: Small Cooking Appliances
+                xpath: /html/body/div[21]
+              - text: Fryers
+                xpath: /html/body/div[22]
+            nameExtended:
+              - text: Morphy Richards 480003 Fryer - Black
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/h1[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[9]
+            brandText:
+              - text: Morphy Richards
+                xpath: /html/body/div[23]
+            manufacturer:
+              - text: Morphy
+                xpath: /html/body/div[10]
+            gtin:
+              - text: Morphy Richards 480003
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[5]
+            sku:
+              - text: 480003_BK
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[2]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            variantId:
+              - text: 480003_BK
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/section[2]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/div[2]/a[3]/span[1]
+            aggregateRatingText:
+              - text: Read 3 customer reviews
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/div[2]/a[3]
+            aggregateRating2:
+              - text: 4,3
+                xpath: /html/body/div[1]/div[1]/main[1]/div[4]/div[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/span[1]/span[1]
+            name:
+              - text: Morphy Richards 480003 Fryer - Black
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[2]/section[1]/h1[1]
+            specifications:
+              - text: Dimensions (H)32.0 x (W)35.0 x (D)28.0 Auto Shut Off Yes Food Capacity 3
+                  Kg Fryer Type Health Fryer Grill Yes Manual Control Yes Power
+                  1400 Watt Timer Yes Variable Temperature Yes Viewing Window No
+                  Cool Touch Handles Yes Dishwasher Safe Components No Easy
+                  Clean Yes Rapid Air Technology Yes Removable Bowl Yes Safety
+                  Locking Lid No Brand Morphy Richards Category Fryers Colour
+                  Black Dimensions (H)32.0 x (W)35.0 x (D)28.0 SKU 480003_BK
+                  Bake Yes Defrost Function Yes Roast Yes Extra Large Capacity
+                  Yes Fry Yes Manufacturer Warranty
+                xpath: /html/body/div[19]
+            additionalDescBulletInfo:
+              - text: "||Has a 3kg food capacity||Set the timer for perfectly cooked
+                  food||Clever tech cooks food quickly and
+                  thoroughly||Easy-to-use manual dials||Quick and easy to clean
+                  - saving time and effort"
+                xpath: /html/body/div[12]
+            Image360Present:
+              - text: No
+                xpath: /html/body/div[11]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            price:
+              - text: 69.0 GBP
+            description:
+              - text: " ||Has a 3kg food capacity||Set the timer for perfectly cooked
+                  food||Clever tech cooks food quickly and
+                  thoroughly||Easy-to-use manual dials||Quick and easy to clean
+                  - saving time and effort"
+            descriptionBullets:
+              - text: "5"
+            variantCount:
+              - text: "0"
+            warranty:
+              - text: |
+                  
+                  2 Year
+        xpath: /
+    timestamp: 1604012612886
