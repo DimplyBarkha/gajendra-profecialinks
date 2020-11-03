@@ -30,8 +30,6 @@ fields:
   - name: availabilityText
     singleValue: true
     xpath: //div[@class="wishlist-action nostock"]/@style
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[@id="product-description"]/p[not(contains(@class,"product-number"))]
@@ -75,5 +73,8 @@ fields:
     singleValue: false
     xpath: //div[@class="option-field"]//div[contains(@class,"attr-color")]/div[@class="radio-container"]//input[@type="radio"]/@data-attribute-value-id
   - name: imageZoomFeaturePresent
-    singleValue: true
+    singleValue: false
     defaultValue: Yes
+  - name: variantCount
+    singleValue: false
+    defaultValue: 1
