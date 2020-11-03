@@ -1,32 +1,44 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //li[contains(@class, "product-card")]
 fields:
   - name: id
-    singleValue: false
+    singleValue: true
+    xpath: //@data-sku
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //span[@class="productList__itemTitle"]
   - name: productUrl
     singleValue: false
+    xpath: //a[contains(@class, "product__overlayLink")]/@href
+    regExp: (.+)
+    regExpReplace: brack.ch$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //img[contains(@class, "productList__itemImage")]/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
+    type: STRING
     singleValue: false
+    xpath: //a[contains(@class, "ratingStars")]/@data-rating
   - name: reviewCount
     singleValue: false
   - name: ratingCount
     singleValue: false
+    xpath: //span[@class="rating__count"]
+    regExp: \d+
   - name: price
     singleValue: false
+    xpath: //div[@class="currentPrice"]
   - name: manufacturer
-    singleValue: true
+    singleValue: false
+    xpath: //span[@class="productList__itemManufacturer"]
   - name: soldBy
     singleValue: true
   - name: endorsementText
@@ -35,10 +47,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //@rankorganic
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
