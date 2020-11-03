@@ -40,9 +40,6 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-  - name: description
-    singleValue: false
-    xpath: //div[@id="added-description"]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -60,7 +57,7 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
-    xpath: //td[contains(text(),"Peso sin Base (kg)")]//following-sibling::td
+    xpath: //td[text()="Peso sin Base (kg)"]//following-sibling::td
     description: Net weight as described on the page
   - name: weightGross
     singleValue: false
@@ -79,6 +76,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: false
+    xpath: //td[contains(text(), "Modelo")]//following-sibling::td
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
@@ -115,9 +113,12 @@ fields:
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
+  - name: description
+    singleValue: false
+    xpath: //div[@class="description-table"]//descendant::text()[not(contains(@id,'inpage_container'))]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="added-manufacturerDesc"]
+    xpath: //div[@class="description-table"]//descendant::*[(contains(@id,'inpage_container'))]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false

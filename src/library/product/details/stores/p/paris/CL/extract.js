@@ -11,7 +11,6 @@ const { transform } = require('../format');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -20,12 +19,16 @@ async function implementation (inputs, parameters, context, dependencies) {
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    function loadResults () {
-      const loadMoreButtonSelector = document.querySelector('a[class*="read-me"]');
-      if (loadMoreButtonSelector) {
-        loadMoreButtonSelector.click();
-      }
+    const loadMoreButtonSelector = await document.querySelector('a[class*="read-me"]');
+    if (loadMoreButtonSelector) {
+      await loadMoreButtonSelector.click();
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, 2000);
+      });
     }
+
     function fetchDetailsFromScript () {
       const scriptTagSelector = document.querySelector('script[type="application/ld+json"]');
       const scriptTagData = scriptTagSelector ? scriptTagSelector.innerText : '';
@@ -47,18 +50,8 @@ async function implementation (inputs, parameters, context, dependencies) {
       const technicalInfoFlag = technicalInfoSelector ? 'Yes' : 'No';
       addHiddenDiv('added_technicalInfo', technicalInfoFlag);
     }
-    loadResults();
     fetchDetailsFromScript();
     fetchTechnicalInfo();
-    // If images are present in description then add to manufacturerDescription else add to description
-    const descriptionSelector = document.evaluate('//div[contains(@class, "description-table")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    const description = descriptionSelector ? descriptionSelector.innerText : '';
-    const manufacturerImageFlag = document.querySelector('div[class="description-table"] img,div[id="content"] img,div[class="caracteristicas"] img');
-    if (manufacturerImageFlag) {
-      addHiddenDiv('added-manufacturerDesc', manufacturerImageFlag);
-    } else {
-      addHiddenDiv('added-description', description);
-    }
   });
   await new Promise((resolve) => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });

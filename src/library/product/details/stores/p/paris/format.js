@@ -71,6 +71,21 @@ const transform = (data) => {
           variantIdItem.text = variantIdItem.text.replace(/[^\d]/gm, '');
         });
       }
+      const descriptionArray = [];
+      if (row.manufacturerImages) {
+        row.description = [{ text: '' }];
+      }
+      if (row.description) {
+        row.description.forEach(descriptionItem => {
+          descriptionArray.push(descriptionItem.text);
+        });
+      }
+      row.description = [{ text: descriptionArray.join() }];
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          item.text = (item.text.includes('http')) ? item.text : 'https:' + item.text;
+        });
+      }
     }
   }
   return data;
