@@ -7,7 +7,7 @@ module.exports = {
     domain: 'holmesproducts.com',
     url: 'https://www.holmesproducts.com/search?q={searchTerms}',
     loadedSelector: 'ul[id*="search-result-items"]',
-    noResultsXPath: '//div[contains(@class,"responsive-slot no-hits-container")]',
+    noResultsXPath: '//div[contains(@class,"responsive-slot no-hits-container")] | //div[contains(@id,"primary")]/p[contains(text(),"resulted in no products")]',
     zipcode: '',
   },
 };
