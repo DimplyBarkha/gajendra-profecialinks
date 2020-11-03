@@ -2,7 +2,7 @@ input:
   id: APRBC63
   _url: http://bhphotovideo.com
 extractions:
-  - html: https://workbench.import.io/html/run=f9a9f860-f500-4480-962e-892d33cd750e/task=dfb5a054-d573-4821-a712-dc04dae11b61/839c48b8-58d7-47b4-a975-aca8d75f00ec.html
+  - html: https://workbench.import.io/html/run=525f405c-c632-42ba-9283-bacf67a8933a/task=e7e5f0ea-9757-4d2f-90bf-c40979844a3f/7865b4e2-efc2-4ccc-aee4-6da8be985be2.html
     extractionConfigId: product/details/stores/b/bhphotovideo/US/extract
     data:
       - group:
@@ -34,6 +34,14 @@ extractions:
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+            description:
+              - text: "The APC RBC #63 Battery Cartridge is a replacement battery for S-type
+                  power conditioners with battery backup. It is a
+                  maintenance-free sealed lead-acid battery with suspended
+                  electrolyte."
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/article[1]/div[1]/div[1]/div[1]
+              - text: Enclosed battery cartridge
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]
             brandText:
               - text: APC
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]/a[1]/img[1]/@alt
@@ -47,13 +55,13 @@ extractions:
               - text: "500066"
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[6]/div[1]/a[1]/@href
             ratingCount:
-              - text: "8"
+              - text: "11"
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/span[1]/div[1]/a[1]/span[2]
             aggregateRating:
               - text: "5"
                 xpath: /html/body/@rating
             shippingInfo:
-              - text: Calculate Shipping
+              - text: Free Expedited Shipping
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/span[1]/button[1]
             shippingDimensions:
               - text: 16.5 x 10.5 x 8.5"
@@ -78,7 +86,7 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[5]/div[1]/div[2]/aside[1]/div[1]/div[1]/ul[1]/li[2]
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[6]/div[5]/section[1]/div[1]
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[6]/div[4]/section[1]/div[1]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -90,4 +98,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1604315747934
+    timestamp: 1604402415206
