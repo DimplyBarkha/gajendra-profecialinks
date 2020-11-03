@@ -14,20 +14,28 @@ module.exports = {
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
-        catElement.id = key;
+        catElement.className = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      const getXpath = (xpath, prop) => {
+        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+
       const sliceURL = (data) => {
         var cnt = 0;
         for (let index = 0; index < data; index++) {
           cnt++;
-          addElementToDocument('rankOrganic',cnt);
+          addElementToDocument('rank1', cnt);
         }
       };
-      var backgroundURL = document.querySelectorAll('.tile-column.details').length;
-      sliceURL(backgroundURL);
+      const result = getXpath("//span[@class='results']/text()", 'nodeValue');
+      sliceURL(parseInt(result));
     });
     return await context.extract(productDetails, { transform });
   },
