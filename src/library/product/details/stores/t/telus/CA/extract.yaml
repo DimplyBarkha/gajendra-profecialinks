@@ -88,6 +88,12 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: 0
+  - name: shippingInfo
+    singleValue: true
+    xpath: //script[contains(text(),'seller')]
+    #"seller":{"name":"TELUS"
+    regExp: \"seller\".+?\"name\"\:\"(.+?)\"
+    regExpReplace: $1
   # - name: gtin
   #   singleValue: true
   #   xpath: //html
