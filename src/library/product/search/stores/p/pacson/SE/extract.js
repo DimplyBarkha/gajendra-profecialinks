@@ -8,4 +8,6 @@ module.exports = {
     domain: 'pacson.se',
     zipcode: '',
   },
+  implementation,
 };
+  

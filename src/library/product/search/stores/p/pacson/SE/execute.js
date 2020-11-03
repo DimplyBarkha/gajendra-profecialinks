@@ -5,7 +5,7 @@ module.exports = {
     country: 'SE',
     store: 'pacson',
     domain: 'pacson.se',
-    url: 'https://pacson.se/sokresultat?q={searchTerms}',
+    url: 'https://pacson.se/sokresultat?q=Dispenser',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',

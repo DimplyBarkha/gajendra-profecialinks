@@ -4,23 +4,26 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: thumbnail
-    singleValue: single
-    xpath: (//a[@class="product__image-link"]/img)/@src
-    regExp: (storage/.*)
-    regExpReplace: https://pacson.se/$1
+    singleValue: false
+    # xpath: //div[@id="altImages"]
+    xpath: //a[@class="product__image-link"]/img/@src
+    # regExp: (storage/.*)
+    regExp: (/.+)
+    regExpReplace: https://pacson.se$1
+  - name: productUrl
+    singleValue: false
+    xpath: //ul[@class="row product-list"]/li/figure[@class="product__figure"]/a/img/@src
+    # xpath: (//figure[@class="product__figure"]/a)/@href
+    # regExp: (sortiment/.*)
+    regExp: (/.+)
+    regExpReplace: https://pacson.se$1
   - name: id
-    singleValue: single
+    singleValue: false
     xpath: (//span[@class="product__name__productitemno"])
   - name: price
-    singleValue: single
+    singleValue: false
     type: CURRENCY
     xpath: (//span[@class="price prio-30"])
   - name: name
     singleValue: false
     xpath: (//span[@class="product__name"]/span)
-  - name: productUrl
-    singleValue: single
-    xpath: (//ul[@class="row product-list"]/li/figure/a)/@href
-    # xpath: (//figure[@class="product__figure"]/a)/@href
-    regExp: (sortiment/.*)
-    regExpReplace: https://pacson.se/$1
