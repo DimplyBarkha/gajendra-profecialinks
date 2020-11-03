@@ -1,46 +1,8 @@
-extends: ../shared
+extends: ../../../../sharedAmazon/shared
 fields:
-  - name: image
-    singleValue: false
-    xpath: (//img[@id="landingImage"])[1]/@src
-  - name: imageAlt
-    singleValue: false
-    xpath: (//img[@id="landingImage"])[1]/@alt
-  - name: alternateImages
-    singleValue: false
-    xpath: //li[contains(@class, "imageThumbnail")][position()>1]//img/@src
-    regExp: (https.+\.com[^\.]+)
-    regExpReplace: $1.jpg
-  - name: metaKeywords
-    singleValue: false
-    xpath: //meta[contains(@name, "keywords")]/@content
-  - name: category
-    singleValue: false
-    xpath: //div[@id='wayfinding-breadcrumbs_feature_div']/ul/li/span/a
   - name: nameExtended
     singleValue: false
     xpath: //h1[@id='title']
-  - name: listPrice
-    singleValue: false
-    xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
-  - name: price
-    singleValue: false
-    xpath: //*[@id="priceblock_ourprice"]
-  - name: availabilityText
-    singleValue: false
-    xpath: //*[@id='availability']/span
-  - name: description
-    singleValue: false
-    xpath: (//span[contains(text(), 'Descripción del producto')]//parent::h3)[1]/following-sibling::p[1 = count(preceding-sibling::h3[1] | (//span[contains(text(), 'Descripción del producto')]//parent::h3)[1])]
-  - name: descriptionBottom
-    singleValue: false
-    xpath: //*[@id="productDescription"]/p
-  - name: descriptionBullets
-    singleValue: false
-    xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)]|//span[contains(text(), "Descripción del producto")]//parent::h3//following-sibling::p[1]//li)
-  - name: brandText
-    singleValue: false
-    xpath: //*[@id='bylineInfo'] | //a[@id='brand']
   - name: quantity
     singleValue: false
     xpath: //td[contains(text(), 'Peso')]/following-sibling::*[1] | //div[@class='content']/ul/li/b[contains(text(), 'Peso')]/parent::*[1]/text() | //div[@class='content']/ul/li/b[contains(text(), 'Dimensiones')]/parent::*[1]/text() | //th[contains(text(), 'Peso')]/following-sibling::*[1]
@@ -52,15 +14,6 @@ fields:
   - name: weightGross
     singleValue: false
     xpath: //td[contains(text(), 'Paketgewicht')]/following-sibling::*[1]
-  - name: sku
-    singleValue: false
-    xpath: (//*[@data-asin])[1]/@data-asin
-  - name: asin
-    singleValue: false
-    xpath: //li[contains(.,'ASIN')]//span//span[2] | (//*[@data-asin])[1]/@data-asin
-  - name: mpc
-    singleValue: false
-    xpath: //td[contains(text(), 'Series')]/following-sibling::*[1]|//div[contains(@id, "detailBullets_feature_div")]//li//span[contains(text(), "Número de modelo del producto")]//parent::span//span[2]
   - name: packSize
     singleValue: false
     xpath: //h1[@id='title'] | (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Peso')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Peso')]/* | //label[contains(text(), 'Peso')]/following-sibling::*[1])[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Número de unidades en el paquete')]/../td | //td[contains(text(),'Cantidad')]/following-sibling::*[1]
@@ -72,19 +25,6 @@ fields:
   - name: warnings
     singleValue: false
     xpath: //*[contains(text(), 'seguridad')]/following-sibling::*[1]
-  - name: ratingCount
-    singleValue: false
-    xpath: //*[@id="acrCustomerReviewText"]/text()
-    regExp: ([0-9.]{1,}) valoraciones
-    regExpReplace: $1
-  - name: aggregateRatingText
-    singleValue: false
-    xpath: //*[@id="acrPopover"]/@title
-  - name: aggregateRating
-    singleValue: false
-    xpath: //*[@id="acrPopover"]/@title
-    regExp: ([0-9\,]{1,}) de
-    regExpReplace: $1
   - name: shippingInfo
     singleValue: false
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
@@ -102,159 +42,11 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //li[contains(.,'Fabricante')]//span//span[2] | //td[contains(text(), 'Hersteller')]/following-sibling::*[1] | //td/a[contains(text(), 'Hersteller')]/parent::*[1]/following-sibling::*[1] | //th[contains(text(), 'Hersteller')]/following-sibling::*[1]
-  - name: manufacturerDescription
-    singleValue: false
-    xpath: //*[@id="added-enhanced-content"]
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //div[@cel_widget_id="aplus"]//img/@src
-  - name: videos
-    singleValue: false
-    xpath: //script[contains(text(), 'durationTimestamp')]
-    regExp: url":"(.{30,300})"\,"videoHeight
-    regExpReplace: $1
-  - name: amazonChoice
-    singleValue: false
-    xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]
-    regExp: (.+)
-    regExpReplace: 'Yes'
-    defaultValue:  'No'
-  - name: amazonChoiceCategory
-    singleValue: false
-    xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-for-text")]//text()
   - name: brandLink
     singleValue: false
     xpath: //a[@id="bylineInfo"]/@href | //a[@id='brand']/@href
     regExp: (.+)
     regExpReplace: https://www.amazon.es$1
-  - name: salesRank
-    singleValue: false
-    xpath: //*[@id="SalesRank"]/text()[contains(., "º")] | //*[@id="SalesRank"]//span[contains(., "°")]
-    regExp: ([0-9]+.[0-9]{1,})
-    regExpReplace: $1
-  - name: salesRankCategory
-    singleValue: false
-    xpath: //*[@id="SalesRank"]/*[contains(text(), "en")]/text() | //*[@id="SalesRank"]//span[contains(., "en")]/a
-    regExp: ((?:\S*[A-Z]){1}[A-Za-z\s&!@#^*$+-]{1,})
-    regExpReplace: $1
-  - name: subscriptionPrice
-    singleValue: false
-    xpath: //*[@id="sns-base-price"]
-    regExp: ([^ ]+)
-    regExpReplace: $1
-  - name: subscribeAndSave
-    singleValue: false
-    xpath: //*[@id="sns-base-price"]
-    regExp: ([^ ]+)
-    regExpReplace: 'YES'
-    defaultValue: 'NO'
   - name: gtin
     singleValue: false
     xpath: //li/b[contains(text(), 'Número de modelo del producto')]/following::text()[1]
-  - name: pasin
-    singleValue: false
-    xpath: //script[contains(text(), 'parentAsin')]
-    regExp: parentAsin"\s:\s"(\S+)
-    regExpReplace: $1
-  - name: videoLength
-    singleValue: false
-    xpath: //script[contains(text(), 'durationTimestamp')]
-    regExp: (\d+:\d+)
-    regExpReplace: $1
-  - name: ingredientImagePresent
-    singleValue: false
-    xpath: //script[contains(text(),"INGR")]
-    regExp: (.+)
-    regExpReplace: 'Yes'
-    defaultValue: NO
-  - name: factImagePresent
-    singleValue: false
-    xpath: //script[contains(text(),"FACT")]
-    regExp: (.+)
-    regExpReplace: 'Yes'
-    defaultValue: NO
-  - name: largeImageCount
-    singleValue: false
-    xpath: //script[contains(., "ImageBlockATF")]/text()
-  - name: variantAsins
-    singleValue: false
-    xpath: //script[contains(text(),"asinVariationValues")] | //*[contains(@id, 'twisterContainer')]//option/@value
-    regExp: >-
-        "ASIN":\s*"([^\"]+)
-    regExpReplace: $1
-  - name: primeFlag
-    singleValue: false
-    xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
-    regExp: (.+)
-    regExpReplace: 'Yes'
-    defaultValue: NO
-  - name: lbb
-    singleValue: false
-    xpath: //div[@id='ii_lbb']
-  - name: lbbPrice
-    singleValue: false
-    xpath: //div[@id='ii_lbbPrice']
-  - name: featureBullets
-    singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
-  - name: otherSellersName
-    singleValue: false
-    xpath: //div[@id='pd_otherSellerName'] 
-  - name: otherSellersPrice
-    singleValue: false
-    xpath: //div[@id='pd_otherSellersPrice']
-  - name: otherSellersPrime
-    singleValue: false
-    xpath: //div[@id='pd_otherSellersPrime']
-  - name: otherSellersShipping2
-    singleValue: false
-    xpath: //div[@id='pd_otherSellersShipping2']
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
-  - name: news
-    singleValue: false
-    description: null
-  - name: andon_cord
-    singleValue: false
-    defaultValue: No
-  - name: fastTrack
-    singleValue: false
-    xpath: //*[@id="ddmDeliveryMessage"]
-  - name: ingredientsList
-    singleValue: false
-    xpath: //h3[contains(text(), 'Ingredientes')]/following-sibling::*[1]
-  - name: promotion
-    singleValue: false
-    xpath: //td[contains(@id, 'priceblock_dealprice_lbl')]
-  - name: alcoholContent
-    singleValue: false
-    xpath: //td[contains(text(), 'Contenido de alcohol')]/following-sibling::*[1]
-  - name: variantId
-    xpath: //li[contains(.,'ASIN')]//span//span[2]
-  - name: variantInformation
-    singleValue: false
-    xpath: //*[@id="twister"]//span[@class="selection"]
-  - name: firstVariant
-    singleValue: false
-    xpath: //script[contains(text(), 'parentAsin')]
-    regExp: parentAsin"\s:\s"(\S+)
-    regExpReplace: $1
-  - name: allergyAdvice
-    singleValue: false
-    xpath: //*[contains(text(), 'Allergen')]/following-sibling::*[1]
-  - name: alcoholContent
-    singleValue: false
-    xpath: //*[contains(text(), 'Contenido de alcohol')]/following-sibling::*[1]
-  - name: coupon
-    singleValue: false
-    xpath: //div[@id='unclippedCouponSns']
-  - name: pricePerUnit
-    singleValue: false
-    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
-    regExp: \(?(.*)\/.*\)
-    regExpReplace: $1
-  - name: pricePerUnitUom
-    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
-    regExp: \(?.*\/.?(.*)\)
-    regExpReplace: $1
