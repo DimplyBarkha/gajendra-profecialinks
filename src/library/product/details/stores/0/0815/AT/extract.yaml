@@ -14,6 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //div[contains(@aria-label,"Carousel Page")][position()>1]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -246,6 +247,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//div[contains(@aria-label,"Carousel Page")][position()>1])
     type: NUMBER
   - name: news
     singleValue: true
