@@ -23,7 +23,9 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class, 'image-gallery-slide')]//img/@src
+    xpath: //div[contains(@class, 'image-gallery-thumbnail-inner')]/img/@src
+    regExp: (.*_\d)[^\.]+(\..*)$
+    regExpReplace: $1SZ$2
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -64,6 +66,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name, e.g.
       "Visit the Gillette Store"
+    xpath: //tr[contains(@id, 'marca')]/td[2]/span
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -135,7 +138,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //tr[contains(@id, 'cor')][1]/td[2]/span
+    xpath: //tr[contains(@id, 'cor')][1]/td[2]/span | //span[@type='Cor']
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -149,7 +152,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //video/source/@src | //video/@src
+    xpath: //video//@src
   - name: name
     singleValue: true
     description: The product name

@@ -12,7 +12,6 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise(resolve => setTimeout(resolve, 3000));
     await context.evaluate(async function () {
-
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -33,7 +32,6 @@ module.exports = {
       } else {
         addElementToDocument('variantsCount', Object.values(variantsObj));
       }
-
 
       addElementToDocument('productUrl', window.location.href);
       const hiddenVideoInImg = document.evaluate('//img[contains(@alt, \'Vídeo\')]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
