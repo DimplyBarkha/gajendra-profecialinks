@@ -125,12 +125,6 @@ module.exports = {
         addElementToDocument('availabilityText', availabilityText);
       }
 
-      const aggregateRating = getXpath("//span[contains(@itemprop,'ratingValue')]/text()", 'innerText');
-      console.log('aggregateRating', aggregateRating);
-      if (aggregateRating) {
-        addElementToDocument('added_aggregateRating', aggregateRating.replace('.', ','));
-      }
-
       let scrollTop = 500;
       while (true) {
         window.scroll(0, scrollTop);
