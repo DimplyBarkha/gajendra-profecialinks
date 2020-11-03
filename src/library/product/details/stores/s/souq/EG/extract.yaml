@@ -21,7 +21,8 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[contains(@class , 'product-title')]/span[1]/a[position() > 1]
+    # xpath: //div[contains(@class , 'product-title')]/span[1]/a[position() > 1]
+    xpath: //div[contains(@class , 'product-title')]/span[not(@class="star-rating product-stars")]/a[position() > 1]
   - name: nameExtended
     singleValue: false
     xpath: //div[contains(@class , 'product-title')]/h1
@@ -56,7 +57,8 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    xpath: //a[contains(@class , 'size-value')]
+    # xpath: //a[contains(@class , 'size-value')]
+    xpath: //div[contains(@class, "item-connection text-center columns end active")]/a[contains(@class , 'size-value')]
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -107,6 +109,8 @@ fields:
     singleValue: false
     description: Shipping information for the product
     xpath: //dt[contains(text() , 'Sold by')]/following-sibling::dd
+    # regExp: (.*)\s\((.*)\)
+    # regExpReplace: $1
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
@@ -136,7 +140,8 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    manualSelector: div.product-title
+    # manualSelector: div.product-title
+    xpath: //div[contains(@class , 'product-title')]/h1
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store

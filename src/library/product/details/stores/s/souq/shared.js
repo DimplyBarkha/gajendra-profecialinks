@@ -64,6 +64,27 @@ const transform = (data) => {
               item.text = arr[length-1].replace(/\/i\//,'');
           });
         }
+        if (row.shippingInfo) {
+          row.shippingInfo.forEach(item => {
+              item.text = item.text.replace(/(.*)\s\((.*)\)/,'$1');
+          });
+        }
+        if(row.name){
+          let brandName = '';
+          row.name.forEach(item => {
+            brandName = item.text.split(' ')[0];
+          })
+          if (row.brandText) {
+            row.brandText.forEach(item => {
+              if(item.text.includes('__NO_VALUE__')){
+                 item.text = brandName;
+              }else{
+                item.text = item.text;
+              }       
+            });
+          }
+        }
+        
         // if (row.variantId) {
         //   row.variantId.forEach(item => {
         //       item.text = item.text.replace(/\"item\_id\"\:(.*)\,\"offer\_id/g, '$1');
