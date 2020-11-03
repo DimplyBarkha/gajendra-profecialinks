@@ -1,0 +1,78 @@
+input:
+  _url: http://blush.no
+  URL: https://www.blush.no/product/1133289
+extractions:
+  - html: https://workbench.import.io/html/run=032cc4a8-92bd-4992-8ed1-b3de125ffc04/task=f76ed062-4544-4c0a-aee4-ac54e2d3eae1/3597cf38-a408-4e1e-a01c-ec75240a0745.html
+    extractionConfigId: product/details/stores/b/blush/NO/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.blush.no/img/p/800/1133289.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/button[2]/img[1]/@src
+            alternateImages:
+              - text: https://www.blush.no/img/p/800/1133289_1.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/button[3]/img[1]/@src
+              - text: https://www.blush.no/img/p/800/1133289_2.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/button[4]/img[1]/@src
+            nameExtended:
+              - text: NYX Professional Makeup Mystic Petals
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/h1[1]/span[1]
+            description:
+              - text: "NYX Professional Makeup Mystic Petals Mystic Petals Shadow Palette
+                  handler om blomstenes mørke side. Inneholder 10 rikt
+                  pigmenterte pudderskygger inspirert av fortryllende farger som
+                  blomstrer opp om natten. Begge palettene blomsterer i rike
+                  fargevariasjoner fra myk og romantisk til dristig og
+                  forførende. Anbefalt bruk: Påfør fargene hver for seg eller
+                  bruk shimmer over matt eller satinnyanser Farge: Midnight
+                  Orchid"
+                xpath: /html/body/div[8]
+            gtin:
+              - text: "800897190217"
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[4]/span[1]
+            sku:
+              - text: "1133289"
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[2]
+            variantId:
+              - text: "1133289"
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[2]
+            mpc:
+              - text: K3562300
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[3]/span[2]
+            color:
+              - text:  Midnight Orchid
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[5]/text()[1]
+            name:
+              - text: NYX Professional Makeup Mystic Petals
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/h1[1]/span[1]
+            additionalDescBulletInfo:
+              - text: Påfør fargene hver for seg eller bruk shimmer over matt eller satinnyanser
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "1"
+                type: NUMBER
+                raw: "1"
+                locale: nb_NO
+                value: 1
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: nb_NO
+                value: 0
+        xpath: /
+    timestamp: 1604412099945
