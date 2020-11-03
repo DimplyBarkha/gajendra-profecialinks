@@ -22,9 +22,15 @@ async function implementation (
       const outerHTML = result && result[0] ? result[0] : '';
       const dataStr = outerHTML && outerHTML.split('window.__PRELOADED_DATA = ') && outerHTML.split('window.__PRELOADED_DATA = ')[1] && outerHTML.split('window.__PRELOADED_DATA = ')[1].split('window.__SERVER_RENDER_TIME')[0] ? outerHTML.split('window.__PRELOADED_DATA = ')[1].split('window.__SERVER_RENDER_TIME')[0] : '';
 
+      if(dataStr.split('fct_brand_name')[1] == undefined){
+        const obj = [];
+        return obj;
+      }
+
       const manufactStr = dataStr && dataStr.split('fct_brand_name') ? '{' + dataStr.split('fct_brand_name')[1].split('[')[1].split(']')[0] + '}' : '';
 
       const obj = manufactStr.match(/(?<="name":").*?(?=",)/gs);
+      console.log(obj);
       return obj;
     });
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
@@ -48,10 +54,14 @@ async function implementation (
       }
     }
     if("manufacturer" in data[0].group[i]){
-      for(let j=0;j<manuf.length;j++){
-        if(data[0].group[i].manufacturer[0].text.includes(manuf[j])){
-          data[0].group[i].manufacturer[0].text = manuf[j];
-          break;
+      if(manuf.length == 0){
+        data[0].group[i].manufacturer[0].text = '';
+      }else{
+        for(let j=0;j<manuf.length;j++){
+          if(data[0].group[i].manufacturer[0].text.toLowerCase().replace("-", ' ').includes(manuf[j].toLowerCase().replace("-", ' '))){
+            data[0].group[i].manufacturer[0].text = manuf[j];
+            break;
+          }
         }
       }
     }
