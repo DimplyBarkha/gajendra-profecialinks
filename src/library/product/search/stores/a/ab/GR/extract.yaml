@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[contains(@class,"data-item")]
+fields:
+  - name: price
+    xpath: //span[contains(@class,"price")]
+    regExp: (\d+)(,)(\d+)
+    regExpReplace: $1.$3
+  - name: name
+    xpath: //p[@class="ellipsis"]
+  - name: productUrl
+    xpath: //a[contains(@class,"Product")]/@href
+    regExp: (.+)
+    regExpReplace: https://www.ab.gr$1
+  - name: thumbnail
+    xpath: //a[contains(@class,"Product")]/img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: id
+    xpath: //@data-item-id
+  - name: searchUrl
+    xpath: //@searchurl
