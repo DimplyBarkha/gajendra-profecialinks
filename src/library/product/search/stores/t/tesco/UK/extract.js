@@ -19,6 +19,8 @@ module.exports = {
         acceptWaitingRoom: true,
         resources: [{ type: 'search', params: { query: { page, query } } }],
       };
+      console.log('this is our body');
+      console.log(JSON.stringify(body))
       const csrf = document.querySelector('[data-csrf-token]').getAttribute('data-csrf-token');
       const response = await fetch('https://www.tesco.com/groceries/en-GB/resources', {
         headers: {
@@ -35,15 +37,24 @@ module.exports = {
     try {
       const data = await context.evaluate(getAPIData);
       await context.evaluate((data) => {
+        const imageArray = [];
         data.search.data.results.productItems.forEach(elm => {
-          const id = elm.product.id;
-          document.querySelector(`#tile-${id}`).setAttribute('thumbnail', elm.product.defaultImageUrl);
+          console.log('we have entered the foreach Function');
+          // const id = elm.product.id;
+          // console.log(`we are getting the id =>${id}`);
+          // document.querySelector(`ul[class="product-list grid"] > li > div div[id*="tile"]`).setAttribute('thumbnail', elm.product.defaultImageUrl);
+          imageArray.push(elm.product.defaultImageUrl);
         });
+        const appendElement = document.querySelectorAll('ul[class="product-list grid"] > li > div div[id*="tile"]');
+        [...appendElement].forEach(async (element, i) => {
+          element.setAttribute('thumbnail', imageArray[i]);
+        })
       }, data);
       return await context.extract(dependencies.productDetails, { transform });
     } catch (err) {
       console.log({ err });
       throw new Error('Error when calling API');
     }
+
   },
 };
