@@ -24,7 +24,7 @@ fields:
     regExp: (\d+)
   - name: price
     description: The offered price for the product
-    xpath: //div[@class="campaign-banner__info offer"]/div[2]/span
+    xpath: //div[@class="campaign-banner__info offer"]/div[2]/span | //span[@class="price-section__price"]
     regExp: '\d+\.\d+'
   - name: rank
     description: search/listing rank
@@ -42,6 +42,4 @@ fields:
   - name: aggregateRating
     xpath: //div[@class="star-rating__front"]/@style
     type: NUMBER
-    regExp: (\d+).(\d+)
-    regExpReplace: $1
   - name: hasVariants
