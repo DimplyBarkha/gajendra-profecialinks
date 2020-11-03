@@ -18,21 +18,22 @@ module.exports = {
     const { transform } = parameters;
     const { variants } = dependencies;
 
-    await context.evaluate(() => {
-      const selectors = {
-        isVariants: 'div[class*="product-attributes"]',
-        isColors: '.product-attributes__color-item',
-        isSizes: '.product-attributes__item-select',
-      };
-      const body = document.querySelector('body');
-      const isVariants = document.querySelector(selectors.isVariants);
-      function createElement (el, text) {
-        const ele = document.createElement(el);
-        ele.className = 'variants';
-        ele.innerText = text;
-        body.append(ele);
-      }
-      if (isVariants) {
+    const selectors = {
+      isVariants: 'div[class*="product-attributes"]',
+      isColors: '.product-attributes__color-item',
+      isSizes: '.product-attributes__item-select',
+      notVariants: 'meta[property="og:url"]',
+    };
+    try {
+      await context.waitForSelector(selectors.isVariants);
+      await context.evaluate((selectors) => {
+        const body = document.querySelector('body');
+        function createElement (el, text) {
+          const ele = document.createElement(el);
+          ele.className = 'variants';
+          ele.innerText = text;
+          body.append(ele);
+        }
         let variants = [];
         const isColors = document.querySelector(selectors.isColors);
         const isSizes = document.querySelector(selectors.isSizes);
@@ -55,16 +56,40 @@ module.exports = {
         for (let i = 0; i < variants.length; i++) {
           variants2.push(variants[i].getAttribute('data-action-id'));
         }
+        const fromMeta = document.querySelector(selectors.notVariants).getAttribute('content');
+        variants2.push(fromMeta);
         variants2 = [...new Set(variants2)];
         for (let i = 0; i < variants2.length; i++) {
-          const text = 'https://www.mediamarkt.com.tr' + variants2[i];
-          createElement('div', text);
+          const res1 = variants2[i].search('https://www.mediamarkt.com.tr');
+          const res2 = variants2[i].search('/es/product');
+          const res3 = variants2[i].search('https://www.mediamarkt.es');
+          const res4 = variants2[i].search('/tr/product');
+          if (res2 !== -1) {
+            if (res3 === -1) {
+              variants2[i] = 'https://www.mediamarkt.es' + variants2[i];
+            }
+          }
+          if (res4 !== -1) {
+            if (res1 === -1) {
+              variants2[i] = 'https://www.mediamarkt.com.tr' + variants2[i];
+            }
+          }
         }
-      } else {
-        const url = document.querySelector('meta[property="og:url"]').getAttribute('content');
-        createElement('div', url);
-      }
-    });
+        variants2 = [...new Set(variants2)];
+        for (let i = 0; i < variants2.length; i++) {
+          createElement('div', variants2[i]);
+        }
+      }, selectors);
+    } catch (e) {
+      await context.evaluate((selectors) => {
+        const body = document.querySelector('body');
+        const url = document.querySelector(selectors.notVariants).getAttribute('content');
+        const div = document.createElement('div');
+        div.className = 'variants';
+        div.innerText = url;
+        body.append(div);
+      }, selectors);
+    }
     return await context.extract(variants, { transform });
   },
 };
