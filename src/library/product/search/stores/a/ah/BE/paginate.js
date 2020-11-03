@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'BE',
     store: 'ah',
-    // nextLinkSelector: 'div.f-load-more>button',
+    nextLinkSelector: '.button-default_primary__R4c6W',
     // mutationSelector: null,
     // spinnerSelector: null,
-    // loadedSelector: '#search-lane',
+    loadedSelector: '.product-grid-lane_root__3pMQ6',
     // noResultsXPath: null,
     // openSearchDefinition: null,
     domain: 'ah.be',
