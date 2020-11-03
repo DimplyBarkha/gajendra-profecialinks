@@ -1,0 +1,10 @@
+extends: ../TR/extract
+fields:
+  - name: description
+    xpath: //article[@class="description"]//p
+  - name: shippingDimensions
+    xpath: //div[@id="features"]//dt[contains(.,"Tamaño embalaje")]/following-sibling::dd[1]
+  - name: ratingCount
+    xpath: //dd[@class="bv-rating-ratio-count"]//span[@itemprop="reviewCount"]
+  - name: aggregateRating
+    xpath: //dd[@class="bv-rating-ratio-number"]//span[@itemprop="ratingValue"]
