@@ -11,7 +11,7 @@ async function implementation (
   await context.evaluate(async () => {
     while(!!document.querySelector('a.loadMoreButton')){
       // @ts-ignore
-      document.querySelector('a.loadMoreButton').click()
+      document.querySelector('a.loadMoreButton').onclick()
       await new Promise(r => setTimeout(r, 1000));
     }
   })

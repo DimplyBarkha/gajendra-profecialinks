@@ -1,0 +1,30 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div/@data-bv-product-id
+  - name: name
+    singleValue: false
+    xpath: //div[@class="row margin-bottom"]//a
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="row margin-bottom"]//a/@href
+    regExp: (.+)
+    regExpReplace: https://uk.rs-online.com/$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="fixedImageColumn"]//img/@src
+  - name: aggregateRating
+    singleValue: false
+    type: NUMBER
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //span[@class="col-xs-12 price text-left"]
+    type: CURRENCY
