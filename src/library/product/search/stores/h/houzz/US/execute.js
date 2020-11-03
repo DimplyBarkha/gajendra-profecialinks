@@ -1,3 +1,14 @@
+async function implementation(inputs, parameters, context, dependencies) {
+  const { productDetails } = dependencies;
+  await context.evaluate(async function () {
+    var btn = document.createElement("div");
+    btn.setAttribute("id", "store_id");
+    btn.setAttribute("value", "houzz");
+    document.body.appendChild(btn);
+  });
+  return await context.extract(productDetails);
+}
+
 module.exports = {
   implements: "product/search/execute",
   parameterValues: {

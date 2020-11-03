@@ -83,12 +83,10 @@ fields:
   - name: rank
     singleValue: true
     description: search/listing rank
-    type: NUMBER
     xpath: //div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-posid
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
     xpath: //div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-posid
   - name: sponsored
     singleValue: true
@@ -109,6 +107,3 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     xpath: //span[@class="star-rating hz-product-card__review-stars"]/@aria-label
-  - name: store
-    singleValue: true
-    defaultValue: houzz
