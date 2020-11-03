@@ -24,15 +24,15 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: (//meta[@property='product:brand']/@content)[1]
-  - name: quantity
+  - name: gtin
     singleValue: false
-    xpath: //p[contains(text(),'Formato')]
+    xpath: (//script[contains(text(),'gtin13')])
   - name: sku
     singleValue: false
     xpath: //div[@itemprop='sku']
   - name: variantId
     singleValue: false
-    xpath: //div[@itemprop='sku']
+    xpath: (//script[contains(text(),'productId')])[1]
   - name: listPrice
     singleValue: false
     xpath: //div[@class='product-info-price']//span[@data-price-type='oldPrice']/span[contains(@class,'price')]
@@ -57,6 +57,3 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     xpath: count((//div[contains(@class,'fotorama__stage__shaft')]//img/@src)[position()>1])
-  - name: category
-    singleValue: false
-    xpath: (//meta[@property='product:category']/@content)[1]

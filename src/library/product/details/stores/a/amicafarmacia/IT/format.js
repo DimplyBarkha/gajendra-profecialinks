@@ -37,22 +37,11 @@ const transform = (data) => {
             if (row.description) {
                 let desc = row.description[0].text;
                 let xpath = row.description[0].xpath;
-                if (desc.includes('ingredienti')) {
-                    row.description[0].text = desc.split('ingredienti')[0];
-                    if (desc.split('ingredienti').length > 1) {
-                        row.ingredientsList = [{text: getIngredients(desc.split('ingredienti')[1]), xpath: xpath}];
-                    }
-                }
-                else if (desc.includes('Ingredienti')) {
-                    row.description[0].text = desc.split('Ingredienti')[0];
-                    if (desc.split('Ingredienti').length > 1) {
-                        row.ingredientsList = [{text: getIngredients(desc.split('Ingredienti')[1]), xpath: xpath}];
-                    }
-                } else {
-                    row.description[0].text = desc.split('INGREDIENTI')[0];
-                    if (desc.split('INGREDIENTI').length > 1) {
-                        row.ingredientsList = [{text: getIngredients(desc.split('INGREDIENTI')[1]), xpath: xpath}];
-                    }
+                if (desc.includes('Ingredienti')) {
+                    row.ingredientsList = [{text: getIngredients(desc.split('Ingredienti')[1]), xpath: xpath}];
+                } 
+                else if (desc.includes('INGREDIENTI')) {
+                    row.ingredientsList = [{text: getIngredients(desc.split('INGREDIENTI')[1]), xpath: xpath}];
                 }
             }
             
@@ -60,15 +49,47 @@ const transform = (data) => {
                 row.availabilityText[0].text = row.availabilityText[0].text == 'instock' ? 'In Stock' : 'Out of Stock';
             }
 
-            if (row.quantity) {
-                let char = row.quantity[0].text.split(' ');
-                row.quantity[0].text = char[(char.length-1)].trim();
+            if (row.nameExtended) {
+                var num = row.nameExtended[0].text.match(/\d+/g);
+                if (typeof num !== 'undefined') {
+                    if (num != null) {
+                        var index = row.nameExtended[0].text.indexOf(num[num.length-1]);
+                        var temp = row.nameExtended[0].text.substring(index);
+                        row.quantity = [{text:temp.substring(0,temp.indexOf(' ')), xpath:row.nameExtended[0].xpath}];
+                    }
+                }
             }
 
             if (row.aggregateRating) {
                 let json = JSON.parse(row.aggregateRating[0].text);
-                row.aggregateRating[0].text = json.aggregateRating.ratingValue;
-                row.ratingCount = [{text: json.aggregateRating.ratingCount, xpath: row.aggregateRating[0].xpath}];
+                if (json.name != 'Amicafarmacia') {
+                    row.aggregateRating[0].text = json.aggregateRating.ratingValue;
+                    row.ratingCount = [{text: json.aggregateRating.ratingCount, xpath: row.aggregateRating[0].xpath}];
+                }
+                else {
+                    delete row.aggregateRating;
+                }
+            }
+
+            if (row.gtin) {
+                let result = '';
+                let xpath = '';
+                row.gtin.forEach(item => {                    
+                    let json = JSON.parse(item.text);
+                    if (typeof json[0] !== 'undefined') {
+                        if (json[0].hasOwnProperty('gtin13')) {
+                            result = json[0].gtin13;
+                            xpath = item.xpath;
+                        }
+                    }
+                });
+                row.gtin = [{text: result, xpath: xpath}];                           
+            }
+
+            if (row.variantId) {
+                let words = row.variantId[0].text.split('"');
+                let index = Number(words.indexOf('productId')) + 2;
+                row.variantId[0].text = words[index];
             }
 
             row.variantCount = [{text: 1}];
@@ -78,7 +99,9 @@ const transform = (data) => {
 
 
     data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
+        if (typeof el.text!=='undefined') {
+            el.text = clean(el.text);
+        }
     }))));
     return data;
   };
