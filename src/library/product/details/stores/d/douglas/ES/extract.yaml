@@ -96,15 +96,15 @@ fields:
   - name: ratingCount
     xpath: //div[@class="bv_numReviews_text"]
     regExp: (\d+)
-  - name: pricePerUnit2
-    xpath: (//div[@class="rd__col--lg-12 rd__copytext--50"])[1]
-    regExp: >- 
-      (.+los\s)(.+)(\w{2})\sa\s(.+)
-    regExpReplace: >-
-       $4/$2
-  - name: pricePerUnitUom
-    xpath: (//div[@class="rd__col--lg-12 rd__copytext--50"])[1]
-    regExp: ML|GR|UD|ST
+  # - name: pricePerUnit2
+  #   xpath: (//div[@class="rd__col--lg-12 rd__copytext--50"])[1]
+  #   regExp: >- 
+  #     (.+los\s)(.+)(\w{2})\sa\s(.+)
+  #   regExpReplace: >-
+  #      $4/$2
+  # - name: pricePerUnitUom
+  #   xpath: (//div[@class="rd__col--lg-12 rd__copytext--50"])[1]
+  #   regExp: ML|GR|UD|ST
   - name: promotion
     xpath: //div[@class="rd__flag rd__flag--160 rd__footer__meta"]
   - name: variantCount

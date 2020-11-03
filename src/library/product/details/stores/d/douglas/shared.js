@@ -16,6 +16,13 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
         });
       }
+      if ( row.variantCount) {
+        // 
+        row.variantCount.forEach(item => {
+          item.text = item.text === "1" ? "" : item.text;
+        });
+        };
+      
     }
   }
   return data;
