@@ -9,7 +9,7 @@ fields:
     regExpReplace: https://eldorado.ru$1
     description: The URL for the product details page
   - name: thumbnail
-    xpath: //a[@class="sc-1w9a1pg-5 sc-19ibhqc-3 gjliPR"]/img/@src
+    xpath: //div[@class="sc-19ibhqc-2 jNsyzk"]//a[@class="sc-1w9a1pg-5 sc-19ibhqc-3 gjliPR"]//img/@src
     description: The URL for the product thumbnail image
   - name: name
     xpath: (//div[@class="sc-1w9a1pg-12 sc-19ibhqc-13 hhdhoM"]//a)
