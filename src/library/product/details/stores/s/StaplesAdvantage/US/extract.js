@@ -37,7 +37,7 @@ module.exports = {
     store: 'staplesadvantage',
     transform: null,
     domain: 'staplesadvantage.com',
-    zipcode: '10101',
+    zipcode: '',
   },
   implementation,
 };
