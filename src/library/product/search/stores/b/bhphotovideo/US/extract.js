@@ -9,22 +9,13 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-
-
-  // const prod = await context.evaluate(async () => {
-    
-  //   return JSON.parse((document.querySelector('div[class="aperture-body"]>script').innerText).replace(/^window.dlo = +/, ""));
-  // });
-  // console.log("coto?", typeof(prod));
-  // console.log("coto??????????", prod);
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-  await context.evaluate(async function () {
+  const manuf = await context.evaluate(async function () {
     const GetTagByIdUsingRegex = (tag, html) => {
-      // return new RegExp('window.__PRELOADED_DATA .*[\\s\\S]?').exec(html);
       return new RegExp('<' + tag + '>window.dlo.*[\\s\\S]?(\n\t{3}var.*\n\t{3}BH.*\n\t{3}B.*\n\t{2})<\/' + tag + '>').exec(html)
     };
 
-    await fetch(window.location.href, {
+    const manufactArr = await fetch(window.location.href, {
       method: 'GET',
     }).then(r => r.text()).then(htm => {
       const result = GetTagByIdUsingRegex('script', htm);
@@ -33,10 +24,11 @@ async function implementation (
 
       const manufactStr = dataStr && dataStr.split('fct_brand_name') ? '{' + dataStr.split('fct_brand_name')[1].split('[')[1].split(']')[0] + '}' : '';
 
-
       const obj = manufactStr.match(/(?<="name":").*?(?=",)/gs);
+      return obj;
     });
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    return manufactArr;
   });
 
   const windowScroll = await context.evaluate(async () => {
@@ -55,10 +47,16 @@ async function implementation (
         data[0].group[i].price.splice(1,1);
       }
     }
+    if("manufacturer" in data[0].group[i]){
+      for(let j=0;j<manuf.length;j++){
+        if(data[0].group[i].manufacturer[0].text.includes(manuf[j])){
+          data[0].group[i].manufacturer[0].text = manuf[j];
+          break;
+        }
+      }
+    }
   }
-
   return data;
-
 }
 module.exports = {
   implements: 'product/search/extract',
