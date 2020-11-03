@@ -10,7 +10,7 @@ fields:
   - name: url
     singleValue: true
     description: URL of the main product page
-    xpath: //meta[@property="og:url"]/@content
+    xpath: //meta[@itemprop='url']/@content
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
