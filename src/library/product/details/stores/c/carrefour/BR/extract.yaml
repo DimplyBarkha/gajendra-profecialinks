@@ -86,6 +86,7 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
+    xpath: //*[contains(@class,'product-identifier__value')]
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
