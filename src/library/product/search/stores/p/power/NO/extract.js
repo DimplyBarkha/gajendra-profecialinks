@@ -56,7 +56,7 @@ module.exports = {
         const stars = starsWidth ? starsWidth.getAttribute('style') : '';
         if (stars) {
           const aggRating = parseFloat(stars.replace(/width:\s([\d.]+)%;/g, '$1')) / 20;
-          addElementToDocument(item, 'aggRating', aggRating.toFixed(2).replace('.', ','));
+          addElementToDocument(item, 'aggRating', aggRating.toFixed(2));
         }
         addElementToDocument(item, 'pd_rank', lastProductPosition + i);
         const integerPrice = item && item.querySelector('pwr-price[type="integer"]')
