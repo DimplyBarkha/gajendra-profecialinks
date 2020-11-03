@@ -96,6 +96,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //div[@class="row"]//div[contains(@class,"item-model-number")]//span/@data-model-number
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -121,15 +122,15 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //span[contains(@itemprop,'ratingValue')]/text()
+    xpath: //div[@id="added_aggregateRating"]/text()
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //div[contains(@class,'product-info-shipping')]
+    #xpath: //div[contains(@class,'product-info-shipping')]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //div[@id="dimensionValue"]/text()
+    #xpath: //div[@id="dimensionValue"]/text()
     #xpath: //div[@class='product-info-description']//ul[3]//li[1]/text()
   - name: shippingWeight
     singleValue: true
@@ -138,6 +139,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    defaultValue: 1
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -154,7 +156,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //video[@class="vjs-tech"]/@src
+    xpath: //div[@id="html5videostage"]//video/@src
   - name: name
     singleValue: true
     description: The product name
@@ -236,6 +238,7 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
+    xpath: //div[@id="featureBullets"]/text()
   - name: otherSellersName
     singleValue: false
     description: null
@@ -410,7 +413,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(@class,"product-info-specs")]
+    #xpath: //div[contains(@class,"product-info-specs")]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -481,6 +484,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@id="additionalDescBulletInfo"]/text()
   - name: prop65Warning
     singleValue: true
     description: null

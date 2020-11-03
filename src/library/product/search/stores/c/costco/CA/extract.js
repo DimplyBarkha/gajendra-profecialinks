@@ -1,10 +1,10 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'CA',
     store: 'costco',
-    transform: transform,
+    transform: cleanUp,
     domain: 'costco.ca',
     zipcode: '',
   },

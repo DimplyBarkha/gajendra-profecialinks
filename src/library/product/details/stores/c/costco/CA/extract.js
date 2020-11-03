@@ -1,15 +1,16 @@
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'CA',
     store: 'costco',
-    transform: null,
+    transform: cleanUp,
     domain: 'costco.ca',
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -52,13 +53,21 @@ module.exports = {
       // Get Single Value XPATH Extraction
 
       // xpath for description
-      const featureDescInfoXpath = "//div[@class='features-container form-group']";
-      const featureDescInfo = getAllXpath(featureDescInfoXpath, 'innerText');
-      const tabDescInfoXpath = "//div[@class='product-info-description']";
-      const tabDescInfo = getAllXpath(tabDescInfoXpath, 'innerText');
+      const featureDescInfoXpath = "//div[@class='features-container form-group']//ul/li/text()";
+      const featureDescInfo = getAllXpath(featureDescInfoXpath, 'nodeValue').join(' || ');
+      const tabDescInfoXpath = "//div[@class='product-info-description']/text()";
+      const tabDescInfo = getAllXpath(tabDescInfoXpath, 'nodeValue');
+      const bulletsXpath = "//div[@class='product-info-description']/ul/li/text()";
+      const bulletsInfo = getAllXpath(bulletsXpath, 'nodeValue').join(' || ');
+      console.log('featureDescInfo ********', featureDescInfo);
+      console.log('tabDescInfo ********', tabDescInfo[1]);
+      console.log('bulletsInfo ********', bulletsInfo);
       let finalDescInfo;
-      if (tabDescInfo.length > 0 && featureDescInfo.length > 0) {
-        finalDescInfo = featureDescInfo + '||' + tabDescInfo;
+      if (tabDescInfo[1].length > 0 && featureDescInfo.length > 0) {
+        addElementToDocument('featureBullets', featureDescInfo);
+        addElementToDocument('additionalDescBulletInfo', bulletsInfo);
+        finalDescInfo = featureDescInfo + ' || ' + tabDescInfo[1] + ' || ' + bulletsInfo;
+        console.log('finalDescInfo ********', finalDescInfo);
         finalDescInfo = finalDescInfo.replace('\n', '||');
         addElementToDocument('added_descriptionText', finalDescInfo);
       }
@@ -92,9 +101,14 @@ module.exports = {
       // xpath for priceValue
       const priceXpath = '//div[contains(@id,"pull-right-price")]/span';
       const priceValue = getAllXpath(priceXpath, 'innerText');
+      console.log('***PriceValue******', priceValue);
+      console.log('PriceValue 0', priceValue[0]);
+      console.log('PriceValue 1', priceValue[1]);
+      console.log('PriceValue 2', priceValue[2]);
       let priceNew;
       if (priceValue.length > 0 && !priceValue[0].includes('- -.- -')) {
-        priceNew = [priceValue[1], priceValue[0]];
+        priceNew = [priceValue[1] + '' + priceValue[0]];
+        console.log('***priceNew******', priceNew);
         addElementToDocument('priceValue', priceNew);
       }
 
@@ -111,6 +125,12 @@ module.exports = {
         addElementToDocument('availabilityText', availabilityText);
       }
 
+      const aggregateRating = getXpath("//span[contains(@itemprop,'ratingValue')]/text()", 'innerText');
+      console.log('aggregateRating', aggregateRating);
+      if (aggregateRating) {
+        addElementToDocument('added_aggregateRating', aggregateRating.replace('.', ','));
+      }
+
       let scrollTop = 500;
       while (true) {
         window.scroll(0, scrollTop);
@@ -121,6 +141,6 @@ module.exports = {
         }
       }
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform: transformParam });
   },
 };
