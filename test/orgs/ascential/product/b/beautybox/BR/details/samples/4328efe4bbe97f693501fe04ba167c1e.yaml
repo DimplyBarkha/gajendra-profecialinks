@@ -1,0 +1,84 @@
+input:
+  _url: http://beautybox.com.br
+  URL: https://www.beautybox.com.br/loreal-paris-solar-expertise-toque-seco-fps-60-protetor-solar-facial-50g/
+extractions:
+  - html: https://workbench.import.io/html/run=f707c283-e1b2-435f-afcc-f4558151b5b0/task=06782b40-2898-434b-bf52-413d3f142e85/677f2799-6c62-4ec8-8d95-c9a653dd667c.html
+    extractionConfigId: product/details/stores/b/beautybox/BR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.beautybox.com.br/loreal-paris-solar-expertise-toque-seco-fps-60-protetor-solar-facial-50g
+                xpath: /html/head[1]/meta[23]/@content
+            image:
+              - text: https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:eco,w_800/v1/imagens/5/loreal-paris-solar-expertise-toque-seco-fps-60-protetor-solar-facial-50g-31501-8628857147185187505.png
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: L'Oréal Paris Solar Expertise Toque Seco FPS 60 - Protetor Solar Facial
+                  50g
+                xpath: /html/body/main[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Home
+                xpath: /html/body/div[3]/div[1]/ol[1]/li[1]/a[1]/text()[1]
+              - text: L'Oréal Paris
+                xpath: /html/body/div[3]/div[1]/ol[1]/li[2]/a[1]/text()[1]
+              - text: Solar Expertise
+                xpath: /html/body/div[3]/div[1]/ol[1]/li[3]/a[1]/text()[1]
+            price:
+              - text: R$ 54,90
+                xpath: /html/body/main[1]/div[2]/div[3]/label[1]/div[1]/div[1]/div[1]/div[1]/text()[1]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/main[1]/div[2]/div[3]/label[1]/div[1]/div[2]/span[1]/button[1]/text()[1]
+            brandText:
+              - text: L'Oréal Paris
+                xpath: /html/body/main[1]/div[2]/div[1]/div[2]/h2[1]/a[1]/@title
+            manufacturer:
+              - text: L'Oréal Paris
+                xpath: /html/body/main[1]/div[2]/div[1]/div[2]/h2[1]/a[1]/@title
+            weightNet:
+              - text: "50"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]
+            sku:
+              - text: "31501"
+                xpath: /html/body/main[1]/div[1]/div[1]/div[2]/div[2]
+            variantId:
+              - text: "31501"
+                xpath: /html/body/main[1]/div[1]/div[1]/div[2]/div[2]
+            ratingCount:
+              - text: "12"
+                xpath: /html/body/main[1]/div[3]/div[6]/div[1]/div[2]/span[1]/div[1]/div[2]/span[1]/div[1]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/main[1]/div[3]/div[6]/div[1]/div[2]/span[1]/div[1]/div[1]
+                type: STRING
+            name:
+              - text: L'Oréal Paris Solar Expertise Toque Seco FPS 60 - Protetor Solar Facial
+                  50g
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/h1[1]
+            brandLink:
+              - text: https://www.beautybox.com.br/loreal-paris/
+                xpath: /html/body/main[1]/div[2]/div[1]/div[2]/h2[1]/a[1]/@href
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/main[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@data-zoom-image
+            nameExtended:
+              - text: L'Oréal Paris Solar Expertise Toque Seco FPS 60 - Protetor Solar Facial
+                  50g
+            description:
+              - text: Descubra mais sobre L'Oréal Paris Solar Expertise Toque Seco FPS 60 O
+                  Protetor Solar Facial Expertise Toque Seco da
+                  loreal-paris">L'Oréal Parispossui FPS 60, ajuda a controlar a
+                  oleosidade da pele, possui efeito mate, reduzindo
+                  imediatamente o brilho. Possui uma textura leve e é de rápida
+                  absorção. Sua fórmula possui o exclusivo filtro Mexoryl SX XL
+                  que entrega alta proteção contra os raios UV, prevenindo rugas
+                  e manchas solares. Continuar Lendo Ocultar
+            directions:
+              - text: Como Usar L'Oréal Paris Solar Expertise Toque Seco FPS 60 Conselho de
+                  Aplicação Aplique uma quantidade generosa do protetor no rosto
+                  e espalhe. Sempre que necessário reaplique. Continuar Lendo
+                  Ocultar
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1604309691787

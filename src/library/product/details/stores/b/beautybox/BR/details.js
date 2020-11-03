@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'beautybox.com.br',
-    timeout: 20000,
     country: 'BR',
     store: 'beautybox',
+    domain: 'beautybox.com.br',
     zipcode: '',
   },
 };

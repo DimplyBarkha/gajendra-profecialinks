@@ -1,0 +1,78 @@
+input:
+  _url: http://beautybox.com.br
+  URL: https://www.beautybox.com.br/ck-one-calvin-klein-eau-de-toilette-perfume-unissex-100ml/
+extractions:
+  - html: https://workbench.import.io/html/run=f707c283-e1b2-435f-afcc-f4558151b5b0/task=fcb8df12-5270-4777-8a57-d8cd377ba0b4/b3100d85-4ae9-4acc-83f5-f1c94d9f5395.html
+    extractionConfigId: product/details/stores/b/beautybox/BR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.beautybox.com.br/ck-one-calvin-klein-eau-de-toilette-perfume-unissex-100ml
+                xpath: /html/head[1]/meta[23]/@content
+            image:
+              - text: https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:eco,w_800/v1/imagens/5/ck-one-calvin-klein-eau-de-toilette-perfume-unissex-100ml-8165-2589132184752143899.png
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Perfume CK One Calvin Klein Unissex Eau de Toilette 100ml
+                xpath: /html/body/main[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://res.cloudinary.com/beleza-na-web/image/upload/w_50,f_auto,fl_progressive,q_auto:best/v1/imagens/5/ck-one-calvin-klein-eau-de-toilette-perfume-unissex-50ml-8164-7945114997746348661.png
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://res.cloudinary.com/beleza-na-web/image/upload/w_50,f_auto,fl_progressive,q_auto:best/v1/imagens/5/ck-one-calvin-klein-eau-de-toilette-perfume-unissex-200ml-8166-3375467391589764725.png
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[3]/img[1]/@src
+            category:
+              - text: Home
+                xpath: /html/body/div[3]/div[1]/ol[1]/li[1]/a[1]/text()[1]
+              - text: Calvin Klein
+                xpath: /html/body/div[3]/div[1]/ol[1]/li[2]/a[1]/text()[1]
+              - text: CK
+                xpath: /html/body/div[3]/div[1]/ol[1]/li[3]/a[1]/text()[1]
+            price:
+              - text: R$ 368,90
+                xpath: /html/body/main[1]/div[2]/div[3]/label[1]/div[1]/div[1]/div[1]/div[1]/text()[1]
+            brandText:
+              - text: Calvin Klein
+                xpath: /html/body/main[1]/div[2]/div[1]/div[2]/h2[1]/a[1]/@title
+            manufacturer:
+              - text: Calvin Klein
+                xpath: /html/body/main[1]/div[2]/div[1]/div[2]/h2[1]/a[1]/@title
+            sku:
+              - text: "8165"
+                xpath: /html/body/main[1]/div[1]/div[1]/div[2]/div[2]
+            variantId:
+              - text: "8165"
+                xpath: /html/body/main[1]/div[1]/div[1]/div[2]/div[2]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/main[1]/div[3]/div[6]/div[1]/div[2]/span[1]/div[1]/div[2]/span[1]/div[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/main[1]/div[3]/div[6]/div[1]/div[2]/span[1]/div[1]/div[1]
+                type: STRING
+            name:
+              - text: Perfume CK One Calvin Klein Unissex Eau de Toilette 100ml
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/h1[1]
+            brandLink:
+              - text: https://www.beautybox.com.br/calvin-klein/
+                xpath: /html/body/main[1]/div[2]/div[1]/div[2]/h2[1]/a[1]/@href
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@data-zoom-image
+            availabilityText:
+              - text: In Stock
+            nameExtended:
+              - text: Perfume CK One Calvin Klein Unissex Eau de Toilette 100ml
+            description:
+              - text: Descubra mais sobre Perfume CK One Calvin Klein Unissex Eau de Toilette
+                  100ml A Calvin Klein foi uma das primeiras marcas a levantar a
+                  bandeira a favor da igualdade de gêneros e criou o lendário e
+                  revolucionário CK One. Com uma proposta pioneira, CK One tem
+                  um perfume unissex, prezando pela liberdade de gêneros e sendo
+                  uma fragrância atemporal e sexy. Continuar Lendo Ocultar
+            directions:
+              - text: Características Perfume CK One Calvin Klein Unissex Eau de Toilette 100ml
+                  Continuar Lendo Ocultar
+            variantCount:
+              - text: "3"
+        xpath: /
+    timestamp: 1604309692129
