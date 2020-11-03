@@ -13,11 +13,12 @@ fields:
     xpath: //div[@class="preview"]//img[@itemprop="image"]/@alt
   - name: alternateImages
     description: Other product images (not in manufacturer description)
-    xpath: //ul[contains(@class,"thumbs")]/li[position()>1]//img/@src
+    xpath: //ul[contains(@class,"thumb")]/li[position()>1]//img/@src
     regExp: (.+fee_)(\d+_\d+)(.+)
     regExpReplace: https:$1786_587$3
   - name: metaKeywords
     description: The <meta> keywords content
+    xpath: ../..//meta[@name="keywords"]/@content
   - name: category
     description: The categories (e.g. from breadcrumbs)
     xpath: //ul[@class="breadcrumbs"]/li[not(@class="home")][not(@class="current")]
@@ -47,6 +48,7 @@ fields:
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//article[@class="description"]//ul/li)
   - name: brandText
     description:
       Product brand shown - this may actually NOT be just a brand name,
@@ -87,13 +89,11 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     description: The number of ratings
-    type: NUMBER
     xpath: //dd[@itemprop="aggregateRating"]/meta[@itemprop="reviewCount"]/@content
   - name: aggregateRatingText
     description: The stated aggregate rating
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
     xpath: //dd[@itemprop="aggregateRating"]/meta[@itemprop="ratingValue"]/@content
   - name: shippingInfo
     description: Shipping information for the product
@@ -116,10 +116,10 @@ fields:
     xpath: //div[@id="flix-inpage"] | //div[@id="rcm-container"]
   - name: manufacturerImages
     description: Images within the third party description
-    xpath: //div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//img/@data-flixsrcset | //div[@id="rcm-container"]//img/@src
+    xpath: //div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//img/@data-flixsrcset | //div[@id="rcm-container"]//img/@src | //div[@class="flix-tech-spacs"]//img/@data-flixsrcset
   - name: videos
     description: URLs of videos on page
-    xpath: //div[contains(@class,"inpage_selector_video")]//input/@value
+    xpath: //div[contains(@class,"fullJwPlayerWarp")]//input/@value
   - name: name
     description: The product name
     xpath: //h1[@itemprop="name"]
@@ -128,7 +128,7 @@ fields:
   - name: secondaryImageTotal
     description: null
     type: NUMBER
-    xpath: count(//ul[contains(@class,"thumbs")]/li[position()>1]//img/@src)
+    xpath: count(//ul[contains(@class,"thumb")]/li[position()>1]//img/@src)
   - name: specifications
     description: The physical dimensions of the product including packaging.
     xpath: '@specs'
@@ -187,6 +187,7 @@ fields:
     xpath: //div[contains(@class,"product-attributes")]//@data-action-id 
   - name: additionalDescBulletInfo
     description: null
+    xpath: //article[@class="description"]//ul/li
   - name: prop65Warning
     description: null
   - name: ageSuitability

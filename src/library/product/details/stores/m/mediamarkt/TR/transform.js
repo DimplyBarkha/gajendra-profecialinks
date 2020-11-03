@@ -41,7 +41,7 @@ const transform = (data, context) => {
       if (row.videos) {
         let text = '';
         row.videos.forEach(item => {
-          item.text = item.text.match(/"file":"(.+).mp4/)[1];
+          item.text = item.text.match(/"file":"(.+)","image"/)[1];
           item.text = 'https:' + item.text.split('\\').join('');
           text = text + (text ? ' | ' : '') + item.text;
         });
@@ -52,11 +52,10 @@ const transform = (data, context) => {
           item.text = item.text.replace('.', ',');
         });
       }
-      function makeUnique (dup) {
-        const split = dup.split(' | ');
-        // @ts-ignore
-        const unique = [...new Set(split)];
-        return unique;
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace('.', ',');
+        });
       }
       if (row.variants) {
         let text = '';
@@ -64,7 +63,9 @@ const transform = (data, context) => {
           item.text = item.text.replace(/(.+-)(\d+)(.html)/, '$2');
           text = text + (text ? ' | ' : '') + item.text;
         });
-        const uniqueIds = makeUnique(text);
+        const split = text.split(' | ');
+        // @ts-ignore
+        const uniqueIds = [...new Set(split)];
         let text2 = '';
         uniqueIds.forEach(id => {
           text2 = text2 + (text2 ? ' | ' : '') + id;
@@ -81,6 +82,32 @@ const transform = (data, context) => {
         });
         row.variantInformation = [{ text }];
       }
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text = text + (text ? ' || ' : '') + item.text;
+        });
+        text = '|| ' + text;
+        row.additionalDescBulletInfo = [{ text }];
+      }
+      if (row.description || row.additionalDescBulletInfo) {
+        let text = '';
+        if (row.description) {
+          text = text + (text ? ' ' : '') + row.description[0].text;
+        }
+        let text2 = '';
+        if (row.additionalDescBulletInfo) {
+          row.additionalDescBulletInfo.forEach(item => {
+            text2 = text2 + (text2 ? ' || ' : '') + item.text;
+          });
+          if (text !== '') {
+            text = text + ' ' + text2;
+          } else {
+            text = text2;
+          }
+        }
+        row.description = [{ text }];
+      }
     }
   }
 
@@ -92,7 +119,7 @@ const transform = (data, context) => {
       .replace(/&amp;#160/g, ' ')
       .replace(/\u00A0/g, ' ')
       .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
+      .replace(/"\s{1,}/g, '" ')
       .replace(/\s{1,}"/g, '"')
       .replace(/^ +| +$|( )+/g, ' ')
       // eslint-disable-next-line no-control-regex
