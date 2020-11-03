@@ -5,8 +5,8 @@ module.exports = {
     country: 'DK',
     store: 'boozt',
     domain: 'boozt.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.related__content',
+    noResultsXPath: '//h2[@class="fsearchnoresults__header"]',
     zipcode: '',
   },
 };

@@ -8,52 +8,65 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
+  xpath: //meta[@property="og:url"]/@content
   singleValue: false
 - name: _pageTimeStamp
   singleValue: false
 - name: image
+  xpath: //div[@class="pp-gallery__image"][1]/img/@src
   singleValue: true
   description: URL of the main product image
 - name: imageAlt
+  xpath: //div[@class="pp-gallery__image"][1]/img/@alt
   singleValue: true
   description: Alt text of the main product image
 - name: alternateImages
+  xpath: //div[contains(@class, "pp-gallery__thumb")]/img/@src
   singleValue: false
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
 - name: category
+  xpath: //div[@class='pv-breadcrumb__list']/a/text()
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
+  xpath: normalize-space(concat(//a[@data-track-id="pdp_brandname"], //h1[@class="pp-info__name"]))
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
+  xpath: //span[@class="pp-price__text"]|//span[@class="pp-price__text-old text-light text-line-through"]
   singleValue: true
   description: The stated undiscounted price for the product
 - name: price
+  xpath: //span[@class="pp-price__text"]|//span[@class="pp-price__text text-red"]
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
   singleValue: true
+  defautValue: "In Stock"
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
+  xpath: //div[@class="pp-content__block pp-content__block--list"]//text()
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
+  xpath: count(//ul[@class="pp-content__list"]/li)
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
+  xpath: //a[@data-track-id="pdp_brandname"]/text()
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
+  xpath: //a[@data-track-id="pdp_brandname"]/text()
   singleValue: true
   description: Product manufacturer
 - name: quantity
@@ -69,9 +82,15 @@ fields:
   singleValue: true
   description: GTIN code (includes UPC/EAN)
 - name: sku
+  xpath: //span[@class="pp-content__meta-text"]
+  regExp: SKU:+(.{1,})
+  regExpReplace: $1
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
+  xpath: //span[@class="pp-content__meta-text"][1]/text()
+  regExp: (\d{1,}) 
+  regExpReplace: $1
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
@@ -92,15 +111,18 @@ fields:
   singleValue: true
   description: Content under "warnings" header
 - name: ratingCount
+  xpath: normalize-space(//div[@class="pp-info__extras-block pp-info__rating pp-info__rating--clickable"])
   singleValue: true
   description: The number of ratings
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
+  xpath: count(//div[@class="pp-rating"]/*[name() = 'svg'][@class="pp-rating__star pp-rating__star--full"])
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
+  # xpath: //div[@class="pp-tabs__content pp-content pp-content--shipping clearfix"]/div[@class="pp-content__section clearfix"]
   singleValue: true
   description: Shipping information for the product
 - name: shippingDimensions
@@ -110,15 +132,18 @@ fields:
   singleValue: true
   description: Stated shipping weight
 - name: variantCount
+  xpath: count(//div[@class="pp-colour-selector"]//img)
   singleValue: true
   description: Number of variants listed
 - name: color
+  xpath: //p[@class="pp-colour-selector__label"]/span
   singleValue: true
   description: A textual description of the colour
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
 - name: manufacturerDescription
+  xpath: //div[text()="About the brand"]/following-sibling::div
   singleValue: false
   description: The extended description of the product supplied by the lister
 - name: manufacturerImages
@@ -146,6 +171,9 @@ fields:
   singleValue: true
   description: Text of link next to Amazon choice graphic
 - name: brandLink
+  xpath: //a[@data-track-id="pdp_brandname"]//@href
+  # regExp: (.+)
+  # regExpReplace: https://www.boozt.com$1
   singleValue: true
   description: 
 - name: internationalShipping
@@ -395,6 +423,7 @@ fields:
   singleValue: true
   description: The unit of measurement used in price_per_unit
 - name: promotion
+  xpath: //span[@class="pp-price__text-sale text-red"]
   singleValue: true
   description: promotion text on product page
 - name: alcoholContent
