@@ -5,7 +5,7 @@ module.exports = {
     country: 'FR',
     store: 'leclercdrive',
     domain: 'leclercdrive.fr',
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },

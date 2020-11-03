@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordXPath: null
+recordSelector: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class='t-heading-main b-product-tile-title b-product-tile-text']
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@class='b-product-tile-brand-colours']
+  - name: price
+    singleValue: false
+    xpath: //div[@class='b-product-tile-price-left']/span[@class='b-product-tile-price-outer']
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class='b-product-tile-badge-link']/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='b-product-tile-image-container']/a/picture/img/@src
+  - name: rank
+    singleValue: false
+    xpath: //div[@class='b-product-grid-tile js-tile-container']/@data-position
+  - name: id
+    singleValue: false
+    xpath: //div[@class='b-product-tile js-product-tile']/@data-pid

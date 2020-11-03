@@ -5,4 +5,16 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@class='tc-viewport']/img/@src
+    xpath: //a[@class='aWCRS388_VueComplementaire vues-image js-vue']/img/@src
+  - name: alternateImages
+    singleValue: true
+    xpath: //a[@class='aWCRS388_VueComplementaire vues-image js-vue']/img/@src
+  - name: price
+    singleValue: true
+    xpath: (//p[@class='prix-actuel '])[1]/text()
+  - name: listPrice
+    singleValue: true
+    xpath: (//span[@class='prix-detail '])[1]/text()
+  - name: description
+    singleValue: true
+    xpath: (//h1[@class='titre-fiche'])[1]
