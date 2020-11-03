@@ -50,8 +50,8 @@ module.exports = {
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-    keywords = (Keywords) || (Brands) || (keywords);
-    console.log('zip:' + zipcode);
+    keywords = Keywords || Brands || keywords;
+
     // do the search
     const resultsReturned = await execute({ keywords, zipcode });
 

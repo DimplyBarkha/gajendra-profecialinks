@@ -11,14 +11,7 @@ module.exports = {
     productDetails: 'extraction:product/search/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation: async ({ inputString }, { country, store, transform: transformParam }, context, dependencies) => {
-    try {
-      // @ts-ignore
-      // eslint-disable-next-line no-undef
-      await context.evaluateInFrame('iframe', () => grecaptcha.execute());
-    } catch (err) {
-      console.log('Captcha did not load');
-    }
-    async function addUrl () {
+    await context.evaluate(async () => {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -36,9 +29,7 @@ module.exports = {
             document.querySelector(`.search-product-result a[class*="product-title-link"][href*="${item.usItemId}"]`) ? document.querySelector(`.search-product-result a[class*="product-title-link"][href*="${item.usItemId}"]`).setAttribute('added-brand', item.brand ? item.brand[0] : '') : '');
         }
       }
-    }
-
-    await context.evaluate(addUrl);
+    });
 
     // await context.clickAndWaitForNavigation('a[data-automation-id="primary-stack-recall-see-all-button"] span')
     //   .catch(() => {
