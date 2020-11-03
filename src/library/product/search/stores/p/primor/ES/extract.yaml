@@ -1,0 +1,37 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="wishlist"]//a//@rel
+  - name: rankOrganic
+    singleValue: true
+    xpath: //li//meta[@itemprop="position"]//@content
+  - name: name
+    singleValue: false
+    xpath: //h5[@class="product-name"]//a//@title
+  - name: productUrl
+    singleValue: false
+    xpath: //h5[@class="product-name"]//a//@href
+  - name: gtin
+    singleValue: true
+    xpath: //h5[@class="product-name"]//a//@onclick
+    regExp: (\d{8,17})
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product-image-container"]//a//img//@src
+  - name: price
+    singleValue: false
+    xpath: //span[@class="price product-price pull-left "]//span[2]
+    regExp: (\d+),?(\d+).+
+    regExpReplace: $1.$2
+  - name: manufacturer
+    singleValue: true
+    xpath: //h4[@class="product-manufacturer"]
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: false
+    xpath: //li//meta[@itemprop="position"]//@content
