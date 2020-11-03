@@ -20,7 +20,9 @@ fields:
   - name: productUrl 
     singlevalue: true 
     description: The url of the product details page
-    xpath: //a[@id='body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl0_ctl00_1_NavigateTo_1']
+    xpath: //a[@id='body_0_main_1_GrocerySearch_TemplateResult_SearchResultListView_ctrl0_ctl00_1_NavigateTo_1']/@href
+    regExp: (fr/.*)
+    regExpReplace: https://www.iga.net/$1
   - name: _url
     description: The url of the page
     xpath: //meta[@property="og:url"]
