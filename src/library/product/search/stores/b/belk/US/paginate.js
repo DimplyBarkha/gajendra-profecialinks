@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'belk',
-    nextLinkSelector: 'a[class="page-next"]>i',
+    nextLinkSelector: 'a.page-next',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'ul[id="search-result-items"], h1[class="search-result-data"]',

@@ -21,18 +21,19 @@ async function implementation (
     });
   }
   await new Promise((resolve) => setTimeout(resolve, 3000));
+ 
+  const windowScroll = await context.evaluate(async () => {
+    for(let i=0;i<=document.body.scrollHeight;i=i+500){
+      window.scroll(0,i);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+  });
+
   var data = await context.extract(productDetails, { transform });
 
   for(let i=0;i<data[0].group.length;i++){
 
     if("thumbnail" in data[0].group[i]){
- 
-      for(let j=0;j<data[0].group[i].thumbnail.length;j++){
- 
-        if(data[0].group[i].thumbnail[j].text=='https://belk.scene7.com/is/image/Belk/defaultimage'){
-          data[0].group[i].thumbnail.splice(j,1);
-        }
-      }
       if(data[0].group[i].thumbnail.length == 2){
         data[0].group[i].thumbnail.splice(1,1);
       }  
