@@ -458,8 +458,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: (//div[@class='product-variants__body']//div[contains(@class,'product-variant')]//@title)[1] |
-      (//div[@class='product-variants__body']/a[contains(@class,'product-variant')]/text())[1]
+    xpath: //div[@class="product-variants__selected"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of

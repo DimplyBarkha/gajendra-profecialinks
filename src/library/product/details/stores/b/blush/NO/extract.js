@@ -12,6 +12,11 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     await context.evaluate(async function () {
+      const cookies = document.querySelector('div.cookie-consent-popup button');
+      if (cookies) cookies.click();
+    });
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -25,7 +30,7 @@ module.exports = {
       const onlinePrice = buyBtnObj && JSON.parse(buyBtnObj) ? JSON.parse(buyBtnObj).priceFormatted : '';
       const currency = buyBtnObj && JSON.parse(buyBtnObj) ? JSON.parse(buyBtnObj).currency : '';
       addElementToDocument('onlineprice', `${onlinePrice} ${currency}`);
-      addElementToDocument('listprice', `${listPrice} ${currency}`);
+      if (listPrice) addElementToDocument('listprice', `${listPrice} ${currency}`);
 
       const aggRating = document.querySelector('div.product-main-info__body span.rating-stars') ? document.querySelector('div.product-main-info__body span.rating-stars').getAttribute('title').replace(/(\d+)\.?,?(\d+)?.+/g, '$1,$2') : '';
       addElementToDocument('aggRating', aggRating);
