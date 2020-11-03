@@ -14,6 +14,8 @@ fields:
   - name: productUrl
     singleValue: true
     xpath: //ul[@class='product-listing product-grid']//li//div[@class="infoTextCarousel"]/a[@class='ProductInfoAnchor']/@href
+    regExp: (.+)
+    regExpReplace: https://www.marionnaud.fr$1
   - name: gtin
     singleValue: true
   - name: thumbnail
@@ -37,5 +39,3 @@ fields:
   - name: endorsementText
     singleValue: true
     xpath: //div[@class='price-promotion']/div[@class='striked']
-
-    
