@@ -109,15 +109,16 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-  - name: aggregateRating2
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    xpath: //span[@itemprop='ratingValue']/text()
+  # - name: aggregateRating2
+  #   singleValue: true
+  #   description: The stated aggregate rating normalized to be out of 5
+  #   xpath: //span[@itemprop='ratingValue']/text()
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    # xpath: //span[@itemprop='ratingValue']/text()
+    # xpath: //span[@itemprop='ratingValue']
+    xpath: //div[@id='added_aggregateRating']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -270,7 +271,7 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
-    type: NUMBER
+    # type: NUMBER
     xpath: //td[contains(text(),'kapsul')]//following::td/b/text()
   - name: caloriesPerServing
     singleValue: true
@@ -287,7 +288,7 @@ fields:
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
     xpath: //div[@id='added_fat']
-    type: NUMBER
+    # type: NUMBER
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
@@ -296,7 +297,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    type: NUMBER
+    # type: NUMBER
     xpath: //div[@id='added_saturated_fat']
   - name: saturatedFatPerServingUom
     singleValue: true
@@ -330,16 +331,18 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-    type: NUMBER
+    xpath: //div[@id='added_carb']
+    # type: NUMBER
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
+    xpath: //div[@id='added_carb_unit']
   - name: dietaryFibrePerServing
     singleValue: true
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
     xpath: //div[@id='added_fiber']
-    type: NUMBER
+    # type: NUMBER
   - name: dietaryFibrePerServingUom
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
@@ -348,7 +351,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
     xpath: //div[@id='added_sugar']
   - name: totalSugarsPerServingUom
     singleValue: true
@@ -358,7 +361,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
     xpath: //div[@id='added_protein']
   - name: proteinPerServingUom
     singleValue: true
@@ -411,7 +414,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
     xpath: //div[@id='added_salt']
   - name: saltPerServingUom
     singleValue: true
