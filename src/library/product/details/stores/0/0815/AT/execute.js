@@ -21,17 +21,17 @@ async function implementation(
 
     await context.waitForSelector('.product-image-link');
     const pageLink = await context.evaluate(() => document.querySelector('.product-image-link').getAttribute('href'));
-
-    await context.goto(pageLink, {
-        blockAds: false,
-        loadAllResources: true,
-        imagesEnabled: true,
-        timeout: 100000,
-        waitUntil: 'networkidle0',
-    });
-    await context.waitForSelector('.custom-product.is-small>div>div>div>a>img', { timeout: 100000 });
-    await context.waitForSelector('.product-detail-description-text');
-    await context.waitForSelector('.custom-product.is-small>div>div>div>a>img');
+    const rpc = pageLink.split('/').pop();
+    if (id === rpc) {
+        await context.goto(pageLink, {
+            blockAds: false,
+            loadAllResources: true,
+            imagesEnabled: true,
+            timeout: 100000,
+            waitUntil: 'networkidle0',
+        });
+        await context.waitForSelector('.product-detail-description-text', { timeout: 100000 });
+    }
 }
 module.exports = {
     implements: 'product/details/execute',
