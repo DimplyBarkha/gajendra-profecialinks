@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'euronics.it',
     prefix: null,
-    url: 'https://www.euronics.it/{id}',
+    url: null,
     country: 'IT',
     store: 'euronics',
     zipcode: '',
