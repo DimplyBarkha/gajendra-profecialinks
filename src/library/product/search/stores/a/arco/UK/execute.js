@@ -5,9 +5,9 @@ module.exports = {
     country: 'UK',
     store: 'arco',
     domain: 'arco.uk',
-    url: `https://www.arco.co.uk/search?event=search&Ntt={searchTerms}&Nrpp=36`,
+    url: 'https://www.arco.co.uk/search?event=search&Ntt={searchTerms}&Nrpp=36',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,searchTerms)]/span[contains(text(),"Sorry, your search for ")]',
     zipcode: '',  
   },
 };
