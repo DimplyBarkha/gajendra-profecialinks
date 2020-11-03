@@ -37,6 +37,8 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[contains(@class,'product-detail-buy')]//div[contains(@class,'custom-price-style') and not (contains(@class,'instead'))]
+    regExp: (\D)\s*(\d+)[\s,]*(\d+)
+    regExpReplace: $1$2,$3
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -55,6 +57,7 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//*[@itemprop="description"]//ul/li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -82,9 +85,15 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //script[contains(@type,'application')]
+    regExp: sku([":\s]+)([\d\w]+)(",)
+    regExpReplace: $2
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //script[contains(@type,'text')]
+    regExp: productId(["':\s]+)([\d\w]+)(",)
+    regExpReplace: $2
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -119,8 +128,8 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     xpath: //script[contains(@type,'application')]
-    regExp: ratingValue([":\s]+)([0-9.]+)(",)
-    regExpReplace: $2
+    regExp: ratingValue([":\s]+)(\d).?(\d)(",)
+    regExpReplace: $2,$3
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -477,6 +486,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: //*[@itemprop="description"]//ul/li
     description: null
   - name: prop65Warning
     singleValue: true
