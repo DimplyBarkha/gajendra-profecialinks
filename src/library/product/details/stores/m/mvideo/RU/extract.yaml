@@ -13,7 +13,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div//img[@class="c-carousel__img"]
+    xpath: //div[@class="c-carousel__item-wrapper"]/@itemtype
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content

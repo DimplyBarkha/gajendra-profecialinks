@@ -8,6 +8,7 @@ fields:
     xpath: //div[@class='fotorama__stage__frame fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img fotorama__active']/img[@src]
   - name: imageAlt
     singleValue: true
+    xpath: //div[@class="c-media-container__image-wrapper"]//img/@src
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="swatch-option image"]

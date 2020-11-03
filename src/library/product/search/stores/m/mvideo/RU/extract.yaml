@@ -11,13 +11,15 @@ fields:
     xpath: //div//h4[@class="fl-product-tile-title e-h4 fl-product-tile__title"]
   - name: productUrl
     singleValue: false
-    xpath: //a[@class="fl-product-tile-picture fl-product-tile-picture__link"]/@href
+    xpath: //div[@class="fl-product-tile__title-wrapper height-ready"]/h4//a//@href
     regExp: ^(.+)$
-    regExpReplace: https://www.mvideo.ru/$1
+    regExpReplace: https://www.mvideo.ru$1
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="lazy-load-image-holder lazy-loaded"]//img//@src
-  - name: aggregateRating
+    regExp: (.+)
+    regExpReplace: https://www.mvideo.ru$1
+  - name: review_rating
     singleValue: true
     xpath: //span[@class="fl-product-tile-rating__stars-value"]
   - name: id
@@ -25,4 +27,14 @@ fields:
     xpath: //div[@class="fl-product-tile c-product-tile "]/@data-productid
   - name: sku
     singleValue: false
-    xpath: //div[@class="fl-product-tile c-product-tile "]/@data-productid 
+    xpath: //div[@class="fl-product-tile c-product-tile "]/@data-productid
+  - name: number_of_reviews
+    singleValue: false
+    type: NUMBER
+    xpath: //span[@class="fl-product-tile-rating__reviews"]
+  - name: rankOrganic
+    singleValue: false
+    xpath: //html//div[@id='altImages']
+  - name: rank
+    singleValue: false
+    xpath: //html//div[@id='altImages']  
