@@ -9,7 +9,8 @@ module.exports = {
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
-
+    await context.setAntiFingerprint(true); 
+    await context.setUseRelayProxy(true);
     await context.goto(url, {
       firstRequestTimeout: 40000,
       timeout: timeout,
@@ -20,7 +21,7 @@ module.exports = {
       },
     });
     try{
-      await context.waitForNavigantion();
+      await context.waitForNavigation();
     }catch(err){
       console.log('No Navigation')
     }
