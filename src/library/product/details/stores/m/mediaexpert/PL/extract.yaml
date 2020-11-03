@@ -45,7 +45,7 @@ fields:
   - name: reviewCount
     xpath: //div[contains(@class, 'is-productNameInfobar')]//div[contains(@class, 'c-reviews_count')]
   - name: manufacturerImages
-    xpath: //div[@class='prawa']//img/@src | //div[@class='is-description']//section[contains(@class, 'TFL_section') and not(contains(@class, 'TFL_top'))]//img/@src | //div[@id='description']//table//img[contains(@data-component,"lazyLoad")]/@src | //div[@class='is-description']//img[contains(@class,'is-loaded') and (@alt)]/@src | //div[@id='description']//*[contains(@class, 'product-page')]/img/@src | //div[contains(@class, 'is-description')]//div[@class='background-image']/img/@src
+    xpath: //div[@class='prawa']//img/@src | //div[@class='is-description']//section[contains(@class, 'TFL_section') and not(contains(@class, 'TFL_top'))]//img/@src | //div[@id='description']//table//img[contains(@data-component,"lazyLoad")]/@src | //div[@class='is-description']//img[contains(@class,'is-loaded') and (@alt)]/@src | //div[@id='description']//*[contains(@class, 'product-page')]/img/@src | //div[contains(@class, 'is-description')]//div[@class='background-image']/img/@src | //div[contains(@class, 'esm-model-packshot') or contains(@class, 'esm-benefit') or contains(@class, 'esm-banner-section')]//div[contains(@class, 'esm-image')]/img/@src | //div[contains(@class, 'DELL_box') or contains(@class, 'dell_box')]/img/@src | //div[contains(@class, 'Rtable-cell')]/img/@src
     regExp: (.+)
     regExpReplace: https://www.mediaexpert.pl$1
   - name: manufacturerDescription
