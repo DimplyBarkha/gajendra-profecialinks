@@ -23,10 +23,10 @@ module.exports = {
         var cnt = 0;
         for (let index = 0; index < data; index++) {
           cnt++;
-          addElementToDocument('rankOrganic', cnt);
+          addElementToDocument('rankOrganic',cnt);
         }
       };
-      var backgroundURL = document.querySelectorAll('.product-tile-container').length;
+      var backgroundURL = document.querySelectorAll('.tile-column.details').length;
       sliceURL(backgroundURL);
     });
     return await context.extract(productDetails, { transform });
