@@ -46,8 +46,8 @@ module.exports = {
       // eslint-disable-next-line no-undef
       const isCaptchaPresent = await hasCaptcha('#recaptcha-token');
       if(isCaptchaPresent) {
-      await context.evaluateInFrame('iframe', () => grecaptcha.execute());
-      console.log('solved captcha, waiting for page change');
+        await context.evaluate(() => grecaptcha.execute());
+        console.log('solved captcha, waiting for page change');
       }
       
       await context.waitForNavigation(timeout);
