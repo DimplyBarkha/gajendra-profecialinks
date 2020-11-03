@@ -97,7 +97,6 @@ const transform = (data, context) => {
           }
         }
       });
-      console.log('DONE MAPPING OBJECT');
       if (row.variants) {
         row.variantCount = [{ text: row.variants.length + 1 }];
       }
@@ -180,7 +179,7 @@ const transform = (data, context) => {
       }
       if (row.otherSellersPrime) {
         row.otherSellersPrime.forEach(item => {
-          if (item.text.includes('mazon') || item.text.includes('rime')) {
+          if (item.text.match(/details/i)) {
             item.text = 'YES';
           } else {
             item.text = 'FALSE';
@@ -282,6 +281,10 @@ const transform = (data, context) => {
       if (row.directions) {
         const text = row.directions.map(elm => elm.text).join(' ');
         row.directions = [{ text }];
+      }
+      if (row.warnings) {
+        const text = row.warnings.map(elm => elm.text).join(' ');
+        row.warnings = [{ text }];
       }
 
       const zoomText = row.imageZoomFeaturePresent ? 'Yes' : 'No';

@@ -78,7 +78,7 @@ fields:
     regExp: '[^;]+$'
   - name: weightGross
     singleValue: false
-    xpath: translate(//th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1]  | //th[contains(text(), ' Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text() | //td[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1], "(", "")
+    # xpath: translate(//th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1]  | //th[contains(text(), ' Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text() | //td[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1], "(", "")
   - name: gtin
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1] | //span[contains(text(),"UPC") and contains(@class,"a-text")]//following-sibling::span
@@ -116,14 +116,13 @@ fields:
   - name: aggregateRating
     singleValue: true
     xpath: //*[@id="acrPopover"]/@title
-    regExp: ([0-9\.]{1,}) out of
-    regExpReplace: $1
+    regExp: ^[^\s]+
   - name: shippingInfo
     singleValue: false
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")] | //span[contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")] | //div[contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"]/a
   - name: shippingDimensions
     singleValue: false
-    xpath: //*[contains(normalize-space(text()),"Package Dimensions") or contains(normalize-space(text()),"Shipping Dimensions")]/following-sibling::*[1]
+    xpath: //*[contains(normalize-space(text()),"Package Dimensions") or contains(normalize-space(text()),"Shipping Dimensions")]/following-sibling::*[1] | //*[normalize-space(text())="Item Package Dimensions"]/following-sibling::*[1]
     regExp: '^[^;]+'
   - name: shippingWeight
     singleValue: false
@@ -168,7 +167,7 @@ fields:
   - name: sku
   - name: coupon
     singleValue: false
-    xpath: //div[@id="price"]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text() | //div[contains(@id, "promoPriceBlockMessage")]
+    xpath: //div[@id="price"]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text() | //div[contains(@id, "promoPriceBlockMessage")]/*[not(name()="script" or name()="noscript")]
   - name: amazonChoice
     singleValue: false
     xpath: //*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge-text-primary")]
@@ -234,12 +233,10 @@ fields:
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//div[contains(@id,"shipping")]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//span[contains(@id, "shipping-message")]//a[contains(@href, "prime") and contains(text(), "Amazon")] | //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell"))]//a[contains(text(), "Prime")]/text())[1]
   - name: lbb
     singleValue: true
-    xpath: /html[//span[contains(@class,"mbcMerchantName")][contains(text(),"Amazon.com")]]//td[@class="buybox-tabular-column"][contains(.,"Sold by")]/following::td[1]/span[1]/span[1]
+    xpath: /html[//span[contains(@class,"mbcMerchantName")][contains(text(),"Amazon.com")]] | /html[//span[contains(@class,"mbcMerchantName")][contains(text(),"Amazon")]]
     regExp: 'YES'
     defaultValue: 'NO'
   - name: lbbPrice
-    singleValue: true
-    xpath: //div[@id='ii_lbbPrice']
   - name: featureBullets
     singleValue: false
     xpath: //div[@id="feature-bullets"]//ul/li
@@ -248,7 +245,7 @@ fields:
     xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//div[contains(@id,"mbc-sold")]//span[contains(@class, "Merchant")]
   - name: otherSellersPrime
     singleValue: false
-    xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//span[contains(@id,"mbc-shipping")]/a[contains(@target,"Amazon")]/@href
+    xpath: (//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//div[contains(@id,"mbc-sold")]//span[contains(@class, "Merchant")])/parent::div/preceding-sibling::div/span[@id and not(contains(@id,'price'))][1]
   - name: otherSellersPrice
     singleValue: false
     xpath: //div[contains(@id,"offer-list")]/div[contains(@id, "offer")]//span[contains(@class, "a-price")]/span[contains(@class, "a-offscreen")] | //html[@class and not(//div[contains(@id,"offer-list")]/div[contains(@id, "offer")]/div[@id="aod-offer-soldBy"]//div[contains(@class,"last")]/*[1])]//div[@id="mbc"]//div[contains(@class,"mbc-offer")]//span[contains(@id,"mbc-price")]
@@ -403,10 +400,10 @@ fields:
     xpath: //div[@id="productDescription"]/p[b[contains(text(),"Warranty Information")]]/text()
   - name: storage
     singleValue: true
-    xpath: 
+    xpath: //*[contains(text(),"Storage")]/following-sibling::*[1]
   - name: countryOfOrigin
     singleValue: true
-    xpath: //li[contains(.,"Origin:")]
+    xpath: //li[contains(.,"Origin:")] | //*[normalize-space(text())="Country of origin"]/following-sibling::*[1]
     regExp: '[^:]+$'
   - name: allergyAdvice
     singleValue: true
@@ -460,10 +457,12 @@ fields:
     xpath: (//th[contains(text(),  "ecommended age")]/following-sibling::td/text())[1]
   - name: energyEfficiency
     singleValue: true
-    xpath: 
+    xpath: //*[contains(text(),"Energy Efficiency")]/following-sibling::*[1]
   - name: technicalInformationPdfPresent
     singleValue: true
-    xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
+    xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf') or contains(., 'PDF')]
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: termsAndConditions
     singleValue: true
@@ -621,7 +620,7 @@ fields:
     defaultValue: false
   - name: lbbBoolean
     singleValue: true
-    xpath: //div[@id='ii_lbb']
+    xpath: /html[//span[contains(@class,"mbcMerchantName")][contains(text(),"Amazon.com")]] | /html[//span[contains(@class,"mbcMerchantName")][contains(text(),"Amazon")]]
     type: BOOLEAN
     defaultValue: false 
   - name: technicalInformationPdfPresentBoolean
@@ -656,12 +655,12 @@ fields:
     xpath: //div[@id="andonCord_feature_div"]//*
     type: BOOLEAN
     defaultValue: false
+  
   - name: salesRankNodeRaw
     singleValue: false
     xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1]/following-sibling::a/@href |  //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1]//a/@href | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]//a/@href
     # regExp: bestsellers\/(.+)\/ref
     # regExpReplace: $1
-    type: LINK
   - name: salesRankRaw
     singleValue: false 
     xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
