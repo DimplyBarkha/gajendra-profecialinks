@@ -33,8 +33,12 @@ fields:
   - name: _url
     description: the url of the page
     xpath: //meta[@property="og:url"]
-  - name: product url
+  - name: productUrl
     description: the url of the product
-    xpath: //div[@class="relative js-data-procuct"]/@href
+    xpath: //div[@class="relative js-data-procuct"]
+    #regExp: (.*)$
     regExp: (fr/.*)
     regExpReplace: https://www.iga.net/$1
+  - name: variantId
+    description: the code of the product
+    xpath:  //form[@id='mainform']
