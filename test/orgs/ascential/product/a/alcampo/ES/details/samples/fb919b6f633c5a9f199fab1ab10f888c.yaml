@@ -1,0 +1,85 @@
+input:
+  id: 58396
+  _url: http://alcampo.es
+extractions:
+  - html: https://workbench.import.io/html/run=87117cdd-f4e7-42a9-8f53-afe69eca78aa/task=0a5a6769-0b67-4f98-b5ad-45c10caad224/e449f96b-81a2-4009-85ae-bc7692dd7c8f.html
+    extractionConfigId: product/details/stores/a/alcampo/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.alcampo.es/compra-online/frescos/verduras-y-hortalizas/verduras-ecologicas/alcampo-produccion-controlada-ecologico-patata-ecologica-malla-de-2-kg/p/58396
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://www.alcampo.es/media/h0f/h80/9144438095902.jpg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Patatas ALCAMPO PRODUCCIÓN CONTROLADA ECOLÓGICO malla de 2 kg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.alcampo.es/media/h1b/h99/9144467849246.jpg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]/span[1]/img[1]/@data-primaryimagesrc
+            category:
+              - text: Frescos
+                xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[3]/a[1]
+              - text: Verduras y hortalizas
+                xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[4]/a[1]
+              - text: Verduras Ecológicas
+                xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[5]/a[1]
+            price:
+              - text: 3,39 €
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
+            description:
+              - text: La patata es fuente de vitamina C y potasio. Alimento básico de consumo
+                  diario en el primer plato o bien como guarnición en segundos,
+                  frita, cocinada al vapor, al horno o en forma de puré.
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]
+            brandText:
+              - text: ALCAMPO PRODUCCIÓN CONTROLADA ECOLÓGICO
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[3]
+            manufacturer:
+              - text: ALCAMPO PRODUCCIÓN CONTROLADA ECOLÓGICO
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[3]
+            quantity:
+              - text: Unidad
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]
+            shippingInfo:
+              - text: "- ENVÍO A DOMICILIO- RECOGIDA PARKING"
+                xpath: /html/body/@shippinginfo
+            videos:
+              - text: https://www.youtube.com/embed/O-QNRzt6AGc?rel=0&controls=0&showinfo=0
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/iframe[1]/@src
+            name:
+              - text: Patatas ALCAMPO PRODUCCIÓN CONTROLADA ECOLÓGICO malla de 2 kg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            servingSize:
+              - text: por 100ml/g
+                xpath: /html/body/@servingsize
+            servingSizeUom:
+              - text: ml/g
+                xpath: /html/body/@servingunit
+            pricePerUnit:
+              - text: 1,69 €
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/span[1]
+            pricePerUnitUom:
+              - text: Kg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1604393331856

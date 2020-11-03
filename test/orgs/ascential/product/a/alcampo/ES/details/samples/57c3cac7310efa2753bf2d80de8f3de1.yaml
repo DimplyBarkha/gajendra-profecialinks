@@ -1,0 +1,130 @@
+input:
+  id: 475213
+  _url: http://alcampo.es
+extractions:
+  - html: https://workbench.import.io/html/run=87117cdd-f4e7-42a9-8f53-afe69eca78aa/task=2a7769b0-1cd4-4dc7-8db0-80b7683f5431/e7b7c48f-1edb-4891-aa75-da61d58d9ce6.html
+    extractionConfigId: product/details/stores/a/alcampo/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.alcampo.es/compra-online/alimentacion/leche-huevos-yogures-y-lacteos/postres-lacteos/soja-almendra-avena/alpro-skyr-natural-400-g/p/475213
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://www.alcampo.es/media/h23/h78/9750920560670.jpg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: 475213_1.jpg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            category:
+              - text: Alimentación
+                xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[3]/a[1]
+              - text: Leche Huevos Yogures y Lácteos
+                xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[4]/a[1]
+              - text: Postres lacteos
+                xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[5]/a[1]
+              - text: Soja, almendra, avena
+                xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[6]/a[1]
+            price:
+              - text: 1,89 €
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
+            brandText:
+              - text: ALPRO
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[3]
+            manufacturer:
+              - text: ALPRO
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[3]
+            quantity:
+              - text: Unidad
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]
+            weightNet:
+              - text: 400g
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]/span[2]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[4]/div[1]/a[2]
+            aggregateRating:
+              - text: "1"
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[4]/div[1]/a[1]/span[2]/@class
+            shippingInfo:
+              - text: "- ENVÍO A DOMICILIO- RECOGIDA PARKING"
+                xpath: /html/body/@shippinginfo
+            name:
+              - text: Especialidad de soja estilo islandés, con alto contenido en proteínas y
+                  sabor natural ALPRO 400 g.
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            ingredientsList:
+              - text: >-
+                  Ingredientes: 
+                   Base de soja (agua, habas de soja descascarilladas (13.9%)), fresa (9%) (fruta (5%), zumo a partir de concentrado 4%)), azúcar, estabilizante (pectinas), correctores de acidez (ácido cítrico, citratos de sodio, ácido málico), fosfato tricálcico, aroma natural, extracto de remolachas rojas, extracto de zanahoria, sal marina, antioxidantes (extracto rico en tocoferoles, ésteres ácidos grasos de ácido ascórbico), vitaminas (B2, B12, D2), fermentos (S. thermophilus, L. bulgaricus). Puede contener trazas de frutos de cáscara (no cacahuetes).
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]
+            servingSize:
+              - text: por 100ml/g
+                xpath: /html/body/@servingsize
+            servingSizeUom:
+              - text: ml/g
+                xpath: /html/body/@servingunit
+            caloriesPerServing:
+              - text: 68.0 Kcal
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/span[1]
+            totalFatPerServing:
+              - text: "3.3"
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[2]/span[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[2]/span[2]
+            saturatedFatPerServing:
+              - text: "0.6"
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[3]/span[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[3]/span[2]
+            totalCarbPerServing:
+              - text: "2.6"
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[4]/span[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[4]/span[2]
+            totalSugarsPerServing:
+              - text: "2.5"
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[5]/span[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[5]/span[2]
+            proteinPerServing:
+              - text: "5.8"
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[6]/span[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[6]/span[2]
+            saltPerServing:
+              - text: "0.36"
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[7]/span[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[7]/span[2]
+            pricePerUnit:
+              - text: 4,72 €
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/span[1]
+            pricePerUnitUom:
+              - text: Kg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1604393329686
