@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordXPath: //div[@class='product-item-info']
+recordXPath: //div[contains(@class, 'product-item-info')]
 fields:
   - name: thumbnail
     singleValue: false
@@ -17,3 +17,6 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: (//a[@class='product-image-container']/@href)[1]
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="page_url"]

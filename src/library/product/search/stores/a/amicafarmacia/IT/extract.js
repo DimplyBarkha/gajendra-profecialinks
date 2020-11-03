@@ -86,9 +86,33 @@ async function implementation(
       }
     }, [results]);
   };
+
+  const getPageURL = async function (context) {
+    await context.evaluate(async function () {
+      let URL = window.location.href;
+      function addHiddenDiv (id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll('div.product-item-info')[index];
+        originalDiv.appendChild(newDiv);
+        console.log("child appended " + index);
+      }
+      const product = document.querySelectorAll('div.product-item-info');
+      // select query selector and loop and add div
+      for (let i = 0; i < product.length; i++) {
+        addHiddenDiv('page_url', URL, i);
+      }
+    });
+  };
   
   await getSKU(context);
+  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   await applyScroll(context);
+  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  await getPageURL(context);
+  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   return await context.extract(productDetails, {transform});
 }
 

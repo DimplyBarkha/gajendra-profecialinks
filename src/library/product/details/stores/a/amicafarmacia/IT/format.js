@@ -63,7 +63,7 @@ const transform = (data) => {
             if (row.aggregateRating) {
                 let json = JSON.parse(row.aggregateRating[0].text);
                 if (json.name != 'Amicafarmacia') {
-                    row.aggregateRating[0].text = json.aggregateRating.ratingValue;
+                    row.aggregateRating[0].text = json.aggregateRating.ratingValue.replace('.',',');
                     row.ratingCount = [{text: json.aggregateRating.ratingCount, xpath: row.aggregateRating[0].xpath}];
                 }
                 else {
