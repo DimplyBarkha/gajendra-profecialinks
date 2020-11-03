@@ -249,9 +249,9 @@ async function implementation (
           if (e.includes('Alcohol content:')) {
             addHiddenDiv(newDiv, 'alcoholContent', e.split('</B>')[1].trim());
           }
-          if (e.includes('Hazard Warnings')) {
-            addHiddenDiv(newDiv, 'warnings', e.split('</B>')[1].trim());
-          }
+          // if (e.includes('Hazard Warnings')) {
+          //   addHiddenDiv(newDiv, 'warnings', e.split('</B>')[1].trim());
+          // }
           if (e.includes('Suggested Age:')) {
             addHiddenDiv(newDiv, 'ageSuitability', e.split('</B>')[1].trim());
           }
@@ -323,6 +323,12 @@ async function implementation (
         }
       });
 
+      document.querySelectorAll('.h-text-orangeDark div[data-test*="Hazard"]').forEach(e => {
+        if (e && (e.innerText.indexOf('WARNING:') > -1 || e.innerText.indexOf('warning') > -1)) {
+          addHiddenDiv(newDiv, 'warnings', e.innerText.split(':')[1]);
+        }
+      });
+
       document.querySelectorAll('.h-padding-l-default').forEach(e => {
         if (e && (e.innerText.indexOf('Warning:') > -1) && e.querySelector('h3') && e.querySelector('h3').innerText === 'Description') {
           addHiddenDiv(newDiv, 'warnings', e.innerText.split('Warning:')[1]);
@@ -343,11 +349,12 @@ async function implementation (
                 variant.enrichment.nutrition_facts.value_prepared_list.length) {
         variant.enrichment.nutrition_facts.value_prepared_list.forEach(valList => {
           if (valList.serving_size) {
-            const servingSize = valList.serving_size;
-            addHiddenDiv(newDiv, 'servingSize', !valList.serving_size_unit_of_measurement ? servingSize : servingSize.split(' ')[0]);
+            let servingSize = valList.serving_size;
             if (valList.serving_size_unit_of_measurement) {
               addHiddenDiv(newDiv, 'servingSizeUom', valList.serving_size_unit_of_measurement);
+              servingSize = servingSize + valList.serving_size_unit_of_measurement;
             }
+            addHiddenDiv(newDiv, 'servingSize', !valList.serving_size_unit_of_measurement ? servingSize : servingSize.split(' ')[0]);
             addHiddenDiv(newDiv, 'servingsPerContainer', valList.servings_per_container);
           }
         });
