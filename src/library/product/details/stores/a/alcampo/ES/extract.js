@@ -20,7 +20,7 @@ module.exports = {
       const shippingOptions = document.querySelectorAll('div[class*="imageServiceProduct"] + div');
       let shippingInfo = '';
       shippingOptions.forEach(option => {
-        shippingInfo += option.innerHTML;
+        shippingInfo += '-' + option.innerHTML;
       });
       body.setAttribute('shippinginfo', shippingInfo);
 

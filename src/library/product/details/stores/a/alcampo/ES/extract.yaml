@@ -43,7 +43,7 @@ fields:
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
   xpath: //div[@class="addToCartDetail"]//span[contains(@class, "big-price price right precio")]
-  regExp: ([\d,]{1,4} €)
+  regExp: ^([\d\.,]+ €)
   regExpReplace: $1
 - name: availabilityText
   singleValue: true
@@ -77,7 +77,7 @@ fields:
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
-  xpath: //table[@class="tablaInformacionAdicional"]//span[text()="Peso Neto"]/following-sibling::span
+  xpath: //table[@class="tablaInformacionAdicional"]//span[text()="Peso Neto" or text()="Peso"]/following-sibling::span
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
@@ -121,7 +121,8 @@ fields:
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
   xpath: //div[@class="productSummary"]//span/@class
-  regExp: (\d)
+  regExp: ([\d\.]+)
+  regExpReplace: $1
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -512,19 +513,19 @@ fields:
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: false
+  defaultValue: "No"
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  defaultValue: "No"
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  defaultValue: "No"
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  defaultValue: "Yes"
 - name: materials
   singleValue: true
   description: Materials used to make the product
@@ -533,9 +534,9 @@ fields:
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: false
+  defaultValue: "No"
 - name: imageZoomFeaturePresent
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  defaultValue: "No"
