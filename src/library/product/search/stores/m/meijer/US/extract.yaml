@@ -8,6 +8,7 @@ fields:
    xpath: //div[@class="tile-column quickview-mouseover-container"]//div[@class="quickview-block"]//a/@data-ean
  - name: rankOrganic
    singleValue: false
+   xpath: //div[@id="rankOrganic"]
  - name: name
    singleValue: false
    xpath: //div[@class="tile-column details"]//a[@class="h7"]
@@ -33,7 +34,9 @@ fields:
    singleValue: false
  - name: price
    singleValue: false
-   xpath: concat((//div[@class="for-tile"]//div[@class="rsection price-container"]//div[@class="display-price"]//span)[1],(//div[@class="for-tile"]//div[@class="rsection price-container"]//div[@class="display-price"]//span)[2])
+   xpath: //div[@class="display-price"]//span//text()
+   #regExp: (.+)
+   #regExpReplace: $$1
  - name: manufacturer
    singleValue: false
  - name: soldBy
