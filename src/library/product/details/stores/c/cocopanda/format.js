@@ -44,13 +44,6 @@ const transform = (data) => {
             }
           })
         }
-        if(row.variantId){
-          console.log('variantId');
-        }else{
-          if(skuText!=''){
-            row.variantId=[{"text":skuText}];
-          }
-        }
         if(row.aggregateRating){
           row.aggregateRating.forEach(item => {
             let reviewCountData=item.text.split('-');
