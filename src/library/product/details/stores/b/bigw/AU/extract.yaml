@@ -5,4 +5,52 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //meta[property='og:image']/@content
+    xpath: //meta[@property='og:image']/@content
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,"img-thumbnail")]//a[contains(@class,"MagicZoomPlus")]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='slick-slide slick-active']//a[contains(@class,"MagicThumb-swap")]//img/@src
+  - name: category
+    singleValue: false
+    xpath: //span[@itemprop='category']/@content
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='clone-title']//h1[@itemprop='name']
+  - name: name
+    singleValue: false
+    xpath: //div[@class='clone-title']//h1[@itemprop='name']
+  - name: price
+    singleValue: false
+    xpath: //span[@id='product_online_price']
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: description 
+    singleValue: false
+    xpath: //meta[@property='og:description']/@content
+  - name: specifications
+    singleValue: false  
+    xpath: //div[@class='tab-Specification']//ul[contains(@class,"unstyled dividedList")]//li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@class='tab-Specification']//ul[contains(@class,"unstyled dividedList")]//li
+  - name: quantity
+    singleValue: false
+    xpath: //input[@id='qtyInput']/@value
+  - name: sku
+    singleValue: false
+    xpath: //input[@id='productCode']/@value
+  - name: variantId
+    singleValue: false
+    xpath: //input[@id='productCode']/@value
+  - name: gtin
+    singleValue: false
+    xpath: //input[@id='productCode']/@value
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="tab-Specification"]//li/div[@class="meta"]/strong[text()="Brand Name:"]/parent::*/parent::*/div[@class="subMeta"]/p
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="tab-Specification"]//li/div[@class="meta"]/strong[text()="Brand Name:"]/parent::*/parent::*/div[@class="subMeta"]/p

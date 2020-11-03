@@ -24,13 +24,53 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) {
-        if (row.sku) {
-          row.sku.forEach(item => {
-            item.text = item.text.replace(/(\s*)+/g, '').trim();
-            item.text = item.text.replace('Item#', '').trim();
-          });
-        } 
-      }
+        if (row.image) {
+            row.image.forEach(item => {
+              item.text = 'https://www.bigw.com.au' + item.text;
+            });
+          }
+          if (row.alternateImages) {
+            row.alternateImages.forEach(item => {
+              item.text = 'https://www.bigw.com.au' + item.text;
+            });
+          }
+          if (row.description) {
+            let description_ar = [];
+            row.description.forEach(item => {
+                description_ar.push(item.text);
+            });
+            if (description_ar.length) {
+              row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
+            }
+          }
+          if (row.specifications) {
+            var specificationArr = [];
+            row.specifications.forEach(item => {
+              item.text = item.text.replace(/\n\s\n/, ' : ');
+              specificationArr.push(item.text);
+            });
+            if (specificationArr.length) {
+              row.specifications = [{ "text": specificationArr.join(" || ") }];
+            } else {
+              delete row.specifications;
+            }
+          }
+          if (row.category) {
+            let info = [];
+            row.category.forEach(item => {
+              info.push(item.text.trim());
+            });
+            if (info.length) {
+              row.category = [];
+              info.forEach(item => {
+                row.category.push({ "text": item});
+              });
+            }
+          }
+          if (row.descriptionBullets) {
+            row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
+          } 
+        }
     }
     return cleanUp(data);
   };
