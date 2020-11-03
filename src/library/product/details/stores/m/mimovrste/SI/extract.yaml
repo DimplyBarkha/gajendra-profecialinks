@@ -42,10 +42,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //link[@itemprop='availability']/@href
-    regExp: InStock
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //div[@id='added_availability']
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from

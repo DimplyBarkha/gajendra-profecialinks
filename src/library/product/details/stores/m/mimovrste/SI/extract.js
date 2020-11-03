@@ -144,6 +144,13 @@ module.exports = {
       if (listPrice) {
         addElementToDocument('added_listPrice', listPrice.replace(/,/g, '.'));
       }
+
+      const availability = getXpath("//div[@class='add-to-cart-button']", 'innerText');
+      if (availability) {
+        addElementToDocument('added_availability', 'In Stock');
+      } else {
+        addElementToDocument('added_availability', 'Out of Stock');
+      }
     });
     await context.extract(productDetails, { transform: transformParam });
   },
