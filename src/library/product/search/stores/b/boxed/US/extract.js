@@ -4,14 +4,13 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await new Promise(resolve => setTimeout(resolve, 2000));
-  // var isPopupPresent = await context.evaluate(async () => {
-  //   return document.querySelector('button#onetrust-accept-btn-handler');
-  // });
-  // if (isPopupPresent) {
-  //   await context.click('button#onetrust-accept-btn-handler');
-  // }
+  const isPopupPresent = await context.evaluate(async () => {
+    return document.querySelector('p[id*="dialog"] + button');
+  });
+  if (isPopupPresent) {
+    await context.click('p[id*="dialog"] + button');
+  }
   await context.evaluate(async () => {
-    // first autoclick button more items
     while (
       document.querySelector('button[class*="b05-less _"]') !== null
     ) {
@@ -23,26 +22,26 @@ async function implementation (inputs, parameters, context, dependencies) {
         }, 2000);
       });
     }
-    // scroll
-    // function stall (ms) {
-    //   return new Promise((resolve, reject) => {
-    //     setTimeout(() => {
-    //       resolve();
-    //     }, ms);
-    //   });
-    // }
+    // scroll;
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
 
-    // scrolling
-    // var rawNumber = document.querySelector('div.pagine__count span.pagine__total').textContent;
-    // var match = parseInt(rawNumber);
+    // scrolling;
+    var rawNumber = document.querySelector('div.pagine__count span.pagine__total').textContent;
+    var match = parseInt(rawNumber);
 
-    // let scrollTop = 0;
-    // const scrollLimit = match * 150;
-    // while (scrollTop <= scrollLimit) {
-    //   await stall(1000);
-    //   scrollTop += 1000;
-    //   window.scroll(0, scrollTop);
-    // }
+    let scrollTop = 0;
+    const scrollLimit = match * 150;
+    while (scrollTop <= scrollLimit) {
+      await stall(1000);
+      scrollTop += 1000;
+      window.scroll(0, scrollTop);
+    }
   });
   await new Promise((resolve, reject) => setTimeout(resolve, 1500));
   return await context.extract(productDetails, { transform });

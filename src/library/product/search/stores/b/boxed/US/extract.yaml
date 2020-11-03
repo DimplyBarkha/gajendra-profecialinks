@@ -1,20 +1,25 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //li[@data-bx='ple']
 fields:
   - name: id
     singleValue: false
+    xpath: //div[@data-bx='ple-wrap']/a/@href
+    regExp: (\d+)
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //div[contains(@class, 'brand-text')]
   - name: productUrl
     singleValue: false
+    xpath: //div[@data-bx='ple-wrap']/a/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //figure/*[1]/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
