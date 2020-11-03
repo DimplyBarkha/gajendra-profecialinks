@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: div.card__product
 recordXPath: //div[@class="results-area"]
 fields:
   - name: id
@@ -8,7 +8,6 @@ fields:
     xpath: //li/@data-id
   - name: searchUrl
     singleValue: true
-    xpath: //link[@rel="canonical"]/@href
   - name: name
     singleValue: false
     xpath: //a[@data-test='product-title']
@@ -24,27 +23,27 @@ fields:
     singleValue: false
     xpath: //div[@class='star-rating']/@title
   - name: aggregateRating2
+    singleValue: false
   - name: reviewCount
     singleValue: false
+    xpath: //div[@class='star-rating']/@ratingsCount
   - name: ratingCount
     singleValue: false
-    xpath: //div[@class='star-rating']/@ratingsCount
   - name: price
-    regExp: (.*[0-9])
-    regExpReplace: $1
     singleValue: false
-    xpath: //span[@class="promo-price"]
+    xpath: //meta[@itemprop="price"]/@content
   - name: manufacturer
-    singleValue: false
+    singleValue: true
     xpath: //ul[@class='product-creator']/li
   - name: soldBy
-    singleValue: false
+    singleValue: true
     xpath: //wsp-buy-block[@class="product-item__options hit-area"]/@seller
   - name: endorsementText
     singleValue: false
   - name: rank
     singleValue: false
     description: search/listing rank
+    xpath: //wsp-buy-block[@class='product-item__options hit-area']/@rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
@@ -54,10 +53,7 @@ fields:
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    xpath: //div[@class="product-item__info hit-area"]/@sponsored # //div[@class='h-color-subtext h-bottom--xs small_details']
+    xpath: //div[@class="product-item__info hit-area"]/@sponsored
   - name: totalRecordCount
     singleValue: true 
-    xpath: //p[@class='total-results js_total_results']
-    type: NUMBER
-
-    # todo soldBy nextLinkSelector 
+    xpath: ancestor::html//p[contains(@name, 'searchresultcount')]/strong/text()
