@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'notino',
-    nextLinkSelector: null,
+    nextLinkSelector: 'span[class="pages"]:last-child a[class="next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
