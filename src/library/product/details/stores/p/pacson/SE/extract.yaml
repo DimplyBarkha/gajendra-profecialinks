@@ -21,11 +21,11 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//ul[@class="breadcrumbs"]/li[3]/a)
-  - name: sub_category
-    singleValue: false
-    description: The sub-categories (e.g. from breadcrumbs)
-    xpath: (//ul[@class="breadcrumbs"]/li[position()>3 and position()<6]/a)
+    xpath: //ul[@class="breadcrumbs"]/li[position() >2 and position()<last()]/a
+  # - name: sub_category
+  #   singleValue: false
+  #   description: The sub-categories (e.g. from breadcrumbs)
+  #   xpath: (//ul[@class="breadcrumbs"]/li[position()>3 and position()<6]/a)
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -36,9 +36,10 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
+    type: CURRENCY
     xpath: (//span[@class="price prio-30"])
+    regExp: (\d+),?(\d+).+
+    regExpReplace: $1.$2
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -50,7 +51,8 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: (//span[@class="product-page__title__product_name"])
+    xpath: //h1[@class="product-page__title"]
+    # xpath: (//span[@class="product-page__title__product_name"])
   - name: additional_description
     singleValue: true
     description: additional_description
@@ -59,13 +61,14 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: (//div[@class="product-detail__specification"]/table/tbody/tr/th[1])[contains(text(),'Varumärke')]/following-sibling::th
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: (//div[@class="small-4 columns"]/input)/@value
+    xpath: //select[@class="form__input"]/option[@selected="selected"]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -84,7 +87,7 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xpath: //div[@class="product-detail__article-number"]/div
-    regExp: (\d)
+    regExp: (\d+)
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -149,7 +152,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //h1[@class="product-page__title"]/span
+    xpath: //h1[@class="product-page__title"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -428,6 +431,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //select[@class="form__input"]/option[@selected="selected"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
