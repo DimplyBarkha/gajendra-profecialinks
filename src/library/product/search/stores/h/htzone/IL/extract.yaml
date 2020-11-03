@@ -1,0 +1,45 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+# recordXPath: //div[@id='filteredProducts']//ul[contains(@class,'slidee')]//li
+fields:
+  - name: productUrl
+    singleValue: false    
+    xpath: //div[@class='col span_7_of_12 productInfo']//div[@class='groupH']//h4//a/@href
+    regExp: (.+)
+    regExpReplace: https://htzone.co.il$1
+  - name: name
+    singleValue: false
+    xpath: //div[@class='col span_7_of_12 productInfo']/div[@class='groupH']/h4//text()
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='col pl15 productImage']/a/img/@src
+  - name: price
+    singleValue: false
+    # xpath: //div[@id='addedPrice']
+  - name: id
+    singleValue: false
+    xpath: //div[@id='filteredProducts']//div[@class='col pl15 productImage']//@href
+    regExp: ([0-9][0-9][0-9][0-9][0-9])
+  - name: sku
+    singleValue: false
+    xpath: //div[@id='filteredProducts']//div[@class='col pl15 productImage']//@href
+    regExp: ([0-9][0-9][0-9][0-9][0-9])
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    xpath:  //div[@class='productReviewsScoreAvgSubCategoryWrap']/div/@data-total-voters
+    # regExp: (\d*)
+    # regExpReplace: $1
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@class='productReviewsScoreAvgSubCategoryWrap']/div/@date-average
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
