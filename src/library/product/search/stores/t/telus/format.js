@@ -30,6 +30,13 @@ const transform = (data) => {
           item.text = "https://www.telus.com" + item.text;
         });
       }
+      if (row.thumbnail) {
+        row.thumbnail.forEach(item => {
+          if(item.text.indexOf('https') < 0){
+            item.text = "https:" + item.text;
+          }
+        });
+      }      
       if (row.id) {
         row.id.forEach(item => {
           var myRegexp = /.+\/(.+)/g;

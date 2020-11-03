@@ -1,22 +1,22 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"sc-gqjmRU hQIhVa")]//div[contains(@class,"__DeviceCardSection")]
+recordXPath: //div[contains(@class,"container-fluid")]//div[contains(@class,"__DeviceCardSection")]
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[contains(@class,"sc-gqjmRU hQIhVa")]//h3[@data-testid="heading"]//a/@href
+    xpath: //h4[@data-testid="heading"]//a/@href
   - name: productUrl
     SingleValue: false
-    xpath: //div[contains(@class,"sc-gqjmRU hQIhVa")]//h3[@data-testid="heading"]//a/@href
+    xpath: //h4[@data-testid="heading"]//a/@href
   - name: price
-    SingleValue: true
-    xpath: //p[@data-id="finance-retail-amount"]
+    SingleValue: false
+    xpath: (//div[contains(@class,"styledComponents__PriceFormatterWrapper")])[1]
   - name: thumbnail
     SingleValue: true
-    xpath: //div[contains(@class,"is-visible")]/img/@src
+    xpath: //div[contains(@class,"LazyLoad is-visible")]/picture//img/@src
   - name: name
-    SingleValue: true
+    SingleValue: false
     xpath: //a
   - name: rankOrganic
     SingleValue: true
