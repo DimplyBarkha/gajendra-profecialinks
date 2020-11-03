@@ -2,7 +2,7 @@ input:
   id: 108230_108230
   _url: http://staplesadvantage.com
 extractions:
-  - html: https://workbench.import.io/html/run=19b1b4c6-8140-46fd-a55b-9e0ee7cf1f06/task=042075dc-6b95-4581-a29a-0b6661ba752e/348eef91-033d-4d37-836e-5df2ec56e1d5.html
+  - html: https://workbench.import.io/html/run=0a2b6562-5925-42d3-a1ab-e66051272447/task=87dc2931-85ba-45a3-b83f-013260c2d29f/8b1630d0-3aa6-458b-bc0b-fb8fc832541d.html
     extractionConfigId: product/details/stores/s/staplesadvantage/US/extract
     data:
       - group:
@@ -57,10 +57,10 @@ extractions:
               - text: 4/Pack
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[6]/td[2]
             ratingCount:
-              - text: 5,295 Reviews
+              - text: 5,302 Reviews
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/span[2]
             aggregateRatingText:
-              - text: 5,295 Reviews
+              - text: 5,302 Reviews
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/span[2]
             aggregateRating:
               - text: "4.55"
@@ -88,7 +88,7 @@ extractions:
             descriptionBullets:
               - text: "3"
             shippingInfo:
-              - text: Delivered FREE Mon, Nov 02
+              - text: Delivered FREE tomorrow
             variantInformation:
               - text: "Specifications tableAttribute nameAttribute valueBrand NameHPCartridge
                   Yield TypeHigh Yield/StandardSupply TypeInkInk or Toner
@@ -108,8 +108,8 @@ extractions:
                   more, visit EcoIDProgram.comNext Day DeliveryYesSeries or
                   CollectionInkJetMICR TonerNoRefillNo"
         xpath: /
-    timestamp: 1604055970956
-  - html: https://workbench.import.io/html/run=19b1b4c6-8140-46fd-a55b-9e0ee7cf1f06/task=042075dc-6b95-4581-a29a-0b6661ba752e/e77270c9-a87c-46c5-b3fc-3218f231ae27.html
+    timestamp: 1604401688532
+  - html: https://workbench.import.io/html/run=0a2b6562-5925-42d3-a1ab-e66051272447/task=87dc2931-85ba-45a3-b83f-013260c2d29f/aa440fdf-31a1-417d-9b8f-99869b08f377.html
     extractionConfigId: product/details/stores/s/staplesadvantage/US/extract
     data:
       - group:
@@ -130,8 +130,10 @@ extractions:
               - text: https://cdn.cnetcontent.com/syndication/feeds/hp/inline-content/1N/9/E/7/7/4/9E774F84DA72AA860067FB125145B79F1DC36EAC_gallerytn.jpg
                 xpath: /html/body/div[2]/div[6]/div[1]/div[2]/div[1]/div[1]/div[6]/span[1]/img[1]/@src
             videos:
-              - text: https://cdn.cnetcontent.com/syndication/mediaserverredirect/a97e8e88830fdaf220659cf335744ae9/original.mp4
+              - text: blob:https://ws.cnetcontent.com/9484ee30-8642-47b5-aefb-bc4dad34918d
                 xpath: /html/body/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/mediaelementwrapper[1]/video[1]/@src
+              - text: https://cdn.cnetcontent.com/syndication/videorobot/hls/2020/10/31/546007/ea70b753a94ae77647eb357a38f3ff7f_tablet.m3u8
+                xpath: /html/body/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/mediaelementwrapper[1]/video[2]/@src
             videoLength:
               - text: 00:27
                 xpath: /html/body/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[3]/span[3]
@@ -148,4 +150,4 @@ extractions:
             variantInformation:
               - text: ""
         xpath: /
-    timestamp: 1604055970956
+    timestamp: 1604401688532
