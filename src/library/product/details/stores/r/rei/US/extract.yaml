@@ -89,6 +89,18 @@ fields:
   - name: variants
     singleValue: false
     xpath: //script[@data-client-store="product-model-data"]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'size-color-vue-wrapper')]//span[contains(@class,'color-wrapper-name')]
+  - name: gtin
+    singleValue: false
+    xpath: //script[contains(text(),'gtin13')]
+    #"gtin13":["0193146075312"
+    regExp: \"gtin13\":\[\"(\d+)
+    regExpReplace: $1
   - name: shippingInfo
     singleValue: false
-    defaultValue: 'Rei'
+    xpath: //script[contains(text(),'seller')]
+    #"seller":{"name":"REI"
+    regExp: \"seller\":\{\"name\":\"(.+?)\"
+    regExpReplace: $1

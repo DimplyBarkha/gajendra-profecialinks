@@ -73,16 +73,16 @@ const transform = (data) => {
               var count = 0;
               if(count == 0){
                 //row.firstVariant = [{"text":inner_obj['sku']}];
-                if(inner_obj['size'] && inner_obj['size'] != 'NONE'){
-                  row.variantInformation = [{"text":inner_obj['size']}];
-                }
-                if(inner_obj['color']['label'] && inner_obj['color']['label'] != 'NONE'){
-                  if(row.variantInformation){
-                    row.variantInformation = [{"text":  row.variantInformation[0]["text"] + " - " + inner_obj['size']}];
-                  }else{
-                    row.variantInformation = [{"text": inner_obj['color']['label']}];
-                  }
-                }                
+                // if(inner_obj['size'] && inner_obj['size'] != 'NONE'){
+                //   row.variantInformation = [{"text":inner_obj['size']}];
+                // }
+                // if(inner_obj['color']['label'] && inner_obj['color']['label'] != 'NONE'){
+                //   if(row.variantInformation){
+                //     row.variantInformation = [{"text":  row.variantInformation[0]["text"] + " - " + inner_obj['size']}];
+                //   }else{
+                //     row.variantInformation = [{"text": inner_obj['color']['label']}];
+                //   }
+                // }                
                 if(inner_obj['color']['code']){
                   row.colorCode = [{"text":inner_obj['color']['code']}];
                 }
@@ -106,6 +106,14 @@ const transform = (data) => {
           // }
           delete row.variants;
         });
+      }
+      if (row.variantInformation) {
+        row.variantInformation.forEach(item => {
+          item.text = item.text.replace(/\s*:\s*/g,'');
+        });
+      }
+      if (row.shippingInfo) {
+        row.shippingInfo.splice(1,);
       }      
       if (row.specifications) {
         var specificationsArr = [];
