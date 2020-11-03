@@ -1,7 +1,19 @@
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 50000));
+  // the popup is visible after a moment -> delaying the removal
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  const isPopupPresent = await context.evaluate(async () => {
+    return document.querySelector('div.modal__overlay');
+  });
+  // when the popup is present it returns undefined, when not - null
+  if (isPopupPresent !== null && isPopupPresent !== undefined) {
+    await context.evaluate(() => {
+      document.querySelector('button.js-confirm-button').click();
+    });
+  }
+
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   await context.evaluate(() => {
     function addProp (selector, iterator, propName, value) {
@@ -19,17 +31,17 @@ async function implementation (inputs, parameters, context, dependencies) {
       seller = document.querySelectorAll('div[data-test="plazaseller-link"]')[i];
       sponsoredIteration = sponsored[i];
 
-      if (ratings === undefined) {
+      if (ratings === undefined && ratings !== null) {
         ratings = '0';
       };
 
-      if (sponsoredIteration !== undefined) {
+      if (sponsoredIteration !== undefined && sponsoredIteration !== null) {
         sponsoredIteration = true;
       } else {
         sponsoredIteration = false;
       };
 
-      if (seller !== undefined) {
+      if (seller !== undefined && seller !== null) {
         seller = seller.textContent;
         seller = seller.replace(/\s/g, ' ');
       } else {
@@ -39,6 +51,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       addProp('.star-rating', i, 'ratingsCount', ratings);
       addProp('div.product-item__info.hit-area', i, 'sponsored', sponsoredIteration);
       addProp('wsp-buy-block.product-item__options.hit-area', i, 'seller', seller);
+      addProp('wsp-buy-block.product-item__options.hit-area', i, 'rank', `${i + 1}`);
     };
   });
 
