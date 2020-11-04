@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'amazon.com',
     prefix: null,
-    url: 'https://www.amazon.com/gp/goldbox?ref_=nav_cs_gb',
+    url: 'https://www.amazon.com/',
     country: 'US',
     store: 'amazonMsPromos',
   },
