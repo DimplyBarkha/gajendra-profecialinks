@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@id='ii_image']
+    xpath: (//img[contains(@class,'productImageCarousel_image')]/@src)[1]
   - name: url
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
@@ -14,16 +14,16 @@ fields:
     xpath: //meta[contains(@name,"Keyword")]/@content
   - name: category
     singleValue: true
-    xpath: //div[@id='ii_nameExtended']
+    xpath: //ul[@class="breadcrumbs_container"]//li
   - name: nameExtended
     singleValue: true
-    xpath: //div[@id='ii_nameExtended']
+    xpath: //h1[@class="productName_title"]
   - name: price
     singleValue: true
     xpath: //p[@class='productPrice_price']
   - name: availabilityText
     singleValue: true
-    xpath: //div[@id='ii_availabilityText']
+    xpath: //p[@class="productStockInformation_prefix"]
   - name: brandText
     singleValue: true
     xpath: //div[@id='ii_brandText']
@@ -47,7 +47,7 @@ fields:
     xpath: //div[@id='ii_warnings']
   - name: alternateImages
     singleValue: true
-    xpath: //div[@id='ii_alternateImages']
+    xpath: //img[contains(@class,'productImageCarousel_image')]/@src
   - name: manufacturerImages
     singleValue: true
   - name: ratingCount

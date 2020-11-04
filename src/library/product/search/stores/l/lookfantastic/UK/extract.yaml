@@ -20,7 +20,8 @@ fields:
   - name: gtin
     singleValue: true
   - name: thumbnail
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class="productBlock_imageContainer"]//img/@src
   - name: aggregateRating
     singleValue: false
     xpath: //span[contains(@class,'productBlock_ratingValue')]

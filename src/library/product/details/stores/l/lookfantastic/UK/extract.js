@@ -1,3 +1,4 @@
+const { cleanUp } = require('../../../../shared');
 async function implementation (
   // @ts-ignore
   inputs,
@@ -109,7 +110,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'lookfantastic',
-    transform: null,
+    transform: cleanUp,
     domain: 'lookfantastic.com',
   },
   implementation,
