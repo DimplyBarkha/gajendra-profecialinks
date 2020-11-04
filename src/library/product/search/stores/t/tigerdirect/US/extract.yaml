@@ -24,6 +24,12 @@ fields:
     regExp: (\d{7,8})|(\d{6,8})
   - name: price
     singleValue: false
-    xpath: //p[@class="price"]
-    regExp: (.*)(\$[0-9],?[0-9.]+)
-    regExpReplace: $2
+    xpath: //p[@class="price"]/text()
+    #regExp: (.*)(\$[0-9],?[0-9.]+)
+    #regExpReplace: $2
+  - name: rankOrganic
+    singleValue: false
+    xpath: //html//div[@id='altImages']
+  - name: rank
+    singleValue: false
+    xpath: //html//div[@id='altImages']
