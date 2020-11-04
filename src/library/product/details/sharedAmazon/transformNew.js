@@ -291,7 +291,7 @@ const transform = (data, context) => {
         row.warnings = [{ text }];
       }
       if (row.variantAsins) {
-        const text = row.variantAsins.map(elm => elm.text).join(' ');
+        const text = row.variantAsins.map(elm => elm.text).join(' | ');
         row.variantAsins = [{ text }];
       }
 
