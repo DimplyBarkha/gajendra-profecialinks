@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //a[@class="product-name"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.aptekaolmed.pl$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="product_wrapper_hotspot_sub"]/a//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.aptekaolmed.pl$1
+  - name: name
+    description: The product name
+    xpath: //a[@class="product-name"]
+  - name: skus
+    description: The store-specific product identifiera
+    xpath: //div[@class="product_add_basket"]/a/@data-id
+  - name: ratingCount
+    description: The number of ratings
+    regExp: (\d+)
+  - name: reviewCount
+    description: The number of reviews
+    regExp: (\d+)
+  - name: price
+    description: The offered price for the product
+    xpath: //span[@class="price"]
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+    xpath: //div[@id='altImages']
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    defaultValue: false
+    type: BOOLEAN
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //div[@class="product_add_basket"]/a/@data-id
+  - name: aggregateRating
+    type: NUMBER
+  - name: hasVariants
