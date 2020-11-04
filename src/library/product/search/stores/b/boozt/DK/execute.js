@@ -5,9 +5,9 @@ module.exports = {
     country: 'DK',
     store: 'boozt',
     domain: 'boozt.com',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.boozt.com/eu/en/search?search_key={searchTerms}',
+    loadedSelector: 'div[class="product-list clearfix"]',
+    noResultsXPath: '//h2[@class="fsearchnoresults__header"]',
     zipcode: '',
   },
 };

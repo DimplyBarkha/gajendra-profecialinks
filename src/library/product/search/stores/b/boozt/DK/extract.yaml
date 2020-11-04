@@ -1,44 +1,55 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //li[@class="p-card p-card--desktop p-card--shownames p-card--showfit  impression-product"]
 fields:
   - name: id
     singleValue: false
+    xpath: //li[@class="p-card p-card--desktop p-card--shownames p-card--showfit  impression-product"]/@data-product-id
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //li[@class="p-card p-card--desktop p-card--shownames p-card--showfit  impression-product"]/@data-product-name
   - name: productUrl
     singleValue: false
+    xpath: //div[@class="p-card__image_wrapper p-card__image_wrapper--grey"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.bootz.com$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //div[@class="p-card__image_wrapper p-card__image_wrapper--grey"]/a/img/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
     singleValue: false
   - name: reviewCount
     singleValue: false
+    xpath: //div[@class="p-card__favorite-count"]
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //span[@class="p-card__price "]
   - name: manufacturer
-    singleValue: true
+    singleValue: false
+    xpath: //li[@class="p-card p-card--desktop p-card--shownames p-card--showfit  impression-product"]/@data-brand
   - name: soldBy
     singleValue: true
   - name: endorsementText
     singleValue: false
   - name: rank
     singleValue: false
+    xpath: count(preceding-sibling::*[@data-product-id])+1
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: count(preceding-sibling::*[@data-product-id])+1
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
