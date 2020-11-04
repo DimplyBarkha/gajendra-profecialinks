@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@id="productsList"]/li
+# recordXPath: //ul[@id="productsList"]/li
 fields: 
   - name: price
     singleValue: false
-    xpath: //p[@class="price"]
+    xpath: (//p[@class="price"])/strong
   - name: productUrl
     singleValue: false
     xpath: //li[@class="item"]/a/@href
@@ -18,9 +18,10 @@ fields:
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
-    xpath: //span[@class="name"]/strong
+    xpath: //span[@class="name"]//strong
   - name: rank
     singleValue: false
+    xpath: //html//div[@id='altImages']
   - name: rankOrganic
     singleValue: false
     type: NUMBER
