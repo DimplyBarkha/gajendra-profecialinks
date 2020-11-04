@@ -1,19 +1,10 @@
 extends: ../../../../sharedAmazon/shared
 fields:
-  - name: nameExtended
-    singleValue: false
-    xpath: //h1[@id='title']
   - name: quantity
     singleValue: false
-    xpath: //td[contains(text(), 'Peso')]/following-sibling::*[1] | //div[@class='content']/ul/li/b[contains(text(), 'Peso')]/parent::*[1]/text() | //div[@class='content']/ul/li/b[contains(text(), 'Dimensiones')]/parent::*[1]/text() | //th[contains(text(), 'Peso')]/following-sibling::*[1]
-  - name: weightNet
-    singleValue: false
-    xpath: //li[contains(.,'Dimensiones')]//span//span[2] | //td[contains(text(), 'Nettogewicht')]/following-sibling::*[1]
+    xpath: //li[contains(.,'Dimensiones')]//span//span[2]
     regExp: (.*);(.*)
     regExpReplace: $2
-  - name: weightGross
-    singleValue: false
-    xpath: //td[contains(text(), 'Paketgewicht')]/following-sibling::*[1]
   - name: packSize
     singleValue: false
     xpath: //h1[@id='title'] | (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Peso')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Peso')]/* | //label[contains(text(), 'Peso')]/following-sibling::*[1])[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Número de unidades en el paquete')]/../td | //td[contains(text(),'Cantidad')]/following-sibling::*[1]
@@ -31,22 +22,6 @@ fields:
   - name: shippingDimensions
     singleValue: false
     xpath: //li[contains(.,'Dimensiones')]//span//span[2] | //*[contains(text(), 'Dimensiones')]/following-sibling::*[1] | //li/b[contains(text(), 'Dimensiones')]/following::text()[1]
-  - name: shippingWeight
-    singleValue: false
-  - name: variantCount
-    singleValue: false
-    xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
-  - name: color
-    singleValue: false
-    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
   - name: manufacturer
     singleValue: false
     xpath: //li[contains(.,'Fabricante')]//span//span[2] | //td[contains(text(), 'Hersteller')]/following-sibling::*[1] | //td/a[contains(text(), 'Hersteller')]/parent::*[1]/following-sibling::*[1] | //th[contains(text(), 'Hersteller')]/following-sibling::*[1]
-  - name: brandLink
-    singleValue: false
-    xpath: //a[@id="bylineInfo"]/@href | //a[@id='brand']/@href
-    regExp: (.+)
-    regExpReplace: https://www.amazon.es$1
-  - name: gtin
-    singleValue: false
-    xpath: //li/b[contains(text(), 'Número de modelo del producto')]/following::text()[1]
