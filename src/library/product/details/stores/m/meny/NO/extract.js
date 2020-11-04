@@ -67,6 +67,9 @@ module.exports = {
        availDiv.setAttribute('availability',"In stock");
        }
        document.body.append(availDiv);
+       document.getElementsByClassName("ngr-icon ngr-icon--ngr-arrow-down ngr-accordion-item__indicator")[0].setAttribute("id", "catwalk");
+      var button = document.getElementById('catwalk');
+         button.click();
       const informationButtons = document.querySelectorAll('div[class*="product-details"] > button > span');
       if (informationButtons.length) {
         const nutritionButton = [...informationButtons].find(elem => elem.innerText == 'Næringsinnhold');

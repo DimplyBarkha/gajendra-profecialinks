@@ -10,9 +10,6 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //title
-    regExp: (.+)( (\s)?\|)(.+)
-    regExpReplace: $1
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -39,7 +36,6 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[contains(@class,"price")]//strong
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -55,7 +51,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="information"]//@manufacturer
+    xpath: (//div[@class="ngr-accordion-item__title"])[1]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
