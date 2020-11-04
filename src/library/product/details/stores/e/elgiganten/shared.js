@@ -127,20 +127,23 @@ const transform = (data) => {
       if (row.videos) {
         let video = [];
         row.videos.forEach(item => {
-
-          if (item.text.split('/').length > 1) {
-            video.push({
-              text: '' + item.text,
-              xpath: item.xpath
-            })
-          } else {
-            video.push({
-              text: 'https://www.youtube.com/watch?v=' + item.text + '&feature=emb_title',
-              xpath: item.xpath
-            })
+          if (item.text.indexOf('https:') === -1) {
+            item.text = `https://www.elgiganten.se${item.text}`;
           }
         });
-      row.videos = video;
+
+      //     if (item.text.split('/').length > 1) {
+      //       video.push({
+      //         text: '' + item.text,
+      //         xpath: item.xpath
+      //       })
+      //     } else {
+      //       video.push({
+      //         text: 'https://www.youtube.com/watch?v=' + item.text + '&feature=emb_title',
+      //         xpath: item.xpath
+      //       })
+      //     }
+       // row.videos = video;
       }
       // if (row.description) {
       //   const nDesc = [];
