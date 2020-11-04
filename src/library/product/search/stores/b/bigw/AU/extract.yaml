@@ -5,4 +5,16 @@ recordXPath: //div[contains(@class,"productSlot")]
 fields: 
   - name: productUrl
     SingleValue: false
-    xpath: //div[@class="productDescription"]//h4[@class="name"]//a/@href
+    xpath: //div[@class="product-listing"]//h4[@class="name"]//a/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="product-listing"]//h4[@class="name"]//a/@data-product-code
+  - name: price
+    SingleValue: false
+    xpath: //div[@class="product-listing"]//button[@class="quickViewBtn"]/@data-product-price
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="product-listing"]//div[@class="quickViewContainer"]//a//img/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="product-listing"]//h4[@class="name"]//a
