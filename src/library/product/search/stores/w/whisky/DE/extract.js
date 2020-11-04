@@ -8,7 +8,7 @@ module.exports = {
     domain: 'whisky.de',
   },
   openSearchDefinition: {
-    template: 'https://www.whisky.de/shop/index.php?cl=search&searchparam={searchTerms}',
+    template: 'https://www.whisky.de/shop/index.php?cl=search&searchparam={searchTerms}&searchorigin=1&searchparam={searchTerms}&pgNr={page}',
   },
 };
 
