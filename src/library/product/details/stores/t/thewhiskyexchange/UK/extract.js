@@ -60,6 +60,16 @@ async function implementation(inputs, parameters, context, dependencies) {
     elem.innerText = deliveryInfo;
     elem.style.display = 'none';
     document.body.appendChild(elem);
+
+    // filter breadcrumbs
+    var breadcrumps = document.querySelectorAll(
+      'div[class="breadcrumb"] li[class="breadcrumb__item"] a'
+    );
+    breadcrumps.forEach((element, index) => {
+      if (index > 0) {
+        element.setAttribute('category', element.textContent);
+      }
+    });
   });
 
   return await context.extract(productDetails, { transform });
