@@ -36,7 +36,7 @@ module.exports = {
         return result;
       };
       const sliceURL = (data2, data3, data4) => {
-        var old = "height " + data2 + "* Width " + data3 + "* depth " + data4
+        var old = "height " + data2 + "*depth" + data3 + "*Width" + data4
         addElementToDocument('altImages', old);
 
       };
