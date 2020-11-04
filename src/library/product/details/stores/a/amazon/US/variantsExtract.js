@@ -10,7 +10,6 @@ module.exports = {
   },
   dependencies: {
     Helpers: 'module:helpers/helpers',
-    AmazonHelp: 'module:helpers/amazonHelp',
   },
   implementation,
 };

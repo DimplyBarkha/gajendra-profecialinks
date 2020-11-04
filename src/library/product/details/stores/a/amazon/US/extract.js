@@ -13,10 +13,9 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails, Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
+  const { productDetails, Helpers: { Helpers } } = dependencies;
 
   const helpers = new Helpers(context);
-  const amazonHelp = new AmazonHelp(context, helpers);
 
   async function getLbb () {
     const elem = await helpers.checkXpathSelector("//div[contains(@id, 'glow-toaster-body') and //*[contains(text(), 'Amazon Fresh')]]/following-sibling::div[@class='glow-toaster-footer']//input[@data-action-type='SELECT_LOCATION']");
@@ -57,59 +56,42 @@ async function implementation (
     }
   }
 
+  async function pageData () {
+    return await context.evaluate( async() => {
+      let pageContext = {}
+      //get variants
+        pageContext["variants"] = !!window.isTwisterPage ? [...new Set(Object.keys(window.twisterController.initTwisterState.twisterVariationsData.dimensionValuesDisplay))] : null
+      //get parentAsin
+        pageContext["parentAsin"] = !!window.isTwisterPage ? window.twisterController.twisterJSInitData.parent_asin : null
+      //get currentAsin
+        pageContext["currentAsin"] = !!window.isTwisterPage ? window.twisterController.twisterJSInitData.current_asin : window.ue_pti
+      //check for additionalRatings
+        pageContext["additionalRatings"] = !!document.querySelector('table#histogramTable')
+      
+        return pageContext
+    });
+  }
+
+  async function pageManipulation (page) {
+    if(page.additionalRatings){
+      await context.evaluate(async (page) => {
+          document.querySelector('table#histogramTable').scrollIntoView()
+      }, page);
+      await context.waitForXPath('//div[@data-hook="cr-summarization-attributes-list"]//span[contains(@class,"a-size-base")]', { timeout: 5000 })
+          .catch(() => console.log('no additional ratings'));
+    }
+  }
+
+  let pageContext = await pageData()
+  console.log("pageContext", pageContext)
+  await helpers.addItemToDocument('my-variants', pageContext.variants)
+  await helpers.addItemToDocument('my-parent-asin', pageContext.parentAsin)
+  await helpers.addItemToDocument('my-current-asin', pageContext.currentAsin)
   await getLbb();
   await helpers.addURLtoDocument('added-url');
-  await helpers.addURLtoDocument('added-asin', true);
-  const variants = await amazonHelp.getVariants();
+  await helpers.addURLtoDocument('added-asin', true)
 
-  if (variants && variants.length) {
-    // helpers.addItemToDocument('my-variants', variants.join(' | '));
-    helpers.addItemToDocument('my-variants', variants);
-  }
-
-  await context.evaluate(() => {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }
-    const enhContent = document.querySelector('div#aplus');
-    if (enhContent) {
-      addHiddenDiv('enh-html', enhContent.outerHTML);
-    }
-  });
-
-  const additionalRatings = await context.evaluate(async () => {
-    const reviewSect = document.querySelector('table#histogramTable');
-    if (reviewSect) {
-      reviewSect.scrollIntoView();
-      return true;
-    } else {
-      return false;
-    }
-  });
-
-  if (additionalRatings) {
-    await context.waitForXPath('//div[@data-hook="cr-summarization-attributes-list"]//span[contains(@class,"a-size-base")]', { timeout: 5000 })
-      .catch(() => console.log('no additional ratings'));
-  }
-
-  const customerQAndA = await context.evaluate(() => {
-    const qAndA = document.querySelector('span.askTopQandA');
-    return qAndA ? qAndA.innerText : '';
-  });
-  helpers.addItemToDocument('my-q-and-a', customerQAndA);
-
-  const zoomXpath = '//span[@id="canvasCaption" and contains(text(),  "Roll over")]';
-  await helpers.getAndAddElem(zoomXpath, 'added-imageZoomFeaturePresent', { callback: val => val ? 'Yes' : 'No' });
-
-  const xpath360 = '//li[contains(@class, "pos-360") and not(contains(@class, "aok-hidden"))]//img';
-  await helpers.getAndAddElem(xpath360, 'added-image360Present', { property: 'src', callback: val => val ? 'Yes' : 'No' });
-
-  const colorXpath = '//div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]';
-  await helpers.getAndAddElem(colorXpath, 'added-color');
+  await pageManipulation(pageContext)
 
   await context.extract(productDetails, { transform });
 }
@@ -125,7 +107,6 @@ module.exports = {
   dependencies: {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
     Helpers: 'module:helpers/helpers',
-    AmazonHelp: 'module:helpers/amazonHelp',
   },
   implementation,
 };

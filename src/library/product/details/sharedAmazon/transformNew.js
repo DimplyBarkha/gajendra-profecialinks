@@ -50,7 +50,6 @@ const transform = (data, context) => {
       const hostName = row.productUrl && row.productUrl[0] ? row.productUrl[0].text.split('/')[2] : '';
       const websiteName = hostName.split('.').slice(1).join('.');
       const mappingObject = {
-        asin: item => matchRegex(/([A-Za-z0-9]{10,})/g, sg(item), ''),
         warnings: item => sg(item).replace(/Safety Information/g, '').trim(),
         weightGross: item => sg(item).trim(),
         shippingWeight: item => sg(item).replace(/\s\(/g, '').trim(),
@@ -76,7 +75,6 @@ const transform = (data, context) => {
         pricePerUnitUom: item => regexTestNReplaceArray(/[{()}]/g, item, { matchRegex: /([^/]+$)/g }),
         secondaryImageTotal: item => castToInt(sg(item)),
         ratingCount: item => sg(item),
-        color: item => sg(item),
         descriptionBullets: item => castToInt(sg(item)),
         shippingInfo: array => [{ text: array.map(item => `${item.text}`).join(' ') }],
         ingredientsList: array => [{ text: array.map(item => `${item.text}`).join(' ') }],
@@ -108,13 +106,13 @@ const transform = (data, context) => {
         }
       }
 
-      if (row.variants) {
-        // row.variantCount = [{ text: row.variants[0].text.split('|').length + 1 }];
-        row.variantCount = [{ text: row.variants.length + 1 }];
-      }
-      if (row.variantId) {
-        row.variantId = [{ text: row.variantId[0].text.replace('parentAsin":"', '') }];
-      }
+      // if (row.variants) {
+      //   // row.variantCount = [{ text: row.variants[0].text.split('|').length + 1 }];
+      //   row.variantCount = [{ text: row.variants.length + 1 }];
+      // }
+      // if (row.variantId) {
+      //   row.variantId = [{ text: row.variantId[0].text.replace('parentAsin":"', '') }];
+      // }
       // if (row.salesRankCategory) {
       //   row.salesRankCategory = row.salesRankCategory.map(item => {
       //     const unWantedTxt = 'See Top 100 in ';
@@ -136,17 +134,18 @@ const transform = (data, context) => {
       //     return { text: 0 };
       //   });
       // }
-      if (row.manufacturerDescription && row.manufacturerDescription[0]) {
-        const description = [];
-        row.manufacturerDescription.forEach(item => {
-          const regexIgnoreText = /^(Read more)/;
-          item.text = (item.text).toString().replace(regexIgnoreText, '');
-          if (!regexIgnoreText.test(item.text)) {
-            description.push(item.text);
-          }
-        });
-        row.manufacturerDescription = [{ text: description.join(' ').trim() }];
-      }
+      // if (row.manufacturerDescription && row.manufacturerDescription[0]) {
+      //   const description = [];
+      //   row.manufacturerDescription.forEach(item => {
+      //     const regexIgnoreText = /^(Read more)/;
+      //     item.text = (item.text).toString().replace(regexIgnoreText, '');
+      //     if (!regexIgnoreText.test(item.text)) {
+      //       description.push(item.text);
+      //     }
+      //   });
+      //   row.manufacturerDescription = [{ text: description.join(' ').trim() }];
+      // }
+
       if (row.heroQuickPromoUrl && row.heroQuickPromoUrl[0]) {
         if (row.heroQuickPromoUrl[0].text.includes('http')) {
           row.heroQuickPromoUrl = [{ text: row.heroQuickPromoUrl[0].text }];
@@ -154,6 +153,7 @@ const transform = (data, context) => {
           row.heroQuickPromoUrl = [{ text: `https://${hostName}/${row.heroQuickPromoUrl[0].text}` }];
         }
       }
+
       if (row.description || row.extraDescription) {
         const bonusDesc = row.extraDescription ? row.extraDescription.map(item => item.text).join(' ').split('From the Manufacturer')[0] : '';
         if (row.description) {
@@ -165,13 +165,13 @@ const transform = (data, context) => {
           row.description = [{ text: [bonusDesc] }];
         }
       }
-      if (row.amazonChoice && row.amazonChoice[0]) {
-        if (row.amazonChoice[0].text.includes('Amazon')) {
-          row.amazonChoice = [{ text: 'Yes' }];
-        } else {
-          delete row.amazonChoice;
-        }
-      }
+      // if (row.amazonChoice && row.amazonChoice[0]) {
+      //   if (row.amazonChoice[0].text.includes('Amazon')) {
+      //     row.amazonChoice = [{ text: 'Yes' }];
+      //   } else {
+      //     delete row.amazonChoice;
+      //   }
+      // }
       if (row.specifications) {
         const text = [];
         row.specifications.forEach(item => {
@@ -195,15 +195,15 @@ const transform = (data, context) => {
           row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
         }
       }
-      if (row.otherSellersPrime) {
-        row.otherSellersPrime.forEach(item => {
-          if (item.text.includes('mazon') || item.text.includes('rime')) {
-            item.text = 'YES';
-          } else {
-            item.text = 'FALSE';
-          }
-        });
-      }
+      // if (row.otherSellersPrime) {
+      //   row.otherSellersPrime.forEach(item => {
+      //     if (item.text.includes('mazon') || item.text.includes('rime')) {
+      //       item.text = true;
+      //     } else {
+      //       item.text = false;
+      //     }
+      //   });
+      // }
       if (row.availabilityText && row.availabilityText[0]) {
         row.availabilityText = [
           {
@@ -215,16 +215,16 @@ const transform = (data, context) => {
         row.availabilityText = [{ text: 'Out of stock' }];
       }
 
-      if (row.otherSellersShipping2) {
-        row.otherSellersShipping2 = row.otherSellersShipping2.map(item => {
-          if (item.text.includes('+ $')) {
-            const regex = /\$([0-9.]{3,})/s;
-            const mtch = item.text.match(regex);
-            return { text: mtch && mtch[1] ? item.text.match(regex)[1] : '0.00' };
-          }
-          return { text: '0.00' };
-        });
-      }
+      // if (row.otherSellersShipping2) {
+      //   row.otherSellersShipping2 = row.otherSellersShipping2.map(item => {
+      //     if (item.text.includes('+ $')) {
+      //       const regex = /\$([0-9.]{3,})/s;
+      //       const mtch = item.text.match(regex);
+      //       return { text: mtch && mtch[1] ? item.text.match(regex)[1] : '0.00' };
+      //     }
+      //     return { text: '0.00' };
+      //   });
+      // }
       if (row.primeFlag) {
         row.primeFlag = [{ text: 'Yes - Shipped and Sold' }];
       }
@@ -253,11 +253,11 @@ const transform = (data, context) => {
       //   }
       //   row.starsByFeature = [{ text: featArr }];
       // }
-      const zoomText = row.imageZoomFeaturePresent ? 'Yes' : 'No';
-      row.imageZoomFeaturePresent = [{ text: zoomText }];
+      // const zoomText = row.imageZoomFeaturePresent ? 'Yes' : 'No';
+      // row.imageZoomFeaturePresent = [{ text: zoomText }];
 
-      const subscriptionPresent = row.subscriptionPrice ? 'YES' : 'NO';
-      row.subscribeAndSave = [{ text: subscriptionPresent }];
+      // const subscriptionPresent = row.subscriptionPrice ? 'YES' : 'NO';
+      // row.subscribeAndSave = [{ text: subscriptionPresent }];
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
