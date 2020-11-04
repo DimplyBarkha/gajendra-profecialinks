@@ -122,7 +122,8 @@ fields:
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
-  # xpath: //div[@class="pp-tabs__content pp-content pp-content--shipping clearfix"]/div[@class="pp-content__section clearfix"]
+  xpath: //div[@class="pp-tabs__content pp-content pp-content--shipping clearfix"]/div[@class="pp-content__section clearfix"]
+  # xpath: //div[@class="pp-tabs__content pp-content pp-content--shipping clearfix"]/@shippingInfo
   singleValue: true
   description: Shipping information for the product
 - name: shippingDimensions
@@ -172,8 +173,8 @@ fields:
   description: Text of link next to Amazon choice graphic
 - name: brandLink
   xpath: //a[@data-track-id="pdp_brandname"]//@href
-  # regExp: (.+)
-  # regExpReplace: https://www.boozt.com$1
+  regExp: (.+)
+  regExpReplace: https://www.boozt.com$1
   singleValue: true
   description: 
 - name: internationalShipping
@@ -408,6 +409,7 @@ fields:
   singleValue: true
   description: Recycling information associated with the product
 - name: productOtherInformation
+  xpath: //div[@class="pp-tabs__content pp-content pp-content--sustainability clearfix"]/div[@class="pp-content__section clearfix"]
   singleValue: false
   description: Any other product information
 - name: packaging
@@ -488,7 +490,8 @@ fields:
   description: Information related to customer service availability (text), ['Yes','No']
   defaultValue: false
 - name: materials
-  singleValue: true
+  xpath: //ul[@class="pp-content__list"]//li[contains(text(), "%")]
+  singleValue: false
   description: Materials used to make the product
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
 - name: Image360Present
@@ -497,6 +500,9 @@ fields:
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: false
 - name: imageZoomFeaturePresent
+  xpath: //div[@class="pp-gallery__image"][1]//div[@class="pp-gallery__zoom"]
+  regExp: (.+)
+  regExpReplace: "Yes"
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
