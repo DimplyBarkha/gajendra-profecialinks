@@ -31,23 +31,19 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //div[contains(@class,'product-detail-buy')]//div[contains(@class,'instead')]
-    regExp: € ([0-9,]+)$
+    regExp: (\D)\s*(\d+)[\s,]*(\d+)
+    regExpReplace: $1$2.$3
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[contains(@class,'product-detail-buy')]//div[contains(@class,'custom-price-style') and not (contains(@class,'instead'))]
-    regExp: (\D)\s*(\d+)[\s,]*(\d+)
-    regExpReplace: $1$2,$3
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[contains(@class,'button-buy')] 
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -123,6 +119,9 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
+    xpath: //script[contains(@type,'application')]
+    regExp: ratingValue([":\s]+)(\d).?(\d)(",)
+    regExpReplace: $2.$3
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
