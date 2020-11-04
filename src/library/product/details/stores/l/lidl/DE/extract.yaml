@@ -54,7 +54,7 @@ fields:
     xpath: //p[contains(@class, "article-no")]//text()[2]
   - name: variantId
     singleValue: false
-    xpath: //input[@name = "productId"]/@value
+    xpath: //p[contains(@class, "article-no")]//text()[2]
   - name: variantInformation
     singleValue: false
     xpath: //div[@class = "product-variants"]//a/@title
