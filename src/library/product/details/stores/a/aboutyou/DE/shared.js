@@ -53,6 +53,23 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [{ text }];
       }
+
+      if (row.availability) {
+        let text = '';
+        row.availability.forEach(item => {
+          text = text.replace(/InStock/g, 'In Stock');
+          text = text.replace(/OutOfStock/g, 'Out of Stock');
+        });
+        row.availability = [{ text }];
+      }
+
+      if (row.variantInformation) {
+        let text = '';
+        row.variantInformation.forEach(item => {
+          text = text + (text ? ' | ' : '') + item.text;
+        });
+        row.variantInformation = [{ text }];
+      }
     }
   }
 
