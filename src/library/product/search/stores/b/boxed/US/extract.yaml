@@ -6,20 +6,25 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@data-bx='ple-wrap']/a/@href
-    regExp: (\d+)
+    regExp: \/(\d+)\/
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
     xpath: //div[contains(@class, 'brand-text')]
   - name: productUrl
-    singleValue: false
-    xpath: //div[@data-bx='ple-wrap']/a/@href
+    singleValue: true
+    xpath: //div[@data-bx='ple-wrap']/a/@src
+    regExp: (.*)
+    regExpReplace: https://www.boxed.com$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
     xpath: //figure/*[1]/@src
+    regExp: \/\/(.*)
+    regExpReplace: $1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -30,8 +35,12 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //div[contains(@id,'g-caption')]//span[@aria-label and not(contains(@aria-label, 'Instead'))]
   - name: manufacturer
-    singleValue: true
+    singleValue: false
+    xpath: //div[@data-bx='ple-wrap']/a/@title
+    regExp: ^(.*?)\-
+    regExpReplace: $1  
   - name: soldBy
     singleValue: true
   - name: endorsementText
@@ -44,6 +53,7 @@ fields:
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
