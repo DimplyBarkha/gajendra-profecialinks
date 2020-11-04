@@ -10,60 +10,39 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, store, transform: transformParam }, context, dependencies) => {
     await context.evaluate(async () => {
+      const keyword = localStorage.getItem('keywords');
       const productNode = document.getElementsByTagName('script');
-      const nameNode = document.querySelectorAll('div.product_grid_desc div.grid-view-item__title');
-      var idNode = '';
-      var names = [];
-      var idArr = [];
-      if (nameNode.length) {
-        nameNode.forEach((ele) => {
-          names.push(ele.innerText);
-        });
-      }
+      const url = window.location.href;
+      var collection = '';
+      var fetchUrl;
       if (productNode.length) {
-        for (var j = 0; j < productNode.length; j++) {
-          var attr = productNode[j].getAttribute('name');
-          if (attr && attr === 'littledata-tracking-tag') {
-            idNode = JSON.stringify(productNode[j].innerText);
+        for (var k = 0; k < productNode.length; k++) {
+          collection = productNode[k].getAttribute('background-filters.collection_id');
+          if (collection) {
             break;
           }
         }
-        if (idNode) {
-          var productDesc = idNode.substring(
-            idNode.lastIndexOf('var collectionProds'),
-            idNode.lastIndexOf('var collectionProducts = buildCollectionProducts(collectionProds);'));
-          productDesc = productDesc.replace('var collectionProds = [', '');
-          productDesc = productDesc.replace(/\//g, '');
-          if (productDesc) {
-            var idStr = productDesc.split(',');
-            names.forEach((ele) => {
-              var regex = new RegExp(ele, 'i');
-              for (var k = 0; k < idStr.length; k++) {
-                var found = idStr[k].match(regex);
-                if (found) {
-                  var id = idStr[k].split('|');
-                  if (id.length && id[0]) {
-                    idArr.push(id[0].match(/\d+/)[0]);
-                  }
-                  break;
-                }
-              }
-            });
-            const productList = document.querySelectorAll('ul#products li div.product-card');
-            const url = window.location.href;
-            if (idArr.length) {
-              var count = 0;
-              if (idArr.length && productList.length) {
-                productList.forEach((item1) => {
-                  const doc = item1;
-                  addElementToDocument(doc, 'fetch-product-id', idArr[count]);
-                  addElementToDocument(doc, 'added-search-url', url);
-                  count++;
-                });
-              }
-            }
+      }
+      var encodeUrl = encodeURIComponent(url);
+      if (collection) {
+        fetchUrl = `https://az4m1n.a.searchspring.io/api/search/search.json?ajaxCatalog=v3&resultsFormat=native&siteId=az4m1n&domain=${encodeUrl}&bgfilter.visible_in_search=1&bgfilter.collection_id=${collection}`;
+      } else {
+        var encodeKeyword = encodeURIComponent(keyword);
+        fetchUrl = `https://az4m1n.a.searchspring.io/api/search/search.json?ajaxCatalog=v3&resultsFormat=native&siteId=az4m1n&domain=${encodeUrl}&bgfilter.visible_in_search=1&q=${encodeKeyword}`;
+      }
+      const data = await getData(fetchUrl);
+      // const productList = document.querySelectorAll('div.col__products ul li');
+      const pdList = document.querySelectorAll('ul#products li');
+      if (data && data.results && data.results.length) {
+        var count = 0;
+        pdList.forEach((item1) => {
+          const doc = item1;
+          if (count <= data.results.length && data.results[count].uid) {
+            addElementToDocument(doc, 'fetch-product-id', data.results[count].uid);
+            addElementToDocument(doc, 'added-search-url', url);
           }
-        }
+          count++;
+        });
       }
       function addElementToDocument (doc, key, value) {
         const catElement = document.createElement('div');
@@ -72,6 +51,15 @@ module.exports = {
         catElement.style.display = 'none';
         doc.appendChild(catElement);
       }
+      async function getData (url = '') {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        return response.json();
+      };
     });
     return await context.extract(dependencies.productDetails, { transform: transformParam });
   },
