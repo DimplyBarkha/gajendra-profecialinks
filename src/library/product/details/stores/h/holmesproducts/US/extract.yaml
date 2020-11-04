@@ -12,6 +12,8 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //li[contains(@class,'thumb') and not(contains(@class,'selected'))]/a[not(contains(@class,'video'))]/img/@src
+    regExp: (.*)\?sw=63&sh=63&sm=fit
+    regExpReplace: $1
   - name: secondaryImageTotal
     singleValue: false
     manualSelector: div#imageTotal
@@ -48,15 +50,15 @@ fields:
   - name: sku
     singleValue: false
     xpath: //span[contains(@itemprop,'sku')]
-  # - name: ratingCount
-  #   singleValue: false
-  #   xpath: //span[contains(@itemprop,'reviewCount')]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[contains(@itemprop,'reviewCount')]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[contains(@itemprop,'ratingValue')]
   # - name: aggregateRatingText
   #   singleValue: false
   #   xpath: //a[contains(@class,'bv-rating')]/@aria-label
-  # - name: aggregateRating
-  #   singleValue: false
-  #   xpath: //span[contains(@itemprop,'ratingValue')]
   # - name: listPrice
   #   singleValue: true
   #   description: The stated undiscounted price for the product
