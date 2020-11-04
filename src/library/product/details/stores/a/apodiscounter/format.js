@@ -31,9 +31,7 @@ const transform = (data) => {
             },
           ];
         }
-    Object.keys(row).forEach(header => row[header].forEach(el => {
-            el.text = clean(el.text);
-          }));
+    
         if (row.category){
             row.category.forEach(item => {
                 item.text = String(item.text).replace(">","");
@@ -41,11 +39,14 @@ const transform = (data) => {
         }
         if(row.manufacturer){
             var text = row.manufacturer[0].text;
-            var array = String(text).split("\n");
-            if(array.length > 1){
+             var array = String(text).split("\n");
+            if(array.length > 0){
                 row.manufacturer[0].text = array[0].replace("Originalprodukt von","").trim()
             }
         }
+        Object.keys(row).forEach(header => row[header].forEach(el => {
+          el.text = clean(el.text);
+        }));
         if(row.ratingCount){
             var text = row.ratingCount[0].text;
                 row.ratingCount[0].text = String(text).replace("(","").replace(")","").trim();
@@ -70,10 +71,10 @@ const transform = (data) => {
             var text = row.listPrice[0].text;
             row.listPrice[0].text = String(text).replace("*","");
           }
-          if(row.descriptionBullets){
-            var length = row.descriptionBullets.length;
-            row.descriptionBullets = [{ text: length, xpath: '' }]
-          }
+          // if(row.descriptionBullets){
+          //   var length = row.descriptionBullets.length;
+          //   row.descriptionBullets = [{ text: length, xpath: '' }]
+          // }
       }
     }
     return data;

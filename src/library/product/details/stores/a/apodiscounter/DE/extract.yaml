@@ -21,7 +21,7 @@ fields:
     xpath: //meta[@name='keywords']//@content
   - name: category
     singleValue: false
-    xpath: (//div[contains(@class,'header_navigation')]//a)[position()>1] | (//div[contains(@class,'header_navigation')]//span)
+    xpath: (//div[contains(@class,'header_navigation')]//a)[position()>1]
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -48,7 +48,7 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: //meta[@name='twitter:title']//@content
+    xpath: //div[contains(@class,'header_navigation')]//span
   - name: _url
     singleValue: false
     xpath: //link[@rel='canonical']//@href
@@ -65,7 +65,7 @@ fields:
     xpath: //div[@id='product_description_application_area']
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@id='product_description_active_components']
+    xpath: //div[@id='product_description_active_components']//p
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -87,16 +87,16 @@ fields:
   - name: sku
     singleValue: false
     xpath: //input[@id='product_pzn']//@value
-  - name: variantId
-    singleValue: false
-    xpath: //input[@id='product_pzn']//@value
+  # - name: variantId
+  #   singleValue: false
+  #   xpath: //input[@id='product_pzn']//@value
   - name: directions
     singleValue: false
-    xpath: //div[@id='product_description_dosage']
+    xpath: //div[@id='product_description_dosage']//p
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
-    xpath: //div[@id='product_description_contraindication']
+    xpath: //div[@id='product_description_contraindication']//p
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -111,12 +111,15 @@ fields:
     singleValue: false
     description: promotion text on product page
     xpath: (//div[@id='view_image']//div[contains(@class,'product_image_overlay')])
+  - name: quantity
+    singleValue: false
+    xpath: //a[contains(@class,'alternative_package_size_box active')]//div[contains(@class,'product_size')]
   - name: variantInformation
     singleValue: false
     xpath: //div[@id='alternative_package_size_container']//a[contains(@class,'active')]//div[contains(@class,'left_container')]
   - name: variants
     singleValue: false
     xpath: //div[@id='alternative_package_size_container']//a//div[contains(@class,'left_container')]
-  - name: descriptionBullets
-    singleValue: false
-    xpath: //div[contains(@class,'product_detail_highlights')]//li
+  # - name: descriptionBullets
+  #   singleValue: false
+  #   xpath: //div[contains(@class,'product_detail_highlights')]//li
