@@ -17,12 +17,20 @@ async function implementation (inputs, parameters, context, dependencies) {
       document.querySelector('button[class*="b05-less _"]').click();
       await new Promise((resolve, reject) => setTimeout(resolve, 1500));
     }
+    // add prefix to product url routes
+    var productUrl = document.querySelectorAll('div[class*="ab4-less"] div[data-bx="ple-wrap"] a');
+    var prefix = 'https://www.boxed.com';
+
+    productUrl.forEach((element) => {
+      element.setAttribute('href', prefix.concat(element.getAttribute('href')));
+    });
+
     function addProp (selector, iterator, propName, value) {
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     }
-    const allProducts = document.querySelectorAll('li[data-bx="ple"]');
+    const allProducts = document.querySelectorAll('div[class*="ab4-less"] li[data-bx="ple"]');
     for (let i = 0; i < allProducts.length; i++) {
-      addProp('li[data-bx="ple"]', i, 'rankorganic', `${i + 1}`);
+      addProp('div[class*="ab4-less"] li[data-bx="ple"]', i, 'rankorganic', `${i + 1}`);
     }
   });
 
