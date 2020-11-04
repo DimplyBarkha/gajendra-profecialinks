@@ -32,7 +32,7 @@ const transform = (data) => {
         }
         if(row.listPrice){
           row.listPrice.forEach(item => {
-            item.text=item.text.replace('Før: ','').slice(0, -2);
+            item.text=item.text.replace('Aiemmin: ','').slice(0, -2);
           });
         }
         if(row.availabilityText){
