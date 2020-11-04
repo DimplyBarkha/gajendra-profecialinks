@@ -21,7 +21,8 @@ fields:
   xpath: //section[@id='productSheetCont']/h1[@class='h3 font-weight-normal px-4 pt-2 mb-3']
 - name: price
   singlevalue: true
-  xpath: (//div[@class='px-1 pt-sm-2']/p[@class='pr-lg-2'])[1]/span/span/@data-promotion-price
+  type: CURRENCY
+  xpath: (//span[@id="price"])[1]
 - name: availabilityText
   singleValue: true
   xpath: (//div[@class='col']/button[@class='btn btn-rounded btn-pf-primary btn-block EA_event-btnlanding']/@name)[1]
@@ -48,11 +49,14 @@ fields:
   xpath: //meta[@itemprop="sku"]/@content
 - name: variantId
   singleValue: true
-  xpath: (//div[@class="col"]/button/@data-seller-id)[1]
+  xpath: //*[@id="product-section"]/@data-product-id
 - name: ratingCount
   singleValue: true
   type: NUMBER
   xpath: //div[@class='mt-4 rating-box']/div/span/span[@itemprop="reviewCount"]
+- name: name
+  singleValue: true  
+  xpath: //section[@id='productSheetCont']/h1/text()
 - name: aggregateRating
   singleValue: true 
   xpath: (//meta[@itemprop="ratingValue"]/@content)[1]
