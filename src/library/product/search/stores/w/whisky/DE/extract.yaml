@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //a[@class='title']/@href]
+    xpath: //a[@class='title']/@href
     regExp: (.+)
     regExpReplace: https://at.whisky.de$1
   - name: thumbnail
@@ -15,6 +15,7 @@ fields:
     singleValue: true
     xpath: //a[@class='title']/@title
   - name: id
+    singleValue: true
     description: The store-specific product identifier
     xpath: //div[@class='form-group to-basket-default']//button//@data-datamints-enhancedga-product
     regExp: '"(.*?)"([^:",]+)'
@@ -22,10 +23,12 @@ fields:
   - name: price
     singleValue: true
     description: The offered price for the product
-    xpath: //div[@class="infinite-scroll"]//span[@class="article-price-default article-club-hidden"]//text()
+    xpath: //div[@class='article-metadata']//div[@class='article-price']//span//text()
+    regExp: '\d+(?:\,\d+)?'
   - name: Rating
     description: The rating value of the product
+    singleValue: true
     xpath: //div[@class="infinite-scroll"]//div[@class="rating "]/@data-rating
   - name: availabilityText
     singleValue: true
-    xpath: //div[@class="infinite-scroll"]//span[@class='hasTooltip']//text()
+    xpath: //div[@class='article-metadata']//span[@class='hasTooltip']//text()
