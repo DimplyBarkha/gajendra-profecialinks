@@ -23,5 +23,6 @@ fields:
     xpath: //div[@class='container']//a//@id
   - name: price
     singleValue: true
-    xpath: //div//span[@class='product-price product-strike-price']
     description: The offered price for the product
+    xpath: //div//span[@class='product-price product-strike-price']
+    regExp: '\$\d+(?:\.\d+)?'
