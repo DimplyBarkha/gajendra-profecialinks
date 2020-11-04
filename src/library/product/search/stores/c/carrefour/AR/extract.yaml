@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"home-product-cards")]//div[contains(@class,"product-card home-dest-electro")]
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[contains(@class,"producto-info")]//a[1]/@data-id
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[contains(@class,"producto-info")]//a[@data-id][1]/@href
+  - name: price
+    SingleValue: false
+    xpath: //div[@class="producto-info"]//p[@class="price"]
+  - name: listPrice
+    SingleValue: false
+    xpath: //div[@class="producto-info"]//p[@class="old-price"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="image"]//img/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="producto-info"]//p[@class="title"]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
