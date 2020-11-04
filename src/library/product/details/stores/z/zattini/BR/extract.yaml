@@ -57,7 +57,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    # xpath: //span[@class='stockinfo']
+    xpath: //span[@class='stockinfo']
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -454,7 +454,7 @@ fields:
   - name: additives
     singleValue: true
     description: List of additives in the product
-    xpath: //ul[@class="attributes"]//li//strong[text()='Família Olfativa:']/following::text()[1]
+    # xpath: //ul[@class="attributes"]//li//strong[text()='Família Olfativa:']/following::text()[1]
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
@@ -545,4 +545,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
