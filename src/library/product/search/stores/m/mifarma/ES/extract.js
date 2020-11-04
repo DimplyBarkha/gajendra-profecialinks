@@ -21,11 +21,9 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   await context.evaluate(() => {
     const rating = document.querySelectorAll('.rating');
     rating.forEach((el) => {
-      const trimmed = el.style.width.slice(0, -1);
-      let numericRate = String(trimmed / 20);
-      numericRate = numericRate.replace(/\./g, ',');
-      console.log(numericRate);
-      el.setAttribute('numericrating', numericRate);
+      const trimmedAndDivided = (el.style.width.slice(0, -1)) / 20;
+      const numericRate1Decimal = trimmedAndDivided.toFixed(1);
+      el.setAttribute('numericrating', numericRate1Decimal);
     });
   });
   const addSearchUrl = async function (context) {
