@@ -7,7 +7,7 @@ module.exports = {
     domain: 'allbeauty.com',
     url: 'https://www.allbeauty.com/gb/en/search/?q={searchTerms}',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="global-message bdr-b__grey2 flex flex-jc gutters"]/span/b/text()',
     zipcode: '',
   },
 };
