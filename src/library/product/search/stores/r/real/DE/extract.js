@@ -1,16 +1,16 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'DE',
     store: 'real',
-    transform,
+    transform: cleanUp,
     domain: 'real.de',
     zipcode: '',
   },
   implementation,
 };
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -19,7 +19,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
-    function addclass (xpathforpagination) {
+    function addclass(xpathforpagination) {
       var elems = document.querySelectorAll(xpathforpagination);
       elems[0].classList.add('pagination');
     }

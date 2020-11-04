@@ -6,7 +6,7 @@ module.exports = {
     store: 'real',
     domain: 'real.de',
     url: 'https://www.real.de/item/search/?search_value={searchTerms}&valueKey_search_value=',
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },
