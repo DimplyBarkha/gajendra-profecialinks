@@ -9,12 +9,17 @@ fields:
     xpath: //div[@class="tintContainer"]/div[@class="zoomLens"]/img/@src
     regExp: (on/.*)
     regExpReplace: https://www.sephora.de/$1
+  - name: url
+    singleValue: true
+    description: A harvest url
+    xpath: //meta[@property="og:url"]/@content
   - name: ratingCount
     singleValue: true
-    description: The number of ratings
-    xpath: //div[@class="bv_numReviews_component_container"]/meta[@itemprop="reviewCount"]/@content
-    # xpath: //div[@class="bv_numReviews_text"]
     type: NUMBER
+    description: The number of ratings
+    xpath: //div[@class="bv_numReviews_component_container"]/div
+    # xpath: //div[@class="bv_numReviews_component_container"]/meta[@itemprop="reviewCount"]/@content
+    # xpath: //div[@class="bv_numReviews_text"]
     # regExp: (\d{1,2})|(\d{3,4})
   - name: aggregateRatingText
     singleValue: true
@@ -42,6 +47,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //span[@class="product-name product-name-bold"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -57,11 +63,17 @@ fields:
       should be "In Stock"
     xpath: //span[@class="availability-status instock"]
     defaultValue: Out of Stock
+  - name: coupon
+    singleValue: true
+    xpath: //p[@class="banner-description"]
+  - name: ingredientsList
+    singleValue: true
+    xpath: //span[contains(text(),'Inhaltsstoffe')]/parent::a/following-sibling::div
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="description-container"]/span[@itemprop='description']
+    xpath: (//div[@class="description-content"])[1]/p
   - name: additional_description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -79,6 +91,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //span[@class="brand-name"]/a
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
