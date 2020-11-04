@@ -30,6 +30,14 @@ const transform = (data) => {
             console.log(item.text);
           });
         }
+        if (row.variantUrl) {
+          let variantUrl1 = [];
+          row.variantUrl.forEach(item => {
+            if (item.text.indexOf('https:') === -1) {
+              item.text = `https://www.euro.com.pl${item.text}`;
+            }
+          });
+        }
         if (row.specifications) {
           const specs = [];
           let newTxt = '';
@@ -46,6 +54,44 @@ const transform = (data) => {
           });
           row.specifications = specs;
         }
+        if (row.variantUrl) {        
+          const variantUrls = [];
+          let dupUrl = "";
+          let urls = [];
+          row.variantUrl.forEach(item => {
+            console.log('item:: ', item.text);
+           urls =  row.variantUrl.filter(it => item.text === it.text);
+          if(urls && urls.length === 1 ){
+            variantUrls.push(item);
+          }else{
+            if(dupUrl !== item.text){
+              dupUrl =  item.text;
+              variantUrls.push(item);
+            }
+          }
+          });
+          row.variantUrl = variantUrls;          
+        }
+  
+        if (row.variantId) {          
+          const variantIds = [];
+          let dup = "";
+          let urls = [];
+          row.variantId.forEach(item => {
+            //console.log('item:: ', item.text);
+           urls =  row.variantId.filter(it => item.text === it.text);
+          if(urls && urls.length === 1 ){
+            variantIds.push(item);
+          }else{
+            if(dup !== item.text){
+              dup =  item.text;
+              variantIds.push(item);
+            }
+          }
+          });
+          row.variantId = variantIds;          
+        }
+  
         if (row.description) {
           const descs = [];
           let newTxt = '';

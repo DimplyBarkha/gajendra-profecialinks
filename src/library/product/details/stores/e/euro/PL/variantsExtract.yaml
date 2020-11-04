@@ -6,12 +6,13 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //div[@class="product-variants-section"]//a/@data-code
+    xpath: //div[@class="product-variants-section"]//a/@data-code | //div[@class="selenium-product-code"]/text()
+    # regExp: link":\s"([^"]+)
+    # regExpReplace: $1
   - name: variantUrl
-    singleValue: false
-    description: variant Url
-    xpath: //div[@class="product-variants-section"]//a/@href
+    singleValue: false    
+    xpath:  //div[@class="product-variants-section"]//a/@href  | //meta[@property="og:url"]/@content
     # regExp: ([^,]+)\W(\d)+
-    regExp: (.+)
-    regExpReplace: https://www.euro.com.pl$1
+    # regExp: link":\s"([^"]+)
+    # regExpReplace: $1
  
