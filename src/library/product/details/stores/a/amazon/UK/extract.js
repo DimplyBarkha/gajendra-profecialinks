@@ -1,4 +1,4 @@
-const { transform } = require('./../../../../shared');
+const { transform } = require('../../../../sharedAmazon/transformNew');
 const { implementation } = require('./sharedExtract');
 // @ts-ignore
 module.exports = {
