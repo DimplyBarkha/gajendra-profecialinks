@@ -70,15 +70,13 @@ fields:
 - name: size
   singleValue: true
   description: Quantity as described on the page
-  manualSelector: script[type='text/javascript']
-  regExp: (\"unitQuantity\"\:\")([^"]+)(",")
-  regExpReplace: $2
+  xpath: (//div[@class='to-basket-area align-bottom']//div[@class='article-amount']//span//text())[1]
+  regExp: '\d+(?:\,\d+)?'
 - name: alcohol_content
   singleValue: true
   description: Alcohol content described on the page
-  manualSelector: script[type='text/javascript']
-  regExp: (\"alcohol\"\:\")([^"]+)(",")
-  regExpReplace: $2
+  xpath: (//div[@class='to-basket-area align-bottom']//div[@class='article-amount']//span//text())[2]
+  regExp: '\d+(?:\,\d+)?'
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page

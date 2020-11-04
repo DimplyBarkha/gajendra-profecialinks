@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'whisky',
     domain: 'whisky.de',
-    loadedSelector: 'html',
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },
