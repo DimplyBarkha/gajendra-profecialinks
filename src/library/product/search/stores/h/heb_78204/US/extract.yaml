@@ -18,9 +18,7 @@ fields:
     regExpReplace: $1
   - name: name
     singleValue: false
-    xpath: //ul[@id="productResults"]//li//script[contains(text(),'products')][1]
-    regExp: \"name":\s"(\D+)",
-    regExpReplace: $1
+    xpath: //ul[@id="productResults"]//li[@role="group"]//div[@class="responsivegriditem__title"]//span[@class="responsivegriditem__title"]
   - name: productUrl
     singleValue: false
     xpath: //li[@class="responsivegriditem product-grid-large-fifth product-grid-small-6"]/a/@href
