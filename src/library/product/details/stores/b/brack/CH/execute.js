@@ -5,8 +5,8 @@ module.exports = {
     country: 'CH',
     store: 'brack',
     domain: 'brack.ch',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.productStage__infoText',
+    noResultsXPath: '//div[contains(@class, "hasNoSearchResults")]',
     zipcode: '',
   },
 };

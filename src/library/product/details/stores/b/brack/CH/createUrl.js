@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'brack.ch',
     prefix: null,
-    url: null,
+    url: 'https://www.brack.ch/search?query={id}',
     country: 'CH',
     store: 'brack',
     zipcode: '',
