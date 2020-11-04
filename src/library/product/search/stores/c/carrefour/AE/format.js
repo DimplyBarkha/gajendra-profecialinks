@@ -29,7 +29,7 @@ const transform = (data) => {
     for (const row of group) {
       if (row.productUrl) {
         row.productUrl.forEach(item => {
-          item.text = "https://www.carrefouruae.com/" + item.text;
+          item.text = "https://www.carrefouruae.com" + item.text;
         });
       }
       if (!row.price && row.listPrice) {
@@ -38,7 +38,7 @@ const transform = (data) => {
       }
       if (row.id) {
         row.id.forEach(item => {
-          var myRegexp = /p\/(.+)/g;
+          var myRegexp = /\/p\/(.+)/g;
           var match = myRegexp.exec(item.text);
           if (match) {
             if (match.length) {
