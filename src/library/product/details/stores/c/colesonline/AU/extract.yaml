@@ -5,6 +5,8 @@ recordXPath: null
 fields:
   - name: image
     xpath: //div[@class="product-hero-image-container"]/img/@src
+    regExp: (.*)
+    regExpReplace: https://shop.coles.com.au$1
     description: URL of the main product image
   - name: imageAlt
     xpath: //div[@class="product-hero-image-container"]/img/@alt
@@ -18,7 +20,7 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
-    xpath: //h1[@class="product-title"]
+    xpath: //div[@id='ii_name']
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -28,12 +30,10 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
+    xpath: //div[@id='ii_avail']
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //meta[contains(@name,'description')]/@content
@@ -41,13 +41,14 @@ fields:
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     description: Number of ul > li tags in the description
-    type: NUMBER
   - name: brandText
+    xpath: //h1[@class="product-title"]//span[@class="product-brand"]
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     description: Product manufacturer
   - name: quantity
+    xpath: //div[contains(@class,"product-information")]//span[@class="package-size"]
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
@@ -58,37 +59,29 @@ fields:
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: sku
+    xpath: //div[@id='ii_sku']
     description: The store-specific product identifier
   - name: variantId
+    xpath: //div[@id='ii_variantId']
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     description: The manufacturer model code (unique) of the product
   - name: packSize
+    xpath: //*[contains(text() , 'Servings Per Pack:')]/following-sibling::span
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
+    xpath: //div[contains(@class,'product-disclaimer')]//p[1]
     description: Content under "legal disclaimer" header
   - name: directions
+    xpath: //div[@id='ii_direction']
     description: Content under "directions" header
   - name: warnings
+    xpath: //div[@id='ii_warning']
     description: Content under "warnings" header
-  - name: ratingCount
-    description: The number of ratings
-    type: NUMBER
-  - name: aggregateRatingText
-    description: The stated aggregate rating
-  - name: aggregateRating
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-  - name: shippingInfo
-    description: Shipping information for the product
-  - name: shippingDimensions
-    description: Stated shipping dimensions
-  - name: shippingWeight
-    description: Stated shipping weight
   - name: variantCount
+    defaultValue: '0'
     description: Number of variants listed
-    type: NUMBER
   - name: color
     description: A textual description of the colour
   - name: colorCode
@@ -103,203 +96,136 @@ fields:
     singleValue: false
     description: URLs of videos on page
   - name: name
+    xpath: //div[@id='ii_name']
     description: The product name
-  - name: inStorePrice
-    description: Price in the selected store
-  - name: asin
-    description: null
-  - name: coupon
-    description: Text of any coupon offer
-  - name: amazonChoice
-    description: YES or Blank
-  - name: amazonChoiceCategory
-    description: Text of link next to Amazon choice graphic
-  - name: brandLink
-    description: null
-  - name: internationalShipping
-    description: Text next to bullet point
-  - name: salesRank
-    singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
-      to be collapsed
-  - name: salesRankCategory
-    singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
-      to be collapsed
-  - name: subscriptionPrice
-    description: Subscribe and save price
-  - name: subscribeAndSave
-    description: YES/NO
-  - name: heroQuickPromoHeadline
-    description: See image - top section hero area
-  - name: heroQuickPromoImageUrl
-    description: null
-  - name: heroQuickPromoUrl
-    description: null
-  - name: pasin
-    description: Parent asin
-  - name: videoLength
-    singleValue: false
-    description: null
-  - name: ingredientImagePresent
-    description: null
-  - name: factImagePresent
-    description: null
-  - name: largeImageCount
-    description: null
-    type: NUMBER
-  - name: variantAsins
-    description: null
-  - name: primeFlag
-    description: null
-  - name: lbb
-    description: Check Lost by Box Requirements (just for Amazon and a couple of
-      other stores) - LBB occurs when a product is bought from someone other
-      than Amazon (on Amazon Website) - even though Amazon has the product "in
-      Stock"
-  - name: lbbPrice
-    description: null
-  - name: featureBullets
-    singleValue: false
-    description: null
-  - name: otherSellersName
-    singleValue: false
-    description: null
-  - name: otherSellersPrice
-    singleValue: false
-    description: null
-  - name: otherSellersShipping
-    singleValue: false
-    description: null
-  - name: secondaryImageTotal
-    description: null
-    type: NUMBER
-  - name: news
-    description: null
-  - name: addonItem
-    description: null
-  - name: fastTrack
-    description: null
   - name: ingredientsList
+    xpath: //*[contains(text() , 'Ingredients:')]/following-sibling::p
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
+    xpath: //div[@id="ii_servingSize"]
     description: The size of serving Nutritional information is based on.
   - name: servingSizeUom
+    xpath: //div[@id="ii_servingSizeUom"]
     description: Unit of measure of serving
   - name: numberOfServingsInPackage
+    xpath: //*[contains(text() , 'Servings Per Pack:')]/following-sibling::span
     description: Suggested number of servings of the product.
-    type: NUMBER
   - name: caloriesPerServing
+    xpath: //tr[contains(. , 'Energy')]//td
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
   - name: caloriesFromFatPerServing
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-    type: NUMBER
   - name: totalFatPerServing
+    xpath: //div[@id='ii_totalFatPerServing']
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: totalFatPerServingUom
+    xpath: //div[@id='ii_totalFatPerServingUom']
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
+    xpath: //div[@id='ii_saturatedFatPerServing']
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    type: NUMBER
   - name: saturatedFatPerServingUom
+    xpath: //div[@id='ii_saturatedFatPerServingUom']
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: transFatPerServingUom
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: cholesterolPerServingUom
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
+    xpath: //div[@id='ii_sodiumPerServing']
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
-    type: NUMBER
   - name: sodiumPerServingUom
+    xpath: //div[@id='ii_sodiumPerServingUom']
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
+    xpath: //div[@id='ii_totalCarbPerServing']
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-    type: NUMBER
   - name: totalCarbPerServingUom
+    xpath: //div[@id='ii_totalCarbPerServingUom']
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
+    xpath: //div[@id='ii_dietaryFibrePerServing']
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
-    type: NUMBER
   - name: dietaryFibrePerServingUom
+    xpath: //div[@id='ii_dietaryFibrePerServingUom']
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
+    xpath: //div[@id='ii_totalSugarsPerServing']
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: totalSugarsPerServingUom
+    xpath: //div[@id='ii_totalSugarsPerServingUom']
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
+    xpath: //div[@id='ii_proteinPerServing']
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
-    type: NUMBER
   - name: proteinPerServingUom
+    xpath: //div[@id='ii_proteinPerServingUom']
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: vitaminAPerServingUom
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: vitaminCPerServingUom
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
-    type: NUMBER
   - name: calciumPerServingUom
     description: Unit of Measure Data for Calcium
   - name: ironPerServing
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
-    type: NUMBER
   - name: ironPerServingUom
     description: Unit of Measure Data for Iron
   - name: dietarySymbols
+    xpath: //h3[contains(@class,'product-specific-heading') and contains(.,'Dietary:')]//following-sibling::span[contains(@data-ng-bind-html,'product')]
     description: Information related to the dietary symbols of a specific product
   - name: magnesiumPerServing
     description: Nutritional Information for Magnesium content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: magnesiumPerServingUom
     description: Unit of Measure Data for Magnesium
   - name: saltPerServing
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
-    type: NUMBER
   - name: saltPerServingUom
     description: Unit of Measure Data for Salt
   - name: dietaryInformation
+    xpath: //h3[contains(@class,'product-specific-heading') and contains(.,'Dietary:')]//following-sibling::span[contains(@data-ng-bind-html,'product')]
     description: null
   - name: specifications
+    xpath: //div[@id='ii_specifications']
     description: The physical dimensions of the product including packaging.
   - name: warranty
     description: Guarantee associated with the product
   - name: storage
+    xpath: //h3[contains(@class,'product-specific-heading') and contains(.,'Storage Instructions:')]//following-sibling::span[contains(@data-ng-bind-html,'product')]
     description: Suggested storage location for product
   - name: countryOfOrigin
+    xpath: //p[contains(@data-ng-bind-html,'coo.cooallystmt')] | //div[contains(@class,'product-specific')]//div[contains(@class,'country-of-origin')]
     description: The country from which the product originates
   - name: allergyAdvice
+    xpath: //h3[contains(@class,'product-specific-heading') and contains(.,'Allergen:')]//following-sibling::*[contains(@data-ng-bind,'product')]
     description: Allergy information associated with the product
   - name: recyclingInformation
     description: Recycling information associated with the product
@@ -311,12 +237,16 @@ fields:
   - name: additives
     description: List of additives in the product
   - name: pricePerUnit
+    xpath: //div[@id='ii_pricePerUnit']
     description: Price of the product split into certain units
   - name: pricePerUnitUom
+    xpath: //div[@id='ii_pricePerUnitUom']
     description: The unit of measurement used in price_per_unit
   - name: promotion
+    xpath: //div[contains(@class,'product-information')]//span[contains(@class,'product-saving')]
     description: promotion text on product page
   - name: alcoholContent
+    xpath: //h3[contains(@class,'product-specific-heading') and contains(.,'Alcohol Volume Percentage:')]//following-sibling::*[contains(@data-ng-bind,'product')]
     description: Alcohol content information
   - name: newVersion
     description: In product page, information about a new version of the product

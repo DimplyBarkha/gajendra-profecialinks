@@ -25,6 +25,16 @@ module.exports = {
       checkBlocked: false,
     });
     await new Promise((resolve) => setTimeout(resolve, 5000));
+    const link = await context.evaluate(() => {
+      const link = document.querySelector("section[id*='product-list'] a[class*='product-image-link']") ? document.querySelector("section[id*='product-list'] a[class*='product-image-link']").getAttribute('href') : '';
+      return link;
+    });
+    await context.goto('https://shop.coles.com.au' + link, {
+      firstRequestTimeout: 60000,
+      timeout: timeout,
+      waitUntil: 'load',
+      checkBlocked: false,
+    });
     // await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
     if (zipcode) {
