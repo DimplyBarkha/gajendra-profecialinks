@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,'ProductsGrid')]//li
+fields: 
+  - name: id
+    xpath: //ul[contains(@class,'ProductsGrid')]//li[contains(@class,'ProductCard')]//div//a/@href
+    regExp: \=(\d+)
+    regExpReplace: $1
+  - name: name
+    xpath: //ul[contains(@class,'ProductsGrid')]//li[contains(@class,'ProductCard')]//div//p[contains(@class,'ProductCard')]
+    singleValue: false
+  - name: rankOrganic
+  - name: rank     
+  - name: url
+    xpath: //ul[contains(@class,'ProductsGrid')]//link[@rel="canonical"]/@href
+    singlValue: false
+  - name: productUrl
+    xpath: //ul[contains(@class,'ProductsGrid')]//li//div[contains(@class,'ProductCard__ProductContainer')]/a/@href
+    singleValue: false
+  - name: thumbnail
+    xpath: //ul[contains(@class,'ProductsGrid')]//li//div[contains(@class,'ProductCard__ProductContainer')]/a//div[contains(@class,'LazyLoadImg')]//img/@src
+    singleValue: false
+  - name: price
+    xpath: //ul[contains(@class,'ProductsGrid')]//li//div[contains(@class,'ProductCard__ProductContainer')]/a//div[contains(@itemprop,'price')]/@content
+    regExp: (\d+)(\.*\d+)
+    regExpReplace: $1$2
+    singleValue: false
+  - name: aggregateRating2
+    xpath: //ul[contains(@class,'ProductsGrid')]//li//div[contains(@class,'ProductCard__CardContent')]//span/meta[@itemprop="ratingValue"]/@content
+    regExp: (\d+)\.(\d)
+    singleValue: false
+  - name: reviewCount
+    xpath: //ul[contains(@class,'ProductsGrid')]//li//div[contains(@class,'ProductCard__CardContent')]//span/meta[@itemprop="reviewCount"]/@content
+    singleValue: false
+     
+
+      

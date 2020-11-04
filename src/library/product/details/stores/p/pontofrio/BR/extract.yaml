@@ -1,0 +1,90 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name    
+    xpath: //div[@class="container"]//div[contains(@class,"css-19idom")]//h1[contains(@class,"css-rfo7gs")]
+    singleValue: false
+  - name: image    
+    xpath: //meta[@property="og:image"]//@content
+    singleValue: false
+  - name: imageAlt    
+    xpath: //div[@class="container"]//div[contains(@class,"css-19idom")]//h1[contains(@class,"css-rfo7gs")]
+    singleValue: false
+  - name: alternateImages    
+    xpath: //div[@class="container"]//div[@id="gallery"]//ul//div[contains(@class,"css-gg31ht")]//li
+    singleValue: false
+  - name: category    
+    xpath: //div[@class="container"]//nav[@id="breadcrumb"]//li[position()>1]
+    singleValue: false
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='container']//div[contains(@class,'css-19idom')]//h1[contains(@class,'css-rfo7gs')] | //div[@class='container']//div[contains(@class,'css-19idom')]//p[contains(@class,'css-1v3yibb')]//a/@title
+  - name: price    
+    xpath: //div[@class="container"]//div[@id="product-price-box"]//p[contains(@class,"eub5v7x0")]//span[@id="product-price"]
+    regExp: (\d+[\.,]\d+[\.,]\d+)
+    regExpReplace: $1
+    singleValue: false
+  - name: priceCurrency
+    singleValue: false
+    defaultValue: $ 
+  - name: brandText    
+    xpath: //div[@class="container"]//p[contains(@class,"css-1v3yibb")]//a/@title
+    singleValue: false
+  - name: sku    
+    xpath: //div[@class="container"]//div[contains(@class,"css-1qm1lh")]//p[contains(@class,"css-1v3yibb")]//span
+    singleValue: false
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: variantId
+    xpath: //meta[@name="title"]//@content
+    regExp: \|\s(\d+)
+    regExpReplace: $1
+    singleValue: false
+  - name: aggregateRating    
+    xpath: //div[@class="container"]//article[contains(@class,"css-1grmjgg")]//div[@class="rating-details"]//span[@class="rating"]
+    singleValue: false
+  - name: ratingCount    
+    xpath: //div[@class="container"]//figure[contains(@class,"css-1blcxwk")]//span[contains(@class,"css-1l02osg")]
+    regExp: (\d+)
+    regExpReplace: $1
+    singleValue: false
+  - name: shippingInfo    
+    xpath: //div[@class="container"]//p[contains(@class,"prod-current-seller")]
+    singleValue: false
+  - name: videos    
+    xpath: //div[@class="container"]//div[@id="gallery"]//ul//div[contains(@class,"css-gg31ht")]//li[1]
+    singleValue: false
+  - name: description
+    xpath: //div[@class="container"]//div[contains(@class,"accordion-content")]//div[@id="product-description"]
+    singleValue: false
+  - name: specifications
+    xpath:  //div[@class="container"]//div[contains(@class,"css-uirvwh")]//div[contains(@class,"accordion-content")]//div[contains(@id,"product-detail-list-1")]
+    singleValue: false
+  - name: promotion
+    xpath: //div[@class="container"]//div[contains(@id,"product-price-box")]//span[contains(@id,"discount-stamp")]
+    singleValue: false
+  - name: list_price
+    xpath: //div[@class="container"]//div[contains(@id,"product-price-box")]//p[contains(@class,"product-price-original")]
+    regExp: (\d+[\.,]\d+[\.,]\d+)
+    regExpReplace: $1    
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@id,'product-availability')]
+    regExp: (.*)
+    regExpReplace: Out Of Stock
+    defaultValue: In Stock 
+  - name: warranty
+    singleValue: false
+    xpath: //div[@class="container"]//div[contains(@id,"product-detail-list-1")]//span[contains(text(),"meses")]
+  - name: manufacturerDescription
+    xpath: //div[contains(translate(string(), 'Características Gerais', 'Características Gerais'), 'Características Gerais')]/span
+    singleValue: false  
+  - name: descriptionBullets
+    xpath: (//div[contains(translate(string(), 'Características Gerais', 'Características Gerais'), 'Características Gerais')]/span | //div[contains(translate(string(), 'Conexões', 'Conexões'), 'Conexões')]/span)
+    regExp: (-\s.*)
+    regExpReplace: $1
+
+
+
