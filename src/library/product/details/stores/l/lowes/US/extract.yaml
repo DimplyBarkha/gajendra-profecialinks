@@ -22,7 +22,7 @@ fields:
     xpath: //a[@class="alternateImages"]/@href
   - name: category
     singleValue: false
-    xpath: //nav[@class="breadcrumb-container"]//ul//li[position()>1]//a
+    xpath: //nav[@class="breadcrumb-container"]//ul//li//a
   - name: listPrice
     singleValue: false
     xpath: //span[@class="was"]
@@ -107,9 +107,9 @@ fields:
     xpath: //div[contains(@class,"wc-media-inner-wrap") or contains(@class,"wc-rf-banner-image-container")]//img/@src
   - name: gtin
     singleValue: false
-    xpath: //meta[@property="og:image"]//@content
-    regExp: (.+)/(\d+)xl(.+)
-    regExpReplace: $2
+    xpath: //script[contains(text(),'productDetails')]
+    regExp: \"barcode":"(\d+)
+    regExpReplace: $1
   - name: variantCount
     singleValue: false
     defaultValue: '0'

@@ -38,15 +38,16 @@ const transform = (data) => {
         ];
       }
       if (row.specifications) {
-        let text = '';
-        row.specifications.forEach(item => {
-          text += `${item.text.replace(/\n/g, ':')} || `;
+        const specificationsArr = row.specifications.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/, ' : ') : '';
         });
-        row.specifications = [
-          {
-            text: text.slice(0, -4),
-          },
-        ];
+        row.specifications = [{ text: specificationsArr.join('||'), xpath: row.specifications[0].xpath }];
+      }
+      if (row.description) {
+        const descriptionArr = row.description.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n \n \n \n \n/g, ' | ').replace(/\n \n \n \n/g, ' | ').replace(/\n \n/g, ':').replace(/\n/g, ' | ') : '|';
+        });
+        row.description = [{ text: descriptionArr.join('|'), xpath: row.description[0].xpath }];
       }
       if (row.description) {
         let text = '';
