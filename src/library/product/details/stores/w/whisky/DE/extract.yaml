@@ -9,7 +9,7 @@ fields:
   xpath: //meta[@property='og:image']/@content
 - name: url
   description: URL of the main product page
-  xpath: //meta[@itemprop='url']/@content
+  xpath: //link[@hreflang='de-DE']/@href
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
