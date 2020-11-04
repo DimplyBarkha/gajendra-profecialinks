@@ -14,10 +14,10 @@ fields:
     xpath: //div[@id='product_price']
   - name: image
     singleValue: false 
-    xpath: //meta[@property='og:image']/@content
+    xpath: //div[@class='pr__media--img']//img[@style="display:none;"]/@src
   - name: alternateImages
     singleValue: false 
-    xpath: //div[@class='pr__media--carousel']//div[contains(@id,'product-slider-nav')]//img/@src
+    xpath: //div[@class='pr__media--img']//img/@src
   - name: category
     singleValue: false
     xpath: //ul[contains(@class,'n il bc__list')]//li[ not(contains(@class,'bc__hm')) and not(contains(@class,'bc__md')) ]//a
@@ -35,7 +35,7 @@ fields:
     xpath: //meta[@property='og:title']/@content
   - name: description 
     singleValue: false 
-    xpath: //meta[@property='og:description']/@content
+    xpath: //p[@itemprop="description"] | //ul[@class='pr__spec-list']//li
   - name: specifications
     singleValue: false
     xpath: //ul[@id='product_specification_list']//li
@@ -52,12 +52,22 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //table[@id="product_selling_attributes_table"]//td[text()="Model No"]/parent::tr/td[2]
+  - name: weightNet
+    singleValue: false
+    xpath: //table[@id="product_selling_attributes_table"]//td[text()="Total Product Weight"]/parent::tr/td[2]
   - name: quantity
     singleValue: true
     xpath: //div[@class='pr__qty']//input[contains(@class,'fm-input--items fm-input--qty')]/@value
-  - name: ratingCount
+  - name: aggregateRating
     singleValue: true
     xpath: //div[@class='BVRRRatingNormalImage']//img/@alt
+  - name: warranty
+    singleValue: true
+    xpath: //table[@id="product_selling_attributes_table"]//td[text()="Manufacturer Guarantee"]/parent::tr/td[2]
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[@id="BVRRRatingSummaryLinkReadID"]//span[@class='BVRRNumber']
+    type: NUMBER
   - name: variantCount
     singleValue: false
     defaultValue: '0'

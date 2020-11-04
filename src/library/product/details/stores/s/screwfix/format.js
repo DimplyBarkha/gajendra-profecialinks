@@ -24,11 +24,11 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) {
-        if (row.ratingCount) {
-            row.ratingCount.forEach(item => {
+        if (row.aggregateRating) {
+            row.aggregateRating.forEach(item => {
               item.text = item.text.replace(/(\s*)+/g, '').trim();
               item.text = item.text.replace('outof5', '').trim();
-              item.text =  Number(item.text);
+              item.text = parseFloat(item.text);
             });
         }
         if (row.availabilityText) {
@@ -37,21 +37,29 @@ const transform = (data) => {
             item.text = item.text.replace('http://schema.org/', '').trim();
           });
       }
+      if (row.image) {        
+        row.image.forEach(item => {
+          item.text = item.text.split("281").join("500");
+        });        
+         }
+         if (row.price) {        
+          row.price.forEach(item => {
+            item.text = item.text.replace(/(\s*)+/g, '').trim();
+            item.text = item.text.replace('INCVAT', '').trim();
+          });        
+        }
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
-              item.text = item.text.replace("#", '||').trim();
-              item.text = item.text.replace(", ", '||').trim();
-              item.text = item.text.replace(". ", '||').trim();
               description_ar.push(item.text);
             });
             if (description_ar.length) {
-              row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
+              row.description = [{ "text": description_ar.join(" | "), 'xpath': row.description[0].xpath }];
             }
         }
         if (row.specifications) {
           let specifications_ar = [];
-          row.description.forEach(item => {
+          row.specifications.forEach(item => {
             specifications_ar.push(item.text);
           });
           if (specifications_ar.length) {
