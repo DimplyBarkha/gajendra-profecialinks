@@ -9,6 +9,10 @@ fields:
     xpath: (//div[@class="big-image small-12 large-10 columns"]/img)/@src
     regExp: (storage/.*)
     regExpReplace: https://pacson.se/$1
+  - name: url
+    singleValue: true
+    description: A harvest url
+    xpath: //link[@rel="canonical"]/@href
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
