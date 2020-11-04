@@ -9,6 +9,9 @@ fields:
     xpath: //div[@class='slick-track']/li[@class='ah-image-carousel__item slick-slide slick-current slick-active']/img[@class='ah-product-image']/@src
     regExp: (/.+)
     regExpReplace: https://www.ahlens.se/$1
+  - name: url
+    singleValue: true
+    xpath: /html/head/link[4]/@href
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -27,16 +30,12 @@ fields:
     type: CURRENCY
     description: The stated undiscounted price for the product    
     xpath: (//div[@class='ah-product-price nobreak-ellipsis']/div[1]/span[@class='ah-offer ah-offer--old-price'])[1]
-    #regExp: (\d+)
-    #regExpReplace: $1.$2
   - name: price
     singleValue: true
     type: CURRENCY
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged   
     xpath: (//div[@class='ah-product-price nobreak-ellipsis']/div[1]/span[@class='ah-offer ah-offer--reduced']/b[@class='ah-price'])[1]
-    #regExp: (/d+):(/d+)
-    #regExpReplace: $1.$2
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -53,70 +52,28 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //div[@class='zeta mb-']/a[@class='weight--bold a--no-decoration']/text()
-  - name: weightNet
-    singleValue: true
-    description: Net weight as described on the page
-  - name: weightGross
-    singleValue: true
-    description: Gross weight as described on the page
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: (//a[@class="a--light ah-favorite ah-svg-icon-btn"]/@sku)[1]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-  - name: mpc
-    singleValue: true
-    description: The manufacturer model code (unique) of the product
-  - name: packSize
-    singleValue: true
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
-  - name: legalDisclaimer
-    singleValue: true
-    description: Content under "legal disclaimer" header
-  - name: directions
-    singleValue: true
-    description: Content under "directions" header
-  - name: warnings
-    singleValue: true
-    description: Content under "warnings" header
+    xpath: //li[@class="rainbow--light-gray"]/@content
   - name: ratingCount
     singleValue: true
     description: The number of ratings
     type: NUMBER
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
+    xpath: (//div[@class='tf-based']/div[@class='tf-count'])[1]
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
-  - name: shippingDimensions
-    singleValue: true
-    description: Stated shipping dimensions
-  - name: shippingWeight
-    singleValue: true
-    description: Stated shipping weight
-  - name: variantCount
-    singleValue: true
-    description: Number of variants listed
-    type: NUMBER
-  - name: color
-    singleValue: true
-    description: A textual description of the colour
-  - name: colorCode
-    singleValue: true
-    description: A code description of the color (e.g. RGB hex)
+    xpath: //div[@class="testfreaks-items"]//div/@title
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: 
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
