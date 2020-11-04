@@ -1,0 +1,45 @@
+const { transform } = require('../../../../shared');
+module.exports = {
+  implements: 'product/search/extract',
+  parameterValues: {
+    country: 'SE',
+    store: 'citygross',
+    transform: transform,
+    domain: 'citygross.se',
+    zipcode: '',
+  },
+  implementation: async ({ inputString }, { country, store, transform: transformParam }, context, { productDetails }) => {
+    // async function addUrl () {
+    //   function addHiddenDiv (id, content) {
+    //     const newDiv = document.createElement('div');
+    //     newDiv.id = id;
+    //     newDiv.textContent = content;
+    //     newDiv.style.display = 'none';
+    //     document.body.appendChild(newDiv);
+    //   }
+    //   const url = window.location.href;
+    //   addHiddenDiv('added-searchurl', url);
+    // }
+    // await context.evaluate(addUrl);
+    await context.evaluate(async () => {
+      while (document.querySelector('div[class="c-loadmore__button"] button')) {
+        // @ts-ignore
+        document.querySelector('div[class="c-loadmore__button"] button').click();
+        // eslint-disable-next-line promise/param-names
+        await new Promise(r => setTimeout(r, 1000));
+      }
+    });
+    // const doesPopupExist = await context.evaluate(function () {
+    //   return Boolean(document.querySelector('div[class="c-loadmore__button"] button'));
+    // });
+    // if (doesPopupExist) {
+    //   await context.click('div[class="c-loadmore__button"] button');
+    // }
+    // document.querySelector('div[class="c-loadmore__button"] button').click();
+    // setTimeout(function (){
+    //   context.click('div[class="c-loadmore__button"] button');
+    // },2000);
+
+    return await context.extract(productDetails, { transform: transformParam });
+  },
+};
