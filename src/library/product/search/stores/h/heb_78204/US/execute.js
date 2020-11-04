@@ -3,11 +3,11 @@ module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
     country: 'US',
-    store: 'heb',
+    store: 'heb_78204',
     domain: 'heb.com',
     url: 'https://www.heb.com/search/?q={searchTerms}',
-    loadedSelector: 'body',
-    noResultsXPath: null,
-    zipcode: '',
+    loadedSelector: 'ul#productResults',
+    noResultsXPath: '//h1[contains(text(),"No results found for")]',
+    zipcode: '78204',
   },
 };

@@ -1,0 +1,280 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class="s7staticimage"]/img/@src
+    regExp: (h.*)&fit.*
+    regExpReplace: $1
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[@class="s7staticimage"]/img/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    xpath: (//div[@class="s7staticimage"]/img/@alt)[1]
+    regExp: (https.*)(\?fit)
+    regExpReplace: $1
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@class="breadcrumb"]//div[@class="breadcrumb-parent-wrapper"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="first-block"]//h1[@class="pdp-product-name"]
+  - name: price
+    singleValue: false
+    xpath: (//div[@class="PDP__add-to-cart-price"]//span[@id="addToCartPrice"])[1]
+  - name: availabilityText
+    singleValue: false
+    xpath: (//div[@class="add-to-cart-button-container"]//button[@aria-live="assertive"]//span)[1]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@id="description_text"] | //div[@class="pdp-container pdp-desktop-layout"]//p[@itemprop="description"] | //div[@class="pdp-container pdp-desktop-layout"]//p[@itemprop="description"]
+  - name: directions
+    singleValue: false
+    xpath: //div[@id="directions_text"]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@id="ingredientsList_text"]
+  - name: brandText
+    singleValue: false
+    xpath: (//script[contains(text(),'brand')])[1]
+    regExp: \"brand":\s"(\S+)",
+    regExpReplace: $1
+  - name: sku
+    singleValue: false
+    xpath: //input[@id="defaultChildSku"]/@value
+  - name: variantId
+    singleValue: false
+    xpath: //input[@id="productId"]/@value
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: (//div[@class="pdp-product-desc"]//div[@class="pdp-disclaimer-text"])[1]
+    reExp: (\S.*)(View full Product Information Disclaimer)
+    regExpReplace: $1
+  - name: warnings
+    singleValue: false
+    xpath: (//div[@class="pdp-product-desc_text pdp-step_title"]//div[@class="comment more"])[1]
+  - name: ratingCount
+    singleValue: false
+    xpath: //input[@id="reviewCount"]/@value
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: //input[@id="reviewRating"]/@value
+  - name: aggregateRating
+    singleValue: false
+    xpath: //input[@id="reviewRating"]/@value
+  - name: variantCount
+    singleValue: false
+    defaultValue: 1
+  - name: name
+    singleValue: false
+    xpath: //input[@id="contentName"]/@value
+  - name: amazonChoice
+    singleValue: false
+    xpath: //div[@class="block-left pdp-product-image-and-social"]//div[@class="pdp-desktop-image"]//div[@class="pdp__marketing-bug"]//img/@alt
+    regExp: (.+)
+    regExpReplace: 'YES'
+    defaultValue: ''
+  - name: amazonChoiceCategory
+    singleValue: false
+    xpath: //div[@class="block-left pdp-product-image-and-social"]//div[@class="pdp-desktop-image"]//div[@class="pdp__marketing-bug"]//img/@alt
+  - name: servingSize
+    singleValue: false
+    xpath: (//div[@class="content"]//p)[1] | (//table[@class="serving-size"]//td[@class="val"])[1]
+    regExp: (\d+.*)\(
+    regExpReplace: $1
+  - name: servingSizeUom
+    singleValue: false
+    xpath: (//div[@class="content"]//p)[1] | (//table[@class="serving-size"]//td[@class="val"])[1]
+    regExp: (\d+.*)\s\D+\(
+    regExpReplace: $1
+  - name: numberOfServingsInPackage
+    singleValue: false
+    xpath: (//div[@class="content"]//p)[1] | (//table[@class="serving-size"]//td[@class="val"])[1]
+    regExp: (\s(\d+)\s\D+\()
+    regExpReplace: $2
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Calories', 'Calories'), 'Calories')]//td[2])[1]
+  - name: caloriesFromFatPerServing
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Calories from Fat', 'Calories from Fat'), 'Calories from Fat')]//td[2])[1]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Total Fat', 'Total Fat'), 'Total Fat')]//td[2])[1]
+    regExp: ([0-9\.]+)
+    regExpReplace: $1
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Total Fat', 'Total Fat'), 'Total Fat')]//td[2])[1]
+    regExp: \d+.*(\D+)
+    regExpReplace: $1
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Saturated Fat', 'Saturated Fat'), 'Saturated Fat')]//td[2])[1]
+    regExp: ([0-9\.]+)
+    regExpReplace: $1
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Saturated Fat', 'Saturated Fat'), 'Saturated Fat')]//td[2])[1]
+    regExp: \d+.*(\D+)
+    regExpReplace: $1
+  - name: transFatPerServing
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Trans Fat', 'Trans Fat'), 'Trans Fat')]//td[2])[1]
+    regExp: ([0-9\.]+)
+    regExpReplace: $1
+  - name: transFatPerServingUom
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Trans Fat', 'Trans Fat'), 'Trans Fat')]//td[2])[1]
+    regExp: \d+.*(\D+)
+    regExpReplace: $1
+  - name: cholesterolPerServing
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Cholesterol', 'Cholesterol'), 'Cholesterol')]//td[2])[1]
+    regExp: ([0-9\.]+)
+    regExpReplace: $1
+  - name: cholesterolPerServingUom
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Cholesterol', 'Cholesterol'), 'Cholesterol')]//td[2])[1]
+    regExp: \d+.*(\D+)
+    regExpReplace: $1
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Sodium', 'Sodium'), 'Sodium')]//td[2])[1]
+    regExp: ([0-9\.]+)
+    regExpReplace: $1
+  - name: sodiumPerServingUom
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Sodium', 'Sodium'), 'Sodium')]//td[2])[1]
+    regExp: \d+.*(\D+)
+    regExpReplace: $1
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Total Carbohydrate', 'Total Carbohydrate'), 'Total Carbohydrate')]//td[2])[1]
+    regExp: ([0-9\.]+)
+    regExpReplace: $1
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Total Carbohydrate', 'Total Carbohydrate'), 'Total Carbohydrate')]//td[2])[1]
+    regExp: \d+.*(\D+)
+    regExpReplace: $1
+  - name: dietaryFibrePerServing
+    xpath: (//tr[contains(translate(string(), 'Dietary Fiber', 'Dietary Fiber'), 'Dietary Fiber')]//td[2])[1]
+    regExp: ([0-9\.]+)
+    regExpReplace: $1
+  - name: dietaryFibrePerServingUom
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Dietary Fiber', 'Dietary Fiber'), 'Dietary Fiber')]//td[2])[1]
+    regExp: \d+.*(\D+)
+    regExpReplace: $1
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Sugars', 'Sugars'), 'Sugars')]//td[2])[1]
+    regExp: ([0-9\.]+)
+    regExpReplace: $1
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Sugars', 'Sugars'), 'Sugars')]//td[2])[1]
+    regExp: \d+.*(\D+)
+    regExpReplace: $1
+  - name: proteinPerServing
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Protein', 'Protein'), 'Protein')]//td[2])[1]
+    regExp: ([0-9\.]+)
+    regExpReplace: $1
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Protein', 'Protein'), 'Protein')]//td[2])[1]
+    regExp: \d+.*(\D+)
+    regExpReplace: $1
+  - name: vitaminAPerServing
+    singleValue: false
+    xpath: (//td[contains(translate(string(), 'Vitamin A', 'Vitamin A'), 'Vitamin A')]//span)[1]
+    regExp: ([0-9\.]+)
+    regExpReplace: $1
+  - name: vitaminAPerServingUom
+    singleValue: false
+    xpath: (//td[contains(translate(string(), 'Vitamin A', 'Vitamin A'), 'Vitamin A')]//span)[1]
+    regExp: \d+.*(\D+)
+    regExpReplace: $1
+  - name: vitaminCPerServing
+    singleValue: false
+    xpath: (//td[contains(translate(string(), 'Vitamin C', 'Vitamin C'), 'Vitamin C')]//span)[1]
+    regExp: ([0-9\.]+)
+    regExpReplace: $1
+  - name: vitaminCPerServingUom
+    singleValue: false
+    xpath: (//td[contains(translate(string(), 'Vitamin C', 'Vitamin C'), 'Vitamin C')]//span)[1]
+    regExp: \d+.*(\D+)
+    regExpReplace: $1
+  - name: calciumPerServing
+    singleValue: false
+    xpath: (//td[contains(translate(string(), 'Calcium', 'Calcium'), 'Calcium')]//span)[1]
+    regExp: ([0-9\.]+)
+    regExpReplace: $1
+  - name: calciumPerServingUom
+    singleValue: false
+    xpath: (//td[contains(translate(string(), 'Calcium', 'Calcium'), 'Calcium')]//span)[1]
+    regExp: \d+.*(\D+)
+    regExpReplace: $1
+  - name: ironPerServing
+    singleValue: false
+    xpath: (//td[contains(translate(string(), 'Iron', 'Iron'), 'Iron')]//span)[1]
+    regExp: ([0-9\.]+)
+    regExpReplace: $1
+  - name: ironPerServingUom
+    singleValue: false
+    xpath: (//td[contains(translate(string(), 'Iron', 'Iron'), 'Iron')]//span)[1]
+    regExp: \d+.*(\D+)
+    regExpReplace: $1
+  - name: dietarySymbols
+    singleValue: false
+    xpath: (//tr[contains(translate(string(), 'Dietary Fiber', 'Dietary Fiber'), 'Dietary Fiber')]//td[2])[1]
+    regExp: (\D+)\d
+    regExpReplace: $1
+  - name: warranty
+    singleValue: false
+    description:   associated with the product
+  - name: pricePerUnit
+    singleValue: false
+    xpath: normalize-space(//div[@class="pdp-container pdp-desktop-layout"]//div[@class="price clearfix"]//span[@class="uomListPrice"])
+    regExp: (\$\d+.*)\/
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    singleValue: false
+    xpath: normalize-space(//div[@class="pdp-container pdp-desktop-layout"]//div[@class="price clearfix"]//span[@class="uomListPrice"])
+    regExp: (\/(.*)\))
+    regExpReplace: $2
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: false
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: false
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes
+  - name: secondaryImageTotal

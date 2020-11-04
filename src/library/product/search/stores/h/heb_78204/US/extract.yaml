@@ -1,0 +1,49 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id="productResults"]//li[@role="group"]
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,"cat-list-img gtm-product")]//img/@src
+  - name: id
+    singleValue: false
+    xpath: //ul[@id="productResults"]//li//script[contains(text(),'products')][1]
+    regExp: \"id":\s"(\d+)
+    regExpReplace: $1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="cat-price"]//span[@class="cat-price-number"]
+    regExp: (\$\d+.\d+)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: //ul[@id="productResults"]//li//script[contains(text(),'products')][1]
+    regExp: \"name":\s"(\D+)",
+    regExpReplace: $1
+  - name: productUrl
+    singleValue: false
+    xpath: //li[@class="responsivegriditem product-grid-large-fifth product-grid-small-6"]/a/@href
+    regExp: (\/.*)
+    regExpReplace: https://www.heb.com$1
+  - name: quantity
+    singleValue: false
+    xpath: //span[@class="responsivegriditem__title"]//span[@class="item-size"]
+  - name: rank
+    singleValue: false
+    xpath: //ul[@id="productResults"]//li//script[contains(text(),'products')][1]
+    regExp: \"position":\s(\d+),
+    regExpReplace: $1
+  - name: rankOrganic
+    singleValue: false
+    xpath: //ul[@id="productResults"]//li//script[contains(text(),'products')][1]
+    regExp: \"position":\s(\d+),
+    regExpReplace: $1
+  - name: endorsementText
+    singleValue: false
+    xpath: //img[@class="product-card__flag product-card__flag--product-card__flag--marketing-bug ls-is-cached lazyloaded"]/@alt
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="cat-star clearfix"]//span
+    regExp: (\d+)
+    regExpReplace: $1
