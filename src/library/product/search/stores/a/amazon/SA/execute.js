@@ -1,13 +1,11 @@
-
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
-    country: 'SA',
+    country: 'US',
     store: 'amazon',
     domain: 'amazon.sa',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
-    zipcode: "''",
+    url: 'https://www.amazon.sa/s?k={searchTerms}',
+    loadedSelector: 'section.ebx-empathy-x__body',
+    noResultsXPath: '//span[@cel_widget_id="MAIN-TOP_BANNER_MESSAGE" and contains(., "No results")]',
   },
 };
