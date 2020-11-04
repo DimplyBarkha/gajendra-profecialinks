@@ -3,6 +3,7 @@ const { transform } = require('../../../../shared');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
   await new Promise(resolve => setTimeout(resolve, 2000));
   const isPopupPresent = await context.evaluate(async () => {
     return document.querySelector('p[id*="dialog"] + button');
@@ -11,39 +12,22 @@ async function implementation (inputs, parameters, context, dependencies) {
     await context.click('p[id*="dialog"] + button');
   }
   await context.evaluate(async () => {
-    while (
-      document.querySelector('button[class*="b05-less _"]') !== null
-    ) {
+    while (document.querySelector('button[class*="b05-less _"]') !== null) {
       // @ts-ignore
       document.querySelector('button[class*="b05-less _"]').click();
-      await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, 2000);
-      });
+      await new Promise((resolve, reject) => setTimeout(resolve, 1500));
     }
-    // scroll;
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
+    function addProp (selector, iterator, propName, value) {
+      document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
     }
-
-    // scrolling;
-    var rawNumber = document.querySelector('div.pagine__count span.pagine__total').textContent;
-    var match = parseInt(rawNumber);
-
-    let scrollTop = 0;
-    const scrollLimit = match * 150;
-    while (scrollTop <= scrollLimit) {
-      await stall(1000);
-      scrollTop += 1000;
-      window.scroll(0, scrollTop);
+    const allProducts = document.querySelectorAll('li[data-bx="ple"]');
+    for (let i = 0; i < allProducts.length; i++) {
+      addProp('li[data-bx="ple"]', i, 'rankorganic', `${i + 1}`);
     }
   });
-  await new Promise((resolve, reject) => setTimeout(resolve, 1500));
+
+  // await new Promise((resolve, reject) => setTimeout(resolve, 1500));
+
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
