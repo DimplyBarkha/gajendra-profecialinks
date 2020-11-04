@@ -13,23 +13,46 @@ async function implementation (
   } catch (error) {
     console.log('cookie pop up not loded', error);
   }
-  await context.evaluate(() =>{ 
-  async function infiniteScroll () {
-    let prevScroll = document.documentElement.scrollTop;
-    while (true) {
-      window.scrollBy(0, document.documentElement.clientHeight);
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      const currentScroll = document.documentElement.scrollTop;
-      if (currentScroll === prevScroll) {
+//   await context.evaluate(() =>{ 
+//   async function infiniteScroll () {
+//     let prevScroll = document.documentElement.scrollTop;
+//     while (true) {
+//       window.scrollBy(0, document.documentElement.clientHeight);
+//       await new Promise(resolve => setTimeout(resolve, 1000));
+//       const currentScroll = document.documentElement.scrollTop;
+//       if (currentScroll === prevScroll) {
+//         break;
+//       }
+//       prevScroll = currentScroll;
+//     }
+//   }
+//   infiniteScroll();
+// })
+  
+const applyScroll = async function (context) {
+  console.log('calling applyScroll-----------');
+  await context.evaluate(async function () {
+    let scrollTop = 0;
+    while (scrollTop !== 20000) {
+      await stall(500);
+      scrollTop += 1000;
+      console.log('calling applyScroll evaluate-----------', window);
+      window.scroll(0, scrollTop);
+      if (scrollTop === 20000) {
+        await stall(5000);
         break;
       }
-      prevScroll = currentScroll;
     }
-  }
-  infiniteScroll();
-})
-  
-  
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+  });
+};
+await applyScroll(context); 
   async function paginate () {
     try {
       await context.evaluate(() =>{ 
@@ -47,7 +70,7 @@ async function implementation (
     return document.querySelectorAll('div.mini-product').length;
   });
   let oldLength = 0;
-  while (length && length !== oldLength && length <= 150) {
+  while (length && length !== oldLength && length <= 550) {
     oldLength = length;
     await paginate();
     length = await context.evaluate(async function () {
