@@ -9,8 +9,10 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: null,
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.euronics.it/?q={searchTerms}&p={page}',
+    },
     domain: 'euronics.it',
-    zipcode: "''",
+    zipcode: '',
   },
 };

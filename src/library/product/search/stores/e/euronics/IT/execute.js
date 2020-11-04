@@ -5,9 +5,9 @@ module.exports = {
     country: 'IT',
     store: 'euronics',
     domain: 'euronics.it',
-    url: null,
+    url: 'https://www.euronics.it/?q={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
-    zipcode: "''",
+    zipcode: '',
   },
 };

@@ -6,6 +6,6 @@ module.exports = {
     store: 'euronics',
     transform: null,
     domain: 'euronics.it',
-    zipcode: "''",
+    zipcode: '',
   },
 };

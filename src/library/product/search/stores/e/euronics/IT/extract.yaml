@@ -1,37 +1,38 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='productCard j-productCard j-comparisonItem']
+recordXPath: //div[contains(@class, 'productCard j-productCard')]
 fields:
   - name: id
     xpath: substring-after(//div[@class='productCard j-productCard j-comparisonItem']/@data-item, 'comp-eProd')
-    singleValue: true
+    singleValue: false
   - name: name
     xpath: //h2[@class='productCard__name']
     singleValue: false
   - name: productUrl
-    xpath: //div[@class='productCard__content']//a/@href
+    xpath: //div[@class='productCard__content']//a[contains(@onclick, 'trackingProductClick')]/@href
     singleValue: false
   - name: gtin
-    singleValue: true
+    singleValue: false
   - name: thumbnail
     xpath: //img[@class='productCard__image  j-comparisonImg']/@src
     singleValue: false
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
   - name: reviewCount
-    singleValue: true
+    singleValue: false
   - name: ratingCount
-    singleValue: true
+    singleValue: false
   - name: price
-    xpath: //span[@class='productCard__price']
-    singleValue: true
+    xpath: //div[contains(@class, 'productCard__price')]
+    singleValue: false
   - name: manufacturer
-    singleValue: true
+    singleValue: false
+    xpath: //span[@class='productCard__brand']
   - name: soldBy
-    singleValue: true
+    singleValue: false
   - name: endorsementText
-    singleValue: true
+    singleValue: false
   - name: rank
   - name: rankOrganic
   - name: sponsored
