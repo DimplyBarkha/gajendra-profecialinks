@@ -149,8 +149,8 @@ fields:
     singleValue: true
     description: Stated shipping weight
     # xpath: //ul[@class="attributes"]//li//strong[text()='Volumetria:']/following::text()[1]
-    xpath: (//div[@class="price price-box "]//link//@href)[1]
-    regExp: \d+ml|\d+g
+    # xpath: (//div[@class="price price-box "]//link//@href)[1]
+    # regExp: \d+ml|\d+g
   - name: variantCount
     singleValue: true
     description: Number of variants listed
