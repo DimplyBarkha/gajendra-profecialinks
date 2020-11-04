@@ -1,0 +1,66 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class='productDetail__image  j-carouselItem j-openOverlay']/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class='owl-item active']/div[@class='productDetail__image  j-carouselItem']/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='productDetail__image  j-carouselItem']/img/@src
+  - name: category
+    singleValue: true
+    xpath: //div[@class='productDetails__category']
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@class='productDetails__name']
+  - name: listPrice
+    singleValue: true
+    xpath: (//div[@class='productDetails__priceWrapper']/span[@class='productDetails__originalPrice'] | //span[@class='productDetails__price pdpPrice'])[1]
+  - name: price
+    singleValue: true
+    xpath: (//div[@class='productDetails__priceWrapper']/span[@class='productDetails__originalPrice'] | //span[@class='productDetails__price pdpPrice'])[last()]
+  - name: availabilityText
+    singleValue: true
+    xpath: substring('In Stock', 1, not(//a[@class='button button--grey cart__cta button--iconTxt ']) div 0)
+  - name: description
+    singleValue: false
+    xpath: //li[@class='specifications__item']
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//li[@class='specifications__item'])
+  - name: brandText
+    singleValue: true
+    xpath: //div[@class='productDetails__linkWrapper']/a/span/font/font
+  - name: weightNet
+    singleValue: true
+    xpath: //*[contains(text(), 'Peso-Kg')]/following-sibling::*[1] | //*[contains(text(), 'Peso-gr')]/following-sibling::*[1]
+  - name: color
+    singleValue: true
+    xpath: //*[contains(text(), 'Colore')]/following-sibling::*[1]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //section[@class='page__section product__description']/div[@class='content__abstract']/div[@class='content__abstractText']
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class='flix-feature-image']/img/@srcset
+  - name: videos
+    singleValue: false
+    xpath: //*[@class='flix_jw_videoid']//@data-jw
+  - name: name
+    singleValue: true
+    xpath: //title
+  - name: brandLink
+    singleValue: true
+    xpath: //div[@class='productDetails__linkWrapper']/a/@href
+  - name: energyEfficiency
+    singleValue: true
+    xpath: //*[contains(text(), 'Classe consumo energetico')]/following-sibling::*[1]
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    xpath: //div[@class='flix-std-clmn-lg-12']/a[@class='flix-doc-download flix-std-clmn-lg-4 flix-std-clmn-sm-11 flix-align-right']/@href
+    defaultValue: No

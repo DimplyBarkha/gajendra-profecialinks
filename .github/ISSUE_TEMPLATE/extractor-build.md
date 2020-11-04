@@ -130,6 +130,7 @@ Example:
 - [ ] Promote Source to `Internal Deployment` in Project Dash
 - [ ] Add `Development` Label
 - [ ] Use `npm run lint` or `npm run lint:fix` before creating pull request
+- [ ] Pull the latest changes from master and run the command `git merge master -m "Update to master"`, this will merge the klatest changes from master into your branch
 - [ ] Create a pull request (PR) but not for `master` branch. Instead the base branch must be `internal`. Make sure that the automated merging check is green
 - [ ] Add label to this PR `Ready for internal review`
 - [ ] Add label to this issue `Ready for internal review`
@@ -142,7 +143,7 @@ example:
 - [ ] In workbench, the source parameter called `state` be set to `development`
 - [ ] Copy the extractor ID to the appropriate field in the newly created source(s)
 - [ ] Copy the extractor ID tright here: `copy-paste-the-extractor-ID-here-instead-of-this-text`
-- [ ] Create a `.csv` file with a sample set of inputs. The sample set must have between 50 and 100 inputs, or as many as available in the full input file (but never more than 100)
+- [ ] Create a `.csv` file with a sample set of inputs. The sample set must have a minimum of 50 unique inputs and a maximum of 100 inputs.
 - [ ] Upload sample input file to the appropriate path in the import.io AWS S3 bucket
 - [ ] Implement PR feedback
 - [ ] Commit latest code changes to branch with a commit message that includes the issue# (`#{:number}`)
@@ -161,11 +162,12 @@ This branch is now used to commit new changes. Similarly as before, always refer
 - [ ] Promote Source to `Staging` in Project Dash
 - [ ] Add `Staging` Label
 - [ ] In workbench, change the source parameter called `state` from `development` to `staging`
-- [ ] Check this to confirm that the source is now ready for manual QA
+- [ ] Create a `.csv` file with the full set of inputs
+- [ ] Upload full input file to the appropriate path in the import.io AWS S3 bucket
 - [ ] In workbench, change the source parameter called `state` from `staging` to `scaleTest`
 - [ ] System runs automated flow at scheduled time on the full input file, when this is done collect the resulting output `.csv` file
 - [ ] In workbench, revert the source parameter called `state` from `scaleTest` back to `staging`
-- [ ] Manual QA1 : Submit the scale test output csv for manual QA file according to SA instructions
+- [ ] Manual QA1 : Submit the scale test output csv for manual QA file according to SA instructions. To submit your csv, simply share the link to the output file on the tracking sheet.
 - [ ] Add `Q1` Label
 - [ ] Update sample input file to include the input rows tested by manual QA1
 - [ ] Additional testing is done with a manual flow on the sample input file. Update extractor code to match expected accuracy level
