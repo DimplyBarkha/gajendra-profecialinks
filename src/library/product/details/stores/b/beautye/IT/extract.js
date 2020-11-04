@@ -1,3 +1,5 @@
+const { transform } = require('../shared');
+
 async function implementation (
   inputs,
   parameters,
@@ -15,7 +17,7 @@ async function implementation (
     // await preparePageForCommonElement(0, variantLength);
     for (let j = 0; j < variantLength; j++) {
       await context.evaluate( (j) => {
-        return document.querySelectorAll('div.swatch-option')[j].click();
+        return document.querySelectorAll('div.swatch-option span')[j].click();
       }, j);
       // await context.click('div.swatch-option div.custom-option-bg');
       console.log('Inside variants', j);
@@ -30,7 +32,7 @@ module.exports = {
   parameterValues: {
     country: 'IT',
     store: 'beautye',
-    transform: null,
+    transform: transform,
     domain: 'beautye.it',
     zipcode: "''",
   },
