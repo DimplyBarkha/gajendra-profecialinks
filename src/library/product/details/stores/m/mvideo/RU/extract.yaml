@@ -53,9 +53,11 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: (//span[@class="c-breadcrumbs__item-text"])[last()]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: (//span[@class="c-breadcrumbs__item-text"])[last()]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
