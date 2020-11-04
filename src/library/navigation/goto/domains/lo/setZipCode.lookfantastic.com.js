@@ -1,9 +1,10 @@
+
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    domain: 'lookfantastic.com',
     country: 'UK',
-    timeout: 100000,
+    domain: 'lookfantastic.com',
     store: 'lookfantastic',
+    zipcode: '',
   },
 };

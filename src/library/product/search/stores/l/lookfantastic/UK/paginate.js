@@ -3,10 +3,11 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'lookfantastic',
-    loadedSelector: "li[class*='productListProducts_product'] , div.noresults",
+    nextLinkSelector: 'div.responsiveProductListPage_bottomPagination nav ul li:nth-child(6) button',
+    mutationSelector: null,
+    spinnerSelector: null,
+    loadedSelector: "body",
     domain: 'lookfantastic.com',
-    openSearchDefinition: {
-      template: 'https://www.lookfantastic.com/elysium.search?search={searchTerms}&pageNumber={page}',
-    },
+    zipcode: ''
   },
 };

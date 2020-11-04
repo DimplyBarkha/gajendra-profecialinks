@@ -4,17 +4,19 @@ recordSelector: null
 recordXPath: //li[contains(@class,'productListProducts_product')]
 fields:
   - name: id
-    singleValue: true
-    xpath: //div[@id='ii_id']
+    singleValue: false
+    xpath: //div[@class="productBlock "]//span/@data-product-id
   - name: rankOrganic
-    singleValue: true
-    xpath: //div[@id='ii_rankOrganic']
+    singleValue: false
+    xpath: //span[@class="js-enhanced-ecommerce-data hidden"]/@data-product-position
   - name: name
     singleValue: false
     xpath: //h3[contains(@class,'productBlock_productName')]
   - name: productUrl
     singleValue: true
-    xpath: //div[@id='ii_productUrl']
+    xpath: //a[@class="productBlock_link"]/@href
+    regExp: (/.+)
+    regExpReplace: https://www.lookfantastic.com$1
   - name: gtin
     singleValue: true
   - name: thumbnail
