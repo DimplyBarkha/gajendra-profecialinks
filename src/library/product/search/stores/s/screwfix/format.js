@@ -35,6 +35,9 @@ const transform = (data) => {
         if (row.ratingCount) {
           row.ratingCount[0]['text']= parseFloat(row.ratingCount[0]['text']);
         }
+        if (row.aggregateRating) {
+          row.aggregateRating[0]['text']= parseFloat(row.aggregateRating[0]['text']);
+        }
         if (row.soldBy) {
           row.soldBy.forEach(item => {
             item.text = item.text.replace('Sold by', '').trim();

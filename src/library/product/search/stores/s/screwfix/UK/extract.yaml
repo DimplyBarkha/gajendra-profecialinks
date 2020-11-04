@@ -21,6 +21,9 @@ fields:
   - name: ratingCount
     SingleValue: false 
     xpath: //div[@class="sf__rating-stars--sm"]//span[contains(@class,"rating-stars__rated")]//span 
+  - name: aggregateRating
+    SingleValue: false 
+    xpath: //div[@class="sf__rating-stars--sm"]//span[contains(@class,"rating-stars__rated")]//span 
   - name: reviewCount
     SingleValue: false
     xpath: //div[@class="sf__rating-stars--sm"]//a[@class="pr__view"]
