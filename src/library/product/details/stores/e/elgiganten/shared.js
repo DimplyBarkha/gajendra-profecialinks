@@ -34,28 +34,6 @@ const transform = (data) => {
         });
       }
      
-      if (row.specifications) {
-        let text = '';
-        row.specifications.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
-        });
-        row.specifications = [
-          {
-            text: text.slice(0, -4),
-          },
-        ];
-      }
-      if (row.productOtherInformation) {
-        let text = '';
-        row.productOtherInformation.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
-        });
-        row.productOtherInformation = [
-          {
-            text: text.slice(0, -4),
-          },
-        ];
-      }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
@@ -67,6 +45,74 @@ const transform = (data) => {
           },
         ];
       }
+
+      if (row.variantUrl) {
+        
+        const variantUrls = [];
+        let dupUrl = "";
+        let urls = [];
+        row.variantUrl.forEach(item => {
+          console.log('item:: ', item.text);
+         urls =  row.variantUrl.filter(it => item.text === it.text);
+        if(urls && urls.length === 1 ){
+          variantUrls.push(item);
+        }else{
+          if(dupUrl !== item.text){
+            dupUrl =  item.text;
+            variantUrls.push(item);
+          }
+        }
+        });
+        row.variantUrl = variantUrls;
+        
+      }
+
+      if (row.variantId) {
+        
+        const variantIds = [];
+        let dup = "";
+        let urls = [];
+        row.variantId.forEach(item => {
+          //console.log('item:: ', item.text);
+         urls =  row.variantId.filter(it => item.text === it.text);
+        if(urls && urls.length === 1 ){
+          variantIds.push(item);
+        }else{
+          if(dup !== item.text){
+            dup =  item.text;
+            variantIds.push(item);
+          }
+        }
+        });
+        row.variantId = variantIds;
+        
+      }
+
+
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} || `;
+        });
+        row.specifications = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
+
+      if (row.productOtherInformation) {
+        let text = '';
+        row.productOtherInformation.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} || `;
+        });
+        row.productOtherInformation = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
+      
       if (row.shippingDimensions) {
         let text = '';
         row.shippingDimensions.forEach(item => {
@@ -96,11 +142,11 @@ const transform = (data) => {
         });
       row.videos = video;
       }
-      // if (row.videos) {
+      // if (row.description) {
       //   const nDesc = [];
-      //   let newDesc = '';
+      //   let description = '';
       //   let idx = 0;
-      //   row.videos.forEach(item => {
+      //   row.description.forEach(item => {
       //     nDesc[0] = item;
       //     if (idx > 0) {
       //       newDesc = newDesc + '||';
@@ -111,11 +157,11 @@ const transform = (data) => {
       //   nDesc.forEach(item => {
       //     item.text = newDesc;
       //   });
-      //   row.videos = nDesc;
+      //   row.description = nDesc;
       // }
 
 
-      //  
+       
       if (row.manufacturerImages) {
         let text = '';
         row.manufacturerImages.forEach(item => {

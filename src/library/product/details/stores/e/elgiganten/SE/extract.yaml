@@ -24,7 +24,7 @@ fields:
     xpath: (//img[@class="first-product-image"]/@alt)[1]
   - name: alternateImages
     singleValue: false
-    xpath: //ul[@class="slick-dots"]//li[position()>1]
+    xpath: //ul[@class="slick-dots"]//li[position()>1]/img/@src
     regExp: (.+)\?.*
     regExpReplace: https://www.elgiganten.se$1
   - name: metaKeywords
@@ -76,7 +76,7 @@ fields:
   - name: description
     singleValue: false
     # manualSelector: div.product-more-info p
-    xpath: //div[@data-tab="tab-more-info"]/div/h3  | //div[@data-tab="tab-more-info"]/div/p/text() | //div[@id="misc-info"]
+    xpath:  //p[@class="short-description"]/text() |//div[@id="misc-info"]//ul[@class="specs"]//li/text() | //div[@data-tab="tab-more-info"]//div[@class="tab-slot"]//p/text()
   - name: descriptionTop
     singleValue: false
     manualSelector: p.short-description
@@ -86,7 +86,7 @@ fields:
   - name: color 
     singleValue: false
     xpath: //td[contains(text(),"Färg")]/following-sibling::td
-  - name: aggregateRating 
+  - name: aggregateRating2
     singleValue: false
     xpath: //div[@class="product-ratings__avarage"]/a/text()
     # manualSelector: div.bv_avgRating_component_container
@@ -101,7 +101,7 @@ fields:
     xpath: count(//div[@id="misc-info"]//ul[@class="specs"]//li)
   - name: mpc
     singleValue: false
-    xpath: //td[contains(text(),"Produkt-ID (artikelnummer)")]/following-sibling::td
+    xpath: //td[contains(text(),"Modellnamn")]/following-sibling::td
   - name: manufacturer
     singleValue: false
     xpath: //td[contains(text(),"Märke")]/following-sibling::td
@@ -114,6 +114,7 @@ fields:
   - name: packSize
     singleValue: false
     xpath: //td[contains(text(),"Skärmstorlek (tum/cm)")]/following-sibling::td
+    # xpath: //td[contains(text(),"Skärmstorlek")]/following-sibling::td
   - name: name
     singleValue: false
     manualSelector: h1.product-title
@@ -128,9 +129,9 @@ fields:
     xpath: //*[contains(text(),"Användarmanual")]/following-sibling::a/@href
     regExp: (.+)
     regExpReplace: 'Yes'
-  - name: descriptionBullets
-    singleValue: false
-    xpath: //div[@id="misc-info"]//ul[@class="specs"]//li
+  # - name: descriptionBullets
+  #   singleValue: false
+  #   xpath: //div[@id="misc-info"]//ul[@class="specs"]//li
   - name: mpc
     singleValue: false
     xpath: //td[contains(text(),"Produkt-ID (artikelnummer)")]/following-sibling::td
@@ -143,9 +144,9 @@ fields:
   - name: weightNet
     singleValue: false
     xpath: //td[contains(text(),"Vikt (kg)")]//following-sibling::td
-  - name: packSize
-    singleValue: false
-    xpath: //td[contains(text(),"Skärmstorlek (tum/cm)")]/following-sibling::td
+  # - name: packSize
+  #   singleValue: false
+  #   xpath: //td[contains(text(),"Skärmstorlek (tum/cm)")]/following-sibling::td
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//ul[@class="slick-dots"]//li[position()>1])
@@ -154,7 +155,9 @@ fields:
     xpath: //span[contains(text(),"Mått & vikt")]//..//following-sibling::dd//tr
   - name: variantInformation
     singleValue: false
-    xpath: //div[@class="table-cell header"]
+    #xpath: //div[@class="table-cell header"]
+    xpath: //span[@class="table-cell pdp-s-name"]
+    regExp: \W\W(.+)\W
   - name: variantCount
     singleValue: false
     xpath: count(//div[@class="table-cell variations"]//a)

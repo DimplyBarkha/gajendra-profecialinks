@@ -14,7 +14,7 @@ async function implementation (
   } catch (error) {
     console.log('cookie pop up not loded', error);
   }
-  await context.evaluate(async () => {
+await context.evaluate(async () => {
     function addHiddenDiv (vidurl, content) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('data-vidurl', vidurl);
