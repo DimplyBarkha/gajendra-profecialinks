@@ -33,9 +33,7 @@ const transform = (data) => {
           });
         }
         if (row.ratingCount) {
-          row.ratingCount.forEach(item => {
-            item.text=parseFloat(item.text);
-          });
+          row.ratingCount[0]['text']= parseFloat(row.ratingCount[0]['text']);
         }
         if (row.soldBy) {
           row.soldBy.forEach(item => {
