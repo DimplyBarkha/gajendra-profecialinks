@@ -28,11 +28,13 @@ const transform = (data) => {
       if (row.listPrice) {
         row.listPrice.forEach(item => {
           item.text = item.text.replace('Antes', '').replace('.', '').trim();
+          item.text = item.text.replace(',', '.');
         });
       }
       if (row.price) {
         row.price.forEach(item => {
           item.text = item.text.replace('.', '').trim();
+          item.text = item.text.replace(',', '.');
         });
       }
       if (!row.price && row.listPrice) {
