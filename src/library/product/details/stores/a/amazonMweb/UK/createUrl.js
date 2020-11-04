@@ -3,7 +3,7 @@ module.exports = {
     parameterValues: {
         domain: 'amazon.co.uk',
         prefix: null,
-        url: 'https://amazon.co.uk/dp/{id}',
+        url: 'https://www.amazon.com/dp/{id}?th=1&psc=1',
         country: 'UK',
         store: 'amazonMweb',
         zipcode: 'SW1P 3EU',
