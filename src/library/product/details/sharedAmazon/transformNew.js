@@ -304,7 +304,7 @@ const transform = (data, context) => {
       if (!row.packSize && row.quantity) {
         const packSize = row.quantity[0].text.match(/Pack of (\d+)/);
         if (packSize) {
-          row.packSize = [{ text: packSize[0] }];
+          row.packSize = [{ text: packSize[1] }];
         }
       }
       if (row.manufacturerVideos) {
