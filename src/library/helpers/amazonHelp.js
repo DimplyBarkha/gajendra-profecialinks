@@ -96,6 +96,7 @@ module.exports.AmazonHelp = class {
           }
         }
       }
+      console.log('variantList', variantList);
       return Array.from(new Set(variantList));
     });
   }
@@ -119,8 +120,8 @@ module.exports.AmazonHelp = class {
               .textContent.match(/asinToDimensionIndexMap"\s*:([^}]+})/)[1],
           ),
         );
-        if (currentAsin && allVariants.includes(currentAsin.slice(0, 10))) {
-          allVariants = allVariants.filter(elm => elm === currentAsin.slice(0, 10));
+        if (currentAsin) {
+          allVariants = allVariants.filter(elm => !(elm === currentAsin.slice(0, 10)));
         }
         return allVariants;
       } catch (err) {
