@@ -2,7 +2,7 @@ input:
   keywords: oatmeal
   _url: http://boxed.com
 extractions:
-  - html: https://workbench.import.io/html/run=aeedb517-1253-4997-a846-b147e2bf07be/task=550e4646-2e6b-4b5a-b191-5ff5798e27bd/917a5398-4cc6-4132-bd12-e4d0c299a824.html
+  - html: https://workbench.import.io/html/run=d68a0329-ace5-466f-a9cb-8ea2f9eaabdc/task=37903778-f5d7-4fcb-ba6e-25f91473c7ab/711c79c0-02c6-4507-83ca-38fb72bb9023.html
     extractionConfigId: product/search/stores/b/boxed/US/extract
     data:
       - group:
@@ -12,6 +12,9 @@ extractions:
             name:
               - text: Grandma's Cookie Variety Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3852/grandmas-cookie-variety-pack-36-ct
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1479278694132.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -34,6 +37,9 @@ extractions:
             name:
               - text: Quaker Instant Oatmeal
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/55824/quaker-instant-oatmeal-48-ct-fruit-cream-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1594844723201.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -56,6 +62,9 @@ extractions:
             name:
               - text: Quaker
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/57727/quaker-instant-oatmeal-dinosaur-eggs-8-ct
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1599849907854.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -75,6 +84,9 @@ extractions:
             name:
               - text: Quaker Instant Oatmeal
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/221/quaker-instant-oatmeal-48-packets-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1565191312168.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -97,6 +109,9 @@ extractions:
             name:
               - text: Quaker Organic Instant Oatmeal Variety Pack
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/7036/quaker-organic-instant-oatmeal-variety-pack-32-count
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1588189012617.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -119,6 +134,9 @@ extractions:
             name:
               - text: Quaker Instant Oatmeal
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/55824/quaker-instant-oatmeal-48-ct-fruit-cream-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1594844723201.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -141,6 +159,9 @@ extractions:
             name:
               - text: Quaker Instant Oatmeal
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3818/quaker-instant-oatmeal-48-count-lower-sugar
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1550780787593.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -163,6 +184,9 @@ extractions:
             name:
               - text: Quaker Real Medleys Oatmeal+ Cups
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3548/quaker-real-medleys-oatmeal-cups-12-x-2-46-oz-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1598542330546.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -185,6 +209,9 @@ extractions:
             name:
               - text: Quaker Instant Oatmeal Cups
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3851/quaker-instant-oatmeal-cups-12-x-1.69-oz.-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1556903681857.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -207,6 +234,9 @@ extractions:
             name:
               - text: Quaker Oatmeal Squares
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3911/quaker-oatmeal-squares-3-x-14.5-oz.-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1588188794688.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -229,6 +259,9 @@ extractions:
             name:
               - text: Quaker Overnight Oats
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/4662/quaker-overnight-oats-12-count
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1499110822414.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -251,6 +284,9 @@ extractions:
             name:
               - text: RX A.M. Oats
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/17760/rx-a-m-oats-9-x-2-18-oz-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1577463704470.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -273,6 +309,9 @@ extractions:
             name:
               - text: Quaker Soft Baked Squares
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3943/quaker-breakfast-squares-20-count-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1556639799633.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -295,6 +334,9 @@ extractions:
             name:
               - text: Quaker Old Fashioned 100% Whole Grain Oats
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/843/quaker-old-fashioned-oats-8-lbs.-100-whole-grain
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1523311244314.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -317,6 +359,9 @@ extractions:
             name:
               - text: Little Debbie Oatmeal Creme Pies
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/6769/little-debbie-oatmeal-creme-pies-24-x-2.6-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1564081529382.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -339,6 +384,9 @@ extractions:
             name:
               - text: Grandma's Cookie Variety Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3852/grandmas-cookie-variety-pack-36-ct
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1479278694132.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -356,4 +404,4 @@ extractions:
                 locale: en
                 value: 16
         xpath: /html
-    timestamp: 1604487806610
+    timestamp: 1604499665183

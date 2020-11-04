@@ -2,7 +2,7 @@ input:
   keywords: juice
   _url: http://boxed.com
 extractions:
-  - html: https://workbench.import.io/html/run=aeedb517-1253-4997-a846-b147e2bf07be/task=8d8a5ee5-927e-42b9-9a37-0b7aca372a4e/34d3e417-3a97-4355-9a65-783ade0860b5.html
+  - html: https://workbench.import.io/html/run=d68a0329-ace5-466f-a9cb-8ea2f9eaabdc/task=947b5804-db50-4d5c-bfe6-2444d3dd6fe0/faf48559-b6ef-405b-9404-a31eaa62fb85.html
     extractionConfigId: product/search/stores/b/boxed/US/extract
     data:
       - group:
@@ -12,6 +12,9 @@ extractions:
             name:
               - text: IZZE Sparkling Juice
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/2223/izze-sparkling-juice-24-x-8.4-oz.-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1455864229369.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -29,19 +32,22 @@ extractions:
                 locale: en
                 value: 1
           - id:
-              - text: "3578"
+              - text: "21192"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/@href
             name:
-              - text: Tropicana Orange Juice
+              - text: Gatorade G Juiced
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/21192/gatorade-g-juiced-24-x-12-oz-mixed-berry
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1472357411733.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1590082405155.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $19.99
+              - text: $16.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Tropicana "
+              - text: "Gatorade "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/@title
             rankOrganic:
               - text: "2"
@@ -51,16 +57,19 @@ extractions:
                 locale: en
                 value: 2
           - id:
-              - text: "3578"
+              - text: "3850"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/@href
             name:
-              - text: Tropicana Orange Juice
+              - text: Tropicana Fruit Juice Variety Pack
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3850/tropicana-fruit-juice-variety-pack-24-x-10-oz.-100-juice
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1472357411733.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1479614069559.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $19.99
+              - text: $20.69
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
               - text: "Tropicana "
@@ -73,19 +82,22 @@ extractions:
                 locale: en
                 value: 3
           - id:
-              - text: "3850"
+              - text: "3545"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/@href
             name:
-              - text: Tropicana Fruit Juice Variety Pack
+              - text: Dole 100% Pineapple Juice
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3545/dole-100-pineapple-juice-24-x-8.4-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1479614069559.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1468210372546.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $20.69
+              - text: $13.49
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Tropicana "
+              - text: "Dole "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/@title
             rankOrganic:
               - text: "4"
@@ -95,19 +107,22 @@ extractions:
                 locale: en
                 value: 4
           - id:
-              - text: "4630"
+              - text: "2223"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/@href
             name:
-              - text: Tropicana Fruit Juice Variety Pack
+              - text: IZZE Sparkling Juice
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/2223/izze-sparkling-juice-24-x-8.4-oz.-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1496038630808.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1455864229369.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $20.69
+              - text: $20.39
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Tropicana "
+              - text: "IZZE "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/@title
             rankOrganic:
               - text: "5"
@@ -117,19 +132,22 @@ extractions:
                 locale: en
                 value: 5
           - id:
-              - text: "4061"
+              - text: "3513"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/@href
             name:
-              - text: Tropicana Apple Juice
+              - text: SunnyD Tangy Original
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3513/sunnyd-tangy-original-30-x-11.3-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1489436292698.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1515018840839.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $19.99
+              - text: $18.49
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Tropicana "
+              - text: "SunnyD "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/@title
             rankOrganic:
               - text: "6"
@@ -139,19 +157,22 @@ extractions:
                 locale: en
                 value: 6
           - id:
-              - text: "3545"
+              - text: "789"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/@href
             name:
-              - text: Dole 100% Pineapple Juice
+              - text: Honest Kids Organic Juice Drink
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/789/honest-kids-organic-juice-drink-40-x-6-oz.-boxes-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1468210372546.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1550677470196.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $13.49
+              - text: $18.44
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Dole "
+              - text: "Honest Kids "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/@title
             rankOrganic:
               - text: "7"
@@ -161,16 +182,19 @@ extractions:
                 locale: en
                 value: 7
           - id:
-              - text: "2761"
+              - text: "2554"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/@href
             name:
-              - text: Apple & Eve Organics 100% Juice
+              - text: Apple & Eve Apple Juice
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/2554/apple-eve-apple-juice-24-x-10-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1460344201802.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1525129410769.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $15.59
+              - text: $15.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
               - text: "Apple & Eve "
@@ -183,19 +207,22 @@ extractions:
                 locale: en
                 value: 8
           - id:
-              - text: "3850"
+              - text: "808"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/@href
             name:
-              - text: Tropicana Fruit Juice Variety Pack
+              - text: Capri Sun Juice Variety Pack
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/808/capri-sun-juice-variety-pack-40-x-6-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1479614069559.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1529682408309.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $20.69
+              - text: $13.49
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Tropicana "
+              - text: "Capri Sun "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/@title
             rankOrganic:
               - text: "9"
@@ -205,19 +232,22 @@ extractions:
                 locale: en
                 value: 9
           - id:
-              - text: "21192"
+              - text: "4381"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/@href
             name:
-              - text: Gatorade G Juiced
+              - text: Capri Sun Organic Juice
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/4381/capri-sun-organic-juice-40-x-6-oz.-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1590082405155.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1577806018687.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $16.99
+              - text: $15.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Gatorade "
+              - text: "Capri Sun "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/@title
             rankOrganic:
               - text: "10"
@@ -227,19 +257,22 @@ extractions:
                 locale: en
                 value: 10
           - id:
-              - text: "2223"
+              - text: "21192"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/@href
             name:
-              - text: IZZE Sparkling Juice
+              - text: Gatorade G Juiced
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/21192/gatorade-g-juiced-24-x-12-oz-mixed-berry
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1455864229369.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1590082405155.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $20.39
+              - text: $16.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "IZZE "
+              - text: "Gatorade "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/@title
             rankOrganic:
               - text: "11"
@@ -249,19 +282,22 @@ extractions:
                 locale: en
                 value: 11
           - id:
-              - text: "3513"
+              - text: "4648"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/@href
             name:
-              - text: SunnyD Tangy Original
+              - text: Kool-Aid Jammers
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/4648/kool-aid-jammers-40-x-6-oz.-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1515018840839.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1496027642821.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $18.49
+              - text: $8.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "SunnyD "
+              - text: Kool
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/@title
             rankOrganic:
               - text: "12"
@@ -271,19 +307,22 @@ extractions:
                 locale: en
                 value: 12
           - id:
-              - text: "789"
+              - text: "1093"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/@href
             name:
-              - text: Honest Kids Organic Juice Drink
+              - text: ALO Exposed Aloe Vera Pulp & Juice
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/1093/alo-exposed-aloe-vera-pulp-juice-12-x-16.9-oz.-all-natural-original-honey
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1550677470196.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1561560377295.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $18.44
+              - text: $19.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Honest Kids "
+              - text: "ALO Exposed "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/@title
             rankOrganic:
               - text: "13"
@@ -293,19 +332,22 @@ extractions:
                 locale: en
                 value: 13
           - id:
-              - text: "2554"
+              - text: "7633"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/@href
             name:
-              - text: Apple & Eve Apple Juice
+              - text: Hint Kids Water With Fruit Essence Variety Pack
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/7633/hint-kids-water-with-fruit-essence-variety-pack-32-x-6-75-oz
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1525129410769.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1562097815050.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
               - text: $15.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Apple & Eve "
+              - text: "Hint "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/@title
             rankOrganic:
               - text: "14"
@@ -315,16 +357,19 @@ extractions:
                 locale: en
                 value: 14
           - id:
-              - text: "3184"
+              - text: "4964"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/a[1]/@href
             name:
-              - text: V8 Vegetable Juice
+              - text: V8 Splash
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/4964/v8-splash-18-x-12-oz.-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1465929868314.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1506210253098.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $6.99
+              - text: $14.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
               - text: "V8 "
@@ -337,19 +382,22 @@ extractions:
                 locale: en
                 value: 15
           - id:
-              - text: "808"
+              - text: "6721"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/@href
             name:
-              - text: Capri Sun Juice Variety Pack
+              - text: Kool-Aid Ghoul-Aid Jammers
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/6721/kool-aid-ghoul-aid-jammers-40-x-6-oz.-scary-berry
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1529682408309.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1539550683316.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $13.49
+              - text: $7.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Capri Sun "
+              - text: Kool
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/@title
             rankOrganic:
               - text: "16"
@@ -359,19 +407,22 @@ extractions:
                 locale: en
                 value: 16
           - id:
-              - text: "4381"
+              - text: "3908"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/a[1]/@href
             name:
-              - text: Capri Sun Organic Juice
+              - text: Bai Antioxidant Cocofusion
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3908/bai-antioxidant-cocofusion-12-x-18-oz.-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1577806018687.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1545335036615.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $15.99
+              - text: $25.89
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Capri Sun "
+              - text: "Bai "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/a[1]/@title
             rankOrganic:
               - text: "17"
@@ -381,19 +432,22 @@ extractions:
                 locale: en
                 value: 17
           - id:
-              - text: "21192"
+              - text: "6001"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/a[1]/@href
             name:
-              - text: Gatorade G Juiced
+              - text: Propel Water Beverage Mix Variety Pack
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/6001/propel-water-beverage-mix-variety-pack-50-x-0.08-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1590082405155.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1528426119920.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $16.99
+              - text: $12.59
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Gatorade "
+              - text: "Propel "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/a[1]/@title
             rankOrganic:
               - text: "18"
@@ -403,19 +457,22 @@ extractions:
                 locale: en
                 value: 18
           - id:
-              - text: "20281"
+              - text: "5972"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/a[1]/@href
             name:
-              - text: Kool-Aid Jammers Mystery
+              - text: Tang Orange Drink Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/5972/tang-orange-drink-mix-72-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1583867638017.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1531115493608.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $8.99
+              - text: $9.19
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: Kool
+              - text: "Tang "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/a[1]/@title
             rankOrganic:
               - text: "19"
@@ -425,19 +482,22 @@ extractions:
                 locale: en
                 value: 19
           - id:
-              - text: "4648"
+              - text: "58108"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/a[1]/@href
             name:
-              - text: Kool-Aid Jammers
+              - text: Gatorade Thirst Quencher Powder Variety Pack
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/58108/gatorade-thirst-quencher-powder-variety-pack-30-x-1-23-oz
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1496027642821.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1600366506746.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $8.99
+              - text: $13.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: Kool
+              - text: "Gatorade "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/a[1]/@title
             rankOrganic:
               - text: "20"
@@ -447,19 +507,22 @@ extractions:
                 locale: en
                 value: 20
           - id:
-              - text: "1093"
+              - text: "7327"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/a[1]/@href
             name:
-              - text: ALO Exposed Aloe Vera Pulp & Juice
+              - text: Lipton Iced Tea Lemon Sweetened Ice Tea Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/7327/lipton-iced-tea-lemon-sweetened-ice-tea-mix-66-1-oz
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1561560377295.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1558548869075.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $19.99
+              - text: $8.59
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "ALO Exposed "
+              - text: "Lipton "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/a[1]/@title
             rankOrganic:
               - text: "21"
@@ -469,19 +532,22 @@ extractions:
                 locale: en
                 value: 21
           - id:
-              - text: "7633"
+              - text: "195"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[22]/div[1]/a[1]/@href
             name:
-              - text: Hint Kids Water With Fruit Essence Variety Pack
+              - text: Kraft Foods Crystal Light
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[22]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/195/crystal-light-16-packs-natural-lemonade
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[22]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1562097815050.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1601479324096.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[22]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $15.99
+              - text: $6.89
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[22]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Hint "
+              - text: "Kraft Foods "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[22]/div[1]/a[1]/@title
             rankOrganic:
               - text: "22"
@@ -491,19 +557,22 @@ extractions:
                 locale: en
                 value: 22
           - id:
-              - text: "4964"
+              - text: "426"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[23]/div[1]/a[1]/@href
             name:
-              - text: V8 Splash
+              - text: Starbucks Hot Cocoa Classic
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[23]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/426/starbucks-hot-cocoa-classic-30-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[23]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1506210253098.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1513974799972.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[23]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $14.99
+              - text: $16.19
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[23]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "V8 "
+              - text: "Starbucks "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[23]/div[1]/a[1]/@title
             rankOrganic:
               - text: "23"
@@ -513,19 +582,22 @@ extractions:
                 locale: en
                 value: 23
           - id:
-              - text: "3908"
+              - text: "4803"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[24]/div[1]/a[1]/@href
             name:
-              - text: Bai Antioxidant Cocofusion
+              - text: Country Time Pink Lemonade Flavor Drink Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[24]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/4803/country-time-pink-lemonade-drink-mix-82.5-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[24]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1545335036615.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1496026574287.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[24]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $25.89
+              - text: $9.19
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[24]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Bai "
+              - text: "Country Time "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[24]/div[1]/a[1]/@title
             rankOrganic:
               - text: "24"
@@ -535,19 +607,22 @@ extractions:
                 locale: en
                 value: 24
           - id:
-              - text: "4649"
+              - text: "51697"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[25]/div[1]/a[1]/@href
             name:
-              - text: Kool-Aid Tropical Punch Drink Mix
+              - text: AriZona Arnold Palmer Half & Half Drink Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[25]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/51697/ari-zona-arnold-palmer-half-half-drink-mix-72-oz-iced-tea-lemonade
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[25]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1496030997834.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1588962860682.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[25]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
               - text: $9.19
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[25]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: Kool
+              - text: "AriZona "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[25]/div[1]/a[1]/@title
             rankOrganic:
               - text: "25"
@@ -557,19 +632,22 @@ extractions:
                 locale: en
                 value: 25
           - id:
-              - text: "6001"
+              - text: "499"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[26]/div[1]/a[1]/@href
             name:
-              - text: Propel Water Beverage Mix Variety Pack
+              - text: Swiss Miss Hot Cocoa Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[26]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/499/swiss-miss-hot-cocoa-mix-60-packets-milk-chocolate
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[26]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1528426119920.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1574867710762.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[26]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $12.59
+              - text: $7.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[26]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Propel "
+              - text: "Swiss Miss "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[26]/div[1]/a[1]/@title
             rankOrganic:
               - text: "26"
@@ -579,19 +657,22 @@ extractions:
                 locale: en
                 value: 26
           - id:
-              - text: "5972"
+              - text: "194"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[27]/div[1]/a[1]/@href
             name:
-              - text: Tang Orange Drink Mix
+              - text: Kraft Foods Crystal Light
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[27]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/194/crystal-light-16-packs-natural-lemon-iced-tea
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[27]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1531115493608.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1601396437509.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[27]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $9.19
+              - text: $7.59
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[27]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Tang "
+              - text: "Kraft Foods "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[27]/div[1]/a[1]/@title
             rankOrganic:
               - text: "27"
@@ -601,19 +682,22 @@ extractions:
                 locale: en
                 value: 27
           - id:
-              - text: "58108"
+              - text: "656"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[28]/div[1]/a[1]/@href
             name:
-              - text: Gatorade Thirst Quencher Powder Variety Pack
+              - text: Alpine Spiced Apple Cider Instant Drink Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[28]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/656/alpine-spiced-apple-cider-instant-drink-mix-60-ct-original
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[28]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1600366506746.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1455044634941.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[28]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $13.99
+              - text: $11.89
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[28]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Gatorade "
+              - text: "Alpine "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[28]/div[1]/a[1]/@title
             rankOrganic:
               - text: "28"
@@ -623,19 +707,22 @@ extractions:
                 locale: en
                 value: 28
           - id:
-              - text: "4336"
+              - text: "3165"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[29]/div[1]/a[1]/@href
             name:
-              - text: True Citrus True Lime Crystallized Lime
+              - text: Country Time Lemonade Flavor Drink Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[29]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3165/country-time-lemonade-drink-mix-82.5-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[29]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1490208792129.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1465097170818.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[29]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $29.99
+              - text: $8.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[29]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "True Citrus "
+              - text: "Country Time "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[29]/div[1]/a[1]/@title
             rankOrganic:
               - text: "29"
@@ -645,19 +732,22 @@ extractions:
                 locale: en
                 value: 29
           - id:
-              - text: "7327"
+              - text: "1019"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[30]/div[1]/a[1]/@href
             name:
-              - text: Lipton Iced Tea Lemon Sweetened Ice Tea Mix
+              - text: Kraft Crystal Light On The Go
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[30]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/1019/crystal-light-on-the-go-44-ct-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[30]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1558548869075.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1438579943699.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[30]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $8.59
+              - text: $8.39
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[30]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Lipton "
+              - text: "Kraft "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[30]/div[1]/a[1]/@title
             rankOrganic:
               - text: "30"
@@ -667,19 +757,22 @@ extractions:
                 locale: en
                 value: 30
           - id:
-              - text: "195"
+              - text: "57484"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[31]/div[1]/a[1]/@href
             name:
-              - text: Kraft Foods Crystal Light
+              - text: Health-Ade Booch Pop
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[31]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/57484/health-ade-booch-pop-12-x-12-oz-variety-pack
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[31]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1601479324096.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1597934439778.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[31]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $6.89
+              - text: $29.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[31]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Kraft Foods "
+              - text: Health
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[31]/div[1]/a[1]/@title
             rankOrganic:
               - text: "31"
@@ -689,19 +782,22 @@ extractions:
                 locale: en
                 value: 31
           - id:
-              - text: "426"
+              - text: "3544"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[32]/div[1]/a[1]/@href
             name:
-              - text: Starbucks Hot Cocoa Classic
+              - text: Dole Pineapple Chunks
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[32]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3544/dole-pineapple-chunks-4-x-20-oz.-100-juice
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[32]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1513974799972.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1468208422817.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[32]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $16.19
+              - text: $7.55
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[32]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Starbucks "
+              - text: "Dole "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[32]/div[1]/a[1]/@title
             rankOrganic:
               - text: "32"
@@ -711,19 +807,22 @@ extractions:
                 locale: en
                 value: 32
           - id:
-              - text: "51697"
+              - text: "3543"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[33]/div[1]/a[1]/@href
             name:
-              - text: AriZona Arnold Palmer Half & Half Drink Mix
+              - text: Dole Cherry Mixed Fruit
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[33]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3543/dole-cherry-mixed-fruit-16-x-4-oz.-in-100-fruit-juice
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[33]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1588962860682.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1572545955835.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[33]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $9.99
+              - text: $11.59
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[33]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "AriZona "
+              - text: "Dole "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[33]/div[1]/a[1]/@title
             rankOrganic:
               - text: "33"
@@ -733,19 +832,22 @@ extractions:
                 locale: en
                 value: 33
           - id:
-              - text: "499"
+              - text: "1895"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[34]/div[1]/a[1]/@href
             name:
-              - text: Swiss Miss Hot Cocoa Mix
+              - text: Dole Diced Peaches + Mixed Fruit
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[34]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/1895/dole-diced-peaches-mixed-fruit-16-x-4-oz.-cups
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[34]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1574867710762.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1572546032734.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[34]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $7.99
+              - text: $11.59
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[34]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Swiss Miss "
+              - text: "Dole "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[34]/div[1]/a[1]/@title
             rankOrganic:
               - text: "34"
@@ -755,19 +857,22 @@ extractions:
                 locale: en
                 value: 34
           - id:
-              - text: "4803"
+              - text: "7689"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[35]/div[1]/a[1]/@href
             name:
-              - text: Country Time Pink Lemonade Flavor Drink Mix
+              - text: Dole Yellow Cling Diced Peaches
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[35]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/7689/dole-yellow-cling-diced-peaches-16-x-4-oz
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[35]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1496026574287.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1565278562287.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[35]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $9.19
+              - text: $11.59
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[35]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Country Time "
+              - text: "Dole "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[35]/div[1]/a[1]/@title
             rankOrganic:
               - text: "35"
@@ -776,181 +881,5 @@ extractions:
                 raw: "35"
                 locale: en
                 value: 35
-          - id:
-              - text: "656"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[36]/div[1]/a[1]/@href
-            name:
-              - text: Alpine Spiced Apple Cider Instant Drink Mix
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[36]/div[1]/a[1]/div[2]/div[1]/div[1]
-            thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1455044634941.jpg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[36]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
-            price:
-              - text: $11.89
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[36]/div[1]/a[1]/div[2]/div[2]/span[1]
-            manufacturer:
-              - text: "Alpine "
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[36]/div[1]/a[1]/@title
-            rankOrganic:
-              - text: "36"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[36]/@rankorganic
-                type: NUMBER
-                raw: "36"
-                locale: en
-                value: 36
-          - id:
-              - text: "3165"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[37]/div[1]/a[1]/@href
-            name:
-              - text: Country Time Lemonade Flavor Drink Mix
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[37]/div[1]/a[1]/div[2]/div[1]/div[1]
-            thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1465097170818.jpg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[37]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
-            price:
-              - text: $8.99
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[37]/div[1]/a[1]/div[2]/div[2]/span[1]
-            manufacturer:
-              - text: "Country Time "
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[37]/div[1]/a[1]/@title
-            rankOrganic:
-              - text: "37"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[37]/@rankorganic
-                type: NUMBER
-                raw: "37"
-                locale: en
-                value: 37
-          - id:
-              - text: "1019"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[38]/div[1]/a[1]/@href
-            name:
-              - text: Kraft Crystal Light On The Go
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[38]/div[1]/a[1]/div[2]/div[1]/div[1]
-            thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1438579943699.jpg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[38]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
-            price:
-              - text: $8.39
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[38]/div[1]/a[1]/div[2]/div[2]/span[1]
-            manufacturer:
-              - text: "Kraft "
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[38]/div[1]/a[1]/@title
-            rankOrganic:
-              - text: "38"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[38]/@rankorganic
-                type: NUMBER
-                raw: "38"
-                locale: en
-                value: 38
-          - id:
-              - text: "57484"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[39]/div[1]/a[1]/@href
-            name:
-              - text: Health-Ade Booch Pop
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[39]/div[1]/a[1]/div[2]/div[1]/div[1]
-            thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1597934439778.jpg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[39]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
-            price:
-              - text: $29.99
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[39]/div[1]/a[1]/div[2]/div[2]/span[1]
-            manufacturer:
-              - text: Health
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[39]/div[1]/a[1]/@title
-            rankOrganic:
-              - text: "39"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[39]/@rankorganic
-                type: NUMBER
-                raw: "39"
-                locale: en
-                value: 39
-          - id:
-              - text: "3544"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[40]/div[1]/a[1]/@href
-            name:
-              - text: Dole Pineapple Chunks
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[40]/div[1]/a[1]/div[2]/div[1]/div[1]
-            thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1468208422817.jpg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[40]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
-            price:
-              - text: $7.55
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[40]/div[1]/a[1]/div[2]/div[2]/span[1]
-            manufacturer:
-              - text: "Dole "
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[40]/div[1]/a[1]/@title
-            rankOrganic:
-              - text: "40"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[40]/@rankorganic
-                type: NUMBER
-                raw: "40"
-                locale: en
-                value: 40
-          - id:
-              - text: "3543"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[41]/div[1]/a[1]/@href
-            name:
-              - text: Dole Cherry Mixed Fruit
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[41]/div[1]/a[1]/div[2]/div[1]/div[1]
-            thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1572545955835.jpg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[41]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
-            price:
-              - text: $11.59
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[41]/div[1]/a[1]/div[2]/div[2]/span[1]
-            manufacturer:
-              - text: "Dole "
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[41]/div[1]/a[1]/@title
-            rankOrganic:
-              - text: "41"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[41]/@rankorganic
-                type: NUMBER
-                raw: "41"
-                locale: en
-                value: 41
-          - id:
-              - text: "1895"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[42]/div[1]/a[1]/@href
-            name:
-              - text: Dole Diced Peaches + Mixed Fruit
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[42]/div[1]/a[1]/div[2]/div[1]/div[1]
-            thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1572546032734.jpg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[42]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
-            price:
-              - text: $11.59
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[42]/div[1]/a[1]/div[2]/div[2]/span[1]
-            manufacturer:
-              - text: "Dole "
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[42]/div[1]/a[1]/@title
-            rankOrganic:
-              - text: "42"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[42]/@rankorganic
-                type: NUMBER
-                raw: "42"
-                locale: en
-                value: 42
-          - id:
-              - text: "7689"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[43]/div[1]/a[1]/@href
-            name:
-              - text: Dole Yellow Cling Diced Peaches
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[43]/div[1]/a[1]/div[2]/div[1]/div[1]
-            thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1565278562287.jpg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[43]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
-            price:
-              - text: $11.59
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[43]/div[1]/a[1]/div[2]/div[2]/span[1]
-            manufacturer:
-              - text: "Dole "
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[43]/div[1]/a[1]/@title
-            rankOrganic:
-              - text: "43"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[43]/@rankorganic
-                type: NUMBER
-                raw: "43"
-                locale: en
-                value: 43
         xpath: /html
-    timestamp: 1604487804999
+    timestamp: 1604499596472

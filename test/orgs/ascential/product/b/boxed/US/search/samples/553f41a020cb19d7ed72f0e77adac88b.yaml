@@ -2,7 +2,7 @@ input:
   keywords: bread
   _url: http://boxed.com
 extractions:
-  - html: https://workbench.import.io/html/run=aeedb517-1253-4997-a846-b147e2bf07be/task=4a62888b-57b1-4610-ac8a-74e47c8f3cd2/2a4ad9f7-8078-4576-a5c7-7b105277e37b.html
+  - html: https://workbench.import.io/html/run=d68a0329-ace5-466f-a9cb-8ea2f9eaabdc/task=a1bcfc0b-e3c5-42c9-8229-f682a5c24f20/f48d72c4-2f9d-4309-b13b-29eff1f40c42.html
     extractionConfigId: product/search/stores/b/boxed/US/extract
     data:
       - group:
@@ -12,6 +12,9 @@ extractions:
             name:
               - text: Krusteaz Maple Quick Bread Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/57099/krusteaz-maple-quick-bread-mix
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1595861847817.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -34,6 +37,9 @@ extractions:
             name:
               - text: Prince & Spring Beer Bread Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/12927/prince-spring-beer-bread-mix-2-x-15-75-oz
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1597163965460.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -56,6 +62,9 @@ extractions:
             name:
               - text: Stonewall Kitchen Traditional Popover Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/57062/stonewall-kitchen-traditional-popover-mix
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1600111015822.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -78,6 +87,9 @@ extractions:
             name:
               - text: Ritz Seasoning Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/53549/ritz-seasoning-mix-2-x-5-oz-original
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1588211275544.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -100,6 +112,9 @@ extractions:
             name:
               - text: Ball Park Hot Dog Rolls
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/54062/ball-park-hot-dog-rolls-2-x-8-ct
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1588988588016.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -122,6 +137,9 @@ extractions:
             name:
               - text: Prince & Spring Maple Pecan Shortbread Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/12932/prince-spring-maple-pecan-shortbread-mix-2-x-15-5-oz
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1597164536271.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -144,6 +162,9 @@ extractions:
             name:
               - text: Mission 10" Burrito Flour Tortillas
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/6962/mission-12-burrito-flour-tortillas-2-x-20-count-super-soft
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1546224854421.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -166,6 +187,9 @@ extractions:
             name:
               - text: Entenmann's Little Bites Muffins
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/5750/entenmanns-little-bites-muffins-20-count-party-cakes
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1540359068619.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -188,6 +212,9 @@ extractions:
             name:
               - text: Ball Park Classic Burger Buns
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/54063/ball-park-classic-burger-buns-2-x-8-ct
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1588988673186.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -210,6 +237,9 @@ extractions:
             name:
               - text: Entenmann's Little Bites Muffins
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/5748/entenmanns-little-bites-muffins-20-count-blueberry
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1540359042918.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -232,6 +262,9 @@ extractions:
             name:
               - text: Entenmann's Little Bites Muffins
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/5747/entenmanns-little-bites-muffins-20-count-chocolate-chip
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1540359028721.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -254,6 +287,9 @@ extractions:
             name:
               - text: Mission 6" Fajita Flour Tortillas
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/6958/mission-6-fajita-flour-tortillas-40-count-super-soft
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1546224429432.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -276,6 +312,9 @@ extractions:
             name:
               - text: Thomas' Everything Bagels
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/7484/thomas-everything-bagels-12-count
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1559855097975.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -298,6 +337,9 @@ extractions:
             name:
               - text: Thomas' Plain Bagels
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/6069/thomas-plain-bagels-12-count
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1527955281315.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -315,4 +357,4 @@ extractions:
                 locale: en
                 value: 14
         xpath: /html
-    timestamp: 1604487742592
+    timestamp: 1604499599203

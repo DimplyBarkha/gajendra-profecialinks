@@ -2,7 +2,7 @@ input:
   keywords: milk
   _url: http://boxed.com
 extractions:
-  - html: https://workbench.import.io/html/run=aeedb517-1253-4997-a846-b147e2bf07be/task=391c2eb7-5a99-4b4a-b89b-18d0d7398ab1/6382cb94-ef2e-4e99-a127-e4e77e16982d.html
+  - html: https://workbench.import.io/html/run=d68a0329-ace5-466f-a9cb-8ea2f9eaabdc/task=bf9f7871-c833-48ef-8564-21d6dbb6b592/0324dfd3-88cf-48d9-8354-5d1b39c12301.html
     extractionConfigId: product/search/stores/b/boxed/US/extract
     data:
       - group:
@@ -12,6 +12,9 @@ extractions:
             name:
               - text: Califia Farms Unsweetened Almondmilk
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/6775/califia-farms-unsweetened-almondmilk-6-x-32-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1539548678281.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -34,6 +37,9 @@ extractions:
             name:
               - text: Califia Farms Dairy Free Better Half Coconut Cream & Almondmilk
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/5895/califia-farms-better-half-creamer-almondmilk-3-x-16.9-oz.-unsweetened
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1522214279525.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -51,19 +57,22 @@ extractions:
                 locale: en
                 value: 2
           - id:
-              - text: "2785"
+              - text: "3188"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/@href
             name:
-              - text: Nestlé Evaporated Milk
+              - text: Goya Coconut Milk
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3188/goya-coconut-milk-6-x-13.5-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1601586354900.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1466300075095.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $4.49
+              - text: $12.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Nestlé "
+              - text: "Goya "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/a[1]/@title
             rankOrganic:
               - text: "3"
@@ -73,19 +82,22 @@ extractions:
                 locale: en
                 value: 3
           - id:
-              - text: "3188"
+              - text: "2477"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/@href
             name:
-              - text: Goya Coconut Milk
+              - text: Hershey's Kisses Milk Chocolate Holiday Colors
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/2477/hersheys-kisses-milk-chocolate-36-oz-holiday-colors
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1466300075095.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1572622098412.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $12.99
+              - text: $11.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Goya "
+              - text: "Hershey's "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/a[1]/@title
             rankOrganic:
               - text: "4"
@@ -95,19 +107,22 @@ extractions:
                 locale: en
                 value: 4
           - id:
-              - text: "1470"
+              - text: "4167"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/@href
             name:
-              - text: Toblerone Swiss Milk Chocolate Bars
+              - text: Mars M&M's Holiday Milk Chocolate
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/4167/mms-holiday-milk-chocolate-42-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1518452429741.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1572532828608.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $10.79
+              - text: $11.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Toblerone "
+              - text: "Mars "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/a[1]/@title
             rankOrganic:
               - text: "5"
@@ -117,19 +132,22 @@ extractions:
                 locale: en
                 value: 5
           - id:
-              - text: "2477"
+              - text: "7027"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/@href
             name:
-              - text: Hershey's Kisses Milk Chocolate Holiday Colors
+              - text: Mrs. Fields Milk Chocolate Chip Cookies Snack Packs
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/7027/mrs.-fields-milk-chocolate-chip-cookies-snack-packs-30-x-1-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1572622098412.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1548130217914.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $11.99
+              - text: $14.19
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Hershey's "
+              - text: "Mrs. Fields "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/a[1]/@title
             rankOrganic:
               - text: "6"
@@ -139,16 +157,19 @@ extractions:
                 locale: en
                 value: 6
           - id:
-              - text: "4167"
+              - text: "6880"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/@href
             name:
-              - text: Mars M&M's Holiday Milk Chocolate
+              - text: Mars M&M's Milk Chocolate Candies Jar
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/6880/mars-mms-milk-chocolate-candies-jar-62-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1572532828608.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1544295083237.png
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $11.99
+              - text: $12.49
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
               - text: "Mars "
@@ -161,19 +182,22 @@ extractions:
                 locale: en
                 value: 7
           - id:
-              - text: "7027"
+              - text: "6383"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/@href
             name:
-              - text: Mrs. Fields Milk Chocolate Chip Cookies Snack Packs
+              - text: Prince & Spring Mountain Trail Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/6383/prince-spring-mountain-trail-mix-22-x-2-oz.-nuts-raisins-mms-candy
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1548130217914.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1577118939257.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $14.19
+              - text: $16.79
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Mrs. Fields "
+              - text: "Prince & Spring "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/a[1]/@title
             rankOrganic:
               - text: "8"
@@ -188,6 +212,9 @@ extractions:
             name:
               - text: Califia Farms Almondmilk Creamer
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/5897/califia-farms-almondmilk-creamer-2-x-32-oz.-vanilla
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1565707410661.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -210,6 +237,9 @@ extractions:
             name:
               - text: Califia Farms Almondmilk Creamer
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/5896/califia-farms-almondmilk-creamer-2-x-32-oz.-hazelnut
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/@href
             thumbnail:
               - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1522215627240.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
@@ -227,19 +257,22 @@ extractions:
                 locale: en
                 value: 10
           - id:
-              - text: "6880"
+              - text: "7696"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/@href
             name:
-              - text: Mars M&M's Milk Chocolate Candies Jar
+              - text: Ghirardelli Chocolate Snowmen Assortment
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/7696/ghirardelli-chocolate-snowmen-assortment-15-3-oz
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1544295083237.png
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1567702899130.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $12.49
+              - text: $11.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Mars "
+              - text: "Ghirardelli "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/a[1]/@title
             rankOrganic:
               - text: "11"
@@ -249,19 +282,22 @@ extractions:
                 locale: en
                 value: 11
           - id:
-              - text: "6383"
+              - text: "3734"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/@href
             name:
-              - text: Prince & Spring Mountain Trail Mix
+              - text: DOVE Silky Smooth Promises
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3734/dove-silky-smooth-promises-43.07-oz.-variety-mix
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1577118939257.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1571421988505.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $16.79
+              - text: $19.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Prince & Spring "
+              - text: "DOVE "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[12]/div[1]/a[1]/@title
             rankOrganic:
               - text: "12"
@@ -271,19 +307,22 @@ extractions:
                 locale: en
                 value: 12
           - id:
-              - text: "3679"
+              - text: "462"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/@href
             name:
-              - text: Prince & Spring Mountain Trail Mix
+              - text: Snack Pack Extra Creamy Pudding
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/462/snack-pack-extra-creamy-pudding-36-x-3.25-oz.-chocolate-vanilla
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1574348780321.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1562597784385.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $8.39
+              - text: $11.09
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Prince & Spring "
+              - text: "Snack Pack "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[13]/div[1]/a[1]/@title
             rankOrganic:
               - text: "13"
@@ -293,19 +332,22 @@ extractions:
                 locale: en
                 value: 13
           - id:
-              - text: "7696"
+              - text: "499"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/@href
             name:
-              - text: Ghirardelli Chocolate Snowmen Assortment
+              - text: Swiss Miss Hot Cocoa Mix
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/499/swiss-miss-hot-cocoa-mix-60-packets-milk-chocolate
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1567702899130.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1574867710762.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $11.99
+              - text: $7.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Ghirardelli "
+              - text: "Swiss Miss "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[14]/div[1]/a[1]/@title
             rankOrganic:
               - text: "14"
@@ -315,19 +357,22 @@ extractions:
                 locale: en
                 value: 14
           - id:
-              - text: "462"
+              - text: "6091"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/a[1]/@href
             name:
-              - text: Snack Pack Extra Creamy Pudding
+              - text: Core Power High Protein Milk Shake
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/6091/core-power-high-protein-milk-shake-12-x-11.5-oz.-chocolate
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1562597784385.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/512x400/filters:quality(100):max_bytes(50000):upscale():fill(white)/https://static-assets.boxed.com/1555078708649.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $11.09
+              - text: $32.12
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Snack Pack "
+              - text: "Core Power "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[15]/div[1]/a[1]/@title
             rankOrganic:
               - text: "15"
@@ -337,19 +382,22 @@ extractions:
                 locale: en
                 value: 15
           - id:
-              - text: "499"
+              - text: "3508"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/@href
             name:
-              - text: Swiss Miss Hot Cocoa Mix
+              - text: Silk Unsweetened Almond Milk
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/3508/silk-unsweetened-almond-milk-6-x-32-oz.-vanilla
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1574867710762.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1558470697324.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $7.99
+              - text: $14.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Swiss Miss "
+              - text: "Silk "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[16]/div[1]/a[1]/@title
             rankOrganic:
               - text: "16"
@@ -359,19 +407,22 @@ extractions:
                 locale: en
                 value: 16
           - id:
-              - text: "6034"
+              - text: "4218"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/a[1]/@href
             name:
-              - text: Core Power High Protein Milk Shake
+              - text: Horizon Organic Lowfat Milk
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/4218/horizon-organic-lowfat-milk-18-x-8-oz.-strawberry
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1594306815621.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1482708121195.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $32.89
+              - text: $20.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Core Power "
+              - text: "Horizon "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[17]/div[1]/a[1]/@title
             rankOrganic:
               - text: "17"
@@ -381,19 +432,22 @@ extractions:
                 locale: en
                 value: 17
           - id:
-              - text: "6091"
+              - text: "1468"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/a[1]/@href
             name:
-              - text: Core Power High Protein Milk Shake
+              - text: Horizon Organic Lowfat Milk
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/1468/horizon-organic-lowfat-milk-18-x-8-oz.-chocolate
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1555078708649.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1436157758034.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $32.12
+              - text: $20.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Core Power "
+              - text: "Horizon "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[18]/div[1]/a[1]/@title
             rankOrganic:
               - text: "18"
@@ -403,19 +457,22 @@ extractions:
                 locale: en
                 value: 18
           - id:
-              - text: "4305"
+              - text: "1469"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/a[1]/@href
             name:
-              - text: Silk Almond Milk
+              - text: Horizon Organic Lowfat Milk
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/1469/horizon-organic-lowfat-milk-18-x-8-oz.-vanilla
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1598638331841.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1482707032628.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $13.99
+              - text: $20.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Silk "
+              - text: "Horizon "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[19]/div[1]/a[1]/@title
             rankOrganic:
               - text: "19"
@@ -425,19 +482,22 @@ extractions:
                 locale: en
                 value: 19
           - id:
-              - text: "3508"
+              - text: "6267"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/a[1]/@href
             name:
-              - text: Silk Unsweetened Almond Milk
+              - text: Muscle Milk 100 Calorie Non-Dairy Protein Shake
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/6267/muscle-milk-100-calorie-non-dairy-protein-shake-12-x-11-oz-chocolate
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1558470697324.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1594834252923.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $14.99
+              - text: $23.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Silk "
+              - text: "Muscle Milk "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[20]/div[1]/a[1]/@title
             rankOrganic:
               - text: "20"
@@ -447,19 +507,22 @@ extractions:
                 locale: en
                 value: 20
           - id:
-              - text: "4217"
+              - text: "1434"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/a[1]/@href
             name:
-              - text: Horizon Organic Lowfat Milk
+              - text: International Delight Creamer Singles
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/1434/international-delight-creamer-singles-192-count-french-vanilla
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1482707576946.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1439788706433.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $20.99
+              - text: $13.69
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Horizon "
+              - text: "International Delight "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[21]/div[1]/a[1]/@title
             rankOrganic:
               - text: "21"
@@ -469,19 +532,22 @@ extractions:
                 locale: en
                 value: 21
           - id:
-              - text: "4218"
+              - text: "5896"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[22]/div[1]/a[1]/@href
             name:
-              - text: Horizon Organic Lowfat Milk
+              - text: Califia Farms Almondmilk Creamer
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[22]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/5896/califia-farms-almondmilk-creamer-2-x-32-oz.-hazelnut
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[22]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1482708121195.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1522215627240.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[22]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $20.99
+              - text: $10.79
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[22]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Horizon "
+              - text: "Califia Farms "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[22]/div[1]/a[1]/@title
             rankOrganic:
               - text: "22"
@@ -491,19 +557,22 @@ extractions:
                 locale: en
                 value: 22
           - id:
-              - text: "1468"
+              - text: "5897"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[23]/div[1]/a[1]/@href
             name:
-              - text: Horizon Organic Lowfat Milk
+              - text: Califia Farms Almondmilk Creamer
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[23]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/5897/califia-farms-almondmilk-creamer-2-x-32-oz.-vanilla
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[23]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1436157758034.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1565707410661.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[23]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $20.99
+              - text: $10.79
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[23]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Horizon "
+              - text: "Califia Farms "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[23]/div[1]/a[1]/@title
             rankOrganic:
               - text: "23"
@@ -513,19 +582,22 @@ extractions:
                 locale: en
                 value: 23
           - id:
-              - text: "1469"
+              - text: "6775"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[24]/div[1]/a[1]/@href
             name:
-              - text: Horizon Organic Lowfat Milk
+              - text: Califia Farms Unsweetened Almondmilk
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[24]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/6775/califia-farms-unsweetened-almondmilk-6-x-32-oz.
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[24]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1482707032628.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1539548678281.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[24]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $20.99
+              - text: $21.29
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[24]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Horizon "
+              - text: "Califia Farms "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[24]/div[1]/a[1]/@title
             rankOrganic:
               - text: "24"
@@ -535,19 +607,22 @@ extractions:
                 locale: en
                 value: 24
           - id:
-              - text: "7275"
+              - text: "5895"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[25]/div[1]/a[1]/@href
             name:
-              - text: RISE Brewing Co. Nitro Cold Brew Coffee
+              - text: Califia Farms Dairy Free Better Half Coconut Cream & Almondmilk
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[25]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/5895/califia-farms-better-half-creamer-almondmilk-3-x-16.9-oz.-unsweetened
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[25]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1557162173649.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1522214279525.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[25]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $34.39
+              - text: $10.79
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[25]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "RISE Brewing Co. "
+              - text: "Califia Farms "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[25]/div[1]/a[1]/@title
             rankOrganic:
               - text: "25"
@@ -557,13 +632,16 @@ extractions:
                 locale: en
                 value: 25
           - id:
-              - text: "5896"
+              - text: "6727"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[26]/div[1]/a[1]/@href
             name:
               - text: Califia Farms Almondmilk Creamer
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[26]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/6727/califia-farms-almondmilk-creamer-2-x-32-oz.-pumpkin-spice
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[26]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1522215627240.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1537066087721.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[26]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
               - text: $10.79
@@ -579,16 +657,19 @@ extractions:
                 locale: en
                 value: 26
           - id:
-              - text: "5897"
+              - text: "7169"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[27]/div[1]/a[1]/@href
             name:
-              - text: Califia Farms Almondmilk Creamer
+              - text: Califia Farms Oatmilk Barista Blend
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[27]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/7169/califia-farms-oatmilk-barista-blend-6-x-32-oz-unsweetened
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[27]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1565707410661.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1554088175595.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[27]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $10.79
+              - text: $24.19
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[27]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
               - text: "Califia Farms "
@@ -601,19 +682,22 @@ extractions:
                 locale: en
                 value: 27
           - id:
-              - text: "6775"
+              - text: "7234"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[28]/div[1]/a[1]/@href
             name:
-              - text: Califia Farms Unsweetened Almondmilk
+              - text: Thai Kitchen Unsweetened Organic Coconut Milk
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[28]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/7234/thai-kitchen-unsweetened-organic-coconut-milk-6-x-13-66-oz
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[28]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1539548678281.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1563818169251.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[28]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $21.29
+              - text: $18.29
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[28]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Califia Farms "
+              - text: "Thai Kitchen "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[28]/div[1]/a[1]/@title
             rankOrganic:
               - text: "28"
@@ -623,19 +707,22 @@ extractions:
                 locale: en
                 value: 28
           - id:
-              - text: "5895"
+              - text: "126"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[29]/div[1]/a[1]/@href
             name:
-              - text: Califia Farms Dairy Free Better Half Coconut Cream & Almondmilk
+              - text: Kellogg's Raisin Bran
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[29]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/126/kelloggs-raisin-bran-76.5-oz.-2-bags
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[29]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1522214279525.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1458409646094.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[29]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $10.79
+              - text: $10.49
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[29]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Califia Farms "
+              - text: "Kellogg's "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[29]/div[1]/a[1]/@title
             rankOrganic:
               - text: "29"
@@ -645,19 +732,22 @@ extractions:
                 locale: en
                 value: 29
           - id:
-              - text: "6727"
+              - text: "53783"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[30]/div[1]/a[1]/@href
             name:
-              - text: Califia Farms Almondmilk Creamer
+              - text: Dove Milk Swirls Bath Bomb
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[30]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/53783/dove-milk-swirls-bath-bomb-2-ct-vanilla-raspberry-creamsicle
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[30]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1537066087721.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1589237264494.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[30]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $10.79
+              - text: $5.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[30]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Califia Farms "
+              - text: "Dove "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[30]/div[1]/a[1]/@title
             rankOrganic:
               - text: "30"
@@ -667,19 +757,22 @@ extractions:
                 locale: en
                 value: 30
           - id:
-              - text: "7169"
+              - text: "7687"
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[31]/div[1]/a[1]/@href
             name:
-              - text: Califia Farms Oatmilk Barista Blend
+              - text: Fresh Monster Toxin-Free Kids Shampoo + Conditioner
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[31]/div[1]/a[1]/div[2]/div[1]/div[1]
+            productUrl:
+              - text: https://www.boxed.com/product/7687/fresh-monster-toxin-free-kids-shampoo-conditioner
+                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[31]/div[1]/a[1]/@href
             thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1554088175595.jpg
+              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1603827760566.jpg
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[31]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
             price:
-              - text: $24.19
+              - text: $14.99
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[31]/div[1]/a[1]/div[2]/div[2]/span[1]
             manufacturer:
-              - text: "Califia Farms "
+              - text: "Fresh Monster "
                 xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[31]/div[1]/a[1]/@title
             rankOrganic:
               - text: "31"
@@ -688,137 +781,5 @@ extractions:
                 raw: "31"
                 locale: en
                 value: 31
-          - id:
-              - text: "7234"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[32]/div[1]/a[1]/@href
-            name:
-              - text: Thai Kitchen Unsweetened Organic Coconut Milk
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[32]/div[1]/a[1]/div[2]/div[1]/div[1]
-            thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1563818169251.jpg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[32]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
-            price:
-              - text: $18.29
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[32]/div[1]/a[1]/div[2]/div[2]/span[1]
-            manufacturer:
-              - text: "Thai Kitchen "
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[32]/div[1]/a[1]/@title
-            rankOrganic:
-              - text: "32"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[32]/@rankorganic
-                type: NUMBER
-                raw: "32"
-                locale: en
-                value: 32
-          - id:
-              - text: "126"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[33]/div[1]/a[1]/@href
-            name:
-              - text: Kellogg's Raisin Bran
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[33]/div[1]/a[1]/div[2]/div[1]/div[1]
-            thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1458409646094.jpg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[33]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
-            price:
-              - text: $10.49
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[33]/div[1]/a[1]/div[2]/div[2]/span[1]
-            manufacturer:
-              - text: "Kellogg's "
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[33]/div[1]/a[1]/@title
-            rankOrganic:
-              - text: "33"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[33]/@rankorganic
-                type: NUMBER
-                raw: "33"
-                locale: en
-                value: 33
-          - id:
-              - text: "53783"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[34]/div[1]/a[1]/@href
-            name:
-              - text: Dove Milk Swirls Bath Bomb
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[34]/div[1]/a[1]/div[2]/div[1]/div[1]
-            thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1589237264494.jpg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[34]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
-            price:
-              - text: $5.99
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[34]/div[1]/a[1]/div[2]/div[2]/span[1]
-            manufacturer:
-              - text: "Dove "
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[34]/div[1]/a[1]/@title
-            rankOrganic:
-              - text: "34"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[34]/@rankorganic
-                type: NUMBER
-                raw: "34"
-                locale: en
-                value: 34
-          - id:
-              - text: "7141"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[35]/div[1]/a[1]/@href
-            name:
-              - text: Soapbox Coconut Milk & Sandalwood Liquid Hand Soap
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[35]/div[1]/a[1]/div[2]/div[1]/div[1]
-            thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1554675815191.jpg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[35]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
-            price:
-              - text: $11.60
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[35]/div[1]/a[1]/div[2]/div[2]/span[1]
-            manufacturer:
-              - text: "Soapbox "
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[35]/div[1]/a[1]/@title
-            rankOrganic:
-              - text: "35"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[35]/@rankorganic
-                type: NUMBER
-                raw: "35"
-                locale: en
-                value: 35
-          - id:
-              - text: "7687"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[36]/div[1]/a[1]/@href
-            name:
-              - text: Fresh Monster Toxin-Free Kids Shampoo + Conditioner
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[36]/div[1]/a[1]/div[2]/div[1]/div[1]
-            thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1603827760566.jpg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[36]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
-            price:
-              - text: $14.99
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[36]/div[1]/a[1]/div[2]/div[2]/span[1]
-            manufacturer:
-              - text: "Fresh Monster "
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[36]/div[1]/a[1]/@title
-            rankOrganic:
-              - text: "36"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[36]/@rankorganic
-                type: NUMBER
-                raw: "36"
-                locale: en
-                value: 36
-          - id:
-              - text: "2580"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[37]/div[1]/a[1]/@href
-            name:
-              - text: Pediasure Grow & Gain OptiGRO
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[37]/div[1]/a[1]/div[2]/div[1]/div[1]
-            thumbnail:
-              - text: vpc-prod-thumbor-public-gcp.boxed.com/unsafe/trim/fit-in/256x200/filters:quality(10):max_bytes(5000):fill(white)/https://static-assets.boxed.com/1549033960929.jpg
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[37]/div[1]/a[1]/div[1]/figure[1]/img[1]/@src
-            price:
-              - text: $42.99
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[37]/div[1]/a[1]/div[2]/div[2]/span[1]
-            manufacturer:
-              - text: "Pediasure "
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[37]/div[1]/a[1]/@title
-            rankOrganic:
-              - text: "37"
-                xpath: /html/body/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/ul[1]/li[37]/@rankorganic
-                type: NUMBER
-                raw: "37"
-                locale: en
-                value: 37
         xpath: /html
-    timestamp: 1604487745955
+    timestamp: 1604499599943
