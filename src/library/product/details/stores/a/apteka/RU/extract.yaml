@@ -1,0 +1,95 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[@class = "productImage__photoBlock"]//img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class = "productImage__photoBlock"]//img/@alt
+  - name: alternateImages
+    singleValue: true
+    xpath: //div[@id="import_product_images"]
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//div[@class = "productImage__preview"]//img/@src)
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name = "keywords"]//@content
+  - name: category
+    singleValue: true
+    xpath: //div[@id="import_product_category"]
+  - name: subCategory
+    singleValue: true
+    xpath: //div[@id="import_product_subcat"]
+  - name: name
+    singleValue: true
+    xpath: //div[@class = "ProductPage__title"]//h1
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@class = "ProductPage__title"]//h1
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@id="import_product_listprice"]
+  - name: price
+    singleValue: true
+    xpath: //div[@id="import_product_price"]
+  - name: description
+    singleValue: true
+    xpath: //meta[@name = "description"]/@content
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//meta[@name = "description"]/@content)
+  - name: ingredientsList
+    singleValue: true
+    xpath: //div[@id="import_product_ingredients"]
+  - name: directions
+    singleValue: true
+    xpath: //div[@id="import_product_directions"]
+  - name: brandText
+    singleValue: true
+    xpath: //meta[contains(@itemprop, "brand")]//@content
+  - name: sku
+    singleValue: true
+    xpath: //div[@id="import_product_id"]
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id="import_product_id"]
+  - name: legalDisclaimer
+    singleValue: true
+    xpath: //div[@class = "ProductPage__image-block-disclaimer"]
+  - name: warnings
+    singleValue: true
+    xpath: //span[@class = "warn"]
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //dt[contains(text(), "Страна производителя")]//following-sibling::dd
+  - name: manufacturer
+    singleValue: true
+    xpath: //dt[contains(text(), "Производитель")]//following-sibling::dd
+  - name: specifications
+    singleValue: true
+    xpath: //div[@class = "Product-description__list"]//div
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[contains(@class, "ProductVariant--active")]//p[@class = "ProductVariant__item"]/text()
+  - name: firstVariant
+    singleValue: true
+    xpath: //div[contains(@class, "ProductVariant--active")]//p[@class = "ProductVariant__item"]//span
+  - name: variants
+    singleValue: true
+    xpath: //div[@id="import_product_variants"]
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath: //div[@id="import_product_desc"]
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    xpath: count(//span[@class = "productImage__photoBlock-overlay"])
+  - name: productUrl
+    singleValue: true
+    xpath: //div[@id="import_product_url"]
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@class, "ProductPage__error--notAvailable")]

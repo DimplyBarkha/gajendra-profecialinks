@@ -1,0 +1,24 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: '.CategoryItemCard'
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //a[@class = "CategoryItemCard__title"]/@href
+    regExp: .*-(.*)\/$
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: //a[@class = "CategoryItemCard__title"]//span
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class = "CategoryItemCard__title"]/@href
+    regExp: (.+)
+    regExpReplace: https://apteka.ru$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[contains(@class, "CategoryItemCard__image")]//img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[@class = "CategoryItemCard__price"]//strong
