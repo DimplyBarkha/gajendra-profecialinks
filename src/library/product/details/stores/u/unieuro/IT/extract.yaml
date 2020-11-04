@@ -12,6 +12,9 @@ fields:
 - name: nameExtended
   singleValue: true
   xpath: //section[@class='container-center-cell']/h1[@class='subtitle']
+- name: name
+  singleValue: true
+  xpath: //section[@class='container-center-cell']/h1[@class='subtitle']
 - name: url
   singleValue: true
   xpath: /html/head/link[3]/@href
@@ -31,13 +34,19 @@ fields:
 - name: sku
   singleValue: true  
   xpath: //div[@data-module='productdetail']/@data-productdetail-sku
+- name: variantId
+  singleValue: true  
+  xpath: /html/body/span[2]/@data-goinstore-productcode
+- name: brandText
+  singleValue: true  
+  xpath: (//div[@class="swogo-bundle"]//div[4]/text())[1]
 - name: imageAlt
   singleValue: true  
   xpath: (//div[@class="product-image-container"]/div/div/div/img/@alt)[1]
 - name: alternateImages
   singleValue: false
   description: Other product images
-  xpath: //div[@class="slick-list draggable"]/div/div/img/@src
+  xpath: //div[@class="slick-list draggable"]/div/div[position() >= 2 and position()<=last()]/img/@src
 - name: ratingCount
   singleValue: true
   type: NUMBER
@@ -48,20 +57,39 @@ fields:
 - name: manufacturerImages
   singleValue: false
   xpath: //div[@class="accordionInfo accordion-menu"]//section/div/img/@src  
-- name: shippingDimensions
+- name: shippingInfo
   singleValue: false
-  xpath: //div[@class='techs']//span[(text()='Altezza')or(text()='Profondità')or(text()='Larghezza')]/following-sibling::span
+  xpath: (//div[@class="navigation-panel__service__content"][3]/a/span/b/text())[1]
+- name: shippingDimensions
+  singleValue: true
+  xpath: //html//div[@id='altImages']
+- name: shippingWeight
+  singleValue: false
+  xpath: //div[@class='techs']//span[(text()="Peso dell'imballo")]/following-sibling::span
+- name: packaging
+  singleValue: false
+  xpath: (//div[@class='techs']//span[(text()="Tipo di imballo")]/following-sibling::span)[1]
 - name: specifications
   singleValue: false
   xpath: //div[@id="specifications"]
+- name: materials
+  singleValue: false
+  xpath: //div[@class='info-classification-content']//span[(text()="Materiale vasca")or(text()="Materiale cestello")]/following-sibling::span
+- name: color
+  singleValue: false
+  xpath: //div[@class='techs']//span[(text()="Colore del prodotto")]/following-sibling::span
 - name: weightNet
   singleValue: false
   xpath: //div[@class='techs']//span[(text()='Peso')]/following-sibling::span
+- name: weightGross
+  singleValue: false
+  xpath: //div[@class='techs']//span[(text()="Peso dell'imballo")]/following-sibling::span
 - name: videos
-  singleValue: true
-  xpath: //div[@class='slick-track']/div[@id='slick-slide115']/iframe[@class='youtube-container']/@src
+  singleValue: false
+  xpath: //iframe[@class="youtube-container"]/@src  
 - name: listPrice
   singleValue: true
+  type: CURRENCY
   xpath: //div[@class='discount']/span[@class='original-price'] 
 - name: promotion
   singleValue: true
@@ -69,3 +97,6 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   xpath: (//div[position()=last()]/@data-slick-index)[1]
+- name: countryOfOrigin
+  singleValue: true
+  xpath: //div[@class='techs']//span[(text()="Paese di origine")]/following-sibling::span
