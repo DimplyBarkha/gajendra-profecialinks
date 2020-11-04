@@ -7,7 +7,7 @@ fields:
     singleValue: true
     xpath: //div[contains(@class,'swiper-container-horizontal') and not(contains(@class,'swiper-container-thumbs'))]//a[contains(@class,'swiper-slide-active')]//img/@src
   - name: metaKeywords
-    singleValue: true`
+    singleValue: true
     xpath: //meta[contains(@name,'keywords')]/@content
   - name: category
     singleValue: false
@@ -37,10 +37,10 @@ fields:
     singleValue: true
     xpath: //h2[contains(text(),'Description')]//following-sibling::div
   - name: brandText
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'css-hsn58g')]//a[contains(@class,'css-1nnke3o')]
   - name: brandLink
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'css-hsn58g')]//a[contains(@class,'css-1nnke3o')]/@href
   - name: sku
     singleValue: true
@@ -65,9 +65,9 @@ fields:
     xpath: //div[contains(@class,'css-5l6g5o')]//div[contains(@class,'css-lbe0jv')]
   - name: variantCount
     singleValue: true
-    defaultValue: 0
+    defaultValue: '0'
   - name: warranty
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'css-1sk1hfz') and contains(text(),'Warranty')]    
   - name: manufacturerImages
     singleValue: false

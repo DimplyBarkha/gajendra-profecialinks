@@ -32,7 +32,12 @@ const transform = (data) => {
       }
       if (row.specifications) {
         row.specifications.forEach(item => {
-          item.text = item.text.replace('/\n/g', ':');
+          item.text = item.text.replace(/\n/g, ':');
+        });
+      }
+      if (row.warranty) {
+        row.warranty.forEach(item => {
+          item.text = item.text.replace('Warranty:', '');
         });
       }
     }
