@@ -46,7 +46,11 @@ const transform = (data) => {
                 item.text=item.text.replace('(','').replace(')','');
             });
         }
-        
+        if(row.reviewCount){
+          row.reviewCount.forEach(item => {
+              item.text=item.text.replace('(','').replace(')','');
+          });
+        }
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
         rank++;
