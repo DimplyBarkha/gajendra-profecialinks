@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'shop.coles.com.au',
     prefix: null,
-    url: null,
+    url: 'https://shop.coles.com.au/a/national/everything/search/{id}?pageNumber=1',
     country: 'AU',
     store: 'colesonline',
     zipcode: '',
