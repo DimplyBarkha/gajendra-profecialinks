@@ -401,7 +401,7 @@ fields:
     singleValue: false
     description: The physical dimensions of the product including packaging.
     # xpath: //li[@id="specs"]/div[@id="specs-full"]
-    xpath: //div[contains(@id,'specs-full')]//dl[contains(@class,'stats')]/*
+    xpath: //div[@id="ii_specification"]
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
@@ -451,17 +451,28 @@ fields:
     singleValue: false
     description: In product page, information about a new version of the product -
       new desription info
+  # - name: variantInformation
+  #   singleValue: false
+  #   description: colour / scent / flavour / other
+  #   xpath: //div[@id="defaultSize"]//div[contains(@class, "active")] | //div[@id="size_en"]//div[contains(@class, "active")] | //div[@class="colors-block"]//span[contains(@class,"active")]/@data-value | //div[@id="colors_en"]//div[contains(@class,"active")] | //div[@id="display_diagonal_en"]//div[contains(@class,"active")] | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")]//a[contains(@class, "active")]//span[@class="bundle-title"]
+  # - name: firstVariant
+  #   singleValue: false
+  #   xpath: //div[@id="defaultSize"]//div[contains(@class, "item-connection")][position() = 1]/a/@data-url | //div[@id="size_en"]//div[contains(@class, "item-connection")][position() = 1]/a/@data-url | //div[@class="colors-block"]/span[position() = 1]//a[contains(@class,"color-swatch-preview")]/@data-url | //div[@id="colors_en"]//div[contains(@class,"item-connection")][position() = 1]/a/@data-url | //div[@id="display_diagonal_en"]//div[contains(@class,"item-connection")][position() = 1]/a/@data-url | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")][position() = 1]/a/@data-url
+  # - name: variants
+  #   singleValue: false
+  #   description: null
+  #   xpath: //div[@id="defaultSize"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@id="size_en"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@class="colors-block"]//a[contains(@class,"color-swatch-preview")]/@data-url | //div[@id="colors_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="display_diagonal_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")]/a/@data-url
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: //div[@id="defaultSize"]//div[contains(@class, "active")] | //div[@id="size_en"]//div[contains(@class, "active")] | //div[@class="colors-block"]//span[contains(@class,"active")]/@data-value | //div[@id="colors_en"]//div[contains(@class,"active")] | //div[@id="display_diagonal_en"]//div[contains(@class,"active")] | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")]//a[contains(@class, "active")]//span[@class="bundle-title"]
+    xpath: //div[@id="defaultSize"]//div[contains(@class, "active")] | //div[@class="colors-block"]//span[contains(@class,"active")]/@data-value | //div[@id="colors_en"]//div[contains(@class,"active")] | //div[@id="display_diagonal_en"]//div[contains(@class,"active")] | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")]//a[contains(@class, "active")]//span[@class="bundle-title"]
   - name: firstVariant
     singleValue: false
-    xpath: //div[@id="defaultSize"]//div[contains(@class, "item-connection")][position() = 1]/a/@data-url | //div[@id="size_en"]//div[contains(@class, "item-connection")][position() = 1]/a/@data-url | //div[@class="colors-block"]/span[position() = 1]//a[contains(@class,"color-swatch-preview")]/@data-url | //div[@id="colors_en"]//div[contains(@class,"item-connection")][position() = 1]/a/@data-url | //div[@id="display_diagonal_en"]//div[contains(@class,"item-connection")][position() = 1]/a/@data-url | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")][position() = 1]/a/@data-url
+    xpath: //div[@id="defaultSize"]//div[contains(@class, "item-connection")][position() = 1]/a/@data-url | //div[@class="colors-block"]/span[position() = 1]//a[contains(@class,"color-swatch-preview")]/@data-url | //div[@id="colors_en"]//div[contains(@class,"item-connection")][position() = 1]/a/@data-url | //div[@id="display_diagonal_en"]//div[contains(@class,"item-connection")][position() = 1]/a/@data-url | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")][position() = 1]/a/@data-url
   - name: variants
     singleValue: false
     description: null
-    xpath: //div[@id="defaultSize"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@id="size_en"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@class="colors-block"]//a[contains(@class,"color-swatch-preview")]/@data-url | //div[@id="colors_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="display_diagonal_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")]/a/@data-url
+    xpath: //div[@id="defaultSize"]//div[contains(@class, "item-connection")]/a/@data-url | //div[@class="colors-block"]//a[contains(@class,"color-swatch-preview")]/@data-url | //div[@id="colors_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="display_diagonal_en"]//div[contains(@class,"item-connection")]/a/@data-url | //div[@id="promotionSlider"]//div[@class="slick-track"]//div[contains(@class,"preSlickSlider")]/a/@data-url
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
