@@ -29,6 +29,16 @@ await context.evaluate(async function () {
       console.log(`Couldn't load selector => ${sel}`);
     }
   };
+
+  let color = [...document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li')].map(e => { return e.querySelector('button').getAttribute('data-for')});
+
+  for (i = 0; i < color.length; i++) {
+    document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li')[i].setAttribute('color', color[i]);
+    let newDiv3 = document.createElement('div');
+    newDiv3.id = 'text';
+    document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li button')[i].appendChild(newDiv3).innerHTML = color[i];
+   }
+
   const finalImages = [];
   const isVariants = document.querySelector('#option-wrapper-false #product-options-false');
   const variants = '#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li';
@@ -81,7 +91,7 @@ await context.evaluate(async function () {
       document.querySelector('h1[data-automation-id="product-title"]').setAttribute('firstvariant', skus[0]);
 
       [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
-        e.setAttribute('nameExtended', `${document.querySelector('h1[data-automation-id="product-title"]').textContent}` + `- ${e.textContent}`);
+        e.setAttribute('nameExtended', `${document.querySelector('h1[data-automation-id="product-title"]').textContent}` + ` - ${e.textContent}`);
       });
 
       [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
@@ -150,11 +160,6 @@ await context.evaluate(async function () {
    document.querySelector('[data-automation-id="modal-content"] button[data-automation-id="at-button-default-id"]').click();
   }
 
-  let color = [...document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li')].map(e => { return e.querySelector('button').getAttribute('data-for')});
-
-  for (i = 0; i < color.length; i++) {
-    document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li')[i].setAttribute('color', color[i]);
-   }
   let scrollTop = 500;
   while (true) {
     window.scroll(0, scrollTop);
