@@ -29,7 +29,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //ul[@class="pdp breadcrumb"]/li[4]/div
+    xpath: //ul[@class="pdp breadcrumb"]/li[position()>last()-1]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
