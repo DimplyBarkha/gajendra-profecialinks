@@ -27,12 +27,12 @@ const transform = (data) => {
       for (let row of group) {
         if(row.price){
           row.price.forEach(item => {
-            item.text=item.text.slice(0, -2);
+            item.text=item.text;
           });
         }
         if(row.listPrice){
           row.listPrice.forEach(item => {
-            item.text=item.text.replace('Aiemmin: ','').slice(0, -2);
+            item.text=item.text.replace('Aiemmin: ','');
           });
         }
         if(row.availabilityText){
