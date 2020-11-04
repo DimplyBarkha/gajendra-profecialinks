@@ -1,0 +1,59 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: description
+    singleValue: false
+    xpath: //*[contains(@class,'product attribute description')]
+  - name: name
+    singleValue: false
+    xpath: (//meta[@property='og:title']/@content)[1]
+  - name: nameExtended
+    singleValue: false
+    xpath: //*[@id="maincontent"]//span[@itemprop='name']
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product-info-price']//span[@data-price-type='finalPrice']/span[contains(@class,'price')]
+  - name: availabilityText
+    singleValue: false
+    xpath: (//meta[@property='product:availability']/@content)[1]
+  - name: brandText
+    singleValue: false
+    xpath: (//meta[@property='product:brand']/@content)[1]
+  - name: manufacturer
+    singleValue: false
+    xpath: (//meta[@property='product:brand']/@content)[1]
+  - name: gtin
+    singleValue: false
+    xpath: (//script[contains(text(),'gtin13')])
+  - name: sku
+    singleValue: false
+    xpath: //div[@itemprop='sku']
+  - name: variantId
+    singleValue: false
+    xpath: (//script[contains(text(),'productId')])[1]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='product-info-price']//span[@data-price-type='oldPrice']/span[contains(@class,'price')]
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='product-info-price']//span[@class='price-save-percent']
+  - name: shippingInfo
+    singleValue: false
+    xpath: //*[@id="product-page-shipping-tab"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: (//*[@class="feedaty_microdata"]/script)[1]
+  - name: image
+    singleValue: false
+    xpath: (//div[contains(@class,'fotorama__stage__shaft')]//img/@src)[1]
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[contains(@class,'fotorama__stage__shaft')]//img/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    xpath: (//div[contains(@class,'fotorama__stage__shaft')]//img/@src)[position()>1]
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count((//div[contains(@class,'fotorama__stage__shaft')]//img/@src)[position()>1])
