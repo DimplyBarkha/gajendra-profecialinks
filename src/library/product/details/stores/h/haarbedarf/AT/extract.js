@@ -13,26 +13,6 @@ module.exports = {
     // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     await context.waitForSelector('#tab-description');
     await context.evaluate(async function () {
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-      if (document.querySelector('li[class*="additional_information"]')) {
-        const listItem = document.querySelector('li[class*="additional_information"]');
-        listItem.querySelector('a').click();
-        const tbl = document.querySelector('table[class*="product-attributes"]');
-        const tblRows = tbl.querySelectorAll('tr');
-        let specsString = '';
-        for (let i = 0; i < tblRows.length; i++) {
-          specsString += tblRows[i].querySelector('th').innerText + ' || ';
-          specsString += tblRows[i].querySelector('td').innerText + ' || ';
-        }
-        console.log(specsString);
-        addHiddenDiv('specs', specsString);
-      }
       // Removing spaces between colors e.g. 'schwarz / nickel' to 'schwarz/nickel'
       const colorInH1 = document.querySelector('h1.product_title.entry-title');
       const newColorSlash = colorInH1.textContent.replace(/\s\/\s/, '/');
@@ -57,6 +37,20 @@ module.exports = {
       });
       bulletDiv.textContent = bulletList.join('||');
       document.body.appendChild(bulletDiv);
+
+      // Creating div with specifications with || separator
+
+      const xpath = '(//h4[text()="Besonderheiten:"]/following-sibling::ul)[1]/li';
+      const specList = [];
+      const specDiv = document.createElement('div');
+      specDiv.setAttribute('class', 'added_specifications');
+      const specSelector = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      for (let index = 0; index < specSelector.snapshotLength; index++) {
+        const element = specSelector.snapshotItem(index);
+        specList.push(element.textContent);
+      }
+      specDiv.textContent = specList.join('||');
+      document.body.appendChild(specDiv);
 
       const breadcrumbs = document.querySelector('span.posted_in').innerText.replace(',', ' >').replace(',', ' >');
       document.querySelector('span.posted_in').setAttribute('breadcrums', breadcrumbs);
