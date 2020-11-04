@@ -7,9 +7,12 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //div[@class="c-media-container__image-wrapper"]//img//@src
+    regExp: (.+)
+    regExpReplace: https://www.mvideo.ru$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //div[@class="c-media-container__image-wrapper"]//img//@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -21,7 +24,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div//ul[@class="c-breadcrumbs__list"]
+    xpath: //li[contains(@itemprop,"itemListElement")][position() >1 and not(position() > 5)]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -85,6 +88,10 @@ fields:
     singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //div//p[@class="c-product-code"]
+  - name: rpc
+    singleValue: true
+    description: The retailer product code (unique) of the product
+    xpath: //div//p[@class="c-product-code"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -102,14 +109,14 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: //span[@class="c-star-rating_reviews-qty"]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: //span[@class="c-star-rating__stars font-icon icon-star"]
+    xpath: //div[@class='review-ext-stars-ratings-all']/span[@itemprop="ratingValue"]
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -154,7 +161,7 @@ fields:
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
-    xpath: //div[@class="container"]//font//font/text()
+    xpath: //div[@class="container"]
   - name: amazonChoice
     singleValue: true
     description: YES or Blank
@@ -196,7 +203,6 @@ fields:
   - name: videoLength
     singleValue: false
     description: null
-    xpath: //div[@class="ytp-bound-time-right"]
   - name: ingredientImagePresent
     singleValue: true
     description: null
@@ -503,7 +509,7 @@ fields:
   - name: materials
     singleValue: true
     description: Materials used to make the product
-    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: (//table[@class="table table-striped product-details-table"][10]//span[@class="product-details-overview-specification"])[2]
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
