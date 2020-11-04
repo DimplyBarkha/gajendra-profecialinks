@@ -19,6 +19,64 @@ const cleanUp = (data, context) => {
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
   }))));
+  for (const { group } of data) {
+    for (const row of group) {
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(item => {
+          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+        });
+        row.specifications = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.allergyAdvice) {
+        let text = '';
+        row.allergyAdvice.forEach(item => {
+          text += item.text.replace(/\n/g, '');
+        });
+        row.allergyAdvice = [
+          {
+            text: text,
+          },
+        ];
+      }
+
+      if (row.videos) {
+        for (const item of row.videos) {
+          if (item.text.includes('.hls.m3u8')) {
+            item.text = item.text.replace('.hls.m3u8', '.mp4.480.mp4');
+          }
+        }
+      }
+      
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+        });
+        row.description = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+        });
+        row.manufacturerDescription = [
+          {
+            text: text,
+          },
+        ];
+      }
+    }
+  }
+  
   return data;
 };
 

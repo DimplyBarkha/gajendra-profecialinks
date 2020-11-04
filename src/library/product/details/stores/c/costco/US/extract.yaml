@@ -28,7 +28,7 @@ fields:
   - name: price
     singleValue: false
     # xpath: //meta[@property="product:price:amount"]/@content | //div[@class="online-price active"]//span[@class="currency"]
-    xpath: //span[@class="op-value"] | //meta[@property="product:price:amount"]/@content | //div[@class="online-price active"]//span[@class="currency"]
+    xpath: //meta[@property="product:price:amount"]/@content | //div[@class="online-price active"]//span[@class="currency"]
     # regExpReplace: (.+)
     # defaultValue: $$1
   - name: availabilityText
@@ -43,7 +43,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //ul[@class="pdp-features"]/li | (//div[@class="product-info-description"])[1]
+    xpath: //ul[@class="pdp-features"]/li 
   - name: descriptionBullets
     singleValue: false
     xpath: count(//ul[@class="pdp-features"]/li)
@@ -89,19 +89,15 @@ fields:
     xpath: //span[@itemprop="reviewCount"]
     #xpath: //dd[@class="bv-rating-ratio-count"]/a/span[@class="bv-rating-ratio-count"]/@aria-label
     regExp: (.+)
-
   - name: aggregateRating
     singleValue: false
     xpath: //span[@itemprop="ratingValue"]
-  - name: aggregateRating2
-    singleValue: false
-    xpath: //span[@itemprop="ratingValue"]
+  # - name: aggregateRating2
+  #   singleValue: false
+  #   xpath: //span[@itemprop="ratingValue"]
   - name: shippingInfo
     singleValue: false
     xpath: //div[@class="product-info-shipping"]/text()
-  - name: dimensi
-    singleValue: false
-    xpath:
   - name: shippingDimensions
     singleValue: false
     xpath: //span[contains(text(),"Additional Dimensions")]//following-sibling::ul//text()
@@ -115,14 +111,14 @@ fields:
     xpath: //div[@id="theSwatches"]/a/span[@id="selectedOffScreenSwatch"]/../@data-content
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class="wc-rich-content-description"] | //h2[contains(@Class,"wc-first-header")]//following-sibling::div 
+    xpath: (//div[@class="product-info-description"])[1] | //div[@class="wc-rich-content-description"] | //h2[contains(@Class,"wc-first-header")]//following-sibling::div 
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="product-info-description"]//img//@srcset | //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))] 
+    xpath: //div[@class="product-info-description"]//img//@srcset | //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
+    # xpath: //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))] 
   - name: videos
     singleValue: false
-    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4full')] | //head/@*[contains(.,'http')]|//head/@video
-  #   xpath: //meta[@itemprop="contentUrl"]/@content | //head/@*[contains(.,'http')]|//head/@video
+    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')]
   - name: name
     singleValue: false
     xpath: //h1[@itemprop="name"]
