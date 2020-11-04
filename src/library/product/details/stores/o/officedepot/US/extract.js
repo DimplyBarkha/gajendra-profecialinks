@@ -25,7 +25,6 @@ module.exports = {
       }
       await timeout(10000);
       const getDescription = async function () {
-        // console.log(document.querySelector('#vjs_video_1_html5_api')?document.querySelector('#vjs_video_1_html5_api').getAttribute('src'):'');
         let text = '';
         [...document.querySelector('.sku_desc').children].forEach(item => {
           if (item.nodeName === 'UL') {
