@@ -1,0 +1,116 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    regExp: ^(.+)$
+    regExpReplace: https:$1
+    xpath: //img[@id="product-image-default"]/@src
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@id="product-thumbnails"]/a/img[@class="pointer-n"]/@src
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //li[@class="nowrap"][3]/a/text()
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //meta[@name="twitter:title"]/@content
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //span[@class="rrp "]/span/text()
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //p[@class="our-price my0 mr5"]/text()
+  - name: availabilityText
+    singleValue: true
+    defaultValue: In Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@id="descriptionTabContent"]
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: (//h1[@class="product-details txtt-none"]/text())[1]
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+    xpath: (//span[@class="quantity-value curs-d dib txtc"])[1]/@data-original-quantity
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //html//div[@id='gtin']
+  - name: skun
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //html//div[@id='sku']
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+    xpath: //html//div[@id='mpc']
+  - name: directions
+    singleValue: true
+    description: Content under "directions" header
+    xpath: //html//div[@id='directions']
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    type: NUMBER
+    xpath: (//div[@class="flex star-container"]/span)[1]/text()
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //html//div[@id='aggregateRating']
+  - name: shippingInfo
+    singleValue: false
+    description: Shipping information for the product
+    xpath: //div[@class="delivery-service"]
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //meta[@name="twitter:title"]/@content
+  - name: promotion
+    singleValue: true
+    description: promotion text on product page
+    xpath: //span[@class="saving db red2 "]/text()
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes
