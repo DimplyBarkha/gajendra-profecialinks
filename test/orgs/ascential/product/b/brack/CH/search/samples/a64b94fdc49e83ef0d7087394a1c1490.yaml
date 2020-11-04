@@ -2,7 +2,7 @@ input:
   keywords: vegan
   _url: http://brack.ch
 extractions:
-  - html: https://workbench.import.io/html/run=127a5928-1777-4a48-957c-27783a46502b/task=c250931d-af61-4d98-9d5e-68383a7453a3/02690ecc-da65-42d7-b9b5-6d61b5dca0bd.html
+  - html: https://workbench.import.io/html/run=0ff0efcf-818d-4c5c-9f57-86e8102297b9/task=2156149a-f69f-4dc5-989f-8c4f31401568/66a54a99-abb4-4d93-89d2-3ab418df20e3.html
     extractionConfigId: product/search/stores/b/brack/CH/extract
     data:
       - group:
@@ -1879,8 +1879,8 @@ extractions:
                 locale: de_DE
                 value: 48
         xpath: /html
-    timestamp: 1604472475237
-  - html: https://workbench.import.io/html/run=127a5928-1777-4a48-957c-27783a46502b/task=c250931d-af61-4d98-9d5e-68383a7453a3/915d21d3-7743-4064-9e2e-29c4b6e907c5.html
+    timestamp: 1604473343990
+  - html: https://workbench.import.io/html/run=0ff0efcf-818d-4c5c-9f57-86e8102297b9/task=2156149a-f69f-4dc5-989f-8c4f31401568/2016ebdf-8d4d-4525-be23-df8a002b5007.html
     extractionConfigId: product/search/stores/b/brack/CH/extract
     data:
       - group:
@@ -2280,4 +2280,975 @@ extractions:
             name:
               - text: Handtuch Vegan Life Shadow 50 x 100 cm, Hellgrau
                 xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[11]/div[1]/div[3]/div[2]/a[2]/span[1]
-    
+            productUrl:
+              - text: brack.ch/vossen-handtuch-vegan-life-shadow-50-x-100-cm-1010382?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[11]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[11]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[11]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[11]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 17.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[11]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[11]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "11"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[11]/@rankorganic
+                type: NUMBER
+                raw: "11"
+                locale: de_DE
+                value: 11
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[11]/@rankorganic
+                type: NUMBER
+                raw: "11"
+                locale: de_DE
+                value: 11
+          - id:
+              - text: "1010421"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[12]/@data-sku
+            name:
+              - text: Handtuch Vegan Life Maroon 60 x 110 cm, Pink
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[12]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-handtuch-vegan-life-maroon-60-x-110-cm-1010421?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[12]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[12]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[12]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[12]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 18.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[12]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[12]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "12"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[12]/@rankorganic
+                type: NUMBER
+                raw: "12"
+                locale: de_DE
+                value: 12
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[12]/@rankorganic
+                type: NUMBER
+                raw: "12"
+                locale: de_DE
+                value: 12
+          - id:
+              - text: "1010343"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[13]/@data-sku
+            name:
+              - text: Badetuch Vegan Life 100 x 150 cm, Weiss
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[13]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-badetuch-vegan-life-100-x-150-cm-1010343?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[13]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[13]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[13]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[13]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 56.00
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[13]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[13]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "13"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[13]/@rankorganic
+                type: NUMBER
+                raw: "13"
+                locale: de_DE
+                value: 13
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[13]/@rankorganic
+                type: NUMBER
+                raw: "13"
+                locale: de_DE
+                value: 13
+          - id:
+              - text: "1022765"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[14]/@data-sku
+            name:
+              - text: Rouge Pinsel vegan, 1 Stück
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[14]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/herba-rouge-pinsel-vegan-1022765?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[14]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[14]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[14]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[14]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 19.90
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[14]/div[1]/div[3]/div[4]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Herba
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[14]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "14"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[14]/@rankorganic
+                type: NUMBER
+                raw: "14"
+                locale: de_DE
+                value: 14
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[14]/@rankorganic
+                type: NUMBER
+                raw: "14"
+                locale: de_DE
+                value: 14
+          - id:
+              - text: "1010338"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[15]/@data-sku
+            name:
+              - text: Duschtuch Vegan Life Samba 67 x 140 cm, Orange
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[15]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-duschtuch-vegan-life-samba-67-x-140-cm-1010338?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[15]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[15]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[15]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[15]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 41.00
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[15]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[15]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "15"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[15]/@rankorganic
+                type: NUMBER
+                raw: "15"
+                locale: de_DE
+                value: 15
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[15]/@rankorganic
+                type: NUMBER
+                raw: "15"
+                locale: de_DE
+                value: 15
+          - id:
+              - text: "1010406"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[16]/@data-sku
+            name:
+              - text: Gästetuch Vegan Life Avocado 40 x 60 cm, Grün
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[16]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-gaestetuch-vegan-life-avocado-40-x-60-cm-1010406?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[16]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[16]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[16]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[16]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 10.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[16]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[16]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "16"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[16]/@rankorganic
+                type: NUMBER
+                raw: "16"
+                locale: de_DE
+                value: 16
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[16]/@rankorganic
+                type: NUMBER
+                raw: "16"
+                locale: de_DE
+                value: 16
+          - id:
+              - text: "1010417"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[17]/@data-sku
+            name:
+              - text: Handtuch Vegan Life Ivory 60 x 110 cm, Elfenbein
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[17]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-handtuch-vegan-life-ivory-60-x-110-cm-1010417?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[17]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[17]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[17]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[17]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 18.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[17]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[17]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "17"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[17]/@rankorganic
+                type: NUMBER
+                raw: "17"
+                locale: de_DE
+                value: 17
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[17]/@rankorganic
+                type: NUMBER
+                raw: "17"
+                locale: de_DE
+                value: 17
+          - id:
+              - text: "1010339"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[18]/@data-sku
+            name:
+              - text: Badetuch Vegan Life Samba 100 x 150 cm, Orange
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[18]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-badetuch-vegan-life-samba-100-x-150-cm-1010339?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[18]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[18]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[18]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[18]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 56.00
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[18]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[18]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "18"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[18]/@rankorganic
+                type: NUMBER
+                raw: "18"
+                locale: de_DE
+                value: 18
+            rankOrganic:
+              - text: "18"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[18]/@rankorganic
+                type: NUMBER
+                raw: "18"
+                locale: de_DE
+                value: 18
+          - id:
+              - text: "1010439"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[19]/@data-sku
+            name:
+              - text: Handtuch Vegan Life Pepplestone 60 x 110 cm, Grau
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[19]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-handtuch-vegan-life-pepplestone-60-x-110-cm-1010439?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[19]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[19]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[19]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[19]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 18.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[19]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[19]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "19"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[19]/@rankorganic
+                type: NUMBER
+                raw: "19"
+                locale: de_DE
+                value: 19
+            rankOrganic:
+              - text: "19"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[19]/@rankorganic
+                type: NUMBER
+                raw: "19"
+                locale: de_DE
+                value: 19
+          - id:
+              - text: "1010366"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[20]/@data-sku
+            name:
+              - text: Handtuch Vegan Life 50 x 100 cm, Marineblau
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[20]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-handtuch-vegan-life-50-x-100-cm-1010366?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[20]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[20]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[20]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[20]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 17.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[20]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[20]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "20"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[20]/@rankorganic
+                type: NUMBER
+                raw: "20"
+                locale: de_DE
+                value: 20
+            rankOrganic:
+              - text: "20"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[20]/@rankorganic
+                type: NUMBER
+                raw: "20"
+                locale: de_DE
+                value: 20
+          - id:
+              - text: "1010345"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[21]/@data-sku
+            name:
+              - text: Handtuch Vegan Life Ivory 50 x 100 cm, Elfenbein
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[21]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-handtuch-vegan-life-ivory-50-x-100-cm-1010345?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[21]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[21]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[21]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[21]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 17.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[21]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[21]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "21"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[21]/@rankorganic
+                type: NUMBER
+                raw: "21"
+                locale: de_DE
+                value: 21
+            rankOrganic:
+              - text: "21"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[21]/@rankorganic
+                type: NUMBER
+                raw: "21"
+                locale: de_DE
+                value: 21
+          - id:
+              - text: "1010394"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[22]/@data-sku
+            name:
+              - text: Handtuch Vegan Life 50 x 100 cm, Anthrazit
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[22]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-handtuch-vegan-life-50-x-100-cm-1010394?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[22]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[22]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[22]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[22]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 17.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[22]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[22]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "22"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[22]/@rankorganic
+                type: NUMBER
+                raw: "22"
+                locale: de_DE
+                value: 22
+            rankOrganic:
+              - text: "22"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[22]/@rankorganic
+                type: NUMBER
+                raw: "22"
+                locale: de_DE
+                value: 22
+          - id:
+              - text: "1010415"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[23]/@data-sku
+            name:
+              - text: Handtuch Vegan Life 60 x 110 cm, Weiss
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[23]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-handtuch-vegan-life-60-x-110-cm-1010415?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[23]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[23]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[23]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[23]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 18.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[23]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[23]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "23"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[23]/@rankorganic
+                type: NUMBER
+                raw: "23"
+                locale: de_DE
+                value: 23
+            rankOrganic:
+              - text: "23"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[23]/@rankorganic
+                type: NUMBER
+                raw: "23"
+                locale: de_DE
+                value: 23
+          - id:
+              - text: "1010413"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[24]/@data-sku
+            name:
+              - text: Handtuch Vegan Life Samba 60 x 110 cm, Orange
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[24]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-handtuch-vegan-life-samba-60-x-110-cm-1010413?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[24]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[24]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[24]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[24]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 18.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[24]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[24]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "24"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[24]/@rankorganic
+                type: NUMBER
+                raw: "24"
+                locale: de_DE
+                value: 24
+            rankOrganic:
+              - text: "24"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[24]/@rankorganic
+                type: NUMBER
+                raw: "24"
+                locale: de_DE
+                value: 24
+          - id:
+              - text: "1010378"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[25]/@data-sku
+            name:
+              - text: Handtuch Vegan Life Tibet 50 x 100 cm, Beige
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[25]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-handtuch-vegan-life-tibet-50-x-100-cm-1010378?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[25]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[25]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[25]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[25]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 17.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[25]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[25]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "25"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[25]/@rankorganic
+                type: NUMBER
+                raw: "25"
+                locale: de_DE
+                value: 25
+            rankOrganic:
+              - text: "25"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[25]/@rankorganic
+                type: NUMBER
+                raw: "25"
+                locale: de_DE
+                value: 25
+          - id:
+              - text: "1010356"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[26]/@data-sku
+            name:
+              - text: Badetuch Vegan Life Maroon 100 x 150 cm, Pink
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[26]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-badetuch-vegan-life-maroon-100-x-150-cm-1010356?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[26]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[26]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[26]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[26]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 56.00
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[26]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[26]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "26"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[26]/@rankorganic
+                type: NUMBER
+                raw: "26"
+                locale: de_DE
+                value: 26
+            rankOrganic:
+              - text: "26"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[26]/@rankorganic
+                type: NUMBER
+                raw: "26"
+                locale: de_DE
+                value: 26
+          - id:
+              - text: "1010403"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[27]/@data-sku
+            name:
+              - text: Gästetuch Vegan Life Rubin 40 x 60 cm, Rot
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[27]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-gaestetuch-vegan-life-rubin-40-x-60-cm-1010403?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[27]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[27]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[27]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[27]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 10.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[27]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[27]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "27"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[27]/@rankorganic
+                type: NUMBER
+                raw: "27"
+                locale: de_DE
+                value: 27
+            rankOrganic:
+              - text: "27"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[27]/@rankorganic
+                type: NUMBER
+                raw: "27"
+                locale: de_DE
+                value: 27
+          - id:
+              - text: "1010391"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[28]/@data-sku
+            name:
+              - text: Duschtuch Vegan Life Pepplestone 67 x 140 cm, Grau
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[28]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-duschtuch-vegan-life-pepplestone-67-x-140-cm-1010391?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[28]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[28]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[28]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[28]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 41.00
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[28]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[28]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "28"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[28]/@rankorganic
+                type: NUMBER
+                raw: "28"
+                locale: de_DE
+                value: 28
+            rankOrganic:
+              - text: "28"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[28]/@rankorganic
+                type: NUMBER
+                raw: "28"
+                locale: de_DE
+                value: 28
+          - id:
+              - text: "1022757"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[29]/@data-sku
+            name:
+              - text: Foundation Pinsel vegan, 1 Stück
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[29]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/herba-foundation-pinsel-vegan-1022757?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[29]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[29]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[29]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[29]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 14.90
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[29]/div[1]/div[3]/div[4]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Herba
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[29]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "29"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[29]/@rankorganic
+                type: NUMBER
+                raw: "29"
+                locale: de_DE
+                value: 29
+            rankOrganic:
+              - text: "29"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[29]/@rankorganic
+                type: NUMBER
+                raw: "29"
+                locale: de_DE
+                value: 29
+          - id:
+              - text: "1010402"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[30]/@data-sku
+            name:
+              - text: Gästetuch Vegan Life Blackberry 40 x 60 cm, Rotviolett
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[30]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-gaestetuch-vegan-life-blackberry-40-x-60-cm-1010402?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[30]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[30]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[30]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[30]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 10.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[30]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[30]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "30"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[30]/@rankorganic
+                type: NUMBER
+                raw: "30"
+                locale: de_DE
+                value: 30
+            rankOrganic:
+              - text: "30"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[30]/@rankorganic
+                type: NUMBER
+                raw: "30"
+                locale: de_DE
+                value: 30
+          - id:
+              - text: "1010384"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[31]/@data-sku
+            name:
+              - text: Badetuch Vegan Life Shadow 100 x 150 cm, Hellgrau
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[31]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-badetuch-vegan-life-shadow-100-x-150-cm-1010384?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[31]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[31]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[31]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[31]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 56.00
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[31]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[31]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "31"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[31]/@rankorganic
+                type: NUMBER
+                raw: "31"
+                locale: de_DE
+                value: 31
+            rankOrganic:
+              - text: "31"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[31]/@rankorganic
+                type: NUMBER
+                raw: "31"
+                locale: de_DE
+                value: 31
+          - id:
+              - text: "1010346"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[32]/@data-sku
+            name:
+              - text: Duschtuch Vegan Life Ivory 67 x 140 cm, Elfenbein
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[32]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-duschtuch-vegan-life-ivory-67-x-140-cm-1010346?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[32]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[32]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[32]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[32]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 41.00
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[32]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[32]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "32"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[32]/@rankorganic
+                type: NUMBER
+                raw: "32"
+                locale: de_DE
+                value: 32
+            rankOrganic:
+              - text: "32"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[32]/@rankorganic
+                type: NUMBER
+                raw: "32"
+                locale: de_DE
+                value: 32
+          - id:
+              - text: "1010423"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[33]/@data-sku
+            name:
+              - text: Handtuch Vegan Life Blackberry 60 x 110 cm, Rotviolett
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[33]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-handtuch-vegan-life-blackberry-60-x-110-cm-1010423?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[33]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[33]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[33]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[33]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 18.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[33]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[33]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "33"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[33]/@rankorganic
+                type: NUMBER
+                raw: "33"
+                locale: de_DE
+                value: 33
+            rankOrganic:
+              - text: "33"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[33]/@rankorganic
+                type: NUMBER
+                raw: "33"
+                locale: de_DE
+                value: 33
+          - id:
+              - text: "1010410"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[34]/@data-sku
+            name:
+              - text: Gästetuch Vegan Life Pepplestone 40 x 60 cm, Grau
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[34]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-gaestetuch-vegan-life-pepplestone-40-x-60-cm-1010410?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[34]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[34]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[34]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[34]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 10.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[34]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[34]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "34"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[34]/@rankorganic
+                type: NUMBER
+                raw: "34"
+                locale: de_DE
+                value: 34
+            rankOrganic:
+              - text: "34"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[34]/@rankorganic
+                type: NUMBER
+                raw: "34"
+                locale: de_DE
+                value: 34
+          - id:
+              - text: "1010409"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[35]/@data-sku
+            name:
+              - text: Gästetuch Vegan Life 40 x 60 cm, Dunkelgrau
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[35]/div[1]/div[3]/div[2]/a[2]/span[1]
+            productUrl:
+              - text: brack.ch/vossen-gaestetuch-vegan-life-40-x-60-cm-1010409?query=vegan&page=2
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[35]/div[1]/a[2]/@href
+            thumbnail:
+              - text: //assets.brack.ch/b2c-assets/legacy/img/lazy-load.svg
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[35]/div[1]/div[2]/img[1]/@src
+            aggregateRating2:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[35]/div[1]/div[3]/span[1]/a[1]/@data-rating
+                type: STRING
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[35]/div[1]/div[3]/span[1]/a[1]/span[1]
+            price:
+              - text: CHF 10.95
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[35]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]
+            manufacturer:
+              - text: Vossen
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[35]/div[1]/div[3]/div[2]/a[1]/span[1]
+            rank:
+              - text: "35"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[35]/@rankorganic
+                type: NUMBER
+                raw: "35"
+                locale: de_DE
+                value: 35
+            rankOrganic:
+              - text: "35"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/ul[1]/li[35]/@rankorganic
+                type: NUMBER
+                raw: "35"
+                locale: de_DE
+                value: 35
+          - id:
+              - text: "1010399"
+                xpath: /html/body/article[1]/div[2]/div[2]/div[4]/
