@@ -49,27 +49,29 @@ async function implementation (
       for (let index = 0; index < l; index++) {
         const rowId = `pd_div_${index}`;
         const element = products[index];
-        if (!document.querySelector(rowId)) {
-          addElementToDocument(`pd_div_${index}`, index);
-        }
-        const searchTerm = window.location.href.replace(/(.*)q=(.*):relevance(.*)/, '$2');
-        const pageLink = window.location.href.replace(/(.*)&page=(\d+)/, '$2');
-        const page = pageLink ? parseInt(pageLink) : 1;
-        // @ts-ignore
-        if (searchTerm && page) {
+        if (element.brand) {
+          if (!document.querySelector(rowId)) {
+            addElementToDocument(`pd_div_${index}`, index);
+          }
+          const searchTerm = window.location.href.replace(/(.*)q=(.*):relevance(.*)/, '$2');
+          const pageLink = window.location.href.replace(/(.*)&page=(\d+)/, '$2');
+          const page = pageLink ? parseInt(pageLink) : 1;
           // @ts-ignore
-          const searchUrl = `https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/search?q=${searchTerm}:relevance&page=${page}&pageSize=40&lang=en`;
-          !document.querySelector('div[id*="search-url"]') && addElementToDocument('search-url', searchUrl);
+          if (searchTerm && page) {
+          // @ts-ignore
+            const searchUrl = `https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/search?q=${searchTerm}:relevance&page=${page}&pageSize=40&lang=en`;
+            !document.querySelector('div[id*="search-url"]') && addElementToDocument('search-url', searchUrl);
+          }
+          element.code && addDataToDocument('id', element.code, rowId);
+          element.url && addDataToDocument('pd_url', element.url, rowId);
+          element.pricing && element.pricing.displayPrice && element.pricing.displayPrice.formattedValue && addDataToDocument('pd_price', element.pricing.displayPrice.formattedValue, rowId);
+          element.brand && element.name && addDataToDocument('pd_name', `${element.brand} ${element.name}`, rowId);
+          element.imageUrl && addDataToDocument('pd_thumbnail', element.imageUrl, rowId);
+          element.brand && addDataToDocument('pd_brand', element.brand, rowId);
+          element.productRating && element.productRating.averageRating && addDataToDocument('pd_aggregateRating', element.productRating.averageRating, rowId);
+          element.productRating && element.productRating.totalReviews && addDataToDocument('pd_rating', element.productRating.totalReviews, rowId);
+          element.modelNumber && addDataToDocument('pd_mpc', element.modelNumber, rowId);
         }
-        element.code && addDataToDocument('id', element.code, rowId);
-        element.url && addDataToDocument('pd_url', element.url, rowId);
-        element.pricing && element.pricing.displayPrice && element.pricing.displayPrice.formattedValue && addDataToDocument('pd_price', element.pricing.displayPrice.formattedValue, rowId);
-        element.brand && element.name && addDataToDocument('pd_name', `${element.brand} ${element.name}`, rowId);
-        element.imageUrl && addDataToDocument('pd_thumbnail', element.imageUrl, rowId);
-        element.brand && addDataToDocument('pd_brand', element.brand, rowId);
-        element.productRating && element.productRating.averageRating && addDataToDocument('pd_aggregateRating', element.productRating.averageRating, rowId);
-        element.productRating && element.productRating.totalReviews && addDataToDocument('pd_rating', element.productRating.totalReviews, rowId);
-        element.modelNumber && addDataToDocument('pd_mpc', element.modelNumber, rowId);
       }
     }, products);
   }
