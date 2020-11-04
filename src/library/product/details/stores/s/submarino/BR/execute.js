@@ -5,7 +5,7 @@ module.exports = {
     store: 'submarino',
     domain: 'submarino.com.br',
     loadedSelector: 'div[class*=\'product-main-area\']',
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class, \'EmptyPage__Container\')] | //link[@rel=\'canonical\']/@href[not(contains(., \'produto\'))]',
     zipcode: '',
   },
 };
