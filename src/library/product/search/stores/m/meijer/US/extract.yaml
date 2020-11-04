@@ -8,7 +8,7 @@ fields:
    xpath: //div[@class="tile-column quickview-mouseover-container"]//div[@class="quickview-block"]//a/@data-ean
  - name: rankOrganic
    singleValue: false
-   xpath: //div[@class="rank1"]
+   xpath: //html//div[@id="rank1"]
  - name: name
    singleValue: false
    xpath: //div[@class="tile-column details"]//a[@class="h7"]
@@ -34,7 +34,7 @@ fields:
    singleValue: false
  - name: price
    singleValue: true
-   selector: div.display-price span:nth-child(2)
+   selector: div.display-price span:nth-child(2),div.display-price.sale-price
  - name: manufacturer
    singleValue: false
  - name: soldBy

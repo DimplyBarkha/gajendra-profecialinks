@@ -14,7 +14,7 @@ module.exports = {
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
-        catElement.className = key;
+        catElement.id = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
@@ -29,13 +29,15 @@ module.exports = {
 
       const sliceURL = (data) => {
         var cnt = 0;
-        for (let index = 0; index < data; index++) {
-          cnt++;
-          addElementToDocument('rank1', cnt);
+        for (let index = 0; index < data.length; index++) {
+          if (data[0] != 0) {
+            cnt++;
+            addElementToDocument('rank1',cnt);
+            }
         }
       };
-      const result = getXpath("//span[@class='results']/text()", 'nodeValue');
-      sliceURL(parseInt(result));
+      const result = getXpath("//div[@class='tile-column details']//a[@class='h7']/text()", 'nodeValue');
+      sliceURL(result);
     });
     return await context.extract(productDetails, { transform });
   },
