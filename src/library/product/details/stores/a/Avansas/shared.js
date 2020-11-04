@@ -20,26 +20,26 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
 
-      if (row.description) {
-        row.description.forEach(item => {
-          const locText = item.text;
-          const length = locText.length;
-          const startIdx = locText.indexOf('\n \n \n');
-          let lastIdx = locText.lastIndexOf('\n \n \n');
-          if (startIdx === lastIdx) lastIdx = length - 1;
-          let firstStr = locText.substring(0, startIdx);
-          firstStr = firstStr.replace(/\n \n/g, ' ');
-          let secStr = locText.substring(startIdx, lastIdx);
-          secStr = secStr.replace(/\n \n \n/g, ' || ');
-          secStr = secStr.replace(/\n \n/g, ' || ');
-          let lastString = locText.substring(lastIdx, length);
-          lastString = lastString.replace(/\n \n \n/g, ' || ');
-          lastString = lastString.replace(/\n \n/g, ' ');
+      // if (row.description) {
+      //   row.description.forEach(item => {
+      //     const locText = item.text;
+      //     const length = locText.length;
+      //     const startIdx = locText.indexOf('\n \n \n');
+      //     let lastIdx = locText.lastIndexOf('\n \n \n');
+      //     if (startIdx === lastIdx) lastIdx = length - 1;
+      //     let firstStr = locText.substring(0, startIdx);
+      //     firstStr = firstStr.replace(/\n \n/g, ' ');
+      //     let secStr = locText.substring(startIdx, lastIdx);
+      //     secStr = secStr.replace(/\n \n \n/g, ' || ');
+      //     secStr = secStr.replace(/\n \n/g, ' || ');
+      //     let lastString = locText.substring(lastIdx, length);
+      //     lastString = lastString.replace(/\n \n \n/g, ' || ');
+      //     lastString = lastString.replace(/\n \n/g, ' ');
 
-          item.text = firstStr + secStr + lastString;
-          // console.log(item.text);
-        });
-      }
+      //     item.text = firstStr + secStr + lastString;
+      //     // console.log(item.text);
+      //   });
+      // }
 
       if (row.additionalDescBulletInfo) {
         row.additionalDescBulletInfo.forEach(item => {
@@ -48,6 +48,24 @@ const transform = (data) => {
         });
       }
 
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} | `;
+        });
+        row.description = [
+          {
+            text: text.slice(0, -4),
+          },
+        ];
+      }
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        row.manufacturerDescription = [{ text }];
+      }
       if (row.specifications) {
         const nDesc = [];
         let newDesc = '';

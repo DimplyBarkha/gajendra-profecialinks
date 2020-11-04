@@ -5,6 +5,6 @@ module.exports = {
     country: 'TR',
     store: 'avansas',
     domain: 'avansas.com',
-    zipcode: "''",
+    zipcode: '',
   },
 };

@@ -8,7 +8,7 @@ module.exports = {
     //nextLinkSelector: 'li.next a span i',
     //mutationSelector: null,
     //spinnerSelector: null,
-    //loadedSelector: 'div[class="list-container area active"]',
+    // loadedSelector: 'div[class="list-container area active"]',
     loadedSelector: 'div.section-container',
     noResultsXPath: '//h2[contains(.," ile ilgili sonuç bulunamamıştır")]',
     // (//main[@class="main"]/h2/text())[2]

@@ -17,7 +17,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //ul[@class="breadcrumbs"]/li[position()>1]
+    xpath: //ul[@class="breadcrumbs"]/li[position()>1][position()<last()]
   - name: nameExtended
     singleValue: false
     xpath: //h1[@id="productName"]
@@ -27,6 +27,7 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class="product-detail-price"]//span[@class="current-price"]/text()
+    regExp: (.+)
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="notifications product-finish"]/text()
@@ -117,7 +118,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@itemprop="description"]//td/text() | //span[@class="p1-lp-pro-title"]//text() |  //span[@class="p1-lp-pro-title"]//..//text()
+    xpath: //div[@itemprop="description"]//td/text() | //span[@class="p1-lp-pro-title"]//text() | //span[@class="p1-lp-pro-title"]//..//text() | //div[@itemprop="description"]//div//text()
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@itemprop="description"]//img/@src
@@ -224,9 +225,13 @@ fields:
   - name: pricePerUnit
     singleValue: false
     xpath: //span[@class="price-info"]
+    regExp: \W\s(.+)TL
+    regExpReplace: $1
   - name: pricePerUnitUom
     singleValue: false
-    description: The unit of measurement used in price_per_unit
+    xpath: //span[@class="price-info"]
+    regExp: (.+)
+    regExpReplace: TL
   - name: promotion
     singleValue: false
     xpath: //div[@class="tags --1"]//span
@@ -273,4 +278,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
