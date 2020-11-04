@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'sephora',
-    nextLinkSelector: "div[class='nm-search-results-container col-main'] div[class='nm-total-pagination'] div[class='neemu-pagination-container'] ul[class='neemu-pagination'] li",
+    nextLinkSelector: "div[class='nm-search-results-container col-main'] div[class='nm-total-pagination'] div[class='neemu-pagination-container'] ul[class='neemu-pagination'] li[class='neemu-pagination-next']",
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
