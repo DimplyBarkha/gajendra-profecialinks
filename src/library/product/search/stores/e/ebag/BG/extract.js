@@ -10,6 +10,23 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
+    await context.evaluate(async function () {
+      let scrollSelector = document.querySelector('footer[class="page-footer"]');
+      let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+      let yPos = 0;
+      while (scrollLimit && yPos < scrollLimit) {
+        yPos = yPos + 350;
+        window.scrollTo(0, yPos);
+        scrollSelector = document.querySelector('footer[class="page-footer"]');
+        scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+        await new Promise(resolve => setTimeout(resolve, 3500));
+      }
+    });
+    try {
+      await context.waitForSelector('a[class=img-container]');
+    } catch (error) {
+      console.log('All images not loaded after scrolling!!');
+    }
     async function addUrl (page) {
       function addElementToDocument (doc, key, value) {
         const catElement = document.createElement('div');
