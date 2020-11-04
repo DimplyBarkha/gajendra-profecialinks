@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '//ul[contains(@class, "g-product-list")]',
+    loadedSelector: 'div[class*="ab4-less"] ul[class*="g-product-list"]',
     noResultsXPath: '//div[contains(@class, "33b-less")]',
     openSearchDefinition: null,
     domain: 'boxed.com',
