@@ -20,7 +20,7 @@ fields:
     xpath: //div[@class='lii_price']
   - name: ratingCount
     SingleValue: false
-    xpath: //dd[@class="rating-stars__content"]//span//span
+    xpath: //dd[@class="rating-stars__content"]//span[contains(@class,"rating-stars__rated")]//span
   - name: reviewCount
     SingleValue: false
     xpath: //div[@class="sf__rating-stars--sm"]//a[@class="pr__view"]

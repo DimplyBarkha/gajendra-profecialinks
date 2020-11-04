@@ -34,7 +34,7 @@ const transform = (data) => {
         }
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {
-            item.text=parseInt(item.text);
+            item.text=item.text;
           });
         }
         if (row.soldBy) {
