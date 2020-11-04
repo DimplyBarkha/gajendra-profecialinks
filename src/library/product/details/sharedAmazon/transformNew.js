@@ -291,6 +291,10 @@ const transform = (data, context) => {
                 const text = row.warnings.map(elm => elm.text).join(' ');
                 row.warnings = [{ text }];
             }
+            if (row.variantAsins) {
+                const text = row.variantAsins.map(elm => elm.text).join(' | ');
+                row.variantAsins = [{ text }];
+            }
 
             const zoomText = row.imageZoomFeaturePresent ? 'Yes' : 'No';
             row.imageZoomFeaturePresent = [{ text: zoomText }];
@@ -305,8 +309,17 @@ const transform = (data, context) => {
             if (!row.packSize && row.quantity) {
                 const packSize = row.quantity[0].text.match(/Pack of (\d+)/);
                 if (packSize) {
-                    row.packSize = [{ text: packSize[0] }];
+                    row.packSize = [{ text: packSize[1] }];
                 }
+            }
+            if (row.manufacturerVideos) {
+                console.log(row.videos);
+                if (!row.videos || row.videos[0].text === '') {
+                    row.videos = row.manufacturerVideos;
+                } else {
+                    row.videos = [...row.videos, row.manufacturerVideos];
+                }
+                delete row.manufacturerVideos;
             }
             Object.keys(row).forEach(header => {
                 row[header].forEach(el => {
