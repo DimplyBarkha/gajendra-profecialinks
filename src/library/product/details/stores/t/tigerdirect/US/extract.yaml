@@ -33,7 +33,7 @@ fields:
     xpath: //meta[@itemprop="availability"]//@content
   - name: description
     singleValue: false
-    xpath: (//div[@class='detailWrap']/div[@class='floaterModuleBox clearfix'])[1]/div[@class='rightCol tabContent']
+    xpath: //div[@class="leftCol shortDesc"]
     #regExp: (\\n+)
     #regExpReplace: ' '
   - name: descriptionBullets
@@ -80,7 +80,7 @@ fields:
   - name: upc
     singleValue: true
     xpath: //div[@class="productFootnote itemModuleBox"]//ul//li//strong[3]
-    defaultValue:    
+    defaultValue: ""
   - name: warnings
     singleValue: true
     #xpath: //div[@class="ccs-cc-comparison-table-cell-content"]
@@ -95,8 +95,8 @@ fields:
     singleValue: true
     xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]//@content
   - name: specifications
-    singleValue: true
-    xpath: //table[@class="prodSpec"]//tbody//tr//td
+    singleValue: false
+    xpath: //table[@class="prodSpec"]//tbody//tr//td//text()
   - name: shippingDimensions
     singleValue: true
     xpath: //div[@class="productFootnote itemModuleBox"]//ul//li[2]
@@ -115,13 +115,13 @@ fields:
     singleValue: true
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class="leftCol shortDesc"]/p[1]/text() | //div[@class="leftCol shortDesc"]/ul/li
+    #xpath: //div[@class="leftCol shortDesc"]/p[1]/text() | //div[@class="leftCol shortDesc"]/ul/li
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-  - name: videos
+  - name: videoLength
     singleValue: true
-    xpath: //div[@class="ccs-cc-ig-viewport-slide ccs-ig-cloud-active"]//a//@data-video-url
+    xpath: //div[@class="ytp-bound-time-right"]//text()
   - name: name
     singleValue: true
     xpath: //meta[@itemprop="description"]/@content
