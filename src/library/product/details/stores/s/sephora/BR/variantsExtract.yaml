@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantUrl
+    singleValue: false 
+    xpath:  //link[@rel='canonical'] 
+  - name: variant
+    singleValue: false  
+    xpath:  //div[@id='product-info-grouped']//ul//div[contains(@class,'mCSB_container')]//li//label//p[contains(@class,'info')]
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id='product-info-grouped']//ul//div[contains(@class,'mCSB_container')]//li//@data-productid

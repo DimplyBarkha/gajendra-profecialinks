@@ -27,6 +27,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class='price-info-grouped']//div[@class='selected-info']//div[@class='final-price']//span
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='price-info-grouped']//div[@class='selected-info']//div[@class='price']  
   - name: availabilityText
     singleValue: false
     xpath: //div[@class='minicart-wrapper']//a[@id='minicart-to-cart']
@@ -55,3 +58,6 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@class='brands-view']//div[@class='col-2']//p
+  - name: gtin
+    singleValue: false
+    xpath: //li[@class='item'][1]//p[@class='reference']  
