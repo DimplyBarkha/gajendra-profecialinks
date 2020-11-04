@@ -1,0 +1,97 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@id='skuZoomImage']/img[@id='SkuPageMainImg']/@src
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: //div[@id='skuZoomImage']/img[@id='SkuPageMainImg']/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //ul[@class='carouselInner']/li/img/@src
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
+    xpath: //meta[@name="description"]/@content
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@id='skuBreadCrumbs']/ol/li/a/span
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //div[@id='SkuMainContentDiv']/div/h1
+  - name: price
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //div[@id='PriceLabel']/div/span[@id='skuPriceLabel']/span
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@id='SkuTabDescription']/div/div/div/div
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //div[@id='SkuMainContentDiv']/div/div/div[@class='formLabel SL_m']/font/font
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+    xpath: //form/div[@class='formLabel']/div/div/div[@id='pnlTxtBox']/div/input/@value
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@id='SkuMainContentDiv']/div/div/div[@class='formLabel']/font/font
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+    xpath: //tbody/tr[@id='test']/td[@id='1']/font/font
+  - name: packSize
+    singleValue: true
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+    xpath: //div[@id='PriceLabel']/div/span[@id='adaptiveUOM']/span
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@class='pr-snippet-stars pr-snippet-stars-png']/div/font/font
+    type: NUMBER
+  - name: color
+    singleValue: true
+    description: A textual description of the colour
+    xpath: //tbody/tr[@id='test'][1]/td[@id='2']/font/font
+  - name: colorCode
+    singleValue: true
+    description: A code description of the color (e.g. RGB hex)
+    xpath: //tbody/tr[@id='test'][2]/td[@id='6']/font/font
+    type: NUMBER
+  - name: dietaryInformation
+    singleValue: true
+    description: null
+    xpath: //div[@id='CILOGINDIV']
+  - name: specifications
+    singleValue: true
+    description: The physical dimensions of the product including packaging.
+    xpath: //tbody/tr[@id='test']/td
+  - name: video
+    singleValue: false
+    xpath: //div[@class='qOverflow']/ul/li/span/div/iframe/@src
