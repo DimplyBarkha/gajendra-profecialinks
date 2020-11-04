@@ -37,6 +37,12 @@ fields:
   - name: description
     singleValue: false
     xpath: //section[@class='section-infos']//section[@id='section-description']//div[@class='std'] 
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@id='product-info-grouped']//ul//div[contains(@class,'mCSB_container')]//li//label//p[contains(@class,'info')]
+  - name: variants
+    singleValue: false
+    xpath: //div[@id='product-info-grouped']//ul//div[contains(@class,'mCSB_container')]//li//label//p[contains(@class,'info')]
   - name: brandText
     singleValue: false
     xpath: //div[@class='brands-view']//div[@class='col-1']//a//img//@alt    

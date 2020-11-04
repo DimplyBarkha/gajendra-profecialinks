@@ -43,6 +43,17 @@ const transform = (data) => {
 
                 row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];
             }
+            if (row.variants) {
+                let info = []
+                row.variants.forEach(item => {            
+                  info.push(item.text);            
+                });
+                row.variants = [{'text':info.join(' | '),'xpath':row.variants[0].xpath}];          
+              }
+              
+            if (row.variantCount) {          
+                row.variantCount = [{'text':row.variantCount.length,'xpath':row.variantCount[0].xpath}];          
+            }
         }
     }
     return cleanUp(data);

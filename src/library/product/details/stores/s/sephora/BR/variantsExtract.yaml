@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: variantUrl
     singleValue: false 
-    xpath:  //link[@rel='canonical'] 
+    xpath:  //link[@rel='canonical'] //@href 
   - name: variant
     singleValue: false  
     xpath:  //div[@id='product-info-grouped']//ul//div[contains(@class,'mCSB_container')]//li//label//p[contains(@class,'info')]
