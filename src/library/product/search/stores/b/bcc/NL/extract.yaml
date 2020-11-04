@@ -1,5 +1,62 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[contains(@class, 'lister-product product')]
+fields:
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //@data-wishitem-sku
+    singleValue: false
+  - name: name
+    description: The product name
+    xpath: //h3[@class='h2']
+    singleValue: false
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //a[@class='lister-product__titlelink']/@href
+    singleValue: false
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+    singleValue: false
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //img[contains(@class, 'lister-product__image')]/@src
+    singleValue: false
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    singleValue: false
+    xpath: (translate(//div[@class='rating']/@style, translate(.,'0123456789',''), '')*0.05)
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    description: The number of reviews
+    type: NUMBER
+    singleValue: false
+    xpath: //span[@class='review__text']
+    regExp: (.+) reviews
+    regExpReplace: $1
+  - name: ratingCount
+    description: The number of ratings
+    singleValue: false
+  - name: price
+    description: The offered price for the product
+    xpath: //span[contains(@class, 'priceblock__price priceblock__price--salesprice')]
+    singleValue: false
+  - name: manufacturer
+    description: Product manufacturer
+    singleValue: true
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+    singleValue: true
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER

@@ -5,9 +5,9 @@ module.exports = {
     country: 'NL',
     store: 'bcc',
     domain: 'bcc.nl',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.bcc.nl/search?search={searchTerms}',
+    loadedSelector: '.products-container',
+    noResultsXPath: '//div[@class=\'no-search-results\']',
     zipcode: '',
   },
 };
