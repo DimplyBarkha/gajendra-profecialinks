@@ -33,7 +33,7 @@ async function implementation (
   console.log('url: ', url);
 
   if ((url !== null) && (url !== '')) {
-    await context.goto(url, { timeout: 100000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true , actionTimeout: 10000});
   }
   await context.waitForNavigation();
 }
