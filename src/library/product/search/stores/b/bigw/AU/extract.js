@@ -1,10 +1,10 @@
-
+const { transform } = require('./format');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'AU',
     store: 'bigw',
-    transform: null,
+    transform,
     domain: 'bigw.com.au',
     zipcode: "''",
   },
