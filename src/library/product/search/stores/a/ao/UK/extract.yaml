@@ -1,0 +1,57 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'lister__main-content-container')]//ul[contains(@class,'o-flex-container')]/li
+fields:
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //div[contains(@class,'lister__main-content-container')]//ul[contains(@class,'o-flex-container')]/li//img[contains(@class,'product-card__primary-image')]/@data-sku
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div[contains(@class,'lister__main-content-container')]//ul[contains(@class,'o-flex-container')]/li//meta[@itemprop='position']/@rankorganic
+  - name: name
+    description: The product name
+    xpath: //div[contains(@class,'lister__main-content-container')]//ul[contains(@class,'o-flex-container')]/li//h2
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //div[contains(@class,'lister__main-content-container')]//ul[contains(@class,'o-flex-container')]/li//a[contains(@class,'u-d--block')]/@href
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[contains(@class,'lister__main-content-container')]//ul[contains(@class,'o-flex-container')]/li//img[contains(@class,'product-card__primary-image')]/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: aggregateRating2
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[contains(@class,'lister__main-content-container')]//ul[contains(@class,'o-flex-container')]/li//meta[@itemprop='ratingValue']/@normrating
+  - name: reviewCount
+    description: The number of reviews
+    type: NUMBER
+    xpath: //div[contains(@class,'lister__main-content-container')]//ul[contains(@class,'o-flex-container')]/li//span[@itemprop='ratingCount']
+    regExp: (\d*) Reviews
+    regExpReplace: $1
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //div[contains(@class,'lister__main-content-container')]//ul[contains(@class,'o-flex-container')]/li//span[@itemprop='ratingCount']
+    regExp: (\d*) Reviews
+    regExpReplace: $1
+  - name: price
+    description: The offered price for the product
+    xpath: //div[contains(@class,'lister__main-content-container')]//ul[contains(@class,'o-flex-container')]/li//div[@data-testid='price-now']
+    regExp: (£*)(.*)
+    regExpReplace: $2$1
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: rank
+    description: search/listing rank
+    #xpath: //div[@id='pd_rank']
+    xpath: //div[contains(@class,'lister__main-content-container')]//ul[contains(@class,'o-flex-container')]/li//meta[@itemprop='position']/@rank
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    xpath: //li[@data-testid='product-card--featured']
