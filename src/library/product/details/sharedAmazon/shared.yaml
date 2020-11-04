@@ -49,6 +49,7 @@ fields:
   #   xpath: //span[contains(text(),"Currently unavailable")] | //span[contains(text(),"out of stock")]
   - name: description
     singleValue: false
+    html: true
     xpath: //*[@id='feature-bullets']//ul/li[not(@id)]
   - name: extraDescription
     xpath: //div[@id="productDescription"]/*[not(@class="disclaim")]
@@ -97,7 +98,7 @@ fields:
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1] | //div[@class="bundle-title"]/*[contains(text(),"contains")]
   - name: legalDisclaimer
     singleValue: false
-    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
   - name: directions
     singleValue: false
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text() | //*[contains(text(), "Directions")]/following-sibling::*[text()]/text()
@@ -152,6 +153,9 @@ fields:
   - name: videos
     singleValue: false
     xpath: //script[contains(text(), "ImageBlockBTF")]/text()
+  - name: manufacturerVideos
+    singleValue: false
+    xpath: (//div[@id="aplus"]/div | //div[@class="aplus"])//video/@src
   - name: name
     singleValue: true
     xpath: //*[@id="productTitle"]
@@ -167,7 +171,7 @@ fields:
   - name: sku
   - name: coupon
     singleValue: false
-    xpath: //div[@id="price"]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text() | //div[contains(@id, "promoPriceBlockMessage")]/*[not(name()="script" or name()="noscript")]
+    xpath: //div[@id="unclippedCouponSns"]//span[@class="a-color-success"] | //div[@id="price"][not(ancestor::html//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text() | //div[contains(@id, "promoPriceBlockMessage")][not(ancestor::html//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])]/*[not(name()="script" or name()="noscript")]
   - name: amazonChoice
     singleValue: false
     xpath: //*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge-text-primary")]
