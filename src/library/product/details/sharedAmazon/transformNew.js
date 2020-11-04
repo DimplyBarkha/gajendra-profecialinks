@@ -98,8 +98,12 @@ const transform = (data, context) => {
         }
       });
       if (row.variants) {
-        row.variantCount = [{ text: row.variants.length + 1 }];
+        const asins = row.asin.concat(row.variants).map(elm => elm.text);
+        row.variants = [...new Set(asins)].map(elm => ({ text: elm }));
+      } else {
+        row.variants = row.asin;
       }
+      row.variantCount = [{ text: row.variants.length }];
       if (row.variantId) {
         row.variantId = [{ text: row.variantId[0].text.replace('parentAsin":"', '') }];
       }
@@ -139,12 +143,12 @@ const transform = (data, context) => {
       if (row.description || row.extraDescription) {
         const bonusDesc = row.extraDescription ? row.extraDescription.map(item => item.text.replace(/<li>/g, '<li> || ').replace(/(<([^>]+)>)/ig, '').trim()).join(' ').split(/From the Manufacturer|Brand Story/)[0] : '';
         if (row.description) {
-          const text = row.description.map(item => item.text);
+          const text = row.description.map(item => item.text.replace(/<li>/g, '<li> || ').replace(/(<([^>]+)>)/ig, '').trim()).join(' ');
           // const formattedText = '|| ' + text.join(' || ').trim().replace(/\|\| \|/g, '|');
           // row.description = [{ text: formattedText + bonusDesc }];
-          row.description = [{ text: [...text, bonusDesc] }];
+          row.description = [{ text: [text, bonusDesc].join(' ').trim() }];
         } else {
-          row.description = [{ text: [bonusDesc] }];
+          row.description = [{ text: bonusDesc }];
         }
       }
       if (row.amazonChoice && row.amazonChoice[0]) {
@@ -296,6 +300,12 @@ const transform = (data, context) => {
       row.sku = row.asin;
       if (row.shippingWeight) {
         row.grossWeight = row.shippingWeight;
+      }
+      if (!row.packSize && row.quantity) {
+        const packSize = row.quantity[0].text.match(/Pack of (\d+)/);
+        if (packSize) {
+          row.packSize = [{ text: packSize[0] }];
+        }
       }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
