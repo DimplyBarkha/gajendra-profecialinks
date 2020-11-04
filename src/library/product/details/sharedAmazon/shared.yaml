@@ -153,6 +153,9 @@ fields:
   - name: videos
     singleValue: false
     xpath: //script[contains(text(), "ImageBlockBTF")]/text()
+  - name: manufacturerVideos
+    singleValue: false
+    xpath: (//div[@id="aplus"]/div | //div[@class="aplus"])//video/@src
   - name: name
     singleValue: true
     xpath: //*[@id="productTitle"]
