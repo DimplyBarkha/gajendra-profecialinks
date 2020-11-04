@@ -9,7 +9,7 @@ async function implementation (
   const { productDetails } = dependencies;
   //await new Promise((resolve, reject) => setTimeout(resolve, 20000));
   var variantLength = await context.evaluate(async () => {
-    return (document.querySelectorAll('div[class="swatch-attribute-options clearfix"] a')) ? document.querySelectorAll('div[class="swatch-attribute-options clearfix"] a').length : 0;
+    return (document.querySelectorAll('div[class="swatch-attribute tamanho"] a')) ? document.querySelectorAll('div[class="swatch-attribute tamanho"] a').length : 0;
   });
   console.log("variantLength:: ", variantLength);
   if (variantLength > 1) {
