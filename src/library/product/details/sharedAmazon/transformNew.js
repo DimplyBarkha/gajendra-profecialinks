@@ -290,6 +290,10 @@ const transform = (data, context) => {
         const text = row.warnings.map(elm => elm.text).join(' ');
         row.warnings = [{ text }];
       }
+      if (row.variantAsins) {
+        const text = row.variantAsins.map(elm => elm.text).join(' ');
+        row.variantAsins = [{ text }];
+      }
 
       const zoomText = row.imageZoomFeaturePresent ? 'Yes' : 'No';
       row.imageZoomFeaturePresent = [{ text: zoomText }];
