@@ -116,7 +116,7 @@ fields:
 #     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[contains(@class,"wc-fragment")]//h2 | //div[contains(@class,"wc-fragment")]//h3 | //div[@class="wc-rich-content-description"]
+    xpath: //div[contains(@class,"wc-fragment")]//h2 | //div[contains(@class,"wc-fragment")]//h3 | //div[@class="wc-rich-content-description"] | //span[@class="wc-markup-rich-text"]
   - name: manufacturerImages
     description: Images within the third party description
     xpath: //body/div[@id="container"]/div[@class="productResponsive"]//div[contains(@class,"wc-fragment")]//img//@src
