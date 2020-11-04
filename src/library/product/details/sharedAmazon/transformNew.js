@@ -307,6 +307,15 @@ const transform = (data, context) => {
           row.packSize = [{ text: packSize[0] }];
         }
       }
+      if (row.manufacturerVideos) {
+        console.log(row.videos);
+        if (!row.videos || row.videos[0].text === '') {
+          row.videos = row.manufacturerVideos;
+        } else {
+          row.videos = [...row.videos, row.manufacturerVideos];
+        }
+        delete row.manufacturerVideos;
+      }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
           el.text = clean(el.text);
