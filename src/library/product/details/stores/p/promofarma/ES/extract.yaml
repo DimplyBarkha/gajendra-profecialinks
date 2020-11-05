@@ -12,7 +12,7 @@ fields:
   xpath: /html/head/link[1]/@href
 - name: imageAlt
   singleValue: true
-  xpath: //a[@id="product-img"]/figure/img/@alt
+  xpath: //img[@class="img-fluid"]/@alt
 - name: category
   singleValue: false
   xpath: //ol[@class='breadcrumb ml-1 ml-md-0 my-1']//li[position() >= 2 and position()<last()]/a/span
@@ -25,10 +25,11 @@ fields:
   xpath: (//span[@id="price"])[1]
 - name: availabilityText
   singleValue: true
-  xpath: (//div[@class='col']/button[@class='btn btn-rounded btn-pf-primary btn-block EA_event-btnlanding']/@name)[1]
+  xpath: //div[@itemprop="offers"]/meta[@itemprop="availability"]/@content
+  regExp: (\w+$)
 - name: description
   singleValue: true
-  xpath: (//div[@class='product-info']/p[1]) | (//div[@id='description']/div[@id='wrapper-description']/div[@id='content-description'])
+  xpath: //div[@id="wrapper-description"]
 - name: brandText
   singleValue: false
   xpath: //meta[@itemprop="brand"]/@content
@@ -49,7 +50,7 @@ fields:
   xpath: //meta[@itemprop="sku"]/@content
 - name: variantId
   singleValue: true
-  xpath: //*[@id="product-section"]/@data-product-id
+  xpath: //div[@id="main"]/section/@data-product-id
 - name: ratingCount
   singleValue: true
   type: NUMBER
@@ -57,13 +58,25 @@ fields:
 - name: name
   singleValue: true  
   xpath: //section[@id='productSheetCont']/h1/text()
+- name: additionalDescBulletInfo
+  singleValue: false 
+  xpath: //div[@id="content-instructions"]/p
 - name: aggregateRating
   singleValue: true 
-  xpath: (//meta[@itemprop="ratingValue"]/@content)[1]
+  xpath: (//div[@class="mt-4 rating-box"]//div/meta[@itemprop="ratingValue"]/@content)
+- name: productOtherInformation
+  singleValue: true 
+  xpath: //section[@id="productSheetCont"]/meta[@itemprop="description"]/@content
+- name: descriptionBullets
+  singleValue: false  
+  xpath: count(//div[@id="content-description"]//ul/li)
 - name: listPrice
   singleValue: true
   type: CURRENCY
   xpath: (//div[1]/del[@class='old-price pr-1 pr-sm-2 mt-1 mt-sm-2'])[1] 
+- name: variantCount
+  singleValue: true
+  xpath: //meta[@property="position"]/@content 
 - name: promotion
   singleValue: true
   xpath: (//div[@class='arrow-discount-tag tag-left']/div[@class='tagimg_text'])[1]
@@ -94,8 +107,7 @@ fields:
   defaultValue: No
 - name: imageZoomFeaturePresent
   singleValue: true
-  description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
-  example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: yes
+  xpath: boolean(//a[@class="MagicZoom"]/text())
+  
 
   
