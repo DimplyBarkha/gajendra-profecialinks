@@ -79,8 +79,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: upc
     singleValue: true
-    xpath: //div[@class="productFootnote itemModuleBox"]//ul//li//strong[3]
-    defaultValue: ""
+    xpath: //div[@class="productFootnote itemModuleBox"]//ul//li//strong[3] | //div[@id="upc"]
   - name: warnings
     singleValue: true
     #xpath: //div[@class="ccs-cc-comparison-table-cell-content"]
