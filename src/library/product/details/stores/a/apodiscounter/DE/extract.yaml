@@ -10,7 +10,7 @@ fields:
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
-    xpath: //div[@id='view_image']//a[contains(@class,'colorbox_image')]//@title
+    xpath: //div[@id='view_image']//a[contains(@class,'colorbox_image')]//img//@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
