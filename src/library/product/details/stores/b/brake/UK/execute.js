@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'brake',
     domain: 'brake.co.uk',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.productDetailsPageSection1',
+    noResultsXPath: '//div[contains(@class, \'errorNotFoundPageMiddle-component\')]',
     zipcode: '',
   },
 };
