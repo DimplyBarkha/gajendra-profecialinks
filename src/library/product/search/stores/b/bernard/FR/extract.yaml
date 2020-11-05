@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    xpath: //a[@class="desc4 scTrack pfm"]/@href
+    description: The URL for the product details page
+    regExp: (.+)
+    regExpReplace: https://www.bernard.fr/$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //img[@id="SkuPageMainImg"]/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //h3[@id="skuName"]
+  - name: id
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@itemprop="productID"]
+    regExp: (\d+\d)$
+  - name: sku
+    singleValue: true
+    xpath: //div[@itemprop="productID"]
+    regExp: (\d+\d)$
+  - name: price
+    singleValue: true
+    description: The offered price for the product
+    xpath: //span[@itemprop="price"]
+  - name: rankOrganic
+    singleValue: true
+    xpath: //html//div[@id='altImages']
+  - name: rank
+    singleValue: true
+    xpath: //html//div[@id='altImages']
+  - name: sponsored
+    singleValue: true
+    defaultValue: false
+  - name: aggregateRating2
+    singleValue: true
+    xpath: (//span[@id="productRating"])[1]
+  - name: reviewCount
+    singleValue: false
+    type: NUMBER
+    xpath: //span[@class="link"]
