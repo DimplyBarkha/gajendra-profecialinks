@@ -46,8 +46,10 @@ fields:
     regExpReplace: $2
   - name: variantId
     xpath: //a/@data-option-code
-  - name: alternateImage
+  - name: alternateImages
     xpath: ancestor::html//div[contains(@class, 'gallery col-md-8')]//div[contains(@class, 'product-slider')][1]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]/div[position()>1]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.innovasport.com/$1
   - name: secondaryImageTotal
     xpath: count(ancestor::html//div[contains(@class, 'gallery col-md-8')]//div[contains(@class, 'product-slider')][1]//div[contains(@class, 'slider-main') and not(contains(@class, 'slider-main-zoom'))]/div[position()>1]/img/@src)
     regExp: (.+)

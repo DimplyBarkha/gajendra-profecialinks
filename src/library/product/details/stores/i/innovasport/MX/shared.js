@@ -28,8 +28,11 @@ const transform = (data) => {
             ulString += `|| ${row.additionalDescBulletInfo[i].text} `;
           }
           row.description[0].text = `${row.description[0].text} ${ulString}`;
-          row.additionalDescBulletInfo[0].text = `|| ${row.additionalDescBulletInfo[0].text}`;
+          row.additionalDescBulletInfo = [{ text: ulString }];
         }
+      }
+      if (row.listPrice) {
+        row.listPrice[0].text = row.listPrice[0].text.replace(',', "").replace('.', ',');
       }
 
       if (row.sku) {
