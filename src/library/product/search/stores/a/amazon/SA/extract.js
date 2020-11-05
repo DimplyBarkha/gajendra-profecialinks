@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -6,6 +5,6 @@ module.exports = {
     store: 'amazon',
     transform: null,
     domain: 'amazon.sa',
-    zipcode: "''",
+    zipcode: '',
   },
 };

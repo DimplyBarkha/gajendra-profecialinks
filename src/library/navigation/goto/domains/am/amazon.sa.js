@@ -6,6 +6,6 @@ module.exports = {
     timeout: null,
     country: 'SA',
     store: 'amazon',
-    zipcode: "''",
+    zipcode: '',
   },
 };
