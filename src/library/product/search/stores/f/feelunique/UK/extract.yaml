@@ -11,7 +11,7 @@ fields:
     xpath: //div[@class="Product-summary "]
   - name: productUrl
     singleValue: false
-    xpath: (//div[@class="Product"]/a/@href)[1]
+    xpath: //div[@class="Product"]/a/@href
     regExp: (.+)
     regExpReplace: https://www.feelunique.com$1
   - name: thumbnail
