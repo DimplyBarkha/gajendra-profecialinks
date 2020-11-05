@@ -69,6 +69,13 @@ const transform = (data) => {
           })
           row.description=[{"text":info.join(" | ")}];
         }
+        if(row.videos){
+          var info=[];
+          row.videos.forEach(item=>{
+            info.push("https://youtu.be/"+item.text);
+          });
+          row.videos=[{"text":info.join(" | ")}];
+        }
       }
     }
     return cleanUp(data);

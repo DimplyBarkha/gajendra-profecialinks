@@ -56,7 +56,7 @@ fields:
     xpath: //div[@id="product-ratings-summary"]/@class
   - name: videos
     singleValue: false
-    xpath: //div[@id="video-zone"]/iframe/@src
+    xpath: //li[@class="b-video-item"]/div[@class="b-video-item-tile"]/@data-videoid
   - name: name
     singleValue: false
     xpath: //h1[@id="product-title"]
