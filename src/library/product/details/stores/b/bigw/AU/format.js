@@ -56,16 +56,14 @@ const transform = (data) => {
             }
           }
           if (row.category) {
-            let info = [];
-            row.category.forEach(item => {
-              info.push(item.text.trim());
-            });
-            if (info.length) {
-              row.category = [];
-              info.forEach(item => {
-                row.category.push({ "text": item});
-              });
+            if (row.category.length) {
+              row.category.splice(0, 1);
+              row.category.splice(row.category.length - 1, 1);
             }
+            row.category.forEach(item => {
+              item.text = item.text.replace(/\n\s\n/, '');
+              item.text = item.text.replace('/', '').trim();
+            });
           }
           if (row.descriptionBullets) {
             row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              

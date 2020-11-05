@@ -14,7 +14,7 @@ fields:
     xpath: //div[@class='slick-slide slick-active']//a[contains(@class,"MagicThumb-swap")]//img/@src
   - name: category
     singleValue: false
-    xpath: //span[@itemprop='category']/@content
+    xpath: //ul[contains(@class,"breadcrumb hidden-xs hidden-is nvt-bdsm")]//li
   - name: nameExtended
     singleValue: false
     xpath: //div[@class='clone-title']//h1[@itemprop='name']
