@@ -30,7 +30,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="breadcrumbs"]
+    xpath: //div[@id="breadcrumbs"]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -59,7 +59,7 @@ fields:
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    xpath: count(//div[@id="info-section"]/div[1]/ul/li)
+    xpath: count(//div[@id="info-section"]/div[1]//ul/li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -91,7 +91,7 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same
       sku
-    xpath: //div[@id="gtin"]
+    xpath: //div[@id="sku"]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -443,7 +443,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: //div[contains(@class,"variations__Container")]/@type
+    xpath: //div[@id="variantInformation"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of core
@@ -454,7 +454,7 @@ fields:
       to populate "first_variant" for all variants of a product, this rpc becomes the
       common link between other variants. method 3 = apply some logic to determine link
       between variants, this will need analysis
-    xpath: //div[@id="sku"]
+    xpath: //div[@id="gtin"]
   - name: variants
     singleValue: false
     description:

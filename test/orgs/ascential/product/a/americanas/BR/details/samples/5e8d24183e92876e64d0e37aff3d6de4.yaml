@@ -2,7 +2,7 @@ input:
   _url: http://americanas.com.br
   URL: https://www.americanas.com.br/produto/1448008211/samsung-galaxy-a01-desbloqueado-32gb-4g-android-10-0-tela-5-7-octa-core-camera-13mp
 extractions:
-  - html: https://workbench.import.io/html/run=7a425899-1c49-4909-872c-0df0fc906670/task=e639d8c8-d485-422b-96f1-86cd3f97b28b/41d3aab7-634c-4013-b9b5-ef3458420fc4.html
+  - html: https://workbench.import.io/html/run=fa18d7d7-86ce-4ef0-9373-0149ca55c01d/task=f36b34f7-c5b7-4785-a7e1-86dd2570f18a/85094fb2-ed3b-4e32-a85e-06775579e296.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
@@ -15,31 +15,99 @@ extractions:
             imageAlt:
               - text: Americanas - Tudo. A toda hora. Em qualquer lugar.
                 xpath: /html/head[1]/meta[24]/@content
+            alternateImages:
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_2GG.jpg
+                xpath: /html/body/div[3]
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_3GG.jpg
+                xpath: /html/body/div[4]
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_4GG.jpg
+                xpath: /html/body/div[5]
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_5GG.jpg
+                xpath: /html/body/div[6]
+            category:
+              - text: pagina inicial celulares e smartphones smartphone samsung galaxy galaxy a
+                  galaxy a01
+                xpath: /html/body/div[7]
+            nameExtended:
+              - text: Samsung Galaxy A01 Vermelho Desbloqueado 32GB 4G Android 10.0 Tela 5.7”
+                  Octa-Core Câmera 13MP
+                xpath: /html/body/div[9]
+            listPrice:
+              - text: R$ 799,00
+                xpath: /html/body/div[20]
+            price:
+              - text: R$ 799,00
+                xpath: /html/body/div[21]
             availabilityText:
-              - text: Out of Stock
-                xpath: /html/body/div[16]
+              - text: In Stock
+                xpath: /html/body/div[22]
             manufacturer:
               - text: Samsung
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[11]
             weightNet:
               - text: 0.148kg
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[12]
             gtin:
-              - text: undefined
-                xpath: /html/body/div[8]
+              - text: "7892509113267"
+                xpath: /html/body/div[15]
+            sku:
+              - text: "1448008246"
+                xpath: /html/body/div[16]
             variantId:
-              - text: undefined
-                xpath: /html/body/div[8]
+              - text: "1448008246"
+                xpath: /html/body/div[16]
+            ratingCount:
+              - text: "220"
+                xpath: /html/body/div[24]
+            aggregateRatingText:
+              - text: "4.0"
+                xpath: /html/body/div[25]
+            aggregateRating:
+              - text: "4.0"
+                xpath: /html/body/div[25]
             shippingDimensions:
               - text: 14,6x7,0x0,8
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[18]
             variantCount:
               - text: "0"
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[17]
             manufacturerImages:
               - text: https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/01.png,https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/02.png,https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/03.png,https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/04.png,https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/05.png,https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/layout3.png
+                xpath: /html/body/div[30]
+            name:
+              - text: Samsung Galaxy A01 Vermelho Desbloqueado 32GB 4G Android 10.0 Tela 5.7”
+                  Octa-Core Câmera 13MP
+                xpath: /html/body/div[27]
+            coupon:
+              - text: baixou
                 xpath: /html/body/div[23]
+            specifications:
+              - text: Código 1448008211 Código de barras 7892509113267 Fabricante Samsung Tipo
+                  de Chip Nano Chip Sistema Operacional Android Versão S.O.
+                  Android 10.0 Tipo de Tela LCD TFT Tamanho do Display 5.7"
+                  Resolução 720 x 1520 (HD+) Multichip Dual Chip Câmera Traseira
+                  13MP+2MP Câmera Frontal 5MP Filmadora Full HD Sintonizador de
+                  TV Não possui NFC Não Processador Octa-Core 2.0 GHz Memória
+                  RAM 2GB Memória Interna 32GB Expansivo até? MicroSD até 512GB
+                  Banda
+                  B1(2100),B2(1900),B3(1800),B4(AWS),B5(850),B7(2600),B8(900),B12(700),B17(700),B28(700)
+                  Conexões Wi-Fi,3G,4G Recursos de chamada Viva Voz Alimentação,
+                  tipo de bateria Bateria de Íons de Lítio de 3000 mAh Bivolt
+                  Modelo SM-A015M/32DL Conteúdo da Embalagem Aparelho celular,
+                  carregador, cabo USB, fone de ouvido, extrator de chip e
+                  manual do usuário Garantia do Fornecedor 12 Meses Dimensões do
+                  produto - cm (AxLxP) 14,6x7,0x0,8 Peso liq. aproximado do
+                  produto (Kg) 0.148 Referência do Modelo Galaxy A01 SAC do
+                  Fabricante 4004-0000 (Capitais e grandes centros) ou
+                  0800-124-421 (Demais cidades e regiões)
+                xpath: /html/body/div[19]
+            warranty:
+              - text: 12 Meses
+                xpath: /html/body/div[13]
+            firstVariant:
+              - text: "7892509113267"
+                xpath: /html/body/div[15]
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1603377583201
+    timestamp: 1604504414262

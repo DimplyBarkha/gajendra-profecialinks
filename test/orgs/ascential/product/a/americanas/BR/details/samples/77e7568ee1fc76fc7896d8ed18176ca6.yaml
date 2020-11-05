@@ -2,7 +2,7 @@ input:
   _url: http://americanas.com.br
   URL: https://www.americanas.com.br/produto/1708933455/smart-tv-led-lg-24-monitor-wi-fi-webos-3-5-dtv-machine-ready
 extractions:
-  - html: https://workbench.import.io/html/run=c1b8240a-9053-4999-ae2f-b80bfc1955b8/task=e1b0cee8-839e-4d50-b41a-d39d69954a1c/2a9a1ea3-45da-44f8-bf23-875516121b57.html
+  - html: https://workbench.import.io/html/run=14273572-cfac-4a99-bd4c-53cdbad5993f/task=2d3da3ee-0626-4534-8e39-a93702442e51/2e4b72a2-9247-4c8f-8713-1bc6d35714be.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
@@ -31,10 +31,10 @@ extractions:
               - text: Smart TV LED LG 24" Monitor Wi-Fi Webos 3.5 DTV Machine Ready
                 xpath: /html/body/div[13]
             listPrice:
-              - text: R$ 919,90
+              - text: R$ 879,99
                 xpath: /html/body/div[23]
             price:
-              - text: R$ 809,51
+              - text: R$ 849,99
                 xpath: /html/body/div[24]
             availabilityText:
               - text: In Stock
@@ -64,6 +64,15 @@ extractions:
             variantId:
               - text: "7893299911453"
                 xpath: /html/body/div[17]
+            ratingCount:
+              - text: "160"
+                xpath: /html/body/div[27]
+            aggregateRatingText:
+              - text: "4.4"
+                xpath: /html/body/div[28]
+            aggregateRating:
+              - text: "4.4"
+                xpath: /html/body/div[28]
             shippingDimensions:
               - text: 340X563X58
                 xpath: /html/body/div[20]
@@ -74,7 +83,7 @@ extractions:
               - text: Smart TV LED LG 24" Monitor Wi-Fi Webos 3.5 DTV Machine Ready
                 xpath: /html/body/div[30]
             coupon:
-              - text: 12%
+              - text: baixou
                 xpath: /html/body/div[26]
             specifications:
               - text: Código 1708933455 Código de barras 7893299911453 Conteúdo da Embalagem TV
@@ -105,4 +114,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1603454862148
+    timestamp: 1603811727901

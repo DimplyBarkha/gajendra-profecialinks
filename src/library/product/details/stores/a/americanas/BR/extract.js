@@ -11,6 +11,8 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
+      let skuArray = [];
+
       function addElementToDom(element, id) {
         let div = document.createElement("div");
         div.id = id;
@@ -31,38 +33,53 @@ module.exports = {
         xhr.send();
       }
 
+      function getVariantsSkuToArray() {
+        let sku = "";
+
+        let json = document.querySelector("#root script[type='application/ld+json']").innerText
+          ? JSON.parse(document.querySelector("#root script[type='application/ld+json']").innerText)
+          : "";
+
+        if (json) {
+          sku = json["@graph"][4]["sku"] ? json["@graph"][4]["sku"] : "";
+        }
+
+        skuArray.push(sku);
+      }
+
       const productUrl = window.location.href;
       addElementToDom(productUrl, "productUrl");
 
-      const secondaryImagesList = document.querySelector(".image-gallery .image-gallery-content .image-gallery-thumbnails .image-gallery-thumbnails-container a")
-        ? document.querySelectorAll(".image-gallery .image-gallery-content .image-gallery-thumbnails .image-gallery-thumbnails-container a")
+      const secondaryImagesList = document.querySelector("div[class^='src__WrapperThumb'] picture img")
+        ? document.querySelectorAll("div[class^='src__WrapperThumb'] picture img")
         : [];
       secondaryImagesList.forEach((image, index) => {
         if (index > 0) {
-          addElementToDom(image.querySelector("img").getAttribute("src"), "secondaryImagesList");
+          addElementToDom(image.getAttribute("src"), "secondaryImagesList");
         }
       });
 
-      const breadcrumbs = document.querySelector(".product-breadcrumb") ? document.querySelector(".product-breadcrumb").innerText : "";
+      const breadcrumbs = document.querySelector("div[class^='src__BreacrumbContainer']") ? document.querySelector("div[class^='src__BreacrumbContainer']").innerText : "";
       addElementToDom(breadcrumbs, "breadcrumbs");
 
-      let nameExtended = document.querySelector("h1#product-name-default") ? document.querySelector("h1#product-name-default").innerText : "";
-      const specificationsList = document.querySelector("div#info-section div:nth-of-type(2) table")
-        ? document.querySelectorAll("div#info-section div:nth-of-type(2) table tr")
-        : document.evaluate('//div[contains(@class,"src__Container")]/div[contains(@class,"src__DeskWrapper")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)
-            .singleNodeValue
-        ? document
-            .evaluate('//div[contains(@class,"src__Container")]/div[contains(@class,"src__DeskWrapper")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)
-            .singleNodeValue.querySelectorAll("table tr")
-        : [];
+      let nameExtended = document.querySelector("div[class^='src__ProductInfo'] div:nth-of-type(2) span[class^='src__Text']")
+        ? document.querySelector("div[class^='src__ProductInfo'] div:nth-of-type(2) span[class^='src__Text']").innerText
+        : "";
+      const specificationsList = document.querySelector("table[class^='src__SpecsCell']") ? document.querySelectorAll("table[class^='src__SpecsCell'] tr") : [];
+
+      let json = document.querySelector("#root script[type='application/ld+json']").innerText
+        ? JSON.parse(document.querySelector("#root script[type='application/ld+json']").innerText)
+        : "";
+
       let brandText = "";
       let manufacturer = "";
       let weightNet = "";
-      let gtinArr = [];
+      let gtin = [];
       let sku = "";
       let shippingDimensions = "";
       let color = "";
       let warranty = "";
+
       if (specificationsList) {
         specificationsList.forEach((item) => {
           let firstTd = item.querySelector("td:nth-of-type(1)").innerText;
@@ -70,13 +87,34 @@ module.exports = {
           if (firstTd.toLowerCase() === "marca") brandText = secondTd;
           if (firstTd.toLowerCase() === "fabricante") manufacturer = secondTd;
           if (firstTd.toLowerCase().includes("peso liq")) weightNet = secondTd.toLowerCase().includes("kg") ? secondTd : secondTd + "kg";
-          if (firstTd.toLowerCase() === "código de barras") gtinArr = secondTd.split(",");
-          if (firstTd.toLowerCase() === "código") sku = secondTd;
-          if (firstTd.toLowerCase().includes("dimensões do produto")) shippingDimensions = secondTd;
+          if (firstTd.toLowerCase() === "código de barras") gtin = secondTd;
+          if (firstTd.toLowerCase() === "código" && !json) sku = secondTd;
+          if (firstTd.toLowerCase().includes("dimensões")) shippingDimensions = secondTd;
           if (firstTd.toLowerCase().includes("cor")) color = secondTd;
           if (firstTd.toLowerCase().includes("garantia")) warranty = secondTd;
         });
       }
+
+      if (json) {
+        sku = json["@graph"][4]["sku"] ? json["@graph"][4]["sku"] : "";
+      }
+
+      const variantArray = document.querySelector("div[class^='src__ProductInfo'] div[class^='src__WrappOptions'] button")
+        ? document.querySelectorAll("div[class^='src__ProductInfo'] div[class^='src__WrappOptions'] button")
+        : [];
+
+      variantArray.forEach((btn) => {
+        btn.addEventListener("click", getVariantsSkuToArray);
+      });
+
+      const variantInformation = document.querySelector("div[class^='src__ProductInfo'] div[class^='src__Type'] div[class^='src__WrappOptions']")
+        ? document.querySelector("div[class^='src__ProductInfo'] div[class^='src__Type'] div[class^='src__WrappOptions']").previousElementSibling.querySelector("label")
+          ? document.querySelector("div[class^='src__ProductInfo'] div[class^='src__Type'] div[class^='src__WrappOptions']").previousElementSibling.querySelector("label")
+              .childNodes[0].nodeValue
+          : ""
+        : "";
+      addElementToDom(variantInformation, "variantInformation");
+
       const description = document.querySelector("#info-section div:nth-of-type(1)") ? document.querySelector("#info-section div:nth-of-type(1)").innerText : "";
       if (description) {
         if (brandText === "") {
@@ -95,7 +133,7 @@ module.exports = {
           weightNet = regExpGroup ? regExpGroup[1] : weightNet;
         }
         if (shippingDimensions === "") {
-          let regExpGroup = description.match(/Dimensões do produto.*?:(.*?)-/);
+          let regExpGroup = description.match(/Dimensões.*?:(.*?)-/);
           if (!regExpGroup) regExpGroup = description.match(/Dimensões do produto.*?:(.*?)Aviso/);
           shippingDimensions = regExpGroup ? regExpGroup[1] : shippingDimensions;
         }
@@ -113,75 +151,55 @@ module.exports = {
       if (nameExtended && brandText) {
         nameExtended = nameExtended.toLowerCase().includes(brandText.toLowerCase()) ? nameExtended : `${brandText} - ${nameExtended}`;
       }
+
+      if (color === "") {
+        const arr = document.querySelector("div[class^='src__ProductInfo'] div[class^='src__Type']")
+          ? document.querySelectorAll("div[class^='src__ProductInfo'] div[class^='src__Type']")
+          : [];
+        arr.forEach((elem) => {
+          if (elem.innerText.toLowerCase().includes("cor")) {
+            color = elem.innerText.replace("cor:", "");
+          }
+        });
+      }
+
       addElementToDom(nameExtended, "nameExtended");
       addElementToDom(brandText, "brandText");
       addElementToDom(manufacturer, "manufacturer");
       addElementToDom(weightNet, "weightNet");
-      addElementToDom(gtinArr[0], "gtin");
+      addElementToDom(warranty, "warranty");
+      addElementToDom(color, "color");
+      addElementToDom(gtin, "gtin");
       addElementToDom(sku, "sku");
-      addElementToDom(gtinArr.length, "variantCount");
+      addElementToDom(variantArray.length, "variantCount");
       addElementToDom(shippingDimensions, "shippingDimensions");
-      addElementToDom(gtinArr.join(" | "), "variants");
 
-      const specifications = document.querySelector("div#info-section div:nth-of-type(2) table")
-        ? document.querySelector("div#info-section div:nth-of-type(2) table").innerText
-        : "";
+      const specifications = document.querySelector("table[class^='src__SpecsCell']") ? document.querySelector("table[class^='src__SpecsCell']").innerText : "";
       addElementToDom(specifications, "specifications");
 
-      const priceTagNumber = document.evaluate(
-        'count(//div[contains(@class,"buybox__BigSection")]//div[contains(@class,"main-offer__Container")]/div[1]/div[contains(@class,"price__Paragraph")])',
-        document,
-        null,
-        XPathResult.ANY_TYPE,
-        null
-      );
-      const listedPrice =
-        priceTagNumber.numberValue > 0
-          ? document
-              .evaluate(
-                '//div[contains(@class,"buybox__BigSection")]//div[contains(@class,"main-offer__Container")]//div[contains(@class,"price__Paragraph")][1]',
-                document,
-                null,
-                XPathResult.FIRST_ORDERED_NODE_TYPE,
-                null
-              )
-              .singleNodeValue.innerText.replace(/\n.*/g, "")
-          : "";
-      const price =
-        priceTagNumber.numberValue > 1
-          ? document.evaluate(
-              '//div[contains(@class,"buybox__BigSection")]//div[contains(@class,"main-offer__Container")]//div[contains(@class,"price__Paragraph")][2]',
-              document,
-              null,
-              XPathResult.FIRST_ORDERED_NODE_TYPE,
-              null
-            ).singleNodeValue.innerText
-          : listedPrice;
-      const availabilityText =
-        priceTagNumber.numberValue === 0 ? (document.querySelector("#title-stock") ? document.querySelector("#title-stock").innerText : "Out of Stock") : "In Stock";
-      const coupon =
-        priceTagNumber.numberValue > 1
-          ? document.evaluate(
-              '//div[contains(@class,"buybox__BigSection")]//div[contains(@class,"main-offer__Container")]//div[contains(@class,"price__Paragraph")][1]/div[contains(@class,"price__Badge")]',
-              document,
-              null,
-              XPathResult.FIRST_ORDERED_NODE_TYPE,
-              null
-            ).singleNodeValue.innerText
-          : "";
+      const listedPrice = document.querySelector("div[class^='src__ProductOffer'] div[class^='src__ListPriceWrapper'] span[class^='src__ListPrice']")
+        ? document.querySelector("div[class^='src__ProductOffer'] div[class^='src__ListPriceWrapper'] span[class^='src__ListPrice']").innerText.replace(/\n/g, "")
+        : "";
+      const price = document.querySelector("div[class^='src__ProductOffer'] div[class^='src__PriceWrapper']")
+        ? document.querySelector("div[class^='src__ProductOffer'] div[class^='src__PriceWrapper']").innerText.replace(/\n/g, "")
+        : "";
+      const availabilityText = document.querySelector("div[class^='src__ProductOffer'] h2") ? document.querySelector("div[class^='src__ProductOffer'] h2").innerText : "In Stock";
+      const coupon = document.querySelector("div[class^='src__ProductOffer'] div[class^='src__ListPriceWrapper'] div[class^='src__Badge']")
+        ? document.querySelector("div[class^='src__ProductOffer'] div[class^='src__ListPriceWrapper'] div[class^='src__Badge']").innerText
+        : "";
       addElementToDom(listedPrice, "listedPrice");
       addElementToDom(price, "priceOnline");
       addElementToDom(availabilityText, "availabilityText");
       addElementToDom(coupon, "coupon");
 
-      const ratingCount = document.querySelector(".card-reviews header.summary-bar .summary-rating span:nth-of-type(2)")
-        ? document.querySelector(".card-reviews header.summary-bar .summary-rating span:nth-of-type(2)").innerText.replace(/\n/g, "").replace(/\(/g, "").replace(/\)/g, "")
-        : "";
+      const ratingCount = document.querySelector("div[class^='src__WrapperReview'] span[class^='header__ReviewsValue']")
+        ? document.querySelector("div[class^='src__WrapperReview'] span[class^='header__ReviewsValue']").innerText.replace(/\n/g, "").replace(/\(/g, "").replace(/\)/g, "")
+        : 0;
       addElementToDom(ratingCount, "ratingCount");
 
-      const aggregateRating = document.querySelector(".card-reviews header.summary-bar .summary-rating span:nth-of-type(1)")
-        ? document.querySelector(".card-reviews header.summary-bar .summary-rating span:nth-of-type(1)").innerText
-        : "";
+      const aggregateRating = document.querySelector("div[class^='src__WrapperReview'] span[class^='header__RatingValue']")
+        ? document.querySelector("div[class^='src__WrapperReview'] span[class^='header__RatingValue']").innerText
+        : 0;
       addElementToDom(aggregateRating, "aggregateRating");
 
       const manufacturerDescriptionFrameLink = document.querySelector("#info-section iframe") ? document.querySelector("#info-section iframe").getAttribute("src") : "";
@@ -201,8 +219,16 @@ module.exports = {
       setTimeout(() => {
         addElementToDom(manufacturerImagesArr, "manufacturerImages");
       }, 500);
-      const productName = document.querySelector("h1#product-name-default") ? document.querySelector("h1#product-name-default").innerText : "";
+      const productName = document.querySelector("div[class^='src__ProductInfo'] div:nth-of-type(2) span[class^='src__Text']")
+        ? document.querySelector("div[class^='src__ProductInfo'] div:nth-of-type(2) span[class^='src__Text']").innerText
+        : "";
       addElementToDom(productName, "productName");
+
+      variantArray.forEach((btn) => {
+        btn.click();
+      });
+
+      addElementToDom(skuArray.join(" | "), "variants");
     });
     await context.extract(productDetails);
   },

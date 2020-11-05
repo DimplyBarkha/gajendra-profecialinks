@@ -2,7 +2,7 @@ input:
   _url: http://americanas.com.br
   URL: https://www.americanas.com.br/produto/134511851/smart-tv-android-led-32-semp-32s5300-bluetooth-2-hdmi-1-usb-controle-remoto-com-comando-de-voz-e-google-assistant
 extractions:
-  - html: https://workbench.import.io/html/run=c1b8240a-9053-4999-ae2f-b80bfc1955b8/task=c871d0a5-5212-42b4-8415-10df686114fd/1490b26e-15af-4ff4-b1f5-592f6fb39c8b.html
+  - html: https://workbench.import.io/html/run=fa18d7d7-86ce-4ef0-9373-0149ca55c01d/task=437e00ba-7561-4afd-b01f-77a5bb37a5e3/c42e8aa9-583a-4ade-a8dd-584d3e8baf08.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
@@ -15,31 +15,102 @@ extractions:
             imageAlt:
               - text: Americanas - Tudo. A toda hora. Em qualquer lugar.
                 xpath: /html/head[1]/meta[24]/@content
+            alternateImages:
+              - text: https://images-americanas.b2w.io/produtos/01/00/img1/134511/8/134511869_2GG.jpg
+                xpath: /html/body/div[3]
+              - text: https://images-americanas.b2w.io/produtos/01/00/img1/134511/8/134511869_3GG.jpg
+                xpath: /html/body/div[4]
+              - text: https://images-americanas.b2w.io/produtos/01/00/img1/134511/8/134511869_4GG.jpg
+                xpath: /html/body/div[5]
+            category:
+              - text: pagina inicial tv e home theater tv smart tv
+                xpath: /html/body/div[6]
+            nameExtended:
+              - text: Smart TV Android LED 32" Semp 32S5300 Bluetooth 2 HDMI 1 USB Controle
+                  Remoto com Comando de Voz e Google Assistant
+                xpath: /html/body/div[8]
+            listPrice:
+              - text: R$ 1.199,99
+                xpath: /html/body/div[19]
+            price:
+              - text: R$ 1.139,99
+                xpath: /html/body/div[20]
             availabilityText:
-              - text: Out of Stock
-                xpath: /html/body/div[16]
+              - text: In Stock
+                xpath: /html/body/div[21]
             manufacturer:
               - text: Semp TCL
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[10]
             weightNet:
               - text: 4kg
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[11]
             gtin:
-              - text: undefined
-                xpath: /html/body/div[8]
+              - text: "7899968300863"
+                xpath: /html/body/div[14]
+            sku:
+              - text: "134511869"
+                xpath: /html/body/div[15]
             variantId:
-              - text: undefined
-                xpath: /html/body/div[8]
+              - text: "134511869"
+                xpath: /html/body/div[15]
+            ratingCount:
+              - text: "280"
+                xpath: /html/body/div[23]
+            aggregateRatingText:
+              - text: "4.1"
+                xpath: /html/body/div[24]
+            aggregateRating:
+              - text: "4.1"
+                xpath: /html/body/div[24]
             shippingDimensions:
               - text: 43,2x73,2x7,9cm
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[17]
             variantCount:
               - text: "0"
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[16]
             manufacturerImages:
               - text: https://statics-americanas.b2w.io/produtos/01/02/special/134511851/styles/Images/Conteudo/S5300-banner.jpg
-                xpath: /html/body/div[23]
+                xpath: /html/body/div[29]
+            name:
+              - text: Smart TV Android LED 32" Semp 32S5300 Bluetooth 2 HDMI 1 USB Controle
+                  Remoto com Comando de Voz e Google Assistant
+                xpath: /html/body/div[26]
+            coupon:
+              - text: 5%
+                xpath: /html/body/div[22]
+            specifications:
+              - text: Código 134511851 Código de barras 7899968300863 Venda Separada? 1 Recursos
+                  de Vídeos HDR, MICRO DIMMING, MODO DE IMAGEM - Dinâmica,
+                  padrão, smart HDR, esporte, cinema e Jogos PC. Temperatura e
+                  cor - frio, padrão e quente. Recursos/Funcionalidades
+                  Bluetooth, WI-FI integrado, Ginga, Gravação Via PEN Drive,
+                  Reconhecimento de voz, Chomecast Built-IN Processador Quad
+                  Core Closed Caption Sim Consumo (KW/h) Consumo máximo - 50W -
+                  Consumo Stand BY - 0,5W Monitor HD Local das entradas USB 1
+                  entrada lateral PIP (Picture in Picture) Não Tecnologia da
+                  Tela LED Tipo de TV Smart TV Android Taxa de Atualização com
+                  Tecnologia 60Hz Fabricante Semp TCL USB 1 Local das entradas
+                  HDMI 2 entradas laterais Conversor Digital Integrado Sim Timer
+                  On/Off Não Principais Aplicativos NETFLIX, YOUTUBE, GLOBO PLAY
+                  Wi-Fi Wi-Fi integrado SAC do Fabricante (011) 3232-2000
+                  Recursos de Áudio Modo de Som - Padrão, Esporte, Filmes,
+                  Música e Usuário Polegadas 32" Garantia do Fornecedor 12 Meses
+                  Taxa de Atualização 60Hz Potência do Áudio (RMS) 10W Dimensões
+                  do produto - cm (AxLxP) 43,2x73,2x7,9cm Peso liq. aproximado
+                  do produto (Kg) 4kg Referência do Modelo 32S5300 HDMI 2 Outras
+                  Conexões 1 porta LAN, Entrada vídeo componente/composto,
+                  entrada de áudio estéreo/mono, entrada ANT/CABLE Sleep Timer
+                  Sim Conteúdo da Embalagem 01 televisor 32", 01 controle
+                  remoto, 01 cabo adaptador P2/RCA, 2 Pilhas AAA, 2 bases
+                  plásticas (pedestal), 4 parafusos 04x20mm.
+                xpath: /html/body/div[18]
+            warranty:
+              - text: 12 Meses
+                xpath: /html/body/div[12]
+            firstVariant:
+              - text: "7899968300863"
+                xpath: /html/body/div[14]
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1603455286571
+    timestamp: 1604504473959
