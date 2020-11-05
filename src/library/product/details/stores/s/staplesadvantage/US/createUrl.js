@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     domain: 'staplesadvantage.com',
     prefix: null,
-    url: null,
+    url: 'https://www.staplesadvantage.com/product_{id}',
     country: 'US',
     store: 'staplesadvantage',
-    zipcode: "''",
+    zipcode: '',
   },
 };

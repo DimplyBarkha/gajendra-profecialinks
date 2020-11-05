@@ -90,6 +90,8 @@ module.exports = {
     store: 'staplesadvantage',
     domain: 'staplesadvantage.com',
     url: 'https://www.staplesadvantage.com//product_{id}',
+    loadedSelector: 'div.js-content>div',
+    noResultsXPath: "//div[@class='errorpage__error_page']",
     zipcode: '',
   },
   implementation,
