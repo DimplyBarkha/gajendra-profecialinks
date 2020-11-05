@@ -693,6 +693,10 @@ async function implementation (
         }
       }
 
+      if (document.querySelector('*[data-test*="promotion-link"]') && document.querySelector('*[data-test*="promotion-link"]').innerText) {
+        addHiddenDiv(newDiv, 'promotion', document.querySelector('*[data-test*="promotion-link"]').innerText);
+      }
+
       if (document.querySelector('.RatingSummary__StyledRating-bxhycp-0')) {
         const averageRating = document.querySelector('.RatingSummary__StyledRating-bxhycp-0').innerText;
         addHiddenDiv(newDiv, 'aggregateRating', (Math.round(averageRating * 10) / 10));
