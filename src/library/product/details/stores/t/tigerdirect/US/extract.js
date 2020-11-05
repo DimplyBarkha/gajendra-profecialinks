@@ -62,14 +62,29 @@ async function implementation(
     var URL3 = getXpath('//div[@class="pdp-variants"]//ul/li[3]/a//@href', 'nodeValue');
     var URL4 = getXpath('//div[@class="pdp-variants"]//ul/li[4]/a//@href', 'nodeValue');
     var URL5 = getXpath('//div[@class="pdp-variants"]//ul/li[5]/a//@href', 'nodeValue');
+    if (URL1 != 0) {
+      URL1 = URL1.replace("/applications/searchtools/item-details.asp?EdpNo=", "");
+    }
+    if (URL2 != 0) {
+      URL2 = URL2.replace("/applications/searchtools/item-details.asp?EdpNo=", "");
+    }
+    if (URL3 != 0) {
+      URL3 = URL3.replace("/applications/searchtools/item-details.asp?EdpNo=", "");
+    }
+    if (URL4 != 0) {
+      URL4 = URL4.replace("/applications/searchtools/item-details.asp?EdpNo=", "");
+    }
+    if (URL5 != 0) {
+      URL5 = URL5.replace("/applications/searchtools/item-details.asp?EdpNo=", "");
+    }
     // URL1 = URL1.replace("/applications/searchtools/item-details.asp?EdpNo=", "");
     // URL2 = URL2.replace("/applications/searchtools/item-details.asp?EdpNo=", "");
     // URL3 = URL3.replace("/applications/searchtools/item-details.asp?EdpNo=", "");
     // URL4 = URL4.replace("/applications/searchtools/item-details.asp?EdpNo=", "");
     // URL5 = URL5.replace("/applications/searchtools/item-details.asp?EdpNo=", "");
     sliceURL(URL1,URL2,URL3,URL4,URL5);
-    var upc = ""
-    addElementToDocument('upc', upc);
+    // var upc = ""
+    // addElementToDocument('upc', upc);
   });
   //rank end
   return await context.extract(productDetails, { transform });

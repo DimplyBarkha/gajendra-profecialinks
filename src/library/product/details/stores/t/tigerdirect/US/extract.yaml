@@ -57,14 +57,9 @@ fields:
     xpath: //div[@id="DetailedSpecs"]/table/tbody/tr/td[contains(text(),'Weight')]/following-sibling::td
   - name: gtin
     singleValue: true
-    xpath: //meta[@itemprop="gtin14"]/@content
+    #xpath: //meta[@itemprop="gtin14"]/@content
   - name: sku
     singleValue: true
-    xpath: //p[@class="pdp-sku"]
-    regExp: (\d{7,8})|(\d{6,8})
-    #type: NUMBER
-  - name: variantId
-    singleValue: false
     xpath: //p[@class="pdp-sku"]
     regExp: (\d{7,8})|(\d{6,8})
   - name: mpc
@@ -77,9 +72,10 @@ fields:
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
-  - name: upc
+  - name: gtin
     singleValue: true
-    xpath: //div[@class="productFootnote itemModuleBox"]//ul//li//strong[3] | //div[@id="upc"]
+    xpath: //meta[@name="keywords"]/@content
+    regExp: (\d{6,15})
   - name: warnings
     singleValue: true
     #xpath: //div[@class="ccs-cc-comparison-table-cell-content"]
@@ -135,7 +131,7 @@ fields:
     #regExpReplace: 
   - name: variantInformation
     singleValue: true
-    xapth: //div[@class="pdp-variants"]//ul/li/a[@class="active"]//@alt
+    xpath: //div[@class="pdp-variants"]//ul/li//a[@class="active"]//img//@alt
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@class="pdp-small-img d-md-flex d-none owl-carousel owl-theme owl-loaded owl-drag"]//div//a//img//@src)
