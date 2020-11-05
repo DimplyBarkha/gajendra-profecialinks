@@ -2,13 +2,17 @@ input:
   id: 58396
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=b8a1c077-e6bb-4044-98e2-6e48d35cf9cd/task=387c5625-c24e-48c3-afbb-a29dcf309d8a/a9e49409-3cae-4177-a139-ac7d64522781.html
+  - html: https://workbench.import.io/html/run=59ad5ab4-56fb-4363-b6ea-0e87a93b80ae/task=13b319e4-7086-48aa-9bbc-6ee2bfee6b14/355e69e5-d156-4d7f-9821-97b18ba47df1.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
-          - productUrl:
-              - text: https://www.alcampo.es/compra-online/frescos/verduras-y-hortalizas/verduras-ecologicas/alcampo-produccion-controlada-ecologico-patata-ecologica-malla-de-2-kg/p/58396
-                xpath: /html/head[1]/link[1]/@href
+          - category:
+              - text: Frescos
+                xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[3]/a[1]
+              - text: Verduras y hortalizas
+                xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[4]/a[1]
+              - text: Verduras Ecológicas
+                xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[5]/a[1]
             image:
               - text: https://www.alcampo.es/media/h0f/h80/9144438095902.jpg
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
@@ -18,21 +22,37 @@ extractions:
             alternateImages:
               - text: https://www.alcampo.es/media/h1b/h99/9144467849246.jpg
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]/span[1]/img[1]/@data-primaryimagesrc
-            category:
-              - text: Frescos
-                xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[3]/a[1]
-              - text: Verduras y hortalizas
-                xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[4]/a[1]
-              - text: Verduras Ecológicas
-                xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[5]/a[1]
-            price:
-              - text: 3,39 €
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
             description:
               - text: La patata es fuente de vitamina C y potasio. Alimento básico de consumo
                   diario en el primer plato o bien como guarnición en segundos,
                   frita, cocinada al vapor, al horno o en forma de puré.
                 xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]
+            videos:
+              - text: https://www.youtube.com/embed/O-QNRzt6AGc?rel=0&controls=0&showinfo=0
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/iframe[1]/@src
+            availabilityText:
+              - text: In Stock
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+        xpath: /html
+      - group:
+          - name:
+              - text: Patatas ALCAMPO PRODUCCIÓN CONTROLADA ECOLÓGICO malla de 2 kg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
             brandText:
               - text: ALCAMPO PRODUCCIÓN CONTROLADA ECOLÓGICO
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[3]
@@ -42,24 +62,33 @@ extractions:
             quantity:
               - text: Unidad
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]
-            shippingInfo:
-              - text: "- ENVÍO A DOMICILIO- RECOGIDA PARKING"
-                xpath: /html/body/@shippinginfo
-            videos:
-              - text: https://www.youtube.com/embed/O-QNRzt6AGc?rel=0&controls=0&showinfo=0
-                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/iframe[1]/@src
-            name:
-              - text: Patatas ALCAMPO PRODUCCIÓN CONTROLADA ECOLÓGICO malla de 2 kg
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
-            servingSize:
-              - text: por 100ml/g
-                xpath: /html/body/@servingsize
-            servingSizeUom:
-              - text: ml/g
-                xpath: /html/body/@servingunit
             pricePerUnit:
               - text: 1,69 €
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/span[1]
+            pricePerUnitUom:
+              - text: Kg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+          - quantity:
+              - text: Unidad
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/div[1]
             pricePerUnitUom:
               - text: Kg
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]/span[1]
@@ -81,5 +110,6 @@ extractions:
               - text: No
             descriptionBullets:
               - text: "0"
-        xpath: /
-    timestamp: 1604478179858
+        xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=59ad5ab4-56fb-4363-b6ea-0e87a93b80ae/task=13b319e4-7086-48aa-9bbc-6ee2bfee6b14/355e69e5-d156-4d7f-9821-97b18ba47df1.html
+    timestamp: 1604579176163

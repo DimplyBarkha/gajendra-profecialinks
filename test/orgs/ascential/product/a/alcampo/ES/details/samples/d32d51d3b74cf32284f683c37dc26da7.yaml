@@ -2,20 +2,11 @@ input:
   id: 67591
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=b8a1c077-e6bb-4044-98e2-6e48d35cf9cd/task=b7ba2393-9bae-47fd-a8b4-ad9eafa2cafa/c08795a5-9c89-4d70-8a9d-16161ef17f98.html
+  - html: https://workbench.import.io/html/run=59ad5ab4-56fb-4363-b6ea-0e87a93b80ae/task=5dd0170e-5617-4b39-b865-218994c9bc96/ff4c1fc3-f10d-417a-8552-e18b6367ce0f.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
-          - productUrl:
-              - text: https://www.alcampo.es/compra-online/alimentacion/platos-preparados/pizzas-y-baguetinas/pizzas-congeladas/jamon-y-queso/dr-oetker-ristorante-pizza-prosciutto-330-g/p/67591
-                xpath: /html/head[1]/link[1]/@href
-            image:
-              - text: https://www.alcampo.es/media/hce/h44/10518981705758.jpg
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            imageAlt:
-              - text: Pizza prosciutto DR. OETKER Ristorante 330 g.
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
-            category:
+          - category:
               - text: Alimentación
                 xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[3]/a[1]
               - text: Platos preparados
@@ -26,47 +17,95 @@ extractions:
                 xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[6]/a[1]
               - text: Jamón y queso
                 xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[7]/a[1]
-            price:
-              - text: 3,45 €
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
-            availabilityText:
-              - text: Sin stock
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[2]/div[3]/form[1]/button[1]
-            brandText:
-              - text: DR. OETKER RISTORANTE
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[3]
-            manufacturer:
-              - text: DR. OETKER RISTORANTE
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[3]
-            quantity:
-              - text: Unidad
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]
-            weightNet:
-              - text: 330g
-                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[7]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]/span[2]
+            image:
+              - text: https://www.alcampo.es/media/hce/h44/10518981705758.jpg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Pizza prosciutto DR. OETKER Ristorante 330 g.
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            ingredientsList:
+              - text: >-
+                  Ingredientes: 
+                   Harina de trigo, 27% tomates tamizados, 14% jamón cocido sabor ahumado (carne de cerdo, agua, sal, dextrosa, estabilizantes (di- y trifosfatos, nitrito sódico), aroma, aroma de humo), 14% queso (mozzarella, edam), aceite refinado de nabina, yogur, agua, levadura, sal, azúcar, aceite de oliva virgen extra, almidón modificado, leche desnatada, salsa de soja (agua, habas de soja, sal, harina de trigo), orégano, especias, yema de huevo, aroma, ajo, perejil, espesantes (goma xantana, goma guar), acidulantes (ácido láctico, lactato cálcico), proteinas de la leche, antioxidante (extractos de romero).
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]
+            storage:
+              - text: Congelador *** (-18°C). No congelar de nuevo tras la descongelación.
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[5]/div[1]/div[1]
             directions:
               - text: "1-Precalentar el horno (Eléctrico: 220 °C). 2-Retirar el envoltorio.
                   3-Colocar la pizza congelada en la rejilla, introducir la
                   rejilla en el tercio inferior del horno y hornear entre 10-12
                   min."
                 xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[6]/div[1]/div[1]
-            shippingInfo:
-              - text: "- ENVÍO A DOMICILIO- RECOGIDA PARKING"
-                xpath: /html/body/@shippinginfo
-            name:
+            weightNet:
+              - text: 330g
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[7]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]/span[2]
+            availabilityText:
+              - text: In Stock
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+        xpath: /html
+      - group:
+          - name:
               - text: Pizza prosciutto DR. OETKER Ristorante 330 g.
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
-            ingredientsList:
-              - text: >-
-                  Ingredientes: 
-                   Harina de trigo, 27% tomates tamizados, 14% jamón cocido sabor ahumado (carne de cerdo, agua, sal, dextrosa, estabilizantes (di- y trifosfatos, nitrito sódico), aroma, aroma de humo), 14% queso (mozzarella, edam), aceite refinado de nabina, yogur, agua, levadura, sal, azúcar, aceite de oliva virgen extra, almidón modificado, leche desnatada, salsa de soja (agua, habas de soja, sal, harina de trigo), orégano, especias, yema de huevo, aroma, ajo, perejil, espesantes (goma xantana, goma guar), acidulantes (ácido láctico, lactato cálcico), proteinas de la leche, antioxidante (extractos de romero).
-                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]
-            servingSize:
-              - text: por 100ml/g
-                xpath: /html/body/@servingsize
-            servingSizeUom:
-              - text: ml/g
-                xpath: /html/body/@servingunit
+            brandText:
+              - text: DR. OETKER RISTORANTE
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[3]
+            manufacturer:
+              - text: DR. OETKER RISTORANTE
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[3]
+            availabilityText:
+              - text: Sin stock
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[2]/div[3]/form[1]/button[1]
+            quantity:
+              - text: Unidad
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]
+            pricePerUnit:
+              - text: 10,45 €
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/span[1]
+            pricePerUnitUom:
+              - text: Kg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/span[1]
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+          - availabilityText:
+              - text: Sin stock
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[2]/div[3]/form[1]/button[1]
+            quantity:
+              - text: Unidad
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/div[1]
+            pricePerUnitUom:
+              - text: Kg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]/span[1]
             caloriesPerServing:
               - text: 229.0 Kcal
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/span[1]
@@ -106,15 +145,6 @@ extractions:
             saltPerServingUom:
               - text: g
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[7]/span[2]
-            storage:
-              - text: Congelador *** (-18°C). No congelar de nuevo tras la descongelación.
-                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[5]/div[1]/div[1]
-            pricePerUnit:
-              - text: 10,45 €
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/span[1]
-            pricePerUnitUom:
-              - text: Kg
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]/span[1]
             variantCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -131,5 +161,6 @@ extractions:
               - text: No
             descriptionBullets:
               - text: "0"
-        xpath: /
-    timestamp: 1604478178626
+        xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=59ad5ab4-56fb-4363-b6ea-0e87a93b80ae/task=5dd0170e-5617-4b39-b865-218994c9bc96/ff4c1fc3-f10d-417a-8552-e18b6367ce0f.html
+    timestamp: 1604579177174
