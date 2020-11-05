@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[contains(@class,'slick-slide slick-active slick-current')]/div/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class,'slick-slide slick-active slick-current')]/div/img/@alt
+  - name: category
+    singleValue: false
+    xpath: //nav[contains(@class,'MuiTypography-root MuiBreadcrumbs-root navigation-breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary')]//li[5]/button/text()
+  - name: nameExtended
+    singleValue: true
+    xpath: //span[contains(@class,'productPage-main-productDetail-title')]/text()
+  - name: price
+    singleValue: true
+    xpath: //span[contains(@class,'productPage-main-productDetail-purchase-price')]/text()[2]
+  - name: description
+    singleValue: false
+    xpath: //span[contains(@class,'productPage-main-productDetail-description')]/text()
+  - name: packSize
+    singleValue: true
+    xpath: //span[contains(@class,'productPage-main-productDetail-size')]/p[1]/text()[2]
+  - name: caloriesPerServing
+    singleValue: true
+    xpath: //span[contains(@class,'productPage-main-productDetail-size')]/p[2]/text()
+  - name: termsAndConditions
+    singleValue: true
+    defaultValue: Yes
+  - name: privacyPolicy
+    singleValue: true
+    defaultValue: Yes
+  - name: Image360Present
+    singleValue: true
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: No
