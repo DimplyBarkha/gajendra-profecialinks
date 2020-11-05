@@ -17,6 +17,8 @@ module.exports = {
     await new Promise(resolve => setTimeout(resolve, 1000));
     await context.evaluate(async () => {
       const body = document.querySelector('body');
+      const producturl = window.location.href;
+      body.setAttribute('producturl', producturl);
       const shippingOptions = document.querySelectorAll('div[class*="imageServiceProduct"] + div');
       let shippingInfo = '';
       shippingOptions.forEach(option => {
