@@ -24,6 +24,13 @@ async function implementation (
       await context.extract(productDetails, { transform }, { type: 'APPEND' });
     }
   }
+
+  try {
+    await context.click('button[id*=productDescriptionShowMore]');
+  } catch(e) {
+    console.log("some error occurred while clicking show more button")
+  }
+
   return await context.extract(productDetails, { transform });
 }
 
