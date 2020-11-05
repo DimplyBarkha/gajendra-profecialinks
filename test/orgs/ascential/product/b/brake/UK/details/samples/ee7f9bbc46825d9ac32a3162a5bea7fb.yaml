@@ -1,0 +1,145 @@
+input:
+  RPC: 127425
+  _url: http://brake.co.uk
+extractions:
+  - html: https://workbench.import.io/html/run=1f08350c-d1dd-4b23-aeb2-00b1b0af64d6/task=b58b6533-994f-486d-9293-a8cab5763eae/4f55c158-7be6-4c8a-9485-b81166d0ec57.html
+    extractionConfigId: product/details/stores/b/brake/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://i1.adis.ws/i/Brakes/127425_1?$pdp-desktop$&img404=image-not-available&v=1&locale=en-gb
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/div[1]/li[1]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://i1.adis.ws/i/Brakes/127425_2?$pdp-desktop$&img404=image-not-available&v=1&locale=en-gb
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/div[1]/li[2]/div[1]/img[1]/@src
+            nameExtended:
+              - text: Highland Game Venison Fillet
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[2]
+            price:
+              - text: £69.99
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/span[2]
+            quantity:
+              - text: "1"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[2]
+            variantId:
+              - text: F 127425
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]
+            mpc:
+              - text: F 127425
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]
+            name:
+              - text: Highland Game Venison Fillet
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[2]
+            pricePerUnit:
+              - text: £11.67
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]
+            pricePerUnitUom:
+              - text: ea
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]
+            legalDisclaimer:
+              - text: Prices are correct at the time of going to print, all information is
+                  subject to change without notice. Our product details,
+                  including product names, descriptions, specifications and
+                  images of serving suggestions, are not intended to constitute
+                  the full legal description of the products, and does not
+                  necessarily include all information including allergens.
+                  Brakes may change product specifications or information at any
+                  time and such amendments may not be updated online
+                  immediately. For full and up-to-date details including
+                  allergens, please refer to the product packaging or
+                  alternatively contact Brakes Customer care on 0345 606 9090.
+                  View our full Product Disclaimer
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]
+            category:
+              - text: Meat & Poultry
+                xpath: /html/body/main[1]/div[1]/div[1]/ol[1]/li[2]/a[1]
+              - text: Frozen Raw Butchered Meat
+                xpath: /html/body/main[1]/div[1]/div[1]/ol[1]/li[3]/a[1]
+              - text: Beef
+                xpath: /html/body/main[1]/div[1]/div[1]/ol[1]/li[4]/a[1]
+              - text: Beef Joints
+                xpath: /html/body/main[1]/div[1]/div[1]/ol[1]/li[5]/a[1]
+            productUrl:
+              - text: https://www.brake.co.uk/meat-poultry/frozen-raw-butchered-meat/beef/beef-joints/highland-game-venison-fillet/p/127425
+                xpath: /html/body/div[7]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[8]
+            listPrice:
+              - text: £99.89
+                xpath: /html/body/div[9]
+            description:
+              - text: Super lean and naturally healthy, Wild British Venison, cut by hand from
+                  top saddle by our expert butchers and portioned for your
+                  convenience.
+                xpath: /html/body/div[10]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[12]
+            packSize:
+              - text: 6 x 2 x 140g
+                xpath: /html/body/div[13]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[14]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[15]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[16]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[17]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[18]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[18]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[20]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            ingredientsList:
+              - text: ""
+            caloriesPerServing:
+              - text: "108"
+            totalFatPerServing:
+              - text: "2.1"
+            saturatedFatPerServing:
+              - text: "1.2"
+            totalCarbPerServing:
+              - text: "0.8"
+            dietaryFibrePerServing:
+              - text: "0"
+            totalSugarsPerServing:
+              - text: "0.17"
+            proteinPerServing:
+              - text: "21"
+            saltPerServing:
+              - text: "0.24"
+            dietaryInformation:
+              - text: " "
+            allergyAdvice:
+              - text: "Contains: None of the 14 Food Allergens May contain: None of the 14 Food
+                  Allergens"
+            packaging:
+              - text: ""
+        xpath: /html
+    timestamp: 1604573578887

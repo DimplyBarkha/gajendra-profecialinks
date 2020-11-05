@@ -1,0 +1,157 @@
+input:
+  RPC: 100050
+  _url: http://brake.co.uk
+extractions:
+  - html: https://workbench.import.io/html/run=1f08350c-d1dd-4b23-aeb2-00b1b0af64d6/task=fd87c3c7-dd9e-4afc-b2d6-fa852dc2ffbc/20eaa2bc-5312-4d68-bd97-58e85eee9dc2.html
+    extractionConfigId: product/details/stores/b/brake/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://i1.adis.ws/i/Brakes/100050_1?$pdp-desktop$&img404=image-not-available&v=1&locale=en-gb
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/div[1]/li[1]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://i1.adis.ws/i/Brakes/100050_2?$pdp-desktop$&img404=image-not-available&v=1&locale=en-gb
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/div[1]/li[2]/div[1]/img[1]/@src
+              - text: https://i1.adis.ws/i/Brakes/100050_3?$pdp-desktop$&img404=image-not-available&v=1&locale=en-gb
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/div[1]/li[3]/div[1]/img[1]/@src
+            nameExtended:
+              - text: Marmite Portions (8g)
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[2]
+            price:
+              - text: £23.59
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/span[1]
+            quantity:
+              - text: "1"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[1]/div[2]
+            variantId:
+              - text: A 100050
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]
+            mpc:
+              - text: A 100050
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]
+            name:
+              - text: Marmite Portions (8g)
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[2]
+            pricePerUnit:
+              - text: £0.25
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]
+            pricePerUnitUom:
+              - text: ea
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[4]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]
+            legalDisclaimer:
+              - text: Prices are correct at the time of going to print, all information is
+                  subject to change without notice. Our product details,
+                  including product names, descriptions, specifications and
+                  images of serving suggestions, are not intended to constitute
+                  the full legal description of the products, and does not
+                  necessarily include all information including allergens.
+                  Brakes may change product specifications or information at any
+                  time and such amendments may not be updated online
+                  immediately. For full and up-to-date details including
+                  allergens, please refer to the product packaging or
+                  alternatively contact Brakes Customer care on 0345 606 9090.
+                  View our full Product Disclaimer
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[6]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]
+            directions:
+              - text: >-
+                  Food Safety Tips
+                   Store in a cool dark place. 
+                  Cooking instructions
+                   
+                   Other Cooking Instructions 
+                   
+                   Ready to use: Spread thinly on toast. 
+
+                   
+                  All cooking appliances vary in performance, these cooking instructions are guidelines only.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/main[1]/div[2]/div[1]/div[3]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]
+            category:
+              - text: Dry Store
+                xpath: /html/body/main[1]/div[1]/div[1]/ol[1]/li[2]/a[1]
+              - text: Jam, Honey & Spread
+                xpath: /html/body/main[1]/div[1]/div[1]/ol[1]/li[3]/a[1]
+              - text: Portions
+                xpath: /html/body/main[1]/div[1]/div[1]/ol[1]/li[4]/a[1]
+              - text: Portions
+                xpath: /html/body/main[1]/div[1]/div[1]/ol[1]/li[5]/a[1]
+            productUrl:
+              - text: https://www.brake.co.uk/dry-store/jam-honey-spread/portions/portions/marmite-portions-8g/p/100050
+                xpath: /html/body/div[7]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[8]
+            description:
+              - text: Yeast Extract Spread fortified with B vitamins
+                xpath: /html/body/div[10]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[12]
+            packSize:
+              - text: 4 x 24 x 8g
+                xpath: /html/body/div[13]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[14]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[15]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[16]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[17]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[18]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[18]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[20]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            ingredientsList:
+              - text: "Ingredients: Yeast extract (contains BARLEY, WHEAT, OATS, RYE), salt,
+                  vegetable juice concentrate, vitamins (thiamin, riboflavin,
+                  niacin, vitamin B12 and folic acid), natural flavouring
+                  (contains CELERY)."
+            caloriesPerServing:
+              - text: "260"
+            totalFatPerServing:
+              - text: "0.1"
+            saturatedFatPerServing:
+              - text: "0.05"
+            totalCarbPerServing:
+              - text: "30"
+            dietaryFibrePerServing:
+              - text: "1.1"
+            totalSugarsPerServing:
+              - text: "1.2"
+            proteinPerServing:
+              - text: "34"
+            saltPerServing:
+              - text: "10.8"
+            dietaryInformation:
+              - text: Suitable for Vegetarians Suitable for Vegans
+            allergyAdvice:
+              - text: "Contains: Barley, Celery, Gluten, Oats, Rye and Wheat "
+            packaging:
+              - text: ""
+        xpath: /html
+    timestamp: 1604573574448
