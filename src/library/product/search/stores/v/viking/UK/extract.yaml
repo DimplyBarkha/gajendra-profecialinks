@@ -1,30 +1,46 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: li.search-results__result
 recordXPath: null
 fields:
   - name: id
     singleValue: false
+    xpath: //div[contains(@class,'product-lister-item')]/@data-article-number
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //a[@class='product-lister-item__name']/@title
   - name: productUrl
     singleValue: false
+    xpath: //a[@class='product-lister-item__name']/@href
+    regExp: (\/en.*)
+    regExpReplace: https://www.viking-direct.co.uk$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //div[@class="product-lister-item__product-image"]//picture/img/@src
+    regExp: (\/\/static.*)
+    regExpReplace: https://www.viking-direct.co.uk$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
     singleValue: false
+    xpath: //div[@class="product-rating__stars"]/div[@class="stars"]/@title
+    regExp: ^(\d+)\.?\,?(\d+)?.*$
+    regExpReplace: $1,$2
   - name: reviewCount
     singleValue: false
+    xpath: //a[@class="product-rating"]/@data-review-count
   - name: ratingCount
     singleValue: false
+    xpath: //a[@class="product-rating"]/@data-review-count
   - name: price
     singleValue: false
+    xpath: //div[@class="product-price-panel__price-alt-vat"]
+    regExp: \s+(.*)incl\.\sVAT
+    regExpReplace: $1
   - name: manufacturer
     singleValue: true
   - name: soldBy
