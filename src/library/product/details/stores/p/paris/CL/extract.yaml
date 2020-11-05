@@ -48,7 +48,6 @@ fields:
     xpath: //td[contains(text(), "Marca")]//following-sibling::td
   - name: manufacturer
     singleValue: false
-    xpath: //td[contains(text(), "Marca")]//following-sibling::td 
     description: Product manufacturer
   - name: quantity
     singleValue: false
@@ -151,7 +150,10 @@ fields:
     xpath: count(//li[position()>1]/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")]/@src)
   - name: technicalInformationPdfPresent
     singleValue: false
-    xpath: //div[@id='added_technicalInfo']
+    xpath: //div[@class="description-table"]//a[contains(@href, ".pdf")]/@href
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: 'No'
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: //span[contains(@class,'onboarding-desktop')]

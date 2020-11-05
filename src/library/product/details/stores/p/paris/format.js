@@ -43,9 +43,6 @@ const transform = (data) => {
           listPriceItem.text = listPriceItem.text.replace(/[^\d]/gm, '');
         });
       }
-      if (row.category) {
-        row.category.shift();
-      }
       if (row.imageAlt) {
         row.imageAlt.forEach((imageAltItem) => {
           imageAltItem.text = imageAltItem.text.replace(/[,]/gm, '');
@@ -63,12 +60,12 @@ const transform = (data) => {
       }
       if (row.sku) {
         row.sku.forEach((skuItem) => {
-          skuItem.text = skuItem.text.replace(/[^\d]/gm, '');
+          skuItem.text = skuItem.text.replace('SKU', '');
         });
       }
       if (row.variantId) {
         row.variantId.forEach((variantIdItem) => {
-          variantIdItem.text = variantIdItem.text.replace(/[^\d]/gm, '');
+          variantIdItem.text = variantIdItem.text.replace('SKU', '');
         });
       }
       const descriptionArray = [];
