@@ -33,6 +33,12 @@ fields:
   - name: brandText
     singleValue: true
     xpath: //meta[@property="product:brand"]/@content
+  - name: sku
+    singleValue: true
+    xpath: //html//div[@id='sku']
+  - name: variantId
+    singleValue: true
+    xpath: //html//div[@id='sku']
   - name: manufacturer
     singleValue: true
     xpath: //meta[@property="product:brand"]/@content

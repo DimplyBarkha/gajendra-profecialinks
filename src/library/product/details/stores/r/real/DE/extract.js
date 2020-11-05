@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -27,6 +27,9 @@ module.exports = {
       // @ts-ignore
       const ShippingCost = window.dataLayer[0].product.offers[0].shipping_cost;
       addElementToDocument('shippingInfo', 'delivery Duration:' + deliveryDuration + ', Shipping Charges:' + ShippingCost);
+      // @ts-ignore
+      const sku = window.dataLayer[0].product.id;
+      addElementToDocument('sku', sku);
       // @ts-ignore
       const quantity = window.document.getElementById('amount').value;
       addElementToDocument('quantity', quantity);

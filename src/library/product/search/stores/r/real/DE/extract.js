@@ -25,7 +25,7 @@ async function implementation(
     }
     function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
-      catElement.id = key;
+      catElement.className = key;
       catElement.textContent = value;
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
@@ -51,7 +51,7 @@ async function implementation(
     const checkHttps = (data) => {
       for (let i = 0; i < data.length; i++) {
         if (data[i].startsWith("/")) {
-          addElementToDocument('thumbnail', 'https://www.real.de/' + data[i])
+          addElementToDocument('thumbnail', 'https://www.real.de' + data[i])
         }
         else {
           addElementToDocument('thumbnail', data[i])
