@@ -112,6 +112,16 @@ const transform = (data) => {
         }
         row.manufacturerDescription = [{ text: enhancedContent }];
       }
+
+      if (row.weightNet) {
+        let weightNet = row.weightNet[0].text;
+        if (row.weightNetUom) {
+          weightNet = `${weightNet} ${row.weightNetUom[0].text}`;
+        } else {
+          weightNet = `${weightNet} kg`;
+        }
+        row.weightNet = [{ text: weightNet }];
+      }
     }
   }
 

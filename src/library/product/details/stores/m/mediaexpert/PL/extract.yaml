@@ -59,15 +59,19 @@ fields:
     regExp: (.+)embed\/(.+)
     regExpReplace: $2
   - name: listPrice
-    xpath: //div[contains(@class, 'is-main')]//div[@class='inner-wrapper-sticky']//div[contains(@class,'a-price_old')][1]
+    xpath: //div[@class='inner-wrapper-sticky' or contains(@class, 'c-offerBox_offerSlider is-outlet')]//div[contains(@class,'a-price_old')][1]
   - name: color
     xpath: //td[contains(., 'Kolor')]/following-sibling::td
   - name: variantInformation
     xpath: //td[contains(., 'Kolor')]/following-sibling::td
+  - name: weightNetUom
+    xpath: //td[contains(., 'Waga')]
+    regExp: (.+)\[(.+)\]
+    regExpReplace: $2
   - name: weightNet
     xpath: //td[contains(., 'Waga')]/following-sibling::td
     regExp: (.+)
-    regExpReplace: $1 kg
+    regExpReplace: $1
   - name: manufacturer
     xpath: //td[contains(., 'Nazwa producenta')]/following-sibling::td
   - name: Image360Present
@@ -85,7 +89,7 @@ fields:
     xpath: //div[contains(@class, 'is-galleryLens')]/preceding-sibling::img/@alt
   - name: variants
     xpath: //div[contains(@class, 'c-offerBox_variantsContent')]/div[not(contains(@class, 'is-active'))]//div[contains(@class, 'c-offerBox_photo')]/@data-offer-id
-  - name: variantCont
+  - name: variantCount
     xpath: count(//div[contains(@class, 'c-offerBox_variantsContent')]/div[not(contains(@class, 'is-active'))]//div[contains(@class, 'c-offerBox_photo')])
   - name: firstVariant
     xpath: //div[contains(@class, 'c-offerBox_variantsContent')]/div[not(contains(@class, 'is-active'))][1]//div[contains(@class, 'c-offerBox_photo')]/@data-offer-id
