@@ -16,9 +16,6 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//img[@class="ImgThumb js-skuthumb scTrack scLink"]/@src)[2]
-    regExp: (.+)
-    regExpReplace: https:$1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -47,6 +44,10 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
     xpath: //span[@class="leadText SL_m"]
+  - name: description
+    singleValue: true
+    description: Product description supplied by the website
+    xpath: //div[@id="SkuTabDescription"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -474,6 +475,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@id="SkuTabDescription"]
   - name: prop65Warning
     singleValue: true
     description: null
