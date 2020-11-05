@@ -9,6 +9,8 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //li[@class="item"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.notino.de/$1
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
