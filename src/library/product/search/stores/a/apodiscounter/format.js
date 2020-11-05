@@ -40,6 +40,10 @@ const transform = (data, context) => {
             var text = row.reviewCount[0].text;
                 row.reviewCount[0].text = String(text).replace("(","").replace(")","").trim();
         }
+        if(row.aggregateRating2){
+          var text = row.aggregateRating2[0].text;
+          row.aggregateRating2[0].text = String((parseFloat(String(row.aggregateRating2[0].text).trim()) / 108) * 5 > 5 ? 5 : ((parseFloat(String(row.aggregateRating2[0].text).trim()) / 108) * 5).toFixed(2)).replace(".",",");
+        }
       }
     }
     context.setState({ rankCounter });
