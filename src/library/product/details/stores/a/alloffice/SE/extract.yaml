@@ -238,6 +238,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//div[@id="altImages"]/img[position()>1]/@src)
     type: NUMBER
   - name: news
     singleValue: true
