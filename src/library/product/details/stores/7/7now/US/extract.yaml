@@ -11,16 +11,19 @@ fields:
     xpath: //div[contains(@class,'slick-slide slick-active slick-current')]/div/img/@alt
   - name: category
     singleValue: false
-    xpath: //nav[contains(@class,'MuiTypography-root MuiBreadcrumbs-root navigation-breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary')]//li[5]/button/text()
+    xpath: //ol[@class='MuiBreadcrumbs-ol']//button[not(text()='Home')]
   - name: nameExtended
     singleValue: true
-    xpath: //span[contains(@class,'productPage-main-productDetail-title')]/text()
+    xpath: //span[contains(@class,'productPage-main-productDetail-title')]
+  - name: name
+    singleValue: true
+    xpath: //span[contains(@class,'productPage-main-productDetail-title')]
   - name: price
     singleValue: true
-    xpath: //span[contains(@class,'productPage-main-productDetail-purchase-price')]/text()[2]
+    xpath: //span[contains(@class,'productPage-main-productDetail-purchase-price')]
   - name: description
     singleValue: false
-    xpath: //span[contains(@class,'productPage-main-productDetail-description')]/text()
+    xpath: //span[contains(@class,'productPage-main-productDetail-description')]
   - name: packSize
     singleValue: true
     xpath: //span[contains(@class,'productPage-main-productDetail-size')]/p[1]/text()[2]
