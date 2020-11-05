@@ -1,51 +1,44 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="sc-32fokj-0 cfTKCJ plpo"]/div
+recordXPath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]
 fields:
   - name: productUrl
-    description: The URL for the product details page
-    xpath: //article/div[1]/a/@href
-    regExp: (.+)
-    regExpReplace: https://www.whiteaway.com$1
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//a/@href
+    regExp: (\/.*)
+    regExpReplace: https://www.lowes.com$1
   - name: thumbnail
-    description: The URL for the product thumbnail image
-    xpath: //article/div[1]/a//img/@src
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-crd"]//div[@data-selector="splp-prd-img"]//img/@src
   - name: name
-    description: The product name
-    xpath: //article[@data-selector="splp-prd-ttl"]
-  - name: skus
-    description: The store-specific product identifiera
-    xpath: //article/div[1]/a/@href
-    regExp: (\/)(\d+)
-    regExpReplace: $2
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector="splp-prd-ttl"]
   - name: ratingCount
-    description: The number of ratings
-    xpath: //div[@data-selector="splp-prd-ttl-rtgs"]/div/@aria-label
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//div[@data-selector="splp-prd-ttl-rtgs"]/div/@aria-label
     regExp: (.+) out of(.)
     regExpReplace: $1
   - name: reviewCount
-    description: The number of reviews
-    xpath: //span[@class="styles__TotalWrap-RC__sc-5hhhh2-4 glgCQP total"]
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//span[@class="styles__TotalWrap-RC__sc-5hhhh2-4 glgCQP total"]
   - name: price
-    description: The offered price for the product
-    xpath: (//div[@data-selector="splp-prd-$"]//div[@data-selector="splp-prd-rng"]//@aria-label) | (//div[@data-selector="splp-prd-$"]//div[@data-selector="splp-prd-act-$"]//@aria-label)
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-act-$"] | //div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-rng"]
   - name: rank
-    description: search/listing rank
-    type: NUMBER
-    xpath: //div[contains(@class,"sc-32fokj-0")]//div//@data-col
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//@data-col
   - name: rankOrganic
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
-    xpath: //div[contains(@class,"sc-32fokj-0")]//div//@data-col
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//@data-col
   - name: id
-    description: Unique id (within this extractor)
-    xpath: //article/div[1]/a/@href
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//a/@href
     regExp: (\/)(\d+)
     regExpReplace: $2
   - name: aggregateRating2
-    type: NUMBER
-    xpath: //div[contains(@class,"sc-1b7wdu0-5")]//div[contains(@class,"styles__RatingDiv-RC__sc-5hhhh2-2")]//@aria-label
+    singleValue: false
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//div[contains(@class,"sc-1b7wdu0-5")]//div[contains(@class,"styles__RatingDiv")]//@aria-label
     regExp: (.+) out of(.)
     regExpReplace: $1
  
