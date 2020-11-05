@@ -4,8 +4,14 @@ parameters:
   domain: primenow.amazon.com
   store: amazonPrimeNow
   zipcode: "75204"
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
 meta:
   branches:
     development:
       extractor: 0a49b355-4562-4d8d-b99b-36e70b2fba6b
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    staging:
+      extractor: 7106de0b-34a9-417c-96cb-7eb6ffe53141
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

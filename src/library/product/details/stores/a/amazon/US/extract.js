@@ -40,7 +40,7 @@ async function implementation (
   do {
     loaded = await loadContent();
     if (!loaded) {
-      await goto(pageUrl, { waitUntil: ['networkidle0', 'domcontentloaded'] });
+      await goto({ url: pageUrl });
     }
     counter++;
   } while (!loaded && counter <= MAX_TRIES);
