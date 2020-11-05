@@ -21,6 +21,13 @@ const transform = (data) => {
         });
         row.variantInformation = [{ text }];
       }
+      if (row.variants) {
+        let text = '';
+        row.variants.forEach(item => {
+          text = text + (text ? ' | ' : '') + item.text;
+        });
+        row.variants = [{ text }];
+      }
     }
   }
 

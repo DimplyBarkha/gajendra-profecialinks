@@ -16,7 +16,7 @@ fields:
   - name: category
     xpath: //li[@class="breadcrumb-item"][position()>1]//span
   - name: nameExtended
-    xpath: concat(//span[@itemprop="brand"],' ',//div[@id="product-content"]//span[@itemprop="name"],' - ',//button[@id="select-size"],' ',//span[@itemprop="color"])
+    xpath: concat(//span[@itemprop="brand"],' ',//div[@id="product-content"]//span[@itemprop="name"],' - ',//button[@id="select-size"][not(contains(@value,"Choisir la taille"))]/@value,' ',//span[@itemprop="color"])
   - name: listPrice
     xpath: //div[contains(@class,"product-details-top-right")]//div[@itemprop="offers"]//span[contains(@class,"price-standard")]/@data-product-price-value
   - name: price
@@ -106,8 +106,8 @@ fields:
     regExp: (.+)(-)(.+)(.html)
     regExpReplace: $3
   - name: variants
-    xpath: //div[@itemprop="model"]//meta[@itemprop="color"]/@content | //div[contains(@class,"product-variations")]//ul[contains(@class,"swatches")]//li
-    regExp: (.+pid=|.+-)?(.+)(&.+|.html)
+    xpath: //div[@itemprop="model"]//a/@href | //div[contains(@class,"product-variations")]//ul[contains(@class,"swatches")]//li//a/@href
+    regExp: (.+pid=|.+-)?(\d+|\w+)(&.+|.html)
     regExpReplace: $2
   - name: additionalDescBulletInfo
   - name: prop65Warning
