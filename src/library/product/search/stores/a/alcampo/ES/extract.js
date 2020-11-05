@@ -4,14 +4,25 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   const nextSelector = await context.evaluate(() => {
     const ResultSelector = document.querySelector('div.productGrid.paginationBar.bottom.clearfix>div.right>ul.pagination>li.next>a');
+
     return ResultSelector;
+  });
+
+  const pagesLength = await context.evaluate(() => {
+    const allProductsString = document.querySelector('div.totalResults.cartReviewTotal').textContent.match(/(.*[0-9])/);
+    const allProductsNumber = parseInt(allProductsString);
+    const productsPerPage = document.querySelectorAll('div.productGrid>div>div').length;
+
+    const pagesNumber = (allProductsNumber / productsPerPage);
+
+    return pagesNumber;
   });
 
   await context.extract(productDetails);
 
-  if (nextSelector) {
+  if (nextSelector !== null && nextSelector !== undefined) {
     while (true) {
-      await new Promise((resolve, reject) => setTimeout(resolve, 60000));
+      await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
       const isPopupPresent = await context.evaluate(async () => {
         return document.querySelector('div.cc_css_reboot.cc_dialog.light.interstitial');
@@ -26,48 +37,13 @@ async function implementation (inputs, parameters, context, dependencies) {
 
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
-      await context.evaluate(() => {
-        function addProp (selector, iterator, propName, value) {
-          document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
-        };
-
-        const manufacturer = document.querySelectorAll('.marca');
-        const price = document.querySelectorAll('.priceContainer');
-        let priceIteration;
-        let manufacturerIteration;
-        let words;
-
-        document.querySelector('ul.dpd-cortesia').setAttribute('searchUrl', window.location.href);
-
-        // there are same number of products so i < price.length will work for i < manufacturer.length
-
-        for (let i = 0; i < price.length; i++) {
-          priceIteration = price[i].textContent;
-
-          priceIteration = priceIteration.replace(/\s\s+/g, '');
-          priceIteration = priceIteration.replace('Unidad', '');
-
-          manufacturerIteration = manufacturer[i].textContent;
-          manufacturerIteration.replace(/\s\s+/g, '');
-          words = manufacturerIteration.match(/([\w+]+)/g);
-
-          if (words.length <= 1) {
-            manufacturerIteration = words;
-          } else {
-            manufacturerIteration = words[0] + ' ' + words[1];
-          };
-
-          addProp('.priceContainer', i, 'price', priceIteration);
-          addProp('.marca', i, 'manufacturer', manufacturerIteration);
-          addProp('div.fila4.productGridRow>div>div', i, 'rank', `${i + 1}`);
-        };
-      });
-
       extract.push(await context.extract(productDetails));
 
       await context.evaluate(() => {
         document.querySelector('div.productGrid.paginationBar.bottom.clearfix>div.right>ul.pagination>li.next>a').click();
       });
+
+      await new Promise((resolve, reject) => setTimeout(resolve, 60000));
 
       return extract;
     }

@@ -8,7 +8,7 @@ fields:
     xpath: //a[@class="productMainLink productTooltipClass"]/attribute::data-id 
   - name: searchUrl
     singleValue: true
-    xpath: //ul[@class='dpd-cortesia']/@searchUrl
+    # xpath: //ul[@class='dpd-cortesia']/@searchUrl
   - name: name
     singleValue: false
     xpath: //div[@class='productName truncate']/span
@@ -41,7 +41,7 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
-    xpath: //div[@class="fila4 productGridRow"]/div/div/@rank
+    # xpath: //div[@class="fila4 productGridRow"]/div/div/@rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
