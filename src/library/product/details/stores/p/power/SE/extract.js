@@ -34,19 +34,20 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       // @ts-ignore
-      const iframeDoc = document.querySelector('iframe.videoly-box') && document.querySelector('iframe.videoly-box').contentWindow;
-      if (iframeDoc && iframeDoc.document && iframeDoc.document.body && iframeDoc.document.body.innerHTML) {
-        const parser = new DOMParser();
-        const htmlDoc = parser.parseFromString(iframeDoc.document.body.innerHTML, 'text/html');
-        const videoElements = htmlDoc.querySelectorAll('div.b-video-cover');
-        videoElements && videoElements.forEach(item => {
-          addElementToDocument('videoUrls', item.getAttribute('style'));
-        });
-        const videoDurations = htmlDoc.querySelectorAll('.video-duration ');
-        videoDurations && videoDurations.forEach(item => {
-          addElementToDocument('videoDurations', item.textContent);
-        });
-      }
+      // const iframeDoc = document.querySelector('iframe.videoly-box') && document.querySelector('iframe.videoly-box').contentWindow;
+      // if (iframeDoc && iframeDoc.document && iframeDoc.document.body && iframeDoc.document.body.innerHTML) {
+      //   const parser = new DOMParser();
+      //   const htmlDoc = parser.parseFromString(iframeDoc.document.body.innerHTML, 'text/html');
+      //   const videoElements = htmlDoc.querySelectorAll('div.b-video-cover');
+      //   videoElements && videoElements.forEach(item => {
+      //     addElementToDocument('videoUrls', item.getAttribute('style'));
+      //   });
+      //   const videoDurations = htmlDoc.querySelectorAll('.video-duration ');
+      //   videoDurations && videoDurations.forEach(item => {
+      //     addElementToDocument('videoDurations', item.textContent);
+      //   });
+      // }
+
       let scrollSelector = document.querySelector('footer#footer-site');
       // @ts-ignore
       let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
@@ -58,6 +59,14 @@ module.exports = {
         // @ts-ignore
         scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
         await new Promise(resolve => setTimeout(resolve, 3500));
+      }
+
+      if (document.querySelectorAll('iframe[title*="Flix-media-video"]') && document.querySelectorAll('iframe[title*="Flix-media-video"]').length > 0) {
+        const videoElements = document.querySelectorAll('iframe[title*="Flix-media-video"]');
+        videoElements && videoElements.forEach(item => {
+          const videoEle = item.getAttribute('src');
+          addElementToDocument('videoUrls', videoEle);
+        });
       }
     });
     try {
