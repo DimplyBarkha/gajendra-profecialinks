@@ -25,31 +25,29 @@ async function implementation (
       const sku = jsonString.offers.map(e => e.sku);
       const price = jsonString.offers.map(e => e.price);
       const url = jsonString.offers.map(e => e.url);
-      const availability = jsonString.offers.map(e => e.availability);
       for (i = 0; i < sku.length; i++) {
         const newLi = document.createElement('li');
-        document.querySelector('div[data-test-id="BuyBox"] ul[id=single-size-dimension-menu]').appendChild(newLi);
+        document.querySelector('ul[data-test-id="DropdownList"]').appendChild(newLi);
         newLi.id = `item${i}`;
       }
-      let array = [...document.querySelectorAll('ul[id="single-size-dimension-menu"] li')];
+      let array = [...document.querySelectorAll('ul[data-test-id="DropdownList"] li')];
       for (i = 0; i < array.length; i++) {
-        array[i].setAttribute('variants', sku);
-        array[i].setAttribute('firstvariant', sku[0]);
-        array[i].setAttribute('price', price[i]);
-        array[i].setAttribute('url', url[i]);
-        array[i].setAttribute('availability', availability[i]);
+        // array[i].setAttribute('variants', sku);
+        // array[i].setAttribute('firstvariant', sku[0]);
+        // array[i].setAttribute('price', price[i]);
+        // array[i].setAttribute('url', url[i]);
       }
-      let variantInfo = [];
+
       fetch(`https://api-cloud.aboutyou.de/v1/products/${variantId}?with=variants%2Cvariants.attributes%2Cimages.attributes%3Alegacy%28false%29%2CpriceRange&campaignKey=px&shopId=605`)
         .then(response => response.json())
         .then(data => {
           console.log(data.variants);
-          var variantInfo= [];
           for (let i = 0; i < data.variants.length; i++) {
-            array[i].setAttribute('ean', data.variants[i].attributes.ean.values.value);
             array[i].setAttribute('sku', data.variants[i].id);
             array[i].setAttribute('mpn', data.variants[i].referenceKey);
-            array[i].setAttribute('size', `${data.variants[i].attributes.vendorSize.values.value}  ${data.variants[i].attributes.shopSize.values.label}`);
+            array[i].setAttribute('availability', data.variants[i].stock.quantity);
+            array[i].setAttribute('ean', data.variants[i].attributes.ean.values.value);
+            array[i].setAttribute('size', `${data.variants[i].attributes.vendorSize.values.value} ${data.variants[i].attributes.shopSize.values.label}`);
           }
         });
     }

@@ -5,8 +5,8 @@ module.exports = {
     country: 'DE',
     store: 'aboutyou',
     domain: 'aboutyou.de',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[data-test-id="ProductName"]',
+    noResultsXPath: '//div[@data-test-id="SoldOutContainer"]',
     zipcode: '',
   },
 };

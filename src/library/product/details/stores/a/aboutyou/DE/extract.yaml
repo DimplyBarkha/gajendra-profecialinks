@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //*[@id="single-size-dimension-menu"]//li
+recordXPath: //*[@data-test-id="DropdownList"]//li
 fields:
   - name: image
     xpath: ancestor::html//div[@data-test-id="AdpImageGrid"]//div[@data-test-id="ImageBoxContainer"][1]//img/@src
@@ -42,7 +42,7 @@ fields:
     xpath: //@ean
   - name: sku
     xpath: ancestor::html//link[@rel="canonical"]/@href
-    regExp: (.+-)(+)
+    regExp: (.+-)(\d+)
     regExpReplace: $2
   - name: variantId
     xpath: //@sku
