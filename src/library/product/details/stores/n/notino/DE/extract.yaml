@@ -78,7 +78,10 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
+    xpath: (//span[@class="styled__CodeBlock-mu8uqe-1 fuzqBd"])
     singleValue: true
+    regExp: Code(:) (.+)
+    regExpReplace: $2
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
