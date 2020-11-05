@@ -16,7 +16,7 @@ fields:
     xpath: //input[@name='product']/@value
   - name: productUrl
     singleValue: false
-    xpath: (//a[@class='product-image-container']/@href)[1]
+    xpath: //a[@class='product-image-container']/@href
   - name: searchUrl
     singleValue: false
     xpath: //div[@id="page_url"]
