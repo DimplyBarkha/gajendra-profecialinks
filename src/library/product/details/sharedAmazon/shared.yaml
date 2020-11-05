@@ -60,8 +60,8 @@ fields:
   - name: backupBrand
     singleValue: false
     xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
-    regExp: '(Brand:\s+(.+)$|Visit the (.+) Store|^(.+)$)'
-    regExpReplace: $2$3$4
+    regExp: '(Brand:\s+(.+)$|Visit the (.+) Store|by\s+(.+)$|^(.+)$)'
+    regExpReplace: $2$3$4$5
   - name: brandText
     singleValue: false
     xpath: //*[normalize-space(text())="Brand" or normalize-space(text())="Brand:" or normalize-space(text())="Brand Name"]/following-sibling::*[1]
@@ -123,11 +123,11 @@ fields:
     xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")] | //span[contains(@class,"buybox") and contains(text(),"Ships from")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")] | //div[contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"]/a
   - name: shippingDimensions
     singleValue: false
-    xpath: //*[contains(normalize-space(text()),"Package Dimensions") or contains(normalize-space(text()),"Shipping Dimensions")]/following-sibling::*[1] | //*[normalize-space(text())="Item Package Dimensions"]/following-sibling::*[1]
+    xpath: //*[contains(normalize-space(text()),"Package Dimensions") or contains(normalize-space(text()),"Shipping Dimensions") or contains(normalize-space(text()),"Parcel Dimensions")]/following-sibling::*[1] | //*[normalize-space(text())="Item Package Dimensions"]/following-sibling::*[1]
     regExp: '^[^;]+'
   - name: shippingWeight
     singleValue: false
-    xpath: //*[contains(normalize-space(text()),"Package Dimensions") or contains(normalize-space(text()),"Shipping Dimensions")]/following-sibling::*[1][contains(.,';')] | //*[normalize-space(text())="Package Weight" or normalize-space(text())="Shipping Weight"]/following-sibling::*[1]
+    xpath: //*[contains(normalize-space(text()),"Package Dimensions") or contains(normalize-space(text()),"Parcel Dimensions") or contains(normalize-space(text()),"Shipping Dimensions")]/following-sibling::*[1][contains(.,';')] | //*[normalize-space(text())="Package Weight" or normalize-space(text())="Shipping Weight"]/following-sibling::*[1]
     regExp: '[^;]+$'
     # xpath: //th[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //*[contains(text(), 'Package Weight')]/following-sibling::*[1]/text()[1]| //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Shipping Weight')]/following-sibling::text()[1] | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Shipping Weight")]/following-sibling::td[1]/text()
   - name: dimensions
