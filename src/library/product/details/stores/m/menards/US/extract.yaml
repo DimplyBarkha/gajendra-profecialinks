@@ -30,7 +30,7 @@ fields:
     #regExpReplace: $1
   - name: quantity
     singleValue: false
-    xpath: (//div[@class="card-body row d-flex justify-content-center col-12"]//div//div[contains(text(),'Package Quantity')])[1]//following-sibling::div
+    #xpath: (//div[@class="card-body row d-flex justify-content-center col-12"]//div//div[contains(text(),'Package Quantity')])[1]//following-sibling::div
   - name: featureBullets
     singleValue: false
     xpath: //div[@id="features"]//ul//li[1] | //div[@id="features"]//ul//li[2] | //div[@id="features"]//ul//li[3] | //div[@id="features"]//ul//li[4] | //div[@id="features"]//ul//li[5] | //div[@id="features"]//ul//li[6] | //div[@id="features"]//ul//li[7] | //div[@id="features"]//ul//li[8] | //div[@id="features"]//ul//li[9] | //div[@id="features"]//ul//li[10]
@@ -39,7 +39,7 @@ fields:
     xpath: count(//div[@id='features']//ul/li)
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[@class="d-inline d-print-none"]//span//a//img//@src)
+    #xpath: count(//div[@class="d-inline d-print-none"]//span//a//img//@src)
     type: NUMBER
   - name: brandText
     singleValue: true
