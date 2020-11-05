@@ -10,7 +10,7 @@ fields:
     regExp: ^(.+)$
     regExpReplace: https://www.real.de/$1
   - name: thumbnail
-    xpath: //html//div[@class='thumbnail']
+    xpath: //div[@class='img-wrapper rd-product__image-container']/img/@content
   - name: name
     xpath: //div[@class="_title"]/span/text()
   - name: gtin
