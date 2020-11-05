@@ -15,14 +15,21 @@ async function implementation (
   }
   console.log('Checking no results', parameters.noResultsXPath);
 
+  try {
+    await context.setInputValue('search#search', inputs.keywords);
+    await context.keyboard.press('Enter');
+  } catch (e) {
+    console.log(e);
+  }
+
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
-      while (scrollTop !== 20000) {
+      while (scrollTop !== 3000) {
         await stall(500);
         scrollTop += 1000;
         window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
+        if (scrollTop === 3000) {
           await stall(5000);
           break;
         }
@@ -38,10 +45,14 @@ async function implementation (
   };
   for (let i = 0; i < 20; i++) {
     try {
+      await applyScroll(context);
+    } catch (e) {
+      console.log(e);
+    }
+    try {
       await context.click('a.ver-mas-productos');
     } catch (e) {
       console.log(e);
-      await applyScroll(context);
     }
   }
 
