@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //img[@class='rd-product-image-gallery__slide-large-image drift-initialized']/@src
+    xpath: (//div[contains(@class,'swiper-slide rd-product-image-gallery__slide')])[1]/img/@src
   - name: alternateImages
     singleValue: false
     xpath: //html//div[@id='altImages']
