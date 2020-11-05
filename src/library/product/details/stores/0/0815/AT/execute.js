@@ -30,10 +30,14 @@ async function implementation (
       timeout: 100000,
       waitUntil: 'networkidle0',
     });
-    await context.waitForSelector('.product-detail-description-text', { timeout: 100000 });
+    await context.waitForSelector('div[class*="is-button-buy"]', { timeout: 100000 });
     await context.evaluate(() => {
       const div = document.evaluate("//div[contains(@class,'product-detail-buy')]//div[contains(@class,'custom-price-style') and not (contains(@class,'instead'))]", document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
       div.innerText = div.innerText.replace(',', '.').replace('\n', '');
+      const ava2 = document.createElement('div');
+      ava2.setAttribute('id', 'availablity');
+      ava2.innerText = 'In Stock';
+      document.body.append(ava2);
     });
   } else {
     await context.evaluate(() => {

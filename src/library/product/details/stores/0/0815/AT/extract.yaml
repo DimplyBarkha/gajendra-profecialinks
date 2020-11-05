@@ -44,9 +44,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     defaultValue: Out of Stock
-    xpath: //div[contains(@class,"is-button-buy")]
-    regExp: (.+)
-    regExpReplace: In Stock
+    xpath: //div[@id="availablity"]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
