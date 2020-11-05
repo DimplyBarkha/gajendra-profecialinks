@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class,'product-box') and @data-store=1]
 fields:
   - name: price
     singleValue: false
-    xpath: //div[@class='product-box-price']//span[@class='product-box-price-from']/text()
+    xpath: //div[@class='product-box-price']//span[@class='product-box-price-from']/text() | //div[@class='product-box-price is-special-price']//span[@class='product-box-price-to']/text()
     regExp: (\d+)(.)(\d+)
     regExpReplace: $1.$3
   - name: id
@@ -22,6 +22,11 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class,'product-box')]//div[contains(@class,'product-box-image')]/a/img[contains(@src,'http')]/@src
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='added-searchurl'] 
+
+  
   # - name: aggregateRating
   #   singleValue: false
   #   xpath:
