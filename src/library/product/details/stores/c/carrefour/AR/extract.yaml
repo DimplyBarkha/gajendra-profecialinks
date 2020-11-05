@@ -9,9 +9,9 @@ fields:
   - name: metaKeywords
     singleValue: true`
     xpath: //meta[contains(@name,'keywords')]/@content
-  - name: category
-    singleValue: false
-    xpath: //div[@class='breadcrumbs']//ul/li[not(@class='home')]
+  # - name: category
+  #   singleValue: false
+  #   xpath: //div[@class='breadcrumbs']//ul/li[not(@class='Inicio')]
   - name: name
     singleValue: true
     xpath: //div[@class='product-name']//span
@@ -45,12 +45,12 @@ fields:
   - name: mpc
     singleValue: true
     xpath: //div[@class='especifiacion-box']//span[contains(text(),'Modelo')]//following-sibling::span
-  # - name: sku
-  #   singleValue: false
-  #   xpath: //script[contains(text(),'productId')]
-  # - name: variantId
-  #   singleValue: false
-  #   xpath: //script[contains(text(),'productId')]
+  - name: sku
+    singleValue: false
+    xpath: //meta[@property='og:url']/@content    
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@property='og:url']/@content    
   - name: promotion
     singleValue: true
     xpath: //div[@class='product-shop']//p[contains(@class,'offer')]

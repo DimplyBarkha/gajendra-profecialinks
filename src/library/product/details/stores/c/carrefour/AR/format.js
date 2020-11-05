@@ -24,24 +24,30 @@ const transform = (data) => {
     return data;
   };
   for (const { group } of data) {
-    for (let row of group) {
-      // if (row.sku) {
-      //   row.sku.forEach(item => {
-      //     // "productId":"1555143"
-      //     var myRegexp = /"productId":"(\d+)"/g;
-      //     var match = myRegexp.exec(item.text);
-      //     if (match.length) {
-      //       item.text = match[1].trim();
-      //     }
-      //     row.variantId = [{ text: row.sku[0].text }];
-      //   });
-      // }
+    for (const row of group) {
+      if (row.sku) {
+        row.sku.forEach(item => {
+          // "productId":"1555143"
+          var myRegexp = /.+\/(.+?)\.htm/g;
+          var match = myRegexp.exec(item.text);
+          if (match.length) {
+            item.text = match[1].trim();
+          }
+          row.variantId = [{ text: row.sku[0].text }];
+        });
+      }
       if (row.specifications) {
         var info = [];
         row.specifications.forEach(item => {
           info.push(item.text);
         });
         row.specifications = [{ text: info.join(' || ') }];
+      }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace('.', '');
+          item.text = item.text.replace(',', '.');
+        });
       }
       if (row.descriptionBullets) {
         var tempInfo = [];
