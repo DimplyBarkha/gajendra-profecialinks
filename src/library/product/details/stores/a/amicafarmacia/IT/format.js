@@ -32,6 +32,10 @@ const transform = (data) => {
         return result;
     }
 
+    function getWarnings(descText) {
+        return descText.substring(0,descText.indexOf('.')+1);
+    }
+
     for (const { group } of data) {
         for (const row of group) {
             if (row.description) {
@@ -42,6 +46,10 @@ const transform = (data) => {
                 } 
                 else if (desc.includes('INGREDIENTI')) {
                     row.ingredientsList = [{text: getIngredients(desc.split('INGREDIENTI')[1]), xpath: xpath}];
+                }
+
+                if (desc.includes('Avvertenze')) {
+                    row.warnings = [{text: getWarnings(desc.split('Avvertenze')[1]), xpath: xpath}];
                 }
             }
             
