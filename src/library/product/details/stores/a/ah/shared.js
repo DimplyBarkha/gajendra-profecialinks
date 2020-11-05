@@ -6,67 +6,67 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (row.pricePerUnit2) {
-        let text = '';
-        row.pricePerUnit2.forEach(item => {
-          if (item.text.endsWith('p/')) {
-            text = item.text.replace('p/', '');
-          } else if (item.text.endsWith('/')) {
-            text = item.text.slice(0, -1);
-            console.log(text);
-          } else {
-            text = item.text;
-          }
-        });
-        row.pricePerUnit2 = [
-          {
-            text,
-          },
-        ];
-      }
-      if (row.description) {
-        let text = '';
-        row.description.forEach(item => {
-          text += ` || ${item.text}`;
-        });
-        row.description = [
-          {
-            text: text,
-          },
-        ];
-      }
-      if (row.specifications) {
-        let text = '';
-        row.specifications.forEach(item => {
-          text = row.specifications.map(elm => elm.text).join(' || ');
-        });
-        row.specifications = [{ text }];
-      }
-      if (row.manufacturerDescription) {
-        let text = '';
-        row.manufacturerDescription.forEach(item => {
-          text = text + (text ? ' ' : '') + item.text;
-        });
-        row.manufacturerDescription = [{ text }];
-      }
+      // if (row.pricePerUnit2) {
+      //   let text = '';
+      //   row.pricePerUnit2.forEach(item => {
+      //     if (item.text.endsWith('p/')) {
+      //       text = item.text.replace('p/', '');
+      //     } else if (item.text.endsWith('/')) {
+      //       text = item.text.slice(0, -1);
+      //       console.log(text);
+      //     } else {
+      //       text = item.text;
+      //     }
+      //   });
+      //   row.pricePerUnit2 = [
+      //     {
+      //       text,
+      //     },
+      //   ];
+      // }
+      // if (row.description) {
+      //   let text = '';
+      //   row.description.forEach(item => {
+      //     text += ` || ${item.text}`;
+      //   });
+      //   row.description = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
+      // }
+      // if (row.specifications) {
+      //   let text = '';
+      //   row.specifications.forEach(item => {
+      //     text = row.specifications.map(elm => elm.text).join(' || ');
+      //   });
+      //   row.specifications = [{ text }];
+      // }
+      // if (row.manufacturerDescription) {
+      //   let text = '';
+      //   row.manufacturerDescription.forEach(item => {
+      //     text = text + (text ? ' ' : '') + item.text;
+      //   });
+      //   row.manufacturerDescription = [{ text }];
+      // }
 
-      if (row.caloriesPerServing) {
-        let text = '';
-        row.caloriesPerServing.forEach(item => {
-          if (item.text.includes('//')) {
-            text = item.text.replace('//', '/');
-          } else if (item.text.endsWith('/')) {
-            text = item.text.slice(0, -1);
-          } else {
-            text = item.text;
-          }
-        });
-        row.caloriesPerServing = [
-          {
-            text,
-          },
-        ];
-      }
+      // if (row.caloriesPerServing) {
+      //   let text = '';
+      //   row.caloriesPerServing.forEach(item => {
+      //     if (item.text.includes('//')) {
+      //       text = item.text.replace('//', '/');
+      //     } else if (item.text.endsWith('/')) {
+      //       text = item.text.slice(0, -1);
+      //     } else {
+      //       text = item.text;
+      //     }
+      //   });
+      //   row.caloriesPerServing = [
+      //     {
+      //       text,
+      //     },
+      //   ];
+      // }
       if (row.variants) {
         let text = '';
         row.variants.forEach(item => {

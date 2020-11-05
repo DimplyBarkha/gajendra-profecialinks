@@ -17,9 +17,8 @@ fields:
     xpath: //ol/li[@itemprop="itemListElement"][position()>1]
   - name: nameExtended
     xpath: concat(//h1[1],' ',//div[contains(@class,"product-card-header_unitInfo")]/text())
-#   - name: listPrice
-#     singleValue: true
-#     description: The stated undiscounted price for the product
+  - name: listPrice
+    description: The stated undiscounted price for the product
   - name: price
     xpath: //div[contains(@class,"product-card-hero-price_root")]//div[@data-testhook="price-amount"] 
   - name: availabilityText
@@ -28,7 +27,7 @@ fields:
     regExpReplace: In Store Only
     defaultValue: In stock
   - name: description
-    xpath: //body//@desc
+    xpath: //div[@id="desc"]
   - name: descriptionBullets
     xpath: count(//div[@class="product-info-description"]//ul//li | //div[@class="product-summary"]//ul//li)
 #   - name: brandText
@@ -52,8 +51,8 @@ fields:
 #     singleValue: true
 #     description: The store-specific product identifier
   - name: variantId
-    xpath: //div//@data-mop-page-url
-    regExp: wi\d+
+    xpath: //link[@rel="canonical"]//@href
+    regExp: (wi\d+)
 #   - name: mpc
 #     singleValue: true
 #     description: The manufacturer model code (unique) of the product
@@ -257,14 +256,12 @@ fields:
 #   - name: cholesterolPerServingUom
 #     singleValue: true
 #     description: Unit of Measure Data for Cholesterol content
-#   - name: sodiumPerServing
-#     singleValue: true
-#     description: Nutritional Information for Sodium content - Usually based on per
-#       100g serving
-#     type: NUMBER
-#   - name: sodiumPerServingUom
-#     singleValue: true
-#     description: Unit of Measure Data for Sodium content
+  - name: sodiumPerServing
+    xpath: //td[contains(.,'Natrium')]//following-sibling::td[1]
+    regExp: ([0-9.]+)
+  - name: sodiumPerServingUom
+    xpath: //td[contains(.,'Natrium')]//following-sibling::td[1]
+    regExp: ([a-z]+)
   - name: totalCarbPerServing
     xpath: //td[contains(.,'Koolhydraten')]//following-sibling::td
     regExp: ([0-9.]+)
@@ -283,65 +280,51 @@ fields:
   - name: totalSugarsPerServingUom
     xpath: //td[contains(.,'Waarvan suikers')]//following-sibling::td
     regExp: g
-#   - name: proteinPerServing
-#     singleValue: true
-#     description: Nutritional Information for Protein content - Usually based on per
-#       100g serving
-#     type: NUMBER
-#   - name: proteinPerServingUom
-#     singleValue: true
-#     description: Unit of Measure Data for Protein
-#   - name: vitaminAPerServing
-#     singleValue: true
-#     description: Nutritional Information for Vitamin A content - Usually based on
-#       per 100g serving
-#     type: NUMBER
-#   - name: vitaminAPerServingUom
-#     singleValue: true
-#     description: Unit of Measure Data for Vitamin A
-#   - name: vitaminCPerServing
-#     singleValue: true
-#     description: Nutritional Information for Vitamin C content - Usually based on
-#       per 100g serving
-#     type: NUMBER
-#   - name: vitaminCPerServingUom
-#     singleValue: true
-#     description: Unit of Measure Data for Vitamin C
-#   - name: calciumPerServing
-#     singleValue: true
-#     description: Nutritional Information for Calcium content - Usually based on per
-#       100g serving
-#     type: NUMBER
-#   - name: calciumPerServingUom
-#     singleValue: true
-#     description: Unit of Measure Data for Calcium
-#   - name: ironPerServing
-#     singleValue: true
-#     description: Nutritional Information for Iron content - Usually based on per
-#       100g serving
-#     type: NUMBER
-#   - name: ironPerServingUom
-#     singleValue: true
-#     description: Unit of Measure Data for Iron
+  - name: proteinPerServing
+    xpath: //td[contains(.,'Eiwitten')]//following-sibling::td[1]
+    regExp: ([0-9.]+)
+  - name: proteinPerServingUom
+    xpath: //td[contains(.,'Eiwitten')]//following-sibling::td[1]
+    regExp: ([a-z]+)
+  - name: vitaminAPerServing
+    xpath: //td[contains(.,'Vitamine A')]//following-sibling::td[1]
+    regExp: ([0-9.]+)
+  - name: vitaminAPerServingUom
+    xpath: //td[contains(.,'Vitamine A')]//following-sibling::td[1]
+    regExp: µg|mg
+  - name: vitaminCPerServing
+    xpath: //td[contains(.,'Vitamine C')]//following-sibling::td[1]
+    regExp: ([0-9.]+)
+  - name: vitaminCPerServingUom
+    xpath: //td[contains(.,'Vitamine C')]//following-sibling::td[1]
+    regExp: µg|mg
+  - name: calciumPerServing
+    xpath: //td[contains(.,'Calcium')]//following-sibling::td[1]
+    regExp: ([0-9.]+)
+  - name: calciumPerServingUom
+    xpath: //td[contains(.,'Calcium')]//following-sibling::td[1]
+    regExp: ([0-9.]+)
+  - name: ironPerServing
+    xpath: //td[contains(.,'IJzer')]//following-sibling::td[1]
+    regExp: ([0-9.]+)
+  - name: ironPerServingUom
+    xpath: //td[contains(.,'IJzer')]//following-sibling::td[1]
+    regExp: ([0-9.]+)
 #   - name: dietarySymbols
 #     singleValue: true
 #     description: Information related to the dietary symbols of a specific product
-#   - name: magnesiumPerServing
-#     singleValue: true
-#     description: Nutritional Information for Magnesium content - Usually based on
-#       per 100g serving
-#     type: NUMBER
-#   - name: magnesiumPerServingUom
-#     singleValue: true
-#     description: Unit of Measure Data for Magnesium
-#   - name: saltPerServing
-#     singleValue: true
-#     description: Nutritional Information for Salt content - Usually based on per
-#       100g serving
-#     type: NUMBER
-#   - name: saltPerServingUom
-#     singleValue: true
-#     description: Unit of Measure Data for Salt
+  - name: magnesiumPerServing
+    xpath: //td[contains(.,'Mangaan')]//following-sibling::td[1]
+    regExp: ([0-9.]+)
+  - name: magnesiumPerServingUom
+    xpath: //td[contains(.,'Mangaan')]//following-sibling::td[1]
+    regExp: mg|µg
+  - name: saltPerServing
+    xpath: //td[contains(.,'Zout')]//following-sibling::td[1]
+    regExp: ([0-9.]+)
+  - name: saltPerServingUom
+    xpath: //td[contains(.,'Zout')]//following-sibling::td[1]
+    regExp: ([a-z]+)
 #   - name: dietaryInformation
 #     singleValue: true
 #     description: null
@@ -369,18 +352,15 @@ fields:
 #   - name: additives
 #     singleValue: true
 #     description: List of additives in the product
-#   - name: pricePerUnit
-#     singleValue: true
-#     description: Price of the product split into certain units
-#   - name: pricePerUnitUom
-#     singleValue: true
-#     description: The unit of measurement used in price_per_unit
+  - name: pricePerUnit
+    xpath: //span[contains(@class,"product-card-header_unitPrice")]//text()[position()>last()-1]
+  - name: pricePerUnitUom
+    xpath: //span[contains(@class,"product-card-header_unitPrice")]//text()[position()=last()-3]
 #   - name: promotion
 #     singleValue: true
 #     description: promotion text on product page
-#   - name: alcoholContent
-#     singleValue: true
-#     description: Alcohol content information
+  - name: alcoholContent
+    xpath: //h4[contains(.,'alcoholpercentage')]//following-sibling::p//text()[1]
 #   - name: newVersion
 #     singleValue: true
 #     description: In product page, information about a new version of the product

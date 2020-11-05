@@ -35,7 +35,11 @@ module.exports = {
           }
         });
       }
-      document.body.setAttribute('desc', `${text.replace(/\s{2,}/g, ' ')}`);
+      const description = document.createElement('div');
+      description.id = 'desc';
+      description.innerText = text.replace(/\s{2,}/g, ' ');
+      document.body.appendChild(description);
+      // document.body.setAttribute('desc', `${text.replace(/\s{2,}/g, ' ')}`);
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
