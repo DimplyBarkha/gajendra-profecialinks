@@ -11,7 +11,7 @@ fields:
     xpath: //html//div[@id='altImages']
   - name: category
     singleValue: false
-    xpath: //a[@cs-id='breadcrumb-level-6-link']/text()
+    xpath: //nav[@class="rd-product-breadcrumb-navigation"]/a[not(contains(@cs-id,'breadcrumb-level-1-link'))]/text()
   - name: nameExtended
     singleValue: true
     xpath: //h1[@class="rd-product-detail__title"]/@title

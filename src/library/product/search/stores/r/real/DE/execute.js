@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'real',
     domain: 'real.de',
-    url: 'https://www.real.de/item/search/?search_value=Can&page=3',
+    url: 'https://www.real.de/item/search/?search_value={searchTerms}&valueKey_search_value=',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
