@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'td[class="next"]>a[class="enabled"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div[class*="rs-pview"]',
+    loadedSelector: 'td#CentralArea',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'ebay.es',
