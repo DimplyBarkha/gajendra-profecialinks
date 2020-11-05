@@ -1,0 +1,21 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="divDataList"]/div[contains(@class,"product-item")]
+fields:
+  - name: productUrl
+    xpath: //div[@class="product-item-border"]//div[contains(@class,"product-item-image-column")]//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.auchan.pt$1
+  - name: thumbnail
+    xpath: //div[@class="product-item-border"]//div[contains(@class,"product-item-image-column")]//div[@class="product-item-image-box"]/img/@src
+  - name: name
+    xpath: //div[@class="product-item-border"]//div[contains(@class,"product-item-header-column")]//h3
+  - name: price
+    xpath: //div[@class="product-item-border"]//div[contains(@class,"product-item-price-column")]//div[@class="product-item-price-box"]//p
+    regExp: (^€(\d+,\d+|\d+))
+    regExpReplace: $2
+  - name: rank   
+  - name: rankOrganic
+  - name: id
+    xpath: //@data-product-id
