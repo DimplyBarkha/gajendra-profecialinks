@@ -13,7 +13,7 @@ fields:
     regExp: (.+)
     regExpReplace: https://alza.cz$1
   - name: thumbnail
-    xpath: //div[contains(@class, 'image')]//img/@srcset
+    xpath: //div[contains(@class, 'image')]//img/@data-srcset
     regExp: (.+),
     regExpReplace: $1
   - name: rank
@@ -23,5 +23,5 @@ fields:
     regExpReplace: $1
   - name: price
     xpath: //div[contains(@class,'price')]//span[@class="c2"]
-    regExp: (\d+),-
+    regExp: ((\d+)(\s)?\d+?)(,-)
     regExpReplace: $1
