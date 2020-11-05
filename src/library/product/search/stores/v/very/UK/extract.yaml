@@ -1,30 +1,39 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //li[@class="product"]
 fields:
   - name: id
     singleValue: false
+    xpath: //li[@class="product"]/@data-sdg-id
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
+    xpath: //span[@class="productBrandDesc"]
   - name: productUrl
     singleValue: false
+    xpath: //a[@class="productTitle"]/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //a[@class="productMainImage"]/img/@src
   - name: aggregateRating
     singleValue: false
+    xpath: //a[@class="productRating"]/span
+    regExp: \d\.?\d?
   - name: aggregateRating2
     singleValue: false
+    xpath: //a[@class="productRating"]/span
+    regExp: \d\.?\d?
   - name: reviewCount
     singleValue: false
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
+    xpath: 
   - name: manufacturer
     singleValue: true
   - name: soldBy

@@ -5,9 +5,9 @@ module.exports = {
     country: 'UK',
     store: 'very',
     domain: 'very.co.uk',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.very.co.uk/e/q/{searchTerms}.end',
+    loadedSelector: 'div[id="products"]',
+    noResultsXPath: '//div[@class="standardContent"]',
     zipcode: '',
   },
 };
