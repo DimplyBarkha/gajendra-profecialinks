@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@itemprop="model"]//a | //link[@rel="canonical"]
+recordXPath: //div[@itemprop="model"]//a | //link[@rel="canonical"] | //div[contains(@class,"product-variations")]//ul[contains(@class,"swatches")]//li//a
 fields:
   - name: variantId
     xpath: //@href
-    regExp: (.+-)(.+)(.html)
+    regExp: (.+pid=|.+-)?(\d+)(&.+|.html)
     regExpReplace: $2
   - name: variantUrl
     xpath: //@href

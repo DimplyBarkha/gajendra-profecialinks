@@ -16,18 +16,18 @@ fields:
   - name: category
     xpath: //li[@class="breadcrumb-item"][position()>1]//span
   - name: nameExtended
-    xpath: concat(//span[@itemprop="brand"],' ',//div[@id="product-content"]//span[@itemprop="name"],' - ',//span[@itemprop="color"])
+    xpath: concat(//span[@itemprop="brand"],' ',//div[@id="product-content"]//span[@itemprop="name"],' - ',//button[@id="select-size"],' ',//span[@itemprop="color"])
   - name: listPrice
-    xpath: //div[@itemprop="offers"]//span[contains(@class,"price-standard")]
+    xpath: //div[contains(@class,"product-details-top-right")]//div[@itemprop="offers"]//span[contains(@class,"price-standard")]/@data-product-price-value
   - name: price
-    xpath: //div[@itemprop="offers"]//span[@itemprop="price"]
+    xpath: //div[contains(@class,"product-details-top-right")]//div[@itemprop="offers"]//span[@itemprop="price"]/@content
   - name: availabilityText
     xpath: //button[@id="add-to-cart"][@value="Ajouter"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    xpath: //div[@class="product-info-slideupdown-content"]//span[@itemprop="description"] | //div[@class="product-info-slideupdown"]/span[contains(.,"Composition")]/following-sibling::div
+    xpath: //div[@class="product-info"]//span[@itemprop="description"] | //div[@class="product-info-slideupdown"]/span[contains(.,"Composition")]/following-sibling::div
   - name: descriptionBullets
   - name: brandText
     xpath: //span[@class="product-brand"]
@@ -38,11 +38,11 @@ fields:
   - name: weightGross
   - name: gtin
   - name: sku
-    xpath: //span[@itemprop="sku"]
-  - name: variantId
-    xpath: //div[@class="product-content"]//link[@itemprop="url"]/@content
-    regExp: (.+-)(.+)(.html)
+    xpath: //link[@rel="alternate"]/@href
+    regExp: (.+pid=|.+-)?(\d+|\w+)(&.+|.html)
     regExpReplace: $2
+  - name: variantId
+    xpath: //span[@itemprop="sku"]
   - name: mpc
   - name: packSize
   - name: legalDisclaimer
@@ -59,7 +59,7 @@ fields:
   - name: shippingDimensions
   - name: shippingWeight
   - name: variantCount
-    xpath: count(//div[@class="productlinks-link-container"]//a)
+    xpath: count(//div[@itemprop="model"]//meta[@itemprop="color"]/@content | //div[contains(@class,"product-variations")]//ul[contains(@class,"swatches")]//li)
   - name: color
     xpath: //span[@class="product-color"]
   - name: colorCode
@@ -100,15 +100,15 @@ fields:
   - name: promotion
     xpath: //div[@class="product-details-columns"]//span[@class="product-tags-item"]
   - name: variantInformation
-    xpath: //div[@itemprop="model"]//meta[@itemprop="color"]/@content
+    xpath: //div[@itemprop="model"]//meta[@itemprop="color"]/@content | //div[contains(@class,"product-variations")]//ul[contains(@class,"swatches")]//li
   - name: firstVariant
     xpath: //div[@itemprop="model"]//a[1]/@href
     regExp: (.+)(-)(.+)(.html)
     regExpReplace: $3
   - name: variants
-    xpath: //div[@itemprop="model"]//a/@href
-    regExp: (.+)(-)(.+)(.html)
-    regExpReplace: $3
+    xpath: //div[@itemprop="model"]//meta[@itemprop="color"]/@content | //div[contains(@class,"product-variations")]//ul[contains(@class,"swatches")]//li
+    regExp: (.+pid=|.+-)?(.+)(&.+|.html)
+    regExpReplace: $2
   - name: additionalDescBulletInfo
   - name: prop65Warning
   - name: ageSuitability
