@@ -1,0 +1,97 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[contains(@class,'swiper-container-horizontal') and not(contains(@class,'swiper-container-thumbs'))]//a[contains(@class,'swiper-slide-active')]//img/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[contains(@name,'keywords')]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,'css-1wzbwlf')]//a[not(text()='Home')]
+  - name: name
+    singleValue: true
+    xpath: //h1[contains(@class,'css-17yb6kp')]
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[contains(@class,'css-17yb6kp')]
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@data-testid,'pdp-actions')]//button[@data-testid='add_to_cart_button']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'swiper-container-horizontal') and not(contains(@class,'swiper-container-thumbs'))]//a[not(contains(@class,'swiper-slide-active'))]//img/@src
+  - name: price
+    singleValue: true
+    xpath: //h2[contains(@class,'css-1601px7') or contains(@class,'css-1ju41kp')]
+  - name: listPrice
+    singleValue: true
+    xpath: //div[contains(@class,'css-65w75')]//del
+  - name:  description
+    singleValue: true
+    xpath: //h2[contains(text(),'Description')]//following-sibling::div
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,'css-hsn58g')]//a[contains(@class,'css-1nnke3o')]
+  - name: brandLink
+    singleValue: false
+    xpath: //div[contains(@class,'css-hsn58g')]//a[contains(@class,'css-1nnke3o')]/@href
+  - name: sku
+    singleValue: false
+    xpath: //script[contains(text(),'productId')]
+  - name: variantId
+    singleValue: false
+    xpath: //script[contains(text(),'productId')]    
+  - name: promotion
+    singleValue: true
+    xpath: //span[contains(@class,'css-l22qv5')]
+  - name: warnings
+    singleValue: true
+    xpath: //h3[contains(text(),'Safety warning')]//following-sibling::div
+  - name: ingredientsList
+    singleValue: true
+    xpath: //h3[text()='Ingredients']//following-sibling::p
+  - name: shippingInfo
+    singleValue: true
+    xpath: //span[text()='Sold by']//following-sibling::span
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,'css-5l6g5o')]//div[contains(@class,'css-lbe0jv')]
+  - name: variantCount
+    singleValue: true
+    defaultValue: '0'
+  - name: warranty
+    singleValue: false
+    xpath: //div[contains(@class,'css-1sk1hfz') and contains(text(),'Warranty')]    
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id='flix-inpage']//img[not(contains(@title,'Powered by Flixmedia'))]/@srcset
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id='flix-inpage']
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //div[contains(@class,'css-1sk1hfz') and contains(text(),'Origin')]    
+  - name: servingSize
+    singleValue: true
+    xpath: //div[contains(@class,'css-1sk1hfz') and contains(text(),'per')]
+  - name: storage
+    singleValue: true
+    xpath: //h3[contains(text(),'Storage')]//following-sibling::div
+  - name: packSize
+    singleValue: true
+    xpath: //div[contains(@class,'css-1sk1hfz') and contains(text(),'Pack size')]
+  - name: ratingCount
+    singleValue: true
+    xpath: //section[contains(@class,'css-v4mfbu')]//a[contains(@class,'css-13nmi4h')]/text()
+    regExp: ([\d\.]+)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: true
+    xpath: //section[contains(@class,'css-v4mfbu')]//div[contains(@class,'css-mzr5a2')]/text()
