@@ -80,7 +80,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //span[@class='kds-Price-singular']|//mark[@class='kds-Price-promotional']
+    xpath: //span[@class='kds-Price-singular']|//mark[contains(@class,'kds-Price-promotional')]
   - name: listPrice
     singleValue: false
     description: The offered price for the product
