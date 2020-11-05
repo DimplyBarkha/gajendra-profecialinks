@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id='instant-search-results-container']//div[@class='ais-hits--item']
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="result-wrapper"]//a/@href
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl']
+  - name: name
+    singleValue: false
+    xpath: //div[@class="result-wrapper"]//div[@class="result-content"]//h3
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="result-wrapper"]//div[@class="result-thumbnail"]//img/@src
+  - name: id
+    singleValue: false
+    xpath: //div[@class="result-wrapper"]//a//@data-objectid
+    # regExp: (.*)(-)(.*)(.html)
+    # regExpReplace: $3
+  - name: brand
+    singleValue: false
+    description: The brand name
+    example: Dyson
+    xpath: //div[@class="result-wrapper"]//div[@class="result-content"]//h3/em  
+  - name: price
+    singleValue: false
+    xpath: //div[@class="result-wrapper"]//div[@class="ratings"]//span[@itemprop="lowPrice"]/text()
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@class="result-wrapper"]//a//@href
+    regExp: (.*)(-)(.*)(.html)
+    regExpReplace: $3
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+    # xpath: //div[@class="product attribute sku"]/div[@class="value"]/text()   
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
