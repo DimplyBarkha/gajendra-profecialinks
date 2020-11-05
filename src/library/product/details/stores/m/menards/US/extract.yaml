@@ -46,7 +46,8 @@ fields:
     xpath: //div[@class='mb-0']//div//span[@class="font-weight-bold text-success pl-1"]
   - name: gtin
     singleValue: true
-    xpath: //div[@id="itemDetailsDataVars"]//@data-composite-model-number
+    xpath: //div[@class="d-flex row align-items-center col-9 col-md-11 px-2"]//p[@class="h6 small"]//span[@class="border-left border-dark pl-1"]/text()[2]
+    regExp: (\d{5,9})
   - name: sku
     singleValue: true
     xpath: //div[@id="itemDetailsDataVars"]//@data-main-item-id
