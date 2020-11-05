@@ -15,12 +15,14 @@ fields:
     singleValue: false
     xpath: //a[contains(@class, "product__overlayLink")]/@href
     regExp: (.+)
-    regExpReplace: brack.ch$1
+    regExpReplace: https://www.brack.ch$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //img[contains(@class, "productList__itemImage")]/@src
+    xpath: //img[contains(@class, "productList__itemImage")]/@data-src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
