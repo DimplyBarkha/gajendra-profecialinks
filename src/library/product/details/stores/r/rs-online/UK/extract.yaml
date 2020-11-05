@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//div[@data-test="img-zoom-wrap"]/img[@itemprop="image"])[1]
+    xpath: //div[@data-test="zoom-wrap"]//img[@itemprop="image"]/@src
   - name:  productUrl
     singleValue: true
     description: URL of the main product image
@@ -97,7 +97,7 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //span[@class="keyValue bold"]
-    # regExp: (\d+)-?(\d+)
+    # regExp: (\d+)-(\d+)
     # regExpReplace: $1$2
   - name: mpc
     singleValue: true
