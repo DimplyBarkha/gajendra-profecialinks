@@ -12,8 +12,8 @@ const transform = (data) => {
       .replace(/&amp;#160/g, ' ')
       .replace(/\u00A0/g, ' ')
       .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
+      // .replace(/"\s{1,}/g, '"')
+      // .replace(/\s{1,}"/g, '"')
       .replace(/^ +| +$|( )+/g, ' ')
       // eslint-disable-next-line no-control-regex
       .replace(/[\x00-\x1F]/g, '')
@@ -24,23 +24,28 @@ const transform = (data) => {
     return data;
   };
   for (const { group } of data) {
-    for (let row of group) {
+    for (const row of group) {
       if (row.brandLink) {
         row.brandLink.forEach(item => {
           item.text = `https://www.carrefouruae.com${item.text}`;
         });
       }
       if (row.specifications) {
+        var specificationsArr = [];
         row.specifications.forEach(item => {
-          item.text = item.text.replace(/\n/g, ':');
+          item.text = item.text.replace(/\n/g, ' : ');
+          specificationsArr.push(item.text);
         });
+        if (specificationsArr.length) {
+          row.specifications = [{ text: specificationsArr.join(' || ') }];
+        }
       }
       if (row.sku) {
         row.sku.forEach(item => {
           // "productId":"1555143"
           var myRegexp = /"productId":"(\d+)"/g;
           var match = myRegexp.exec(item.text);
-          if (match.length) {
+          if (match) {
             item.text = match[1].trim();
           }
           row.variantId = [{ text: row.sku[0].text }];
@@ -49,6 +54,17 @@ const transform = (data) => {
       if (row.warranty) {
         row.warranty.forEach(item => {
           item.text = item.text.replace('Warranty:', '');
+        });
+      }
+      if (row.ratingCount) {
+        row.ratingCount.forEach(item => {
+          var myRegexp = /(\d+)\s+reviews/g;
+          var match = myRegexp.exec(item.text);
+          if (match) {
+            item.text = match[1].trim();
+          } else {
+            delete row.ratingCount;
+          }
         });
       }
     }
