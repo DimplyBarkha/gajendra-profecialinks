@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="product-list clearfix"]',
-    noResultsXPath: '//h2[@class="fsearchnoresults__header"]',
+    noResultsXPath: '//h2[@class="fsearchnoresults__header"] |//a[@class="btn btn--secondary text-left"]',
     openSearchDefinition: null,
     domain: 'boozt.com',
     zipcode: '',

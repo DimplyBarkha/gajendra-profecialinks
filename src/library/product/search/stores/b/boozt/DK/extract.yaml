@@ -1,21 +1,21 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[@data-group="search_category" or @data-group="listing" or @data-group="search"]
+recordXPath: //ul[@id="product-list-cont"]/li
 fields:
   - name: id
     singleValue: false
-    xpath: //li[@data-group="search_category" or @data-group="listing" or @data-group="search"]/@data-product-id
+    xpath: //ul[@id="product-list-cont"]/li/@data-product-id
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //li[@data-group="search_category" or @data-group="listing" or @data-group="search"]/@data-product-name
+    xpath: //ul[@id="product-list-cont"]/li/@data-product-name
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="p-card__image_wrapper p-card__image_wrapper--grey"]/a/@href
+    xpath: //ul[@id="product-list-cont"]/li/a/@href
     regExp: (.+)
-    regExpReplace: https://www.bootz.com$1
+    regExpReplace: https://www.boozt.com$1
   - name: gtin
     singleValue: false
   - name: thumbnail
@@ -34,7 +34,7 @@ fields:
     xpath: //span[@class="p-card__price "] | //div[@class="p-card__info"]/span[@class="p-card__price p-card__price--sale"]/text()
   - name: manufacturer
     singleValue: false
-    xpath: //li[@data-group="search_category" or @data-group="listing" or @data-group="search"]/@data-brand
+    xpath: //ul[@id="product-list-cont"]/li/@data-brand
   - name: soldBy
     singleValue: true
   - name: endorsementText
