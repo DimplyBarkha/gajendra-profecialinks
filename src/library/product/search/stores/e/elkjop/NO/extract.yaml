@@ -15,7 +15,7 @@ fields:
     xpath: //*[contains(@class,"table-cell")] | //h1[contains(@class,"product-title")]
   - name: productUrl
     description: The URL for the product details page
-    xpath: //a[contains(@class, "product-name")]/@href | (//link[contains(@itemprop,"url")] /@href)[1]
+    xpath: //a[contains(@class, "product-name")]/@href | (//section[contains(@class,"product-main-info")]//link[contains(@itemprop,"url")]/@href)[1]
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
