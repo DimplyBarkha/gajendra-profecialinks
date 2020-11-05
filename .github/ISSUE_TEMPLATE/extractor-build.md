@@ -130,7 +130,10 @@ Example:
 - [ ] Promote Source to `Internal Deployment` in Project Dash
 - [ ] Add `Development` Label
 - [ ] Use `npm run lint` or `npm run lint:fix` before creating pull request
+<<<<<<< HEAD
 - [ ] Pull the latest changes from master and run the command `git merge master -m "Update to master"`, this will merge the klatest changes from master into your branch
+=======
+>>>>>>> ec48d190e140fb7cdda1ff582b6ce53e38f4bcd6
 - [ ] Create a pull request (PR) but not for `master` branch. Instead the base branch must be `internal`. Make sure that the automated merging check is green
 - [ ] Add label to this PR `Ready for internal review`
 - [ ] Add label to this issue `Ready for internal review`
@@ -166,7 +169,11 @@ This branch is now used to commit new changes. Similarly as before, always refer
 - [ ] In workbench, change the source parameter called `state` from `staging` to `scaleTest`
 - [ ] System runs automated flow at scheduled time on the full input file, when this is done collect the resulting output `.csv` file
 - [ ] In workbench, revert the source parameter called `state` from `scaleTest` back to `staging`
+<<<<<<< HEAD
 - [ ] Manual QA1 : Submit the scale test output csv for manual QA file according to SA instructions. To submit your csv, simply share the link to the output file on the tracking sheet.
+=======
+- [ ] Manual QA1 : Submit the scale test output csv for manual QA file according to SA instructions
+>>>>>>> ec48d190e140fb7cdda1ff582b6ce53e38f4bcd6
 - [ ] Add `Q1` Label
 - [ ] Update sample input file to include the input rows tested by manual QA1
 - [ ] Additional testing is done with a manual flow on the sample input file. Update extractor code to match expected accuracy level

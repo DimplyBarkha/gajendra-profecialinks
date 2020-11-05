@@ -1,0 +1,59 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='ais-hits']/div
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class='ais-hits']/div//form/@action
+    regExp: (?<=product\/)\d+
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@class='ais-hits']/div/@searchurl
+  - name: name
+    singleValue: false
+    xpath: //div[@class='ais-hits']/div//h3/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='ais-hits']/div//a/@href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='result-thumbnail']/img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    type: STRING
+    singleValue: false
+    xpath: //div[@class='rating']/@numericrating
+    regExp: (\d)\.(\d)
+    regExpReplace: $1,$2
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //span[@class='after_special promotion']/text()
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@class='ais-hits']/div//h3/em/text()
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: //div[@class='ais-hits']/div/div[@id='pd_rank']/text()
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div[@class='ais-hits']/div/div[@id='pd_rank']/text()
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
