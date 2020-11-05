@@ -25,12 +25,11 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,"box-absolute box-desc-product")]//a//@href
+    xpath: //div[contains(@class,"box-absolute box-desc-product")]//a//@href | //div[@class="onecolumn"]//meta/@content
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,"box-image-product")]//img[contains(@class," image-primary loaded")]//@src
-    description: The URL for the product thumbnail image
+    xpath: //img[contains(@class,"img-prod lazy image-primary loaded")]//@src | //img[contains(@class,"img-prod lazy loaded")]//@src
   - name: name
     singleValue: false
     xpath: //h4[@class="name-product-plp"]
@@ -55,7 +54,7 @@ fields:
     description: The number of reviews
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"item-price offer-price price-tc")]
+    xpath: //div[contains(@class,"item-price offer-price price-tc")]//span[1]
     description: The offered price for the product
   - name: listPrice
     singleValue: false

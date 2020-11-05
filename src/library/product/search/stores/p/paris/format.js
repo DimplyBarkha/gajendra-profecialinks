@@ -24,7 +24,7 @@ const transform = (data, context) => {
     for (const row of group) {
       if (row.productUrl) {
         row.productUrl.forEach((productUrlItem) => {
-          productUrlItem.text = 'https://www.paris.cl' + productUrlItem.text;
+          productUrlItem.text = (productUrlItem.text.includes('https://www.paris.cl')) ? productUrlItem.text : 'https://www.paris.cl' + productUrlItem.text;
         });
       }
       if (row.price) {
