@@ -37,7 +37,7 @@ module.exports = {
     store: 'staplesadvantage_10101',
     transform: null,
     noResultsXPath: '//div[@class="errorpage__error_page"]',
-    loadedSelector: '.grid__container.undefined',
+    loadedSelector: 'div.js-content>div',
     domain: 'staplesadvantage.com',
     zipcode: '10101',
   },
