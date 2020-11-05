@@ -51,9 +51,6 @@ fields:
   - name: gtin
     singleValue: true
     xpath: (//div[@class="rd-product-information-cell"]/div[contains(text(),'EAN')]/following::div[@class="rd-product-information-cell__value-data"])[1]
-  - name: legalDisclaimer
-    singleValue: true
-    xpath: //div[@class="rd-product-buybox__age-restriction rd-age-restriction-message"]
   - name: warnings
     singleValue: true
     xpath: (//div[contains(text(),'Zusatzinformation')]/following::div)[1]/text()
