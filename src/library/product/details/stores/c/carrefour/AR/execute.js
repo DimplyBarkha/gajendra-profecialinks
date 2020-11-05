@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AR',
     store: 'carrefour',
-    domain: 'carrefouruae.com',
+    domain: 'carrefour.com.ar',
     loadedSelector: 'div.product-name',
     noResultsXPath: "//h1[contains(text(),'Página no encontrada')]",
     zipcode: '',

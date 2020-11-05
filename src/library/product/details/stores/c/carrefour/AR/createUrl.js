@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
-    domain: 'carrefouruae.com',
+    domain: 'carrefour.com.ar',
     prefix: null,
     url: null,
     country: 'AR',

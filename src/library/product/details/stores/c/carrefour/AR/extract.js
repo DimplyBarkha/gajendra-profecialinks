@@ -5,7 +5,7 @@ module.exports = {
     country: 'AR',
     store: 'carrefour',
     transform,
-    domain: 'carrefouruae.com',
+    domain: 'carrefour.com.ar',
     zipcode: '',
   },
 };
