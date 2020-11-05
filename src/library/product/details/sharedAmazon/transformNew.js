@@ -320,6 +320,10 @@ const transform = (data, context) => {
         }
         delete row.manufacturerVideos;
       }
+      if (row.fastTrack) {
+        const text = row.fastTrack[0].text.replace(/details/gi, '').trim();
+        row.fastTrack[0].text = text;
+      }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
           el.text = clean(el.text);

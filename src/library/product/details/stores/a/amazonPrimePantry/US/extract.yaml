@@ -1,1 +1,6 @@
 extends: ../../../../sharedAmazon/shared
+fields:
+  - name: shippingInfo
+    singleValue: false
+    xpath: (//div[contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"][not(a)][normalize-space(text())="Ships from and sold by Amazon Pantry."])[1]
+    regExp: Amazon Pantry
