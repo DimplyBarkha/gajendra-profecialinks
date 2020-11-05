@@ -44,7 +44,7 @@ module.exports = {
       }
       const discountedPrice = document.querySelector('div.product-details__price-panel.visible-md span.product-details-price--current-price.has-was-price');
       const priceBeforeDiscount = document.querySelector('div.product-details__price-panel  span.product-details-price--was-price');
-      const listPrice = discountedPrice && priceBeforeDiscount ? priceBeforeDiscount : '';
+      const listPrice = discountedPrice && priceBeforeDiscount ? priceBeforeDiscount.textContent : '';
       addElementToDocument('listPrice', listPrice);
 
       const description = getEleByXpath('//div[contains(@class, "product-details__price-panel visible-md")]//following-sibling::div[@id="jsProductDetailsDesc"]/div');
