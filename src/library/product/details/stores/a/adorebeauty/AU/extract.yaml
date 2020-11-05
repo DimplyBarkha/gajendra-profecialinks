@@ -1,0 +1,59 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class='image-container']//img[@lazy='loading']/@data-src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class='image-container']//img[@lazy='loading']/@alt
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[(@itemprop='name')]
+  - name: name
+    singleValue: true
+    xpath: //h1[(@itemprop='name')]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='thumbnail-gallery__inner']//div[contains(@class,'thumbnail-gallery__item') and not(contains(@class,'is-current'))]//img/@src
+  - name: sku
+    singleValue: true
+    xpath: //meta[contains(@itemprop,'sku')]/@content
+  - name: variantId
+    singleValue: true
+    xpath: //meta[contains(@itemprop,'sku')]/@content
+  - name: brandText
+    singleValue: false
+    xpath: (//ol[@class='vue-breadcrumb']//span[not(text()='Home') and not(text()='Brand')])[1]
+  - name: brandLink
+    singleValue: false
+    xpath: (//ol[@class='vue-breadcrumb']//span[not(text()='Home') and not(text()='Brand')])[1]//parent::a/@href
+  - name: price
+    singleValue: true
+    xpath: //span[contains(@class,'live-price')]
+  - name: ratingCount
+    singleValue: true
+    xpath: (//div[contains(@class,'main col1-layout')]//a[contains(@class,'review-summary__link')])[1]/text()
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@class='product-info']//p[contains(@class,'review-summary__info')]//span[@class='review-summary__info-prefix']/strong
+  - name: availabilityText
+    singleValue: true
+    xpath: //strong[contains(@class,'stock-message__info')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@itemprop='description']
+  # - name: productOtherInformation
+  #   singleValue: false
+  #   xpath: (//div[contains(@class,'product-tab__content wysiwyg')])[2]
+  # - name: ingredientsList
+  #   singleValue: fasle
+  #   xpath: (//div[contains(@class,'product-tab__content wysiwyg')])[3]
+  - name: category
+    singleValue: true
+    xpath: //ol[@class='vue-breadcrumb']//span[not(text()='Home') and not(text()='Brand')]
