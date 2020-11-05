@@ -4,7 +4,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise(resolve => setTimeout(resolve, 5000));
   const isPopupPresent = await context.evaluate(async () => {
     return document.querySelector('p[id*="dialog"] + button');
   });
@@ -12,6 +12,14 @@ async function implementation (inputs, parameters, context, dependencies) {
     await context.click('p[id*="dialog"] + button');
   }
   await context.evaluate(async () => {
+    // scroll
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
     while (document.querySelector('button[class*="b05-less _"]') !== null) {
       // @ts-ignore
       document.querySelector('button[class*="b05-less _"]').click();
@@ -24,17 +32,24 @@ async function implementation (inputs, parameters, context, dependencies) {
     productUrl.forEach((element) => {
       element.setAttribute('href', prefix.concat(element.getAttribute('href')));
     });
+    const prodContainer = document.querySelectorAll('div[class*="ab4-less"] li[data-bx="ple"]');
+    prodContainer.forEach((element, index) => {
+      element.setAttribute('rank', (index + 1).toString());
+    });
 
-    function addProp (selector, iterator, propName, value) {
-      document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
-    }
-    const allProducts = document.querySelectorAll('div[class*="ab4-less"] li[data-bx="ple"]');
-    for (let i = 0; i < allProducts.length; i++) {
-      addProp('div[class*="ab4-less"] li[data-bx="ple"]', i, 'rankorganic', `${i + 1}`);
+    const rawNumber = document.querySelector('span[class*="db585-less"] span span').textContent;
+    const match = parseInt(rawNumber);
+
+    let scrollTop = 0;
+    const scrollLimit = match * 40;
+    while (scrollTop <= scrollLimit) {
+      await stall(1000);
+      scrollTop += 1000;
+      window.scroll(0, scrollTop);
     }
   });
 
-  // await new Promise((resolve, reject) => setTimeout(resolve, 1500));
+  await new Promise((resolve, reject) => setTimeout(resolve, 1500));
 
   return await context.extract(productDetails, { transform });
 }

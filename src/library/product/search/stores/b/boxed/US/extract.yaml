@@ -1,26 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"ab4-less")]//li[@data-bx="ple"]
+recordXPath: //div[contains(@class,'ab4-less')]//li[@data-bx='ple']
 fields:
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,"ab4-less")]//div[@data-bx='ple-wrap']/a/@href
+    xpath: //div[contains(@class,'ab4-less')]//div[@data-bx='ple-wrap']/a/@href
     regExp: \/(\d+)\/
     regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,"ab4-less")]//div[contains(@class, 'brand-text')]
+    xpath: //div[contains(@class,'ab4-less')]//div[contains(@class, 'brand-text')]
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,"ab4-less")]//div[@data-bx='ple-wrap']/a/@href
+    xpath: //div[contains(@class,'ab4-less')]//div[@data-bx='ple-wrap']/a/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,"ab4-less")]//figure/*[1]/@src
+    xpath: //div[contains(@class,'ab4-less')]//figure/*[1]/@src
     regExp: \/\/(.*)
     regExpReplace: $1
   - name: aggregateRating
@@ -33,10 +33,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"ab4-less")]//div[contains(@id,'g-caption')]//span[@aria-label and not(contains(@aria-label, 'Instead'))]
+    xpath: //div[contains(@class,'ab4-less')]//div[contains(@id,'g-caption')]//span[@aria-label and not(contains(@aria-label, 'Instead'))]
   - name: manufacturer
     singleValue: false
-    xpath: //div[contains(@class,"ab4-less")]//div[@data-bx='ple-wrap']/a/@title
+    xpath: //div[contains(@class,'ab4-less')]//div[@data-bx='ple-wrap']/a/@title
     regExp: ^(.*?)\-
     regExpReplace: $1  
   - name: soldBy
@@ -47,11 +47,12 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //div[contains(@class,'ab4-less')]//li[@data-bx='ple']/@rank
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //@rankorganic
+    xpath: //div[contains(@class,'ab4-less')]//li[@data-bx='ple']/@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
