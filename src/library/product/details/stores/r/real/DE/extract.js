@@ -50,6 +50,13 @@ module.exports = {
       };
       var backgroundURL = getAllXpath("//div[contains(@cs-id,'image-gallery-thumbnail')]/@style", 'nodeValue');
       sliceURL(backgroundURL);
+      // @ts-ignore
+      var data = document.querySelectorAll('div.rd-product-sidebar__info-card')[0].dataset.overlayAttr;
+      var updatedData = JSON.parse(data);
+      const sellerName = updatedData.childProps.name;
+      const sellerOnRealSince = updatedData.childProps.sellerOnRealSince;
+      var shipping_details = sellerName + " verkauft auf real.de seit: " + sellerOnRealSince;
+      addElementToDocument('shipping_details', shipping_details);
     });
     await context.extract(productDetails);
   },
