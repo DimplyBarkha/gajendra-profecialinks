@@ -17,14 +17,14 @@ fields:
     singleValue: false
     # xpath: //a[@class='Color Link']/@href
     # xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
-    xpath: //div[contains(@class,"ProductCard")]/div[@class="py-16 flex"]//a/@href
+    xpath: //div[contains(@class,"ProductCard")]/div[@data-qa="cart-page-item-image"]/a/@href
     regExp: >-
       [0-9]{13}
   - name: productUrl
     singleValue: false
     # xpath: //a[@componentname='internal search']/@href
     # xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
-    xpath: //div[contains(@class,"ProductCard")]/div[@class="py-16 flex"]//a/@href
+    xpath: //div[contains(@class,"ProductCard")]/div[@data-qa="cart-page-item-image"]/a/@href
     regExp: >-
        ^(.*)$
     regExpReplace:
@@ -37,7 +37,7 @@ fields:
     xpath: //h3[@data-qa='cart-page-item-description']
   - name: sku
     singleValue: false
-    xpath: //div[contains(@class,"ProductCard")]/div[@class="py-16 flex"]//a/@href
+    xpath: //div[@data-qa="cart-page-item-image"]/a/@href
     regExp: >-
       [0-9]{13}
   - name: mpc
@@ -57,7 +57,8 @@ fields:
     defaultValue: ''
   - name: price
     singleValue: false
-    xpath: //span[@class='kds-Price-singular']|//mark[@class="kds-Price-promotional"]
+    xpath: //data[@class="kds-Price kds-Price-alternate"]/@value
+    # //span[@class='kds-Price-singular']|//mark[@class="kds-Price-promotional"]
   - name: manufacturer
     singleValue: false
   - name: soldBy
@@ -81,4 +82,4 @@ fields:
   - name: sponsored
     singleValue: false
     type: BOOLEAN
-    xpath: //div[@data-qa='featured-product-tag']
+    xpath: //div//span[@data-qa='featured-product-tag']

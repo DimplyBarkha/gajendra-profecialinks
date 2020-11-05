@@ -12,11 +12,11 @@ proxy:
   # zone: ZUS
   # type: DATA_CENTER
 policy:
-  numberRetries: 4
+  numberRetries: 3
   priority: MEDIUM
-  retryDelay: 60
+  retryDelay: 40
   backoffPolicy: EXPONENTIAL
-  retryWithResidentialProxyAfter: 99    
+  retryWithResidentialProxyAfter: 30    
 meta:
   branches:
     dev:

@@ -15,7 +15,7 @@ async function implementation (
 
   const findButtonWithStoreSelect = async () => {
     await context.evaluate(function () {
-      const mystore = document.querySelector('button[aria-label*="Select Store"]');
+      const mystore = document.querySelector('button[aria-label*="Change Store"]');
       if (mystore) mystore.click();
     });
   };
@@ -25,7 +25,7 @@ async function implementation (
       const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
       let smallestDistance = null;
       //let indexToClosestStore = null;
-      let indexToClosestStore = 2;
+      let indexToClosestStore = 1;
       // sections.forEach((sectionItem, i) => {
       //   const section = sectionItem.querySelector('div.StoreSearchResults-StoreButtonWrapper div div');
 
@@ -41,7 +41,9 @@ async function implementation (
       console.log('Closest store: ' + smallestDistance);
       return indexToClosestStore;
     });
-    await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton`);
+    try {
+      await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton`);
+    } catch (err) {}
   };
 
   const changeZip = async (wantedZip) => {
@@ -59,24 +61,30 @@ async function implementation (
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   };
 
+  await context.evaluate(() => {
+    const overlay = document.querySelector('#kds-Modal-kh3pr23t > button');
+    if (overlay) {
+      overlay.click();
+    }
+  });
+
   const currentZip = await getCurrentZip();
   console.log(`Want zip: ${zipcode}, got zip: ${currentZip}`);
-
-  if (currentZip !== zipcode) {
+  
+  if (currentZip !== "Citrus Plaza") {
+  //if (currentZip !== zipcode) {
     console.log('Trying to change zip');
     await changeZip(zipcode);
   }
-
-  // await context.evaluate(() => {
-  //   const overlay = document.querySelector('.ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers');
-
-  //   if (overlay) {
-  //     overlay.click();
-  //   }
-  // });
+  await context.evaluate(() => {
+    const overlay = document.querySelector('#kds-Modal-kh3pr23t > button');
+    if (overlay) {
+      overlay.click();
+    }
+  });
+  
   await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 }
-
 
 module.exports = {
   implements: 'navigation/goto/setZipCode',
