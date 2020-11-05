@@ -35,6 +35,17 @@ const transform = (data) => {
           item.text = item.text.replace(/\n/g, ':');
         });
       }
+      if (row.sku) {
+        row.sku.forEach(item => {
+          // "productId":"1555143"
+          var myRegexp = /"productId":"(\d+)"/g;
+          var match = myRegexp.exec(item.text);
+          if (match.length) {
+            item.text = match[1].trim();
+          }
+          row.variantId = [{ text: row.sku[0].text }];
+        });
+      }
       if (row.warranty) {
         row.warranty.forEach(item => {
           item.text = item.text.replace('Warranty:', '');
