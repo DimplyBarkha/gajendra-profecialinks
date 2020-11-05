@@ -33,7 +33,7 @@ fields:
     xpath: //span[@class="product-brand"]
   - name: manufacturer
   - name: quantity
-    xpath: //button[@id="select-size"][@data-is-partner-program="true"]/@value
+    xpath: //button[@id="select-size"][not(contains(@value,"Choisir la taille"))]/@value
   - name: weightNet
   - name: weightGross
   - name: gtin
