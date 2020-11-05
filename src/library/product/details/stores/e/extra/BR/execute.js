@@ -4,7 +4,7 @@ module.exports = {
     country: 'BR',
     store: 'extra',
     domain: 'extra.com.br',
-    loadedSelector: "div.area-root",
+    loadedSelector: "div#__next",
     noResultsXPath: "//div[@class='not-found']",
     zipcode: '',
   },
