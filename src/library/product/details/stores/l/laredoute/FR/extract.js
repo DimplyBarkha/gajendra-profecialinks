@@ -1,6 +1,6 @@
 const { transform } = require('./format');
 
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -9,7 +9,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   const variantArray = await context.evaluate(async function () {
-    if(document.querySelector('#productList')) {
+    if (document.querySelector('#productList')) {
       throw new Error('Not a product page');
     }
     if (document.querySelectorAll('div.clearfix.custom-dropdown-content button')) {
@@ -27,9 +27,32 @@ async function implementation (
 
   try {
     await context.click('button[id*=productDescriptionShowMore]');
-  } catch(e) {
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+  } catch (e) {
     console.log("some error occurred while clicking show more button")
   }
+
+  await context.evaluate(async function () {
+    let specificationsXpath = `//div[@id='mainProductDescription']//b[contains(text(),'Spécifications') or contains(text(),"Caractéristiques") or contains(text(),'Informations produit')]/following-sibling::text()|//h2[contains(text(),'Caractéristiques détaillées')]/following-sibling::node()|text()|//div[@id='mainProductDescription']//text()[contains(.,"Dimensions")]//following-sibling::text()[not(//div[@id='mainProductDescription']//b[contains(text(),'Spécifications') or contains(text(),"Caractéristiques") or contains(text(),'Informations produit')]/following-sibling::text()|//h2[contains(text(),'Caractéristiques détaillées')]/following-sibling::node()|text())] | //tr[contains(.,"Dimensions")]/following-sibling::tr[following::tr[contains(.,"Contenu du carton")]] | //tr[contains(.,"Dimensions")]`;
+    function _x(STR_XPATH, context) { //gets nodes using xpath
+      var xresult = document.evaluate(
+        STR_XPATH,
+        context,
+        null,
+        XPathResult.ANY_TYPE,
+        null
+      );
+      var xnodes = [];
+      var xres;
+      while ((xres = xresult.iterateNext())) {
+        xnodes.push(xres);
+      }
+      return xnodes;
+    }
+    let specificationsText = [];
+    _x(specificationsXpath, document).forEach(q => {specificationsText.push(q.textContent)});
+    document.body.insertAdjacentHTML("afterbegin", `<div id="specifications" style="display : none">${specificationsText.join(" ")}</div>`)
+  })
 
   return await context.extract(productDetails, { transform });
 }
