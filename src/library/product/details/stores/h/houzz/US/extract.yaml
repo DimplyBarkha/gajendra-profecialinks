@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//img[@class="view-product-image-print visible-print-block"])/@src
+    xpath: //div[@id='ii_image']
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -22,17 +22,17 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//a[@class="hz-breadcrumb__link hz-color-link hz-color-link--black hz-color-link--enabled "])
+    xpath: //div[@id='ii_category']
   - name: nameExtended
     singleValue: true
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //span[@class="view-product-title"]
+    xpath: //div[@id='ii_nameExtended']
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //del[@class="pricing-info__original-price"]
+    xpath: //div[@class="pricing-info__discount-info-section"]/del[@class="pricing-info__original-price"]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -64,7 +64,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //span[@class="view-product-title"]
+    xpath: //div[@class="hz-view-product-title"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -75,11 +75,11 @@ fields:
     description:
       Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //dt[contains(text(),'Manufactured By')]/following-sibling::dd/a
+    xpath: //div[@id='ii_manufacturer']
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //dt[contains(text(),'Manufactured By')]/following-sibling::dd/a
+    xpath: //div[@id='ii_manufacturer']
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -89,26 +89,26 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //dt[contains(text(),'Size/Weight')]/following-sibling::dd
+    xpath: //div[@id='ii_weightNet']
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //dt[contains(text(),'Size/Weight')]/following-sibling::dd
+    xpath: //div[@id='ii_weightNet']
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //dt[contains(text(),'(MPN)')]/following-sibling::dd
+    xpath: //div[@id='ii_sku']
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //dt[contains(text(),'Product ID')]/following-sibling::dd
+    xpath: //div[@id='ii_variantId']
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //dt[contains(text(),'(MPN)')]/following-sibling::dd
+    xpath: //div[@id='ii_mpc']
   - name: packSize
     singleValue: true
     description:
@@ -127,11 +127,12 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: (//span[@class="reviews-summary__text"]/span/span)[2]
   - name: reviewCount
     singleValue: true
     description: The number of ratings
-    xpath: //span[@class="reviews-summary__total"]
     type: NUMBER
+    xpath: (//span[@class="reviews-summary__text"]/span/span)[2]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -148,11 +149,9 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //dt[contains(text(),'Size/Weight')]/following-sibling::dd
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
-    xpath: //dt[contains(text(),'Size/Weight')]/following-sibling::dd
 
   - name: variantCount
     singleValue: true
@@ -162,7 +161,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //dt[contains(text(),'Color')]/following-sibling::dd
+    xpath: //div[@id='ii_color']
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -182,7 +181,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //span[@class="view-product-title"]
+    xpath: //div[@id='ii_name']
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -275,6 +274,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//div[@class="alt-images__thumb "])
     type: NUMBER
   - name: news
     singleValue: true
@@ -451,6 +451,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //dl[@class="product-specs-group "]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -523,7 +524,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: count((//li[@class="product-keywords__word"]))
+    xpath: //div[@id='ii_description']
   - name: prop65Warning
     singleValue: true
     description: null
@@ -542,6 +543,7 @@ fields:
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
+    xpath: (//section[@class="product-documents "]/ul/li/a/@href)[1]
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
@@ -558,7 +560,7 @@ fields:
     singleValue: true
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
-    xpath: //dt[contains(text(),'Materials')]/following-sibling::dd
+    xpath: //div[@id='ii_material']
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
