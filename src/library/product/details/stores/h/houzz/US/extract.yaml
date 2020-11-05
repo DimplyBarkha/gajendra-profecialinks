@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@id='ii_image']
+    xpath: //img[@class="view-product-image-print visible-print-block"]/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
