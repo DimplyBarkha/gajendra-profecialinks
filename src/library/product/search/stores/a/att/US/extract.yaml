@@ -1,0 +1,57 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class="support-list shop"]/li
+#//section[@id="shop"]//div[@class="span12 span12-xsm span12-sm span12-md"]/div
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="inline-block"]//span[@class="hidden-spoken"]/@id
+    regExp: list13(.+)
+    regExpReplace: $1
+  - name: rankOrganic
+    defaultValue: false
+  - name: name
+    singleValue: false
+    xpath: //ul[@class="support-list shop"]/li//div[@class="span2 span2-md span3-xsm span3-sm inline-block valign-top"]/a/img/@alt
+  - name: productUrl
+    singleValue: false
+    xpath: //ul[@class="support-list shop"]/li//div[@class="span2 span2-md span3-xsm span3-sm inline-block valign-top"]/a/@href    
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: reviewCount
+    xpath: //span[@class="starRate"]
+    singleValue: false
+    regExp: \W\W\W(.+)
+    regExpReplace: $1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    xpath: //button[@data-auto-id="linkProductImage"]//img/@src
+    singleValue: true
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[@class="starRate"]
+    regExp: (.+)\W\W\W
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class="starRate"]
+    regExp: \W\W\W(.+)
+    regExpReplace: $1
+  - name: price
+    xpath: //span[@class="padTop3-d shopPrice gs-price fontpricestyle"]
+    singleValue: false
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    defaultValue: false
+  - name: sponsored
+    defaultValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //ul[@class="support-list shop"]/li//div[@class="span2 span2-md span3-xsm span3-sm inline-block valign-top"]/a/img/@src
+    regExp: (.+)
+    regExpReplace: https:$1

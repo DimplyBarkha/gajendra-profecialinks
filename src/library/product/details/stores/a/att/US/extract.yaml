@@ -42,12 +42,9 @@ fields:
     xpath: (//fieldset[@id="pricingTermsSelection"]//span[not (@class)])[1]
   - name: availabilityText
     singleValue: false
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     xpath: //div[@id="accordion-content-overview"]//p
@@ -83,7 +80,9 @@ fields:
     regExpReplace: $1
   - name: variantId
     singleValue: false
-    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
