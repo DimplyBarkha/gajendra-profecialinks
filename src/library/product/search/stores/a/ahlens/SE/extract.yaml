@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    description: price of the product
+    type: CURRENCY
+    xpath: //html//div[@class='altImages']  
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page 
+    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]/@href
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]//figure//img//@src
+    regExp: (/.+)
+    regExpReplace: https://www.ahlens.se/$1
+  - name: id
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]/@href
+    regExp: .*-(\d+)/$
+    regExpReplace: $1
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //*[contains(@class,'MuiCardContent-root')]/div/span[2]
+  - name: rankOrganic
+    singleValue: true
+    xpath: //html//div[@class='altImages1']
