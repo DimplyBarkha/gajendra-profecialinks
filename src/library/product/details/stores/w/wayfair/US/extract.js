@@ -25,19 +25,28 @@ async function implementation (
         }, ms);
       });
     }
+    const url = window.location.href;
     if (!document.querySelector('div.VisualOptionCard > div > div > label > input')) {
-      var URL = document.querySelector('[property="og:url"]') ? document.querySelector('[property="og:url"]').getAttribute('content') : '';
-      var id = URL.replace(new RegExp('(.+)(keyword=|piid=|redir=)(.+)', 'g'), '$3');
-      var altId = document.querySelector('#form-add-to-cart > div > div > div > div > input[type=hidden]');
-      var skuId = document.querySelector('[property="og:upc"]') ? document.querySelector('[property="og:upc"]').getAttribute('content') : '';
-      if (altId) {
-        document.body.setAttribute('variantid', altId.getAttribute('value'));
-      } else if (skuId) {
+      if (url.includes('piid') || url.includes('redir')) {
+        document.body.setAttribute('variantid', url.replace(new RegExp('(.+)(piid=|redir=)(.+)', 'g'), '$3'));
+      } else {
+        const skuId = document.querySelector('[property="og:upc"]') ? document.querySelector('[property="og:upc"]').getAttribute('content') : '';
         document.body.setAttribute('variantid', skuId);
-      } else if (id) {
-        document.body.setAttribute('variantid', id);
       }
     }
+    // if (!document.querySelector('div.VisualOptionCard > div > div > label > input')) {
+    //   var URL = document.querySelector('[property="og:url"]') ? document.querySelector('[property="og:url"]').getAttribute('content') : '';
+    //   var id = URL.replace(new RegExp('(.+)(keyword=|piid=|redir=)(.+)', 'g'), '$3');
+    //   var altId = document.querySelector('#form-add-to-cart > div > div > div > div > input[type=hidden]');
+    //   var skuId = document.querySelector('[property="og:upc"]') ? document.querySelector('[property="og:upc"]').getAttribute('content') : '';
+    //   if (altId) {
+    //     document.body.setAttribute('variantid', altId.getAttribute('value'));
+    //   } else if (skuId) {
+    //     document.body.setAttribute('variantid', skuId);
+    //   } else if (id) {
+    //     document.body.setAttribute('variantid', id);
+    //   }
+    // }
   });
   return await context.extract(productDetails, { transform });
 }
