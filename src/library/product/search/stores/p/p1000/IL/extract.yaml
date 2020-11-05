@@ -8,7 +8,7 @@ fields:
     xpath: //div[contains(@class,'categoryResults_items')]//div[contains(@class,'jscroll-inner')]//ul//li/@data-sku
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,'categoryResults_itemGrid')]//div[contains(@class,'categoryResults_itemGrid_line')]//img/@src
+    xpath: //div[contains(@class,'categoryResults_itemGrid')]//div[contains(@class,'categoryResults_itemGrid_line')]//img[not(contains(@alt,"dyson"))]/@src
     regExp: (.+)
     regExpReplace: https://www.p1000.co.il/$1
   - name: name
@@ -19,3 +19,8 @@ fields:
     xpath: //div[contains(@class,'categoryResults_items')]//div[contains(@class,'jscroll-inner')]//ul//li//a/@href
     regExp: (.+)
     regExpReplace: https://www.p1000.co.il/$1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="categoryResults_itemBuy"]/text()
+    regExp: (.*)(-)(.*)
+    regExpReplace: $3
