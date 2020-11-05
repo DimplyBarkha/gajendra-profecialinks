@@ -32,6 +32,26 @@ const cleanUp = (data, context) => {
           },
         ];
       }
+      if (row.manufacturerImages) {
+        
+        const variantIds = [];
+        let dup = "";
+        let urls = [];
+        row.manufacturerImages.forEach(item => {
+          //console.log('item:: ', item.text);
+         urls =  row.manufacturerImages.filter(it => item.text === it.text);
+        if(urls && urls.length === 1 ){
+          variantIds.push(item);
+        }else{
+          if(dup !== item.text){
+            dup =  item.text;
+            variantIds.push(item);
+          }
+        }
+        });
+        row.variantId = variantIds;
+        
+      }
       if (row.allergyAdvice) {
         let text = '';
         row.allergyAdvice.forEach(item => {
@@ -51,29 +71,43 @@ const cleanUp = (data, context) => {
           }
         }
       }
-      
+
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+          text += `${item.text.replace(/\n \n/g, ':')} | `;
         });
         row.description = [
           {
-            text: text,
+            text: text.slice(0, -4),
           },
         ];
       }
+      
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+          text = text + (text ? ' ' : '') + item.text;
         });
-        row.manufacturerDescription = [
-          {
-            text: text,
-          },
-        ];
+        row.manufacturerDescription = [{ text }];
       }
+      if (row.specifications) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.specifications.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + '||';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
+        });
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.specifications = nDesc;
+      }  
     }
   }
   

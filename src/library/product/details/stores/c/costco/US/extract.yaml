@@ -23,12 +23,15 @@ fields:
   - name: category
     singleValue: false
     xpath: //li[position()>1]//span[@itemprop="name"]/text()
+  - name: inStorePrice
+    xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
   - name: listPrice
     singleValue: false
+    xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
   - name: price
     singleValue: false
     # xpath: //meta[@property="product:price:amount"]/@content | //div[@class="online-price active"]//span[@class="currency"]
-    xpath: //meta[@property="product:price:amount"]/@content | //div[@class="online-price active"]//span[@class="currency"]
+    xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
     # regExpReplace: (.+)
     # defaultValue: $$1
   - name: availabilityText
@@ -66,7 +69,7 @@ fields:
   - name: sku
     singleValue: false
     # xpath: //span[contains(@class,"model-number")]//span | //p[contains(@id,"product-body-model-number")]//span | //p[contains(@id,"product-body-model-number")]
-    xpath: //p[@class="model-number "]/span
+    xpath: //p[@class="model-number "]/span | //p[contains(@id,"product-body-model-number")]
   - name: variantId
     singleValue: false
     xpath: //p[@id="product-body-item-number"]/span | //p[@class="item-number"]
