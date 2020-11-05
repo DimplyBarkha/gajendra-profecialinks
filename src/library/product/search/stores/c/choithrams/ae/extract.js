@@ -8,7 +8,19 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
   await context.evaluate(async function () {
+    // function addHiddenDiv (id, content) {
+    //   const newDiv = document.createElement('div');
+    //   newDiv.id = id;
+    //   newDiv.textContent = content;
+    //   newDiv.style.display = 'none';
+    //   document.body.appendChild(newDiv);
+    // }
+    const url = window.location.href;
+    // console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', url);
+    // //addHiddenDiv('added-searchurl', url);
+
     function addElementToDocumentOld (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
@@ -60,6 +72,9 @@ async function implementation (
       addElementToDocumentOld('name', nameTextValue[i]);
       addElementToDocumentOld('productUrl', 'https://www.choithrams.com' + productURLTextValue[i]);
       addElementToDocumentOld('thumbnail', 'https://www.choithrams.com' + thumbNailTextValue[i]);
+      addElementToDocumentOld('added-searchurl', url);
+      // console.log('@@@@@@@@##########################################', url);
+      // addHiddenDiv('added-searchurl', url);
       // const row = addElementToDocument('added_row', '');
       // row.setAttribute('idMatch', '123456');
       // console.log('My row get Attribute', row);

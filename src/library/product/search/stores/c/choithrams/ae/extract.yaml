@@ -2,6 +2,7 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: 
+  # //div[@class='small-product-box']
   # //div[@id='added_row']
 fields:
 - name: price
@@ -25,4 +26,7 @@ fields:
   singleValue: true
   xpath: //div[@id='id']
     # //div[@id='added_row']/@idMatch
+- name: searchUrl
+  singleValue: true
+  xpath: //div[@id='added-searchurl']
 
