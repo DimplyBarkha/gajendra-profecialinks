@@ -29,7 +29,7 @@ fields:
     singleValue: false
     xpath: //div[@class="product-rating__stars"]/div[@class="stars"]/@title
     regExp: ^(\d+)\.?\,?(\d+)?.*$
-    regExpReplace: $1,$2
+    regExpReplace: $1.$2
   - name: reviewCount
     singleValue: false
     xpath: //a[@class="product-rating"]/@data-review-count
