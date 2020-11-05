@@ -5,10 +5,10 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[contains(@class,'slick-slide slick-active slick-current')]/div/img/@src
+    xpath: //div[contains(@class,'slick-current')]/div/img/@src
   - name: imageAlt
     singleValue: true
-    xpath: //div[contains(@class,'slick-slide slick-active slick-current')]/div/img/@alt
+    xpath: //div[contains(@class,'slick-current')]/div/img/@alt
   - name: category
     singleValue: false
     xpath: //ol[@class='MuiBreadcrumbs-ol']//button[not(text()='Home')]
@@ -24,12 +24,17 @@ fields:
   - name: description
     singleValue: false
     xpath: //span[contains(@class,'productPage-main-productDetail-description')]
+  - name: quantity
+    singleValue: false
+    xpath: //span[contains(@class,'productPage-main-productDetail-size')]//p[contains(@aria-label,'size')]
   - name: packSize
-    singleValue: true
-    xpath: //span[contains(@class,'productPage-main-productDetail-size')]/p[1]/text()[2]
+    singleValue: false    
+    xpath: //span[contains(@class,'productPage-main-productDetail-size')]//p[contains(@aria-label,'size')]
+    regExp: (\d+)
+    regExpReplace: $1
   - name: caloriesPerServing
     singleValue: true
-    xpath: //span[contains(@class,'productPage-main-productDetail-size')]/p[2]/text()
+    xpath: //span[contains(@class,'productPage-main-productDetail-size')]//p[contains(@aria-label,'Cals')]
   - name: termsAndConditions
     singleValue: true
     defaultValue: Yes
