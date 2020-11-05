@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'mondoffice.com',
-    timeout: 50000,
     country: 'IT',
     store: 'mondoffice',
+    domain: 'mondoffice.com',
     zipcode: '',
   },
 };
