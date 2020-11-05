@@ -60,8 +60,8 @@ fields:
   - name: backupBrand
     singleValue: false
     xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
-    regExp: '(Brand:\s+(.+)$|Visit the (.+) Store|^(.+)$)'
-    regExpReplace: $2$3$4
+    regExp: '(Brand:\s+(.+)$|Visit the (.+) Store|by\s+(.+)$|^(.+)$)'
+    regExpReplace: $2$3$4$5
   - name: brandText
     singleValue: false
     xpath: //*[normalize-space(text())="Brand" or normalize-space(text())="Brand:" or normalize-space(text())="Brand Name"]/following-sibling::*[1]
@@ -270,7 +270,8 @@ fields:
     xpath: //div[@id="buybox"]//div[@id="fast-track-message"]
   - name: ingredientsList
     singleValue: true
-    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
+    #xpath: //tr[contains(.,'Ingredientes')]//td[2]//span
+    xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p) | //tr[contains(.,'Ingredientes')]//td[2]//span
   - name: servingSize
     singleValue: true
     xpath: 
