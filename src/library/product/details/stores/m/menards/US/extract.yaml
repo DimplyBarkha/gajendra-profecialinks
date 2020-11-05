@@ -25,7 +25,9 @@ fields:
     xpath: //div[@id="itemDetailPage"]//div[@data-at-id="itemTitle"]
   - name: description
     singleValue: false
-    xpath: (//div[@id="descriptDocs"]//p//text())[1]
+    xpath: concat(//div[@id="descriptDocs"]//p,//div[@id="features"]//ul//li[1]//text(),//div[@id="features"]//ul//li[2]//text(),//div[@id="features"]//ul//li[3]//text(),//div[@id="features"]//ul//li[4]//text(),//div[@id="features"]//ul//li[5]//text(),//div[@id="features"]//ul//li[6]//text(),//div[@id="features"]//ul//li[7]//text())
+    #regExp: (\\n)
+    #regExpReplace: $1
   - name: quantity
     singleValue: false
     xpath: (//div[@class="card-body row d-flex justify-content-center col-12"]//div//div[contains(text(),'Package Quantity')])[1]//following-sibling::div
@@ -53,7 +55,7 @@ fields:
     xpath: //div[@class="modelSKU h4"]//span/span
   - name: availabilityText
     singleValue: true
-    xpath: /html/body/div[@id='content']/section/div[@id='itemDetailsDataVars']/form[@id='itemForm']/div[@id='top']/div[@id='priceOptions']/div[@id='addToCart']/div[@class='d-inline-flex my-1 align-items-center']/div[2]/button[@id='addToCartButton']
+    #xpath: /html/body/div[@id='content']/section/div[@id='itemDetailsDataVars']/form[@id='itemForm']/div[@id='top']/div[@id='priceOptions']/div[@id='addToCart']/div[@class='d-inline-flex my-1 align-items-center']/div[2]/button[@id='addToCartButton']
     defaultValue: In stock
   - name: legalDisclaimer
     singleValue: true
