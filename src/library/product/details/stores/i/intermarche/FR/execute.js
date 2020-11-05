@@ -13,6 +13,14 @@ async function implementation(
     url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
+  const request = await context.searchAllRequests('https://api.intermarche.com/produits/v2/pdvs/02111/produits/*');
+  console.log(`Request: ${request}`);
+  if (request && request[0]) {
+    if (request[0].status == 404) {
+      console.log('Page not found')
+      return false;
+    }
+  }
   try {
     if (parameters.loadedSelector) {
       await context.waitForFunction(function (sel, xp) {

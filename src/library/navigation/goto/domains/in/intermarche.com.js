@@ -50,6 +50,7 @@ module.exports = {
       // @ts-ignore
       // eslint-disable-next-line no-undef
       await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+      //await context.solveCaptcha({ type: 'RECAPTCHA', inputElement: '.g-recaptcha' });
       console.log('solved captcha, waiting for page change');
       await context.waitForNavigation(timeout);
     }
