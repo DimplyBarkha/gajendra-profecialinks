@@ -89,6 +89,8 @@ async function implementation(
           availableStatus ="In Stock";
         }
         addElementToDocument('pd_availability',availableStatus); 
+        let sku = datasetSku;
+        addElementToDocument('bb_sku', sku);
       }
     }
    }
@@ -116,6 +118,8 @@ async function implementation(
         // @ts-ignore
         oldPrice = oldPrice ? oldPrice.innerText : '';
         addElementToDocument('pd_oldPrice',oldPrice); 
+        let sku = datasetSku;
+        addElementToDocument('bb_sku', sku);
       }
     }
    }
