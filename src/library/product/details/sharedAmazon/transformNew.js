@@ -312,13 +312,16 @@ const transform = (data, context) => {
         }
       }
       if (row.manufacturerVideos) {
-        console.log(row.videos);
         if (!row.videos || row.videos[0].text === '') {
           row.videos = row.manufacturerVideos;
         } else {
           row.videos = [...row.videos, row.manufacturerVideos];
         }
         delete row.manufacturerVideos;
+      }
+      if (row.fastTrack) {
+        const text = row.fastTrack[0].text.replace(/details/gi, '').trim();
+        row.fastTrack[0].text = text;
       }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
