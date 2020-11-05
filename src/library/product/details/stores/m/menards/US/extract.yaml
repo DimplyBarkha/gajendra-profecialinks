@@ -14,10 +14,10 @@ fields:
     xpath: //meta[@property="og:url"]/@content
   - name: category
     singleValue: false
-    xpath: //div[@class="container d-print-none"]//li[position()>1 and position()<5]
+    xpath: //div[@class="container d-print-none"]//li[position()>1 and position()<=last()]
   - name: variantId
     singleValue: true
-    xpath: //div[@id="itemDetailsDataVars"]//@data-main-item-id
+    xpath: //div[@id="itemDetailsDataVars"]//@data-composite-model-number
     #regExp: (>(.+))
     #regExpReplace: $3
   - name: nameExtended
