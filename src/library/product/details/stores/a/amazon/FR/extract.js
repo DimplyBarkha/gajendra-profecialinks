@@ -1,6 +1,5 @@
 const { transform } = require('../../../../sharedAmazon/transformNew');
 const { implementation } = require('../../../a/amazon/US/extract')
-    // @ts-ignore
 module.exports = {
     implements: 'product/details/extract',
     parameterValues: {
