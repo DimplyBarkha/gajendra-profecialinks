@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="js-image-placeholder gallery__details__placeholder"]/img/@src
+    xpath: //div[position()>1]/div[@class="gallery__thumb thumb__is__image"]/picture/source/@srcset
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -43,7 +43,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //span[@class="vip__accordion__header-text delivery-header"]/span[@class="in-stock"][1]
+    xpath: (//button[@class="button button-action button-lg js-add-to-cart js-click-track js-sniper-click"])
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -51,7 +51,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: (//div[@class="vip__video-description__container"])
+    xpath: //div[@class="vip__video-description__container"]//text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -73,11 +73,11 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //*[contains(text(),'Bruttovægt')]/following::td[1]
+    xpath: //*[contains(text(),'Nettovægt')]/following::td[1]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //*[contains(text(),'Nettovægt')]/following::td[1]
+    xpath: //*[contains(text(),'Bruttovægt')]/following::td[1]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -134,10 +134,11 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    defaultValue: '1'
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: (//div[@class="vip__specifications__value"])[5]/text()
+    xpath: (//*[contains(text(),"Farve/Materiale")]/following::div[1][@class="vip__specifications__value"])[1]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -186,8 +187,6 @@ fields:
   - name: subscriptionPrice
     singleValue: true
     description: Subscribe and save price
-    xpath: //div[@class="campaign-banner__info offer"]/div/span[contains(text(),'Tilbud')]/following::span[1]
-    regExp: '\d*\.\d*'
   - name: subscribeAndSave
     singleValue: true
     description: YES/NO
@@ -246,6 +245,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//div[position()>1]/div[@class="gallery__thumb thumb__is__image"]/picture/source/@srcset)
     type: NUMBER
   - name: news
     singleValue: true
@@ -514,6 +514,7 @@ fields:
     singleValue: true
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: (//*[contains(text(),"Farve/Materiale")]/following::div[1][@class="vip__specifications__value"])[1]
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
