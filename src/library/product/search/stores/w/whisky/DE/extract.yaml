@@ -6,8 +6,8 @@ fields:
   - name: productUrl
     description: The URL for the product details page
     xpath: //a[@class='title']/@href
-    regExp: (.+)
-    regExpReplace: https://at.whisky.de$1
+    # regExp: (.+)
+    # regExpReplace: https://at.whisky.de$1
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //a[@class='title']/img/@src
