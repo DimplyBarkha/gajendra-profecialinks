@@ -42,6 +42,30 @@ module.exports = {
     //   body.setAttribute('producturl', producturl);
     // });
 
+    await context.evaluate(async () => {
+      const descriptionBox = document.querySelector('div#description-block');
+      const descSubtitles = descriptionBox.querySelectorAll('div.pdp__contentSection-leftSide > h3');
+      const descTexts = descriptionBox.querySelectorAll('div.pdp__contentSection-leftSide > p');
+      let descData = [];
+      let productDesc = '';
+      descSubtitles.forEach((subtitle, index) => {
+        descData = [
+          ...descData,
+          {
+            title: subtitle.innerHTML,
+            text: descTexts[index] ? descTexts[index].innerHTML : '',
+          },
+        ];
+      });
+      descData = descData.filter(desc => {
+        return (!desc.title.includes('Zutaten') && !desc.title.includes('Zubereitung'));
+      });
+      descData.forEach(desc => {
+        productDesc += desc.text + ' ';
+      });
+      descriptionBox.setAttribute('productdesc', productDesc);
+    });
+
     const dataRef = await context.extract(productDetails);
 
     const alternateImages = dataRef[0].group[0].alternateImages;
