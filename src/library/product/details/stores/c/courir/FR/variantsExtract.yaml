@@ -5,7 +5,7 @@ recordXPath: //div[@itemprop="model"]//a | //link[@rel="canonical"] | //div[cont
 fields:
   - name: variantId
     xpath: //@href
-    regExp: (.+pid=|.+-)?(\d+)(&.+|.html)
+    regExp: (.+pid=|.+-)?(\d+|\w+)(&.+|.html)
     regExpReplace: $2
   - name: variantUrl
     xpath: //@href
