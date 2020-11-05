@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="browsingitemcontainer"]/div
+fields:
+  - name: name
+    xpath: //a[contains(@class, 'name browsinglink')]
+  - name: rankOrganic
+  - name: id
+    xpath: //@data-code
+  - name: productUrl
+    xpath: //a[contains(@class, 'name browsinglink')]/@href
+    regExp: (.+)
+    regExpReplace: https://alza.cz$1
+  - name: thumbnail
+    xpath: //div[contains(@class, 'image')]//img/@srcset
+    regExp: (.+),
+    regExpReplace: $1
+  - name: rank
+  - name: aggregateRating2
+    xpath: //div[@class="star-rating-wrapper"]/@title
+    regExp: Hodnocení (.+)/5
+    regExpReplace: $1
+  - name: price
+    xpath: //div[contains(@class,'price')]//span[@class="c2"]
+    regExp: (\d+),-
+    regExpReplace: $1
