@@ -1,0 +1,24 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //a[@class="removeHover"]
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //a/@href
+  - name: productUrl
+    SingleValue: false
+    xpath: //a/@href
+  - name: price
+    SingleValue: false
+    xpath: //p[@class="counter-pTagPrice"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //img[@class="product__img-src"]/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="product-description-title"]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
