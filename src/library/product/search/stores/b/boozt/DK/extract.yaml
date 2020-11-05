@@ -1,16 +1,16 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[@class="p-card p-card--desktop p-card--shownames p-card--showfit  impression-product"]
+recordXPath: //li[@data-group="search_category" or @data-group="listing" or @data-group="search"]
 fields:
   - name: id
     singleValue: false
-    xpath: //li[@class="p-card p-card--desktop p-card--shownames p-card--showfit  impression-product"]/@data-product-id
+    xpath: //li[@data-group="search_category" or @data-group="listing" or @data-group="search"]/@data-product-id
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //li[@class="p-card p-card--desktop p-card--shownames p-card--showfit  impression-product"]/@data-product-name
+    xpath: //li[@data-group="search_category" or @data-group="listing" or @data-group="search"]/@data-product-name
   - name: productUrl
     singleValue: false
     xpath: //div[@class="p-card__image_wrapper p-card__image_wrapper--grey"]/a/@href
@@ -27,15 +27,14 @@ fields:
     singleValue: false
   - name: reviewCount
     singleValue: false
-    xpath: //div[@class="p-card__favorite-count"]
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //span[@class="p-card__price "]
+    xpath: //span[@class="p-card__price "] | //div[@class="p-card__info"]/span[@class="p-card__price p-card__price--sale"]/text()
   - name: manufacturer
     singleValue: false
-    xpath: //li[@class="p-card p-card--desktop p-card--shownames p-card--showfit  impression-product"]/@data-brand
+    xpath: //li[@data-group="search_category" or @data-group="listing" or @data-group="search"]/@data-brand
   - name: soldBy
     singleValue: true
   - name: endorsementText
