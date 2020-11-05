@@ -40,8 +40,8 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //button[@data-videoly-label="buy"]/span
-    regExp: Lägg i kundkorg
+    xpath: //div[@class='product-main-card']//pwr-product-stock-label/span[contains(@class,'stock')]
+    regExp: i lager
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
@@ -155,8 +155,8 @@ fields:
     singleValue: false
     description: URLs of videos on page
     xpath: //div[@id="videoUrls"]
-    regExp: (.*) url(\()(.*)(\))
-    regExpReplace: $3
+    # regExp: (.*) url(\()(.*)(\))
+    # regExpReplace: $3
   - name: name
     singleValue: false
     description: The product name
