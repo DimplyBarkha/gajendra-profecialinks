@@ -1,0 +1,138 @@
+input:
+  _url: http://boozt.com
+  URL: https://www.boozt.com/uk/uk/tom-joule/waybridge_27894491/212979629
+extractions:
+  - html: https://workbench.import.io/html/run=2410ade6-fbda-4010-ace1-27d205844111/task=a0543e95-e19e-4cde-b9ac-082554699575/0334d173-0dd3-4ad9-a00a-0a9bf15b78d7.html
+    extractionConfigId: product/details/stores/b/boozt/DK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.boozt.com/uk/uk/tom-joule/waybridge_27894491/212979629
+                xpath: /html/head[1]/meta[16]/@content
+            image:
+              - text: https://ean-images.booztcdn.com/tom-joule/1300x1700/g/tje208713_cblackyellowbee.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Joules - WAYBRIDGE - rainwear - black yellow bee - 0
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://ean-images.booztcdn.com/tom-joule/183x239/g/tje208713_cblackyellowbee.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://ean-images.booztcdn.com/tom-joule/183x239/g/tje208713_cblackyellowbee_1.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/img[1]/@src
+              - text: https://ean-images.booztcdn.com/tom-joule/183x239/g/tje208713_cblackyellowbee_2.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/img[1]/@src
+              - text: https://ean-images.booztcdn.com/tom-joule/183x239/tje208713_cblackyellowbee_100.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/img[1]/@src
+              - text: https://ean-images.booztcdn.com/tom-joule/183x239/tje208713_cblackyellowbee_90.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/img[1]/@src
+              - text: https://ean-images.booztcdn.com/tom-joule/183x239/tje208713_cblackyellowbee_91.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/img[1]/@src
+              - text: https://ean-images.booztcdn.com/tom-joule/183x239/tje208713_cblackyellowbee_92.jpg
+                xpath: /html/body/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/img[1]/@src
+            category:
+              - text: Women
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/a[1]/text()[1]
+              - text: Clothing
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/a[2]/text()[1]
+              - text: Jackets & Coats
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/a[3]/text()[1]
+            listPrice:
+              - text: £76.95
+                xpath: /html/body/div[9]/div[1]/div[2]/div[6]/div[1]/span[1]
+            price:
+              - text: £76.95
+                xpath: /html/body/div[9]/div[1]/div[2]/div[6]/div[1]/span[1]
+            description:
+              - text: Product details
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/text()[1]
+              - text: Classic/ Regular
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[1]/text()[1]
+              - text: 100% polyester
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[2]/text()[1]
+              - text: Sealed seams for maximum waterproof protection.
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[3]/text()[1]
+              - text: Full zip closure
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[4]/text()[1]
+              - text: Fully lined
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[5]/text()[1]
+              - text: Attached hood
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[6]/text()[1]
+              - text: Fine wash at max. 30˚C
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[7]/text()[1]
+            brandText:
+              - text: Joules
+                xpath: /html/body/div[9]/div[1]/div[2]/div[1]/h2[1]/a[1]/text()[1]
+            manufacturer:
+              - text: Joules
+                xpath: /html/body/div[9]/div[1]/div[2]/div[1]/h2[1]/a[1]/text()[1]
+            sku:
+              - text: " TJE208713"
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[4]/span[3]
+            variantId:
+              - text: "212979629"
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[4]/span[1]/text()[5]
+            color:
+              - text: BLACK YELLOW BEE
+                xpath: /html/body/div[9]/div[1]/div[2]/div[2]/div[1]/p[1]/span[1]
+            materials:
+              - text: 100% polyester
+                xpath: /html/body/div[9]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[2]
+            nameExtended:
+              - text: Joules WAYBRIDGE - Jackets & Coats
+            descriptionBullets:
+              - text: "7"
+            ratingCount:
+              - text: "1"
+            aggregateRating:
+              - text: "5"
+            variantCount:
+              - text: "3"
+            productOtherInformation:
+              - text: >-
+                  Polyester
+
+                  Polyester and other synthetics shed microplastics when washed, so we recommend a washing bag to protect all fabrics and garments from being torn or stretched out in the washing machine. It will also limit microfibre leakage in the washing process, which means preventing microplastics from entering into rivers and oceans.
+
+                  Sustainable fashion at Boozt.com
+
+
+                  Discover insightful information about fabrics, innovative production processes, what brands are leading the sustainable revolution, and how to best extend the life of your favourite products. READ MORE
+
+
+                  Quick care tips
+
+                  Be mindful and follow the washing instructions carefully 
+
+                  Wash only when needed and at a low temperature
+
+                  Air drying is preferred
+
+
+                  It is up to you now to love it, keep it and make it your own.
+            shippingInfo:
+              - text: >-
+                  Free and fast shipping
+
+
+                  Valid on orders over £69. Your package will arrive in 3-5 business days at your pick up location or in the comfort of your home. READ MORE
+
+
+                  Simple exchanges of gifts
+
+
+                  Log in to My Boozt and create a gift receipt. READ MORE
+
+
+                  Free returns
+
+
+                  Wish to return your purchase? We offer 30 days of easy free returns with a prepaid label included in the package. READ MORE
+
+
+                  Find out more
+
+
+                  Quickly find answers to your questions at our customer service pages. Customer service & FAQs
+        xpath: /
+    timestamp: 1604590299028

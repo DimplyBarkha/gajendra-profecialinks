@@ -123,7 +123,6 @@ fields:
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
   xpath: //div[@class="pp-tabs__content pp-content pp-content--shipping clearfix"]/div[@class="pp-content__section clearfix"]
-  # xpath: //div[@class="pp-tabs__content pp-content pp-content--shipping clearfix"]/@shippingInfo
   singleValue: true
   description: Shipping information for the product
 - name: shippingDimensions
@@ -490,7 +489,7 @@ fields:
   description: Information related to customer service availability (text), ['Yes','No']
   defaultValue: false
 - name: materials
-  xpath: //ul[@class="pp-content__list"]//li[contains(text(), "%")]
+  xpath: //div[@class="pp-content__block pp-content__block--list"]//ul[@class="pp-content__list"]//li[contains(text(), "%")]
   singleValue: false
   description: Materials used to make the product
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
