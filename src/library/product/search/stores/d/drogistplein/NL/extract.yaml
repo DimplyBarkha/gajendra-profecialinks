@@ -1,5 +1,33 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[contains(@class,"col-xs-12 col-sm-6 col-lg-4 col-xl-3 product-view-container")]
+fields:
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[contains(@class,"product-view-container")]//a[1][not(contains(@class,'rating'))]/@href
+  - name: id
+    SingleValue: false
+    xpath: //a[contains(@class,'btn btn-addcart')]/@data-modal-js-addtocart
+  - name: name
+    SingleValue: false
+    xpath: //div[contains(@class,'clear product-grid-view')]//div[@class='product-title']
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[contains(@class,'clear product-grid-view')]//div[contains(@class,'col-md-12 product-view-img')]//img/@src
+  - name: price 
+    SingleValue: false 
+    xpath: //div[contains(@class,'clear product-grid-view')]//div[contains(@class,'col-md-12 product-view-price-cart')]//strong
+  - name: listPrice
+    SingleValue: false 
+    xpath: //div[contains(@class,'clear product-grid-view')]//div[contains(@class,'col-md-12 product-view-price-cart')]//span//span
+  - name: reviewCount
+    SingleValue: false
+    xpath: //div[contains(@class,'clear product-grid-view')]//div[contains(@class,'col-md-12 product-view-rating')]//small
+    defaultValue: 0
+  - name: ratingCount
+    SingleValue: false
+    defaultValue: 0
+  - name: aggregateRating
+    SingleValue: false
+    defaultValue: 0
