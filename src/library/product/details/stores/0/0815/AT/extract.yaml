@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[contains(@class,'slide-active')]//div[contains(@class,'magnifier-container')]/img/@src
+    xpath: //meta[@property="og:image"]/@content
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -43,12 +43,15 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    defaultValue: In Stock
+    defaultValue: Out of Stock
+    xpath: //div[contains(@class,"is-button-buy")]
+    regExp: (.+)
+    regExpReplace: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@itemprop="description"]
+    xpath: //div[contains(@class,'-description-text')]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description

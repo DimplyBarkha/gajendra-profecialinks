@@ -31,6 +31,14 @@ async function implementation (
       waitUntil: 'networkidle0',
     });
     await context.waitForSelector('.product-detail-description-text', { timeout: 100000 });
+    await context.evaluate(() => {
+      const div = document.evaluate("//div[contains(@class,'product-detail-buy')]//div[contains(@class,'custom-price-style') and not (contains(@class,'instead'))]", document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+      div.innerText = div.innerText.replace(',', '.').replace('\n', '');
+    });
+  } else {
+    await context.evaluate(() => {
+      document.querySelector('meta[property="og:image"]').setAttribute('content', '');
+    });
   }
 }
 module.exports = {
