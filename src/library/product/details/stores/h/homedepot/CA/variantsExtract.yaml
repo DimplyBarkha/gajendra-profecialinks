@@ -1,0 +1,17 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //div[@evtperfname="super-sku-swatch-variants-pip"]//acl-swatch/a/@href
+    regExp: (.*)(\/)(\d+$)
+    regExpReplace: $3
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //div[@evtperfname="super-sku-swatch-variants-pip"]//acl-swatch/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.homedepot.ca$1
