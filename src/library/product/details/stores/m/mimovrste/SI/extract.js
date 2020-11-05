@@ -1,3 +1,4 @@
+/* eslint-disable no-redeclare */
 const { cleanUp } = require('../../../../shared');
 
 module.exports = {
@@ -64,11 +65,13 @@ module.exports = {
         addElementToDocument('added_serving_size_unit', servingSizeElements[1]);
       } else {
         servingSize = getXpath("//li[contains(text(),'skodelice')]/text()", 'nodeValue');
-        const servingSizeElements = servingSize.split(':');
-        const servingSizeValue = servingSizeElements[1].match(/\d+/g);
-        const servingSizeUnit = servingSizeElements[1].match(/[a-zA-Z]+/g);
-        addElementToDocument('added_serving_size', servingSizeValue);
-        addElementToDocument('added_serving_size_unit', servingSizeUnit);
+        if (servingSize) {
+          const servingSizeElements = servingSize.split(':');
+          const servingSizeValue = servingSizeElements[1].match(/\d+/g);
+          const servingSizeUnit = servingSizeElements[1].match(/[a-zA-Z]+/g);
+          addElementToDocument('added_serving_size', servingSizeValue);
+          addElementToDocument('added_serving_size_unit', servingSizeUnit);
+        }
       }
 
       var calories = getXpath("//li[contains(text(), 'energijska')] | //li[contains(text(), 'Energijska')]", 'innerText');
@@ -88,21 +91,36 @@ module.exports = {
       } else {
         fat = getXpath("//li[contains(text(), 'Masti')]", 'innerText');
         if (fat) {
-          var fatElements = fat.split(',').slice(0, 2);
-          fatElements = fatElements.join(',');
-          fatElements = fatElements.split(':');
-          const fatValue = fatElements[1].match(/\d+/g);
-          const fatUnit = fatElements[1].match(/[a-zA-Z]+/g);
-          addElementToDocument('added_fat', fatValue);
-          addElementToDocument('added_fat_unit', fatUnit);
+          if (fat.includes('(')) {
+            var fatElements = fat.substring(0, fat.indexOf('(') - 1);
+            fatElements = fatElements.split(':');
+            const fatValue = fatElements[1].match(/\d+/g);
+            const fatUnit = fatElements[1].match(/[a-zA-Z]+/g);
+            addElementToDocument('added_fat', fatValue);
+            addElementToDocument('added_fat_unit', fatUnit);
 
-          var saturatedFatElements = fat.split(',').slice(2);
-          saturatedFatElements = saturatedFatElements.join(',');
-          saturatedFatElements = saturatedFatElements.split(':');
-          const saturatedFatValue = saturatedFatElements[1].match(/\d+/g);
-          const saturatedFatUnit = saturatedFatElements[1].match(/[a-zA-Z]+/g);
-          addElementToDocument('added_saturated_fat', saturatedFatValue);
-          addElementToDocument('added_saturated_fat_unit', saturatedFatUnit);
+            var saturatedFatElements = fat.substring(fat.indexOf('('), fat.indexOf(')'));
+            const saturatedFatElementValue = saturatedFatElements.match(/\d+/g);
+            const saturatedFatElementUnit = fatElements[1].match(/[a-zA-Z]+/g);
+            addElementToDocument('added_saturated_fat', saturatedFatElementValue);
+            addElementToDocument('added_saturated_fat_unit', saturatedFatElementUnit);
+          } else {
+            var fatElements = fat.split(',').slice(0, 2);
+            fatElements = fatElements.join(',');
+            fatElements = fatElements.split(':');
+            const fatValue = fatElements[1].match(/\d+/g);
+            const fatUnit = fatElements[1].match(/[a-zA-Z]+/g);
+            addElementToDocument('added_fat', fatValue);
+            addElementToDocument('added_fat_unit', fatUnit);
+
+            var saturatedFatElements = fat.split(',').slice(2);
+            saturatedFatElements = saturatedFatElements.join(',');
+            saturatedFatElements = saturatedFatElements.split(':');
+            const saturatedFatValue = saturatedFatElements[1].match(/\d+/g);
+            const saturatedFatUnit = saturatedFatElements[1].match(/[a-zA-Z]+/g);
+            addElementToDocument('added_saturated_fat', saturatedFatValue);
+            addElementToDocument('added_saturated_fat_unit', saturatedFatUnit);
+          }
         }
       }
 
@@ -123,21 +141,36 @@ module.exports = {
       } else {
         carb = getXpath("//li[contains(text(), 'Ogljikovi')]", 'innerText');
         if (carb) {
-          var carbElements = carb.split(',').slice(0, 2);
-          carbElements = carbElements.join(',');
-          carbElements = carbElements.split(':');
-          const carbValue = carbElements[1].match(/\d+/g);
-          const carbUnit = carbElements[1].match(/[a-zA-Z]+/g);
-          addElementToDocument('added_carb', carbValue);
-          addElementToDocument('added_carb_unit', carbUnit);
+          if (carb.includes('(')) {
+            var carbElements = carb.substring(0, carb.indexOf('(') - 1);
+            carbElements = carbElements.split(':');
+            const carbValue = carbElements[1].match(/\d+/g);
+            const carbUnit = carbElements[1].match(/[a-zA-Z]+/g);
+            addElementToDocument('added_carb', carbValue);
+            addElementToDocument('added_carb_unit', carbUnit);
 
-          var sugarElements = carb.split(',').slice(2);
-          sugarElements = sugarElements.join(',');
-          sugarElements = sugarElements.split(':');
-          const sugarValue = sugarElements[1].match(/\d+/g);
-          const sugarUnit = sugarElements[1].match(/[a-zA-Z]+/g);
-          addElementToDocument('added_sugar', sugarValue);
-          addElementToDocument('added_sugar_unit', sugarUnit);
+            var sugarElements = carb.substring(carb.indexOf('('), carb.indexOf(')'));
+            const sugarValue = sugarElements.match(/\d+/g);
+            const sugarUnit = carbElements[1].match(/[a-zA-Z]+/g);
+            addElementToDocument('added_sugar', sugarValue);
+            addElementToDocument('added_sugar_unit', sugarUnit);
+          } else {
+            var carbElements = carb.split(',').slice(0, 2);
+            carbElements = carbElements.join(',');
+            carbElements = carbElements.split(':');
+            const carbValue = carbElements[1].match(/\d+/g);
+            const carbUnit = carbElements[1].match(/[a-zA-Z]+/g);
+            addElementToDocument('added_carb', carbValue);
+            addElementToDocument('added_carb_unit', carbUnit);
+
+            var sugarElements = carb.split(',').slice(2);
+            sugarElements = sugarElements.join(',');
+            sugarElements = sugarElements.split(':');
+            const sugarValue = sugarElements[1].match(/\d+/g);
+            const sugarUnit = sugarElements[1].match(/[a-zA-Z]+/g);
+            addElementToDocument('added_sugar', sugarValue);
+            addElementToDocument('added_sugar_unit', sugarUnit);
+          }
         }
       }
 
