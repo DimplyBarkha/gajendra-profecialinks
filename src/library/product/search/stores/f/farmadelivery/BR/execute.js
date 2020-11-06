@@ -23,9 +23,9 @@ async function implementation (
        type: 'HCAPTCHA',
      },
   };
-  //await context.evaluateInFrame('iframe', () => grecaptcha.execute());
-  await context.evaluate('iframe',()=>hcaptcha.execute());
   await dependencies.goto(gotoParum);
+  await context.evaluate('iframe',()=>hcaptcha.execute());
+  
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
