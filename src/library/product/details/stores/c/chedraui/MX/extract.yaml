@@ -6,6 +6,8 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[@class="item active"]/div/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.chedraui.com.mx$1
   - name: imageAlt
     singleValue: false
     xpath: //div[@class="item active"]/div/img/@alt
@@ -14,7 +16,7 @@ fields:
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: false
-    description: The <meta> keywords content
+    xpath: //meta[@name="keywords"]
   - name: category
     singleValue: false
     xpath: (//div[@class="breadcrumb-section"]//ol//li)[position()>1]
@@ -30,15 +32,15 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"add-to-cart-container")]//p/text()  (.+)\s\W\sKg
+    xpath: //div[contains(@class,"add-to-cart-container")]//p/text() 
     regExp: (.+)\s\W\sKg
     regExpReplace: $1
   - name: availabilityText
     singleValue: false
     xpath: //button[contains(@class,"addToCart")]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock 
+    defaultValue: In Stock
   - name: description
     singleValue: false
     xpath: //div[@class="tab-details"]//p//text()
@@ -48,8 +50,7 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: false
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    xpath: //td//span[contains(text(),"Tipo")]//..//following-sibling::td//text()
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -115,7 +116,7 @@ fields:
     type: NUMBER
   - name: color
     singleValue: false
-    description: A textual description of the colour
+    xpath: //td//span[contains(text(),"Color")]//..//following-sibling::td//text()
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
