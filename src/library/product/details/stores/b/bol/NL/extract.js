@@ -13,19 +13,15 @@ module.exports = {
     { inputString },
     { country, domain },
     context,
-    { productDetails }
-  ) => {
+    { productDetails }) => {
     // if we're on search site we should click and select first item
     var detailsPage = await context.evaluate(async () => {
-      await new Promise((resolve) => setTimeout(resolve, 3000));
-
       if (
-        document.querySelector(
-          'a[class="product-title px_list_page_product_click)'
-        )
+        document.querySelector('a.product-title.px_list_page_product_click') !=
+        null
       ) {
         var productLink = document
-          .querySelector('a[class="product-title px_list_page_product_click"]')
+          .querySelector('a.product-title.px_list_page_product_click')
           .getAttribute('href');
       }
 
@@ -34,21 +30,21 @@ module.exports = {
 
     // check if detailsPage exists
     if (detailsPage) {
-      await context.goto(detailsPage, { waitUntil: 'load' });
+      await context.goto('https://bol.com' + detailsPage);
     }
 
     // await context.waitForNavigation();
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
     await context.evaluate(async function () {
-      function addElementToDom(element, id) {
+      function addElementToDom (element, id) {
         const div = document.createElement('div');
         div.id = id;
         div.innerHTML = element;
         document.body.appendChild(div);
       }
 
-      //autoclick
+      // autoclick
       var moreButtons = document.querySelectorAll('a.show-more__button');
       moreButtons.forEach(async (element) => {
         element.click();
