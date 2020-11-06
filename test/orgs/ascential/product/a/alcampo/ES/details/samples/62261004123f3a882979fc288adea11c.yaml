@@ -2,13 +2,13 @@ input:
   id: 549549
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=e3c962ed-b6a9-47ad-a470-837ea341741b/task=dac9a90f-b158-4663-a49f-1ea9ccc2f455/73cb3725-50ab-48ba-996f-82ce8fe99f69.html
+  - html: https://workbench.import.io/html/run=8327af89-052d-478b-88c1-02e8a689e705/task=00bca07a-bb8d-4e8f-b1ee-b4dc0ad2de12/21e659fc-14c2-46dd-8a1c-92ef6c979304.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.alcampo.es/compra-online/bebidas/cervezas/premium/premium-rubia/brewdog-punk-ipa-cerveza-rubia-ipa-33-cl/p/549549
-                xpath: /html/head[1]/link[1]/@href
+              - text: https://www.alcampo.es/compra-online/bebidas/cervezas/premium/premium-rubia/brewdog-punk-ipa-cerveza-rubia-ipa-33-cl/p/549549?
+                xpath: /html/body/div[4]/div[2]/div[4]/div[1]/ul[2]/li[1]/div[4]/div[1]/form[1]/input[4]/@value
             image:
               - text: https://www.alcampo.es/media/hdd/h56/10519350018078.jpg
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
@@ -36,9 +36,6 @@ extractions:
             quantity:
               - text: Unidad
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]
-            shippingInfo:
-              - text: "- ENVÍO A DOMICILIO- RECOGIDA PARKING"
-                xpath: /html/body/@shippinginfo
             name:
               - text: Cerveza rubia Punk Ipa BREWDOG 33 cl.
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
@@ -47,12 +44,6 @@ extractions:
                   Ingredientes: 
                    Agua, Malta, Levadura, Lúpulo. Contiene Gluten.
                 xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]
-            servingSize:
-              - text: por 100ml/g
-                xpath: /html/body/@servingsize
-            servingSizeUom:
-              - text: ml/g
-                xpath: /html/body/@servingunit
             storage:
               - text: Mantener la botella de pie.
                 xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[3]/div[1]/div[1]
@@ -80,5 +71,5 @@ extractions:
               - text: No
             descriptionBullets:
               - text: "0"
-        xpath: /
-    timestamp: 1604653894455
+        xpath: /html/body/div[4]/div[2]
+    timestamp: 1604672774839

@@ -2,13 +2,13 @@ input:
   id: 58396
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=e3c962ed-b6a9-47ad-a470-837ea341741b/task=41ce79ed-f9be-4a78-80f9-f26eae96aea9/e3108671-f33f-42c5-8cdc-f1d16b2e153f.html
+  - html: https://workbench.import.io/html/run=8327af89-052d-478b-88c1-02e8a689e705/task=4ba4eb85-a848-4b33-b7f1-53a1deda483f/a948c528-d09d-4a77-952c-92f555606ace.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.alcampo.es/compra-online/frescos/verduras-y-hortalizas/verduras-ecologicas/alcampo-produccion-controlada-ecologico-patata-ecologica-malla-de-2-kg/p/58396
-                xpath: /html/head[1]/link[1]/@href
+              - text: https://www.alcampo.es/compra-online/frescos/verduras-y-hortalizas/verduras-ecologicas/alcampo-produccion-controlada-ecologico-patata-ecologica-malla-de-2-kg/p/58396?
+                xpath: /html/body/div[4]/div[2]/div[4]/div[1]/ul[2]/li[1]/div[4]/div[1]/form[1]/input[4]/@value
             image:
               - text: https://www.alcampo.es/media/h0f/h80/9144438095902.jpg
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
@@ -42,21 +42,12 @@ extractions:
             quantity:
               - text: Unidad
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]
-            shippingInfo:
-              - text: "- ENVÍO A DOMICILIO- RECOGIDA PARKING"
-                xpath: /html/body/@shippinginfo
             videos:
               - text: https://www.youtube.com/embed/O-QNRzt6AGc?rel=0&controls=0&showinfo=0
                 xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/iframe[1]/@src
             name:
               - text: Patatas ALCAMPO PRODUCCIÓN CONTROLADA ECOLÓGICO malla de 2 kg
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
-            servingSize:
-              - text: por 100ml/g
-                xpath: /html/body/@servingsize
-            servingSizeUom:
-              - text: ml/g
-                xpath: /html/body/@servingunit
             pricePerUnit:
               - text: 1,69 €
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/span[1]
@@ -81,5 +72,5 @@ extractions:
               - text: No
             descriptionBullets:
               - text: "0"
-        xpath: /
-    timestamp: 1604653891953
+        xpath: /html/body/div[4]/div[2]
+    timestamp: 1604672786386
