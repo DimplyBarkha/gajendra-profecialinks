@@ -7,12 +7,14 @@ async function implementation (
 ) {
   const { productDetails } = dependencies;
 
-  await context.evaluate(async function () {
-    setTimeout(() => {
-      const cookieBtn = document.querySelector('.accept-all-cookies');
-      if (cookieBtn) cookieBtn.click();
-    }, 20000);
+  await context.waitForSelector('#ResultsSection');
+  // Check if cookies pop-up appeared
+  const doesPopupExist = await context.evaluate(function () {
+    return Boolean(document.querySelector('.accept-all-cookies'));
   });
+  if (doesPopupExist) {
+    await context.click('.accept-all-cookies');
+  }
   return await context.extract(productDetails);
 }
 module.exports = {
