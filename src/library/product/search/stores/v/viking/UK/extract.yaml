@@ -22,7 +22,7 @@ fields:
     singleValue: false
     xpath: //div[@class="product-lister-item__product-image"]//picture/img/@src
     regExp: (\/\/static.*)
-    regExpReplace: https://www.viking-direct.co.uk$1
+    regExpReplace: https:$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -39,8 +39,7 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class="product-price-panel__price-alt-vat"]
-    regExp: \s+(.*)incl\.\sVAT
-    regExpReplace: $1
+    regExp: £\d+\,?\.?\d*
   - name: manufacturer
     singleValue: true
   - name: soldBy

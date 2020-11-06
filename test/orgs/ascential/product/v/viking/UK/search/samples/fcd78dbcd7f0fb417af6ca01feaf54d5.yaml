@@ -2,7 +2,7 @@ input:
   keywords: Dog Reward
   _url: http://viking-direct.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/a70d187d-4c1a-4179-a055-2538db6772b4.html
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/59e60228-1264-4bfb-abd4-8b80212a2e35.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -17,7 +17,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -28,6 +28,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -38,8 +41,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -50,8 +56,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -62,8 +71,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -74,8 +86,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -86,8 +101,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -98,11 +116,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/0da93c50-bd3d-4081-bbd6-e95dbd5acc3e.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/5e7d1840-ade4-4b82-a6c7-94a71ebd0277.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -117,7 +138,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -128,6 +149,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -138,8 +162,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -150,8 +177,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -162,8 +192,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -174,8 +207,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -186,8 +222,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -198,11 +237,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/4ca3d1e0-3fd1-4761-b4bd-4961ac95a9ca.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/397dcfda-1694-442a-a83c-f44dea158e2e.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -217,7 +259,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -228,6 +270,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -238,8 +283,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -250,8 +298,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -262,8 +313,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -274,8 +328,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -286,8 +343,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -298,11 +358,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/d99ce322-bf5c-429e-86d7-01a990dfb08b.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/2feeea67-580d-4931-a387-ff20c55936b5.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -317,7 +380,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -328,6 +391,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -338,8 +404,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -350,8 +419,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -362,8 +434,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -374,8 +449,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -386,8 +464,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -398,11 +479,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/be3614fc-6c6d-4db0-ba96-8928a3bc6ce1.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/b9c44668-0fcf-440c-ada8-6fad27a230ad.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -417,7 +501,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -428,6 +512,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -438,8 +525,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -450,8 +540,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -462,8 +555,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -474,8 +570,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -486,8 +585,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -498,11 +600,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/e46cea71-8366-43f5-b9c4-f7df80b0945b.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/6d330dbb-cfa9-499e-91ad-30176de7176c.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -517,7 +622,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -528,6 +633,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -538,8 +646,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -550,8 +661,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -562,8 +676,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -574,8 +691,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -586,8 +706,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -598,11 +721,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/38b3464f-42db-42ca-a4d9-bfa423ce37bf.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/3a9978a7-edd4-4e03-934f-c9f8fd545123.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -617,7 +743,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -628,6 +754,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -638,8 +767,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -650,8 +782,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -662,8 +797,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -674,8 +812,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -686,8 +827,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -698,11 +842,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/6da88d54-9627-474b-9ef5-d201f7a76ca4.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/8fbac3ac-6538-4ae8-abbf-431b7c4ccc63.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -717,7 +864,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -728,6 +875,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -738,8 +888,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -750,8 +903,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -762,8 +918,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -774,8 +933,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -786,8 +948,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -798,11 +963,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/ad4a5756-b127-4a02-9018-317caca1b670.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/392adf6e-0441-4792-9cdf-7e32b9ecb823.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -817,7 +985,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -828,6 +996,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -838,8 +1009,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -850,8 +1024,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -862,8 +1039,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -874,8 +1054,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -886,8 +1069,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -898,11 +1084,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/1385a548-5164-481b-a9be-9db7e90457bc.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/d0a1675e-69c2-4104-aa94-d077404e813a.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -917,7 +1106,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -928,6 +1117,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -938,8 +1130,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -950,8 +1145,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -962,8 +1160,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -974,8 +1175,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -986,8 +1190,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -998,11 +1205,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/0053e426-8f28-455c-9d0a-3309448451d6.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/270f08f5-4fcb-4cce-9953-d44bb62c94b6.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -1017,7 +1227,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -1028,6 +1238,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -1038,8 +1251,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -1050,8 +1266,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -1062,8 +1281,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -1074,8 +1296,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -1086,8 +1311,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -1098,11 +1326,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/af14cd04-bf9b-46c1-a7a0-d6300c71c37e.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/07a26400-15a7-45a3-9182-50c3b7268f99.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -1117,7 +1348,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -1128,6 +1359,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -1138,8 +1372,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -1150,8 +1387,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -1162,8 +1402,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -1174,8 +1417,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -1186,8 +1432,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -1198,11 +1447,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/e6d03848-0a95-425c-84f8-efe2b36c6aeb.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/2b5c8321-119c-4559-b220-5dc904f1f362.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -1217,7 +1469,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -1228,6 +1480,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -1238,8 +1493,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -1250,8 +1508,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -1262,8 +1523,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -1274,8 +1538,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -1286,8 +1553,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -1298,11 +1568,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/2bcffd86-6783-4657-a1f2-84ecf1e69b0a.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/2041fa77-2a3d-4e23-b8a7-53e4057860f5.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -1317,7 +1590,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -1328,6 +1601,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -1338,8 +1614,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -1350,8 +1629,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -1362,8 +1644,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -1374,8 +1659,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -1386,8 +1674,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -1398,11 +1689,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/82c35de3-43d6-46f9-8f3c-93eee2df667b.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/92ca25af-6030-403e-b625-08c0165d451c.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -1417,7 +1711,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -1428,6 +1722,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -1438,8 +1735,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -1450,8 +1750,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -1462,8 +1765,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -1474,8 +1780,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -1486,8 +1795,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -1498,11 +1810,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/6f70fafc-64c0-4a91-86bb-8b43cc554a57.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/c65df4fb-a8e6-4e6e-bf67-774d67274d50.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -1517,7 +1832,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -1528,6 +1843,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -1538,8 +1856,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -1550,8 +1871,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -1562,8 +1886,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -1574,8 +1901,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -1586,8 +1916,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -1598,11 +1931,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/5806a805-648e-4cf9-b3ab-2ee880719be2.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/8ed9e49a-98be-4d61-b998-32c7c590e617.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -1617,7 +1953,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -1628,6 +1964,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -1638,8 +1977,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -1650,8 +1992,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -1662,8 +2007,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -1674,8 +2022,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -1686,8 +2037,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -1698,11 +2052,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/1ae98bd0-c1c6-4228-8463-b6de3ac1579a.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/3802821c-b1b6-4e62-be99-aafc7182a32c.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -1717,7 +2074,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -1728,6 +2085,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -1738,8 +2098,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -1750,8 +2113,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -1762,8 +2128,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -1774,8 +2143,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -1786,8 +2158,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -1798,11 +2173,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/93165f77-bfee-4ab7-8e73-9eb1e12cd63d.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/bf2efcb1-cf5b-4378-8fa0-3a9b8666f42c.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -1817,7 +2195,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -1828,6 +2206,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -1838,8 +2219,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -1850,8 +2234,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -1862,8 +2249,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -1874,8 +2264,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -1886,8 +2279,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -1898,11 +2294,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/e817d4bc-5128-4bbd-94f0-3c08fd0fd7ac.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/c1235dce-6c79-4dbc-bc18-735a1dc17ce4.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -1917,7 +2316,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -1928,6 +2327,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -1938,8 +2340,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -1950,8 +2355,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -1962,8 +2370,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -1974,8 +2385,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -1986,8 +2400,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -1998,11 +2415,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/655e26c2-d189-401f-9bfd-9a2b36110903.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/6bace030-d314-4b70-a43c-42767704f9d1.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -2017,7 +2437,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -2028,6 +2448,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -2038,8 +2461,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -2050,8 +2476,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -2062,8 +2491,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -2074,8 +2506,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -2086,8 +2521,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -2098,11 +2536,14 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
-  - html: https://workbench.import.io/html/run=5736e7a9-abcb-4478-9d77-04b0923d4c7c/task=b5789911-5eae-46c0-9035-2cd14bf57e55/57c931fd-aaef-4176-900e-5c8858a67146.html
+    timestamp: 1604657103599
+  - html: https://workbench.import.io/html/run=e24c33da-9c51-46d7-bde6-5b948b267856/task=d35e9b6e-bea1-4abb-9a28-a6e985548377/24a50170-21e8-49bc-ab58-0a50c33b77ef.html
     extractionConfigId: product/search/stores/v/viking/UK/extract
     data:
       - group:
@@ -2117,7 +2558,7 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/avery-reward-stickers-e3613-white-192-labels-per-pack-p-5519610
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/5519610?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
             aggregateRating2:
               - text: "4.5"
@@ -2128,6 +2569,9 @@ extractions:
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]/@data-review-count
+            price:
+              - text: £7.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4559130"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/@data-article-number
@@ -2138,8 +2582,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-self-adhesive-vinyl-150-x-200-mm-p-p091-sav
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4559130?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £5.99
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "4002696"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/@data-article-number
@@ -2150,8 +2597,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/prohibition-signs-no-dogs-except-guide-dogs-pvc-150-x-200-mm-p-p091-pvc
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/4002696?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.15
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[3]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071309"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/@data-article-number
@@ -2162,8 +2612,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071309
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071309?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £11.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[4]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071316"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/@data-article-number
@@ -2174,8 +2627,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071316
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071316?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £18.59
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[5]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071295"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/@data-article-number
@@ -2186,8 +2642,11 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071295
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071295?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £8.75
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[6]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
           - id:
               - text: "3071302"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/@data-article-number
@@ -2198,7 +2657,10 @@ extractions:
               - text: https://www.viking-direct.co.uk/en/stewart-superior-europe-sign-p-3071302
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.viking-direct.co.uk//static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/3071302?wid=200&hei=200&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[2]/a[1]/picture[1]/img[1]/@src
+            price:
+              - text: £13.19
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/ol[1]/li[7]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]
         xpath: /html
-    timestamp: 1604594210164
+    timestamp: 1604657103599
