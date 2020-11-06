@@ -110,7 +110,7 @@ fields:
     singleValue: true
   - name: manufacturerDescription
     singleValue: false
-    #xpath: //div[@class="leftCol shortDesc"]/p[1]/text() | //div[@class="leftCol shortDesc"]/ul/li
+    xpath: (//div[@class="rightCol tabContent"])[1]//text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -125,10 +125,9 @@ fields:
     xpath: //div[@class="pdp-variants"]//ul/li[1]/a//@href
     regExp: (\d{7,8})|(\d{6,8})
   - name: variants
-    singleValue: false
-    xpath: //html//div[@id='altImages']
-    #regExp: (\/applications\/searchtools\/item-details\.asp\?EdpNo=)
-    #regExpReplace: 
+    singleValue: true
+    xpath: //div[@class="pdp-variants"]//ul/li[1]/a//@href
+    regExp: (\d{7,8})|(\d{6,8})
   - name: variantInformation
     singleValue: true
     xpath: //div[@class="pdp-variants"]//ul/li//a[@class="active"]//img//@alt
@@ -136,3 +135,12 @@ fields:
     singleValue: false
     xpath: count(//div[@class="pdp-small-img d-md-flex d-none owl-carousel owl-theme owl-loaded owl-drag"]//div//a//img//@src)
     type: NUMBER
+  - name: Image360Present
+    singleValue: false
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    #xpath: //div//a[@class="ccs-cc-viewport-slide-wrapper"]//img//@src
+    #regExp: (.*)
+    #regExpReplace: Yes
+    defaultValue: No
