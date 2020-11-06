@@ -18,11 +18,11 @@ fields:
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
-    xpath: (//meta[contains(@name, "description")])/@content
+
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@id='ii_category']
+    xpath: (//span[@class="hz-color-link__text "]/span[@class="hz-breadcrumb__title"])[position()>1]
   - name: nameExtended
     singleValue: true
     description:
@@ -93,7 +93,7 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: //div[@id='ii_weightNet']
+
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -274,7 +274,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-    xpath: count(//div[@class="alt-images__thumb "])
+
     type: NUMBER
   - name: news
     singleValue: true
