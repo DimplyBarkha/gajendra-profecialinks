@@ -1,0 +1,166 @@
+input:
+  _url: http://viking-direct.co.uk
+  SKU: 1916337
+extractions:
+  - html: https://workbench.import.io/html/run=7641f173-5aea-41d4-9113-9925cd547392/task=21cfc34e-918d-42ae-aa65-cee36dcb5fcc/5ac3ad7b-2e43-4e78-9ec4-ba7359f47927.html
+    extractionConfigId: product/details/stores/v/viking/UK/extract
+    data:
+      - group:
+          - image:
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/1916337?
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: NESCAFÉ Dolce Gusto Café au Lait Coffee Pods 1Pack of 6
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@alt
+            alternateImages:
+              - text: https://static.viking.de/is/image/odeu13/%211916337_alt1?
+                xpath: /html/body/div[9]
+              - text: https://static.viking.de/is/image/odeu13/%211916337_alt2?
+                xpath: /html/body/div[10]
+              - text: https://static.viking.de/is/image/odeu13/%211916337_alt3?
+                xpath: /html/body/div[11]
+            metaKeywords:
+              - text: NESCAFÉ,Dolce,Gusto,Café,au,Lait,Coffee,Pods,1Pack,6,Catering,&,Kitchen,Coffee,Coffee,Capsules
+                xpath: /html/head[1]/meta[5]/@content
+            category:
+              - text: Cleaning & Catering
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
+              - text: Catering & Kitchen
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]/span[1]
+              - text: Coffee
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]/span[1]
+              - text: Coffee Capsules
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[1]/div[1]/ol[1]/li[5]/a[1]/span[1]
+            nameExtended:
+              - text: NESCAFÉ Dolce Gusto Café au Lait Coffee Pods 1Pack of 6
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
+            price:
+              - text: £4.49
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[7]
+            description:
+              - text: Simple idea but with a fancy french name
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/h2[1]/text()[1]
+              - text: The richness and flavour of coffee with the sweetness of milk, all in one
+                  single capsule. Enjoy Cafe Au Lait in a large mug for a great
+                  start to the day.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/p[1]/text()[1]
+              - text: We think it’s especially yummy in the morning as a breakfast
+                  accompaniment, but these milky pod coffees are fantastic at
+                  any time of the day. So, whether you love to savour your Café
+                  au Lait as an everyday treat to yourself, or pop in a pod to
+                  enjoy with friends, we think you’ll love our Café au Lait
+                  coffee pod drinks.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[1]/text()[1]
+              - text: The innovative smart capsule system is specifically designed to ensure
+                  that each cup you make is fresh, and contains only the best
+                  ingredients. Whether you’re making a creamy layered latte or
+                  bold black coffee, the air tight capsule delivers the best cup
+                  every time!
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[2]/text()[1]
+              - text: Through the NESCAFÉ Plan, we work with local coffee farmers in growing
+                  regions around the world to help develop more sustainable
+                  farming practices. By providing farmers with training support
+                  through our network of agronomists and higher yielding,
+                  disease resistant plantlets, we are able to ensure you get to
+                  enjoy NESCAFÉ coffee with the knowledge that it has been
+                  produced with care and quality in every cup.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[3]/text()[1]
+              - text: |-
+                  Viking No.
+                   
+                  1916337
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  EAN/UPC
+                   
+                   7613033174667
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  Brand
+                   
+                   NESCAFÉ Dolce Gusto
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  Coffee Type
+                   
+                   Pads
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+              - text: |-
+                  Contents
+                   
+                   16 Pieces
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+              - text: |-
+                  Decaffeinated
+                   
+                   Non Decaffeinated
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+              - text: |-
+                  Flavour
+                   
+                   Café au Lait
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
+              - text: >-
+                  Ingredients
+                   
+                   Whole Milk Powder (73,7%), Soluble Coffee (24%), Stabilisers (Dipotassium Phosphate and Trisodium Citrate) (1.87%), Emulsifier (Soya Lecithin) (0.43%)
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
+              - text: |-
+                  Manufacturer Part No.
+                   
+                   12235939
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
+              - text: |-
+                  Model Number
+                   
+                   Café au Lait
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
+              - text: |-
+                  Number of Portions
+                   
+                   16
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[11]
+              - text: |-
+                  Pack Quantity
+                   
+                   16 Pieces
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[12]
+              - text: |-
+                  Product Type
+                   
+                   Coffee Pad
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[13]
+              - text: |-
+                  Unit
+                   
+                   Pack
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[14]
+            brandText:
+              - text: NESCAFÉ Dolce Gusto
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
+            gtin:
+              - text: "7613033174667"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            sku:
+              - text: "1916337"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[4]/span[1]
+            variantId:
+              - text: "1916337"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[4]/span[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[2]/a[1]/@data-review-count
+            shippingInfo:
+              - text: Free delivery on orders over £30
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/ul[1]/li[2]
+            name:
+              - text: NESCAFÉ Dolce Gusto Café au Lait Coffee Pods 1Pack of 6
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/h1[1]
+            technicalInformationPdfPresent:
+              - text: Yes
+                xpath: /html/body/div[8]
+        xpath: /
+    timestamp: 1604681222868
