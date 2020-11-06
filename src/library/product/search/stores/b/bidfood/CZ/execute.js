@@ -18,7 +18,8 @@ async function implementation (
   await dependencies.goto({ url, zipcode: inputs.zipcode });
   for(let i=0;i<10;i++){
     try{
-      await Context.
+      await context.click('button#nextItemsBtn');
+      await new Promise((resolve, reject) => setTimeout(resolve, 1500));
     }catch(err){
       console.log(err.message)
     }
@@ -49,4 +50,5 @@ module.exports = {
     noResultsXPath: '//span[@id="ContentPlaceHolder1_InventorySearchResultIndicator_NotFoundLabel" and text()="Hledaný text nebyl nalezen."]/@class',
     zipcode: '',
   },
+  implementation,
 };
