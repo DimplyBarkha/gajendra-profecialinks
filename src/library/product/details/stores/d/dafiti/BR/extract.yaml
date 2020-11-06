@@ -21,7 +21,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[contains(@class,'breadcrumb2')]/li//a/span/text()
+    xpath: //ul[contains(@class,'breadcrumb2')]/li[position()>1]//a/span/text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"

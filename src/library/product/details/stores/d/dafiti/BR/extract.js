@@ -73,7 +73,6 @@ module.exports = {
         rating = rating.trim();
         console.log('rating fetched ' + rating);
         if (rating.includes('%')) {
-          // rating = rating.match(regexp);
           rating = rating.split('%');
           rating = rating[0];
           console.log('rating fetched ' + rating);
