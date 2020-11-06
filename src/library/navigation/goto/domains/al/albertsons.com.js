@@ -1,5 +1,15 @@
-
 module.exports = {
+<<<<<<< HEAD
+    implements: 'navigation/goto',
+    parameterValues: {
+        domain: 'albertsons.com',
+        timeout: 50000,
+        country: 'US',
+        store: 'albertsons',
+        zipcode: '83642',
+    },
+};
+=======
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'albertsons.com',
@@ -18,3 +28,4 @@ module.exports = {
     }
   },
 };
+>>>>>>> 892773279dfcd7b5365c858515a9e107421f971f

@@ -5,7 +5,7 @@ module.exports = {
         store: 'albertsons',
         domain: 'albertsons.com',
         loadedSelector: null,
-        noResultsXPath: null,
+        noResultsXPath: '//div[contains(text()," This item is not available right now ")]',
         zipcode: '83642',
     },
 };
