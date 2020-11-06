@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="card-body"]
+fields:
+  - name: searchUrl
+    xpath: //div[@class="card-body"]/@searchurl 
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //div[contains(@class,"product-item-inner product-item")]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.albertsons.com$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //picture[contains(@class,"product-image product-image")]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: name
+    description: The product name
+    xpath: //h3/a
+  - name: price
+    description: The offered price for the product
+    xpath: //span[contains(@class,"product-strike-price")]/text() | //span[@class="product-price "]/text()
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN    
+
+#  Should these be source specific formulas or in the extractor? 
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //div[contains(@class,"product-item-inner product-item")]/a/@href
+    regExp: (\d+)
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER 
