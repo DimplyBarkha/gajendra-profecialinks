@@ -1,6 +1,6 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -23,5 +23,5 @@ module.exports = {
     domain: 'beautybox.com.br',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
