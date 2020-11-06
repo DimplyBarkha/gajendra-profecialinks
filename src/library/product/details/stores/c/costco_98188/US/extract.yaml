@@ -10,11 +10,9 @@ fields:
   - name: _url
     xpath: //link[@rel='canonical']/@href
   - name: category
-    xpath: //ol[@itemprop="breadcrumb"]//li[position()>1]//a
+    xpath: //ul[@id="crumbs_ul"]//li[position()>1]//a
   - name: nameExtended
     xpath: //h1[@itemprop="name"]
-  - name: listPrice
-    xpath: //div[contains(@class,"online-price")]//span[@class="op-value"]
   - name: price
     xpath: //div[contains(@class,"online-price")]//span[@class="op-value"]
   - name: priceCurrency
@@ -28,8 +26,11 @@ fields:
     regExp: instock
     regExpReplace: In Stock
     defaultValue: Out of Stock
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //ul[@class="pdp-features"]//li | //div[@class="product-info-description"]/ul/li
   - name: description
-    xpath: normalize-space(//ul[@class="pdp-features"])
+    xpath: //div[@id='product-desc'] # normalize-space(//div[contains(@class,"product-info-description")]) 
   - name: descriptionBullets
     xpath: count(//ul[@class="pdp-features"]//li)
   - name: brandText
@@ -66,7 +67,7 @@ fields:
   - name: manufacturerImages
     xpath: //div[@class="wc-reset"]//ul//li//img[@data-asset-type="image"]/@src
   - name: videos
-    xpath: //div[@itemprop="video"]//meta[@itemprop="contentUrl"]/@content
+    xpath: //div[@class='product-info-description']//iframe/@src
   - name: name
     xpath: //h1[@itemprop="name"]
   - name: inStorePrice
@@ -94,7 +95,8 @@ fields:
   - name: largeImageCount
   - name: variantAsins
   - name: specifications
-    xpath: normalize-space(//div[contains(@class,"product-info-specs")])
+    singleValue: false
+    xpath: //div[contains(@class,"product-info-specs")]//div[contains(@class,'spec-name')] |//div[contains(@class,"product-info-specs")]//div[contains(@class,'spec-name')]/following-sibling::div
   - name: primeFlag
   - name: lbb
   - name: lbbPrice
@@ -172,7 +174,6 @@ fields:
   - name: variants
   - name: firstVariant
   - name: variantInformation
-  - name: additionalDescBulletInfo
   - name: prop65Warning
   - name: ageSuitability
   - name: energyEfficiency
