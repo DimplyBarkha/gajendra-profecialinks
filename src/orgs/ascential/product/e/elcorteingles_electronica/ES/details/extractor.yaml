@@ -6,15 +6,18 @@ parameters:
   zipcode: ""
 proxy:
   zone: ZES
-  type: DATA_CENTER  
+  type: DATA_CENTER
 policy:
   numberRetries: 1
   priority: MEDIUM
   retryDelay: 60
   backoffPolicy: EXPONENTIAL
-  retryWithResidentialProxyAfter: 99  
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     osm_elcorteingles_electronica:
       extractor: 5a77b60b-5e04-493f-8ab1-222dc2bc76aa
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    elcorteingles-18659:
+      extractor: 8f3e4123-34d2-4be5-b17b-2e9c16901d96
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013

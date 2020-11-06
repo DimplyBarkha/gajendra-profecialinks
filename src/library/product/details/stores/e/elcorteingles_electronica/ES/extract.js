@@ -16,9 +16,71 @@ module.exports = {
     
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
-    const enhancedContent = '#tab-content-1 .js-media-holder';
-    console.log('.....waiting......');
-    await context.waitForSelector(enhancedContent, { timeout: 90000 });
+    //const enhancedContent = '#tab-content-1 .js-media-holder';
+    const mainURL = await context.evaluate(function () {
+      console.log("main URL")
+      return document.URL;
+    });
+
+    try {
+      const navigateLink = await context.evaluate(function () {
+        console.log("getting navlink for Iframe");
+        let gtin = document.querySelector('button[data-event=add_to_cart]') && document.querySelector('button[data-event=add_to_cart]').hasAttribute('data-product-gtin') ? document.querySelector('button[data-event=add_to_cart]').getAttribute('data-product-gtin') : "";
+        console.log(`gtin: ${gtin}`);
+        return `https://service.loadbee.com/ean/${gtin}/es_ES?css=default&template=default&button=default#bv-wrapper`;
+      });
+
+      if (navigateLink) {
+        console.log(navigateLink, "Iframe Details")
+        console.log("Nagivating to Enahnced content");
+
+        await context.goto(navigateLink, {
+          timeout: 20000, waitUntil: 'load', checkBlocked: true,
+        });
+
+        console.log('In Enhanced content areas');
+
+        const otherSellersTable = await context.evaluate(function () {
+          if(document.querySelector('h1') ?  document.querySelector('h1').innerText.includes("isn't any digital profile available") : true) {
+            return "";
+          } else {
+            return document.querySelector('body').innerHTML;
+          }
+        });
+
+        console.log('Got otherSellersTable here');
+
+        console.log('mainURL' + mainURL);
+
+        await context.goto(mainURL, {
+          timeout: 10000,
+          waitUntil: 'load',
+          checkBlocked: false,
+          js_enabled: true,
+          css_enabled: false,
+          random_move_mouse: true,
+        });
+
+        await context.evaluate(function (eleInnerHtml) {
+          const cloneNode = document.createElement('div');
+          cloneNode.style.display = 'none';
+          cloneNode.setAttribute("id", "enhancedContent");
+          cloneNode.innerHTML = eleInnerHtml;
+          document.querySelector('div.product_detail-description-in-image').appendChild(cloneNode);
+        }, otherSellersTable);
+      }
+
+    } catch (err) {
+      console.log('Additional other sellers error -' + JSON.stringify(err));
+      await context.goto(mainURL, {
+        timeout: 10000,
+        waitUntil: 'load',
+        checkBlocked: false,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
+    }
 
     await context.evaluate(async function () {
 
@@ -117,6 +179,17 @@ module.exports = {
           addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
           addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
           addElementToDocument('variantInformation', JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant ? JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant[0].value : "");
+          if(JSON.parse(apiDataResponse).video && JSON.parse(apiDataResponse).video.length > 0) {
+            console.log('we have the video array in the api response');
+            if(JSON.parse(apiDataResponse).video[0].url) {
+                console.log('we have url in the video array');
+                addElementToDocument('thumbnailVideo', JSON.parse(apiDataResponse).video[0].url);
+            } else {
+                console.log('there is no url in the video array');
+            }
+        } else {
+            console.log('There is no video in the api response');
+        }
         }
       }
 

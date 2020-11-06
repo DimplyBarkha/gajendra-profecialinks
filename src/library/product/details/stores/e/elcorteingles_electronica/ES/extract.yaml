@@ -29,7 +29,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath : //*[contains(@class,"product_detail-description-in-image") or contains(@class,"product_information")]//text()
+    xpath : //*[contains(@class,"product_detail-description-in-image") or contains(@class,"product_information")]
   - name: brandText
     xpath : //div[@id="brand"]
   - name: quantity
@@ -55,7 +55,7 @@ fields:
   - name: videos
     singleValue: false
     # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
-    xpath: //div[@id='thumbnailVideo'] | //div[@class="image-layout-slides-group"]//img/@data-url
+    xpath: //div[@class="image-layout-slides-group"]//img/@data-url
     # xpath: //div[contains(@class,'video-slides')]/@data-url
   - name: name
     xpath : //meta[@name="twitter:title"]/@content
@@ -97,9 +97,11 @@ fields:
   - name: colorCode
     xpath :  
   - name: manufacturerDescription
-    xpath : //div[@id="tab-content-3" or @id="tab-content-1"]/div//div  
+    xpath : //div[@id="enhancedContent"]   
   - name: manufacturerImages
-    xpath : //div[@id="apluseImages"]     
+    xpath : //div[@id="enhancedContent"]//div[@class="thumbnails"]//div[contains(@class,"thumbnail")]//@data-img-src | //div[@id="enhancedContent"]//div[@class="thumbnails"]//div[contains(@class,"thumbnail")]//@data-highres-img | //div[@id="enhancedContent"]//img[contains(@src,"assets")]//@src
+    regExp: (https:)?(.+)
+    regExpReplace: https:$2  
   - name: termsAndConditions
     xpath : 
   - name: additionalDescBulletInfo
@@ -127,4 +129,8 @@ fields:
     xpath :           
   - name: descriptionBullets
     singleValue: false
-    xpath :      
+    xpath :
+  - name: galleryVideos
+    singleValue: false
+    # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
+    xpath: //div[@class="image-layout-slides-group"]//img/@data-url
