@@ -160,6 +160,22 @@ module.exports = {
       await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
       await context.waitForSelector('section.product-details', { timeout: 55000 });
     }
+
+    //production fixes
+    let aa = await context.evaluate(()=>{
+      return Boolean(document.querySelector('nav[role="tablist"]'));
+    });
+    if(aa){
+      try{
+      await context.evaluate(()=>{
+        document.querySelector('nav[role="tablist"]').scrollIntoView({behavior: "smooth"});
+      })
+      await context.click('#tabs-page-select-tab0');
+      await context.waitForSelector('div[class*="AspectRatio"]',{timeout:30000})
+      }catch(err){
+        console.log('No Enhanced Content')
+      }
+    }
     
     return await context.extract(productDetails, { transform: transformParam });
   },

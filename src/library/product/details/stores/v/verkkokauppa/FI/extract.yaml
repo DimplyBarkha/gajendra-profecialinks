@@ -173,10 +173,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    # xpath: //*[contains(@id,"tempManufactureImage1")]
-    # xpath: //a[contains(@class,'product-shop-logo')]/figure/img/@src
-    regExp: ^(.+)$
-    regExpReplace: https://verkkokauppa.com$1
+    xpath: //div[contains(@class,'AspectRatio')]//picture[contains(@class,'Picture')]/img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
