@@ -20,15 +20,15 @@ const transform = (data) => {
       .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, " ");
   for (const { group } of data) {
     for (const row of group) {
-      if (row.alternateImages) {
-        row.alternateImages = row.alternateImages.map((item) => ({
+      if (row.variantUrl) {
+        row.variantUrl = row.variantUrl.map((item) => ({
           ...item,
-          text: item.text.replace("h_80", "h_450").replace("w_80", "w_450"),
+          text: `https://build.com${item.text.split("#")[0]}`,
         }));
       }
-      Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
-      }));
+      // Object.keys(row).forEach(header => row[header].forEach(el => {
+      //   el.text = clean(el.text);
+      // }));
     }
   }
 

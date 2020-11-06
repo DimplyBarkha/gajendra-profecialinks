@@ -8,21 +8,23 @@ fields:
   #   xpath: //link[@rel="canonical"]//@href
   - name: id
     singleValue: false
-    xpath: //div[contains(@class, 'product-details')]//a[@data-finding-method='search']/@href
+    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'image-contanier')]//a/@href
     regExp: .*uid=(\d+).*
     regExpReplace: $1
   - name: name
     singleValue: false
-    xpath: //a[@data-finding-method='search']//div[contains(@class, 'lh-title')]
+    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'product-details')]//a//div[contains(@class, 'lh-title')]/text()
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class, 'product-details')]//a[@data-finding-method='search']/@href
+    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'image-contanier')]//a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //a[@data-finding-method='search']//img/@src
+    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'image-contanier')]//a//img/@src
   - name: price
     singleValue: false
-    xpath: //strong[contains(@class, 'product-price')]/span
+    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'js-product-wrapper')]//div[contains(@class, 'product-details')]//strong[contains(@class, 'product-price')]
+    regExp: .*\$(\d+).(\d+).*
+    regExpReplace: $$$1.$2
   - name: aggregateRating2
     singleValue: false
     xpath: //div[contains(@class, 'product-details')]//div[contains(@class, 'star-rating')]/@class
@@ -35,4 +37,4 @@ fields:
     regExpMatch: "0"
   - name: manufacturer
     singleValue: false
-    xpath: //a[@data-finding-method='search']//div[contains(@class, 'lh-title')]//span[contains(@class, 'product-name')]/text()
+    xpath: //div[@class='custom-attr-product-manufacturer-name']/text()

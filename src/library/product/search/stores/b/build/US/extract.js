@@ -30,6 +30,17 @@ async function implementation(
       }
     });
   };
+  await context.evaluate(async function() {
+    const products = document.querySelectorAll("div.js-product-wrapper");
+    products.forEach((pd, index) => {
+      const manufacturerName = (window.dataLayer.products[index] || {}).manufacturer;
+      const div = document.createElement("div");
+      div.className = "custom-attr-product-manufacturer-name";
+      div.style.display = "none";
+      div.textContent = manufacturerName;
+      pd.appendChild(div);
+    });
+  });
   await applyScroll(context);
   return await context.extract(productDetails, {transform});
 }

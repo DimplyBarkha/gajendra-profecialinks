@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //ul[@id='custom-attr-product-variants-urls']//li/@data-variant-id
+  - name: variantUrl
+    singleValue: false
+    xpath: //ul[@id='custom-attr-product-variants-urls']//li/text()

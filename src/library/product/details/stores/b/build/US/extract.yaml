@@ -3,12 +3,15 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: url
+    singleValue: false
+    xpath: //div[@id='custom-attr-url-field']/text()
   - name: image
     singleValue: false
-    xpath: //div[@id='product-images-container']//div[contains(@class, 'js-main-image-container')]//div[contains(@class, 'slick-current')]//img/@src
+    xpath: //div[@class="product-gallery"]//img[@role="presentation"]/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[@id='product-images-container']//div[contains(@class, 'js-main-image-container')]//div[contains(@class, 'slick-current')]//img/@alt
+    xpath: //div[@class="product-gallery"]//img[@role="presentation"]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[@id='product-images-container']//div[contains(@class, 'product-gallery__thumbnails')]//div[contains(@class, 'slick-slide') and not(contains(@class, 'slick-current')) and not(contains(@class, 'slick-cloned'))]//img[not(contains(@data-activitymap-name, 'Video'))]/@src
@@ -24,9 +27,12 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //h1[@data-automation="heading"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@id='purchase-box']//div[contains(@class, 'item-price')]//*[@data-automation='original-price']
   - name: price
     singleValue: false
-    xpath: //div[@data-automation="price"]
+    xpath: //div[@id='purchase-box']//div[contains(@class, 'item-price')]//*[@data-automation='discounted-price' or @data-automation='price' or contains(@data-automation, 'price-per-package')]
   - name: availabilityText
     singleValue: false
     xpath: //div[@id='custom-attr-product-availability-text']/text()
@@ -68,21 +74,26 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: //div[@id='custom-attr-image-zoom-feature-present']/text()
-  - name: video
-    singleValue: false
-    xpath: //div[@id='product-images-container']//video/@src
   - name: variants
     singleValue: false
-    xpath: //div[@data-automation='finish-swatch']//img/@alt
+    xpath: //div[@id='product-variations']//a
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath: //div[@id='custom-attr-product-pdfs']/text()
   - name: variantInformation
     singleValue: false
-    xpath: //div[@id='custom-attr-product-variants-info']/text()
+    xpath: //div[@id='product-variations']//a[not(@href)]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class, 'description')]//img/@src
+    regExp: (.*)
+    regExpReplace: https:$1
   - name: variantCount
     singleValue: false
-    xpath: //div[@id='custom-attr-product-variants-count']/text()
+    xpath: count(//div[@id='product-variations']//a)
+  - name: videos
+    singleValue: false
+    xpath: //div[@id='product-images-container']//video[starts-with(@src, 'http')]/@src
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@id='custom-attr-product-manufacturer-name']/text()
