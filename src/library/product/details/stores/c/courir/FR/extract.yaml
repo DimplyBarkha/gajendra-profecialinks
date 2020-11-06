@@ -20,7 +20,7 @@ fields:
   - name: listPrice
     xpath: //div[contains(@class,"product-details-top-right")]//div[@itemprop="offers"]//span[contains(@class,"price-standard")]/@data-product-price-value
   - name: price
-    xpath: //div[contains(@class,"product-details-top-right")]//div[@itemprop="offers"]//span[@itemprop="price"]/@content
+    xpath: //div[contains(@class,"product-details-top-right")]//div[@itemprop="offers"]//span[@itemprop="price"]/@content | //div[contains(@class,"product-details-top-right")]//div[@itemprop="offers"]//span[@class="price-minimum"]
   - name: availabilityText
     xpath: //button[@id="add-to-cart"][@value="Ajouter"]
     regExp: (.+)
