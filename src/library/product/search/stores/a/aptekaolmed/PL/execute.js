@@ -5,7 +5,7 @@ module.exports = {
     country: 'PL',
     store: 'aptekaolmed',
     domain: 'aptekaolmed.pl',
-    url: 'https://www.aptekaolmed.pl/search.php?text=tena+pants',
+    url: 'https://www.aptekaolmed.pl/search.php?text={searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',

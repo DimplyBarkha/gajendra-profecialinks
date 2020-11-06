@@ -26,11 +26,25 @@ async function implementation(
     // for rank
     function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
-      catElement.id = key;
+      http://catelement.id/ = key;
       catElement.textContent = value;
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
-    }
+      }
+    // function addElementToDocument(key, value) {
+    //   // const parent  =document.querySelectorAll("product-info");
+    //   // const parentObject = document.getElementsByClassName('product-info');
+    //   // for (var i = 0; i < parentObject.length; i++) {
+    //   // [...parentObject].forEach((parent, i) => {
+    //     const catElement = document.createElement('div');
+    //     catElement.id = key;
+    //     catElement.textContent = value;
+    //     catElement.style.display = 'none';
+    //     parentObject[i].appendChild(catElement);
+        
+    //   // });
+    //   }
+    // }
     // Method to Retrieve Xpath content of a Multiple Nodes
     const getAllXpath = (xpath, prop) => {
       const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
