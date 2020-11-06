@@ -18,7 +18,7 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //meta[@property="og:title"]/@content
-    regExp: (.*)?\s*\|
+    regExp: (.*)?\s*\| 
     regExpReplace: $1
   - name: listPrice
     singleValue: false
