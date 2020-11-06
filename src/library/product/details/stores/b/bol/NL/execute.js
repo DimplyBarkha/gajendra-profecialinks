@@ -5,8 +5,8 @@ module.exports = {
     country: 'NL',
     store: 'bol',
     domain: 'bol.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class="[ fluid-grid  fluid-grid--rwd--l ]  new_productpage"',
+    noResultsXPath: '//div[@data-test="non-deliverable"]',
     zipcode: '',
   },
 };
