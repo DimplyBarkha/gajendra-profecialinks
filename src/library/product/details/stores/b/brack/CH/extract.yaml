@@ -78,11 +78,11 @@ fields:
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
-  xpath: //th[text()="Volumen"]/following-sibling::td
+  xpath: //th[text()="Volumen" or text()="Packungsgrösse"]/following-sibling::td[1]
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
-  xpath: //th[text()="Gewicht"]/following-sibling::td
+  xpath: //th[text()="Gewicht"]/following-sibling::td[1]
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
@@ -92,7 +92,7 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //th[text()="Artikel-Nr."]/following-sibling::td
+  xpath: //th[text()="Artikel-Nr."]/following-sibling::td[1]
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
@@ -100,7 +100,7 @@ fields:
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
-  xpath: //th[text()="Herstellernummer"]/following-sibling::td
+  xpath: //th[text()="Herstellernummer"]/following-sibling::td[1]
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
@@ -111,22 +111,26 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
-  xpath: //h3[contains(text(), "Zubereitung")]/following-sibling::p
+  xpath: //h3[contains(text(), "Zubereitung")]/following-sibling::p[1]
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: //span[@class="num__ratings"]
+  regExp: \d+
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //span[@class="total__rating"]
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: //p[@class="productStage__delivery-label"]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -136,9 +140,11 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  xpath: count(//div[@class="productStage__productVariants"]//li[contains(@class, "productStage__variantItem")])
 - name: color
   singleValue: true
   description: A textual description of the colour
+  xpath: //th[text()="Farbe"]/following-sibling::td[1]
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
@@ -261,7 +267,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: //h3[contains(text(), "Zutaten")]/following-sibling::p
+  xpath: concat(//h3[text()="Zutaten"]/following-sibling::p[1], //th[text()="Inhaltsstoffe"]/following-sibling::td[1])
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -396,12 +402,14 @@ fields:
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
+  xpath: //th[text()="Herstellergarantie"]/following-sibling::td[1]
 - name: storage
   singleValue: true
   description: Suggested storage location for product
 - name: countryOfOrigin
   singleValue: true
   description: The country from which the product originates
+  xpath: //th[text()="Produktionsland"]/following-sibling::td[1]
 - name: allergyAdvice
   singleValue: true
   description: Allergy information associated with the product
@@ -467,6 +475,7 @@ fields:
   singleValue: true
   description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
   example: 4 - 99 years
+  xpath: //th[contains(text(), "Alter")]/following-sibling::td[1]
 - name: energyEfficiency
   singleValue: true
   description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
