@@ -16,8 +16,7 @@ async function implementation (
   console.log('Checking no results', parameters.noResultsXPath);
 
   try {
-    await context.setInputValue('search#search', inputs.keywords);
-    await context.keyboard.press('Enter');
+    await context.setInputValue('input#search', inputs.keywords);
   } catch (e) {
     console.log(e);
   }
