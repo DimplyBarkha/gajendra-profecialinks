@@ -23,8 +23,11 @@ const transform = (data, context) => {
   let rankCounter = state.rankCounter || 0;
   for (const { group } of data) {
     for (const row of group) {
-      if (row.price && row.price[0]) {
-        row.price[0].text = row.price[0].text.replace(/\./g, ',');
+      if (row.price) {
+        const length = row.price.length;
+        if (length === 2) {
+          row.price = row.price.slice(1);
+        }
       }
       if (row.thumbnail && row.thumbnail[0]) {
         row.thumbnail[0].text = row.thumbnail[0].text.replace('\\', '');

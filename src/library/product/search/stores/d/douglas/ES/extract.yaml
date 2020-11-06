@@ -18,7 +18,8 @@ fields:
     regExp: \W(["^\d"]+)
     regExpReplace: $1
   - name: price
-    xpath: //p[contains(@class,"eb-result-price")]
+    # xpath: //p[contains(@class,"eb-result-price")] 
+    xpath: //p[contains(@class,"eb-result-price-color")] | //p[contains(@class,"eb-result-price")] 
     regExp: (.*)\W\W
     regExpReplace: $1
   - name: rank
