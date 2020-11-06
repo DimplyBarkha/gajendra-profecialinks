@@ -8,9 +8,6 @@ async function implementation (
 ) {
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
-      while(document.querySelector('button.results-btn-viewmore').disabled === false){
-        document.querySelector('button.results-btn-viewmore').click();
-    }
       let scrollTop = 0;
       while (scrollTop !== 20000) {
         await stall(500);
