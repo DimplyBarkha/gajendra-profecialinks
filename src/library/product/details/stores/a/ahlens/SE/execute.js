@@ -6,7 +6,7 @@ module.exports = {
     store: 'ahlens',
     domain: 'ahlens.se',
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: "//div[@id='ahl-product-list-app']/div/div[2]",
     zipcode: '',
   },
 };
