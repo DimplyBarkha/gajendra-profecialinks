@@ -40,6 +40,13 @@ const transform = (data) => {
           row.specifications = [{ text: specificationsArr.join(' || ') }];
         }
       }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          if (item.text.indexOf('http') < 0) {
+            item.text = 'https:' + item.text;
+          }
+        });
+      }
       if (row.sku) {
         row.sku.forEach(item => {
           // "productId":"1555143"
