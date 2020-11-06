@@ -1,0 +1,86 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //img[@id='slick-slide00']/@src
+  - name: metaKeywords
+    singleValue: true`
+    xpath: //meta[contains(@name,'keywords')]/@content
+  # - name: category
+  #   singleValue: false
+  #   xpath: //div[@class='breadcrumbs']//ul/li[not(@class='Inicio')]
+  - name: name
+    singleValue: true
+    xpath: //div[@class='product-name']//span
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@class='product-name']//span
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@class='add-to-cart-wrapper']//button[text()=' Agregar ']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: alternateImages
+    singleValue: false
+    xpath: //img[contains(@id,'slick-slide') and not(@id='slick-slide00')]/@src
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@class,'price-box')]//p[@class='price']
+  - name: listPrice
+    singleValue: true
+    xpath: //div[contains(@class,'price-box')]//p[@class='old-price']//span
+  - name:  description
+    singleValue: true
+    xpath: //div[contains(@class,'descripcion-content')]//div[@class='descripcion-texto']/text()
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[contains(@class,'descripcion-content')]//div[@class='descripcion-list']//li
+  - name: brandText
+    singleValue: true
+    xpath: //div[@class='product-shop']//p[contains(@class,'brand')]
+  - name: mpc
+    singleValue: true
+    xpath: //div[@class='especifiacion-box']//span[contains(text(),'Modelo')]//following-sibling::span
+  - name: sku
+    singleValue: false
+    xpath: //meta[@property='og:url']/@content    
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@property='og:url']/@content    
+  - name: promotion
+    singleValue: true
+    xpath: //div[@class='product-shop']//p[contains(@class,'offer')]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class='especifiacion-box']//li
+  - name: variantCount
+    singleValue: true
+    defaultValue: 0
+  - name: warranty
+    singleValue: true
+    xpath: //div[@class='especifiacion-box']//span[contains(text(),'Garantía')]//following-sibling::span
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'descripcion-content')]//div[@class='descripcion-texto']//img[not(@title='Powered by Flixmedia')]/@srcset
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,'descripcion-content')]//div[contains(@class,'flix-std')]
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //div[@class='especifiacion-box']//span[contains(text(),'Origen')]//following-sibling::span
+  - name: quantity
+    singleValue: true
+    xpath: //div[@class='especifiacion-box']//span[contains(text(),'Unidad de medida')]//following-sibling::span
+  - name: pricePerUnit
+    singleValue: true
+    xpath: //div[@class='especifiacion-box']//span[contains(text(),'Precio por unidad de medida')]//following-sibling::span
+  - name: color
+    singleValue: true
+    xpath: //div[@class='especifiacion-box']//span[contains(text(),'Color')]//following-sibling::span
+  - name: weightNet
+    singleValue: true
+    xpath: //div[@class='especifiacion-box']//span[normalize-space()='Peso' or normalize-space()='Peso de la caja']//following-sibling::span

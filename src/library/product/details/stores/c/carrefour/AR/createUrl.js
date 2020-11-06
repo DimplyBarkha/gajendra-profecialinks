@@ -1,11 +1,12 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'carrefour.com.ar',
-    timeout: 100000,
+    prefix: null,
+    url: null,
     country: 'AR',
     store: 'carrefour',
-    zipcode: "''",
+    zipcode: '',
   },
 };
