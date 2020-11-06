@@ -38,18 +38,17 @@ fields:
     xpath: (//address//text())[1]
   - name: quantity
     xpath: //div[contains(@class,"product-card-header_unitInfo")]/text()
-#   - name: weightNet
-#     singleValue: true
-#     description: Net weight as described on the page
+  - name: weightNet
+    xpath: //h4[contains(.,'gewicht')]/following-sibling::p[1]
 #   - name: weightGross
 #     singleValue: true
 #     description: Gross weight as described on the page
 #   - name: gtin
 #     singleValue: true
 #     description: GTIN code (includes UPC/EAN)
-#   - name: sku
-#     singleValue: true
-#     description: The store-specific product identifier
+  - name: sku
+    xpath: //link[@rel="canonical"]//@href
+    regExp: (wi\d+)
   - name: variantId
     xpath: //link[@rel="canonical"]//@href
     regExp: (wi\d+)
@@ -108,7 +107,7 @@ fields:
 #     singleValue: false
 #     description: URLs of videos on page
   - name: name
-    xpath: concat(//h1[1],' ',//div[contains(@class,"product-card-header_unitInfo")]/text())
+    xpath: //h1[1]
 #   - name: inStorePrice
 #     singleValue: true
 #     description: Price in the selected store
@@ -217,10 +216,8 @@ fields:
   - name: servingSizeUom
     xpath: //th[contains(.,'Soort')]//following-sibling::th
     regExp: Gram|Milliliter
-#   - name: numberOfServingsInPackage
-#     singleValue: true
-#     description: Suggested number of servings of the product.
-#     type: NUMBER
+  - name: numberOfServingsInPackage
+    xpath: //th[contains(.,'Aantal porties:')]/following-sibling::td[1]
   - name: caloriesPerServing
     xpath: //td[contains(.,'Energie')]//following-sibling::td
 #   - name: caloriesFromFatPerServing
@@ -264,7 +261,7 @@ fields:
     regExp: ([a-z]+)
   - name: totalCarbPerServing
     xpath: //td[contains(.,'Koolhydraten')]//following-sibling::td
-    regExp: ([0-9.]+)
+    regExp: ([^g]+)
   - name: totalCarbPerServingUom
     xpath: //td[contains(.,'Koolhydraten')]//following-sibling::td
     regExp: g
@@ -276,7 +273,7 @@ fields:
     regExp: g
   - name: totalSugarsPerServing
     xpath: //td[contains(.,'Waarvan suikers')]//following-sibling::td
-    regExp: ([0-9.]+)
+    regExp: ([^g]+)
   - name: totalSugarsPerServingUom
     xpath: //td[contains(.,'Waarvan suikers')]//following-sibling::td
     regExp: g

@@ -67,6 +67,9 @@ const transform = (data) => {
       //     },
       //   ];
       // }
+      if (row.price && row.price[0]) {
+        row.price[0].text = row.price[0].text.replace(/\./g, ',');
+      }
       if (row.variants) {
         let text = '';
         row.variants.forEach(item => {
