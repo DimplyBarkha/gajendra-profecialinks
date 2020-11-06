@@ -28,6 +28,34 @@ const transform = (data) => {
           },
         ];
       }
+
+      if (row.packSize) {
+        if (row.packSize[0].text.match(/(\d+)\(/)) {
+          row.packSize = [
+            {
+              text: row.packSize[0].text.match(/(\d+)\(/)[1],
+            },
+          ];
+        } else if (row.packSize[0].text.match(/(\d+)pk/)) {
+          row.packSize = [
+            {
+              text: row.packSize[0].text.match(/(\d+)pk/)[1],
+            },
+          ];
+        } else if (row.packSize[0].text.match(/(\d+)-/)) {
+          row.packSize = [
+            {
+              text: row.packSize[0].text.match(/(\d+)-/)[1],
+            },
+          ];
+        } else {
+          row.packSize = [
+            {
+              text: '',
+            },
+          ];
+        }
+      }
     }
   }
   return data;

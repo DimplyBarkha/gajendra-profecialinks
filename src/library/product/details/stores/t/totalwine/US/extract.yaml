@@ -76,8 +76,6 @@ fields:
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
     xpath: (//div[contains(@class,'productHeader')]/h2)[1]
-    regExp: (.+)pk
-    regExpReplace: $1
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -419,8 +417,8 @@ fields:
     singleValue: true
     description: promotion text on product page
   - name: alcoholContent
-    singleValue: true
     description: Alcohol content information
+    xpath: (//div[contains(@class,'detailsTableLabel') and text()='ABV']/following-sibling::div)[1]
   - name: newVersion
     singleValue: true
     description: In product page, information about a new version of the product
@@ -447,6 +445,7 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: (//div[contains(@class,'itemId')])[1]
   - name: variants
     singleValue: false
     description: null
