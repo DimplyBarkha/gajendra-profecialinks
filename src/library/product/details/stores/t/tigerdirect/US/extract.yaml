@@ -33,7 +33,7 @@ fields:
     xpath: //meta[@itemprop="availability"]//@content
   - name: description
     singleValue: false
-    xpath: //div[@class="leftCol shortDesc"]
+    xpath: //html//div[@id='zoom']
     #regExp: (\\n+)
     #regExpReplace: ' '
   - name: descriptionBullets
@@ -138,6 +138,9 @@ fields:
   - name: Image360Present
     singleValue: false
     defaultValue: No
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //html//div[@id='id']
   - name: imageZoomFeaturePresent
     singleValue: true
     #xpath: //div//a[@class="ccs-cc-viewport-slide-wrapper"]//img//@src
