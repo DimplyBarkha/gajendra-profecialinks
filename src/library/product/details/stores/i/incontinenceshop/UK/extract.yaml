@@ -1,0 +1,123 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: (//div[@data-gallery-role="stage-shaft"]/div)[1]/img/@src
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: (//div[@data-gallery-role="stage-shaft"]/div)[1]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class="fotorama__nav__frame fotorama__nav__frame--thumb"]/div/img/@src
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //html//div[@id='category']
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //span[@data-ui-id="page-title-wrapper"]/text()
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: (//span[@class="price"])[1]/text()
+  - name: availabilityText
+    singleValue: true
+    xpath: //p[contains(@class,"product-info-block__stock-notice stock")]/span/text()
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="product attribute description wysiwyg-content"]
+  - name: descriptionBullets
+    singleValue: true
+    description: Number of ul > li tags in the description
+    type: NUMBER
+    xpath: count(//div[@class="product attribute description wysiwyg-content"]/div/ul/li)
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //tr/th[(contains(text(),"Brand"))]/following-sibling::td/text()
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+    xpath: //html//div[@id='quantity']
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //tr/th[(contains(text(),"UPC"))]/following-sibling::td/text()
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //tr/th[(contains(text(),"SKU"))]/following-sibling::td/text()
+  - name: packSize
+    singleValue: true
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+    xpath: //tr/th[(contains(text(),"Units Per Pack"))]/following-sibling::td/text()
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    type: NUMBER
+    xpath: //span[@class="nav-tab-sum yotpo-reviews-nav-tab-sum"]/text()
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div[@class="yotpo-bottomline-box-1 yotpo-stars-and-sum-reviews"]//span[@class='sr-only']/text()
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //span[@data-ui-id="page-title-wrapper"]/text()
+  - name: pricePerUnit
+    singleValue: true
+    description: Price of the product split into certain units
+    xpath: //p[@class="price-per-unit no_subscribe"]/text()
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //html//div[@id='addDescBulletInfo']
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: materials
+    singleValue: true
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: //tr/th[(contains(text(),"Backing Material"))]/following-sibling::td/text()
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes
+  - name: tax
+    singleValue: true
+    xpath: //tr/th[(contains(text(),"VAT Exempt"))]/following-sibling::td/text()
