@@ -1,0 +1,97 @@
+input:
+  _url: http://nocibe.fr
+  URL: https://www.nocibe.fr/police-police-to-be-coffret-edt-75ml-shampooing-gel-douche-100ml-s228536
+extractions:
+  - html: https://workbench.import.io/html/run=7aa04f39-df4c-4019-aecb-808694be71e6/task=63e12a15-8248-48ab-bb07-ab9ad6b7dcd8/2d3d07a5-d760-4dd7-943a-515e1f554752.html
+    extractionConfigId: product/details/stores/n/nocibe/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.nocibe.fr/police-police-to-be-coffret-edt-75ml-shampooing-gel-douche-100ml-s228536
+                xpath: /html/head[1]/link[10]/@href
+            image:
+              - text: https://www.nocibe.fr/medias/produits/228536/228536-police-coffret-to-be-edt-75ml-shampoing-cheveux-et-corps-100ml-1000x1000.jpg?frz-v=3085
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Police POLICE TO BE Coffret EDT 75ml + Shampooing Gel Douche 100ml Eau de
+                  Toilette Vapo 75ml
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@alt
+            nameExtended:
+              - text: |-
+                  Police
+                   
+                  POLICE TO BE
+                   
+                  Coffret EDT 75ml + Shampooing Gel Douche 100ml
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: 43,50 €
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
+            description:
+              - text: Eau de Toilette Vapo 75ml || Créée pour un homme temporel et confiant,
+                  cherchant l'individualité avec une marque forte qui le
+                  caractérise. || To BE est un élixir magique qui est fortement
+                  attractif. Elle représente l'unique expression de la force
+                  masculine et des caprices de la vie. Ce parfum s'ouvre sur des
+                  notes de pamplemousse juteux mélangé avec la fraîcheur
+                  croustillante des feuilles de violettes et de poivre noir. La
+                  fleur de pommier subtile donne au coeur une clarté radieuse.
+                  Le géranium et le bois de cèdre apporte un effet chaleureux et
+                  confortable. Les notes de fond, entourées par une douceur de
+                  bois de cachemire et d'ambre blanche, sont soulignées par la
+                  profondeur du patchouli. || Un elixir magnetique qui vous
+                  accompagnera toute la journée
+                xpath: /html/body/div[5]
+            brandText:
+              - text: Police
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/@title
+            manufacturer:
+              - text: Police
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/@title
+            sku:
+              - text: "228536"
+                xpath: /html/body/div[1]/div[2]/section[1]/input[2]/@value
+            shippingInfo:
+              - text: Livraison standard Livraison entre le 06/11 et le 07/11
+                xpath: /html/body/div[6]
+            manufacturerImages:
+              - text: https://www.nocibe.fr/bibliotheque/FicheProduit/PyramideOlfactive/peppercorn-black-poivre-noir@1x.png?frz-v=3085
+                xpath: /html/body/div[7]/@src
+              - text: https://www.nocibe.fr/bibliotheque/FicheProduit/PyramideOlfactive/Apple-flower@1x.png?frz-v=3085
+                xpath: /html/body/div[8]/@src
+              - text: https://www.nocibe.fr/bibliotheque/FicheProduit/PyramideOlfactive/Wood-cachemire@1x.png?frz-v=3085
+                xpath: /html/body/div[9]/@src
+            name:
+              - text: |-
+                  Police
+                   
+                  POLICE TO BE
+                   
+                  Coffret EDT 75ml + Shampooing Gel Douche 100ml
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            brandLink:
+              - text: https://www.nocibe.fr/police/C-47524
+                xpath: /html/body/div[10]/@src
+            ingredientsList:
+              - text: "Eau de Toilette : SD Alcohol 39C, Parfum, Eau, Pentaerythrityl, Tetra
+                  Di-T, Butyl Hydroxyhydrocinnamate, Ethyl, Hexyl
+                  Methoxycinnamate, Butyl Methoxydibenzoylmethane, Ethyl Hexyl,
+                  Salicylate, EXT D&C Violet No.2, Colorant: Bleu1. Gel Douche
+                  et Shampoing : Gel Aqua (Water), Sodium Laureth Sulfate,
+                  Lauramidopropyl Betaine, Sodium Chloride, PEG-7 Glyceryl
+                  Cocoate, Parfum (Fragrance), Sodium Benzoate, Citric Acid,
+                  Disodium EDTA, Magnesium Nitrate, Magnesium Chloride,
+                  Citronellol, Limonene, Methylchloroisothiazolinone,
+                  Methylisothiazolinone (concentration inférieure à 0,01%)."
+                xpath: /html/body/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/p[1]
+            promotion:
+              - text: -19%
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]
+            availabilityText:
+              - text: In Stock
+            price:
+              - text: 35,00 €
+            variantCount:
+              - text: "1"
+        xpath: /
+    timestamp: 1604402879883
