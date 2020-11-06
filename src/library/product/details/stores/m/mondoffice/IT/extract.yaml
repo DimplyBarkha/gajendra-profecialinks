@@ -60,7 +60,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@id='SkuMainContentDiv']/div/div/div[@class='formLabel']/font/font
+    xpath: //div[@class='skuProductNames']/div/div[@class='formLabel']
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
