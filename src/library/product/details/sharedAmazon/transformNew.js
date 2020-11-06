@@ -186,7 +186,7 @@ const transform = (data, context) => {
           if (item.text.match(/details/i)) {
             item.text = 'YES';
           } else {
-            item.text = 'FALSE';
+            item.text = 'NO';
           }
         });
       }
@@ -305,8 +305,11 @@ const transform = (data, context) => {
       if (row.shippingWeight) {
         row.grossWeight = row.shippingWeight;
       }
+      if (!row.packSize && row.packSizeFallback) {
+        row.packSize = row.packSizeFallback;
+      }
       if (!row.packSize && row.quantity) {
-        const packSize = row.quantity[0].text.match(/Pack of (\d+)/);
+        const packSize = row.quantity[0].text.match(/Pack\s+of\s+(\d+)/i);
         if (packSize) {
           row.packSize = [{ text: packSize[1] }];
         }
