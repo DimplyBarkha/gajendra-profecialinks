@@ -6,8 +6,8 @@ module.exports = {
     store: 'costco',
     domain: 'costco.com',
     url: 'https://www.costco.com/CatalogSearch?dept=All&keyword={searchTerms}',
-    loadedSelector: 'div.product-list',
-    noResultsXPath: '//div[@class="toolbar"][contains(.,"Try another search")]',
+    // loadedSelector: 'div.product-list',
+    // noResultsXPath: '//div[@class="toolbar"][contains(.,"Try another search")]',
     zipcode: '',
   },
 };
