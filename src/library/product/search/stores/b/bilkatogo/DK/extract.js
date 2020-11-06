@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 
 async function implementation (
   inputs,
@@ -71,7 +71,7 @@ module.exports = {
   parameterValues: {
     country: 'DK',
     store: 'bilkatogo',
-    transform: null,
+    transform: cleanUp,
     domain: 'bilkatogo.dk',
     zipcode: '',
   },
