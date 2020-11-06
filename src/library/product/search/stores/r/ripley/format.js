@@ -39,6 +39,7 @@ const transform = (data) => {
         if(row.price){
           row.price.forEach(item=>{
             item.text=item.text.replace(',','');
+            item.text=item.text('.',',');
           });
         }
         row.rank = [{ "text": rank }];
