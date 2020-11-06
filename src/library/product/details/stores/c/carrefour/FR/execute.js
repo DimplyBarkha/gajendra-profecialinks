@@ -5,8 +5,8 @@ module.exports = {
     country: 'FR',
     store: 'carrefour',
     domain: 'carrefour.fr',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.product-list',
+    noResultsXPath: '//div[@class="error-block"]/div',
     zipcode: '',
   },
 };
