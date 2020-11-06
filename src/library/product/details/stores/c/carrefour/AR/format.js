@@ -49,6 +49,17 @@ const transform = (data) => {
           item.text = item.text.replace(',', '.');
         });
       }
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          item.text = item.text.replace('.', '');
+          item.text = item.text.replace(',', '.');
+        });
+      }
+      if (row.brandText) {
+        if (row.nameExtended) {
+          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
+        }
+      }
       if (row.descriptionBullets) {
         var tempInfo = [];
         row.descriptionBullets.forEach(item => {
