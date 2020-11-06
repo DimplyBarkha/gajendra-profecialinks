@@ -47,7 +47,7 @@ fields:
     add to basket this is the price they would be charged
 - name: availabilityText
   singleValue: true
-  defautValue: "In Stock"
+  defaultValue: "In Stock"
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
@@ -143,7 +143,7 @@ fields:
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
 - name: manufacturerDescription
-  xpath: //div[text()="About the brand"]/following-sibling::div
+  xpath: //div[text()="Produktinformation"]/following-sibling::div//text()
   singleValue: false
   description: The extended description of the product supplied by the lister
 - name: manufacturerImages
@@ -171,7 +171,7 @@ fields:
   singleValue: true
   description: Text of link next to Amazon choice graphic
 - name: brandLink
-  xpath: //a[@data-track-id="pdp_brandname"]//@href
+  xpath: //h2[@class="pp-info__brand"]/a[@data-track-id="pdp_brandname"]//@href|//div[contains(text(),"Se mere")]/following-sibling::div/a[1]/@href
   regExp: (.+)
   regExpReplace: https://www.boozt.com$1
   singleValue: true
@@ -499,10 +499,10 @@ fields:
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: false
 - name: imageZoomFeaturePresent
-  xpath: //div[@class="pp-gallery__image"][1]//div[@class="pp-gallery__zoom"]
+  xpath: //div[@class="pp-gallery"]
   regExp: (.+)
   regExpReplace: "Yes"
-  singleValue: true
+  singleValue: false
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  defaultValue: "Yes"
