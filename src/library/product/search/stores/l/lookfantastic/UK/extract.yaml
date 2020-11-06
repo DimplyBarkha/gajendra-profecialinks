@@ -12,13 +12,13 @@ fields:
   - name: name
     singleValue: false
     xpath: //h3[contains(@class,'productBlock_productName')]
-  - name: productUrl
-    singleValue: true
-    xpath: //a[@class="productBlock_link"]/@href
-    regExp: (/.+)
-    regExpReplace: https://www.lookfantastic.com$1
   - name: gtin
     singleValue: true
+  - name: producturl
+    singleValue: false
+    xpath: //div[@class="productBlock_imageLinkWrapper"]//a[@class="productBlock_link"]/@href
+    regExp: (/.+)
+    regExpReplace: https://www.lookfantastic.com$1
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="productBlock_imageContainer"]//img/@src

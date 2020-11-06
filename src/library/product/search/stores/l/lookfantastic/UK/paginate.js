@@ -1,13 +1,12 @@
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
-    country: 'UK',
-    store: 'lookfantastic',
-    nextLinkSelector: 'div.responsiveProductListPage_bottomPagination nav ul li:nth-child(6) button',
-    mutationSelector: null,
-    spinnerSelector: null,
-    loadedSelector: "body",
-    domain: 'lookfantastic.com',
-    zipcode: ''
+  country: 'UK',
+  store: 'lookfantastic',
+  loadedSelector: "li[class*='productListProducts_product'] , div.noresults",
+  domain: 'lookfantastic.com',
+  openSearchDefinition: {
+  template: 'https://www.lookfantastic.com/elysium.search?search={searchTerms}&pageNumber={page}',
   },
-};
+  },
+  };
