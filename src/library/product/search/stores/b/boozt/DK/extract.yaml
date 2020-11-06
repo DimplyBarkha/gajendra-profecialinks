@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@id="product-list-cont"]/li
+recordXPath: //ul[@id="product-list-cont"]/li[not(contains(@class,"p-card--desktop p-card--listing-banner"))]
 fields:
   - name: id
     singleValue: false
@@ -13,7 +13,7 @@ fields:
     xpath: //ul[@id="product-list-cont"]/li/@data-product-name
   - name: productUrl
     singleValue: false
-    xpath: //ul[@id="product-list-cont"]/li/a/@href
+    xpath: //ul[@id="product-list-cont"]/li/div/a/@href
     regExp: (.+)
     regExpReplace: https://www.boozt.com$1
   - name: gtin
