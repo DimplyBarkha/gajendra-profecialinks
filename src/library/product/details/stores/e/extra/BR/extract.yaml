@@ -6,42 +6,46 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: (//div[@data-id='fullImage']//img//@src)[1]
+    xpath: //div[contains(@class,'magnify-container')]//img//@src
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
-    xpath: (//div[@data-id='fullImage']//img//@alt)[1]
+    xpath: //div[contains(@class,'magnify-container')]//img//@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//body[not(contains(@class,'indisp'))]//div[@class='carouselBox']//a//@rev)[position()>1]
+    xpath: (//div[@id='gallery']//ul//img//@src)[position()>1]
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
     xpath: //meta[@name='keywords']//@content
   - name: category
     singleValue: false
-    xpath: (//div[contains(@class,'breadcrumb')]//span[@itemprop="itemListElement"])[position()>1]
+    xpath: //nav[@id='breadcrumb']//li[position()>1]
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class='produtoNome']
+    xpath: //div[contains(@class,'css-1qm1lh')]
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //div[contains(@class,'css-1qm1lh')]//h1
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //span[@class='from']//strong
+    xpath: //p[@id='product-price-original']
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[@class='for']//strong
+    xpath: //span[@id='product-price']
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //a[@id='btnAdicionarCarrinho']
+    xpath: (//div[@id='buy-box']//button)[1]
     regExp: Comprar
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -49,31 +53,27 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: concat(//div[@itemprop="description"]//h2,//div[@itemprop="description"]//div[@id='descricao'])
+    xpath: //div[contains(@class,'css-1fj0as8')]
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //span[@class='marcaProduto']//strong[contains(@class,'brand')]
+    xpath: //p[contains(@class,'css-1v3yibb')]//a[contains(@class,'css-1h2b4k5')]
   - name: weightGross
     singleValue: false
     xpath: //dl[@class='Peso-s--base--kg-- even']//dd
   - name: ratingCount
     singleValue: false
     description: The number of ratings
-    xpath: //span[@class='rating-count']
+    xpath: (//figure[@data-testid='star-rating']/span/text())[1]
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[contains(@class,'rating')]//span[contains(@class,'rating-value')]
+    xpath: //figure[@data-testid='star-rating']/div/@title
   - name: color
     singleValue: false
     description: A textual description of the colour
     xpath: //dl[contains(@class,'Cor')]//dd
-  - name: name
-    singleValue: false
-    description: The product name
-    xpath: //div[contains(@class,'produtoNome')]//b[@itemprop="name"]
   - name: _url
     singleValue: false
     xpath: //div[@id='document_url']
@@ -92,7 +92,7 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     defaultValue: No
-    xpath: //div[@id='divFullImage']//span[@class='zoomPup']//img//@src
+    xpath: //div[contains(@class,'magnify-container')]
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)

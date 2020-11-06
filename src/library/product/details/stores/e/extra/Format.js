@@ -128,6 +128,11 @@ const transform = (data) => {
         text = text.replace("Características do Produto:","");
         row.productOtherInformation = [{ text: text, xpath: '' }]
       }
+      if(row.aggregateRating){
+        //@ts-ignore
+        var text = String(row.aggregateRating[0].text).replace("de 5 classificação","").trim().replace(".",",");
+        row.aggregateRating[0].text = text;
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
