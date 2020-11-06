@@ -12,7 +12,7 @@ fields:
     regExpReplace: https://www.albertsons.com$1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //picture[contains(@class,"product-image product-image")]//img/@src
+    xpath: //picture[contains(@class,"product-image product-image")]//img/@src | //picture[contains(@class,"product-image product-image")]//img/@data-src
     regExp: (.+)
     regExpReplace: https:$1
   - name: name
