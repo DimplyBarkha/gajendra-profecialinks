@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'viking',
-    nextLinkSelector: 'a#paginationPageNext',
+    nextLinkSelector: 'a#paginationPageNext[rel="next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'main#siteContent',
