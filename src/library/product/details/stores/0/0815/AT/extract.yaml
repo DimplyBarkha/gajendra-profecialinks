@@ -26,7 +26,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //*[contains(@class,"custom-detail-headline") or contains(@class,"custom-detail-short-description")]
+    xpath: //h2[@itemprop="name"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product

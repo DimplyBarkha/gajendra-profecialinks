@@ -38,6 +38,10 @@ async function implementation (
       ava2.setAttribute('id', 'availablity');
       ava2.innerText = 'In Stock';
       document.body.append(ava2);
+
+      const desc = document.querySelector('div[class*="custom-detail-short-description"]').innerText;
+      const name = document.querySelector('h2[class*="custom-detail-headline"]');
+      name.innerText = name.innerText + ' ' + desc;
     });
   } else {
     await context.evaluate(() => {
