@@ -4,7 +4,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await context.waitForNavigation();
   var isPopupPresent = await context.evaluate(async () => {
     return document.querySelector('button#onetrust-accept-btn-handler');
   });
@@ -24,7 +24,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   });
   while (isButtonPresent) {
     await context.click('button.btn-load-more');
-    await new Promise((resolve, reject) => setTimeout(resolve, 1500));
+    await context.waitForSelector('button.btn-load-more', { timeout: 1500 });
     isButtonPresent = await context.evaluate(async () => {
       return document.querySelector('button.btn-load-more');
     });

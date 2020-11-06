@@ -6,7 +6,7 @@ module.exports = {
     store: 'beautybox',
     domain: 'beautybox.com.br',
     url: 'https://www.beautybox.com.br/busca?q={searchTerms}',
-    loadedSelector: 'div.showcase-item[data-event]',
+    loadedSelector: 'div.showcase-gondola img.showcase-image',
     noResultsXPath: '//div[contains(@class, "alert-message")]',
     zipcode: '',
   },
