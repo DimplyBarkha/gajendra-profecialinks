@@ -32,7 +32,8 @@ const transform = (data) => {
         }
         if(row.thumbnail){
           row.thumbnail.forEach(item=>{
-            item.text="https:"+item.text;
+            if(item.text.substring(0, 6)!='https:')
+              item.text="https:"+item.text;
           });
         }
         if(row.price){
