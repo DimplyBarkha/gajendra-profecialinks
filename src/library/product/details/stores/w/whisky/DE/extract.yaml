@@ -71,7 +71,6 @@ fields:
   singleValue: true
   description: Quantity as described on the page
   xpath: (//div[@class='to-basket-area align-bottom']//div[@class='article-amount']//span//text())[1]
-  regExp: '\d+(?:\,\d+)?'
 - name: alcohol_content
   singleValue: true
   description: Alcohol content described on the page
@@ -148,6 +147,12 @@ fields:
   description: URLs of videos on page
   xpath: //iframe[@class='tx-datamintsflaschendb-youtube-video embed-responsive-item']/@src
 - name: product_description
+  singleValue: true
+  description: The product name
+  xpath: //meta[@property='og:title']/@content
+  regExp: '([^|]+)'
+  regExpReplace: $1
+- name: harvested_product_description
   singleValue: true
   description: The product name
   xpath: //meta[@property='og:title']/@content
