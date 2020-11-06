@@ -20,6 +20,9 @@ fields:
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name,'keywords')]/@content
+  - name: brandText
+    singleValue: false
+    xpath: //span[contains(@itemprop,'brand')]
   - name: category
     singleValue: false
     xpath: //ol[contains(@class,'breadcrumb')]/li[position()>1 and position()<last()]
@@ -66,10 +69,6 @@ fields:
   #   singleValue: true
   #   description: The offered price for the selected product variant - if a user
   #     clicks add to basket this is the price they would be charged
-  # - name: brandText
-  #   singleValue: true
-  #   description: Product brand shown - this may actually NOT be just a brand name,
-  #     e.g. "Visit the Gillette Store"
   # - name: manufacturer
   #   singleValue: true
   #   description: Product manufacturer
