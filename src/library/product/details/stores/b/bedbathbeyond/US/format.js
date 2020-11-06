@@ -54,7 +54,12 @@ const transform = (data) => {
             row.descriptionBullets.forEach(item => {
               info.push(item.text);
             });
-            row.descriptionBullets = [{'text':info.length,'xpath':row.descriptionBullets[0].xpath}];          
+            if (info.length){
+              row.descriptionBullets = [{'text':info.length,'xpath':row.descriptionBullets[0].xpath}];          
+            }
+            else{
+              delete row.descriptionBullets;
+            }
           }
           if (row.listPrice) {
             row.listPrice.forEach(item => {

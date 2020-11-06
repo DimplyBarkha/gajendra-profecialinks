@@ -1,32 +1,89 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //section[@class='productSearch']//div[@role='region']//article[contains(@class,'Card-inline_')]
+recordXPath: null
 fields:
-  - name: rankOrganic
-    SingleValue: false    
-    xpath: //article[contains(@class,'Card-inline_')]/@index
-  - name: rank
-    SingleValue: false    
-    xpath: //article[contains(@class,'Card-inline_')]/@index
-  - name: id
+  - name: quantity
     singleValue: false
-    xpath: //article[contains(@class,'Card-inline_')]/@id
+    xpath: //button[@id='qtySelect-button']//span[contains(@class,'CustomSelect-inline_')]
+  - name: availabilityText
+    SingleValue: false    
+    xpath: //div[@id='atc-cta']//button[@data-locator='pdp-addtocartbutton' and contains(text(),'Out of Stock')]
+  - name: price
+    SingleValue: false    
+    xpath: //div[@itemprop="offers"]//div[@id='item-price']//span[@data-locator='pdp-pricetext']
+  - name: promotion
+    singleValue: false
+    xpath: //div[@itemprop="offers"]//div[@id='PdpPricePanel']//div[contains(text(),'You save ')]
+  - name: image
+    singleValue: false
+    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[@class='slick-active']//button/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[@class='slick-active']//button/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //title
+  - name: category
+    SingleValue: false
+    xpath: //ul[@data-locator='Breadcrumbs']//li[@itemprop='itemListElement']//a[@itemprop='item']//span[@itemprop='name']
+  - name: brandText
+    SingleValue: false
+    xpath: //a[@itemprop='brand']//span[@itemprop='name']
+  - name: nameExtended
+    SingleValue: false    
+    xpath: //h1[@data-locator="pdp-productnametext"]
   - name: name
     singleValue: false
-    xpath: //div[@data-locator='product_tile_title']//a[contains(@class,'PrimaryLink_')]
-  - name: productUrl
+    xpath: //h1[@data-locator="pdp-productnametext"]
+  - name: listPrice
     singleValue: false
-    xpath: //div[@data-locator='product_tile_title']//a[contains(@class,'PrimaryLink_')]/@href
-  - name: price
+    xpath: //div[@itemprop='offers']//div[@data-locator='pdp-waspricingcrossedlabel']
+  - name: weightNet
     singleValue: false
-    xpath: //div[@data-locator='product_tile_price']//span[contains(@class,'Price_')]
-  - name: thumbnail
+    xpath: //div[@id='specs']//div[contains(@class,'cell Specs_') and contains(text(),'Weight')]/parent::div[contains(@class,'grid-x Specs_')]/div[2]
+  - name: color
     singleValue: false
-    xpath: //img[@data-locator='product_tile_image']/@src    
-  - name: reviewCount
+    xpath: //div[@id='specs']//div[contains(@class,'cell Specs_') and contains(text(),'Color')]/parent::div[contains(@class,'grid-x Specs_')]/div[2]
+  - name: sku
+    singleValue: false
+    xpath: //span[@itemprop='sku']/@content
+  - name: variantId
     SingleValue: false
-    xpath: //div[@data-locator='product_tile_rating']//span[contains(@class,'Rating_')]
+    xpath: //meta[@property="og:url"]/@content
   - name: ratingCount
     SingleValue: false
-    xpath: //div[@data-locator='product_tile_rating']//span[contains(@class,'Rating_')]
+    xpath: //a[@data-locator='pdp-reviewslink']//meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    SingleValue: false    
+    xpath: //a[@data-locator='pdp-reviewslink']//span[@itemprop="ratingValue"]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@id='productDetails']//div[contains(@class,'mt2 Overview_')]//ul//li
+  - name: description
+    singleValue: false
+    xpath: //div[@id='productDetails']//div[@itemprop='description']
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@id='productDetails']//div[contains(@class,'mt2 Overview_')]//ul//li
+  - name: variantCount
+    singleValue: false
+    xpath: '0'
+  - name: manufacturerDescription
+    SingleValue: false
+    xpath: //div[@id='wc-aplus']
+  - name: videos
+    SingleValue: false
+    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li//button/img[@alt='Video']/@src
+  - name: specifications
+    SingleValue: false    
+    xpath: //div[@id='specs']//div[@class='grid-x Specs_5UF8Em']//div[@class='grid-x Specs_2u7UG5']
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id='features']//dl[@class='Features_5pYcls grid-x']//dt[text()='Warranty']/parent::div/dd
+  - name: variantInformation
+    singleValue: false
+    xpath: //ul[contains(@class,'rclCustomTiles CustomSelect-inline_')]//li[contains(@class,'tilesItem')]//button/@value
