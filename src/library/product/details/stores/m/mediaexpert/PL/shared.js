@@ -122,6 +122,14 @@ const transform = (data) => {
         }
         row.weightNet = [{ text: weightNet }];
       }
+
+      if (row.enhancedContent && !row.manufacturerDescription) {
+        row.manufacturerDescription = row.enhancedContent;
+      }
+
+      if (!row.sku) {
+        row.sku = row.skuSecondary;
+      }
     }
   }
 
