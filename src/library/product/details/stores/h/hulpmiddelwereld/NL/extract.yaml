@@ -48,18 +48,26 @@ fields:
   - name: mpc
     singleValue: true
     xpath: //table[@id='product-attribute-specs-table']//tr//th[contains(text(),'Artikelnummer')]//parent::*//td
-  - name: shippingInfo
-    singleValue: true
-    xpath: //div[contains(@class,'listbl')]//ul//li//span[contains(text(),'verzending')]
+  # - name: shippingInfo
+  #   singleValue: true
+  #   xpath: //div[contains(@class,'listbl')]//ul//li//span[contains(text(),'verzending')]
   - name: shippingDimensions
     singleValue: true
     xpath: Stated shipping dimensions
   - name: variantId
     singleValue: false
-    xpath: //input[@name="productid"]/@value
+    xpath: //script[@type='application/ld+json']
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: variantInformation
+    singleValue: false
+    xpath: (//fieldset[@class='product-options']//select[contains(@class,'super-attribute-select')]//option)[2]    
   - name: sku
     singleValue: false
-    xpath: //input[@name="productid"]/@value        
+    xpath: //script[@type='application/ld+json']
+    #"sku": "5063"
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
   - name: variantCount
     singleValue: true
     defaultValue: 0
@@ -84,5 +92,10 @@ fields:
     singleValue: false
     xpath: //table[@id='product-attribute-specs-table']//tr
   - name: quantity
+    singleValue: false
+    xpath: //table[@id='product-attribute-specs-table']//th[contains(text(),'Inhoud verpakking')]/parent::*//td[@class='data']
+    regExp: (\d+)\s+Stuks
+    regExpReplace: $1
+  - name: packSize
     singleValue: true
-    xpath: //table[@id='product-attribute-specs-table']//th[text()='Maat']/parent::*//td[@class='data']
+    xpath: //table[@id='product-attribute-specs-table']//th[contains(text(),'Inhoud verpakking')]/parent::*//td[@class='data']
