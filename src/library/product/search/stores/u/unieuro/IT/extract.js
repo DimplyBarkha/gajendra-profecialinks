@@ -38,7 +38,7 @@ module.exports = {
           }
         }
       };
-      var backgroundURL1 = getAllXpath('//section[@class="collapsed"]/article/@data-product-tile-url', 'nodeValue');
+      var backgroundURL1 = getAllXpath('//*[@id="instant-results"]/div[1]/main/div[3]/section/section', 'nodeValue');
       sliceURL1(backgroundURL1);
     });
     return await context.extract(productDetails, { transform });
