@@ -13,14 +13,21 @@ async function implementation(
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   // written code for custom pagination to solve the product repeatation issue
-  await context.evaluate(async () => {
-    const clickButton = document.querySelector('button[class*="accept-all"]');
-    if (clickButton) {
-      clickButton.click();
-      await new Promise((res) => setTimeout(res, 5000));
-    }
-  })
-  const applyScroll = async function (context) {
+  // await context.evaluate(async () => {
+  //   const clickButton = document.querySelector('button[class*="accept-all"]');
+  //   if (clickButton) {
+  //     clickButton.click();
+  //     await new Promise((res) => setTimeout(res, 5000));
+  //   }
+  // })
+  try {
+    await context.waitForSelector('button[class*="accept-all"]', { timeout: 30000 });
+    console.log('selector loaded successfully');
+    await context.click('button[class*="accept-all"]');
+  } catch (e) {
+    console.log('Button is not clicked');
+  }
+  const applyScroll = async function () {
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
@@ -62,7 +69,7 @@ async function implementation(
       }
     });
   };
-  await applyScroll(context);
+  await applyScroll();
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
