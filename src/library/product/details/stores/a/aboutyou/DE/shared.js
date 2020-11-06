@@ -30,6 +30,14 @@ const transform = (data) => {
         row.manufacturerDescription = [{ text }];
       }
 
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text = text + (text ? ' ' : ' ') + item.text;
+        });
+        row.additionalDescBulletInfo = [{ text }];
+      }
+
       if (row.variants) {
         let text = '';
         row.variants.forEach(item => {
@@ -46,21 +54,12 @@ const transform = (data) => {
         ];
       }
 
-      if (row.additionalDescBulletInfo) {
-        let text = '';
-        row.additionalDescBulletInfo.forEach(item => {
-          text = text + (`|| ${text}` ? ' || ' : '') + item.text;
-        });
-        row.additionalDescBulletInfo = [{ text }];
+      if (row.price && row.price[0]) {
+        row.price[0].text = row.price[0].text.replace(/,/g, '.');
       }
 
-      if (row.availability) {
-        let text = '';
-        row.availability.forEach(item => {
-          text = text.replace(/InStock/g, 'In Stock');
-          text = text.replace(/OutOfStock/g, 'Out of Stock');
-        });
-        row.availability = [{ text }];
+      if (row.listPrice && row.listPrice[0]) {
+        row.listPrice[0].text = row.listPrice[0].text.replace(/,/g, '.');
       }
 
       if (row.variantInformation) {

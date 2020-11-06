@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-test-id="ThumbnailsList"]//a
+fields:
+  - name: variantId
+    xpath: //@href
+    regExp: (.+-)(\d+)
+    regExpReplace: $2
+  - name: variantUrl
+    xpath: //@href
+    regExp: (.+)
+    regExpReplace: https://www.aboutyou.de$1

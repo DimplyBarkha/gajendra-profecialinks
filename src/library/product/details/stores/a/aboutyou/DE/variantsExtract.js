@@ -1,11 +1,11 @@
 
 module.exports = {
-  implements: 'product/details/execute',
+  implements: 'product/details/variants/variantsExtract',
   parameterValues: {
     country: 'DE',
     store: 'aboutyou',
+    transform: null,
     domain: 'aboutyou.de',
-    noResultsXPath: '//div[@data-test-id="SoldOutContainer"]',
     zipcode: '',
   },
 };

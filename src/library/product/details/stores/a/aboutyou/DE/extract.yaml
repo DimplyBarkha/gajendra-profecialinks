@@ -16,15 +16,13 @@ fields:
   - name: category
     xpath: ancestor::html//ul[@data-test-id="Breadcrumbs"]//li//a
   - name: nameExtended
-    xpath: //@size
+    xpath: //@nameextended
   - name: listPrice
     xpath: ancestor::html//div[@data-test-id="SectionEnd"]//span[@data-test-id="StrikeFormattedBasePrice"]
   - name: price
-    xpath: //@price
+    xpath: ancestor::html//div[@data-test-id="SectionEnd"]//span[@data-test-id="ProductPriceFormattedBasePrice"] | ancestor::html//div[@data-test-id="SectionEnd"]//span[@data-test-id="FormattedSalePrice"]
   - name: availabilityText
     xpath: //@availability
-    regExp: (.+/)(.+)
-    regExpReplace: $2
   - name: description
     xpath: ancestor::html//div[@data-test-id="ProductDetails"]
   - name: descriptionBullets
@@ -59,7 +57,7 @@ fields:
   - name: shippingDimensions
   - name: shippingWeight
   - name: variantCount
-    xpath: count(//*[@id="single-size-dimension-menu"]//li)
+    xpath: count(//*[@data-test-id="DropdownList"]//li)
   - name: color
     xpath: ancestor::html//div[@data-test-id="Thumbnail"]/parent::div[contains(@class,"active")]
   - name: colorCode
@@ -80,15 +78,18 @@ fields:
   - name: countryOfOrigin
   - name: allergyAdvice
   - name: promotion
-    xpath: ancestor::html//div[@data-test-id="SaleBadge"]
+    xpath: ancestor::html//div[@data-test-id="SectionEnd"]//div[@data-test-id="SaleBadge"]
   - name: alcoholContent
   - name: variantInformation
-    xpath: //*[@id="single-size-dimension-menu"]//li/@size
+    xpath: //@size
   - name: firstVariant
     xpath: //@firstvariant
   - name: variants
     xpath: //@variants
-  - name: prop65Warning
+  - name:  materials
+    xpath: ancestor::html//div[@data-test-id="MaterialAndCare"]/following-sibling::p/span[1]
+    regExp: (.+:)(.+)
+    regExpReplace: $2
   - name: technicalInformationPdfPresent
     defaultValue: No
   - name: termsAndConditions
