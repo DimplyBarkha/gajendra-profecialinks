@@ -1,0 +1,2000 @@
+input:
+  keywords: sonnencreme
+  _url: http://bipa.at
+extractions:
+  - html: https://workbench.import.io/html/run=2f7dc831-4987-4221-bdf7-8ab2653aa982/task=b330f9de-c52c-4f20-8c7e-81d3f87ce2e5/d5ae1f5a-eaea-4330-8688-da4366f59023.html
+    extractionConfigId: product/search/stores/b/bipa/AT/extract
+    data:
+      - group:
+          - id:
+              - text: B3-287284
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/@searchurl
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/@aria-posinset
+                type: NUMBER
+                raw: "1"
+                locale: de_AT
+                value: 1
+            name:
+              - text: Suncare Marmelade für schnelle Bräunung
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/afrodita-cosmetics-suncare-marmelade-fuer-schnelle-braeunung/B3-287284.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/287284.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (17)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "17"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 9,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/@data-gtmdata
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/@aria-posinset
+          - id:
+              - text: B3-379692
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/@searchurl
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/@aria-posinset
+                type: NUMBER
+                raw: "2"
+                locale: de_AT
+                value: 2
+            name:
+              - text: AMBRE SOLAIRE Sensitive Expert + Gesicht Advanced Sonnencreme LSF 50+
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/garnier-sensitive-expert-plus-gesicht-advanced-sonnencreme-lsf-50plus/B3-379692.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/379692.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (115)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "115"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 15,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/@data-gtmdata
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/@aria-posinset
+          - id:
+              - text: B3-649252
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/@searchurl
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/@aria-posinset
+                type: NUMBER
+                raw: "3"
+                locale: de_AT
+                value: 3
+            name:
+              - text: Sun Schutz & Pflege Sonnenmilch LSF 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/nivea-schutz-und-pflege-sonnenmilch-lsf-30/B3-649252.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/649252.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 9,44
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/@data-gtmdata
+            rank:
+              - text: "3"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/@aria-posinset
+          - id:
+              - text: B3-622122
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/@searchurl
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/@aria-posinset
+                type: NUMBER
+                raw: "4"
+                locale: de_AT
+                value: 4
+            name:
+              - text: Satin Protection Sun Lotion LSF 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/hawaiian-tropic-satin-protection-sun-lotion-lsf-30/B3-622122.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/622122.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 9,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/@data-gtmdata
+            rank:
+              - text: "4"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/@aria-posinset
+          - id:
+              - text: B3-372537
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/@searchurl
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/@aria-posinset
+                type: NUMBER
+                raw: "5"
+                locale: de_AT
+                value: 5
+            name:
+              - text: SUN Milky Summer Sonnenmilch LSF 20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/bi-care-milky-summer-sonnenmilch-lsf-20%C2%A0/B3-372537.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/372537.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 4,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/@data-gtmdata
+            rank:
+              - text: "5"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/@aria-posinset
+          - id:
+              - text: B3-291770
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/@searchurl
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/@aria-posinset
+                type: NUMBER
+                raw: "6"
+                locale: de_AT
+                value: 6
+            name:
+              - text: AMBRE SOLAIRE Sonnenmilch LSF 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/garnier-sonnenmilch-lsf-30/B3-291770.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/291770.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (91)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "91"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 8,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/@data-gtmdata
+            rank:
+              - text: "6"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/@aria-posinset
+          - id:
+              - text: B3-294005
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/@searchurl
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/@aria-posinset
+                type: NUMBER
+                raw: "7"
+                locale: de_AT
+                value: 7
+            name:
+              - text: Sun UV Gesicht Sensitive LSF 50 Sonnencreme
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/nivea-uv-gesicht-sensitive-lsf-50-sonnencreme/B3-294005.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/294005.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (905)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "905"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 9,37
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/@data-gtmdata
+            rank:
+              - text: "7"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/@aria-posinset
+          - id:
+              - text: B3-765836
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/@searchurl
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/@aria-posinset
+                type: NUMBER
+                raw: "8"
+                locale: de_AT
+                value: 8
+            name:
+              - text: Babysanft Sonnenschutz LSF 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/hipp-babysanft-sonnenschutz-lsf-30/B3-765836.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/765836.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            rank:
+              - text: "8"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/@aria-posinset
+          - id:
+              - text: B3-387546
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/@searchurl
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/@aria-posinset
+                type: NUMBER
+                raw: "9"
+                locale: de_AT
+                value: 9
+            name:
+              - text: Sun face cream LSF 50
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/medical-beauty-for-cosmetics-sun-face-cream-lsf-50/B3-387546.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/387546.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 16,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/@data-gtmdata
+            rank:
+              - text: "9"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/@aria-posinset
+          - id:
+              - text: B3-379671
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/@searchurl
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/@aria-posinset
+                type: NUMBER
+                raw: "10"
+                locale: de_AT
+                value: 10
+            name:
+              - text: AMBRE SOLAIRE Sensitive Expert+ Sonnenspray LSF 50+
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/garnier-sensitive-expertplus-sonnenspray-lsf-50plus/B3-379671.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/379671.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (32)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "32"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 14,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/@data-gtmdata
+            rank:
+              - text: "10"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/@aria-posinset
+          - id:
+              - text: B3-294665
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/@searchurl
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/@aria-posinset
+                type: NUMBER
+                raw: "11"
+                locale: de_AT
+                value: 11
+            name:
+              - text: Tan & Protect Öl Spray
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/piz-buin-tan-und-protect-oel-spray/B3-294665.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/294665.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 11,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/@data-gtmdata
+            rank:
+              - text: "11"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/@aria-posinset
+          - id:
+              - text: B3-302058
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/@searchurl
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/@aria-posinset
+                type: NUMBER
+                raw: "12"
+                locale: de_AT
+                value: 12
+            name:
+              - text: Sonnenmilch LSF 20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/today-sonnenmilch-lsf-20/B3-302058.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/302058.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 5,15
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/@data-gtmdata
+            rank:
+              - text: "12"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/@aria-posinset
+          - id:
+              - text: B3-411386
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/@searchurl
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/@aria-posinset
+                type: NUMBER
+                raw: "13"
+                locale: de_AT
+                value: 13
+            name:
+              - text: Sonnenlotion Kids LSF 50
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/lavera-sonnenlotion-kids-lsf-50/B3-411386.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/411386.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 14,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/@data-gtmdata
+            rank:
+              - text: "13"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/@aria-posinset
+          - id:
+              - text: B3-279165
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/@searchurl
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/@aria-posinset
+                type: NUMBER
+                raw: "14"
+                locale: de_AT
+                value: 14
+            name:
+              - text: Sun Pflegende Sonnenmilch LSF30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/nivea-pflegende-sonnenmilch-lsf30/B3-279165.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/279165.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 13,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/@data-gtmdata
+            rank:
+              - text: "14"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/@aria-posinset
+          - id:
+              - text: B3-939202
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/@searchurl
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/@aria-posinset
+                type: NUMBER
+                raw: "15"
+                locale: de_AT
+                value: 15
+            name:
+              - text: Sonnenschaum Exotic Fruit
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/today-sonnenschaum-exotic-fruit/B3-939202.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/939202.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 3,95
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/@data-gtmdata
+            rank:
+              - text: "15"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/@aria-posinset
+          - id:
+              - text: B3-387544
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/@searchurl
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/@aria-posinset
+                type: NUMBER
+                raw: "16"
+                locale: de_AT
+                value: 16
+            name:
+              - text: Sun protect mousse 50
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/medical-beauty-for-cosmetics-sun-protect-mousse-50/B3-387544.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/387544.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 14,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/@data-gtmdata
+            rank:
+              - text: "16"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/@aria-posinset
+          - id:
+              - text: B3-372726
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/@searchurl
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/@aria-posinset
+                type: NUMBER
+                raw: "17"
+                locale: de_AT
+                value: 17
+            name:
+              - text: Profi-Sonnenschutz LSF 50+
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/solexpro-profi-sonnenschutz-lsf-50plus/B3-372726.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/372726.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 8,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/@data-gtmdata
+            rank:
+              - text: "17"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/@aria-posinset
+          - id:
+              - text: B3-287206
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/@searchurl
+            rankOrganic:
+              - text: "18"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/@aria-posinset
+                type: NUMBER
+                raw: "18"
+                locale: de_AT
+                value: 18
+            name:
+              - text: Silk Hydration Air Soft Face Sonnencreme LSF 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/hawaiian-tropic-silk-hydration-air-soft-face-sonnencreme-lsf-30/B3-287206.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/287206.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 12,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/@data-gtmdata
+            rank:
+              - text: "18"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/@aria-posinset
+          - id:
+              - text: B3-302031
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/@searchurl
+            rankOrganic:
+              - text: "19"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/@aria-posinset
+                type: NUMBER
+                raw: "19"
+                locale: de_AT
+                value: 19
+            name:
+              - text: Sonnenmilch LSF 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/today-sonnenmilch-lsf-30/B3-302031.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/302031.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 5,95
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/@data-gtmdata
+            rank:
+              - text: "19"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/@aria-posinset
+          - id:
+              - text: B3-287430
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[20]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[20]/div[1]/@searchurl
+            rankOrganic:
+              - text: "20"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[20]/@aria-posinset
+                type: NUMBER
+                raw: "20"
+                locale: de_AT
+                value: 20
+            name:
+              - text: Suncare Sonnenmilch LSF 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[20]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/afrodita-cosmetics-suncare-sonnenmilch-lsf-30/B3-287430.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[20]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/287430.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[20]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 10,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[20]/@data-gtmdata
+            rank:
+              - text: "20"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[20]/@aria-posinset
+          - id:
+              - text: B3-294023
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/div[1]/@searchurl
+            rankOrganic:
+              - text: "21"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/@aria-posinset
+                type: NUMBER
+                raw: "21"
+                locale: de_AT
+                value: 21
+            name:
+              - text: Sun Sensitiv Sofort Schutz Lotion LSF 50+
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/nivea-sensitiv-sofort-schutz-lotion-lsf-50plus/B3-294023.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/294023.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (6)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 13,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/@data-gtmdata
+            rank:
+              - text: "21"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/@aria-posinset
+          - id:
+              - text: B3-622121
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/div[1]/@searchurl
+            rankOrganic:
+              - text: "22"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/@aria-posinset
+                type: NUMBER
+                raw: "22"
+                locale: de_AT
+                value: 22
+            name:
+              - text: Silk Hydration Protective Sun Lotion LSF 50
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/hawaiian-tropic-silk-hydration-protective-sun-lotion-lsf-50/B3-622121.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/622121.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (3)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 12,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/@data-gtmdata
+            rank:
+              - text: "22"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/@aria-posinset
+          - id:
+              - text: B3-372693
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[23]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[23]/div[1]/@searchurl
+            rankOrganic:
+              - text: "23"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[23]/@aria-posinset
+                type: NUMBER
+                raw: "23"
+                locale: de_AT
+                value: 23
+            name:
+              - text: Kinder Sonnencreme Ultra Sensitiv Sundro LSF 50+
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[23]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/bi-kids-kinder-sonnencreme-ultra-sensitiv-sundro-lsf-50plus/B3-372693.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[23]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/372693.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[23]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 9,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[23]/@data-gtmdata
+            rank:
+              - text: "23"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[23]/@aria-posinset
+          - id:
+              - text: B3-372602
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/div[1]/@searchurl
+            rankOrganic:
+              - text: "24"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/@aria-posinset
+                type: NUMBER
+                raw: "24"
+                locale: de_AT
+                value: 24
+            name:
+              - text: SUN Ultra Sensitive Sonnenmilch LSF 50+
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/bi-care-ultra-sensitive-sonnenmilch-lsf-50plus%C2%A0/B3-372602.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/372602.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 9,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/@data-gtmdata
+            rank:
+              - text: "24"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/@aria-posinset
+          - id:
+              - text: B3-287908
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/div[1]/@searchurl
+            rankOrganic:
+              - text: "25"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/@aria-posinset
+                type: NUMBER
+                raw: "25"
+                locale: de_AT
+                value: 25
+            name:
+              - text: Natürliche Sonnenmilch LSF 25
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/bi-good-natuerliche-sonnenmilch-lsf-25/B3-287908.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/287908.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (2)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 12,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/@data-gtmdata
+            rank:
+              - text: "25"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/@aria-posinset
+          - id:
+              - text: B3-141492
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/@searchurl
+            rankOrganic:
+              - text: "26"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/@aria-posinset
+                type: NUMBER
+                raw: "26"
+                locale: de_AT
+                value: 26
+            name:
+              - text: Allergy Lotion LSF 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/piz-buin-allergy-lotion-lsf-30/B3-141492.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/141492.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (3)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 15,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/@data-gtmdata
+            rank:
+              - text: "26"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/@aria-posinset
+          - id:
+              - text: B3-874303
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/@searchurl
+            rankOrganic:
+              - text: "27"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/@aria-posinset
+                type: NUMBER
+                raw: "27"
+                locale: de_AT
+                value: 27
+            name:
+              - text: Sun Carotin Sonnenmilch LSF 6
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/nivea-carotin-sonnenmilch-lsf-6/B3-874303.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/874303.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (3)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 6,74
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/@data-gtmdata
+            rank:
+              - text: "27"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/@aria-posinset
+          - id:
+              - text: B3-286484
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/@searchurl
+            rankOrganic:
+              - text: "28"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/@aria-posinset
+                type: NUMBER
+                raw: "28"
+                locale: de_AT
+                value: 28
+            name:
+              - text: Sonnencreme LSF 50+
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/babywell-sonnencreme-lsf-50plus/B3-286484.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/286484.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 3,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/@data-gtmdata
+            rank:
+              - text: "28"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/@aria-posinset
+          - id:
+              - text: B3-372594
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/@searchurl
+            rankOrganic:
+              - text: "29"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/@aria-posinset
+                type: NUMBER
+                raw: "29"
+                locale: de_AT
+                value: 29
+            name:
+              - text: SUN Milky Summer Sonnenmilch LSF 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/bi-care-milky-summer-sonnenmilch-lsf-30%C2%A0/B3-372594.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/372594.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 5,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/@data-gtmdata
+            rank:
+              - text: "29"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/@aria-posinset
+          - id:
+              - text: B3-684688
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/@searchurl
+            rankOrganic:
+              - text: "30"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/@aria-posinset
+                type: NUMBER
+                raw: "30"
+                locale: de_AT
+                value: 30
+            name:
+              - text: Sonnenmilch LSF 20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/tiroler-nussoel-sonnenmilch-lsf-20/B3-684688.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/684688.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (2)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 17,79
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/@data-gtmdata
+            rank:
+              - text: "30"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/@aria-posinset
+          - id:
+              - text: B3-287707
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/@searchurl
+            rankOrganic:
+              - text: "31"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/@aria-posinset
+                type: NUMBER
+                raw: "31"
+                locale: de_AT
+                value: 31
+            name:
+              - text: Sun Care Sonnenmilch LSF 20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/afrodita-cosmetics-sun-care-sonnenmilch-lsf-20/B3-287707.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/287707.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 1,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 9,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/@data-gtmdata
+            rank:
+              - text: "31"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/@aria-posinset
+          - id:
+              - text: B3-295427
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/@searchurl
+            rankOrganic:
+              - text: "32"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/@aria-posinset
+                type: NUMBER
+                raw: "32"
+                locale: de_AT
+                value: 32
+            name:
+              - text: Sonnenroller LSF 50+
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/babywell-sonnenroller-lsf-50plus/B3-295427.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/295427.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (15)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "15"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 3,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/@data-gtmdata
+            rank:
+              - text: "32"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/@aria-posinset
+          - id:
+              - text: B3-384414
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/div[1]/@searchurl
+            rankOrganic:
+              - text: "33"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/@aria-posinset
+                type: NUMBER
+                raw: "33"
+                locale: de_AT
+                value: 33
+            name:
+              - text: Milky Sonnenmilch Mini LSF 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/bi-care-milky-sonnenmilch-mini-lsf-30/B3-384414.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/384414.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 2,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/@data-gtmdata
+            rank:
+              - text: "33"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/@aria-posinset
+          - id:
+              - text: B3-372684
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/div[1]/@searchurl
+            rankOrganic:
+              - text: "34"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/@aria-posinset
+                type: NUMBER
+                raw: "34"
+                locale: de_AT
+                value: 34
+            name:
+              - text: Kinder Sonnenmilch Ultra Sensitiv Sundro LSF 50+
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/bi-kids-kinder-sonnenmilch-ultra-sensitiv-sundro-lsf-50plus/B3-372684.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/372684.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 9,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/@data-gtmdata
+            rank:
+              - text: "34"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/@aria-posinset
+          - id:
+              - text: B3-684678
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/@searchurl
+            rankOrganic:
+              - text: "35"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/@aria-posinset
+                type: NUMBER
+                raw: "35"
+                locale: de_AT
+                value: 35
+            name:
+              - text: Original Sonnenöl
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/tiroler-nussoel-original-sonnenoel/B3-684678.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/684678.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (2)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 16,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/@data-gtmdata
+            rank:
+              - text: "35"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/@aria-posinset
+          - id:
+              - text: B3-411378
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/@searchurl
+            rankOrganic:
+              - text: "36"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/@aria-posinset
+                type: NUMBER
+                raw: "36"
+                locale: de_AT
+                value: 36
+            name:
+              - text: Sonnencreme Anti-Age LSF 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/lavera-sonnencreme-anti-age-lsf-30/B3-411378.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/411378.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 11,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/@data-gtmdata
+            rank:
+              - text: "36"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/@aria-posinset
+          - id:
+              - text: B3-648057
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/div[1]/@searchurl
+            rankOrganic:
+              - text: "37"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/@aria-posinset
+                type: NUMBER
+                raw: "37"
+                locale: de_AT
+                value: 37
+            name:
+              - text: Sun Schutz & Bräune Sonnenlotion LSF 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/nivea-schutz-und-braeune-sonnenlotion-lsf-30/B3-648057.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/648057.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (4)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 12,59
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/@data-gtmdata
+            rank:
+              - text: "37"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/@aria-posinset
+          - id:
+              - text: B3-379593
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/@searchurl
+            rankOrganic:
+              - text: "38"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/@aria-posinset
+                type: NUMBER
+                raw: "38"
+                locale: de_AT
+                value: 38
+            name:
+              - text: AMBRE SOLAIRE Sensitive Expert+ Kids Sonnenspray LSF 50+
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/garnier-sensitive-expertplus-kids-sonnenspray-lsf-50plus/B3-379593.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/379593.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (59)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "59"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 17,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/@data-gtmdata
+            rank:
+              - text: "38"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/@aria-posinset
+          - id:
+              - text: B3-385791
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/div[1]/@searchurl
+            rankOrganic:
+              - text: "39"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/@aria-posinset
+                type: NUMBER
+                raw: "39"
+                locale: de_AT
+                value: 39
+            name:
+              - text: Sun UV Dry Protect Sonnen Creme-Gel LSF30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/nivea-uv-dry-protect-sonnen-creme-gel-lsf30/B3-385791.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/385791.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (71)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "71"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 11,24
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/@data-gtmdata
+            rank:
+              - text: "39"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/@aria-posinset
+          - id:
+              - text: B3-918354
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/div[1]/@searchurl
+            rankOrganic:
+              - text: "40"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/@aria-posinset
+                type: NUMBER
+                raw: "40"
+                locale: de_AT
+                value: 40
+            name:
+              - text: Natürliche Kinder Sonnencreme LSF 50
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/bi-good-natuerliche-kinder-sonnencreme-lsf-50/B3-918354.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/918354.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,3
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (6)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 12,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/@data-gtmdata
+            rank:
+              - text: "40"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/@aria-posinset
+          - id:
+              - text: B3-684681
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/@searchurl
+            rankOrganic:
+              - text: "41"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/@aria-posinset
+                type: NUMBER
+                raw: "41"
+                locale: de_AT
+                value: 41
+            name:
+              - text: Original Sonnenöl LSF 6
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/tiroler-nussoel-original-sonnenoel-lsf-6/B3-684681.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/684681.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (4)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 16,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/@data-gtmdata
+            rank:
+              - text: "41"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/@aria-posinset
+          - id:
+              - text: B3-385283
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/@searchurl
+            rankOrganic:
+              - text: "42"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/@aria-posinset
+                type: NUMBER
+                raw: "42"
+                locale: de_AT
+                value: 42
+            name:
+              - text: UV-Warn-Sticker
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/safer-sun-uv-warn-sticker/B3-385283.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/385283.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (4)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 7,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/@data-gtmdata
+            rank:
+              - text: "42"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/@aria-posinset
+          - id:
+              - text: B3-648054
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/@searchurl
+            rankOrganic:
+              - text: "43"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/@aria-posinset
+                type: NUMBER
+                raw: "43"
+                locale: de_AT
+                value: 43
+            name:
+              - text: Sun Schutz & Bräune Sonnenlotion LSF 20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/nivea-schutz-und-braeune-sonnenlotion-lsf-20/B3-648054.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/648054.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (3)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 11,84
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/@data-gtmdata
+            rank:
+              - text: "43"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/@aria-posinset
+          - id:
+              - text: B3-136821
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/@searchurl
+            rankOrganic:
+              - text: "44"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/@aria-posinset
+                type: NUMBER
+                raw: "44"
+                locale: de_AT
+                value: 44
+            name:
+              - text: In Sun Lotion Allergy LSF 15
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/piz-buin-in-sun-lotion-allergy-lsf-15/B3-136821.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/136821.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (2)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 13,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/@data-gtmdata
+            rank:
+              - text: "44"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/@aria-posinset
+          - id:
+              - text: B3-287210
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/@searchurl
+            rankOrganic:
+              - text: "45"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/@aria-posinset
+                type: NUMBER
+                raw: "45"
+                locale: de_AT
+                value: 45
+            name:
+              - text: Satin Protection Sonnencreme LSF 15
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/hawaiian-tropic-satin-protection-sonnencreme-lsf-15/B3-287210.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/287210.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 9,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/@data-gtmdata
+            rank:
+              - text: "45"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/@aria-posinset
+          - id:
+              - text: B3-379645
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/@searchurl
+            rankOrganic:
+              - text: "46"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/@aria-posinset
+                type: NUMBER
+                raw: "46"
+                locale: de_AT
+                value: 46
+            name:
+              - text: AMBRE SOLAIRE Sensitive Expert+ Sonnencreme LSF 50+
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/garnier-sensitive-expertplus-sonnencreme-lsf-50plus/B3-379645.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/379645.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (81)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "81"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 17,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/@data-gtmdata
+            rank:
+              - text: "46"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/@aria-posinset
+          - id:
+              - text: B3-939243
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/@searchurl
+            rankOrganic:
+              - text: "47"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/@aria-posinset
+                type: NUMBER
+                raw: "47"
+                locale: de_AT
+                value: 47
+            name:
+              - text: Sun UV Gesicht mattierender Sonnenschutz LSF 50
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/nivea-uv-gesicht-mattierender-sonnenschutz-lsf-50/B3-939243.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/939243.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,9
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (431)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "431"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 9,37
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/@data-gtmdata
+            rank:
+              - text: "47"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/@aria-posinset
+          - id:
+              - text: B3-372621
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/div[1]/@searchurl
+            rankOrganic:
+              - text: "48"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/@aria-posinset
+                type: NUMBER
+                raw: "48"
+                locale: de_AT
+                value: 48
+            name:
+              - text: Summer Beauty Sonnenöl LSF 15
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/bi-care-summer-beauty-sonnenoel-lsf-15/B3-372621.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/372621.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 6,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/@data-gtmdata
+            rank:
+              - text: "48"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/@aria-posinset
+          - id:
+              - text: B3-385795
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/div[1]/@searchurl
+            rankOrganic:
+              - text: "49"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/@aria-posinset
+                type: NUMBER
+                raw: "49"
+                locale: de_AT
+                value: 49
+            name:
+              - text: Sun Schutz & Pflege Sonnen-Lotion LSF20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/nivea-schutz-und-pflege-sonnen-lotion-lsf20/B3-385795.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/385795.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 8,62
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/@data-gtmdata
+            rank:
+              - text: "49"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/@aria-posinset
+          - id:
+              - text: B3-615881
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/@searchurl
+            rankOrganic:
+              - text: "50"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/@aria-posinset
+                type: NUMBER
+                raw: "50"
+                locale: de_AT
+                value: 50
+            name:
+              - text: AMBRE SOLAIRE Kids Sensitive Expert+ Wet Skin Lotion LSF 50
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/garnier-kids-sensitive-expertplus-wet-skin-lotion-lsf-50/B3-615881.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/615881.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (108)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "108"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 13,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/@data-gtmdata
+            rank:
+              - text: "50"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/@aria-posinset
+          - id:
+              - text: B3-301897
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/div[1]/@searchurl
+            rankOrganic:
+              - text: "51"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/@aria-posinset
+                type: NUMBER
+                raw: "51"
+                locale: de_AT
+                value: 51
+            name:
+              - text: transparentes Sonnenspray LSF 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/today-transparentes-sonnenspray-lsf-30/B3-301897.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/301897.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 4,45
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/@data-gtmdata
+            rank:
+              - text: "51"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/@aria-posinset
+          - id:
+              - text: B3-622108
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/div[1]/@searchurl
+            rankOrganic:
+              - text: "52"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/@aria-posinset
+                type: NUMBER
+                raw: "52"
+                locale: de_AT
+                value: 52
+            name:
+              - text: Silk Hydration Protective Sun Lotion LSF 15
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/hawaiian-tropic-silk-hydration-protective-sun-lotion-lsf-15/B3-622108.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/622108.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 10,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/@data-gtmdata
+            rank:
+              - text: "52"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/@aria-posinset
+          - id:
+              - text: B3-936843
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/@searchurl
+            rankOrganic:
+              - text: "53"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/@aria-posinset
+                type: NUMBER
+                raw: "53"
+                locale: de_AT
+                value: 53
+            name:
+              - text: Sun UV Gesicht Anti-Age & Anti-Pigmentflecken Sonnenschutz LSF 50
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/nivea-uv-gesicht-anti-age-und-anti-pigmentflecken-sonnenschutz-lsf-50/B3-936843.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/936843.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,9
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (187)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "187"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 9,37
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/@data-gtmdata
+            rank:
+              - text: "53"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/@aria-posinset
+          - id:
+              - text: B3-387542
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/@searchurl
+            rankOrganic:
+              - text: "54"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/@aria-posinset
+                type: NUMBER
+                raw: "54"
+                locale: de_AT
+                value: 54
+            name:
+              - text: Sun protect mousse 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/medical-beauty-for-cosmetics-sun-protect-mousse-30/B3-387542.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/387542.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 14,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/@data-gtmdata
+            rank:
+              - text: "54"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/@aria-posinset
+          - id:
+              - text: B3-355762
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/div[1]/@searchurl
+            rankOrganic:
+              - text: "55"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/@aria-posinset
+                type: NUMBER
+                raw: "55"
+                locale: de_AT
+                value: 55
+            name:
+              - text: Babysanft Sonnenroller Ultra-Sensitiv LSF 50+
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/hipp-babysanft-sonnenroller-ultra-sensitiv-lsf-50plus/B3-355762.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/355762.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (2)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            rank:
+              - text: "55"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/@aria-posinset
+          - id:
+              - text: B3-355771
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/div[1]/@searchurl
+            rankOrganic:
+              - text: "56"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/@aria-posinset
+                type: NUMBER
+                raw: "56"
+                locale: de_AT
+                value: 56
+            name:
+              - text: Babysanft Sonnengesichtscreme Ultra-Sensitiv LSF 50+
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/hipp-babysanft-sonnengesichtscreme-ultra-sensitiv-lsf-50plus/B3-355771.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/355771.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 3,5
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/@data-gtmdata
+            rank:
+              - text: "56"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/@aria-posinset
+          - id:
+              - text: B3-379588
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/sonnencremen/sonne/pflege?searchRedirect=1
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/div[1]/@searchurl
+            rankOrganic:
+              - text: "57"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/@aria-posinset
+                type: NUMBER
+                raw: "57"
+                locale: de_AT
+                value: 57
+            name:
+              - text: AMBRE SOLAIRE Clear & Protect Bronze Spray Sonnenschutz LSF 30
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/garnier-clear-und-protect-bronze-spray-sonnenschutz-lsf-30/B3-379588.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/379588.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (112)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "112"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 14,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/@data-gtmdata
+            rank:
+              - text: "57"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/@aria-posinset
+        xpath: /html
+    timestamp: 1604676467180
