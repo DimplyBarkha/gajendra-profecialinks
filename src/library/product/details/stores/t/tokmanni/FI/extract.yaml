@@ -21,7 +21,7 @@ fields:
   - name: listPrice
     singleValue: true
     xpath: //span[@class="old-price"]
-    regExp: '[^:]*$'
+    regExp: (.+)
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
