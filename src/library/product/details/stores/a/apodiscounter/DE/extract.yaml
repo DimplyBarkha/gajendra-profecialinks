@@ -87,9 +87,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: //input[@id='product_pzn']//@value
-  # - name: variantId
-  #   singleValue: false
-  #   xpath: //input[@id='product_pzn']//@value
+  - name: variantId
+    singleValue: false
+    xpath: //input[@id='product_pzn']//@value
   - name: directions
     singleValue: false
     xpath: //div[@id='product_description_dosage']//p
@@ -116,7 +116,7 @@ fields:
     xpath: //a[contains(@class,'alternative_package_size_box active')]//div[contains(@class,'product_size')]
   - name: variantInformation
     singleValue: false
-    xpath: //div[@id='alternative_package_size_container']//a[contains(@class,'active')]//div[contains(@class,'left_container')]
+    xpath: //div[@id='alternative_package_size_container']//a[contains(@class,'active')]//div[contains(@class,'product_size')]
   - name: variants
     singleValue: false
     xpath: //div[@id='alternative_package_size_container']//a//div[contains(@class,'left_container')]
