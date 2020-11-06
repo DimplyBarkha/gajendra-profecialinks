@@ -251,7 +251,7 @@ fields:
     xpath: //div[@class="allergyAdvice"]
   - name: promotion
     singleValue: false
-    xpath: //div[@class="promotion"]
+    xpath: .//ancestor::html//*[contains(@data-test,'promotion-link')] | //div[@class="promotion"]
   - name: alcoholContent
     singleValue: false
     xpath: //div[@class="alcoholContent"]
