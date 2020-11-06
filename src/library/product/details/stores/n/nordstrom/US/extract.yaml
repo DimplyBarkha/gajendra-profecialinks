@@ -50,7 +50,7 @@ fields:
   - name: sku
     xpath: //table/tbody/tr[@class="append_variant"]//td[@class='sku']/@sku
   - name: variants
-    xpath: ancestor::html//table/tbody/tr[@class="append_variant"]//td[@class="variant"]
+    xpath: ancestor::html//table/tbody/tr[@class="append_variant"]//td[@class='sku']/@sku
   - name: additionalDescBulletInfo
     xpath: ancestor::html//div[contains(text(),"Details & Care")]/following-sibling::ul/li
   - name: shippingDimensions
