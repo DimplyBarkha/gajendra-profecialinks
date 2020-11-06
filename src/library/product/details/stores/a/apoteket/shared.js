@@ -37,6 +37,16 @@ const transform = (data, context) => {
               item.text = item.text.trim();
             })
           }
+          if (row.name) {
+            row.name.forEach(item => {
+              item.text = item.text.replace(/(\r\n\s|\n|\r|\s)/gm, ' ').trim();
+            })
+          }
+          if (row.nameExtended) {
+            row.nameExtended.forEach(item => {
+              item.text = item.text.replace(/(\r\n\s|\n|\r|\s)/gm, ' ').trim();
+            })
+          }
           if (row.listPrice) {
             row.listPrice.forEach(item => {
               // if(item.text.includes('Butikspris')){
@@ -50,7 +60,8 @@ const transform = (data, context) => {
           if (row.quantity) {
             row.quantity.forEach(item => {
               if(item.text.includes(' ml')){
-                item.text = item.text.match(/\s(\d+)\sml/g,'$1')[0]
+                item.text = item.text.match(/\s(\d+)\sml/g,'$1')
+                item.text = item.text ? item.text[0] : '';
                 if(item.text.includes(" ml")){
                   item.text = item.text.replace(' ml','').trim();
                 }else{
@@ -58,14 +69,16 @@ const transform = (data, context) => {
                 }  
               }
               else if(item.text.includes(' g')){
-                item.text = item.text.match(/\s(\d+)\sg/,'$1')[0];
+                item.text = item.text.match(/\s(\d+)\sg/,'$1');
+                item.text = item.text ? item.text[0] : '';
                 if(item.text.includes(" g")){
                   item.text = item.text.replace(' g','').trim();
                 }else{
                   item.text = '';
                 }
               }else if(item.text.includes(' portioner')){
-                item.text = item.text.match(/(\d+)\sportioner/,'$1')[0]
+                item.text = item.text.match(/(\d+)\sportioner/,'$1');
+                item.text = item.text ? item.text[0] : '';
                 if(item.text.includes(" portioner")){
                   item.text = item.text.replace(' portioner','').trim();
                 }else{

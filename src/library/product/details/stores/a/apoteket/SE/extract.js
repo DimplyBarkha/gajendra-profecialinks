@@ -77,8 +77,28 @@ async function implementation(
     addElementToDocument('bb_productId', productId);
     let sku = JSONObj ? JSONObj.sku : '';
     addElementToDocument('bb_sku', sku);
-    let description = JSONObj ? JSONObj.description : '';
-    addElementToDocument('bb_description', description);
+    // let description = JSONObj ? JSONObj.description : '';
+    // addElementToDocument('bb_description', description);
+    let descArr = [];
+let descElement1;
+let description1 = document.querySelector('div.product-page-info');
+descElement1 = description1 ? description1.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/gm, ' ').replace(/\&nbsp;/gm, '').trim() : '';
+if(description1){
+  descArr.push(descElement1);
+  console.log('descElement1: ', descElement1);
+}
+let descElement2;
+let description2 = document.querySelector('div[data-tab-heading="Beskrivning"]');
+descElement2 = description2 ? description2.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/gm, ' ').replace(/\&nbsp;/gm, '').trim() : '';
+if(description2){
+  descArr.push(descElement2);
+  console.log('descElement2: ', descElement2);
+}
+if(descArr){
+  let finalDes = descArr.join(' ');
+  addElementToDocument('bb_description', finalDes);
+  console.log('finalDes: ', finalDes);
+}
   });
   return await context.extract(productDetails, { transform });
 }
