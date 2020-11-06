@@ -1,0 +1,76 @@
+input:
+  _url: http://bilkatogo.dk
+  URL: https://www.bilkatogo.dk/produkt/Tuborg-Classic-24-stk.-(Alkohol-4%2C6)/55355/
+extractions:
+  - html: https://workbench.import.io/html/run=698aa8f4-a6f6-475f-a65a-c2dc5c0d204b/task=4473ba77-dd33-41f4-a637-ce71ed30d060/9200bc1f-8dbd-418c-87e1-3e4b8ab20ce3.html
+    extractionConfigId: product/details/stores/b/bilkatogo/DK/extract
+    data:
+      - group:
+          - category:
+              - text: Forside
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]
+              - text: Drikke
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+              - text: Øl og vand
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]
+              - text: Alm. øl
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]
+            image:
+              - text: https://dsdam.imgix.net/services/assets.img/id/49c96935-461d-46f7-ac0b-02705492d3cd/size/FULLSCALE.jpg?w=400&auto=format&q=40
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: "Tuborg Classic 24 stk. (Alkohol: 4,6%)"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            alcoholContent:
+              - text: 4,6%
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            quantity:
+              - text: 7,92 l
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[1]
+            description:
+              - text: Tuborg Classic 24 stk.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]
+            gtin:
+              - text: "5740700991868"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[3]/text()[1]
+            sku:
+              - text: "55355"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[4]/text()[1]
+            mpc:
+              - text: "84114902400"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[5]/text()[1]
+            promotion:
+              - text: Spar 15,00
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/span[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h3[1]
+            servingSizeUom:
+              - text: gr.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h3[1]
+            caloriesPerServing:
+              - text: 39 Kcal
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/strong[1]
+            saturatedFatPerServing:
+              - text: 0,00
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/strong[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/strong[1]
+            totalCarbPerServing:
+              - text: 3,00
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/strong[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/strong[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[2]
+            listPrice:
+              - text: "115.00"
+            price:
+              - text: "115.00"
+            descriptionBullets:
+              - text: "0"
+        xpath: /html
+    timestamp: 1603888396292

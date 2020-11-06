@@ -1,0 +1,52 @@
+input:
+  _url: http://bilkatogo.dk
+  URL: https://www.bilkatogo.dk/produkt/Bacardi-Breezer-orange-(Alkohol-4%2C0)/33348/
+extractions:
+  - html: https://workbench.import.io/html/run=698aa8f4-a6f6-475f-a65a-c2dc5c0d204b/task=d6dfe5f1-e1ce-4f0c-a5d2-d8a978fc2575/87b69239-84a4-446b-83cb-171e1d1e7ea4.html
+    extractionConfigId: product/details/stores/b/bilkatogo/DK/extract
+    data:
+      - group:
+          - category:
+              - text: Forside
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]
+              - text: Drikke
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+              - text: Øl og vand
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]
+              - text: Cider med alkohol
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]
+            image:
+              - text: https://dsdam.imgix.net/services/assets.img/id/7371af03-e9de-4968-a16d-27d994db276f/size/FULLSCALE.jpg?w=400&auto=format&q=40
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: "Bacardi Breezer orange (Alkohol: 4,0%)"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            alcoholContent:
+              - text: 4,0%
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            quantity:
+              - text: 0,28 l
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[1]
+            description:
+              - text: Bacardi Breezer orange
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]
+            gtin:
+              - text: "5010677330770"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[3]/text()[1]
+            sku:
+              - text: "33348"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[4]/text()[1]
+            mpc:
+              - text: "84052000010"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[5]/text()[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[2]
+            listPrice:
+              - text: "14.95"
+            price:
+              - text: "14.95"
+            descriptionBullets:
+              - text: "0"
+        xpath: /html
+    timestamp: 1603888398167

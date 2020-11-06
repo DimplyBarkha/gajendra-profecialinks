@@ -1,0 +1,97 @@
+input:
+  _url: http://bilkatogo.dk
+  URL: https://www.bilkatogo.dk/produkt/Naturli'-%C3%98ko.-sojadrik-m.-vanilje-og-calcium/19650/
+extractions:
+  - html: https://workbench.import.io/html/run=698aa8f4-a6f6-475f-a65a-c2dc5c0d204b/task=7c5f51af-0120-471e-820b-2f2064243098/9796ce98-25fd-46a1-a611-be0ba780db27.html
+    extractionConfigId: product/details/stores/b/bilkatogo/DK/extract
+    data:
+      - group:
+          - category:
+              - text: Forside
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]
+              - text: Mejeri
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+              - text: Mælk og fløde
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]
+              - text: Soyadrik, mandeldrik og kokosdrik m.m.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]
+            image:
+              - text: https://dsdam.imgix.net/services/assets.img/id/3c4b37a6-9819-4c1b-8f35-3387005fcaee/size/FULLSCALE.jpg?w=400&auto=format&q=40
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Naturli' Øko. sojadrik m. vanilje og calcium
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            quantity:
+              - text: 1 l
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[1]
+            description:
+              - text: Naturli' Øko. sojadrik m. vanilje og calcium
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]
+            gtin:
+              - text: "5701977012014"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[3]/text()[1]
+            sku:
+              - text: "19650"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[4]/text()[1]
+            mpc:
+              - text: "20275401"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[5]/text()[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h3[1]
+            servingSizeUom:
+              - text: gr.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h3[1]
+            caloriesPerServing:
+              - text: 52 Kcal
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/strong[1]
+            totalFatPerServing:
+              - text: 2,2
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/strong[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/strong[1]
+            saturatedFatPerServing:
+              - text: 0,4
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/strong[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/strong[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/strong[1]
+            totalSugarsPerServing:
+              - text: 3,4
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[6]/div[1]/strong[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[6]/div[1]/strong[1]
+            proteinPerServing:
+              - text: 3,7
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/strong[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/strong[1]
+            dietaryFibrePerServing:
+              - text: 0,8
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[8]/div[1]/strong[1]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[8]/div[1]/strong[1]
+            saltPerServing:
+              - text: 0,16
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[9]/div[1]/strong[1]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[9]/div[1]/strong[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[2]
+            listPrice:
+              - text: "21.95"
+            price:
+              - text: "21.95"
+            descriptionBullets:
+              - text: "0"
+        xpath: /html
+    timestamp: 1603888400267

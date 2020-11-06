@@ -1,0 +1,88 @@
+input:
+  _url: http://bilkatogo.dk
+  URL: https://www.bilkatogo.dk/produkt/Salling-%C3%B8ko-%C3%86g-10-stk.-M_L/53366/
+extractions:
+  - html: https://workbench.import.io/html/run=698aa8f4-a6f6-475f-a65a-c2dc5c0d204b/task=3078b56e-552f-4ddd-89cf-5c16338b4dbf/dcd1c129-a450-4c46-8f45-415825bcdc96.html
+    extractionConfigId: product/details/stores/b/bilkatogo/DK/extract
+    data:
+      - group:
+          - category:
+              - text: Forside
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]
+              - text: Køl
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]
+              - text: Æg og gær
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]
+              - text: Økologiske Æg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]
+            image:
+              - text: https://dsdam.imgix.net/services/assets.img/id/bc347c14-460d-4c4c-bd0f-f219bdc1917c/size/FULLSCALE.jpg?w=400&auto=format&q=40
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Salling øko Æg 10 stk. M-L
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            quantity:
+              - text: 10 stk
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]/span[1]
+            description:
+              - text: Salling øko Æg 10 stk. M-L
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]
+            gtin:
+              - text: "5701607587042"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[3]/text()[1]
+            sku:
+              - text: "53366"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[4]/text()[1]
+            mpc:
+              - text: "51892901"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[5]/text()[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h3[1]
+            servingSizeUom:
+              - text: gr.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/h3[1]
+            caloriesPerServing:
+              - text: 138 Kcal
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/strong[1]
+            totalFatPerServing:
+              - text: 9,3
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/strong[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/strong[1]
+            saturatedFatPerServing:
+              - text: 2,8
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/strong[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/strong[1]
+            totalCarbPerServing:
+              - text: 1,3
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/strong[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/strong[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[6]/div[1]/strong[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/strong[1]
+            saltPerServing:
+              - text: 0,34
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[8]/div[1]/strong[1]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[8]/div[1]/strong[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[2]
+            listPrice:
+              - text: "27.50"
+            price:
+              - text: "27.50"
+            descriptionBullets:
+              - text: "0"
+        xpath: /html
+    timestamp: 1603888399868
