@@ -4,16 +4,16 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     xpath: //img[@class="product-card-x__image"]/@src
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     xpath: //img[@class="product-card-x__image"]/@alt
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"price_new")]
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     xpath: //button[@class="button button_block button_xl button_default j-product-counter-button"]
     regExp: (.+)
     regExpReplace: In Stock
@@ -22,31 +22,31 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"instruction__wrapper")]//div[@class="instruction__bordered"]
   - name: sku
-    singleValue: true
+    singleValue: false
     xpath: //meta[@property="og:url"]/@content
   - name: variantId
-    singleValue: true
+    singleValue: false
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //h1[@class="product-card-x__title"]
   - name: otherSellersName
     singleValue: false
     xpath: //div[@class="product-card-x__provider"]
   - name: specifications
-    singleValue: true
+    singleValue: false
     xpath: //span[@class="product-card-x__dosage"]
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     xpath: //h1[@class="product-card-x__title"]    
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='product-card-x__provider']
   - name: warranty
-    singleValue: true
-    xpath: //span[contains(text(),' Срок годности ')]//ancestor::div[contains(@class,'instruction__bordered')]//span[@class='instruction__text']   
+    singleValue: false
+    xpath: //span[contains(text(),' Срок годности ')]//ancestor::div[contains(@class,'instruction__bordered')]//span[@class='instruction__text']
   - name: allergyAdvice
-    singleValue: true
+    singleValue: false
     xpath: //span[contains(text(),' Побочные эффекты ')]//ancestor::div[contains(@class,'instruction__bordered')]//span[@class='instruction__text']      
   - name: storage
-    singleValue: true
+    singleValue: false
     xpath: //span[contains(text(),' Условия хранения ')]//ancestor::div[contains(@class,'instruction__bordered')]//span[@class='instruction__text']      
