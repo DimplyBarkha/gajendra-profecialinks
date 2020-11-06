@@ -1,73 +1,91 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class='product-section']
 fields:
 - name: _input
   singleValue: false
 - name: _url
   singleValue: false
-- name: productUrl
-  singleValue: false
+# - name: productUrl
+#   singleValue: false
+#   xpath: //meta[@property="og:url"]
 - name: _pageTimeStamp
   singleValue: false
-- name: image
-  singleValue: true
-  description: URL of the main product image
-- name: imageAlt
-  singleValue: true
-  description: Alt text of the main product image
-- name: alternateImages
-  singleValue: false
-  description: Other product images (not in manufacturer description)
-- name: metaKeywords
-  singleValue: true
-  description: The <meta> keywords content
-- name: category
-  singleValue: false
-  description: The categories (e.g. from breadcrumbs)
-- name: nameExtended
-  singleValue: true
-  description: The product name, prefixing "${brand} - " if not included in "name"
-    and appending " - ${variantType}" if necessary (fixed per feed)
+# - name: image
+#   singleValue: true
+#   description: URL of the main product image
+#   xpath: //div[@class="zoom-wrap"]/img[@class="windeln-zoom-image"]/@src
+# - name: imageAlt
+#   singleValue: true
+#   description: Alt text of the main product image
+#   xpath: (//div[@class="img-container"]/img/@alt)[1]
+# - name: alternateImages
+#   singleValue: false
+#   description: Other product images (not in manufacturer description)
+#   xpath: //div[@class='slick-track']/div/img/@src
+# - name: metaKeywords
+#   singleValue: true
+#   description: The <meta> keywords content
+#   xpath: //body/descendant::meta
+# - name: category
+#   singleValue: false
+#   description: The categories (e.g. from breadcrumbs)
+#   xpath: //div[@class="row breadcrumbs-section"]/@category
+# - name: nameExtended
+#   singleValue: true
+#   description: The product name, prefixing "${brand} - " if not included in "name"
+#     and appending " - ${variantType}" if necessary (fixed per feed)
+#   xpath: //div[@class='product-selection']/h1
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
+  xpath: //div[@class='old-price']/font
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
-- name: availabilityText
-  singleValue: true
-  description: Availability as described on page for the selected variant. If there
-    is no availability but the product can be added to cart, this field should be
-    "In Stock"
-- name: description
-  singleValue: false
-  description: Product description supplied by website - may be concatenanted from
-    multiple places; specifically not the manufacturer description
-- name: descriptionBullets
-  singleValue: true
-  description: Number of ul > li tags in the description
-- name: brandText
-  singleValue: true
-  description: Product brand shown - this may actually NOT be just a brand name, e.g.
-    "Visit the Gillette Store"
-- name: manufacturer
-  singleValue: true
-  description: Product manufacturer
+  xpath: //div[@class='normal-price']
+# - name: availabilityText
+#   singleValue: true
+#   description: Availability as described on page for the selected variant. If there
+#     is no availability but the product can be added to cart, this field should be
+#     "In Stock"
+#   xpath: //p[@class='product-is-in-stock icon']
+# - name: description
+#   singleValue: false
+#   description: Product description supplied by website - may be concatenanted from
+#     multiple places; specifically not the manufacturer description
+#   xpath: //div[@class='group-description']
+# - name: descriptionBullets
+#   singleValue: true
+#   description: Number of ul > li tags in the description
+#   xpath: count(//div[@class='group-description']/li)
+# - name: brandText
+#   singleValue: true
+#   description: Product brand shown - this may actually NOT be just a brand name, e.g.
+#     "Visit the Gillette Store"
+#   xpath: //div[@class='product-selection-brand']/a
+# - name: manufacturer
+#   singleValue: true
+#   description: Product manufacturer
+#   xpath: //div[@class='product-selection-brand']/a
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
-- name: weightNet
-  singleValue: true
-  description: Net weight as described on the page
+# - name: weightNet
+#   singleValue: true
+#   description: Net weight as described on the page
+#   xpath: //li[contains(., 'Produktgewicht')]
+#   regExp: /[^t]*$/
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
-- name: gtin
-  singleValue: true
-  description: GTIN code (includes UPC/EAN)
+# - name: gtin
+#   singleValue: true
+#   description: GTIN code (includes UPC/EAN)
+#   xpath: //h2[@class='product-description-ean']
+#   regExp: /[^:]*$/
 - name: sku
   singleValue: true
   description: The store-specific product identifier
@@ -76,42 +94,52 @@ fields:
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
-  singleValue: tru
+  singleValue: true
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
+  xpath: 
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
 - name: directions
   singleValue: true
   description: Content under "directions" header
-- name: warnings
-  singleValue: true
-  description: Content under "warnings" header
-- name: ratingCount
-  singleValue: true
-  description: The number of ratings
+# - name: warnings
+#   singleValue: true
+#   description: Content under "warnings" header
+#   xpath: normalize-space(//div[@id='product-informations']/div/p[contains(., 'Warnhinweise')])
+# - name: ratingCount
+#   singleValue: true
+#   description: The number of ratings
+#   xpath: //span[@itemprop='reviewCount']
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
-- name: aggregateRating
-  singleValue: true
-  description: The stated aggregate rating normalized to be out of 5
-- name: shippingInfo
-  singleValue: true
-  description: Shipping information for the product
-- name: shippingDimensions
-  singleValue: true
-  description: Stated shipping dimensions
-- name: shippingWeight
-  singleValue: true
-  description: Stated shipping weight
-- name: variantCount
-  singleValue: true
-  description: Number of variants listed
+# - name: aggregateRating
+#   singleValue: true
+#   description: The stated aggregate rating normalized to be out of 5
+#   xpath: //div[@class='product-selection-ratings-stars']/div[@class='ratings-stars ratings-stars-preselected']/span[@class='ratings-stars-average']
+# - name: shippingInfo
+#   singleValue: true
+#   description: Shipping information for the product
+#   xpath: normalize-space(//div[@class='product-shipping'])
+# - name: shippingDimensions
+#   singleValue: true
+#   description: Stated shipping dimensions
+#   xpath: (//div[@class='bullet-points-list']/ul/li[contains(., 'geeignet')])[1]
+#   regexp: /[^s]*$/
+# - name: shippingWeight
+#   singleValue: true
+#   description: Stated shipping weight
+#   xpath: //li[contains(., 'Produktgewicht')]
+#   regExp: /[^t]*$/
+# - name: variantCount
+#   singleValue: true
+#   description: Number of variants listed
+#   xpath: count(//div[@class="product-variants"]/div/div/div)
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -124,15 +152,18 @@ fields:
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
-- name: videos
-  singleValue: false
-  description: URLs of videos on page
-- name: name
-  singleValue: true
-  description: The product name
-- name: inStorePrice
-  singleValue: true
-  description: Price in the selected store
+# - name: videos
+#   singleValue: false
+#   description: URLs of videos on page
+#   xpath: (//p[@class="video-container"]/iframe/@src)[1] | //div[@class="media-wrapper video-wrapper"]/img[@class="lazy video-item"]/@src[not(contains(., 'blank'))]
+# - name: name
+#   singleValue: true
+#   description: The product name
+#   xpath: //h1[@itemprop="name"]
+# - name: inStorePrice
+#   singleValue: true
+#   description: Price in the selected store
+#   xpath: //div[@class='product-gross-price']/font/font
 - name: asin
   singleValue: true
   description: 
@@ -145,9 +176,10 @@ fields:
 - name: amazonChoiceCategory
   singleValue: true
   description: Text of link next to Amazon choice graphic
-- name: brandLink
-  singleValue: true
-  description: 
+# - name: brandLink
+#   singleValue: true
+#   description:
+#   xpath: //div[@class='product-selection-brand']/a/@href
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
@@ -458,17 +490,24 @@ fields:
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
   defaultValue: false
-- name: materials
-  singleValue: true
-  description: Materials used to make the product
-  example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+# - name: materials
+#   singleValue: true
+#   description: Materials used to make the product
+#   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+#   xpath: //div[@class='bullet-points-list']/ul/li[contains(., 'Material')]
+#   regExp: /[^:]*$/
 - name: Image360Present
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: false
-- name: imageZoomFeaturePresent
-  singleValue: true
-  description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
-  example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+# - name: imageZoomFeaturePresent
+#   singleValue: true
+#   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
+#   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+#   defaultValue: true
+#   xpath: //div[@class='zoom-wrap']/div[@class='zoom-window']
+
+
+
+# todo ----- ask for [Yes, No] fields / fix createUrl / fix clicking in nextVariant
