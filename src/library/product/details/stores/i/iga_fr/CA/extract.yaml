@@ -6,39 +6,9 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //img[@id="body_0_main_1_ProductImage"]
-  - name: metaKeywords
-    singleValue: true
-    description: The <meta> keywords content
-    xpath: //meta[@name="keywords"]
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@class="nav breadcrumb  push--ends"]
-  - name: price
-    description: the offered price
-    xpath: //span[@class="product-detail__price--sale js-product-detail__price--sale"]
-  - name: listPrice
-    description: the stated undiscounted price
-    xpath: //span[@class="price-amount"]
-  - name: brand
-    description:
-    xpath: //span[@itemprop="brand"]
-  - name: quantity
-    description: quantity as described on the page
-    xpath: //div[@class="item-product__info--product-detail push-half--bottom js-item-product__info--product-detail"]
-  - name: name
-    description: the product name
-    xpath: //h1[@class="h3-like product-detail__name js-product-detail__name"]
-  - name: _url
-    description: the url of the page
-    xpath: //meta[@property="og:url"]
-  - name: productUrl
-    description: the url of the product
-    xpath: //div[@class="relative js-data-procuct"]
-    #regExp: (.*)$
-    regExp: (fr/.*)
-    regExpReplace: https://www.iga.net/$1
-  - name: variantId
-    description: the code of the product
-    xpath:  //form[@id='mainform']
+    xpath: //img[@id="body_0_main_1_ProductImage"] 
+
+    
+    
+    
+    

@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+ - name: thumbnail
+   singleValue: false
+   xpath: //div[@class="img-with-sticker"]/a//img/@src
+ - name: id
+   singleValue: false
+   xpath: //div[@id="select-quantity-modal-container-3056909"]
+ - name: rank
+   singleValue: false
+   xpath: //div[@class="rr-product-container my-5"]
+ - name: price
+   singleValue: false
+   type: CURRENCY
+   xpath: //div[@class="prices"]
+ - name: name
+   singleValue: false
+ - name: productUrl
+   singleValue: false
+   xpath: //meta[@ property="og:url"]/@content

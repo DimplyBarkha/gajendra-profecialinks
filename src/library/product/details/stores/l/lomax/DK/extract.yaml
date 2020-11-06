@@ -1,0 +1,61 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: //img[@class="w-100 "]/@src
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content  
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class="product-info border-bottom py-3 "]
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //div[@class="small text-right text-gray"]/del
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant
+    xpath: //span[@class="text-nowrap font-weight-500 "]/font
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant.
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website 
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name
+    xpath: //div[@class="modal facet-modal "]/@id
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+    xpath: //span[@class="next-quantity-value"]
+  - name: weightNet
+    singleValue: true
+    description: Net weight as described on the page
+  - name: weightGross
+    singleValue: true
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //th[contains(text(),'EAN nummer')]/following-sibling::td
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
