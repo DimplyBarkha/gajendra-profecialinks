@@ -15,6 +15,31 @@ module.exports = {
     context,
     { productDetails }
   ) => {
+    // if we're on search site we should click and select first item
+    var detailsPage = await context.evaluate(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+
+      if (
+        document.querySelector(
+          'a[class="product-title px_list_page_product_click)'
+        )
+      ) {
+        var productLink = document
+          .querySelector('a[class="product-title px_list_page_product_click"]')
+          .getAttribute('href');
+      }
+
+      return productLink;
+    });
+
+    // check if detailsPage exists
+    if (detailsPage) {
+      await context.goto(detailsPage, { waitUntil: 'load' });
+    }
+
+    // await context.waitForNavigation();
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
     await context.evaluate(async function () {
       function addElementToDom(element, id) {
         const div = document.createElement('div');
@@ -58,6 +83,17 @@ module.exports = {
         price = '€ ' + priceOne;
       }
       addElementToDom(price, 'price');
+
+      // convert rating
+      var rawRating = document.querySelector(
+        'div[class="rating-horizontal__average-score"]'
+      );
+      if (rawRating) {
+        var text = document.querySelector(
+          'div[class="rating-horizontal__average-score"]'
+        ).textContent;
+        rawRating.setAttribute('rating', text.toString().replace('.', ','));
+      }
     });
     await context.extract(productDetails);
   },

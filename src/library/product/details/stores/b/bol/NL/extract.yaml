@@ -121,7 +121,7 @@ fields:
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //div[@class="rating-horizontal__average-score"]
+  xpath: //div[@class="rating-horizontal__average-score"]/@rating
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
