@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'zalando',
-    nextLinkSelector: 'a[title="next page"][href*="/"]',
+    nextLinkSelector: 'a[title="nächste Seite"][href*="/"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class*="cat_catalog"]',
-    noResultsXPath: '//div[contains(@class, "noSearchResults")] | //div[contains(@class, "404")]',
+    noResultsXPath: '//div[contains(@class, "noSearchResults")] | //div[contains(@class, "404")] | //div[contains(@class, "error")]',
     openSearchDefinition: null,
     domain: 'zalando.de',
     zipcode: '',
