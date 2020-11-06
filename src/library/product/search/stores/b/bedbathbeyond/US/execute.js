@@ -7,7 +7,7 @@ module.exports = {
     domain: 'bedbathbeyond.us',
     url: 'https://www.bedbathandbeyond.com/store/s/{searchTerms}?ta=typeahead',
     loadedSelector: "section[class='productSearch'] div[role='region'] article[class *='Card-inline_'] img[data-locator='product_tile_image']",
-    noResultsXPath: null,//"//p[contains(@class,'SearchResultsFound_')]",
+    noResultsXPath: "//p[contains(@class,'SearchResultsFound_')]",
     zipcode: '',
   },
 };
