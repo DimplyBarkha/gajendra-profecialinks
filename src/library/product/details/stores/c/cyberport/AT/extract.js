@@ -35,8 +35,20 @@ module.exports = {
         document.body.appendChild(prodEle);
       }      
 
+      if(document.querySelector('div[class="clipThumbnail"]')){
+        document.querySelector('div[class="clipThumbnail"]').click();
+        function delay(time) {
+          return new Promise(function(resolve) { 
+              setTimeout(resolve, time)
+          });
+       }
+       await delay(2000);
+        document.querySelector('div[id="clipVideo"] img[class*="Playbtn"]').click();
+        videoSrc=document.querySelector('div[id="clipVideo"] video source').getAttribute('src');
+        console.log(videoSrc+' is video link');
+        addEleToDoc('videoLink',videoSrc);
+      }
     });
-   
        return await context.extract(productDetails, { transform: transformParam });       
   }, 
 };

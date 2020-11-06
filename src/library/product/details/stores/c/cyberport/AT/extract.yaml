@@ -147,7 +147,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page    
-    xpath: //div[contains(@class,'videoWrapper')]/a/@href
+    xpath: //div[contains(@class,'videoWrapper')]/a/@href|//div[@id='videoLink']/text()
   - name: name
     singleValue: true
     description: The product name
