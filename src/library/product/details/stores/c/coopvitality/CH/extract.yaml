@@ -7,6 +7,10 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: (//div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]/img)[1]/@src
+  - name: url
+    singleValue: true
+    description: A harvest url
+    xpath: //link[@rel="canonical"]/@href
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -16,10 +20,11 @@ fields:
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //li[@class="item product"]/strong
+    xpath: //html//div[@id='category']
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -38,6 +43,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    xpath: //div[contains(text(),'Postversand')]/following-sibling::div
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -54,9 +60,11 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //html//div[@id='brand']
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //html//div[@id='brand']
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -500,4 +508,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes

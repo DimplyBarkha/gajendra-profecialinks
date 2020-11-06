@@ -5,7 +5,7 @@ module.exports = {
     country: 'CH',
     store: 'coopvitality',
     domain: 'coopvitality.ch',
-    url: 'https://www.coopvitality.ch/de/catalogsearch/result?q=aloe+vera',
+    url: 'https://www.coopvitality.ch/de/catalogsearch/result/index?q={searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
