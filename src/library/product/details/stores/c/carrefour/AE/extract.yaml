@@ -44,10 +44,14 @@ fields:
     xpath: //div[contains(@class,'css-hsn58g')]//a[contains(@class,'css-1nnke3o')]/@href
   - name: sku
     singleValue: false
-    xpath: //script[contains(text(),'productId')]
+    xpath: //head//meta[@property='og:url']
+    regExp: .+\/p\/(.+)
+    regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: //script[contains(text(),'productId')]
+    xpath: //head//meta[@property='og:url']
+    regExp: .+\/p\/(.+)
+    regExpReplace: $1
   - name: promotion
     singleValue: false
     xpath: //span[contains(@class,'css-l22qv5')]
