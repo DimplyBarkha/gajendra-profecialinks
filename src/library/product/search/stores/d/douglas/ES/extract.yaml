@@ -1,25 +1,25 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //td[@class="docs depth_1"]/table[1]/tbody/tr
+recordXPath: //data-eb-results[@id="eb-results"]/data-eb-result
 fields:
   - name: productUrl
-    xpath: td[@class="url depth_2"]
-    regExp: (.+)
-    regExpReplace: https://douglas.es$1
+    xpath: //data-eb-results[@id="eb-results"]/data-eb-result//a/@href
+    # regExp: (.+)
+    # regExpReplace: https://douglas.es$1
     description: The URL for the product details page
   - name: thumbnail
-    xpath: td[@class="image depth_2"]
+    xpath: //data-eb-result//a/div/img/@data-ng-src
     description: The URL for the product thumbnail image
   - name: name
-    xpath: td[@class="name depth_2"]
+    xpath: //p[contains(@class,"eb-result-name")]
     description: The product name
   - name: id
-    xpath: td[@class="id depth_2"]
-    description: The store-specific product identifier
+    xpath: //data-eb-results[@id="eb-results"]/data-eb-result//a/@href
+    regExp: \W(["^\d"]+)
+    regExpReplace: $1
   - name: price
-    xpath: td[@class="price depth_2"]
-    regExp: "^[^\/]+"
+    xpath: //p[contains(@class,"eb-result-price-color")]
     description: The offered price for the product
   - name: rank
   - name: rankOrganic
