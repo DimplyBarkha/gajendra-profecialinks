@@ -1,0 +1,106 @@
+input:
+  _url: http://nocibe.fr
+  URL: https://www.nocibe.fr/kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-s242127
+extractions:
+  - html: https://workbench.import.io/html/run=7aa04f39-df4c-4019-aecb-808694be71e6/task=20c17279-e95f-474e-9a66-3067e52fb2c8/233c72c4-a1dc-40e1-95b7-cd328a8192f5.html
+    extractionConfigId: product/details/stores/n/nocibe/FR/extract
+    data:
+      - group:
+          - videos:
+              - text: https://www.youtube.com/watch?v=HPvtvRswY08
+                xpath: /html/head[1]/link[2]/@href
+            availabilityText:
+              - text: In Stock
+            price:
+              - text: ""
+            variantCount:
+              - text: "0"
+        xpath: /html/head[1]
+    timestamp: 1604402903150
+  - html: https://workbench.import.io/html/run=7aa04f39-df4c-4019-aecb-808694be71e6/task=20c17279-e95f-474e-9a66-3067e52fb2c8/6dfe42f0-36e7-43ba-931a-f51bb2b956eb.html
+    extractionConfigId: product/details/stores/n/nocibe/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.nocibe.fr/kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-s242127
+                xpath: /html/head[1]/link[10]/@href
+            image:
+              - text: https://www.nocibe.fr/medias/produits/242127/242127-kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-1000x1000.jpg?frz-v=3085
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Kylie Skin Sérum à la vitamine C Sérum 20ml
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.nocibe.fr/medias/produits/242127/242127-kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-autre1-1000x1000.jpg?frz-v=3085
+                xpath: /html/body/div[7]/@src
+              - text: https://www.nocibe.fr/medias/produits/242127/242127-kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-autre2-1000x1000.jpg?frz-v=3085
+                xpath: /html/body/div[8]/@src
+              - text: https://www.nocibe.fr/medias/produits/242127/242127-kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-autre3-1000x1000.jpg?frz-v=3085
+                xpath: /html/body/div[9]/@src
+            nameExtended:
+              - text: |-
+                  Kylie Skin
+                   
+                  Sérum à la vitamine C
+                   
+                  Sérum
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            description:
+              - text: >-
+                  20ml || Sérum à la vitamine C qui nourrit la peau en vitamines
+                  et antioxydants ! || Ce sérum à la vitamine C ravive l'éclat
+                  de la peau et vous redonne un teint revitalisé.
+
+                  Retrouvez une peau douce et protégée des radicaux libres grâce à la glycérine, un puissant ingrédient hydratant.
+
+                  Non testé sur les animaux - sans gluten - Vegan - sans paraben - sans sulfate - et testé dermatologiquement || • Extrait de feuille de Camellia Oleifera - puissant antioxydant qui protége la peau des radicaux libres et agit comme une barrière naturelle hydratante.
+
+                  • Huile de graines de carthame - Améliore la tonicité de la peau.
+                xpath: /html/body/div[5]
+            brandText:
+              - text: kylie skin
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/@title
+            manufacturer:
+              - text: kylie skin
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/@title
+            sku:
+              - text: "242127"
+                xpath: /html/body/div[1]/div[2]/section[1]/input[2]/@value
+            ratingCount:
+              - text: "167"
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/button[1]/div[3]/meta[1]/@content
+            aggregateRating:
+              - text: 4,2
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/button[1]/div[2]
+            shippingInfo:
+              - text: Livraison Click&Collect en 1h || Livraison standard Livraison entre le
+                  06/11 et le 07/11
+                xpath: /html/body/div[6]
+            name:
+              - text: |-
+                  Kylie Skin
+                   
+                  Sérum à la vitamine C
+                   
+                  Sérum
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            brandLink:
+              - text: https://www.nocibe.fr/kylie-skin/C-140614
+                xpath: /html/body/div[10]/@src
+            ingredientsList:
+              - text: Water/Aqua/Eau, Tetrahexyldecyl Ascorbate, Glycerin, Phenoxyethanol,
+                  Carthamus Tinctorius (Safflower) Seed Oil, Ammonium
+                  Acryloyldimethyltaurate/VP Copolymer, Dipalmitoyl
+                  Hydroxyproline, Tocopheryl Acetate, Tetrasodium Glutamate
+                  Diacetate, Carbomer, Polysorbate 20, Sodium Metabisulfite,
+                  Panthenol, Ferulic Acid, Ethylhexylglycerin, Sodium Hydroxide,
+                  Camellia Sinensis Leaf Extract.
+                xpath: /html/body/div[1]/div[2]/section[1]/div[4]/div[2]/div[1]/div[1]/p[1]
+            availabilityText:
+              - text: In Stock
+            price:
+              - text: 34,90 €
+            variantCount:
+              - text: "1"
+        xpath: /
+    timestamp: 1604402903150
