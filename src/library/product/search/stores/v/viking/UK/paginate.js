@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'main#siteContent',
-    noResultsXPath: '//div[@id="searchEmpty"]',
+    noResultsXPath: '//div[@id="searchEmpty"] | //div[@id="productPage"]',
     openSearchDefinition: null,
     domain: 'viking-direct.co.uk',
     zipcode: '',
