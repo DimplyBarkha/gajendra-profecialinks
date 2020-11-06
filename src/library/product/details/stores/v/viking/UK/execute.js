@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'viking',
     domain: 'viking-direct.co.uk',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'main#siteContent',
+    noResultsXPath: '//div[@id="searchEmpty"] | //ol[@class="search-results__results"]',
     zipcode: '',
   },
 };
