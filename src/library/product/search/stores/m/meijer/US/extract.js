@@ -19,12 +19,14 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      const getXpath = (xpath, prop) => {
-        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-        let result;
-        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-        else result = elem ? elem.singleNodeValue : '';
-        return result && result.trim ? result.trim() : result;
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
       };
 
       const sliceURL = (data) => {
@@ -36,7 +38,7 @@ module.exports = {
             }
         }
       };
-      const result = getXpath("//div[@class='tile-column details']//a[@class='h7']/text()", 'nodeValue');
+      const result = getAllXpath("//div[@class='tile-column details']//a[@class='h7']/text()", 'nodeValue');
       sliceURL(result);
     });
     return await context.extract(productDetails, { transform });
