@@ -40,15 +40,11 @@ const transform = (data) => {
           row.specifications = [{ text: specificationsArr.join(' || ') }];
         }
       }
-      if (row.sku) {
-        row.sku.forEach(item => {
-          // "productId":"1555143"
-          var myRegexp = /"productId":"(\d+)"/g;
-          var match = myRegexp.exec(item.text);
-          if (match) {
-            item.text = match[1].trim();
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          if (item.text.indexOf('http') < 0) {
+            item.text = 'https:' + item.text;
           }
-          row.variantId = [{ text: row.sku[0].text }];
         });
       }
       if (row.warranty) {

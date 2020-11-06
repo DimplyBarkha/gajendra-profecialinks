@@ -44,10 +44,14 @@ fields:
     xpath: //div[contains(@class,'css-hsn58g')]//a[contains(@class,'css-1nnke3o')]/@href
   - name: sku
     singleValue: false
-    xpath: //script[contains(text(),'productId')]
+    xpath: //head//meta[@property='og:url']
+    regExp: .+\/p\/(.+)
+    regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: //script[contains(text(),'productId')]
+    xpath: //head//meta[@property='og:url']
+    regExp: .+\/p\/(.+)
+    regExpReplace: $1
   - name: promotion
     singleValue: false
     xpath: //span[contains(@class,'css-l22qv5')]
@@ -71,7 +75,7 @@ fields:
     xpath: //div[contains(@class,'css-1sk1hfz') and contains(text(),'Warranty')]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="inpage_selector_feature"]//div[@id='flix-inpage']//img[not(contains(@title,'Powered by Flixmedia'))]/@srcset
+    xpath: //div[@class="inpage_selector_feature"]//img/@srcset
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id='flix-inpage']
