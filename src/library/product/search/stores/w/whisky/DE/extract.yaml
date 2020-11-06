@@ -6,8 +6,6 @@ fields:
   - name: productUrl
     description: The URL for the product details page
     xpath: //a[@class='title']/@href
-    # regExp: (.+)
-    # regExpReplace: https://at.whisky.de$1
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //a[@class='title']/img/@src
@@ -20,6 +18,12 @@ fields:
     xpath: //div[@class='form-group to-basket-default']//button//@data-datamints-enhancedga-product
     regExp: '"(.*?)"([^:",]+)'
     regExpReplace: $2
+  - name: manufacturer
+    xpath: (//select[@name='searchmanufacturer']//font//font)[1]//text()
+  - name: rating
+    xpath: //div[@class='panel-body']//div[@class='rating ']/@data-rating
+  - name: number_of_reviews
+    xpath: //div[@class='panel-body']//span[@class='rating-count']//span//font//text()
   - name: price
     singleValue: true
     description: The offered price for the product
@@ -27,8 +31,6 @@ fields:
     regExp: '\d+(?:\,\d+)?'
   - name: Rating
     description: The rating value of the product
-    singleValue: true
-    xpath: //div[@class="infinite-scroll"]//div[@class="rating "]/@data-rating
   - name: availabilityText
     singleValue: true
     xpath: //div[@class='article-metadata']//span[@class='hasTooltip']//text()
