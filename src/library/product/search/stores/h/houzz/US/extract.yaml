@@ -11,7 +11,7 @@ fields:
     singleValue: true
     description: The brand name
     example: Panasonic
-    xpath: //span[@data-compid="manufacturer"]/span
+    xpath: //div[@id="ii_manufacture"]
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -69,7 +69,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //span[@data-compid="manufacturer"]/span
+    xpath: //div[@id="ii_manufacture"]
 
   - name: soldBy
     singleValue: true
