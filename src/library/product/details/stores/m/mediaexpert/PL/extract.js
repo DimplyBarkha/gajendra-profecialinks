@@ -8,9 +8,10 @@ module.exports = {
     transform,
     domain: 'mediaexpert.pl',
     zipcode: '',
+    noResultsXPath: '//div[contains(@class,"is-noResults")]',
   },
   implementation: async (inputs, { country, domain, transform: transformParam }, context, { productDetails }) => {
-   const productDetailsLink = await context.evaluate(function (inputs) {
+    const productDetailsLink = await context.evaluate(function (inputs) {
       const productList = document.querySelectorAll('div.c-grid_col.is-grid-col-1');
       for (let i = 0; i < productList.length; i++) {
         const productCodeEle = productList[i].querySelector('div.is-productCode');

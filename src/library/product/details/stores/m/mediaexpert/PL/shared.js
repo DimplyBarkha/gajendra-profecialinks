@@ -133,9 +133,14 @@ const transform = (data) => {
     }
   }
 
-  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-    el.text = clean(el.text);
-  }))));
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(function (header) {
+    if (row[header]) {
+      row[header].forEach(el => {
+        el.text = clean(el.text);
+      });
+    }
+  })));
+
   return data;
 };
 

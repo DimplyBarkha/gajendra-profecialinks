@@ -5,8 +5,6 @@ recordXPath: null
 fields:
   - name: image
     xpath: //div[contains(@class, 'is-galleryWrapper')]//div[@class='is-active']//div[contains(@class, 'c-offerBox_galleryItem')]/div[1]/@data-settings
-    # regExp: (.+)
-    # regExpReplace: https://www.mediaexpert.pl$1
   - name: imageAlt
     xpath: //div[contains(@class, 'is-galleryWrapper')]//div[@class='is-active']//div[contains(@class, 'c-offerBox_galleryItem')]//img/@alt
   - name: category 
@@ -85,8 +83,6 @@ fields:
     defaultValue: "Yes"
   - name: productSingleImage
     xpath: //div[contains(@class, 'is-galleryLens')]/ancestor::div[contains(@data-component, 'magnifier modal')]/@data-settings
-    # regExp: (.+)
-    # regExpReplace: https://www.mediaexpert.pl$1
   - name: productSingleImageAltText
     xpath: //div[contains(@class, 'is-galleryLens')]/preceding-sibling::img/@alt
   - name: variants

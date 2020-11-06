@@ -5,7 +5,7 @@ module.exports = {
     country: 'PL',
     store: 'mediaexpert',
     domain: 'mediaexpert.pl',
-    loadedSelector: null,
+    loadedSelector: 'div.is-productName h1',
     noResultsXPath: '//div[contains(@class,"is-noResults")]',
     zipcode: '',
   },
