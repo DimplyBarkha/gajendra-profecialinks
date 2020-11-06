@@ -1,9 +1,10 @@
+const { cleanUp } = require('../../../../shared');
 module.exports = {
     implements: 'product/details/extract',
     parameterValues: {
         country: 'SE',
         store: 'alloffice',
-        transform: null,
+        transform: cleanUp,
         domain: 'alloffice.se',
         zipcode: '',
     },

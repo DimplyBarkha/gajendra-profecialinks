@@ -7,6 +7,8 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //div[@id="altImages"]/img[1]/@src
+    regExp: (.+)&w(.+)
+    regExpReplace: $1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -15,6 +17,8 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //div[@id="altImages"]/img[position()>1]/@src
+    regExp: (.+)&w(.+)
+    regExpReplace: $1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -26,7 +30,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1/font
+    xpath: //h1
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -145,6 +149,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //div[contains(text(),"Filmer")]/following-sibling::div//a/@href
   - name: name
     singleValue: true
     description: The product name
