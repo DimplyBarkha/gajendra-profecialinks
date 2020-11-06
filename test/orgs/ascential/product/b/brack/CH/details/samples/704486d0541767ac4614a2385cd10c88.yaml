@@ -1,0 +1,83 @@
+input:
+  id: 606282
+  _url: http://brack.ch
+extractions:
+  - html: https://workbench.import.io/html/run=b9014570-f6ee-4356-aa80-d330fb91830b/task=29412d7d-d1c2-4683-b579-df098a83d1ec/c5cca8ed-cf57-4be2-89df-8dbf30be0445.html
+    extractionConfigId: product/details/stores/b/brack/CH/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.brack.ch/bissell-fleckenentferner-wash-refresh-febreze-3-l-606282
+                xpath: /html/head[1]/link[10]/@href
+            image:
+              - text: https://cdn.competec.ch/images2/3/0/0/51306003/51306003_xxl.jpg
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: BISSELL - Fleckenentferner Wash & Refresh Febreze 3 l
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
+            category:
+              - text: Supermarkt & Drogerie
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[2]/a[1]
+              - text: Haushalt & Reinigung
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[3]/a[1]
+              - text: Reinigungsmittel & Haushal...
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[4]/a[1]
+              - text: Reinigungsmittel
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[5]/a[1]
+              - text: Bodenreiniger
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[6]/a[1]
+            price:
+              - text: CHF 12.45
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[1]
+            availabilityText:
+              - text: "-88"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/em[1]/span[1]
+            description:
+              - text: |-
+                  Sauberkeit und frischer Frühlingsduft für Teppiche und Polster
+                  1,5 Liter (1500 ml)
+                  2x konzentriert (ergibt 3 Liter Reinigungsflüssigkeit)
+                  Für die Verwendung mit vollwertigen Teppichreinigungsgeräten
+                  Deodoriert und erfrischt
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[2]
+            brandText:
+              - text: BISSELL
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
+            manufacturer:
+              - text: BISSELL
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
+            sku:
+              - text: "606282"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+            mpc:
+              - text: 1078N
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            videos:
+              - text: https://www.youtube.com/embed/xTi3Up-oJJQ?rel=0&modestbranding=1&enablejsapi=1
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/iframe[1]/@src
+            name:
+              - text: Fleckenentferner Wash & Refresh Febreze 3 l
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/h1[1]
+            warranty:
+              - text: 24 Monate
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[4]/td[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            nameExtended:
+              - text: BISSELL Fleckenentferner Wash & Refresh Febreze 3 l
+            descriptionBullets:
+              - text: "5"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1604670318903

@@ -1,0 +1,170 @@
+input:
+  id: 973849
+  _url: http://brack.ch
+extractions:
+  - html: https://workbench.import.io/html/run=b9014570-f6ee-4356-aa80-d330fb91830b/task=1d6ad1b9-fc68-4e3b-aef2-7e2ee0c43a75/ddf25d62-9f7b-4f6a-b04a-37b8ba2bf5e1.html
+    extractionConfigId: product/details/stores/b/brack/CH/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.brack.ch/nestle-milchgriess-baby-cereals-450g-973849
+                xpath: /html/head[1]/link[10]/@href
+            image:
+              - text: https://cdn.competec.ch/images2/8/9/1/58221198/58221198_xxl.jpg
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: NESTLE - Milchgriess Baby Cereals 450g
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
+            category:
+              - text: Familie & Baby
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[2]/a[1]
+              - text: Baby
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[3]/a[1]
+              - text: Baby Ernährung
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[4]/a[1]
+              - text: Babynahrung
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[5]/a[1]
+              - text: Babybrei
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[6]/a[1]
+            price:
+              - text: CHF 8.40
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[1]
+            availabilityText:
+              - text: "21"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/em[1]/span[1]
+            description:
+              - text: |-
+                  Einsatzzeit: Ab dem 4. Monat
+                  Mit Vitaminen A, B1 und C
+                  Ohne Palmöl und Zuckerzusatz
+                  Glutenfrei
+                  Sättigend und leicht verdaulich
+                  Wird mit Wasser zubereitet
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[2]
+            brandText:
+              - text: NESTLE
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
+            manufacturer:
+              - text: NESTLE
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
+            quantity:
+              - text: 450 g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[2]/td[1]
+            sku:
+              - text: "973849"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+            mpc:
+              - text: "12403159"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            directions:
+              - text: Frisches Trinkwasser zum Kochen bringen und auf ca. 45° C abkühlen lassen.
+                  Geben Sie die entsprechende Menge Nestlé Baby Cereals in einen
+                  Teller. Unter ständigem Rühren angegebene Wassermenge
+                  hinzufügen. Dem Baby sofort mit einem sauberen Löffel geben.
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/p[3]
+            shippingInfo:
+              - text: Bis 17 Uhr bestellt, am Montag portofrei geliefert oder in Renens abholen.
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/div[1]/p[1]
+            manufacturerDescription:
+              - text: Als Grundpfeiler einer abwechslungsreichen Ernährung hat Getreide eine
+                  Vielzahl ungeahnter Eigenschaften zu bieten. Sie liefern
+                  wertvolle Nährstoffe und die nötige Energie für Babys
+                  Wachstum. Die glatte Textur der Baby Cereals Milchgriess
+                  eignet sich ideal für die Einführung der Beikost.
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/@productdesc
+            name:
+              - text: Milchgriess Baby Cereals 450g
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/h1[1]
+            ingredientsList:
+              - text: Getreide 66% (Reisgriess teilweise hydrolisiert 46%, Maismehl 20%),
+                  Magermilchpulver 24%, pflanzliche Öle (Sonnenblume, Raps),
+                  Vitamine (C, Niacin, E, B1, Pantothensäure, A, B6, K,
+                  Folsäure, Biotin, D), Mineralstoffe (Calciumcarbonat,
+                  Zinksulfat, Eisenfumarat, Kaliumiodid), Aroma (Vanillin),
+                  Antioxidationsmittel (stark tocopherolhaltige Extrakte (SOJA),
+                  Fettsäureester der Ascorbinsäure), Milchsäurebakterienkultur
+                  (B. lactis). Glutenfrei.
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]
+            servingSize:
+              - text: 100g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[2]/td[1]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[2]/td[1]
+            caloriesPerServing:
+              - text: "412"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[4]/td[1]
+            totalFatPerServing:
+              - text: "10"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[5]/td[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[5]/th[1]
+            saturatedFatPerServing:
+              - text: "1"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[6]/td[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[6]/th[1]
+            totalCarbPerServing:
+              - text: "67"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[7]/td[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[7]/th[1]
+            totalSugarsPerServing:
+              - text: "16"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[8]/td[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[8]/th[1]
+            proteinPerServing:
+              - text: "14"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[9]/td[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[9]/th[1]
+            saltPerServing:
+              - text: "0.38"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[10]/td[1]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[10]/th[1]
+            warranty:
+              - text: 0 Monate
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[8]/tr[4]/td[1]
+            countryOfOrigin:
+              - text: Schweiz
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[5]/tr[2]/td[1]
+            allergyAdvice:
+              - text: " -Glutenfrei: Ja -Laktosefrei: Nein"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[7]/tr[2]
+            pricePerUnit:
+              - text: CHF 1.87 / 100 g
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[2]
+            pricePerUnitUom:
+              - text: g
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[2]
+            ageSuitability:
+              - text: 4 Monate
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            nameExtended:
+              - text: NESTLE Milchgriess Baby Cereals 450g
+            descriptionBullets:
+              - text: "6"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1604670318567

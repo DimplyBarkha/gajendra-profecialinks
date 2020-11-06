@@ -74,5 +74,31 @@ module.exports = {
         image.text = image.text.replace('xs3', 'xxl');
       });
     }
+
+    const servingSizeUom = dataRef[0].group[0].servingSizeUom;
+    if (servingSizeUom) {
+      servingSizeUom[0].text = servingSizeUom[0].text.replace(/\d/g, '');
+    }
+
+    const unitFormatter = (fieldPath) => {
+      if (fieldPath) {
+        fieldPath[0].text = fieldPath[0].text.replace(/[()]/g, '');
+      }
+    };
+    for (var field in dataRef[0].group[0]) {
+      if (field.includes('PerServingUom')) {
+        unitFormatter(dataRef[0].group[0][field]);
+      }
+    }
+
+    const allergyAdvice = dataRef[0].group[0].allergyAdvice;
+    if (allergyAdvice && allergyAdvice.length > 1) {
+      let adviceText = '';
+      allergyAdvice.forEach(advice => {
+        adviceText += ' -' + advice.text;
+      });
+      allergyAdvice[0].text = adviceText.replace(/\n/g, ': ');
+      allergyAdvice.splice(1, 1);
+    }
   },
 };

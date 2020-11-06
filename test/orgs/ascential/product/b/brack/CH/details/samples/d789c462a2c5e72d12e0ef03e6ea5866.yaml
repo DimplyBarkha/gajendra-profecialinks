@@ -1,0 +1,100 @@
+input:
+  id: 4015600368890-KIT
+  _url: http://brack.ch
+extractions:
+  - html: https://workbench.import.io/html/run=b9014570-f6ee-4356-aa80-d330fb91830b/task=8da7b839-5ee4-453c-b676-958d8114754b/b49fa312-0c7f-404b-9653-12d0bbfeb2e7.html
+    extractionConfigId: product/details/stores/b/brack/CH/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.brack.ch/meister-proper-allzweckreiniger-citrus-febreze-tuecher-3-x-60-stueck-1026523
+                xpath: /html/head[1]/link[10]/@href
+            image:
+              - text: https://cdn.competec.ch/images2/0/7/9/58411970/58411970_xxl.jpg
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Meister Proper - Allzweckreiniger Citrus Febreze Tücher 3 x 60 Stück
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://cdn.competec.ch/images2/3/3/2/56215233/56215233_xxl.jpg
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/img[1]/@src
+            category:
+              - text: Supermarkt & Drogerie
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[2]/a[1]
+              - text: Haushalt & Reinigung
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[3]/a[1]
+              - text: Reinigungsmittel & Haushal...
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[4]/a[1]
+              - text: Reinigungsmittel
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[5]/a[1]
+              - text: Allzweckreiniger
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[6]/a[1]
+            price:
+              - text: CHF 9.95
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[5]/p[1]
+            availabilityText:
+              - text: "194"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/em[1]/span[1]
+            description:
+              - text: |-
+                  Feuchte Reinigunstücher für glänzende Sauberkeit
+                  Wiederverschliessbare Packung
+                  Inhalt: 3 Packungen à 60 Stück
+                  Citrus-Duftnote
+                  Reinigt ohne Putzsstreifen zu hinterlassen
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[2]
+            brandText:
+              - text: Meister Proper
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
+            manufacturer:
+              - text: Meister Proper
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
+            quantity:
+              - text: 180 Stück
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
+            sku:
+              - text: "1026523"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+            mpc:
+              - text: 4015600368890-KIT
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            shippingInfo:
+              - text: Bis 17 Uhr bestellt, am Montag portofrei geliefert oder in Renens abholen.
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/div[1]/p[1]
+            manufacturerDescription:
+              - text: Diese feuchten Reinigunstücher von Meister Proper riechen nach Citrus und
+                  reinigen gründlich ohne Putzstreifen zu hinterlassen. Die
+                  Nachfüllpackung ist wiederverschliessbar.
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/@productdesc
+            name:
+              - text: Allzweckreiniger Citrus Febreze Tücher 3 x 60 Stück
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/h1[1]
+            warranty:
+              - text: 0 Monate
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[4]/td[1]
+            productOtherInformation:
+              - text: Ausser Reichweite von Kindern aufbewahren. Falls das Produkt in die Augen
+                  gelangt, diese gründlich mit Wasser ausspülen. Nach Gebrauch
+                  Hände waschen und trocknen. Kein Nachwischen nötig ausser für
+                  Oberflächen die direkten Kontakt mit Lebensmittel haben
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            nameExtended:
+              - text: Meister Proper Allzweckreiniger Citrus Febreze Tücher 3 x 60 Stück
+            descriptionBullets:
+              - text: "5"
+            variantCount:
+              - text: "2"
+        xpath: /
+    timestamp: 1604670319496

@@ -78,7 +78,7 @@ fields:
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
-  xpath: //th[text()="Volumen" or text()="Packungsgrösse"]/following-sibling::td[1]
+  xpath: //th[text()="Volumen" or text()="Packungsgrösse" or text()="Inhalt pro Einheit"]/following-sibling::td[1]
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -155,9 +155,11 @@ fields:
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
+  xpath: //div[@id="description-block"]//img/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
+  xpath: //div[@id="description-block"]//iframe/@src
 - name: name
   singleValue: true
   description: The product name
@@ -267,13 +269,16 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: concat(//h3[text()="Zutaten"]/following-sibling::p[1], //th[text()="Inhaltsstoffe"]/following-sibling::td[1])
+  xpath: //h3[text()="Zutaten"]/following-sibling::p[1] | //th[text()="Inhaltsstoffe"]/following-sibling::td[1]
 - name: servingSize
   singleValue: true
-  description: The size of serving Nutritional information is based on.
+  description: The size of serving Nutritional information is based on
+  xpath: //th[text()="Nährwertangabe pro"]/following-sibling::td[1]
 - name: servingSizeUom
   singleValue: true
   description: Unit of measure of serving
+  xpath: //th[text()="Nährwertangabe pro"]/following-sibling::td[1]
+  regExp: \d([a-z]+)
 - name: numberOfServingsInPackage
   singleValue: true
   description: Suggested number of servings of the product.
@@ -281,6 +286,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
+  xpath: //th[text()="Energiegehalt (in kcal)"]/following-sibling::td[1]
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
@@ -289,16 +295,22 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
+  xpath: //th[text()="Fett (g)"]/following-sibling::td[1]
 - name: totalFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Fat content
+  xpath: //th[text()="Fett (g)"]
+  regExp: \((.+)\)
 - name: saturatedFatPerServing
   singleValue: true
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
+  xpath: //th[text()="Gesättigte Fettsäuren (g)"]/following-sibling::td[1]
 - name: saturatedFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Saturated Fat content
+  xpath: //th[text()="Gesättigte Fettsäuren (g)"]
+  regExp: \((.+)\)
 - name: transFatPerServing
   singleValue: true
   description: Nutritional Information for Trans Fat content - Usually based on per
@@ -324,9 +336,12 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
+  xpath: //th[text()="Kohlenhydrate (g)"]/following-sibling::td[1]
 - name: totalCarbPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Carbohydrate content
+  xpath: //th[text()="Kohlenhydrate (g)"]
+  regExp: \((.+)\)
 - name: dietaryFibrePerServing
   singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
@@ -338,44 +353,66 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
+  xpath: //th[text()="Davon Zucker (g)"]/following-sibling::td[1]
 - name: totalSugarsPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Sugar content
+  xpath: //th[text()="Davon Zucker (g)"]
+  regExp: \((.+)\)
 - name: proteinPerServing
   singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
+  xpath: //th[text()="Eiweiss (g)"]/following-sibling::td[1]
 - name: proteinPerServingUom
   singleValue: true
   description: Unit of Measure Data for Protein
+  xpath: //th[text()="Eiweiss (g)"]
+  regExp: \((.+)\)
 - name: vitaminAPerServing
   singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
+  xpath: //th[text()="Vitamin A (µg)"]/following-sibling::td[1]
+  regExp: ^[\d.]+
 - name: vitaminAPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin A
+  xpath: //th[text()="Vitamin A (µg)"]
+  regExp: \((.+)\)
 - name: vitaminCPerServing
   singleValue: true
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
+  xpath: //th[text()="Vitamin C (mg)"]/following-sibling::td[1]
+  regExp: ^[\d.]+
 - name: vitaminCPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin C
+  xpath: //th[text()="Vitamin C (mg)"]
+  regExp: \((.+)\)
 - name: calciumPerServing
   singleValue: true
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
+  xpath: //th[text()="Calcium (mg)"]/following-sibling::td[1]
+  regExp: ^[\d.]+
 - name: calciumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Calcium
+  xpath: //th[text()="Calcium (mg)"]
+  regExp: \((.+)\)
 - name: ironPerServing
   singleValue: true
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
+  xpath: //th[text()="Eisen (mg)"]/following-sibling::td[1]
+  regExp: ^[\d.]+
 - name: ironPerServingUom
   singleValue: true
   description: Unit of Measure Data for Iron
+  xpath: //th[text()="Eisen (mg)"]
+  regExp: \((.+)\)
 - name: dietarySymbols
   singleValue: true
   description: Information related to the dietary symbols of a specific product
@@ -390,9 +427,12 @@ fields:
   singleValue: true
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
+  xpath: //th[text()="Salz (g)"]/following-sibling::td[1]
 - name: saltPerServingUom
   singleValue: true
   description: Unit of Measure Data for Salt
+  xpath: //th[text()="Salz (g)"]
+  regExp: \((.+)\)
 - name: dietaryInformation
   singleValue: true
   description: 
@@ -411,8 +451,9 @@ fields:
   description: The country from which the product originates
   xpath: //th[text()="Produktionsland"]/following-sibling::td[1]
 - name: allergyAdvice
-  singleValue: true
+  singleValue: false
   description: Allergy information associated with the product
+  xpath: //th[text()="Gesundheit"]//ancestor::tbody//tr[@class="technicalDetails__row"] | //th[text()="Ernährungsweise"]/following-sibling::td[1]
 - name: recyclingInformation
   singleValue: true
   description: Recycling information associated with the product
@@ -429,15 +470,19 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
+  xpath: //div[@class="productStage__infoColumn"]//p[@class="price__base"]
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
+  xpath: //div[@class="productStage__infoColumn"]//p[@class="price__base"]
+  regExp: ([a-z])$
 - name: promotion
   singleValue: true
   description: promotion text on product page
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
+  xpath: //th[text()="Alkoholgehalt"]/following-sibling::td[1]
 - name: newVersion
   singleValue: true
   description: In product page, information about a new version of the product (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
@@ -480,23 +525,24 @@ fields:
   singleValue: true
   description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
   example: A+, A+++, B
+  xpath: //th[text()="Energieeffizienzklasse"]/following-sibling::td[1]
 - name: technicalInformationPdfPresent
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: false
+  defaultValue: "No"
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  defaultValue: "No"
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  defaultValue: "No"
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  defaultValue: "Yes"
 - name: materials
   singleValue: true
   description: Materials used to make the product
@@ -505,9 +551,9 @@ fields:
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: false
+  defaultValue: "No"
 - name: imageZoomFeaturePresent
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  defaultValue: "No"
