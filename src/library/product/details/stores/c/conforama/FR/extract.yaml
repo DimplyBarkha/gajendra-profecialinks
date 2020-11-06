@@ -34,7 +34,7 @@ fields:
     # //div[contains(@class , "breadcrumb" )]/a[@href="/"]/following-sibling::a
   - name: nameExtended
     singleValue: false
-    xpath: //*[contains(@class, "accrocheProduitFicheProduit")]
+    xpath: //*[contains(@class, "accrocheProduitFicheProduit")]|//div[@class="name"]/h1
     # xpath: //div[@class="productTitle"]/*[not(self::div[@data-bv-show])]
     # xpath: //*[contains(@class, "accrocheProduitFicheProduit")] | //div[@class="name"]/h1
   - name: listPrice
