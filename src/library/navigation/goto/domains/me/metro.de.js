@@ -5,7 +5,7 @@ module.exports = {
     domain: 'metro.de',
     timeout: null,
     country: 'DE',
-    store: 'metro_DE',
+    store: 'metro',
     zipcode: '',
   },
 };

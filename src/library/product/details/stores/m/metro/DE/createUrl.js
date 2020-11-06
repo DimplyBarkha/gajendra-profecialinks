@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     domain: 'metro.de',
     prefix: null,
-    url: `https://produkte.metro.de/shop/search?q={id}`,
+    url: 'https://produkte.metro.de/shop/search?q={id}',
     country: 'DE',
-    store: 'metro_DE',
+    store: 'metro',
     zipcode: '',
   },
 };

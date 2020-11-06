@@ -3,10 +3,10 @@ module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
     country: 'DE',
-    store: 'metro_DE',
+    store: 'metro',
     domain: 'metro.de',
     loadedSelector: null,
-    noResultsXPath: `//span[contains(text(),'Leider haben wir')]`,
+    noResultsXPath: '//span[contains(text(),\'Leider haben wir\')]',
     zipcode: '',
   },
   implementation: async (inputs, parameters, context, dependencies) => {
@@ -20,7 +20,7 @@ module.exports = {
 
     // TODO: Check for not found?
     await dependencies.goto({ url, timeout: 50000 });
-    //redirecting to product page
+    // Redirecting to product page
     await new Promise(resolve => setTimeout(resolve, 10000));
     const linkURL = await context.evaluate(function () {
       const element = document.querySelectorAll('a.title');
@@ -32,8 +32,7 @@ module.exports = {
     });
     if (linkURL != null) {
       await context.goto(linkURL);
-    }
-    else {
+    } else {
       await context.goto('https://produkte.metro.de/shop/search?q=noResultFound');
     }
   },
