@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[@class='productSearch']//div[@role='region']//article[contains(@class,'Card-inline_')]
+fields:
+  - name: rankOrganic
+    SingleValue: false    
+    xpath: //article[contains(@class,'Card-inline_')]/@index
+  - name: rank
+    SingleValue: false    
+    xpath: //article[contains(@class,'Card-inline_')]/@index
+  - name: id
+    singleValue: false
+    xpath: //article[contains(@class,'Card-inline_')]/@id
+  - name: name
+    singleValue: false
+    xpath: //div[@data-locator='product_tile_title']//a[contains(@class,'PrimaryLink_')]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@data-locator='product_tile_title']//a[contains(@class,'PrimaryLink_')]/@href
+  - name: price
+    singleValue: false
+    xpath: //div[@data-locator='product_tile_price']//span[contains(@class,'Price_')]
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@data-locator='product_tile_image']/@src    
+  - name: reviewCount
+    SingleValue: false
+    xpath: //div[@data-locator='product_tile_rating']//span[contains(@class,'Rating_')]
+  - name: ratingCount
+    SingleValue: false
+    xpath: //div[@data-locator='product_tile_rating']//span[contains(@class,'Rating_')]
