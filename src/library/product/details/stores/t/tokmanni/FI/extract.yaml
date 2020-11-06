@@ -3,38 +3,36 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: product_image
+  - name: productImage
     singleValue: true
     xpath: //div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]//@href
-  - name: image_alt_text
+  - name: imagealttext
     singleValue: true
     xpath: //div[@class="page-title-wrapper product"]//h1//span
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]//img//@src
+    xpath: (//div[@class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]//img/@src)[2]
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     xpath: //div[@class="breadcrumbs"]
-  - name: sub_Category
-    singleValue: false
-    xpath: //div[@class="breadcrumbs"]
-  - name: product_description
-    singleValue: true
-    xpath: //span[@class="base"]
   - name: listPrice
     singleValue: true
+    xpath: //span[@class="old-price"]
+    regExp: '[^:]*$'
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[@data-price-type="finalPrice"]//span[@class="price"]
-  - name: harvested_price
+    xpath: //span[@class="price-container price-final_price tax weee"]/meta/@content
+    regExp: (.+)
+    regExpReplace: €$1
+  - name: harvestedprice
     singleValue: true   
     description: The offered price for the selected product variant - if a user clicks add to basket this is the price they would be charged
-    xpath: //span[@data-price-type="finalPrice"]//span[@class="price"]
+    xpath: //span[@class="price-container price-final_price tax weee"]/meta/@content
     regExp: (.+)
     regExpReplace: €$1
   - name: availabilityText
@@ -54,10 +52,13 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //div[@class="item-brand-name"]
+  - name: harvestedproductdescription
+    singleValue: true
+    xpath: //div[@class="page-title-wrapper product"]//h1//span
   - name: packSize
     singleValue: true
     description: The number of products on offer or in the package
-    xpath: //div[@class="product attribute description"]//div
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -67,10 +68,12 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
+    regExp: '[^:]*$'
     xpath: //div[@class="mt2 mb1"]//div[5]
-  - name: ean_gtin
+  - name: eangtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    type: NUMBER
     xpath: //div[@class="product attribute description"]//div
   - name: sku
     singleValue: true
@@ -83,7 +86,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer product code / Model Number
-    xpath: //div[@class="swatch-opt"]/@data-product-sku
+    xpath: //div[@class="product attribute sku"]//div[@class="value"]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -91,10 +94,11 @@ fields:
     singleValue: true
     description: The size of the product
     xpath: //div[@class="product attribute description"]//div//ul//li
+    regExp: '[^:]*$'
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
-  - name: directions_information
+  - name: directionsinformation
     singleValue: true
     description: Content under "directions" header
     xpath: //div[@class="product attribute description"]//div
@@ -105,6 +109,10 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+  - name: productDescription
+    singleValue: false
+    description: The description of the product supplied by the lister
+    xpath: //div[@class="page-title-wrapper product"]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -119,11 +127,12 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //div[@class="mt2 mb1"]
+    xpath: (//div[@class="product attribute description"]//font)[10]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
     xpath: //div[@class='mt2 mb1']//div[5]
+    regExp: '[^:]*$'
   - name: variantCount
     singleValue: true
     description: Number of variants listed
@@ -131,14 +140,13 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //div[@class="product attribute description"]//div
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
-  - name: additional_description
+  - name: additionalDescription
     singleValue: false
-    description: The description of the product supplied by the lister
-    xpath: //div[@class="product attribute description"]
+    description: The additional description of the product supplied by the lister
+    xpath: //div[@class="data item content"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -454,7 +462,6 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: //div[@class="product attribute description"]//div//ul//li[2]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -479,7 +486,6 @@ fields:
     singleValue: true
     description: Recommended age displayed on the product page.
     example: 4 - 99 years
-    xpath: //div[@class="product attribute description"]//div
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product.
@@ -505,7 +511,6 @@ fields:
   - name: materials
     singleValue: true
     description: Materials used to make the product
-    xpath: //div[@class="product attribute description"]//div//ul//li[3]
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
@@ -517,5 +522,5 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-  - name: online_price_currency
+  - name: onlinepricecurrency
     xpath: //meta[@property="product:price:currency"][@content]
