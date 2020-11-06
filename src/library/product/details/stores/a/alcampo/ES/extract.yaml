@@ -9,7 +9,7 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
-  xpath: //body/@producturl
+  xpath: //ancestor::html//link[@rel="canonical"]/@href
 - name: _pageTimeStamp
   singleValue: false
 - name: image

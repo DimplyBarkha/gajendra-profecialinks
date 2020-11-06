@@ -2,11 +2,20 @@ input:
   id: 549549
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=59ad5ab4-56fb-4363-b6ea-0e87a93b80ae/task=2ef42ec0-27a2-4cba-96f8-91be2702986c/afe29a96-0fd6-41e5-8473-c477352f861e.html
+  - html: https://workbench.import.io/html/run=e3c962ed-b6a9-47ad-a470-837ea341741b/task=dac9a90f-b158-4663-a49f-1ea9ccc2f455/73cb3725-50ab-48ba-996f-82ce8fe99f69.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
-          - category:
+          - productUrl:
+              - text: https://www.alcampo.es/compra-online/bebidas/cervezas/premium/premium-rubia/brewdog-punk-ipa-cerveza-rubia-ipa-33-cl/p/549549
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://www.alcampo.es/media/hdd/h56/10519350018078.jpg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: 549549_1.jpg
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            category:
               - text: Bebidas
                 xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[3]/a[1]
               - text: Cervezas
@@ -15,43 +24,9 @@ extractions:
                 xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[5]/a[1]
               - text: Premium Rubia
                 xpath: /html/body/div[4]/div[2]/div[8]/div[3]/ul[1]/li[6]/a[1]
-            image:
-              - text: https://www.alcampo.es/media/hdd/h56/10519350018078.jpg
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            imageAlt:
-              - text: 549549_1.jpg
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
-            ingredientsList:
-              - text: |-
-                  Ingredientes: 
-                   Agua, Malta, Levadura, Lúpulo. Contiene Gluten.
-                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]
-            storage:
-              - text: Mantener la botella de pie.
-                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[3]/div[1]/div[1]
-            availabilityText:
-              - text: In Stock
-            variantCount:
-              - text: "0"
-            technicalInformationPdfPresent:
-              - text: No
-            termsAndConditions:
-              - text: No
-            privacyPolicy:
-              - text: No
-            customerServiceAvailability:
-              - text: Yes
-            Image360Present:
-              - text: No
-            imageZoomFeaturePresent:
-              - text: No
-            descriptionBullets:
-              - text: "0"
-        xpath: /html
-      - group:
-          - name:
-              - text: Cerveza rubia Punk Ipa BREWDOG 33 cl.
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            price:
+              - text: 1,90 €
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
             brandText:
               - text: BREWDOG Punk Ipa
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[3]
@@ -61,33 +36,29 @@ extractions:
             quantity:
               - text: Unidad
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]
+            shippingInfo:
+              - text: "- ENVÍO A DOMICILIO- RECOGIDA PARKING"
+                xpath: /html/body/@shippinginfo
+            name:
+              - text: Cerveza rubia Punk Ipa BREWDOG 33 cl.
+                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            ingredientsList:
+              - text: |-
+                  Ingredientes: 
+                   Agua, Malta, Levadura, Lúpulo. Contiene Gluten.
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]
+            servingSize:
+              - text: por 100ml/g
+                xpath: /html/body/@servingsize
+            servingSizeUom:
+              - text: ml/g
+                xpath: /html/body/@servingunit
+            storage:
+              - text: Mantener la botella de pie.
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[3]/div[1]/div[1]
             pricePerUnit:
               - text: 5,75 €
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/span[1]
-            pricePerUnitUom:
-              - text: Litro
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/span[1]
-            availabilityText:
-              - text: In Stock
-            variantCount:
-              - text: "0"
-            technicalInformationPdfPresent:
-              - text: No
-            termsAndConditions:
-              - text: No
-            privacyPolicy:
-              - text: No
-            customerServiceAvailability:
-              - text: Yes
-            Image360Present:
-              - text: No
-            imageZoomFeaturePresent:
-              - text: No
-            descriptionBullets:
-              - text: "0"
-          - quantity:
-              - text: Unidad
-                xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/div[1]
             pricePerUnitUom:
               - text: Litro
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]/span[1]
@@ -109,6 +80,5 @@ extractions:
               - text: No
             descriptionBullets:
               - text: "0"
-        xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]
-        htmlExtraction: https://crawl-assets.import.io/html/run=59ad5ab4-56fb-4363-b6ea-0e87a93b80ae/task=2ef42ec0-27a2-4cba-96f8-91be2702986c/afe29a96-0fd6-41e5-8473-c477352f861e.html
-    timestamp: 1604579174295
+        xpath: /
+    timestamp: 1604653894455
