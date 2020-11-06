@@ -17,7 +17,7 @@ fields:
     xpath: //section[@class="product-info"]//li[@class="product-normal-price"]//span[contains(@class,"product-price__line-thru")]
   - name: price
     singleValue: false
-    xpath: //section[@class="product-info"]//li[@class="product-internet-price"]//span[@class="product-price"]
+    xpath: //section[@class="product-info"]//li[@class="product-internet-price" or @class="product-internet-price-not-best"]//span[@class="product-price"]
   - name: description
     singleValue: false
     xpath: //section[@class="product-header hidden-xs"]//div[@class="product-short-description"]
@@ -38,7 +38,7 @@ fields:
     xpath: //section[@class="product-header hidden-xs"]//span[@class="sku"]
   - name: variantId
     singleValue: false
-    xpath: //div[@class="product-options-desktop-wrapper"]//div[contains(@class,"is-pristine")]//div[@class="custom-select-title"]/span[text()="Talla"]/parent::*/parent::*//li[1]/input/@id
+    xpath: //section[@class="product-header hidden-xs"]//span[@class="sku"]
   - name: mpc
     singleValue: false
     xpath: //div[@class="accordion-item-content"]/table//tr/td[text()="Modelo"]/parent::*/td[2]
@@ -66,15 +66,9 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //div[@class="accordion-item-content"]/table//tr/td/text()
-  - name: variants
-    singleValue: false
-    xpath: //div[@class="product-options-desktop-wrapper"]//div[contains(@class,"is-pristine")]//div[@class="custom-select-title"]/span[text()="Talla"]/parent::*/parent::*//li/input/@id
   - name: variantInformation
     singleValue: false
     xpath: //div[@class="product-options-desktop-wrapper"]//div[contains(@class,"is-pristine")]//div[@class="custom-select-title"]/span[text()="Talla"]/parent::*/parent::*//li[1]/input/@value
-  - name: firstVariant
-    singleValue: false
-    xpath: //div[@class="product-options-desktop-wrapper"]//div[contains(@class,"is-pristine")]//div[@class="custom-select-title"]/span[text()="Talla"]/parent::*/parent::*//li[1]/input/@id
   - name: shippingInfo
     singleValue: false
     xpath: //a[@class="product-information-shop-name"]

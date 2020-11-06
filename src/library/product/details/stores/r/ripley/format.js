@@ -26,12 +26,14 @@ const transform = (data) => {
       for (let row of group) {
         if(row.image){
           row.image.forEach(item=>{
-            item.text="https:"+item.text;
+            if(item.text.substring(0, 6)!='https:')
+              item.text="https:"+item.text;
           })
         }
         if(row.alternateImages){
           row.alternateImages.forEach(item=>{
-            item.text="https:"+item.text;
+            if(item.text.substring(0, 6)!='https:')
+              item.text="https:"+item.text;
           })
         }
         if(row.secondaryImageTotal){
@@ -76,6 +78,18 @@ const transform = (data) => {
             if(item.text=='zoomImg'){
               item.text='Yes';
             }
+          })
+        }
+        if(row.listPrice){
+          row.listPrice.forEach(item=>{
+            item.text=item.text(',','');
+            item.text=item.text('.',',');
+          })
+        }
+        if(row.price){
+          row.price.forEach(item=>{
+            item.text=item.text(',','');
+            item.text=item.text('.',',');
           })
         }
       }
