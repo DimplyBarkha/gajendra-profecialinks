@@ -5,8 +5,8 @@ module.exports = {
     country: 'BR',
     store: 'pontofrio',
     domain: 'pontofrio.com.br',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div#gallery',
+    noResultsXPath: '//div[@class="not-found"]',
     zipcode: '',
   },
 };

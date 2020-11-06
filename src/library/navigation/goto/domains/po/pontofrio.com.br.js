@@ -9,7 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-    const timeout = parameters.timeout ? parameters.timeout : 10000;
+    const timeout = parameters.timeout ? parameters.timeout : 60000;
     console.log('URl:: ', url);
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
@@ -20,7 +20,7 @@ module.exports = {
     await context.setUserAgent('Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36');
   
     await context.goto(url, {
-      firstRequestTimeout: 60000,
+      firstRequestTimeout: 100000,
       timeout: timeout,
       waitUntil: 'load',
       checkBlocked: false,
