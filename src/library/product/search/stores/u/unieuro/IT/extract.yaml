@@ -7,7 +7,7 @@ fields:
     singleValue: true
     description: price of the product
     type: CURRENCY
-    xpath: //section[@class='collapsed']//div/a/span
+    xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='prices product-tile__prices']/div[@class='product-tile__price-container']/a[@class='prices__price product-tile__price']
   - name: productUrl
     singleValue: false
     description: The URL for the product details page 
@@ -19,16 +19,13 @@ fields:
     description: The URL for the product thumbnail image
     xpath: //div[@class='product-img-container product-tile__img-container']/a/img[@class='product-img product-tile__img lazyloaded']/@src
   - name: id
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
     xpath: //section[@class="collapsed"]/article/@data-productactions-sku
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
     xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='title product-tile__title']/a/text()
-  - name: rankOrganic
+  - name: rank
     singleValue: false
-    xpath: //li[@role="presentation"]/button/@aria-controls
-    regExp: (\d+)
-  
-  
+    xpath: //html//div[@class='altImages1']
