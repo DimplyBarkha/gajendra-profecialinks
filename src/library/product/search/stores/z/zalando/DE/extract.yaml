@@ -48,11 +48,13 @@ fields:
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //#rankorganic
+    xpath: //@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
+    xpath: //div[contains(@class,"sponsored")]/@sponsored
+    defaultValue: false
   # - name: totalRecordCount
   #   singleValue: true 
   #   type: NUMBER
