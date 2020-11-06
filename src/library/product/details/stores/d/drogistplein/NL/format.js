@@ -33,6 +33,11 @@ const transform = (data) => {
               row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
             }
         }
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
+            item.text = Number(item.text);
+          });
+        }
         if (row.category) {
             if (row.category.length) {
               row.category.splice(0, 1);

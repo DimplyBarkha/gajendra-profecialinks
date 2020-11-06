@@ -42,3 +42,23 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //div[contains(@class,'row hidden-md-down')]//form[@id="frmWithQuantity"]//input[@name='product_id']/@value
+  - name: variantCount
+    singleValue: false
+    defaultValue: 1 
+  - name: quantity
+    singleValue: false
+    defaultValue: 1
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class="container"]//div[@class="film-button-container"]//@data-ean 
+  - name: brandText
+    singleValue: false
+    xpath: (//script[@type="application/ld+json"])[2] 
+    regExp: \"brand:(.+?)\"
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,'row hidden-md-down')]//a[contains(@class,'btn product-add-to-cart')]/@data-modal-rating-count
+  - name: availabilityText
+    singleValue: false
+    defaultValue: 'In Stock'   
