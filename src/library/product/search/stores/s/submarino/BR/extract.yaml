@@ -3,17 +3,17 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null #//div[@class="product-grid-item ColUI-gjy0oc-0 ifczFg ViewUI-sc-1ijittn-6 iXIDWU"]|//div[@class="carousel-item"]
 fields:
-  - name: id 
+  - name: id
     description: Unique id (within this extractor)
     xpath: //div[@class="RippleContainer-sc-1rpenp9-0 dMCfqq"]/@currentid|//a[@class="card-product-url"]/@currentid
-  - name: rankOrganic
+  - name: rankOrganic # missing for TV
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
     xpath: //div[@class="RippleContainer-sc-1rpenp9-0 dMCfqq"]/@rankorganic
   - name: name
     description: The product name
-    xpath: //div[@class="product-grid-item ColUI-gjy0oc-0 ifczFg ViewUI-sc-1ijittn-6 iXIDWU"]//div[contains(@class, 'TitleWrapper')]/h2|//h3[@class="card-product-name"]
-  - name: productUrl 
+    xpath: //div[@class="product-grid-item ColUI-gjy0oc-0 ifczFg ViewUI-sc-1ijittn-6 iXIDWU"]//div[contains(@class, 'TitleWrapper')]/h2|//h3[@class="card-product-name"]|//div[@data-component="recommendationAds"]//h2[contains(@class, 'TitleUI')]
+  - name: productUrl
     description: The URL for the product details page
     xpath: //div[@class="RippleContainer-sc-1rpenp9-0 dMCfqq"]/@urldata|//a[@class="card-product-url"]/@urldata
   - name: gtin
@@ -37,7 +37,7 @@ fields:
     xpath: //div[@class="product-grid-item ColUI-gjy0oc-0 ifczFg ViewUI-sc-1ijittn-6 iXIDWU"]//span[contains(@class, "Quantity-sc")]/text()
     regExp: (\d+)
     regExpReplace: $1
-  - name: price 
+  - name: price
     description: The offered price for the product
     xpath: //div[@class="product-grid-item ColUI-gjy0oc-0 ifczFg ViewUI-sc-1ijittn-6 iXIDWU"]//span[contains(@class, "PriceUI")]|//div[@class="card-product-price text-highlight-1"]
   - name: manufacturer
@@ -46,11 +46,11 @@ fields:
     description: The name of the seller of the item (if available)
   - name: rank
     description: search/listing rank
-    xpath:  //div[@class="RippleContainer-sc-1rpenp9-0 dMCfqq"]/@rank|//a[@class="card-product-url"]/@rank
-  - name: endorsementText 
+    xpath: //div[@class="RippleContainer-sc-1rpenp9-0 dMCfqq"]/@rank|//a[@class="card-product-url"]/@rank
+  - name: endorsementText
     description: The text that signifies that a product is endorsed
     xpath: //span[@class="featured-flag"]
-  - name: sponsored 
+  - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
