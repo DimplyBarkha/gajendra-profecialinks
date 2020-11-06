@@ -5,18 +5,21 @@ recordSelector: ax-product-grid[type-of-results="results"] > div > div > ax-prod
 fields:
   - name: price
     singleValue: false
-    xpath: //div[@class="ax-product-priceinfo-compare"]
-    regExp: Jmf-pris (.+)
-    regExpReplace: $1
+    xpath: //div[@class='extra-info-price']
+    # xpath: //div[@class="ax-product-priceinfo-compare"]
+    # regExp: Jmf-pris (.+)
+    # regExpReplace: $1
   - name: name
     singleValue: false
-    xpath: //div[@class="ax-product-title selenium--product-title"]/text()
+    xpath: //div[@class='extra-info-name']
+    # xpath: //div[@class="ax-product-title selenium--product-title"]/text()
   - name: productUrl
     singleValue: false
     xpath: //div[@class='extra-info-url']
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,"ax-product-puff-image")]/img/@src
+    xpath: //div[@class='extra-info-thumbnail']
+    # xpath: //div[contains(@class,"ax-product-puff-image")]/img/@src
   - name: aggregateRating
     singleValue: false
   - name: id
@@ -28,7 +31,8 @@ fields:
     singleValue: true
   - name: manufacturer
     singleValue: false
-    xpath: //span[@class="selenium--product-manufacturer-name"]/text()
+    xpath: //div[@class='extra-info-manufacturer']
+    # xpath: //span[@class="selenium--product-manufacturer-name"]/text()
   - name: soldBy
     singleValue: true
   - name: endorsementText
