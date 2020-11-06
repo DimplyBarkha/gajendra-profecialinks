@@ -42,13 +42,13 @@ async function implementation(
 module.exports = {
     implements: 'product/details/variants/variantsExtract',
     parameterValues: {
-        country: 'ES',
+        country: 'FR',
         store: 'amazon',
         transform: null,
-        domain: 'amazon.es',
+        domain: 'amazon.fr',
     },
     dependencies: {
-        variants: 'extraction:product/details/stores/a/amazon/ES/variantsExtract',
+        variants: 'extraction:product/details/stores/a/amazon/FR/variantsExtract',
         Helpers: 'module:helpers/helpers',
         AmazonHelp: 'module:helpers/amazonHelp',
     },

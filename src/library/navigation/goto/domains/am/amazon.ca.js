@@ -1,11 +1,13 @@
 module.exports = {
     implements: 'navigation/goto',
     parameterValues: {
-        country: 'CA',
         domain: 'amazon.ca',
+        timeout: 45000,
+        country: 'CA',
         store: 'amazon',
     },
     implementation: async({ url, zipcode }, parameterValues, context, dependencies) => {
+        console.log('!zipcode!', zipcode);
         const memory = {};
         const backconnect = !!memory.backconnect;
         console.log('backconnect', backconnect);
