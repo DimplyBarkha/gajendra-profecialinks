@@ -4,9 +4,13 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
+    xpath: //picture[contains(@class,'img-responsive')]/img/@src 
+    regExp: (.+)
+    regExpReplace: http:$1 
     singleValue: true
     description: URL of the main product image
   - name: imageAlt
+    xpath: //picture[contains(@class,'img-responsive')]/img/@alt 
     singleValue: true
     description: Alt text of the main product image
   - name: alternateImages
@@ -16,28 +20,31 @@ fields:
     singleValue: true
     description: The <meta> keywords content
   - name: category
+    xpath: //ul[contains(@class,'nav-Crumb')]/li[position()>1] 
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
+    xpath: //div[@class="product-heading"]/h1 
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
+    xpath: //del[contains(@class,"base-price")]/text()
     singleValue: true
     description: The stated undiscounted price for the product
   - name: price
+    xpath: //div[@class="product-prices-wrapper"]//span[contains(@class,"product-strike-price")]/text() | //div[@class="product-prices-wrapper"]//span[contains(@class,"product-price")]/text() 
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
+    xpath: //picture[contains(@class,'img-responsive')]/img/@availability
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+      should be "In Stock"s
   - name: description
+    xpath: concat(//div[@class="content-detail"]/div[1],//div[@class="content-detail"]/div[2]) 
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
@@ -46,6 +53,8 @@ fields:
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
+    xpath: //div[@class="product-heading"]/h1 
+    regExp: (^\w+)  
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
@@ -64,9 +73,11 @@ fields:
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
+    xpath: //picture[contains(@class,'img-responsive')]/img/@gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
+    xpath: //div[contains(@class,'product-content')]/product-detail/@data-product-id  
     singleValue: true
     description: The store-specific product identifier
   - name: variantId
@@ -80,12 +91,14 @@ fields:
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
+    xpath: //div[@class="cq-dd-fragment"]//p 
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
     description: Content under "directions" header
   - name: warnings
+    xpath: //span[contains(text(),'Warning')]/following-sibling::span 
     singleValue: true
     description: Content under "warnings" header
   - name: ratingCount
@@ -128,6 +141,7 @@ fields:
     singleValue: false
     description: URLs of videos on page
   - name: name
+    xpath: //div[@class="product-heading"]/h1  
     singleValue: true
     description: The product name
   - name: inStorePrice
@@ -231,130 +245,177 @@ fields:
     singleValue: true
     description: null
   - name: ingredientsList
+    xpath: //div[@id="ingredients"]//div[contains(@class,'flour')] 
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
+    xpath: //td[@class="table-ingredients-head"]/span[1]
+    regExp: (.+)(:)(\s)(.+)
+    regExpReplace: $4
     singleValue: true
     description: The size of serving Nutritional information is based on.
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
   - name: numberOfServingsInPackage
+    xpath: //td[@class="table-ingredients-head"]/span[2] 
+    regExp: (.+)(:)(\s)(.+)
+    regExpReplace: $4
     singleValue: true
     description: Suggested number of servings of the product.
-    type: NUMBER
   - name: caloriesPerServing
+    xpath: //th[contains(text(),"Calories")][contains(@class,"head")]/following-sibling::td[1]/text()[2] 
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
   - name: caloriesFromFatPerServing
+    xpath: //th[contains(text(),"Calories From Fat")]/following-sibling::td[1]/text() 
+    regExp: (\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-    type: NUMBER
   - name: totalFatPerServing
+    xpath: //th[contains(text(),"Total Fat")]/following-sibling::td[1]/text()
+    regExp: (\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: totalFatPerServingUom
+    xpath: //th[contains(text(),"Total Fat")]/following-sibling::td[1]/text()
+    regExp: ([a-zA-Z]+)
     singleValue: true
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
+    xpath: //td[contains(text(),"Saturated Fat")]/following-sibling::td[1]/text()
+    regExp: (\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    type: NUMBER
   - name: saturatedFatPerServingUom
+    xpath: //td[contains(text(),"Saturated Fat")]/following-sibling::td[1]/text()
+    regExp: ([a-zA-Z]+)
     singleValue: true
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
+    xpath: //td[contains(text(),"Trans Fat")]/following-sibling::td[1]/text() 
+    regExp: (\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: transFatPerServingUom
+    xpath: //td[contains(text(),"Trans Fat")]/following-sibling::td[1]/text() 
+    regExp: ([a-zA-Z]+)
     singleValue: true
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
+    xpath: //th[contains(text(),"Cholesterol")]/following-sibling::td[1]/text() 
+    regExp: (\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: cholesterolPerServingUom
+    xpath: //th[contains(text(),"Cholesterol")]/following-sibling::td[1]/text() 
+    regExp: ([a-zA-Z]+) 
     singleValue: true
     description: Unit of Measure Data for Cholesterol content
-  - name: sodiumPerServing
+  - name: sodiumPerServing 
+    xpath: //th[contains(text(),"Sodium")]/following-sibling::td[1]/text()
+    regExp: (\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
-    type: NUMBER
   - name: sodiumPerServingUom
+    xpath: //th[contains(text(),"Sodium")]/following-sibling::td[1]/text()
+    regExp: ([a-zA-Z]+) 
     singleValue: true
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
+    xpath: //th[contains(text(),"Carbohydrate")]/following-sibling::td[1]/text()
+    regExp: (\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-    type: NUMBER
   - name: totalCarbPerServingUom
+    xpath: //th[contains(text(),"Carbohydrate")]/following-sibling::td[1]/text()
+    regExp: ([a-zA-Z]+) 
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
+    xpath: //td[contains(text(),"Dietary")]/following-sibling::td[1]/text()  
+    regExp: (\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
-    type: NUMBER
   - name: dietaryFibrePerServingUom
+    xpath: //td[contains(text(),"Dietary")]/following-sibling::td[1]/text()  
+    regExp: ([a-zA-Z]+) 
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
+    xpath: //td[contains(text(),"Sugars")]/following-sibling::td[1]/text()
+    regExp: (\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: totalSugarsPerServingUom
+    xpath: //td[contains(text(),"Sugars")]/following-sibling::td[1]/text()
+    regExp: ([a-zA-Z]+)  
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
+    xpath: //th[contains(text(),"Protein")]/following-sibling::td[1]/text()
+    regExp: (\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
-    type: NUMBER
   - name: proteinPerServingUom
+    xpath: //th[contains(text(),"Protein")]/following-sibling::td[1]/text()
+    regExp: ([a-zA-Z]+)  
     singleValue: true
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
+    xpath: //th[contains(text(),"Vitamin A")]/following-sibling::td[1]/text()
+    regExp: (\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: vitaminAPerServingUom
+    xpath: //th[contains(text(),"Vitamin A")]/following-sibling::td[1]/text()
+    regExp: ([a-zA-Z]+)  
     singleValue: true
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
+    xpath: //th[contains(text(),"Vitamin C")]/following-sibling::td[1]/text() 
+    regExp: (\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: vitaminCPerServingUom
+    xpath: //th[contains(text(),"Vitamin C")]/following-sibling::td[1]/text() 
+    regExp: ([a-zA-Z]+)  
     singleValue: true
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
+    xpath: //th[contains(text(),"Calcium")]/following-sibling::td[1]/text()
+    regExp: (\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
-    type: NUMBER
   - name: calciumPerServingUom
+    xpath: //th[contains(text(),"Calcium")]/following-sibling::td[1]/text()
+    regExp: ([a-zA-Z]+)  
     singleValue: true
     description: Unit of Measure Data for Calcium
   - name: ironPerServing
+    xpath: //th[contains(text(),"Iron")]/following-sibling::td[1]/text() 
+    regExp: (\d+)(\.|)(\d+|) 
     singleValue: true
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
-    type: NUMBER
   - name: ironPerServingUom
+    xpath: //th[contains(text(),"Iron")]/following-sibling::td[1]/text() 
+    regExp: ([a-zA-Z]+)  
     singleValue: true
     description: Unit of Measure Data for Iron
   - name: dietarySymbols
@@ -413,6 +474,7 @@ fields:
     singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion
+    xpath: concat(//div[@class="product-offer-desc"]/span[1],//div[@class="product-offer-desc"]/span[2])
     singleValue: true
     description: promotion text on product page
   - name: alcoholContent
