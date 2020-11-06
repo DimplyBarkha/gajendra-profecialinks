@@ -29,7 +29,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@id="breadcrumbs"]//li[position()>=2]
+    xpath: //div[@id="breadcrumbs"]//li[position()>=2 and position()<4]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -43,11 +43,13 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //p[@class="price-info"]//span[@class="Price"]
+    type: CURRENCY
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    xpath: //div[@class="stock-level h-display-ib u-nudge-top h-third-l"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -96,13 +98,14 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: (//select[@name="quantity"]/option)[1]
+    # xpath: (//select[@name="quantity"]/option)[1]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
     description: Content under "directions" header
+    xpath: //p[@class="productpage-directions-content"]
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -247,7 +250,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
-    xpath: count(//div[@class="galleryimages-gallery-inner
+    xpath: count(//div[@class="galleryimages-gallery-inner gallery-video"]/a/@href)
   - name: news
     singleValue: true
     description: null
@@ -261,6 +264,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //p[@class="productpage-ingredients-content"]
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -528,4 +532,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
