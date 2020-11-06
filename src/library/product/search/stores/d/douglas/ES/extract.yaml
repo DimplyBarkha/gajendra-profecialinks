@@ -7,7 +7,6 @@ fields:
     xpath: //data-eb-results[@id="eb-results"]/data-eb-result//a/@href
     # regExp: (.+)
     # regExpReplace: https://douglas.es$1
-    description: The URL for the product details page
   - name: thumbnail
     xpath: //data-eb-result//a/div/img/@data-ng-src
     description: The URL for the product thumbnail image
@@ -19,8 +18,9 @@ fields:
     regExp: \W(["^\d"]+)
     regExpReplace: $1
   - name: price
-    xpath: //p[contains(@class,"eb-result-price-color")]
-    description: The offered price for the product
+    xpath: //p[contains(@class,"eb-result-price")]
+    regExp: (.*)\W\W
+    regExpReplace: $1
   - name: rank
   - name: rankOrganic
   - name: sponsored
