@@ -83,11 +83,11 @@ fields:
   - name: rank
     singleValue: true
     description: search/listing rank
-    xpath: //div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-posid
+    xpath: //div[@id="ii_rankOrganic"]
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
-    xpath: //div[@class="hz-product-card hz-track-me hz-product-card--medium hz-br-container--three-grid hz-product-card__browse-redesign"]/@data-posid
+    xpath: //div[@id="ii_rankOrganic"]
   - name: sponsored
     singleValue: true
     description: Is sponsored/paid

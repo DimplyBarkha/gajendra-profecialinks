@@ -1,10 +1,9 @@
-
 module.exports = {
-  implements: 'product/search',
+  implements: "product/search",
   parameterValues: {
-    country: 'US',
-    store: 'houzz',
-    domain: 'houzz.com',
-    zipcode: '',
+    country: "US",
+    store: "houzz",
+    domain: "houzz.com",
+    zipcode: "",
   },
 };
