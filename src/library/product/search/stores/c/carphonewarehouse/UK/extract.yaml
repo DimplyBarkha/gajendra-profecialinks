@@ -1,8 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id="5.0-apple iphone 5c"]
-#//div/@ng-repeat
+recordXPath: //div[@class='placeholder']
 fields:
   - name: id
     singleValue: false
@@ -12,10 +11,10 @@ fields:
     xpath: 
   - name: name
     singleValue: false
-    xpath: //p[@class='pName']//label/a/text()
+    xpath: //div[@class='visual']//p[@class='pName']//label/a/text()
   - name: productUrl
     singleValue: false
-    xpath: //p[@class='pName']//label/a/@href
+    xpath: //div[@class='visual']//p[@class='pName']//label/a/@href
     regExp: (.+)
     regExpReplace: https://www.carphonewarehouse.com$1
   - name: gtin
@@ -23,7 +22,7 @@ fields:
     xpath: //div[@class='extra-info']/@data-upc
   - name: thumbnail
     singleValue: false
-    xpath: //p[contains(@class, 'handset')]//picture//img/@src
+    xpath: //p[contains(@class, 'handset')]//picture//img/@src |  //p[contains(@class, 'handset')]//img/@src
   - name: aggregateRating
     singleValue: false
     xpath: 
@@ -35,7 +34,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //span[@class ='priceprprty']
+    xpath: //*[@class ='priceprprty']
   - name: manufacturer
     singleValue: true
   - name: soldBy
