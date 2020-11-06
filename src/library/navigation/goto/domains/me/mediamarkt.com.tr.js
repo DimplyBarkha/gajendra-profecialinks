@@ -24,6 +24,7 @@ module.exports = {
       waitUntil: 'load',
       checkBlocked: true,
     });
+    // For mediamarkt ES
     try {
       await context.waitForSelector('.gdpr-cookie-layer--show');
       await context.click('button[class*="btn--submit--all"]');

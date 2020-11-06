@@ -59,6 +59,7 @@ fields:
     xpath: //div[@id="features"]//dt[contains(.,"firma")]/following-sibling::dd[1]
   - name: quantity
     description: Quantity as described on the page
+    xpath: //dl[@class="product-details"]/dt[contains(.,"inç")]/following-sibling::dd[1]
   - name: weightNet
     description: Net weight as described on the page
     xpath: //div[@id="features"]//dt[contains(.,"Ağırlık")]/following-sibling::dd[1]
@@ -77,6 +78,7 @@ fields:
     xpath: //span[@itemprop="sku"]
   - name: mpc
     description: The manufacturer model code (unique) of the product
+    xpath: //div[@id="features"]//dt[contains(.,"MPN") or contains(.,"mpn")]/following-sibling::dd[1]
   - name: packSize
     description:
       The number of packs in the product offer (if stated separately on
@@ -119,7 +121,7 @@ fields:
     xpath: //div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//img/@data-flixsrcset | //div[@id="rcm-container"]//img/@src | //div[@class="flix-tech-spacs"]//img/@data-flixsrcset
   - name: videos
     description: URLs of videos on page
-    xpath: //div[contains(@class,"fullJwPlayerWarp")]//input/@value
+    xpath: //div[contains(@class,"fullJwPlayerWarp")]//input/@value | //meta[@itemprop="contentURL"]/@content | //div[contains(@class,"cms_html_container") or contains(@class,"embed-responsive")]//iframe/@src
   - name: name
     description: The product name
     xpath: //h1[@itemprop="name"]
@@ -139,6 +141,7 @@ fields:
     description: Suggested storage location for product
   - name: countryOfOrigin
     description: The country from which the product originates
+    xpath: //div[@id="features"]//dt[contains(.,"Üretim Yeri")]/following-sibling::dd[1]
   - name: allergyAdvice
     description: Allergy information associated with the product
   - name: recyclingInformation
@@ -202,7 +205,7 @@ fields:
   - name: technicalInformationPdfPresent
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    xpath: //a[contains(@class,"flix-doc-download")]
+    xpath: //a[contains(@class,"flix-doc-download")] | //div[contains(@class,"inpage_selector_download")]
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
@@ -226,7 +229,7 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    xpath: //a[@class="zoom"]
+    xpath: //a[@class="zoom"]/@class
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No

@@ -22,7 +22,8 @@ const transform = (data, context) => {
           const contains1x1 = item.text.search('1x1.png');
           const containsThumb = item.text.search('thumb.jpg');
           const containsDigitW = item.text.search(' 200w');
-          if (contains1x1 === -1 && containsThumb === -1) {
+          const containsPreview = item.text.search('preview.jpg');
+          if (contains1x1 === -1 && containsThumb === -1 && containsPreview === -1) {
             if (containsDigitW !== -1) {
               item.text = item.text.match(/(.+)\s200w/)[1];
             }
@@ -41,11 +42,22 @@ const transform = (data, context) => {
       if (row.videos) {
         let text = '';
         row.videos.forEach(item => {
-          item.text = item.text.match(/"file":"(.+)","image"/)[1];
-          item.text = 'https:' + item.text.split('\\').join('');
+          if (item.text.search('540p') !== -1) {
+            item.text = item.text.replace('540p', '720p');
+          } else if (item.text.search('youtube.com') === -1) {
+            item.text = item.text.match(/"file":"(.+)","image"/)[1];
+            item.text = 'https:' + item.text.split('\\').join('');
+          }
           text = text + (text ? ' | ' : '') + item.text;
         });
-        row.videos = [{ text }];
+        const split = text.split(' | ');
+        // @ts-ignore
+        const uniqueVideos = [...new Set(split)];
+        let text2 = '';
+        uniqueVideos.forEach(video => {
+          text2 = text2 + (text2 ? ' | ' : '') + video;
+        });
+        row.videos = [{ text: text2 }];
       }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
@@ -93,7 +105,9 @@ const transform = (data, context) => {
       if (row.description || row.additionalDescBulletInfo) {
         let text = '';
         if (row.description) {
-          text = text + (text ? ' ' : '') + row.description[0].text;
+          for (let i = 0; i < row.description.length; i += 2) {
+            text += (text ? ' ' : '') + row.description[i].text;
+          }
         }
         let text2 = '';
         if (row.additionalDescBulletInfo) {
