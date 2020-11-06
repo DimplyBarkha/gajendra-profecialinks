@@ -20,9 +20,6 @@ fields:
  - name: gtin
    singleValue: false
    xpath: //div[@class="quickview-block"]//a/@data-ean
- - name: sku
-   singleValue: false
-   xpath: //div[@class="quickview-block"]//a/@data-ean
  - name: thumbnail
    singleValue: false
    xpath: //div[@class="tile-row details-container"]//a//img/@src
@@ -41,6 +38,7 @@ fields:
    singleValue: false
  - name: rank
    singleValue: false
+   #xpath: //html//div[@id="rank1"]
  - name: endorsementText
    singleValue: false
  - name: ratingCount
