@@ -1,0 +1,692 @@
+input:
+  keywords: Haarkur
+  _url: http://bipa.at
+extractions:
+  - html: https://workbench.import.io/html/run=2f7dc831-4987-4221-bdf7-8ab2653aa982/task=27b36d56-f1df-4d31-a73a-1d1a37274303/b98d258d-af91-4e89-bfbf-5965bafca580.html
+    extractionConfigId: product/search/stores/b/bipa/AT/extract
+    data:
+      - group:
+          - id:
+              - text: B3-423878
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/@searchurl
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/@aria-posinset
+                type: NUMBER
+                raw: "1"
+                locale: de_AT
+                value: 1
+            name:
+              - text: Haarkur Mähnenzähmer
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/haarliebe-haarkur-maehnenzaehmer/B3-423878.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/423878.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 5,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/@data-gtmdata
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/@aria-posinset
+          - id:
+              - text: B3-372948
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/@searchurl
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/@aria-posinset
+                type: NUMBER
+                raw: "2"
+                locale: de_AT
+                value: 2
+            name:
+              - text: GLISS KUR Performance 4in1 Color Glanz Haarkur Protein
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/schwarzkopf-performance-4in1-color-glanz-haarkur-protein/B3-372948.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/372948.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,9
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (9)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "9"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 7,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/@data-gtmdata
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/@aria-posinset
+          - id:
+              - text: B3-372954
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/@searchurl
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/@aria-posinset
+                type: NUMBER
+                raw: "3"
+                locale: de_AT
+                value: 3
+            name:
+              - text: GLISS KUR Performance 4in1 Nährpflege Haarkur Protein
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/schwarzkopf-performance-4in1-naehrpflege-haarkur-protein/B3-372954.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/372954.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (16)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "16"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 7,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/@data-gtmdata
+            rank:
+              - text: "3"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/@aria-posinset
+          - id:
+              - text: B3-309955
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/@searchurl
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/@aria-posinset
+                type: NUMBER
+                raw: "4"
+                locale: de_AT
+                value: 4
+            name:
+              - text: Frizz ease Wunder Kur Maske
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/john-frieda-frizz-ease-wunder-kur-maske/B3-309955.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/309955.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 9,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/@data-gtmdata
+            rank:
+              - text: "4"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/@aria-posinset
+          - id:
+              - text: B3-302545
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/@searchurl
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/@aria-posinset
+                type: NUMBER
+                raw: "5"
+                locale: de_AT
+                value: 5
+            name:
+              - text: Miracle Drops Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/john-frieda-miracle-drops-haarkur/B3-302545.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/302545.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 2,79
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/@data-gtmdata
+            rank:
+              - text: "5"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/@aria-posinset
+          - id:
+              - text: B3-265048
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/@searchurl
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/@aria-posinset
+                type: NUMBER
+                raw: "6"
+                locale: de_AT
+                value: 6
+            name:
+              - text: Haarkur Feuchtigkeit Rosemary Ginger
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/jeanundlen-haarkur-feuchtigkeit-rosemary-ginger/B3-265048.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/265048.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 2,5
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (2)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 7,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/@data-gtmdata
+            rank:
+              - text: "6"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/@aria-posinset
+          - id:
+              - text: B3-265046
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/@searchurl
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/@aria-posinset
+                type: NUMBER
+                raw: "7"
+                locale: de_AT
+                value: 7
+            name:
+              - text: Haarkur Detox Black Tea Mate
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/jeanundlen-haarkur-detox-black-tea-mate/B3-265046.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/265046.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 7,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/@data-gtmdata
+            rank:
+              - text: "7"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/@aria-posinset
+          - id:
+              - text: B3-954721
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/@searchurl
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/@aria-posinset
+                type: NUMBER
+                raw: "8"
+                locale: de_AT
+                value: 8
+            name:
+              - text: GLEM vital Haaröl Weizen
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/schwarzkopf-haaroel-weizen/B3-954721.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/954721.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 3,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/@data-gtmdata
+            rank:
+              - text: "8"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/@aria-posinset
+          - id:
+              - text: B3-768559
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/@searchurl
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/@aria-posinset
+                type: NUMBER
+                raw: "9"
+                locale: de_AT
+                value: 9
+            name:
+              - text: Silver Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/swiss-o-par-silver-haarkur/B3-768559.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/768559.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 3,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 3,69
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/@data-gtmdata
+            rank:
+              - text: "9"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/@aria-posinset
+          - id:
+              - text: B3-728302
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/@searchurl
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/@aria-posinset
+                type: NUMBER
+                raw: "10"
+                locale: de_AT
+                value: 10
+            name:
+              - text: ELVITAL Öl Magique Generalist
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/loreal-paris-oel-magique-generalist/B3-728302.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/728302.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (206)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "206"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 12,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/@data-gtmdata
+            rank:
+              - text: "10"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/@aria-posinset
+          - id:
+              - text: B3-728297
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/@searchurl
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/@aria-posinset
+                type: NUMBER
+                raw: "11"
+                locale: de_AT
+                value: 11
+            name:
+              - text: FRUCTIS Wunder-Öl
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/garnier-wunder-oel/B3-728297.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/728297.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (236)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "236"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 6,95
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/@data-gtmdata
+            rank:
+              - text: "11"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/@aria-posinset
+          - id:
+              - text: B3-715388
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/@searchurl
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/@aria-posinset
+                type: NUMBER
+                raw: "12"
+                locale: de_AT
+                value: 12
+            name:
+              - text: Anti-Schäden 2 Min Intensiv Kur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/pantene-pro-v-anti-schaeden-2-min-intensiv-kur/B3-715388.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/715388.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 1,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/@data-gtmdata
+            rank:
+              - text: "12"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/@aria-posinset
+          - id:
+              - text: B3-705993
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/@searchurl
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/@aria-posinset
+                type: NUMBER
+                raw: "13"
+                locale: de_AT
+                value: 13
+            name:
+              - text: GLISS KUR Hair Repair Tägliches Öl-Elixier
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/schwarzkopf-hair-repair-taegliches-oel-elixier/B3-705993.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/705993.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (498)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "498"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 7,45
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/@data-gtmdata
+            rank:
+              - text: "13"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/@aria-posinset
+          - id:
+              - text: B3-857924
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/@searchurl
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/@aria-posinset
+                type: NUMBER
+                raw: "14"
+                locale: de_AT
+                value: 14
+            name:
+              - text: GLISS KUR Hair Repair Total Repair Reflex-Glanz-Kur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/schwarzkopf-hair-repair-total-repair-reflex-glanz-kur/B3-857924.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/857924.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (76)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "76"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 6,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/@data-gtmdata
+            rank:
+              - text: "14"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/@aria-posinset
+          - id:
+              - text: B3-2163
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/@searchurl
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/@aria-posinset
+                type: NUMBER
+                raw: "15"
+                locale: de_AT
+                value: 15
+            name:
+              - text: Haarverdichter
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/ingrubar-haarverdichter/B3-2163.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/2163.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 33,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/@data-gtmdata
+            rank:
+              - text: "15"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/@aria-posinset
+          - id:
+              - text: B3-852795
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/@searchurl
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/@aria-posinset
+                type: NUMBER
+                raw: "16"
+                locale: de_AT
+                value: 16
+            name:
+              - text: GLISS KUR Hair Repair Oil Nutritive Haarspitzenfluid
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/schwarzkopf-hair-repair-oil-nutritive-haarspitzenfluid/B3-852795.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/852795.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (182)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "182"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 8,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/@data-gtmdata
+            rank:
+              - text: "16"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/@aria-posinset
+          - id:
+              - text: B3-902195
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/@searchurl
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/@aria-posinset
+                type: NUMBER
+                raw: "17"
+                locale: de_AT
+                value: 17
+            name:
+              - text: GLISS KUR Hair Repair Ultimate Repair Intensivkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/schwarzkopf-hair-repair-ultimate-repair-intensivkur/B3-902195.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/902195.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (62)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "62"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 1,59
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/@data-gtmdata
+            rank:
+              - text: "17"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/@aria-posinset
+          - id:
+              - text: B3-22142
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/@searchurl
+            rankOrganic:
+              - text: "18"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/@aria-posinset
+                type: NUMBER
+                raw: "18"
+                locale: de_AT
+                value: 18
+            name:
+              - text: GLISS KUR Hair Repair Total Repair Direct-Repair-Kur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/schwarzkopf-hair-repair-total-repair-direct-repair-kur/B3-22142.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/22142.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (66)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "66"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 6,49
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/@data-gtmdata
+            rank:
+              - text: "18"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/@aria-posinset
+          - id:
+              - text: B3-318128
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/form[1]/input[1]/@value
+            searchUrl:
+              - text: https://www.bipa.at/suche?q=Haarkur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/@searchurl
+            rankOrganic:
+              - text: "19"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/@aria-posinset
+                type: NUMBER
+                raw: "19"
+                locale: de_AT
+                value: 19
+            name:
+              - text: GLISS KUR Express- Balsam Oil Nutrive
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+            productUrl:
+              - text: https://www.bipa.at/schwarzkopf-express--balsam-oil-nutrive/B3-318128.html
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/form[1]/a[1]/@href
+            thumbnail:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1604664181877/original/318128.png?sw=170&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1268)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1268"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            price:
+              - text: 3,19
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/@data-gtmdata
+            rank:
+              - text: "19"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/@aria-posinset
+        xpath: /html
+    timestamp: 1604676465212

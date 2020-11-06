@@ -48,7 +48,8 @@ module.exports = {
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
   implementation: async ({ keywords, Keywords, Brands, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
-    const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
+    console.log('action');
+    const length = (results) => results.reduce((acc, { group }) => acc + (0), 0);
 
     keywords = (Keywords) || (Brands) || (keywords);
     console.log('zip:' + zipcode);
