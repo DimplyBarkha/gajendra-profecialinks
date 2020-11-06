@@ -1,31 +1,22 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-
-  await context.evaluate(async() => {
-    function addProp(selector, iterator, propName, value) {
+  await context.evaluate(async () => {
+    function addProp (selector, iterator, propName, value) {
       document
-        .querySelectorAll(selector)
-        [iterator].setAttribute(propName, value);
+        .querySelectorAll(selector)[iterator].setAttribute(propName, value);
     }
-    const allProducts = document.querySelectorAll(
-      'div.item'
-    );
+    const allProducts = document.querySelectorAll('div.item');
     for (let i = 0; i < allProducts.length; i++) {
-      addProp(
-        'div.item',
-        i,
-        'rankorganic',
-        `${i + 1}`
-      );
+      addProp('div.item', i, 'rankorganic', `${i + 1}`);
     }
   });
 
   await context.evaluate(async () => {
-    function stall(ms) {
+    function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -53,9 +44,9 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'thewhiskyexchange',
-    transform: null,
+    transform: transform,
     domain: 'thewhiskyexchange.com',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
