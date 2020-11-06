@@ -93,15 +93,12 @@ fields:
   - name: size
     singleValue: true
     description: The size of the product
-    xpath: //div[@class="product attribute description"]//div//ul//li
-    regExp: '[^:]*$'
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directionsinformation
     singleValue: true
     description: Content under "directions" header
-    xpath: //div[@class="product attribute description"]//div
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -119,7 +116,6 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@class="rating-result"]
     type: NUMBER
   - name: shippingInfo
     singleValue: true
