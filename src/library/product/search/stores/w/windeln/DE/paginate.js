@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'windeln',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div.pager-item.pagination a:last-child',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="cm-content search-no-result-box"]',
     openSearchDefinition: null,
     domain: 'windeln.de',
     zipcode: '',

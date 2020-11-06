@@ -5,9 +5,9 @@ module.exports = {
     country: 'DE',
     store: 'windeln',
     domain: 'windeln.de',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.windeln.de/search/?q={searchTerms}',
+    loadedSelector: 'div.cm-element-products-box',
+    noResultsXPath: '//div[@class="cm-content search-no-result-box"]',
     zipcode: '',
   },
 };

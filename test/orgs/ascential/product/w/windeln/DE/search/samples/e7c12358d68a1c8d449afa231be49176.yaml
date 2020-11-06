@@ -1,0 +1,778 @@
+input:
+  keywords: Pampers Windeln
+  _url: http://windeln.de
+extractions:
+  - html: https://workbench.import.io/html/run=e3063fbc-434f-4f24-8c73-752fe23b21b3/task=ccfda7e0-6cce-459a-a8ec-4246a56097e1/580a584c-e5ce-4657-8b60-c3d92ec3af4d.html
+    extractionConfigId: product/search/stores/w/windeln/DE/extract
+    data:
+      - group:
+          - id:
+              - text: "8001090299819"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/@data-record-ean
+            name:
+              - text: Pampers Premium Protection Windeln
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pampers-premium-protection-windeln.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "8001090299819"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.XkK6XQ3dPx3F6ioO/8001090299819-1.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/@aggrating
+            reviewCount:
+              - text: "8785"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/@ratingcount
+            ratingCount:
+              - text: "8785"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/@ratingcount
+            price:
+              - text: 16,55 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/@rank
+                type: NUMBER
+                raw: "1"
+                locale: de_DE
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/@rank
+                type: NUMBER
+                raw: "1"
+                locale: de_DE
+                value: 1
+          - id:
+              - text: "8001090971982"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/@data-record-ean
+            name:
+              - text: Pampers Pure Protection Windeln
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pampers-pure-protection-windeln.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "8001090971982"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.XGLjoCGtaVW2Ussq/8001090971982-2.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/@aggrating
+            reviewCount:
+              - text: "529"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/@ratingcount
+            ratingCount:
+              - text: "529"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/@ratingcount
+            price:
+              - text: 21,26 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: de_DE
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: de_DE
+                value: 2
+          - id:
+              - text: "8001841498300"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/@data-record-ean
+            name:
+              - text: Pampers Baby Dry Windeln
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pampers-baby-dry-windeln.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "8001841498300"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.Xyv_NnvRiXH1tldP/8001841498300-1.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/@aggrating
+            reviewCount:
+              - text: "22400"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/@ratingcount
+            ratingCount:
+              - text: "22400"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/@ratingcount
+            price:
+              - text: 24,99 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/@rank
+                type: NUMBER
+                raw: "3"
+                locale: de_DE
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/@rank
+                type: NUMBER
+                raw: "3"
+                locale: de_DE
+                value: 3
+          - id:
+              - text: "8001090840530"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/@data-record-ean
+            name:
+              - text: Pampers Premium Protection Pants
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pampers-premium-protection-pants.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "8001090840530"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.XkMuQg3dPx3F6iom/8001090840530-1.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/@aggrating
+            reviewCount:
+              - text: "2215"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/@ratingcount
+            ratingCount:
+              - text: "2215"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/@ratingcount
+            price:
+              - text: 15,10 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "4"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/@rank
+                type: NUMBER
+                raw: "4"
+                locale: de_DE
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/@rank
+                type: NUMBER
+                raw: "4"
+                locale: de_DE
+                value: 4
+          - id:
+              - text: "8001841708577"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/@data-record-ean
+            name:
+              - text: Pampers Feuchte Tücher Coconut, 18 x 42 Stück
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pampers-feuchte-tuecher-coconut-18-x-42-stueck.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "8001841708577"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.X23N-HvRiSmhc6ao/8001841708577-1.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/@aggrating
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/@ratingcount
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/@ratingcount
+            price:
+              - text: 23,99 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/@rank
+                type: NUMBER
+                raw: "5"
+                locale: de_DE
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/@rank
+                type: NUMBER
+                raw: "5"
+                locale: de_DE
+                value: 5
+          - id:
+              - text: "8001090698346"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/@data-record-ean
+            name:
+              - text: Pampers Splashers Schwimmwindeln
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pampers-splashers-schwimmwindeln-txgn.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "8001090698346"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.WnxIAv3JJW7TPHxD/8001090698346-6.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/@aggrating
+            reviewCount:
+              - text: "26"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/@ratingcount
+            ratingCount:
+              - text: "26"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/@ratingcount
+            price:
+              - text: 6,77 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "6"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/@rank
+                type: NUMBER
+                raw: "6"
+                locale: de_DE
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/@rank
+                type: NUMBER
+                raw: "6"
+                locale: de_DE
+                value: 6
+          - id:
+              - text: "8001841709017"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/@data-record-ean
+            name:
+              - text: Pampers Feuchte Tücher Coconut, 9 x 42 Stück
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pampers-feuchte-tuecher-coconut-9-x-42-stueck.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "8001841709017"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.X4ma0gyBRX1jfCTG/8001841709017-1.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/@aggrating
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/@ratingcount
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/@ratingcount
+            price:
+              - text: 13,95 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "7"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/@rank
+                type: NUMBER
+                raw: "7"
+                locale: de_DE
+                value: 7
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/@rank
+                type: NUMBER
+                raw: "7"
+                locale: de_DE
+                value: 7
+          - id:
+              - text: "8001841072371"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/@data-record-ean
+            name:
+              - text: Pampers Baby Dry Pants
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pampers-baby-dry-pants.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "8001841072371"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.Xyvk03vRiXH1tlcF/8001841072371-1.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/@aggrating
+            reviewCount:
+              - text: "2930"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/@ratingcount
+            ratingCount:
+              - text: "2930"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/@ratingcount
+            price:
+              - text: 24,36 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "8"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/@rank
+                type: NUMBER
+                raw: "8"
+                locale: de_DE
+                value: 8
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/@rank
+                type: NUMBER
+                raw: "8"
+                locale: de_DE
+                value: 8
+          - id:
+              - text: "8001841063188"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/@data-record-ean
+            name:
+              - text: Pampers Sensitive Feuchttücher
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pampers-sensitive-feuchttuecher.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "8001841063188"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.XOQGfKmBSR_RQMs1/8001841063188-pampers-feuchte-tuecher-sensitive-vorteilspack-2.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/@aggrating
+            reviewCount:
+              - text: "2040"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/@ratingcount
+            ratingCount:
+              - text: "2040"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/@ratingcount
+            price:
+              - text: 9,99 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "9"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/@rank
+                type: NUMBER
+                raw: "9"
+                locale: de_DE
+                value: 9
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/@rank
+                type: NUMBER
+                raw: "9"
+                locale: de_DE
+                value: 9
+          - id:
+              - text: "8001841078496"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/@data-record-ean
+            name:
+              - text: Pampers Fresh Clean Feuchttücher
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pampers-fresh-clean-feuchttuecher.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "8001841078496"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.XQI74HSdST09SrdA/8001841078496-1.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/@aggrating
+            reviewCount:
+              - text: "625"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/@ratingcount
+            ratingCount:
+              - text: "625"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/@ratingcount
+            price:
+              - text: 9,99 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "10"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/@rank
+                type: NUMBER
+                raw: "10"
+                locale: de_DE
+                value: 10
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/@rank
+                type: NUMBER
+                raw: "10"
+                locale: de_DE
+                value: 10
+          - id:
+              - text: "4270000252204"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/@data-record-ean
+            name:
+              - text: Timfanie® Windeltorte für Mädchen mit Ziehente
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/timfanie-windeltorte-fuer-maedchen-mit-ziehente.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "4270000252204"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.XqADxCZ_CQxr8Hk7/timfanie-windeltorte-ziehente-1-stoeckig-zart-rosa-blank.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            price:
+              - text: 28,90 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "11"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/@rank
+                type: NUMBER
+                raw: "11"
+                locale: de_DE
+                value: 11
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/@rank
+                type: NUMBER
+                raw: "11"
+                locale: de_DE
+                value: 11
+          - id:
+              - text: "4270000252136"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/@data-record-ean
+            name:
+              - text: Timfanie® Windeltorte für Jungen mit Steiff Schlaf-gut-Bär Greifring mit
+                  Rassel
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/timfanie-windeltorte-fuer-jungen-mit-steiff-schlaf-gut-baer-greifring-mit-rassel.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "4270000252136"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.Xl91qCFAyUatBRxj/4270000252136-9.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            price:
+              - text: 43,90 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "12"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/@rank
+                type: NUMBER
+                raw: "12"
+                locale: de_DE
+                value: 12
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/@rank
+                type: NUMBER
+                raw: "12"
+                locale: de_DE
+                value: 12
+          - id:
+              - text: "4270000252129"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/@data-record-ean
+            name:
+              - text: Timfanie® Windeltorte für Mädchen mit Spieluhr Bär
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/timfanie-windeltorte-fuer-maedchen-mit-spieluhr-baer.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "4270000252129"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.Xl91VW2t6VEkSLh3/4270000252129-11.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/@aggrating
+            reviewCount:
+              - text: "5"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/@ratingcount
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/@ratingcount
+            price:
+              - text: 35,90 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "13"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/@rank
+                type: NUMBER
+                raw: "13"
+                locale: de_DE
+                value: 13
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/@rank
+                type: NUMBER
+                raw: "13"
+                locale: de_DE
+                value: 13
+          - id:
+              - text: "4270000252143"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/@data-record-ean
+            name:
+              - text: Timfanie® Windeltorte für Mädchen mit Steiff Schlaf-gut-Bär Greifring mit
+                  Rassel
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/timfanie-windeltorte-fuer-maedchen-mit-steiff-schlaf-gut-baer-greifring-mit-rassel.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "4270000252143"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.Xl910iFAyUatBRxm/4270000252143-8.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/@aggrating
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/@ratingcount
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/@ratingcount
+            price:
+              - text: 43,90 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "14"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/@rank
+                type: NUMBER
+                raw: "14"
+                locale: de_DE
+                value: 14
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/@rank
+                type: NUMBER
+                raw: "14"
+                locale: de_DE
+                value: 14
+          - id:
+              - text: "8001090603449"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[15]/@data-record-ean
+            name:
+              - text: Pampers Aqua Feuchttücher
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[15]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pampers-aqua-feuchttuecher.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[15]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "8001090603449"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[15]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.XGLYv3SdSXohOAUs/8001090603449-pampers-aqua-feuchttuecher-7.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[15]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[15]/@aggrating
+            reviewCount:
+              - text: "945"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[15]/@ratingcount
+            ratingCount:
+              - text: "945"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[15]/@ratingcount
+            price:
+              - text: 14,99 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[15]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "15"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[15]/@rank
+                type: NUMBER
+                raw: "15"
+                locale: de_DE
+                value: 15
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[15]/@rank
+                type: NUMBER
+                raw: "15"
+                locale: de_DE
+                value: 15
+          - id:
+              - text: "4270000252211"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[16]/@data-record-ean
+            name:
+              - text: Timfanie® Windeltorte für Mädchen mit Spieluhr Elefant
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[16]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/timfanie-windeltorte-mit-spieluhr-elefant.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[16]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "4270000252211"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[16]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.XqACl-5aSUTLNjir/timfanie-windeltorte-elefant-1-stoeckig-zart-rosa-blank2.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[16]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[16]/@aggrating
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[16]/@ratingcount
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[16]/@ratingcount
+            price:
+              - text: 32,90 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[16]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "16"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[16]/@rank
+                type: NUMBER
+                raw: "16"
+                locale: de_DE
+                value: 16
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[16]/@rank
+                type: NUMBER
+                raw: "16"
+                locale: de_DE
+                value: 16
+          - id:
+              - text: "4270000252198"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[17]/@data-record-ean
+            name:
+              - text: Timfanie® Windeltorte für Jungen mit Ziehente
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[17]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/timfanie-windeltorte-fuer-jungen-mit-ziehente.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[17]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "4270000252198"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[17]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.XqADrO5aSUTLNjiu/timfanie-windeltorte-ziehente-1-stoeckig-baby-blau-blank.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[17]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            price:
+              - text: 28,90 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[17]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "17"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[17]/@rank
+                type: NUMBER
+                raw: "17"
+                locale: de_DE
+                value: 17
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[17]/@rank
+                type: NUMBER
+                raw: "17"
+                locale: de_DE
+                value: 17
+          - id:
+              - text: "4006592058142"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[18]/@data-record-ean
+            name:
+              - text: Pamper Petz Hund
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[18]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pamper-petz-hund.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[18]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "4006592058142"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[18]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.XrkbbrDoKUKt6BnI/4006592058142-pamper-petz-hund-2.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[18]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            price:
+              - text: 19,97 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[18]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "18"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[18]/@rank
+                type: NUMBER
+                raw: "18"
+                locale: de_DE
+                value: 18
+            rankOrganic:
+              - text: "18"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[18]/@rank
+                type: NUMBER
+                raw: "18"
+                locale: de_DE
+                value: 18
+          - id:
+              - text: "4006592058173"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[19]/@data-record-ean
+            name:
+              - text: Pamper Petz Katze
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[19]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pamper-petz-katze.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[19]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "4006592058173"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[19]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.XrkbirDoKUKt6BnK/4006592058173-pamper-petz-katze-2.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[19]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            price:
+              - text: 19,99 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[19]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "19"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[19]/@rank
+                type: NUMBER
+                raw: "19"
+                locale: de_DE
+                value: 19
+            rankOrganic:
+              - text: "19"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[19]/@rank
+                type: NUMBER
+                raw: "19"
+                locale: de_DE
+                value: 19
+          - id:
+              - text: "4006592058203"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[20]/@data-record-ean
+            name:
+              - text: Pamper Petz Hase
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[20]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pamper-petz-hase.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[20]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "4006592058203"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[20]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.XrkbnbDoKUKt6BnM/4006592058203-pamper-petz-hase-2.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[20]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            price:
+              - text: 21,99 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[20]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "20"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[20]/@rank
+                type: NUMBER
+                raw: "20"
+                locale: de_DE
+                value: 20
+            rankOrganic:
+              - text: "20"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[20]/@rank
+                type: NUMBER
+                raw: "20"
+                locale: de_DE
+                value: 20
+        xpath: /html
+    timestamp: 1604667642221
