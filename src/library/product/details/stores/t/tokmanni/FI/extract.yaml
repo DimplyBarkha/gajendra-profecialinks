@@ -3,7 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: productImage
+  - name: image
     singleValue: true
     xpath: //div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]//@href
   - name: imagealttext
@@ -17,22 +17,22 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    xpath: //div[@class="breadcrumbs"]
+    xpath: //div[@class="breadcrumbs"]/ul/li/a/text()
   - name: listPrice
     singleValue: true
-    xpath: //span[@class="old-price"]
+    xpath: //span[@id="old-price-154271"]/@data-price-amount
     regExp: (.+)
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[@class="price-container price-final_price tax weee"]/meta/@content
+    xpath: //span[@class="price-container price-final_price tax weee"]/meta[1]/@content
     regExp: (.+)
     regExpReplace: €$1
   - name: harvestedprice
     singleValue: true   
     description: The offered price for the selected product variant - if a user clicks add to basket this is the price they would be charged
-    xpath: //span[@class="price-container price-final_price tax weee"]/meta/@content
+    xpath: //span[@class="price-container price-final_price tax weee"]/meta[1]/@content
     regExp: (.+)
     regExpReplace: €$1
   - name: availabilityText
@@ -49,11 +49,12 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@class="item-brand-name"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
     xpath: //div[@class="item-brand-name"]
-  - name: harvestedproductdescription
+  - name: name
     singleValue: true
     xpath: //div[@class="page-title-wrapper product"]//h1//span
   - name: packSize
@@ -104,7 +105,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-  - name: productDescription
+  - name: description
     singleValue: false
     description: The description of the product supplied by the lister
     xpath: //div[@class="page-title-wrapper product"]
@@ -137,7 +138,7 @@ fields:
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
-  - name: additionalDescription
+  - name: description
     singleValue: false
     description: The additional description of the product supplied by the lister
     xpath: //div[@class="data item content"]
@@ -150,7 +151,6 @@ fields:
   - name: brand
     singleValue: true
     description: The brand name
-    xpath: //div[@class="item-brand-name"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -473,6 +473,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: count(//div[@class="value"]//ul//li/text())
   - name: prop65Warning
     singleValue: true
     description: null
