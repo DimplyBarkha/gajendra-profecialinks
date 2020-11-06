@@ -8,25 +8,30 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
+  xpath: //meta[@property="og:url"]/@content
   singleValue: false
 - name: _pageTimeStamp
   singleValue: false
 - name: image
+  xpath: //li[contains(@class, "amp-selected")]//div[@class="amp-zoom-overflow"]/img/@src
   singleValue: true
   description: URL of the main product image
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
 - name: alternateImages
+  xpath: //div[@class="amp-anim-container"]/li/img/@src
   singleValue: false
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
+  xpath: //meta[@name="keywords"]/@content
   singleValue: true
   description: The <meta> keywords content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
+  xpath: //h1[@class="productHeading"]//text()
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
