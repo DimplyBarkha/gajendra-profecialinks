@@ -89,8 +89,9 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@class="formLabel"]/@content
     type: NUMBER
+    xpath: //div[@class="formLabel"]/@content
+    regExp: (\d.+)
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
