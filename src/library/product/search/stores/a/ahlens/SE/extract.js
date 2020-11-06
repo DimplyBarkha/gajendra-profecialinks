@@ -1,17 +1,16 @@
 const { cleanUp } = require('../../../../shared');
-module.exports = {
-  implements: 'product/search/extract',
-  parameterValues: {
-    country: 'SE',
-    store: 'ahlens',
-    transform: cleanUp,
-    domain: 'ahlens.se',
-    zipcode: '',
-  },
-  implementation: async (inputs, parameters, context, dependencies) => {
-    const { transform } = parameters;
-    const { productDetails } = dependencies;
-    await context.evaluate(() => {
+async function implementation(
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+  await context.evaluate(async () => {
+    while (!!document.querySelector('#ahl-product-list-app > div > div >button')) {
+      document.querySelector('#ahl-product-list-app > div > div >button').click()
+      await new Promise(r => setTimeout(r, 6000));
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.className = key;
@@ -52,7 +51,18 @@ module.exports = {
       };
       var backgroundURL1 = getAllXpath("//*[contains(@class,'MuiCardContent-root')]/div/span[2]", 'nodeValue');
       sliceURL1(backgroundURL1);
-    });
-    return await context.extract(productDetails, { transform });
+    }
+  })
+  return await context.extract(productDetails, { transform });
+}
+module.exports = {
+  implements: 'product/search/extract',
+  parameterValues: {
+    country: 'SE',
+    store: 'ahlens',
+    transform: cleanUp,
+    domain: 'ahlens.se',
+    zipcode: '',
   },
+  implementation,
 };
