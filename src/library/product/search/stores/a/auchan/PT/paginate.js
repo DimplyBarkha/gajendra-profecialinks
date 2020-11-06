@@ -14,8 +14,3 @@ module.exports = {
     zipcode: '',
   },
 };
-
- 
-
-
-// '#page > div > #DivWrapperProductItem > div:nth-child(6) > ul > li.next > a',
