@@ -6,7 +6,7 @@ module.exports = {
     store: 'mediamarkt',
     domain: 'mediamarkt.es',
     loadedSelector: '.preview img',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="search_no_result-bottom_right"]',
     zipcode: '',
   },
 };

@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'mediamarkt.es',
     prefix: null,
-    url: 'https://www.mediamarkt.es/es/search.html?query={id}&searchProfile=onlineshop&channel=mmeses',
+    url: 'https://www.mediamarkt.es/es/product/-{id}.html',
     store: 'mediamarkt',
     country: 'ES',
     zipcode: '',

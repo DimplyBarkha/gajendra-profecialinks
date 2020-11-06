@@ -1,10 +1,24 @@
 extends: ../TR/extract
 fields:
   - name: description
-    xpath: //article[@class="description"]//p
+    xpath: //article[@class="description"]/*[not(@id="featuresComponent")][not(contains(text(),"Descripción"))]
   - name: shippingDimensions
     xpath: //div[@id="features"]//dt[contains(.,"Tamaño embalaje")]/following-sibling::dd[1]
+  - name: shippingWeight
+    xpath: //div[@id="features"]//dt[contains(.,"Peso embalado")]/following-sibling::dd[1]
   - name: ratingCount
     xpath: //dd[@class="bv-rating-ratio-count"]//span[@itemprop="reviewCount"]
   - name: aggregateRating
     xpath: //dd[@class="bv-rating-ratio-number"]//span[@itemprop="ratingValue"]
+  - name: manufacturer
+    xpath: //div[@id="features"]//dt[contains(.,"Fabricante")]/following-sibling::dd[1]
+  - name: mpc
+    xpath: //div[@id="features"]//dt[contains(.,"Modelo")]/following-sibling::dd[1]
+  - name: energyEfficiency
+    xpath: //div[@id="features"]//dt[contains(.,"Eficiencia energética")]/following-sibling::dd[1]
+  - name: weightNet
+    xpath: //div[@id="features"]//dt[text()="Peso:"]/following-sibling::dd[1]
+  - name: color
+    xpath: //div[@id="features"]//dt[contains(.,"Color:")]/following-sibling::dd[1]
+  - name: quantity
+    xpath: //dl[@class="product-details"]//dt[contains(.,"pulgadas")]/following-sibling::dd[1]

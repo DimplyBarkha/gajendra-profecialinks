@@ -1,4 +1,5 @@
 const { implementation } = require('../TR/variantsExtract');
+
 module.exports = {
   implements: 'product/details/variants/variantsExtract',
   parameterValues: {
