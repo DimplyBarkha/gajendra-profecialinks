@@ -5,9 +5,9 @@ module.exports = {
     country: 'DE',
     store: 'zalando',
     domain: 'zalando.de',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://zalando.de/damen/?q={searchTerms}',
+    loadedSelector: 'div[class*="cat_catalog"]',
+    noResultsXPath: '//div[contains(@class, "noSearchResults")] | //div[contains(@class, "404")]',
     zipcode: '',
   },
 };
