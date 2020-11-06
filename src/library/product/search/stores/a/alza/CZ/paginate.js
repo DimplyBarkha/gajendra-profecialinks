@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: '.next',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: '[class="bi js-block-image"]',
     noResultsXPath: '//div[@id="noresult"]',
     openSearchDefinition: null,
     domain: 'alza.cz',
