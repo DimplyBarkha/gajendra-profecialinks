@@ -35,7 +35,8 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: concat((//div[@class="rsection price-container"]//div[@class="display-price"]//span)[1],(//div[@class="rsection price-container"]//div[@class="display-price"]//span)[2])
+    #xpath: //div[@class="display-price"]//span/text()| //div[@class="display-price sale-price"]/text()
+    xpath: //html//div[@id="price"]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -65,9 +66,9 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: (//div[@class="rsection addto-cart-wrapper"]//input/@value)[1]
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //html//div[@id="size"]
+    # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    # regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -77,11 +78,10 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@class="wc-fragment"]/@data-gtin || //div[@id="js-mperks-pdp-container"]/@data-ean
+    xpath: //div[@id="js-mperks-pdp-container"]/@data-ean
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@id="js-mperks-pdp-container"]/@data-ean
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -89,7 +89,6 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@class="AddToCart-AddToCartAction"]//form[@class="add_to_cart_form"]//input[@class="js-product-code"]/@value
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
