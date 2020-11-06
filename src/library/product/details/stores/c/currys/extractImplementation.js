@@ -31,12 +31,12 @@ const implementation = async (
   const delay = t => new Promise(resolve => setTimeout(resolve, t));
 
   const currentUrl = await context.evaluate(() => {
-    return document.querySelector('meta[property="og:url"]').getAttribute('content');
+    if (document.querySelector('meta[property="og:url"]')) { return document.querySelector('meta[property="og:url"]').getAttribute('content'); }
   });
   const iframeSelector = '#eky-dyson-iframe';
   if (await checkExistance(iframeSelector)) {
     const iframeUrl = await context.evaluate((iframeSelector) => {
-      return document.querySelector(iframeSelector).getAttribute('src');
+      if (document.querySelector(iframeSelector)) { return document.querySelector(iframeSelector).getAttribute('src'); }
     }, iframeSelector);
     await context.goto(iframeUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
     await context.waitForXPath('//video');
