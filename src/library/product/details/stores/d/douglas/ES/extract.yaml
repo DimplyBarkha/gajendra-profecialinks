@@ -10,7 +10,7 @@ fields:
     regExp: ^([\w\-]+)
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@itemprop="name"]/text()
+    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]
   - name: image
     singleValue: false
     description: URL of the main product image
@@ -37,8 +37,8 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-  - name: manufacturerDescription
-    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]
+ # - name: manufacturerDescription
+  #  xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
