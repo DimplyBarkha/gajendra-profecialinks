@@ -129,6 +129,9 @@ const transform = (data) => {
 
       if (!row.sku) {
         row.sku = row.skuSecondary;
+        if (!row.sku && row.skuAtLast) {
+          row.sku = row.skuAtLast;
+        }
       }
     }
   }
