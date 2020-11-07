@@ -6,11 +6,13 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //*[@id='ii_variant_id']    
+    xpath: //*[@id='ii_variant_id']
+    regExp: (\d+)
+    regExpReplace: $1
   - name: variantName
     singleValue: false
     description: variant Name
     xpath: //*[@id='ii_variant_name']
     # regExp: (\d+)
-    # regExpReplace: https://www.walmart.com/ip/$1/?selected=true
+    # regExpReplace: https://www.walmart.com/ip/$1
  

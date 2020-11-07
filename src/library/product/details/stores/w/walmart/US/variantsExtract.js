@@ -12,6 +12,7 @@ async function implementation (
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
+      console.log("div with " + id + " has content - " + content);
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
@@ -26,6 +27,7 @@ async function implementation (
       const jsonObj = node.textContent.startsWith('{"item":') ? JSON.parse(node.textContent) : null;
       if (jsonObj && jsonObj.item && jsonObj.item.product && jsonObj.item.product.buyBox) {
         const elements = jsonObj.item.product.buyBox.products;
+        console.log(elements);
         if (elements && elements.length > 0) {
           console.log(elements.length);
           for (let i = 0; i < elements.length; i++) {
