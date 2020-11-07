@@ -3,10 +3,6 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: url
-    # manualSelector: script[type='application/ld+json']
-    # regExp: '(\"url\"\:\")([^"]+)'
-    # regExpReplace: $2
   - name: product_image
     description: URL of the main product image
     xpath: //picture[@class='img-responsive center-block']/img/@src
@@ -44,9 +40,6 @@ fields:
     manualSelector: script[type='application/ld+json']
     regExp: '(\"availability\"\:\")(\w+)'
     regExpReplace: $2
-  - name: product_per_page
-    # xpath: //body[@class='body-wrapper']/@data-inq-observer
-    # defaultValue: "0"
   - name: Additional_description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -291,7 +284,7 @@ fields:
        per 100g serving
     type: NUMBER
     xpath: (//div[@id='ingredients']//tr//td)[14]//text()
-    regExp: '^[0-9]\d*(\.\d+)?'
+    regExp: '^[1-9]\d*(\.\d+)?'
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
@@ -303,7 +296,7 @@ fields:
        on per 100g serving
     type: NUMBER
     xpath: (//div[@id='ingredients']//tr//td)[17]//text()
-    regExp: '^[0-9]\d*(\.\d+)?'
+    regExp: '^[1-9]\d*(\.\d+)?'
   - name: saturatedFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Saturated Fat content
@@ -315,7 +308,7 @@ fields:
         per 100g serving
     type: NUMBER
     xpath: (//td[contains(@class,'table-ingredients-text')]//text())[16]
-    regExp: '^[0-9]\d*(\.\d+)?'
+    regExp: '^[1-9]\d*(\.\d+)?'
   - name: transFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Trans Fat content
@@ -327,7 +320,7 @@ fields:
         per 100g serving
     type: NUMBER
     xpath: (//div[@id='ingredients']//tr//td)[22]//text()
-    regExp: '^[0-9]\d*(\.\d+)?'
+    regExp: '^[1-9]\d*(\.\d+)?'
   - name: cholesterolPerServingUom
     singleValue: true
     description: Unit of Measure Data for Cholesterol content
@@ -339,7 +332,7 @@ fields:
         100g serving
     type: NUMBER
     xpath: (//div[@id='ingredients']//tr//td)[25]//text()
-    regExp: '^[0-9]\d*(\.\d+)?'
+    regExp: '^[1-9]\d*(\.\d+)?'
   - name: sodiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Sodium content
@@ -351,7 +344,7 @@ fields:
         based on per 100g serving
     type: NUMBER
     xpath: (//div[@id='ingredients']//tr//td)[28]//text()
-    regExp: '^[0-9]\d*(\.\d+)?'
+    regExp: '^[1-9]\d*(\.\d+)?'
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
@@ -363,7 +356,7 @@ fields:
         on per 100g serving
     type: NUMBER
     xpath: (//div[@id='ingredients']//tr//td)[31]//text()
-    regExp: '^[0-9]\d*(\.\d+)?'
+    regExp: '^[1-9]\d*(\.\d+)?'
   - name: dietaryFibrePerServingUom
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
@@ -387,7 +380,7 @@ fields:
         100g serving
     type: NUMBER
     xpath: (//div[@id='ingredients']//tr//td)[37]//text()
-    regExp: '^[0-9]\d*(\.\d+)?'
+    regExp: '^[1-9]\d*(\.\d+)?'
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
@@ -399,7 +392,7 @@ fields:
         per 100g serving
     type: NUMBER
     xpath: (//div[@id='ingredients']//tr//td)[40]//text()
-    regExp: '^[0-9]\d*(\.\d+)?'
+    regExp: '^[1-9]\d*(\.\d+)?'
   - name: vitaminAPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin A
@@ -411,7 +404,7 @@ fields:
         per 100g serving
     type: NUMBER
     xpath: (//div[@id='ingredients']//tr//td)[42]//text()
-    regExp: '^[0-9]\d*(\.\d+)?'
+    regExp: '^[1-9]\d*(\.\d+)?'
   - name: vitaminCPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin C
@@ -423,7 +416,7 @@ fields:
         100g serving
     type: NUMBER
     xpath: (//div[@id='ingredients']//tr//td)[44]//text()
-    regExp: '^[0-9]\d*(\.\d+)?'
+    regExp: '^[1-9]\d*(\.\d+)?'
   - name: calciumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Calcium
@@ -435,7 +428,7 @@ fields:
         100g serving
     type: NUMBER
     xpath: (//div[@id='ingredients']//tr//td)[46]//text()
-    regExp: '^[0-9]\d*(\.\d+)?'
+    regExp: '^[1-9]\d*(\.\d+)?'
   - name: ironPerServingUom
     singleValue: true
     description: Unit of Measure Data for Iron
