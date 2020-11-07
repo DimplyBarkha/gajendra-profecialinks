@@ -29,12 +29,12 @@ module.exports = {
             } else {
                 appendElement.setAttribute('availability', 'Out Of Stock');
             }
-            const gtin = document.querySelectorAll('script[type="application/ld+json"]');
-            const gtin1 = obj && obj.gtin13;
-            var appendElement = document.querySelector('picture[class*="img-responsive"]>img');
-            if (gtin) {
-                appendElement.setAttribute('gtin', gtin1);
-            }
+            // const gtin = document.querySelectorAll('script[type="application/ld+json"]');
+            // const gtin1 = obj && obj.gtin13;
+            // var appendElement = document.querySelector('picture[class*="img-responsive"]>img');
+            // if (gtin) {
+            //     appendElement.setAttribute('gtin', gtin1);
+            // }
         });
         return await context.extract(productDetails, { transform });
 
