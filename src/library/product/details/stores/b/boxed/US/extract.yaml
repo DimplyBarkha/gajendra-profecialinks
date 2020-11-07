@@ -9,43 +9,63 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //head/a[@tabindex]/@href
+  regExp: (.*)\?
+  regExpReplace: https://www.boxed.com$1
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: //img[contains(@alt, 'image 1')]/@src | (//a/img[contains(@class, 'ca5-less')]/@src)[1] 
+  regExp: \/\/(.*)
+  regExpReplace: $1
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
+  xpath: $x('//img[contains(@alt, "image 1")]/@alt | (//a/img[contains(@class, "ca5-less")]/@alt)[1] ')
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: (//img[contains(@alt, 'image')]/@src)[position() > 1]
+  regExp: \/\/(.*)
+  regExpReplace: $1
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
+  xpath: //ancestor::html//meta[@id='meta-keywords']/@content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: //div[@id='pdp-breadcrumbs-large']/span/a
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: concat(//section[@data-bx="pdp-name"]/a, ,//section[@data-bx="pdp-name"]/h1)
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
+  xpath: //span[contains(@class, 'e6af-less')]/span[1]
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //span[contains(@class, '2528-less') or contains(@class, '18a7-less')]
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  defaultValue: "In Stock"
+  xpath: //span[contains(text(), 'In stock')]
+  regExp: .+
+  regExpReplace: "Out of Stock" 
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: //article[contains(@class, '270b-less')]/p[1]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -53,9 +73,11 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //section[@data-bx='pdp-name']/a
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
+  xpath: //section[@data-bx='pdp-name']/a
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -233,6 +255,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
+  xpath: //article[contains(@class, '270b-less')]/h2[contains(text(), 'Ingredients')]/following-sibling::p[1]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
