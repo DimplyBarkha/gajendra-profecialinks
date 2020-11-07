@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'bidfood.co.uk',
     prefix: null,
-    url: null,
+    url: 'https://www.bidfood.co.uk/?p={id}',
     country: 'UK',
     store: 'bidfood',
     zipcode: '',
