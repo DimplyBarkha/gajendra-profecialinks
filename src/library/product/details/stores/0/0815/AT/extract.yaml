@@ -95,7 +95,7 @@ fields:
     singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //script[contains(@type,'application')]
-    regExp: mpn(":")([\w\d]+)(",)
+    regExp: mpn(":")([\w\d()-\s]+)(",)
     regExpReplace: $2
   - name: packSize
     singleValue: true
