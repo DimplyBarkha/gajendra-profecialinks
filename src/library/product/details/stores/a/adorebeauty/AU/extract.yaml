@@ -7,22 +7,22 @@ fields:
     singleValue: false
     xpath: //div[@class='image-container']//img[@lazy='loading']/@data-src
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='image-container']//img[@lazy='loading']/@alt
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     xpath: //h1[(@itemprop='name')]
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //h1[(@itemprop='name')]
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='thumbnail-gallery__inner']//div[contains(@class,'thumbnail-gallery__item') and not(contains(@class,'is-current'))]//img/@src
   - name: sku
-    singleValue: true
+    singleValue: false
     xpath: //meta[contains(@itemprop,'sku')]/@content
   - name: variantId
-    singleValue: true
+    singleValue: false
     xpath: //meta[contains(@itemprop,'sku')]/@content
   - name: brandText
     singleValue: false
@@ -31,16 +31,16 @@ fields:
     singleValue: false
     xpath: (//ol[@class='vue-breadcrumb']//span[not(text()='Home') and not(text()='Brand')])[1]//parent::a/@href
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: //span[contains(@class,'live-price')]
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     xpath: (//div[contains(@class,'main col1-layout')]//a[contains(@class,'review-summary__link')])[1]/text()
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='product-info']//p[contains(@class,'review-summary__info')]//span[@class='review-summary__info-prefix']/strong
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     xpath: //strong[contains(@class,'stock-message__info')]
     # regExp: (.+)
     # regExpReplace: In Stock
