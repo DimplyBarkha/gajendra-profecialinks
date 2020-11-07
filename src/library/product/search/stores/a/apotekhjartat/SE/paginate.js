@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'SE',
     store: 'apotekhjartat',
-    nextLinkSelector: 'div[class="row showMore text-center"]>a',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: '//p[@class="noSearchResultText"]',
+    noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'apotekhjartat.se',
     zipcode: '',

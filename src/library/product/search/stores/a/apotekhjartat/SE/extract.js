@@ -6,8 +6,7 @@ module.exports = {
     store: 'apotekhjartat',
     transform,
     domain: 'apotekhjartat.se',
-    zipcode: '',
-    
+    zipcode: '',  
   },
   implementation: async function (
     inputs,
@@ -18,11 +17,7 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async function() {
-      window.location.reload();
-      setTimeout(function(){window.location.reload()},3000);
     })
-    await context.waitForSelector('div[class="row showMore text-center"]>div[class="hitCount"]',{timeout: 10000});
-    await context.waitForNavigation({ timeout:50000});
     return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });  
   },
 };
