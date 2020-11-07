@@ -2,13 +2,13 @@ input:
   id: 475213
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=8327af89-052d-478b-88c1-02e8a689e705/task=0df4f3c7-09c5-431b-b649-abb02d33d408/520110d3-5b0a-45a7-9371-8addb80de84c.html
+  - html: https://workbench.import.io/html/run=b2efdc17-cb71-42b5-a00e-f6fc835964f4/task=bd32278b-19bd-4e2b-a45a-dc689b332f50/a9dca237-d213-4388-8a64-18bcfa6164d0.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.alcampo.es/compra-online/alimentacion/leche-huevos-yogures-y-lacteos/postres-lacteos/soja-almendra-avena/alpro-skyr-natural-400-g/p/475213?
-                xpath: /html/body/div[4]/div[2]/div[4]/div[1]/ul[2]/li[1]/div[4]/div[1]/form[1]/input[4]/@value
+              - text: https://www.alcampo.es/compra-online/alimentacion/leche-huevos-yogures-y-lacteos/postres-lacteos/soja-almendra-avena/alpro-skyr-natural-400-g/p/475213
+                xpath: /html/head[1]/link[1]/@href
             image:
               - text: https://www.alcampo.es/media/h23/h78/9750920560670.jpg
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
@@ -45,6 +45,9 @@ extractions:
             aggregateRating:
               - text: "4"
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[4]/div[1]/a[1]/span[1]/@class
+            shippingInfo:
+              - text: "- ENVÍO A DOMICILIO- RECOGIDA PARKING"
+                xpath: /html/body/@shippinginfo
             name:
               - text: Especialidad de soja estilo islandés, con alto contenido en proteínas y
                   sabor natural ALPRO 400 g.
@@ -54,6 +57,12 @@ extractions:
                   Ingredientes: 
                    Base de soja (agua, habas de soja descascarilladas (13.9%)), fresa (9%) (fruta (5%), zumo a partir de concentrado 4%)), azúcar, estabilizante (pectinas), correctores de acidez (ácido cítrico, citratos de sodio, ácido málico), fosfato tricálcico, aroma natural, extracto de remolachas rojas, extracto de zanahoria, sal marina, antioxidantes (extracto rico en tocoferoles, ésteres ácidos grasos de ácido ascórbico), vitaminas (B2, B12, D2), fermentos (S. thermophilus, L. bulgaricus). Puede contener trazas de frutos de cáscara (no cacahuetes).
                 xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]
+            servingSize:
+              - text: por 100ml/g
+                xpath: /html/body/@servingsize
+            servingSizeUom:
+              - text: ml/g
+                xpath: /html/body/@servingunit
             caloriesPerServing:
               - text: 68.0 Kcal
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/span[1]
@@ -117,5 +126,5 @@ extractions:
               - text: No
             descriptionBullets:
               - text: "0"
-        xpath: /html/body/div[4]/div[2]
-    timestamp: 1604672773484
+        xpath: /
+    timestamp: 1604765333101
