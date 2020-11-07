@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-qa-locator="general-products"]//div[@data-qa-locator="product-item"]
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //div[@data-qa-locator="product-item"]/@data-item-id
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="c16H9d"]/a/@href
+  - name: price
+    SingleValue: false
+    xpath: //span[@class="c13VH6"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="cRjKsc"]//img/@src
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="c16H9d"]/a
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
+  - name: reviewCount
+    SingleValue: false
+    xpath: //span[@class="c3XbGJ"]
