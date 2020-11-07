@@ -1,0 +1,67 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-sourcefile="index_details.jsp"]
+fields:
+  - name: image
+    singleValue: false 
+    xpath: //div[@class="details_image" and @id="pic_1"]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="details_image" and @id="pic_1"]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="details_image" and not(@id="pic_1")]//img/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="details_image" and not(@id="pic_1")]//img/@src)
+  - name: category
+    singleValue: false
+    xpath: //ul[contains(@class, "breadcrumb")]//li[position()>1]//a
+  - name: nameExtended
+    singleValue: false
+    xpath: normalize-space(//h1[@id="product-title" and not(contains(@class,"hidden-md"))])
+  - name: listPrice
+    singleValue: false
+    xpath: normalize-space(//div[contains(@class,"info-standard-box-border")]//span[contains(@class, "strikethrough")])
+  - name: price
+    singleValue: false
+    xpath: normalize-space(//div[contains(@class,"info-standard-box-border")]//div[contains(@class, "float-right")])
+  - name: pricePerUnit
+    singleValue: false
+    xpath: normalize-space(substring-before(//div[contains(@class,"info-standard-box-border")]//div[contains(@class, "float-right")]/../../following-sibling::div[1]//span, "/"))
+  - name: pricePerUnitUom
+    singleValue: false
+    xpath: normalize-space(substring-after(//div[contains(@class,"info-standard-box-border")]//div[contains(@class, "float-right")]/../../following-sibling::div[1]//span, "/"))
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class, "stock-avail")]/../../div/@data-original-title
+  - name: description
+    singleValue: false
+    xpath: normalize-space(//div[contains(@class, "tab-content")])
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@class, "tab-content")]//li)
+  - name: manufacturer
+    singleValue: false
+    xpath: normalize-space(//div[contains(text(), "Hersteller")]/../div[not(contains(text(), "Hersteller"))])
+  - name: quantity
+    singleValue: false
+    xpath: normalize-space(//div[@data-sourcefile="details_info-standard-details.jsp"]//div[starts-with(normalize-space(text()), "Menge")]/../div[not(contains(text(), "Menge"))])
+  - name: variantId
+    singleValue: false
+    xpath: normalize-space(//div[@class="margin-vert-normal"]//div[contains(text(), "PZN")]/../div[not(contains(text(), "PZN"))])
+  - name: directions
+    singleValue: false
+    xpath: //div[contains(@class, "tab-content")]//p//strong[contains(text(), "Anwendung")]/..
+  - name: ratingCount
+    singleValue: false
+    xpath: substring-before(substring-after(//span[contains(text(), "Bewertungen")], "("), " Bewertungen)")
+  - name: aggregateRating2
+    singleValue: false
+    xpath: normalize-space(substring-before(//div[contains(@class, "rateit")]/following-sibling::span[@class="font-resp-smaller"],"/"))
+  - name: videos
+    singleValue: false
+    xpath: //div[@data-sourcefile="details_icons-standard.jsp"]//a[contains(@href,"video.html")]/@href
+    regExp: (\/.*)
+    regExpReplace: https://www.apo-rot.de$1

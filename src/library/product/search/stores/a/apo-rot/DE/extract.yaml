@@ -1,0 +1,28 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="products"]//div[contains(@class, "js:sortEinheit")]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="products"]//div[contains(@class, "js:sortEinheit")]/@data-pzn
+  - name: rank
+  - name: name
+    singleValue: false
+    xpath: //div[@class="products"]//div[contains(@class, "js:sortEinheit")]//div[@class="pdb--name"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="products"]//div[contains(@class, "js:sortEinheit")]//a/@href
+    regExp: (\/.*)
+    regExpReplace: https://www.apo-rot.de$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="products"]//div[contains(@class, "js:sortEinheit")]//div[contains(@class,"pdb--packshot")]//img[starts-with(@src,"https://")]/@src
+  - name: price
+    singleValue: false
+    xpath: //div[@class="products"]//div[contains(@class, "js:sortEinheit")]//div[@class="pdb--price-valid"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class="products"]//div[contains(@class, "js:sortEinheit")]//div[@class="pdb--ratingstars"]//span[@class="js:sortRating"]
+    regExp: (\d+.\d\d)(.*)
+    regExpReplace: $1

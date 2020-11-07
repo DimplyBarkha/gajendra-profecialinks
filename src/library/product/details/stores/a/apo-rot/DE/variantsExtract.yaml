@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(text(), "Alternative Packungsgrößen")]/following-sibling::a/@href | //link[@rel="canonical"]/@href
+    regExp: (\d+).html
+    regExpReplace: $1
+  - name: variantUrl
+    singleValue: false
+    xpath: //div[contains(text(), "Alternative Packungsgrößen")]/following-sibling::a/@href | //link[@rel="canonical"]/@href
+    regExp: (\/details.*)
+    regExpReplace: https://www.apo-rot.de$1
