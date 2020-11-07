@@ -21,7 +21,8 @@ module.exports = {
             div.setAttribute('id', 'altImages')
             for (let i = 0; i < imgs.length; i++) {
                 if ((imgs[i].getAttribute('alt') + " ").includes(rpc)) {
-                    imgs[i].setAttribute('src', 'https://www.alloffice.se/' + imgs[i].getAttribute('src'))
+                    let link = 'https://www.alloffice.se' + imgs[i].getAttribute('src')
+                    imgs[i].setAttribute('src', link.split('&w')[0])
                     div.appendChild(imgs[i])
                 }
             }

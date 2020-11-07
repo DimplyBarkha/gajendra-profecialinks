@@ -7,8 +7,6 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //div[@id="altImages"]/img[1]/@src
-    regExp: (.+)&w(.+)
-    regExpReplace: $1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -17,8 +15,6 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //div[@id="altImages"]/img[position()>1]/@src
-    regExp: (.+)&w(.+)
-    regExpReplace: $1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -44,7 +40,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //button[@data-test-id="add-to-cart-button"]
+    xpath: //*[contains(text(),"Lägg i varukorgen")]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
