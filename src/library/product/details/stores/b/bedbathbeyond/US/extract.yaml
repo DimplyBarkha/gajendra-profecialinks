@@ -24,7 +24,7 @@ fields:
     xpath: //div[@class='slick-initialized slick-slider']//div[@class='slick-list']//div[contains(@class,'slick-slide slick-active')]//a//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src | //div[@class='slick-initialized slick-slider']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li//img[contains(@class,'ProductMediaCarouselStyle_')]/@src
+    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src | //div[@class='slick-initialized slick-slider']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//img[contains(@class,'ProductMediaCarouselStyle_')]/@src
   - name: metaKeywords
     singleValue: false
     xpath: //title
