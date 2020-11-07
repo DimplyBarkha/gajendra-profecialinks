@@ -78,10 +78,6 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xpath: //div[@class="product attribute sku"]//div[@class="value"]
-  - name: rpc
-    singleValue: true
-    description: The retailer product code
-    xpath: //div[@class="product attribute sku"]//div[@class="value"]
   - name: mpc
     singleValue: true
     description: The manufacturer product code / Model Number
@@ -89,6 +85,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@class="product attribute sku"]//div[@class="value"]
   - name: size
     singleValue: true
     description: The size of the product
@@ -105,7 +102,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-  - name: description
+  - name: nameExtended
     singleValue: false
     description: The description of the product supplied by the lister
     xpath: //div[@class="page-title-wrapper product"]
