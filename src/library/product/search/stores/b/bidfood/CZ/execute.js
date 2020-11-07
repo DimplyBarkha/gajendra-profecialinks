@@ -16,10 +16,16 @@ async function implementation (
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
+  await context.waitForSelector('input#ProductsSearchControl_SearchTextBoxProd');
+  await context.setInputValue('input#ProductsSearchControl_SearchTextBoxProd',inputs.keywords);
+  await context.waitForSelector('input#ProductsSearchControl_SearchButton[type="image"]');
+  await context.click('input#ProductsSearchControl_SearchButton[type="image"]');
+  await context.waitForNavigation();
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   for(let i=0;i<10;i++){
     try{
       await context.click('button#nextItemsBtn');
-      await new Promise((resolve, reject) => setTimeout(resolve, 1500));
+      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
     }catch(err){
       console.log(err.message)
     }
