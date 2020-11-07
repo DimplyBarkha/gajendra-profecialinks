@@ -16,13 +16,15 @@ async function implementation (
   if (variantLength > 1) {
     // await preparePageForCommonElement(0, variantLength);
     for (let j = 0; j < variantLength; j++) {
-      await context.evaluate( (j) => {
-        return document.querySelectorAll('div.swatch-option span')[j].click();
-      }, j);
-      // await context.click('div.swatch-option div.custom-option-bg');
-      console.log('Inside variants', j);
-      // await preparePage(j, variantLength);
-      if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
+      try {
+        await context.evaluate( (j) => {
+          return document.querySelectorAll('div.swatch-option')[j].click();
+        }, j);
+        // await context.click('div.swatch-option div.custom-option-bg');
+        console.log('Inside variants', j);
+        // await preparePage(j, variantLength);
+        if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
+      } catch (err) {}
     }
   }
   return await context.extract(productDetails, { transform });
