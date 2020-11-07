@@ -42,7 +42,7 @@ const transform = (data, context) => {
         }
         if(row.aggregateRating2){
           var text = row.aggregateRating2[0].text;
-          row.aggregateRating2[0].text = String((parseFloat(String(row.aggregateRating2[0].text).trim()) / 108) * 5 > 5 ? 5 : ((parseFloat(String(row.aggregateRating2[0].text).trim()) / 108) * 5).toFixed(2)).replace(".",",");
+          row.aggregateRating2[0].text = String((parseFloat(String(row.aggregateRating2[0].text).trim()) / 110) * 5 > 5 ? 5 : ((parseFloat(String(row.aggregateRating2[0].text).trim()) / 110) * 5).toFixed(2)).replace(".",",");
         }
       }
     }
