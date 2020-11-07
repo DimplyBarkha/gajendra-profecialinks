@@ -66,6 +66,10 @@ const transform = (data) => {
                         row.quantity = [{text:temp.substring(0,temp.indexOf(' ')), xpath:row.nameExtended[0].xpath}];
                     }
                 }
+
+                if(!row.nameExtended[0].text.startsWith(row.brandText[0].text)) {
+                    row.nameExtended[0].text = row.brandText[0].text.concat(' ',row.nameExtended[0].text);
+                }
             }
 
             if (row.aggregateRating) {
