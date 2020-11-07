@@ -30,7 +30,7 @@ module.exports = {
       }
     });
     if (linkURL) {
-      await context.goto(linkURL)
+      await context.goto(linkURL);
     } else {
       await context.goto('https://produkte.metro.de/shop/search?q=noResultFound');
     }
