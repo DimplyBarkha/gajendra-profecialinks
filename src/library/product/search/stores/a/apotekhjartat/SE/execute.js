@@ -37,7 +37,7 @@ async function implementation (
           break;
         }
       }
-        function stall(ms){
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
