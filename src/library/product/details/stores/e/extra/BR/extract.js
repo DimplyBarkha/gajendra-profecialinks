@@ -43,8 +43,8 @@ async function implementation(
     const url = window.location.href;
     addHiddenDiv(`document_url`, url);
     //@ts-ignore
-    var productId = window.siteMetadata.page.product?.idProduct;
-    addHiddenDiv(`document_product_id`, productId);
+    // var productId = window.siteMetadata.page.product?.idProduct;
+    // addHiddenDiv(`document_product_id`, productId);
 
     function addHiddenDivWithClass (class1, content1) {
       const newDiv1 = document.createElement('div');
@@ -54,8 +54,19 @@ async function implementation(
       document.body.appendChild(newDiv1);
     }
 
-    
-  
+    var data = JSON.parse(document.getElementById('__NEXT_DATA__').innerHTML);
+    var product = data.props.initialState.Product;
+    addHiddenDiv(`document_sku`, product.sku.id);
+    addHiddenDiv(`document_ean`, product.sku.ean);
+    addHiddenDiv(`document_product`, product.product.id);
+    var videos = product.product.videos;
+    videos.forEach(video => {
+      if(video.host == "Youtube")
+        addHiddenDivWithClass("document_video","https://www.youtube.com/embed/" + video.link);
+      else
+        addHiddenDivWithClass("document_video",video.link);
+    });
+
       var imgs = document.querySelectorAll("#flix-lg-inpage img")
       imgs.forEach(x=> addHiddenDivWithClass('aplusImages',x.getAttribute("srcset")));
   });
