@@ -19,23 +19,7 @@ module.exports = {
     const { productDetails } = dependencies;
     await context.evaluate(async function() {
       window.location.reload();
-      let scrollTop = 0;
-      while (scrollTop <= 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(8000);
-          break;
-        }
-      }
-      function stall (ms) {
-        return new Promise(resolve => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }            
+      setTimeout(function(){window.location.reload()},3000);
     })
     await context.waitForSelector('div[class="row showMore text-center"]>div[class="hitCount"]',{timeout: 10000});
     await context.waitForNavigation({ timeout:50000});
