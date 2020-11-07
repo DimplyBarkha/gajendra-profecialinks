@@ -38,10 +38,13 @@ fields:
     xpath: //div[contains(@class, "stock-avail")]/../../div/@data-original-title
   - name: description
     singleValue: false
-    xpath: normalize-space(//div[contains(@class, "tab-content")])
+    xpath: //div[contains(@class, "tab-content")]//div/text() | //div[contains(@class, "tab-content")]//div/b |   //div[contains(@class, "tab-content")]//strong | //div[contains(@class, "tab-content")]//h5 | //div[contains(@class, "tab-content")]//li
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class, "tab-content")]//li)
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class, "tab-content")]//li
   - name: manufacturer
     singleValue: false
     xpath: normalize-space(//div[contains(text(), "Hersteller")]/../div[not(contains(text(), "Hersteller"))])
@@ -51,13 +54,16 @@ fields:
   - name: variantId
     singleValue: false
     xpath: normalize-space(//div[@class="margin-vert-normal"]//div[contains(text(), "PZN")]/../div[not(contains(text(), "PZN"))])
+  - name: sku
+    singleValue: false
+    xpath: normalize-space(//div[@class="margin-vert-normal"]//div[contains(text(), "PZN")]/../div[not(contains(text(), "PZN"))])
   - name: directions
     singleValue: false
     xpath: //div[contains(@class, "tab-content")]//p//strong[contains(text(), "Anwendung")]/..
   - name: ratingCount
     singleValue: false
     xpath: substring-before(substring-after(//span[contains(text(), "Bewertungen")], "("), " Bewertungen)")
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: false
     xpath: normalize-space(substring-before(//div[contains(@class, "rateit")]/following-sibling::span[@class="font-resp-smaller"],"/"))
   - name: videos
@@ -65,3 +71,7 @@ fields:
     xpath: //div[@data-sourcefile="details_icons-standard.jsp"]//a[contains(@href,"video.html")]/@href
     regExp: (\/.*)
     regExpReplace: https://www.apo-rot.de$1
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: substring('Yes', 1, boolean(//div[@data-sourcefile="details_icons-standard.jsp"]//a[contains(@href, ".pdf")]) * 3)
+    defaultValue: No

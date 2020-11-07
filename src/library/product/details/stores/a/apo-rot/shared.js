@@ -22,6 +22,36 @@ const transform = (data) => {
   }))));
   for (const { group } of data) {
     for (let row of group) {
+      if (row.aggregateRating) {
+        let text = '';
+        row.aggregateRating.forEach(item => {
+          text += `${item.text.replace(/\./, ',')}`;
+        });
+        row.aggregateRating = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if(row.description) {
+        console.log(row.description);
+        let finalDesc = '';
+        for (let i=0; i<row.description.length; i++) {
+          if(row.description[i].xpath.includes("li")) {
+            finalDesc = finalDesc + "||" + row.description[i].text ;  
+          } else {
+            finalDesc = finalDesc + row.description[i].text + " ";
+          }
+          if(finalDesc.startsWith("||")) {
+            finalDesc= finalDesc.substring(2);
+          }
+        }
+        row.description = [
+          {
+            text: finalDesc,
+          },
+        ];
+      }
       row = clean(row);
     }
   }
