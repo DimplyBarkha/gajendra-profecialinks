@@ -66,9 +66,10 @@ fields:
     singleValue: true
     xpath: //div[@class="productFootnote itemModuleBox"]//ul//li//b
     #regExp:  ([A-Z]{2}.+)
-  - name: packSize
+  - name: variantCount
     singleValue: true
-    #xpath: (//div[@class="ccs-cc-inline-feature-content ccs-cc-inline-feature-description"]/span)[2]
+    xpath: count(//div[@class="pdp-variants"]/ul/li)
+    defaultValue: 0
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -91,7 +92,7 @@ fields:
     xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]//@content
   - name: specifications
     singleValue: false
-    xpath: //table[@class="prodSpec"]//tbody//tr//td//text()
+    xpath: //html//div[@id='final']
   - name: shippingDimensions
     singleValue: true
     xpath: //div[@class="productFootnote itemModuleBox"]//ul//li[2]
@@ -109,14 +110,17 @@ fields:
   - name: colorCode
     singleValue: true
   - name: manufacturerDescription
-    singleValue: false
-    xpath: (//div[@class="rightCol tabContent"])[1]//text()
+    singleValue: true
+    xpath: //html//div[@id='content']
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
   - name: videoLength
     singleValue: true
-    xpath: //div[@class="ytp-bound-time-right"]//text()
+    xpath: //div[@class="mejs__time"]/span[@class="mejs__duration"]/text()
+  - name: video
+    singleValue: true
+    xpath: //div[@class="ccs-cc-ig-viewport-slide ccs-ig-cloud-active"]/a[@class="ccs-cc-viewport-slide-wrapper"]/@data-video-url
   - name: name
     singleValue: true
     xpath: //meta[@itemprop="description"]/@content

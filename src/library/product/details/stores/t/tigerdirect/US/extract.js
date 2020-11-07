@@ -50,15 +50,33 @@ async function implementation(
       // var doubleSeparatorText = data.join(' || ');
       addElementToDocument('zoom', data);
     };
+    const pipeSeparatorDouble2 = (id, data) => {
+      // var doubleSeparatorText = data.join(' || ');
+      addElementToDocument('content', data);
+    };
     // XPATH Data Extraction For Additional Description Bullet
     const addDescBulletInfo1 = getAllXpath("//div[@class='leftCol shortDesc']/ul/li/text()", 'nodeValue');
     const addDescBulletInfo2 = getAllXpath("//div[@id='ProductManuals']/ul[@class='pdManuals']/li/a/text()", 'nodeValue');
+    const specification = getAllXpath("//table[@class='prodSpec']/tbody/tr/td/text()", 'nodeValue');
+    const enhance = getAllXpath("//div[@class='ccs-cc-inline-feature-content ccs-cc-inline-feature-description']/text()", 'nodeValue');
     var xyz = addDescBulletInfo1.concat(addDescBulletInfo2)
     var lee = xyz.join(" || ");
     var abc = addDescBulletInfo1.join(" || ");
-    // addElementToDocument(id, lee);
+    var pqr = enhance.join(" || ");
+    var final = "";
+    for (var i = 0; i < specification.length; i++) {
+      if (i % 2 == 1) {
+        final += specification[i];
+        final += " || ";
+      } else {
+        final += specification[i];
+        final += " : ";
+      }
+    }
+    addElementToDocument('final', final);
     pipeSeparatorDouble('addDescBulletInfo', lee);
     pipeSeparatorDouble1('addDescBulletInfo', abc);
+    pipeSeparatorDouble2('addDescBulletInfo', pqr);
   });
 
   return await context.extract(productDetails, { transform });
