@@ -5,6 +5,7 @@ async function implementation (
   context,
   dependencies,
 ) {
+  const { transform } = parameters;
   const { variants } = dependencies;
   var variantCount = await context.evaluate(async () => {
     return (document.querySelectorAll('div.h3 a').length) ? document.querySelectorAll('div.h3 a').length : 1;
