@@ -16,6 +16,10 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
         });
       }
+      if (row.aggregateRatingText && row.aggregateRatingText[0]) {
+        row.aggregateRatingText[0].text = row.aggregateRatingText[0].text.replace(/\./g, ',');
+      }
+
     }
   }
   return data;

@@ -6,7 +6,8 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="rd__breadcrumbs__item"]
+    xpath: //meta[@property='og:title']/@content
+    regExp: ^([\w\-]+)
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -41,11 +42,13 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
+  - name: manufacturerDescription
+    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]
+    xpath: //div//span[contains(text(),"Información del producto")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -70,23 +73,23 @@ fields:
     description: The product name
     xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]
     regExp: (?<=\s).*
-  - name: packSize
-    singleValue: false
-    xpath: //h2[@title]
+ # - name: packSize
+  #  singleValue: false
+   # xpath: //h2[@title]
   - name: ingredientsList
     singleValue: false
-    xpath: //div//span[contains(text(),"Ingredientes")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
+    xpath: //div//span[contains(text(),"Ingredientes")]//..//..//..//..//..//following-sibling::div[last()]//div[@class="rd__checkout-details__section__description"]
   - name: directions
     singleValue: false
-    xpath: //div//span[contains(text(),"Usos")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
+    xpath: //div//span[contains(text(),"Usos")]//..//..//..//..//..//following-sibling::div[position()<last()]//div[@class="rd__checkout-details__section__description"]
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
     xpath: //button[@data-product-code]/@data-product-code
-  - name: manufacturerDescription
-    singleValue: false
-    xpath: //div//span[contains(text(),"Información del producto")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
-  - name: sku
+  #- name: manufacturerDescription
+   # singleValue: false
+    #xpath: //div//span[contains(text(),"Información del producto")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
+  - name: variantId
     singleValue: false
     xpath: //button[@data-product-code]/@data-product-code
   - name: secondaryImageTotal
