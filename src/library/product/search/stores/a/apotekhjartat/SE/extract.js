@@ -6,7 +6,7 @@ module.exports = {
     store: 'apotekhjartat',
     transform,
     domain: 'apotekhjartat.se',
-    zipcode: '',  
+    zipcode: '',
   },
   implementation: async function (
     inputs,
