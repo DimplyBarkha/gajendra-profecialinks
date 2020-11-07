@@ -34,7 +34,7 @@ const transform = (data) => {
       }
       if (row.reviewCount) {
         row.reviewCount.forEach(item => {
-          item.text = item.text.replace(/.+(\d+).+/, '$1');
+          item.text = item.text.replace(/.+?(\d+).+/, '$1');
         });
       }
       row.rank = row.rankOrganic = [{ text: rank }];
