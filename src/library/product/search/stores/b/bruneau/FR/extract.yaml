@@ -1,32 +1,47 @@
+  
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id='search-page-center-middle']/div
 fields:
   - name: id
     singleValue: false
+    xpath: //div[contains(@class, 'product-search-container')]/@data-reference
   - name: searchUrl
-    singleValue: true
+    singleValue: false
+    xpath: //div[@id='search-page-center-middle']/div/@searchurl
   - name: name
     singleValue: false
+    xpath: //div[contains(@class, 'product-search-container')]//h3//span
   - name: productUrl
     singleValue: false
+    xpath: //div[contains(@class, 'product-search-container')]//h3//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.bruneau.fr$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //a[@class='product-picture']/div/img/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
+    type: STRING
     singleValue: false
+    xpath: //div[@class='rating-container']/span/@title
   - name: reviewCount
     singleValue: false
+    xpath: //span[@class='review']/a/text()
+    regExp: \d+
   - name: ratingCount
     singleValue: false
+    xpath: //span[@class='review']/a/text()
+    regExp: \d+
   - name: price
     singleValue: false
+    xpath: //div[@class='price  ']/text() | //div[@class='price  promotion']/text()
   - name: manufacturer
-    singleValue: true
+    xpath: //div[@class='product-brand-container']/a/@content
   - name: soldBy
     singleValue: true
   - name: endorsementText
@@ -35,14 +50,13 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //div[@id='search-page-center-middle']/div/div[@id='pd_rank']/text()
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
+    xpath: //div[@id='search-page-center-middle']/div/div[@id='pd_rank']/text()
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-  # - name: totalRecordCount
-  #   singleValue: true 
-  #   type: NUMBER
