@@ -3,9 +3,15 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  # - name: variantId
+  #   xpath: //link[@rel="canonical"]/@href | //div[contains(@class,"similarProducts")]//div[contains(@class,"boxProductSimilar")]//a[@itemprop="url"]/@href
+  #   singleValue: false
+  # - name: variantUrl
+  #   xpath: //link[@rel="canonical"]/@href | //div[contains(@class,"similarProducts")]//div[contains(@class,"boxProductSimilar")]//a[@itemprop="url"]/@href
+  #   singleValue: false
   - name: variantId
-    xpath: //link[@rel="canonical"]/@href | //div[contains(@class,"similarProducts")]//div[contains(@class,"boxProductSimilar")]//a[@itemprop="url"]/@href
+    xpath: //div[@id="variant_id_text"][last()]
     singleValue: false
   - name: variantUrl
-    xpath: //link[@rel="canonical"]/@href | //div[contains(@class,"similarProducts")]//div[contains(@class,"boxProductSimilar")]//a[@itemprop="url"]/@href
+    xpath: //div[@id="variant_url_text"][last()]
     singleValue: false
