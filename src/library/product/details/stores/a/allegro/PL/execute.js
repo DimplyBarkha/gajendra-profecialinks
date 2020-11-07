@@ -5,7 +5,7 @@ module.exports = {
     country: 'PL',
     store: 'allegro',
     domain: 'allegro.pl',
-    loadedSelector: null,
+    loadedSelector: 'a[name="description"]+div img',
     noResultsXPath: null,
     zipcode: '',
   },

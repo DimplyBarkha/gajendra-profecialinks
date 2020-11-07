@@ -15,3 +15,35 @@ fields:
     regExpReplace: $1 PLN
   - name: availability
     xpath: //link[@itemprop='availability']/@href
+  - name: sku
+    xpath: //meta[contains(@itemprop, 'sku')]/@content
+  - name: description
+    xpath: //div[@data-box-name="Parameters"]
+  - name: brandText
+    xpath: //li//div[contains(text(), "Marka")]/following-sibling::div[1]
+  - name: variantId
+    xpath: //meta[contains(@itemprop, 'sku')]/@content
+  - name: alternateImages
+    xpath: //div[@class='_b8e15_aMJ-v' and position() > 1]/img/@src
+  - name: ratingCount
+    xpath: //a[contains(@href, 'productReviews')]
+    regExp: (\d+)
+  - name: reviewCount
+    xpath: //a[contains(@href, 'productReviews')]
+    regExp: (\d+)
+  - name: aggregateRating
+    xpath: //div[@itemprop='aggregateRating']/meta[@itemprop='ratingValue']/@content
+  - name: manufacturerImages
+    xpath: //a[@name='description']/following-sibling::div//img[contains(@class, 'lazyloaded')]/@data-src
+  - name: shippingInfo
+    xpath: //a[contains(@href, 'aboutSeller')]
+  - name: manufacturerDescription
+    xpath: //a[@name='description']/following-sibling::div
+  - name: secondaryImageTotal
+    xpath: count(//div[@class='_b8e15_aMJ-v' and position() > 1]/img/@src)
+  - name: brandLink
+    xpath: //li//div[contains(text(), "Marka")]/following-sibling::div[1]/a/@href
+  - name: listPrice
+    xpath: //s
+  - name: promotion
+    xpath: //s/../preceding-sibling::span
