@@ -31,6 +31,8 @@ fields:
     xpath: //a[contains(@class, "ratingStars")]/@data-rating
   - name: reviewCount
     singleValue: false
+    xpath: //span[@class="rating__count"]
+    regExp: \d+
   - name: ratingCount
     singleValue: false
     xpath: //span[@class="rating__count"]

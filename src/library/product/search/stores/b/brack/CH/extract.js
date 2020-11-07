@@ -13,26 +13,6 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
 
-    // await context.evaluate(async () => {
-    //   let scrollTop = 0;
-    //   while (scrollTop !== 15000) {
-    //     await stall(1000);
-    //     scrollTop += 1000;
-    //     window.scroll(0, scrollTop);
-    //     if (scrollTop === 15000) {
-    //       await stall(1000);
-    //       break;
-    //     }
-    //   }
-    //   function stall (ms) {
-    //     return new Promise((resolve, reject) => {
-    //       setTimeout(() => {
-    //         resolve();
-    //       }, ms);
-    //     });
-    //   }
-    // });
-
     await context.evaluate(async () => {
       const products = document.querySelectorAll('li.product-card');
       products.forEach((product, index) => {
