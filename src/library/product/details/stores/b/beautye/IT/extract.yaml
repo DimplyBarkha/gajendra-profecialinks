@@ -65,11 +65,12 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
+    xpath: //meta[@itemprop="sku"]/@content
     description: The store-specific product identifier
   - name: variantId
     singleValue: false
     xpath: //div[@class="fotorama__caption__wrap"]/@id
-    regExp: labelledby(.+),
+    regExp: labelledby(.+)
     regExpReplace: $1
   - name: mpc
     singleValue: false
