@@ -5,11 +5,10 @@ recordXPath: null
 fields:
   - name: category
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="rd__breadcrumbs__item"]
+    xpath: //div[@class="rd__breadcrumbs__item"][position()>1][position()<last()]
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@itemprop="name"]/text()
+    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text()
   - name: image
     singleValue: false
     description: URL of the main product image
@@ -26,7 +25,7 @@ fields:
     xpath : //div[@class="rd__product-details__image__slider__item slick-slide"]/img/@src
   - name: price
     singleValue: false
-    xpath: //span[contains(@class,"rd__headline--130 rd__discount-conflict-layer__fieldset__radio--highlighted")]
+    xpath: //span[contains(@class,"rd__headline--130 rd__discount-conflict-layer__fieldset__radio--highlighted")]/text()
   - name: listPrice
     singleValue: false
     xpath: //div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,'sd__product-details__options__price__item__quantity')]
@@ -38,9 +37,8 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
-    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]
+    xpath: //div//span[contains(text(),"Información del producto")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
+    # xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]
   - name: brandText
     singleValue: false
     xpath: //meta[@property='og:title']/@content
@@ -61,27 +59,27 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]
+    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text()
     regExp: (?<=\s).*
   - name: packSize
     singleValue: false
     xpath: //h2[@title]
   - name: ingredientsList
     singleValue: false
-    xpath: //div//span[contains(text(),"Ingredientes")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
+    xpath: //div[@id="my-ingredient-text"]
   - name: directions
     singleValue: false
-    xpath: //div//span[contains(text(),"Usos")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
-  - name: mpc
-    singleValue: false
-    description: The manufacturer model code (unique) of the product
-    xpath: //button[@data-product-code]/@data-product-code
+    xpath: //div[@id="my-usage-text"]
+  # - name: mpc
+  #   singleValue: false
+  #   description: The manufacturer model code (unique) of the product
+  #   xpath: //button[@data-product-code]/@data-product-code
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div//span[contains(text(),"Información del producto")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
-  - name: sku
-    singleValue: false
-    xpath: //button[@data-product-code]/@data-product-code
+    # xpath: //div//span[contains(text(),"Información del producto")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
+  # - name: sku
+  #   singleValue: false
+  #   xpath: //button[@data-product-code]/@data-product-code
   - name: secondaryImageTotal
     singlValue: false
     xpath: count(//div[@class="rd__product-details__image__slider__item slick-slide"]/img/@src)
@@ -102,9 +100,8 @@ fields:
   #     (.+los\s)(.+)(\w{2})\sa\s(.+)
   #   regExpReplace: >-
   #      $4/$2
-  # - name: pricePerUnitUom
-  #   xpath: (//div[@class="rd__col--lg-12 rd__copytext--50"])[1]
-  #   regExp: ML|GR|UD|ST
+  - name: descriptionBullets
+    xpath: count(//ul[@class="rd__list rd__list--20"]/li)
   - name: promotion
     xpath: //div[@class="rd__flag rd__flag--160 rd__footer__meta"]
   - name: variantCount
@@ -112,3 +109,10 @@ fields:
   - name: color
     singlValue: false
     xpath: //div[@class="rd__blob"]//img[@class="rd__img loading"]/@alt
+  - name: customerServiceAvailability
+    singleValue: true
+    defaultValue: Yes
+  # - name: usageTest
+  #   xpath: //div[@id="my-usage-text"]
+  # - name: ingredientTest
+  #   xpath: //div[@id="my-ingredient-text"]
