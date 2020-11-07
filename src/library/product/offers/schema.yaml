@@ -1,0 +1,140 @@
+---
+fields:
+- name: name
+  description: product_name - Product title
+  singleValue: true
+- name: aggregateRating
+  description: 'product_reviews - Product reviews, usually out of 5, if not append
+    the amount its out of. ex: 4.5/10'
+  singleValue: true
+- name: reviewCount
+  type: NUMBER
+  description: 'product_review_count - # of reviews the product has'
+  singleValue: true
+- name: description
+  description: product_description - product description, try and not capture it all
+    if the charecter limit exceeds 255 chars
+  singleValue: true
+- name: image
+  type: IMAGE
+  description: product_images - First image on the product listing, dont assign 'src,
+    img' attribute only select the class that contains it and import will scrape the
+    image properly
+  singleValue: true
+- name: resellerName
+  description: reseller_name - Seller Name, if the website does not have sellers,
+    put the website name as seller
+  singleValue: true
+- name: resellerId
+  description: reseller_id - Unique seller ID
+  singleValue: true
+- name: resellerLink
+  type: LINK
+  description: reseller_link - Link to the seller page
+  singleValue: true
+- name: resellerReviews
+  description: reseller_reviews - Number of reviews the seller has
+  singleValue: true
+- name: resellerFeedbackPercent
+  description: reseller_feedback_% - Seller feedback percentage poisitive or negative
+    dont include percent if possible
+  singleValue: true
+- name: resellerVat
+  description: reseller_vat - european marketplace specific (also EID/TEID)
+  singleValue: true
+- name: fullfillmentBy
+  description: fullfillment_by - Typically only seen on marketplaces not websites,
+    if the product can be fulfilled by the seller or the marketplace scrape this info
+  singleValue: true
+- name: internationalSales
+  description: international_sales - If the product can be shipped internationally
+    use a boolean to state this
+  type: BOOLEAN
+  singleValue: true
+- name: shippingCost
+  description: shipping_cost - Product shipping cost
+  singleValue: true
+- name: productId
+  description: product_id - Unique Page ID for the product listing (NOT AMAZON SPECIFIC,
+    ALL SITES SHOULD INCLUDE EXCEPT EBAY)
+  singleValue: true
+- name: price
+  description: price - Product Price
+  singleValue: true
+- name: auctionType
+  description: auction_type - Buy it now, bid on it (usually only ebay) sites that
+    offer auctions you will include this
+  singleValue: true
+- name: itemNumber
+  description: item_number - Ebay listing style specific (seller to listing) relationship,
+    only use item number when the product has a one seller selling the individual
+    product, only site known to have this so far is ebay where sellers are not grouped
+    by a unique product
+  singleValue: true
+- name: sku
+  description: product_sku - Product SKU
+  singleValue: true
+- name: gtin
+  description: upc_user_input - Product UPC
+  singleValue: true
+- name: mpn
+  description: mpn_user_input - Product MPN (Manufactures part number)
+  singleValue: true
+- name: revisionDate
+  description: listing_revision_date - Date that the product had a revision to the
+    listing (typically ebay style marketplaces where a user can edit the listing at
+    any given moment)
+  singleValue: true
+- name: unitsSold
+  description: units_sold - Units sold
+  singleValue: true
+- name: unitsStock
+  description: units_stock - Number of stock the item has
+  singleValue: true
+- name: brandText
+  description: brand_user_input - Brand the product is associated with
+  singleValue: true
+- name: views
+  type: NUMBER
+  description: item_views - Amount of views the product has overall (typically ebay
+    style marketplaces)
+  singleValue: true
+- name: watchers
+  type: NUMBER
+  description: item_watchers - Amount of watchers the product has overall (typically
+    ebay style marketplaces)
+  singleValue: true
+- name: category
+  description: 'parent_category - First category in a given tree, use (Xpath)[1] to
+    select on the first instance of the category. Get category list workbench can handle splitting between category to parent_category and child_category.'
+  singleValue: false
+# - name: child_category
+#   description: child_category - Last category in a given tree, use (Xpath)[last()]
+#     to select on the last instance of the category, or if the tree does not end at
+#     the correct position and you need second to last use ("Xpath here")[position()>=2
+#     and position()<=10]
+#   singleValue: false
+- name: listPrice
+  description: previous_sales_price - Original price that the product was being sold
+    at, typically will be the greyed out or crossed out price
+  singleValue: true
+- name: variants
+  description: product_style - Stlye, color and or any variant of the product here,
+    if the product has options and one or two are selected scrape both into this column
+  singleValue: false
+- name: country
+  description: country - Country of the website scraped (US, DE, UK, ES, IT, FR, NL,). Could be handled in workbench too.
+  singleValue: true
+- name: deliveryDate
+  description: delivery_date - Date the product will be delivered, check the site
+    before extractor setup, if the site provides this info by putting in a zip code,
+    use interaction to get this data
+  singleValue: true
+- name: scrape_timestamp
+  description: scrape_timestamp - Time the scrape was done, use the javascript I provided
+    to do this, requires interaction for all extractors. Not needed. Workbench can add this.
+  singleValue: true
+- name: sponsored
+  type: BOOLEAN
+  description: sponsored_flg - New flag for detecting sponsored products
+  singleValue: true

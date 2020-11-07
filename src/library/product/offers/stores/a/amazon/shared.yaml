@@ -1,0 +1,148 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="a-row a-spacing-mini olpOffer"]
+fields:
+  - name: name
+    xpath: ancestor::html//h1[@role="main"]
+    description: product_name - Product title
+  - name: aggregateRating
+    xpath: ancestor::html//*[contains(@data-a-popover, "average-customer")]//span[contains(@class,"a-icon-alt")]
+    regExp: ^[^\s]+
+    description: "product_reviews - Product reviews, usually out of 5, if not append
+      the amount its out of. ex: 4.5/10"
+  - name: reviewCount
+    xpath: ancestor::html//*[contains(@data-a-popover, "average-customer")]/following-sibling::span/a[contains(@href,"product-reviews")]
+    regExp: ^[^a-zA-Z]+
+    description: "product_review_count - # of reviews the product has"
+  - name: description
+    xpath: ancestor::html//h1[@role="main"]
+    description: product_description - product description, try and not capture it
+      all if the charecter limit exceeds 255 chars
+  - name: image
+    xpath: ancestor::html//img[@alt="Return to product information"]/@src
+    regExp: (.+)\.[^\.]*(\.[^\.]+$)
+    regExpReplace: $1$2
+    description: product_images - First image on the product listing, dont assign
+      'src, img' attribute only select the class that contains it and import
+      will scrape the image properly
+  - name: resellerName
+    xpath: //*[contains(@class,"olpSellerName")]//a | //*[contains(@class,"olpSellerName")]/img/@alt
+    description: reseller_name - Seller Name, if the website does not have sellers,
+      put the website name as seller
+  - name: resellerId
+    xpath: //*[contains(@class,"olpSellerName")]//a/@href
+    regExp: seller=(\w+)
+    regExpReplace: $1
+    description: reseller_id - Unique seller ID
+  - name: resellerLink
+    xpath: //*[contains(@class,"olpSellerName")]//a
+    type: LINK
+    description: reseller_link - Link to the seller page
+  - name: resellerReviews
+    xpath: //i[contains(@class," a-icon-star ")]/following-sibling::text()
+    regExp: \(([^\s])+
+    regExpReplace: $1
+    description: reseller_reviews - Number of reviews the seller has
+  - name: resellerFeedbackPercent
+    regExp: ^[^%]+
+    xpath: //i[contains(@class," a-icon-star ")]/following-sibling::a/b
+    description: reseller_feedback_% - Seller feedback percentage poisitive or
+      negative dont include percent if possible
+  - name: resellerVat
+    description: reseller_vat - european marketplace specific (also EID/TEID)
+  - name: fullfillmentBy
+    xpath: //*[@data-a-popover='{"name":"fbaPopover","activate":"onclick"}']
+    regExp: (.+)
+    regExpReplace: Fulfilment by Amazon
+    description: fullfillment_by - Typically only seen on marketplaces not websites,
+      if the product can be fulfilled by the seller or the marketplace scrape
+      this info
+  - name: internationalSales
+    description: international_sales - If the product can be shipped internationally
+      use a boolean to state this
+    type: BOOLEAN
+    default: false
+  - name: shippingCost
+    xpath: //*[contains(@class,"olpShippingPrice") and not(contains(@class,"olpShippingPriceText"))]
+    description: shipping_cost - Product shipping cost
+  - name: productId
+    xpath: ancestor::html//a[@id="olpDetailPageLink"]/@href
+    regExp: dp/(\w+)
+    regExpReplace: $1
+    description: product_id - Unique Page ID for the product listing (NOT AMAZON
+      SPECIFIC, ALL SITES SHOULD INCLUDE EXCEPT EBAY)
+  - name: price
+    xpath: //*[contains(@class,"olpOfferPrice")]
+    description: price - Product Price
+  - name: auctionType
+    description: auction_type - Buy it now, bid on it (usually only ebay) sites that
+      offer auctions you will include this
+  - name: itemNumber
+    description: item_number - Ebay listing style specific (seller to listing)
+      relationship, only use item number when the product has a one seller
+      selling the individual product, only site known to have this so far is
+      ebay where sellers are not grouped by a unique product
+  - name: sku
+    xpath: ancestor::html//a[@id="olpDetailPageLink"]/@href
+    regExp: dp/(\w+)
+    regExpReplace: $1
+    description: product_sku - Product SKU
+  - name: gtin
+    description: upc_user_input - Product UPC
+  - name: mpn
+    description: mpn_user_input - Product MPN (Manufactures part number)
+  - name: revisionDate
+    description: listing_revision_date - Date that the product had a revision to the
+      listing (typically ebay style marketplaces where a user can edit the
+      listing at any given moment)
+  - name: unitsSold
+    description: units_sold - Units sold
+  - name: unitsStock
+    description: units_stock - Number of stock the item has
+  - name: brandText
+    xpath: ancestor::html//div[@id="olpProductByline"]
+    description: brand_user_input - Brand the product is associated with
+  - name: views
+    type: NUMBER
+    description: item_views - Amount of views the product has overall (typically
+      ebay style marketplaces)
+  - name: watchers
+    type: NUMBER
+    description: item_watchers - Amount of watchers the product has overall
+      (typically ebay style marketplaces)
+  - name: category
+    xpath: ancestor::html//*[@class="nav-search-label"]
+    description: parent_category - First category in a given tree, use (Xpath)[1] to
+      select on the first instance of the category. Get category list workbench
+      can handle splitting between category to parent_category and
+      child_category.
+    singleValue: false
+  - name: listPrice
+    description: previous_sales_price - Original price that the product was being
+      sold at, typically will be the greyed out or crossed out price
+  - name: variantInformation
+    xpath: ancestor::html//*[@id="variationsTwister"]/div
+    description: product_style - Stlye, color and or any variant of the product
+      here, if the product has options and one or two are selected scrape both
+      into this column
+    singleValue: false
+  - name: country
+    regExp: language:\s*"[^_]+_([^"]+)
+    regExpReplace: $1
+    description: country - Country of the website scraped (US, DE, UK, ES, IT, FR,
+      NL,). Could be handled in workbench too.
+    xpath: >-
+      ancestor::html//script[contains(text(),'pageType: "OfferListing"')][contains(text(),"language")]
+  - name: deliveryDate
+    xpath: .//div[@class="a-expander-content a-expander-partial-collapse-content"]
+    description: delivery_date - Date the product will be delivered, check the site
+      before extractor setup, if the site provides this info by putting in a zip
+      code, use interaction to get this data
+  - name: scrape_timestamp
+    description: scrape_timestamp - Time the scrape was done, use the javascript I
+      provided to do this, requires interaction for all extractors. Not needed.
+      Workbench can add this.
+  - name: sponsored
+    type: BOOLEAN
+    description: sponsored_flg - New flag for detecting sponsored products
