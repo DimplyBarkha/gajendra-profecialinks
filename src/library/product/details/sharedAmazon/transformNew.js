@@ -315,7 +315,6 @@ const transform = (data, context) => {
         }
       }
       if (row.manufacturerVideos) {
-        console.log(row.videos);
         if (!row.videos || row.videos[0].text === '') {
           row.videos = row.manufacturerVideos;
         } else {
