@@ -3,9 +3,9 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'chedraui.com.mx',
-    timeout: 50000,
+    timeout: 80000,
     country: 'MX',
     store: 'chedraui',
-    zipcode: "''",
+    zipcode: '',
   },
 };
