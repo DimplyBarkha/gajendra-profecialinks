@@ -93,6 +93,44 @@ module.exports = {
       return Boolean(document.querySelector(sel));
     }, { timeout: 20000 }, 'body');
 
+
+
+
+    await context.evaluate(async function () {
+      document.querySelector('a[href="#tab-external-content"]').click();
+      function stall(ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+      await stall(3000);
+
+      const xpath = '//div[contains(@class, "image-holder slick-slide")]//video/@src | //iframe[contains(@title,"Flix-media-video")]//@src';
+      const videoList = [];
+      const videoSelector = document.evaluate(xpath, document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      for (let index = 0; index < videoSelector.snapshotLength; index++) {
+        const element = videoSelector.snapshotItem(index);
+        let vidURL = element.nodeValue;
+        let add = 'https://expert.at';
+        if (vidURL.includes('/produkte/videos')) {
+          videoList.push(add.concat(vidURL));
+        } else {
+          videoList.push(vidURL);
+        }
+      }
+
+      videoList.forEach(element => addElementToDOM('added_Videos', element));
+
+      function addElementToDOM(key, params) {
+        const createElement = document.createElement('div');
+        createElement.className = key;
+        createElement.textContent = params;
+        document.body.appendChild(createElement);
+      }
+    });
+
     return await context.extract(productDetails, { transform: transformParam });
   },
 };
