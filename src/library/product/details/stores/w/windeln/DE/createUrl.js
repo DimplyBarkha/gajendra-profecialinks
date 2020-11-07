@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'windeln.de',
     prefix: null,
-    url: 'https://www.windeln.de/{id}.html',
+    url: 'https://www.windeln.de/product/{id}',
     country: 'DE',
     store: 'windeln',
     zipcode: '',
