@@ -33,18 +33,18 @@ async function implementation (
     }
   }
 
-  const MAX_TRIES = 3;
-  let counter = 1;
-  let loaded = false;
-  const pageUrl = await context.evaluate(() => window.location.href);
-  do {
-    loaded = await loadContent();
-    if (!loaded) {
-      await goto(pageUrl, { waitUntil: ['networkidle0', 'domcontentloaded'] });
-    }
-    counter++;
-  } while (!loaded && counter <= MAX_TRIES);
-
+  // const MAX_TRIES = 3;
+  // let counter = 1;
+  // let loaded = false;
+  // const pageUrl = await context.evaluate(() => window.location.href);
+  // do {
+  //   loaded = await loadContent();
+  //   if (!loaded) {
+  //     await goto({ url: pageUrl });
+  //   }
+  //   counter++;
+  // } while (!loaded && counter <= MAX_TRIES);
+  const loaded = await loadContent();
   if (!loaded) {
     throw new Error('Product detail not loaded.');
   }
