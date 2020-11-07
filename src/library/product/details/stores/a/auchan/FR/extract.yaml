@@ -74,12 +74,9 @@ fields:
   - name: variantId
     singleValue: false
     description: selected variant of product
-    xpath: (//div[contains(@class, 'product-detail--reference')]//span/text())[position() = 1]
+    xpath: (//div[contains(@class, 'product-detail--reference')]//span/text())[position() = 1] | //div[@id='custom-product-id']/text()
     regExp: (.*)\:\s*([^\s]*)
     regExpReplace: $2
-  - name: customVariantId
-    singleValue: false
-    xpath: //div[@id='custom-product-id']/text()
   - name: variantCount
     singleValue: false
     description: variant count of product
@@ -115,7 +112,7 @@ fields:
   - name: category
     singleValue: false
     description: Product Category
-    xpath: (//span[contains(@class, 'ui-breadcrumb--item')]//a)[position()>1 and string(text())]
+    xpath: (//span[contains(@class, 'ui-breadcrumb--item')]//a)[position()>1 and string(text())] | (//span[@class='site-breadcrumb__item'])[position()>1]
   - name: availabilityText
     singleValue: false
     description: Product availability Text

@@ -88,12 +88,6 @@ const transform = (data) => {
           row.technicalInformationPdfPresent = [{ text: 'No', xpath: '' }];
         }
       }
-      if (row.customVariantId && row.customVariantId.length) {
-        row.varientId = [{
-          text: row.customVariantId[0].text,
-          xpath: row.customVariantId[0].xpath
-        }]
-      }
       if (row.servingSizeUom && row.servingSizeUom.length) {
         row.servingSizeUom = [{
           text: row.servingSizeUom[0].text.replace(/\d+/, ''),

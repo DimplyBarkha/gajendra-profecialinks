@@ -11,30 +11,31 @@ module.exports = {
   },
   implementation: async (inputs, parameters, context, { productDetails: data }) => {
     const { transform } = parameters;
-    // const mainUrl = await context.evaluate(async function () {
-    //   return document.URL;
-    // });
-
-    // await context.goto('https://www.auchan.fr/magasins/drive/aubagne-en-provence/s-684734ad-027c-3eff-0e83-4f44aec5e0b8', {
-    //   timeout: 10000000,
-    //   waitUntil: 'networkidle0',
-    //   checkBlocked: true,
-    //   js_enabled: true,
-    //   css_enabled: false,
-    //   random_move_mouse: true,
-    // });
-    // await context.waitForSelector('button.journeyChoicePlace')
-    // await context.stall(1000);
-    // await context.clickAndWaitForNavigation('button.journeyChoicePlace')
-
-    // await context.evaluate(async function () {
-    //   //await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-    //   document.querySelector('button.journeyChoicePlace').click();
-
-    // });
-    // await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-
-    // await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'networkidle0', checkBlocked: true });
+    const mainUrl = await context.evaluate(async function () {
+      var el = document.querySelector('div.journey-reminder-header span');
+      console.log('window.product', window.product);
+      if (window.product)
+        return undefined;
+      else if (el && el.innerText === "Aubagne-En-Provence")
+        return undefined;
+      else
+        return document.URL;
+    });
+    console.log('mainUrl', mainUrl)
+    if (mainUrl) {
+      await context.goto('https://www.auchan.fr/magasins/drive/aubagne-en-provence/s-684734ad-027c-3eff-0e83-4f44aec5e0b8#[!opt!]{"block_ads":false,"anti_fingerprint":false,"load_all_resources":true}[/!opt!]', {
+        timeout: 10000000,
+        waitUntil: 'load',
+        checkBlocked: true,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
+      await context.waitForSelector('button.journeyChoicePlace')
+      await context.click('button.journeyChoicePlace')
+      await context.stop();
+      await context.goto(mainUrl, { timeout: 1000000, waitUntil: 'networkidle0', checkBlocked: true });
+    }
     await context.evaluate(async function () {
       function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
@@ -72,7 +73,7 @@ module.exports = {
               var arr = data.innerText.split('/');
               if (arr.length) {
                 addHiddenDiv('custom-product-ean', arr[1]);
-                addHiddenDiv('custom-product-id', arr[0]);
+                addHiddenDiv('custom-product-id', "Ref:" + arr[0]);
               }
             }
           } catch (err) { }
