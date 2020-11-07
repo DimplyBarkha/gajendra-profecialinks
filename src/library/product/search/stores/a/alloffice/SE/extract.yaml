@@ -21,7 +21,7 @@ fields:
     regExpReplace: https://www.alloffice.se$1
   - name: thumbnail
     xpath: //a/div//img/@src
-    regExp: (.+)
+    regExp: (\/globalassets\/productimages\/\w+\.\w+\?ref=\w+)
     regExpReplace: https://www.alloffice.se$1
   - name: name
     xpath: //div[3]//h3
