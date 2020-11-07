@@ -9,18 +9,25 @@ fields:
   - name: manufacturer
     singleValue: true
     xpath: //div[@class='b-product-tile-brand-colours']
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class='b-product-tile-image-link js-product-tile-link']/picture/img/@data-src
   - name: price
     singleValue: false
     xpath: //div[@class='b-product-tile-price-left']/span[@class='b-product-tile-price-outer']
   - name: productUrl
     singleValue: false
-    xpath: //a[@class='b-product-tile-badge-link']/@href
-  - name: thumbnail
-    singleValue: false
-    xpath: //div[@class='b-product-tile-image-container']/a/picture/img/@src
+    xpath: //div[@class='t-heading-main b-product-tile-title b-product-tile-text']/span/@href
+    regExp: (\/p\/.+)
+    regExpReplace: https://www.snipes.com/$1
   - name: rank
     singleValue: false
     xpath: //div[@class='b-product-grid-tile js-tile-container']/@data-position
   - name: id
     singleValue: false
     xpath: //div[@class='b-product-tile js-product-tile']/@data-pid
+  - name: promotion
+    singleValue: true
+    xpath: //div[@class='b-product-tile-price']/span
+    regExp: \- (.+)
+    regExpReplace: $1

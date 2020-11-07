@@ -1,0 +1,53 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class='s-pdp l-container js-product-details']/@data-pid
+  - name: image
+    singleValue: false
+    xpath: //div[@id='slick-slide10']/div/div/picture/img/@src
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='b-pdp-product-info-main-left']/h1/div/a
+  - name: name
+    singleValue: false
+    xpath: (//div[@class='b-pdp-carousel-item']/picture/img/@alt)[1]
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="b-breadcrumb js-breadcrumbs"]/li[position()>2 and position()<= 5]
+  - name: color
+    singleValue: false
+    xpath: (//td[@class='b-fact-value js-fact-value'])[3]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='b-price-section']/span[@class='b-product-tile-price-outer b-product-tile-price-outer--line-through']/span
+  - name: price
+    singleValue: false
+    xpath: //div[@class='b-price-section']/span[@class='b-product-tile-price-outer']/span
+  - name: description
+    singleValue: false
+    xpath: //div[@class='b-details-content']
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='b-product-review-count']
+  - name: aggregateRatingText
+    singleValue: true
+    xpath: 
+  - name: aggregateRating
+    singleValue: true
+    xpath: 
+  - name: alternateImages
+    singleValue: false
+    xpath: (//div[@class='b-pdp-carousel-item'])[position()>=1 and position()<= 4]/picture/img/@src
+  - name: sku
+    singleValue: false
+    xpath: (//td[@class='b-fact-value js-fact-value'])[5]
+  - name: mpc
+    singleValue:  false
+    xpath: (//td[@class='b-fact-value js-fact-value'])[2]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@data-value
