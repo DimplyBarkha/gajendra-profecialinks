@@ -4,8 +4,8 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: variantId
-    xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//meta[@itemprop="sku"]/@content
+    xpath: //link[@rel="canonical"]/@href | //div[contains(@class,"similarProducts")]//div[contains(@class,"boxProductSimilar")]//a[@itemprop="url"]/@href
     singleValue: false
   - name: variantUrl
-    xpath: //link[@rel="canonical"]/@href
+    xpath: //link[@rel="canonical"]/@href | //div[contains(@class,"similarProducts")]//div[contains(@class,"boxProductSimilar")]//a[@itemprop="url"]/@href
     singleValue: false
