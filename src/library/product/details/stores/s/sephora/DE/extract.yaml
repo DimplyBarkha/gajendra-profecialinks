@@ -51,10 +51,11 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //span[@class="product-name product-name-bold"]
+    xpath: //html//div[@id='nameExt']
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    type: CURRENCY
     xpath: //html//div[@id='lisPri']
   - name: price
     singleValue: true
@@ -101,6 +102,7 @@ fields:
     singleValue: true
     description: Quantity as described on the page
     xpath: (//li[@class="selected default"]//span[@class="variation-title bidirectional"])[1]
+    regExp: (\d).+
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -449,6 +451,7 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
+    type: CURRENCY
     xpath: //html//div[@id='ppu']
   - name: pricePerUnitUom
     singleValue: true
@@ -491,7 +494,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
-    xpath: //html//div[@id='variant']
+    xpath: //a[@class="variation-display-name "]/@data-pid
   - name: additionalDescBulletInfo
     singleValue: false
     description: null

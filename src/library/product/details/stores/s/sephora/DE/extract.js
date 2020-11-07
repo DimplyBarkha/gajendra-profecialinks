@@ -57,9 +57,9 @@ async function implementation(
     var ppu = getAllXpath("//div[@class='price-block-right']/div[@class='unit-price']/span/text()", 'nodeValue')
     // .toString()).replace(/(\r\n|\n|\r)/gm, " ")).replace(" € * , / , ", "/");
     if (ppu != null){
-      var pp = (ppu.toString()).replace(/(\r\n|\n|\r)/gm, " ").replace(" € * , / , ", "/");
-      var pp = pp.substring(0, pp.length - 3);
-      addElementToDocument('ppu', pp);
+      // var pp = (ppu.toString()).replace(/(\r\n|\n|\r)/gm, " ").replace(" € * , / , ", "/");
+      // var pp = pp.substring(0, pp.length - 3);
+      addElementToDocument('ppu', ppu);
     }
     
     var promotion = getXpath("//div[@class='product-flag']/div/span/text()", 'nodeValue')
@@ -69,17 +69,17 @@ async function implementation(
     }
     
 
-    var lisPri = getXpath('(//div[@class="product-price  st-price "]/span/span)[1]/text() | (//span[@class="price-sales "]/span)[1]/text()', 'nodeValue')
+    var lisPri = getXpath('(//div[@class="product-price  st-price "]/span/span)[1]/text() | (//span[@class="price-sales "]/span)[1]/text()', 'nodeValue');
     if (lisPri != null){
-      var lis = (lisPri.split(" ")[0]).replace(",","");
-      addElementToDocument('lisPri', lis);
+      // var lis = (lisPri.split(" ")[0]).replace(",","");
+      addElementToDocument('lisPri', lisPri);
     }
   
 
-    var variant = getAllXpath('//a[@class="variation-display-name "]/@data-pid', 'nodeValue')
+    var variant = getAllXpath('//a[@class="variation-display-name "]/@data-pid', 'nodeValue');
     if ( variant != null) {
-      var vari = variant.toString();
-      addElementToDocument('variant', vari);
+      // var vari = variant.toString();
+      addElementToDocument('variant', variant);
     }
 
 
@@ -92,6 +92,15 @@ async function implementation(
       }
       addElementToDocument('info', inf);
     }
+
+
+    //nameExtended ( product description )
+    var first = getXpath("//span[@class='product-name product-name-bold']/text()", 'nodeValue');
+    var second = getXpath('//div[@class="description-container"]/span/text()', 'nodeValue');
+    var third = getXpath('//div[@class="description-container"]/span[@class="more-ellipses"]/text()', 'nodeValue');
+    var fourth = getXpath('//div[@class="description-container"]/a/text()', 'nodeValue');
+    var final = first+"\n"+second+" "+third+"\n"+fourth;
+    addElementToDocument('nameExt', final);
 
     // var manu_image = getAllXpath('//div[@class="brand-content-image"]/img/@src', 'nodeValue');
 
