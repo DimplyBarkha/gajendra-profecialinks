@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@data-mh="recipe-meta"]/div[contains(@class,"featured-image")]/@data-src
+  - name: category
+    singleValue: false
+    xpath: //nav[@class="breadcrumbs"]/span/span/span/a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="wp-content"]/h1
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@class="wp-content"]/ol/li
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@id,"yasr-visitor-votes-rater-") and contains(@class,"yasr-rater-stars-visitor-votes")]/@data-rater-postid
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@id,"yasr-visitor-votes-rater-") and contains(@class,"yasr-rater-stars-visitor-votes")]/@data-rater-postid
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[contains(@id,"yasr-vv-votes-number-container-")]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@id,"yasr-visitor-votes-rater-") and contains(@class,"yasr-rater-stars-visitor-votes")]/@data-rating
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
+  - name: name
+    singleValue: false
+    xpath: //div[@class="wp-content"]/h1
+  - name: secondaryImageTotal
+    singleValue: false
+    defaultValue: 0
+  - name: ingredientsList
+    singleValue: false
+    xpath: //table[contains(@class,"ingredients")]//td 
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class="wp-content"]/ol/li
