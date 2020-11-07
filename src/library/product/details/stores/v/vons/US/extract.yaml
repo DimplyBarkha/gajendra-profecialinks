@@ -4,9 +4,9 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: url
-    manualSelector: script[type='application/ld+json']
-    regExp: '(\"url\"\:\")([^"]+)'
-    regExpReplace: $2
+    # manualSelector: script[type='application/ld+json']
+    # regExp: '(\"url\"\:\")([^"]+)'
+    # regExpReplace: $2
   - name: product_image
     description: URL of the main product image
     xpath: //picture[@class='img-responsive center-block']/img/@src
@@ -45,8 +45,8 @@ fields:
     regExp: '(\"availability\"\:\")(\w+)'
     regExpReplace: $2
   - name: product_per_page
-    xpath: //body[@class='body-wrapper']/@data-inq-observer
-    defaultValue: "0"
+    # xpath: //body[@class='body-wrapper']/@data-inq-observer
+    # defaultValue: "0"
   - name: Additional_description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
