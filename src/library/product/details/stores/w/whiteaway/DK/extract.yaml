@@ -26,18 +26,16 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //span[@class="vip__heading__secondary"]
+    xpath: concat(//div[@class="vip__heading"]/div/h1, //span[@class="vip__heading__secondary"])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //div[@class="vip__price-box-price stroke"]
-    regExp: '\d*\.\d*'
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@class="campaign-banner__info__right"]/span | //div[@class="vip__price-box-price"]
-    regExp: '\d*\.\d*'
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -409,7 +407,6 @@ fields:
     singleValue: true
     description: The physical dimensions of the product including packaging.
     xpath: //*[contains(text(),'Specifikationer')]/following-sibling::div[1]
-    # regExp: \[^]\W*\n\W*|[|\\^&\s]+
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
