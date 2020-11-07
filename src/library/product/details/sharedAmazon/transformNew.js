@@ -54,10 +54,6 @@ const transform = (data, context) => {
         weightGross: item => sg(item).trim(),
         shippingWeight: item => sg(item).replace(/\s\(/g, '').trim(),
         grossWeight: item => sg(item).replace(/\s\(/g, '').trim(),
-        largeImageCount: item => {
-          const array = sg(item).toString().split('SL1500');
-          return array.length === 0 ? 0 : array.length;
-        },
         // alternateImages: array => joinArray(array.map(item => item.text)),
         videos: item => doubleRegexSearch(/"url":"([^"]+)/g, /(https.+mp4)/s, item),
         videoLength: item => doubleRegexSearch(/"durationTimestamp":"([^"]+)/g, /([0-9:]{3,})/s, item),

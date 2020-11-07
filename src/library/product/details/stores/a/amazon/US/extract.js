@@ -65,11 +65,32 @@ async function implementation (
         pageContext["parentAsin"] = !!window.isTwisterPage ? window.twisterController.twisterJSInitData.parent_asin : null
       //get currentAsin
         pageContext["currentAsin"] = !!window.isTwisterPage ? window.twisterController.twisterJSInitData.current_asin : window.ue_pti
+      //get largeImageCount
+        pageContext["largeImageCount"] = !!document.evaluate('//script[contains(text(), "ImageBlockATF")]/text()', document.body, null, XPathResult.ANY_TYPE, null).iterateNext() ? document.evaluate('//script[contains(text(), "ImageBlockATF")]/text()', document.body, null, XPathResult.ANY_TYPE, null).iterateNext().toString().split('SL1500').length : 0
       //check for additionalRatings
         pageContext["additionalRatings"] = !!document.querySelector('table#histogramTable')
       
         return pageContext
     });
+  }
+
+  async function appendData (d,c) {
+    let append = {d,c}
+    return await context.evaluate( async(data) => {
+      if(Array.isArray(data.d)){
+        data.d.map(item => {
+          let div = document.createElement('div')
+          div.setAttribute('id', item)
+          div.setAttribute('class', data.c)
+          document.body.appendChild(div)
+        })
+      }else{
+        let div = document.createElement('div')
+        document.body.appendChild(div)
+        div.setAttribute('id', data.d)
+        div.setAttribute('class', data.c)
+      }
+    },append)
   }
 
   async function pageManipulation (page) {
@@ -83,10 +104,12 @@ async function implementation (
   }
 
   let pageContext = await pageData()
-  console.log("pageContext", pageContext)
-  await helpers.addItemToDocument('my-variants', pageContext.variants)
-  await helpers.addItemToDocument('my-parent-asin', pageContext.parentAsin)
-  await helpers.addItemToDocument('my-current-asin', pageContext.currentAsin)
+    
+  await appendData(pageContext.variants, 'my-variants')
+  await appendData(pageContext.parentAsin, 'my-parent-asin')
+  await appendData(pageContext.currentAsin, 'my-current-asin')
+  await appendData(pageContext.largeImageCount, 'my-large-image-count')
+
   await getLbb();
   await helpers.addURLtoDocument('added-url');
   await helpers.addURLtoDocument('added-asin', true)

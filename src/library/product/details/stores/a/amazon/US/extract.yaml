@@ -16,19 +16,11 @@ fields:
     regExpReplace: $1.jpg
   - name: largeImageCount
     singleValue: false
-    xpath: //script[contains(text(), "ImageBlockATF")]/text()
+    xpath: //div[@class="my-large-image-count"]/@id
   - name: metaKeywords
     singleValue: true
     xpath: //meta[contains(@name, "keywords")]/@content
-  - name: _pageTimestamp
-    singleValue: true
-  - name: _url
-    singleValue: true
-    xpath: //link[@rel='canonical']/@href
   - name: category
-    singleValue: false
-    xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
-  - name: breadcrumbs
     singleValue: false
     xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
   - name: nameExtended
@@ -51,6 +43,7 @@ fields:
     singleValue: false
     xpath: //*[@id='feature-bullets']//ul/li[not(@id)]
   - name: extraDescription
+    singleValue: false
     xpath: //div[@id="productDescription"]//*[not(@class="disclaim") and not(self::strong)]
   - name: descriptionBullets
     singleValue: false
@@ -85,11 +78,11 @@ fields:
       (.+)
     regExpReplace: $1
   - name: asin
-    singleValuu: true
-    xpath: //div[@id="my-current-asin"]
+    singleValue: false
+    xpath: //div[@class="my-current-asin"]/@id
   - name: variantId
-    singleValue: true
-    xpath: //div[@id="my-parent-asin"]
+    singleValue: false
+    xpath: //div[@class="my-parent-asin"]/@id
   - name: mpc
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(),'odel')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(text(),"odel")]/following-sibling::td[1]/text() | //div[contains(@id,"prodDetails")]//*[contains(text(),"odel")]/following-sibling::td[1]/text() | //table[@id="product-specification-table"]//th[contains(text(),  "Manufacturer") and contains(text(), "Number")]/following-sibling::td/text()
@@ -111,9 +104,6 @@ fields:
     xpath: //*[@id="acrCustomerReviewText"]/text()
     regExp: >-
       [^a-zA-Z ]+
-  - name: aggregateRatingText
-    singleValue: true
-    xpath: 
   - name: aggregateRating
     singleValue: true
     xpath: //*[@id="acrPopover"]/@title
@@ -133,16 +123,13 @@ fields:
     xpath: //span[contains(text(),"Product Dimensions")]//following-sibling::span
   - name: variantCount
     singleValue: true
-    xpath: count(//div[@id="my-variants"]//li)
+    xpath: count(//div[@class="my-variants"])
   - name: variantInformation
     singleValue: false
     xpath: //li[@data-defaultasin]//img/@alt
   - name: color
     singleValue: false
     xpath: (//div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")] | //td/span[contains(text(),"Color")]//parent::td//following-sibling::td/span)[1]
-  - name: colorCode
-    singleValue: true
-    xpath: 
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="aplus"]/div//*[not(name()='style') and not(contains(text(), "Read more")) and not(name()='i') and not(name()='noscript') and not(name()='script') and text()]/text()
@@ -158,9 +145,6 @@ fields:
   - name: name
     singleValue: true
     xpath: //*[@id="productTitle"]
-  - name: inStorePrice
-    singleValue: true
-    xpath: 
   - name: productUrl
     singleValue: true
     xpath: //div[@id='added-url']
@@ -195,8 +179,8 @@ fields:
     regExp: ([^ ]+)
     regExpReplace: $1
   - name: pasin
-    singleValue: true
-    xpath: //div[@id="my-parent-asin"]
+    singleValue: false
+    xpath: //div[@class="my-parent-asin"]/@id
   - name: videoLength
     singleValue: false
     xpath: //script[contains(text(), "ImageBlockBTF")]/text()
@@ -225,10 +209,10 @@ fields:
     defaultValue: 'NO'
   - name: variantAsins
     singleValue: false
-    xpath: //div[@id="my-variants"]//li
+    xpath: //div[@class="my-variants"]/@id
   - name: firstVariant
     singleValue: true
-    xpath: //div[@id="my-variants"]//li[1]
+    xpath: (//div[@class="my-variants"])[1]/@id
   - name: specifications
     singleValue: false
     xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()] | //table[contains(@id, "product-specification-table")]/tbody/tr[text()]
@@ -272,153 +256,21 @@ fields:
   - name: ingredientsList
     singleValue: true
     xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)
-  - name: servingSize
-    singleValue: true
-    xpath: 
-  - name: servingSizeUom
-    singleValue: true
-    xpath: 
   - name: numberOfServingsInPackage
     singleValue: false
     xpath: //div[contains(@id, "package_quantity")]//span[contains(@class, "selection")] | //*[contains(text(), "Number of Items")]/following-sibling::td[1]
-  - name: caloriesPerServing
-    singleValue: true
-    xpath: 
-  - name: caloriesFromFatPerServing
-    singleValue: true
-    xpath: 
-  - name: totalFatPerServing
-    singleValue: true
-    xpath: 
-  - name: totalFatPerServingUom
-    singleValue: true
-    xpath: 
-  - name: saturatedFatPerServing
-    singleValue: true
-    xpath: 
-  - name: saturatedFatPerServingUom
-    singleValue: true
-    xpath: 
-  - name: transFatPerServing
-    singleValue: true
-    xpath: 
-  - name: transFatPerServingUom
-    singleValue: true
-    xpath: 
-  - name: cholesterolPerServing
-    singleValue: true
-    xpath: 
-  - name: cholesterolPerServingUom
-    singleValue: true
-    xpath: 
-  - name: sodiumPerServing
-    singleValue: true
-    xpath: 
-  - name: sodiumPerServingUom
-    singleValue: true
-    xpath: 
-  - name: totalCarbPerServing
-    singleValue: true
-    xpath: 
-  - name: totalCarbPerServingUom
-    singleValue: true
-    xpath: 
-  - name: dietaryFibrePerServing
-    singleValue: true
-    xpath: 
-  - name: dietaryFibrePerServingUom
-    singleValue: true
-    xpath: 
-  - name: totalSugarsPerServing
-    singleValue: true
-    xpath: 
-  - name: totalSugarsPerServingUom
-    singleValue: true
-    xpath: 
-  - name: proteinPerServing
-    singleValue: true
-    xpath: 
-  - name: proteinPerServingUom
-    singleValue: true
-    xpath: 
-  - name: vitaminAPerServing
-    singleValue: true
-    xpath: 
-  - name: vitaminAPerServingUom
-    singleValue: true
-    xpath: 
-  - name: vitaminCPerServing
-    singleValue: true
-    xpath: 
-  - name: vitaminCPerServingUom
-    singleValue: true
-    xpath: 
-  - name: calciumPerServing
-    singleValue: true
-    xpath: 
-  - name: calciumPerServingUom
-    singleValue: true
-    xpath: 
-  - name: ironPerServing
-    singleValue: true
-    xpath: 
-  - name: ironPerServingUom
-    singleValue: true
-    xpath: 
-  - name: dietarySymbols
-    singleValue: true
-    xpath: 
-  - name: magnesiumPerServing
-    singleValue: true
-    xpath: 
-  - name: magnesiumPerServingUom
-    singleValue: true
-    xpath: 
-  - name: saltPerServing
-    singleValue: true
-    xpath: 
-  - name: saltPerServingUom
-    singleValue: true
-    xpath: 
-  - name: dietaryInformation
-    singleValue: true
-    xpath: 
   - name: warranty
     singleValue: true
     xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
-  - name: storage
-    singleValue: true
-    xpath: 
-  - name: countryOfOrigin
-    singleValue: true
-    xpath: 
   - name: allergyAdvice
     singleValue: true
     xpath: //div[@id='important-information']//div[contains(.,'Ingredients')]/p
-  - name: recyclingInformation
-    singleValue: true
-    xpath: 
   - name: productOtherInformation
     singleValue: false
     xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img) and not(contains(@class, "a-color-secondary"))]
-  - name: packaging
-    singleValue: true
-    xpath: 
-  - name: additives
-    singleValue: true
-    xpath: 
-  - name: pricePerUnit
-    singleValue: true
-    xpath: 
-  - name: pricePerUnitUom
-    singleValue: true
-    xpath: 
   - name: promotion
     singleValue: false
     xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li 
-  - name: alcoholContent
-    singleValue: true
-    xpath: 
   - name: newAsin
     singleValue: false
     xpath: //div[@id="newer-version"]//a[not(img)]/@href
@@ -432,19 +284,10 @@ fields:
     xpath: //div[@id='newerVersion_feature_div']//a[not(child::img)]
   - name: variants
     singleValue: false
-    xpath: //div[@id="my-variants"]//li
+    xpath: //div[@class="my-variants"]/@id
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@id="feature-bullets"]//ul/li
-  - name: prop65Warning
-    singleValue: true
-    xpath: 
-  - name: ageSuitability
-    singleValue: true
-    xpath: 
-  - name: energyEfficiency
-    singleValue: true
-    xpath: 
   - name: technicalInformationPdfPresent
     singleValue: true
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
@@ -579,81 +422,90 @@ fields:
   - name: amazonChoiceBoolean
     singleValue: true
     xpath: //*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge-text-primary")]
-    type: BOOLEAN
-    defaultValue: false
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: 'false'
   - name: lowestPriceIn30DaysBoolean
     singleValue: true
     xpath: //*[contains(text(),"owest") and contains(text(),"rice") and contains (text(),"30 days")]
-    type: BOOLEAN
-    defaultValue: false
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: 'false'
   - name: subscribeAndSaveBoolean
     singleValue: true
     xpath: //*[@id="sns-base-price"]
-    type: BOOLEAN
-    defaultValue: false
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: 'false'
   - name: ingredientImagePresentBoolean
     singleValue: true
     xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
-    type: BOOLEAN
-    defaultValue: false
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: 'false'
   - name: factImagePresentBoolean
     singleValue: true
     xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "FACT")]
-    type: BOOLEAN
-    defaultValue: false 
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: 'false' 
   - name: primeFlagBoolean
     singleValue: true
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//div[contains(@id,"shipping")]//i[contains(@class, "a-icon-prime")]/@aria-label | //div[@id="buybox"]//span[contains(@id, "shipping-message")]//a[contains(@href, "prime") and contains(text(), "Amazon")] | //div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell"))]//a[contains(text(), "Prime")]/text())[1]
-    type: BOOLEAN
-    defaultValue: false
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: 'false'
   - name: lbbBoolean
     singleValue: true
     xpath: //div[@id='ii_lbb']
-    type: BOOLEAN
-    defaultValue: false 
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: 'false' 
   - name: technicalInformationPdfPresentBoolean
     singleValue: true
     xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
-    type: BOOLEAN
-    defaultValue: false
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: 'false'
   - name: termsAndConditionsBoolean
     singleValue: true
-    type: BOOLEAN
-    defaultValue: false
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: 'false'
   - name: privacyPolicyBoolean
     singleValue: true
-    type: BOOLEAN
-    defaultValue: false
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: 'false'
   - name: customerServiceAvailabilityBoolean
     singleValue: true
-    type: BOOLEAN
-    defaultValue: false
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: 'false'
   - name: image360PresentBoolean
     singleValue: true
     xpath: //li[contains(@class, "pos-360") and not(contains(@class, "aok-hidden"))]//img
-    type: BOOLEAN
-    defaultValue: false
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: 'false'
   - name: imageZoomFeaturePresentBoolean
     singleValue: true
     xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
-    type: BOOLEAN
-    defaultValue: false
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: 'false'
   - name: andonCords
     singleValue: true
     xpath: //div[@id="andonCord_feature_div"]//*
-    type: BOOLEAN
-    defaultValue: false
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: 'false'
   - name: salesRankNodeRaw
     singleValue: false
     xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1]/following-sibling::a/@href |  //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1]//a/@href | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]//a/@href
-    # regExp: bestsellers\/(.+)\/ref
-    # regExpReplace: $1
   - name: salesRankRaw
     singleValue: false 
     xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
-    regExp: \#([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
-    regExpReplace: >-
-      #$1 in $2
   - name: salesRank
     singleValue: false
     xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
