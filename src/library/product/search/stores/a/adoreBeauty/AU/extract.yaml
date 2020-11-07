@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="ais-InfiniteHits"]//li[contains(@class,"ais-InfiniteHits-item")]
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //a[contains(@class,"border-neutral-600")]/@href
+  - name: productUrl
+    SingleValue: false
+    xpath: //a[contains(@class,"border-neutral-600")]/@href
+  - name: price
+    SingleValue: false
+    xpath: //div[contains(@class,"flex-col")]//span[contains(@class,"font-bold")]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //img[contains(@class,"object-scale-down")]/@src
+  - name: name
+    SingleValue: false
+    xpath: //h2[contains(@class,"text-neutral-900")]
+  - name: rankOrganic
+    SingleValue: true
+  - name: rank
+    SingleValue: true
+  - name: aggregateRating2
+    SingleValue: false
+    xpath: //div[contains(@title,"Star Rating")]/@title
