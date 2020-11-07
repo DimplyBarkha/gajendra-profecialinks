@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'vons',
     domain: 'vons.com',
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },
