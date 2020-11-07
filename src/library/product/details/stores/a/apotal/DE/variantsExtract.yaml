@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//meta[@itemprop="sku"]/@content
+    singleValue: false
+  - name: variantUrl
+    xpath: //link[@rel="canonical"]/@href
+    singleValue: false

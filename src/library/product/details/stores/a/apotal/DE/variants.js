@@ -1,11 +1,9 @@
-const { transform } = require('../format.js');
 
 module.exports = {
-  implements: 'product/search/extract',
+  implements: 'product/details/variants',
   parameterValues: {
     country: 'DE',
     store: 'apotal',
-    transform: transform,
     domain: 'apotal.de',
     zipcode: '',
   },

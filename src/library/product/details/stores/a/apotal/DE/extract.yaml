@@ -18,6 +18,9 @@ fields:
   - name: manufacturer
     xpath: //div[@class="boxProductDetail"]//dd[@class="producer"]
     singleValue: false
+  - name: brandText
+    xpath: //div[@class="boxProductDetail"]//dd[@itemprop="brand"]
+    singleValue: false
   - name: quantity
     xpath: //div[@class="boxProductDetail"]//dd[@class="packageSize"]
     singleValue: false
@@ -25,6 +28,9 @@ fields:
     xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//dd[@class="yourPrice"]
     regExp: (\d+.*€)
     regExpReplace: $1
+    singleValue: false
+  - name: listPrice
+    xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//dd[@class="listPrice"]
     singleValue: false
   - name: promotion
     xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//dd[@class="youSave"]
@@ -38,21 +44,42 @@ fields:
   - name: variantId
     xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//meta[@itemprop="sku"]/@content
     singleValue: false
+  - name: variants
+    xpath: //div[@class="boxProductDetail"]//div[contains(@class,"similarProducts")]//div[@class="boxProductSimilar"]//div[1]/a/@href
+    singleValue: false
   - name: description
     xpath: //div[@class="boxProductDetail"]//div[@id="productDesc"]
     singleValue: false
+  - name: manufacturerImages
+    xpath: //div[@class="boxProductDetail"]//div[@id="productDesc"]//div[@class="description"]//img/@src
+    singleValue: false
+  - name: videos
+    xpath: //div[@class="boxProductDetail"]//div[@id="productDesc"]//div[@class="description"]//iframe/@src
+    singleValue: false
   - name: packSize
     xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//dd[@class="packageSize"]
-    regExp: (\d+)p
+    # regExp: (\d+)p
   - name: category
     xpath: //div[@class="navigatorBoxLeft"]//div[@class="navigatorBoxMiddle"]/a
     singleValue: false
-  - name: ratingCount
+  - name: aggregateRating2
     xpath: //div[@class="boxProductDetail"]//div[contains(@class, "customerReviews")]//a//span/text()
+    singleValue: false
+  - name: ratingCount
+    xpath: //div[@class="boxProductDetail"]//div[contains(@id, "productReview")]//div[@class='customerReviews']/div[@id='productReviewInfo']/span[@class='rank']/span/text()
     singleValue: false
   - name: eangtin
     xpath: //div[@class="boxProductDetail"]//div[@class="informations"]//meta[@itemprop="gtin14"]/@content
     singleValue: false
   - name: ingredientsList
     xpath: //div[@class="boxProductDetail"]//div[@id="productDesc"]//span//br[3]/following-sibling::text()[1]
+    singleValue: false
+  - name: directions
+    xpath: substring-before(//div[@class="abdainfo"], "Aufbewahrung")
+    singleValue: false
+  - name: storage
+    xpath: substring-before(substring-after(//div[@class='abdainfo'], "Aufbewahrung"), "Gegenanzeigen")
+    singleValue: false
+  - name: warnings
+    xpath: substring-before(substring-after(//div[@class='abdainfo'], "Wichtige Hinweise"), "Wirkungsweise")
     singleValue: false

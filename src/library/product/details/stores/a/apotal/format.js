@@ -11,7 +11,6 @@ const transform = (data) => {
         const image = row.image.map((item) => {
           return 'https://shop.apotal.de' + item.text;
         });
-        console.log('image ----> ', image);
         row.image = [{ text: image, xpath: row.image[0].xpath }];
       }
       if (row.availabilityText) {
@@ -26,9 +25,32 @@ const transform = (data) => {
         });
         row.description = [{ text: descriptionArr.join('|'), xpath: row.description[0].xpath }];
       }
+      if (row.manufacturerImages) {
+        const manufacturerImagesArr = row.manufacturerImages.map((item) => {
+          return typeof (item.text) === 'string' ? 'https://shop.apotal.de' + item.text.trim() : '';
+        });
+        row.manufacturerImages = [{ text: manufacturerImagesArr.join('|'), xpath: row.manufacturerImages[0].xpath }];
+      }
+      if (row.videos) {
+        const videos = row.videos.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.trim() : '';
+        });
+        row.manufacturerImages = [{ text: videos.join('|'), xpath: row.videos[0].xpath }];
+      }
+      if (row.variants) {
+        const variants = row.variants.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.substring(item.text.lastIndexOf('-') + 1) : '';
+        });
+        row.variants = [{ text: variants.join('|'), xpath: row.variants[0].xpath }];
+      }
+      if (row.aggregateRating2) {
+        const aggregateRating2 = row.aggregateRating2[0].text.replace('(', '').replace(')', '');
+        row.aggregateRating2 = [{ text: aggregateRating2, xpath: row.aggregateRating2[0].xpath }];
+      }
       if (row.ratingCount) {
-        const ratingCount = row.ratingCount[0].text.replace('(', '').replace(')', '');
-        row.ratingCount = [{ text: Math.floor(ratingCount), xpath: row.ratingCount[0].xpath }];
+        const ratingCount = row.ratingCount.length === 1
+          ? row.ratingCount[0].text : row.ratingCount[2].text;
+        row.ratingCount = [{ text: ratingCount, xpath: row.ratingCount[0].xpath }];
       }
       if (row.category) {
         const categoryArray = row.category.map((item) => {
