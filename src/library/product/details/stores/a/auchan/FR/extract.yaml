@@ -22,23 +22,23 @@ fields:
   - name: aggregateRating
     singleValue: false
     description: Aggregate Rating of product
-    xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='ratingValue']/@content | (//div[@itemprop='aggregateRating']//meter/@value)[1]
+    xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='ratingValue']/@content | //div[contains(@class, 'offer-selector__description-header')]//meter/@value
   - name: aggregateRating2
     singleValue: false
     description: Aggregate Rating of product
-    xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='ratingValue']/@content | (//div[@itemprop='aggregateRating']//meter/@value)[1]
+    xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='ratingValue']/@content | //div[contains(@class, 'offer-selector__description-header')]//meter/@value
   - name: aggregateRatingText
     singleValue: false
     description: Aggregate Rating of product
-    xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='ratingValue']/@content | (//div[@itemprop='aggregateRating']//meter/@value)[1]
+    xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='ratingValue']/@content | //div[contains(@class, 'offer-selector__description-header')]//meter/@value
   - name: ratingCount
     singleValue: false
     description: Rating Count of product
-    xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='reviewCount']/@content | (//div[@itemprop='aggregateRating']//span)[1]
+    xpath: //div[contains(@class, 'product-detail--rating')]//meta[@itemprop='reviewCount']/@content | //div[contains(@class, 'offer-selector__description-header')]//span[@itemprop="reviewCount"]
   - name: description
     singleValue: false
     description: Description of product
-    xpath: //div[contains(@class, 'product-aside--textBlock')]/p | (//div[contains(@class, 'product-description__content-wrapper')])[1]
+    xpath: //div[@id='custom-product-description']/text() | (//div[contains(@class, 'product-description__content-wrapper')])[1]
   - name: color
     singleValue: false
     description: Color of product
@@ -46,7 +46,7 @@ fields:
   - name: image
     singleValue: false
     description: Image of product
-    xpath: //div[contains(@class,'product-image-container')]//meta[@itemprop="image"]/@content | //div[contains(@class, 'product-gallery__wrapper')]//img/@src
+    xpath: //div[contains(@class,'product-image-container')]//meta[@itemprop="image"]/@content | //div[@id='custom-product-main-image']/text()
   - name: imageAlt
     singleValue: false
     description: Alternate text of product image
@@ -55,6 +55,10 @@ fields:
     singleValue: false
     description: Alternate images of product
     xpath: (//div[contains(@class, 'product-image-container')]//a[contains(@class,'gallery-link')]//img/@src)[position()>1]
+  - name: secondaryImageTotal
+    singleValue: false
+    description: Alternate images of product
+    xpath: count((//div[contains(@class, 'product-image-container')]//a[contains(@class,'gallery-link')]//img/@src)[position()>1])
   - name: videos
     singleValue: false
     description: videos of product
@@ -62,7 +66,7 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping Info of product
-    xpath: (//div[contains(@class, 'product-price--seller')]//span)[position()=1] | //div[@id='tabDelivery']
+    xpath: (//div[contains(@class, 'product-price--seller')]//span)[position()=1]
   - name: weightNet
     singleValue: false
     description: Weight of product
@@ -88,11 +92,11 @@ fields:
   - name: quantity
     singleValue: false
     description: quantity
-    xpath: (//div[contains(@class,'offer-selector__attributes')]//span[contains(@class,'product-attribute')])[2]
+    xpath: //div[contains(@class,'offer-selector__attributes')]//span[contains(@class,'product-attribute') and contains(@aria-label, 'Contenance')]
   - name: legalDisclaimer
     singleValue: false
     description: legal Disclaimer of product
-    xpath: //div[@id='footerAlcoholDisclaimer'] | (//div[@class='footer-wrapper']//p[@class='footer-legal__paragraph'])[2]
+    xpath: //div[@id='footerAlcoholDisclaimer'] | //span[contains(@class, 'product-description__feature-label') and contains(text(),'legales')]//following-sibling::*
   - name: productUrl
     singleValue: false
     description: Product url
@@ -124,7 +128,7 @@ fields:
   - name: nameExtended
     singleValue: false
     description: Extended Name of product
-    xpath: //h1[contains(@class,'product-detail--title')] | //p[contains(@class,'offer-selector__description')]
+    xpath: //h1[contains(@class,'product-detail--title')] | //h1[contains(@class,'site-breadcrumb__title')]//text()
   - name: manufacturerImages
     singleValue: false
     description:
@@ -149,6 +153,7 @@ fields:
     singleValue: false
     description:
     xpath: (//div[contains(@class,'nutritional__head')])[2]
+    regExp: \d.\S
   - name: servingSizeUom
     singleValue: false
     description:
@@ -226,4 +231,51 @@ fields:
     singleValue: false
     description:
     xpath: //button[contains(@class,'product-gallery__zoom icon-zoom openGallery')]/@class
-
+  - name: warnings
+    singleValue: false
+    description:
+    xpath: //span[contains(@class, 'product-description__feature-label') and contains(text(),'Conseil de conservation')]//following-sibling::*
+  - name: vitaminAPerServing
+    singleValue: false
+    description:
+    xpath: //div[@id='custom-product-vitaminAPerServing']/text()
+  - name: vitaminAPerServingUom
+    singleValue: false
+    description:
+    xpath: //div[@id='custom-product-vitaminAPerServingUom']/text()
+  - name: vitaminCPerServing
+    singleValue: false
+    description:
+    xpath: //div[@id='custom-product-vitaminCPerServing']/text()
+  - name: vitaminCPerServingUom
+    singleValue: false
+    description:
+    xpath: //div[@id='custom-product-vitaminCPerServingUom']/text()
+  - name: calciumPerServing
+    singleValue: false
+    description:
+    xpath: //div[@id='custom-product-calciumPerServing']/text()
+  - name: calciumPerServingUom
+    singleValue: false
+    description:
+    xpath: //div[@id='custom-product-calciumPerServingUom']/text()
+  - name: ironPerServing
+    singleValue: false
+    description:
+    xpath: //div[@id='custom-product-ironPerServing']/text()
+  - name: ironPerServingUom
+    singleValue: false
+    description:
+    xpath: //div[@id='custom-product-ironPerServingUom']/text()
+  - name: magnesiumPerServing
+    singleValue: false
+    description:
+    xpath: //div[@id='custom-product-magnesiumPerServing']/text()
+  - name: magnesiumPerServingUom
+    singleValue: false
+    description:
+    xpath: //div[@id='custom-product-magnesiumPerServingUom']/text()
+  - name: manufacturerDescription
+    singleValue: false
+    description:
+    xpath: //div[@id='custom-product-enhanced-content']/text()

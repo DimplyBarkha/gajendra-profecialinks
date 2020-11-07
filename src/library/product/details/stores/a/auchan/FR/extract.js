@@ -61,6 +61,53 @@ module.exports = {
             }
           }
           addHiddenDiv('custom-product-info-weight', weight)
+          try {
+            var description = "";
+            console.log('nilesh');
+            var dINode = document.evaluate("//main[contains(@class, 'product-aside--container')]//text()", document, null, XPathResult.ANY_TYPE);
+            console.log('dINode', dINode);
+            do {
+              var descriptionData = dINode.iterateNext();
+
+              if (descriptionData) {
+                description += descriptionData.data + ' ';
+              }
+
+            } while (descriptionData)
+            description = description.trim().split('\n')[0];
+            addHiddenDiv('custom-product-description', description);
+          } catch (err) {
+            console.log('nilesh', err)
+          }
+
+          try {
+            var enhancedContent = "";
+            var dINode = document.evaluate("//div[contains(@class, 'flix-Text-block') and not(contains(@class, 'inpage_selector_specification'))]//div//text()", document, null, XPathResult.ANY_TYPE);
+            do {
+              var directionData = dINode.iterateNext();
+
+              if (directionData)
+                enhancedContent += directionData.data + ' ';
+            } while (directionData)
+            var dINode = document.evaluate("//div[contains(@class, 'flix-std-featureslist')]", document, null, XPathResult.ANY_TYPE);
+            do {
+              var directionData = dINode.iterateNext();
+              console.log(directionData)
+              if (directionData)
+                enhancedContent += directionData.innerText + ' ';
+            } while (directionData)
+
+            var dINode = document.evaluate("//div[contains(@class, 'inpage_selector_InTheBox')]//div//text()", document, null, XPathResult.ANY_TYPE);
+            do {
+              var directionData = dINode.iterateNext();
+
+              if (directionData)
+                enhancedContent += directionData.data + ' ';
+            } while (directionData)
+            console.log('enhancedContent', enhancedContent)
+            addHiddenDiv('custom-product-enhanced-content', enhancedContent);
+          } catch (err) { }
+
         } else {
           try {
             const isNull = document.querySelector('div.product-unavailable__message') == null;
@@ -156,7 +203,54 @@ module.exports = {
               addHiddenDiv('custom-product-saltPerServing', filteredValue[0].value);
               addHiddenDiv('custom-product-saltPerServingUom', 'g');
             }
+
+            var filteredValue = nutriData.filter((item) => { return item.key.indexOf('Vitamine A') > -1 });
+            if (filteredValue && filteredValue.length) {
+              addHiddenDiv('custom-product-vitaminAPerServing', filteredValue[0].value);
+              addHiddenDiv('custom-product-vitaminAPerServingUom', 'µg');
+            }
+
+            var filteredValue = nutriData.filter((item) => { return item.key.indexOf('Vitamine C (en mg)') > -1 });
+            if (filteredValue && filteredValue.length) {
+              addHiddenDiv('custom-product-vitaminCPerServing', filteredValue[0].value);
+              addHiddenDiv('custom-product-vitaminCPerServingUom', 'mg');
+            }
+
+            var filteredValue = nutriData.filter((item) => { return item.key.indexOf('Calcium (en mg)') > -1 });
+            if (filteredValue && filteredValue.length) {
+              addHiddenDiv('custom-product-calciumPerServing', filteredValue[0].value);
+              addHiddenDiv('custom-product-calciumPerServingUom', 'mg');
+            }
+
+            var filteredValue = nutriData.filter((item) => { return item.key.indexOf('Fer (en mg)') > -1 });
+            if (filteredValue && filteredValue.length) {
+              addHiddenDiv('custom-product-ironPerServing', filteredValue[0].value);
+              addHiddenDiv('custom-product-ironPerServingUom', 'mg');
+            }
+
+            var filteredValue = nutriData.filter((item) => { return item.key.indexOf('Magnésium (en mg)') > -1 });
+            if (filteredValue && filteredValue.length) {
+              addHiddenDiv('custom-product-magnesiumPerServing', filteredValue[0].value);
+              addHiddenDiv('custom-product-magnesiumPerServingUom', 'mg');
+            }
+
           } catch (err) { }
+          try {
+            const btnImageZoom = document.querySelector('button.product-gallery__img-btn');
+            console.log('btnImageZoom', btnImageZoom)
+            if (btnImageZoom) {
+              btnImageZoom.click();
+              await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+              var nodeImage = document.evaluate("//div[contains(@class, 'product-zoom__item')]//img", document, null, XPathResult.ANY_TYPE);
+              data = nodeImage.iterateNext();
+              if (data) {
+                addHiddenDiv('custom-product-main-image', data.src);
+              }
+            }
+
+          } catch (err) { }
+
+
         }
       } catch (error) {
         console.log('Error: ', error);
