@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.product_detail
+recordXPath: //div[contains(@class,"product_detail")]
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //div/../@data-codic
+  - name: name
+    singleValue: false
+    manualSelector: div.prd-family
+  - name: productUrl
+    singleValue: false
+    xpath: //a[span[@class="prd-name"]]/@href
+    regExp: (.+)
+    regExpReplace: https://www.darty.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="picture_container"]//img/@data-original
+  - name: price
+    singleValue: false
+    manualSelector: div.sale_price>span.darty_normal
+  - name: aggregateRating2
+    singleValue: false
+    manualSelector: div.rating span.rating_avis
+    regExp: (.*)?\/
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    manualSelector: div.rating u
+    regExp: ^(\d+)
+    regExpReplace: $1
+  - name: soldBy
+    singleValue: false
+    manualSelector: span.mkp_sold_by > b
