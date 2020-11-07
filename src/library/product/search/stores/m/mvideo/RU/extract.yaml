@@ -9,6 +9,10 @@ fields:
   - name: name
     singleValue: true
     xpath: //div//h4[@class="fl-product-tile-title e-h4 fl-product-tile__title"]
+  - name: input
+    singleValue: false
+    type: TEXT
+    xpath: //h1[@data-init="ajax-header-detectum"]
   - name: productUrl
     singleValue: false
     xpath: //div[@class="fl-product-tile__title-wrapper height-ready"]/h4//a//@href

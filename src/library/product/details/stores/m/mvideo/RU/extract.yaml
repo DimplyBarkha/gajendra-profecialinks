@@ -84,13 +84,10 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div//p[@class="c-product-code"]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div//p[@class="c-product-code"]
-  - name: rpc
-    singleValue: true
-    description: The retailer product code (unique) of the product
     xpath: //div//p[@class="c-product-code"]
   - name: packSize
     singleValue: true
@@ -148,7 +145,7 @@ fields:
     singleValue: false
     description: URLs of videos on page
     xpath: //div[@data-init="add-youtube-video-statistic"]//iframe[@id="media-container-player"]/@src
-  - name: name
+  - name: nameExtended
     singleValue: true
     description: The product name
     xpath: //h1[@class="e-h1 sel-product-title"]
