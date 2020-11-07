@@ -10,35 +10,30 @@ fields:
     regExp: ^([\w\-]+)
   - name: nameExtended
     singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //meta[@property='og:title']/@content
+    xpath: //h1[@itemprop="name"]/text()
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: //div[contains(@class,'slick-current')]//img[@itemprop='image' and contains(@class,"rd__img sd__img loading")]/@src
+    #xpath: //div[contains(@class,'slick-current')]//img[@itemprop='image' and contains(@class,"rd__img sd__img loading")]/@src
+    xpath: (//img[@itemprop="image"]/@src)[1]
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
-    xpath: //img[@itemprop='image' and contains(@class,"rd__img sd__img loading")]/@alt
+    #xpath: //img[@itemprop='image' and contains(@class,"rd__img sd__img loading")]/@alt
+    xpath: (//img[@itemprop="image"]/@alt)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath : //button//img[@itemprop='image' and contains(@class,"rd__img sd__img loading")]/@src
+    xpath : //div[@class="rd__product-details__image__slider__item slick-slide"]/img/@src
   - name: price
     singleValue: false
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
-    xpath: //span[@class="rd__headline rd__headline--130 rd__discount-conflict-layer__fieldset__radio--highlighted"]
+    xpath: //span[contains(@class,"rd__headline--130 rd__discount-conflict-layer__fieldset__radio--highlighted")]
   - name: listPrice
     singleValue: false
     xpath: //div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,'sd__product-details__options__price__item__quantity')]
   - name: availabilityText
     singleValue: false
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    xpath: //div[@class="rd__slider-brand-nav__index__item--active rd__col--lg-12 rd__copytext--50 sd__clear"]
+    xpath: //div[contains(@class,'rd__slider-brand-nav__index__item--active')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -51,20 +46,18 @@ fields:
     xpath: //div//span[contains(text(),"Información del producto")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"]
   - name: brandText
     singleValue: false
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
     xpath: //meta[@property='og:title']/@content
     regExp: ^([\w\-]+)
   - name: variantId
-    singleValue: true
+    singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //button[@data-product-code]/@data-product-code
-  - name: ratingCount
+  - name: reviewCount
     singleValue: false
-    description: The number of ratings
-    type: NUMBER
-    xpath: //meta[@itemprop='reviewCount']/@content
-  - name: aggregateRatingText
+    xpath: //div[@class="bv_numReviews_text"]
+    regExp: (\d+)
+    # xpath: //meta[@itemprop='reviewCount']/@content
+  - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating
     xpath: //div[@itemprop='ratingValue']
@@ -94,8 +87,31 @@ fields:
     xpath: //button[@data-product-code]/@data-product-code
   - name: secondaryImageTotal
     singlValue: false
-    xpath: count(//ul[@class="slick-dots"]//li)
+    xpath: count(//div[@class="rd__product-details__image__slider__item slick-slide"]/img/@src)
   - name: videos
     singleValue: false
-    description: URLs of videos on page
     xpath: //div[@class="sd__vidcontent"]//iframe/@src
+  - name: quantity
+    xpath: //h2[@class="rd__headlline rd__headline--80"]
+    regExp: (\d+) (ML|UN|UD|ST)
+  # - name: variantInformation
+  #   xpath: //h2[@class="rd__headlline rd__headline--80"][contains(text(),'ML') or contains(text(),'UD') or contains(text(),'UD') or contains(text(),'ST')] 
+  - name: ratingCount
+    xpath: //div[@class="bv_numReviews_text"]
+    regExp: (\d+)
+  # - name: pricePerUnit2
+  #   xpath: (//div[@class="rd__col--lg-12 rd__copytext--50"])[1]
+  #   regExp: >- 
+  #     (.+los\s)(.+)(\w{2})\sa\s(.+)
+  #   regExpReplace: >-
+  #      $4/$2
+  # - name: pricePerUnitUom
+  #   xpath: (//div[@class="rd__col--lg-12 rd__copytext--50"])[1]
+  #   regExp: ML|GR|UD|ST
+  - name: promotion
+    xpath: //div[@class="rd__flag rd__flag--160 rd__footer__meta"]
+  - name: variantCount
+    xpath: count(//div/div[@class="rd__product-details sd__product-details"])
+  - name: color
+    singlValue: false
+    xpath: //div[@class="rd__blob"]//img[@class="rd__img loading"]/@alt
