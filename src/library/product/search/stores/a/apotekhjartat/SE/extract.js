@@ -16,8 +16,8 @@ module.exports = {
   ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluate(async function() {
-    })
-    return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });  
+    await context.evaluate(async function () {
+    });
+    return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
   },
 };

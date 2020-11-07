@@ -16,7 +16,7 @@ async function implementation (
   console.log('Status :', responseStatus.status);
   console.log('URL :', responseStatus.url);
   if (parameters.loadedSelector) {
-    await context.waitForFunction( function (sel, xp){
+    await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 50000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
@@ -67,4 +67,5 @@ module.exports = {
     noResultsXPath: '//p[contains(@class,"noSearchResultText")]',
     zipcode: '',
   },
+  implementation,
 };
