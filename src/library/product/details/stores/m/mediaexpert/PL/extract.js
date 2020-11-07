@@ -34,6 +34,14 @@ module.exports = {
         css_enabled: false,
         random_move_mouse: true,
       });
+    } else {
+      const noProductsFound = await context.evaluate(function (inputs) {
+        const noResults = document.querySelector('div.is-noResults');
+        return noResults;
+      });
+      if (noProductsFound) {
+        throw new Error('Product not found for the given input');
+      }
     }
 
     await context.waitForNavigation({ timeout: 60000, waitUntil: 'networkidle0' });
