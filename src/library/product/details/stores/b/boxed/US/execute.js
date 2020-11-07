@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'boxed',
     domain: 'boxed.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'section#product-page',
+    noResultsXPath: '//section[@id="error-page"]',
     zipcode: '',
   },
 };
