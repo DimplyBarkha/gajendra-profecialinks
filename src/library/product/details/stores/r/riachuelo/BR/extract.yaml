@@ -69,13 +69,12 @@ fields:
     singleValue: false
     xpath: //tbody//tr//td[@data-th="Código do Produto"]
     description: Identifier for a variant from a store where variants share the same sku
-  - name: mpc
-    singleValue: false
-    xpath: //tbody//tr//td[@data-th="Código do Produto"]
-    description: The manufacturer model code (unique) of the product
+  # - name: mpc
+  #   singleValue: false
+  #   xpath: //tbody//tr//td[@data-th="Código do Produto"]
+  #   description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
-    #  
     xpath: //tbody//tr//td[@data-th="Conteúdo da Embalagem"]
   - name: legalDisclaimer
     singleValue: false
@@ -103,9 +102,9 @@ fields:
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
-  - name: shippingWeight
+  - name: name
     singleValue: false
-    description: Stated shipping weight
+    xpath: //span[@class="base"]
   - name: variantCount
     singleValue: false
     xpath: count(//div[@class="swatch-attribute-options clearfix"]//a[@class="swatch-option   text"])
