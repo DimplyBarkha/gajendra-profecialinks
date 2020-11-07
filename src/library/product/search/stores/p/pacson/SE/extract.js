@@ -67,7 +67,7 @@ async function implementation(
         }
       }
     };
-    var backgroundURL = getAllXpath('//span[@class="product__name__productitemno"]', 'nodeValue');
+    var backgroundURL = getAllXpath('//span[@class="product__name__productitemno"]/text()', 'nodeValue');
     sliceURL(backgroundURL);
   });
   //rank end

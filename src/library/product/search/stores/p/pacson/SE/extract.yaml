@@ -12,7 +12,7 @@ fields:
     regExpReplace: https://pacson.se$1
   - name: productUrl
     singleValue: false
-    xpath: //ul[@class="row product-list"]/li/figure[@class="product__figure"]/a/img/@src
+    xpath: //li[@class="product-list__item columns small-12 medium-2"]/figure/a/@href
     # xpath: (//figure[@class="product__figure"]/a)/@href
     # regExp: (sortiment/.*)
     regExp: (/.+)
@@ -29,9 +29,9 @@ fields:
   - name: name
     singleValue: false
     xpath: (//span[@class="product__name"]/span)
-  # - name: rankOrganic
-  #   singleValue: false
-  #   xpath: //html//div[@id='altImages']
+  - name: rank
+    singleValue: false
+    xpath: //html//div[@id='altImages']
   # - name: rank
   #   singleValue: false
   #   xpath: //html//div[@id='altImages']
