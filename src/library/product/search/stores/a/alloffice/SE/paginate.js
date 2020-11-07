@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'SE',
     store: 'alloffice',
-    nextLinkSelector: 'div[id="content-container"]>main>div>div>div>button[type="button"]',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: '//div[@id="content-container"]',
+    noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'alloffice.se',
     zipcode: '',
