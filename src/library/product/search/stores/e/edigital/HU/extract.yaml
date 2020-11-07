@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='product-list']//ul[@id='prefixbox-search-engine']//li[contains(@id,'ed-prod-')]
+fields: 
+  - name: rankOrganic
+    SingleValue: false    
+  - name: rank
+    SingleValue: false
+  - name: id
+    singleValue: false
+    xpath: //div[@class='product-list']//ul[@id='prefixbox-search-engine']//li[contains(@id,'ed-prod-')]//div[@class='name']//a/@data-pfx-id
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-list']//ul[@id='prefixbox-search-engine']//li[contains(@id,'ed-prod-')]//div[@class='name']//a//span
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='product-list']//ul[@id='prefixbox-search-engine']//li[contains(@id,'ed-prod-')]//div[@class='name']//a/@href
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product-list']//ul[@id='prefixbox-search-engine']//li[contains(@id,'ed-prod-')]//div[@class='functions functions-discount clearfix ']//span[@class='price-wrapper price-wrapper--discount']//span[contains(@class,'price')]
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='product-list']//ul[@id='prefixbox-search-engine']//li[contains(@id,'ed-prod-')]//div[@class='image']//img/@src
+  - name: aggregateRating2
+    SingleValue: false
+    xpath: //div[@class='product-list']//ul[@id='prefixbox-search-engine']//li[contains(@id,'ed-prod-')]//div[@class='more-info clearfix']//div[contains(@class,'rating-stars ratting_')]/@data-rating
