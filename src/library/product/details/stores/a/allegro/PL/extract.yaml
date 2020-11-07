@@ -1,0 +1,17 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[contains(@data-role, 'app-container')]//div[@style]/img/@src
+  - name: category
+    xpath: //div[contains(@data-role, 'breadcrumbs-list')]//div[contains(@data-role, 'breadcrumb-item') and position() > 1]/a
+  - name: nameExtended
+    xpath: //a[contains(@data-analytics-interaction-custom-flow,"ShowItem")]/preceding-sibling::h1
+  - name: price
+    xpath: //meta[@itemprop='price']/@content
+    regExp: (.+)
+    regExpReplace: $1 PLN
+  - name: availability
+    xpath: //link[@itemprop='availability']/@href
