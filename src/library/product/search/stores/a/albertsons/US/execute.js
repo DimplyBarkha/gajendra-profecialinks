@@ -1,18 +1,5 @@
 
-// module.exports = {
-//   implements: 'product/search/execute',
-//   parameterValues: {
-//     country: 'US',
-//     store: 'albertsons',
-//     domain: 'albertsons.com',
-//     url: 'https://www.albertsons.com/shop/search-results.html?q={searchTerms}&zipcode=83642',
-//     loadedSelector: 'picture[class*="product-image product-image"]>img',
-//     noResultsXPath: "//h1[contains(text(),'No results')]",
-//     zipcode: '83642',
-//   },
-// };
-
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -49,12 +36,12 @@ async function implementation(
         const productsCount = products.snapshotLength;
         scrollTop += 1000;
         window.scroll(0, scrollTop);
-        if (scrollTop === 20000 || productsCount > 150) {
+        if (scrollTop === 20000 || productsCount > 160) {
           await stall(10000);
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
