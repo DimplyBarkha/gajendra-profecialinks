@@ -42,9 +42,9 @@ fields:
   - name: availabilityText
     singleValue: true
     xpath: //strong[contains(@class,'stock-message__info')]
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[@itemprop='description']
@@ -55,5 +55,5 @@ fields:
   #   singleValue: fasle
   #   xpath: (//div[contains(@class,'product-tab__content wysiwyg')])[3]
   - name: category
-    singleValue: true
+    singleValue: false
     xpath: //ol[@class='vue-breadcrumb']//span[not(text()='Home') and not(text()='Brand')]

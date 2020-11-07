@@ -41,6 +41,18 @@ const transform = (data) => {
           item.text = 'https://www.adorebeauty.com.au' + item.text;
         });
       }
+      if (row.category) {
+        row.category.splice(row.category.length - 1, 1);
+      }
+      if (row.availabilityText) {
+        row.availabilityText.forEach(item => {
+          if (item.text.toUpperCase() === 'IN STOCK') {
+            row.availabilityText = [{ text: 'In Stock' }];
+          } else {
+            row.availabilityText = [{ text: 'Out of Stock' }];
+          }
+        });
+      }
     }
   }
   return cleanUp(data);
