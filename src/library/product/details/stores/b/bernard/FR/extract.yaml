@@ -90,7 +90,7 @@ fields:
     description: The manufacturer model code (unique) of the product
     type: NUMBER
     xpath: //div[@class="formLabel"]/@content
-    regExp: (\d.+)
+    regExp: (\d{3,9})
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
