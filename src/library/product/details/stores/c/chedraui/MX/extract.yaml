@@ -13,10 +13,12 @@ fields:
     xpath: //div[@class="item active"]/div/img/@alt
   - name: alternateImages
     singleValue: false
-    description: Other product images (not in manufacturer description)
+    xpath: (//div[@class="owl-item"]//a//img/@src)[position()>1]
+    regExp: (.+)
+    regExpReplace: https://www.chedraui.com.mx$1
   - name: metaKeywords
     singleValue: false
-    xpath: //meta[@name="keywords"]
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     xpath: (//div[@class="breadcrumb-section"]//ol//li)[position()>1]
@@ -25,11 +27,10 @@ fields:
     xpath: (//div[@class="breadcrumb-section"]//ol//li)[position()>1][position()<last()]
   - name: nameExtended
     singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //div[contains(@class,"product-details-name")]/text()
   - name: listPrice
     singleValue: false
-    description: The stated undiscounted price for the product
+    xpath: //p[contains(@class,"price-colour-strike-pdp")]//span//text()
   - name: price
     singleValue: false
     xpath: //div[contains(@class,"add-to-cart-container")]//p/text() 
@@ -48,7 +49,7 @@ fields:
     singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
-  - name: brandText
+  - name: brand
     singleValue: false
     xpath: //td//span[contains(text(),"Tipo")]//..//following-sibling::td//text()
   - name: manufacturer
@@ -134,7 +135,12 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: false
-    description: The product name
+    xpath: //div[contains(@class,"product-details-name")]/text()
+  - name: size
+    singleValue: false
+    xpath: //div[contains(@class,"product-details-name")]/text()
+    regExp: \b(\w+)$
+    regExpReplace: $1
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
@@ -224,7 +230,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
-    description: null
+    xpath: count((//div[@class="owl-item"]//a//img/@src)[position()>1])
     type: NUMBER
   - name: news
     singleValue: false
@@ -241,10 +247,12 @@ fields:
       discernible start/end point
   - name: servingSize
     singleValue: false
-    description: The size of serving Nutritional information is based on.
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Porciones por Envase")]//following-sibling::td//text() | //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Tamaño de la Porción")]//following-sibling::td//text()
   - name: servingSizeUom
     singleValue: false
-    description: Unit of measure of serving
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Porciones por Envase")]//following-sibling::td//text() | //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Tamaño de la Porción")]//following-sibling::td//text()
+    # regExp: ([a-z])
+    # regExpReplace: $1
   - name: numberOfServingsInPackage
     singleValue: false
     description: Suggested number of servings of the product.
@@ -260,12 +268,12 @@ fields:
     type: NUMBER
   - name: totalFatPerServing
     singleValue: false
-    description: Nutritional Information for Total Fat content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Grasa Total")]//following-sibling::td//text()
   - name: totalFatPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Fat content
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Grasa Total")]//following-sibling::td//text()
+    regExp: ([a-z])
+    regExpReplace: $1
   - name: saturatedFatPerServing
     singleValue: false
     description: Nutritional Information for Saturated Fat content - Usually based
@@ -284,11 +292,9 @@ fields:
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
     singleValue: false
-    description: Nutritional Information for Cholesterol content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Colesterol")]//following-sibling::td//text()
   - name: cholesterolPerServingUom
-    singleValue: false
+    singleValue: false 
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
     singleValue: false
@@ -300,49 +306,43 @@ fields:
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: false
-    description: Nutritional Information for Total Carbohydrate content - Usually
-      based on per 100g serving
-    type: NUMBER
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Carbohidratos")]//following-sibling::td//text()
   - name: totalCarbPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Carbohydrate content
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Carbohidratos")]//following-sibling::td//text()
+    regExp: ([a-z])
+    regExpReplace: $1
   - name: dietaryFibrePerServing
     singleValue: false
-    description: Nutritional Information for Dietary Fibre content - Usually based
-      on per 100g serving
-    type: NUMBER
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Fibra Dietética")]//following-sibling::td//text()
   - name: dietaryFibrePerServingUom
     singleValue: false
-    description: Unit of Measure Data for Dietary Fibre content
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Fibra Dietética")]//following-sibling::td//text()
+    regExp: ([a-z])
+    regExpReplace: $1
   - name: totalSugarsPerServing
     singleValue: false
-    description: Nutritional Information for Total Sugar content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Azúcares Totales")]//following-sibling::td//text()
   - name: totalSugarsPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Sugar content
+    # xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Azúcares Totales")]//following-sibling::td//text()
   - name: proteinPerServing
     singleValue: false
-    description: Nutritional Information for Protein content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Proteínas")]//following-sibling::td//text()
   - name: proteinPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Protein
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Proteínas")]//following-sibling::td//text()
+    regExp: ([a-z])
+    regExpReplace: $1
   - name: vitaminAPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin A content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Vitaminas")]//following-sibling::td//text()
   - name: vitaminAPerServingUom
     singleValue: false
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin C content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Vitaminas")]//following-sibling::td//text()
   - name: vitaminCPerServingUom
     singleValue: false
     description: Unit of Measure Data for Vitamin C
@@ -386,7 +386,7 @@ fields:
     description: null
   - name: specifications
     singleValue: false
-    description: The physical dimensions of the product including packaging.
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td//text()
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
@@ -395,7 +395,7 @@ fields:
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: false
-    description: The country from which the product originates
+    xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"País de Origen")]//following-sibling::td//text()
   - name: allergyAdvice
     singleValue: false
     description: Allergy information associated with the product
