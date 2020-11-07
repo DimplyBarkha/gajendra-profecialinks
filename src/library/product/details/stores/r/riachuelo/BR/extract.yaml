@@ -24,20 +24,20 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
-    xpath: //span[@class="base"]
+    xpath: concat(//tbody//tr//td[@data-th="Marca"],' ', //span[@class="base"])
   - name: listPrice
     singleValue: false
-    xpath: normalize-space(//span[@class="old-price"]//span[@class="price-wrapper "]//span)
+    xpath: //span[@class="old-price"]//span[@class="price-wrapper "]//span
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class="product-add-form"]//form//div[@class="actions"]//button/@title
+    xpath: //div[@class="actions"]//button/@disabled
     regExp: (.+)
     regExpReplace: Out of stock
     defaultValue: In Stock
     # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="value"]
+    xpath: //div[@class="value"]/text()
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -67,7 +67,7 @@ fields:
     description: The store-specific product identifier
   - name: variantId
     singleValue: false
-    xpath: //div[@class="product-add-form"]//form/@data-product-sku
+    xpath: //tbody//tr//td[@data-th="Código do Produto"]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: false
