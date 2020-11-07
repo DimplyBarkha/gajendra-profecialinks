@@ -57,9 +57,9 @@ async function implementation(
     var ppu = getAllXpath("//div[@class='price-block-right']/div[@class='unit-price']/span/text()", 'nodeValue')
     // .toString()).replace(/(\r\n|\n|\r)/gm, " ")).replace(" € * , / , ", "/");
     if (ppu != null){
-      // var pp = (ppu.toString()).replace(/(\r\n|\n|\r)/gm, " ").replace(" € * , / , ", "/");
-      // var pp = pp.substring(0, pp.length - 3);
-      addElementToDocument('ppu', ppu);
+      var pp = (ppu.toString()).replace(/(\r\n|\n|\r)/gm, " ").replace(" € * , / , ", "/");
+      var pp = pp.substring(0, pp.length - 3);
+      addElementToDocument('ppu', pp);
     }
     
     var promotion = getXpath("//div[@class='product-flag']/div/span/text()", 'nodeValue')
@@ -72,6 +72,7 @@ async function implementation(
     var lisPri = getXpath('(//div[@class="product-price  st-price "]/span/span)[1]/text() | (//span[@class="price-sales "]/span)[1]/text()', 'nodeValue');
     if (lisPri != null){
       // var lis = (lisPri.split(" ")[0]).replace(",","");
+      var lis = lisPri.replace(".","");
       addElementToDocument('lisPri', lisPri);
     }
   
