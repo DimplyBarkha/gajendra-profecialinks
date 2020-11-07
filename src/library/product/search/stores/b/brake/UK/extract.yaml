@@ -1,20 +1,27 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class, "product__listing")]//div[contains(@id,"product")]
 fields:
   - name: id
     singleValue: false
+    xpath: //div[contains(@class, "product__listing")]//div[contains(@id,"product")]/@data-id
   - name: searchUrl
-    singleValue: true
+    singleValue: false
   - name: name
     singleValue: false
+    xpath: //a[@class='product-item__name product-name  ']/@title
+    #if product is opened on another tab price differs from the price on the search page
   - name: productUrl
     singleValue: false
+    xpath: //a[@class="product-item__name product-name  "]/@href
+    regExp: (.+)
+    regExpReplace: https://www.brake.co.uk/$1
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //img[contains (@class,"product-image")]/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -25,6 +32,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //div[contains(@class, 'product-price--current-price')]/span[contains (@class,'product-price__value--current')]
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -44,5 +52,5 @@ fields:
     description: Is sponsored/paid
     type: BOOLEAN
   # - name: totalRecordCount
-  #   singleValue: true 
+  #   singleValue: true
   #   type: NUMBER
