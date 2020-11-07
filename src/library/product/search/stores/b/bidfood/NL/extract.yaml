@@ -1,0 +1,17 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="product-list"]/div[@class="d-flex flex-wrap"]/div
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"mux-list-item__title")]/a
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,"mux-list-item__image")]/a/img/@src
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,"mux-product-item") and contains(@class,"mux-list-item")]/@product-id
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,"mux-list-item__image")]/a/@href
