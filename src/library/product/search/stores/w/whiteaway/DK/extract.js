@@ -1,4 +1,5 @@
 const { transform } = require('../../../../shared');
+
 async function implementation (
   inputs,
   parameters,
@@ -7,26 +8,25 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.evaluate(async () => {
-    function showVisible() {
-      for (let img of document.querySelectorAll('img')) {
-        let realSrc = img.dataset.src;
-        if (!realSrc) continue;
-    
-        if (isVisible(img)) {
-          img.src = realSrc;
-          img.dataset.src = '';
-        }
+  await context.evaluate(async function () {
+    let scrollTop = 0;
+    while (scrollTop !== 20000) {
+      await stall(500);
+      scrollTop += 1000;
+      window.scroll(0, scrollTop);
+      if (scrollTop === 20000) {
+        await stall(5000);
+        break;
       }
     }
-    
-    showVisible();
-    window.onscroll = showVisible;
-      // window.addEventListener('scroll', function() {
-      //   document.getElementById('showScroll').innerHTML = window.pageYOffset + 'px';
-      // });
-      await new Promise(r => setTimeout(r, 6000));
-  }) 
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+  });
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
@@ -40,17 +40,4 @@ module.exports = {
   implementation,
 };
 
-
-// const { cleanUp } = require('../../../../shared');
-
-// module.exports = {
-//   implements: 'product/search/extract',
-//   parameterValues: {
-//     country: 'DK',
-//     store: 'whiteaway',
-//     transform: cleanUp,
-//     domain: 'whiteaway.com',
-//     zipcode: '',
-//   },
-// };
 
