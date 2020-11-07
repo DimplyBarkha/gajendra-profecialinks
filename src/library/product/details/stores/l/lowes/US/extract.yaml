@@ -47,13 +47,13 @@ fields:
     xpath: count(//div[contains(@class,"product-info")]//ul/li | //div[@class="content"]//div[@class="specs"]//ul/li)
   - name: sku
     singleValue: false
-    xpath: //link[@rel="canonical"]/@href
-    regExp: (\/)(\d+)
+    xpath: skuskuy
+    regExp: \"sku":"(([^,]+)")
     regExpReplace: $2
   - name: variantId
     singleValue: false
-    xpath: //link[@rel="canonical"]/@href
-    regExp: (\/)(\d+)
+    xpath: //div[@class="modelNo"]//span[@aria-hidden="true"]
+    regExp: (\Item\s#)(.*)\s(.*)
     regExpReplace: $2
   - name: mpc
     singleValue: false
@@ -77,7 +77,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: concat((//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1]," ",(//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[2])
+    xpath: (//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1]
   - name: promotion
     singleValue: false
     xpath: //span[@class="offer"]//div[1]
@@ -115,7 +115,7 @@ fields:
     defaultValue: '0'
   - name: color
     singleValue: false
-    xpath: concat((//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1],",",(//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[2])
+    xpath: (//div[@id="Specifications-section"]//div[@class="tr"]/div[contains(text(),"Color")]/following-sibling::div)[1]
   - name: Image360Present
     singleValue: false
     xpath: //button[@data-thumbtypeindex="main0"]//img//@data-met-type
@@ -135,8 +135,10 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: technicalInformationPdfPresent
-    singleValue: false
-    xpath:  //div[@class="guides"]//div[@class="info"]/a[contains(text(),"Operating")]
+    singleValue: true
+    xpath: //div[@class="guides"]
     regExp: (.+)
-    regExpReplace: Yes
-    defaultValue: No
+    regExpReplace: 'Yes'
+    defaultValue: 'No'
+  - name: imageZoomFeaturePresent
+    defaultValue: Yes
