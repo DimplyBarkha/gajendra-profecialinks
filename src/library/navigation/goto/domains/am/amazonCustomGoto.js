@@ -63,6 +63,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
           elementChecks[prop] = true;
         } else { elementChecks[prop] = false; }
       }
+      elementChecks["isOffersPage"] = window.location.href.includes('offer-listing')
       elementChecks["hasVariants"] = !!window.isTwisterPage
       elementChecks["windowLocation"] = window.location
       return elementChecks;
@@ -416,7 +417,7 @@ async function goto(gotoInput, parameterValues, context, dependencies) {
       return false;
     }
 
-    if (lastResponseCode !== 200) {
+    if (lastResponseCode !== 200 && (page.is400Page || page.is500Page) ) {
       return context.reportBlocked(lastResponseCode, 'Blocked: ' + lastResponseCode);
     }
 
