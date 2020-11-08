@@ -22,7 +22,9 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: false
-    xpath: concat('https://shop.foodlion.com/product/',substring-after(//span[contains(@id,"add-to-cart-ada")]/@id,'increment-'),'/',//div[contains(@class,"cell-title-text")])
+    xpath: //span[contains(@id,"add-to-cart-ada-increment")]/@id
+    regExp: add-to-cart-ada-increment-(.+)
+    regExpReplace: https://shop.foodlion.com/product/$1
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
