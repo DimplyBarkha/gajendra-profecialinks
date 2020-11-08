@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'currys',
     domain: 'currys.co.uk',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'h1.page-title',
+    noResultsXPath: "//p[@class='e404-headline']",
     zipcode: '',
   },
 };
