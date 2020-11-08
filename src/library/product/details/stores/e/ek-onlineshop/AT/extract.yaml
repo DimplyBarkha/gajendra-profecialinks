@@ -176,7 +176,8 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@class="product-description-short"]//iframe[contains(@src,"youtube")]/@src
+    xpath: (//div[@class="product-description-short"]//iframe[contains(@src,"youtube")]/@src | //div[contains(@class,"flix-videodiv")]//iframe[contains(@id,"flix-iframe")][contains(@title,"Flix-media-video")]/@src | //div[contains(@class,"flix-videodiv")]//iframe[contains(@id,"flix-iframe")][contains(@title,"Flix-media-video")]/@_src)[1]
+    # xpath: //div[@class="product-description-short"]//iframe[contains(@src,"youtube")]/@src
   - name: name
     singleValue: true
     description: The product name
