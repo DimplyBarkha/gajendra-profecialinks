@@ -36,7 +36,9 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: (//ul[@class="check-list"])[1]/li//text()
+    xpath: (//ul[@class="check-list"])[1]/li/span/text()
+    # xpath: (//ul[@class="check-list"])[1]/li/span/text() | //div[@class="mini-hero-v2"]//p//text()
+    # xpath: //div[@class="mini-hero-v2"]//p/text() | //div[@class="mini-hero-v2"]//span/text() | (//ul[@class="check-list"])[1]/li/span/text()
   - name: descriptionBullets
     singleValue: false 
     xpath: count((//ul[@class="check-list"])[1]/li/span/text())
@@ -47,14 +49,16 @@ fields:
   - name: manufacturer
     singleValue: false
     # xpath: //span[contains(text(),"Marka")]/../text()
-  - name: quantity
+  - name: packSize
     singleValue: false
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: (//ul[@class="check-list"])[1]/li/span[contains(text(),"paket")]
+    regExp: ([\d]+)
+    # regExp: \b(\w+)\b
+    regExpReplace: $1
   - name: weightNet
     singleValue: false
-    description: Net weight as described on the page
+    xpath: //h1[@id="productName"]
+    regExp: ([\d]+)\W(\w+)$
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -108,8 +112,8 @@ fields:
     xpath: //link[@rel="canonical"]/@href
   - name: variantCount
     singleValue: false
-    description: Number of variants listed
-    type: NUMBER
+    # xpath: //div[@itemprop="sku"]/@content
+    defaultValue: "0"
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -118,6 +122,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
+    # xpath: //div[@class="mini-hero-v2"]//div//text() | //div[@id="p10-lp-main"]//text()
     xpath: //div[@itemprop="description"]//td/text() | //span[@class="p1-lp-pro-title"]//text() | //span[@class="p1-lp-pro-title"]//..//text() | //div[@itemprop="description"]//div//text()
   - name: manufacturerImages
     singleValue: false
@@ -240,6 +245,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: (//ul[@class="check-list"])[1]/li//text()
     # xpath: count(//div[@itemprop="description"]//td[contains(@style,"border")])
     example: 4 - 99 years
   - name: energyEfficiency
@@ -258,8 +264,7 @@ fields:
     defaultValue: No
   - name: privacyPolicy
     singleValue: false
-    description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: customerServiceAvailability
     singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
@@ -278,4 +283,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: Yes
+    defaultValue: No
