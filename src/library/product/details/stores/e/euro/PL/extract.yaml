@@ -44,7 +44,7 @@ fields:
     xpath: //a[@id='big-photo']//img//@alt
   - name: category
     singleValue: false
-    xpath: //div[@id='breadcrumb']//ul//li[position()>1]
+    xpath: //div[@id='breadcrumb']//ul//li[position()>2][position()<last()]
   - name: nameExtended
     singleValue: false
     xpath: //div[@class='product-header']//h1/text()
