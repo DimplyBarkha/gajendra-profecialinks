@@ -112,9 +112,9 @@ fields:
     xpath: //span[contains(text(),"Energiklass")]//../following-sibling::td
   - name: packSize
     singleValue: false
-    xpath: //div[@data-tab="tab-more-info"]//p/text()
-    regExp: storlek\W\W([^ ]+)
-    regExpReplace: $1
+    xpath: //div[contains(text(),"Skärmstorlek (tum)")]//../following-sibling::div//div[@class="variation  active   "]//a
+    # regExp: storlek\W\W([^ ]+)
+    # regExpReplace: $1
   - name: name
     singleValue: false
     manualSelector: h1.product-title
@@ -143,24 +143,24 @@ fields:
   - name: energyEfficiency
     singleValue: false
     xpath: //span[contains(text(),"Energiklass (EU)")]//../following-sibling::td
-  # - name: weightNet
-  #   singleValue: false
-  #   xpath: //td[contains(text(),"Vikt (kg)")]//following-sibling::td
-  # # - name: packSize
-  #   singleValue: false
-  #   xpath: //td[contains(text(),"Skärmstorlek (tum/cm)")]/following-sibling::td
+  - name: firstVariant
+    singleValue: false
+    xpath: (//div[@class="variation-box"]/a)[1]
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="variation-box"]/a
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//ul[@class="slick-dots"]//li[position()>1])
   - name: shippingDimensions
     singleValue: false
-    # xpath: //span[contains(text(),"Mått & vikt")]//..//following-sibling::dd//tr
-    xpath: //span[contains(text(),"Mått & vikt")]//..//following-sibling::dd//tr/td[contains(text(),"Höjd (cm)")]/following-sibling::td |//span[contains(text(),"Mått & vikt")]//..//following-sibling::dd//tr/td[contains(text(),"Bredd (cm)")]/following-sibling::td | //span[contains(text(),"Mått & vikt")]//..//following-sibling::dd//tr/td[contains(text(),"Djup (cm)")]/following-sibling::td
-  # - name: variantInformation
-  #   singleValue: false
-  #   #xpath: //div[@class="table-cell header"]
-  #   xpath: //span[@class="table-cell pdp-s-name"]
-  #   regExp: \W\W(.+)\W
+    xpath: //span[contains(text(),"Mått & vikt")]//../following-sibling::dd//tr
+    # xpath: //span[contains(text(),"Mått & vikt")]//..//following-sibling::dd//tr/td[contains(text(),"Höjd (cm)")]/following-sibling::td |//span[contains(text(),"Mått & vikt")]//..//following-sibling::dd//tr/td[contains(text(),"Bredd (cm)")]/following-sibling::td | //span[contains(text(),"Mått & vikt")]//..//following-sibling::dd//tr/td[contains(text(),"Djup (cm)")]/following-sibling::td
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="table-cell header"]
+    # xpath: //span[@class="table-cell pdp-s-name"]
+    regExp: \W\W(.+)\W
   - name: variantCount
     singleValue: false
     xpath: count(//div[@class="table-cell variations"]//a)

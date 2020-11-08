@@ -101,14 +101,14 @@ const transform = (data) => {
         ];
       }
 
-      if (row.productOtherInformation) {
+      if (row.variants) {
         let text = '';
-        row.productOtherInformation.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+        row.variants.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ' ')} | `;
         });
-        row.productOtherInformation = [
+        row.variants = [
           {
-            text: text.slice(0, -4),
+            text: text.slice(0, -3),
           },
         ];
       }
@@ -116,7 +116,7 @@ const transform = (data) => {
       if (row.shippingDimensions) {
         let text = '';
         row.shippingDimensions.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} X `;
+          text += `${item.text.replace(/\n \n/g, ':')} | `;
         });
         row.shippingDimensions = [
           {
