@@ -13,7 +13,7 @@ fields:
     xpath: //div[@class="container"]//div[contains(@class,"css-19idom")]//h1[contains(@class,"css-rfo7gs")]
     singleValue: false
   - name: alternateImages    
-    xpath: //div[@class="container"]//div[@id="gallery"]//ul//div//@src
+    xpath: //div[@class="container"]//div[@id="gallery"]//ul//li/img[not(contains(@src,'youtube')) and not(contains(@class,"selected"))]/@src
     singleValue: false
   - name: category    
     xpath: //div[@class="container"]//nav[@id="breadcrumb"]//li[position()>1]
@@ -52,18 +52,17 @@ fields:
     regExpReplace: https://www.youtube.com/embed/$2
     singleValue: false
   - name: description
-    xpath: //div[@class="container"]//div[contains(@class,"accordion-content")]//div[@id="product-description"]
+    xpath: //div[contains(@class,"accordion-content")]/div[contains(@id,"product-detail-list-0")]//div[contains(@class,'row content')]
     singleValue: false
   - name: specifications
-    xpath: //div[@class="container"]//div[contains(@class,"css-uirvwh")]//div[contains(@class,"accordion-content")]//div[contains(@id,"product-detail-list-1")]
+    xpath: //div[@class="container"]//div[contains(@class,"css-uirvwh")]//div[contains(@class,"accordion-content")]//div[contains(@id,"product-detail-list-1")]//div[contains(@class,'row content')]
     singleValue: false
   - name: promotion
     xpath: //div[@class="container"]//div[contains(@id,"product-price-box")]//span[contains(@id,"discount-stamp")]
     singleValue: false
   - name: list_price
     xpath: //div[@class="container"]//div[contains(@id,"product-price-box")]//p[contains(@class,"product-price-original")]
-    regExp: (\d+[\.,]\d+[\.,]\d+)
-    regExpReplace: $1    
+    singleValue: false
   - name: availabilityText
     singleValue: false
     xpath: //div[contains(@id,'product-availability')]
@@ -79,9 +78,25 @@ fields:
     xpath: //div[contains(translate(string(), 'Características Gerais', 'Características Gerais'), 'Características Gerais')]/span
     singleValue: false  
   - name: descriptionBullets
-    xpath: (//div[contains(translate(string(), 'Características Gerais', 'Características Gerais'), 'Características Gerais')]/span | //div[contains(translate(string(), 'Conexões', 'Conexões'), 'Conexões')]/span)
+    xpath: concat(//div[contains(translate(string(), 'Características Gerais', 'Características Gerais'), 'Características Gerais')]/span | //div[contains(translate(string(), 'Conexões', 'Conexões'), 'Conexões')]/span)
     regExp: (-\s.*)
     regExpReplace: $1
+    singleValue: false
+  - name: secondaryImageTotal
+    xpath: count(//div[@class="container"]//div[@id="gallery"]//ul//li/img[not(contains(@src,'youtube'))])-1
+    singleValue: false
+  - name: variantInformation
+    xpath: //div[@class="container"]//select[@id="select-sku"]/option[1]
+    singleValue: false  
+  - name: variants
+    xpath: //div[@class="container"]//select[@id="select-sku"]//option/@value
+    singleValue: false
+  - name: firstVariant
+    xpath: //div[@class="container"]//select[@id="select-sku"]//option[1]/@value
+    singleValue: false  
+  - name: variantAsins
+     
+  
 
 
 

@@ -4,10 +4,12 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: variantId
-    xpath: //select[contains(@id,'select-sku')]//@value
+    xpath: //div[@id='variant_id_text'][last()]
     singleValue: false
+    regExp: (\d+)
+    regExpReplace: $1
   - name: variantUrl
     singleValue: false
-    xpath: //select[contains(@id,'select-sku')]//@value
+    xpath: //div[@id='variant_url_text'][last()]
     regExp: (\d+)
     regExpReplace: https://produto.pontofrio.com.br/$1

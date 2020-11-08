@@ -22,7 +22,30 @@ const transform = (data) => {
           //row.sku[0].text.match(/(\/(\d+))/)[2]
           row.sku[0].text = row.sku[0].text.match(/(\/(\d+))/)[2]
         }
-        
+        if (row.variants) {          
+          const variantsArr = row.variants.map((item) => {
+            return item.text;
+          });
+          row.variants = [{ text: variantsArr.join(' | '), xpath: row.variants[0].xpath }];
+          row.variantAsins = [{ text: variantsArr.join(' | '), xpath: row.variants[0].xpath }];
+        }
+
+        if (row.description) {          
+          const descriptionArr = row.description.map((item) => {
+            return item.text;
+          });
+          row.description = [{ text: descriptionArr.join(' || '), xpath: row.description[0].xpath }];
+         
+        }
+
+        if (row.specifications) {          
+          const specificationsArr = row.specifications.map((item) => {
+            return item.text;
+          });
+          row.specifications = [{ text: specificationsArr.join(' || '), xpath: row.specifications[0].xpath }];
+         
+        }
+       
       }
     }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
