@@ -25,9 +25,9 @@ async function implementation (
       addHiddenDiv('priceText', priceText);
     }
     const aggregateRating = document.querySelector('div.star-rating__filled-stars').getAttribute('style')
-    var ratingValue=aggregateRating.split(':')
-    var aggregateratingValue=ratingValue[1]
-    var replaceValue=aggregateratingValue.replace('%','')
+    const ratingValue=aggregateRating.split(':')
+    const aggregateratingValue=ratingValue[1]
+    const replaceValue=aggregateratingValue.replace('%','')
       // @ts-ignore
       const finalAggregatingValue=(replaceValue*5)/100
       addHiddenDiv('aggregateRating', finalAggregatingValue);
@@ -36,13 +36,13 @@ async function implementation (
 
 return await context.extract(productDetails, { transform });
 }
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'FR',
     store: 'marionnaud',
-    transform: cleanUp,
+    transform: transform,
     domain: 'marionnaud.fr',
     zipcode: '',
   },

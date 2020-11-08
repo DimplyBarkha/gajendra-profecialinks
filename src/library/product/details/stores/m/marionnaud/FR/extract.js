@@ -28,37 +28,37 @@ async function implementation (
       return result;
     };
   // @ts-ignore
-  var brandText = window.dataLayer[0].ecommerce.detail.products[0].brand;
+  const brandText = window.dataLayer[0].ecommerce.detail.products[0].brand;
   addHiddenDiv('brandText', brandText);
     // @ts-ignore
-    var listPrice=window.dataLayer[0].ecommerce.detail.products[0].price
+    let listPrice=window.dataLayer[0].ecommerce.detail.products[0].price
     listPrice=listPrice+'€'
     addHiddenDiv('listPrice', listPrice);
   // @ts-ignore
-  var availabilityText = window.dataLayer[0].ecommerce.detail.products[0].stock;
+  const availabilityText = window.dataLayer[0].ecommerce.detail.products[0].stock;
   addHiddenDiv('availabilityText', availabilityText)
      // @ts-ignore
-  var variantId = window.dataLayer[0].ecommerce.detail.products[0].variant;
+     const variantId = window.dataLayer[0].ecommerce.detail.products[0].variant;
   addHiddenDiv('variantId', variantId)
   //gtin
-  var productInfo=document.getElementById('auditedOpinionsInfo').getAttribute('data-auditedopinionurl');
-  var splitProductInfo=productInfo.split('&')
+  const productInfo=document.getElementById('auditedOpinionsInfo').getAttribute('data-auditedopinionurl');
+  const splitProductInfo=productInfo.split('&')
   console.log(splitProductInfo)
-  var getGtin=splitProductInfo[5]
-  var gtinData=getGtin.split('=')
-  var gtinValue=gtinData[1]
+  const getGtin=splitProductInfo[5]
+  const gtinData=getGtin.split('=')
+  const gtinValue=gtinData[1]
   addHiddenDiv('gtinValue', gtinValue)
  
    // @ts-ignore
-   var warningInfo=''
+   let warningInfo="";
    if(document.getElementsByClassName('prodInfoTxtData')[1].textContent.includes("WARNING")){
     alert('hi')
     // @ts-ignore
-    var warningInfo = document.getElementsByClassName('prodInfoTxtData')[1].textContent
+     warningInfo = document.getElementsByClassName('prodInfoTxtData')[1].textContent
     addHiddenDiv('warningInfo', warningInfo);
    }
    else{
-     warningInfo = ""
+     warningInfo=""
      addHiddenDiv('warningInfo', warningInfo);
    }
    // @ts-ignore
@@ -82,14 +82,14 @@ async function implementation (
   return await context.extract(productDetails, { transform });
 }
 
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'FR',
     store: 'marionnaud',
-    transform: cleanUp,
+    transform: transform,
     domain: 'marionnaud.fr',
   },
   inputs: [ 
