@@ -53,7 +53,6 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-  # xpath: //div[contains(@class,'information')]
   xpath: //meta[@name='description']/@content
 - name: descriptionBullets
   singleValue: true
