@@ -9,4 +9,16 @@ module.exports = {
     store: 'mediamarkt',
     zipcode: '',
   },
+  implementation: (
+    inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
+    const { id } = inputs;
+    const { domain, prefix, suffix } = parameters;
+
+    const gotoUrl = `https://${domain}/nl/search.html?query=${id}&searchProfile=onlineshop&channel=mmnlnl`;
+    return gotoUrl;
+  },
 };
