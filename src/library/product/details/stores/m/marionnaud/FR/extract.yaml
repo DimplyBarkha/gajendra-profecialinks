@@ -30,7 +30,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@id='category']
+    xpath: //*[@id="top-bar"]/div[5]/div/div/ol/li[not(contains(@class, "back-btn"))] [not(contains(@class, "home"))]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -39,12 +39,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class='markdownPrice priceformat']
+    xpath: //div[@id='listPrice']
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='finalPrice']
+    xpath: //div[@id='priceText']
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -72,10 +72,11 @@ fields:
     singleValue: true
     description: Quantity as described on the page
     xpath: //div[@class='select']//div[@class='select-styled']
+    type: NUMBER
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //*[@class="size-box selected"]
+    xpath: //div[@class='select']//div[@class='select-styled']
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -94,6 +95,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //div[@id='auditedOpinionsContainer']/div/@data-product-code
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -150,10 +152,11 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //div[@class='ytp-title-text']/a[@class='ytp-title-link yt-uix-sessionlink']/@href
   - name: name
     singleValue: true
     description: The product name
-    xpath: //span[@class='productName']
+    xpath: //h1[@class='productNameInfo ']
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -244,6 +247,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//*[@id="images_old_gallary"]/li)-1
     type: NUMBER
   - name: news
     singleValue: true
@@ -458,6 +462,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //div[@class='size-box-wrapper']//span
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -472,6 +477,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
+    xpath: //div[@id='auditedOpinionsContainer']/div/@data-product-code
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
