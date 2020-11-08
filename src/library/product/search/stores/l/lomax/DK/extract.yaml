@@ -14,13 +14,13 @@ fields:
    type: NUMBER
  - name: rank
    singleValue: false
-   xpath: //div[@class="rr-product-container my-5"]
  - name: price
    singleValue: false
    type: CURRENCY
-   xpath: //div[@class="prices"]
+   xpath: //div[@class="prices"]/div
  - name: name
    singleValue: false
+   xpath: //div[@class="col-lg-8 col-7"]/a/h5
  - name: productUrl
    singleValue: false
-   xpath: //meta[@ property="og:url"]/@content
+   xpath: //div[@class="img-with-sticker"]/a/@href
