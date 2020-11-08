@@ -37,9 +37,9 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    manualSelector: script[type='application/ld+json']
-    regExp: '(\"availability\"\:\")(\w+)'
-    regExpReplace: $2
+    # manualSelector: script[type='application/ld+json']
+    # regExp: '(\"availability\"\:\")(\w+)'
+    # regExpReplace: $2
   - name: Additional_description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
