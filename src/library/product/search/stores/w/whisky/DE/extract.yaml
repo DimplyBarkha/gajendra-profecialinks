@@ -5,32 +5,27 @@ recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //a[@class='title']/@href
+    xpath: //div[@class='row']//a[@class='title']/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //a[@class='title']/img/@src
+    xpath: //div[@class='row']//a[@class='title']/img/@src
   - name: name
     singleValue: true
-    xpath: //a[@class='title']/@title
+    xpath: //div[@class='row']//a[@class='title']/@title
   - name: id
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class='form-group to-basket-default']//button//@data-datamints-enhancedga-product
-    regExp: '"(.*?)"([^:",]+)'
+    xpath: //div[@class='form-group to-basket-default']//button/@data-datamints-enhancedga-product
+    regExp: '(\"id\"\:\ ")([^"]+)'
     regExpReplace: $2
   - name: manufacturer
-    xpath: (//select[@name='searchmanufacturer']//font//font)[1]//text()
+    xpath: //select[@name='searchmanufacturer']//option//font//font//text()
   - name: rating
-    xpath: //div[@class='panel-body']//div[@class='rating ']/@data-rating
+    xpath: //div[@class='col-xl-6']//div[@class='rating ']/@data-rating
   - name: number_of_reviews
-    xpath: //div[@class='panel-body']//span[@class='rating-count']//span//font//text()
+    xpath: //div[@class='col-xl-6']//span[@class='rating-count']//span//font//text()
   - name: price
-    singleValue: true
     description: The offered price for the product
-    xpath: //div[@class='article-metadata']//div[@class='article-price']//span//text()
-    regExp: '\d+(?:\,\d+)?'
-  - name: Rating
-    description: The rating value of the product
-  - name: availabilityText
-    singleValue: true
-    xpath: //div[@class='article-metadata']//span[@class='hasTooltip']//text()
+    xpath: //div[@class='article-metadata']//span[@class='article-price-default article-club-hidden']//font//font//text()
+    # regExp: '\d+(\.\d+)?'
+    # regExpReplace: $1
