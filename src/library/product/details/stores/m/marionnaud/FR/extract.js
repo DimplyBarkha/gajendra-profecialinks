@@ -51,10 +51,10 @@ async function implementation (
  
    // @ts-ignore
    var warningInfo=''
-   if(document.getElementsByClassName('prodInfoTxtData')[1].innerHTML.includes("WARNING")){
+   if(document.getElementsByClassName('prodInfoTxtData')[1].textContent.includes("WARNING")){
     alert('hi')
     // @ts-ignore
-    var warningInfo = document.getElementsByClassName('prodInfoTxtData')[1].innerHTML
+    var warningInfo = document.getElementsByClassName('prodInfoTxtData')[1].textContent
     addHiddenDiv('warningInfo', warningInfo);
    }
    else{

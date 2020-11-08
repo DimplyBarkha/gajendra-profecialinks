@@ -23,19 +23,13 @@ fields:
     xpath: //ul[@class='product-listing product-grid']//li//div/a/div/div[@class='product_img']/img[@class='primImg primaryImage_prodcat']/@src
   - name: aggregateRating
     singleValue: true
-    xpath: //ul[@class='product-listing product-grid']//li//div/div[@class='infoTextCarousel']//div[@class='star-rating star-rating--plp']/div[@class='star-rating__filled-stars']/@style
+    xpath: //div[@id='finalAggregatingValue']
     regExp: (?<=:).*$
   - name: reviewCount
     singleValue: true
+    xpath: //div[@class='variant_num']/span
   - name: price
     singleValue: true
-    xpath: //ul[@class='product-listing product-grid']//li//div/div[@class='infoTextCarousel']//div[@class='price']//span[@class='lineinner']
-  - name: manufacturer
-    singleValue: true
-  - name: soldBy
-    singleValue: true
+    xpath: //div[@id='priceText']
   - name: rank
     singleValue: true
-  - name: endorsementText
-    singleValue: true
-    xpath: //div[@class='price-promotion']/div[@class='striked']
