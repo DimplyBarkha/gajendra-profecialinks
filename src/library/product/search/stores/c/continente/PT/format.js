@@ -30,10 +30,10 @@ const transform = (data) => {
             item.text='https://www.bidfood.nl'+item.text;
           });
         }
-        if(row.thumbnail){
-            row.thumbnail.forEach(item => {
-                if(item.text.substr(0,6)!='https')
-                item.text='https'+item.text;
+        if(row.id){
+            row.id.forEach(item => {
+                var tmp=item.text.split('(');
+                item.text=tmp[0];
             });
         }
         row.rank = [{ "text": rank }];

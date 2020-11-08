@@ -11,10 +11,10 @@ fields:
     xpath: //div[@class="image"]//img/@src
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="title"]/a/@herf
+    xpath: //div[@class="title"]/a/@href
   - name: price
     singleValue: false
-    xpath: //div[@class="standardPriceContainer-selector"]//div[@class="priceFirstRow"]/font/font
+    xpath: //div[@class="standardPriceContainer-selector"]//div[@class="priceFirstRow"]/text()
   - name: id
     singleValue: false
-    xpath: //input[@class="item_pid"]
+    xpath: //input[@class="item_pid"]/@value
