@@ -2,4 +2,19 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class="title"]/a/@title
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="image"]//img/@src
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="title"]/a/@herf
+  - name: price
+    singleValue: false
+    xpath: //div[@class="standardPriceContainer-selector"]//div[@class="priceFirstRow"]/font/font
+  - name: id
+    singleValue: false
+    xpath: //input[@class="item_pid"]
