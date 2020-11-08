@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//div[@class="swiper-slide ember-view swiper-slide-active"])[1]//img[@class="c-media-container__fallback-img lazyloaded"]/@src
+    xpath: (//div[@class="c-product-gallery__item"])[1]//img//@src
     regExp: (.+)
     regExpReplace: https:$1
   - name: imageAlt
@@ -13,7 +13,7 @@ fields:
     xpath: (//div[@class="swiper-slide ember-view swiper-slide-active"])[1]//img[@class="c-media-container__fallback-img lazyloaded"]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="c-product-gallery__item"]//img//@src
+    xpath: (//div[@class="c-product-gallery__item"])[position()>1]//img//@src
     regExp: (.+)
     regExpReplace: https:$1
   - name: metaKeywords
