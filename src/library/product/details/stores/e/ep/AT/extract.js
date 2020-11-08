@@ -20,6 +20,12 @@ async function implementation (
     console.log('No cookies pop-up.');
   }
 
+  try {
+    await context.waitForSelector('iframe[title="Flix-media-video-0"]');
+  } catch(e) {
+    console.log('Video in product information is not present');
+  }
+
   return await context.extract(productDetails, { transform });
 }
 

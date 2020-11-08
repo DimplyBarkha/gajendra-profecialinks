@@ -139,7 +139,7 @@ fields:
     xpath: //ul[@class='inpage_features_grid']//li//img//@srcset
   - name: videos
     singleValue: false
-    xpath: //div[@class='component cms-customcode-component']//iframe//@src
+    xpath: //div[@class='component cms-customcode-component']//iframe//@src | //iframe[contains(@title,"Flix-media-video")]//@src
     description: URLs of videos on page
   - name: name
     singleValue: true
