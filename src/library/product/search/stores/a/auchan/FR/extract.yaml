@@ -1,58 +1,48 @@
 singleRecord: false
 regionsSelector: null
-recordXPath: //div[contains(@class, 'product-item--wrapper')]
+recordXPath: //article[contains(@class, 'product-thumbnail')]
 fields:
-  - name: _url
+  - name: id
     singleValue: false
     description:
-    xpath: concat('https://www.auchan.fr',//a[contains(@class, 'product-list--seeAllProducts')]/@href)
+    xpath: //a[contains(@class,'product-thumbnail__details-wrapper')]/@href
+    regExp: \/pr-(\d*)
+    regExpReplace: $1
   - name: thumbnail
     singleValue: false
     description:
-    xpath: //span[@class="product-item--imgFlapContainer"]//img/@src
-  - name: brandText
-    singleValue: false
-    description:
-    xpath: //em[contains(@class, 'product-item--brand')]
+    xpath: //figure[contains(@class, 'product-thumbnail__picture')]/img/@src
   - name: name
     singleValue: false
     description:
-    xpath: //meta[@itemprop='image']/@alt
+    xpath: //div[contains(@class,'product-thumbnail__details')]//p[@itemprop="name"]//text()
   - name: price
     singleValue: false
     description:
-    xpath: //span[contains(@class, 'product-item--price')]
+    xpath: //div[contains(@class,'product-price__container')]//div/text()
   - name: aggregateRating
     singleValue: false
     description:
-    xpath: //meta[@itemprop='ratingValue']/@content
+    xpath: //div[contains(@class,'product-thumbnail__content-wrapper')]//div[@class='rating-value__wrapper']//meter/@value
   - name: aggregateRating2
     singleValue: false
     description:
-    xpath: //meta[@itemprop='ratingValue']/@content
+    xpath: //div[contains(@class,'product-thumbnail__content-wrapper')]//div[@class='rating-value__wrapper']//meter/@value
   - name: aggregateRatingText
     singleValue: false
     description:
-    xpath: //meta[@itemprop='ratingValue']/@content
+    xpath: //div[contains(@class,'product-thumbnail__content-wrapper')]//div[@class='rating-value__wrapper']//meter/@value
   - name: reviewCount
     singleValue: false
     description:
-    xpath: //meta[@itemprop='reviewCount']/@content
+    xpath: //div[contains(@class,'product-thumbnail__content-wrapper')]//div[@class='rating-value__wrapper']//span[@itemprop="reviewCount"]/text()
   - name: soldBy
     singleValue: false
     description:
     xpath: //div[contains(@class, 'product-item--wrapper')]//span[contains(@class, 'product-item--vendorname')]
-  - name: endorsementText
-    singleValue: false
-    description:
-    xpath: //span[contains(@class, 'product-item--flap')]
-  - name: variantId
-    singleValue: false
-    description:
-    xpath: //article[contains(@class, 'product-item--container')]/@data-code
   - name: productUrl
     singleValue: false
     description:
-    xpath: //div[@class="product-item--wrapper"]//a/@href
+    xpath: //a[contains(@class,'product-thumbnail__details-wrapper')]/@href
     regExp: (.*)
     regExpReplace: https://www.auchan.fr$1

@@ -14,6 +14,20 @@ const transform = (data, context) => {
         if (row.endorsementText && row.endorsementText.length > 1)
           row.endorsementText = [row.endorsementText[0]];
       }
+
+      if (row.aggregateRating) {
+        if (row.aggregateRating && row.aggregateRating.length) {
+          row.aggregateRating.map((item) => {
+            item.text = item.text.replace('.', ',');
+          });
+          row.aggregateRating2.map((item) => {
+            item.text = item.text.replace('.', ',');
+          });
+          row.aggregateRatingText.map((item) => {
+            item.text = item.text.replace('.', ',');
+          });
+        }
+      }
     }
   }
   const clean = text => text.toString()

@@ -6,8 +6,8 @@ module.exports = {
     store: 'auchan',
     domain: 'auchan.fr',
     url: 'https://www.auchan.fr/recherche?text={searchTerms}',
-    loadedSelector: 'div.product-list--container.grid',
-    noResultsXPath: null,
+    loadedSelector: 'div.list__container',
+    noResultsXPath: "//section[@class='no-result']",
     zipcode: '',
   },
 };
