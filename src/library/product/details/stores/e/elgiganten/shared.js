@@ -116,7 +116,7 @@ const transform = (data) => {
       if (row.shippingDimensions) {
         let text = '';
         row.shippingDimensions.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} | `;
+          text += `${item.text.replace(/\n \n/g, ':')} X `;
         });
         row.shippingDimensions = [
           {
