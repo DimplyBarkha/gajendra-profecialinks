@@ -143,6 +143,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: (//div[@class="vip__superspecs__container"][1]//div//text())
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -406,7 +407,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //*[contains(text(),'Specifikationer')]/following-sibling::div[1]
+    xpath: //*[contains(text(),'Specifikationer')]/following-sibling::div[1]//text()
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -425,7 +426,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //*[contains(text(),'Specifikationer')]/following::section[@class="vip__addition-info__outer js-sniff-color"]
+    xpath: //*[contains(text(),'Specifikationer')]/following::section[@class="vip__addition-info__outer js-sniff-color"]//p/text()
   - name: packaging
     singleValue: true
     description: Packaging information
