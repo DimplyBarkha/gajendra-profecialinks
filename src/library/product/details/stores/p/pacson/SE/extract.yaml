@@ -25,9 +25,9 @@ fields:
   - name: price
     singleValue: false
     type: CURRENCY
-    xpath: (//span[@class="price prio-30"])
-    regExp: (\d+),?(\d+).+
-    regExpReplace: $1.$2
+    xpath: //html//div[@id='price']
+    # regExp: (\d+),?(\d+).+
+    # regExpReplace: $1.$2
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -40,7 +40,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: (//span[@class="product-page__title__product_name"])
+    xpath: //h1[@class="product-page__title"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
