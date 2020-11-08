@@ -29,6 +29,7 @@ fields:
     xpath: //*[contains(@class,'-description')]/div | //*[@id="description"]/following-sibling::dd[1]/div
   - name: specifications
     singleValue: false
+    xpath: //div[contains(@class,"tab-content")]//div[contains(concat(' ',normalize-space(@class),' '),'std')]
   - name: sku
     singleValue: false
     description: The store-specific product identifier
