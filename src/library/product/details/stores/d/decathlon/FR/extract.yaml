@@ -1,0 +1,44 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+- name: image
+  singleValue: false
+  xpath: //div[@id="product-picture__slider"]//div[@id="pp-0-0"]//picture/@data-iesrc
+- name: alternateImages
+  singleValue: false
+  xpath: //div[@id="product-picture__slider"]//div[@class="product-picture__slide"]//picture/@data-iesrc
+- name: price
+  singleValue: false
+  xpath: //meta[@property="product:original_price:amount"]/@content
+- name: currency
+  singleValue: false
+  xpath: //meta[@property="product:original_price:currency"]/@content
+- name: newDescription
+  singleValue: false
+  xpath: //meta[@name="description"]/@content
+- name: availabilityText
+  singleValue: false
+  xpath: //a[@data-tid="stock-information"]
+- name: brandText
+  singleValue: false
+  xpath: //div[@class="plv2-el__basic-info"]//div[@class="plv2-el__brand"]
+- name: aggregateRating
+  singleValue: false
+  xpath: //div[@id="details-review-content"]//div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
+- name: imageAlt
+  singleValue: false
+  xpath alert: //div[@id="product-picture__slider"]//div[@class="product-picture__slide"]//picture//img/@alt
+- name: metaKeywords
+  singleValue: false
+  xpath: //meta[@name="keywords"]/@content
+- name: _url
+  singleValue: false
+  xpath URL: //meta[@property="og:url"]/@content
+- name: ratingCount
+  singleValue: false
+  xpath Count: //div[@class="container-notation-ref"]//span[@class="number-star"]
+- name: category
+  singleValue: false
+  xpath Count: //div[contains(@class, 'breadcrumbs')]//ul//li[@class="home"]//span[@class="content"]/font
