@@ -95,3 +95,8 @@ fields:
     singleValue: false    
   - name: firstVariant
     singleValue: false    
+  - name: videos
+    singleValue: false
+    xpath: //iframe[@class="detail-showcase--main-img"]//@src
+    regExp: (https:\/\/www.youtube.com\/embed\/)(.+)(\?)(.+)
+    regExpReplace: https://www.youtube.com/watch?v=$2
