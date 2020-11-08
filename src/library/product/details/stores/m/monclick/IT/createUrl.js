@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'monclick.it',
     prefix: null,
-    url: null,
+    url: 'https://monclick.it/Catalogo/SearchDispatcher.axd?testo={id}',
     country: 'IT',
     store: 'monclick',
     zipcode: '',
