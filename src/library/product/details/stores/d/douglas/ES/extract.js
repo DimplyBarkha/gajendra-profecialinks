@@ -70,6 +70,7 @@ async function implementation (
 
   return await context.extract(productDetails, { transform });
 }
+// 
 
 const { cleanUp } = require('../../../../shared');
 module.exports = {
