@@ -156,7 +156,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class, "image-holder slick-slide")]//video/@src
+    xpath: //div[contains(@class, "image-holder slick-slide")]//video/@src | //iframe[contains(@title,"Flix-media-video")]//@src
     description: URLs of videos on page
   - name: name
     xpath: //div[contains(@class, "product-detail-header")]//h1
