@@ -19,10 +19,12 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    xpath: //ul[@class="items"]/li[position()>1][position()<last()]
+    xpath: //div[@class="box-tocart"]//button/@data-category
+    # //ul[@class="items"]/li[position()>1][position()<last()]
   - name: nameExtended
     singleValue: false
-    xpath:  //div[@class="fotorama__caption__wrap"][1]
+    xpath: //meta[@name="title"]/@content 
+    #//div[@class="fotorama__caption__wrap"][1]
     # xpath: concat(//span[@class='brand-no-link'],' ',//div[@class='fotorama__caption__wrap'][1])
   - name: listPrice
     singleValue: false
@@ -40,20 +42,24 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //span[contains(text(),"Descrizione")]//..//..//following-sibling::div[1][@data-role="content"]/p
+    xpath: //span[contains(text(),"Descrizione")]//..//..//following-sibling::div[1][@data-role="content"]
+  - name: directions
+    singleValue: false
+    xpath: //span[contains(text(),"Consigli")]//..//..//following-sibling::div[1][@data-role="content"]    
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
     singleValue: false
-    xpath: //span[@class="brand-no-link"]
+    xpath: //div[@class="box-tocart"]//button/@data-brand
+    # //span[@class="brand-no-link"]
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
   - name: quantity
     singleValue: false
-    xpath: //input[@name="qty"]/@value
+    # xpath: //input[@name="qty"]/@value
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -69,9 +75,10 @@ fields:
     description: The store-specific product identifier
   - name: variantId
     singleValue: false
-    xpath: //div[@class="fotorama__caption__wrap"]/@id
-    regExp: labelledby(.+)
-    regExpReplace: $1
+    xpath: //meta[@itemprop="sku"]/@content
+    #xpath: //div[@class="fotorama__caption__wrap"]/@id
+    # regExp: labelledby(.+)
+    # regExpReplace: $1
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
