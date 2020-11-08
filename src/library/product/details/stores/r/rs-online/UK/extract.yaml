@@ -69,6 +69,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),Brand)]//following::span/a/span[text()]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -176,6 +177,9 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+    xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),Brand)]//following::span/a/@href
+    # regExp: (.+)
+    # regExpReplace: https://uk.rs-online.com/$1
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
