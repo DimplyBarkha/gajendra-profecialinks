@@ -12,7 +12,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   await context.waitForNavigation();
   // the popup is visible after a moment -> delaying the removal
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 30000));
   const isPopupPresent = await context.evaluate(async () => {
     return document.querySelector('div.truste_box_overlay');
   });
@@ -23,7 +23,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       document.querySelector('div.truste_overlay').remove();
     });
   }
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 20000));
 
   const isUserLogged = await context.evaluate(async () => {
     const currentUrl = window.location.href;
@@ -39,7 +39,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     await context.click('input[name="userId"]');
     // after filling in the account number input and clicking away, the page is reloaded
     // and the extractor needs to wait to fill in the rest of the inputs
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 30000));
     await context.evaluate(async () => {
       document.querySelector('input[name="userId"]').setAttribute('value', 'LLAWSON');
     });

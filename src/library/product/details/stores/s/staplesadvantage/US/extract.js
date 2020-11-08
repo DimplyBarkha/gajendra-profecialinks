@@ -1,7 +1,7 @@
 async function implementation (inputs, parameters, context, dependencies) {
   // extracting data in default url
-
   const { productDetails } = dependencies;
+
   await context.extract(productDetails);
 
   const iFrameSrc = await context.evaluate(async () => {
@@ -25,7 +25,6 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     // extract data in iframe
 
-    const { productDetails } = dependencies;
     await context.extract(productDetails);
   };
 };
