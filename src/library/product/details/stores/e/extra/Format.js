@@ -69,38 +69,8 @@ const transform = (data) => {
 
         if(row.quantity){
           var text = row.quantity[0].text;
-          var txtArray = String(text).split("\n");
-          txtArray.forEach((x,index)=> {
-            if(x.indexOf("Capacidade Total") > -1){
-              var str = txtArray[index].split(":");
-              if(str.length == 2){
-                row.quantity[0].text = clean(str[1]);
-              }
-            }
-            else{
-              row.quantity[0].text = "";
-            }
-          })
+          row.quantity[0].text = parseFloat(text);
         }
-
-      if(row.weightNet){
-      var text = row.weightNet[0].text;
-      var txtArray = String(text).split("\n");
-      txtArray.forEach((x,index)=> {
-        var str = txtArray[index].split(" ");
-        str.forEach((y,ind)=>{
-          if(y.indexOf("Peso") > -1){
-          var str1 = str[ind].split(":");
-            if(str1.length == 2){
-            row.weightNet[0].text = clean(str1[1]);
-            }
-          }
-          else{
-            row.weightNet[0].text = "";
-          }
-        })
-      })
-      }
       if(row.manufacturerImages){
         row.manufacturerImages.forEach(x =>{
           if(x.text.indexOf("https") == -1){
@@ -133,11 +103,15 @@ const transform = (data) => {
         var text = String(row.aggregateRating[0].text).replace("de 5 classificação","").trim().replace(".",",");
         row.aggregateRating[0].text = text;
       }
+
+      if(!row.variants){
+        row.variantInformation = [{ text : '', xpath: '' }]
+      }
     }
   }
-  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-        el.text = clean(el.text);
-      }))));
+  // data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+  //       el.text = clean(el.text);
+  //     }))));
   return data;
 };
 

@@ -95,7 +95,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[contains(@class,'document_video')]
+    xpath: //div[contains(@class,'document_video')]//p
   - name: customerServiceAvailability
     singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
@@ -108,7 +108,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[contains(@class,'pd-image-full')]//img//@src
+    xpath: //div[contains(@class,'pd-image-full')]//img//@src | //div[@id="product-special-content"]//img//@src
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[contains(@class,'css-1fj0as8')]
@@ -124,33 +124,21 @@ fields:
     xpath: //div[@id='more-information']
   - name: shippingInfo
     singleValue: false
-    xpath: //p[@id='sold-by']
-  - name: weightGross
-    singleValue: false
-    xpath: //dl[@class='Peso-s--base--kg-- even']//dd  
+    xpath: //p[@id='sold-by'] 
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
     xpath: //div[contains(@class,'css-1fj0as8')]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@id='document_variant']
+  - name: variants
+    singleValue: false
+    xpath: //select[@id='select-sku']//option
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
-    xpath: //meta[@name='keywords']//@content
-  - name: videoLength
-    singleValue: false
-    xpath: //div[@id="videoDurations-1"]    
-  - name: variantInformation
-    singleValue: false
-    xpath: //select[contains(@class,'lista-voltagem')]//option[@selected='selected']
-  - name: variants
-    singleValue: false
-    xpath: //select[contains(@class,'lista-voltagem')]
+    xpath: //meta[@name='keywords']//@content   
   - name: quantity
     singleValue: false
-    xpath: //div[@id='descricao']
-  - name: weightNet
-    singleValue: false
-    xpath: //div[@id='descricao']
-  - name: mpc
-    singleValue: false
-    xpath: //input[@id='ctl00_Conteudo_hdnIdSkuSelecionado']//@value
+    xpath: (//div[contains(text(),'Tamanho da tela')]/following::span)[1]

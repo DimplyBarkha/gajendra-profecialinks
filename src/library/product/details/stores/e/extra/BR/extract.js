@@ -46,10 +46,10 @@ async function implementation(
     // var productId = window.siteMetadata.page.product?.idProduct;
     // addHiddenDiv(`document_product_id`, productId);
 
-    function addHiddenDivWithClass (class1, content1) {
+    function addHiddenDivWithClass(class1, content1) {
       const newDiv1 = document.createElement('div');
       newDiv1.className = class1;
-      newDiv1.textContent = content1;
+      newDiv1.innerHTML = content1;
       newDiv1.style.display = 'none';
       document.body.appendChild(newDiv1);
     }
@@ -57,21 +57,26 @@ async function implementation(
     var data = JSON.parse(document.getElementById('__NEXT_DATA__').innerHTML);
     var product = data.props.initialState.Product;
     addHiddenDiv(`document_sku`, product.sku.id);
+    addHiddenDiv(`document_variant`, product.sku.name);
     addHiddenDiv(`document_ean`, product.sku.ean);
     addHiddenDiv(`document_product`, product.product.id);
     var videos = product.product.videos;
+    // for(var i=0;i<videos.length;i++){
+    //   if(videos[i].host == "Youtube"){
+    //     //addHiddenDiv("document_video","https://www.youtube.com/embed/" + videos[i].link);
+    //     }
+    // }
+    var url1 = "";
     videos.forEach(video => {
-      if(video.host == "Youtube")
-        addHiddenDivWithClass("document_video","https://www.youtube.com/embed/" + video.link);
-      else
-        addHiddenDivWithClass("document_video",video.link);
+      if(video.host == "Youtube"){
+        url1 += "<p>https://www.youtube.com/embed/" + video.link + "</p>";
+      }
     });
-
-      var imgs = document.querySelectorAll("#flix-lg-inpage img")
-      imgs.forEach(x=> addHiddenDivWithClass('aplusImages',x.getAttribute("srcset")));
+    console.log(url1);
+    addHiddenDivWithClass("document_video", url1);
   });
   
-  return await context.extract(productDetails, { transform });
+   return await context.extract(productDetails, { transform });
 }
 
 module.exports = {
