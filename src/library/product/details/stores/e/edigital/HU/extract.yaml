@@ -1,0 +1,91 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: brandText
+    singleValue: false
+    xpath: //article[@class="product-details"]/@data-ga-360-data
+  - name: image
+    singleValue: false
+    xpath: //div[@class='carousel-inner']//div[@class='item active']//a[@class='main-image-link']//img[@itemprop='contentUrl']/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='carousel-inner']//div[@class='item active']//a[@class='main-image-link']//img[@itemprop='contentUrl']/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='carousel-inner']//div[@class='item']//a[@class='main-image-link']//img[@itemprop='contentUrl']/@src
+  - name: quantity
+    singleValue: false    
+    defaultValue: 1
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='stock-info clearfix']//h3[@class='stock-info__status stock-info__status--in_stock']
+    defaultValue: 'Out of Stock'
+  - name: name
+    singleValue: false
+    xpath: //div[@class='main-title-container']//h1[@class='main-title']
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='main-title-container']//h1[@class='main-title']
+  - name: price
+    singleValue: false
+    xpath: //div[@itemprop='offers']//span[@class='price-wrapper']//strong[@data-vat-name='item-price']
+  - name: promotion
+    singleValue: false
+    xpath: //div[@itemprop='offers']//span[@class='price-wrapper']//strong[@data-vat-name='item-old-price']//span[@class='discount--old']
+  - name: metaKeywords
+    singleValue: false
+    xpath: //title
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@itemprop='offers']//span[@class='price-wrapper']//strong[@data-vat-name='item-old-price']//s
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@class='product-desc-box__description']//div[@class='product-specification product-desc-box__long']//dt[@title='Súly']/following-sibling::dd[1]//span
+  - name: sku
+    singleValue: false
+    xpath: //article[@class="product-details" ]/@data-product-id
+  - name: variantId
+    singleValue: false
+    xpath: //article[@class="product-details" ]/@data-product-id
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='product-rating']//section[@class='rating-container']//span[@itemprop='reviewCount']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='product-rating']//section[@class='rating-container']//span[@itemprop='ratingValue']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class='product-short-description-container']//p[@class='product-short-description']
+  - name: description
+    singleValue: false
+    xpath: //div[@class='product-desc-box__description']//div[@class='static-page__area']
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@class='product-short-description-container']//p[@class='product-short-description']
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class='product-desc-box__description']//div[@class='product-specification product-desc-box__long']//dt[@title='Gyártó']/following-sibling::dd[1]//span
+  - name: coupon
+    singleValue: false
+    xpath: //div[@data-vat-name='external-discount-text' and contains(.,'Kuponnal')]//p
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class='product-desc-box__description']//div[@class='product-specification product-desc-box__long']//dl
+  - name: warranty
+    singleValue: false
+    xpath: //div[@class='product-desc-box__description']//div[@class='product-specification product-desc-box__long']//dt[@title='Garancia']/following-sibling::dd[1]//span
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a//img/@alt | //div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a[1]/@href
+  - name: variants
+    singleValue: false
+    xpath: //div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a/@href
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a
+  
