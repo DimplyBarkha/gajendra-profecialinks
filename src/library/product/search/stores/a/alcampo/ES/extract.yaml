@@ -29,10 +29,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false  
-    xpath: //div[@class="priceContainer"]/attribute::price
+    xpath: //div[@class="priceContainer"]/@price
   - name: manufacturer
-    xpath: //div[@class='marca']/attribute::manufacturer
     singleValue: false
+    xpath: //div[@class='marca']/@manufacturer
   - name: soldBy
     singleValue: true
   - name: endorsementText
@@ -52,7 +52,7 @@ fields:
     description: Is sponsored/paid
     defaultValue: false
     type: BOOELAN
-  - name: totalRecordCount
-    singleValue: true 
-    type: NUMBER
-    xpath: (//div[@class='totalResults cartReviewTotal'])[1]
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
+  #   xpath: //div[@class='paginationBar top clearfix']/div[@class='totalResults cartReviewTotal']

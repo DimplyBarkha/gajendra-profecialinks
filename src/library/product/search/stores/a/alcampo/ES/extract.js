@@ -7,8 +7,6 @@ async function implementation (inputs, parameters, context, dependencies) {
     return nextSelector;
   });
 
-  await context.extract(productDetails);
-
   // manually added clicking in nextLink button
 
   if (nextLink) {
@@ -25,17 +23,11 @@ async function implementation (inputs, parameters, context, dependencies) {
       }
 
       await context.evaluate(() => {
-        function addProp (selector, iterator, propName, value) {
-          document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
-        };
-
         const manufacturer = document.querySelectorAll('.marca');
         const price = document.querySelectorAll('.priceContainer');
         let priceIteration;
         let manufacturerIteration;
         let words;
-
-        document.querySelector('ul.dpd-cortesia').setAttribute('searchUrl', window.location.href);
 
         // there are same number of products so i < price.length will work for i < manufacturer.length
 
@@ -55,17 +47,17 @@ async function implementation (inputs, parameters, context, dependencies) {
             manufacturerIteration = words[0] + ' ' + words[1];
           };
 
-          addProp('.priceContainer', i, 'price', priceIteration);
-          addProp('.marca', i, 'manufacturer', manufacturerIteration);
-          addProp('div.fila4.productGridRow>div>div', i, 'rank', `${i + 1}`);
-          addProp('div.fila4.productGridRow>div>div', i, 'rankorganic', `${i + 1}`);
+          document.querySelectorAll('.priceContainer')[i].setAttribute('price', priceIteration);
+          document.querySelectorAll('div.fila4.productGridRow>div>div')[i].setAttribute('rank', `${i + 1}`);
+          document.querySelectorAll('.marca')[i].setAttribute('manufacturer', manufacturerIteration);
+          document.querySelectorAll('div.fila4.productGridRow>div>div')[i].setAttribute('rankorganic', `${i + 1}`);
         };
       });
 
       // if nextLinkSelector is null extract page and break loop, else click in it
 
       if (await context.evaluate(() => {
-        return document.querySelector('div.productGrid.paginationBar.bottom.clearfix>div.right>ul.pagination>li.next>a'); 
+        return document.querySelector('div.productGrid.paginationBar.bottom.clearfix>div.right>ul.pagination>li.next>a');
       }) === null) {
         return await context.extract(productDetails);
       } else {
@@ -76,7 +68,6 @@ async function implementation (inputs, parameters, context, dependencies) {
           document.querySelector('div.productGrid.paginationBar.bottom.clearfix>div.right>ul.pagination>li.next>a').click();
         });
       }
-
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     }
   } else {
