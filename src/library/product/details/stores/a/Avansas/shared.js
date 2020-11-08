@@ -66,6 +66,25 @@ const transform = (data) => {
         });
         row.manufacturerDescription = [{ text }];
       }
+      if (row.manufacturerDescription) {
+        
+        const variantUrls = [];
+        let dupUrl = "";
+        let urls = [];
+        row.manufacturerDescription.forEach(item => {
+          console.log('item:: ', item.text);
+         urls =  row.manufacturerDescription.filter(it => item.text === it.text);
+        if(urls && urls.length === 1 ){
+          variantUrls.push(item);
+        }else{
+          if(dupUrl !== item.text){
+            dupUrl =  item.text;
+            variantUrls.push(item);
+          }
+        }
+        });
+        row.manufacturerDescription = variantUrls;  
+      }
       if (row.specifications) {
         const nDesc = [];
         let newDesc = '';

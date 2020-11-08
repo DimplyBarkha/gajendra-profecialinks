@@ -122,8 +122,9 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
+    xpath: //div[@class="mini-hero-v2"]//p/text() | //div[@class="mini-hero-v2"]//span/text() | //div[@class="mini-hero-v2"]//div//text() | //div[@id="p10-lp-main"]//text()
     # xpath: //div[@class="mini-hero-v2"]//div//text() | //div[@id="p10-lp-main"]//text()
-    xpath: //div[@itemprop="description"]//td/text() | //span[@class="p1-lp-pro-title"]//text() | //span[@class="p1-lp-pro-title"]//..//text() | //div[@itemprop="description"]//div//text()
+    # xpath: //div[@itemprop="description"]//td/text() | //span[@class="p1-lp-pro-title"]//text() | //span[@class="p1-lp-pro-title"]//..//text() | //div[@itemprop="description"]//div//text()
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@itemprop="description"]//img/@src
