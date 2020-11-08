@@ -12,12 +12,15 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //div[@class="suggestedProductsResults"]/div/img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //html//div[@id='alter']
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -41,12 +44,12 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion
-    xpath: (//div[@class="savings_display"])[contains(text(),'SAVE')] 
+    xpath: (//div[@class="savings_display"])[contains(text(),'SAVE')] | //div[@class="pdp-cluboffer-link"]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: (//div[@itemprop="offers"]//span[@class="price"]/span)[1]
+    xpath: (((//div[@itemprop="offers"]//span[@class="price"]/span)[1]) | ((//span[@class="price "])[1]/span) | ((//span[@class="price sale"])[1]))[1]  
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -54,34 +57,35 @@ fields:
       should be "In Stock"
     # regExp: (.+)
     # regExpReplace: In Stock
-    xpath: (//span[@itemprop="availability"])
-    defaultValue: Out of Stock
+    # xpath: (//span[@itemprop="availability"])
+    defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="top namePartPriceContainer"]//h1
+    xpath: //html//div[@id='desc']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count((//div[@class="VProduct_img"]/following-sibling::div)/ul/li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //h1[@class="main_header"]
-    regExp: (^\S+)
+    # xpath: //h1[@class="main_header"]
+    # regExp: (^\S+)
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //h1[@class="main_header"]
-    regExp: (^\S+)
+    # xpath: //h1[@class="main_header"]
+    # regExp: (^\S+)
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //div[@class="definingAttributes"]/div[contains(text(),'Size:')]
+    xpath: //html//div[@id='size']
     # xpath: //input[@class="input_field quantity_input"]/@value
-    regExp: (\d.+)
+    # regExp: (\d.+)
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -98,10 +102,13 @@ fields:
     regExp: (\d{7})
   - name: variantId
     singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku
+    description: The store-specific product identifier
+    xpath: (//span[@class="sku"])
+    regExp: (\d{7})
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //html//div[@id='mpc']
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -115,7 +122,7 @@ fields:
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
-    xpath: (//span[@class="warning"]/following::span)
+    # xpath: (//span[@class="warning"]/following::span)
   - name: ratingCount
     singleValue: true
     description: The number of ratings
@@ -143,6 +150,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: //html//div[@id='ppp']
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -485,14 +493,16 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //html//div[@id='bullet1']
   - name: prop65Warning
     singleValue: true
     description: null
+    xpath: //html//div[@id='warning']
   - name: ageSuitability
     singleValue: true
     description: Recommended age displayed on the product page.
       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
-    example: 4 - 99 years
+    xpath: //div[@id="disclaimerRefreshArea"]/li[1]/text()[2]
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product.
@@ -506,15 +516,15 @@ fields:
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: materials
     singleValue: true
     description: Materials used to make the product
@@ -529,4 +539,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
