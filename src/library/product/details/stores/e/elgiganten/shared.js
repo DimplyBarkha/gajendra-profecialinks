@@ -101,6 +101,24 @@ const transform = (data) => {
         ];
       }
 
+      if (row.weightNet) {
+        if (row.weightNet.length > 1) {
+          let text = '';
+          const weightRec = [];
+          weightRec.push(row.weightNet[0]);
+          let weight;
+          row.weightNet.forEach(item => {
+            text = item.text.trim();
+             const startIdx = text.indexOf('vikt');
+            if (startIdx > -1) {
+              weight = text.split('vikt:')[1];
+              weightRec[0].text = weight.trim();
+            }
+          });
+          row.weightNet = weightRec;
+        }
+      }
+      
       if (row.variants) {
         let text = '';
         row.variants.forEach(item => {

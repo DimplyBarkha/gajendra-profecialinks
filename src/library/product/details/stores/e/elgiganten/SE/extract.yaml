@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: shippingInfo 
     singleValue: false
-    xpath: //div[@class="seller-name-wrapper"]/span/a/text()
+    xpath: //div[@class="seller-name-wrapper"]//span//a
   - name: availabilityText
     singleValue: false
     xpath: //span[contains(text(),"Lägg i kundvagn")]  | (//span[contains(text(),"Köp med abonnemang")])[1]
@@ -53,9 +53,9 @@ fields:
     #xpath: //div[contains(@class,"product-video")]//@src | //div[@data-vidurl="vidURL"] | //li[@class="b-video-item"]
   - name: weightNet 
     singleValue: false
-    xpath: //td[contains(text(),"Vikt")]/following-sibling::td | //div[@data-tab="tab-more-info"]//p/text()
-    regExp: vikt\W\W(.+)
-    regExpReplace: $1
+    xpath: //td[contains(text(),"Vikt")]/following-sibling::td | //div[@class="tab-slot"]//p[contains(.,"vikt")]/text()
+    # regExp: vikt\W\W(.+)
+    # regExpReplace: $1
   - name: gtin 
     singleValue: false
     # xpath: //td[contains(text(),"EAN-kod")]/following-sibling::td | //meta[@itemprop="gtin8"]/@content
@@ -154,7 +154,7 @@ fields:
     xpath: count(//ul[@class="slick-dots"]//li[position()>1])
   - name: shippingDimensions
     singleValue: false
-    xpath: //span[contains(text(),"Mått & vikt")]//../following-sibling::dd//tr
+    xpath: //span[contains(text(),"Mått & vikt")]//../following-sibling::dd//tr[not(text()="Sladdlängd (cm)")]
     # xpath: //span[contains(text(),"Mått & vikt")]//..//following-sibling::dd//tr/td[contains(text(),"Höjd (cm)")]/following-sibling::td |//span[contains(text(),"Mått & vikt")]//..//following-sibling::dd//tr/td[contains(text(),"Bredd (cm)")]/following-sibling::td | //span[contains(text(),"Mått & vikt")]//..//following-sibling::dd//tr/td[contains(text(),"Djup (cm)")]/following-sibling::td
   - name: variantInformation
     singleValue: false
