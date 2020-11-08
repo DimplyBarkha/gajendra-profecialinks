@@ -1,0 +1,56 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //a[@id="bigProduct" and @class="MagicZoom"]/@href
+  - name: imageAlt
+    singleValue: false
+    xpath: //a[@id="bigProduct" and @class="MagicZoom"]/img[@id="smallProduct"]/@alt
+  - name: category
+    singleValue: false
+    xpath: //div[@class="breadcrumbValue"]//li[position()>1]//a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="productTitle"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="priceWas"]/div[@class="pricePerUnit"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="pricePerUnit"]/div[@class="updListPrice"]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="productSubtitle"]
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class="productSubsubtitle"]
+  - name: sku
+    singleValue: false
+    xpath: //form[@name="aspnetForm"]/@action
+  - name: variantId
+    singleValue: false
+    xpath: //form[@name="aspnetForm"]/@action
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="numVotes"]
+  - name: variantCount
+    singleValue: false
+    defaultValue: 0
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class="body"]//table//td//img/@src
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="ytp-title-text"]/a/@href
+  - name: name
+    singleValue: false
+    xpath: //div[@class="productTitle"]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
