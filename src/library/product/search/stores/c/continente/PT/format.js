@@ -25,11 +25,6 @@ const transform = (data) => {
     for (const { group } of data) {
       var rank = 1;
       for (let row of group) {
-        if(row.productUrl){
-          row.productUrl.forEach(item => {
-            item.text='https://www.bidfood.nl'+item.text;
-          });
-        }
         if(row.id){
             row.id.forEach(item => {
                 var tmp=item.text.split('(');
