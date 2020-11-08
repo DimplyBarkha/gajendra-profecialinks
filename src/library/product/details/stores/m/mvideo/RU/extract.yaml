@@ -8,7 +8,7 @@ fields:
     description: URL of the main product image
     xpath: //div[@class="c-media-container__image-wrapper"]//img//@src
     regExp: (.+)
-    regExpReplace: https://www.mvideo.ru$1
+    regExpReplace: https:$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -29,6 +29,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@class="e-h1 sel-product-title"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -37,6 +38,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    type: NUMBER
     xpath: //div[@class="fl-pdp-price__current"]
   - name: availabilityText
     singleValue: true
@@ -89,6 +91,10 @@ fields:
     singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //div//p[@class="c-product-code"]
+  - name: name
+    singleValue: true
+    description: This is the name of the product (Title) - Should contain the full product description as it appears on the website.
+    xpath: //h4[@class="e-h4 u-pb-8"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on

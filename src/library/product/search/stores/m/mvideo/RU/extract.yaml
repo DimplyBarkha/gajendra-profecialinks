@@ -9,10 +9,6 @@ fields:
   - name: name
     singleValue: true
     xpath: //div//h4[@class="fl-product-tile-title e-h4 fl-product-tile__title"]
-  - name: input
-    singleValue: false
-    type: TEXT
-    xpath: //h1[@data-init="ajax-header-detectum"]
   - name: productUrl
     singleValue: false
     xpath: //div[@class="fl-product-tile__title-wrapper height-ready"]/h4//a//@href
@@ -22,7 +18,7 @@ fields:
     singleValue: false
     xpath: //div[@class="lazy-load-image-holder lazy-loaded"]//img//@src
     regExp: (.+)
-    regExpReplace: https://www.mvideo.ru$1
+    regExpReplace: https:$1
   - name: aggregateRating2
     singleValue: true
     xpath: //span[@class="fl-product-tile-rating__stars-value"]
@@ -41,4 +37,7 @@ fields:
     xpath: //html//div[@id='altImages']
   - name: rank
     singleValue: false
-    xpath: //html//div[@id='altImages']  
+    xpath: //html//div[@id='altImages']
+  - name: manufacturer
+    singleValue: true 
+    xpath: //meta[@itemprop="description"]/@content

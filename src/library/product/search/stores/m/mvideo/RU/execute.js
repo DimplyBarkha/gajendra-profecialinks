@@ -5,7 +5,7 @@ module.exports = {
     country: 'RU',
     store: 'mvideo',
     domain: 'mvideo.ru',
-    url: 'https://www.mvideo.ru/product-list-pa%D0%BD%D0%B0&region_id=1&limit=24&category_id=cat2_cis_0000000049',
+    url: 'https://www.mvideo.ru/product-list-page-cls?q=%D0%BC%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
