@@ -26,10 +26,10 @@ fields:
     xpath: //div[@id="import_product_subcat"]
   - name: name
     singleValue: true
-    xpath: //div[@class = "ProductPage__title"]//h1
+    xpath: //div[@class = "ProductPage__title"]//h1/text()
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class = "ProductPage__title"]//h1
+    xpath: //div[@class = "ProductPage__title"]//h1/text()
   - name: listPrice
     singleValue: true
     xpath: //div[@id="import_product_listprice"]
@@ -62,10 +62,18 @@ fields:
     xpath: //div[@class = "ProductPage__image-block-disclaimer"]
   - name: warnings
     singleValue: true
-    xpath: //span[@class = "warn"]
+    xpath: //div[@id="import_product_warnings"]
   - name: countryOfOrigin
     singleValue: true
     xpath: //dt[contains(text(), "Страна производителя")]//following-sibling::dd
+  - name: aggregateRating
+    singleValue: true
+    xpath: //meta[@itemprop = "ratingValue"]/@content
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[contains(@class, "ProductPage__rating")]//small
+    regExp: (\d)
+    regExpReplace: $1
   - name: manufacturer
     singleValue: true
     xpath: //dt[contains(text(), "Производитель")]//following-sibling::dd

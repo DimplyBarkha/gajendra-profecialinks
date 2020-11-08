@@ -28,7 +28,8 @@ module.exports = {
       const productListPrice = document.evaluate('//div[contains(@class, "ProductPage__old-price")]', document, null, XPathResult.STRING_TYPE).stringValue;
       const productIngredients = document.evaluate('//div[@class = "ProdDescList"]//h3[contains(text(), "Состав")]//following-sibling::dl//div', document, null, XPathResult.ANY_TYPE);
       const productDirections = document.evaluate('//div[@class = "ProdDescList"]//h3[contains(text(), "Лекарственная форма")]//following-sibling::dl//div', document, null, XPathResult.ANY_TYPE);
-      let variants = '', description = '', data, category = '', subCategory = '', ingredients = '', directions = '', images = '';
+      const productWarnings = document.evaluate('//span[@class = "warn"]', document, null, XPathResult.ANY_TYPE);
+      let variants = '', description = '', data, category = '', subCategory = '', ingredients = '', directions = '', images = '', warnings = '';
       while (data = productVariants.iterateNext()) {
         if (variants === '') {
           variants += data.innerText;
@@ -38,9 +39,9 @@ module.exports = {
       }
       while (data = productImages.iterateNext()) {
         if (images === '') {
-          images += data.nodeValue;
+          images += data.nodeValue.replace("preview", "original");
         } else {
-          images += ' | ' + data.nodeValue;
+          images += ' | ' + data.nodeValue.replace("preview", "original");
         }
       }
       while (data = productIngredients.iterateNext()) {
@@ -58,6 +59,15 @@ module.exports = {
             directions += data.innerText;
           } else {
             directions += ' | ' + data.innerText;
+          }
+        }
+      }
+      while (data = productWarnings.iterateNext()) {
+        if (data.innerText !== '') {
+          if (warnings === '') {
+            warnings += data.innerText;
+          } else {
+            warnings += ' | ' + data.innerText;
           }
         }
       }
@@ -91,6 +101,7 @@ module.exports = {
       addHiddenDiv('import_product_ingredients', ingredients);
       addHiddenDiv('import_product_directions', directions);
       addHiddenDiv('import_product_listprice', productListPrice);
+      addHiddenDiv('import_product_warnings', warnings);
       addHiddenDiv('import_product_url', location.href);
     });
     return await context.extract(data, { transform });
