@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'div a[aria-label*="go to next page"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'ul#productResults',
+    loadedSelector: 'nav.paging-container',
     noResultsXPath: '//h1[contains(text(),"No results found for")]',
     openSearchDefinition: null,
     domain: 'heb.com',

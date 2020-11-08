@@ -1,10 +1,11 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../format');
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
     store: 'heb_78204',
-    transform: cleanUp,
+    transform: transform,
     domain: 'heb.com',
     zipcode: '78204',
   },
@@ -12,11 +13,11 @@ module.exports = {
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
-        while (scrollTop !== 10000) {
+        while (scrollTop !== 30000) {
           await stall(10000);
-          scrollTop += 10000;
+          scrollTop += 3000;
           window.scroll(0, scrollTop);
-          if (scrollTop === 10000) {
+          if (scrollTop === 25000) {
             await stall(10000);
             break;
           }

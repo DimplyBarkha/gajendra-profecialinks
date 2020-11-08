@@ -27,7 +27,9 @@ fields:
     xpath: //div[@class="first-block"]//h1[@class="pdp-product-name"]
   - name: price
     singleValue: false
-    xpath: (//div[@class="PDP__add-to-cart-price"]//span[@id="addToCartPrice"])[1]
+    xpath: //div[@class="first-block"]//div[contains(@class,"price")]//meta[@itemprop="price"]/@content
+    regExp: (.*)
+    regExpReplace: $ $1
   - name: availabilityText
     singleValue: false
     xpath: (//div[@class="add-to-cart-button-container"]//button[@aria-live="assertive"]//span)[1]
@@ -36,7 +38,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@id="description_text"] | //div[@class="pdp-container pdp-desktop-layout"]//p[@itemprop="description"] | //div[@class="pdp-container pdp-desktop-layout"]//p[@itemprop="description"]
+    xpath: //div[@id="description_text"]
   - name: directions
     singleValue: false
     xpath: //div[@id="directions_text"]
@@ -46,11 +48,11 @@ fields:
   - name: brandText
     singleValue: false
     xpath: (//script[contains(text(),'brand')])[1]
-    regExp: \"brand":\s"(\S+)",
+    regExp: \"brand":\s"(.*?)"
     regExpReplace: $1
   - name: sku
     singleValue: false
-    xpath: //input[@id="defaultChildSku"]/@value
+    xpath: //input[@id="productId"]/@value
   - name: variantId
     singleValue: false
     xpath: //input[@id="productId"]/@value
@@ -94,13 +96,13 @@ fields:
   - name: servingSizeUom
     singleValue: false
     xpath: (//div[@class="content"]//p)[1] | (//table[@class="serving-size"]//td[@class="val"])[1]
-    regExp: (\d+.*)\s\D+\(
+    regExp: (\d+.*)\s.*\(
     regExpReplace: $1
   - name: numberOfServingsInPackage
     singleValue: false
     xpath: (//div[@class="content"]//p)[1] | (//table[@class="serving-size"]//td[@class="val"])[1]
-    regExp: (\s(\d+)\s\D+\()
-    regExpReplace: $2
+    regExp: ([0-9\.]+)\s.*\(
+    regExpReplace: $1
   - name: caloriesPerServing
     singleValue: false
     xpath: (//tr[contains(translate(string(), 'Calories', 'Calories'), 'Calories')]//td[2])[1]
@@ -109,92 +111,92 @@ fields:
     xpath: (//tr[contains(translate(string(), 'Calories from Fat', 'Calories from Fat'), 'Calories from Fat')]//td[2])[1]
   - name: totalFatPerServing
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Total Fat', 'Total Fat'), 'Total Fat')]//td[2])[1]
+    xpath: //div[@id="totalFatPerServing_text"]
     regExp: ([0-9\.]+)
     regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Total Fat', 'Total Fat'), 'Total Fat')]//td[2])[1]
-    regExp: \d+.*(\D+)
+    xpath: //div[@id="totalFatPerServing_text"]
+    regExp: ([a-zA-Z].*|%)
     regExpReplace: $1
   - name: saturatedFatPerServing
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Saturated Fat', 'Saturated Fat'), 'Saturated Fat')]//td[2])[1]
+    xpath: //div[@id="saturatedFatPerServing_text"]
     regExp: ([0-9\.]+)
     regExpReplace: $1
   - name: saturatedFatPerServingUom
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Saturated Fat', 'Saturated Fat'), 'Saturated Fat')]//td[2])[1]
-    regExp: \d+.*(\D+)
+    xpath: //div[@id="saturatedFatPerServing_text"]
+    regExp: ([a-zA-Z].*|%)
     regExpReplace: $1
   - name: transFatPerServing
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Trans Fat', 'Trans Fat'), 'Trans Fat')]//td[2])[1]
+    xpath: //div[@id="transFatPerServing_text"]
     regExp: ([0-9\.]+)
     regExpReplace: $1
   - name: transFatPerServingUom
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Trans Fat', 'Trans Fat'), 'Trans Fat')]//td[2])[1]
-    regExp: \d+.*(\D+)
+    xpath: //div[@id="transFatPerServing_text"]
+    regExp: ([a-zA-Z].*|%)
     regExpReplace: $1
   - name: cholesterolPerServing
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Cholesterol', 'Cholesterol'), 'Cholesterol')]//td[2])[1]
+    xpath: //div[@id="cholesterolPerServing_text"]
     regExp: ([0-9\.]+)
     regExpReplace: $1
   - name: cholesterolPerServingUom
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Cholesterol', 'Cholesterol'), 'Cholesterol')]//td[2])[1]
-    regExp: \d+.*(\D+)
+    xpath: //div[@id="cholesterolPerServing_text"]
+    regExp: ([a-zA-Z].*|%)
     regExpReplace: $1
   - name: sodiumPerServing
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Sodium', 'Sodium'), 'Sodium')]//td[2])[1]
+    xpath: //div[@id="sodiumPerServing_text"]
     regExp: ([0-9\.]+)
     regExpReplace: $1
   - name: sodiumPerServingUom
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Sodium', 'Sodium'), 'Sodium')]//td[2])[1]
-    regExp: \d+.*(\D+)
+    xpath: //div[@id="sodiumPerServing_text"]
+    regExp: ([a-zA-Z].*|%)
     regExpReplace: $1
   - name: totalCarbPerServing
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Total Carbohydrate', 'Total Carbohydrate'), 'Total Carbohydrate')]//td[2])[1]
+    xpath: //div[@id="totalCarbPerServing_text"]
     regExp: ([0-9\.]+)
     regExpReplace: $1
   - name: totalCarbPerServingUom
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Total Carbohydrate', 'Total Carbohydrate'), 'Total Carbohydrate')]//td[2])[1]
-    regExp: \d+.*(\D+)
+    xpath: //div[@id="totalCarbPerServing_text"]
+    regExp: ([a-zA-Z].*|%)
     regExpReplace: $1
   - name: dietaryFibrePerServing
-    xpath: (//tr[contains(translate(string(), 'Dietary Fiber', 'Dietary Fiber'), 'Dietary Fiber')]//td[2])[1]
-    regExp: ([0-9\.]+)
+    xpath: //div[@id="dietaryFibrePerServing_text"]
+    regExp: (\D+[0-9\.]+)
     regExpReplace: $1
   - name: dietaryFibrePerServingUom
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Dietary Fiber', 'Dietary Fiber'), 'Dietary Fiber')]//td[2])[1]
-    regExp: \d+.*(\D+)
+    xpath: //div[@id="dietaryFibrePerServing_text"]
+    regExp: ([a-zA-Z].*|%)
     regExpReplace: $1
   - name: totalSugarsPerServing
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Sugars', 'Sugars'), 'Sugars')]//td[2])[1]
+    xpath: //div[@id="totalSugarsPerServing_text"]
     regExp: ([0-9\.]+)
     regExpReplace: $1
   - name: totalSugarsPerServingUom
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Sugars', 'Sugars'), 'Sugars')]//td[2])[1]
-    regExp: \d+.*(\D+)
+    xpath: //div[@id="totalSugarsPerServing_text"]
+    regExp: ([a-zA-Z].*|%)
     regExpReplace: $1
   - name: proteinPerServing
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Protein', 'Protein'), 'Protein')]//td[2])[1]
+    xpath: //div[@id="proteinPerServing_text"]
     regExp: ([0-9\.]+)
     regExpReplace: $1
   - name: proteinPerServingUom
     singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Protein', 'Protein'), 'Protein')]//td[2])[1]
-    regExp: \d+.*(\D+)
+    xpath: //div[@id="proteinPerServing_text"]
+    regExp: ([a-zA-Z].*|%)
     regExpReplace: $1
   - name: vitaminAPerServing
     singleValue: false
@@ -204,7 +206,7 @@ fields:
   - name: vitaminAPerServingUom
     singleValue: false
     xpath: (//td[contains(translate(string(), 'Vitamin A', 'Vitamin A'), 'Vitamin A')]//span)[1]
-    regExp: \d+.*(\D+)
+    regExp: ([a-zA-Z].*|%)
     regExpReplace: $1
   - name: vitaminCPerServing
     singleValue: false
@@ -214,7 +216,7 @@ fields:
   - name: vitaminCPerServingUom
     singleValue: false
     xpath: (//td[contains(translate(string(), 'Vitamin C', 'Vitamin C'), 'Vitamin C')]//span)[1]
-    regExp: \d+.*(\D+)
+    regExp: ([a-zA-Z].*|%)
     regExpReplace: $1
   - name: calciumPerServing
     singleValue: false
@@ -224,7 +226,7 @@ fields:
   - name: calciumPerServingUom
     singleValue: false
     xpath: (//td[contains(translate(string(), 'Calcium', 'Calcium'), 'Calcium')]//span)[1]
-    regExp: \d+.*(\D+)
+    regExp: ([a-zA-Z].*|%)
     regExpReplace: $1
   - name: ironPerServing
     singleValue: false
@@ -234,24 +236,19 @@ fields:
   - name: ironPerServingUom
     singleValue: false
     xpath: (//td[contains(translate(string(), 'Iron', 'Iron'), 'Iron')]//span)[1]
-    regExp: \d+.*(\D+)
-    regExpReplace: $1
-  - name: dietarySymbols
-    singleValue: false
-    xpath: (//tr[contains(translate(string(), 'Dietary Fiber', 'Dietary Fiber'), 'Dietary Fiber')]//td[2])[1]
-    regExp: (\D+)\d
+    regExp: ([a-zA-Z].*|%)
     regExpReplace: $1
   - name: warranty
     singleValue: false
     description:   associated with the product
   - name: pricePerUnit
     singleValue: false
-    xpath: normalize-space(//div[@class="pdp-container pdp-desktop-layout"]//div[@class="price clearfix"]//span[@class="uomListPrice"])
+    xpath: //div[@class="pdp-container pdp-desktop-layout"]//div[@class="price clearfix"]//span[@class="uomListPrice"]
     regExp: (\$\d+.*)\/
     regExpReplace: $1
   - name: pricePerUnitUom
     singleValue: false
-    xpath: normalize-space(//div[@class="pdp-container pdp-desktop-layout"]//div[@class="price clearfix"]//span[@class="uomListPrice"])
+    xpath: //div[@class="pdp-container pdp-desktop-layout"]//div[@class="price clearfix"]//span[@class="uomListPrice"]
     regExp: (\/(.*)\))
     regExpReplace: $2
   - name: technicalInformationPdfPresent
@@ -277,4 +274,6 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
-  - name: secondaryImageTotal
+  - name: coupon
+    singleValue: false
+    xpath: (//bootstrap[@class="coupon-card"]//div[@class="pdp-coupon-wrapper"])[1]

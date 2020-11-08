@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'heb_78204',
     domain: 'heb.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[mode*="normal"] div[data-component*="FlyoutZoomView"]',
+    noResultsXPath: '//h1[@class="search-result-title search-result-empty"]',
     zipcode: '78204',
   },
 };

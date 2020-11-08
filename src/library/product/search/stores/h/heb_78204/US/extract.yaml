@@ -5,43 +5,44 @@ recordXPath: //ul[@id="productResults"]//li[@role="group"]
 fields:
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,"cat-list-img gtm-product")]//img/@src
+    xpath: //ul[@id="productResults"]//li[@role="group"]//div[contains(@class,"cat-list-img gtm-product")]//img/@src
   - name: id
     singleValue: false
-    xpath: //ul[@id="productResults"]//li//script[contains(text(),'products')][1]
-    regExp: \"id":\s"(\d+)
+    xpath: //ul[@id="productResults"]//li[@role="group"]/a/@id
+    regExp: (\d+)
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //div[@class="cat-price"]//span[@class="cat-price-number"]
-    regExp: (\$\d+.\d+)
-    regExpReplace: $1
+    xpath: //ul[@id="productResults"]//li//div[@class="cat-price"]//span[@class="cat-price-number"]
   - name: name
     singleValue: false
     xpath: //ul[@id="productResults"]//li[@role="group"]//div[@class="responsivegriditem__title"]//span[@class="responsivegriditem__title"]
   - name: productUrl
     singleValue: false
-    xpath: //li[@class="responsivegriditem product-grid-large-fifth product-grid-small-6"]/a/@href
+    xpath: //ul[@id="productResults"]//li[@role="group"]/a/@href
     regExp: (\/.*)
     regExpReplace: https://www.heb.com$1
   - name: quantity
     singleValue: false
-    xpath: //span[@class="responsivegriditem__title"]//span[@class="item-size"]
+    xpath: //ul[@id="productResults"]//li[@role="group"]//span[@class="responsivegriditem__title"]//span[@class="item-size"]
   - name: rank
     singleValue: false
-    xpath: //ul[@id="productResults"]//li//script[contains(text(),'products')][1]
+    xpath: //ul[@id="productResults"]//li[@role="group"]//script[contains(text(),'products')][1]
     regExp: \"position":\s(\d+),
     regExpReplace: $1
   - name: rankOrganic
     singleValue: false
-    xpath: //ul[@id="productResults"]//li//script[contains(text(),'products')][1]
+    xpath: //ul[@id="productResults"]//li[@role="group"]//script[contains(text(),'products')][1]
     regExp: \"position":\s(\d+),
     regExpReplace: $1
   - name: endorsementText
     singleValue: false
-    xpath: //img[@class="product-card__flag product-card__flag--product-card__flag--marketing-bug ls-is-cached lazyloaded"]/@alt
+    xpath: //ul[@id="productResults"]//li[@role="group"]//a//div[@class="responsivegriditem-top"]//div[contains(@class,"cat-feature")]//img[contains(@class,"product-card")]/@alt
   - name: reviewCount
     singleValue: false
-    xpath: //div[@class="cat-star clearfix"]//span
+    xpath: //ul[@id="productResults"]//li[@role="group"]//a//div[contains(@class,"responsivegriditem-middle")]//div[@class="responsivegriditem__rating-container"]//div[contains(@class,"cat-star")]//span
     regExp: (\d+)
     regExpReplace: $1
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //ul[@id="productResults"]//li[@role="group"]//a//div[contains(@class,"responsivegriditem-middle")]//div[@class="responsivegriditem__rating-container"]//div[contains(@class,"cat-star")]//div//img[contains(@src,"/img/stars/smallstaron.png") or contains(@src,"/img/stars/smallstaron_50.png")]/@src

@@ -6,7 +6,7 @@ module.exports = {
     store: 'heb_78204',
     domain: 'heb.com',
     url: 'https://www.heb.com/search/?q={searchTerms}',
-    loadedSelector: 'ul#productResults',
+    loadedSelector: 'nav.paging-container',
     noResultsXPath: '//h1[contains(text(),"No results found for")]',
     zipcode: '78204',
   },
