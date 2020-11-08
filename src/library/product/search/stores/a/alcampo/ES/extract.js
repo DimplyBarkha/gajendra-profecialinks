@@ -1,3 +1,4 @@
+/* eslint-disable no-unmodified-loop-condition */
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
@@ -10,7 +11,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   // manually added clicking in nextLink button
 
   if (nextLink) {
-    while (nextLink) {
+    do {
       const isPopupPresent = await context.evaluate(async () => {
         return document.querySelector('div.cc_css_reboot.cc_dialog.light.interstitial');
       });
@@ -49,6 +50,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
           document.querySelectorAll('.priceContainer')[i].setAttribute('price', priceIteration);
           document.querySelectorAll('div.fila4.productGridRow>div>div')[i].setAttribute('rank', `${i + 1}`);
+          // @ts-ignore
           document.querySelectorAll('.marca')[i].setAttribute('manufacturer', manufacturerIteration);
           document.querySelectorAll('div.fila4.productGridRow>div>div')[i].setAttribute('rankorganic', `${i + 1}`);
         };
@@ -69,7 +71,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         });
       }
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-    }
+    } while (nextLink !== null);
   } else {
     return await context.extract(productDetails);
   }
