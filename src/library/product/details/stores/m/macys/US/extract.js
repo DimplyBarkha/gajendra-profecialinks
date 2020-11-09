@@ -1,10 +1,10 @@
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'macys',
-    transform: null,
+    transform: cleanUp,
     domain: 'macys.com',
     zipcode: '',
   },
@@ -17,7 +17,7 @@ module.exports = {
       let id = JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_id ? JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_id[0]: "";
       let upc = JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_upc ? JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_upc[0]: "";
       let sku;
-      
+
       if (id && upc) {
         sku = id + '_' + upc;
       } else if(!upc) {
@@ -34,7 +34,8 @@ module.exports = {
       }
 
     });
+    const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform });
   },
 };
