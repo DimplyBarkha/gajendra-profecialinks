@@ -2,4 +2,28 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields: null
+fields: 
+  - name: productUrl
+    singlgeValue: false
+    xpath: //div[@class="product-tile"]/a/@href
+  - name: id
+    singlgeValue: false
+    xpath: //div[@class="product-tile"]/a/@href
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product-title"]/h4[@class="product-title__name"]/a
+  - name: price
+    SingleValue: false
+    xpath: //div[@class="product-tile__price"]//span[@class="price__final"]
+  - name: listPrice
+    SingleValue: false
+    xpath: //span[@class="product-tile__price-per-qty"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="product-tile__image-box"]//img[@class="product-tile__image"]/@src
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="product-title"]//h5[@class="product-title__brand"]
+  - name: soldBy
+    singleValue: false
+    xpath: //div[@class="product-title"]//h5[@class="product-title__brand"]
