@@ -58,6 +58,9 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[contains(@class,'productGallery_logo')]//a//img[1]/@alt
+    regExp: (dyson)(.*)
+    regExpReplace: $1
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
