@@ -38,7 +38,7 @@ fields:
     regExpReplace: $1
   - name: availabilityText
     singleValue: false
-    xpath: //button[contains(@class,"addToCart")]
+    xpath: //form[@class="add_to_cart_form js-pharaAddToCart"]//button[contains(text(),"Sin Inventario")]
     regExp: (.+)
     regExpReplace: Out of Stock 
     defaultValue: In Stock
@@ -62,7 +62,7 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
-    description: Net weight as described on the page
+    description: //table[@class="table"]//tr//td[contains(text(),"Peso del producto")]//following-sibling::td//text()
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -77,7 +77,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: false
-    description: The manufacturer model code (unique) of the product
+    xpath: //table[@class="table"]//tr//td[contains(text(),"Modelo")]//following-sibling::td//text()
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
@@ -107,7 +107,7 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: false
-    description: Stated shipping dimensions
+    xpath: //table[@class="table"]//tr//td[contains(text(),"Dimensiones")]//following-sibling::td//text()
   - name: shippingWeight
     singleValue: false
     description: Stated shipping weight
@@ -124,12 +124,13 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@class="description-body"]//p//text() | //div[@class="description-body"]//ul//li/text()
+    # xpath: //div[@class="col-md-6 description"]//text() | //div[@class="col-md-4 ng-scope"]//text() | //div[@class="fichaDescripcion"]//text()
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: count(//div[@class="description-body"]//ul//li/text())
   - name: manufacturerImages
     singleValue: false
-    description: Images within the third party description
+    xpath: //div[@class="yCmsContentSlot productDetailsPageSection4"]//img/@src | //html[@class="ng-scope"]//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -243,8 +244,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
-    description: List of Ingredients from site - can be string of data if no
-      discernible start/end point
+    xpath: //table[@class="table"]//tr//td[contains(text(),"Ingredientes")]//following-sibling::td//text()
   - name: servingSize
     singleValue: false
     xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Porciones por Envase")]//following-sibling::td//text() | //div[@class="product-classifications"]//table[@class="table"]//tr//td[contains(text(),"Tamaño de la Porción")]//following-sibling::td//text()
@@ -389,7 +389,7 @@ fields:
     xpath: //div[@class="product-classifications"]//table[@class="table"]//tr//td//text()
   - name: warranty
     singleValue: false
-    description: Guarantee associated with the product
+    xpath: //table[@class="table"]//tr//td[contains(text(),"Garantía")]//following-sibling::td//text()
   - name: storage
     singleValue: false
     description: Suggested storage location for product
@@ -419,7 +419,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
-    description: promotion text on product page
+    xpath: //p[@class="promotion"]/text()
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information
@@ -487,8 +487,7 @@ fields:
     defaultValue: No
   - name: materials
     singleValue: false
-    description: Materials used to make the product
-    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: //table[@class="table"]//tr//td[contains(text(),"Material")]//following-sibling::td//text()
   - name: Image360Present
     singleValue: false
     description: If 360 image is present in the carousel ['Yes','No']
