@@ -13,5 +13,5 @@ module.exports = {
     await context.setBlockAds(false);
     await context.setAntiFingerprint(false);
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
-  }
+  },
 };
