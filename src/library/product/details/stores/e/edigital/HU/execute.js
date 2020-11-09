@@ -5,7 +5,7 @@ module.exports = {
     country: 'HU',
     store: 'edigital',
     domain: 'edigital.hu',
-    loadedSelector: "//div[@class='carousel-inner']//div[@class='item active']//a[@class='main-image-link']//img[@itemprop='contentUrl']/@src",
+    loadedSelector: "div[class='carousel-inner'] div[class='item active'] a[class='main-image-link'] img[itemprop='contentUrl']",
     noResultsXPath: "//section[@class='error-page']",
     zipcode: '',
   },

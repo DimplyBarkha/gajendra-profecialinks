@@ -42,7 +42,7 @@ fields:
     xpath: //div[@itemprop='offers']//span[@class='price-wrapper']//strong[@data-vat-name='item-old-price']//s
   - name: weightNet
     singleValue: false
-    xpath: //div[@class='product-desc-box__description']//div[@class='product-specification product-desc-box__long']//dt[@title='Súly']/following-sibling::dd[1]//span
+    xpath: //div[@class='product-desc-box__description']//div[contains(@class,'product-specification product-desc-box__long')]//dt[@title='Súly']/following-sibling::dd[1]//span
   - name: sku
     singleValue: false
     xpath: //article[@class="product-details" ]/@data-product-id
@@ -66,16 +66,16 @@ fields:
     xpath: //div[@class='product-short-description-container']//p[@class='product-short-description']
   - name: manufacturer
     singleValue: false
-    xpath: //div[@class='product-desc-box__description']//div[@class='product-specification product-desc-box__long']//dt[@title='Gyártó']/following-sibling::dd[1]//span
+    xpath: //div[@class='product-desc-box__description']//div[contains(@class,'product-specification product-desc-box__long')]//dt[@title='Gyártó']/following-sibling::dd[1]//span
   - name: coupon
     singleValue: false
     xpath: //div[@data-vat-name='external-discount-text' and contains(.,'Kuponnal')]//p
   - name: specifications
     singleValue: false
-    xpath: //div[@class='product-desc-box__description']//div[@class='product-specification product-desc-box__long']//dl
+    xpath: //div[@class='product-desc-box__description']//div[contains(@class,'product-specification product-desc-box__long')]//dl
   - name: warranty
     singleValue: false
-    xpath: //div[@class='product-desc-box__description']//div[@class='product-specification product-desc-box__long']//dt[@title='Garancia']/following-sibling::dd[1]//span
+    xpath: //div[@class='product-desc-box__description']//div[contains(@class,'product-specification product-desc-box__long')]//dt[@title='Garancia']/following-sibling::dd[1]//span
   - name: variantInformation
     singleValue: false
     xpath: //div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a//img/@alt | //div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a
