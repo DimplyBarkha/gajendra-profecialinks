@@ -32,7 +32,7 @@ const transform = (data) => {
         }
       }
       if (row.listPrice) {
-        row.listPrice[0].text = row.listPrice[0].text.replace(',', "").replace('.', ',');
+        row.listPrice[0].text = row.listPrice[0].text.replace(',', '').replace('.', ',');
       }
 
       if (row.sku) {
