@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'abt.com',
     prefix: null,
-    url: null,
+    url: "https://www.abt.com/resources/pages/search.php?keywords={id}",
     country: 'US',
     store: 'abt',
     zipcode: '',
