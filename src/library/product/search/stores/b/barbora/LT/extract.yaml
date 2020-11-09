@@ -1,0 +1,21 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'b-product--desktop-grid')]
+fields:
+- name: name
+  xpath: //span[@itemprop="name"]
+- name: thumbnail
+  xpath: //img[@itemprop="image"]/@src
+  regExp: (.+)
+  regExpReplace: https://pagrindinis.barbora.lt$1
+- name: price
+  xpath: //span[@itemprop="price"]/@content
+- name: productUrl 
+  xpath: //div[@class="b-product-wrap-img"]/a[@aria-hidden="true"]/@href
+  regExp: (.+)
+  regExpReplace: https://pagrindinis.barbora.lt$1
+- name: id
+  xpath: //div[contains(@class,"b-product--wrap")]/@data-b-item-id
+- name: searchUrl
+  xpath: //img[@itemprop="image"]/@searchurl
