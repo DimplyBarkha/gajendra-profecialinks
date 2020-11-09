@@ -266,48 +266,49 @@ fields:
     singleValue: true
     description: Suggested number of servings of the product.
     type: NUMBER
-    xpath: (//div[@id='ingredients']//tr//td)[2]//text()
+    xpath: //div[@id='ingredients']//tr//td//span[2]
+    regRxp: '\d+(\.\d+)?'
   - name: caloriesPerServing
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
      based on per 100g serving
-    xpath: (//div[@id='ingredients']//tr//td)[6]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[2]
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
      based on per 100g serving
     type: NUMBER
-    xpath: (//div[@id='ingredients']//tr//td)[9]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[6]
   - name: totalFatPerServing
     singleValue: true
     description: Nutritional Information for Total Fat content - Usually based on
        per 100g serving
     type: NUMBER
-    xpath: (//div[@id='ingredients']//tr//td)[14]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[8]
     regExp: '^[0-9]\d*(\.\d+)?'
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
-    xpath: (//div[@id='ingredients']//tr//td)[14]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[8]
     regExp: '[^\d]+$'
   - name: saturatedFatPerServing
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
        on per 100g serving
     type: NUMBER
-    xpath: (//div[@id='ingredients']//tr//td)[17]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[12]
     regExp: '^[0-9]\d*(\.\d+)?'
   - name: saturatedFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Saturated Fat content
-    xpath: (//div[@id='ingredients']//tr//td)[17]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[12]
     regExp: '[^\d]+$'
   - name: transFatPerServing
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on
         per 100g serving
     type: NUMBER
-    xpath: (//td[contains(@class,'table-ingredients-text')]//text())[16]
+    xpath: (//td[@class='table-ingredients-text']//text())[16]
     regExp: '^[0-9]\d*(\.\d+)?'
   - name: transFatPerServingUom
     singleValue: true
@@ -319,115 +320,119 @@ fields:
     description: Nutritional Information for Cholesterol content - Usually based on
         per 100g serving
     type: NUMBER
-    xpath: (//div[@id='ingredients']//tr//td)[22]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[24]
     regExp: '^[0-9]\d*(\.\d+)?'
   - name: cholesterolPerServingUom
     singleValue: true
     description: Unit of Measure Data for Cholesterol content
-    xpath: (//div[@id='ingredients']//tr//td)[22]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[24]
     regExp: '[^\d]+$'
   - name: sodiumPerServing
     singleValue: true
     description: Nutritional Information for Sodium content - Usually based on per
         100g serving
     type: NUMBER
-    xpath: (//div[@id='ingredients']//tr//td)[25]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[27]
     regExp: '^[0-9]\d*(\.\d+)?'
   - name: sodiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Sodium content
-    xpath: (//div[@id='ingredients']//tr//td)[25]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[27]
     regExp: '[^\d]+$'
   - name: totalCarbPerServing
     singleValue: true
     description: Nutritional Information for Total Carbohydrate content - Usually
         based on per 100g serving
     type: NUMBER
-    xpath: (//div[@id='ingredients']//tr//td)[28]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[30]
     regExp: '^[0-9]\d*(\.\d+)?'
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
-    xpath: (//div[@id='ingredients']//tr//td)[28]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[30]
     regExp: '[^\d]+$'
   - name: dietaryFibrePerServing
     singleValue: true
     description: Nutritional Information for Dietary Fibre content - Usually based
         on per 100g serving
     type: NUMBER
-    xpath: (//div[@id='ingredients']//tr//td)[31]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[34]
     regExp: '^[0-9]\d*(\.\d+)?'
   - name: dietaryFibrePerServingUom
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
-    xpath: (//div[@id='ingredients']//tr//td)[31]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[34]
     regExp: '[^\d]+$'
   - name: totalSugarsPerServing
     singleValue: true
     description: Nutritional Information for Total Sugar content - Usually based on
         per 100g serving
+    xpath: (//td[@class='table-ingredients-text']//text())[38]
+    regExp: '^[0-9]\d*(\.\d+)?'
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
+    xpath: (//td[@class='table-ingredients-text']//text())[38]
+    regExp: '[^\d]+$'
   - name: proteinPerServing
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
         100g serving
     type: NUMBER
-    xpath: (//div[@id='ingredients']//tr//td)[37]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[40]
     regExp: '^[0-9]\d*(\.\d+)?'
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
-    xpath: (//div[@id='ingredients']//tr//td)[37]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[40]
     regExp: '[^\d]+$'
   - name: vitaminAPerServing
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on
         per 100g serving
     type: NUMBER
-    xpath: (//div[@id='ingredients']//tr//td)[40]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[42]
     regExp: '^[0-9]\d*(\.\d+)?'
   - name: vitaminAPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin A
-    xpath: (//div[@id='ingredients']//tr//td)[40]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[42]
     regExp: '[^\d]+$'
   - name: vitaminCPerServing
     singleValue: true
     description: Nutritional Information for Vitamin C content - Usually based on
         per 100g serving
     type: NUMBER
-    xpath: (//div[@id='ingredients']//tr//td)[42]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[43]
     regExp: '^[0-9]\d*(\.\d+)?'
   - name: vitaminCPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin C
-    xpath: (//div[@id='ingredients']//tr//td)[42]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[43]
     regExp: '[^\d]+$'
   - name: calciumPerServing
     singleValue: true
     description: Nutritional Information for Calcium content - Usually based on per
         100g serving
     type: NUMBER
-    xpath: (//div[@id='ingredients']//tr//td)[44]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[44]
     regExp: '^[0-9]\d*(\.\d+)?'
   - name: calciumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Calcium
-    xpath: (//div[@id='ingredients']//tr//td)[44]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[44]
     regExp: '[^\d]+$'
   - name: ironPerServing
     singleValue: true
     description: Nutritional Information for Iron content - Usually based on per
         100g serving
     type: NUMBER
-    xpath: (//div[@id='ingredients']//tr//td)[46]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[45]
     regExp: '^[0-9]\d*(\.\d+)?'
   - name: ironPerServingUom
     singleValue: true
     description: Unit of Measure Data for Iron
-    xpath: (//div[@id='ingredients']//tr//td)[46]//text()
+    xpath: (//td[@class='table-ingredients-text']//text())[45]
     regExp: '[^\d]+$'
   - name: dietarySymbols
     singleValue: true
