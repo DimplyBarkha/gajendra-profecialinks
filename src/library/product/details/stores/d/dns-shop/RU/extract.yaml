@@ -110,7 +110,7 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: //h1[contains(@class, "page-title price-item-title")]
+    xpath: //h1[contains(@class, "page-title price-item-title")] | //*/@data-product-price
   - name: brandLink
     singleValue: false
     xpath: //div[contains(@class, 'brand-logo')]/a/@href
