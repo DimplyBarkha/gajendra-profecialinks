@@ -11,7 +11,7 @@ async function implementation (
     while(!!document.querySelector("#container > div > div:nth-child(1) > div > main > div > div:nth-child(1) > div._2megZ9._3-XKWb > button")){
       // @ts-ignore
       document.querySelector("#container > div > div:nth-child(1) > div > main > div > div:nth-child(1) > div._2megZ9._3-XKWb > button").click()
-      await new Promise(r => setTimeout(r, 6000));
+      await new Promise(r => setTimeout(r, 10000));
     }
   })
   return await context.extract(productDetails, { transform });
@@ -26,4 +26,5 @@ module.exports = {
     domain: 'lyko.com',
     zipcode: '',
   },
+  implementation,
 };
