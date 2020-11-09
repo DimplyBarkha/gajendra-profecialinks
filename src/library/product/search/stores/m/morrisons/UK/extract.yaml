@@ -1,0 +1,61 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[@class="fops-item fops-item--cluster"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //li[@class="fops-item fops-item--cluster"]//div[contains(@class, "fop-item")]/@data-sku
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //li[@class="fops-item fops-item--cluster"]//h4[@class="fop-title"]//@title
+  - name: productUrl
+    singleValue: false
+    xpath: //li[@class="fops-item fops-item--cluster"]//div[@class="fop-contentWrapper"]/a[1]/@href
+    regExp: ^([a-z0-9\/\-]+)
+    regExpReplace: https://groceries.morrisons.com$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //li[@class="fops-item fops-item--cluster"]//div[@class="fop-img-wrapper"]//img/@src
+    regExp: ^([A-Za-z0-9\/_\.\?\=]+)
+    regExpReplace: https://groceries.morrisons.com$1
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //li[@class="fops-item fops-item--cluster"]//span[@class="fop-rating-inner"]/@title
+    regExp: \d.\d+
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //li[@class="fops-item fops-item--cluster"]//span[contains(@class, "fop-price")]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: //li[@class="fops-item fops-item--cluster"]/@rank
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //li[@class="fops-item fops-item--cluster"]/@rank
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
