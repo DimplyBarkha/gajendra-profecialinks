@@ -8,57 +8,38 @@ module.exports = {
     domain: 'mvideo.ru',
     zipcode: '',
   },
-  implementation,
-};
-async function implementation(
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  const { transform } = parameters;
-  const { productDetails } = dependencies;
-  await context.evaluate(async function () {
-    function addclass(xpathforpagination) {
-      var elems = document.querySelectorAll(xpathforpagination);
-      elems[0].classList.add('pagination');
-    }
-
-    // for rank
-    function addElementToDocument(key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
-    }
-
-    // Method to Retrieve Xpath content of a Multiple Nodes
-    const getAllXpath = (xpath, prop) => {
-      const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      const result = [];
-      for (let index = 0; index < nodeSet.snapshotLength; index++) {
-        const element = nodeSet.snapshotItem(index);
-        if (element) result.push(prop ? element[prop] : element.nodeValue);
-      }
-      return result;
-    };
-
-    // for rank
-    const sliceURL = (data) => {
-      var cnt = 0;
-      for (let index = 0; index < data.length; index++) {
-        if (data[0] != 0) {
-          cnt++;
-          addElementToDocument('altImages', cnt);
-        }
-      }
-    };
-    var backgroundURL = getAllXpath('//div//h4[@class="fl-product-tile-title e-h4 fl-product-tile__title"]', 'nodeValue');
-    sliceURL(backgroundURL);
+  implementation: async (inputs, 
+    parameters, 
+    context, 
+    dependencies, 
+    ) => { 
+    const { transform } = parameters; 
+    const { productDetails } = dependencies; 
+    await context.evaluate(() => { 
+    function addHiddenDiv(id, content, index) { 
+    const newDiv = document.createElement('div'); 
+    newDiv.id = id; 
+    newDiv.textContent = content; 
+    newDiv.style.display = 'none'; 
+    const originalDiv = document.querySelectorAll("div[class='list-item relative']")[index]; 
+    originalDiv.parentNode.insertBefore(newDiv, originalDiv); 
+    } 
+    let rankOrganic; 
+    let url = window.location.href; 
+    let checkPageNumber = url.split('&')[1]; 
+    try { 
+    if (checkPageNumber.startsWith('page=')) { 
+    rankOrganic = checkPageNumber.replace('page=', ''); 
+    } 
+    } 
+    catch (err) { 
+    } 
+    if (!rankOrganic) { 
+    rankOrganic = 1; 
+    } else { 
+    rankOrganic = (parseInt(rankOrganic) * 36) + 1; 
+    } 
+    }); 
+    return await context.extract(productDetails, { transform }); 
+    }, 
   });
-  //rank end
-
-
-  return await context.extract(productDetails, { transform });
-}
