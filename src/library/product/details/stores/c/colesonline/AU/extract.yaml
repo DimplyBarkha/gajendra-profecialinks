@@ -50,8 +50,6 @@ fields:
   - name: quantity
     xpath: //div[contains(@class,"product-information")]//span[@class="package-size"]
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
   - name: weightNet
     description: Net weight as described on the page
   - name: weightGross
@@ -133,9 +131,11 @@ fields:
     xpath: //div[@id='ii_saturatedFatPerServingUom']
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
+    xpath: //div[@id='ii_transFatPerServing']
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
   - name: transFatPerServingUom
+    xpath: //div[@id='ii_transFatPerServingUom']
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
     description: Nutritional Information for Cholesterol content - Usually based on
@@ -178,32 +178,42 @@ fields:
     xpath: //div[@id='ii_proteinPerServingUom']
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
+    xpath: //div[@id='ii_vitaminAPerServing']
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
   - name: vitaminAPerServingUom
+    xpath: //div[@id='ii_vitaminAPerServingUom']
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
+    xpath: //div[@id='ii_vitaminCPerServing']
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
   - name: vitaminCPerServingUom
+    xpath: //div[@id='ii_vitaminCPerServingUom']
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
+    xpath: //div[@id='ii_calciumPerServing']
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
   - name: calciumPerServingUom
+    xpath: //div[@id='ii_calciumPerServingUom']
     description: Unit of Measure Data for Calcium
   - name: ironPerServing
+    xpath: //div[@id='ii_ironPerServing']
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
   - name: ironPerServingUom
+    xpath: //div[@id='ii_ironPerServingUom']
     description: Unit of Measure Data for Iron
   - name: dietarySymbols
     xpath: //h3[contains(@class,'product-specific-heading') and contains(.,'Dietary:')]//following-sibling::span[contains(@data-ng-bind-html,'product')]
     description: Information related to the dietary symbols of a specific product
   - name: magnesiumPerServing
+    xpath: //div[@id='ii_magnesiumPerServing']
     description: Nutritional Information for Magnesium content - Usually based on
       per 100g serving
   - name: magnesiumPerServingUom
+    xpath: //div[@id='ii_magnesiumPerServingUom']
     description: Unit of Measure Data for Magnesium
   - name: saltPerServing
     description: Nutritional Information for Salt content - Usually based on per
@@ -236,7 +246,7 @@ fields:
     description: Packaging information
   - name: additives
     description: List of additives in the product
-  - name: pricePerUnit
+  - name: pricePerUnit2
     xpath: //div[@id='ii_pricePerUnit']
     description: Price of the product split into certain units
   - name: pricePerUnitUom
