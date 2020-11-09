@@ -1,0 +1,325 @@
+input:
+  keywords: Alpen
+  _url: http://waitrose.com
+extractions:
+  - html: https://workbench.import.io/html/run=144d8d01-48e5-49ea-b84e-def1bc17debc/task=f8bf735e-0abb-4719-888d-8d88990df849/519f5c1c-bc8c-4825-9aad-49f1badab859.html
+    extractionConfigId: product/search/stores/w/waitrose/UK/extract
+    data:
+      - group:
+          - id:
+              - text: 068748-34869-34870
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[1]/@id
+            name:
+              - text: Alpen No Added Sugar Swiss Style Muesli
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[1]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/alpen-no-added-sugar-swiss-style-muesli/068748-34869-34870
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[1]/div[1]/section[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_068748_BP_3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[1]/@thumbnail
+            aggregateRating2:
+              - text: 2,3
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[1]/div[1]/section[1]/div[3]/p[1]/a[1]/span[1]/span[1]/span[1]
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[1]/div[1]/section[1]/div[3]/p[1]/a[1]/span[2]
+            ratingCount:
+              - text: "9"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[1]/div[1]/section[1]/div[3]/p[1]/a[1]/span[2]
+            price:
+              - text: £2.50
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[1]/div[1]/section[2]/div[1]/span[1]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[1]/@count
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[1]/@count
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+          - id:
+              - text: 083472-42385-42386
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[2]/@id
+            name:
+              - text: Alpen No Added Sugar Swiss Style Muesli
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[2]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/alpen-no-added-sugar-swiss-style-muesli/083472-42385-42386
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[2]/div[1]/section[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_083472_BP_3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[2]/@thumbnail
+            aggregateRating2:
+              - text: 3,4
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[2]/div[1]/section[1]/div[3]/p[1]/a[1]/span[1]/span[1]/span[1]
+            reviewCount:
+              - text: "11"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[2]/div[1]/section[1]/div[3]/p[1]/a[1]/span[2]
+            ratingCount:
+              - text: "11"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[2]/div[1]/section[1]/div[3]/p[1]/a[1]/span[2]
+            price:
+              - text: £4.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[2]/div[1]/section[2]/div[1]/span[1]/span[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[2]/@count
+                type: NUMBER
+                raw: "2"
+                locale: en_GB
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[2]/@count
+                type: NUMBER
+                raw: "2"
+                locale: en_GB
+                value: 2
+          - id:
+              - text: 001312-222-223
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[3]/@id
+            name:
+              - text: Alpen The Original Swiss Style Muesli
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[3]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/alpen-the-original-swiss-style-muesli/001312-222-223
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[3]/div[1]/section[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_001312_BP_3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[3]/@thumbnail
+            aggregateRating2:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[3]/div[1]/section[1]/div[3]/p[1]/a[1]/span[1]/span[1]/span[1]
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[3]/div[1]/section[1]/div[3]/p[1]/a[1]/span[2]
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[3]/div[1]/section[1]/div[3]/p[1]/a[1]/span[2]
+            price:
+              - text: £2.50
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[3]/div[1]/section[2]/div[1]/span[1]/span[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[3]/@count
+                type: NUMBER
+                raw: "3"
+                locale: en_GB
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[3]/@count
+                type: NUMBER
+                raw: "3"
+                locale: en_GB
+                value: 3
+          - id:
+              - text: 040392-19973-19974
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[4]/@id
+            name:
+              - text: Alpen The Original Swiss Style Muesli
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[4]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/alpen-the-original-swiss-style-muesli/040392-19973-19974
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[4]/div[1]/section[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_040392_BP_3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[4]/@thumbnail
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[4]/div[1]/section[1]/div[3]/p[1]/a[1]/span[1]/span[1]/span[1]
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[4]/div[1]/section[1]/div[3]/p[1]/a[1]/span[2]
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[4]/div[1]/section[1]/div[3]/p[1]/a[1]/span[2]
+            price:
+              - text: £4.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[4]/div[1]/section[2]/div[1]/span[1]/span[1]
+            rank:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[4]/@count
+                type: NUMBER
+                raw: "4"
+                locale: en_GB
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[4]/@count
+                type: NUMBER
+                raw: "4"
+                locale: en_GB
+                value: 4
+          - id:
+              - text: 068156-34583-34584
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[5]/@id
+            name:
+              - text: Alpen 5 bars strawberry with yoghurt
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[5]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/alpen-5-bars-strawberry-with-yoghurt/068156-34583-34584
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[5]/div[1]/section[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_068156_BP_3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[5]/@thumbnail
+            price:
+              - text: £2.05
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[5]/div[1]/section[2]/div[1]/span[1]/span[1]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[5]/@count
+                type: NUMBER
+                raw: "5"
+                locale: en_GB
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[5]/@count
+                type: NUMBER
+                raw: "5"
+                locale: en_GB
+                value: 5
+          - id:
+              - text: 405822-506126-506127
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[6]/@id
+            name:
+              - text: Alpen Light Jaffa Cake 5 Bars
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[6]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/alpen-light-jaffa-cake-5-bars/405822-506126-506127
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[6]/div[1]/section[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_405822_BP_3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[6]/@thumbnail
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[6]/div[1]/section[1]/div[3]/p[1]/a[1]/span[1]/span[1]/span[1]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[6]/div[1]/section[1]/div[3]/p[1]/a[1]/span[2]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[6]/div[1]/section[1]/div[3]/p[1]/a[1]/span[2]
+            price:
+              - text: £2.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[6]/div[1]/section[2]/div[1]/span[1]/span[1]
+            rank:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[6]/@count
+                type: NUMBER
+                raw: "6"
+                locale: en_GB
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[6]/@count
+                type: NUMBER
+                raw: "6"
+                locale: en_GB
+                value: 6
+          - id:
+              - text: 056162-28151-28152
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[7]/@id
+            name:
+              - text: Alpen light summer fruits 5 bars
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[7]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/alpen-light-summer-fruits-5-bars/056162-28151-28152
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[7]/div[1]/section[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_056162_BP_3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[7]/@thumbnail
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[7]/div[1]/section[1]/div[3]/p[1]/a[1]/span[1]/span[1]/span[1]
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[7]/div[1]/section[1]/div[3]/p[1]/a[1]/span[2]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[7]/div[1]/section[1]/div[3]/p[1]/a[1]/span[2]
+            price:
+              - text: £2.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[7]/div[1]/section[2]/div[1]/span[1]/span[1]
+            rank:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[7]/@count
+                type: NUMBER
+                raw: "7"
+                locale: en_GB
+                value: 7
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[7]/@count
+                type: NUMBER
+                raw: "7"
+                locale: en_GB
+                value: 7
+          - id:
+              - text: 655171-127693-127694
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[8]/@id
+            name:
+              - text: Alpen light double chocolate 5 bars
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[8]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/alpen-light-double-chocolate-5-bars/655171-127693-127694
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[8]/div[1]/section[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_655171_BP_3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[8]/@thumbnail
+            price:
+              - text: £2.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[8]/div[1]/section[2]/div[1]/span[1]/span[1]
+            rank:
+              - text: "8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[8]/@count
+                type: NUMBER
+                raw: "8"
+                locale: en_GB
+                value: 8
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[8]/@count
+                type: NUMBER
+                raw: "8"
+                locale: en_GB
+                value: 8
+          - id:
+              - text: 477388-506158-506159
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[9]/@id
+            name:
+              - text: Alpen Light Cherry Bakewell 5 Bars
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[9]/div[1]/section[1]/header[1]/a[1]/h2[1]/div[1]/span[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/alpen-light-cherry-bakewell-5-bars/477388-506158-506159
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[9]/div[1]/section[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://ecom-su-static-prod.wtrecom.com/images/products/3/LN_477388_BP_3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[9]/@thumbnail
+            price:
+              - text: £2.00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[9]/div[1]/section[2]/div[1]/span[1]/span[1]
+            rank:
+              - text: "9"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[9]/@count
+                type: NUMBER
+                raw: "9"
+                locale: en_GB
+                value: 9
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/article[9]/@count
+                type: NUMBER
+                raw: "9"
+                locale: en_GB
+                value: 9
+        xpath: /html
+    timestamp: 1604925261173

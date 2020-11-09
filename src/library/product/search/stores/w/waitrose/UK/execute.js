@@ -7,7 +7,7 @@ module.exports = {
     domain: 'waitrose.com',
     url: 'https://www.waitrose.com/ecom/shop/search?&searchTerm={searchTerms}',
     loadedSelector: 'div[data-test="product-list"]',
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(text(), "Sorry, we couldn")]',
     zipcode: '',
   },
 };
