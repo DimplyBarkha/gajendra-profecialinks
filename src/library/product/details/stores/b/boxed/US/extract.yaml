@@ -9,9 +9,7 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
-  xpath: //head/a[@tabindex]/@href
-  regExp: (.*)\?
-  regExpReplace: https://www.boxed.com$1
+  xpath: //meta[@id='meta-og-url']/@content
 - name: _pageTimeStamp
   singleValue: false
 - name: image
@@ -42,7 +40,7 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: concat(//section[@data-bx="pdp-name"]/a, ,//section[@data-bx="pdp-name"]/h1)
+  xpath: //ancestor::html//meta[@name='og-title']/@content
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -57,10 +55,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  defaultValue: "In Stock"
-  xpath: //span[contains(text(), 'In stock')]
-  regExp: .+
-  regExpReplace: "Out of Stock" 
+  xpath: //div[@id='isAvailable']
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -81,6 +76,7 @@ fields:
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  xpath: //div[@id='quantity'] 
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -93,6 +89,9 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
+  xpath: //meta[@id='meta-og-url']/@content
+  regExp: \/(\d+)\/
+  regExpReplace: $1
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
@@ -125,6 +124,7 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: //div[contains(@class,'a8dfbc-less')]/div
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -134,6 +134,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  xpath: count(//ul[contains(@role,'listbox') and not(contains(@aria-label, 'Quantity'))]/li)
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -152,6 +153,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
+  xpath: //ancestor::html//meta[@name='og-title']/@content
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -170,6 +172,7 @@ fields:
 - name: brandLink
   singleValue: true
   description: 
+  xpath: //div[@id='brandLink']/@content
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
@@ -414,12 +417,15 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
+  xpath: //div[@id='pricePerUnit']
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
+  xpath: //div[@id='pricePerUnitUom']
 - name: promotion
   singleValue: true
   description: promotion text on product page
+  xpath: //div[@id='promotion']
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -494,4 +500,4 @@ fields:
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  xpath: //div[@id='isAvailable']/@content
