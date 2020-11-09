@@ -32,7 +32,7 @@ async function implementation (
     if ('thumbnail' in data[0].group[i]) {
       if (data[0].group[i].thumbnail.length === 2) {
         data[0].group[i].thumbnail.splice(1, 1);
-      }  
+      }
     }
     if ('price' in data[0].group[i] && data[0].group[i].price.length === 2) {
       data[0].group[i].price[0].text += ' - ' + data[0].group[i].price[1].text;
