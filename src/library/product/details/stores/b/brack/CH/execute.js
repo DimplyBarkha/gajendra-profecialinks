@@ -6,7 +6,7 @@ module.exports = {
     store: 'brack',
     domain: 'brack.ch',
     loadedSelector: 'div.productStage__infoText',
-    noResultsXPath: '//div[contains(@class, "hasNoSearchResults")]',
+    noResultsXPath: '//div[contains(@class, "hasNoSearchResults")] | //div[@class="wrapper error-404"]',
     zipcode: '',
   },
 };

@@ -1,0 +1,165 @@
+input:
+  id: 727648
+  _url: http://brack.ch
+extractions:
+  - html: https://workbench.import.io/html/run=da7de4c0-36ad-4a1a-b0ae-40095af72064/task=2a256f96-d953-4dd7-a091-1282ab9186a6/aead6d28-5bf1-4a49-8fb4-f4ec59bbde63.html
+    extractionConfigId: product/details/stores/b/brack/CH/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.brack.ch/nestle-cerealien-cookie-crisp-375-g-727648
+                xpath: /html/head[1]/link[10]/@href
+            image:
+              - text: https://cdn.competec.ch/images2/0/3/0/51470030/51470030_xxl.jpg
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Nestlé Cerealien - COOKIE CRISP 375 g
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
+            category:
+              - text: Supermarkt & Drogerie
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[2]/a[1]
+              - text: Lebensmittel
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[3]/a[1]
+              - text: Frühstück
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[4]/a[1]
+              - text: Cerealien
+                xpath: /html/body/article[1]/div[1]/div[1]/nav[1]/p[1]/span[5]/a[1]
+            price:
+              - text: CHF 3.95
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[1]
+            availabilityText:
+              - text: "26"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/em[1]/span[1]
+            description:
+              - text: |-
+                  Sehen aus und schmecken wie Schokokekse
+                  Aus 34% Vollkorn und reich an Vitaminen, Calcium und Eisen
+                  Inhalt: 375 g
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[2]
+            brandText:
+              - text: Nestlé Cerealien
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
+            manufacturer:
+              - text: Nestlé Cerealien
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
+            quantity:
+              - text: 375 g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[2]/tr[2]/td[1]
+            sku:
+              - text: "727648"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+            mpc:
+              - text: "12373520"
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[2]
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]
+            shippingInfo:
+              - text: Bis 10 Uhr bestellt, heute in Mägenwil oder Willisau abholen.
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/div[1]/p[1]
+            manufacturerDescription:
+              - text: Mit Nestlé Cookie Crisp können Ihre Kinder mit einer Schale Keks-Glück in
+                  den Tag starten. Sie sehen zwar aus wie Schoko-Kekse und
+                  schmecken auch so, aber es sind Frühstücksflakes. Neben ihrem
+                  einzigartigen leckeren Keks-Geschmack liefern sie auch jede
+                  Menge Vollkorn, Vitamine und Mineralstoffe.
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/@productdesc
+            name:
+              - text: COOKIE CRISP 375 g
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/h1[1]
+            ingredientsList:
+              - text: "Zutaten: Getreide (34,2% Vollkornweizenmehl, Maisgrieß), Zucker,
+                  Glukosesirup, 5,3% Schoko-Keks-Stückchen (Weizenmehl,
+                  Puderzucker, 1% Kakaopulver, Sonnenblumenöl, Maisstärke),
+                  Weizenstärke, brauner Zucker, Palmöl, Vitamine und
+                  Mineralstoffe (Calciumcarbonat, Niacin, Pantothensäure, Eisen,
+                  Vit.D, Folsäure, Vit. B6, Riboflavin [Vit. B2]), fettarmer
+                  Kakao, Salz, natürliches Aroma, Backtriebmittel
+                  Natriumcarbonate, Säureregulator Kaliumphosphate."
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[2]/tr[3]/td[1]
+            servingSize:
+              - text: 100g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[2]/td[1]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[2]/td[1]
+            caloriesPerServing:
+              - text: "383"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[4]/td[1]
+            totalFatPerServing:
+              - text: "3.4"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[5]/td[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[5]/th[1]
+            saturatedFatPerServing:
+              - text: "1.2"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[6]/td[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[6]/th[1]
+            totalCarbPerServing:
+              - text: "78.3"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[7]/td[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[7]/th[1]
+            totalSugarsPerServing:
+              - text: "24.9"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[8]/td[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[8]/th[1]
+            proteinPerServing:
+              - text: "7.2"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[9]/td[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[9]/th[1]
+            saltPerServing:
+              - text: "0.77"
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[10]/td[1]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[10]/th[1]
+            warranty:
+              - text: 0 Monate
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[6]/tr[4]/td[1]
+            countryOfOrigin:
+              - text: Polen
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[5]/td[1]
+            allergyAdvice:
+              - text: keine Angabe
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[4]/td[1]
+            productOtherInformation:
+              - text: Hinweise für Allergiker finden Sie in den Spezifikationen!
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+            pricePerUnit:
+              - text: CHF 1.05 / 100 g
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[2]
+            pricePerUnitUom:
+              - text: g
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[2]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            nameExtended:
+              - text: Nestlé Cerealien COOKIE CRISP 375 g
+            descriptionBullets:
+              - text: "3"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1604911255767
