@@ -9,10 +9,9 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   var data = await context.extract(productDetails, { transform });
-  
-  for(let i=0;i<data[0].group.length;i++){
-    if(data[0].group[i].price){
-      if(data[0].group[i].price[0].text.includes('fra')){
+  for (let i = 0; i < data[0].group.length; i++) {
+    if (data[0].group[i].price) {
+      if (data[0].group[i].price[0].text.includes('fra')) {
         data[0].group[i].price[0].text = data[0].group[i].price[0].text.replace(/fra /, '');
       }
     }
@@ -25,7 +24,7 @@ module.exports = {
   parameterValues: {
     country: 'DK',
     store: 'boozt',
-    transform: null,
+    transform: transform,
     domain: 'boozt.com',
     zipcode: '',
   },
