@@ -1,49 +1,66 @@
 singleRecord: false
-regionsSelector: null
-recordSelector: null
-recordXPath: null
+
+regionsSelector: 
+recordSelector: 
+recordXPath: 
 fields:
 - name: _input
   singleValue: false
+  xpath: "//*[@id='added__input']//text()"
 - name: _url
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //link[@rel='canonical']/@href
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: true
+  xpath: //div[@id='product-image-container']//a/img/@src | //div[@class='product-image-container']//a/img/@src
   description: URL of the main product image
 - name: imageAlt
   singleValue: true
+  xpath: //div[@id='product-image-container']//a/img/@alt | //div[@class='product-image-container']//a/img/@alt
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
+  xpath: //div[@class='image-carousel']//img/@src
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
 - name: category
   singleValue: false
+  xpath: //div[@id='breadcrumb']/ul/li/a/span
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: true
+  xpath: //h1[@itemprop='name']
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
   singleValue: true
+  xpath: //div[@id='product-baseline']//div[@itemprop='price'] | //div[@id='product-baseline-right']//span[@class='crossed-price'] | //div[@id='product-base-container']//div[@itemprop='price'] | //div[@id='product-base-container']//span[@class='crossed-price']
   description: The stated undiscounted price for the product
-- name: price
+- name: price # to check
   singleValue: true
+  xpath: //div[@id='product-baseline-right']//div[@class='price'] | //div[@id='product-baseline-right']//div[@itemprop='price'] | //div[@id='product-base-container']//div[@class='price'] | //div[@id='product-base-container']//div[@itemprop='price']
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
   singleValue: true
+  xpath: //div[@id='product-baseline-right']//button[@class='product-add-button']//span[normalize-space(text()='Ajouter au panier')] | //div[@id='product-base-container']//button[@class='product-add-button']//span[normalize-space(text()='Ajouter au panier')] | //div[@id='product-baseline-right']//button[@class='product-add-button']//span[normalize-space(text()='Configurez votre produit')] | //div[@id='product-base-container']//button[@class='product-add-button']//span[normalize-space(text()='Configurez votre produit')]
+  # //div[@class='product-availibility-container']
+  # https://www.bruneau.fr/mobilier-bureau/sieges-fauteuils-chaises/chaises-fauteuils-bureau/fauteuils-bureau-direction/fauteuils-bureau-simili-cuir/fauteuil-bureau-gaming-raz-r-OF72899.htm?otype=eCatalogue&ocontext=Mobilier%20de%20bureau%2FMobilier%20t%C3%A9l%C3%A9travail&ovalue=Liste&oabtgroup=Groupe%20B&oabtopencours=March2020
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  regExp: "(.+)"
+  regExpReplace: In Stock
+  defaultValue: Out of Stock
 - name: description
   singleValue: false
+  xpath: //meta[@name='description']/@content
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
@@ -51,12 +68,14 @@ fields:
   description: Number of ul > li tags in the description
 - name: brandText
   singleValue: true
+  xpath: //div[@id='product-brand']/a/img/@title
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
   singleValue: true
+  xpath: //div[@id='product-brand']/a/@content
   description: Product manufacturer
-- name: quantity
+- name: quantity #todo
   singleValue: true
   description: Quantity as described on the page
 - name: weightNet
@@ -64,6 +83,7 @@ fields:
   description: Net weight as described on the page
 - name: weightGross
   singleValue: true
+  xpath: //meta[@content='Poids (Kg)']/following-sibling::meta/@content | //meta[@content='Poids (g)']/following-sibling::meta/@content
   description: Gross weight as described on the page
 - name: gtin
   singleValue: true
@@ -76,10 +96,12 @@ fields:
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
-  singleValue: tru
+  singleValue: true
+  xpath: //p[@class='product-reference-container']/span[@class='reference']
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
+  xpath: //table[@id='technical-features-table']//td/span[text()='Paquet de']/parent::td/following-sibling::td[1]/span
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
 - name: legalDisclaimer
@@ -91,18 +113,22 @@ fields:
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
-- name: ratingCount
+- name: ratingCount 
   singleValue: true
   description: The number of ratings
-- name: aggregateRatingText
+  xpath: //div[@id='product-container']//span[@class='review']/a/text()
+- name: aggregateRatingText 
   singleValue: true
   description: The stated aggregate rating
-- name: aggregateRating
+  xpath: //div[@class='rating']/span/@title
+- name: aggregateRating 
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //div[@class='rating']/span/@title
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: //div[@id='delivery-service']//div[@class='line']/span |  //span[@class='delivery-text']
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -111,24 +137,30 @@ fields:
   description: Stated shipping weight
 - name: variantCount
   singleValue: true
+  xpath: count(//ul[@class='picto-variance variance ']/li)
   description: Number of variants listed
 - name: color
   singleValue: true
+  xpath: //ul[@class='picto-variance variance ']//li[@class='selected']/img/@title | //ul[@class='picto-variance variance']//li[@class='selected']/img/@title
   description: A textual description of the colour
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
-- name: manufacturerDescription
+- name: manufacturerDescription 
   singleValue: false
   description: The extended description of the product supplied by the lister
-- name: manufacturerImages
+  xpath: //div[@id='product-detail-description']/text() | //h2[@class='product-description']/text()
+- name: manufacturerImages 
   singleValue: false
   description: Images within the third party description
+  xpath: //div[@id='product-detail-description']//img/@src | //h2[@class='product-description']//img/@src
 - name: videos
   singleValue: false
+  xpath: //div[@id='product-description-container']//div[@class='default-video-container']/iframe/@src
   description: URLs of videos on page
 - name: name
   singleValue: true
+  xpath: //h1[@itemprop='name']
   description: The product name
 - name: inStorePrice
   singleValue: true
@@ -362,7 +394,7 @@ fields:
   singleValue: true
   description: 
 - name: specifications
-  singleValue: true
+  xpath: //table[@id='technical-features-table']//td/span[contains(text(),'H x L')]/parent::td/following-sibling::td[1]/span
   description: The physical dimensions of the product including packaging.
 - name: warranty
   singleValue: true
@@ -389,13 +421,14 @@ fields:
   singleValue: true
   description: List of additives in the product
 - name: pricePerUnit
-  singleValue: true
   description: Price of the product split into certain units
+  xpath: //div[@class='product-slice']//table//tr[1]/td[last()]/text()
 - name: pricePerUnitUom
-  singleValue: true
+  xpath: //span[@class='price-currency']/@content
   description: The unit of measurement used in price_per_unit
 - name: promotion
   singleValue: true
+  xpath: //span[@class='pack-offer-text']/font/font
   description: promotion text on product page
 - name: alcoholContent
   singleValue: true
@@ -412,7 +445,7 @@ fields:
   description: In product page, information about a new version of the product - new
     desription info
 - name: variantInformation
-  singleValue: true
+  xpath: //div[@id='product-variance-container']/div/@data-feature-id
   description: colour / scent / flavour / other
 - name: firstVariant
   singleValue: true
@@ -426,6 +459,7 @@ fields:
     between variants, this will need analysis
 - name: variants
   singleValue: false
+  xpath: //div[@id='product-variance-container']//ul/li/@data-name
   description: 
 - name: additionalDescBulletInfo
   singleValue: false
@@ -439,13 +473,15 @@ fields:
   example: 4 - 99 years
 - name: energyEfficiency
   singleValue: true
+  xpath: //table[@id='technical-features-table']//td/span[text()='Classe énergétique']/parent::td/following-sibling::td[1]/span
   description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
   example: A+, A+++, B
 - name: technicalInformationPdfPresent
   singleValue: true
+  xpath: //button[@class='document']/@pdf
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: false
+  defaultValue: 'No'
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
@@ -460,15 +496,19 @@ fields:
   defaultValue: false
 - name: materials
   singleValue: true
+  xpath: //table[@id='technical-features-table']//td/span[contains(text(),'Matière')]/parent::td/following-sibling::td[1]/span
   description: Materials used to make the product
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
 - name: Image360Present
-  singleValue: true
+  xpath: //button[@class='view-3D-button']/@image360
+  # https://www.bruneau.fr/mobilier-bureau/sieges-fauteuils-chaises/chaises-fauteuils-bureau/fauteuils-bureau-direction/fauteuils-bureau-simili-cuir/fauteuil-bureau-gaming-raz-r-OF72899.htm?otype=eCatalogue&ocontext=Mobilier%20de%20bureau%2FMobilier%20t%C3%A9l%C3%A9travail&ovalue=Liste&oabtgroup=Groupe%20B&oabtopencours=March2020
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: false
+  defaultValue: 'No'
 - name: imageZoomFeaturePresent
   singleValue: true
+  defaultValue: 'No'
+  xpath: //a[@class='cursor-zoom-in']/@zoom
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  regExp: (.+)

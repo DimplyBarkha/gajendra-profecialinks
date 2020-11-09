@@ -1,0 +1,90 @@
+input:
+  id: 710546
+  _url: http://bruneau.fr
+extractions:
+  - html: https://workbench.import.io/html/run=02f35d6b-e2f5-4d77-9003-73027ce947a8/task=7608edaa-99d2-4115-855d-5a2a89257880/0d09cc21-1771-4c58-82b2-f02ed71a8595.html
+    extractionConfigId: product/details/stores/b/bruneau/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.bruneau.fr/hygiene-entretien/essuyage/essuie-mains/essuie-mains-plies-c/papier-essuie-mains-pliage-c-tork-h3-advanced-carton-2560-of710546.htm
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/71/05/46/710546.jpg?width=330&height=330&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Papier essuie-mains pliage en C Tork H3 Advanced - Carton de 2560
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/71/05/46/710546.jpg?width=83&height=83&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
+            category:
+              - text: Accueil
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[2]/ul[1]/li[1]/a[1]/span[1]
+              - text: Hygiène et entretien
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[2]/ul[1]/li[2]/a[1]/span[1]
+              - text: Essuyage
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[2]/ul[1]/li[3]/a[1]/span[1]
+              - text: Essuie-mains
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[2]/ul[1]/li[4]/a[1]/span[1]
+              - text: Essuie-mains pliés en C
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[2]/ul[1]/li[5]/a[1]/span[1]
+            nameExtended:
+              - text: Papier essuie-mains pliage en C Tork H3 Advanced - Carton de 2560
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/h1[1]
+            listPrice:
+              - text: 66,95 € ht
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            price:
+              - text: 66,95 € ht
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[7]/button[1]/span[2]
+            description:
+              - text: Achetez Papier essuie-mains pliage en C Tork H3 Advanced - Carton de 2560
+                  sur Bruneau.fr. Parfaitement adapté aux lieux à fort passage
+                xpath: /html/head[1]/meta[5]/@content
+            brandText:
+              - text: Voir tous les produits Tork
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1]/img[1]/@title
+            manufacturer:
+              - text: Tork
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1]/@content
+            mpc:
+              - text: "710546"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/p[1]/span[1]
+            shippingInfo:
+              - text: Livraison sous 24 heures
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+            color:
+              - text: Blanc
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/ul[1]/li[1]/img[1]/@title
+            name:
+              - text: Papier essuie-mains pliage en C Tork H3 Advanced - Carton de 2560
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/h1[1]
+            pricePerUnit:
+              - text: |-
+                  73,50
+                   €
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/text()[1]
+            pricePerUnitUom:
+              - text: EUR
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/span[1]/@content
+            variantInformation:
+              - text: COULEUR
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/@data-feature-id
+            variants:
+              - text: Blanc
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[5]/div[1]/ul[1]/li[1]/@data-name
+            imageZoomFeaturePresent:
+              - text: yes
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@zoom
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            variantCount:
+              - text: "1"
+        xpath: /
+    timestamp: 1604753612694

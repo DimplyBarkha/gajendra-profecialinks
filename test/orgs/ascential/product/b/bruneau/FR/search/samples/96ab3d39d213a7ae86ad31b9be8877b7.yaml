@@ -1,0 +1,708 @@
+input:
+  keywords: 4 couleuirs bic
+  _url: http://bruneau.fr
+extractions:
+  - html: https://workbench.import.io/html/run=dcd5ef50-3ce9-4b14-bd3e-60b2266aa58a/task=20dcf3e4-d169-424f-bd0a-1df18b5c4c01/3a139200-2774-4141-991a-ff5d0ca66e30.html
+    extractionConfigId: product/search/stores/b/bruneau/FR/extract
+    data:
+      - group:
+          - id:
+              - text: "90131"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/@searchurl
+            name:
+              - text: Stylo bille Bic 4 couleurs Original rétractable pointe 1 mm - écriture
+                  moyenne
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-bic-4-couleurs-original-retractable-pointe-1-mm-ecriture-moyenne-OF90131.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/90/13/90131.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "30"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "30"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            price:
+              - text: 1,45
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/a[1]/@content
+            rank:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[5]/text()[1]
+                type: NUMBER
+                raw: "1"
+                locale: fr_FR
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[1]/div[5]/text()[1]
+                type: NUMBER
+                raw: "1"
+                locale: fr_FR
+                value: 1
+          - id:
+              - text: "43831"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/@searchurl
+            name:
+              - text: Stylo bille 4 couleurs multifonctions Bic bille et porte mine
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-4-couleurs-multifonctions-bic-bille-porte-mine-OF43831.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/43/83/43831.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "63"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "63"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            price:
+              - text: 2,15
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/div[2]/div[2]/a[1]/@content
+            rank:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/div[5]/text()[1]
+                type: NUMBER
+                raw: "2"
+                locale: fr_FR
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[2]/div[5]/text()[1]
+                type: NUMBER
+                raw: "2"
+                locale: fr_FR
+                value: 2
+          - id:
+              - text: "51522"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/@searchurl
+            name:
+              - text: Stylo bille Bic 4 couleurs Pro rétractable pointe 1 mm - écriture moyenne
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-bic-4-couleurs-pro-retractable-pointe-1-mm-ecriture-moyenne-OF51522.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/51/52/51522.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "18"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "18"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            price:
+              - text: 1,45
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[2]/div[2]/a[1]/@content
+            rank:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[5]/text()[1]
+                type: NUMBER
+                raw: "3"
+                locale: fr_FR
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[3]/div[5]/text()[1]
+                type: NUMBER
+                raw: "3"
+                locale: fr_FR
+                value: 3
+          - id:
+              - text: "85077"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/@searchurl
+            name:
+              - text: Stylo bille Bic 4 couleurs Fun rétractable pointe 1 mm - écriture moyenne
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-bic-4-couleurs-fun-retractable-pointe-1-mm-ecriture-moyenne-OF85077.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/85/07/85077.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "21"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "21"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            price:
+              - text: 1,45
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div[2]/a[1]/@content
+            rank:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[5]/text()[1]
+                type: NUMBER
+                raw: "4"
+                locale: fr_FR
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[4]/div[5]/text()[1]
+                type: NUMBER
+                raw: "4"
+                locale: fr_FR
+                value: 4
+          - id:
+              - text: "709333"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/@searchurl
+            name:
+              - text: Stylo bille Bic Velours 4 couleurs pointe moyenne 1 mm
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-bic-velours-4-couleurs-pointe-moyenne-1-mm-OF709333.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/70/93/33/709333.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 1,95
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/div[2]/div[2]/a[1]/@content
+            rank:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/div[5]/text()[1]
+                type: NUMBER
+                raw: "5"
+                locale: fr_FR
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[5]/div[5]/text()[1]
+                type: NUMBER
+                raw: "5"
+                locale: fr_FR
+                value: 5
+          - id:
+              - text: "39202"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/@searchurl
+            name:
+              - text: Stylo bille 4 couleurs Bic Shine rétractable pointe 1 mm - écriture
+                  moyenne
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-4-couleurs-bic-shine-retractable-pointe-1-mm-ecriture-moyenne-OF39202.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020&references=94719&references=704307&references=39205
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/94/71/94719.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "39"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "39"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            price:
+              - text: 1,69
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[2]/div[3]/a[1]/@content
+            rank:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[5]/text()[1]
+                type: NUMBER
+                raw: "6"
+                locale: fr_FR
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[6]/div[5]/text()[1]
+                type: NUMBER
+                raw: "6"
+                locale: fr_FR
+                value: 6
+          - id:
+              - text: "27151"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/@searchurl
+            name:
+              - text: Recharge pour stylo bille 4 couleurs Bic pointe moyenne 1 mm
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/recharges-stylos-cartouches-encre/recharge-pour-stylo-bille-4-couleurs-bic-pointe-moyenne-1-mm-OF27151.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/Zoom/27/23/27236.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "15"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "15"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            price:
+              - text: 0,74
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[2]/div[3]/a[1]/@content
+            rank:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[5]/text()[1]
+                type: NUMBER
+                raw: "7"
+                locale: fr_FR
+                value: 7
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[7]/div[5]/text()[1]
+                type: NUMBER
+                raw: "7"
+                locale: fr_FR
+                value: 7
+          - id:
+              - text: "26678"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/@searchurl
+            name:
+              - text: Stylo bille Bic 4 couleurs rétractable pointe 0,8 mm - écriture fine
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-bic-4-couleurs-retractable-pointe-0-8-mm-ecriture-fine-OF26678.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/26/67/26678.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "10"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            price:
+              - text: 1,50
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[2]/div[2]/a[1]/@content
+            rank:
+              - text: "8"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[5]/text()[1]
+                type: NUMBER
+                raw: "8"
+                locale: fr_FR
+                value: 8
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[8]/div[5]/text()[1]
+                type: NUMBER
+                raw: "8"
+                locale: fr_FR
+                value: 8
+          - id:
+              - text: "24516"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/@searchurl
+            name:
+              - text: Stylo bille Bic 4 couleurs grip Pro rétractable pointe 1 mm - écriture
+                  moyenne
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-bic-4-couleurs-grip-pro-retractable-pointe-1-mm-ecriture-moyenne-OF24516.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/24/51/24516.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "21"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "21"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            price:
+              - text: 1,69
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[2]/div[2]/a[1]/@content
+            rank:
+              - text: "9"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[5]/text()[1]
+                type: NUMBER
+                raw: "9"
+                locale: fr_FR
+                value: 9
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[9]/div[5]/text()[1]
+                type: NUMBER
+                raw: "9"
+                locale: fr_FR
+                value: 9
+          - id:
+              - text: "24515"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/@searchurl
+            name:
+              - text: Stylo bille Bic 4 couleurs grip Fun rétractable pointe 1 mm - écriture
+                  moyenne
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-bic-4-couleurs-grip-fun-retractable-pointe-1-mm-ecriture-moyenne-OF24515.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/24/51/24515.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "10"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            price:
+              - text: 1,65
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[2]/div[2]/a[1]/@content
+            rank:
+              - text: "10"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[5]/text()[1]
+                type: NUMBER
+                raw: "10"
+                locale: fr_FR
+                value: 10
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[10]/div[5]/text()[1]
+                type: NUMBER
+                raw: "10"
+                locale: fr_FR
+                value: 10
+          - id:
+              - text: "26869"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/@searchurl
+            name:
+              - text: Stylo bille stylet Bic 4 couleurs Stylus rétractable pointe 1 mm -
+                  écriture moyenne
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-stylet-bic-4-couleurs-stylus-retractable-pointe-1-mm-ecriture-moyenne-OF26869.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/26/86/26869.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            price:
+              - text: 3,75
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[2]/div[2]/a[1]/@content
+            rank:
+              - text: "11"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[5]/text()[1]
+                type: NUMBER
+                raw: "11"
+                locale: fr_FR
+                value: 11
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[11]/div[5]/text()[1]
+                type: NUMBER
+                raw: "11"
+                locale: fr_FR
+                value: 11
+          - id:
+              - text: "712475"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/@searchurl
+            name:
+              - text: Stylo bille Bic 4 couleurs Festif rétractable point 1 mm - écriture
+                  moyenne
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-bic-4-couleurs-festif-retractable-point-1-mm-ecriture-moyenne-OF712475.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/71/24/75/712475A.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 2,49
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/div[2]/div[2]/a[1]/@content
+            rank:
+              - text: "12"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/div[5]/text()[1]
+                type: NUMBER
+                raw: "12"
+                locale: fr_FR
+                value: 12
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[12]/div[5]/text()[1]
+                type: NUMBER
+                raw: "12"
+                locale: fr_FR
+                value: 12
+          - id:
+              - text: "16071"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/@searchurl
+            name:
+              - text: Stylo bille 4 couleurs Bic Fluo rétractable pointe 1 mm - écriture moyenne
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-4-couleurs-bic-fluo-retractable-pointe-1-mm-ecriture-moyenne-OF16071.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/16/07/16071.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "12"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "12"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            price:
+              - text: 2,35
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[2]/div[2]/a[1]/@content
+            rank:
+              - text: "13"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[5]/text()[1]
+                type: NUMBER
+                raw: "13"
+                locale: fr_FR
+                value: 13
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[13]/div[5]/text()[1]
+                type: NUMBER
+                raw: "13"
+                locale: fr_FR
+                value: 13
+          - id:
+              - text: "92170"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/@searchurl
+            name:
+              - text: Stylo bille Bic Cristal Fashion écriture moyenne - Pochette de 4 couleurs
+                  fun
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/stylos/stylos-bille/stylo-bille-bic-cristal-fashion-ecriture-moyenne-pochette-4-couleurs-fun-OF92170.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/92/17/92170.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            price:
+              - text: 1,79
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[2]/div[2]/a[1]/@content
+            rank:
+              - text: "14"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[5]/text()[1]
+                type: NUMBER
+                raw: "14"
+                locale: fr_FR
+                value: 14
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[14]/div[5]/text()[1]
+                type: NUMBER
+                raw: "14"
+                locale: fr_FR
+                value: 14
+          - id:
+              - text: "592905"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/@searchurl
+            name:
+              - text: "Big Box de 6 stylos bille 4 couleurs différents :
+                  Classique+Fashion+Grip+Mini"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/papeterie-fournitures/ecriture/feutres/big-box-6-stylos-bille-4-couleurs-differents-classique-fashion-grip-mini-OF592905.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/external/?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas&source=http%3A%2F%2Fmedia.maxiburo.fr%2FLDF_Media%2FAdveo%2F155849.jpg
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: 31,95
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/div[2]/div[2]/a[1]/@content
+            rank:
+              - text: "15"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/div[5]/text()[1]
+                type: NUMBER
+                raw: "15"
+                locale: fr_FR
+                value: 15
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[15]/div[5]/text()[1]
+                type: NUMBER
+                raw: "15"
+                locale: fr_FR
+                value: 15
+          - id:
+              - text: "11916"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/@data-reference
+            searchUrl:
+              - text: https://www.bruneau.fr/recherche/result.htm?search=4%20couleuirs%20bic
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/@searchurl
+            name:
+              - text: Module de classement Exacompta Big Box coffre gris clair 4 tiroirs couleur
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[2]/h3[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.bruneau.fr/classement/accessoires-classement-pour-bureau/modules-classement-tiroirs/module-classement-exacompta-big-box-coffre-gris-clair-4-tiroirs-couleur-OF11916.htm?otype=Moteur%20de%20recherches&ocontext=Multi%20r%C3%A9sultats&ovalue=Fiche%20produit&oabtgroup=Groupe%20D&oabtopencours=March2020
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[2]/h3[1]/a[1]/@href
+            thumbnail:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/Zoom/00/26/00269.jpg?width=225&height=225&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[2]/div[1]/div[1]/span[1]/@title
+                type: STRING
+            reviewCount:
+              - text: "14"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            ratingCount:
+              - text: "14"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[2]/div[1]/div[1]/span[2]/a[1]/text()[1]
+            price:
+              - text: 40,25
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[3]/div[1]/div[1]/div[2]/text()[1]
+            manufacturer:
+              - text: Multiform
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[2]/div[3]/a[1]/@content
+            rank:
+              - text: "16"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[5]/text()[1]
+                type: NUMBER
+                raw: "16"
+                locale: fr_FR
+                value: 16
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[2]/div[3]/div[16]/div[5]/text()[1]
+                type: NUMBER
+                raw: "16"
+                locale: fr_FR
+                value: 16
+        xpath: /html
+    timestamp: 1604577479345
