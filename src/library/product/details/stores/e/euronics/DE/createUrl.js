@@ -5,6 +5,6 @@ module.exports = {
     prefix: null,
     country: 'DE',
     store: 'euronics',
-    url: '{url}',
+    url: 'https://www.euronics.de/search?sSearch={id}',
   },
 };
