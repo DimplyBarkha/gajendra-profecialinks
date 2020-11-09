@@ -4,8 +4,6 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: variantUrl
-    xpath: //input[@type="checkbox"]//@url | //body/@url | //tr[contains(@class,'append_variant')]/td//@url 
-    singleValue: true
+    xpath: //tr[contains(@class,'append_variant')]/td//@url
   - name: variantId
-    xpath: //div[contains(@class,'is-checkbox')]//input/@value | //tr[contains(@class,'append_variant')]/td//@id | //body/@variantid
-    singleValue: true
+    xpath: //tr[contains(@class,'append_variant')]/td//@id
