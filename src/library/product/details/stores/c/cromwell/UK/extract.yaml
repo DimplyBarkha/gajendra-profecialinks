@@ -1,0 +1,59 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="productBrandName"]//span[@data-e2e="productName"]
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'image-gallery-slide')]//div//div//img//@alt
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'image-gallery-slide')]//div//a//@href
+  - name: price
+    singleValue: false
+    xpath: //div[@class="ProductVariantPrice"]//p[@class="ProductVariantPrice_MainPrice"]//strong
+  - name: description
+    singleValue: false
+    xpath: //div[@class="ProductVariantBriefDetailsB"]//p[@data-e2e="ProductVariantBriefDetails"]
+  - name: category
+    singleValue: false
+    xpath: //ol[@class="Breadcrumb"]//li[2]
+  - name: category
+    singleValue: false
+    xpath: //ol[@class="Breadcrumb"]//li[position()>2]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="productBrandName"]//span[@data-e2e="productName"]
+  - name: brandText
+    singleValue: false
+    xpath: //h1[@class="productBrandName"]//em[@class="productBrand"]
+  - name: sku
+    singleValue: false
+    xpath: //h2[@class="productCodeSku"]//span[@data-e2e="productSku"]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="image-gallery-thumbnails-container"]//button[@class="image-gallery-thumbnail"]//following-sibling::button//div[@class="image-gallery-thumbnail-inner"]//img[@class="image-gallery-thumbnail-image"]//@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="image-gallery-thumbnails-container"]//button[@class="image-gallery-thumbnail"]//following-sibling::button//div[@class="image-gallery-thumbnail-inner"]//img[@class="image-gallery-thumbnail-image"]//@src)
+  - name: packSize
+    singleValue: false
+    xpath: //li[@class="ProductFurtherInfo_attrTable_item"]//div[@class="ProductFurtherInfo_attrTableitem_info"]//strong[contains(text(),'Pack Quantity')]//following-sibling::span
+  - name: variantId
+    singleValue: false
+    xpath: //li[@class="ProductFurtherInfo_attrTable_item"]//div[@class="ProductFurtherInfo_attrTableitem_info"]//strong[contains(text(),'MFR Part No.')]//following-sibling::span
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //li[@class="ProductFurtherInfo_attrTable_item"]//div[@class="ProductFurtherInfo_attrTableitem_info"]//strong[contains(text(),'Dimensions')]//following-sibling::span
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div//article//div[@class="ProductVariantBriefDetailsB"]//ul//li)
+  - name: availabilityText
+    singleValue: false
+    xpath: //*[@id="app-dom-hook"]//div//div[4]//div//div//div[1]//div[4]//div//following-sibling::div
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock

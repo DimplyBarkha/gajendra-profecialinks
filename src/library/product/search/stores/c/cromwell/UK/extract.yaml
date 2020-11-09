@@ -1,0 +1,19 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="SearchScreen_Results col-sm-9"]//div//div[@class="FamilyDetailsPanel FamilyDetailsPanel_ListView"]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class="FamilyDetailsPanel_Details col-md-8 col-sm-12 col-xs-12"]//div[@class="FamilyDetailsPanel_Title"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="SearchScreen_Results col-sm-9"]//div//div[@class="FamilyDetailsPanel FamilyDetailsPanel_ListView"]//div[@class="FamilyDetailsPanel_Details col-md-8 col-sm-12 col-xs-12"]//following-sibling::a//@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="FamilyDetailsPanel_Image searchImage"]//a//img//@src
+  - name: price
+    singleValue: false
+    xpath: //div[@class="FamilyDetailsPanel_Price"]
+  - name: rank
+  - name: rankOrganic
