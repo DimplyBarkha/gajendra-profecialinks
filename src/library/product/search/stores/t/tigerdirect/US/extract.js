@@ -24,36 +24,35 @@ async function implementation(
       elems[0].classList.add('pagination');
     }
     // for rank
-    function addElementToDocument(key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
+    //for rank
+    function addHiddenDiv(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('div[class="each-sku"]')[index];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
-    // Method to Retrieve Xpath content of a Multiple Nodes
-    const getAllXpath = (xpath, prop) => {
-      const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      const result = [];
-      for (let index = 0; index < nodeSet.snapshotLength; index++) {
-        const element = nodeSet.snapshotItem(index);
-        if (element) result.push(prop ? element[prop] : element.nodeValue);
+    let rankOrganic;
+    let url = window.location.href;
+    let checkPageNumber1 = url.split('?')[1];
+    let checkPageNumber = checkPageNumber1.split('&')[0];
+    try {
+      if (checkPageNumber.startsWith('page=')) {
+        rankOrganic = checkPageNumber.replace('page=', '');
       }
-      return result;
-    };
-    // for rank
-    var cnt = 0;
-    const sliceURL = (data) => {
-      // var cnt = 0;
-      for (let index = 0; index < data.length; index++) {
-        if (data[0] != 0) {
-          cnt++;
-          addElementToDocument('altImages', cnt);
-        }
-      }
-    };
-    var backgroundURL = getAllXpath('//div[@class="sku-img"]//a//@title', 'nodeValue');
-    sliceURL(backgroundURL);
+    }
+    catch (err) {
+    }
+    if (!rankOrganic) {
+      rankOrganic = 1;
+    } else {
+      rankOrganic = (parseInt(rankOrganic) * 10) + 1;
+    }
+    const urlProduct = document.querySelectorAll('div[class="each-sku"]');
+    for (let i = 0; i < urlProduct.length; i++) {
+      addHiddenDiv('rankOrganic', rankOrganic++, i);
+    }
   });
   //rank end
   return await context.extract(productDetails, { transform });
