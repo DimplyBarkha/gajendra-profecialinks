@@ -22,11 +22,6 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      if (row.productUrl) {
-        row.productUrl.forEach((productUrlItem) => {
-          productUrlItem.text = (productUrlItem.text.includes('https://www.paris.cl')) ? productUrlItem.text : 'https://www.paris.cl' + productUrlItem.text;
-        });
-      }
       if (row.price) {
         row.price.forEach((priceItem) => {
           priceItem.text = priceItem.text.replace(/[^\d]/gm, '');

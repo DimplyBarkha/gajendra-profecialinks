@@ -25,7 +25,9 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,"box-absolute box-desc-product")]//a//@href | //div[@class="onecolumn"]//meta/@content
+    xpath: //div[@class="product-tile "]//@data-itemid
+    regExp: (.+)
+    regExpReplace: https://www.paris.cl/search?q=$1
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
