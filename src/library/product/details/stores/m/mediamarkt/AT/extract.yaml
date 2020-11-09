@@ -157,7 +157,8 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@id, "flixinpage")]//text()
+    xpath: //div[contains(@id, "flixinpage")]//text()|//div[@id="enhancedContent"]/text()
+    # xpath: //div[@id="enhancedContent"]/text()
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
@@ -165,7 +166,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class, "contentspot")]//article[contains(@class, "description")]//iframe/@src
+    xpath: //div[contains(@class, "contentspot")]//article[contains(@class, "description")]//iframe/@src|//div[contains(@id, "flixinpage")]//iframe/@src|//div[@data-test="mms-accordion-description"]//iframe/@src|//div[contains(@class,"flix-videodiv")]//iframe/@src
     description: URLs of videos on page
   - name: name
     singleValue: true
@@ -270,10 +271,12 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    # singleValue: true
+    singleValue: false
     # xpath: (//tr[contains(@class,"TableRow")]//td//*[contains(text(),"Farbe")]//ancestor::td//following-sibling::td)[1]
     # xpath: concat(//dl[@class="specification"]//dt[contains(text(),"Breite Verpackung:")], ' ',(//dl[@class="specification"]//dt[contains(text(),"Breite Verpackung:")]//following-sibling::dd)[1], ' ', (//dl[@class="specification"]//dt[contains(text(),"Höhe Verpackung:")]), ' ', (//dl[@class="specification"]//dt[contains(text(),"Höhe Verpackung:")]//following-sibling::dd)[1],  ' ',(//dl[@class="specification"]//dt[contains(text(),"Tiefe Verpackung:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Tiefe Verpackung")]//following-sibling::dd)[1], ' ',(//dl[@class="specification"]//dt[contains(text(),"Gurtmaß Verpackung:")]), ' ',(//dl[@class="specification"]//dt[contains(text(),"Gurtmaß Verpackung:")]//following-sibling::dd)[1])
-    xpath: //div[contains(@class,'ProductFeatures__StyledFeatureContainer')]//table//tbody//td//text()
+    # xpath: //div[contains(@class,'ProductFeatures__StyledFeatureContainer')]//table//tbody//td//text()
+    # xpath: //div[contains(@class,'ProductFeatures__StyledFeatureContainer')]
+    xpath: //div[@id='specs']
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
