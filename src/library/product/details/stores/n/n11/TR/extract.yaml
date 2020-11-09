@@ -3,95 +3,78 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: name
+  - name: rpc
     singleValue: true
-    description: name of product
-    xpath: //div[@class='nameHolder']/h1[@class='proName']
+    xpath: //p[@class='unf-p-seller-note-text']/font/font
+  - name: image
+    singleValue: true
+    xpath: //div[@class='proDetailArea']/div/figure/div/div/div/a/img/@src
+  - name: image
+    singleValue: true
+    xpath: //div[@class='unf-p-left proDetailArea']/div/div/div/div/a/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class='proDetailArea']/div/figure/div/div/div/a/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='thumbsHolder slider singleSlide']/ul/li/img/@src
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@class='unf-p-thumbs']/li/@data-full
+  - name: category
+    singleValue: false
+    xpath: //div[@id='breadCrumb']/ul/li/a/@title
   - name: nameExtended
-    description: extend name of product
     singleValue: true
-    xpath: //div[@class='nameHolder']/h2[@class='proSubName']
-  - name: metaKeywords
+    xpath: //meta[@name='description']/@content
+  - name: listPrice_currency
     singleValue: true
-    description: keywords of product
-    xpath: //meta[@name='keywords']/@content
-  - name: url
+    xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins/font/span/font
+  - name: listPrice_currency
     singleValue: true
-    description: url of product
-    xpath: //link[@rel='canonical']/@href
+    xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins/span
   - name: price
     singleValue: true
-    description: new price of product
-    xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins
-  - name: priceOld
+    xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins/font/font
+  - name: price
     singleValue: true
-    description: old price of product
-    xpath: //div[@class='priceDetail']/del[@class='oldPrice']/ins
-  - name: discount
-    description: product discount
+    xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins/@content
+  - name: description
+    singleValue: false
+    xpath: //div[@id='tabPanelProDetail']/div[@class='panelContent']
+  - name: description
+    singleValue: false
+    xpath: //div[@id='unf-info']/div[@class='unf-info-context']/section[@class='uni-content']
+  - name: url
     singleValue: true
-    xpath: //div[@class='price']/div/span[@class='ratio']
-  - name: manufacturerImages
-    singleValue: false
-    description: manufacturer images
-    xpath: //ul/li/@data-thumb
-  - name: featuresLabel
-    singleValue: false
-    xpath: //div[@class='panelContent']/section/div/div/span[@class='label']
-  - name: featuresData
-    singleValue: false
-    xpath: //div[@class='panelContent']/section/div/div/span[@class='data']
-  - name: details
-    singleValue: false
-    xpath: //div[@class='panelContent']/section
-  - name: otherStoreImages
-    singleValue: false
-    xpath: //ul[@class='slideList slidesjs-slide']/li/a/img/@src
-  - name: otherStoreAlts
-    singleValue: false
-    xpath: //ul[@class='slideList slidesjs-slide']/li/a/img/@alt
-  - name: otherStoreUrls
-    singleValue: false
-    xpath: //ul[@class='slideList slidesjs-slide']/li/a/@href
-  - name: otherStoreTitles
-    singleValue: false
-    xpath: //ul[@class='slideList slidesjs-slide']/li/a/h2
-  - name: otherStoreOldPrices
-    singleValue: false
-    xpath: //ul[@class='slideList slidesjs-slide']/li/a/del
-  - name: otherStoreNewPrices
-    singleValue: false
-    xpath: //ul[@class='slideList slidesjs-slide']/li/a/ins
-  - name: otherStoreDiscounts
-    singleValue: false
-    xpath: //ul[@class='slideList slidesjs-slide']/li/a/div/div/span[@class='ratio']
-  - name: recommendTitles
-    singleValue: false
-    xpath: //div[@class='asideSlide recomOtherProSlide']/div/div/div/ul[@class='slideList slidesjs-slide']/li/a/h2
-  - name: recommendUrls
-    singleValue: false
-    xpath: //div[@class='asideSlide recomOtherProSlide']/div/div/div/ul[@class='slideList slidesjs-slide']/li/a/@href
-  - name: recommendImages
-    singleValue: false
-    xpath: //div[@class='asideSlide recomOtherProSlide']/div/div/div/ul[@class='slideList slidesjs-slide']/li/a/img/@src
-  - name: recommendImagesAlts
-    singleValue: false
-    xpath: //div[@class='asideSlide recomOtherProSlide']/div/div/div/ul[@class='slideList slidesjs-slide']/li/a/img/@alt
-  - name: recommendPrices
-    singleValue: false
-    xpath: //div[@class='asideSlide recomOtherProSlide']/div/div/div/ul[@class='slideList slidesjs-slide']/li/a/inc
-  - name: recommendNewPrices
-    singleValue: false
-    xpath: //div[@class='asideSlide recomOtherProSlide']/div/div/div/ul[@class='slideList slidesjs-slide']/li/a/del
-  - name: recommendDiscounts
-    singleValue: false
-    xpath: //div[@class='asideSlide recomOtherProSlide']/div/div/div/ul[@class='slideList slidesjs-slide']/li/a/div/div/span[@class='ratio']
-  - name: commentNames
-    singleValue: false
-    xpath: //ul/li[@class='comment']/div/span[@class='userName']
-  - name: commentTitles
-    singleValue: false
-    xpath: //ul/li[@class='comment']/h5
-  - name: rating
+    xpath: //link[@rel='canonical']/@href
+  - name: rpc
     singleValue: true
-    xpath: /html/body/div[@id='wrapper']/div[@id='contentProDetail']/div[@class='container']/div[@class='proDetailArea']/div[@id='productDetailTab']/div[@id='tabPanelProComments']/div[@class='panelContent']/div[@class='commentHeader']/div[@class='avarageRating']/div[@class='avarageText']
+    xpath: //input[@name='skuId']/@value
+  - name: brand
+    singleValue: true
+    xpath: //script[@type='text/javascript']/@data-flix-brand
+  - name: quantity
+    singleValue: true
+    xpath: //input[@id='quantity']/@value
+  - name: quantity
+    singleValue: true
+    xpath: //div[@class='pDetail-spinner']/div[@class='spinnerField']/input[@class='quantity']/@value
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[@class='avarageRating']/div[@class='avarageText']
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class='box-view_section delivery-information']/div[@class='info-container']/div
+  - name: variantColor
+    singleValue: false
+    xpath: //ul[@data-unif-seovari='renk']/li/span/@data-unif-seovalue
+  - name: variantColor
+    singleValue: false
+    xpath: //div[@id='skuArea']/fieldset/select/option/@value
+  - name: name
+    singleValue: true
+    xpath: //div[@class='nameHolder']/h1
+  - name: image_alt
+    singleValue: false
+    xpath: //div[@class='nameHolder']/h1
