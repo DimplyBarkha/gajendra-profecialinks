@@ -5,7 +5,7 @@ module.exports = {
     country: 'NL',
     store: 'bol',
     domain: 'bol.com',
-    loadedSelector: 'html body',
+    loadedSelector: 'div[class="product_page_two-column"], div[class="results-area"]',
     noResultsXPath: '//div[@data-test="non-deliverable"]',
     zipcode: '',
   },
