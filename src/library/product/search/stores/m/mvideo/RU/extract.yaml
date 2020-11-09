@@ -34,10 +34,10 @@ fields:
     xpath: //span[@class="fl-product-tile-rating__reviews"]
   - name: rankOrganic
     singleValue: true
-    xpath: //html//div[@id='altImages']
+    xpath: //div[@id='rankOrganic']/text()
   - name: rank
     singleValue: true
-    xpath: //html//div[@id='altImages']
+    xpath: //div[@id='rankOrganic']/text()
   - name: manufacturer
     singleValue: true 
     xpath: //meta[@itemprop="description"]/@content

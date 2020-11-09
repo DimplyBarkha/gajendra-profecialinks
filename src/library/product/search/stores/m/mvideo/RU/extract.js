@@ -8,38 +8,39 @@ module.exports = {
     domain: 'mvideo.ru',
     zipcode: '',
   },
-  implementation: async (inputs, 
-    parameters, 
-    context, 
-    dependencies, 
-    ) => { 
-    const { transform } = parameters; 
-    const { productDetails } = dependencies; 
-    await context.evaluate(() => { 
-    function addHiddenDiv(id, content, index) { 
-    const newDiv = document.createElement('div'); 
-    newDiv.id = id; 
-    newDiv.textContent = content; 
-    newDiv.style.display = 'none'; 
-    const originalDiv = document.querySelectorAll("div[class='list-item relative']")[index]; 
-    originalDiv.parentNode.insertBefore(newDiv, originalDiv); 
-    } 
-    let rankOrganic; 
-    let url = window.location.href; 
-    let checkPageNumber = url.split('&')[1]; 
-    try { 
-    if (checkPageNumber.startsWith('page=')) { 
-    rankOrganic = checkPageNumber.replace('page=', ''); 
-    } 
-    } 
-    catch (err) { 
-    } 
-    if (!rankOrganic) { 
-    rankOrganic = 1; 
-    } else { 
-    rankOrganic = (parseInt(rankOrganic) * 36) + 1; 
-    } 
-    }); 
-    return await context.extract(productDetails, { transform }); 
-    }, 
-  });
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    await context.evaluate(() => {
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll("div[class='fl-product-tile c-product-tile ']")[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
+      let rankOrganic;
+      try {
+        rankOrganic = ((window.location.href).indexOf('offset=')) ? Number((window.location.href).replace(/.*offset=(.*)/, '$1')) : 0;
+      }
+      catch (err) {
+      }
+      if (!rankOrganic) {
+        rankOrganic = 1;
+      } else {
+        rankOrganic = rankOrganic + 1;
+      }
+      const urlProduct = document.querySelectorAll("div[class='fl-product-tile c-product-tile ']");
+      for (let i = 0; i < urlProduct.length; i++) {
+        addHiddenDiv('rankOrganic', rankOrganic++, i);
+      }
+
+    });
+    return await context.extract(productDetails, { transform });
+  },
+}
