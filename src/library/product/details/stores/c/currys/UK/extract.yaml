@@ -64,6 +64,9 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //div[@class='no-tablet']//ul[@class='dc-product-swatches-list']//li[contains(@class,'dc-product-swatch-active')]//span
+  - name: variants
+    singleValue: true
+    xpath: //script[@id='app.settings']
   - name: promotion
     singleValue: false
     xpath: //div[@data-component='avms-tab']//ul[contains(@class,'simple product-offers')]//li  

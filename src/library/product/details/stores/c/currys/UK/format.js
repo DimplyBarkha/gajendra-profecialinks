@@ -59,11 +59,12 @@ const transform = (data) => {
         row.variantCount = [{ text: row.variantCount.length }];
       }
       if (row.variants) {
-        var arrTemp = [];
-        row.price.forEach(item => {
-          arrTemp.push(item.text);
+        var arrVariIds = [];
+        temp = row.variants.productVariants;
+        row.variants.forEach(function(item, index) {
+          arrVariIds.push(item.fupid);
         });
-        row.variants = [{ text: arrTemp.join('|') }];
+        row.variants = [{ text: arrVariIds.join(' | ') }];
       }
       if (row.additionalDescBulletInfo) {
         var arrBullets = [];
