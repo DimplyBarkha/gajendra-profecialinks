@@ -5,5 +5,6 @@ module.exports = {
     country: 'UK',
     store: 'waitrose',
     domain: 'waitrose.com',
+    zipcode: '',
   },
 };
