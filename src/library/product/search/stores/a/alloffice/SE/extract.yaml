@@ -36,17 +36,17 @@ fields:
   - name: rank
     singleValue: true
     description: search/listing rank
-    type: NUMBER    
+    type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER 
+    type: NUMBER
   - name: sponsored
     singleValue: true
     description: Is sponsored/paid
-    type: BOOLEAN    
+    type: BOOLEAN
 
-#  Should these be source specific formulas or in the extractor? 
+#  Should these be source specific formulas or in the extractor?
   - name: id
     xpath: //a//div//img/@src
     regExp: (\/\w+\/\w+\/)(\w+)(\_)
@@ -57,4 +57,4 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER 
+    type: NUMBER
