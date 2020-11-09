@@ -1,0 +1,30 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    xpath: //td[@class="entities depth_0"]/table/tbody/tr//td[@class="id depth_1"]
+    regExp: (.+)
+    regExpReplace: https://www.aboutyou.de/suche?term=$1
+  - name: thumbnail
+    xpath: //td[@class="entities depth_0"]/table/tbody/tr//td[@class="images depth_1"]//table//tbody//tr[last()][not(contains(.,"https:"))]//td[@class="hash depth_2"] | //td[@class="entities depth_0"]/table/tbody/tr//td[@class="images depth_1"]//table//tbody//tr[last()][(contains(.,"https:"))]/parent::tbody/tr[1]//td[@class="hash depth_2"]
+    regExp: (images/)?(\w+)
+    regExpReplace: https://cdn.aboutstatic.com/file/images/$2
+  - name: name
+    xpath: //td[@class="entities depth_0"]/table/tbody/tr//td[@class="attributes depth_1"]//td[@class="label depth_3"][contains(.,"Name")]/following-sibling::td[@class="values depth_3"]//td[@class="label depth_4"]
+  - name: gtin
+  - name: aggregateRatingText
+  - name: ratingCount
+  - name: reviewCount
+  - name: price
+    xpath: //td[@class="entities depth_0"]/table/tbody/tr//td[@class="priceRange depth_1"]//td[@class="min depth_2"]//td[@class="withTax depth_3"]
+  - name: manufacturer
+  - name: soldBy
+  - name: endorsementText
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+  - name: id
+    xpath: //td[@class="entities depth_0"]/table/tbody/tr//td[@class="id depth_1"]
+  - name: aggregateRating
