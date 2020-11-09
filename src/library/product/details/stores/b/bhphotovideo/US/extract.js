@@ -13,16 +13,21 @@ module.exports = {
     context,
     { productDetails },
   ) => {
+    // checking if the extractor is on search results page and if true redirecting to the product page
     let productLink = 'https://www.bhphotovideo.com';
-    const productElement = await context.evaluate(async () => {
-      return document.querySelector('a[data-selenium="miniProductPageProductImgLink"]');
+    const isExtractorOnSearchResultsPage = await context.evaluate(async () => {
+      const currentUrl = window.location.href;
+      return currentUrl.includes('search');
     });
-    if (productElement) {
-      productLink += productElement.getAttribute('href');
+    if (isExtractorOnSearchResultsPage) {
+      const partialLink = await context.evaluate(async () => {
+        return document.querySelector('div[class*="desc"] a[class*="title"]').getAttribute('href');
+      });
+      productLink += partialLink;
       context.goto(productLink);
     }
     await context.waitForNavigation();
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await context.waitForSelector('div[class*="details"]', { timeout: 3000 });
 
     await context.evaluate(async () => {
       let scrollTop = 0;
