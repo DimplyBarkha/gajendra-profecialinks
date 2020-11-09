@@ -6,7 +6,7 @@ module.exports = {
     store: 'boxed',
     domain: 'boxed.com',
     loadedSelector: 'section#product-page',
-    noResultsXPath: '//section[@id="error-page"]',
+    noResultsXPath: '//section[@id="error-page"] | //header//span[contains(text(), "Search Results")]',
     zipcode: '',
   },
 };
