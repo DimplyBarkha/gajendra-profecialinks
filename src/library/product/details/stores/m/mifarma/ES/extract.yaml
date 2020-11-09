@@ -149,7 +149,7 @@ fields:
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
-- name: videos #https://www.mifarma.es/chicco-casita-de-los-animales
+- name: videos 
   singleValue: false
   description: URLs of videos on page
   xpath: //div[@class='ytp-title']//a/@href
@@ -479,13 +479,13 @@ fields:
   description: Terms and conditions information text ['Yes','No']
   defaultValue: false
 - name: privacyPolicy
-  singleValue: No
+  singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: No
+  defaultValue: false
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: No
+  defaultValue: false
 - name: materials
   singleValue: true
   description: Materials used to make the product
@@ -496,11 +496,11 @@ fields:
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   xpath: //div[@class='zoomContainer']/div[@class='zoomLens']/@class
   regExp: (.*?)
-  regExpReplace: Yes
-  defaultValue: No
+  regExpReplace: 'Yes'
+  defaultValue: 'No'
 - name: Image360Present
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: No
+  defaultValue: 'No'
 
