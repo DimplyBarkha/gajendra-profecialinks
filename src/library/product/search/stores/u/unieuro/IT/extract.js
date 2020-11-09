@@ -8,38 +8,41 @@ module.exports = {
     domain: 'unieuro.it',
     zipcode: '',
   },
-  implementation: async (inputs, parameters, context, dependencies) => {
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
-      function addElementToDocument(key, value) {
-        const catElement = document.createElement('div');
-        catElement.className = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll('section[class="collapsed"]')[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-      // Method to Retrieve Xpath content of a Multiple Nodes
-      const getAllXpath = (xpath, prop) => {
-        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        const result = [];
-        for (let index = 0; index < nodeSet.snapshotLength; index++) {
-          const element = nodeSet.snapshotItem(index);
-          if (element) result.push(prop ? element[prop] : element.nodeValue);
+      let rankOrganic;
+      let url = window.location.href;
+      let checkPageNumber = url.split('&')[1];
+      try {
+        if (checkPageNumber.startsWith('p=')) {
+          rankOrganic = checkPageNumber.replace('p=', '');
         }
-        return result;
-      };
-      const sliceURL1 = (data) => {
-        var cnt = 0;
-        for (let index = 0; index < data.length; index++) {
-          if (data[0] != 0) {
-            cnt++;
-            addElementToDocument('altImages1', cnt);
-          }
-        }
-      };
-      var backgroundURL1 = getAllXpath('//*[@id="instant-results"]/div[1]/main/div[3]/section/section', 'nodeValue');
-      sliceURL1(backgroundURL1);
+      }
+      catch (err) {
+      }
+      if (!rankOrganic) {
+        rankOrganic = 1;
+      } else {
+        rankOrganic = (parseInt(rankOrganic) * 24) + 1;
+      }
+      const urlProduct = document.querySelectorAll('section[class="collapsed"]');
+      for (let i = 0; i < urlProduct.length; i++) {
+        addHiddenDiv('rankOrganic', rankOrganic++, i);
+      }      
     });
     return await context.extract(productDetails, { transform });
   },

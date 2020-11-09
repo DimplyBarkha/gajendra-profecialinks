@@ -26,6 +26,9 @@ fields:
     singleValue: false
     description: The product name
     xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='title product-tile__title']/a/text()
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@id='rankOrganic']
   - name: rank
     singleValue: false
-    xpath: //html//div[@class='altImages1']
+    xpath: //div[@id='rankOrganic']

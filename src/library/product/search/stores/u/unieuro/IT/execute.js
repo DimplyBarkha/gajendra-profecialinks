@@ -6,7 +6,7 @@ module.exports = {
     domain: 'unieuro.it',
     url: 'https://www.unieuro.it/online/?q={searchTerms}',
     loadedSelector: 'body',
-    noResultsXPath: "//div[@id='no-results-message']/p",
+    noResultsXPath: null,
     zipcode: '',
   },
 };
