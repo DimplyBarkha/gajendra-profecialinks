@@ -13,10 +13,11 @@ fields:
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: //div[@class='background']//@alt
-- name: alternateImages
+  xpath: (//li[@class='productData clearfix']/div[@class='col-sm col-sm-fixed-50 article-thumbnail']/img/@alt)[1]
+- name: secondary_image
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: //div[contains(@class,"article-image-further")]/a[not(contains(@class,'image-zoom-gallery           active activated'))]//img/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -24,8 +25,9 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath:  //li[contains(@itemprop,"itemListElement")][position() >1 and not(position() > 5)]
+  xpath:  //div[@class='box well well-sm category-tree category-sub-tree hidden-xs']/div/a//text()
 - name: sub_category
+  xpath: //div[@class='box well well-sm category-tree category-sub-tree hidden-xs']//li[@class='current']//a//text()
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -34,15 +36,16 @@ fields:
   singleValue: true
   description: The stated undiscounted price for the product
 - name: online_price
-  singleValue: true
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  xpath: //meta[@itemprop='price']/@content
+  xpath: (//span[@class='article-price-default article-club-hidden'])[1]//text()
+  regExp: '(.\d.\d+)'
 - name: online_price_currency
   singleValue: true
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  xpath: //meta[@itemprop='priceCurrency']/@content
+  xpath: (//span[@class='article-price-default article-club-hidden'])[1]//text()
+  regExp: '[^\d]+$'
 - name: availabilityText
   singleValue: true
   xpath: //meta[@itemprop="availability"]/@content
@@ -53,7 +56,8 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-  xpath: //meta[@name='description']/@content
+  # xpath: //meta[@name='description']/@content
+  xpath: //div[@id='product-detail-information']//div[@itemprop='description']
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -74,7 +78,6 @@ fields:
   singleValue: true
   description: Alcohol content described on the page
   xpath: (//div[@class='to-basket-area align-bottom']//div[@class='article-amount']//span//text())[2]
-  regExp: '\d+(?:\,\d+)?'
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
@@ -107,12 +110,18 @@ fields:
   description: Content under "warnings" header
 - name: customer_review_rating
   description: The number of ratings
-  xpath: //span[@itemprop='ratingValue']//text()
-  # regExp: '\d+\.\d+'
+  xpath: //span[@class='rating-value']//text()
+  regExp: '\d+\.\d+'
 - name: number_of_customer_reviews
   singleValue: true
   description: The stated aggregate rating
-  xpath: //span[@itemprop='reviewCount']//text()
+  xpath: (//div[@class='col-xs-12 col-xl-8 flex-column']//span[@class='rating-count']//text())[2]
+- name: aplus_image
+  singleValue: false
+  xpath: //div[@class='infos row']//a/img/@src
+- name: enhanced_content
+  singleValue: false
+  xpath: //div[@class='infos row']//div[@class='text']//text()
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
@@ -144,18 +153,21 @@ fields:
   description: Images within the third party description
 - name: videos
   description: URLs of videos on page
-  xpath: //iframe[@class='tx-datamintsflaschendb-youtube-video embed-responsive-item']/@src
+  xpath: //div[@class='embed-responsive embed-responsive-16by9']/iframe/@src
 - name: product_description
   singleValue: true
   description: The product name
-  xpath: //meta[@property='og:title']/@content
-  regExp: '([^|]+)'
-  regExpReplace: $1
+  # xpath: //meta[@property='og:title']/@content
+  xpath: (//div[@class='modal-title h4'])[1]//text()
+  # regExp: '([^|]+)'
+  # regExpReplace: $1
 - name: harvested_product_description
   singleValue: true
   description: The product name
   xpath: //meta[@property='og:title']/@content
   regExp: '([^|]+)'
+- name: harvested_price
+  xpath: (//span[@class='article-price-default article-club-hidden'])[1]//text()
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -520,4 +532,4 @@ fields:
   description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: No
+  defaultValue: yes
