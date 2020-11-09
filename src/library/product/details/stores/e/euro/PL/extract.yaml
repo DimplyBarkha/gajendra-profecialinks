@@ -18,7 +18,7 @@ fields:
     xpath: //meta[contains(@name,"keyword")]/@content
   - name: description
     singleValue: false
-    xpath: //meta[contains(@property,"description")][1]/@content 
+    xpath: //div[@class="product-info"]//div[@class="attributes-row"]//span
   - name: gtin
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"gtin13")]
@@ -31,6 +31,7 @@ fields:
     regExpReplace: $1
   - name: ratingCount
     singleValue: false
+    # xpath: //div[@id="product-main"]//a[contains(@class,"rating-count")]/em
     xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
     regExp: reviewCount":\s"([^"]+)
     regExpReplace: $1
@@ -62,9 +63,9 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock 
-  - name: descriptionBullets
-    singleValue: false
-    xpath: count(//div[@id='description-text']//ul//li)
+  # - name: descriptionBullets
+  #   singleValue: false
+  #   xpath: count(//div[@id='description-text']//ul//li)
   - name: brandText
     singleValue: false
     xpath: //a[@class="product-brand"]/@title
@@ -77,9 +78,6 @@ fields:
   - name: variantId
     singleValue: false
     xpath: (//div[@class="action-buttons"]/a/@data-product)[1]
-    #xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
-    # regExp: sku":\s"([^"]+)
-    # regExpReplace: $1
   - name: shippingDimensions
     singleValue: false
     xpath: normalize-space(//td[contains(text(),'Wymiary opakowania')]//following-sibling::td)
@@ -91,7 +89,9 @@ fields:
     xpath: normalize-space(//tr//td[contains(text(),'Kolor')]//following-sibling::td)
   - name: manufacturerDescription
     singleValue: false
-    xpath:  //div[contains(@class,"esm-col")]/div/span  | //div[contains(@class,"esm-col")]/div/p |//div[@class="col-desc"] |//p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()  | //div[contains(@class,"description-col")]/p
+    xpath: //div[@id="description-text"]//text()
+    # xpath: //div[contains(@class,"col-xs-12")] | //div[contains(@class,"esm-col")]/div/span  | //div[contains(@class,"esm-col")]/div/p | //div[@class="col-desc"] | //p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()  | //div[contains(@class,"description-col")]/p | //div[@class="display-desktop"]//text() | //div[@class="e-text e-widget"] |  //div[@id="description-text"]
+    # xpath:  //div[contains(@class,"esm-col")]//div//span  | //div[contains(@class,"e-text")] |//div[@class="col-desc"] |//p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()  | //div[contains(@class,"description-col")]/p | //div[contains(@class,"col-xs-12")]
     # //p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()      //div[@id="description-text"]//div[contains(@class,"esm-col")]/text()
   - name: name
     singleValue: false
@@ -114,20 +114,20 @@ fields:
     xpath: normalize-space(//td[contains(text(),"Waga") and not(contains(text(),"opakowaniem"))]//following-sibling::td) 
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="esm-image"]//img[@class="lazy loaded"]/@data-original | //div[@class="col-img"]/img/@src | //div[@class="description-py5"][2]//following-sibling::div//img/@src
-      # //div[@class="description-py5"][2]//following-sibling::div//img/@src
+    xpath: //div[@id="description-text"]//img/@src
+      # //div[@class="col-img"]/img/@src | //div[@class="description-py5"][2]//following-sibling::div//img/@src |
     # //div[@class='margin-t-lg-32']//div[@class='tct']//img[@class='lazy loaded']/@src
     regExp: (.+)
     regExpReplace: https://www.euro.com.pl$1
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@class='variant-list disable-active-item']//div//a)
+    xpath: count(//div[contains(@class,"variant-list js-variant-list")]/a)
   # - name: -url
   #   singleValue: false
   #   xpath: //meta[contains(@property,"og:url")]/@content
   - name: variantInformation
     singleValue: false
-    xpath: //div[@id="product-variants"]/div/div/div
+    xpath: //div[@id="product-variants"]//div/a[contains(@class,"active")]/@title
     # xpath: //div[@class='current-variant']//div[@class='name']/text()
   - name: firstVariant
     singleValue: false
@@ -137,4 +137,14 @@ fields:
     xpath: count(//div[@id="product-variants"]//a)
   - name: promotion
     singleValue: false
-    xpath: //ul[@class="price-tabs"]//li[@data-context="instalment"]//div[@class="instalment-message-label"]
+    xpath: concat(//div[@class="instalment-message-label"]/text(),'' , //div[@class="instalment-message-label"]/span/text(),'' , //div[@class="promo-instalment-box"]/div/text() ,'', //div[@class="promo-instalment-subtitle"]/text())
+    # xpath: 
+  - name: packSize
+    singleValue: false
+    xpath: //div[@class="product-info"]//a[@title="Pojemność - pralki"]/../../span[@class="attribute-value"]
+  - name: variants
+    singleValue: false
+    xpath: //div[@id="product-variants"]//div/a/span
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@id="product-variants"]//div/a[1]/span

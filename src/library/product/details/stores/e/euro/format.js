@@ -72,6 +72,28 @@ const transform = (data) => {
           });
           row.variantUrl = variantUrls;          
         }
+        if (row.description) {
+          let text = '';
+          row.description.forEach(item => {
+            text += `${item.text.replace(/\n \n/g, ':')} | `;
+          });
+          row.description = [
+            {
+              text: text.slice(0, -4),
+            },
+          ];
+        }
+        if (row.variants) {
+          let text = '';
+          row.variants.forEach(item => {
+            text += `${item.text.replace(/\n \n/g, ' ')} | `;
+          });
+          row.variants = [
+            {
+              text: text.slice(0, -3),
+            },
+          ];
+        }
   
         if (row.variantId) {          
           const variantIds = [];
