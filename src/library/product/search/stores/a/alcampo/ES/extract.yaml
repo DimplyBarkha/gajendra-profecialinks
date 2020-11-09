@@ -1,0 +1,58 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.fila4.productGridRow>div>div
+recrecordXPath: null # //div[@class="caja caja-reposo productGridItem"] | //div[@class="caja caja-reposo productGridItem fueraStock"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //a[@class="productMainLink productTooltipClass"]/attribute::data-id 
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //div[@class='productName truncate']/span
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="productMainLink productTooltipClass"]/attribute::href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false     
+    xpath: //div[@class='thumb cut-alt-img']/img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false  
+    xpath: //div[@class="priceContainer"]/@price
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class='marca']/@manufacturer
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    xpath: //div[@class="fila4 productGridRow"]/div/div/@rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    xpath: //div[@class="fila4 productGridRow"]/div/div/@rankorganic
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    defaultValue: false
+    type: BOOELAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
+  #   xpath: //div[@class='paginationBar top clearfix']/div[@class='totalResults cartReviewTotal']
