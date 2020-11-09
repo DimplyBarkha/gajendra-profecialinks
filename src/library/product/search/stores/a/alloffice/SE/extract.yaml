@@ -20,29 +20,11 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.alloffice.se$1
   - name: thumbnail
-    xpath: //a/div//img/@src
+    xpath: //a//div//img/@src
     regExp: (\/globalassets\/productimages\/\w+\.\w+\?ref=\w+)
     regExpReplace: https://www.alloffice.se$1
   - name: name
     xpath: //div[3]//h3
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: true
-    description: The model code of the product
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-  - name: reviewCount
-    singleValue: true
-    description: The number of reviews
   - name: price
     xpath: //div[3]//div[2]/span/span[1]
     regExp: (\d+\,\d+)|(\d+\s\d+)|(\d+)
@@ -51,18 +33,6 @@ fields:
     xpath: //div[3]//div[2]/span/span[2]
     regExp: (\d+\,\d+)|(\d+\s\d+)|(\d+)
     regExpReplace: $1$2$3
-  - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
-  - name: soldBy
-    singleValue: true
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: true
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
   - name: rank
     singleValue: true
     description: search/listing rank
@@ -78,7 +48,7 @@ fields:
 
 #  Should these be source specific formulas or in the extractor? 
   - name: id
-    xpath: //a/div//img/@src
+    xpath: //a//div//img/@src
     regExp: (\/\w+\/\w+\/)(\w+)(\_)
     regExpReplace: $2
   - name: nameExtended
