@@ -100,8 +100,13 @@ const transform = (data) => {
       }
       if(row.aggregateRating){
         //@ts-ignore
-        var text = String(row.aggregateRating[0].text).replace("de 5 classificação","").trim().replace(".",",");
+        var text = (row.aggregateRating[0].text).replace("de 5 classificação","").trim().replace(".",",");
         row.aggregateRating[0].text = text;
+      }
+      if(row.aggregateRating2){
+        //@ts-ignore
+        var text = (row.aggregateRating2[0].text).replace("de 5 classificação","").trim().replace(".",",");
+        row.aggregateRating2[0].text = text;
       }
 
       if(!row.variants){
@@ -109,9 +114,9 @@ const transform = (data) => {
       }
     }
   }
-  // data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-  //       el.text = clean(el.text);
-  //     }))));
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+      }))));
   return data;
 };
 
