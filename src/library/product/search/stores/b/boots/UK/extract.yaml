@@ -4,51 +4,68 @@ recordSelector: null
 recordXPath: //div[@class="plp_gridView_redesign"]//ul[@class="grid_mode grid"]//li[@class="estore_product_container"]
 fields:
   - name: productUrl
+    singleValue: false
     xpath: //div[normalize-space(@class)="product_name"]/a/@href
     description: The URL for the product details page
   - name: thumbnail
+    singleValue: false
     xpath: //img[normalize-space(@class)="product_img"]/@src
     regExp: '(^[^?]+)'
     # Added custom height nd width values.
     regExpReplace: $1?wid=1920&hei=1080&op_sharpen=1
     description: The URL for the product thumbnail image
   - name: name
+    singleValue: false
     xpath: //div[@class="product_name"]/a/@title
     description: The product name
   - name: aggregateRatingText
+    singleValue: false
     xpath: //div[contains(@class,"product_rating")]/span/@title
     regExp: '^[^\s]+'
     description: The stated aggregate rating
   - name: ratingCount
+    singleValue: false
     xpath: //a[normalize-space(@id)="product_rating"]/@aria-label
     regExp: '[^\s]+$'
     description: The number of ratings
   - name: reviewCount
+    singleValue: false
     xpath: //a[normalize-space(@id)="product_rating"]/@aria-label
     regExp: '[^\s]+$'
     description: The number of reviews
   - name: price
+    singleValue: false
     xpath: //div[normalize-space(@class)="product_price"]
     description: The offered price for the product
   - name: listPrice
+    singleValue: false
     description: The stated undiscounted price for the product
   - name: rank
+    singleValue: false
     xpath: count(./preceding-sibling::li) + 1
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
+    singleValue: false
     xpath: count(./preceding-sibling::li) + 1
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
+    singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
+    singleValue: false
     xpath: //@data-productid
     regExp: ^[^\.]+
     description: Unique id (within this extractor)
   - name: aggregateRating2
+    singleValue: false
     xpath: //div[contains(@class,"product_rating")]/span/@title
     regExp: ^[^\s]+
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class="ais-Hits"]//ol[@class="ais-Hits-list"]//li[@class="ais-Hits-item"]
+    regExp: \"upc":\s"(\d+)
+    regExpReplace: $1

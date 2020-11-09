@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../format');
 async function implementation(
   inputs,
   parameters,
@@ -33,7 +33,6 @@ async function implementation(
       }
     }
   })
-
   const { transform } = parameters;
   const { productDetails } = dependencies;
   return await context.extract(productDetails, { transform });
