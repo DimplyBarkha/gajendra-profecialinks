@@ -1,0 +1,50 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='product-listing-container']//ul//li[contains(@class,'product-item')]
+fields:
+  - name: price
+    singleValue: false
+    xpath: //span[@class='product-price-amount']/span[@class='notranslate']/text()    
+  - name: name
+    singleValue: false
+    xpath:  //div[@class='product-name-container']//a/span[@class='notranslate']/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='product-name-container']//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.costco.com.mx$1     
+  - name: thumbnail
+    singleValue: false
+    # xpath:  //div[@class='product-image ']//a[@class='thumb']//@href
+    xpath: //div[@class='product-image ']//a[@class='thumb']//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.costco.com.mx$1 
+  - name: id
+    singleValue: false
+    xpath: //input/@data-id
+    # regExp: (\d*)
+    # regExpReplace: $1    
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class='star-ratings-css-bottom']//span[@class='star-ratings-text']/text()
+    regExp: (.*)(\s)(.*)
+    regExpReplace: $1 
+    # xpath: //div[@class='bv_avgRating_component_container notranslate']/text()
+  - name: reviewCount
+    singleValue: false
+    # xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__details')]//div[@class='review-rating']//span[contains(@class,'review-rating__reviews')]/a/text()
+    #regExp: (\d*)
+    #regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    xpath:  //div[@class='star-ratings-css-bottom']//span[@class='star-ratings-text']/text()
+    # regExp: (\d*)
+    regExp: (.*)( )(.*)
+    regExpReplace: $3
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl']    
+  - name: endorsementText
+    singleValue: false
+    # xpath: concat(//div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__badge')]//div[@class='coolblues-choice-label']//span[1]/text(), '', //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__badge')]//div[@class='coolblues-choice-label']//span[2]/text())
