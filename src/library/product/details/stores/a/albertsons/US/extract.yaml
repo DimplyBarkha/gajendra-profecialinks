@@ -53,8 +53,8 @@ fields:
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
-    xpath: //div[@class="product-heading"]/h1 
-    regExp: (^\w+)  
+    # xpath: //div[@class="product-heading"]/h1 
+    # regExp: (^\w+)  
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
@@ -73,7 +73,7 @@ fields:
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
-    xpath: //picture[contains(@class,'img-responsive')]/img/@gtin
+    xpath: //div[contains(@class,'product-content')]/product-detail/@data-product-upc
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
@@ -251,11 +251,14 @@ fields:
       discernible start/end point
   - name: servingSize
     xpath: //td[@class="table-ingredients-head"]/span[1]
-    regExp: (.+)(:)(\s)(.+)
-    regExpReplace: $4
+    regExp: (.+):\s(\d+(\.\d+)?)(.+)
+    regExpReplace: $2
     singleValue: true
     description: The size of serving Nutritional information is based on.
   - name: servingSizeUom
+    xpath: //td[@class="table-ingredients-head"]/span[1]
+    regExp: (.+):\s(\d+(\.\d+)?)(.+)
+    regExpReplace: $4
     singleValue: true
     description: Unit of measure of serving
   - name: numberOfServingsInPackage
@@ -468,9 +471,13 @@ fields:
     singleValue: true
     description: List of additives in the product
   - name: pricePerUnit
+    xpath: //div[@class="product-quantity"]/span
+    regExp: (\d+)(.|)(\d+)
     singleValue: true
     description: Price of the product split into certain units
   - name: pricePerUnitUom
+    xpath: //div[@class="product-quantity"]/span
+    regExp: ([a-zA-z]+) 
     singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion
