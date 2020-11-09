@@ -27,6 +27,14 @@ module.exports = {
         if (imageTotal.length > 0) {
           addHiddenDiv('imageTotal', imageTotal.length);
         }
+        const packSize = document.querySelector('h1[itemprop*=name]');
+        if (packSize.innerHTML && packSize.innerHTML.includes('- Inch')) {
+          const pack = packSize.innerHTML.match(/([0-9]{1,})- Inch/);
+          addHiddenDiv('size', pack[0]);
+        } else if (packSize.innerHTML && packSize.innerHTML.includes('-Inch')) {
+          const pack = packSize.innerHTML.match(/([0-9]{1,})-Inch/);
+          addHiddenDiv('size', pack[0]);
+        }
       });
     } catch (e) {
       console.log(e);

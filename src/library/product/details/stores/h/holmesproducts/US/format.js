@@ -20,10 +20,14 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.description) {
-        row.description[0].text = row.description[0].text.replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' || ');
+        let text = '';
+        row.description.forEach(desc => {
+          text += desc.text.replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' || ') + ' || ';
+        });
+        row.description = [{ text: text.slice(0, -3).trim() }];
       }
       if (row.specifications && row.description) {
-        row.specifications[0].text = row.specifications[0].text + ' ' + row.description[0].text;
+        row.specifications[0].text = row.specifications[0].text.replace(/\n \n/g, ' || ') + ' ' + row.description[0].text;
       }
       if (row.additionalDescBulletInfo) {
         let text = '';

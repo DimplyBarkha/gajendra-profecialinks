@@ -43,13 +43,13 @@ fields:
     manualSelector: div#descriptionBulletCount
   - name: description
     singleValue: false
-    xpath: //div[contains(@id,'tab1')]
+    xpath: //div[contains(@itemprop,'description')] | //div[contains(@id,'tab1')]
   - name: specifications
     singleValue: false
     xpath: //div[contains(@itemprop,'description')]/ul
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@id,'tab1')]//li
+    xpath: //div[contains(@class,'feature-bullets bumper')]//li
   - name: sku
     singleValue: false
     xpath: //span[contains(@itemprop,'sku')]
@@ -59,6 +59,27 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //span[contains(@itemprop,'ratingValue')]
+  - name: customerServiceAvailability
+    singleValue: false
+    defaultValue: 'Yes'
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: 'Yes'
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: videos
+    singleValue: false
+    xpath: //li[contains(@class,'thumb')]/a[contains(@class,'video')]/@href
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,'wc-fragment')]/@data-mpn
+  - name: warranty
+    singleValue: false
+    xpath: //div[contains(@class,'feature-bullets bumper')]//li[contains(text(),'warranty')]
+  - name: quantity
+    singleValue: false
+    manualSelector: div#size
   # - name: aggregateRatingText
   #   singleValue: false
   #   xpath: //a[contains(@class,'bv-rating')]/@aria-label
@@ -72,11 +93,6 @@ fields:
   # - name: manufacturer
   #   singleValue: true
   #   description: Product manufacturer
-  # - name: quantity
-  #   singleValue: true
-  #   description: Quantity as described on the page
-  #   regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-  #   regExpReplace: $1$2$3$4
   # - name: weightNet
   #   singleValue: true
   #   description: Net weight as described on the page
@@ -86,9 +102,6 @@ fields:
   # - name: gtin
   #   singleValue: true
   #   description: GTIN code (includes UPC/EAN)
-  # - name: mpc
-  #   singleValue: true
-  #   description: The manufacturer model code (unique) of the product
   # - name: packSize
   #   singleValue: true
   #   description: The number of packs in the product offer (if stated separately on
@@ -112,10 +125,6 @@ fields:
   # - name: shippingWeight
   #   singleValue: true
   #   description: Stated shipping weight
-  # - name: variantCount
-  #   singleValue: true
-  #   description: Number of variants listed
-  #   type: NUMBER
   # - name: color
   #   singleValue: true
   #   description: A textual description of the colour
@@ -128,9 +137,6 @@ fields:
   # - name: manufacturerImages
   #   singleValue: false
   #   description: Images within the third party description
-  # - name: videos
-  #   singleValue: false
-  #   description: URLs of videos on page
   # - name: inStorePrice
   #   singleValue: true
   #   description: Price in the selected store
@@ -377,9 +383,6 @@ fields:
   # - name: dietaryInformation
   #   singleValue: true
   #   description: null
-  # - name: warranty
-  #   singleValue: true
-  #   description: Guarantee associated with the product
   # - name: storage
   #   singleValue: true
   #   description: Suggested storage location for product
@@ -468,10 +471,6 @@ fields:
   #   singleValue: true
   #   description: Privacy Policy information text ['Yes','No']
   #   defaultValue: No
-  # - name: customerServiceAvailability
-  #   singleValue: true
-  #   description: Information related to customer service availability (text), ['Yes','No']
-  #   defaultValue: No
   # - name: materials
   #   singleValue: true
   #   description: Materials used to make the product
@@ -480,10 +479,4 @@ fields:
   #   singleValue: true
   #   description: If 360 image is present in the carousel ['Yes','No']
   #   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  #   defaultValue: No
-  # - name: imageZoomFeaturePresent
-  #   singleValue: true
-  #   description: If Zoom feature is available for Main image or images in the
-  #     carousel,['Yes','No']
-  #   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   #   defaultValue: No
