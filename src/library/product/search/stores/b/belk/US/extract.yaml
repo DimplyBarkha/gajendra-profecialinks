@@ -1,0 +1,72 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[@data-tile-pid]
+fields:
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //*[@data-itemid]/@data-itemid
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //*[@class="product-link"]/h4
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //*[@class="product-link"][h4]/@href
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //a[@class="thumb-link"]//img/@src 
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //meta[@itemprop="ratingValue"]/@content
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //meta[@itemprop="ratingValue"]/@content
+  - name: reviewCount
+    singleValue: false
+    description: The number of reviews
+    type: NUMBER
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //div[@class="product-standard-price" or (@class="product-price-with-coupon") or (@class="product-sales-price")] 
+    regExp: \$\d+\.\d+
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    xpath: count(preceding-sibling::*[@data-tile-pid])+1
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: count(preceding-sibling::*[@data-tile-pid])+1
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
