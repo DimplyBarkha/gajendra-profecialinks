@@ -23,8 +23,7 @@ const transform = (data) => {
       return data;
     };
       for (const { group } of data) {
-        for (let row of group) {
-          let brand = '';
+        for (let row of group) {          
           if (row.productUrl) {            
             row.productUrl.forEach(item => {              
                 item.text = "https://www.bedbathandbeyond.com" + item.text;                
