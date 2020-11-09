@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //ol[contains(@class,'flex-control-nav flex-control-thumbs')]//li//img/@src
+    xpath: //ol[contains(@class,'flex-control-nav flex-control-thumbs')]//li//img[not(contains(@class,"flex-active"))]/@src
     regExp: (.+)
     regExpReplace: https://www.p1000.co.il/$1
   - name: metaKeywords
@@ -37,7 +37,8 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[contains(@class,'productFrame_price')]//strong
+    #xpath: //div[contains(@class,'productFrame_price')]//strong
+    xpath: //div[@id="priceValue"]/text()
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -48,7 +49,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //meta[@id='head_description']/@content
+    xpath: //div[@id="added_descriptionText"]/text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -103,6 +104,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: //span[@itemprop="reviewCount"]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -110,6 +112,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //div[@id="HeaderRaiting"]/@data-rank
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -121,12 +124,14 @@ fields:
     singleValue: true
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
-    description: Number of variants listed
+    singleValue: false
+    description: Number of variants listed 
     type: NUMBER
+    xpath: //div[@id="added_variantCount"]/text()
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //div[@id="added_color"]/text()
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -395,9 +400,11 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id="added_specificationText"]/text()
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //ul[contains(@class,'blueBullet')]//li[position()=2]/text()
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -463,6 +470,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@id="added_bulletInfo"]/text()
   - name: prop65Warning
     singleValue: true
     description: null
