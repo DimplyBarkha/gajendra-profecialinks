@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[contains(@class,"js-products-grid")]/li
+recordXPath: //div[contains(@class,"row-cols")]/div[@class='col']/div[contains(@class,"product-card")]
 fields:
   - name: _input
     singleValue: true
@@ -10,9 +10,9 @@ fields:
     regExpReplace:
   - name: id
     singleValue: false
-    xpath: //div[@data-itemid]/@data-itemid
-    regExp:
-    regExpReplace:
+    xpath: //a/@href
+    regExp: /en-AE/(.+)\/(\d+)\.html
+    regExpReplace: $2
   - name: _pageTimestamp
     singleValue: true
     xpath: 
@@ -25,13 +25,13 @@ fields:
     regExpReplace:
   - name: name
     singleValue: false
-    xpath: //a[contains(@class,"b-product-tile__name")]/span
+    xpath: //a[@class="product-title"]
     regExp:
     regExpReplace:
   - name: productUrl
     singleValue: false
-    xpath: //a[contains(@class,"b-product-tile__name")]/@href
-    regExp: ^(.*)$
+    xpath: //a/@href
+    regExp: (.+)
     regExpReplace: https://www.aceuae.com$1
   - name: gtin
     singleValue: false
@@ -40,7 +40,7 @@ fields:
     regExpReplace:
   - name: thumbnail
     singleValue: false
-    xpath: //picture/img/@data-src
+    xpath: //div[@class="product-image"]/picture/img/@src
     regExp:
     regExpReplace:
   - name: aggregateRating
@@ -60,7 +60,7 @@ fields:
     regExpReplace:
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"b-product-pricing__sale")]//span[contains(@class,"b-product-pricing__price-value")]
+    xpath: //div[@class="product-price"]/span[@class="price"]/span[1]
     regExp:
     regExpReplace:
   - name: manufacturer
