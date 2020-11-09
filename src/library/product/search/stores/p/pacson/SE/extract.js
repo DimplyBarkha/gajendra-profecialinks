@@ -23,6 +23,42 @@ async function implementation(
       var elems = document.querySelectorAll(xpathforpagination);
       elems[0].classList.add('pagination');
     }
+
+    //for rank
+    function addHiddenDiv(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('li[class="product-list__item columns small-12 medium-2"]')[index];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+    }
+    let rankOrganic;
+    let url = window.location.href;
+    let checkPageNumber = url.split('&')[1];
+    try {
+      if (checkPageNumber.startsWith('page=')) {
+        rankOrganic = checkPageNumber.replace('page=', '');
+      }
+    }
+    catch (err) {
+    }
+
+
+    var dup = Number(rankOrganic);
+    dup = dup - 1; 
+
+    if (!rankOrganic) {
+      rankOrganic = 1;
+    } else {
+      rankOrganic = (dup * 24) + 1;
+    }
+    const urlProduct = document.querySelectorAll('li[class="product-list__item columns small-12 medium-2"]');
+    for (let i = 0; i < urlProduct.length; i++) {
+      addHiddenDiv('rankOrganic', rankOrganic++, i);
+    }
+
+
     // Method to Retrieve Xpath content of a Single Node
     var getXpath = (xpath, prop) => {
       var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
@@ -37,7 +73,7 @@ async function implementation(
       addclass('ul.pagination li:last-child a');
     };
 
-// for rank
+    // for rank
     function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
@@ -57,7 +93,7 @@ async function implementation(
       return result;
     };
 
-  // for rank
+    // for rank
     const sliceURL = (data) => {
       var cnt = 0;
       for (let index = 0; index < data.length; index++) {
@@ -73,5 +109,5 @@ async function implementation(
   //rank end
 
 
-return await context.extract(productDetails, { transform });
+  return await context.extract(productDetails, { transform });
 }
