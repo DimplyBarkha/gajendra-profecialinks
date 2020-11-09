@@ -20,6 +20,24 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
+      if (row.videos) {
+        const newAlternateImages = row.videos.map(item => {
+          if (item.text.includes('mp4') && !item.text.includes('elkjop.no')) {
+            return {
+              text: `https://www.elkjop.no/${item.text.trim()}`,
+            };
+          } else if (item.text.includes('mp4') && item.text.includes('elkjop.no')) {
+            return {
+              text: item.text.trim(),
+            };
+          } else {
+            return {
+              text: `https://www.youtube.com/watch?v=${item.text.trim()}`,
+            };
+          }
+        });
+        row.videos = newAlternateImages;
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
@@ -28,6 +46,29 @@ const transform = (data) => {
         row.specifications = [
           {
             text: text.slice(0, -4),
+          },
+        ];
+      }
+      if (row.description) {
+        let desc = '';
+        let descriptionOne = '';
+        if (row.description) {
+          let textOne = '';
+          row.description.forEach(item => {
+            textOne += item.text;
+          });
+          desc = textOne;
+        }
+        if (row.additionalDescBulletInfo) {
+          let text = '';
+          row.additionalDescBulletInfo.forEach(item => {
+            text += `|| ${item.text} `;
+          });
+          descriptionOne = text;
+        }
+        row.description = [
+          {
+            text: clean(descriptionOne ? `${desc} ${descriptionOne}` : desc),
           },
         ];
       }

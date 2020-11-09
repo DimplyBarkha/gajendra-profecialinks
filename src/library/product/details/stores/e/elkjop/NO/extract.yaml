@@ -40,7 +40,7 @@ fields:
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[contains(@class,'product-price-container')]/span/text()
+    xpath: //div[contains(@id,"product-detail-wrapper")]//div[contains(@class,'product-price')]/span
     regExp: (\d*)( *)(\d*)(,*)(\d*)
     regExpReplace: $1$3$4$5
   - name: availabilityText
@@ -95,7 +95,7 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //td[contains(@class, "any-3-4 S-1-2")][@data-md-value-id="31416"]
+    xpath: //meta[@itemprop="productID"]/@content
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
@@ -135,9 +135,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    description: Number of variants listed
-    type: NUMBER
-    xpath: count(//div[contains(@class,"table-cell variations")]/div)
+    xpath: count(//div[contains(@class,"variations-container")]/div/@data-variation-sku)
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -148,7 +146,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id='enhCont']
+    manualSelector: div[class*="product-inspiration-wrapper"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -158,7 +156,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath:  //div[@data-vidurl="vidURL"]
+    xpath:  //div[@data-vidurl="vidURL"] | //ul[contains(@class,"b-video-list")]/li//@data-videoid | //div[contains(@class,"product-inspiration-wrapper")]//video/source/@src
   - name: name
     singleValue: false
     description: The product name
@@ -433,8 +431,8 @@ fields:
     description: Recycling information associated with the product
   - name: productOtherInformation
     singleValue: false
+    xpath: //div[contains(@id, "pd_productOtherInformation")]
     description: Any other product information
-    xpath: //div[contains(@class,"tab-data-row product-more-info")]
   - name: packaging
     singleValue: false
     description: Packaging information
@@ -469,7 +467,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: //div[contains(@class,"variation  active   ")]/div/a/@alt
+    xpath: //div[contains(@class,"variation") and contains(@class,"active")]//a/span
   - name: firstVariant
     singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
@@ -481,7 +479,7 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: //div[contains(@class,"variation  active   ")]/@data-variation-sku
+    xpath: (//div[contains(@class,"variation")]/@data-variation-sku)[1]
   - name: variants
     singleValue: false
     description: null
