@@ -1,0 +1,28 @@
+input:
+  id: 13755
+  _url: http://bruneau.fr
+extractions:
+  - html: https://workbench.import.io/html/run=fbc2968d-384a-4b91-940f-fa37fe4fe111/task=812dd96e-5670-4d69-a3d6-e91ee5352a22/fe0448d6-a8f7-4ca2-b7d5-64748467f2e2.html
+    extractionConfigId: product/details/stores/b/bruneau/FR/extract
+    data:
+      - group:
+          - description:
+              - text: "Bruneau, fournitures et mobilier de bureau pour les entreprises, propose
+                  plus de 36 000 articles de bureau livrables en 24h : meubles,
+                  fauteuils, sièges, papeterie"
+                xpath: /html/head[1]/meta[5]/@content
+            productUrl:
+              - text: https://www.bruneau.fr/
+                xpath: /html/head[1]/link[2]/@href
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            variantCount:
+              - text: "0"
+        xpath: /html/head[1]
+    timestamp: 1604675106323

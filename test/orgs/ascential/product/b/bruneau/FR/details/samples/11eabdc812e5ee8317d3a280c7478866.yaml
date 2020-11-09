@@ -1,0 +1,93 @@
+input:
+  id: 12609
+  _url: http://bruneau.fr
+extractions:
+  - html: https://workbench.import.io/html/run=02f35d6b-e2f5-4d77-9003-73027ce947a8/task=042ec1f6-0db6-421e-a0a5-a95ce481902a/6b1db7c9-faba-4fe8-b4e9-59fd92ca042d.html
+    extractionConfigId: product/details/stores/b/bruneau/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.bruneau.fr/hygiene-entretien/hygiene-mains-corps/savons/savons-lingettes-industrie-atelier/lingettes-impregnees-mains-surface-tifon-of12609.htm
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/12/60/12609.jpg?width=330&height=330&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Lingettes imprégnées mains et surface Tifon
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://prod.isg.bruneau.media/OMM/Images_Basse_Definition/ZoomHD/12/60/12609.jpg?width=83&height=83&mode=Default&quality=85&scale=upscalecanvas
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/img[1]/@src
+            category:
+              - text: Accueil
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[2]/ul[1]/li[1]/a[1]/span[1]
+              - text: Hygiène et entretien
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[2]/ul[1]/li[2]/a[1]/span[1]
+              - text: Hygiène mains et corps
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[2]/ul[1]/li[3]/a[1]/span[1]
+              - text: Savons
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[2]/ul[1]/li[4]/a[1]/span[1]
+              - text: Savons, lingettes industrie et atelier
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[2]/ul[1]/li[5]/a[1]/span[1]
+            nameExtended:
+              - text: Lingettes imprégnées mains et surface Tifon
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/h1[1]
+            listPrice:
+              - text: 23,95 € ht
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            price:
+              - text: 23,95 € ht
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[6]/button[1]/span[2]
+            description:
+              - text: Achetez Lingettes imprégnées mains et surface Tifon sur Bruneau.fr.
+                  Nettoient et dégraissent. Non agressive pour la peau. Sans
+                  eau, sans rinçage sans résidu. Nettoient les mains et
+                xpath: /html/head[1]/meta[5]/@content
+            mpc:
+              - text: "12609"
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/p[1]/span[1]
+            ratingCount:
+              - text: 5 avis
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/a[1]/text()[1]
+            aggregateRatingText:
+              - text: 4,4
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/@title
+            aggregateRating:
+              - text: 4,4
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/@title
+            shippingInfo:
+              - text: Livraison sous 24 heures
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
+            manufacturerDescription:
+              - text: Nettoient et dégraissent. Non agressive pour la peau. Sans eau, sans
+                  rinçage sans résidu.
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[1]
+              - text: Nettoient les mains et surfaces (outils, mécaniques…).
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[2]
+              - text: Eliminent graisses, huiles, peintures, colles et résines. Parfum agrumes.
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[5]/div[2]/div[1]/div[1]/text()[3]
+            name:
+              - text: Lingettes imprégnées mains et surface Tifon
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/h1[1]
+            pricePerUnit:
+              - text: |-
+                  26,50
+                   €
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/text()[1]
+            pricePerUnitUom:
+              - text: EUR
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/span[1]/@content
+            imageZoomFeaturePresent:
+              - text: yes
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@zoom
+            technicalInformationPdfPresent:
+              - text: No
+            Image360Present:
+              - text: No
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1604753612320
