@@ -2,13 +2,13 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/pasta-dentifrica-natural-lacer-natur-100ml
 extractions:
-  - html: https://workbench.import.io/html/run=39a924ab-ac8d-42d7-be9b-1b992586bf68/task=46e06df2-bf8e-4b39-b938-4f6b57fd78c5/ed3db080-8970-45df-bfaf-27ca87d84226.html
+  - html: https://workbench.import.io/html/run=d5cec15a-a39f-4a80-b2c9-b06638d2d1ec/task=58aff3c0-5858-4048-a239-8198c724885a/208ce3a5-cec5-476c-9acf-60243fc9bbdc.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
           - productUrl:
               - text: https://www.mifarma.es/pasta-dentifrica-natural-lacer-natur-100ml
-                xpath: /html/head[1]/link[33]/@href
+                xpath: /html/head[1]/link[32]/@href
             image:
               - text: https://www.mifarma.es/media/catalog/product/cache/1/image/9d6758f7fb7476b09aa51a3fa7ce618a/1/8/189473_.jpg
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@src
@@ -62,13 +62,13 @@ extractions:
                   variabilidad en la coloración. No ingerir.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[3]/p[2]/text()[1]
             ratingCount:
-              - text: "0"
+              - text: "11"
                 xpath: /html/body/div[1]/span[13]
             aggregateRatingText:
-              - text: "0"
+              - text: "4.7272727272727"
                 xpath: /html/body/div[1]/span[14]
             aggregateRating:
-              - text: "0"
+              - text: "4.7272727272727"
                 xpath: /html/body/div[1]/span[14]
             shippingInfo:
               - text: Envío urgente gratis en la Península en pedidos desde 59€.
@@ -102,4 +102,4 @@ extractions:
             weightGross:
               - text: 0.1200 kg
         xpath: /
-    timestamp: 1604488596482
+    timestamp: 1604906045299
