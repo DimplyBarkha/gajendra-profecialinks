@@ -12,6 +12,11 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
   await context.evaluate(async function () {
+   
+    if (document.querySelector('#category-grid > div[data-position="1"]')) {
+        document.querySelector('#category-grid > div > div > div.photo-box > a').click();
+      }
+   
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
