@@ -16,7 +16,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //li[@class="nowrap"][3]/a/text()
+    xpath: //ol[@class="list-bare di"]/li/a[not(contains(text(),'Home'))]/text() | //ol[@class="list-bare di"]/li[last()]/text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -43,7 +43,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: (//h1[@class="product-details txtt-none"]/text())[1]
+    xpath: //html//div[@id='Brand']
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -56,7 +56,7 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xpath: //html//div[@id='sku']
-  - name: mpc
+  - name: variantId
     singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //html//div[@id='mpc']
@@ -82,6 +82,9 @@ fields:
     singleValue: true
     description: The product name
     xpath: //meta[@name="twitter:title"]/@content
+  - name: ingredientsList
+    singleValue: true
+    xpath: 
   - name: promotion
     singleValue: true
     description: promotion text on product page

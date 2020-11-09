@@ -38,6 +38,9 @@ module.exports = {
       // @ts-ignore
       const mpc = window.dataLayer[1].product_id;
       addElementToDocument('mpc', mpc);
+      // @ts-ignore
+      const Brand = window.dataLayer[1].product.brand_name;
+      addElementToDocument('Brand', Brand);
       const directions = getXpath("//meta[@name=\"twitter:description\"]/@content", 'nodeValue');
       var directionsLength = directions.length;
       const finalDirections = directions.substr(directions.indexOf('To use'), directionsLength);
