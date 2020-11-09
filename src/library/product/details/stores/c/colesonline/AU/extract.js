@@ -31,8 +31,9 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
     function energyCalculation (value, name, name2) {
-      addHiddenDiv('ii_' + name, `${value.replace(/([\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1')}`);
-      name2 && addHiddenDiv('ii_' + name2, `${value.replace(/.*(?:[\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1').split(' ')[0].replace(')', '')}`);
+      const arr = value.match(/([\d]+(?:.[\d]+)?)(?:\s*)([a-zA-Z]*)\s{0,1}/);
+      arr && arr[1] && addHiddenDiv('ii_' + name, arr[1]);
+      arr && arr[2] && name2 && addHiddenDiv('ii_' + name2, arr[2]);
     }
     const totalFatPerServing = findXpath("//tr[contains(. , 'Total Fat')]//td");
     energyCalculation(totalFatPerServing, 'totalFatPerServing', 'totalFatPerServingUom');
@@ -48,18 +49,32 @@ async function implementation (
     energyCalculation(proteinPerServing, 'proteinPerServing', 'proteinPerServingUom');
     const dietaryFibrePerServing = findXpath("//tr[contains(. , 'Dietary Fibre Total')]//td");
     energyCalculation(dietaryFibrePerServing, 'dietaryFibrePerServing', 'dietaryFibrePerServingUom');
-    const script = JSON.parse(findXpath("//script[contains(@type,'application/ld+json')]"));
-    const avail = script.offers && script.offers.availability ? script.offers.availability : '';
-    avail.includes('InStock') && addHiddenDiv('ii_avail', 'In Stock');
-    !avail.includes('InStock') && addHiddenDiv('ii_avail', 'Out of Stock');
-    const sku = script.sku ? script.sku : '';
-    addHiddenDiv('ii_sku', sku);
-    const variantId = findXpath("//li[contains(.,'Code:')]//span[contains(@class,'accessibility')]");
-    addHiddenDiv('ii_variantId', variantId.replace(/ /gm, ''));
-    const additionalProperty = script.additionalProperty ? script.additionalProperty : '';
-    additionalProperty.forEach(element => {
-      element.name === 'Warning' && addHiddenDiv('ii_warning', element.text);
-    });
+    const transFatPerServing = findXpath("//tr[contains(. , 'Trans')]//td");
+    energyCalculation(transFatPerServing, 'transFatPerServing', 'transFatPerServingUom');
+    const vitaminAPerServing = findXpath("//tr[contains(. , 'Vitamin A')]//td");
+    energyCalculation(vitaminAPerServing, 'vitaminAPerServing', 'vitaminAPerServingUom');
+    const vitaminCPerServing = findXpath("//tr[contains(. , 'Vitamin C')]//td");
+    energyCalculation(vitaminCPerServing, 'vitaminCPerServing', 'vitaminCPerServingUom');
+    const calciumPerServing = findXpath("//tr[contains(. , 'Calcium')]//td");
+    energyCalculation(calciumPerServing, 'calciumPerServing', 'calciumPerServingUom');
+    const ironPerServing = findXpath("//tr[contains(. , 'Iron')]//td");
+    energyCalculation(ironPerServing, 'ironPerServing', 'ironPerServingUom');
+    const magnesiumPerServing = findXpath("//tr[contains(. , 'Magnesium')]//td");
+    energyCalculation(magnesiumPerServing, 'magnesiumPerServing', 'magnesiumPerServingUom');
+    const script = findXpath("//script[contains(@type,'application/ld+json')]") && JSON.parse(findXpath("//script[contains(@type,'application/ld+json')]")) ? JSON.parse(findXpath("//script[contains(@type,'application/ld+json')]")) : '';
+    if (script) {
+      const avail = script.offers && script.offers.availability ? script.offers.availability : '';
+      avail.includes('InStock') && addHiddenDiv('ii_avail', 'In Stock');
+      !avail.includes('InStock') && addHiddenDiv('ii_avail', 'Out of Stock');
+      const sku = script.sku ? script.sku : '';
+      addHiddenDiv('ii_sku', sku);
+      const variantId = findXpath("//li[contains(.,'Code:')]//span[contains(@class,'accessibility')]");
+      addHiddenDiv('ii_variantId', variantId.replace(/ /gm, ''));
+      const additionalProperty = script.additionalProperty ? script.additionalProperty : '';
+      additionalProperty.forEach(element => {
+        element.name === 'Warning' && addHiddenDiv('ii_warning', element.text);
+      });
+    }
     let servingSize = findXpath("//*[@class='nutritional-table-intro']");
     servingSize = servingSize.split('=')[1] ? servingSize.split('=')[1] : servingSize;
     energyCalculation(servingSize, 'servingSize', 'servingSizeUom');
