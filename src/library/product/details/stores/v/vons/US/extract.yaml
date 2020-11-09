@@ -37,9 +37,9 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    # manualSelector: script[type='application/ld+json']
-    # regExp: '(\"availability\"\:\")(\w+)'
-    # regExpReplace: $2
+    manualSelector: script[type='application/ld+json']
+    regExp: '(\"availability\"\:\")(\w+)'
+    regExpReplace: $2
   - name: Additional_description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -366,14 +366,9 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Sugar content - Usually based on
         per 100g serving
-    type: NUMBER
-    xpath: (//td[contains(@class,'table-ingredients-text')]//text())[38]
-    regExp: '\d+.*\d+'
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
-    xpath: (//td[@class='table-ingredients-text']//text())[37]
-    regExp: '[^\d]+$'
   - name: proteinPerServing
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
