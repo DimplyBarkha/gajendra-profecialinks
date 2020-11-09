@@ -49,7 +49,7 @@ async function implementation(
           }
         }
       };
-      var backgroundURL1 = getAllXpath("//*[contains(@class,'MuiCardContent-root')]/div/span[2]", 'nodeValue');
+      var backgroundURL1 = getAllXpath("//*[contains(@class,'MuiButtonBase-root MuiCardActionArea')]", 'nodeValue');
       sliceURL1(backgroundURL1);
     }
   })
