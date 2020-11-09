@@ -521,3 +521,6 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: rpc
+    singleValue: true
+    xpath: //p[contains(@class, "product-info")]/text()
