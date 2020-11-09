@@ -5,7 +5,7 @@ recordXPath: //div[contains(@class,"product_detail")]
 fields: 
   - name: id
     singleValue: false
-    xpath: //div/../@data-codic
+    xpath: //div[contains(@class,"product_detail")]//div[@class="picture_container"]//div/@data-codic
   - name: name
     singleValue: false
     manualSelector: div.prd-family

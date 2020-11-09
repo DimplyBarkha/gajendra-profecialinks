@@ -17,7 +17,7 @@ fields:
     xpath: //div[@id="header-breadcrumb-zone"]/ul//a[text()]
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@property="og:title"]/@content
+    xpath: //meta[@property="og:title"]/@content | (//div[contains(@class,"product_bloc")]//h3[@class="product_head"]) | (//div[@class="product_head"])
     regExp: (.*)?\s*\| 
     regExpReplace: $1
   - name: listPrice
@@ -28,7 +28,7 @@ fields:
     manualSelector: div.product_price > span
   - name: availabilityText
     singleValue: false
-    manualSelector: button.btn-add-basket[data-tracking-name]:not(disabled)
+    manualSelector: div.column.column-left form.form-add-basket button.btn-add-basket[data-tracking-name]:not(disabled)
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -37,7 +37,6 @@ fields:
     manualSelector: div#product_description > div.product_bloc_content
   - name: descriptionBullets
     singleValue: false
-    type: NUMBER
   - name: brandText
     singleValue: false
     xpath: //meta[@itemprop="brand"]/@content
@@ -58,7 +57,6 @@ fields:
     manualSelector: span.rating span.rating_avis > u
     regExp: ^(\d+)
     regExpReplace: $1
-    type: NUMBER
   - name: aggregateRating
     singleValue: false
     manualSelector: span.rating span.rating_avis
@@ -105,7 +103,18 @@ fields:
     manualSelector: div#product_brand div.flix-inpage
   - name: manufacturerImages
     singleValue: false
+    xpath: //img[@class="dpro"]/@src | //div[@id="sf_align"]//a[@target="_blank"]/img/@src
     manualSelector: div#product_brand img
   - name: variantCount
     singleValue: false
     defaultValue: '0'
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//li[contains(@class,"rr_item")]//img/@src) -1
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //tr[contains(translate(string(), 'Classe énergétique', 'Classe énergétique'), 'Classe énergétique')]/td
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: No
+  
