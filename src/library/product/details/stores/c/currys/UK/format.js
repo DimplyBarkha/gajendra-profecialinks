@@ -59,12 +59,17 @@ const transform = (data) => {
         row.variantCount = [{ text: row.variantCount.length }];
       }
       if (row.variants) {
-        var arrVariIds = [];
-        temp = row.variants.productVariants;
-        row.variants.forEach(function(item, index) {
-          arrVariIds.push(item.fupid);
-        });
-        row.variants = [{ text: arrVariIds.join(' | ') }];
+        var scriptJSON = JSON.parse(str(row.variants));
+        var objectsInVariants = Object.keys(scriptJSON.productVariants).length;
+        var varientIds = [];
+        for (var i = 0; i < objectsInVariants; i++) {
+          var keyName = Object.keys(scriptJSON.productVariants)[i];
+          var variants = scriptJSON.productVariants[keyName].variants;
+          variants.forEach(function(item, index) {
+            varientIds.push(item.fupid);
+          });
+        }
+        row.variants = [{ text: varientIds.join(' | ') }];
       }
       if (row.additionalDescBulletInfo) {
         var arrBullets = [];
