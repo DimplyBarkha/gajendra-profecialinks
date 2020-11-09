@@ -6,12 +6,15 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
+    xpath: //ul[@class="slides"]/li[contains(@class,"active-slide")]/img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //ul[@class="slides"]/li[contains(@class,"active-slide")]/img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //div[@id="alt-img"]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -22,21 +25,26 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@id="title"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //div[@class="productSecondaryWrapper"]//*[contains(@class,"oldPrice")]
+    regExp: \d+
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: translate(translate(translate(//div[@class="productSecondaryWrapper"]//*[(contains(@class,"onlyPrice")) or (contains(@class,"newPrice"))],":","."),"-","0")," ","")
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    xpath: //div[@class="productSecondaryWrapper"]//*[@class="longOutofStock"]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock 
+    defaultValue: "In Stock"
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
