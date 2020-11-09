@@ -5,7 +5,7 @@ module.exports = {
     country: 'RU',
     store: 'mvideo',
     domain: 'mvideo.ru',
-    url: 'https://www.mvideo.ru/product-list-page-cls?q=Стиральные машины',
+    url: 'https://www.mvideo.ru/product-list-page-cls?q={searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
