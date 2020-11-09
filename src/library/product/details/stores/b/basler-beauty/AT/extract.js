@@ -22,6 +22,7 @@ module.exports = {
        let ratingValue = '';
        var reviews = document.querySelectorAll('script[type="application/ld+json"]')
        for (var i = 0; i < reviews.length; i++) {
+         try {
          var jsonData = JSON.parse(reviews[i].textContent.replace(/\\n/g, "\\n")
            .replace(/\\'/g, "\\'")
            .replace(/"`dyson`"/g, 'dyson')
@@ -37,6 +38,11 @@ module.exports = {
            ratingValue = jsonData.review.reduce((acc, { reviewRating: { ratingValue } = {} }, i, arr) => acc + ratingValue / arr.length, 0).toFixed(1)
          }
        }
+      
+      catch(error){
+      console.log(error)
+      }
+    }
 
       ratingElem.innerText = ratingValue.toString().replace('.', ',')
       document.body.appendChild(ratingElem);
