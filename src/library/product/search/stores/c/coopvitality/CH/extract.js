@@ -24,6 +24,45 @@ async function implementation(
       elems[0].classList.add('pagination');
     }
 
+    function addHiddenDiv(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('ol[class="products list items product-items "]>li')[index];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+    }
+    let rankOrganic;
+    let url = window.location.href;
+    let checkPageNumber = url.split('?')[1];
+    if(checkPageNumber != null){
+      checkPageNumber = checkPageNumber.split("&")[0];
+    }
+    
+    try {
+      if (checkPageNumber.startsWith('p=')) {
+        rankOrganic = checkPageNumber.replace('p=', '');
+      }
+    }
+    catch (err) {
+    }
+
+
+    var dup = Number(rankOrganic);
+    dup = dup - 1; 
+
+    if (!rankOrganic) {
+      rankOrganic = 1;
+    } else {
+      rankOrganic = (dup * 18) + 1;
+    }
+    const urlProduct = document.querySelectorAll('ol[class="products list items product-items "]>li');
+    for (let i = 0; i < urlProduct.length; i++) {
+      addHiddenDiv('rankOrganic', rankOrganic++, i);
+    }
+
+
+
 // for rank
     function addElementToDocument(key, value) {
       const catElement = document.createElement('div');

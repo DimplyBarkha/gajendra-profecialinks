@@ -22,3 +22,9 @@ fields:
     xpath: (//article[@class="product__info"]/a)/@href
     regExp: (sortiment/.*)
     regExpReplace: https://pacson.se/$1
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@id='rankOrganic']
+  - name: rank
+    singleValue: false
+    xpath: //div[@id='rankOrganic']

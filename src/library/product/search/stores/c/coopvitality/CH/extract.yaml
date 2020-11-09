@@ -9,10 +9,6 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="price-box price-final_price"]/@data-product-id
-  - name: rank
-    singleValue: false
-    type: NUMBER
-    xpath: //html//div[@id='altImages']
   - name: price
     singleValue: false
     xpath: //span[@class="price-container price-final_price tax rewards_earn"]/span/span
@@ -24,3 +20,9 @@ fields:
     xpath: //div[@class="product photo product-item-photo"]/a/@href
   - name: reviewCount
     singleValue: false
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@id='rankOrganic']
+  - name: rank
+    singleValue: false
+    xpath: //div[@id='rankOrganic']
